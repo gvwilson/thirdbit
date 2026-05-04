@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -109,9 +108,14 @@ over and over the fox jumped and the dog slept on and on
 <summary>Show explanation</summary>
 <p>The bug is calling <code>text.count(word)</code> for every unique word, re-scanning the entire
 text each time. On a file of 50,000 words it takes several seconds, while a single
-pass with <code>collections.Counter</code> is nearly instant. Shows how to identify
-repeated-scan inefficiency with <code>cProfile</code> and how choosing the right data structure
-eliminates the need for multiple passes.</p>
+pass with <code>collections.Counter</code> is nearly instant.</p>
+<p>Shows: how to identify repeated-scan inefficiency with <code>cProfile</code> and
+how choosing the right data structure eliminates the need for multiple
+passes.</p>
+<p>To find it: run <code>python -m cProfile -s cumulative script.py | head -20</code> and look for
+<code>str.count</code> near the top of the cumulative-time column. Each call re-scans the
+entire string; multiplying the call count by the string length shows why this is
+slow.</p>
 </details>
 <h2 id="perfcon-subproc">Run an external tool and capture its output</h2>
 <p>Run this script. Does it return promptly, or does it hang?</p>
@@ -149,8 +153,13 @@ eliminates the need for multiple passes.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the subprocess is waiting for input on stdin that the parent never
-provides, so the script hangs and never returns. Shows how subprocess I/O streams
-work and how to use <code>communicate()</code> safely.</p>
+provides, so the script hangs and never returns.</p>
+<p>Shows: how subprocess I/O streams work and how to use <code>communicate()</code>
+safely.</p>
+<p>To find it: run the script and wait ten seconds. If it does not return, kill it with
+Ctrl-C. Then check the <code>Popen</code> call: if <code>stdin</code> is not set to <code>subprocess.DEVNULL</code>
+or <code>subprocess.PIPE</code> paired with <code>communicate()</code>, the child inherits the terminal
+and blocks waiting for input that never arrives.</p>
 </details>
 <h2 id="perfcon-race">Count requests handled by concurrent workers</h2>
 <p>Run this script several times and record the final counter value each time. Is the
@@ -188,8 +197,13 @@ value always the same? Is it always the value you expect?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a race condition caused by unsynchronized read-modify-write, so multiple
-threads updating a shared counter produce wrong totals. Shows what a race condition
-is, why it is hard to reproduce, and how to use <code>threading.Lock</code> to fix it.</p>
+threads updating a shared counter produce wrong totals.</p>
+<p>Shows: what a race condition is, why it is hard to reproduce, and how
+to use <code>threading.Lock</code> to fix it.</p>
+<p>To find it: run the script five times in a row and record each final counter value.
+If the values differ across runs, the counter is not being updated atomically. Print
+the expected value (number of threads multiplied by increments per thread) alongside
+each observed value to make the discrepancy concrete.</p>
 </details>
 <h2 id="perfcon-multiproc">Share a lookup table across worker processes</h2>
 <p>Run this script and compare the contents of the shared list before and after the
@@ -223,8 +237,12 @@ worker processes run. Did the workers modify the list you passed in?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that each process has its own copy of memory, so changes made inside
-child processes are not visible in the parent's shared list. Shows the difference
-between threading and multiprocessing memory models.</p>
+child processes are not visible in the parent's shared list.</p>
+<p>Shows: the difference between threading and multiprocessing memory
+models.</p>
+<p>To find it: print <code>id(shared_list)</code> inside the worker function and inside the parent
+process. If the two addresses differ, each process has its own copy of the list and
+modifications inside workers are invisible to the parent.</p>
 </details>
 <h2 id="perfcon-mockpatch">Test a function that sends email notifications</h2>
 <p>Run the test. Does it pass? Add a print statement inside the mock to check whether
@@ -272,8 +290,13 @@ under test.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is patching where the function is defined instead of where it is imported,
-so <code>unittest.mock.patch</code> has no effect on the code under test. Shows how Python's
-import system works and where mocks must be applied.</p>
+so <code>unittest.mock.patch</code> has no effect on the code under test.</p>
+<p>Shows: how Python's import system works and where mocks must be
+applied.</p>
+<p>To find it: add <code>print("mock was called")</code> as the first line of the mock function.
+Run the test. If the print never appears, the mock is not intercepting the real call.
+Then check where <code>send_email</code> was imported in the module under test — the patch must
+name that module, not the one where <code>send_email</code> is defined.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -291,12 +314,5 @@ import system works and where mocks must be applied.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

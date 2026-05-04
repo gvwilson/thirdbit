@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -72,8 +71,13 @@ match the number you counted?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is <code>range(len(data) - k)</code> instead of <code>range(len(data) - k + 1)</code>, so the
-last window is never produced. Shows how to identify off-by-one errors in index
-arithmetic and how to verify boundary conditions with small, hand-checkable examples.</p>
+last window is never produced.</p>
+<p>Shows: how to identify off-by-one errors in index arithmetic and how
+to verify boundary conditions with small, hand-checkable examples.</p>
+<p>To find it: call the function with <code>data = [1, 2, 3, 4, 5]</code> and <code>k = 3</code>, then list
+every expected window by hand — <code>[1,2,3]</code>, <code>[2,3,4]</code>, <code>[3,4,5]</code> — giving three windows.
+Print <code>len(range(len(data) - k))</code> to see it returns 2. The mismatch between 3 and 2
+reveals the off-by-one.</p>
 </details>
 <h2 id="basicpy-catadd">Add up totals from a text file</h2>
 <p>Run this script with the provided input file and examine the total it prints. Does
@@ -110,9 +114,12 @@ the value look like a reasonable sum of exam scores?</p>
 <summary>Show explanation</summary>
 <p>The bug is accumulating scores with <code>total = total + line.strip()</code> (string
 concatenation) instead of converting each line to a number first, so the script
-always reports a nonsensical total. Shows the difference between string <code>+</code> and
-numeric <code>+</code>, and how to check the type of a value at runtime using <code>type()</code> or
-<code>isinstance()</code>.</p>
+always reports a nonsensical total.</p>
+<p>Shows: the difference between string <code>+</code> and numeric <code>+</code>, and how to
+check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
+<p>To find it: print <code>type(total)</code> after the first iteration. You will see
+<code>&lt;class 'str'&gt;</code>, not <code>&lt;class 'int'&gt;</code>. Alternatively, print <code>repr(total)</code> after two
+iterations to see the digits concatenated as a string rather than added as numbers.</p>
 </details>
 <h2 id="basicpy-andor">Validate a user registration form</h2>
 <p>Call the validation function with several passwords, including one you expect to be
@@ -143,8 +150,13 @@ accepted. Does it accept any of them?</p>
 <summary>Show explanation</summary>
 <p>The bug is joining the two conditions with <code>and</code> instead of <code>or</code>, which requires
 both to fail simultaneously and almost never happens, so valid passwords are always
-rejected. Shows how boolean logic errors cause silent misbehavior, and how a small
-truth table reveals which operator is correct.</p>
+rejected.</p>
+<p>Shows: how Boolean logic errors cause silent misbehavior, and how a
+small truth table reveals which operator is correct.</p>
+<p>To find it: write a two-row truth table for a password that satisfies one condition
+but not the other — say, correct length but no special character. With <code>and</code>, both
+conditions must be false for the overall check to return <code>True</code>; valid passwords
+almost never satisfy that, so the gate always rejects.</p>
 </details>
 <h2 id="basicpy-formula">Convert temperatures between units</h2>
 <p>Call the conversion function with a coordinate you can verify by hand—for example,
@@ -169,9 +181,14 @@ return the correct value?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is dividing seconds by 60 instead of 3600 (a misremembered formula), so the
-function gives wrong results. Shows how to verify formulas against known values
-(e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall
-within a known range.</p>
+function gives wrong results.</p>
+<p>Shows: how to verify formulas against known values (e.g., 1°30′0″ = 1.5°)
+and how to add assertion checks for values that must fall within a
+known range.</p>
+<p>To find it: call <code>dms_to_decimal(0, 0, 3600)</code>, which represents exactly one degree
+expressed entirely in seconds. The correct result is <code>1.0</code>; if the function divides
+seconds by 60, it returns <code>60.0</code>, making the wrong constant visible without needing
+a reference table.</p>
 </details>
 <h2 id="basicpy-sortnone">Sort a list of student scores</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
@@ -190,8 +207,10 @@ within a known range.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result, so
-the list is always empty. Shows that many list methods mutate in place and return
-<code>None</code>.</p>
+the list is always empty.</p>
+<p>Shows: that many list methods mutate in place and return <code>None</code>.</p>
+<p>To find it: print <code>sorted_scores</code> immediately after the assignment. The output
+<code>None</code> shows the return value of <code>list.sort()</code> rather than a sorted list.</p>
 </details>
 <h2 id="basicpy-indent">Count words across multiple files</h2>
 <p>Run this script with the provided input file and examine the run-length counts.
@@ -242,8 +261,13 @@ cherry
 <summary>Show explanation</summary>
 <p>The bug is that the variable storing the previous line is updated outside (after) the
 while loop body due to a missing level of indentation, so every line is counted as
-starting a new run. Shows how indentation governs control flow in Python and how to
-step through a loop mentally to find where state is updated at the wrong time.</p>
+starting a new run.</p>
+<p>Shows: how indentation governs control flow in Python and how to step
+through a loop mentally to find where state is updated at the wrong
+time.</p>
+<p>To find it: add <code>print(f"prev={prev!r}")</code> as the first line inside the loop body.
+Run with the sample file and watch the printed value — it never changes, which means
+the update is happening outside the loop rather than at the start of each iteration.</p>
 </details>
 <h2 id="basicpy-noreturn">Check whether a number is prime</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
@@ -265,8 +289,12 @@ step through a loop mentally to find where state is updated at the wrong time.</
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>return</code> statement: the function builds the result but does not
-return it, so it returns <code>None</code>. Shows that Python functions return <code>None</code> by
-default and how to spot missing <code>return</code> in control flow.</p>
+return it, so it returns <code>None</code>.</p>
+<p>Shows: that Python functions return <code>None</code> by default and how to spot
+missing <code>return</code> in control flow.</p>
+<p>To find it: print the function's return value directly — <code>print(is_prime(7))</code>. Seeing
+<code>None</code> identifies a missing <code>return</code>; follow the control flow to find the branch that
+computes the result without returning it.</p>
 </details>
 <h2 id="basicpy-nokey">Count word frequencies in a document</h2>
 <p>Run this script with the provided input file. Read the full traceback carefully.
@@ -301,10 +329,14 @@ or to take arms against a sea of troubles
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is incrementing <code>counts[word]</code> without first checking whether the key exists,
-so the function crashes with a <code>KeyError</code> on the first new word it encounters.
-Shows defensive dictionary access using <code>dict.get(key, 0)</code> or
-<code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to identify the
-missing key.</p>
+so the function crashes with a <code>KeyError</code> on the first new word it encounters.</p>
+<p>Shows: defensive dictionary access using <code>dict.get(key, 0)</code> or
+<code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to
+identify the missing key.</p>
+<p>To find it: run the script on the sample file and read the traceback from bottom to
+top. The last line shows <code>KeyError: 'some_word'</code>, naming the exact key that was
+missing. The line above it in the traceback shows <code>counts[word] += 1</code>, which is
+where the crash happened — the key was used before it was created.</p>
 </details>
 <h2 id="basicpy-streq">Match user IDs loaded from a config file</h2>
 <p>Run this script with a user ID taken directly from the JSON file. Does it grant
@@ -335,8 +367,12 @@ access? Use <code>type()</code> to examine the types of the two values being com
 <summary>Show explanation</summary>
 <p>The bug is that the JSON file stores IDs as integers but the login ID arrives as a
 string from user input, and <code>"42" != 42</code> in Python, so the script always reports
-"access denied" even for valid users. Shows how JSON types map to Python types and
-why type conversion must happen explicitly at system boundaries.</p>
+"access denied" even for valid users.</p>
+<p>Shows: how JSON types map to Python types and why type conversion must
+happen explicitly at system boundaries.</p>
+<p>To find it: print <code>type(user_id)</code> and <code>type(allowed_ids[0])</code> side by side. You will
+see <code>&lt;class 'str'&gt;</code> and <code>&lt;class 'int'&gt;</code> on consecutive lines; that mismatch explains
+why <code>==</code> always returns <code>False</code>.</p>
 </details>
 <h2 id="basicpy-recurse">Compute factorials recursively</h2>
 <p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
@@ -354,8 +390,11 @@ why type conversion must happen explicitly at system boundaries.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a base-case condition that uses <code>&gt;</code> instead of <code>&gt;=</code>, so calling the
-function with zero triggers infinite recursion and raises a <code>RecursionError</code>. Shows
-how to identify missing or incorrect base cases in recursion.</p>
+function with zero triggers infinite recursion and raises a <code>RecursionError</code>.</p>
+<p>Shows: how to identify missing or incorrect base cases in recursion.</p>
+<p>To find it: call <code>factorial(0)</code> directly and read the <code>RecursionError</code>. Then read the
+base-case condition: <code>if n &gt; 0</code> means <code>0 &gt; 0</code> is <code>False</code>, so the function recurses
+instead of returning 1. Replacing <code>&gt;</code> with <code>&gt;=</code> fixes it.</p>
 </details>
 <h2 id="basicpy-mutable">Collect results with a helper function</h2>
 <p>Call the function twice in a row with no arguments and compare the two return
@@ -380,8 +419,13 @@ values. Are they the same?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a mutable default argument (<code>def f(result=[])</code>), so every call starts
-with leftover items from previous calls. Shows Python's mutable default argument
-trap and why <code>None</code> is the correct default.</p>
+with leftover items from previous calls.</p>
+<p>Shows: Python's mutable default argument trap and why <code>None</code> is the
+correct default.</p>
+<p>To find it: call <code>collect()</code> twice with no arguments and print both return values on
+the same line — <code>print(collect(), collect())</code>. The second list will contain all items
+from the first call plus new ones, proving the two calls share the same underlying
+list.</p>
 </details>
 <h2 id="basicpy-trailing">Compare lines read from a file</h2>
 <p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
@@ -423,8 +467,12 @@ West|77
 <summary>Show explanation</summary>
 <p>The bug is that certain applications pad fields with trailing spaces, so string
 comparisons always fail for those rows even though the values look correct to the
-naked eye. Shows that real-world data often contains invisible characters, and how
-<code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
+naked eye.</p>
+<p>Shows: that real-world data often contains invisible characters, and
+how <code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
+<p>To find it: print <code>repr(row[field])</code> for a row that fails the comparison. You will
+see trailing spaces — e.g., <code>'Smith   '</code> — that are invisible in a normal <code>print</code>
+but visible in the <code>repr()</code> output.</p>
 </details>
 <h2 id="basicpy-strmeth">Clean up user-submitted text</h2>
 <p>Call the function and print the message before and after the call. Has the message
@@ -447,9 +495,12 @@ changed?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>str.replace</code> returns a new string and the return value is never
-assigned back, so the original message is unchanged at the end. Shows that string
-methods never mutate their argument, and that every string transformation must be
-captured in a variable.</p>
+assigned back, so the original message is unchanged at the end.</p>
+<p>Shows: that string methods never mutate their argument, and that every
+string transformation must be captured in a variable.</p>
+<p>To find it: print <code>message</code> both before and after calling <code>clean_message</code>. If the
+message is unchanged, the transformation's return value was discarded. Check that
+the result of <code>str.replace</code> is assigned back to a variable.</p>
 </details>
 <h2 id="basicpy-mutiter">Remove expired entries from a list</h2>
 <p>Run this script and count how many items were removed. Is it the number you
@@ -472,8 +523,13 @@ expected? Try with a list where every element should be removed.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is modifying a list while iterating over it, which causes the loop to skip
-every other matching item. Shows why mutating a collection during iteration causes
-unpredictable behavior.</p>
+every other matching item.</p>
+<p>Shows: why mutating a collection during iteration causes unpredictable
+behavior.</p>
+<p>To find it: run with <code>items = [2, 4, 6, 8]</code>, which should remove all four elements.
+Print <code>len(items)</code> after the loop; you will get <code>2</code> instead of <code>0</code>. Trace the first
+iteration: removing <code>items[0]</code> shifts <code>items[1]</code> into position 0, which the loop
+then skips on its next step.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -491,12 +547,5 @@ unpredictable behavior.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

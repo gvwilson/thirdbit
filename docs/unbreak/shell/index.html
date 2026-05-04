@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -73,8 +72,12 @@ sort<span class="w"> </span>numericsort.txt
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is calling <code>sort</code> without the <code>-n</code> flag, which causes lexicographic
-(alphabetical) ordering so <code>10</code> appears before <code>2</code>. Shows the difference between
-alphabetical and numeric sort and when to use <code>sort -n</code>.</p>
+(alphabetical) ordering so <code>10</code> appears before <code>2</code>.</p>
+<p>Shows: the difference between alphabetical and numeric sort and when
+to use <code>sort -n</code>.</p>
+<p>To find it: look at where <code>10</code> appears in the output — if it comes before <code>2</code>, the
+sort is alphabetical because <code>"1" &lt; "2"</code> at the first character. Run <code>sort -n</code> on
+the same input and compare.</p>
 </details>
 <h2 id="shell-overwrite">Collect a summary line from each file in a directory</h2>
 <p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain?
@@ -91,8 +94,11 @@ How many did you expect?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>&gt;</code> inside the loop, which overwrites the file on every iteration
-instead of appending to it, so the summary contains only one entry. Shows the
-difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
+instead of appending to it, so the summary contains only one entry.</p>
+<p>Shows: the difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
+<p>To find it: run the script and then count the lines in <code>summary.txt</code> with
+<code>wc -l summary.txt</code>. If only one line appears instead of one per file, look inside
+the loop for <code>&gt;</code> and check whether it should be <code>&gt;&gt;</code>.</p>
 </details>
 <h2 id="shell-wideglob">Copy monthly notes files to an archive directory</h2>
 <p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match?
@@ -108,10 +114,13 @@ cp<span class="w"> </span>*.txt<span class="w"> </span>archive/
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>*.txt</code> matches every <code>.txt</code> file in the directory, including the
-running archive file itself, so the script copies more than the monthly notes files.
-Shows how to check what a wildcard matches before using it in a destructive
-command, and how to narrow a pattern (e.g., <code>notes_???.txt</code>) to match only the
-intended files.</p>
+running archive file itself, so the script copies more than the monthly notes files.</p>
+<p>Shows: how to check what a wildcard matches before using it in a
+destructive command, and how to narrow a pattern (e.g.,
+<code>notes_???.txt</code>) to match only the intended files.</p>
+<p>To find it: before running the script, run <code>echo *.txt</code> in the directory and read
+the expansion. If the list includes files you do not want to copy, narrow the
+pattern before using it.</p>
 </details>
 <h2 id="shell-uniqsorted">Count distinct species in a CSV file</h2>
 <p>Run this script and check the count it reports. Then look at the species column in
@@ -139,9 +148,12 @@ cut<span class="w"> </span>-d,<span class="w"> </span>-f2<span class="w"> </span
 <summary>Show explanation</summary>
 <p>The bug is piping directly to <code>uniq</code> without sorting first. Only adjacent identical
 lines are collapsed, so non-adjacent occurrences of the same species are counted
-separately and the reported count is too high. Shows that <code>uniq</code> only removes
-adjacent duplicates and that <code>sort | uniq</code> is the correct pattern for counting
-distinct values.</p>
+separately and the reported count is too high.</p>
+<p>Shows: that <code>uniq</code> only removes adjacent duplicates and that
+<code>sort | uniq</code> is the correct pattern for counting distinct values.</p>
+<p>To find it: run <code>sort species.csv | uniq | wc -l</code> and compare the count to
+<code>cat species.csv | uniq | wc -l</code>. If the two counts differ, non-adjacent duplicates
+are being missed by <code>uniq</code> alone.</p>
 </details>
 <h2 id="shell-quotedvar">Count words in files whose names contain spaces</h2>
 <p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>).
@@ -159,9 +171,13 @@ Does it process the file correctly?</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>$f</code> without quotes, so the shell splits the filename on the space
 and passes the two halves as separate arguments to <code>wc</code>, causing the loop to fail
-for any filename that contains a space. Shows why loop variables should always be
-quoted as <code>"$f"</code> and how spaces in filenames require consistent quoting throughout a
-script.</p>
+for any filename that contains a space.</p>
+<p>Shows: why loop variables should always be quoted as <code>"$f"</code> and how
+spaces in filenames require consistent quoting throughout a script.</p>
+<p>To find it: replace the command inside the loop with two consecutive lines
+(i.e., <code>echo "$f"</code> and <code>echo $f</code>) then run with a filename containing a space. The
+unquoted version prints the name split into two words; the quoted version prints it
+as one.</p>
 </details>
 <h2 id="shell-wrongarg">Filter lines from an input file into an output file</h2>
 <p>Run the script with a small input file and the name of an output file. Look at
@@ -176,9 +192,13 @@ head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the arguments <code>$1</code> and <code>$2</code> are swapped, so the script reads from
-the output path and writes to the input path instead. Shows how to verify which
-argument is which by reading the usage comment, and how to use <code>echo</code> to print
-argument values before acting on them.</p>
+the output path and writes to the input path instead.</p>
+<p>Shows: how to verify which argument is which by reading the usage
+comment, and how to use <code>echo</code> to print argument values before acting
+on them.</p>
+<p>To find it: replace the <code>grep</code> command temporarily with
+<code>echo "reading from $1, writing to $2"</code> and run the script. If the output shows the
+input and output filenames in the wrong positions, swap <code>$1</code> and <code>$2</code>.</p>
 </details>
 <h2 id="shell-headtail">Print the most recent entries from a log file</h2>
 <p>Run this script and note which rows are printed. Are they from the beginning or
@@ -206,9 +226,13 @@ E010,23.9,100.5
 <summary>Show explanation</summary>
 <p>The bug is using <code>head</code> (which prints the first N lines) instead of <code>tail</code> (which
 prints the last N lines), so the script shows the oldest entries instead of the most
-recent ones. Shows the difference between <code>head</code> and <code>tail</code> and how to combine
-them — for example <code>tail -n 5</code> for the last 5, or <code>head -n 10 | tail -n 5</code> for
-lines 6–10.</p>
+recent ones.</p>
+<p>Shows: the difference between <code>head</code> and <code>tail</code> and how to combine
+them, for example <code>tail -n 5</code> for the last 5 or <code>head -n 10 | tail -n 5</code>
+for lines 6-10.</p>
+<p>To find it: run <code>head -n 5 logfile.txt</code> and compare the timestamps to the script's
+output. If both show the earliest timestamps, the wrong command is being used. Run
+<code>tail -n 5 logfile.txt</code> to confirm those are the most recent entries.</p>
 </details>
 <h2 id="shell-dotdot">Save output to a shared directory one level up</h2>
 <p>Read the comment at the top of the script. Map out the expected directory structure
@@ -233,9 +257,14 @@ sort<span class="w"> </span>-n<span class="w"> </span>measurements.txt<span clas
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is writing <code>../..</code> when the target is only one level up (<code>..</code>), so the
-script saves output two levels up instead of one. Shows how to trace relative
-paths by counting directory levels, and how to use <code>pwd</code> and <code>ls ..</code> to verify the
-directory structure before running a script.</p>
+script saves output two levels up instead of one.</p>
+<p>Shows: how to trace relative paths by counting directory levels, and
+how to use <code>pwd</code> and <code>ls ..</code> to verify the directory structure before
+running a script.</p>
+<p>To find it: add <code>echo "saving to: $(pwd)/../../shared/"</code> before the output
+command and run the script. Count how many directory levels <code>../../</code> climbs in
+the printed path and compare that to a sketch of the directory tree you drew on
+paper.</p>
 </details>
 <h2 id="shell-wcflag">Count the records in a data file</h2>
 <p>Run this script and look at the numbers it prints. Do they match the number of
@@ -259,9 +288,12 @@ sparrow observed at grid C3
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>wc -w</code> (count words) instead of <code>wc -l</code> (count lines), so the
-script prints a much larger number than the number of records. Shows the
-difference between <code>wc</code> flags and how to use <code>wc --help</code> to check which flag
-produces which count.</p>
+script prints a much larger number than the number of records.</p>
+<p>Shows: the difference between <code>wc</code> flags and how to use <code>wc --help</code> to
+check which flag produces which count.</p>
+<p>To find it: run both <code>wc -l file.txt</code> and <code>wc -w file.txt</code> on the same file and
+compare the two numbers. If the script is printing the larger number, it is
+counting words rather than lines.</p>
 </details>
 <h2 id="shell-findglob">Find all CSV files in a directory tree</h2>
 <p>Run this script from a directory that contains at least one <code>.csv</code> file. What
@@ -276,9 +308,13 @@ find<span class="w"> </span>data<span class="w"> </span>-name<span class="w"> </
 <summary>Show explanation</summary>
 <p>The bug is passing <code>*.csv</code> without quotes, so the shell expands the glob before
 <code>find</code> runs and the command searches for files whose names match already-expanded
-filenames from the current directory. Shows that the shell expands unquoted
-wildcards before passing them to any command, and that patterns given to
-<code>find -name</code> must be quoted.</p>
+filenames from the current directory.</p>
+<p>Shows: that the shell expands unquoted wildcards before passing them
+to any command, and that patterns given to <code>find -name</code> must be
+quoted.</p>
+<p>To find it: replace <code>find</code> with <code>echo find</code> and run the command. The shell will
+print the arguments <code>find</code> would receive. If <code>*.csv</code> was expanded, the argument
+list shows specific filenames rather than the literal pattern <code>*.csv</code>.</p>
 </details>
 <h2 id="shell-cutdelim">Extract family names from a tab-separated file</h2>
 <p>Run this script and examine the output. Does each output line contain just the
@@ -299,9 +335,12 @@ Okafor	Amara	Chemistry
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is specifying <code>-d,</code> (comma delimiter) when the file uses tabs. Since there
-are no commas, <code>cut</code> treats each line as a single field and returns it whole. Shows
-how to identify the actual delimiter in a file (using <code>cat -A</code> to show invisible
-characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
+are no commas, <code>cut</code> treats each line as a single field and returns it whole.</p>
+<p>Shows: how to identify the actual delimiter in a file (using <code>cat -A</code>
+to show invisible characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
+<p>To find it: run <code>cat -A file.txt | head -n 3</code> to make invisible characters visible.
+Tab characters appear as <code>^I</code>. If <code>^I</code> separates the fields but <code>-d,</code> specifies a
+comma, <code>cut</code> will see no delimiter and return each entire line as a single field.</p>
 </details>
 <h2 id="shell-grepinvert">Filter error lines from a log file</h2>
 <p>Run this script and read the output. Do the lines shown contain the word you
@@ -325,8 +364,13 @@ grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">"ERROR"</
 <summary>Show explanation</summary>
 <p>The bug is the <code>-v</code> flag, which inverts the match so <code>grep</code> shows lines that do not
 contain the pattern. The script prints everything except the error lines instead of
-just the error lines. Shows what <code>-v</code> does and how to check the result of a <code>grep</code>
-command against a small known file to confirm it is filtering in the right direction.</p>
+just the error lines.</p>
+<p>Shows: what <code>-v</code> does and how to check the result of a <code>grep</code> command
+against a small known file to confirm it is filtering in the right
+direction.</p>
+<p>To find it: run the script on the sample file and check whether any output line
+contains the search term. If every output line lacks the search term, <code>-v</code> is
+inverting the match. Remove <code>-v</code> to keep only matching lines.</p>
 </details>
 <h2 id="shell-missingarg">Count the lines in a file given on the command line</h2>
 <p>Run this script with no arguments. Does it print useful output, produce an error,
@@ -343,8 +387,14 @@ wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">$1</span>
 <summary>Show explanation</summary>
 <p>The bug is that <code>$1</code> expands to nothing when no argument is given and <code>wc -l</code> with
 no filename reads from standard input, so the script hangs waiting indefinitely for
-keystrokes. Shows how positional parameters expand to empty strings when omitted,
-and how to check for missing arguments with <code>echo "Usage: …"</code> before using them.</p>
+keystrokes.</p>
+<p>Shows: how positional parameters expand to empty strings when omitted,
+and how to check for missing arguments with <code>echo "Usage: …"</code> before
+using them.</p>
+<p>To find it: run the script with no arguments and watch whether it hangs. Press
+Ctrl-C to stop it. Then add <code>echo "Got: '$1'"</code> as the first line — running again
+shows <code>Got: ''</code>, proving <code>$1</code> is empty and that <code>wc -l</code> is reading from stdin
+instead of a file.</p>
 </details>
 <h2 id="shell-catorder">Concatenate report sections in the correct order</h2>
 <p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with
@@ -378,9 +428,13 @@ Site C had anomalously low temperatures on day 2.
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the filenames are listed in the wrong sequence on the <code>cat</code> command
-line, so the sections appear in the wrong order. Shows that <code>cat</code> concatenates
-files in the order they are given, and how to verify the result with <code>head</code> before
-treating the output as correct.</p>
+line, so the sections appear in the wrong order.</p>
+<p>Shows: that <code>cat</code> concatenates files in the order they are given, and
+how to verify the result with <code>head</code> before treating the output as
+correct.</p>
+<p>To find it: run <code>head -n 3 report.txt</code> after the script finishes. The first few
+lines should come from the introduction file. If they do not, compare the order of
+filenames on the <code>cat</code> command line to the intended section order.</p>
 </details>
 <h2 id="shell-loopclobber">Append a summary line from each file to a report</h2>
 <p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain
@@ -400,9 +454,14 @@ after the first run? After the second run?</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>&gt;&gt;</code> inside the loop without clearing the file first, so each run
 appends to whatever the previous run left and the file contains double the expected
-entries after a second run. Shows how to decide between <code>&gt;</code> and <code>&gt;&gt;</code>, and the
-pattern of redirecting the first write with <code>&gt;</code> or removing the output file before
-the loop begins.</p>
+entries after a second run.</p>
+<p>Shows: how to decide between <code>&gt;</code> and <code>&gt;&gt;</code>, and the pattern of
+redirecting the first write with <code>&gt;</code> or removing the output file
+before the loop begins.</p>
+<p>To find it: run the script twice and count the lines in <code>summary.txt</code> with
+<code>wc -l</code> after each run. If the count doubles on the second run, the file is not
+being cleared before the loop. Remove the file or use <code>&gt;</code> on the first write before
+switching to <code>&gt;&gt;</code> for subsequent writes.</p>
 </details>
 <h2 id="shell-sortn">List the three largest files in a directory</h2>
 <p>Run this script in a directory that has files of different sizes. Compare the
@@ -419,8 +478,12 @@ ls<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><spa
 <p>The bug is using <code>sort -r</code>, which reverses alphabetical order rather than numeric
 order. A file of size 100 blocks sorts as smaller than 8 because <code>"8"</code> comes after
 <code>"1"</code> in alphabetical order, so the three largest files are listed in the wrong
-order. Shows that <code>-r</code> alone reverses the current sort order and that <code>-rn</code> is
-needed to sort numbers in descending order.</p>
+order.</p>
+<p>Shows: that <code>-r</code> alone reverses the current sort order and that <code>-rn</code>
+is needed to sort numbers in descending order.</p>
+<p>To find it: run <code>ls -s</code> in the directory and note the block counts for a few files.
+If the script output shows a file with size 100 below a file with size 8, the sort
+is alphabetical rather than numeric. Compare with <code>ls -s | sort -rn | head -n 3</code>.</p>
 </details>
 <h2 id="shell-headcount">Extract ten data rows from a CSV file</h2>
 <p>Run this script and count the data rows in the output. Then count the data rows
@@ -449,9 +512,13 @@ D,2,30.1
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is <code>head -n 10</code> when the header itself is one of the ten lines, so only nine
-data rows remain instead of ten. Shows how to account for header lines when
-counting with <code>head</code> and how to use <code>wc -l</code> to verify the actual line count of the
-output.</p>
+data rows remain instead of ten.</p>
+<p>Shows: how to account for header lines when counting with <code>head</code> and
+how to use <code>wc -l</code> to verify the actual line count of the output.</p>
+<p>To find it: run <code>wc -l</code> on both the script's output and the original file. If the
+output has 10 lines total but you expected 10 data rows plus a header, the header
+was counted as one of the 10 lines. Use <code>head -n 11</code> to include the header and 10
+data rows.</p>
 </details>
 <h2 id="shell-quotedall">Process a list of filenames passed as script arguments</h2>
 <p>Run this script with a filename that contains a space. Does it process the file,
@@ -470,8 +537,13 @@ or does it report an error about a non-existent file?</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>$@</code> without quotes, which causes word-splitting so each
 space-separated token is treated as a separate argument and the script fails for any
-argument that contains a space. Shows the difference between <code>$@</code> and <code>"$@"</code>: the
-quoted form preserves each argument as a single token, even if it contains spaces.</p>
+argument that contains a space.</p>
+<p>Shows: the difference between <code>$@</code> and <code>"$@"</code>: the quoted form
+preserves each argument as a single token, even if it contains spaces.</p>
+<p>To find it: add <code>echo "Processing: '$1'"</code> inside the loop and run with a filename
+containing a space. The unquoted <code>$@</code> version prints two separate single-word
+arguments for one filename; the quoted <code>"$@"</code> version prints one argument with the
+space preserved.</p>
 </details>
 <h2 id="shell-findtype">Count log files in a directory tree</h2>
 <p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run
@@ -485,9 +557,12 @@ find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </spa
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>-name "*.log"</code> matches any filesystem entry, not just regular
-files, so directories whose names end in <code>.log</code> are included in the count. Shows
-the use of <code>-type f</code> to restrict <code>find</code> results to regular files and <code>-type d</code> to
-restrict to directories.</p>
+files, so directories whose names end in <code>.log</code> are included in the count.</p>
+<p>Shows: the use of <code>-type f</code> to restrict <code>find</code> results to regular
+files and <code>-type d</code> to restrict to directories.</p>
+<p>To find it: create a directory whose name ends in <code>.log</code> — e.g., <code>mkdir debug.log</code>
+— then run <code>find . -name "*.log"</code> and see whether that directory appears in the
+output. Add <code>-type f</code> and rerun to confirm it is excluded.</p>
 </details>
 <h2 id="shell-cprecurse">Copy a directory to a backup location</h2>
 <p>Run this script. Does it copy the directory, or does it produce an error message?
@@ -502,8 +577,12 @@ cp<span class="w"> </span>results/<span class="w"> </span>backup/results/
 <summary>Show explanation</summary>
 <p>The bug is calling <code>cp</code> without the <code>-r</code> flag, which is required to copy a directory
 and its contents recursively, so the script fails with the message "omitting
-directory". Shows the difference between copying a file and copying a directory,
+directory".</p>
+<p>Shows: the difference between copying a file and copying a directory,
 and how to read <code>cp --help</code> to find the right flag.</p>
+<p>To find it: run the script and read the error message. It says
+<code>cp: -r not specified; omitting directory</code>, i.e., the message names
+the missing flag directly.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -521,12 +600,5 @@ and how to read <code>cp --help</code> to find the right flag.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

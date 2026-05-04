@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -88,8 +87,14 @@ console output. Are all the field values captured and reported correctly?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>var</code> inside a loop. Hoisting causes the variable to be shared
-across iterations, so the function returns <code>undefined</code> for some fields. Shows
-<code>var</code> hoisting, block scope, and why <code>let</code> and <code>const</code> are preferable.</p>
+across iterations, so the function returns <code>undefined</code> for some fields.</p>
+<p>Shows: <code>var</code> hoisting, block scope, and why <code>let</code> and <code>const</code> are
+preferable.</p>
+<p>To find it: open the browser console after submitting the form. Look at which fields
+report <code>undefined</code>. Then read the <code>var</code> declaration: because <code>var</code> is
+function-scoped and hoisted, all loop iterations share the same variable, and by the
+time a callback runs that variable holds its final loop value rather than the value
+from the iteration that created the callback.</p>
 </details>
 <h2 id="jsbrowser-deaddom">Update a table row when a button is clicked</h2>
 <p>Open the page and click the button several times. Does it keep working after the
@@ -128,8 +133,13 @@ first click?</p>
 <summary>Show explanation</summary>
 <p>The bug is attaching the event listener to a DOM element that is replaced by the
 update, so the listener is discarded and the button stops working after the first
-click. Shows event delegation and the difference between live and dead DOM
+click.</p>
+<p>Shows: event delegation and the difference between live and dead DOM
 references.</p>
+<p>To find it: click the button a second time and check the console for errors. If no
+error appears but nothing happens, open DevTools and inspect the DOM — the original
+button element has been replaced and no longer exists, so the event listener
+attached to it is gone.</p>
 </details>
 <h2 id="jsbrowser-thisbind">Save a form field value with a timer</h2>
 <p>Open the page and click the button several times. Does the counter increment by the
@@ -161,9 +171,12 @@ expected amount each time?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>this</code> inside the callback refers to the button element rather than
-the object that owns the counter, so the counter increments by the wrong amount.
-Shows <code>this</code> binding in JavaScript callbacks and how to use arrow functions or
-<code>.bind()</code> to preserve context.</p>
+the object that owns the counter, so the counter increments by the wrong amount.</p>
+<p>Shows: <code>this</code> binding in JavaScript callbacks and how to use arrow
+functions or <code>.bind()</code> to preserve context.</p>
+<p>To find it: add <code>console.log(this)</code> as the first line of the callback. If it logs a
+button element instead of the owning object, <code>this</code> is bound to the event target.
+Use an arrow function or <code>.bind(this)</code> to preserve the correct context.</p>
 </details>
 <h2 id="jsbrowser-unawaited">Fetch user data before rendering a profile</h2>
 <p>Open the page and check the data displayed against what the API returns. Is the
@@ -206,8 +219,13 @@ data correct on the first load, or does it appear stale or blank?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the fetch result is used before the Promise resolves (code runs
-synchronously after an async call), so the page displays stale data. Shows the
-JavaScript event loop, Promises, and <code>async/await</code>.</p>
+synchronously after an async call), so the page displays stale data.</p>
+<p>Shows: the JavaScript event loop, Promises, and <code>async/await</code>.</p>
+<p>To find it: open the Network tab in DevTools and watch when the fetch request
+completes relative to when data is rendered. If the render happens before the
+network request finishes, the code is not waiting for the promise to resolve. Add
+<code>console.log(data)</code> immediately before and after the <code>await</code> to see when data
+becomes available.</p>
 </details>
 <h2 id="jsbrowser-localstorage">Save user preferences across page loads</h2>
 <p>Open the page in a private browsing window. Does anything go wrong? Check the
@@ -232,9 +250,13 @@ browser console for errors.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>localStorage</code> throws a <code>SecurityError</code> in private browsing mode but
-the code has no try/catch, so the script fails silently. Shows browser storage
-limitations and how to use the browser console and DevTools to observe thrown
-exceptions.</p>
+the code has no try/catch, so the script fails silently.</p>
+<p>Shows: browser storage limitations and how to use the browser console
+and DevTools to observe thrown exceptions.</p>
+<p>To find it: open the browser Console tab after loading the page in private mode. A
+<code>SecurityError</code> will appear there even though the page looks normal. Wrapping the
+<code>localStorage</code> access in a <code>try/catch</code> and printing the error message confirms the
+exact line that throws.</p>
 </details>
 <h2 id="jsbrowser-viewport">Build a page that works on mobile devices</h2>
 <p>Open the page in a browser and use DevTools to simulate a narrow mobile screen.
@@ -270,8 +292,13 @@ Does the layout look correct?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>&lt;meta name="viewport"&gt;</code> tag that prevents mobile scaling, so
-the page layout breaks on narrow screens even though the CSS looks correct. Shows
-how to use browser DevTools' device emulation and inspect computed styles.</p>
+the page layout breaks on narrow screens even though the CSS looks correct.</p>
+<p>Shows: how to use browser DevTools' device emulation and inspect
+computed styles.</p>
+<p>To find it: open DevTools, click the device-emulation icon (phone/tablet), select a
+narrow screen width, and reload. If the layout overflows or text appears tiny, check
+the page source for a <code>&lt;meta name="viewport" content="width=device-width,
+initial-scale=1"&gt;</code> tag.</p>
 </details>
 <h2 id="jsbrowser-cors">Load data from an API on a different domain</h2>
 <p>Open the HTML page in a browser and check the network tab in DevTools. Does the
@@ -343,8 +370,14 @@ request from the command line.</p>
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>Access-Control-Allow-Origin</code> header on the server response, so
 the fetch request returns a CORS error in the browser even though it works from the
-command line. Shows what CORS is, how to read network error messages in DevTools,
+command line.</p>
+<p>Shows: what CORS is, how to read network error messages in DevTools,
 and how to configure server headers.</p>
+<p>To find it: open the Network tab in DevTools, find the failed request, and read the
+Console message — it will say the request was blocked by CORS policy. Then run the
+same request with <code>curl</code> from the terminal — it succeeds, confirming the restriction
+is browser-enforced and that the server needs to add the <code>Access-Control-Allow-Origin</code>
+header.</p>
 </details>
 <h2 id="jsbrowser-caching">Deploy an update that users don't see</h2>
 <p>Make a change to the JavaScript file and reload the page normally. Does the change
@@ -380,9 +413,14 @@ file the browser is serving.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the browser is serving a cached version of the JavaScript file, so
-the page shows outdated content after a bug fix is deployed. Shows cache-control
-headers, hard refresh vs. normal refresh, and how to use DevTools to disable the
-cache during development.</p>
+the page shows outdated content after a bug fix is deployed.</p>
+<p>Shows: cache-control headers, hard refresh vs. normal refresh, and how
+to use DevTools to disable the cache during development.</p>
+<p>To find it: open the Network tab in DevTools, reload the page, and look at the
+<code>.js</code> file entry in the request list. A status of <code>304</code> or the label <code>(from disk
+cache)</code> means the browser did not fetch the updated file. Do a hard reload
+(Ctrl+Shift+R on Linux/Windows, Cmd+Shift+R on Mac) to bypass the cache and confirm
+the new version loads.</p>
 </details>
 <h2 id="jsbrowser-sourcemap">Debug a minified production build</h2>
 <p>Trigger the JavaScript error and look at the stack trace in the browser console.
@@ -427,9 +465,13 @@ shown?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is deploying a minified bundle without a source map, so JavaScript errors
-are reported on minified line numbers that do not correspond to the source. Shows
-what source maps are, how to generate them, and how to load them in DevTools to see
-original source locations.</p>
+are reported on minified line numbers that do not correspond to the source.</p>
+<p>Shows: what source maps are, how to generate them, and how to load
+them in DevTools to see original source locations.</p>
+<p>To find it: trigger the error and read the stack trace in the console. If it points
+to a single-line file with hundreds of characters separated by semicolons, the
+script is minified. Check whether a <code>.map</code> file exists alongside the <code>.min.js</code> file,
+and whether the minified file ends with a <code>//# sourceMappingURL=</code> comment.</p>
 </details>
 <h2 id="jsbrowser-csp">Add an inline script to a secured page</h2>
 <p>Open the page in a browser. Does the inline script run? Check the console for any
@@ -458,9 +500,14 @@ policy-related messages.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a Content Security Policy header that blocks an inline script, so the
-application shows blank content in production even though it works in development.
-Shows how to read CSP violation reports in the browser console, how CSP directives
-work, and how to move inline scripts to external files to comply.</p>
+application shows blank content in production even though it works in development.</p>
+<p>Shows: how to read CSP violation reports in the browser console, how
+CSP directives work, and how to move inline scripts to external files
+to comply.</p>
+<p>To find it: open the Console tab after loading the page. A message starting with
+<code>Content Security Policy</code> will name the directive that blocked the script (e.g.,
+<code>script-src</code>). Check the server's <code>Content-Security-Policy</code> response header to see
+what sources are allowed and which are missing.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -478,12 +525,5 @@ work, and how to move inline scripts to external files to comply.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

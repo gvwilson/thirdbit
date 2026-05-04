@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -88,8 +87,12 @@ Dave,"Austin, TX",88
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>line.split(',')</code> instead of the <code>csv</code> module, so rows that contain
-commas inside quoted fields are split incorrectly. Shows why hand-rolled parsers
-fail on real-world data and when to use standard library tools.</p>
+commas inside quoted fields are split incorrectly.</p>
+<p>Shows: why hand-rolled parsers fail on real-world data and when to use
+standard library tools.</p>
+<p>To find it: print <code>len(fields)</code> for each row as you parse. When it prints <code>3</code> instead
+of <code>2</code>, find that row in the CSV and count the commas — the extra one is inside a
+quoted field that <code>line.split(',')</code> does not recognize as quoted.</p>
 </details>
 <h2 id="diot-walltime">Benchmark an image processing function</h2>
 <p>Run the benchmarking function several times and examine the elapsed time values.
@@ -129,8 +132,13 @@ Do any of them look unusual?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>time.time()</code> without accounting for system clock adjustments, so
-the function reports negative durations when the clock is set back. Shows the
-difference between wall time and monotonic time and when to use <code>time.monotonic</code>.</p>
+the function reports negative durations when the clock is set back.</p>
+<p>Shows: the difference between wall time and monotonic time and when to
+use <code>time.monotonic</code>.</p>
+<p>To find it: print each start and end timestamp as a float alongside the computed
+elapsed time. A negative elapsed value proves the end timestamp was smaller than the
+start, which happens when the system clock is stepped backward by NTP or a VM
+snapshot restore.</p>
 </details>
 <h2 id="diot-daylight">Schedule a recurring task across time zones</h2>
 <p>Call the date arithmetic function with a date near a daylight saving transition.
@@ -180,8 +188,12 @@ timezone-aware path.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is adding a <code>timedelta</code> to a naive datetime, so the function produces results
-that are off by one day around daylight saving time transitions. Shows the
-difference between naive and timezone-aware datetimes.</p>
+that are off by one day around daylight saving time transitions.</p>
+<p>Shows: the difference between naive and timezone-aware datetimes.</p>
+<p>To find it: call the function with <code>datetime(2024, 3, 10)</code> — the Sunday US clocks
+spring forward — and add one day. Print the naive result and the timezone-aware
+result side by side. The naive version may report the wrong date because it adds
+exactly 86,400 seconds without accounting for the 23-hour day.</p>
 </details>
 <h2 id="diot-missparse">Scrape prices from a product page</h2>
 <p>Run the script with the provided HTML file and check whether it finds all the
@@ -231,8 +243,13 @@ expected elements. What happens when an element is not found?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the HTML structure varies and the selector matches zero elements
-without raising an error, so the script fails silently on some pages. Shows how to
-handle missing data in HTML parsing and use assertions to catch unexpected input.</p>
+without raising an error, so the script fails silently on some pages.</p>
+<p>Shows: how to handle missing data in HTML parsing and use assertions
+to catch unexpected input.</p>
+<p>To find it: print <code>len(soup.select(selector))</code> before accessing the first element.
+Seeing <code>0</code> tells you the selector matched nothing. Then print the first hundred
+characters of <code>str(soup)</code> to confirm whether the expected element is actually present
+in the HTML.</p>
 </details>
 <h2 id="diot-overexp">Extract phone numbers from a text file</h2>
 <p>Test the regular expression against a few valid email addresses and a few strings
@@ -266,8 +283,12 @@ that look like email addresses but are not. Does it reject the invalid ones?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a pattern that is too permissive (e.g., missing anchors or character
-class constraints), so the regular expression also matches invalid strings. Shows
-how to test regular expressions with both valid and invalid inputs.</p>
+class constraints), so the regular expression also matches invalid strings.</p>
+<p>Shows: how to test regular expressions with both valid and invalid
+inputs.</p>
+<p>To find it: test the regular expression against known-invalid strings such as
+<code>"not_an_email"</code> or <code>"two@@signs.com"</code>. If <code>re.fullmatch</code> returns a match object
+instead of <code>None</code> for either, the pattern is too permissive.</p>
 </details>
 <h2 id="diot-noassert">Write a test for a data validation function</h2>
 <p>Run the test suite. Does it pass? Now deliberately break the function the test is
@@ -301,8 +322,12 @@ testing. Does the test still pass?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the test calls the function but never asserts anything about the
-result, so it always passes even when the function is broken. Shows that a test
-with no assertions is not a test and how to write assertions correctly.</p>
+result, so it always passes even when the function is broken.</p>
+<p>Shows: that a test with no assertions is not a test and how to write
+assertions correctly.</p>
+<p>To find it: modify the function under test to return an obviously wrong value, such
+as <code>return None</code>. Run the test suite again. If the test still passes, it contains
+no assertion that can detect the wrong return value.</p>
 </details>
 <h2 id="diot-shared">Test a function that modifies a global registry</h2>
 <p>Run each test on its own. Then run both together. Do you get the same results both
@@ -348,8 +373,11 @@ ways?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that one test modifies a module-level variable that another test depends
-on, so the suite passes in isolation but fails when run together. Shows test
-isolation, teardown, and the risks of shared global state.</p>
+on, so the suite passes in isolation but fails when run together.</p>
+<p>Shows: test isolation, teardown, and the risks of shared global state.</p>
+<p>To find it: run <code>pytest test.py::test_first -v</code> alone, then run
+<code>pytest test.py::test_second -v</code> alone. If each passes in isolation but one fails
+when both run together, the failing test depends on state left by the other.</p>
 </details>
 <h2 id="diot-abspath">Load a reference data file in a test</h2>
 <p>Run the script from a different working directory than the one where the script
@@ -381,8 +409,13 @@ file is saved. Does it find its configuration file?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using a hardcoded absolute path instead of a path relative to the
-script's location, so the function behaves differently on different machines. Shows
-the difference between <code>__file__</code>-relative and working-directory-relative paths.</p>
+script's location, so the function behaves differently on different machines.</p>
+<p>Shows: the difference between <code>__file__</code>-relative and
+working-directory-relative paths.</p>
+<p>To find it: run the script from a different directory — e.g., <code>cd /tmp &amp;&amp; python
+/full/path/to/script.py</code>. It will fail to open the config file. Print <code>os.getcwd()</code>
+inside the script to confirm that <code>open("config.json")</code> resolves relative to <code>/tmp</code>,
+not to the script's own directory.</p>
 </details>
 <h2 id="diot-jsondate">Save a record with a timestamp to a file</h2>
 <p>Run the script and read the error message. Which value in the data structure cannot
@@ -410,8 +443,12 @@ be serialized?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the data contains <code>datetime</code> objects, which are not
-JSON-serializable, so the program raises an error when writing output. Shows how
-to identify serialization errors and write custom JSON encoders.</p>
+JSON-serializable, so the program raises an error when writing output.</p>
+<p>Shows: how to identify serialization errors and write custom JSON
+encoders.</p>
+<p>To find it: read the <code>TypeError</code> message — <code>Object of type datetime is not JSON
+serializable</code>. Then search the data structure being serialized for any <code>datetime</code>
+object: <code>print(type(record['timestamp']))</code> will show <code>&lt;class 'datetime.datetime'&gt;</code>.</p>
 </details>
 <h2 id="diot-loglevel">Add diagnostic output to a data pipeline</h2>
 <p>Run the script and then look at the log file. Are the messages you expected to see
@@ -447,8 +484,12 @@ present?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the log level is set to <code>WARNING</code> but the calls use
-<code>logger.debug()</code>, so the messages never appear in the log file. Shows how
-Python's logging hierarchy works and how to verify the effective log level.</p>
+<code>logger.debug()</code>, so the messages never appear in the log file.</p>
+<p>Shows: how Python's logging hierarchy works and how to verify the
+effective log level.</p>
+<p>To find it: add <code>print(logger.getEffectiveLevel())</code> near the top of the script. The
+output <code>30</code> means the effective level is <code>WARNING</code> (30), and <code>DEBUG</code> messages require
+level <code>10</code>. Either lower the level to <code>DEBUG</code> or upgrade the calls to <code>logger.warning()</code>.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -466,12 +507,5 @@ Python's logging hierarchy works and how to verify the effective log level.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -72,9 +71,12 @@ have? How many columns did the original DataFrame have?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>.select()</code> to add a new column. <code>.select()</code> returns only the
-columns listed in the call and drops all others, so <code>id</code> and <code>name</code> are lost.
-Shows the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
+columns listed in the call and drops all others, so <code>id</code> and <code>name</code> are lost.</p>
+<p>Shows: the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
 (add or replace columns while keeping the rest).</p>
+<p>To find it: print <code>result.columns</code> and compare to <code>df.columns</code>. If the result
+has fewer columns than the original, <code>.select()</code> dropped them. Find the <code>.select()</code>
+call in the pipeline and replace it with <code>.with_columns()</code>.</p>
 </details>
 <h2 id="polars-nocollect">Filter and select rows from a dataset</h2>
 <p>Run the script and look at what is printed. Is the output a table of data, or
@@ -99,8 +101,12 @@ something else? What type does <code>type(result)</code> report?</p>
 <summary>Show explanation</summary>
 <p>The bug is calling <code>.lazy()</code> to start a lazy pipeline but never calling <code>.collect()</code>
 at the end, so the result is a <code>LazyFrame</code> (a query plan) rather than a <code>DataFrame</code>.
-The filter and select have not executed. Shows the difference between eager and
-lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
+The filter and select have not executed.</p>
+<p>Shows: the difference between eager and lazy evaluation in Polars and
+when <code>.collect()</code> is required.</p>
+<p>To find it: add <code>print(type(result))</code> after the pipeline. Seeing
+<code>&lt;class 'polars.LazyFrame'&gt;</code> instead of <code>&lt;class 'polars.DataFrame'&gt;</code> confirms the
+pipeline never executed. Add <code>.collect()</code> at the end of the chain.</p>
 </details>
 <h2 id="polars-nullequal">Find rows with missing scores</h2>
 <p>Run the script. How many rows does it print? How many rows contain a missing score?</p>
@@ -120,8 +126,13 @@ lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>== None</code> to test for missing values. In Polars, any comparison
 involving null yields null rather than a boolean, so every row in the filtered
-result is null and the filter keeps nothing. Shows null semantics in Polars and
-how to use <code>.is_null()</code> to correctly select rows where a value is missing.</p>
+result is null and the filter keeps nothing.</p>
+<p>Shows: null semantics in Polars and how to use <code>.is_null()</code> to
+correctly select rows where a value is missing.</p>
+<p>To find it: print <code>df["score"].is_null().sum()</code> to count actual nulls, then
+compare to <code>len(result)</code> after the filter. If the filter returns 0 rows but the
+null count is positive, the comparison <code>== None</code> is the problem — replace it with
+<code>.is_null()</code>.</p>
 </details>
 <h2 id="polars-castsilent">Convert float scores to integers</h2>
 <p>Run the script and compare the values in the <code>score</code> column to the expected rounded
@@ -141,9 +152,16 @@ values printed below them. What happened to 88.7 and 95.6?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>cast(pl.Int64)</code> truncates toward zero rather than rounding, so
-88.7 becomes 88 and 95.6 becomes 95 instead of 89 and 96. No error is raised.
-Shows that integer casting in Polars is a truncation operation, and how to use
-<code>.round(0).cast(pl.Int64)</code> when rounding behavior is intended.</p>
+88.7 becomes 88 and 95.6 becomes 95 instead of 89 and 96. No error is raised.</p>
+<p>Shows: that integer casting in Polars is a truncation operation, and
+how to use <code>.round(0).cast(pl.Int64)</code> when rounding behavior is
+intended.</p>
+<p>To find it: print <code>df.select(pl.col("score")</code>,
+<code>pl.col("score").round(0).cast(pl.Int64).alias("rounded")</code>,
+and <code>pl.col("score").cast(pl.Int64).alias("truncated"))</code>.
+For a value like 88.7, the <code>rounded</code> column shows 89 and the <code>truncated</code> column
+shows 88. The mismatch reveals that <code>.cast()</code> alone is discarding the fractional
+part rather than rounding.</p>
 </details>
 <h2 id="polars-overwindow">Add a department average salary to each employee row</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
@@ -164,9 +182,15 @@ Shows that integer casting in Polars is a truncation operation, and how to use
 <summary>Show explanation</summary>
 <p>The bug is using <code>group_by().agg()</code> when the goal is to add a per-row column showing
 each employee's department mean. <code>group_by().agg()</code> collapses the DataFrame to one row
-per group. Shows the difference between aggregation (which reduces rows) and window
-functions (which compute a value per row), and how to use <code>.over()</code> inside
-<code>.with_columns()</code> to attach group statistics to every row.</p>
+per group.</p>
+<p>Shows: the difference between aggregation (which reduces rows) and
+window functions (which compute a value per row), and how to use
+<code>.over()</code> inside <code>.with_columns()</code> to attach group statistics to every
+row.</p>
+<p>To find it: print <code>len(result)</code> and compare to <code>len(df)</code>. If the result has one
+row per department instead of one per employee, <code>group_by().agg()</code> collapsed the
+rows. Replace the <code>group_by().agg()</code> pipeline with
+<code>.with_columns(pl.col("salary").mean().over("department").alias("dept_avg"))</code>.</p>
 </details>
 <h2 id="polars-innerjoin">Join orders to customer records</h2>
 <p>Run the script and compare the number of input orders to the number of rows in the
@@ -193,9 +217,15 @@ result. Which order is missing, and why?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using the default join, which is inner. Order 4 has a <code>customer_id</code> of 99
-that does not appear in the customers table, so it is silently dropped. Shows the
-difference between inner and left joins, how to specify <code>how="left"</code> to retain all
-rows from the left table, and how to verify row counts before and after a join.</p>
+that does not appear in the customers table, so it is silently dropped.</p>
+<p>Shows: the difference between inner and left joins, how to specify
+<code>how="left"</code> to retain all rows from the left table, and how to verify
+row counts before and after a join.</p>
+<p>To find it: print <code>len(orders)</code> before the join and <code>len(result)</code> after. If they
+differ, rows were dropped. To identify which, print
+<code>orders["customer_id"].is_in(customers["customer_id"]).value_counts()</code>. Any
+<code>False</code> entries name the customer IDs that have no match and will be lost in an
+inner join.</p>
 </details>
 <h2 id="polars-aliasexpr">Add a total price column to an order table</h2>
 <p>Run the script and compare the column names and values to the original DataFrame.
@@ -216,8 +246,14 @@ Which column was overwritten, and which column was supposed to be added?</p>
 <p>The bug is omitting <code>.alias()</code> on the expression. Without an explicit name, Polars
 assigns the column the name of the left operand (<code>"price"</code>), which silently replaces
 the original <code>price</code> column with the product values instead of adding a new <code>total</code>
-column. Shows how Polars names unnamed expressions and why <code>.alias()</code> is needed
-whenever the result should have a different name from its inputs.</p>
+column.</p>
+<p>Shows: how Polars names unnamed expressions and why <code>.alias()</code> is
+needed whenever the result should have a different name from its
+inputs.</p>
+<p>To find it: print <code>result.columns</code> and <code>result.head()</code>. If the <code>price</code> column now
+contains the product of <code>price * quantity</code> rather than unit prices, the expression
+was assigned back to <code>price</code> rather than creating a new column. Add
+<code>.alias("total")</code> to the expression inside <code>.with_columns()</code>.</p>
 </details>
 <h2 id="polars-strptime">Parse dates from a CSV file</h2>
 <p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as
@@ -239,9 +275,15 @@ April 3rd or March 4th? What date was intended?</p>
 <summary>Show explanation</summary>
 <p>The bug is a mismatch between the data order (day/month/year) and the format string
 (<code>%m/%d/%Y</code>, month/day/year). Because all day and month values are 12 or below,
-every date parses without error, but each one is wrong. Shows how ambiguous numeric
-date formats cause silent data corruption, and why checking a few parsed values
-against known inputs is necessary to confirm the format string is correct.</p>
+every date parses without error, but each one is wrong.</p>
+<p>Shows: how ambiguous numeric date formats cause silent data
+corruption, and why checking a few parsed values against known inputs
+is necessary to confirm the format string is correct.</p>
+<p>To find it: print the first few rows of the parsed <code>date</code> column alongside the
+original string values. Find a row where the day value is greater than 12 (for
+example, <code>"15/04/2024"</code>) and check whether the parsed month is 15 or the parsed
+day is 15. Only one interpretation is possible, and it immediately reveals whether
+<code>%d</code> and <code>%m</code> are swapped in the format string.</p>
 </details>
 <h2 id="polars-explodestring">Split a tags column into one row per tag</h2>
 <p>Run the script and read the error message. What type does Polars report for the
@@ -261,9 +303,14 @@ against known inputs is necessary to confirm the format string is correct.</p>
 <summary>Show explanation</summary>
 <p>The bug is calling <code>.explode()</code> on a column that contains plain strings rather than
 lists. Polars raises an <code>InvalidOperationError</code> because <code>.explode()</code> requires a
-list-type column. Shows how to convert a delimited string column into a list
-column with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check column
-types with <code>.schema</code> before applying list operations.</p>
+list-type column.</p>
+<p>Shows: how to convert a delimited string column into a list column
+with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check
+column types with <code>.schema</code> before applying list operations.</p>
+<p>To find it: print <code>df.schema</code> and check the type of the <code>tags</code> column. Seeing
+<code>String</code> instead of <code>List[String]</code> explains the <code>InvalidOperationError</code>:
+<code>.explode()</code> requires a list-type column. Add
+<code>.with_columns(pl.col("tags").str.split(", "))</code> before the <code>.explode()</code> call.</p>
 </details>
 <h2 id="polars-withcolumnsdep">Compute a discounted price and order total in one step</h2>
 <p>Run the script and read the error message. Which column is reported as not found?
@@ -287,9 +334,15 @@ Is that column present in the original DataFrame?</p>
 <p>The bug is referencing <code>discounted_price</code> in the same <code>.with_columns()</code> call where
 it is first computed. All expressions in a single <code>.with_columns()</code> call are
 evaluated against the original DataFrame, so <code>discounted_price</code> does not yet exist
-when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>. Shows how
-Polars evaluates expressions in parallel within one call and how to chain two
-separate <code>.with_columns()</code> calls when one result depends on another.</p>
+when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>.</p>
+<p>Shows: how Polars evaluates expressions in parallel within one call
+and how to chain two separate <code>.with_columns()</code> calls when one result
+depends on another.</p>
+<p>To find it: read the <code>ColumnNotFoundError</code>, which names <code>discounted_price</code> as
+missing. Search the code for where <code>discounted_price</code> is created and where it is
+referenced. If both appear in the same <code>.with_columns()</code> call, split them: put
+the expression that creates <code>discounted_price</code> in one <code>.with_columns()</code> call and
+the expression that uses it in a second chained call.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -307,12 +360,5 @@ separate <code>.with_columns()</code> calls when one result depends on another.<
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

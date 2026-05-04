@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -53,9 +52,9 @@
 <main id="main-content">
 <h1>Testing</h1>
 <h2 id="testing-vacuous">Write a test for a totaling function</h2>
-<p>Run <code>pytest test_vacuous.py -v</code>. Does the test pass? Add a print statement inside
-<code>test_total</code> to confirm that <code>result</code> is being computed. Does a passing test mean
-the function is correct?</p>
+<p>Run <code>pytest test_vacuous.py -v</code>. Does the test pass? Add a print
+statement inside <code>test_total</code> to confirm that <code>result</code> is being
+computed. Does a passing test mean the function is correct?</p>
 <div data-inc="test_vacuous.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 
@@ -66,14 +65,20 @@ the function is correct?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is that the test contains no assertion, so pytest has nothing to check and
-always reports it as passing. A vacuous test gives false confidence: the function
-could return any value and the test would still pass. Shows that every test must
-contain at least one assertion that can actually fail.</p>
+<p>The bug is that the test contains no assertion, so pytest has nothing
+to check and always reports it as passing. A vacuous test gives false
+confidence: the function could return any value and the test would
+still pass.</p>
+<p>Shows: that every test must contain at least one assertion that can
+actually fail.</p>
+<p>To find it: modify the function to return an obviously wrong value,
+such as returning <code>0</code> regardless of input, then rerun the test. If it
+still passes, the test has no assertion and is not checking anything.</p>
 </details>
 <h2 id="testing-tupleassert">Test that a doubling function returns the right value</h2>
-<p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value does <code>double(4)</code>
-actually return? Check the pytest warning in the output.</p>
+<p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value
+does <code>double(4)</code> actually return? Check the pytest warning in the
+output.</p>
 <div data-inc="test_tupleassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># deliberate wrong implementation</span>
 
@@ -86,16 +91,21 @@ actually return? Check the pytest warning in the output.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is <code>assert (result, expected)</code>, which creates a two-element tuple. A
-non-empty tuple is always truthy, so the assertion never fails regardless of whether
-<code>result == expected</code>. The correct form is <code>assert result == expected</code> without the
-enclosing parentheses. Shows how easy it is to write an assertion that looks
-plausible but is logically vacuous, and why pytest's warning about this pattern
+<p>The bug is <code>assert (result, expected)</code>, which creates a two-element
+tuple. A non-empty tuple is always truthy, so the assertion never
+fails regardless of whether <code>result == expected</code>. The correct form is
+<code>assert result == expected</code> without the enclosing parentheses.</p>
+<p>Shows: how easy it is to write an assertion that looks plausible but
+is logically vacuous, and why pytest's warning about this pattern
 should not be ignored.</p>
+<p>To find it: read the pytest output carefully. It includes a warning
+that a non-empty tuple is always truthy. Remove the outer parentheses
+so the assertion becomes <code>assert result == expected</code>, then rerun to
+confirm the test can now fail.</p>
 </details>
 <h2 id="testing-floatequal">Test a running total function</h2>
-<p>Run <code>pytest test_floatequal.py -v</code>. Read the assertion error carefully. What value
-did <code>running_total</code> actually return?</p>
+<p>Run <code>pytest test_floatequal.py -v</code>. Read the assertion error
+carefully. What value did <code>running_total</code> actually return?</p>
 <div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
@@ -110,15 +120,21 @@ did <code>running_total</code> actually return?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is comparing floating-point results with <code>==</code>. Repeated addition accumulates
-rounding error in IEEE 754 arithmetic, so <code>0.1 + 0.2 + 0.3</code> produces
-<code>0.6000000000000001</code>, not <code>0.6</code>. Shows how to use <code>pytest.approx</code> to compare
-floats within a tolerance, and why exact equality between computed floats is
+<p>The bug is comparing floating-point results with <code>==</code>. Repeated
+addition accumulates rounding error in IEEE 754 arithmetic, so
+<code>0.1 + 0.2 + 0.3</code> produces <code>0.6000000000000001</code>, not <code>0.6</code>.</p>
+<p>Shows: how to use <code>pytest.approx</code> to compare floats within a
+tolerance, and why exact equality between computed floats is
 unreliable.</p>
+<p>To find it: print <code>f"{result:.20f}"</code> in the test before the
+assertion. If the last few digits are not all zeros, rounding error
+has accumulated. Replace <code>assert result == expected</code> with
+<code>assert result == pytest.approx(expected)</code>.</p>
 </details>
 <h2 id="testing-broadexc">Test that a function rejects invalid input</h2>
-<p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception does
-<code>parse_count(None)</code> actually raise? Is that the exception the test intended to check?</p>
+<p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception
+does <code>parse_count(None)</code> actually raise? Is that the exception the
+test intended to check?</p>
 <div data-inc="test_broadexc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
@@ -133,16 +149,23 @@ unreliable.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is using <code>pytest.raises(Exception)</code>, which accepts any exception, including
-<code>TypeError</code>. The test passes even though <code>parse_count</code> raises a <code>TypeError</code> rather
-than the expected <code>ValueError</code>, masking a bug in the function. Shows how to use a
-specific exception type in <code>pytest.raises</code> and why catching the base <code>Exception</code>
-class in tests hides incorrect behaviour.</p>
+<p>The bug is using <code>pytest.raises(Exception)</code>, which accepts any
+exception, including <code>TypeError</code>. The test passes even though
+<code>parse_count</code> raises a <code>TypeError</code> rather than the expected
+<code>ValueError</code>, masking a bug in the function.</p>
+<p>Shows: how to use a specific exception type in <code>pytest.raises</code> and why
+catching the base <code>Exception</code> class in tests hides incorrect
+behaviour.</p>
+<p>To find it: add <code>assert isinstance(exc.value, ValueError)</code> after the
+<code>with pytest.raises(Exception) as exc:</code> block. If that assertion
+fails, the function is raising a different exception type than
+intended.</p>
 </details>
 <h2 id="testing-noyield">Test a function that reads from a temporary file</h2>
-<p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check whether the
-temp file still exists. Then change <code>return path</code> to <code>yield path</code> and add
-<code>os.remove(path)</code> after the yield. Run again and check the filesystem.</p>
+<p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check
+whether the temp file still exists. Then change <code>return path</code> to
+<code>yield path</code> and add <code>os.remove(path)</code> after the yield. Run again and
+check the filesystem.</p>
 <div data-inc="test_noyield.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
 
@@ -164,16 +187,23 @@ temp file still exists. Then change <code>return path</code> to <code>yield path
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is using <code>return</code> in a fixture that needs to perform cleanup. With <code>return</code>,
-there is no way to run code after the test finishes, so the temp file is left on disk
-whenever the test fails. With <code>yield</code>, pytest runs the code after the <code>yield</code> as
-teardown even if the test raises an exception. Shows the difference between
-<code>return</code> and <code>yield</code> in pytest fixtures and why <code>yield</code> is necessary for reliable
-cleanup.</p>
+<p>The bug is using <code>return</code> in a fixture that needs to perform
+cleanup. With <code>return</code>, there is no way to run code after the test
+finishes, so the temp file is left on disk whenever the test
+fails. With <code>yield</code>, pytest runs the code after the <code>yield</code> as
+teardown even if the test raises an exception.</p>
+<p>Shows: the difference between <code>return</code> and <code>yield</code> in pytest fixtures
+and why <code>yield</code> is necessary for reliable cleanup.</p>
+<p>To find it: after the test fails, list the files in the working
+directory. If the temp file is still present, cleanup did not
+run. Change <code>return path</code> to <code>yield path</code> in the fixture and add
+<code>os.remove(path)</code> after the <code>yield</code>, then rerun to confirm the file is
+removed.</p>
 </details>
 <h2 id="testing-orderdep">Test a registry that stores and retrieves entries</h2>
 <p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run
-<code>pytest test_orderdep.py::test_lookup -v</code> to run only the second test. What happens?</p>
+<code>pytest test_orderdep.py::test_lookup -v</code> to run only the second
+test. What happens?</p>
 <div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
 
 
@@ -196,15 +226,20 @@ cleanup.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is that <code>test_lookup</code> relies on <code>test_register</code> having populated <code>_registry</code>
-first. When <code>test_lookup</code> runs alone or in a different order, <code>_registry</code> is empty
-and the test raises a <code>KeyError</code>. Shows why each test must set up its own state
-independently rather than relying on side effects from other tests, and how to use
-fixtures to provide shared setup.</p>
+<p>The bug is that <code>test_lookup</code> relies on <code>test_register</code> having
+populated <code>_registry</code> first. When <code>test_lookup</code> runs alone or in a
+different order, <code>_registry</code> is empty and the test raises a
+<code>KeyError</code>.</p>
+<p>Shows: why each test must set up its own state independently rather
+than relying on side effects from other tests, and how to use fixtures
+to provide shared setup.</p>
+<p>To find it: run <code>pytest test_orderdep.py::test_lookup -v</code> alone
+without running <code>test_register</code> first. If it fails with a <code>KeyError</code>,
+the test depends on state left by another test.</p>
 </details>
 <h2 id="testing-scopemut">Share a list fixture across multiple tests</h2>
-<p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order of the two
-tests and run again. Does the other test now fail?</p>
+<p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order
+of the two tests and run again. Does the other test now fail?</p>
 <div data-inc="test_scopemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
@@ -224,16 +259,23 @@ tests and run again. Does the other test now fail?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is <code>scope="session"</code> on a fixture that returns a mutable list. A session-scoped
-fixture is created once and reused across every test in the run, so mutations made by
-one test are visible to all later tests. Shows the difference between fixture
-scopes, why mutable objects should use function scope (the default) rather than
-session scope, and how fixture scope bugs often appear only when tests are run in a
+<p>The bug is <code>scope="session"</code> on a fixture that returns a mutable
+list. A session-scoped fixture is created once and reused across every
+test in the run, so mutations made by one test are visible to all
+later tests.</p>
+<p>Shows: the difference between fixture scopes, why mutable objects
+should use function scope (the default) rather than session scope, and
+how fixture scope bugs often appear only when tests are run in a
 particular order.</p>
+<p>To find it: reverse the order of the tests in the file and run
+again. If a different test now fails, the tests are sharing state
+through the fixture. Check the fixture for a <code>scope=</code> argument:
+<code>"session"</code> means one instance is shared across the entire run.</p>
 </details>
 <h2 id="testing-deadassert">Test that a function raises an error on bad input</h2>
-<p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a <code>print("reached")</code> on
-the line after <code>result = parse_positive(0)</code>. Run again. Is the print executed?</p>
+<p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a
+<code>print("reached")</code> on the line after <code>result = parse_positive(0)</code>. Run
+again. Is the print executed?</p>
 <div data-inc="test_deadassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
@@ -251,16 +293,23 @@ the line after <code>result = parse_positive(0)</code>. Run again. Is the print 
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is placing an assertion inside a <code>with pytest.raises()</code> block after the line
-that raises. Once <code>parse_positive(0)</code> raises <code>ValueError</code>, execution jumps to the
-end of the <code>with</code> block and the assertion is never reached. The test passes because
-the exception was raised as expected, but the assertion that was supposed to check a
-return value is silently skipped. Shows that assertions on return values must be
-placed after the <code>with pytest.raises()</code> block, not inside it.</p>
+<p>The bug is placing an assertion inside a <code>with pytest.raises()</code> block
+after the line that raises. Once <code>parse_positive(0)</code> raises
+<code>ValueError</code>, execution jumps to the end of the <code>with</code> block and the
+assertion is never reached. The test passes because the exception was
+raised as expected, but the assertion that was supposed to check a
+return value is silently skipped.</p>
+<p>Shows: that assertions on return values must be placed after the
+<code>with pytest.raises()</code> block, not inside it.</p>
+<p>To find it: add <code>print("reached")</code> on the line immediately after the
+raising call, inside the <code>with</code> block. Run the test: if the print
+never appears, execution never reached that line. Move the assertion
+to after the <code>with</code> block.</p>
 </details>
 <h2 id="testing-missingreturn">Test a string prefix-stripping function</h2>
-<p>Run <code>pytest test_missingreturn.py -v</code>. Read the assertion error. What value did
-<code>strip_prefix</code> return? Is that what you expected from the code?</p>
+<p>Run <code>pytest test_missingreturn.py -v</code>. Read the assertion error. What
+value did <code>strip_prefix</code> return? Is that what you expected from the
+code?</p>
 <div data-inc="test_missingreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">strip_prefix</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
         <span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">):]</span>
@@ -273,15 +322,21 @@ placed after the <code>with pytest.raises()</code> block, not inside it.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is a missing <code>return</code> in <code>strip_prefix</code>. The slicing expression computes
-the correct substring but discards it, so the function returns <code>None</code>. The test then
-compares <code>None == "disk full"</code> and fails. Shows how to recognise a missing
-<code>return</code> from a <code>None</code> assertion error and how to check function return values as a
-first step when a test fails unexpectedly.</p>
+<p>The bug is a missing <code>return</code> in <code>strip_prefix</code>. The slicing
+expression computes the correct substring but discards it, so the
+function returns <code>None</code>. The test then compares <code>None == "disk full"</code>
+and fails.</p>
+<p>Shows: how to recognise a missing <code>return</code> from a <code>None</code> assertion
+error and how to check function return values as a first step when a
+test fails unexpectedly.</p>
+<p>To find it: print <code>result</code> in the test before the assertion. If it
+prints <code>None</code>, the function did not return a value. Read the function
+and find the branch that computes the answer but has no <code>return</code>
+statement.</p>
 </details>
 <h2 id="testing-paramtype">Test a function that returns a sorted list</h2>
-<p>Run <code>pytest test_paramtype.py -v</code>. All three cases fail. Read the assertion error
-for the first case. What value did <code>result</code> have?</p>
+<p>Run <code>pytest test_paramtype.py -v</code>. All three cases fail. Read the
+assertion error for the first case. What value did <code>result</code> have?</p>
 <div data-inc="test_paramtype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
@@ -297,16 +352,21 @@ for the first case. What value did <code>result</code> have?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is calling <code>values.sort()</code> and assigning its return value. <code>list.sort()</code>
-sorts the list in place and returns <code>None</code>; the sorted result is in <code>values</code>, not
-in <code>result</code>. The assertion then compares <code>None</code> against the expected list and fails.
-Shows the difference between <code>list.sort()</code> (in-place, returns <code>None</code>) and
-<code>sorted()</code> (returns a new sorted list), and how parametrize makes the pattern of
-failure visible across multiple inputs at once.</p>
+<p>The bug is calling <code>values.sort()</code> and assigning its return
+value. <code>list.sort()</code> sorts the list in place and returns <code>None</code>; the
+sorted result is in <code>values</code>, not in <code>result</code>. The assertion then
+compares <code>None</code> against the expected list and fails.</p>
+<p>Shows: the difference between <code>list.sort()</code> (in-place, returns <code>None</code>)
+and <code>sorted()</code> (returns a new sorted list), and how parametrize makes
+the pattern of failure visible across multiple inputs at once.</p>
+<p>To find it: print <code>result</code> inside the test for the first failing
+case. If <code>result</code> is <code>None</code>, the function returned <code>None</code> instead of a
+list. Check whether the function calls <code>list.sort()</code>, which returns
+<code>None</code>, or <code>sorted()</code>, which returns a new sorted list.</p>
 </details>
 <h2 id="testing-tmpfile">Test a function that writes JSON to a file</h2>
-<p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes, list the files
-in your working directory. What file was left behind?</p>
+<p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes,
+list the files in your working directory. What file was left behind?</p>
 <div data-inc="test_tmpfile.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="s2">"total"</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>
 
@@ -325,12 +385,18 @@ in your working directory. What file was left behind?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is opening <code>"output.json"</code> as a plain filename, which creates the file in
-the current working directory. The file is not deleted when the test finishes, so
-subsequent runs may read stale data, and different tests that use the same filename
-can interfere with each other. Shows how to use the <code>tmp_path</code> fixture, which
-provides a per-test temporary directory that pytest removes automatically after
-each run.</p>
+<p>The bug is opening <code>"output.json"</code> as a plain filename, which creates
+the file in the current working directory. The file is not deleted
+when the test finishes, so subsequent runs may read stale data, and
+different tests that use the same filename can interfere with each
+other.</p>
+<p>Shows: how to use the <code>tmp_path</code> fixture, which provides a per-test
+temporary directory that pytest removes automatically after each run.</p>
+<p>To find it: list the files in the working directory after the test
+suite finishes.  If <code>output.json</code> is present, the test wrote to the
+current directory rather than a temporary one. Use the <code>tmp_path</code>
+fixture to get a per-test directory that pytest cleans up
+automatically.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -348,12 +414,5 @@ each run.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

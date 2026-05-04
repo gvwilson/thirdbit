@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -53,8 +52,9 @@
 <main id="main-content">
 <h1>HTTP and APIs</h1>
 <h2 id="web-nostatuscheck">Fetch and parse data from an API endpoint</h2>
-<p>Run the script and read the error message. What type of error is raised, and which
-line causes it? Is the problem in the line that fails or somewhere earlier?</p>
+<p>Run the script and read the error message. What type of error is
+raised, and which line causes it? Is the problem in the line that
+fails or somewhere earlier?</p>
 <div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -85,15 +85,20 @@ line causes it? Is the problem in the line that fails or somewhere earlier?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A 404 response
-returns an HTML error page, not JSON, so <code>.json()</code> raises a <code>JSONDecodeError</code> at the
-parsing step rather than flagging the real problem, which is the failed request.
-Shows how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
+<p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A
+404 response returns an HTML error page, not JSON, so <code>.json()</code> raises
+a <code>JSONDecodeError</code> at the parsing step rather than flagging the real
+problem, which is the failed request.</p>
+<p>Shows: how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
 the response body.</p>
+<p>To find it: print <code>r.status_code</code> before calling <code>r.json()</code>. A status
+other than 200 means the response body is likely an error page, not
+JSON. The <code>JSONDecodeError</code> is a symptom; the root cause is the failed
+request that was never checked.</p>
 </details>
 <h2 id="web-jsonparam">Submit a new record to an API as JSON</h2>
-<p>Run the script and read the output. What content type does the server report
-receiving? What content type did you intend to send?</p>
+<p>Run the script and read the output. What content type does the server
+report receiving? What content type did you intend to send?</p>
 <div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -126,16 +131,22 @@ receiving? What content type did you intend to send?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code> sends a
-form-encoded body with <code>content-type: application/x-www-form-urlencoded</code>, while
-most APIs expect <code>json=</code> which sends a JSON body with <code>content-type:
-application/json</code>. Shows the difference between these two keyword arguments and
-why the server may silently reject or misparse a request sent with the wrong
+<p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code>
+sends a form-encoded body with
+<code>content-type: application/x-www-form-urlencoded</code>,
+while most APIs expect <code>json=</code> which sends a JSON body with
+<code>content-type: application/json</code>.</p>
+<p>Shows: the difference between these two keyword arguments and why the
+server may silently reject or misparse a request sent with the wrong
 encoding.</p>
+<p>To find it: print <code>r.request.headers["content-type"]</code>. If it shows
+<code>application/x-www-form-urlencoded</code>, the request was sent as form
+data. Change <code>data=</code> to <code>json=</code> and print the header again to confirm
+it now shows <code>application/json</code>.</p>
 </details>
 <h2 id="web-urlparam">Search an API with a multi-word query parameter</h2>
-<p>Run the script and read the output. How many query parameters did the server receive?
-How many did the code intend to send?</p>
+<p>Run the script and read the output. How many query parameters did the
+server receive?  How many did the code intend to send?</p>
 <div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -172,15 +183,22 @@ How many did the code intend to send?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string URL. The
-ampersand is interpreted as a query-string separator, so the server receives
-<code>category=books</code> and a bare key <code>games</code> instead of <code>category=books&amp;games</code>. Shows
-how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special
-characters correctly.</p>
+<p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string
+URL. The ampersand is interpreted as a query-string separator, so the
+server receives <code>category=books</code> and a bare key <code>games</code> instead of
+<code>category=books&amp;games</code>.</p>
+<p>Shows: how to pass query parameters as a <code>params=</code> dict so the HTTP
+client encodes special characters correctly.</p>
+<p>To find it: print the constructed URL string before sending the
+request. If a literal <code>&amp;</code> appears inside a parameter value, the
+ampersand was interpreted as a separator rather than being
+percent-encoded. Pass parameters as a <code>params=</code> dictionary to let the
+HTTP library encode them correctly.</p>
 </details>
 <h2 id="web-nopaginate">Retrieve all records from a paginated API</h2>
-<p>Run the script and compare the number of records retrieved to the total available.
-What field in the response tells you that more data exists?</p>
+<p>Run the script and compare the number of records retrieved to the
+total available.  What field in the response tells you that more data
+exists?</p>
 <div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -221,14 +239,19 @@ What field in the response tells you that more data exists?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is fetching only the first page and ignoring the <code>next_page</code> field in the
-response. No error is raised; the script silently processes a fraction of the
-available data. Shows how to recognize and follow pagination cursors and why APIs
+<p>The bug is fetching only the first page and ignoring the <code>next_page</code>
+field in the response. No error is raised; the script silently
+processes a fraction of the available data.</p>
+<p>Shows: how to recognize and follow pagination cursors and why APIs
 return data in pages rather than all at once.</p>
+<p>To find it: print <code>len(records)</code> after fetching and compare it to the
+<code>total</code> field in the response JSON. If <code>len(records) &lt; total</code>, the API
+is returning data in pages.  Check the response for a <code>next_page</code>,
+<code>next_cursor</code>, or <code>Link</code> header that points to the next page.</p>
 </details>
 <h2 id="web-notimeout">Fetch data from a potentially slow API endpoint</h2>
-<p>Run the script. Does it return promptly? How long does it wait before producing
-output?</p>
+<p>Run the script. Does it return promptly? How long does it wait before
+producing output?</p>
 <div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -259,14 +282,21 @@ output?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is passing <code>timeout=None</code>, which disables all timeouts and causes the call to
-wait indefinitely for a slow or unresponsive server. Shows the difference between
-httpx's default timeout and <code>timeout=None</code>, and how to set an explicit
-<code>httpx.Timeout</code> to bound how long a request may take.</p>
+<p>The bug is passing <code>timeout=None</code>, which disables all timeouts and
+causes the call to wait indefinitely for a slow or unresponsive
+server.</p>
+<p>Shows: the difference between httpx's default timeout and
+<code>timeout=None</code>, and how to set an explicit <code>httpx.Timeout</code> to bound
+how long a request may take.</p>
+<p>To find it: time the script with <code>time python script.py</code>. If it hangs
+indefinitely, grep the source for <code>timeout=</code> and check whether the
+value is <code>None</code>. Replace it with an explicit duration such as
+<code>timeout=10</code> and confirm the script now returns promptly with a
+timeout error.</p>
 </details>
 <h2 id="web-created">Create a new resource via a POST request</h2>
-<p>Run the script. What status code does the server return? What does the script print?
-Is the request actually successful?</p>
+<p>Run the script. What status code does the server return? What does the
+script print?  Is the request actually successful?</p>
 <div data-inc="created.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -303,14 +333,20 @@ Is the request actually successful?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is comparing <code>r.status_code == 200</code> when a successful POST returns
-<code>201 Created</code>. The response is treated as a failure even though the resource was
-created. Shows the range of 2xx status codes, when each is used, and how to use
-<code>r.is_success</code> to accept any successful response.</p>
+<p>The bug is comparing <code>r.status_code == 200</code> when a successful POST
+returns <code>201 Created</code>. The response is treated as a failure even
+though the resource was created.</p>
+<p>Shows: the range of 2xx status codes, when each is used, and how to
+use <code>r.is_success</code> to accept any successful response.</p>
+<p>To find it: print <code>r.status_code</code> after the POST. If it prints <code>201</code>,
+the resource was created successfully but the check <code>r.status_code == 200</code>
+treats it as a failure. Replace the check with <code>r.is_success</code> to
+accept any 2xx status code.</p>
 </details>
 <h2 id="web-ratelimit">Retry a request after hitting a rate limit</h2>
-<p>Run the script and look at the status code and headers on each attempt. What does
-the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
+<p>Run the script and look at the status code and headers on each
+attempt. What does the <code>Retry-After</code> header contain? Does the script
+wait before retrying?</p>
 <div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -353,14 +389,21 @@ the <code>Retry-After</code> header contain? Does the script wait before retryin
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is retrying immediately after a 429 Too Many Requests response without
-reading the <code>Retry-After</code> header. Each retry is rejected for the same reason and the
-script loops without ever succeeding. Shows what 429 means, how to detect it, and
-how to wait the server-specified duration before the next attempt.</p>
+<p>The bug is retrying immediately after a 429 Too Many Requests response
+without reading the <code>Retry-After</code> header. Each retry is rejected for
+the same reason and the script loops without ever succeeding.</p>
+<p>Shows: what 429 means, how to detect it, and how to wait the
+server-specified duration before the next attempt.</p>
+<p>To find it: print <code>r.status_code</code> and <code>r.headers.get("Retry-After")</code>
+on each attempt. If the status is <code>429</code> on every attempt and the
+<code>Retry-After</code> value is nonzero, the script is not waiting before
+retrying. Add <code>time.sleep(int(r.headers["Retry-After"]))</code> before the
+next attempt.</p>
 </details>
 <h2 id="web-putpatch">Update a single field in an existing API resource</h2>
-<p>Run the script and compare the resource state before and after the PUT request.
-Which fields changed, and which fields were you expecting to keep?</p>
+<p>Run the script and compare the resource state before and after the PUT
+request.  Which fields changed, and which fields were you expecting to
+keep?</p>
 <div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -400,14 +443,20 @@ Which fields changed, and which fields were you expecting to keep?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is using PUT with a partial body. PUT replaces the entire resource with
-the request body, so any field not included in the request is wiped. Shows the
-semantic difference between PUT (full replacement) and PATCH (partial update), and
-why sending only the fields you want to change requires PATCH.</p>
+<p>The bug is using PUT with a partial body. PUT replaces the entire
+resource with the request body, so any field not included in the
+request is wiped.</p>
+<p>Shows: the semantic difference between PUT (full replacement) and
+PATCH (partial update), and why sending only the fields you want to
+change requires PATCH.</p>
+<p>To find it: fetch and print the resource before the request, then
+fetch and print it again after. If fields you did not include in the
+request body now show default or null values, PUT replaced the entire
+resource. Switch to PATCH and send only the fields you want to change.</p>
 </details>
 <h2 id="web-tokenurl">Authenticate with an API using a secret key</h2>
-<p>Run the script and read the output. In which part of the request does the API key
-appear? What would a server log entry look like?</p>
+<p>Run the script and read the output. In which part of the request does
+the API key appear? What would a server log entry look like?</p>
 <div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -439,14 +488,20 @@ appear? What would a server log entry look like?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is placing the API key in the URL query string. Query strings are recorded
-in server access logs, browser history, and any intermediate proxies, so the secret
-is exposed in plaintext. Shows how to pass credentials in an <code>Authorization</code>
-header instead, where they are kept out of logs and not cached by browsers.</p>
+<p>The bug is placing the API key in the URL query string. Query strings
+are recorded in server access logs, browser history, and any
+intermediate proxies, so the secret is exposed in plaintext.</p>
+<p>Shows: how to pass credentials in an <code>Authorization</code> header instead,
+where they are kept out of logs and not cached by browsers.</p>
+<p>To find it: print <code>str(r.request.url)</code> to see the full URL including
+query parameters. If the API key appears there (e.g., if
+<code>?api_key=secret</code> is in the query) it will be recorded in any server
+access log. Move it to an <code>Authorization</code> header instead.</p>
 </details>
 <h2 id="web-postredirect">Submit form data to an endpoint that redirects</h2>
-<p>Run the script and read the output. What HTTP method reached the final endpoint?
-What happened to the request body that was sent to <code>/submit</code>?</p>
+<p>Run the script and read the output. What HTTP method reached the final
+endpoint?  What happened to the request body that was sent to
+<code>/submit</code>?</p>
 <div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -489,11 +544,16 @@ What happened to the request body that was sent to <code>/submit</code>?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is following a 302 redirect from a POST request. HTTP convention changes the
-method from POST to GET when following a 302, so the request body is silently
-dropped and the final endpoint receives an empty GET request. Shows how redirects
-interact with request methods, and how to detect this by inspecting the method and
-body at the redirected URL.</p>
+<p>The bug is following a 302 redirect from a POST request. HTTP
+convention changes the method from POST to GET when following a 302,
+so the request body is silently dropped and the final endpoint
+receives an empty GET request.</p>
+<p>Shows: how redirects interact with request methods, and how to detect
+this by inspecting the method and body at the redirected URL.</p>
+<p>To find it: print <code>r.request.method</code> and <code>r.request.url</code> after the
+call. If the final method is <code>GET</code> but you sent a <code>POST</code>, the redirect
+changed the method. Print <code>r.request.body</code> to confirm the body was
+dropped.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -511,12 +571,5 @@ body at the redirected URL.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

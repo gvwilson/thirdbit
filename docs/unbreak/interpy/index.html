@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -71,8 +70,12 @@ Has the original list changed?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>list.reverse()</code> (which mutates in place) instead of <code>reversed()</code>
-or slicing, so the original list is also reversed after the call. Shows aliasing
-and the difference between in-place and copy operations.</p>
+or slicing, so the original list is also reversed after the call.</p>
+<p>Shows: aliasing and the difference between in-place and copy
+operations.</p>
+<p>To find it: print <code>id(original_list)</code> before the call and <code>id(returned_list)</code> after.
+If both print the same number, the function returned the same object rather than a
+copy, and reversing it also mutated the original.</p>
 </details>
 <h2 id="interpy-sharemut">Track items added to each shopping cart</h2>
 <p>Create two account objects, add different transactions to each, and then print the
@@ -106,8 +109,13 @@ transaction history of each. Does each account show only its own transactions?</
 <summary>Show explanation</summary>
 <p>The bug is that <code>history = []</code> is defined at class level, so all instances share the
 same list object instead of each having their own, and every account's transactions
-appear in every other account. Shows the difference between shared mutable class
-attributes and per-instance attributes initialized in <code>__init__</code>.</p>
+appear in every other account.</p>
+<p>Shows: the difference between shared mutable class attributes and
+per-instance attributes initialized in <code>__init__</code>.</p>
+<p>To find it: create two accounts, add one transaction to the first and a different one
+to the second, then print <code>account1.history</code> and <code>account2.history</code>. If both lists
+contain both transactions, confirm the sharing with <code>print(Account.history is
+account1.history)</code> — it will print <code>True</code>.</p>
 </details>
 <h2 id="interpy-fpeq">Check whether a running total hits a target</h2>
 <p>Run this script and examine the two computed values. Are they exactly equal? Try
@@ -148,8 +156,12 @@ printing each value with many decimal places.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>==</code> on floats computed by different routes, so the comparison
-returns <code>False</code> even when the values should be equal. Shows floating-point
-representation errors and how to use <code>math.isclose</code>.</p>
+returns <code>False</code> even when the values should be equal.</p>
+<p>Shows: floating-point representation errors and how to use
+<code>math.isclose</code>.</p>
+<p>To find it: print both values with 20 decimal places using <code>f"{val:.20f}"</code>. You will
+see that one ends in <code>...000001</code> rather than matching the other exactly, revealing
+the rounding difference that makes <code>==</code> return <code>False</code>.</p>
 </details>
 <h2 id="interpy-broad">Load settings from a configuration file</h2>
 <p>Run the scraper with the provided URL list, which includes one malformed URL. Does
@@ -199,8 +211,14 @@ it process all the valid URLs? Check whether anything is silently discarded.</p>
 <p>The bug is wrapping the fetch-and-parse loop in <code>try/except Exception: pass</code> to
 tolerate network timeouts. The <code>ValueError</code> raised by the URL parser is also caught
 and discarded, so the scraper silently stops processing after the first malformed
-URL. Shows how overly broad exception handlers swallow unrelated bugs, and how to
-use <code>logging.exception</code> to record errors instead of ignoring them.</p>
+URL.</p>
+<p>Shows: how overly broad exception handlers swallow unrelated bugs, and
+how to use <code>logging.exception</code> to record errors instead of ignoring
+them.</p>
+<p>To find it: replace <code>pass</code> in the <code>except</code> block with <code>logging.exception("caught")</code>.
+Run the script again and read the log output. You will see a <code>ValueError</code> from the
+URL parser printed for the malformed URL, proving the <code>except</code> block was swallowing
+the wrong exception type.</p>
 </details>
 <h2 id="interpy-commas">Read addresses from a spreadsheet export</h2>
 <p>Run the script with the provided CSV file and read the traceback. Which line in the
@@ -242,9 +260,13 @@ Diana Prince,79
 <summary>Show explanation</summary>
 <p>The bug is that names containing a comma (e.g., "Smith, John") cause
 <code>line.split(',')</code> to produce three fields instead of two, so the index used for the
-score points at the wrong element and the script crashes with an <code>IndexError</code>.
-Shows why hand-rolled CSV parsing fails on real data and when to use the <code>csv</code>
-module.</p>
+score points at the wrong element and the script crashes with an <code>IndexError</code>.</p>
+<p>Shows: why hand-rolled CSV parsing fails on real data and when to use
+the <code>csv</code> module.</p>
+<p>To find it: open the CSV in a text editor and find the row that triggers the
+<code>IndexError</code>. Count the commas on that line — there are two, not one. The extra
+comma sits inside a quoted name field that <code>line.split(',')</code> does not recognize as
+quoted.</p>
 </details>
 <h2 id="interpy-lexisort">Rank files by version number</h2>
 <p>Run the sort function and examine the output order. Where does <code>file10</code> appear
@@ -267,9 +289,13 @@ relative to <code>file2</code>?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using the default <code>sort()</code>, which gives lexicographic order and places
-<code>file10</code> before <code>file2</code>. Shows the difference between lexicographic and numeric
-sort order and how to write a <code>key</code> function that extracts the embedded integer so
+<code>file10</code> before <code>file2</code>.</p>
+<p>Shows: the difference between lexicographic and numeric sort order and
+how to write a <code>key</code> function that extracts the embedded integer so
 the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
+<p>To find it: run the sort and search for <code>file10</code> in the output. It appears
+immediately after <code>file1</code>, before <code>file2</code>. That placement is the signature of
+alphabetical order, where <code>"10" &lt; "2"</code> because <code>"1" &lt; "2"</code> at the first character.</p>
 </details>
 <h2 id="interpy-exhaust">Process a pipeline of records twice</h2>
 <p>Run the script and look at both outputs. Does each one produce the values you
@@ -298,8 +324,12 @@ expected?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that generators are exhausted after one pass, so the second use of the
-generator in the same expression produces no results. Shows that generators are
-single-use iterators and when to use lists instead.</p>
+generator in the same expression produces no results.</p>
+<p>Shows: that generators are single-use iterators and when to use lists
+instead.</p>
+<p>To find it: print <code>type(pipeline)</code> to confirm it is a generator. Then assign
+<code>results = list(pipeline)</code> and print <code>results</code> a second time — the second access
+returns an empty list, proving the generator was exhausted on the first pass.</p>
 </details>
 <h2 id="interpy-cachekey">Cache results of an expensive calculation</h2>
 <p>Call the cached function twice with the same positional argument but a different
@@ -332,8 +362,13 @@ keyword argument each time. Do both calls return the correct result?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the cache key does not include all function arguments (e.g., ignores
-keyword arguments), so the decorator returns the same result for different inputs.
-Shows how to construct correct cache keys and test with varied inputs.</p>
+keyword arguments), so the decorator returns the same result for different inputs.</p>
+<p>Shows: how to construct correct cache keys and test with varied
+inputs.</p>
+<p>To find it: call the cached function twice with the same positional argument but
+different keyword arguments — e.g., <code>f(1, multiplier=2)</code> then <code>f(1, multiplier=3)</code>.
+If both return the same value, add <code>print(key)</code> inside the decorator to show the
+key is identical for both calls.</p>
 </details>
 <h2 id="interpy-super">Extend a base class with new attributes</h2>
 <p>Create an instance of the subclass and try to access an attribute that is set in
@@ -369,8 +404,12 @@ the parent's <code>__init__</code>. Does it exist?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is forgetting <code>super().__init__()</code>, so the parent's <code>__init__</code> is never
-called and required attributes are missing when a subclass method tries to use them.
-Shows Python's method resolution order and how to use <code>super()</code> correctly.</p>
+called and required attributes are missing when a subclass method tries to use them.</p>
+<p>Shows: Python's method resolution order and how to use <code>super()</code>
+correctly.</p>
+<p>To find it: instantiate the subclass and immediately try to access a parent-defined
+attribute. The <code>AttributeError</code> names the missing attribute. Search the subclass
+<code>__init__</code> for a call to <code>super().__init__()</code> — its absence is the cause.</p>
 </details>
 <h2 id="interpy-unclosed">Write results to disk when processing fails</h2>
 <p>Run the script so that it raises an exception part-way through writing. Then open
@@ -419,9 +458,14 @@ fifth line
 <summary>Show explanation</summary>
 <p>The bug is using <code>open()</code> without a <code>with</code> statement. When an unhandled exception
 occurs midway through, the output file is left partially written because the write
-buffer is never flushed and <code>close()</code> is never called. Shows why context managers
-guarantee file cleanup even when exceptions occur, and how to use
-<code>with open(…) as f</code> to prevent data loss.</p>
+buffer is never flushed and <code>close()</code> is never called.</p>
+<p>Shows: why context managers guarantee file cleanup even when
+exceptions occur, and how to use <code>with open(…) as f</code> to prevent data
+loss.</p>
+<p>To find it: run the script so that it raises an exception midway through writing,
+then open the output file in a text editor. Count the records. If the count is less
+than expected, the buffer was never flushed — <code>close()</code> was never called because the
+exception skipped it.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -439,12 +483,5 @@ guarantee file cleanup even when exceptions occur, and how to use
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

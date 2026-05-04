@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -54,8 +53,8 @@
 <h1>SQL</h1>
 <p><a href="./databases.zip">download databases</a></p>
 <h2 id="sql-sortcol">Display records sorted by last name then first name</h2>
-<p>Run this query and look at the first several rows. Is the output ordered by island
-first, or by species first?</p>
+<p>Run this query and look at the first several rows. Is the output
+ordered by island first, or by species first?</p>
 <div data-inc="sortcol.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show the species, island, and sex of all penguins,</span>
 <span class="c1">-- sorted alphabetically by island and then by species within each island.</span>
 <span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
@@ -65,14 +64,20 @@ first, or by species first?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A query meant to sort penguins by island and then by species within each island
-produces species-first ordering instead; the bug is listing the columns in the
-wrong order in the <code>order by</code> clause. Shows how <code>order by</code> applies columns from
-left to right and why column order in that clause matters.</p>
+<p>A query meant to sort penguins by island and then by species within
+each island produces species-first ordering instead; the bug is
+listing the columns in the wrong order in the <code>order by</code> clause.</p>
+<p>Shows: how <code>order by</code> applies columns from left to right and why
+column order in that clause matters.</p>
+<p>To find it: run the query and examine the first few rows. If all
+<code>'Adelie'</code> rows appear before any <code>'Chinstrap'</code> rows regardless of
+island, the sort is species-first. Compare the <code>order by</code> column
+sequence to the intended priority.</p>
 </details>
 <h2 id="sql-offsetpage">Retrieve the second page of search results</h2>
-<p>Run this query and note which rows are returned. Count from the beginning of the
-full table to check whether rows 11–15 are actually what you got.</p>
+<p>Run this query and note which rows are returned. Count from the
+beginning of the full table to check whether rows 11-15 are actually
+what you got.</p>
 <div data-inc="offsetpage.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
@@ -81,10 +86,15 @@ full table to check whether rows 11–15 are actually what you got.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A query meant to retrieve the third page of five rows returns rows 12–16 instead
-of rows 11–15; the bug is using <code>offset 11</code> (which skips 11 rows) instead of
-<code>offset 10</code>. Shows how <code>limit</code> and <code>offset</code> interact and how to calculate the
+<p>A query meant to retrieve the third page of five rows returns rows 12-16 instead
+of rows 11-15; the bug is using <code>offset 11</code> (which skips 11 rows) instead of
+<code>offset 10</code>.</p>
+<p>Shows: how <code>limit</code> and <code>offset</code> interact and how to calculate the
 correct offset for a given page number.</p>
+<p>To find it: add <code>rowid</code> to the <code>select</code> clause and run the query. If the first
+returned row has <code>rowid = 12</code> but the page should start at row 11, the offset is
+off by one. The formula is <code>(page_number - 1) * page_size</code>, so page 3 with
+page size 5 gives <code>offset 10</code>.</p>
 </details>
 <h2 id="sql-intdivision">Calculate the average score per student</h2>
 <p>Run this query and compare the <code>mass_kg</code> column to the <code>body_mass_g</code> column.
@@ -100,9 +110,12 @@ Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
 <summary>Show explanation</summary>
 <p>A query that converts body mass from grams to kilograms silently truncates the
 result because SQLite performs integer division when both operands are integers;
-the bug is dividing by <code>1000</code> instead of <code>1000.0</code>. Shows how to force
-floating-point arithmetic in SQL and why checking computed columns against known
-values catches this class of error.</p>
+the bug is dividing by <code>1000</code> instead of <code>1000.0</code>.</p>
+<p>Shows: how to force floating-point arithmetic in SQL and why checking
+computed columns against known values catches this class of error.</p>
+<p>To find it: run <code>select body_mass_g, body_mass_g / 1000 as mass_kg from penguins
+limit 5</code>. A penguin weighing 3750 g should show <code>3.75</code> kg; if it shows <code>3</code>, integer
+division is truncating the decimal. Change <code>1000</code> to <code>1000.0</code> and rerun.</p>
 </details>
 <h2 id="sql-distinctcols">List unique participants in a study</h2>
 <p>Run this query and count the rows returned. How many distinct species are in the
@@ -117,8 +130,12 @@ dataset? Does the row count match that number?</p>
 <p>A query intended to list the distinct species in the dataset returns seven rows
 instead of three because <code>distinct</code> is applied to both <code>species</code> and <code>sex</code>,
 producing one row per unique (species, sex) combination; the bug is including <code>sex</code>
-in the <code>select</code> clause. Shows that <code>distinct</code> operates on the entire set of
-selected columns, not on individual ones.</p>
+in the <code>select</code> clause.</p>
+<p>Shows: that <code>distinct</code> operates on the entire set of selected columns,
+not on individual ones.</p>
+<p>To find it: run <code>select count(*) from (select distinct species from penguins)</code>. If
+that returns 3 but the original query returns 7, the extra column is what is
+producing the extra rows.</p>
 </details>
 <h2 id="sql-nullequal">Find records with no assigned reviewer</h2>
 <p>Run this query. How many rows does it return? Are there penguins in the table whose
@@ -134,8 +151,12 @@ sex was not recorded?</p>
 <p>A query that tries to find penguins with no recorded sex returns zero rows because
 comparing any value to <code>null</code> with <code>=</code> produces <code>null</code> (not <code>true</code>) in SQL's
 ternary logic, so the <code>where</code> clause never passes; the bug is using <code>= null</code> instead
-of <code>is null</code>. Shows SQL's three-valued logic and the two special tests <code>is null</code>
+of <code>is null</code>.</p>
+<p>Shows: SQL's three-valued logic and the two special tests <code>is null</code>
 and <code>is not null</code>.</p>
+<p>To find it: run <code>select count(*) from penguins where sex is null</code>. If that returns
+a nonzero count but <code>where sex = null</code> returns zero, the <code>=</code> test is failing because
+null comparisons always produce null, never <code>true</code>.</p>
 </details>
 <h2 id="sql-impossibleand">Filter for records in two different categories</h2>
 <p>Run this query. How many rows does it return? Choose a penguin you know is on
@@ -150,9 +171,12 @@ Biscoe island from a previous query and check whether it appears here.</p>
 <summary>Show explanation</summary>
 <p>A query that should return penguins from either Biscoe or Dream island returns
 zero rows because <code>and</code> requires both conditions to be true at the same time, but
-a penguin can only be on one island; the bug is using <code>and</code> where <code>or</code> is needed.
-Shows the difference between <code>and</code> and <code>or</code> and how to spot conditions that can
-never simultaneously be true.</p>
+a penguin can only be on one island; the bug is using <code>and</code> where <code>or</code> is needed.</p>
+<p>Shows: the difference between <code>and</code> and <code>or</code> and how to spot
+conditions that can never simultaneously be true.</p>
+<p>To find it: ask whether a single penguin can be on Biscoe island and Dream island
+at the same time. It cannot, so <code>AND</code> can never be true. Whenever a zero-row result
+is unexpected, check whether the conditions are mutually exclusive.</p>
 </details>
 <h2 id="sql-casevalue">Query records by status label</h2>
 <p>Run this query and count the rows returned. Then run a query to find the distinct
@@ -169,8 +193,13 @@ values stored in the <code>sex</code> column. Do any of them match the literal u
 <p>A query that should return all female penguins returns zero rows because the <code>sex</code>
 column stores the value <code>'FEMALE'</code> in uppercase but the query filters on
 <code>'female'</code> in lowercase; SQLite string comparisons are case-sensitive for non-ASCII
-characters. Shows how to inspect the actual stored values before writing a filter
-and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise comparisons.</p>
+characters.</p>
+<p>Shows: how to inspect the actual stored values before writing a filter
+and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise
+comparisons.</p>
+<p>To find it: run <code>select distinct sex from penguins</code> before writing the filter. If
+the results show <code>'FEMALE'</code> in uppercase, a <code>where sex = 'female'</code> will return zero
+rows because the literal does not match.</p>
 </details>
 <h2 id="sql-wherealiased">Filter on a calculated column</h2>
 <p>Run this query. Does it raise an error or return wrong results? Add a second
@@ -187,8 +216,12 @@ clause and compare the two queries' output.</p>
 <p>A query that tries to filter using a column alias defined in the <code>select</code> clause
 fails with a "no such column" error because SQL evaluates <code>where</code> before <code>select</code>,
 so the alias does not yet exist at that point; the bug is referencing <code>mass_kg</code> in
-<code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>. Shows
-the order of SQL clause evaluation.</p>
+<code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>.</p>
+<p>Shows: the order of SQL clause evaluation.</p>
+<p>To find it: run the query and read the error: <code>no such column: mass_kg</code>. SQL
+evaluates <code>where</code> before <code>select</code>, so the alias defined in <code>select</code> does not yet
+exist when <code>where</code> runs. Replace the alias in <code>where</code> with the full expression
+<code>body_mass_g / 1000.0</code>.</p>
 </details>
 <h2 id="sql-andorprecedence">Select records matching one of two conditions</h2>
 <p>Run this query. Which species and islands appear in the result? Is the output what
@@ -204,8 +237,13 @@ you expected based on the comment describing the intent?</p>
 <p>A query intended to find Adelie or Chinstrap penguins that are on Biscoe island
 instead returns all Adelie penguins from any island plus Chinstraps on Biscoe,
 because <code>and</code> binds more tightly than <code>or</code>; the bug is missing parentheses around
-the <code>or</code> sub-expression. Shows SQL operator precedence and why parentheses are
-needed to make complex <code>where</code> conditions unambiguous.</p>
+the <code>or</code> sub-expression.</p>
+<p>Shows: SQL operator precedence and why parentheses are needed to make
+complex <code>where</code> conditions unambiguous.</p>
+<p>To find it: run the query and check whether any Adelie penguins from non-Biscoe
+islands appear in the result. If they do, <code>and</code> is binding more tightly than <code>or</code>
+and the condition is being read as <code>species = 'Adelie' or (species = 'Chinstrap' and
+island = 'Biscoe')</code>. Add parentheses around the <code>or</code> sub-expression.</p>
 </details>
 <h2 id="sql-nonaggcol">Summarize sales by region and product</h2>
 <p>Run this query and examine the <code>sex</code> column. Pick one species and check a few rows
@@ -222,8 +260,13 @@ for that species group?</p>
 <p>A query that groups by species but also selects <code>sex</code> without aggregating it
 produces an arbitrary, unpredictable sex value for each species group because <code>sex</code>
 is not in the <code>group by</code> clause; the bug is selecting a column that is neither
-aggregated nor part of the grouping. Shows why every column in <code>select</code> must
-either appear in <code>group by</code> or be wrapped in an aggregation function.</p>
+aggregated nor part of the grouping.</p>
+<p>Shows: why every column in <code>select</code> must either appear in <code>group by</code>
+or be wrapped in an aggregation function.</p>
+<p>To find it: pick one species in the result and verify its <code>sex</code> value against the
+original table. If the grouped query shows a single sex for the group but the raw
+data contains both sexes for that species, the database is picking an arbitrary
+value.</p>
 </details>
 <h2 id="sql-wherenothavin">Keep only groups above a minimum size</h2>
 <p>Run this query. Does it return a result or raise an error? Check whether moving
@@ -240,9 +283,13 @@ the condition to a <code>having</code> clause after <code>group by</code> fixes 
 <p>A query that tries to filter groups by their average value using <code>where</code> raises an
 error because aggregate functions like <code>avg()</code> cannot appear in <code>where</code>; <code>where</code>
 filters individual rows before grouping, while <code>having</code> filters groups after
-aggregation; the bug is placing the condition in <code>where</code> instead of <code>having</code>.
-Shows the difference in timing between <code>where</code> and <code>having</code> in SQL's execution
-order.</p>
+aggregation; the bug is placing the condition in <code>where</code> instead of <code>having</code>.</p>
+<p>Shows: the difference in timing between <code>where</code> and <code>having</code> in SQL's
+execution order.</p>
+<p>To find it: run the query and read the error message — something like <code>misuse of
+aggregate function avg()</code>. Aggregate functions cannot appear in <code>where</code> because rows
+haven't been grouped yet at that point. Move the condition to a <code>having</code> clause after
+the <code>group by</code>.</p>
 </details>
 <h2 id="sql-groupbymissing">Count entries per category and subcategory</h2>
 <p>Run this query and examine the <code>island</code> column. Do all the rows for a given species
@@ -258,8 +305,13 @@ show the same island? Check a few values against the original table.</p>
 <p>A query that counts penguins per species per island produces unreliable island
 values because <code>island</code> appears in <code>select</code> but not in <code>group by</code>, so the database
 picks an arbitrary island for each species group; the bug is omitting <code>island</code> from
-the <code>group by</code> clause. Shows that every non-aggregated column in <code>select</code> must
-also appear in <code>group by</code>.</p>
+the <code>group by</code> clause.</p>
+<p>Shows: that every non-aggregated column in <code>select</code> must also appear
+in <code>group by</code>.</p>
+<p>To find it: run the query and note the <code>island</code> value for one species. Then run
+<code>select island from penguins where species = 'Adelie'</code> to see all islands that
+species actually inhabits. If the grouped result shows only one island but the raw
+data shows three, the database is picking arbitrarily.</p>
 </details>
 <h2 id="sql-countnull">Count how many records have a phone number</h2>
 <p>Run this query. Then run a second query using <code>count(*)</code> and compare the two
@@ -273,9 +325,12 @@ results. If the numbers differ, find the rows that account for the difference.</
 <summary>Show explanation</summary>
 <p>A query meant to count all penguins in the dataset underreports the total because
 <code>count(sex)</code> only counts rows where <code>sex</code> is not null, omitting the 11 penguins
-whose sex was not recorded; the bug is using <code>count(sex)</code> instead of <code>count(*)</code>.
-Shows the difference between <code>count(column)</code> (excludes nulls) and <code>count(*)</code>
-(counts every row).</p>
+whose sex was not recorded; the bug is using <code>count(sex)</code> instead of <code>count(*)</code>.</p>
+<p>Shows: the difference between <code>count(column)</code> (excludes nulls) and
+<code>count(*)</code> (counts every row).</p>
+<p>To find it: run <code>select count(*), count(sex) from penguins</code>. If the two numbers
+differ, the difference is the number of penguins <code>count(sex)</code> is missing because
+their <code>sex</code> is null.</p>
 </details>
 <h2 id="sql-avgmanual">Compute a class average including absent students</h2>
 <p>Run this query and note the result. Then run <code>select avg(body_mass_g) from penguins</code>
@@ -290,9 +345,14 @@ and compare. Are the two values the same?</p>
 <p>A manual average calculation divides the sum of body masses by the total row count,
 but <code>sum()</code> skips the two rows where <code>body_mass_g</code> is null while <code>count(*)</code> still
 counts them, making the denominator too large and the result too small; the bug is
-dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or using <code>avg()</code> directly.
-Shows how aggregation functions treat null values and why the built-in <code>avg()</code>
-should be preferred over hand-rolled sum/count averages.</p>
+dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or using <code>avg()</code> directly.</p>
+<p>Shows: how aggregation functions treat null values and why the
+built-in <code>avg()</code> should be preferred over hand-rolled sum/count
+averages.</p>
+<p>To find it: run <code>select avg(body_mass_g) from penguins</code> and compare it to the manual
+calculation. If they differ, check whether <code>count(*)</code> and <code>count(body_mass_g)</code> return
+the same number — if not, some rows have a null mass and the manual denominator is
+too large.</p>
 </details>
 <h2 id="sql-nullneq">Find records that don't match a given value</h2>
 <p>Run this query. How many rows does it return? Then run a query using <code>is not null</code>
@@ -308,9 +368,12 @@ and compare the row counts.</p>
 <p>A query that should return only penguins with a recorded sex returns zero rows
 because comparing any value to null with <code>!=</code> produces null (not true) in SQL's
 ternary logic, so the <code>where</code> clause never passes any row; the bug is using
-<code>!= null</code> instead of <code>is not null</code>. Shows that null comparisons with <code>=</code> or <code>!=</code>
-always yield null, and that <code>is null</code> / <code>is not null</code> are the only reliable null
-tests.</p>
+<code>!= null</code> instead of <code>is not null</code>.</p>
+<p>Shows: that null comparisons with <code>=</code> or <code>!=</code> always yield null, and
+that <code>is null</code> / <code>is not null</code> are the only reliable null tests.</p>
+<p>To find it: run <code>select count(*) from penguins where sex is not null</code>. If that
+returns rows but the original query returns zero, the <code>!= null</code> test is failing
+because null comparisons always produce null, not <code>true</code> or <code>false</code>.</p>
 </details>
 <h2 id="sql-innerleft">List all customers with or without orders</h2>
 <p>Run this query and list the people in the result. Then run <code>select distinct person
@@ -328,8 +391,13 @@ query output?</p>
 <summary>Show explanation</summary>
 <p>A query that should list total credits for every person silently omits people whose
 jobs do not appear in the <code>job</code> table (because their work has no matching credit
-value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>. Shows
-the difference between inner and left joins and when each is appropriate.</p>
+value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>.</p>
+<p>Shows: the difference between inner and left joins and when each is
+appropriate.</p>
+<p>To find it: run <code>select distinct person from work</code> and compare the names to those in
+the join result. Any name present in <code>work</code> but absent from the join result was
+dropped because <code>inner join</code> excludes rows with no matching partner in the other
+table.</p>
 </details>
 <h2 id="sql-noonclause">Join two tables to combine related records</h2>
 <p>Run this query. Count the rows returned. How many rows are in the <code>job</code> table?
@@ -346,9 +414,13 @@ you observed?</p>
 <p>A query that should pair each job with its matching work records instead returns
 every possible combination of rows from both tables because the <code>on</code> clause is
 missing; a join without an <code>on</code> condition (or equivalent <code>where</code> condition) is
-a Cartesian product, producing rows equal to the product of the two table sizes.
-Shows that a join without a matching condition is almost never correct and how to
-recognise a Cartesian product by its unexpectedly large row count.</p>
+a Cartesian product, producing rows equal to the product of the two table sizes.</p>
+<p>Shows: that a join without a matching condition is almost never
+correct and how to recognise a Cartesian product by its unexpectedly
+large row count.</p>
+<p>To find it: count the rows in <code>job</code> and the rows in <code>work</code>, then multiply. If the
+query result has exactly that many rows, the join produced a Cartesian product,
+which means the <code>on</code> clause is missing.</p>
 </details>
 <h2 id="sql-coalescemiss">Total donations where some records are empty</h2>
 <p>Run this query and check the <code>total</code> column for each person. Which person has a
@@ -366,9 +438,13 @@ null total? What jobs did that person do, according to the <code>work</code> tab
 <summary>Show explanation</summary>
 <p>A query that uses a left join to include all people shows null instead of 0 for
 a person whose jobs produce no credit values, because <code>sum()</code> of an all-null group
-returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>. Shows how
-<code>coalesce</code> provides a fallback value for null results and why left joins often
-require it.</p>
+returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>.</p>
+<p>Shows: how <code>coalesce</code> provides a fallback value for null results and
+why left joins often require it.</p>
+<p>To find it: look for null values in the <code>total</code> column of the result. Then run
+<code>select person, job from work where person = '&lt;name with null total&gt;'</code> to confirm
+that person has work records. The null total comes from <code>sum()</code> over an all-null
+group — wrap it in <code>coalesce(..., 0)</code> to return zero instead.</p>
 </details>
 <h2 id="sql-joinswapped">Match employees to their department records</h2>
 <p>Run this query. Does every person appear? Compare the <code>num_surveys</code> counts to what
@@ -388,9 +464,13 @@ you get from <code>select count(*) from survey group by person_id</code>. Do the
 <p>A query that should join people to their surveys instead produces a Cartesian
 product because the <code>on</code> clause compares <code>survey.person_id</code> to itself (which is
 always true) rather than to <code>person.person_id</code>; the bug is a copy-paste error
-that left the table name on the left side of <code>on</code> as <code>survey</code> instead of <code>person</code>.
-Shows how to carefully check <code>on</code> conditions when the same column name appears in
-both tables.</p>
+that left the table name on the left side of <code>on</code> as <code>survey</code> instead of <code>person</code>.</p>
+<p>Shows: how to carefully check <code>on</code> conditions when the same column
+name appears in both tables.</p>
+<p>To find it: compare <code>num_surveys</code> in the join result to <code>select count(*) from
+survey group by person_id</code>. If every person shows the same <code>num_surveys</code> equal to
+the total number of survey rows, the <code>on</code> clause is always true and is joining every
+row to every other row.</p>
 </details>
 <h2 id="sql-selfjoin">Find pairs of employees in the same department</h2>
 <p>Run this query and look at a few rows. Use the <code>person</code> table to verify which
@@ -411,8 +491,12 @@ correct?</p>
 supervisor's name has the labels reversed: the <code>on</code> condition <code>pa.person_id =
 pb.supervisor_id</code> makes <code>pa</code> the supervisor and <code>pb</code> the subordinate, but the
 aliases label <code>pa</code> as <code>person_name</code> and <code>pb</code> as <code>supervisor_name</code>; the bug is
-swapping the alias names. Shows how to reason about the direction of a self-join
-and how to verify the result against the underlying data.</p>
+swapping the alias names.</p>
+<p>Shows: how to reason about the direction of a self-join and how to
+verify the result against the underlying data.</p>
+<p>To find it: pick one row from the result and look up both IDs in the <code>person</code> table.
+If the person labeled <code>supervisor_name</code> is actually listed as a subordinate in the
+raw data, the alias names in the query are reversed.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
@@ -430,12 +514,5 @@ and how to verify the result against the underlying data.</p>
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

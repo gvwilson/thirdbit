@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -53,7 +52,50 @@
 <main id="main-content">
 <h1>Conclusion</h1>
 <p class="subtitle">looking back and next steps</p>
-<p>FIXME</p>
+<h2>Tactics</h2>
+<p>Every exercise in this book uses one or more of the following tactics to locate
+a bug. Each tactic is a concrete action you can take in seconds; none of them
+requires guessing.</p>
+<ol>
+<li>Run the code with the smallest input you can verify entirely by hand, then
+   check the output against your manual count or calculation.</li>
+<li>Print <code>type(value)</code> when a comparison unexpectedly fails — a mismatch between
+   <code>str</code> and <code>int</code>, or <code>String</code> and <code>Date</code>, explains why <code>==</code> returns <code>False</code>.</li>
+<li>Print <code>repr(string)</code> to reveal invisible characters such as trailing spaces or
+   embedded newlines that look correct in plain <code>print</code> output.</li>
+<li>Call a function twice with identical arguments and compare both return values —
+   if they differ, the function carries state between calls.</li>
+<li>Read a traceback from bottom to top: the last frame names the line that raised
+   the error; the frames above it show what triggered that line.</li>
+<li>Introduce a deliberate bug in the code under test, then rerun the test suite
+   — if the test still passes, it contains no assertion that can detect wrong output.</li>
+<li>Run each test in isolation with <code>pytest path::test_name</code> to verify it does not
+   depend on another test having run first.</li>
+<li>Replace a broad <code>except: pass</code> with <code>logging.exception("caught")</code> to see the
+   actual exception type and message being swallowed.</li>
+<li>Check the exact stored values in a column before writing a filter — use
+   <code>SELECT DISTINCT col</code> or <code>.unique()</code> to confirm the literal strings or numbers
+   the data actually contains.</li>
+<li>Count rows before and after each transformation step to detect rows that were
+    silently dropped or duplicated.</li>
+<li>Run <code>python -m cProfile -s cumulative script.py | head -20</code> to find the slow
+    line instead of guessing which part of the code needs optimization.</li>
+<li>Add <code>print("mock was called")</code> as the first line of a mock to confirm it is
+    actually intercepting the real call.</li>
+<li>Open the browser's Network tab and Console tab to see what requests were sent,
+    what status codes came back, and what errors were logged.</li>
+<li>Echo or print the exact arguments a shell command receives before running it on
+    real data — use <code>echo $var</code> or replace a command with <code>echo command</code> to preview
+    what the shell will execute.</li>
+<li>Check HTTP status codes before parsing the response body — a non-200 response
+    often returns HTML, not JSON, so the parse error is a symptom, not the cause.</li>
+<li>Insert <code>.collect()</code> after each step in a Polars lazy pipeline to pin down which
+    transformation is raising an error, rather than waiting for the final collect.</li>
+<li>Test a regular expression against known-invalid inputs, not just valid ones,
+    to verify the pattern rejects what it should.</li>
+<li>Sketch the directory tree on paper and count directory levels before running a
+    command that uses a relative path such as <code>../..</code>.</li>
+</ol>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
@@ -70,12 +112,5 @@
 </div>
 </div>
 </footer>
-<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$',  right: '$',  display: false}
-        ]
-      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>
