@@ -38,9 +38,10 @@
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../answers/">Answers</a></li>
 </ul>
 </div>
@@ -49,7 +50,7 @@
 </nav>
 <main id="main-content">
 <h1>Missing Data</h1>
-<p>The biggest challenge people facing when using databases isn't remembering the order of clauses in a SQL query. The biggest challenge is handling missing data. This tutorial builds on the filtering introduced in the previous one to show how to manage this in our queries.</p>
+<p>The biggest challenge people face when using databases isn't remembering the order of clauses in a SQL query. The biggest challenge is handling missing data. This tutorial builds on the filtering introduced in the previous one to show how to manage this in our queries.</p>
 <h2>Null</h2>
 <p>Here are all of the distinct combinations of island, species, and sex in the <code>penguins</code> table.</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
@@ -127,9 +128,9 @@
 <span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'MALE'</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'FEMALE'</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<p>Some programmers find <code>null</code> very annoying. Instead of putting it in their tables, they use marker values like -1 or <code>"NA"</code> to signal missing data. Doing this almost always leads to problems. For example, if we are calculating the average age of people who are 17, 19, 21, and and unknown number of years old, the sensible thing to do is add the values we know (the 17, 19, and 21) and then divide by 3. As we will see in the next tutorial, SQL will do this for us automatically <em>if</em> we have used <code>null</code> to represent the unknown age. If we use -1, on the other hand, it's all too easy to calculate (17 + 19 + 21 - 1) / 4 and get an average age of 14. We could use <code>where</code> to filter out the -1 ages before doing the sum, but (a) we'd have to know to do that and (b) we'd have to know that this programmer used -1 instead of -999999 or something else to mean "I don't know". While it takes a bit of getting used to, it's (almost) always better to use <code>null</code> when there are holes in our data.</p>
+<p>Some programmers find <code>null</code> very annoying. Instead of putting it in their tables, they use marker values like -1 or <code>"NA"</code> to signal missing data. Doing this almost always leads to problems. For example, if we are calculating the average age of people who are 17, 19, 21, and an unknown number of years old, the sensible thing to do is add the values we know (the 17, 19, and 21) and then divide by 3. As we will see in the next tutorial, SQL will do this for us automatically <em>if</em> we have used <code>null</code> to represent the unknown age. If we use -1, on the other hand, it's all too easy to calculate (17 + 19 + 21 - 1) / 4 and get an average age of 14. We could use <code>where</code> to filter out the -1 ages before doing the sum, but (a) we'd have to know to do that and (b) we'd have to know that this programmer used -1 instead of -999999 or something else to mean "I don't know". While it takes a bit of getting used to, it's (almost) always better to use <code>null</code> when there are holes in our data.</p>
 <h2>Ternary Logic</h2>
-<p>These tutorials avoid theory when they can, but a little bit will help understand how <code>null</code> works. In conventional logic, a statement is either true or false. If we have two statements <code>A</code> and <code>B</code>, then <code>A and B</code> is true when both are true, while <code>A or B</code> is true if either or both are true. These rules are sometimes referred to as <strong>binary logic</strong> (also called <strong>Boolean logic</strong>) because there are only two possible values.</p>
+<p>These tutorials avoid theory when they can, but a little bit will help us understand how <code>null</code> works. In conventional logic, a statement is either true or false. If we have two statements <code>A</code> and <code>B</code>, then <code>A and B</code> is true when both are true, while <code>A or B</code> is true if either or both are true. These rules are sometimes referred to as <strong>binary logic</strong> (also called <strong>Boolean logic</strong>) because there are only two possible values.</p>
 <p>SQL is unusual among programming languages in using <a class="gl-ref" href="../glossary/#ternary_logic">ternary logic</a>, in which any statement can be true, false, or null. Since <code>null</code> is not <code>true</code>, <code>where</code> drops rows if the filter expression produces <code>null</code>.</p>
 <h2>Check Understanding</h2>
 <p><img alt="concept map" src="./concepts.svg"/></p>

@@ -27,10 +27,10 @@ fiction: true
   </div>
 </div>
 
-*You probably think this is a Christmas story because of the santas,
+*You probably think this is a Christmas story because of the title,
 but it's not:
 it's about right and wrong and figuring out who you are.
-There are many footnotes and explosions and narrow escapes,
+There are footnotes, explosions, and narrow escapes,
 but if you need someone to hold your hand during the scary bits
 you're out of luck.
 I'm just a book, and we don't have hands.*
@@ -65,7 +65,7 @@ Or rather, I do, but it's not enough."
 
 What he *did* enjoy was going into the workshop and helping his mother.
 The smell of solder,
-the *shick shick* of freshly-sharpened scissors,
+the *shick shick* sound of freshly-sharpened scissors,
 and the feeling of a dovetail joint fitting perfectly together
 felt right in a way that
 clambering up the icy concrete side of an apartment building never did.
@@ -75,7 +75,7 @@ His parents tolerated it at first.
 they told each other.
 After a while,
 though,
-they began hinting that maybe he should being ho-ho-ho'ing
+they began hinting that maybe he should be ho-ho-ho'ing
 rather than sewing or gluing in the attic.
 And a while after that,
 Finner could tell that the hints were about to become
@@ -85,28 +85,30 @@ and pretended his dreams weren't filled with sanding and polishing.
 
 [^number-three-talk]: Direct eye contact, patient but serious voice, lots of awkward pauses on both sides, every other sentence starting, "Your mother and I think…"
 
-Finner became more restless every day.
+The more Finner tried not to think about making things,
+the more restless he became.
 His mother suggested running up and down the stairs to burn off some energy,
 but that only made him sweaty.
 He tried sitting cross-legged on the floor with his eyes closed
 and humming softly to himself like the monks of Lotse Nuffin,[^lotse-nuffin]
 but all he got was a cold bum.
 
-[^lotse-nuffin]: The monks were his father's favorite clients. They wanted nothing, so every year that's what he took them, and they were always grateful.
+[^lotse-nuffin]: The monks were his father's favorite clients. They wanted nothing, so every year that's what he gave them, and they were always grateful.
 
 There were other santas and elves in town he could have tried talking to:
 aunts and uncles,
 second cousins twice removed,
 and a few who'd married into the trade.
 But they were all related to him somehow,
-which would have made the conversation awkward,
-and as far as he knew they all believed what everyone else did:
+which made the thought of talking to him about this uncomfortable.
+And as far as he knew,
+they all believed what everyone else did:
 elves made and santas delivered.
 That's how it was,
 that's how it had always been,
 and that was how it was always going to be.
 Any adult who even suggested otherwise was the immediate target of cold looks,
-and any kid who mentioned it ran the risk of being called a flip in schoolyard.
+and any kid who mentioned it ran the risk of being called a flip in the schoolyard.
 
 For a while Finner wondered if he was actually just lazy,
 which was basically a synonym for "sinful",
@@ -128,11 +130,11 @@ She had once delivered a chocolate orange cake to a trio of scientists in a subm
 *without using a submarine herself*,
 and then delivered a baby on the way home.[^deliver-baby]
 
-[^deliver-baby]: "Delivered" in the conventional sense of helping someone give birth rather than the postal sense used for packages. Elves did make dolls sometimes that were so lifelike normal people though they were real, and (whisper it) sometimes santas would deliver them in the dead of night when most people were sleeping and take a real child in exchange, but that's a story for another time.
+[^deliver-baby]: "Delivered" in the conventional sense of helping someone give birth rather than the postal sense used for packages. Elves did make dolls sometimes that were so lifelike normal people thought they were real, and (whisper it) sometimes santas would deliver them in the dead of night when most people were sleeping and take a real child in exchange, but that's a story for another time.
 
-Everyone was a little bit afraid of her,
+Everyone was a little bit intimidated by her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
-they were a *lot* afraid.
+they were a *lot* intimidated.
 But everyone knew that she and her wife Shady Ann had fought long and hard
 to get santas the right to marry other santas
 and elves the right to marry other elves.
@@ -146,12 +148,13 @@ and he hoped that would put her in a good mood.
 *Or at least a less grumpy one,*
 he thought as he trudged through the damp, clumpy snow that had fallen overnight.
 The last time he had seen her had been the family gathering at Long Night.
-Finner's uncle had accidentally served her camomile tea instead of double-dark coffee,
+Finner's uncle had accidentally served her camomile tea
+instead of the dark, bitter brew she preferred,
 and had squirmed for an hour as she drank one slow, withering sip after another.
 
 The Tumbly house looked exactly like the others on its street:
 a front door with an evergreen wreath,
-a large curtained window beside it,
+a large window with floral curtains beside it,
 and a pair of smaller windows with matching curtains on the floor above.
 The downstairs window had a warm, welcoming glow,
 and even from the street Finner could smell curry and freshly-baked bread.
@@ -173,15 +176,16 @@ a voice rumbled behind him.
 Finner spun around.
 The stone cat had turned its head toward him,
 but was still keeping one eye on the empty bird bath.
-"I—sure," he said lamely,
+"I—sure," he said,
+trying to act as if statues talked to him all the time,
 then added, "Thank you,"
 because a statue of a cat is still in some sense a cat,
-and one of the first lessons a santa is taught is
+and one of the first things a santa is taught is
 to always be polite to cats.
 
 "You're welcome," the cat rumbled.
 
-He didn't have to wait long.
+Finner didn't have to wait long.
 A tricycle taxi rolled to a gentle stop in front of the house.
 The taxi pedaller climbed out of his seat,
 stretched until his spine went *pop!*,
@@ -202,7 +206,6 @@ Gran-Granna Tumbly looked at the broccoli in her hand and snorted.
 "Uh…" Finner started, confused by the question.
 
 "No," the cat statue rumbled.
-"But I remain hopeful."
 
 "Hmph."
 Finner stepped out of the way as Gran-Granna Tumbly walked briskly up the path,

@@ -38,9 +38,10 @@
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../answers/">Answers</a></li>
 </ul>
 </div>
@@ -110,7 +111,7 @@
 <p>Which people have done 17 or more surveys?</p>
 </li>
 <li>
-<p>Just as <code>sum</code> adds up all the values in a column, <code>group_concat</code> concatenates all the text in a column. For example, if the column is called <code>name</code>, then <code>select group_concat(name, ':')</code> joins all the values in <code>name</code> with colons. Use this to write a query that generates two columns: a person's full name, and a comma-separated list of the IDs of the survey that person has done.</p>
+<p>Just as <code>sum</code> adds up all the values in a column, <code>group_concat</code> concatenates all the text in a column. For example, if the column is called <code>name</code>, then <code>select group_concat(name, ':')</code> joins all the values in <code>name</code> with colons. Use this to write a query that generates two columns: a person's full name, and a comma-separated list of the IDs of the surveys that person has done.</p>
 </li>
 <li>
 <p>Explain what the following query produces and why.</p>
@@ -124,7 +125,7 @@
 </div>
 <h2>Self-Joins</h2>
 <p>As a reminder, here's the structure of the survey database.</p>
-<p><img alt="survey tables" src="https://raw.githubusercontent.com/marimo-team/learn/main/sql/public/survey_tables.svg"/></p>
+<p><img alt="survey tables" src="./survey_tables.svg"/></p>
 <p>Notice that the <code>person</code> table has a foreign key called <code>supervisor_id</code> that refers back to the table's own primary key, <code>person_id</code>. This relationship makes sense: supervisors are people, so they're stored in the same table as everyone else. However, if we want to generate a list of people's names and their supervisors' names, we <em>can't</em> just join <code>person</code> to <code>person</code>.</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span>

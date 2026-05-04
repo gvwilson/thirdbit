@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Introduction</title>
+<title>Contributing</title>
 <meta content="Introduction to SQL" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -20,7 +20,7 @@
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
-<li><a class="active" href="../intro/">Introduction</a></li>
+<li><a href="../intro/">Introduction</a></li>
 <li><a href="../basic_select/">Basic Selection</a></li>
 <li><a href="../filter/">Filtering</a></li>
 <li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
@@ -39,7 +39,7 @@
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
+<li><a class="active" href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 <li><a href="../answers/">Answers</a></li>
@@ -49,24 +49,40 @@
 </div>
 </nav>
 <main id="main-content">
-<h1>Introduction</h1>
-<p>A <a class="gl-ref" href="../glossary/#database">database</a> is a collection of data that can be searched and retrieved.
-A <a class="gl-ref" href="../glossary/#dbms">database management system</a> (DBMS) is a program that manages a particular kind of database.
-Each DBMS stores data in its own way:
-SQLite stores each database in a single file,
-while PostgreSQL spreads information across many files for higher performance.
-A DBMS can be a library embedded in other programs (like SQLite) or a server (like PostgreSQL).</p>
-<p>A <a class="gl-ref" href="../glossary/#rdbms">relational database management system</a> (RDBMS) stores data in <a class="gl-ref" href="../glossary/#table">tables</a>
-and uses SQL for queries.
-Unfortunately, every RDBMS has its own dialect of SQL.
-There are also <a class="gl-ref" href="../glossary/#nosql">NoSQL databases</a> like MongoDB that don't use tables,
-but we won't cover them here.</p>
-<h2>Check Understanding</h2>
-<p><img alt="concept map" src="./concepts.svg"/></p>
+<h1>Contributing</h1>
+<p>Contributions are very welcome;
+please contact us <a href="mailto:gvwilson@third-bit.com">by email</a> or by filing an issue in <a href="https://github.com/gvwilson/sqlshort">our repository</a>.
+All contributors must abide by our Code of Conduct.</p>
+<h2 id="contributors">Contributors</h2>
+<p><a href="https://third-bit.com/"><em>Greg Wilson</em></a> is a programmer, author, and educator based in Toronto.
+He was the co-founder and first Executive Director of Software Carpentry
+and received ACM SIGSOFT's Influential Educator Award in 2020.</p>
+<p>Thanks to <a href="https://github.com/jimgar">Jim Gardner</a> for his fixes.</p>
+<h2>Setup and Operation</h2>
+<ul>
+<li>Install <a href="https://github.com/astral-sh/uv">uv</a>.</li>
+<li>Create a virtual environment by running <code>uv venv</code> in the root directory.</li>
+<li>Activate it by running <code>source .venv/bin/activate</code> in your shell.</li>
+<li>Install dependencies by running <code>uv sync</code>.</li>
+<li>Run <code>task --list</code> on its own to see a list of common commands.</li>
+</ul>
+<h2>FAQ</h2>
+<dl>
+<dt>Do you need help?</dt>
+<dd>Yes: please see the issues in <a href="https://github.com/gvwilson/sqlshort">our repository</a>.</dd>
+<dt>What sort of feedback would be useful?</dt>
+<dd>Everything is welcome,
+from pointing out mistakes to suggestions for better explanations.</dd>
+<dt>Can I add a new section?</dt>
+<dd>Possibly, but please <a href="mailto:gvwilson@third-bit.com">reach out</a> before doing so.</dd>
+<dt>Why is this material free?</dt>
+<dd>Because if we all give a little, we all get a lot.</dd>
+</dl>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
 </div>
 <div class="col-6 center">
 <a href="../">Introduction to SQL</a>
@@ -74,7 +90,7 @@ but we won't cover them here.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../basic_select/">Basic Selection</a> <span aria-hidden="true">⇒</span>
+<a href="../bibliography/">Bibliography</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
