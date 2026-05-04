@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Features</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a class="active" href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Advanced Features</h1>
+<p>This lesson introduces five advanced features of SQL: views (saved queries that behave like tables), indexes (data structures that make queries faster), transactions (groups of changes that succeed or fail together), triggers (automatic actions that fire when data changes), and window functions (calculations that look across rows without collapsing them into groups).</p>
+<h2>Views</h2>
+<p>A <a class="gl-ref" href="../glossary/#view">view</a> is a saved query that can be used in other queries just like a real table. Views are useful when a query is complex, used frequently, or needs to be shared across different parts of an application.</p>
+<p>Suppose we often need to work with penguins that weigh 4500g or more. Instead of repeating the filter in every query, we can define a view:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">heavy_penguins</span><span class="w"> </span><span class="k">as</span>
+<span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">4500</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<p>Once the view exists, we can query it exactly as if it were a table:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num</span>
+<span class="k">from</span><span class="w"> </span><span class="n">heavy_penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
+</code></pre></div>
+<p>The key thing to understand is that a view does not store data. Every time we query <code>heavy_penguins</code>, the database re-runs the underlying <code>select</code> statement. This means the view always reflects the current contents of <code>penguins</code>, but it also means there is no performance benefit from the view itself.</p>
+<p>To remove a view, use <code>drop view</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">heavy_penguins</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Create a view called <code>known_sex_penguins</code> that contains only penguins whose <code>sex</code> is not <code>null</code>. Verify it works by querying it.</p>
+</li>
+<li>
+<p>If we <code>insert</code> a new heavy penguin into the <code>penguins</code> table after creating <code>heavy_penguins</code>, will the new penguin appear when we query the view? Explain why or why not.</p>
+</li>
+<li>
+<p>What is the difference between a view and a CTE? When would you prefer one over the other?</p>
+</li>
+</ol>
+</div>
+<h2>Indexes</h2>
+<p>When a database searches a table for rows matching a <code>where</code> condition, it normally scans every row in the table. For small tables this is fine, but for large tables it is slow. An <a class="gl-ref" href="../glossary/#index">index</a> is an auxiliary data structure that lets the database jump directly to matching rows, spending storage space to buy query speed.</p>
+<p>We can see what the database plans to do using <code>explain query plan</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">explain</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">plan</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">;</span>
+</code></pre></div>
+<p>The output will show <code>SCAN penguins</code>, meaning the database reads every row. Now let's create an index on the <code>island</code> column:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">penguins_island</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">penguins</span><span class="p">(</span><span class="n">island</span><span class="p">);</span>
+</code></pre></div>
+<p>Running <code>explain query plan</code> again shows <code>SEARCH penguins USING INDEX penguins_island</code>, meaning the database will use the index instead of scanning every row. We can delete an index by dropping it:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">penguins_island</span><span class="p">;</span>
+</code></pre></div>
+<p>The database uses indexes automatically: we don't have to mention them in queries. The tradeoff is that indexes take up disk space and slow down <code>insert</code>, <code>update</code>, and <code>delete</code> operations because the index must be updated whenever the table data changes. A good rule of thumb is to add indexes on columns you frequently filter or join on, and not to add them speculatively.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Use <code>explain query plan</code> to check whether the <code>survey</code> database already has indexes. (Hint: run <code>explain query plan select * from survey where person_id = 'P001'</code>.)</p>
+</li>
+<li>
+<p>Create an index on <code>survey.person_id</code> and run <code>explain query plan</code> again. What changes?</p>
+</li>
+<li>
+<p>Would an index on <code>penguins.species</code> be useful? What kinds of queries would benefit from it, and what kinds would not?</p>
+</li>
+</ol>
+</div>
+<h2>Transactions</h2>
+<p>By default, each SQL statement is committed (saved permanently) as soon as it runs. A <strong>transaction</strong> groups several statements together so that they all succeed or all fail as a unit. This protects the database from being left in an inconsistent state if something goes wrong partway through a sequence of changes.</p>
+<p>We start a transaction with <code>begin transaction</code> and end it either with <code>commit</code> (save all changes) or <code>rollback</code> (discard all changes and return to the state before <code>begin</code>).</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">begin</span><span class="w"> </span><span class="k">transaction</span><span class="p">;</span>
+<span class="k">update</span><span class="w"> </span><span class="n">penguins</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="p">;</span>
+<span class="c1">-- Something went wrong -- undo everything.</span>
+<span class="k">rollback</span><span class="p">;</span>
+</code></pre></div>
+<p>After the <code>rollback</code>, the <code>penguins</code> table is unchanged. If we had used <code>commit</code> instead, all the Adelie mass values would have been permanently increased by 100g.</p>
+<p>Transactions are essential any time one logical operation requires multiple SQL statements.</p>
+<div class="callout">
+<ol>
+<li>If the database server crashes while a transaction is open but before <code>commit</code>, what happens to the changes? Why is this the right behavior?</li>
+</ol>
+</div>
+<h2>Triggers</h2>
+<p>A <a class="gl-ref" href="../glossary/#trigger">trigger</a> is a set of SQL statements that the database runs automatically before or after a specific operation (<code>insert</code>, <code>update</code>, or <code>delete</code>) on a table. Triggers are useful for enforcing rules that are too complex for a simple constraint, or for automatically maintaining derived data.</p>
+<p>The example below keeps a running count of sightings per species. We have two tables: <code>sighting</code> (where new observations are recorded) and <code>sighting_count</code> (which stores totals). We define a trigger that fires after every insert into <code>sighting</code> and increments the appropriate count.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">species</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">island</span><span class="w">  </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mass_g</span><span class="w">  </span><span class="nb">real</span>
+<span class="p">);</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">sighting_count</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">species</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span>
+<span class="w">    </span><span class="n">num</span><span class="w">     </span><span class="nb">integer</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">);</span>
+
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting_count</span><span class="w"> </span><span class="k">values</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Adelie'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">'Gentoo'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">'Chinstrap'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">trigger</span><span class="w"> </span><span class="n">count_sighting</span>
+<span class="k">after</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">sighting</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="k">update</span><span class="w"> </span><span class="n">sighting_count</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">species</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</code></pre></div>
+<p>Inside the trigger body, <code>new</code> refers to the row that was just inserted. For <code>delete</code> triggers, <code>old</code> refers to the row being removed. For <code>update</code> triggers, both <code>old</code> and <code>new</code> are available.</p>
+<p>Now inserting a row into <code>sighting</code> automatically updates <code>sighting_count</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">'Adelie'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Torgersen'</span><span class="p">,</span><span class="w"> </span><span class="mi">3750</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">'Adelie'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Dream'</span><span class="p">,</span><span class="w"> </span><span class="mi">3500</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">'Gentoo'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sighting_count</span><span class="p">;</span>
+</code></pre></div>
+<p>Triggers add processing overhead to every operation that fires them, so use them for genuinely important invariants rather than convenience. They can also be hard to debug because they run invisibly.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Add a <code>delete</code> trigger that decrements the count in <code>sighting_count</code> when a row is deleted from <code>sighting</code>. Test it.</p>
+</li>
+<li>
+<p>What happens if someone inserts a sighting with a species that is not in <code>sighting_count</code>? How could you fix this?</p>
+</li>
+</ol>
+</div>
+<h2>Window Functions</h2>
+<p>Aggregation functions like <code>sum</code> and <code>avg</code> collapse a group of rows into a single result row. <a class="gl-ref" href="../glossary/#window_func">Window functions</a> compute a value for each row using information from other rows, without collapsing the result. The set of rows a window function looks at is called its <strong>window</strong>, defined with an <code>over</code> clause.</p>
+<p>The simplest window function is <code>row_number</code>, which numbers each row within a defined order:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">overall_rank</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>More useful is combining <code>over</code> with <code>partition by</code>, which computes the result separately within each group. The query below ranks each penguin within its species by mass:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span>
+<span class="w">        </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rank_in_species</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+</code></pre></div>
+<p>Notice that <code>row_number</code> resets to 1 at the start of each species, because <code>partition by species</code> creates a separate window for each species.</p>
+<h2>Running Totals</h2>
+<p>Window functions can also compute running (cumulative) values. Using <code>sum</code> with <code>over</code> and an <code>order by</code> produces a running total:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span>
+<span class="w">        </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">running_total_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+</code></pre></div>
+<p>Each row's <code>running_total_g</code> is the sum of all masses at or below that row's mass within the same species. This is impossible to express with a plain <code>group by</code>, which would collapse each species to a single row.</p>
+<h2>Lead and Lag</h2>
+<p>The <code>lag</code> and <code>lead</code> functions let each row look at values in previous or following rows. This is useful for computing differences between successive values, though the syntax is convoluted even by SQL's standards:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lag</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span>
+<span class="w">        </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">gain_over_prev</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+</code></pre></div>
+<p>The first row within each partition has no previous row, so <code>lag</code> returns <code>null</code> there. <code>lead</code> works the same way but looks ahead rather than behind.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Use <code>row_number()</code> with <code>partition by island order by body_mass_g desc</code> to find the heaviest penguin on each island.</p>
+</li>
+<li>
+<p>Use <code>lag</code> to find pairs of consecutive penguins (within a species, ordered by mass) where the mass difference is greater than 500g.</p>
+</li>
+</ol>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conditional/">Conditionals</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../practice/">Practice</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

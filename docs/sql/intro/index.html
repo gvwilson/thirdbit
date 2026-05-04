@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bibliography</title>
+<title>Introduction</title>
 <meta content="Introduction to SQL" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -20,7 +20,7 @@
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../intro/">Introduction</a></li>
 <li><a href="../basic_select/">Basic Selection</a></li>
 <li><a href="../filter/">Filtering</a></li>
 <li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
@@ -38,7 +38,7 @@
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
-<li><a class="active" href="../bibliography/">Bibliography</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../answers/">Answers</a></li>
@@ -48,25 +48,24 @@
 </div>
 </nav>
 <main id="main-content">
-<h1>Bibliography</h1>
-<dl>
-<dt><span id="Dombrovskaya2021">Dombrovskaya2021</span></dt>
-<dd>Henrietta Dombrovskaya, Boris Novikov, and Anna Bailliekova.
-<em>PostgreSQL Query Optimization: The Ultimate Guide to Building Efficient Queries</em>.
-Apress,
-2021,
-978-1484268841.</dd>
-<dt><span id="Fontaine2022">Fontaine2022</span></dt>
-<dd>Dimitri Fontaine.
-<em>The Art of Postgres</em>.
-https://theartofpostgresql.com/,
-2022.</dd>
-</dl>
+<h1>Introduction</h1>
+<p>A <a class="gl-ref" href="../glossary/#database">database</a> is a collection of data that can be searched and retrieved.
+A <a class="gl-ref" href="../glossary/#dbms">database management system</a> (DBMS) is a program that manages a particular kind of database.
+Each DBMS stores data in its own way:
+SQLite stores each database in a single file,
+while PostgreSQL spreads information across many files for higher performance.
+A DBMS can be a library embedded in other programs (like SQLite) or a server (like PostgreSQL).</p>
+<p>A <a class="gl-ref" href="../glossary/#rdbms">relational database management system</a> (RDBMS) stores data in <a class="gl-ref" href="../glossary/#table">tables</a>
+and uses SQL for queries.
+Unfortunately, every RDBMS has its own dialect of SQL.
+There are also <a class="gl-ref" href="../glossary/#nosql">NoSQL databases</a> like MongoDB that don't use tables,
+but we won't cover them here.</p>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../license/">License</a>
 </div>
 <div class="col-6 center">
 <a href="../">Introduction to SQL</a>
@@ -74,7 +73,7 @@ https://theartofpostgresql.com/,
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../glossary/">Glossary</a> <span aria-hidden="true">⇒</span>
+<a href="../basic_select/">Basic Selection</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

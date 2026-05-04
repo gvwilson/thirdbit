@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aggregating and Grouping</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a class="active" href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Aggregating and Grouping</h1>
+<p>The queries we wrote in the previous two tutorials operated on each row separately. We often want to ask questions about <a class="gl-ref" href="../glossary/#group">groups</a> of rows, such as "how heavy is the largest penguin we weighed?" or "how many Gentoo penguins did we see?" This tutorial looks first at how to write queries that <a class="gl-ref" href="../glossary/#aggregation">aggregate</a> data, and then at how to calculate aggregate values for several subsets of our data simultaneously.</p>
+<h2>Aggregation</h2>
+<p>Let's start by finding out how heavy the heaviest penguin in our dataset is. To do this, we use a function called <code>max</code>, and give it the name of the column it is to get data from. To make the result more readable, we will use <code>as</code> to call the result <code>heaviest</code>.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">heaviest</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>The query below shows the six most commonly used <a class="gl-ref" href="../glossary/#aggregation_func">aggregation functions</a> in SQL applied to different columns of the penguins data.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="k">avg</span><span class="p">(</span><span class="n">flipper_length_mm</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">averagest</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">species</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_penguins</span><span class="p">,</span>
+<span class="w">    </span><span class="k">max</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">heaviest</span><span class="p">,</span>
+<span class="w">    </span><span class="k">min</span><span class="p">(</span><span class="n">flipper_length_mm</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">shortest</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>How much do the penguins weigh in total?</p>
+</li>
+<li>
+<p>The function <code>length</code> calculates the number of characters in a piece of text. Write a query that returns the length of the longest island name in the database.</p>
+</li>
+<li>
+<p>The function <code>round</code> rounds off a number, e.g., <code>round(1.234, 1)</code> produces <code>1.2</code>. Use this to display the average flipper length of all the penguins rounded to one decimal place.</p>
+</li>
+</ol>
+</div>
+<p>Note: rather than writing <code>count(species)</code> or <code>count(island)</code>, we often write <code>count(*)</code> to count the total number of rows. However, as we will see in the next tutorial <code>count(species)</code> and <code>count(*)</code> can sometimes produce slightly different answers.</p>
+<h2>Grouping</h2>
+<p>The query shown above applies the aggregation function to all of the rows in the table. If we want, we can apply it to just the first ten.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>The order of operations here is important. We aren't asking SQL to calculate an average and then give us the first ten rows of the result. Instead, we are asking it to get the first ten rows and <em>then</em> calculate the average of those. This matters more when we use <code>where</code> to filter the data: the filtering happens before SQL applies the function, which lets us do things like calculate the average mass of all the Gentoo penguins.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gentoo'</span><span class="p">;</span>
+</code></pre></div>
+<p>But what if we want to calculate the average mass for all of the species? We could write three queries, one for each species, but (a) that would be annoying and (b) if someone adds Emperor penguins to the data and we don't remember to update our query, we won't get the full picture.</p>
+<p>What we should do instead is tell SQL to group the data based on the values in one or more columns, and then calculate the aggregate value within each group.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
+</code></pre></div>
+<p>Since there are three species, we get three rows of output. Unfortunately, we don't know which average corresponds to which species. To get that, we add the <code>species</code> column to the <code>select</code> clause.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
+</code></pre></div>
+<p>And just as we can order data by multiple columns at once, we can group by multiple columns. When we do, we get one bucket for each unique combination of grouping values.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">;</span>
+</code></pre></div>
+<p>We will explain what the blanks in the <code>sex</code> column mean in the next tutorial.</p>
+<div class="callout">
+<ol>
+<li>
+<p>How many penguins of each sex were found on each island?</p>
+</li>
+<li>
+<p>What is difference in weight between the heaviest female penguin and the lightest female penguin within each species?</p>
+</li>
+<li>
+<p>Explain what the query below is calculating, and when its result would be useful.</p>
+</li>
+</ol>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">round</span><span class="p">(</span><span class="n">body_mass_g</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<h2>Arbitrary Choice in Aggregation</h2>
+<p>The query shown below is legal SQL, but probably not what anyone would want.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">;</span>
+</code></pre></div>
+<p>The rule that SQL follows is this: if we have created groups using <code>group by</code>, and we <em>don't</em> specify how to combine the values in a group for a particular column, then the database picks one of the values for that column in that group arbitrarily. For example, since we only grouped by <code>species</code>, but we're asking to show <code>sex</code>, the result shows one of the values for <code>sex</code> for each species. Similarly, since we didn't specify how to combine the various body masses for each species, the three values shown each come from a penguin of that species, but we don't know (and can't control) which one.</p>
+<p>We used this behavior earlier when we selected <code>species</code> and <code>avg(body_mass_g)</code> after grouping by <code>species</code>. Since all of the penguins within a group are of the same species, it doesn't matter which <code>species</code> value the database shows us for that group: they're all the same. If we forget to choose an aggregation function by accident, though, the answer will be plausible (because it's an actual value) but wrong.</p>
+<h2>Filtering After Aggregation</h2>
+<p>Just as we can use <code>where</code> to filter individual rows before aggregating (or if we're not aggregating at all), we can use <code>having</code> to filter aggregated values. For example, the query below finds those combinations of sex and species whose average weight is 4kg or more.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">species</span>
+<span class="k">having</span><span class="w"> </span><span class="n">avg_mass</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">4000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>Explain what the query below is calculating.</li>
+</ol>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">flipper_length_mm</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">long_flipper</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'FEMALE'</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
+<span class="k">having</span><span class="w"> </span><span class="n">long_flipper</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">210</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<p>What we <em>can't</em> do with the tools we've seen so far is compare individual values to aggregates. For example, we can't use a query like the one below to find penguins that are heavier than average.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">);</span>
+</code></pre></div>
+<p>We will see how to write this query in a couple of tutorials.</p>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../filter/">Filtering</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../null/">Missing Data</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

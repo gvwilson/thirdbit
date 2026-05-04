@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modifying Data</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a class="active" href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Modifying Data</h1>
+<p>The lessons so far have read data from tables that already exist. This lesson shows how to create, update, and delete data.</p>
+<h2>Creating Tables</h2>
+<p>The <code>create table</code> statement defines a table's name and its columns. Each column has a name and a <strong>data type</strong>, and we can add constraints that the database will enforce.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">species</span><span class="w">  </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">island</span><span class="w">   </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mass_g</span><span class="w">   </span><span class="nb">real</span><span class="p">,</span>
+<span class="w">    </span><span class="n">observed</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>The most common data types in SQLite are <code>text</code> (strings), <code>real</code> (floating-point numbers), and <code>integer</code> (whole numbers). The <code>not null</code> constraint means the database will refuse to store a row that is missing a value for that column; columns without <code>not null</code> allow <code>null</code> values. Notice that <code>mass_g</code> has no <code>not null</code> constraint, because a sighting might be recorded without a mass measurement.</p>
+<p>If we try to create a table that already exists, we get an error. To avoid this, we can use <code>create table if not exists</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">species</span><span class="w">  </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">island</span><span class="w">   </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mass_g</span><span class="w">   </span><span class="nb">real</span><span class="p">,</span>
+<span class="w">    </span><span class="n">observed</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="p">);</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>What happens if you omit the data type from a column definition, writing just <code>species not null</code> instead of <code>species text not null</code>? Does SQLite accept it?</p>
+</li>
+<li>
+<p>Design a table called <code>researcher</code> to store a researcher's name, their institution, and the year they started working at that institution. Which columns should be <code>not null</code>? Are there any columns where <code>null</code> would be a reasonable default?</p>
+</li>
+<li>
+<p>What happens if you try to create a table with two columns that have the same name?</p>
+</li>
+</ol>
+</div>
+<h2>Inserting Data</h2>
+<p>The <code>insert into</code> statement adds rows to a table. We list the columns we are providing values for, and then supply the values themselves. The values must match the columns in order.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">observed</span><span class="p">)</span><span class="w"> </span><span class="k">values</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Adelie'</span><span class="p">,</span><span class="w">    </span><span class="s1">'Torgersen'</span><span class="p">,</span><span class="w"> </span><span class="mi">3750</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-09-01'</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Gentoo'</span><span class="p">,</span><span class="w">    </span><span class="s1">'Biscoe'</span><span class="p">,</span><span class="w">    </span><span class="mi">5000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-09-01'</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Chinstrap'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Dream'</span><span class="p">,</span><span class="w">     </span><span class="mi">3500</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-09-02'</span><span class="p">);</span>
+</code></pre></div>
+<p>We can insert multiple rows in a single statement by separating them with commas, as shown above. We can also omit the column list if we are providing values for every column in the order they were defined. <em>Don't do this.</em> Including the column list makes the query easier to read, and more importantly, protects against errors if the table structure changes later.</p>
+<p>To insert a row without a value for a nullable column, we either omit it from the column list or explicitly write <code>null</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">observed</span><span class="p">)</span><span class="w"> </span><span class="k">values</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Adelie'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Dream'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-09-03'</span><span class="p">);</span>
+</code></pre></div>
+<p>This row will have <code>null</code> for <code>mass_g</code> because we didn't supply a value.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Write an <code>insert</code> statement that adds three researchers to the <code>researcher</code> table you designed in the previous exercise.</p>
+</li>
+<li>
+<p>What happens if you try to insert a row without providing a value for a <code>not null</code> column?</p>
+</li>
+<li>
+<p>What happens if you provide more values than columns?</p>
+</li>
+</ol>
+</div>
+<h2>Updating Rows</h2>
+<p>The <code>update</code> statement changes values in existing rows. We specify the table, the new values using <code>set</code>, and (almost always) a <code>where</code> clause to specify which rows are changed:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">update</span><span class="w"> </span><span class="n">sighting</span>
+<span class="k">set</span><span class="w"> </span><span class="n">mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5200</span><span class="p">.</span><span class="mi">0</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gentoo'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">;</span>
+</code></pre></div>
+<p>We can update multiple columns in one statement by separating them with commas:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">update</span><span class="w"> </span><span class="n">sighting</span>
+<span class="k">set</span><span class="w"> </span><span class="n">mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3600</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">observed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'2025-09-04'</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>where</code> clause in <code>update</code> works exactly like the <code>where</code> clause in <code>select</code>. If you omit it, the update applies to every row in the table, which is almost never what you want. For example:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- WARNING: this updates every row.</span>
+<span class="k">update</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">mass_g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query to verify the current contents of <code>sighting</code> before and after an update so that you can confirm the change had the intended effect.</p>
+</li>
+<li>
+<p>What happens if the <code>where</code> clause in an <code>update</code> matches no rows? Is an error produced?</p>
+</li>
+<li>
+<p>Update the <code>researcher</code> table from earlier: change the institution of one of your researchers to a new institution.</p>
+</li>
+</ol>
+</div>
+<h2>Deleting Rows</h2>
+<p>The <code>delete from</code> statement removes rows from a table. Like <code>update</code>, it almost always needs a <code>where</code> clause:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sighting</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="p">;</span>
+</code></pre></div>
+<p>If we omit the <code>where</code>, all rows are deleted.
+The table structure remains, but it is empty:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- WARNING: this deletes every row.</span>
+<span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sighting</span><span class="p">;</span>
+</code></pre></div>
+<p>There is no <code>undo</code> for <code>delete</code>, so it is always worth double-checking with a <code>select</code> using the same <code>where</code> condition first.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Delete all sightings from <code>'Torgersen'</code> island. Verify the result with a <code>select</code>.</p>
+</li>
+<li>
+<p>What happens if you delete a row that doesn't exist (e.g., <code>delete from sighting where species = 'Emperor'</code>)?</p>
+</li>
+</ol>
+</div>
+<h2>Dropping Tables</h2>
+<p><code>drop table</code> removes a table and all of its data permanently. This is irreversible, so use it with care.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">sighting</span><span class="p">;</span>
+</code></pre></div>
+<p>Just as <code>create table if not exists</code> avoids an error when the table already exists, <code>drop table if exists</code> avoids an error when the table doesn't exist:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">sighting</span><span class="p">;</span>
+</code></pre></div>
+<p>A common pattern when rebuilding a table from scratch is to drop it first (if it exists) and then recreate it:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">sighting</span><span class="p">;</span>
+
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">sighting</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">species</span><span class="w">  </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">island</span><span class="w">   </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">mass_g</span><span class="w">   </span><span class="nb">real</span><span class="p">,</span>
+<span class="w">    </span><span class="n">observed</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>This approach is useful in scripts that need to be run repeatedly, such as scripts that load data from files.</p>
+<div class="callout">
+<ol>
+<li>
+<p>What is the difference between <code>delete from sighting</code> (without a <code>where</code> clause) and <code>drop table sighting</code>? When would you use each?</p>
+</li>
+<li>
+<p>What happens if you try to drop a table that other tables reference through a foreign key? (If you have <code>survey.db</code> handy, try dropping the <code>person</code> table and observe the result.)</p>
+</li>
+<li>
+<p>Write a short SQL script (three or four statements) that drops the <code>researcher</code> table if it exists, recreates it, and inserts two rows. Running the script twice in a row should produce the same result each time.</p>
+</li>
+</ol>
+</div>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../subquery/">Subqueries</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../conditional/">Conditionals</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

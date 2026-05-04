@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conditionals and Pattern Matching</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a class="active" href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Conditionals and Pattern Matching</h1>
+<p>This lesson shows how to classify data on the fly using conditional expressions, and how to filter rows based on patterns in text.</p>
+<h2>If/Else</h2>
+<p>Suppose we want to label each penguin as either <code>'heavy'</code> or <code>'light'</code> based on its body mass. We can do this with the <code>iif</code> function, which takes three arguments: a condition, the value to return when the condition is true, and the value to return when it is false:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">iif</span><span class="p">(</span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">4000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'heavy'</span><span class="p">,</span><span class="w"> </span><span class="s1">'light'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">category</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>Note the spelling: <code>iif</code> has two i's. Also note that <code>iif</code> produces a value that we can use like any other. This means that we can combine it with aggregation to find out how many heavy and light penguins there are:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">iif</span><span class="p">(</span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">4000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'heavy'</span><span class="p">,</span><span class="w"> </span><span class="s1">'light'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">category</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">category</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Modify the query above to use a threshold of 3500g instead of 4000g. How does the split change?</p>
+</li>
+<li>
+<p>Write a query that labels each penguin's flipper as <code>'long'</code> if is 200mm long or more and <code>'short'</code> otherwise. How many long-flippered penguins are there in each species?</p>
+</li>
+<li>
+<p>Can the value produced by <code>iif</code> be used in a <code>where</code> clause? Try it and explain the result.</p>
+</li>
+</ol>
+</div>
+<h2>Selecting a Case</h2>
+<p><code>iif</code> works well when there are exactly two categories, but what if we want three or more? Nesting <code>iif</code> inside <code>iif</code> quickly becomes unreadable, SQL lets us use a <code>case</code> expression instead:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="k">case</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3500</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'small'</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4500</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'medium'</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="s1">'large'</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">size</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>SQL evaluates the <code>when</code> conditions in order and uses the result from the first one that is true. If no condition is true, the <code>else</code> branch is used; if there is no <code>else</code> and no condition is true, the result is <code>null</code>. The <code>end</code> keyword closes the <code>case</code> expression.</p>
+<p>We can combine <code>case</code> with <code>group by</code> to count how many penguins fall into each size category within each species:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="k">case</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3500</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'small'</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4500</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'medium'</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="s1">'large'</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">size</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">size</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>What happens to the rows where <code>body_mass_g</code> is <code>null</code> in the query above? Where do those penguins go?</p>
+</li>
+<li>
+<p>Modify the query to add a fourth category: <code>'unknown'</code> for penguins whose body mass is not recorded.</p>
+</li>
+<li>
+<p>Write a query that uses <code>case</code> to label each penguin's bill as <code>'stubby'</code> (bill length less than 40mm), <code>'average'</code> (40mm to 50mm), or <code>'long'</code> (more than 50mm). Count how many penguins fall into each category.</p>
+</li>
+</ol>
+</div>
+<h2>Checking a Range</h2>
+<p>Checking whether a value falls within a range is common enough that SQL provides a shorthand: <code>between</code>. The expression <code>body_mass_g between 3500 and 4500</code> is equivalent to <code>body_mass_g &gt;= 3500 and body_mass_g &lt;= 4500</code>. Both endpoints are included.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">3500</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">4500</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span><span class="p">;</span>
+</code></pre></div>
+<p><code>between</code> works with text as well as numbers, using dictionary order. The query below finds penguins whose species name falls alphabetically between <code>'Adelie'</code> and <code>'Chinstrap'</code> inclusive.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Use <code>between</code> inside a <code>case</code> expression to classify each penguin as <code>'light'</code> (under 3500g), <code>'normal'</code> (3500g to 5000g), or <code>'heavy'</code> (over 5000g).</p>
+</li>
+<li>
+<p><code>between</code> always includes both endpoints. How would you rewrite <code>x between 3500 and 4500</code> to exclude one or both endpoints?</p>
+</li>
+<li>
+<p>What happens if you write <code>between 4500 and 3500</code> (high value first)? Is the result what you expect?</p>
+</li>
+</ol>
+</div>
+<h2>Pattern Matching with <code>like</code></h2>
+<p>Sometimes we want to filter rows based on whether a piece of text matches a pattern rather than an exact value. The <code>like</code> operator supports two wildcards: <code>%</code> matches any sequence of zero or more characters, and <code>_</code> matches exactly one character.</p>
+<p>The <code>survey</code> database has a <code>machine</code> table with machine types. We can find all machines whose type contains the word <code>'generator'</code> like this:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">machine_id</span><span class="p">,</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">where</span><span class="w"> </span><span class="n">machine_type</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">'%generator%'</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>%</code> on both sides of <code>'generator'</code> means "anything before, anything after". We can also anchor patterns to the start or end of a value:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Machines whose type starts with 'hydraulic'</span>
+<span class="k">select</span><span class="w"> </span><span class="n">machine_id</span><span class="p">,</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">where</span><span class="w"> </span><span class="n">machine_type</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">'hydraulic%'</span><span class="p">;</span>
+</code></pre></div>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- People whose family name is exactly five characters long</span>
+<span class="k">select</span><span class="w"> </span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">family</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">where</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">'_____'</span><span class="p">;</span>
+</code></pre></div>
+<p><code>like</code> is case-insensitive by default in SQLite for ASCII letters, so <code>like 'H%'</code> and <code>like 'h%'</code> produce the same results.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query that finds all people in the <code>person</code> table whose personal name contains the letter <code>'a'</code> (upper or lower case).</p>
+</li>
+<li>
+<p>Write a query that finds all machine types in the <code>machine</code> table that end with the word <code>'press'</code>.</p>
+</li>
+</ol>
+</div>
+<h2>Pattern Matching with <code>glob</code></h2>
+<p>SQLite also supports <code>glob</code>, which uses Unix-style wildcards: <code>*</code> matches any sequence of characters (like <code>%</code> in <code>like</code>), and <code>?</code> matches exactly one character (like <code>_</code> in <code>like</code>). Unlike <code>like</code>, <code>glob</code> is case-sensitive.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">machine_id</span><span class="p">,</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">where</span><span class="w"> </span><span class="n">machine_type</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="s1">'*generator*'</span><span class="p">;</span>
+</code></pre></div>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Case-sensitive: finds 'hydraulic' but not 'Hydraulic'</span>
+<span class="k">select</span><span class="w"> </span><span class="n">machine_id</span><span class="p">,</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">where</span><span class="w"> </span><span class="n">machine_type</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="s1">'hydraulic*'</span><span class="p">;</span>
+</code></pre></div>
+<p><code>glob</code> also supports character classes in square brackets, so <code>glob '[Hh]ydraulic*'</code> would match both <code>'hydraulic'</code> and <code>'Hydraulic'</code>. For most purposes, <code>like</code> is simpler and more portable; <code>glob</code> is useful when case-sensitivity matters or when you are already familiar with Unix shell patterns.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Rewrite the query that finds machines containing <code>'generator'</code> using <code>glob</code> instead of <code>like</code>.</p>
+</li>
+<li>
+<p>Write a query using <code>glob</code> that finds all people in <code>person</code> whose family name starts with a capital letter between <code>'A'</code> and <code>'M'</code>. (Hint: <code>[A-M]</code> is a valid glob character class.)</p>
+</li>
+</ol>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../modify/">Modifying Data</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../advanced/">Advanced Topics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

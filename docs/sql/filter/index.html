@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Filtering</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a class="active" href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Filtering</h1>
+<p>The previous tutorial showed how to select specific columns from a database table, and how to page through the data that a query returns. However, people almost always <a class="gl-ref" href="../glossary/#filter">filter</a> data based on its properties rather than on its position in a table. To see how this works, let's look at the combinations of species, island, and sex in the <code>penguins</code> table.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<h2>Equality</h2>
+<p>Suppose we only want to see penguins from Dream island, regardless of their species or sex. To get this, we add a <code>where</code> clause to our query.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Dream'</span><span class="p">;</span>
+</code></pre></div>
+<p>There are several noteworthy things in this query:</p>
+<ol>
+<li>We don't have to use <code>distinct</code>. If we leave it out, we get <em>all</em> the penguins on Dream island. (We included it to make the output easier to read without paging.)</li>
+<li>The <code>where</code> clause <em>must</em> come after the <code>from</code> clause. SQL is very picky about ordering…</li>
+<li>We don't put quotation marks around <code>island</code> because it's the name of a column. We <em>do</em> put quotes around <code>'Dream'</code> because it's an actual literal piece of text.</li>
+<li>We use a single equals sign <code>=</code> to check for equality. This is different from most programming languages, which use <code>==</code>.</li>
+</ol>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query to select all the Chinstrap penguins regardless of what island they're on.</p>
+</li>
+<li>
+<p>Change the column name <code>island</code> to <code>ISLAND</code> and re-run the query: what happens?</p>
+</li>
+<li>
+<p>Change the text value <code>'Dream'</code> to <code>'DREAM'</code>: what happens?</p>
+</li>
+<li>
+<p>Change the text value <code>'Dream'</code> to <code>"Dream"</code> (with double quotes): what happens?</p>
+</li>
+</ol>
+</div>
+<h2>Comparisons</h2>
+<p>We can do all of the usual comparisons in SQL:</p>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">name</th>
+<th scope="col">symbol</th>
+<th scope="col" style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">less than</td>
+<td><code>&lt;</code></td>
+<td style="text-align: left;"><code>body_mass_g &lt; 3300</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">less than or equal</td>
+<td><code>&lt;=</code></td>
+<td style="text-align: left;"><code>flipper_length_mm &lt; 200.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">equal</td>
+<td><code>=</code></td>
+<td style="text-align: left;"><code>species = 'Gentoo'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">not equal</td>
+<td><code>!=</code> or <code>&lt;&gt;</code></td>
+<td style="text-align: left;"><code>species != 'Gentoo'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">greater than or equal</td>
+<td><code>&gt;=</code></td>
+<td style="text-align: left;"><code>flipper_length_mm &gt;= 200.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">greater than</td>
+<td><code>&gt;</code></td>
+<td style="text-align: left;"><code>body_mass_g &gt; 3300</code></td>
+</tr>
+</tbody>
+</table>
+<p>Comparing numbers is straightforward. When we compare text, the comparison uses dictionary order: A is less than B, AA is than AB, and so on.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Find all the penguins that <em>aren't</em> on Torgersen island.</p>
+</li>
+<li>
+<p>What happens if we accidentally compare a number to text? For example, what happens if we select penguins where <code>species</code> is less than 3000, or where <code>body_mass_g</code> is greater than the letter 'M'?</p>
+</li>
+</ol>
+</div>
+<h2>Combining Conditions</h2>
+<p>We can combine conditions using <code>and</code> and <code>or</code>. <code>and</code> is the simpler of the two: when we write <code>where condition_1 and condition_2</code>, we get the rows where <em>both</em> conditions are true.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gentoo'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<p>If we use <code>or</code>, we get rows where <em>either or both</em> condition is true. This is different from common English usage: if you tell a child that they can have an ice cream cone or a chocolate bar, you mean "either/or". When you use <code>or</code> in SQL, on the other hand, it means "if any of the conditions is true". For example, the query below gets all of the penguins on Biscoe island, as well as all of the Gentoo penguins. Some penguins satisfy both conditions (the Adelie penguins on Biscoe island), some satisfy just one (the Adelies on Torgersen and the Gentoos on Biscoe). Penguins that don't satisfy either, like Chinstrap penguins on Dream island, don't show up at all.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">;</span>
+</code></pre></div>
+<p>We have written our <code>where</code> conditions as we would say them. Many programmers would wrap each condition in parentheses to make them easier to read.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">);</span>
+</code></pre></div>
+<p>The more complex our conditions are, the more important it is to use parentheses to make sure everyone reading the query (including ourselves) understands what it means. The query below shows an example.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="p">((</span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Adelie'</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="p">))</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="p">);</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Explain in simple terms what the condition in the query above is selecting.</p>
+</li>
+<li>
+<p>We can put <code>not</code> in front of a condition to invert its meaning. Use this to write a query that fetches the same rows as one with the condition <code>species != 'Chinstrap'</code>, but which uses <code>=</code> instead of <code>!=</code>.</p>
+</li>
+<li>
+<p>Does the <a class="gl-ref" href="../glossary/#expression">expression</a> <code>species not = 'Gentoo'</code> work?</p>
+</li>
+<li>
+<p>Write a query to find all of the penguins whose bill length is greater than their bill depth.</p>
+</li>
+<li>
+<p>Write another query to find all of the penguins whose bill length is less than their bill depth. What do you notice about the output of this query?</p>
+</li>
+<li>
+<p>The previous tutorial showed how to do calculations on the fly to (for example) produce a column called <code>mass_kg</code> showing the body mass of each penguin in kilograms. Can these on-the-fly columns be used in <code>where</code> conditions? To find out, write a query that finds all of the penguins that weight more than 4.0 kg.</p>
+</li>
+</ol>
+</div>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../basic_select/">Basic Selection</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../aggregate_group/">Aggregation and Grouping</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

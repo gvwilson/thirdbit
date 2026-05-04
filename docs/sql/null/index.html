@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Missing Data</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a class="active" href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Missing Data</h1>
+<p>The biggest challenge people facing when using databases isn't remembering the order of clauses in a SQL query. The biggest challenge is handling missing data. This tutorial builds on the filtering introduced in the previous one to show how to manage this in our queries.</p>
+<h2>Null</h2>
+<p>Here are all of the distinct combinations of island, species, and sex in the <code>penguins</code> table.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>Notice the two blanks in the <code>sex</code> column, and the fact that its subtitle says there are 3 unique values. Those blanks show the special value <code>null</code>, which SQL uses to mean "I don't know". In this case, those values tell us that the scientists who collected the penguins didn't record the sex of some of the Adelie penguins on Dream and Torgersen islands.</p>
+<p>The most important thing about <a class="gl-ref" href="../glossary/#null">null values</a> is that almost any operation that involves a <code>null</code> produces <code>null</code> as an answer. For example, we can use SQL as a very complicated desk calculator and ask, "What is 1 + 2?"</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+</code></pre></div>
+<p>If we ask, "What is 1 + <code>null</code>?", the answer is <code>null</code>, because one plus "I don't know" is "I don't know".</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+</code></pre></div>
+<p>We get the same thing if we subtract <code>null</code>, multiply by it, and so on. (As the saying goes, "Garbage in, garbage out.") We also get the same thing if we do comparisons. Is <code>null</code> equal to 3? Again, the answer is <code>null</code>.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+</code></pre></div>
+<p>We get the same thing if we ask if <code>null</code> is <em>not</em> equal to 3, because if we don't know the value, we don't know if it <em>isn't</em> 3.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+</code></pre></div>
+<p>What about <code>null = null</code>? If we have two numbers, and we don't know what either is, we don't know if they're the same or not, so the answer is once again <code>null</code>, <em>not</em> <code>true</code>.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">result</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Where does SQL put <code>null</code> values when sorting: at the start, at the end, or somewhere else?</p>
+</li>
+<li>
+<p>Does it follow the same rule for both numbers and text?</p>
+</li>
+</ol>
+</div>
+<h2>Aggregating Nulls</h2>
+<p>If 1 + <code>null</code> is <code>null</code>, then 1 + 2 + <code>null</code> should be <code>null</code> as well. Continuing this line of thought, the sum of a column that includes one or more nulls ought to be <code>null</code>; so should the <code>max</code>, <code>min</code>, and so on, because if we don't know all of the inputs, we can't know the output.</p>
+<p>SQL isn't this strict because it wouldn't be useful. Instead, its aggregation functions ignore <code>null</code> values. If we calculate a sum, for example, we get the sum of all the numbers that we actually know. If we calculate an average, we get the sum of the known values divided by the number of known values (rather than by the total number of known and unknown values), and so on.</p>
+<p>There is one exception to this rule. If we ask for <code>count(sex)</code> in the penguins database, we get the number of penguins whose sex is known:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>If we use <code>count(*)</code>, on the other hand, we get the total number of rows regardless of whether some values are <code>null</code> or not:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>Compare <code>sum(body_mass_g) / count(body_mass_g)</code> with <code>sum(body_mass_g) / count(*)</code> and with <code>avg(body_mass_g)</code>. Are the results consistent with the explanation above?</li>
+</ol>
+</div>
+<h2>Handling Nulls</h2>
+<p>There are only two things we can do with <code>null</code> that don't produce <code>null</code> as a result: ask if a value is <code>null</code>, and ask if it isn't. If we're interested in the <code>sex</code> column, the first is written <code>sex is null</code>, while the second is written <code>sex is not null</code>. Note that <code>is null</code> and <code>is not null</code> are written as multiple words, but are a single test; it's confusing, but we're stuck with it.</p>
+<p>Let's have a look at some practical examples. If we select the distinct values of <code>sex</code> from the <code>penguins</code> table, we get <code>'FEMALE'</code>, <code>'MALE'</code>, and <code>null</code>. (The first line of output is blank, which is how Marimo shows null values.)</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sex</span><span class="p">;</span>
+</code></pre></div>
+<p>If we want to get all the rows that have a null value for <code>sex</code>, we <em>cannot</em> do this:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'MALE'</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'FEMALE'</span><span class="p">);</span>
+</code></pre></div>
+<p>That doesn't produce any output because the rows with null values for <code>sex</code> don't pass the test. If we want the rows with missing sex, we have to ask for them explicitly. This query gives us 11 rows.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+<p>How many times did the scientists fail to record a penguin's mass or flipper length? The answer is "twice", and in both cases they didn't record <em>any</em> of the physical measurements.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="n">flipper_length_mm</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query to find penguins whose body mass is known but whose sex is not.</p>
+</li>
+<li>
+<p>Write another query to find penguins whose sex is known but whose body mass is not.</p>
+</li>
+<li>
+<p>Explain why the query shown earlier (and reproduced below) does not produce any rows:</p>
+</li>
+</ol>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'MALE'</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">sex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'FEMALE'</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<p>Some programmers find <code>null</code> very annoying. Instead of putting it in their tables, they use marker values like -1 or <code>"NA"</code> to signal missing data. Doing this almost always leads to problems. For example, if we are calculating the average age of people who are 17, 19, 21, and and unknown number of years old, the sensible thing to do is add the values we know (the 17, 19, and 21) and then divide by 3. As we will see in the next tutorial, SQL will do this for us automatically <em>if</em> we have used <code>null</code> to represent the unknown age. If we use -1, on the other hand, it's all too easy to calculate (17 + 19 + 21 - 1) / 4 and get an average age of 14. We could use <code>where</code> to filter out the -1 ages before doing the sum, but (a) we'd have to know to do that and (b) we'd have to know that this programmer used -1 instead of -999999 or something else to mean "I don't know". While it takes a bit of getting used to, it's (almost) always better to use <code>null</code> when there are holes in our data.</p>
+<h2>Ternary Logic</h2>
+<p>These tutorials avoid theory when they can, but a little bit will help understand how <code>null</code> works. In conventional logic, a statement is either true or false. If we have two statements <code>A</code> and <code>B</code>, then <code>A and B</code> is true when both are true, while <code>A or B</code> is true if either or both are true. These rules are sometimes referred to as <strong>binary logic</strong> (also called <strong>Boolean logic</strong>) because there are only two possible values.</p>
+<p>SQL is unusual among programming languages in using <a class="gl-ref" href="../glossary/#ternary_logic">ternary logic</a>, in which any statement can be true, false, or null. Since <code>null</code> is not <code>true</code>, <code>where</code> drops rows if the filter expression produces <code>null</code>.</p>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../aggregate_group/">Aggregation and Grouping</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../join/">Joins</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

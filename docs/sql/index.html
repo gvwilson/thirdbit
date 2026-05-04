@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Querynomicon</title>
-<meta content="The Querynomicon" name="description"/>
+<title>Introduction to SQL</title>
+<meta content="Introduction to SQL" name="description"/>
 <link href="./_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="./_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="./_static/chota.css" rel="stylesheet" type="text/css"/>
@@ -16,53 +16,57 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="./">SQL</a>
+<a class="brand" href="./">Introduction to SQL</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
-<li><a href="./01_intro/">Introduction</a></li>
-<li><a href="./02_core/">Core Features</a></li>
-<li><a href="./03_tools/">Tools</a></li>
-<li><a href="./04_python/">Python</a></li>
-<li><a href="./05_advanced/">Advanced Features</a></li>
-<li><a href="./06_r/">R</a></li>
-<li><a href="./07_psql/">PostgreSQL</a></li>
-<li><a href="./08_finale/">Conclusion</a></li>
+<li><a href="./intro/">Introduction</a></li>
+<li><a href="./basic_select/">Basic Selection</a></li>
+<li><a href="./filter/">Filtering</a></li>
+<li><a href="./aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="./null/">Missing Data</a></li>
+<li><a href="./join/">Joins</a></li>
+<li><a href="./keys/">Keys</a></li>
+<li><a href="./subquery/">Subqueries</a></li>
+<li><a href="./modify/">Modifying Data</a></li>
+<li><a href="./conditional/">Conditionals</a></li>
+<li><a href="./advanced/">Advanced Topics</a></li>
+<li><a href="./practice/">Practice</a></li>
 </ul>
 </div>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="./license/">License</a></li>
-<li><a href="./conduct/">Code of Conduct</a></li>
-<li><a href="./contributing/">Contributing</a></li>
 <li><a href="./bibliography/">Bibliography</a></li>
 <li><a href="./glossary/">Glossary</a></li>
+<li><a href="./conduct/">Code of Conduct</a></li>
+<li><a href="./answers/">Answers</a></li>
 </ul>
 </div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
 </div>
 </nav>
 <main id="main-content">
-<h1>The Querynomicon</h1>
-<p class="subtitle">An Introduction to SQL for the Cautious and Weary</p>
-<h2>Setup</h2>
-<ul>
-<li>Download <a href="./databases.zip">the databases used in the examples</a></li>
-<li>Download <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a></li>
-</ul>
+<h1>Introduction to SQL</h1>
+<p class="center"><a href="https://raw.githubusercontent.com/gvwilson/sqlshort/main/docs/databases.zip">download the databases</a></p>
 <div class="row">
 <div class="col-6">
 <h2>Lessons</h2>
 <div id="lessons">
 <ol>
-<li><a href="./01_intro/">Introduction</a>: where we're going and why</li>
-<li><a href="./02_core/">Core Features</a>: getting values from tables</li>
-<li><a href="./03_tools/">Tools</a>: Miscellaneous things that make life easier</li>
-<li><a href="./04_python/">Python</a>: using databases from Python</li>
-<li><a href="./05_advanced/">Advanced Features</a>: when you need 'em, you need 'em</li>
-<li><a href="./06_r/">R</a>: using databases from R</li>
-<li><a href="./07_psql/">PostgreSQL</a>: client-server computing and permissions</li>
-<li><a href="./08_finale/">Conclusion</a>: where we've been and what comes next</li>
+<li><a href="./intro/">Introduction</a></li>
+<li><a href="./basic_select/">Basic Selection</a></li>
+<li><a href="./filter/">Filtering</a></li>
+<li><a href="./aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="./null/">Missing Data</a></li>
+<li><a href="./join/">Joins</a></li>
+<li><a href="./keys/">Keys</a></li>
+<li><a href="./subquery/">Subqueries</a></li>
+<li><a href="./modify/">Modifying Data</a></li>
+<li><a href="./conditional/">Conditionals</a></li>
+<li><a href="./advanced/">Advanced Topics</a></li>
+<li><a href="./practice/">Practice</a></li>
 </ol>
 </div>
 </div>
@@ -71,65 +75,12 @@
 <div id="appendices">
 <ol>
 <li><a href="./license/">License</a></li>
-<li><a href="./conduct/">Code of Conduct</a></li>
-<li><a href="./contributing/">Contributing</a></li>
 <li><a href="./bibliography/">Bibliography</a></li>
 <li><a href="./glossary/">Glossary</a></li>
+<li><a href="./conduct/">Code of Conduct</a></li>
+<li><a href="./answers/">Answers</a></li>
 </ol>
 </div>
-</div>
-</div>
-<h2 id="acknowledgments">Acknowledgments</h2>
-<ul>
-<li><em><a href="https://third-bit.com/">Greg Wilson</a></em>
-    was the co-founder and first Executive Director of Software Carpentry
-    and received ACM SIGSOFT's Influential Educator Award in 2020.</li>
-<li><em><a href="https://kitsiosk.github.io/">Konstantinos Kitsios</a></em>
-    is a PhD student at University of Zurich,
-    working on applications of machine learning to software engineering.
-    Previously he worked as a software engineer at Tesla.</li>
-<li><em><a href="https://paocorrales.github.io/">Pao Corrales</a></em>
-    has a PhD in Atmospheric Sciences and works on improving severe weather forecasts in Argentina.
-    She loves teaching science and programming using evidence-based techniques
-    centered on the students and their context.</li>
-</ul>
-<p>This tutorial would not have been possible without:</p>
-<ul>
-<li>Andi Albrecht's <a href="https://pypi.org/project/sqlparse/"><code>sqlparse</code></a> module</li>
-<li>Dimitri Fontaine's <a href="https://theartofpostgresql.com/"><em>The Art of PostgreSQL</em></a></li>
-<li>David Rozenshtein's <em>The Essence of SQL</em> (now sadly out of print)</li>
-</ul>
-<p>We also thank the following people
-for spotting issues, making suggestions, or submitting changes:</p>
-<div class="row">
-<div class="col-4">
-<ul>
-<li>Yanina Bellini Saibene</li>
-<li>Phillip Cloud</li>
-<li>Zoe Daniels</li>
-<li>Conor Flynn</li>
-<li>Andy Goldberg</li>
-<li>Jay Graves</li>
-</ul>
-</div>
-<div class="col-4">
-<ul>
-<li>Sam Hames</li>
-<li>Adam Hawkes</li>
-<li>Robert Kern</li>
-<li>Olivier Leroy</li>
-<li>Kevin Marshall</li>
-<li>Roy Pardee</li>
-</ul>
-</div>
-<div class="col-4">
-<ul>
-<li>Manos Pitsidianakis</li>
-<li>Daniel Possenriede </li>
-<li>Adam Rosien</li>
-<li>Thomas Sandmann</li>
-<li>Simon Willison</li>
-</ul>
 </div>
 </div>
 <p class="center">
@@ -145,7 +96,7 @@ for spotting issues, making suggestions, or submitting changes:</p>
 <div class="col-3 left">
 </div>
 <div class="col-6 center">
-<a href="./">SQL</a>
+<a href="./">Introduction to SQL</a>
 	  ©
 	  <a href="./#acknowledgments">the authors</a>
 </div>

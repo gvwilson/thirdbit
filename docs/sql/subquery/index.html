@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Subqueries</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a class="active" href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Subqueries</h1>
+<p>The <a href="../aggregate_group/">grouping and aggregation tutorial</a> explained that we can't use an aggregation function directly inside a <code>where</code> clause. For example, the query below tries to find all the penguins that are heavier than average, but is illegal in SQL:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This query is ILLEGAL -- you cannot use avg() in a where clause.</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">);</span>
+</code></pre></div>
+<p>The reason is that SQL evaluates <code>where</code> row by row, deciding whether each row passes the test, but it can only calculate <code>avg(body_mass_g)</code> after looking at all the rows. We need a way to calculate the average first and then use that result in our filter.</p>
+<h2>Subqueries</h2>
+<p>The solution is to write one query inside another. The inner query, called a <a class="gl-ref" href="../glossary/#subquery">subquery</a>, is evaluated first, and its result is then used by the outer query.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>The database evaluates this in two steps:</p>
+<ol>
+<li>It runs the inner query to find the average mass of all the penguins, which produces a single number.</li>
+<li>It uses that number in the outer query's <code>where</code> clause to filter for penguins whose mass is greater than that value.</li>
+</ol>
+<p>The parentheses around the inner query are required. Notice also that the subquery is a complete <code>select</code> <a class="gl-ref" href="../glossary/#statement">statement</a>: it has its own <code>from</code> clause and can reference the same tables as the outer query.</p>
+<p>Let's make the output more informative by also showing what the overall average is for comparison.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">((</span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>We have used the subquery in two places here: once in the <code>select</code> clause to display the average alongside each row, and once in the <code>where</code> clause to filter the rows. The database manager is smart enough to calculate the average only once, even though it appears twice.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Modify the query to find all the penguins with a flipper length greater than the average flipper length.</p>
+</li>
+<li>
+<p>How many penguins are heavier than average? (Hint: wrap the query above in a <code>count(*)</code> or use <code>count(*)</code> with the same <code>where</code> condition.)</p>
+</li>
+<li>
+<p>Are there more above-average-mass penguins of one species than another? Write a query to find out.</p>
+</li>
+</ol>
+</div>
+<h2>Set Membership</h2>
+<p>Before looking at more complex uses of subqueries, it helps to understand the <code>in</code> operator. <code>in</code> checks whether a value is present in a list of values, and <code>not in</code> checks whether it is not. The list is written in parentheses and the items are separated by commas.</p>
+<p>Recall the <code>job</code> and <code>work</code> tables from the <code>lab</code> database, which we used in the <a href="../join/">lesson on joins</a>:</p>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">name</th>
+<th scope="col" style="text-align: right;">credits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">calibrate</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">clean</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">person</th>
+<th scope="col" style="text-align: left;">job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">calibrate</td>
+</tr>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">complain</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">complain</td>
+</tr>
+<tr>
+<td style="text-align: left;">Madhi</td>
+<td style="text-align: left;">complain</td>
+</tr>
+</tbody>
+</table>
+<p>We can find everyone who did either calibration or cleaning with <code>in</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span>
+<span class="k">where</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'calibrate'</span><span class="p">,</span><span class="w"> </span><span class="s1">'clean'</span><span class="p">);</span>
+</code></pre></div>
+<p>And everyone who did neither with <code>not in</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span>
+<span class="k">where</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'calibrate'</span><span class="p">,</span><span class="w"> </span><span class="s1">'clean'</span><span class="p">);</span>
+</code></pre></div>
+<p><code>in</code> and <code>not in</code> work the same way with numbers, but there is a catch: <code>3 in (1, 2, 3)</code> is true, but <code>3.0 in (1, 2, 3)</code> may or may not be, depending on the database (because 3.0 is a real number rather than an integer).</p>
+<div class="callout">
+<ol>
+<li>
+<p>Use <code>in</code> to write a query that finds all the penguins from either Biscoe or Dream island.</p>
+</li>
+<li>
+<p>Use <code>not in</code> to write a query that finds all the penguins that are not Gentoo or Chinstrap.</p>
+</li>
+<li>
+<p>What happens if you write <code>where job in ()</code> (i.e., ask for membership in an empty list)? What do you think <em>should</em> happen?</p>
+</li>
+<li>
+<p>Suppose <code>not in</code> didn't exist. How would you rewrite a query that used it?</p>
+</li>
+</ol>
+</div>
+<h2>Subqueries with <code>not in</code></h2>
+<p>Now let's combine <code>not in</code> with a subquery. Suppose we want to find everyone in the <code>work</code> table who has never done calibration. A tempting but incorrect approach is to filter directly:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This query is WRONG.</span>
+<span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span>
+<span class="k">where</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'calibrate'</span><span class="p">;</span>
+</code></pre></div>
+<p>This returns Amal, Gita, and Madhi, but Amal <em>has</em> calibrated: she also cleaned and complained, and those rows pass the test <code>job != 'calibrate'</code>. The filter operates row by row, not person by person.</p>
+<p>The right approach is to find the set of people who <em>have</em> calibrated and then select everyone who is <em>not</em> in that set.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="k">work</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'calibrate'</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>The inner query returns just Amal (the only person who calibrated). The outer query then selects everyone whose name does not appear in that result, giving us Gita and Madhi. Ysing a subquery to create a set, then filtering with <code>not in</code> is one of the most common uses of subqueries.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query that finds all the penguins on islands where at least one Gentoo penguin has been observed. (Hint: use a subquery to find the names of islands where Gentoo penguins live, then use <code>in</code> to find all penguins on those islands.)</p>
+</li>
+<li>
+<p>Write a query that finds all the penguins on islands where <em>no</em> Chinstrap penguin has ever been observed.</p>
+</li>
+<li>
+<p>In the <code>work</code> table, write a query to find all the people who have <em>never</em> complained.</p>
+</li>
+</ol>
+</div>
+<h2>Common Table Expressions</h2>
+<p>Subqueries can be nested inside one another, but deeply nested queries are hard to read and understand. <a class="gl-ref" href="../glossary/#common_table_expression">Common table expressions</a> (also called CTEs) give us a way to write the same logic in a more readable form. Instead of putting one query inside another, we define a named temporary table at the top of our query using <code>with</code>, and then refer to it by name.</p>
+<p>Here is the heavier-than-average query rewritten using a CTE:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">with</span><span class="w"> </span><span class="n">avg_mass</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">threshold</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="p">)</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">penguins</span><span class="p">.</span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">penguins</span><span class="p">.</span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">avg_mass</span><span class="p">.</span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">avg_mass</span>
+<span class="k">where</span><span class="w"> </span><span class="n">penguins</span><span class="p">.</span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">avg_mass</span><span class="p">.</span><span class="n">threshold</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>with avg_mass as (…)</code> block defines a temporary table called <code>avg_mass</code>. That table is then available in the <code>from</code> clause of the main query just like a real table. We join it to <code>penguins</code> so we can compare each penguin's mass to the threshold. The <code>join</code> is important: (almost) every use of CTEs requires at least one join to connect the temporary table(s) with the real ones.</p>
+<p>CTEs are even more valuable when we need several intermediate results. For example, suppose we want to show each penguin's mass alongside both the average for its species and the overall average:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">with</span>
+<span class="w">    </span><span class="n">species_avg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_for_species</span>
+<span class="w">        </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">overall_avg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_overall</span>
+<span class="w">        </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">penguins</span><span class="p">.</span><span class="n">species</span><span class="p">,</span>
+<span class="w">    </span><span class="n">penguins</span><span class="p">.</span><span class="n">body_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">species_avg</span><span class="p">.</span><span class="n">avg_for_species</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">species_avg_g</span><span class="p">,</span>
+<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="n">overall_avg</span><span class="p">.</span><span class="n">avg_overall</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">overall_avg_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="w">    </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">species_avg</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">penguins</span><span class="p">.</span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">species_avg</span><span class="p">.</span><span class="n">species</span>
+<span class="w">    </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">overall_avg</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>We defined two CTEs separated by a comma. The first calculates the per-species average, and the second calculates the overall average. Both are then joined into the main query. Notice that joining <code>overall_avg</code> doesn't need an <code>on</code> condition because it only has one row, so every penguin row naturally combines with it.</p>
+<div class="callout">
+<ol>
+<li>
+<p>Rewrite the "who has never calibrated?" query from the previous section using a CTE instead of a nested subquery.</p>
+</li>
+<li>
+<p>Write a CTE-based query that shows, for each species on each island, how many penguins were observed and what percentage of all penguins (across all species and islands) that represents. Round the percentage to one decimal place.</p>
+</li>
+<li>
+<p>When would you choose a subquery over a CTE, and when would you choose a CTE over a subquery? Think about readability, reuse within a single query, and any trade-offs you can identify.</p>
+</li>
+</ol>
+</div>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../keys/">Keys</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../modify/">Modifying Data</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

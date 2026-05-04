@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Answers to Practice Questions</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a class="active" href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Answers to Practice Questions</h1>
+<h2>Using penguins.db</h2>
+<h3 id="show-all-penguins">1. Show all penguins</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>*</code> shorthand selects every column; without an <code>order by</code> clause, rows may appear in any order.</p>
+</details>
+<h3 id="show-species-and-island">2. Show species and island</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>Listing column names instead of <code>*</code> controls which columns appear and in what order.</p>
+</details>
+<h3 id="distinct-islands">3. Distinct islands</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">island</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">island</span><span class="p">;</span>
+</code></pre></div>
+<p><code>distinct</code> removes duplicate values so each island name appears exactly once.</p>
+</details>
+<h3 id="lightest-penguins-first">4. Lightest penguins first</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>SQLite sorts <code>null</code> values before any real number in ascending order,
+so the two penguins with unknown mass appear first.</p>
+</details>
+<h3 id="body-mass-in-kilograms">5. Body mass in kilograms</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">sex</span><span class="p">,</span>
+<span class="w">    </span><span class="k">coalesce</span><span class="p">(</span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">'unknown'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mass_kg</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p><code>coalesce</code> returns its first non-<code>null</code> argument,
+so when <code>body_mass_g</code> is <code>null</code> it falls through to the string <code>'unknown'</code>.</p>
+</details>
+<h3 id="gentoo-penguins-only">6. Gentoo penguins only</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_gentoo</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gentoo'</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>where</code> clause filters rows before <code>count</code> sees them,
+so only Gentoo rows are counted.</p>
+</details>
+<h3 id="long-flippers">7. Long flippers</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">flipper_length_mm</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">flipper_length_mm</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">210</span><span class="p">;</span>
+</code></pre></div>
+<p>Rows where <code>flipper_length_mm</code> is <code>null</code> do not pass the <code>&gt;</code> test and are excluded automatically.</p>
+</details>
+<h3 id="heavy-penguins-on-biscoe">8. Heavy penguins on Biscoe</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Biscoe'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4000</span><span class="p">;</span>
+</code></pre></div>
+<p>Both conditions must be true for a row to appear.</p>
+</details>
+<h3 id="chinstrap-or-torgersen">9. Chinstrap or Torgersen</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">island</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Chinstrap'</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">island</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Torgersen'</span><span class="p">;</span>
+</code></pre></div>
+<p><code>or</code> includes a row if either condition is true,
+so Adelie penguins on Torgersen and all Chinstrap penguins (on Dream) both appear.</p>
+</details>
+<h3 id="summary-statistics">10. Summary statistics</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_penguins</span><span class="p">,</span>
+<span class="w">    </span><span class="k">max</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">max_mass_g</span><span class="p">,</span>
+<span class="w">    </span><span class="k">min</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">min_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p>All three aggregation functions operate over the same set of rows
+and collapse the table to a single result row.</p>
+</details>
+<h3 id="average-mass-by-species">11. Average mass by species</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">species</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">avg_mass_g</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span>
+</code></pre></div>
+<p><code>group by</code> creates one bucket per species.
+<code>avg</code> is then applied within each bucket,
+and <code>desc</code> reverses the default ascending sort.</p>
+</details>
+<h3 id="islands-with-large-average-flippers">12. Islands with large average flippers</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">island</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">flipper_length_mm</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_flipper_mm</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">island</span>
+<span class="k">having</span><span class="w"> </span><span class="n">avg_flipper_mm</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">195</span><span class="p">;</span>
+</code></pre></div>
+<p><code>having</code> filters <em>after</em> aggregation,
+so only islands whose computed average exceeds 195mm appear.
+Using <code>where</code> here would not work because <code>avg_flipper_mm</code> does not exist until after grouping.</p>
+</details>
+<h3 id="counting-nulls-in-sex">13. Counting nulls in sex</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">known_sex</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_rows</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span><span class="p">;</span>
+</code></pre></div>
+<p><code>count(column_name)</code> skips <code>null</code>, while <code>count(*)</code> never does.
+There are 344 rows but only 333 recorded sexes,
+so the 11-row difference is the number of penguins whose sex was not recorded.</p>
+</details>
+<h3 id="known-mass-unknown-sex">14. Known mass, unknown sex</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">where</span><span class="w"> </span><span class="n">body_mass_g</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+<p><code>is null</code> and <code>is not null</code> are the only reliable way to test for missing values.
+Comparing with <code>= null</code> or <code>!= null</code> always produces <code>null</code>, never <code>true</code>.</p>
+</details>
+<h2>Using survey.db</h2>
+<h3 id="distinct-machine-types">15. Distinct machine types</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">machine_type</span><span class="p">;</span>
+</code></pre></div>
+<p>Each row in <code>machine</code> has one type, so <code>distinct</code> removes any repeated type names before sorting.</p>
+</details>
+<h3 id="full-names">16. Full names</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">personal</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>||</code> operator concatenates text.
+Inserting a literal space between the two names produces a readable full name.</p>
+</details>
+<h3 id="surveys-without-an-end-date">17. Surveys without an end date</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">survey_id</span><span class="p">,</span><span class="w"> </span><span class="n">person_id</span>
+<span class="k">from</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">where</span><span class="w"> </span><span class="n">end_date</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+<p><code>end_date</code> is <code>null</code> for surveys that are still in progress or whose end was never recorded.</p>
+</details>
+<h3 id="survey-count-per-person">18. Survey count per person</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person_id</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_surveys</span>
+<span class="k">from</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person_id</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">num_surveys</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span>
+</code></pre></div>
+<p>Grouping on <code>person_id</code> puts all rows for one person into the same bucket,
+and <code>count(*)</code> then counts those rows.</p>
+</details>
+<h3 id="people-and-their-surveys">19. People and their surveys</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span>
+<span class="w">    </span><span class="n">survey</span><span class="p">.</span><span class="n">survey_id</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">full_name</span><span class="p">;</span>
+</code></pre></div>
+<p>The inner join matches each survey row to its owner in <code>person</code> using the shared <code>person_id</code> column.
+People with no surveys do not appear.</p>
+</details>
+<h3 id="people-with-machine-ratings">20. People with machine ratings</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">person_id</span><span class="p">;</span>
+</code></pre></div>
+<p>The join produces one row per rating entry, so <code>distinct</code> is needed to show each person only once.</p>
+</details>
+<h3 id="average-rating-by-machine-type">21. Average rating by machine type</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">rating</span><span class="p">.</span><span class="k">level</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_level</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span>
+<span class="k">on</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">machine_id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="k">level</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">avg_level</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span>
+</code></pre></div>
+<p><code>avg</code> already ignores <code>null</code> values,
+but the explicit <code>where</code> makes the intent clear
+and matches what would be needed if using <code>sum</code> / <code>count</code> manually.</p>
+</details>
+<h3 id="raters-per-machine-type">22. Raters per machine type</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">rating</span><span class="p">.</span><span class="n">person_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_raters</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span>
+<span class="k">on</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">machine_id</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span><span class="p">;</span>
+</code></pre></div>
+<p>A left join keeps every machine even if no rating row matches.
+<code>rating.person_id</code> is <code>null</code> for those machines, so <code>count(rating.person_id)</code> returns 0.</p>
+</details>
+<h3 id="done-surveys-and-ratings">23. Done surveys and ratings</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">person_id</span><span class="p">;</span>
+</code></pre></div>
+<p>Chaining two inner joins keeps only people who appear in both <code>survey</code> and <code>rating</code>.
+<code>distinct</code> removes the duplicates that arise when a person has multiple surveys or ratings.</p>
+</details>
+<h3 id="ratings-on-multiple-machines">24. Ratings on multiple machines</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">machine_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_machines</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">having</span><span class="w"> </span><span class="n">num_machines</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div>
+<p><code>count(distinct ...)</code> counts unique machine IDs rather than rows,
+so a person rated the same machine twice is not double-counted.
+<code>having</code> then filters to those with at least two distinct machines.</p>
+</details>
+<h3 id="supervisors-and-their-team-size">25. Supervisors and their team size</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">sup</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sup</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">supervisor</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_reports</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sup</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rep</span>
+<span class="k">on</span><span class="w"> </span><span class="n">sup</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rep</span><span class="p">.</span><span class="n">supervisor_id</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sup</span><span class="p">.</span><span class="n">person_id</span><span class="p">;</span>
+</code></pre></div>
+<p>The self-join gives the <code>person</code> table two roles:
+<code>sup</code> for supervisors and <code>rep</code> for the people they supervise.
+The inner join naturally excludes anyone who supervises nobody,
+because they have no matching rows on the right-hand side.</p>
+</details>
+<h3 id="people-who-have-done-surveys">26. People who have done surveys</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">survey</span><span class="p">)</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">;</span>
+</code></pre></div>
+<p>The subquery collects every <code>person_id</code> that appears in <code>survey</code>.
+<code>in</code> then keeps only the people whose ID is in that set.
+<code>distinct</code> is needed because a person appears in <code>person</code> once
+but may appear many times in <code>survey</code>.</p>
+</details>
+<h3 id="people-who-have-never-done-a-survey">27. People who have never done a survey</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">survey</span><span class="p">);</span>
+</code></pre></div>
+<p>The subquery produces the set of IDs that <em>have</em> done a survey.
+<code>not in</code> keeps only people whose ID is absent from that set—
+the complement of question 26.</p>
+</details>
+<h3 id="people-with-no-machine-ratings">28. People with no machine ratings</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">rating</span><span class="p">);</span>
+</code></pre></div>
+<p>The subquery collects every <code>person_id</code> that has any row in <code>rating</code>,
+regardless of whether the rating level is <code>null</code> or not.
+<code>not in</code> then keeps only people who appear nowhere in <code>rating</code>.</p>
+</details>
+<h3 id="surveys-done-by-supervisors">29. Surveys done by supervisors</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">survey_id</span><span class="p">,</span><span class="w"> </span><span class="n">start_date</span>
+<span class="k">from</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">supervisor_id</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">person</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">supervisor_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="p">)</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">start_date</span><span class="p">;</span>
+</code></pre></div>
+<p>The subquery finds every <code>person_id</code> that is listed as someone else's supervisor.
+The <code>where supervisor_id is not null</code> guard is important: without it,
+<code>in</code> would include <code>null</code> in the set, which can cause unexpected results
+because <code>null</code> comparisons always produce <code>null</code>, not <code>true</code>.</p>
+</details>
+<h3 id="machine-types-with-no-non-null-ratings">30. Machine types with no non-null ratings</h3>
+<details>
+<summary>Answer</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">machine_type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">where</span><span class="w"> </span><span class="n">machine_id</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">machine_id</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">rating</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>The subquery finds machines that have received at least one non-<code>null</code> rating.
+<code>not in</code> then keeps only the machines absent from that set—
+those that have either never been rated or have only <code>null</code> rating entries.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>

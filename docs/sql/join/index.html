@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Combining Tables</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a class="active" href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Combining Tables</h1>
+<p>Relational databases get their name from the fact that they store the relations between tables. This tutorial shows how to connect and combine information from multiple tables. We will save most of the exercises for the next tutorial, where we start working with our first complex database.</p>
+<h2>Basic Joins</h2>
+<p>The <code>jobs</code> database has two tables. The first, called <code>job</code>, shows the credits that students can earn doing different kinds of jobs. The other table, <code>work</code>, keeps track of who has done which jobs:</p>
+<div class="row">
+<div class="col-6">
+<p class="center"><strong>job</strong></p>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">name</th>
+<th scope="col" style="text-align: right;">credits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">calibrate</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">clean</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-6">
+<p class="center"><strong>work</strong></p>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">person</th>
+<th scope="col" style="text-align: left;">job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">calibrate</td>
+</tr>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Amal</td>
+<td style="text-align: left;">complain</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">clean</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gita</td>
+<td style="text-align: left;">complain</td>
+</tr>
+<tr>
+<td style="text-align: left;">Madhi</td>
+<td style="text-align: left;">complain</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We want to know how many credits each student has earned. The first step in answering this is to <a class="gl-ref" href="../glossary/#join">join</a> the tables together.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="k">work</span><span class="p">;</span>
+</code></pre></div>
+<p>The <code>join</code> operation creates a <a class="gl-ref" href="../glossary/#temporary_table">temporary table</a> in memory by combining every row of <code>job</code> with every row of <code>work</code>. Since <code>job</code> has two rows and <code>work</code> has seven, the temporary table has 2×7=14 rows.</p>
+<p>Some of these rows are useful: the first, for example, tells us that Amal did some calibration, and that calibrating is worth 1.5 credits. The second, however, combines information about calibrating with the fact that Amal did some cleaning. We can get rid of the rows that aren't useful by filtering with <code>where</code>.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="k">work</span>
+<span class="k">where</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="p">;</span>
+</code></pre></div>
+<p>This query demonstrates two things:</p>
+<ol>
+<li>When we are working with two or more tables, we refer to columns using <code>table_name.column_name</code>, as in <code>job.name</code> or <code>work.job</code>. We don't absolutely need to do this in this query, since columns' names are all unique, but it's very common to have columns with the same names in different tables. In those cases the two-part names are required to avoid ambiguity; it is therefore good practice to <em>always</em> use two-part names when working with multiple tables.</li>
+<li>There isn't an entry in <code>job</code> for <code>complain</code>, so <code>job.name = work.job</code> isn't true for any of the combined rows that involve complaining. On the other hand, Gita cleaned up the lab twice, so there are two records in the result for that. This shows that <code>join</code> doesn't automatically remove duplicates.</li>
+</ol>
+<p>While we can use <code>where</code>, the SQL standard encourages us to use a different keyword <code>on</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="k">work</span>
+<span class="k">on</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="p">;</span>
+</code></pre></div>
+<p>Many years ago, using <code>on</code> sometimes gave slightly higher performance. Today, though, the two forms are equivalent from the database manager's point of view. Many people still prefer <code>on</code> for readability: it shows how the rows are being combined, while <code>where</code> shows how combined rows are being filtered. As with almost everything in programming, what matters most is to pick one and stick to it so that your queries are consistent.</p>
+<p>The standard also encourages us to write our join as <code>inner join</code>, because as we will see in a moment, other kinds of joins exist. People often skip this and just write <code>join</code>, or even use a simple comma between the table names, but from now on we will be pedantic to make what we're doing clearer.</p>
+<p>We are now able to answer our original question: how many credits has each student earned?</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w"> </span><span class="c1">-- add up the credits for each person</span>
+<span class="k">select</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">credits</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total</span>
+
+<span class="c1">-- only combine rows that refer to the same thing</span>
+<span class="k">from</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="k">work</span>
+<span class="k">on</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span>
+
+<span class="c1">-- put all the credits for each person into a separate bucket</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<h2>Left Joins</h2>
+<p>The query above shows us how many credits Amal and Gita have earned, but doesn't show anything for Madhi. Ideally, we'd like a row showing that she has earned zero credits. To get this, we need to use a different kind of join called a <a class="gl-ref" href="../glossary/#left_outer_join">left join</a>. A left join is created by following these rules:</p>
+<ol>
+<li>If the row from the left-hand table matches one or more rows from the right-hand table, combine them as an inner join would.</li>
+<li>If the row from the left-hand table <em>doesn't</em> match any rows from the right-hand table, create one row in the result with the values from the left row and <code>null</code> where the values from the right-hand table would be.</li>
+</ol>
+<p>An example will make this clearer.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">job</span>
+<span class="k">on</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+</code></pre></div>
+<p>Let's trace this query's execution step by step:</p>
+<ol>
+<li>The <code>(Amal, calibrate)</code> row from <code>work</code> matches the <code>(calibrate, 1.5)</code> row from <code>job</code>, so that is the first row of output.</li>
+<li>Similarly, the <code>(Amal, clean)</code> row matches the <code>(clean, 0.5)</code> row, so we get the second row of output.</li>
+<li>But <code>(Amal, complain)</code> <em>doesn't</em> match anything from <code>job</code>, so we get a row with the values from the left table (<code>Amal</code> and <code>complain</code>) and <code>null</code> for <code>name</code> and <code>work</code>.</li>
+<li>We then get two rows for Gita cleaning because there's a match…</li>
+<li>…and two rows with <code>null</code> values for Gita and Madhi complaining because there isn't.</li>
+</ol>
+<div class="callout">
+<ol>
+<li>What do we get if we invert the order of the tables, i.e., do <code>job left join work</code>? Why?</li>
+</ol>
+</div>
+<h2>Coalesce</h2>
+<p>We can now sum up everyone's credits:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">credits</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total</span>
+<span class="k">from</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">job</span>
+<span class="k">on</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<p>This is <em>almost</em> what we want: we have a row for Madhi, but her <code>total</code> is <code>null</code> because that's what <code>sum</code> produces when all of the values it's adding up are <code>null</code>. We can fix this using a built-in SQL function called <code>coalesce</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">,</span>
+<span class="w">    </span><span class="k">coalesce</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">credits</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total</span>
+<span class="k">from</span>
+<span class="w">    </span><span class="k">work</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">job</span>
+<span class="k">on</span>
+<span class="w">    </span><span class="k">work</span><span class="p">.</span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">name</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span>
+<span class="w">    </span><span class="k">work</span><span class="p">.</span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<p><code>coalesce</code> takes two inputs. If the first is not <code>null</code>, <code>coalesce</code> returns that. If the first value <em>is</em> <code>null</code>, on the other hand, <code>coalesce</code> returns its second input. In simpler terms, it gives us a value or a default if the value is <code>null</code>.</p>
+<p>Note that we have split this query across several lines with the keywords at the left margin and the parts of the query that belong to them indented below them. As our queries become more complex, this style makes them easier to read. As with <code>join</code> versus <code>inner join</code>, the most important thing is to be consistent so that the reader isn't distracted by stylistic differences.</p>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../null/">Missing Data</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../keys/">Keys</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

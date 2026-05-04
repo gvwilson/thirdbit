@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Primary and Foreign Keys</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a class="active" href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Primary and Foreign Keys</h1>
+<p>The previous tutorial explained how to combine information from two tables using <code>inner join</code> and <code>left join</code>. This tutorial will explain how we can tell when it makes sense to do this, and introduce our first complex database. To start, let's look at a diagram showing the four tables in the <code>survey</code> database.</p>
+<p><img alt="survey tables" src="./survey_tables.svg"/></p>
+<p>Let's start with <code>person</code>, which has four columns: <code>person_id</code>, <code>personal</code>, <code>family</code>, and <code>supervisor_id</code> (which we will discuss in the next section). <code>person_id</code> is shown in <strong><em>bold italics</em></strong> to indicate that it is the table's <a class="gl-ref" href="../glossary/#primary_key">primary key</a>: each row in the table has a non-<code>null</code> <code>person_id</code>, and each of those values is unique. These values can therefore be used to uniquely identify specific rows in the table. We can check that by selecting all of the people and inspecting the <code>person_id</code> values by eye:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<p>A better way is to count the number of rows in the table, the number of non-<code>null</code> <code>person_id</code> values, and the number of distinct person ID values. Remember, <code>count(*)</code> counts rows, while <code>count(column_name)</code> counts the number of non-<code>null</code> values in that particular column. We haven't seen <code>count(distinct column_name)</code> before, but as you might guess, it counts the number of distinct values in a particular column.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_rows</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">person_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_non_null</span><span class="p">,</span>
+<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">person_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_distinct</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<p>Now let's take a look at the <code>survey</code> table. Each survey has a survey ID, the ID of the person who did the survey, and the survey's start and end dates. <code>survey_id</code> is in <strong><em>bold italics</em></strong>, which tells us that each survey has a unique ID. <code>person_id</code>, on the other hand, is just in <em>italics</em>, and there's an arrow connecting it to the <code>person</code> table's primary key, which is also called <code>person_id</code>. The use of italics and the arrow signals that <code>survey.person_id</code> is a <a class="gl-ref" href="../glossary/#foreign_key">foreign key</a>, i.e., a value stored in one table that references the primary key of another table. This relationship tells us that:</p>
+<ol>
+<li>It makes sense to use <code>survey.person_id = person.person_id</code> as a condition in a join because every <code>survey.person_id</code> is guaranteed to refer to an existing <code>person.person_id</code>.</li>
+<li>Several surveys might refer to the same person (or equivalently, one person might have done several surveys). This is called a <a class="gl-ref" href="../glossary/#one_to_many">one-to-many relationship</a>.</li>
+</ol>
+<p>Let's write some queries. Who is in the <code>person</code> table?</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
+</code></pre></div>
+<p>How many surveys has Ascensión Sierra done? Her <code>person_id</code> is <code>P001</code>, so we can answer the question by filtering the <code>survey</code> table and then aggregating.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">num_surveys</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'P001'</span><span class="p">;</span>
+</code></pre></div>
+<p>What if we want Ascensión's name displayed along with this count? To get that, we need to join the tables.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'P001'</span><span class="p">;</span>
+</code></pre></div>
+<p>What if we want to get Ascensión's full name in a single column? We can do that by concatenating her personal and family name using the <code>||</code> operator (which is sometimes called "glue"). As the output of the query below shows, <code>||</code> does for text what <code>+</code> does for numbers.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'P001'</span><span class="p">;</span>
+</code></pre></div>
+<p>Whoops: we probably want a space between Ascensión's personal and family names, so we will glue her personal name to a space and then glue that to her family name (just as we would write 1 + 2 + 3).</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'P001'</span><span class="p">;</span>
+</code></pre></div>
+<p>Now, what if we want the number of surveys done by each person ordered by family and personal name?</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">full_name</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="p">;</span>
+</code></pre></div>
+<p>Notice that "Águila" (with an acute accent) comes after "Sierra". Correcting this mistake is out of the scope of this tutorial, but can be done by installing the <a href="https://icu.unicode.org/">International Components for Unicode</a> and writing the query like this:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="s1">'es_ES'</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>When did the earliest survey done by each person start?</p>
+</li>
+<li>
+<p>Which people have done 17 or more surveys?</p>
+</li>
+<li>
+<p>Just as <code>sum</code> adds up all the values in a column, <code>group_concat</code> concatenates all the text in a column. For example, if the column is called <code>name</code>, then <code>select group_concat(name, ':')</code> joins all the values in <code>name</code> with colons. Use this to write a query that generates two columns: a person's full name, and a comma-separated list of the IDs of the survey that person has done.</p>
+</li>
+<li>
+<p>Explain what the following query produces and why.</p>
+</li>
+</ol>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">survey</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">person_id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">survey</span><span class="p">.</span><span class="n">survey_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<h2>Self-Joins</h2>
+<p>As a reminder, here's the structure of the survey database.</p>
+<p><img alt="survey tables" src="https://raw.githubusercontent.com/marimo-team/learn/main/sql/public/survey_tables.svg"/></p>
+<p>Notice that the <code>person</code> table has a foreign key called <code>supervisor_id</code> that refers back to the table's own primary key, <code>person_id</code>. This relationship makes sense: supervisors are people, so they're stored in the same table as everyone else. However, if we want to generate a list of people's names and their supervisors' names, we <em>can't</em> just join <code>person</code> to <code>person</code>.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span>
+<span class="k">on</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">supervisor_id</span><span class="p">;</span>
+</code></pre></div>
+<p>The problem is that <code>person.person_id</code> and <code>person.supervisor_id</code> are ambiguous: are we referring to the left-hand use of the <code>person</code> table or the right-hand use? To resolve this, we give each copy of the table an <a class="gl-ref" href="../glossary/#alias">alias</a> using <code>as</code>, just as we gave columns names using <code>as</code>. We also have to specify the columns that we want using two-part <code>table.column</code> notation.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">pa</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pa_personal</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pa</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pa_family</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pb</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pb_personal</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pb</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pb_family</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pa</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pb</span>
+<span class="k">on</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pb</span><span class="p">.</span><span class="n">supervisor_id</span><span class="p">;</span>
+</code></pre></div>
+<p>Joining a table to itself is called a <strong>self join</strong>. The hard part is figuring out whether <code>pa</code> is the minion and <code>pb</code> is the supervisor or vice versa. The logic is that the supervisor of person <code>pb</code> is person <code>pa</code>, which means <code>pa</code> is the supervisor and <code>pb</code> is the minion. (Alternatively, we can inspect the first couple of rows, check back against the <code>person</code> table, and decide that way.) Let's rewrite the query to show the relationship explicitly.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">pa</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">supervisor</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pb</span><span class="p">.</span><span class="n">personal</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pb</span><span class="p">.</span><span class="n">family</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">minion</span>
+<span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pa</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">pb</span>
+<span class="k">on</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pb</span><span class="p">.</span><span class="n">supervisor_id</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">pa</span><span class="p">.</span><span class="n">personal</span><span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Write a query that finds the full names of everyone who doesn't have a supervisor. (Hint: you do not need to use a <code>join</code>.)</p>
+</li>
+<li>
+<p>Write a query to find all the people who supervise someone who supervises someone. (Hint: you will need to join three copies of <code>person</code> to get the person, their boss, and their grand-boss.)</p>
+</li>
+</ol>
+</div>
+<h2>Many-to-Many Relationships</h2>
+<p>Each survey is done by one person, which means that people have a one-to-many relationship with surveys. However, any number of people can have ratings for any number of machines and vice versa, which means these two tables have a <a class="gl-ref" href="../glossary/#many_to_many">many-to-many relationship</a>. These relationships can be hard to express in a table: if, for example, we knew that people never have ratings for more than three machines, we could add <code>machine_1</code>, <code>machine_2</code>, and <code>machine_3</code> columns to <code>person</code>, but (a) we would have to check several columns if we wanted to find a particular machine, and (b) we would have to redesign our table if the rules changed and people could have ratings for four or five machines.</p>
+<p>A better approach is to create another intermediate table that stores the relationship between the two tables we're interested in. Such a table is sometimes called a <a class="gl-ref" href="../glossary/#join_table">join table</a> because its main purpose is to allow us to join two other tables. The <code>rating</code> table in our database is an example of a join table. Each row stores a foreign key into <code>person</code> and a foreign key into <code>machine</code>, which shows that the person has some relationship to the machine. The table also stores <code>level</code>, which is the actual rating (or <code>null</code>), but it is quite common for join tables to only store pairs of foreign keys.</p>
+<p>So, which people have ratings for which machines?</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span><span class="p">,</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="k">level</span>
+<span class="k">from</span>
+<span class="w">    </span><span class="n">person</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">rating</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">machine</span>
+<span class="k">on</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rating</span><span class="p">.</span><span class="n">person_id</span>
+<span class="w">    </span><span class="k">and</span>
+<span class="w">    </span><span class="n">rating</span><span class="p">.</span><span class="n">machine_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_id</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">rating</span><span class="p">.</span><span class="k">level</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">family</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">machine</span><span class="p">.</span><span class="n">machine_type</span>
+<span class="p">;</span>
+</code></pre></div>
+<div class="callout">
+<ol>
+<li>
+<p>Which people have a level of 3 or more on at least one machine?</p>
+</li>
+<li>
+<p>Write a query that generates a comma-separated list of the machines that Asensio Amaya is rated on, even if the level is <code>null</code>. (Hint: use <code>group_concat</code>.)</p>
+</li>
+<li>
+<p>Many of the <code>level</code> values in <code>rating</code> are <code>null</code>. What do you think this might mean?</p>
+</li>
+</ol>
+</div>
+<h2>Check Understanding</h2>
+<p><img alt="concept map" src="./concepts.svg"/></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../join/">Joins</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../subquery/">Subqueries</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

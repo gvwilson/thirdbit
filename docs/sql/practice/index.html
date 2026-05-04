@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practice Questions</title>
+<meta content="Introduction to SQL" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Introduction to SQL</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basic_select/">Basic Selection</a></li>
+<li><a href="../filter/">Filtering</a></li>
+<li><a href="../aggregate_group/">Aggregation and Grouping</a></li>
+<li><a href="../null/">Missing Data</a></li>
+<li><a href="../join/">Joins</a></li>
+<li><a href="../keys/">Keys</a></li>
+<li><a href="../subquery/">Subqueries</a></li>
+<li><a href="../modify/">Modifying Data</a></li>
+<li><a href="../conditional/">Conditionals</a></li>
+<li><a href="../advanced/">Advanced Topics</a></li>
+<li><a class="active" href="../practice/">Practice</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../answers/">Answers</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sqlshort">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Practice Questions</h1>
+<h2>Using penguins.db</h2>
+<h3>1. Show all penguins</h3>
+<p>Show every column of every row in the <code>penguins</code> table.
+<a href="../answers/#show-all-penguins">💡</a></p>
+<h3>2. Show species and island</h3>
+<p>Show only the <code>species</code> and <code>island</code> columns from the <code>penguins</code> table.
+<a href="../answers/#show-species-and-island">💡</a></p>
+<h3>3. Distinct islands</h3>
+<p>Show the distinct island names in the <code>penguins</code> table.
+Order the results alphabetically.
+<a href="../answers/#distinct-islands">💡</a></p>
+<h3>4. Lightest penguins first</h3>
+<p>Show the species, island, and body mass of the lightest ten penguins.
+<a href="../answers/#lightest-penguins-first">💡</a></p>
+<h3>5. Body mass in kilograms</h3>
+<p>Show each penguin's species, sex, and body mass in kilograms.
+If the body mass is unknown, show the word <code>unknown</code>.
+<a href="../answers/#body-mass-in-kilograms">💡</a></p>
+<h3>6. Gentoo penguins only</h3>
+<p>How many Gentoo penguins are there?
+<a href="../answers/#gentoo-penguins-only">💡</a></p>
+<h3>7. Long flippers</h3>
+<p>Show the species and flipper length of penguins
+whose flipper length is greater than 210mm.
+<a href="../answers/#long-flippers">💡</a></p>
+<h3>8. Heavy penguins on Biscoe</h3>
+<p>Show all columns for penguins on Biscoe island that weigh more than 4000g.
+<a href="../answers/#heavy-penguins-on-biscoe">💡</a></p>
+<h3>9. Chinstrap or Torgersen</h3>
+<p>Show the distinct species and island combinations
+for penguins that are either Chinstrap
+<em>or</em> found on Torgersen island (or both).
+<a href="../answers/#chinstrap-or-torgersen">💡</a></p>
+<h3>10. Summary statistics</h3>
+<p>Show the total number of rows in <code>penguins</code> as <code>num_penguins</code>,
+the heaviest body mass as <code>max_mass_g</code>,
+and the lightest body mass as <code>min_mass_g</code>.
+<a href="../answers/#summary-statistics">💡</a></p>
+<h3>11. Average mass by species</h3>
+<p>Show each species and its average body mass.
+Call the average column <code>avg_mass_g</code>.
+Order by <code>avg_mass_g</code> from heaviest to lightest.
+<a href="../answers/#average-mass-by-species">💡</a></p>
+<h3>12. Islands with large average flippers</h3>
+<p>Show each island and its average flipper length (as <code>avg_flipper_mm</code>),
+but only for islands where that average is greater than 195 mm.
+<a href="../answers/#islands-with-large-average-flippers">💡</a></p>
+<h3>13. Counting nulls in sex</h3>
+<p>Write a query that shows two values side by side:
+the number of rows where <code>sex</code> is not null (as <code>known_sex</code>)
+and the total number of rows (as <code>total_rows</code>).
+Explain in a comment why these two numbers differ.
+<a href="../answers/#counting-nulls-in-sex">💡</a></p>
+<h3>14. Known mass, unknown sex</h3>
+<p>Show all columns for penguins whose <code>body_mass_g</code> is recorded
+but whose <code>sex</code> is not recorded.
+<a href="../answers/#known-mass-unknown-sex">💡</a></p>
+<h2>Using survey.db</h2>
+<h3>15. Distinct machine types</h3>
+<p>Show all distinct machine types in the <code>machine</code> table.
+Order alphabetically.
+<a href="../answers/#distinct-machine-types">💡</a></p>
+<h3>16. Full names</h3>
+<p>Show every person's full name as <code>full_name</code>
+(personal name, a space, then family name).
+Order by family name and then personal name.
+<a href="../answers/#full-names">💡</a></p>
+<h3>17. Surveys without an end date</h3>
+<p>Show the <code>survey_id</code> and <code>person_id</code> of every survey that has no end date.
+<a href="../answers/#surveys-without-an-end-date">💡</a></p>
+<h3>18. Survey count per person</h3>
+<p>Count how many surveys each person has done.
+Show <code>person_id</code> and the count as <code>num_surveys</code>.
+Order by <code>num_surveys</code> from highest to lowest.
+<a href="../answers/#survey-count-per-person">💡</a></p>
+<h3>19. People and their surveys</h3>
+<p>Show each person's full name (as <code>full_name</code>) and the <code>survey_id</code>
+of every survey they have done.
+Order by full name.
+<a href="../answers/#people-and-their-surveys">💡</a></p>
+<h3>20. People with machine ratings</h3>
+<p>Show the full name of every person who has at least one entry in the <code>rating</code> table.
+Do not show duplicates.
+<a href="../answers/#people-with-machine-ratings">💡</a></p>
+<h3>21. Average rating by machine type</h3>
+<p>Show the average rating level for each machine type as <code>avg_level</code>.
+Exclude rows where <code>level</code> is null.
+Order by <code>avg_level</code> from highest to lowest.
+<a href="../answers/#average-rating-by-machine-type">💡</a></p>
+<h3>22. Raters per machine type</h3>
+<p>Show each machine type and the number of people who have rated it (as <code>num_raters</code>).
+Include machine types that no one has rated (show 0 for those).
+<a href="../answers/#raters-per-machine-type">💡</a></p>
+<h3>23. Done surveys and ratings</h3>
+<p>Show the full name of everyone who has done at least one survey
+and also has at least one entry in the <code>rating</code> table.
+Do not show duplicates.
+<a href="../answers/#done-surveys-and-ratings">💡</a></p>
+<h3>24. Ratings on multiple machines</h3>
+<p>Show each person's full name and the number of different machines
+they have rated (as <code>num_machines</code>).
+Only show people who have rated at least two different machines.
+<a href="../answers/#ratings-on-multiple-machines">💡</a></p>
+<h3>25. Supervisors and their team size</h3>
+<p>Show each supervisor's full name (as <code>supervisor</code>)
+and the number of people they supervise (as <code>num_reports</code>).
+Only show people who supervise at least one other person.
+<a href="../answers/#supervisors-and-their-team-size">💡</a></p>
+<h3>26. People who have done surveys</h3>
+<p>Use <code>in</code> with a subquery to show the full name of every person
+who has at least one entry in the <code>survey</code> table.
+Do not show duplicates. Order by family name.
+<a href="../answers/#people-who-have-done-surveys">💡</a></p>
+<h3>27. People who have never done a survey</h3>
+<p>Use <code>not in</code> with a subquery to show the full name of every person
+in the <code>person</code> table who has no entries in the <code>survey</code> table.
+<a href="../answers/#people-who-have-never-done-a-survey">💡</a></p>
+<h3>28. People with no machine ratings</h3>
+<p>Use <code>not in</code> with a subquery to find every person
+who does not appear in the <code>rating</code> table at all.
+Show their full name (as <code>full_name</code>).
+<a href="../answers/#people-with-no-machine-ratings">💡</a></p>
+<h3>29. Surveys done by supervisors</h3>
+<p>Use <code>in</code> with a subquery to show the <code>survey_id</code> and <code>start_date</code>
+of every survey carried out by someone who supervises at least one other person.
+(Hint: find the <code>person_id</code> values that appear as <code>supervisor_id</code> in the <code>person</code> table.
+Be careful: some <code>supervisor_id</code> values are <code>null</code>, and including <code>null</code> in an <code>in</code> list
+can cause rows to be silently dropped from the results.)
+<a href="../answers/#surveys-done-by-supervisors">💡</a></p>
+<h3>30. Machine types with no non-null ratings</h3>
+<p>Use <code>not in</code> with a subquery to show the <code>machine_type</code> of every machine
+that has never received a non-null rating level.
+<a href="../answers/#machine-types-with-no-non-null-ratings">💡</a></p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../advanced/">Advanced Topics</a>
+</div>
+<div class="col-6 center">
+<a href="../">Introduction to SQL</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../license/">License</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
