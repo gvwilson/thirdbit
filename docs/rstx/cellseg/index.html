@@ -95,7 +95,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="generate_image.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
+<div data-inc="generate_image.py" data-mark="constants"><span aria-label="Source: cellseg/generate_image.py" class="inc-path" role="img" tabindex="0" title="cellseg/generate_image.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
 <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># pixels per side; kept small for fast tests</span>
 <span class="n">N_CELLS</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># number of cells to place</span>
 <span class="n">CELL_SIGMA</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Gaussian half-width of each cell (pixels)</span>
@@ -110,7 +110,7 @@
 <span class="n">MIN_SEPARATION</span> <span class="o">=</span> <span class="mi">24</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_image.py" data-mark="make-image"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_image</span><span class="p">(</span>
+<div data-inc="generate_image.py" data-mark="make-image"><span aria-label="Source: cellseg/generate_image.py" class="inc-path" role="img" tabindex="0" title="cellseg/generate_image.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_image</span><span class="p">(</span>
     <span class="n">n_cells</span><span class="o">=</span><span class="n">N_CELLS</span><span class="p">,</span>
     <span class="n">sigma</span><span class="o">=</span><span class="n">CELL_SIGMA</span><span class="p">,</span>
     <span class="n">brightness</span><span class="o">=</span><span class="n">CELL_BRIGHTNESS</span><span class="p">,</span>
@@ -151,7 +151,7 @@
 <ul>
 <li>With $\sigma = 6$ and $\sigma_s = 2$ this gives $B_\text{smooth} = 36/40 = 0.90$</li>
 </ul>
-<div data-inc="cellseg.py" data-mark="smooth"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">SMOOTH_SIGMA</span><span class="p">):</span>
+<div data-inc="cellseg.py" data-mark="smooth"><span aria-label="Source: cellseg/cellseg.py" class="inc-path" role="img" tabindex="0" title="cellseg/cellseg.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">SMOOTH_SIGMA</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the image after 2-D Gaussian smoothing with the given sigma."""</span>
     <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
 </code></pre></div>
@@ -165,7 +165,7 @@
 <li><code>scipy.ndimage.label</code> assigns a unique integer to each <a class="gl-ref" href="../glossary/#connected_component">connected component</a></li>
 <li>Components smaller than <code>MIN_CELL_SIZE</code> pixels are discarded to remove noise artefacts</li>
 </ul>
-<div data-inc="cellseg.py" data-mark="segment"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">segment</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="n">MIN_CELL_SIZE</span><span class="p">):</span>
+<div data-inc="cellseg.py" data-mark="segment"><span aria-label="Source: cellseg/cellseg.py" class="inc-path" role="img" tabindex="0" title="cellseg/cellseg.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">segment</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="n">MIN_CELL_SIZE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (labeled, n_cells) from a smoothed image.</span>
 
 <span class="sd">    Steps:</span>
@@ -191,7 +191,7 @@
     <span class="k">return</span> <span class="n">filtered</span><span class="p">,</span> <span class="n">new_label</span> <span class="o">-</span> <span class="mi">1</span>
 </code></pre></div>
 </div>
-<div data-inc="cellseg.py" data-mark="cell-sizes"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cell_sizes</span><span class="p">(</span><span class="n">labeled</span><span class="p">):</span>
+<div data-inc="cellseg.py" data-mark="cell-sizes"><span aria-label="Source: cellseg/cellseg.py" class="inc-path" role="img" tabindex="0" title="cellseg/cellseg.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cell_sizes</span><span class="p">(</span><span class="n">labeled</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an array of pixel counts, one per detected cell."""</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">labeled</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labeled</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
@@ -221,7 +221,7 @@
     well below the threshold,
     so adjacent cells are never merged into one component</li>
 </ul>
-<div data-inc="cellseg.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_SIGMA</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># std dev of the Gaussian smoothing kernel (pixels)</span>
+<div data-inc="cellseg.py" data-mark="constants"><span aria-label="Source: cellseg/cellseg.py" class="inc-path" role="img" tabindex="0" title="cellseg/cellseg.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_SIGMA</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># std dev of the Gaussian smoothing kernel (pixels)</span>
 
 <span class="c1"># After smoothing, cell peak brightness ≈ σ²/(σ²+σ_s²) = 36/40 ≈ 0.90.</span>
 <span class="c1"># Threshold 0.5 sits comfortably below 0.90 and well above the smoothed-noise</span>
@@ -252,7 +252,7 @@
 <li>The same pipeline applied to an image with no cells at all produces false detections
     when the threshold is too low</li>
 </ul>
-<div data-inc="generate_image.py" data-mark="make-noise"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="n">IMAGE_SIZE</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="generate_image.py" data-mark="make-noise"><span aria-label="Source: cellseg/generate_image.py" class="inc-path" role="img" tabindex="0" title="cellseg/generate_image.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="n">IMAGE_SIZE</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an image containing only Gaussian noise, no cell signal.</span>
 
 <span class="sd">    Used to demonstrate the false-positive behaviour of the segmentation</span>
@@ -319,7 +319,7 @@ the bounds give a factor of 3 on each side to absorb noise, overlap, and discret
 showing that parameter choice matters.
 At the operating threshold it must produce none, showing the threshold is adequate.</dd>
 </dl>
-<div data-inc="test_cellseg.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_cellseg.py"><span aria-label="Source: cellseg/test_cellseg.py" class="inc-path" role="img" tabindex="0" title="cellseg/test_cellseg.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_image</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_image</span><span class="p">,</span> <span class="n">make_pure_noise</span><span class="p">,</span> <span class="n">N_CELLS</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cellseg</span><span class="w"> </span><span class="kn">import</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">segment</span><span class="p">,</span> <span class="n">cell_sizes</span><span class="p">,</span> <span class="n">THRESHOLD</span>
 

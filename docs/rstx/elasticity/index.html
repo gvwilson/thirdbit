@@ -125,7 +125,7 @@ If the price increases by 10%, what happens to quantity demanded?</p>
     the residual sum of squares</li>
 <li>A 95% confidence interval is $\hat{\varepsilon} \pm t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})$</li>
 </ul>
-<div data-inc="elasticity.py" data-mark="ols"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">):</span>
+<div data-inc="elasticity.py" data-mark="ols"><span aria-label="Source: elasticity/elasticity.py" class="inc-path" role="img" tabindex="0" title="elasticity/elasticity.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit log(quantity) = intercept + slope * log(price) by ordinary least squares.</span>
 
 <span class="sd">    OLS formulas:</span>
@@ -179,7 +179,7 @@ If the price increases by 10%, what happens to quantity demanded?</p>
 </ul>
 </li>
 </ul>
-<div data-inc="generate_elasticity.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<div data-inc="generate_elasticity.py" data-mark="constants"><span aria-label="Source: elasticity/generate_elasticity.py" class="inc-path" role="img" tabindex="0" title="elasticity/generate_elasticity.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># number of price-quantity observations</span>
 <span class="n">TRUE_ELASTICITY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span>  <span class="c1"># true price elasticity (slope in log-log space)</span>
 <span class="n">TRUE_INTERCEPT</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># true log-scale intercept</span>
@@ -190,7 +190,7 @@ If the price increases by 10%, what happens to quantity demanded?</p>
 <span class="n">NOISE_STD</span> <span class="o">=</span> <span class="mf">0.15</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_elasticity.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_elasticity_data</span><span class="p">(</span>
+<div data-inc="generate_elasticity.py" data-mark="generate"><span aria-label="Source: elasticity/generate_elasticity.py" class="inc-path" role="img" tabindex="0" title="elasticity/generate_elasticity.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_elasticity_data</span><span class="p">(</span>
     <span class="n">n</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
     <span class="n">true_elasticity</span><span class="o">=</span><span class="n">TRUE_ELASTICITY</span><span class="p">,</span>
     <span class="n">true_intercept</span><span class="o">=</span><span class="n">TRUE_INTERCEPT</span><span class="p">,</span>
@@ -221,7 +221,7 @@ If the price increases by 10%, what happens to quantity demanded?</p>
 </code></pre></div>
 </div>
 <h2>Fitting and Reporting the Elasticity</h2>
-<div data-inc="elasticity.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_loglog</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="elasticity.py" data-mark="plot"><span aria-label="Source: elasticity/elasticity.py" class="inc-path" role="img" tabindex="0" title="elasticity/elasticity.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_loglog</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a log-log scatter plot with the fitted OLS line.</span>
 
 <span class="sd">    Both axes are on a log scale.  The fitted curve is the power-law:</span>
@@ -289,7 +289,7 @@ the CI $[-1.518, -1.430]$ reliably contains the true value $-1.5$.
 This test would fail only with data where the noise draw happens to be extreme,
 which the fixed seed rules out.</dd>
 </dl>
-<div data-inc="test_elasticity.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_elasticity.py"><span aria-label="Source: elasticity/test_elasticity.py" class="inc-path" role="img" tabindex="0" title="elasticity/test_elasticity.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_elasticity</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_elasticity_data</span><span class="p">,</span> <span class="n">TRUE_ELASTICITY</span><span class="p">,</span> <span class="n">TRUE_INTERCEPT</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elasticity</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_log_ols</span>

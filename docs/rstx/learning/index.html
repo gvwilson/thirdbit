@@ -129,7 +129,7 @@ is used because it describes the data well, not for computational convenience.</
 </ul>
 </li>
 </ul>
-<div data-inc="generate_learning.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_trials</span><span class="p">(</span>
+<div data-inc="generate_learning.py" data-mark="generate"><span aria-label="Source: learning/generate_learning.py" class="inc-path" role="img" tabindex="0" title="learning/generate_learning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_trials</span><span class="p">(</span>
     <span class="n">n_trials</span><span class="o">=</span><span class="n">N_TRIALS</span><span class="p">,</span>
     <span class="n">a</span><span class="o">=</span><span class="n">TRUE_A</span><span class="p">,</span>
     <span class="n">b</span><span class="o">=</span><span class="n">TRUE_B</span><span class="p">,</span>
@@ -165,7 +165,7 @@ is used because it describes the data well, not for computational convenience.</
 <li>The diagonal entry <code>pcov[1, 1]</code> is the estimated variance of $b$</li>
 <li>Its square root is the standard error $\text{SE}(b)$</li>
 </ul>
-<div data-inc="learning.py" data-mark="fit"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_power_law</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">rt</span><span class="p">):</span>
+<div data-inc="learning.py" data-mark="fit"><span aria-label="Source: learning/learning.py" class="inc-path" role="img" tabindex="0" title="learning/learning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_power_law</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">rt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit a power-law learning curve to per-trial reaction-time data.</span>
 
 <span class="sd">    Parameters</span>
@@ -217,7 +217,7 @@ Compute the standard error: SE = sqrt(pcov[1, 1]).
 Form the 95% CI: (b - 1.96 * SE, b + 1.96 * SE).</p>
 </div>
 <h2>Visualizing the Fit</h2>
-<div data-inc="learning.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_fit</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">rt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">b_ci</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="learning.py" data-mark="plot"><span aria-label="Source: learning/learning.py" class="inc-path" role="img" tabindex="0" title="learning/learning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_fit</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">rt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">b_ci</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a scatter plot of raw data with the fitted power-law curve overlaid."""</span>
     <span class="n">trials</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">rt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -283,7 +283,7 @@ and 80 data points are sufficient for the estimator to converge well within this
 <dd>The fitted curve evaluated at trials 1 through 20 must be strictly decreasing,
 confirming that $b &gt; 0$ and $A &gt; 0$.</dd>
 </dl>
-<div data-inc="test_learning.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_learning.py"><span aria-label="Source: learning/test_learning.py" class="inc-path" role="img" tabindex="0" title="learning/test_learning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_trials</span><span class="p">,</span> <span class="n">N_TRIALS</span><span class="p">,</span> <span class="n">TRUE_B</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_power_law</span><span class="p">,</span> <span class="n">power_law</span>
 

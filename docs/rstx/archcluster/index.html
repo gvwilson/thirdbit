@@ -127,7 +127,7 @@ but the labelling depends on cell density, not overall counts.</dd>
 </li>
 <li>Count the number of sites in each cell; the result is a 2D integer array of shape <code>(grid_size, grid_size)</code></li>
 </ul>
-<div data-inc="archcluster.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="grid"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <h2>Identifying Concentration Cells</h2>
@@ -142,7 +142,7 @@ but the labelling depends on cell density, not overall counts.</dd>
 </li>
 <li>The Boolean mask of hot cells is straightforward:</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="hot-cells"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="hot-cells"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -179,7 +179,7 @@ not split them.</dd>
 <li>The same iterative DFS used in the <code>porous</code> lesson labels connected components</li>
 <li>Here it assigns cluster IDs instead of testing for top-to-bottom percolation</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="dfs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="dfs"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -225,7 +225,7 @@ end up in background cells and are labelled as noise.</dd>
 <li>The site receives the cluster label of its cell</li>
 <li>Sites in background cells receive -1 (noise)</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="assign"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="assign"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -257,7 +257,7 @@ to cluster centroids.</dd>
 <li>The centroid of a cluster is the mean easting and mean northing of all sites assigned to that cluster</li>
 <li>Centroids summarize each cluster's geographic location and can be compared with known landscape features</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="centroids"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="centroids"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -286,7 +286,7 @@ The four planted concentrations are far enough apart to remain separate under th
 <dd><code>cluster_centroids</code> must return exactly one entry for every unique non-negative label in the input,
 and the centroid coordinates must equal the mean of the corresponding sites.</dd>
 </dl>
-<div data-inc="test_archcluster.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_archcluster.py"><span aria-label="Source: archcluster/test_archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/test_archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_archcluster</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">make_sites</span><span class="p">,</span>

@@ -83,7 +83,7 @@
 <li>This is <a class="gl-ref" href="../glossary/#site_percolation">site percolation</a> on a 2D square lattice with 4-neighbor (von Neumann) connectivity.</li>
 <li>"Percolation" means a connected path of open cells exists from any cell in the top row to any cell in the bottom row.</li>
 </ul>
-<div data-inc="porous.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># side length of the square grid (cells)</span>
+<div data-inc="porous.py" data-mark="constants"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># side length of the square grid (cells)</span>
 <span class="n">N_TRIALS</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># independent trials per probability value</span>
 <span class="n">N_PROBS</span> <span class="o">=</span> <span class="mi">41</span>  <span class="c1"># number of probability values from 0.0 to 1.0 inclusive</span>
 <span class="n">RNG_SEED</span> <span class="o">=</span> <span class="mi">7493418</span>
@@ -94,7 +94,7 @@
 <span class="n">THRESHOLD_THEORY</span> <span class="o">=</span> <span class="mf">0.5927</span>
 </code></pre></div>
 </div>
-<div data-inc="porous.py" data-mark="make-grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<div data-inc="porous.py" data-mark="make-grid"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a GRID_SIZE x GRID_SIZE boolean array.</span>
 
 <span class="sd">    Each cell is independently True (open) with probability p.</span>
@@ -122,7 +122,7 @@ What fraction of its cells are True on average?</p>
 <li><a class="gl-ref" href="../glossary/#depth_first_search">Depth-first search</a> (DFS) explores as far as possible along each branch before backtracking.</li>
 <li>All open cells in row 0 are added to a stack as starting points; the search succeeds as soon as any visited cell reaches the last row.</li>
 </ul>
-<div data-inc="porous.py" data-mark="percolates"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">percolates</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<div data-inc="porous.py" data-mark="percolates"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">percolates</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return True if an open path connects any top-row cell to any bottom-row cell.</span>
 
 <span class="sd">    Uses iterative depth-first search with 4-neighbor (von Neumann) connectivity.</span>
@@ -186,7 +186,7 @@ What fraction of its cells are True on average?</p>
 <li>At low $p$, almost no trial percolates; at high $p$, almost every trial does.</li>
 <li>The transition from 0 to 1 sharpens as the grid size increases.</li>
 </ul>
-<div data-inc="porous.py" data-mark="sweep"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sweep</span><span class="p">():</span>
+<div data-inc="porous.py" data-mark="sweep"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sweep</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Return a DataFrame with the percolation fraction at each probability.</span>
 
 <span class="sd">    For each p in a uniform grid from 0 to 1, runs N_TRIALS independent</span>
@@ -202,7 +202,7 @@ What fraction of its cells are True on average?</p>
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"probability"</span><span class="p">:</span> <span class="n">probs</span><span class="p">,</span> <span class="s2">"fraction_percolating"</span><span class="p">:</span> <span class="n">fractions</span><span class="p">})</span>
 </code></pre></div>
 </div>
-<div data-inc="porous.py" data-mark="estimate-threshold"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">estimate_threshold</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div data-inc="porous.py" data-mark="estimate-threshold"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">estimate_threshold</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the smallest p where the percolation fraction first reaches 0.5.</span>
 
 <span class="sd">    On a finite grid the percolation transition is sharp but not a true step</span>
@@ -214,7 +214,7 @@ What fraction of its cells are True on average?</p>
 </code></pre></div>
 </div>
 <h2>Visualizing the Results</h2>
-<div data-inc="porous.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div data-inc="porous.py" data-mark="plot"><span aria-label="Source: porous/porous.py" class="inc-path" role="img" tabindex="0" title="porous/porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an Altair line chart of percolation fraction vs. open probability."""</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -252,7 +252,7 @@ What fraction of its cells are True on average?</p>
 <li>On a $20 \times 20$ grid with 200 trials the finite-size correction and Monte Carlo variance together are within 0.07 of this value.</li>
 <li>A tolerance of 0.07 is tight enough to catch a wrong algorithm but loose enough to accommodate finite-size effects.</li>
 </ul>
-<div data-inc="test_porous.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_porous.py"><span aria-label="Source: porous/test_porous.py" class="inc-path" role="img" tabindex="0" title="porous/test_porous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">porous</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">RNG_SEED</span><span class="p">,</span>
     <span class="n">THRESHOLD_THEORY</span><span class="p">,</span>

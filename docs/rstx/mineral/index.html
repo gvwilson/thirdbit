@@ -90,7 +90,7 @@
 </li>
 <li>The two distributions overlap because real mineral classification is never perfectly clean</li>
 </ul>
-<div data-inc="generate_mineral.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Synthetic geochemical data: two mineral classes distinguished by oxide concentrations.</span>
+<div data-inc="generate_mineral.py" data-mark="constants"><span aria-label="Source: mineral/generate_mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/generate_mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Synthetic geochemical data: two mineral classes distinguished by oxide concentrations.</span>
 <span class="c1"># Felsic rocks (e.g. granite) are silica-rich; mafic rocks (e.g. basalt) are silica-poor.</span>
 <span class="c1"># Feature 0: SiO2 concentration (wt%)</span>
 <span class="c1"># Feature 1: Al2O3 concentration (wt%)</span>
@@ -104,7 +104,7 @@
 <span class="n">TRAIN_FRAC</span> <span class="o">=</span> <span class="mf">0.75</span>  <span class="c1"># fraction used for training</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_mineral.py" data-mark="make-data"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_mineral_data</span><span class="p">(</span><span class="n">n_felsic</span><span class="o">=</span><span class="n">N_FELSIC</span><span class="p">,</span> <span class="n">n_mafic</span><span class="o">=</span><span class="n">N_MAFIC</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="generate_mineral.py" data-mark="make-data"><span aria-label="Source: mineral/generate_mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/generate_mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_mineral_data</span><span class="p">(</span><span class="n">n_felsic</span><span class="o">=</span><span class="n">N_FELSIC</span><span class="p">,</span> <span class="n">n_mafic</span><span class="o">=</span><span class="n">N_MAFIC</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (X, y) for a two-class geochemical dataset.</span>
 
 <span class="sd">    X is (n_felsic + n_mafic, 2): columns are SiO2 and Al2O3 wt%.</span>
@@ -130,7 +130,7 @@
 <li>$x_0$ and $x_1$ are the (normalised) $\text{SiO}_2$ and $\text{Al}_2\text{O}_3$ concentrations</li>
 <li>$w_0$, $w_1$, and $b$ are learned from data</li>
 </ul>
-<div data-inc="mineral.py" data-mark="sigmoid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<div data-inc="mineral.py" data-mark="sigmoid"><span aria-label="Source: mineral/mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Map any real number to (0, 1): sigma(z) = 1 / (1 + exp(-z))."""</span>
     <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
 </code></pre></div>
@@ -151,7 +151,7 @@ is the standard tool for constraining weights.</dd>
 <dd>Wrong: the sigmoid is defined for all real numbers; the $[0, 1]$ interval is its output range.</dd>
 </dl>
 </div>
-<div data-inc="mineral.py" data-mark="normalize"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div data-inc="mineral.py" data-mark="normalize"><span aria-label="Source: mineral/mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Standardize X to zero mean and unit standard deviation.</span>
 
 <span class="sd">    If mean and std are supplied (from the training set), apply them to X</span>
@@ -174,7 +174,7 @@ is the standard tool for constraining weights.</dd>
     and with respect to the bias is $\text{mean}(\mathbf{p} - \mathbf{y})$</li>
 <li>Each gradient-descent step subtracts the gradient scaled by the learning rate</li>
 </ul>
-<div data-inc="mineral.py" data-mark="train"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">N_ITER</span><span class="p">):</span>
+<div data-inc="mineral.py" data-mark="train"><span aria-label="Source: mineral/mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">N_ITER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit a logistic regression model by gradient descent.</span>
 
 <span class="sd">    Parameters</span>
@@ -232,7 +232,7 @@ is the standard tool for constraining weights.</dd>
 <li>Because features were normalised during training,
     the boundary must be mapped back to original units before plotting</li>
 </ul>
-<div data-inc="mineral.py" data-mark="boundary"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">decision_boundary_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">x_range</span><span class="p">):</span>
+<div data-inc="mineral.py" data-mark="boundary"><span aria-label="Source: mineral/mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">decision_boundary_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">x_range</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (x_vals, y_vals) for the decision boundary in original feature space.</span>
 
 <span class="sd">    The boundary satisfies w[0]*x_norm + w[1]*y_norm + b = 0.</span>
@@ -246,7 +246,7 @@ is the standard tool for constraining weights.</dd>
     <span class="k">return</span> <span class="n">x_vals</span><span class="p">,</span> <span class="n">y_vals</span>
 </code></pre></div>
 </div>
-<div data-inc="mineral.py" data-mark="predict"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<div data-inc="mineral.py" data-mark="predict"><span aria-label="Source: mineral/mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return binary class predictions (0 or 1) for each row of X."""</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">w</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
@@ -316,7 +316,7 @@ while still catching a failed classifier.</dd>
 A sample with $x_0 = 1$ must be predicted class 1
 and a sample with $x_0 = -1$ must be predicted class 0.</dd>
 </dl>
-<div data-inc="test_mineral.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_mineral.py"><span aria-label="Source: mineral/test_mineral.py" class="inc-path" role="img" tabindex="0" title="mineral/test_mineral.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_mineral</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_mineral_data</span><span class="p">,</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">TRAIN_FRAC</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mineral</span><span class="w"> </span><span class="kn">import</span> <span class="n">sigmoid</span><span class="p">,</span> <span class="n">normalize</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">predict</span><span class="p">,</span> <span class="n">accuracy</span>

@@ -167,7 +167,7 @@ a copying relationship.</dd>
 </tr>
 </tbody>
 </table>
-<div data-inc="stemma.py" data-mark="make-dist"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+<div data-inc="stemma.py" data-mark="make-dist"><span aria-label="Source: stemma/stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (names, D) using exact tree-additive distances.</span>
 
 <span class="sd">    When noise_scale=0.0 (default) the distances are exact and NJ recovers</span>
@@ -217,7 +217,7 @@ a copying relationship.</dd>
     The neighbor-joining algorithm relaxes this assumption but requires more advanced
     mathematics.</li>
 </ul>
-<div data-inc="stemma.py" data-mark="upgma"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">dist_matrix</span><span class="p">):</span>
+<div data-inc="stemma.py" data-mark="upgma"><span aria-label="Source: stemma/stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">dist_matrix</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run the UPGMA algorithm and return a list of (node_a, node_b, length) edges.</span>
 
 <span class="sd">    `names` is a list of manuscript labels.</span>
@@ -414,7 +414,7 @@ both cross-family distances, so C and D are merged.</dd>
 </dl>
 </div>
 <h2>Hamming Distance Function</h2>
-<div data-inc="stemma.py" data-mark="hamming"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<div data-inc="stemma.py" data-mark="hamming"><span aria-label="Source: stemma/stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the fraction of loci where seq_a and seq_b differ.</span>
 
 <span class="sd">    Both sequences must be 1-D integer arrays of the same length.</span>
@@ -425,7 +425,7 @@ both cross-family distances, so C and D are merged.</dd>
 </code></pre></div>
 </div>
 <h2>Visualizing the Stemma</h2>
-<div data-inc="stemma.py" data-mark="draw"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_stemma</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">manuscripts</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="stemma.py" data-mark="draw"><span aria-label="Source: stemma/stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_stemma</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">manuscripts</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save an unrooted stemma tree diagram to `filename`.</span>
 
 <span class="sd">    Manuscript nodes (leaves) are drawn in steelblue; reconstructed</span>
@@ -483,7 +483,7 @@ both cross-family distances, so C and D are merged.</dd>
 <li>Only the four surviving manuscripts A, B, C, D are returned; the archetype and
     intermediate ancestors are not observed.</li>
 </ul>
-<div data-inc="generate_stemma.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_manuscripts</span><span class="p">(</span>
+<div data-inc="generate_stemma.py" data-mark="generate"><span aria-label="Source: stemma/generate_stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/generate_stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_manuscripts</span><span class="p">(</span>
     <span class="n">n_loci</span><span class="o">=</span><span class="n">N_LOCI</span><span class="p">,</span>
     <span class="n">mutation_prob</span><span class="o">=</span><span class="n">MUTATION_PROB</span><span class="p">,</span>
     <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
@@ -570,7 +570,7 @@ both cross-family distances, so C and D are merged.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="test_stemma.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_stemma.py"><span aria-label="Source: stemma/test_stemma.py" class="inc-path" role="img" tabindex="0" title="stemma/test_stemma.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_stemma</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_manuscripts</span><span class="p">,</span> <span class="n">MANUSCRIPTS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">stemma</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>

@@ -121,7 +121,7 @@ What is the most likely effect on the detector?</p>
     haemodynamic deterioration.</li>
 <li>Three isolated spikes of 18 bpm above the local baseline are injected at known positions.</li>
 </ul>
-<div data-inc="generate_vitals.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<div data-inc="generate_vitals.py" data-mark="constants"><span aria-label="Source: vitals/generate_vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/generate_vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># number of time points (minutes)</span>
 <span class="n">BASELINE_MEAN</span> <span class="o">=</span> <span class="mf">70.0</span>  <span class="c1"># baseline heart rate (bpm)</span>
 <span class="n">BASELINE_STD</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># normal beat-to-beat variation (bpm)</span>
@@ -132,7 +132,7 @@ What is the most likely effect on the detector?</p>
 <span class="n">SPIKE_SIZE</span> <span class="o">=</span> <span class="mf">18.0</span>  <span class="c1"># spike magnitude above local baseline (bpm)</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_vitals.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_vitals_data</span><span class="p">(</span>
+<div data-inc="generate_vitals.py" data-mark="generate"><span aria-label="Source: vitals/generate_vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/generate_vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_vitals_data</span><span class="p">(</span>
     <span class="n">n</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
     <span class="n">baseline_mean</span><span class="o">=</span><span class="n">BASELINE_MEAN</span><span class="p">,</span>
     <span class="n">baseline_std</span><span class="o">=</span><span class="n">BASELINE_STD</span><span class="p">,</span>
@@ -163,7 +163,7 @@ What is the most likely effect on the detector?</p>
 </code></pre></div>
 </div>
 <h2>Rolling Mean and Standard Deviation</h2>
-<div data-inc="vitals.py" data-mark="rolling"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<div data-inc="vitals.py" data-mark="rolling"><span aria-label="Source: vitals/vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Compute trailing rolling mean and standard deviation.</span>
 
 <span class="sd">    For position i the window covers indices [max(0, i - window + 1), i].</span>
@@ -189,7 +189,7 @@ What is the most likely effect on the detector?</p>
     means the detector is less reliable at the very start of the recording.</li>
 </ul>
 <h2>Flagging Anomalies</h2>
-<div data-inc="vitals.py" data-mark="detect"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+<div data-inc="vitals.py" data-mark="detect"><span aria-label="Source: vitals/vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Flag time points where the value deviates from the rolling mean by more than</span>
 <span class="sd">    threshold standard deviations.</span>
 
@@ -229,7 +229,7 @@ What is the most likely effect on the detector?</p>
 </table>
 </div>
 <h2>Visualizing the Results</h2>
-<div data-inc="vitals.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_vitals</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="vitals.py" data-mark="plot"><span aria-label="Source: vitals/vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_vitals</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save an Altair figure with the time series, rolling mean, and flagged anomalies."""</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">"heart_rate"</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span> <span class="s2">"rolling_mean"</span><span class="p">:</span> <span class="n">means</span><span class="p">})</span>
     <span class="n">flag_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">[</span><span class="n">flagged</span><span class="p">],</span> <span class="s2">"heart_rate"</span><span class="p">:</span> <span class="n">values</span><span class="p">[</span><span class="n">flagged</span><span class="p">]})</span>
@@ -290,7 +290,7 @@ readings (std = 2 bpm), no value should be flagged.  The maximum expected z-scor
 <dd>A 15 bpm step change on a 0 bpm noise background produces a z-score above 3 as soon as
 the window straddles the transition.  This test uses noiseless data to guarantee detection.</dd>
 </dl>
-<div data-inc="test_vitals.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_vitals.py"><span aria-label="Source: vitals/test_vitals.py" class="inc-path" role="img" tabindex="0" title="vitals/test_vitals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vitals</span><span class="w"> </span><span class="kn">import</span> <span class="n">rolling_stats</span><span class="p">,</span> <span class="n">detect_anomalies</span>
 

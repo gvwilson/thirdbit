@@ -108,7 +108,7 @@
 <ul>
 <li>The temperature at each interface follows by subtracting $q\,R_i$ from the previous value</li>
 </ul>
-<div data-inc="heatwall.py" data-mark="analytic"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analytic_solution</span><span class="p">(</span>
+<div data-inc="heatwall.py" data-mark="analytic"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analytic_solution</span><span class="p">(</span>
     <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Exact steady-state solution via thermal resistance.</span>
@@ -176,7 +176,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="heatwall.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Three-layer composite wall: brick | mineral wool insulation | concrete</span>
+<div data-inc="heatwall.py" data-mark="constants"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Three-layer composite wall: brick | mineral wool insulation | concrete</span>
 <span class="n">LAYER_WIDTHS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]</span>  <span class="c1"># layer thicknesses (m)</span>
 <span class="n">LAYER_K</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">]</span>  <span class="c1"># thermal conductivities (W m⁻¹ K⁻¹)</span>
 <span class="n">LAYER_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"brick"</span><span class="p">,</span> <span class="s2">"insulation"</span><span class="p">,</span> <span class="s2">"concrete"</span><span class="p">]</span>
@@ -194,7 +194,7 @@
 <span class="n">TOLERANCE</span> <span class="o">=</span> <span class="mf">1e-6</span>
 </code></pre></div>
 </div>
-<div data-inc="heatwall.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_grid</span><span class="p">(</span><span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">n_per_layer</span><span class="o">=</span><span class="n">N_PER_LAYER</span><span class="p">):</span>
+<div data-inc="heatwall.py" data-mark="grid"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_grid</span><span class="p">(</span><span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">n_per_layer</span><span class="o">=</span><span class="n">N_PER_LAYER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (x, k_seg) for a node-centred composite-wall grid.</span>
 
 <span class="sd">    x      : positions of all nodes (m); length n_layers * n_per_layer + 1</span>
@@ -259,7 +259,7 @@
     which is far smaller than any physical measurement uncertainty</li>
 <li>This method is called <a class="gl-ref" href="../glossary/#jacobi_iteration">Jacobi iteration</a></li>
 </ul>
-<div data-inc="heatwall.py" data-mark="jacobi"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">jacobi_solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">TOLERANCE</span><span class="p">):</span>
+<div data-inc="heatwall.py" data-mark="jacobi"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">jacobi_solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">TOLERANCE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Solve for steady-state temperatures using Jacobi (relaxation) iteration.</span>
 
 <span class="sd">    Starting from a linear temperature profile as an initial guess, each interior</span>
@@ -336,7 +336,7 @@ starting guess (as long as the boundary conditions are fixed).</dd>
 <figcaption>Figure 1: Convergence of Jacobi iteration for a brick-insulation-concrete wall. The initial guess is a straight line. After 10 sweeps the profile is already bending toward the correct shape; after 100 sweeps it is nearly indistinguishable from the converged solution.</figcaption>
 </figure>
 <h2>Solving and Plotting the Profile</h2>
-<div data-inc="heatwall.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve_temperatures</span><span class="p">(</span>
+<div data-inc="heatwall.py" data-mark="solve"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve_temperatures</span><span class="p">(</span>
     <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span>
     <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span>
     <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span>
@@ -358,7 +358,7 @@ starting guess (as long as the boundary conditions are fixed).</dd>
 <li>In steady state the heat flux $q = -k\,dT/dx$ is the same in every layer</li>
 <li>We compute it directly from the numerical temperature gradient in each layer's segments</li>
 </ul>
-<div data-inc="heatwall.py" data-mark="flux"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">):</span>
+<div data-inc="heatwall.py" data-mark="flux"><span aria-label="Source: heatwall/heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the heat flux (W m⁻²) in each layer.</span>
 
 <span class="sd">    Flux in segment j: q_j = -k_seg[j] * (T[j+1] - T[j]) / (x[j+1] - x[j]).</span>
@@ -421,7 +421,7 @@ This verifies that Jacobi iteration correctly enforces
 $k_1\,\Delta T_1 / \Delta x_1 = k_2\,\Delta T_2 / \Delta x_2$
 at each boundary.</dd>
 </dl>
-<div data-inc="test_heatwall.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_heatwall.py"><span aria-label="Source: heatwall/test_heatwall.py" class="inc-path" role="img" tabindex="0" title="heatwall/test_heatwall.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">heatwall</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">build_grid</span><span class="p">,</span>

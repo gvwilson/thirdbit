@@ -124,7 +124,7 @@ away from dissatisfying neighbourhoods does.</dd>
     $(1 - p_e)$ of cells, where $p_e$ is the empty fraction</li>
 <li>The empty cells provide the vacancies that dissatisfied agents move into</li>
 </ul>
-<div data-inc="schelling.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">empty_fraction</span><span class="o">=</span><span class="n">EMPTY_FRACTION</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="grid"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">empty_fraction</span><span class="o">=</span><span class="n">EMPTY_FRACTION</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a random grid of RED and BLUE agents with some EMPTY cells.</span>
 
 <span class="sd">    Each cell contains 0 (EMPTY), 1 (RED), or 2 (BLUE).  The two agent</span>
@@ -147,7 +147,7 @@ away from dissatisfying neighbourhoods does.</dd>
     visits each neighbour exactly once</li>
 <li>Grid boundaries are handled by checking that the neighbour index lies within $[0, N)$</li>
 </ul>
-<div data-inc="schelling.py" data-mark="neighbors"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="neighbors"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the fraction of occupied neighbours of the same type.</span>
 
 <span class="sd">    Uses the Moore neighbourhood (up to 8 surrounding cells).</span>
@@ -179,7 +179,7 @@ away from dissatisfying neighbourhoods does.</dd>
 <li>Each dissatisfied agent moves to the corresponding empty cell if one exists</li>
 <li>Shuffling before pairing ensures no agent is systematically favoured</li>
 </ul>
-<div data-inc="schelling.py" data-mark="step"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="step"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a new grid after moving all dissatisfied agents.</span>
 
 <span class="sd">    Each dissatisfied agent is paired with a randomly chosen empty cell</span>
@@ -213,7 +213,7 @@ away from dissatisfying neighbourhoods does.</dd>
     rises as the grid segregates
     and reaches 1.0 when every agent is happy with its neighbourhood</li>
 </ul>
-<div data-inc="schelling.py" data-mark="segregation"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">satisfaction_rate</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="segregation"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">satisfaction_rate</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the fraction of agents that are satisfied.</span>
 
 <span class="sd">    A higher satisfaction rate indicates that agents have clustered with</span>
@@ -252,7 +252,7 @@ neighbour out of three total may already be satisfied.</dd>
 </dl>
 </div>
 <h2>Running the Simulation</h2>
-<div data-inc="schelling.py" data-mark="run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="run"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run the simulation and return a list of grid snapshots.</span>
 
 <span class="sd">    Element 0 is the initial grid; element i is the grid after i steps.</span>
@@ -265,7 +265,7 @@ neighbour out of three total may already be satisfied.</dd>
     <span class="k">return</span> <span class="n">snapshots</span>
 </code></pre></div>
 </div>
-<div data-inc="schelling.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_snapshots</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">steps_to_show</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="schelling.py" data-mark="plot"><span aria-label="Source: schelling/schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_snapshots</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">steps_to_show</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a figure showing the grid state at the given step indices.</span>
 
 <span class="sd">    White cells are empty, red cells are type RED, blue cells are type BLUE.</span>
@@ -329,7 +329,7 @@ neighbour out of three total may already be satisfied.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="test_schelling.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_schelling.py"><span aria-label="Source: schelling/test_schelling.py" class="inc-path" role="img" tabindex="0" title="schelling/test_schelling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">schelling</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">EMPTY</span><span class="p">,</span>

@@ -115,7 +115,7 @@ not the reason for the label "unsupervised."</dd>
 <li>Each row in the resulting DataFrame is one document with integer word-count columns.</li>
 <li><code>true_topic</code> records which topic generated each document and is used only in tests.</li>
 </ul>
-<div data-inc="generate_topics.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+<div data-inc="generate_topics.py" data-mark="generate"><span aria-label="Source: topics/generate_topics.py" class="inc-path" role="img" tabindex="0" title="topics/generate_topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">n_topics</span><span class="o">=</span><span class="n">N_TOPICS</span><span class="p">,</span>
     <span class="n">docs_per_topic</span><span class="o">=</span><span class="n">DOCS_PER_TOPIC</span><span class="p">,</span>
     <span class="n">vocab_size</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
@@ -166,7 +166,7 @@ not the reason for the label "unsupervised."</dd>
 <li>Extracting word-count columns from the DataFrame and converting to a NumPy matrix
     gives a two-dimensional array with shape $(\text{n_docs},\, V)$.</li>
 </ul>
-<div data-inc="topics.py" data-mark="tf_matrix"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div data-inc="topics.py" data-mark="tf_matrix"><span aria-label="Source: topics/topics.py" class="inc-path" role="img" tabindex="0" title="topics/topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (n_docs, vocab_size) NumPy array of raw term-frequency counts.</span>
 
 <span class="sd">    The first two columns of df are doc_id and true_topic; remaining columns</span>
@@ -190,7 +190,7 @@ not the reason for the label "unsupervised."</dd>
     in Euclidean space even if one is three times longer than the other.</li>
 <li>This is analogous to comparing the shape of word use rather than its volume.</li>
 </ul>
-<div data-inc="topics.py" data-mark="normalize"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize_rows</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+<div data-inc="topics.py" data-mark="normalize"><span aria-label="Source: topics/topics.py" class="inc-path" role="img" tabindex="0" title="topics/topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize_rows</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a copy of matrix with each row divided by its L2 norm.</span>
 
 <span class="sd">    Documents with zero norm (all-zero rows) are left as zeros.</span>
@@ -237,7 +237,7 @@ the sum of squares, not the sum itself.</dd>
 <li>The algorithm needs $K$ to be chosen before running it; topic modeling uses domain
     knowledge or model selection criteria to pick $K$.</li>
 </ul>
-<div data-inc="topics.py" data-mark="kmeans"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">MAX_ITER</span><span class="p">):</span>
+<div data-inc="topics.py" data-mark="kmeans"><span aria-label="Source: topics/topics.py" class="inc-path" role="img" tabindex="0" title="topics/topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">MAX_ITER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run k-means clustering and return (labels, centroids).</span>
 
 <span class="sd">    Algorithm:</span>
@@ -290,7 +290,7 @@ the sum of squares, not the sum itself.</dd>
 <li>A high centroid coordinate for word $w$ means that documents in the cluster tend
     to use word $w$ frequently, making it a good label for the cluster's theme.</li>
 </ul>
-<div data-inc="topics.py" data-mark="top_words"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">top_words</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div data-inc="topics.py" data-mark="top_words"><span aria-label="Source: topics/topics.py" class="inc-path" role="img" tabindex="0" title="topics/topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">top_words</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a list of k lists, each with the top n_words for that cluster.</span>
 
 <span class="sd">    The top words for a cluster are those with the highest value in the</span>
@@ -315,7 +315,7 @@ the sum of squares, not the sum itself.</dd>
     normalization matters more.</li>
 </ul>
 <h2>Visualizing Cluster Centroids</h2>
-<div data-inc="topics.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">true_topics</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="topics.py" data-mark="plot"><span aria-label="Source: topics/topics.py" class="inc-path" role="img" tabindex="0" title="topics/topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">true_topics</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a heatmap of centroid word weights, one row per cluster."""</span>
     <span class="n">n_clusters</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">centroids</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -397,7 +397,7 @@ particular member based on its total count.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="test_topics.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_topics.py"><span aria-label="Source: topics/test_topics.py" class="inc-path" role="img" tabindex="0" title="topics/test_topics.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">N_TOPICS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_tf_matrix</span><span class="p">,</span> <span class="n">normalize_rows</span><span class="p">,</span> <span class="n">kmeans</span><span class="p">,</span> <span class="n">top_words</span>
 

@@ -128,7 +128,7 @@ longer valley path can beat a shorter ridge path if the valley cost is low enoug
 <li>The result is normalised to $[0, 1]$ so that cost surface values are comparable
     regardless of the raw wave amplitudes</li>
 </ul>
-<div data-inc="generate_leastcost.py" data-mark="terrain"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_terrain</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="generate_leastcost.py" data-mark="terrain"><span aria-label="Source: leastcost/generate_leastcost.py" class="inc-path" role="img" tabindex="0" title="leastcost/generate_leastcost.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_terrain</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (rows, cols) elevation array with values in [0, 1].</span>
 
 <span class="sd">    The terrain is a superposition of sinusoidal waves at four octaves.</span>
@@ -163,7 +163,7 @@ longer valley path can beat a shorter ridge path if the valley cost is low enoug
     its accumulated cost is optimal
     and the shortest-path tree stored in <code>prev</code> can be traced back to recover the route</li>
 </ul>
-<div data-inc="leastcost.py" data-mark="dijkstra"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">least_cost_path</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+<div data-inc="leastcost.py" data-mark="dijkstra"><span aria-label="Source: leastcost/leastcost.py" class="inc-path" role="img" tabindex="0" title="leastcost/leastcost.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">least_cost_path</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the least-cost path through an elevation grid.</span>
 
 <span class="sd">    Returns a list of (row, col) pairs from start to end (inclusive).</span>
@@ -217,7 +217,7 @@ For each unvisited neighbor, compute the edge cost and update distance if the ne
 Stop when the destination cell is popped; trace back through the predecessor map to recover the path.</p>
 </div>
 <h2>Visualizing the Path</h2>
-<div data-inc="leastcost.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_path</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="leastcost.py" data-mark="plot"><span aria-label="Source: leastcost/leastcost.py" class="inc-path" role="img" tabindex="0" title="leastcost/leastcost.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_path</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a terrain map with the least-cost path overlaid as an SVG."""</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"terrain"</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">"upper"</span><span class="p">)</span>
@@ -266,7 +266,7 @@ must route the path through that row rather than across the high-elevation rows.
 <dd>On a 3x5 grid with an all-zero middle row,
 the Dijkstra path must cost strictly less than an all-ridge orthogonal traverse.</dd>
 </dl>
-<div data-inc="test_leastcost.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_leastcost.py"><span aria-label="Source: leastcost/test_leastcost.py" class="inc-path" role="img" tabindex="0" title="leastcost/test_leastcost.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_leastcost</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_terrain</span><span class="p">,</span> <span class="n">GRID_ROWS</span><span class="p">,</span> <span class="n">GRID_COLS</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">leastcost</span><span class="w"> </span><span class="kn">import</span> <span class="n">least_cost_path</span><span class="p">,</span> <span class="n">STEP_LEN</span>

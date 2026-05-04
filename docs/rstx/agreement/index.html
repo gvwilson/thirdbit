@@ -119,7 +119,7 @@ under the assumption of independent uniform random choices.</dd>
     while off-diagonal entries represent disagreements</li>
 <li>The table summarises all information needed to compute kappa</li>
 </ul>
-<div data-inc="agreement.py" data-mark="table"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contingency_table</span><span class="p">(</span><span class="n">rater_a</span><span class="p">,</span> <span class="n">rater_b</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">):</span>
+<div data-inc="agreement.py" data-mark="table"><span aria-label="Source: agreement/agreement.py" class="inc-path" role="img" tabindex="0" title="agreement/agreement.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contingency_table</span><span class="p">(</span><span class="n">rater_a</span><span class="p">,</span> <span class="n">rater_b</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (n_cats x n_cats) integer contingency table.</span>
 
 <span class="sd">    table[i, j] is the number of items for which rater A assigned</span>
@@ -150,7 +150,7 @@ under the assumption of independent uniform random choices.</dd>
 <li>$\kappa &lt; 0$ is possible when observed agreement falls below chance,
     though this rarely occurs in practice</li>
 </ul>
-<div data-inc="agreement.py" data-mark="kappa"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cohen_kappa</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+<div data-inc="agreement.py" data-mark="kappa"><span aria-label="Source: agreement/agreement.py" class="inc-path" role="img" tabindex="0" title="agreement/agreement.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cohen_kappa</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return Cohen's kappa and its standard error from a contingency table.</span>
 
 <span class="sd">    Parameters</span>
@@ -208,7 +208,7 @@ under the assumption of independent uniform random choices.</dd>
     making it easy to verify the implementation</li>
 </ul>
 <h2>Generating Synthetic Rating Data</h2>
-<div data-inc="generate_agreement.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_ratings</span><span class="p">(</span><span class="n">n_items</span><span class="o">=</span><span class="n">N_ITEMS</span><span class="p">,</span> <span class="n">n_cats</span><span class="o">=</span><span class="n">N_CATS</span><span class="p">,</span> <span class="n">agree_prob</span><span class="o">=</span><span class="n">AGREE_PROB</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="generate_agreement.py" data-mark="generate"><span aria-label="Source: agreement/generate_agreement.py" class="inc-path" role="img" tabindex="0" title="agreement/generate_agreement.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_ratings</span><span class="p">(</span><span class="n">n_items</span><span class="o">=</span><span class="n">N_ITEMS</span><span class="p">,</span> <span class="n">n_cats</span><span class="o">=</span><span class="n">N_CATS</span><span class="p">,</span> <span class="n">agree_prob</span><span class="o">=</span><span class="n">AGREE_PROB</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a Polars DataFrame of paired rater label vectors.</span>
 
 <span class="sd">    Columns:</span>
@@ -247,7 +247,7 @@ under the assumption of independent uniform random choices.</dd>
 <li>A 95% confidence interval for $\kappa$ is $\kappa \pm 1.96 \cdot \text{SE}(\kappa)$</li>
 </ul>
 <h2>Comparing Scenarios</h2>
-<div data-inc="agreement.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_kappa_scenarios</span><span class="p">(</span><span class="n">scenarios</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="agreement.py" data-mark="plot"><span aria-label="Source: agreement/agreement.py" class="inc-path" role="img" tabindex="0" title="agreement/agreement.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_kappa_scenarios</span><span class="p">(</span><span class="n">scenarios</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a bar chart of kappa values across underlying agreement scenarios."""</span>
     <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">:</span>
@@ -310,7 +310,7 @@ the observed kappa must be within 0.15 of <code>AGREE_PROB</code>.
 This is conservative given the sampling variability of approximately $\text{SE} \approx 0.05$
 at this sample size</dd>
 </dl>
-<div data-inc="test_agreement.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_agreement.py"><span aria-label="Source: agreement/test_agreement.py" class="inc-path" role="img" tabindex="0" title="agreement/test_agreement.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_agreement</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_ratings</span><span class="p">,</span> <span class="n">N_ITEMS</span><span class="p">,</span> <span class="n">N_CATS</span><span class="p">,</span> <span class="n">AGREE_PROB</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">agreement</span><span class="w"> </span><span class="kn">import</span> <span class="n">contingency_table</span><span class="p">,</span> <span class="n">cohen_kappa</span>

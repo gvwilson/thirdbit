@@ -128,7 +128,7 @@ independent of tokenisation quality.</dd>
 <li>Sampling from this distribution with different vocabulary sizes reproduces
     the richness differences between authors with limited and extensive lexicons.</li>
 </ul>
-<div data-inc="generate_vocab.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+<div data-inc="generate_vocab.py" data-mark="generate"><span aria-label="Source: vocab/generate_vocab.py" class="inc-path" role="img" tabindex="0" title="vocab/generate_vocab.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">authors</span><span class="o">=</span><span class="n">AUTHORS</span><span class="p">,</span>
     <span class="n">vocab_sizes</span><span class="o">=</span><span class="n">VOCAB_SIZES</span><span class="p">,</span>
     <span class="n">texts_per_author</span><span class="o">=</span><span class="n">TEXTS_PER_AUTHOR</span><span class="p">,</span>
@@ -160,7 +160,7 @@ independent of tokenisation quality.</dd>
 </code></pre></div>
 </div>
 <h2>Computing TTR and MATTR</h2>
-<div data-inc="vocab.py" data-mark="ttr"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+<div data-inc="vocab.py" data-mark="ttr"><span aria-label="Source: vocab/vocab.py" class="inc-path" role="img" tabindex="0" title="vocab/vocab.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return unique words / total words (type-token ratio, TTR).</span>
 
 <span class="sd">    TTR falls as text length increases even when vocabulary richness is</span>
@@ -193,7 +193,7 @@ independent of tokenisation quality.</dd>
 </code></pre></div>
 </div>
 <h2>Aggregating Richness Scores</h2>
-<div data-inc="vocab.py" data-mark="richness"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_richness</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">MATTR_WINDOW</span><span class="p">):</span>
+<div data-inc="vocab.py" data-mark="richness"><span aria-label="Source: vocab/vocab.py" class="inc-path" role="img" tabindex="0" title="vocab/vocab.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_richness</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">MATTR_WINDOW</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a DataFrame with TTR and MATTR for each text.</span>
 
 <span class="sd">    Input df must have columns text_id, author, word.</span>
@@ -216,7 +216,7 @@ independent of tokenisation quality.</dd>
 </code></pre></div>
 </div>
 <h2>Visualizing Results</h2>
-<div data-inc="vocab.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_richness</span><span class="p">(</span><span class="n">richness_df</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="vocab.py" data-mark="plot"><span aria-label="Source: vocab/vocab.py" class="inc-path" role="img" tabindex="0" title="vocab/vocab.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_richness</span><span class="p">(</span><span class="n">richness_df</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a bar chart of MATTR per text, coloured by author."""</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">richness_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
         <span class="n">pl</span><span class="o">.</span><span class="n">concat_str</span><span class="p">(</span>
@@ -269,7 +269,7 @@ independent of tokenisation quality.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="test_vocab.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_vocab.py"><span aria-label="Source: vocab/test_vocab.py" class="inc-path" role="img" tabindex="0" title="vocab/test_vocab.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_vocab</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vocab</span><span class="w"> </span><span class="kn">import</span> <span class="n">type_token_ratio</span><span class="p">,</span> <span class="n">mattr</span><span class="p">,</span> <span class="n">compute_richness</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>

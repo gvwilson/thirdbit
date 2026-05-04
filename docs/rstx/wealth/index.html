@@ -116,7 +116,7 @@ wealth (1.6).</dd>
     after sorting so that $w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}$,</li>
 </ul>
 <p>$$G = \frac{2\sum_{i=1}^n i\,w_{(i)} - (n+1)\sum_i w_i}{n \sum_i w_i}$$</p>
-<div data-inc="wealth.py" data-mark="gini"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
+<div data-inc="wealth.py" data-mark="gini"><span aria-label="Source: wealth/wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Gini coefficient of a wealth distribution.</span>
 
 <span class="sd">    Uses the sorted-array formula:</span>
@@ -138,7 +138,7 @@ wealth (1.6).</dd>
 <li>A key invariant: total wealth $\sum_i w_i = N$ is conserved exactly at every step
     because each transfer moves wealth without creating or destroying it.</li>
 </ul>
-<div data-inc="wealth.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_exchange</span><span class="p">(</span><span class="n">n_agents</span><span class="o">=</span><span class="n">N_AGENTS</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="wealth.py" data-mark="simulate"><span aria-label="Source: wealth/wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_exchange</span><span class="p">(</span><span class="n">n_agents</span><span class="o">=</span><span class="n">N_AGENTS</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run the random-exchange wealth model.</span>
 
 <span class="sd">    Agents start with equal wealth of 1.0 each.  At every step two distinct</span>
@@ -186,7 +186,7 @@ wealth (1.6).</dd>
 <li>The Gini coefficient equals twice the area between the Lorenz curve and the
     equality line.</li>
 </ul>
-<div data-inc="wealth.py" data-mark="lorenz"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
+<div data-inc="wealth.py" data-mark="lorenz"><span aria-label="Source: wealth/wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (population_fractions, wealth_fractions) arrays for the Lorenz curve.</span>
 
 <span class="sd">    Both arrays start at (0, 0) and end at (1, 1).  The area between the</span>
@@ -201,7 +201,7 @@ wealth (1.6).</dd>
     <span class="k">return</span> <span class="n">pop_fracs</span><span class="p">,</span> <span class="n">wealth_fracs</span>
 </code></pre></div>
 </div>
-<div data-inc="wealth.py" data-mark="plot_lorenz"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="wealth.py" data-mark="plot_lorenz"><span aria-label="Source: wealth/wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a Lorenz curve with the line of equality overlaid."""</span>
     <span class="n">pop_fracs</span><span class="p">,</span> <span class="n">wealth_fracs</span> <span class="o">=</span> <span class="n">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
     <span class="n">df_lorenz</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"population"</span><span class="p">:</span> <span class="n">pop_fracs</span><span class="p">,</span> <span class="s2">"wealth"</span><span class="p">:</span> <span class="n">wealth_fracs</span><span class="p">})</span>
@@ -244,7 +244,7 @@ not the $y$-value at $x = 0.5$.</dd>
 </dl>
 </div>
 <h2>Gini Trajectory</h2>
-<div data-inc="wealth.py" data-mark="plot_gini"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_gini_trajectory</span><span class="p">(</span><span class="n">gini_history</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="wealth.py" data-mark="plot_gini"><span aria-label="Source: wealth/wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_gini_trajectory</span><span class="p">(</span><span class="n">gini_history</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a line chart of the Gini coefficient at each exchange step."""</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="p">{</span>
@@ -301,7 +301,7 @@ throughout the full simulation.</dd>
 inequality after 2000 steps.
 With seed 7493418 the final value is 0.88, well above the 0.3 threshold.</dd>
 </dl>
-<div data-inc="test_wealth.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_wealth.py"><span aria-label="Source: wealth/test_wealth.py" class="inc-path" role="img" tabindex="0" title="wealth/test_wealth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">wealth</span><span class="w"> </span><span class="kn">import</span> <span class="n">gini</span><span class="p">,</span> <span class="n">simulate_exchange</span><span class="p">,</span> <span class="n">N_AGENTS</span>
 

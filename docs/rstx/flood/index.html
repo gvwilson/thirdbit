@@ -115,7 +115,7 @@ Using the log-normal model, what is $\hat{\mu}_y$?</p>
 <li>Drawing $Y \sim \text{Normal}(\mu_y, \sigma_y)$ and setting $X = e^Y$
     gives $X \sim \text{LogNormal}(\mu_y, \sigma_y)$</li>
 </ul>
-<div data-inc="generate_flood.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># True log-normal parameters used to generate the synthetic flow record.</span>
+<div data-inc="generate_flood.py" data-mark="constants"><span aria-label="Source: flood/generate_flood.py" class="inc-path" role="img" tabindex="0" title="flood/generate_flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># True log-normal parameters used to generate the synthetic flow record.</span>
 <span class="c1"># Annual maximum flows X are modelled as log-normal: ln(X) ~ Normal(mu_y, sigma_y).</span>
 <span class="c1"># With TRUE_MU_LOG = 4.8 and TRUE_SIGMA_LOG = 0.4 the median flow is</span>
 <span class="c1"># exp(4.8) ~ 121 m^3/s and the geometric coefficient of variation is</span>
@@ -126,7 +126,7 @@ Using the log-normal model, what is $\hat{\mu}_y$?</p>
 <span class="n">N_YEARS</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># years of annual maximum flow record</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_flood.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">mu_log</span><span class="o">=</span><span class="n">TRUE_MU_LOG</span><span class="p">,</span> <span class="n">sigma_log</span><span class="o">=</span><span class="n">TRUE_SIGMA_LOG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_YEARS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="generate_flood.py" data-mark="generate"><span aria-label="Source: flood/generate_flood.py" class="inc-path" role="img" tabindex="0" title="flood/generate_flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">mu_log</span><span class="o">=</span><span class="n">TRUE_MU_LOG</span><span class="p">,</span> <span class="n">sigma_log</span><span class="o">=</span><span class="n">TRUE_SIGMA_LOG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_YEARS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a DataFrame with synthetic annual maximum flows.</span>
 
 <span class="sd">    Draws n values from a log-normal distribution with log-mean mu_log</span>
@@ -152,12 +152,12 @@ Using the log-normal model, what is $\hat{\mu}_y$?</p>
 <li>Here, the $n-1$ denominator applies <a class="gl-ref" href="../glossary/#bessel_correction">Bessel's correction</a>
     for the sample standard deviation</li>
 </ul>
-<div data-inc="flood.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Return periods of interest (years).  A T-year flood has probability</span>
+<div data-inc="flood.py" data-mark="constants"><span aria-label="Source: flood/flood.py" class="inc-path" role="img" tabindex="0" title="flood/flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Return periods of interest (years).  A T-year flood has probability</span>
 <span class="c1"># 1/T of being exceeded in any given year.</span>
 <span class="n">RETURN_PERIODS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
 </code></pre></div>
 </div>
-<div data-inc="flood.py" data-mark="fit-lognormal"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_lognormal</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
+<div data-inc="flood.py" data-mark="fit-lognormal"><span aria-label="Source: flood/flood.py" class="inc-path" role="img" tabindex="0" title="flood/flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_lognormal</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Estimate log-normal parameters by the method of moments.</span>
 
 <span class="sd">    For a log-normal distribution, ln(X) ~ Normal(mu_y, sigma_y).</span>
@@ -190,7 +190,7 @@ Using the log-normal model, what is $\hat{\mu}_y$?</p>
     $z_p = \Phi^{-1}(p)$ is the standard normal quantile at probability $p$,
     computed with <code>scipy.stats.norm.ppf</code>.</li>
 </ul>
-<div data-inc="flood.py" data-mark="return-level"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">return_level</span><span class="p">(</span><span class="n">mu_y</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<div data-inc="flood.py" data-mark="return-level"><span aria-label="Source: flood/flood.py" class="inc-path" role="img" tabindex="0" title="flood/flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">return_level</span><span class="p">(</span><span class="n">mu_y</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the flood magnitude exceeded on average once every T years.</span>
 
 <span class="sd">    The T-year return level is the quantile at non-exceedance probability</span>
@@ -226,7 +226,7 @@ Over the next 100 years, what is the probability that the barrier is overtopped 
 <li>The theoretical normal quantile $z_i = \Phi^{-1}(p_i)$ linearises the log-normal CDF:
     if $\ln X$ is normally distributed, plotting $(z_i, \ln x_{(i)})$ gives a straight line</li>
 </ul>
-<div data-inc="flood.py" data-mark="plotting-positions"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plotting_positions</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
+<div data-inc="flood.py" data-mark="plotting-positions"><span aria-label="Source: flood/flood.py" class="inc-path" role="img" tabindex="0" title="flood/flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plotting_positions</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (normal_quantiles, sorted_log_flows) for a normal probability plot.</span>
 
 <span class="sd">    Ranks observations from smallest to largest and assigns Weibull</span>
@@ -242,7 +242,7 @@ Over the next 100 years, what is the probability that the barrier is overtopped 
     <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">sorted_log_flows</span>
 </code></pre></div>
 </div>
-<div data-inc="flood.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">flows</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">):</span>
+<div data-inc="flood.py" data-mark="plot"><span aria-label="Source: flood/flood.py" class="inc-path" role="img" tabindex="0" title="flood/flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">flows</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an Altair normal probability plot (Q-Q plot) for log-flows.</span>
 
 <span class="sd">    Points are the empirical log-flows plotted against their theoretical</span>
@@ -316,7 +316,7 @@ Over the next 100 years, what is the probability that the barrier is overtopped 
 </ul>
 </li>
 </ul>
-<div data-inc="test_flood.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_flood.py"><span aria-label="Source: flood/test_flood.py" class="inc-path" role="img" tabindex="0" title="flood/test_flood.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_flood</span><span class="w"> </span><span class="kn">import</span> <span class="n">TRUE_MU_LOG</span><span class="p">,</span> <span class="n">TRUE_SIGMA_LOG</span><span class="p">,</span> <span class="n">generate</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">flood</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>

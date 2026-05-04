@@ -144,7 +144,7 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 <li>texts contain 150 words</li>
 <li>The last of the four texts per author serves as the <a class="gl-ref" href="../glossary/#hold_out">held-out</a> test text</li>
 </ul>
-<div data-inc="generate_authorship.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+<div data-inc="generate_authorship.py" data-mark="generate"><span aria-label="Source: authorship/generate_authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/generate_authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">authors</span><span class="o">=</span><span class="n">AUTHORS</span><span class="p">,</span>
     <span class="n">chars</span><span class="o">=</span><span class="n">CHARS</span><span class="p">,</span>
     <span class="n">preferred_weight</span><span class="o">=</span><span class="n">PREFERRED_WEIGHT</span><span class="p">,</span>
@@ -198,7 +198,7 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 </code></pre></div>
 </div>
 <h2>Building N-gram Profiles</h2>
-<div data-inc="authorship.py" data-mark="ngrams"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">char_ngrams</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div data-inc="authorship.py" data-mark="ngrams"><span aria-label="Source: authorship/authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">char_ngrams</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a Counter of character n-grams in text.</span>
 
 <span class="sd">    Spaces are included so that word-boundary patterns (e.g., the bigram</span>
@@ -208,7 +208,7 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
     <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<div data-inc="authorship.py" data-mark="profile"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_profile</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">NGRAM_SIZE</span><span class="p">):</span>
+<div data-inc="authorship.py" data-mark="profile"><span aria-label="Source: authorship/authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_profile</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">NGRAM_SIZE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Build a normalised character n-gram frequency profile from a list of texts.</span>
 
 <span class="sd">    Counts are pooled across all texts, then divided by the total count so that</span>
@@ -223,7 +223,7 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 </code></pre></div>
 </div>
 <h2>Computing Cosine Similarity</h2>
-<div data-inc="authorship.py" data-mark="similarity"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cosine_similarity</span><span class="p">(</span><span class="n">profile_a</span><span class="p">,</span> <span class="n">profile_b</span><span class="p">):</span>
+<div data-inc="authorship.py" data-mark="similarity"><span aria-label="Source: authorship/authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cosine_similarity</span><span class="p">(</span><span class="n">profile_a</span><span class="p">,</span> <span class="n">profile_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the cosine similarity between two n-gram frequency profiles.</span>
 
 <span class="sd">    Profiles are dicts of {ngram: frequency}.  The similarity is computed as:</span>
@@ -248,7 +248,7 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 <li>Compute the cosine similarity between the unknown text's profile and each candidate profile</li>
 <li>The candidate with the highest similarity is the predicted author</li>
 </ul>
-<div data-inc="authorship.py" data-mark="attribute"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">attribute</span><span class="p">(</span><span class="n">unknown_profile</span><span class="p">,</span> <span class="n">candidate_profiles</span><span class="p">):</span>
+<div data-inc="authorship.py" data-mark="attribute"><span aria-label="Source: authorship/authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">attribute</span><span class="p">(</span><span class="n">unknown_profile</span><span class="p">,</span> <span class="n">candidate_profiles</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return candidates ranked by cosine similarity to the unknown profile.</span>
 
 <span class="sd">    unknown_profile is a dict produced by build_profile for one unknown text.</span>
@@ -283,7 +283,7 @@ statistical test not implemented here.</dd>
 </dl>
 </div>
 <h2>Visualizing the Results</h2>
-<div data-inc="authorship.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_similarity</span><span class="p">(</span><span class="n">ranked</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="authorship.py" data-mark="plot"><span aria-label="Source: authorship/authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_similarity</span><span class="p">(</span><span class="n">ranked</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a horizontal bar chart of cosine similarity scores."""</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s2">"author"</span><span class="p">:</span> <span class="n">author</span><span class="p">,</span> <span class="s2">"similarity"</span><span class="p">:</span> <span class="n">sim</span><span class="p">}</span> <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">ranked</span><span class="p">])</span>
     <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
@@ -340,7 +340,7 @@ statistical test not implemented here.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="test_authorship.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="test_authorship.py"><span aria-label="Source: authorship/test_authorship.py" class="inc-path" role="img" tabindex="0" title="authorship/test_authorship.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_authorship</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">AUTHORS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">authorship</span><span class="w"> </span><span class="kn">import</span> <span class="n">char_ngrams</span><span class="p">,</span> <span class="n">build_profile</span><span class="p">,</span> <span class="n">cosine_similarity</span><span class="p">,</span> <span class="n">attribute</span>

@@ -86,7 +86,7 @@
 <li>$\mu_k$, $h_k$, and $\sigma_k$ are the center, height, and width of peak $k$</li>
 <li>Intensities are clipped to zero because a negative ion count has no physical meaning</li>
 </ul>
-<div data-inc="generate_spectrum.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">MZ_MIN</span> <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># lower end of m/z range (daltons)</span>
+<div data-inc="generate_spectrum.py" data-mark="constants"><span aria-label="Source: massspec/generate_spectrum.py" class="inc-path" role="img" tabindex="0" title="massspec/generate_spectrum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">MZ_MIN</span> <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># lower end of m/z range (daltons)</span>
 <span class="n">MZ_MAX</span> <span class="o">=</span> <span class="mf">600.0</span>  <span class="c1"># upper end of m/z range (daltons)</span>
 <span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># number of evenly-spaced m/z values</span>
 
@@ -102,7 +102,7 @@
 <span class="n">DEFAULT_NOISE</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Gaussian noise std dev relative to tallest peak</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_spectrum.py" data-mark="make-spectrum"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_spectrum</span><span class="p">(</span>
+<div data-inc="generate_spectrum.py" data-mark="make-spectrum"><span aria-label="Source: massspec/generate_spectrum.py" class="inc-path" role="img" tabindex="0" title="massspec/generate_spectrum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_spectrum</span><span class="p">(</span>
     <span class="n">peaks</span><span class="o">=</span><span class="n">PEAKS</span><span class="p">,</span>
     <span class="n">noise_scale</span><span class="o">=</span><span class="n">DEFAULT_NOISE</span><span class="p">,</span>
     <span class="n">n_points</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
@@ -139,7 +139,7 @@
 <li>Smoothing attenuates noise without shifting peak positions
     as long as $w$ is small relative to the peak width</li>
 </ul>
-<div data-inc="massspec.py" data-mark="smooth"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">intensity</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">SMOOTH_WINDOW</span><span class="p">):</span>
+<div data-inc="massspec.py" data-mark="smooth"><span aria-label="Source: massspec/massspec.py" class="inc-path" role="img" tabindex="0" title="massspec/massspec.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">intensity</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">SMOOTH_WINDOW</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the moving-average of `intensity` over `window` points.</span>
 
 <span class="sd">    Uses np.convolve with mode='same', which zero-pads at both ends.</span>
@@ -174,7 +174,7 @@ what is the approximate standard deviation of the smoothed noise?</p>
 <li><a class="gl-ref" href="../glossary/#non_maximum_suppression">Non-maximum suppression</a> keeps only
     the tallest candidate within a window of <code>min_distance</code> index positions</li>
 </ul>
-<div data-inc="massspec.py" data-mark="detect"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">detect_peaks</span><span class="p">(</span><span class="n">mz</span><span class="p">,</span> <span class="n">intensity</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="n">MIN_DISTANCE</span><span class="p">):</span>
+<div data-inc="massspec.py" data-mark="detect"><span aria-label="Source: massspec/massspec.py" class="inc-path" role="img" tabindex="0" title="massspec/massspec.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">detect_peaks</span><span class="p">(</span><span class="n">mz</span><span class="p">,</span> <span class="n">intensity</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="n">MIN_DISTANCE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the m/z positions of peaks in `intensity`.</span>
 
 <span class="sd">    A candidate peak must satisfy two conditions:</span>
@@ -250,7 +250,7 @@ what is the approximate standard deviation of the smoothed noise?</p>
     with the same threshold,
     applied to a spectrum that contains no signal at all produces false peaks</li>
 </ul>
-<div data-inc="generate_spectrum.py" data-mark="make-noise"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span>
+<div data-inc="generate_spectrum.py" data-mark="make-noise"><span aria-label="Source: massspec/generate_spectrum.py" class="inc-path" role="img" tabindex="0" title="massspec/generate_spectrum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span>
     <span class="n">noise_scale</span><span class="o">=</span><span class="n">DEFAULT_NOISE</span><span class="p">,</span>
     <span class="n">n_points</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
     <span class="n">mz_min</span><span class="o">=</span><span class="n">MZ_MIN</span><span class="p">,</span>
@@ -286,7 +286,7 @@ what is the approximate standard deviation of the smoothed noise?</p>
 </ul>
 </li>
 </ul>
-<div data-inc="massspec.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_WINDOW</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># number of points in the moving-average filter;</span>
+<div data-inc="massspec.py" data-mark="constants"><span aria-label="Source: massspec/massspec.py" class="inc-path" role="img" tabindex="0" title="massspec/massspec.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_WINDOW</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># number of points in the moving-average filter;</span>
 <span class="c1"># wide enough to suppress point-to-point noise,</span>
 <span class="c1"># narrow enough not to blur nearby peaks</span>
 <span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># minimum smoothed intensity to be reported as a peak;</span>
@@ -342,7 +342,7 @@ confirming the expected false-positive behaviour.
 Running at the operating threshold must return none,
 confirming it is set high enough.</dd>
 </dl>
-<div data-inc="test_massspec.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_massspec.py"><span aria-label="Source: massspec/test_massspec.py" class="inc-path" role="img" tabindex="0" title="massspec/test_massspec.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_spectrum</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_spectrum</span><span class="p">,</span> <span class="n">make_pure_noise</span><span class="p">,</span> <span class="n">PEAKS</span><span class="p">,</span> <span class="n">DEFAULT_NOISE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">massspec</span><span class="w"> </span><span class="kn">import</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">detect_peaks</span><span class="p">,</span> <span class="n">SMOOTH_WINDOW</span><span class="p">,</span> <span class="n">THRESHOLD</span>
 

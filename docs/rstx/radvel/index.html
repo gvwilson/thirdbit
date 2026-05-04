@@ -102,7 +102,7 @@
 <li>Observation times are drawn uniformly at random across the time baseline
     to simulate a realistic (unevenly spaced) survey schedule</li>
 </ul>
-<div data-inc="generate_rv.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
+<div data-inc="generate_rv.py" data-mark="constants"><span aria-label="Source: radvel/generate_rv.py" class="inc-path" role="img" tabindex="0" title="radvel/generate_rv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
 <span class="n">PERIOD</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># orbital period (days)</span>
 <span class="n">AMPLITUDE</span> <span class="o">=</span> <span class="mf">50.0</span>  <span class="c1"># radial-velocity semi-amplitude (m/s)</span>
 <span class="n">PHASE</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># initial orbital phase (radians)</span>
@@ -112,7 +112,7 @@
 <span class="n">T_MAX</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># time baseline (days); spans 3 complete periods</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_rv.py" data-mark="make-rv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_rv_data</span><span class="p">(</span>
+<div data-inc="generate_rv.py" data-mark="make-rv"><span aria-label="Source: radvel/generate_rv.py" class="inc-path" role="img" tabindex="0" title="radvel/generate_rv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_rv_data</span><span class="p">(</span>
     <span class="n">period</span><span class="o">=</span><span class="n">PERIOD</span><span class="p">,</span>
     <span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE</span><span class="p">,</span>
     <span class="n">phase</span><span class="o">=</span><span class="n">PHASE</span><span class="p">,</span>
@@ -149,7 +149,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="radvel.py" data-mark="model"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">model_rv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">v_sys</span><span class="p">):</span>
+<div data-inc="radvel.py" data-mark="model"><span aria-label="Source: radvel/radvel.py" class="inc-path" role="img" tabindex="0" title="radvel/radvel.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">model_rv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">v_sys</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Sinusoidal radial-velocity model for a single planet.</span>
 
 <span class="sd">    v(t) = amplitude * sin(2π t / period + phase) + v_sys</span>
@@ -157,7 +157,7 @@
     <span class="k">return</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">period</span> <span class="o">+</span> <span class="n">phase</span><span class="p">)</span> <span class="o">+</span> <span class="n">v_sys</span>
 </code></pre></div>
 </div>
-<div data-inc="radvel.py" data-mark="fit"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_sinusoid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rv</span><span class="p">):</span>
+<div data-inc="radvel.py" data-mark="fit"><span aria-label="Source: radvel/radvel.py" class="inc-path" role="img" tabindex="0" title="radvel/radvel.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_sinusoid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rv</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit model_rv to the data and return (params, errors).</span>
 
 <span class="sd">    params = [amplitude, period, phase, v_sys]</span>
@@ -223,7 +223,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="generate_rv.py" data-mark="make-noise-rv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise_rv</span><span class="p">(</span>
+<div data-inc="generate_rv.py" data-mark="make-noise-rv"><span aria-label="Source: radvel/generate_rv.py" class="inc-path" role="img" tabindex="0" title="radvel/generate_rv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise_rv</span><span class="p">(</span>
     <span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="n">T_MAX</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (t, rv) containing only measurement noise, no planetary signal."""</span>
@@ -286,7 +286,7 @@ the fitted amplitude is not distinguishable from zero at the 2-sigma level.
 This must always hold for pure noise data.
 A failure would indicate the fit was accidentally converging to a spurious periodic signal in the noise.</dd>
 </dl>
-<div data-inc="test_radvel.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_radvel.py"><span aria-label="Source: radvel/test_radvel.py" class="inc-path" role="img" tabindex="0" title="radvel/test_radvel.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_rv</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_rv_data</span><span class="p">,</span> <span class="n">make_pure_noise_rv</span><span class="p">,</span> <span class="n">PERIOD</span><span class="p">,</span> <span class="n">AMPLITUDE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">radvel</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_rv</span><span class="p">,</span> <span class="n">fit_sinusoid</span>

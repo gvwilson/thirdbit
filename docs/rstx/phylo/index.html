@@ -100,7 +100,7 @@
 <li>Distances are estimated from aligned sequences:
     the fraction of positions that differ, corrected for multiple substitutions</li>
 </ul>
-<div data-inc="phylo.py" data-mark="taxa"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">]</span>
+<div data-inc="phylo.py" data-mark="taxa"><span aria-label="Source: phylo/phylo.py" class="inc-path" role="img" tabindex="0" title="phylo/phylo.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">]</span>
 
 <span class="c1"># True branch lengths from the reference tree used to generate distances.</span>
 <span class="c1"># The tree is: ((Bat:0.6, Chimp:0.8):1.2, (Human:0.4, Gorilla:0.5))</span>
@@ -150,7 +150,7 @@
 </tr>
 </tbody>
 </table>
-<div data-inc="phylo.py" data-mark="make-dist"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<div data-inc="phylo.py" data-mark="make-dist"><span aria-label="Source: phylo/phylo.py" class="inc-path" role="img" tabindex="0" title="phylo/phylo.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (names, D) where D is the symmetric pairwise distance matrix.</span>
 
 <span class="sd">    When noise_scale=0.0 (default) the distances are exact tree-additive values.</span>
@@ -230,7 +230,7 @@
 </dl>
 </div>
 <h2>Displaying the Tree</h2>
-<div data-inc="phylo.py" data-mark="draw"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_tree</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">taxa</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="phylo.py" data-mark="draw"><span aria-label="Source: phylo/phylo.py" class="inc-path" role="img" tabindex="0" title="phylo/phylo.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_tree</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">taxa</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a rooted tree diagram to `filename`.</span>
 
 <span class="sd">    Leaf nodes (members of `taxa`) are drawn in blue; internal nodes in grey.</span>
@@ -311,7 +311,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="test_phylo.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_phylo.py"><span aria-label="Source: phylo/test_phylo.py" class="inc-path" role="img" tabindex="0" title="phylo/test_phylo.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">phylo</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAXA</span><span class="p">,</span> <span class="n">make_distance_matrix</span><span class="p">,</span> <span class="n">upgma</span>
 
 <span class="c1"># Tolerance for floating-point comparisons in branch-length tests.</span>
@@ -426,7 +426,7 @@
 </li>
 <li>Branch lengths are drawn independently from an exponential distribution with a specified mean</li>
 </ul>
-<div data-inc="generate_tree.py" data-mark="random-tree"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_random_tree</span><span class="p">(</span>
+<div data-inc="generate_tree.py" data-mark="random-tree"><span aria-label="Source: phylo/generate_tree.py" class="inc-path" role="img" tabindex="0" title="phylo/generate_tree.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_random_tree</span><span class="p">(</span>
     <span class="n">n_taxa</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">branch_mean</span><span class="o">=</span><span class="n">DEFAULT_BRANCH_MEAN</span><span class="p">,</span> <span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (names, D, true_edges) for a random unrooted binary tree.</span>
@@ -495,7 +495,7 @@
 </li>
 <li>Two trees have the same topology if and only if their bipartition sets are identical</li>
 </ul>
-<div data-inc="test_generate_tree.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_generate_tree.py"><span aria-label="Source: phylo/test_generate_tree.py" class="inc-path" role="img" tabindex="0" title="phylo/test_generate_tree.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_random_tree</span><span class="p">,</span> <span class="n">bipartitions</span><span class="p">,</span> <span class="n">MIN_TAXA</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">phylo</span><span class="w"> </span><span class="kn">import</span> <span class="n">neighbor_joining</span>

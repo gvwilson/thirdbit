@@ -130,7 +130,7 @@ produces the characteristic V-shape.</dd>
 <li>This signal-to-noise ratio of 3 gives reliable detection with 200 observations
     while still leaving visible scatter in the plots</li>
 </ul>
-<div data-inc="generate_breakpoint.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_breakpoint_data</span><span class="p">(</span>
+<div data-inc="generate_breakpoint.py" data-mark="generate"><span aria-label="Source: breakpoint/generate_breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/generate_breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_breakpoint_data</span><span class="p">(</span>
     <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span>
     <span class="n">break_step</span><span class="o">=</span><span class="n">BREAK_STEP</span><span class="p">,</span>
     <span class="n">mean_before</span><span class="o">=</span><span class="n">MEAN_BEFORE</span><span class="p">,</span>
@@ -171,10 +171,10 @@ produces the characteristic V-shape.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="breakpoint.py" data-mark="mean_residuals"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="breakpoint.py" data-mark="mean_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
-<div data-inc="breakpoint.py" data-mark="cusum"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cusum</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
+<div data-inc="breakpoint.py" data-mark="cusum"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cusum</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Cumulative sum (CUSUM) of residuals.</span>
 
 <span class="sd">    C_t = sum_{s=0}^{t} e_s  (0-indexed).</span>
@@ -218,7 +218,7 @@ produces the characteristic V-shape.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="breakpoint.py" data-mark="trend_residuals"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="breakpoint.py" data-mark="trend_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <div class="forma-multiple-choice" data-lang="en">
@@ -240,7 +240,7 @@ and make break detection unreliable.</dd>
 </dl>
 </div>
 <h2>Plotting</h2>
-<div data-inc="breakpoint.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_series_with_break</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">detected_break</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="breakpoint.py" data-mark="plot"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_series_with_break</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">detected_break</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a time-series plot with a vertical rule at the detected break."""</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"step"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="s2">"value"</span><span class="p">:</span> <span class="n">values</span><span class="p">})</span>
@@ -334,7 +334,7 @@ the estimated break location ($\hat{\tau} + 1$) must be within 10 steps of the t
 The tolerance of 10 is roughly $3\sigma / \sqrt{n} \approx 0.07$ of the series length,
 which is a generous margin given the high <a class="gl-ref" href="../glossary/#signal_to_noise">signal-to-noise ratio</a> (SNR).</dd>
 </dl>
-<div data-inc="test_breakpoint.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_breakpoint.py"><span aria-label="Source: breakpoint/test_breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/test_breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_breakpoint</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_breakpoint_data</span><span class="p">,</span> <span class="n">BREAK_STEP</span><span class="p">,</span> <span class="n">N_STEPS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">breakpoint</span><span class="w"> </span><span class="kn">import</span> <span class="n">residuals_mean</span><span class="p">,</span> <span class="n">residuals_trend</span><span class="p">,</span> <span class="n">cusum</span><span class="p">,</span> <span class="n">detect_break</span>

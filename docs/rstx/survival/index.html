@@ -102,7 +102,7 @@
     who leave the study at different points.</li>
 <li>The observed time is whichever comes first; <code>observed = 1</code> if the event came first.</li>
 </ul>
-<div data-inc="generate_survival.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<div data-inc="generate_survival.py" data-mark="constants"><span aria-label="Source: survival/generate_survival.py" class="inc-path" role="img" tabindex="0" title="survival/generate_survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_PATIENTS</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># number of patients in the study</span>
 <span class="n">MEAN_SURVIVAL</span> <span class="o">=</span> <span class="p">(</span>
     <span class="mf">20.0</span>  <span class="c1"># mean event time drawn from Exponential(scale=MEAN_SURVIVAL) in days</span>
@@ -113,7 +113,7 @@
 <span class="n">CENSOR_MAX</span> <span class="o">=</span> <span class="mf">35.0</span>  <span class="c1"># maximum follow-up time (days)</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_survival.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_survival_data</span><span class="p">(</span>
+<div data-inc="generate_survival.py" data-mark="generate"><span aria-label="Source: survival/generate_survival.py" class="inc-path" role="img" tabindex="0" title="survival/generate_survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_survival_data</span><span class="p">(</span>
     <span class="n">n</span><span class="o">=</span><span class="n">N_PATIENTS</span><span class="p">,</span>
     <span class="n">mean_survival</span><span class="o">=</span><span class="n">MEAN_SURVIVAL</span><span class="p">,</span>
     <span class="n">censor_min</span><span class="o">=</span><span class="n">CENSOR_MIN</span><span class="p">,</span>
@@ -141,7 +141,7 @@
 <li>For an Exponential distribution, the mean of uncensored times estimates $\mu$, giving:</li>
 </ul>
 <p>$$\hat{\lambda}_{\text{naive}} = \frac{1}{\bar{t}_{\text{uncensored}}}$$</p>
-<div data-inc="survival.py" data-mark="naive-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="naive-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <div class="forma-multiple-choice" data-lang="en">
@@ -193,7 +193,7 @@ If we compute the naive rate using only uncensored patients, which of these is t
 <li>A censored patient contributes time up to the point they were last observed: this is called
     person-time and captures the information that the patient was alive throughout that period.</li>
 </ul>
-<div data-inc="survival.py" data-mark="corrected-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="corrected-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <h2>The Empirical Survival Curve</h2>
@@ -205,14 +205,14 @@ If we compute the naive rate using only uncensored patients, which of these is t
 </li>
 <li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event</li>
 </ul>
-<div data-inc="survival.py" data-mark="empirical-curve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="empirical-curve"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
 <li>Overlay the exponential curves $e^{-\hat{\lambda}_{\text{naive}} t}$ and $e^{-\hat{\lambda} t}$
     to see which fits the empirical curve more closely</li>
 </ul>
-<div data-inc="survival.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="plot"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <figure id="f:survival-exp">
@@ -229,7 +229,7 @@ If we compute the naive rate using only uncensored patients, which of these is t
 <li>When all observations are uncensored, the two rates must agree: with $\delta_i = 1$ for all $i$,
     $d / \sum t_i = n / \sum t_i = 1 / \bar{t} = \hat{\lambda}_{\text{naive}}$.</li>
 </ul>
-<div data-inc="test_survival.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_survival.py"><span aria-label="Source: survival/test_survival.py" class="inc-path" role="img" tabindex="0" title="survival/test_survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_survival_data</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">naive_rate</span><span class="p">,</span> <span class="n">corrected_rate</span><span class="p">,</span> <span class="n">empirical_survival</span>
 

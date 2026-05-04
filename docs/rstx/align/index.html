@@ -120,7 +120,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="align.py" data-mark="params"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">MATCH_SCORE</span> <span class="o">=</span> <span class="mi">2</span>      <span class="c1"># reward for aligning identical characters</span>
+<div data-inc="align.py" data-mark="params"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">MATCH_SCORE</span> <span class="o">=</span> <span class="mi">2</span>      <span class="c1"># reward for aligning identical characters</span>
 <span class="n">MISMATCH_PENALTY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># penalty for aligning different characters</span>
 <span class="n">GAP_PENALTY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>     <span class="c1"># penalty per gap character inserted in either sequence</span>
 
@@ -157,12 +157,12 @@
     global alignment must account for every character in both sequences, so negative scores are allowed</li>
 <li>The final score of the best global alignment is $H[m, n]$.</li>
 </ul>
-<div data-inc="align.py" data-mark="score-func"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_nt_score</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="score-func"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_nt_score</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return match score or mismatch penalty for two nucleotide characters."""</span>
     <span class="k">return</span> <span class="n">MATCH_SCORE</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="k">else</span> <span class="n">MISMATCH_PENALTY</span>
 </code></pre></div>
 </div>
-<div data-inc="align.py" data-mark="fill"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fill_matrix</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="fill"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fill_matrix</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the Needleman-Wunsch scoring matrix for two sequences.</span>
 
 <span class="sd">    The matrix has shape (len(seq_a)+1, len(seq_b)+1).  Entry H[i, j] holds</span>
@@ -277,7 +277,7 @@
 </li>
 <li>Reverse the collected characters at the end, since the traceback runs backwards</li>
 </ul>
-<div data-inc="align.py" data-mark="traceback"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">traceback</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="traceback"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">traceback</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Trace back from the bottom-right cell to recover the global alignment.</span>
 
 <span class="sd">    Returns (aligned_a, aligned_b, score) where '-' marks a gap.</span>
@@ -309,7 +309,7 @@
     <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">aligned_a</span><span class="p">)),</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">aligned_b</span><span class="p">)),</span> <span class="n">score</span>
 </code></pre></div>
 </div>
-<div data-inc="align.py" data-mark="align"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">align</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="align"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">align</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the best global alignment of seq_a and seq_b as (aligned_a, aligned_b, score)."""</span>
     <span class="n">H</span> <span class="o">=</span> <span class="n">fill_matrix</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">traceback</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">)</span>
@@ -355,7 +355,7 @@
 </table>
 </div>
 <h2>Displaying the Alignment</h2>
-<div data-inc="align.py" data-mark="format"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">format_alignment</span><span class="p">(</span><span class="n">aligned_a</span><span class="p">,</span> <span class="n">aligned_b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="format"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">format_alignment</span><span class="p">(</span><span class="n">aligned_a</span><span class="p">,</span> <span class="n">aligned_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a three-line string representation of an alignment.</span>
 
 <span class="sd">    The middle row marks matches with '|' and mismatches or gaps with ' '.</span>
@@ -381,7 +381,7 @@ b: A-GT
 <li>Plotting $H$ as a heatmap shows where high-scoring regions form</li>
 <li>Bright cells cluster along diagonals where the sequences share runs of matching characters</li>
 </ul>
-<div data-inc="align.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_matrix</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<div data-inc="align.py" data-mark="plot"><span aria-label="Source: align/align.py" class="inc-path" role="img" tabindex="0" title="align/align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_matrix</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an Altair heatmap of the scoring matrix."""</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -453,7 +453,7 @@ since introducing a gap would not improve the score.
 Score = $\text{len} \times \text{MISMATCH_PENALTY}$.
 Note the difference from Smith-Waterman, which would return an empty alignment with score 0.</dd>
 </dl>
-<div data-inc="test_align.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">align</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<div data-inc="test_align.py"><span aria-label="Source: align/test_align.py" class="inc-path" role="img" tabindex="0" title="align/test_align.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">align</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">GAP_PENALTY</span><span class="p">,</span>
     <span class="n">MATCH_SCORE</span><span class="p">,</span>
     <span class="n">MISMATCH_PENALTY</span><span class="p">,</span>

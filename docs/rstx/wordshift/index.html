@@ -140,7 +140,7 @@ the statistical variation that results from sampling a finite corpus.</dd>
 <li>97 background words share the remaining probability mass equally</li>
 <li>Multinomial sampling with 5000 tokens per decade adds realistic noise</li>
 </ul>
-<div data-inc="generate_wordshift.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+<div data-inc="generate_wordshift.py" data-mark="generate"><span aria-label="Source: wordshift/generate_wordshift.py" class="inc-path" role="img" tabindex="0" title="wordshift/generate_wordshift.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">decades</span><span class="o">=</span><span class="n">DECADES</span><span class="p">,</span>
     <span class="n">tokens_per_decade</span><span class="o">=</span><span class="n">TOKENS_PER_DECADE</span><span class="p">,</span>
     <span class="n">bg_vocab_size</span><span class="o">=</span><span class="n">BACKGROUND_VOCAB_SIZE</span><span class="p">,</span>
@@ -180,7 +180,7 @@ the statistical variation that results from sampling a finite corpus.</dd>
 </code></pre></div>
 </div>
 <h2>Computing Normalized Frequencies</h2>
-<div data-inc="wordshift.py" data-mark="normalize"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div data-inc="wordshift.py" data-mark="normalize"><span aria-label="Source: wordshift/wordshift.py" class="inc-path" role="img" tabindex="0" title="wordshift/wordshift.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return df with a 'freq' column: each word's share of tokens that decade.</span>
 
 <span class="sd">    freq = count / sum(count) for the same decade.</span>
@@ -194,7 +194,7 @@ the statistical variation that results from sampling a finite corpus.</dd>
 </code></pre></div>
 </div>
 <h2>Estimating Trend Slopes</h2>
-<div data-inc="wordshift.py" data-mark="trend"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">linear_trend</span><span class="p">(</span><span class="n">decade_indices</span><span class="p">,</span> <span class="n">freqs</span><span class="p">):</span>
+<div data-inc="wordshift.py" data-mark="trend"><span aria-label="Source: wordshift/wordshift.py" class="inc-path" role="img" tabindex="0" title="wordshift/wordshift.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">linear_trend</span><span class="p">(</span><span class="n">decade_indices</span><span class="p">,</span> <span class="n">freqs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the OLS slope: change in normalized frequency per decade.</span>
 
 <span class="sd">    Uses the closed-form ordinary least-squares formula:</span>
@@ -230,7 +230,7 @@ the statistical variation that results from sampling a finite corpus.</dd>
 </code></pre></div>
 </div>
 <h2>Visualizing Frequency Trajectories</h2>
-<div data-inc="wordshift.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_trajectories</span><span class="p">(</span><span class="n">freq_df</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="wordshift.py" data-mark="plot"><span aria-label="Source: wordshift/wordshift.py" class="inc-path" role="img" tabindex="0" title="wordshift/wordshift.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_trajectories</span><span class="p">(</span><span class="n">freq_df</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save an Altair line chart of normalized frequency over time for each word.</span>
 
 <span class="sd">    Each word appears as a separate line; the x-axis is the decade and the</span>
@@ -283,7 +283,7 @@ injected value.  The expected standard error of the OLS estimator for this
 corpus is below 0.0002, so 0.001 allows more than five standard errors of
 sampling variation before a test failure.</dd>
 </dl>
-<div data-inc="test_wordshift.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_wordshift.py"><span aria-label="Source: wordshift/test_wordshift.py" class="inc-path" role="img" tabindex="0" title="wordshift/test_wordshift.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_wordshift</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">TARGET_WORDS</span><span class="p">,</span> <span class="n">TARGET_SLOPE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">wordshift</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize</span><span class="p">,</span> <span class="n">linear_trend</span><span class="p">,</span> <span class="n">compute_trends</span>

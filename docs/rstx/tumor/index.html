@@ -92,12 +92,12 @@
 <li>At $z = 0$ the model is completely uncertain: $\sigma(0) = 0.5$.</li>
 <li>The predicted class is 1 when $p \geq 0.5$, which is equivalent to $z \geq 0$.</li>
 </ul>
-<div data-inc="tumor.py" data-mark="sigmoid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<div data-inc="tumor.py" data-mark="sigmoid"><span aria-label="Source: tumor/tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Map any real number to (0, 1) via the logistic function 1 / (1 + exp(-z))."""</span>
     <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<div data-inc="tumor.py" data-mark="model"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div data-inc="tumor.py" data-mark="model"><span aria-label="Source: tumor/tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return predicted class-1 probability for each row of X.</span>
 
 <span class="sd">    Each probability is sigmoid(X @ w + b), the logistic regression output.</span>
@@ -123,7 +123,7 @@
 <li>The update rule at each step is $\mathbf{w} \leftarrow \mathbf{w} - \eta \partial L / \partial \mathbf{w}$
     where $\eta$ is the learning rate.</li>
 </ul>
-<div data-inc="tumor.py" data-mark="train"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
+<div data-inc="tumor.py" data-mark="train"><span aria-label="Source: tumor/tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit logistic regression by gradient descent on binary cross-entropy loss.</span>
 
 <span class="sd">    Binary cross-entropy:  L = -(1/n) sum [ y_i log(p_i) + (1-y_i) log(1-p_i) ]</span>
@@ -165,7 +165,7 @@
 <li>The Euclidean distance between class means is $\sqrt{8} \approx 2.83$ standard deviations,
     making the classes well-separated but not trivially so.</li>
 </ul>
-<div data-inc="generate_tumor.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<div data-inc="generate_tumor.py" data-mark="constants"><span aria-label="Source: tumor/generate_tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/generate_tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_PER_CLASS</span> <span class="o">=</span> <span class="mi">150</span>  <span class="c1"># samples per class</span>
 
 <span class="c1"># Class 0 (benign): Gaussian cluster centred at BENIGN_MEAN.</span>
@@ -176,7 +176,7 @@
 <span class="n">FEATURE_STD</span> <span class="o">=</span> <span class="mf">0.6</span>  <span class="c1"># within-class spread for each feature</span>
 </code></pre></div>
 </div>
-<div data-inc="generate_tumor.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tumor_data</span><span class="p">(</span>
+<div data-inc="generate_tumor.py" data-mark="generate"><span aria-label="Source: tumor/generate_tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/generate_tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tumor_data</span><span class="p">(</span>
     <span class="n">n_per_class</span><span class="o">=</span><span class="n">N_PER_CLASS</span><span class="p">,</span>
     <span class="n">benign_mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">malignant_mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -214,7 +214,7 @@
 <li>False negatives (malignant predicted as benign) are typically more harmful than false positives
     in cancer screening, which motivates choosing a threshold below 0.5 in practice.</li>
 </ul>
-<div data-inc="tumor.py" data-mark="evaluate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<div data-inc="tumor.py" data-mark="evaluate"><span aria-label="Source: tumor/tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a 2x2 confusion matrix [[TN, FP], [FN, TP]].</span>
 
 <span class="sd">    Rows index actual class (0 = benign, 1 = malignant).</span>
@@ -262,7 +262,7 @@
 </table>
 </div>
 <h2>Visualizing the Decision Boundary</h2>
-<div data-inc="tumor.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_boundary</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="tumor.py" data-mark="plot"><span aria-label="Source: tumor/tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_boundary</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save a scatter plot of the two classes with the logistic regression decision boundary.</span>
 
 <span class="sd">    The boundary is the line w[0]*x1 + w[1]*x2 + b = 0, i.e.</span>
@@ -337,7 +337,7 @@
 </ul>
 </li>
 </ul>
-<div data-inc="test_tumor.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_tumor.py"><span aria-label="Source: tumor/test_tumor.py" class="inc-path" role="img" tabindex="0" title="tumor/test_tumor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_tumor</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_tumor_data</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tumor</span><span class="w"> </span><span class="kn">import</span> <span class="n">sigmoid</span><span class="p">,</span> <span class="n">predict_proba</span><span class="p">,</span> <span class="n">predict</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy</span>

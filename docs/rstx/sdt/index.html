@@ -133,7 +133,7 @@ trials and false alarms come from noise trials.</dd>
 </dl>
 </div>
 <h2>Computing Hit Rate and False Alarm Rate</h2>
-<div data-inc="sdt.py" data-mark="rates"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">):</span>
+<div data-inc="sdt.py" data-mark="rates"><span aria-label="Source: sdt/sdt.py" class="inc-path" role="img" tabindex="0" title="sdt/sdt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (hit_rate, false_alarm_rate) from binary label and decision arrays.</span>
 
 <span class="sd">    labels    -- 1-D array of 1 (signal) or 0 (noise) for each trial</span>
@@ -195,7 +195,7 @@ Divide the hit count by the total number of signal trials.</p>
     the observer can achieve high hit rates with low false alarm rates,
     i.e., better discrimination</li>
 </ul>
-<div data-inc="sdt.py" data-mark="roc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div data-inc="sdt.py" data-mark="roc"><span aria-label="Source: sdt/sdt.py" class="inc-path" role="img" tabindex="0" title="sdt/sdt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (far, hr) arrays tracing the ROC curve from evidence scores.</span>
 
 <span class="sd">    scores -- 1-D array of numeric evidence values, one per trial</span>
@@ -271,7 +271,7 @@ Divide the hit count by the total number of signal trials.</p>
 </li>
 <li>As the number of threshold steps increases, the sum converges to the true area</li>
 </ul>
-<div data-inc="sdt.py" data-mark="auc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
+<div data-inc="sdt.py" data-mark="auc"><span aria-label="Source: sdt/sdt.py" class="inc-path" role="img" tabindex="0" title="sdt/sdt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the area under the ROC curve using the trapezoidal rule.</span>
 
 <span class="sd">    The trapezoidal rule approximates the area as a sum of trapezoids:</span>
@@ -294,7 +294,7 @@ Divide the hit count by the total number of signal trials.</p>
 </code></pre></div>
 </div>
 <h2>Visualizing the ROC Curve</h2>
-<div data-inc="sdt.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div data-inc="sdt.py" data-mark="plot"><span aria-label="Source: sdt/sdt.py" class="inc-path" role="img" tabindex="0" title="sdt/sdt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save an ROC curve plot as an SVG file."""</span>
     <span class="n">curve_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"far"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)}</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">)]</span>
     <span class="n">diag_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"far"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span> <span class="p">{</span><span class="s2">"far"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}]</span>
@@ -394,7 +394,7 @@ Divide the hit count by the total number of signal trials.</p>
 </ul>
 </li>
 </ul>
-<div data-inc="test_sdt.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_sdt.py"><span aria-label="Source: sdt/test_sdt.py" class="inc-path" role="img" tabindex="0" title="sdt/test_sdt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdt</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_rates</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span>
 

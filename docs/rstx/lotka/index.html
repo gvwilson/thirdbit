@@ -103,7 +103,7 @@
 </li>
 </ul>
 <h2>Parameters and Equilibrium</h2>
-<div data-inc="lotka.py" data-mark="params"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Rate parameters (arbitrary units).</span>
+<div data-inc="lotka.py" data-mark="params"><span aria-label="Source: lotka/lotka.py" class="inc-path" role="img" tabindex="0" title="lotka/lotka.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Rate parameters (arbitrary units).</span>
 <span class="c1"># PREY_BIRTH: per-capita prey growth rate in the absence of predators.</span>
 <span class="c1"># PREDATION:  rate at which one predator removes prey (per predator per prey).</span>
 <span class="c1"># PRED_GROWTH: rate at which predators gain from eating prey (per predator per prey).</span>
@@ -165,7 +165,7 @@ what is the prey equilibrium $x^* = d/c$?</p>
     and returns $[dx/dt,\; dy/dt]$</li>
 <li>The function must not modify $z$; instead, it should return a new list</li>
 </ul>
-<div data-inc="lotka.py" data-mark="rhs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div data-inc="lotka.py" data-mark="rhs"><span aria-label="Source: lotka/lotka.py" class="inc-path" role="img" tabindex="0" title="lotka/lotka.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return [dx/dt, dy/dt] for the Lotka-Volterra equations.</span>
 
 <span class="sd">    z[0] = x (prey population)</span>
@@ -216,7 +216,7 @@ what is the prey equilibrium $x^* = d/c$?</p>
 </ul>
 </li>
 </ul>
-<div data-inc="lotka.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">():</span>
+<div data-inc="lotka.py" data-mark="solve"><span aria-label="Source: lotka/lotka.py" class="inc-path" role="img" tabindex="0" title="lotka/lotka.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Integrate the Lotka-Volterra equations and return results as a DataFrame."""</span>
     <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T_MAX</span><span class="p">,</span> <span class="n">N_EVAL</span><span class="p">)</span>
     <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
@@ -235,7 +235,7 @@ what is the prey equilibrium $x^* = d/c$?</p>
 <ul>
 <li>Two views of the solution complement each other.</li>
 </ul>
-<div data-inc="lotka.py" data-mark="plots"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div data-inc="lotka.py" data-mark="plots"><span aria-label="Source: lotka/lotka.py" class="inc-path" role="img" tabindex="0" title="lotka/lotka.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an Altair chart of prey and predator populations over time."""</span>
     <span class="n">long</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">unpivot</span><span class="p">(</span>
         <span class="n">index</span><span class="o">=</span><span class="s2">"t"</span><span class="p">,</span>
@@ -312,7 +312,7 @@ With our initial conditions the measured period is ~5.30
 versus the linearised estimate of ~5.13, a 3.3% deviation.
 A tolerance of 10% gives a safety factor of 3 over that measured deviation.</dd>
 </dl>
-<div data-inc="test_lotka.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div data-inc="test_lotka.py"><span aria-label="Source: lotka/test_lotka.py" class="inc-path" role="img" tabindex="0" title="lotka/test_lotka.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lotka</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">PRED_EQ</span><span class="p">,</span>
