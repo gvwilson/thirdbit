@@ -3246,7 +3246,19 @@ Wales snorted and nudged his toolbox with his boot.
 And if they thought they could take it away from me without consequences,
 I'm pretty sure our welcome would have been much less friendly."
 He raised an eyebrow at Doctor Johel.
-The old woman smiled back but said nothing.
+
+The old woman sighed theatrically.
+"Always so cynical.
+I suppose some things never change."
+
+Wales smiled.
+"Speaking of which, how is…"
+He made a twirling gesture with his fingers.
+
+Doctor Johel's expression tightened.
+"Fine, thank you."
+Her tone made it clear that whatever Wales had asked about
+wasn't something she wanted to discuss.
 
 Rothera bustled around them as the bus left the dock behind.
 They hummed quietly through the city streets
@@ -4592,19 +4604,18 @@ tucked the box with the dronelets under her mattress,
 and then lay down and tapped her app.
 
 - `hey`
-- `ho`
-- `huh?`
+- *`huh?`*
 - `hoot!`
-- `stop it ya dingus`
+- *`stop it ya dingus`*
 
 Iff smiled.
 Any night Honesty called her "dingus" was a good night.
 
-- `y'aright? we heard about the jammer along by the dance hall`
+- *`y'aright? we heard about the jammer along by the dance hall`*
 - `yeah` iffy hesitated. `saw it happen`
-- `tay bangle. y'aright for reals?`
+- *`tay bangle. y'aright for reals?`*
 - `yeah` iffy hesitated again. `how bout you? tomorrow 'n' all`
-- `aff, i'll be joey. but second says i still gotta make chores. you be safe heart`
+- *`aff, i'll be joey. but second says i still gotta make chores. you be safe heart`*
 - `you too`
 
 She waited a moment for a reply,
@@ -5204,8 +5215,8 @@ but all they could say was, "We're awe waitin' to hear back."
 Finally,
 she messaged Jeep.
 
-- `couple o' days an' i was on my feet, but that bit's all mud.
-  couple more days 'til anythin' i can remember clearly`
+- *`couple o' days an' i was on my feet, but that bit's all mud.
+  couple more days 'til anythin' i can remember clearly`*
 
 Iffy hesitated.
 
@@ -5213,10 +5224,10 @@ Iffy hesitated.
 
 There was a long pause.
 
-- `don't think so.
+- *`don't think so.
   sergeant said i cried a lot
   but i don't think that was from hurt.
-  de said a lotta folk do that.`
+  de said a lotta folk do that.`*
 
 Iffy hesitated again,
 a lump in her throat.
@@ -5226,13 +5237,13 @@ a lump in her throat.
 His reply came back so quickly that
 she wondered if he'd started typing before she'd sent her message.
 
-- `don't feel sorry for me`
+- *`don't feel sorry for me`*
 
 And then a moment later:
 
-- `i'm sorry i kept goin' off on you about usin' da's gear`
+- *`i'm sorry i kept goin' off on you about usin' da's gear`*
 - `it's aright. tell 'im i said hi?`
-- `willa. stay safe`
+- *`willa. stay safe`*
 - `you too`
 
 Unable to bear the thought of being in her cabin after that,
@@ -8196,11 +8207,9 @@ then pulled her app out of her pocket.
 
 Jeep answered almost immediately.
 
-- `hey is that you`
-
+- *`hey is that you`*
 - `ya`
-
-- `sec`
+- *`sec`*
 
 A lock clicked, then another.
 A chain rattled.
@@ -9141,8 +9150,8 @@ Doctor Johel gestured at a comfortable-looking chair opposite her desk.
 Sandrine sat on the edge of the seat,
 her back straight and her hands folded neatly in her lap.
 "What do you know about the Niobium project?"
-Doctor Johel asked
-without looking up from the app in her hands.
+Doctor Johel asked,
+twirling a pen back and forth through her fingers.
 
 Sandrine shook her head.
 "Never heard of it, ma'am."
@@ -9199,7 +9208,7 @@ It took quite a lot of work to detect her enhancements—even now
 I'm only half convinced they're real.
 It's all rather a mystery,"
 Doctor Johel mused,
-resting her chin on her steepled hands.
+twirling the pen in her fingers again.
 "What I'd like you to do is unravel it for me."
 
 "I'm afraid I'm not much good at puzzles, ma'am,"
@@ -9650,7 +9659,7 @@ she said,
 eyes fixed on the wall above the doctor's head.
 
 "Mm."
-She steepled her hands under her chin.
+She twirled her pen through her fingers.
 "That's quite a bit faster than our models predicted."
 
 "Thank you, sir."
@@ -9725,7 +9734,7 @@ all those years ago.
 
 Doctor Johel turned what Sandrine had built over in her hands.
 "It seems simpler than I expected,"
-she said cautiously.
+she said skeptically.
 
 Sandrine shrugged.
 "Simple is good, ma'am.
@@ -9743,7 +9752,9 @@ I think that's all the proof—"
 Sandrine raised a finger.
 "If you'll just give it a moment?"
 
-Doctor Johel sat back and steepled her fingers under her chin.
+Doctor Johel sat back.
+Her pen twirled end over end through her fingers,
+first one way and then the other.
 *I wish she'd stop doing that,*
 Sandrine thought.
 Five steps, ten—when it reached the edge of the desk
@@ -10280,18 +10291,23 @@ Try again.
 Make a fist.
 Up and…down.
 
-Weight on her chest pressed her into the chair.
-There was sunlight all around her.
-Her last thought before slipped away into nothingness was,
-"Good luck, kid."
+Weight on her chest pressed her into the chair
+as the single-seat hoverjeep launched itself.
+It was still accelerating as they zoomed out of the stadium,
+banked left,
+and left Bharati behind.
+*Hey,*
+Sandrine thought.
+*If you see your friend again, tell her about the mudslide, will you?
+And thank you—it's been an honor.*
 
-Iffy felt an upside-down ache in her chest when she finally regained consciousness
+Iffy felt an upside-down ache in her chest when she regained consciousness
 and knew immediately that Sandrine was gone.
 "Thank you," she whispered.
 She wiped tears, snot, and blood off her face and looked dully out the escape pod's windows
 at the tundra racing by.
 
-The hovercraft's schematics labeled it a PN-420 single-seat rapid reconnaissance vehicle.
+The hoverjeep's schematics labeled it a PN-420 single-seat rapid reconnaissance vehicle.
 It was noisier than Iffy had expected.
 Two fuel cells,
 a motor,
@@ -10691,7 +10707,8 @@ then kept them in twilight silence for another hour just in case.
 
 In between watches they played hive and santorini
 or Edson did yoga
-while Iffy studied the reclamation machine specs
+while Iffy made and re-made toys and gadgets out of whatever bits and pieces she could find,
+or studied the reclamation machine specs
 she found on an old app someone had left in the toilet stall.
 It had a few decades-old sims as well,
 but they didn't calm her the way the wireframes and animations did.
@@ -10712,9 +10729,109 @@ where they were going,
 who he worked for,
 and what was going to happen to her—so she stopped asking.
 
+Late one night,
+when Edson was snoring in his cot,
+she climbed the rungs as quietly as she could
+and then clung to them just below the hatch.
+She didn't dare open it,
+and she felt silly hanging there in the dark,
+but knowing that the world was right there, within reach, helped a little.
+She had never been indoors this long in her life,
+and she missed fresh air and the sound of the ocean and Aunt Naggie
+and her bird book and even the toilet on the *Guinevere*,
+which she would never admit to anyone.
+
+After a few minutes she wiped her eyes on her sleeve
+and climbed back down.
+Edson was still snoring,
+so she picked up the old app and began swiping through it.
+
+*«message»*
+
+She almost dropped the app when the thought appeared in her head.
+*Hello?*
+
+The app's screen went blank for a moment,
+and then the picture of the crow from her bird book appeared
+with the word "corvus" beneath it.
+She glanced at Edson and tapped it.
+
+- *`iffy?`*
+- `who you?`
+- *`we built corvus together you all right?`*
+
+She hesitated.
+If this was a trap it had already sprung.
+
+- `i remember where you?`
+- *`hiding safe for now where you?`*
+
+She hesitated again.
+
+- `was in bharati got out`
+
+- *`good`* The word appeared almost immediately. *`not a good place`*
+
+- `yeah do you know what really happened there?`
+
+The moment stretched so long that she was sure the connection had dropped,
+but then words appeared all at once.
+
+- *`gayathri's father and the governor tried to use your first to talk to the machines`*
+- *`didn't go well`*
+- *`was gayathri there?`*
+
+Iffy tapped the screen furiously.
+
+- `my first was there an you dint tell me?`
+
+A slight pause.
+
+- *`i wasnt there only found out after`*
+- *`was gayathri there? important`*
+- `yes why important?`
+- *`did she seem different?`*
+
+Iffy swore under her breath.
+
+- `how wld i know? different how?`
+
+Another long moment, and then:
+
+- *`she imprints herself with her father. been doing it more / getting worse. dangerous.`*
+
+Iffy stared at the screen,
+her skin crawling.
+
+- `why?`
+- *`too many imprints your own personality breaks down v bad`*
+- *`no, y does she do it?`*
+
+Another long moment.
+
+- *`says she wants to finish his mission save the world`*
+- *`he's less reasonable than her dangerous`*
+
+Iffy remembered looking at Doctor Johel when Sandrine had been in charge of her body.
+
+- `did he used to do a thing with his pen?`
+- *`twirl it in his fingers?`*
+- `yes`
+- *`damn okay stay out of their way`*
+
+Iffy rolled her eyes at that.
+
+- `sure` she typed. `what're you gonna do?`
+
+She waited for an answer.
+When none came,
+she put the app back on the floor beside her cot,
+lay down,
+and let Edson's snores carry her off to sleep.
+
 "Aright,"
-he finally said,
-straightening up after yet another series of yoga poses.
+Edson finally said a couple of days later,
+straightening after yet another series of yoga poses.
 "Let's tidy up an' get outta here."
 
 Fifteen minutes later they opened the hatch
