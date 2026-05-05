@@ -718,7 +718,7 @@ and of course the whole "undead" thing—but there are important differences.
 First,
 mummies are generally (ex-)royalty,
 while zombies tend to have been idiots who went into the basement after dark
-despite the growling and gnawing sounds
+despite the growling and gnawing sounds,
 or stopped to ask, "Who?"
 when someone yelled, "Look out, here they come!"
 
@@ -762,8 +762,9 @@ the mummy added wistfully.
 
 Two stone cats sat on their haunches at the top of the steps.
 One blinked slowly as they entered the pyramid,
-but other than that they might truly have been statues.
-The corridor inside was wide enough for the four of them to walk side by side.
+but other than that,
+they might truly have been statues.
+The corridor inside was wide enough for Finner and the santas to walk side by side.
 Torches guttered in sconces every few dozen strides,
 making the figures painted on the walls dance.
 
@@ -775,7 +776,7 @@ the mummy rasped at the top,
 waving them forward proudly.
 
 To call the chamber they entered a "room" would have been like calling the pyramid "large".
-If Gran-Granna Tumbly's house had been tucked into one corner
+If Gran-Granna Tumbly's house had been tucked into one corner,
 there would still have been plenty of space for a hockey rink and a river barge.
 And while there wasn't actually a hockey rink,
 there *was* a barge,
@@ -958,7 +959,7 @@ the peculiarities of washroom facilities in ancient pyramids.
 I'm not that book,
 so let's just skip over the next few minutes.*
 
-Finner closed the door carefully behind him after he finished drying his hands.
+Finner closed the door carefully behind him after drying his hands.
 He could hear the santas talking quietly in the distance,
 but seized by a sudden curiosity,
 he turned left instead of right.
@@ -1011,7 +1012,7 @@ or would have if an ear-splitting yowl hadn't interrupted them.
 
 Santa Greenwood surged to his feet at the sound,
 his ax in his hands.
-Santa Hotep drew a circle with its fingertip on the mirror by its elbow.
+Santa Hotep drew a circle with its fingertip on a mirror next to its elbow.
 The mirror's surface rippled and reformed to show
 the steps leading up to the pyramid entrance,
 where the stone cats were fighting a quartet of hooded figures
@@ -1092,10 +1093,9 @@ the amplified voice shouted.
 "How does that sound?"
 
 "Why don't you come here and we'll talk about it?"
-Santa Greenwood bellowed.
-Then he said "AAAAHHH!" in a very loud voice
-because the mummy
-(who was much stronger than it looked)
+Santa Greenwood bellowed,
+followed by a very loud "AAAAHHH!"
+because the mummy (who was much stronger than it looked)
 pushed him, Santa Hood, and Finner out into the empty air
 where they fell screaming to their deaths.
 
