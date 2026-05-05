@@ -473,9 +473,8 @@ Gran-Granna Tumbly said grimly.
 She twisted the head of her cane
 and to Finner's absolute dumbfoundment[^dumbfoundment]
 drew a slender silver rapier.
-"Hold this," she ordered,
-handing the bit that didn't have sharp edges to Finner,
-and then everything went a little bit nuts.
+
+And then everything went a little bit nuts.
 
 [^dumbfoundment]: Yes, that really is a word.
 
@@ -499,7 +498,7 @@ twisting at the waist until her spine made a *pop!*
 only slightly quieter than the grenade's.
 
 "Come on ya sock-chewin' deviants!" the big santa bellowed,
-hefting his really quite large ax
+hefting his unreasonably large ax
 as a UPOF[^upof] crashed through a window upstairs
 and landed in the front yard with a wet *thud*.
 Boots and broken glass clattered on the porch roof.
@@ -514,7 +513,7 @@ Sparkles ran down the rapier in her hand.
 
 "Is that a *magic* sword?" Finner breathed.
 
-"Not magic enough," their great-grandmother snapped.
+"Not magic enough," his great-grandmother snapped.
 "You two! Get him out of here and keep him safe.
 No, don't argue,"
 she continued as the smaller santa opened her mouth.
@@ -527,8 +526,7 @@ Finner didn't have a chance to ask, "Go where?"
 because at precisely that moment something roared in the front yard,
 making the kind of sound that bypasses the ears
 and goes directly to the bit in the back of the brain
-that evolved to keep a million generations of ancestors
-out of the stomachs of large predators.
+responsible for staying out of the stomachs of large predators.
 
 "What—" a voice in the front yard started but never managed to finish.
 Someone else simply screamed, briefly.
@@ -537,35 +535,34 @@ was followed by a moment of stunned silence,
 and then the shooting started.
 
 The burly santa yanked Finner behind the blade of his enormous ax.
-Bullets ricocheted off it to make lethal little holes in the pictures on the walls.
+Bullets ricocheted off it,
+making lethal little holes in the pictures on the walls.
 The other santa dove across the room to take shelter beside them.
 Punctured in a dozen places,
 the green foam in the stairs made a wet, farty noise
 and began to deflate.
 
-"Get! Out! Of! Here!" Gran-Granna Tumbly shouted.
-Her sword flashed back and forth,
-knocking bullets away from them.[^teapot-bullets]
+"Get! Out! Of! Here!" Gran-Granna Tumbly shouted,
+her sword flashing back and forth to knock bullets away from them.[^teapot-bullets]
 
 [^teapot-bullets]: Or possibly from her teapot. Finner wondered about that later.
 
 Without warning Gran-Granna's fireplace was gone,
 or rather it was still there but it was also a doorway,
-like one of those puzzle pictures that looks like two different things at once.
+like one of those optical illusions that looks like two different things at once.
 The big santa picked Finner up like a sack of laundry
-and crossed the room with two enormous strides.
-The universe twisted inside out and everything stretched around them
-or possibly they did the stretching
+and crossed the room in two enormous strides.
+The universe twisted inside out and everything stretched around them,
+or possibly they did the stretching,
 and just like that they were somewhere else.
 
-It was bright.
-Very bright,
+It was suddenly bright—very bright,
 where before it had been the cozy indoor gloom of an elderly person's living room.
-And there was sand, comma, lots of.
+And there was sand—lots of sand.
 *That's a pyramid,*
 a small part of Finner's brain noticed.
 It was indeed a pyramid,
-with half a dozen cat statues like the one in gran-granna's yard crouched in front of it.
+with half a dozen cat statues like the one in Gran-Granna's yard crouched in front of it.
 
 The second santa got to her feet and brushed sand off her uniform,
 which was already turning a dusty beige.
@@ -583,11 +580,12 @@ only to be interrupted by a voice moaning,
 "Greeeetinnngs…"
 
 Finner spun around and found himself face-to-face with—he wasn't quite sure what.
-It was tall and withered
+It was tall,
+withered,
 and wrapped in tattered bandages
-made from the rags of what might once have been a santa's uniform.
+made from the rags of what might once have been a santa's red and white uniform.
 Its eyes didn't quite line up,
-and—was that a *bone* of the end of one of its arms
+and—was that a *bone* at the end of one of its arms
 where there really ought to be a hand?[^mechanical-hand]
 
 [^mechanical-hand]: A mechanical hand would have been okay. Finner had an aunt who had started wearing one after an encounter with a particularly militant guard goose, and more than a few of his mother's elvish friends had needed mechanical upgrades after what people referred to as "workshop incidents".
@@ -607,7 +605,7 @@ turned its head and blinked,
 which made the "keep out of predators" part of Finner's brain go *ding ding ding!*
 
 "Tea?" the burly santa asked,
-clearly never having had this particular response to his friend-or-foe question before.
+clearly never having had this particular response to his question before.
 
 "Miz Tumbly…
 always…
@@ -642,7 +640,7 @@ here.
 Not for…
 a long…
 time."
-The giant stone cat behind it stepped down from its pedestal.
+The giant stone cat behind the mummy stepped down from its pedestal.
 Finner gulped as three more joined it.
 Some were missing bits of ear or tail,
 but the one that yawned still seemed to have a full set of very sharp teeth.
@@ -653,9 +651,9 @@ should say yes?"
 The smaller santa reached into her sack.
 For a heartbeat Finner thought she was going to throw another foam grenade,
 but instead she pulled out a head.
-A toy head,
+A toy one,
 Finner noticed with relief,
-with dents and scuffs and a scorch mark on one cheek.
+with dents and scuffs and a scorch mark on one painted cheek.
 
 The mummy hissed again.
 "You bring…
@@ -677,7 +675,7 @@ the big santa added grimly.
 
 The smaller santa shook her head.
 "Sensei will be all right."
-She really was hurt,
+She was in pain,
 Finner realized,
 but trying hard not to show it.
 
@@ -700,7 +698,7 @@ the mess.
 I'm…
 redecorating."
 
-As they climbed the worn stone steps on the pyramid
+As they climbed the worn stone steps on the pyramid,
 Finner sidled over to the smaller santa.
 "Can you please tell me what's going on?"
 
