@@ -222,18 +222,18 @@ and into the rest of his life.
 
 ## Unexpected Guests
 
-Finner had never actually been in Gran-Granna's house before,
+Finner had never been in Gran-Granna's house before,
 but he'd heard stories.
 A richly-patterned carpet in the hall that looked like it might still be able to fly: check.
 A set of gargoyle coathooks: check.
 A sitting room filled with a riot of greenery,
 a reindeer rocking horse to give small children something to fight over,
-and a mis-matched pair of overstuffed chairs: check.
+and a mismatched pair of overstuffed chairs: check.
 Crossed harpoons over the fireplace and dozens of framed pictures
 of children, grandchildren, great-grandchildren,
 neighbors, friends, enemies,[^enemies-dates]
 and the grateful, if somewhat perplexed, crew of a submarine: check.
-A photograph of two middle-aged women in red-and-white coats holding hands
+A photograph of two middle-aged women in red and white coats holding hands
 that must have been the inspiration for the statue of Gran-Granna Tumbly and her wife:
 check,
 although Finner noticed that there was an elf in the picture as well,
@@ -263,7 +263,6 @@ and sitting back with it cradled in her hands.
 "Thank you,"
 Finner said,
 not knowing what else to say.
-What *was* he going to say?
 "Nothing feels right," was awfully vague,
 and, "What should I do with my life?" seemed awfully—
 
@@ -281,7 +280,7 @@ eyes half-closed like a cat having its ears scratched.
 "But it does give you a passel of stories to tell.
 Take your Auncle Minglin, for example."
 She gestured at a picture on the wall of someone Finner vaguely remembered
-having spilled cranberry juice on a white tablecloth at some point.
+having spilled cranberry juice on a white tablecloth at some family gathering or other.
 "Kind heart,
 and a beautiful singing voice,
 but as clumsy as an ox on ice skates.
@@ -327,10 +326,11 @@ You've been mopey and anxious
 and all the other things young people get carried away with these days,
 only more so."
 
-A clock chimed quietly in the kitchen next door.
+A clock chimed quietly in the kitchen.
 Somewhere in the distance,
 someone called their children to come inside
 because it was time for bed and their teeth weren't going to brush themselves.
+
 "I just don't know what to do," Finner confessed,
 angry at the tears that he was absolutely *not* going to cry.
 "I like the ho-ho-ho'ing,
@@ -339,7 +339,7 @@ He paused for breath.
 "It's like everyone else is excited about making deliveries and everything
 but I'm just watching myself do it,
 you know?
-Like this is someone else's life and I've just put it on like a sweater
+Like this is someone else's life and I've just put it on like a sweater,
 except it doesn't quite fit
 and no matter how many times I wash it,
 it'll still smell a bit like whoever it really belongs to."
@@ -348,9 +348,9 @@ it'll still smell a bit like whoever it really belongs to."
 Gran-Granna Tumbly snorted.
 "Fancy words like that,
 maybe you ought to think about delivering stories.
-There are such,"
+There are santas who do that,"
 she went on.
-"Places where people don't hold much by material possessions,
+"In places where people don't hold much by material possessions,
 there are santas who memorize stories and poems
 to tell to folks on their birthdays and whenever."
 
@@ -434,7 +434,7 @@ I think it's our other problem."
 She raised her arms to put scare quotes around the word "other",
 then winced.
 
-"You're hurt," Gran-Granna said accusingly.
+"You're hurt!" Gran-Granna said accusingly.
 
 The second santa waved her off.
 "It's nothing.
@@ -452,7 +452,7 @@ I tried to fight 'em, Vidancia, I swear."
 Gran-Granna Tumbly pursed her lips.
 "That's twice they've shown up,"
 she said to the second santa,
-who nodded and winced before turning her gaze on Finner.
+who nodded before turning her gaze on Finner.
 
 Something that felt like a mild electric shock ran down his spine
 as her dark eyes locked with his.
