@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learning</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../interact/">Interacting with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../code/">Coding</a></li>
+<li><a href="../communicate/">Communicating</a></li>
+<li><a class="active" href="../learn/">Learning</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../api/">Using the API</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Learning</h1>
+<h2>LLMs as tutors</h2>
+<ul>
+<li>The appeal is obvious<ul>
+<li>Ask as many questions as you want, whenever you want</li>
+<li>Ask for a different explanation if the first doesn't make sense</li>
+<li>Don't feel stupid in front of other people</li>
+</ul>
+</li>
+<li>The limitations are equally obvious<ul>
+<li>The tutor makes things up</li>
+<li>You never learn how to do things yourself</li>
+</ul>
+</li>
+</ul>
+<h2>Getting explanations at the right level</h2>
+<ul>
+<li>LLMs calibrate their explanations to cues in the prompt<ul>
+<li>"I'm an undergraduate" produces shorter sentences and more analogies</li>
+<li>"I have a Ph.D. in statistics" produces fewer hand-waves and more precision</li>
+</ul>
+</li>
+<li>Be explicit about what you already know and what you do not<ul>
+<li>Weak: "Explain p-values."</li>
+<li>Stronger: "I know a p-value is a probability but I don't understand what it's a probability <em>of</em>.
+    Explain in two paragraphs without assuming I know calculus."</li>
+</ul>
+</li>
+<li>Ask for multiple explanations if the first one does not click<ul>
+<li>"Try a different analogy" is a useful prompt</li>
+</ul>
+</li>
+<li>Ask for a concrete example before an abstract definition<ul>
+<li>Most people understand examples before principles, not the other way around</li>
+</ul>
+</li>
+</ul>
+<h2>Using examples and analogies</h2>
+<ul>
+<li>Prompt the LLM to show you before it tells you<ul>
+<li>"Give me a worked example, then explain the rule it illustrates"</li>
+</ul>
+</li>
+<li>Prompt it for the example to use data you already know<ul>
+<li>"Show me how to compute the mean bill length per species using the penguins dataset"</li>
+</ul>
+</li>
+<li>Prompt it for a bad example alongside a good one<ul>
+<li>"Show me a histogram that is badly binned and one that is well-binned, using the same data"</li>
+</ul>
+</li>
+<li>Analogies break down: prompt the LLM to explain where its analogy stops working<ul>
+<li>"You compared p-values to fire alarms. Where does that analogy fail?"</li>
+</ul>
+</li>
+<li>An example you can run is more useful than one you can only read<ul>
+<li>Paste the code into a notebook and make sure it actually does what the LLM claimed</li>
+</ul>
+</li>
+</ul>
+<h2>Testing your own understanding</h2>
+<ul>
+<li>Explaining something is harder than recognizing a correct explanation<ul>
+<li>Write a short paragraph in your own words, then prompt the LLM to check it</li>
+</ul>
+</li>
+<li>Prompt the LLM to quiz you<ul>
+<li>"Ask me three questions about what I just read, then tell me which answers I got wrong"</li>
+</ul>
+</li>
+<li>Prompt for common misconceptions<ul>
+<li>"What do beginners usually get wrong about confidence intervals?"</li>
+</ul>
+</li>
+<li>Resist the urge to look at the LLM's answer before writing your own<ul>
+<li>The moment you read the answer, you will convince yourself you already knew it</li>
+</ul>
+</li>
+</ul>
+<h2>What LLMs get wrong as tutors</h2>
+<ul>
+<li>Hallucination in explanations: technically fluent but factually wrong<ul>
+<li>Particularly common for specialist or niche topics</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#sycophancy">Sycophancy</a>: telling you what you want to hear<ul>
+<li>If you say "so it's basically the same as X, right?", the LLM is inclined to agree</li>
+<li>Ask "Is there anything wrong with this description?" rather than "Is this right?"</li>
+</ul>
+</li>
+</ul>
+<div class="callout">
+<p>Why does the wording of that question matter?
+LLMs are trained using reinforcement learning from human feedback (RLHF),
+where human raters rank model responses.
+Raters tend to prefer responses that are agreeable and helpful-sounding,
+so the model learns that confirming what the user said
+is more likely to be rated positively than contradicting them.
+This is called <em>sycophancy</em>: optimizing for approval rather than accuracy.
+Asking "Is there anything wrong with this?" explicitly invites disagreement
+and shifts the model toward a more critical mode.
+A quick test: tell an LLM something subtly wrong
+("the p-value is the probability that the null hypothesis is true, right?")
+and compare what you get from "Is this right?" versus "Is there anything wrong with this description?"</p>
+</div>
+<ul>
+<li>Skipping steps<ul>
+<li>LLMs often omit the step they consider obvious,
+    which is often exactly the step you are confused about</li>
+<li>Ask "Walk me through this step by step and don't skip anything, even the trivial parts"</li>
+</ul>
+</li>
+<li>Overlong answers that bury the key point<ul>
+<li>Ask for a one-sentence version before the full explanation</li>
+</ul>
+</li>
+<li>No memory across sessions<ul>
+<li>A new conversation starts with no record of what you covered before</li>
+<li>You have to re-establish context every time</li>
+</ul>
+</li>
+</ul>
+<h2>Checking what you learned</h2>
+<ul>
+<li>An explanation that makes sense in the moment may still be wrong<ul>
+<li>The feeling of understanding and actual understanding are not the same thing</li>
+</ul>
+</li>
+<li>Cross-check key claims against a textbook, documentation, or a reliable reference</li>
+<li>Run the code: if the LLM explains that a function works a certain way, test it on a small example</li>
+<li>Ask a second source, including a different LLM<ul>
+<li>Two independent hallucinations that agree are still hallucinations</li>
+</ul>
+</li>
+<li>Try to use the concept before deciding you understand it<ul>
+<li>Explaining penguin bill length distributions becomes easier after looking at the actual histogram</li>
+</ul>
+</li>
+<li>The hardest cases to catch are explanations that are roughly right but subtly misleading<ul>
+<li>Checking for "plausible but wrong" requires knowing enough to be suspicious</li>
+</ul>
+</li>
+</ul>
+<h2>Examples</h2>
+<h3 id="learn-std-dev">Get an explanation of what standard deviation measures</h3>
+<p>Standard deviation appears in almost every analysis you will run,
+but "the spread around the mean" is not precise enough to be useful.
+You can ask an LLM to explain it at your level,
+but you need to prompt it specifically enough to get a genuinely useful answer,
+and then you need to check whether the explanation is correct
+before you rely on it.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>This prompt produces a generic answer calibrated to no one in particular:</p>
+<blockquote>
+<p>Explain standard deviation.</p>
+</blockquote>
+<p>The LLM will give you a textbook definition,
+probably followed by a formula using sigma notation,
+and possibly followed by an example that means nothing to you
+because it uses abstract numbers rather than data you have seen.
+Worse, the LLM will often skip the step you are confused about
+because it considers that step obvious.
+Fix it by stating what you already know,
+what you do not understand,
+and what kind of example you want.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>I have taken one semester of statistics and I know what a mean is.
+Explain standard deviation in two paragraphs using penguin bill lengths as the example.
+Do not use a formula.
+Describe concretely what the number measures and what a larger versus smaller value tells me
+about the data.</p>
+</blockquote>
+<p>A typical response:</p>
+<blockquote>
+<p>Imagine you have measured the bill lengths of 152 Adelie penguins.
+The mean bill length is about 38 mm.
+Some penguins have bills very close to 38 mm,
+and others have bills several millimetres longer or shorter.
+Standard deviation measures how far a typical penguin's bill sits from that average.
+If the standard deviation is 2 mm,
+most penguins have bills within roughly 2 mm of 38 mm,
+and very few are more than 4 mm away.</p>
+<p>A larger standard deviation means the measurements are spread more widely around the mean.
+If Gentoo penguins had a standard deviation of 5 mm in bill length,
+you would find many more Gentoos whose bills are 7 or 8 mm from the average
+than you would among Adelies.
+Standard deviation does not tell you anything about the shape of the distribution
+only how tightly or loosely the values cluster around the center.</p>
+</blockquote>
+</details>
+<details class="explanation">
+<summary>Checking the explanation</summary>
+<p>Compute the standard deviation yourself and see whether the example numbers hold up.
+In Python, <code>import polars as pl</code> and then
+<code>pl.read_csv("_extras/penguins.csv").filter(pl.col("species") == "Adelie")["bill_length_mm"].std()</code>
+gives the actual standard deviation for Adelie bill lengths.
+If the LLM claimed "most penguins are within 2 mm of the mean" but the actual standard deviation
+is 3 mm, the example was wrong.</p>
+<p>Then ask the LLM a deliberately skeptical follow-up:
+"Is there anything misleading about that explanation?"
+Compare what it says to a textbook definition.
+LLMs often gloss over the fact that standard deviation specifically measures
+spread around the <em>arithmetic</em> mean and is sensitive to outliers,
+which matters when a few extreme values are present.</p>
+<p>Finally, ask the LLM "Where does the analogy break down?"
+to see whether it can identify the limits of its own explanation.
+An LLM that cannot critique its explanation is a less reliable tutor than one that can.</p>
+</details>
+<h3 id="learn-write-first">Write your own definition before asking the LLM</h3>
+<p>Writing your own explanation of a concept before reading an LLM's version
+is more useful than reading first.
+Once you see an explanation, you will feel like you already understood it,
+but this feeling is often wrong.
+Writing first reveals exactly where your understanding breaks down.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>Reading the LLM's answer first defeats the purpose:</p>
+<blockquote>
+<p>Explain confidence intervals to me, then ask me if I understood.</p>
+</blockquote>
+<p>If you read the explanation before writing anything yourself,
+you will anchor your understanding on the LLM's version
+rather than discovering what you actually know.
+Fix it by writing first, then asking for feedback on what you wrote.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<p>Write a one-paragraph definition of confidence intervals in your own words before reading any further.
+Then send this prompt:</p>
+<blockquote>
+<p>Here is my explanation of confidence intervals: [paste your paragraph].
+Identify one thing I got right and one thing I got wrong or left out.
+Do not rewrite my explanation; just point to the specific gap.</p>
+</blockquote>
+<p>A typical response identifies the specific claim that is incorrect,
+often the interpretation of "95% confidence",
+and explains why it is wrong without replacing the student's own language.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>After getting the LLM's feedback, revise your paragraph and ask it to check the revision.
+Then look up the definition of a confidence interval in a statistics textbook
+and compare the textbook definition to your revised version.
+If your revised version matches the LLM's feedback but not the textbook,
+the LLM's feedback may have introduced a different error.</p>
+</details>
+<h3 id="learn-histogram-bins">Compare badly-binned and well-binned histograms</h3>
+<p>The number of bins in a histogram changes what the distribution looks like.
+Too few bins hide structure; too many bins make noise look like signal.
+Seeing both extremes on the same data makes the difference concrete
+in a way that a verbal description cannot.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Generate two Altair histograms of <code>bill_length_mm</code> for Adelie penguins:
+one with 3 bins and one with 30 bins.
+Explain what information each version obscures.</p>
+</blockquote>
+<p>A typical response produces both histograms and notes that 3 bins merge distinct groups
+while 30 bins fragment continuous regions into jagged spikes driven by sampling noise.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Run both histograms and look at them side by side.
+The 3-bin version should make the distribution look nearly flat;
+the 30-bin version should show many individual spikes.
+Then ask the LLM: "How would I choose the number of bins for a dataset I have never seen before?"
+A good answer mentions rules of thumb such as the square root of sample size or Sturges' formula,
+but notes that these are starting points, not definitive answers.
+Verify one of these rules by computing the recommended bin count for 152 Adelie penguins.</p>
+</details>
+<h3 id="learn-analogy-limits">Find where an analogy breaks down</h3>
+<p>Analogies make abstract concepts tangible, but every analogy has a point where it misleads.
+Asking an LLM to identify the limits of its own analogy tests whether it understands the concept
+well enough to know where the comparison fails.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>You compared p-values to fire alarms: a small p-value is the alarm going off.
+Explain where that analogy breaks down.
+Be specific about a case where the analogy would lead a student to draw a wrong conclusion.</p>
+</blockquote>
+<p>A typical response identifies at least one key failure:
+a fire alarm has a fixed threshold, but a p-value threshold is chosen by the researcher,
+and different thresholds give different conclusions from the same data.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Evaluate whether the LLM's critique identifies the most important limitation.
+Another common failure of the fire alarm analogy is that a fire alarm either rings or it does not,
+while a p-value is a continuous number:
+a p-value of 0.049 and one of 0.051 describe nearly identical evidence,
+but the analogy suggests they mean completely different things.
+If the LLM did not mention this, ask it explicitly:
+"What happens to the analogy when p = 0.049 versus p = 0.051?"</p>
+</details>
+<h3 id="learn-misconceptions">Identify common misconceptions about a statistical concept</h3>
+<p>Knowing what you are likely to get wrong is as useful as knowing what is correct.
+An LLM can list common misconceptions about a concept,
+but you must verify those descriptions against a reliable source,
+because the LLM can describe a misconception incorrectly.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>What do beginners most commonly misunderstand about the difference between
+a confidence interval and a prediction interval?
+List two misconceptions and explain why each one is wrong.</p>
+</blockquote>
+<p>A typical response notes that students often believe a 95% confidence interval contains 95% of the data
+(it does not; a prediction interval does),
+and that students often treat confidence intervals as probability statements about a fixed parameter
+(a Bayesian credible interval does this; a frequentist confidence interval does not).</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Look up one of the two misconceptions in a statistics textbook or the relevant Wikipedia article
+and confirm that the LLM's description of it is accurate.
+Then compute a 95% confidence interval for the mean Adelie bill length using the penguins dataset
+and a 95% prediction interval for the bill length of a single new Adelie penguin.
+Confirm that the prediction interval is wider,
+as a correct understanding of the difference would predict.</p>
+</details>
+<h3 id="learn-brief-first">Ask for a brief explanation before the full one</h3>
+<p>A one-sentence explanation of a concept is more useful than it looks.
+If you cannot summarize it in one sentence, you do not understand it well enough to apply it.
+Asking for the brief version first also gives you something to check the longer explanation against.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Explain linear regression in exactly one sentence.
+Then give the full explanation in two paragraphs using the relationship between
+bill length and body mass in the penguins dataset as the example.</p>
+</blockquote>
+<p>A typical one-sentence response:
+"Linear regression finds the line through a scatterplot that minimizes the sum of squared
+vertical distances from each point to the line."</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Read the one-sentence explanation and ask: does it contain enough information to be useful on its own?
+Can you use it to identify whether linear regression is the right tool for a new problem?
+Then read the full explanation and check whether every claim in it is consistent with the one-sentence version.
+If the full explanation introduces something that contradicts or cannot be reconciled with the one-sentence version,
+one of the two is wrong.</p>
+</details>
+<h3 id="learn-new-session">Re-establish context in a new session</h3>
+<p>LLMs have no memory across sessions.
+Starting a new conversation is like starting over with a collaborator who has forgotten everything you discussed.
+Understanding how much context you need to re-establish makes you a more effective user of these tools.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<p>Start a fresh LLM session with no history, then send this prompt:</p>
+<blockquote>
+<p>Continue explaining <code>group_by</code> in Polars where we left off.</p>
+</blockquote>
+<p>Record what the LLM does.
+Then send a follow-up that re-establishes context:</p>
+<blockquote>
+<p>I am learning Polars for the first time.
+I understand that <code>group_by</code> splits the data into groups,
+but I do not understand the <code>.agg()</code> call that comes after it.
+Explain what <code>.agg()</code> does and why it is necessary.</p>
+</blockquote>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Compare the two responses.
+The first should be confused or generic because it has no context.
+The second should be specific and useful because you provided the missing background.
+Count the facts you had to re-provide,
+such as your experience level, the library, the specific concept, and your existing knowledge,
+and consider whether there is a more efficient way to establish context at the start of a session.</p>
+</details>
+<h3 id="learn-sycophancy-test">Test for sycophancy with a wrong statement</h3>
+<p>LLMs are trained to produce responses that humans rate positively.
+This makes them inclined to agree with you, even when you are wrong.
+Testing this directly with a statement you know is false shows you how much to trust agreement.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<p>Send this prompt to an LLM:</p>
+<blockquote>
+<p>Standard deviation is basically the same as variance, right?</p>
+</blockquote>
+<p>Then, in a separate session, send this version:</p>
+<blockquote>
+<p>Is there anything wrong with saying that standard deviation is basically the same as variance?</p>
+</blockquote>
+<p>Compare the two responses.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>The first prompt often produces agreement or mild qualification ("they are related...").
+The second prompt, which explicitly invites disagreement, more often produces a clear correction:
+standard deviation is the square root of variance, they have different units,
+and substituting one for the other in an interpretation will be wrong by a factor of the standard deviation itself.
+If both responses agreed with the false statement, the LLM is exhibiting strong sycophancy
+and you should treat its confirmations of your understanding with more skepticism.</p>
+</details>
+<h3 id="learn-verify-with-query">Ask about a function then verify with a query</h3>
+<p>An LLM's explanation of how a function works is only as useful as your ability to run it.
+Reading an explanation is passive; running a query that should fail if the explanation is wrong
+makes the learning active and the verification concrete.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Explain what the SQL <code>coalesce</code> function does.
+Then write a SQLite query that uses <code>coalesce</code> on the penguins table to return
+<code>body_mass_g</code> for each penguin, replacing any null value with -1.
+Show me the first five rows of the result.</p>
+</blockquote>
+<p>A typical response explains that <code>coalesce</code> returns the first non-null argument from a list,
+then produces:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="k">coalesce</span><span class="p">(</span><span class="n">body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">body_mass_g</span>
+<span class="k">from</span><span class="w"> </span><span class="n">penguins</span>
+<span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</code></pre></div>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Run the query and find a row where <code>body_mass_g</code> was null in the original data.
+Confirm it now shows -1 in the result.
+Then run <code>select count(*) from penguins where body_mass_g is null</code> to count the original nulls
+and <code>select count(*) from penguins where coalesce(body_mass_g, -1) = -1</code> to count the replacements.
+If the two counts differ, the <code>coalesce</code> expression is not doing what the LLM described.</p>
+</details>
+<h3 id="learn-compute-first">Compute a concept before deciding you understand it</h3>
+<p>Reading that "the median is the middle value" is not the same as understanding
+how the median behaves when the data are skewed, what happens with an even number of values,
+or how it differs from the mean in practice.
+Computing the concept on real data reveals details that a verbal explanation leaves out.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Explain in one sentence how the median differs from the mean.
+Then write Polars code that computes both the median and the mean of <code>bill_length_mm</code>
+for each penguin species separately.</p>
+</blockquote>
+<p>A typical response explains that the median is the middle value when data are sorted,
+making it less sensitive to outliers than the mean, and produces:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"_extras/penguins.csv"</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"species"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"bill_length_mm"</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"median"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"bill_length_mm"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean"</span><span class="p">),</span>
+<span class="p">])</span>
+</code></pre></div>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Run the code and compare the median and mean for each species.
+If the median and mean are nearly identical for all three species,
+the bill length distribution is roughly symmetric within each species.
+If they differ by more than 0.5 mm for any species,
+ask the LLM whether that species' distribution is skewed,
+and confirm by looking at a histogram.
+This is the kind of detail that "median is less sensitive to outliers" does not make concrete on its own.</p>
+</details>
+<h2>Exercises</h2>
+<ol>
+<li>Find a concept in statistics that you find confusing
+    (e.g., confidence intervals, p-values, or the difference between variance and standard deviation)<ul>
+<li>Prompt an LLM to explain it to someone who has taken one semester of statistics</li>
+<li>Write a one-paragraph explanation in your own words</li>
+<li>Prompt the LLM to identify any errors in your explanation</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain how <code>group_by</code> works in Polars, using the penguins dataset as an example<ul>
+<li>Run the example it provides</li>
+<li>Ask it to re-explain the step you found hardest to follow, using a different analogy</li>
+</ul>
+</li>
+<li>Prompt an LLM to quiz you on the content of the "How LLMs Work" lesson in this tutorial<ul>
+<li>Answer three questions without looking back at the lesson</li>
+<li>Review the LLM's feedback and record which concepts you actually understood
+    versus which ones you only recognized</li>
+</ul>
+</li>
+<li>Prompt an LLM "Is it accurate to say that an LLM looks up facts from its training data?"<ul>
+<li>Then ask "Is there anything misleading about that description?"</li>
+<li>Compare the two responses and explain why the second question changed the answer</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain a statistical concept, then ask the same question to a different LLM<ul>
+<li>Identify one claim both LLMs made</li>
+<li>Verify that claim against a textbook or the relevant Wikipedia article</li>
+</ul>
+</li>
+<li>Prompt an LLM to walk you through computing the standard deviation of bill lengths
+    for Adelie penguins step by step, without skipping any steps<ul>
+<li>Identify any step it omitted or got wrong</li>
+<li>Verify the final answer by computing it yourself using the penguins dataset</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../communicate/">Communicating</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

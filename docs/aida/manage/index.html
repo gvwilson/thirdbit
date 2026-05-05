@@ -25,7 +25,7 @@
 <li><a class="active" href="../manage/">Managing Data</a></li>
 <li><a href="../code/">Coding</a></li>
 <li><a href="../communicate/">Communicating</a></li>
-<li><a href="../learning/">Learning</a></li>
+<li><a href="../learn/">Learning</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -106,50 +106,6 @@
 <li>Especially when you start work on someone else's project</li>
 <li>Useful in conjunction with tools like <a href="https://github.com/git-pkgs/brief">brief</a></li>
 </ul>
-<h2>Example: translating between CSV and JSON</h2>
-<ul>
-<li>Most datasets arrive as CSV, but many web APIs return JSON, and some tools expect one format or the other</li>
-<li>Translating between them by hand is tedious and error-prone,
-    which makes it a good job for LLM<ul>
-<li>As long as you check what it produces</li>
-</ul>
-</li>
-<li>CSV is a flat table: every row has the same columns, and values cannot be nested</li>
-<li>JSON can represent hierarchies, lists within lists, and fields that only exist in some records</li>
-<li>Converting CSV to JSON is usually straightforward,
-    but going the other way requires decisions about how to flatten nested structures,
-    and those decisions are easy to get wrong</li>
-<li>Sample prompt:</li>
-</ul>
-<blockquote>
-<p>Convert <code>penguins.csv</code> to <code>penguins.json</code>.  Preserve all column
-names exactly as they appear in the header row.  Use an array of
-objects, one per row.  Do not invent or drop fields.</p>
-</blockquote>
-<ul>
-<li>Without explicit instructions,
-    LLM might silently rename columns to match some assumed convention,
-    drop rows it considers malformed,
-    or produce a single object instead of an array</li>
-<li>Verify the converted file:<ul>
-<li>Count the records: <code>wc -l penguins.csv</code> (minus the header) should equal
-    the length of the JSON array.</li>
-<li>Spot-check a few rows by comparing the CSV and JSON values side by side for the
-    same record.</li>
-<li>Confirm that column names in the JSON match the CSV header exactly — casing matters
-    for most tools.</li>
-<li>If the CSV had missing values, check how they appear in the JSON: as <code>null</code>,
-    as empty strings, or as absent keys.  Pick one and make LLM be consistent.</li>
-</ul>
-</li>
-<li>Going from JSON to CSV:<ul>
-<li>You need to decide what the columns are</li>
-<li>If the JSON is a flat array of uniform objects, LLM can infer them</li>
-<li>If the objects have different keys or nested values, tell LLM explicitly how to handle each case</li>
-<li>Verify that no data was silently dropped in the flattening</li>
-</ul>
-</li>
-</ul>
 <h2>Random seeds</h2>
 <ul>
 <li>Set random seeds explicitly in any analysis that involves randomness:
@@ -157,6 +113,431 @@ objects, one per row.  Do not invent or drop fields.</p>
 <li>Without a seed, two runs of the same script can produce different results,
     making it impossible to confirm that a change actually fixed a problem</li>
 </ul>
+<h2>Examples</h2>
+<h3 id="manage-data-dict">Generate a data dictionary for the penguins CSV</h3>
+<p>You have just downloaded a CSV file and want to understand what it contains before
+analyzing it.
+Rather than reading each column yourself,
+you can give an LLM the first few lines and ask it to draft a
+<a class="gl-ref" href="../glossary/#data_dictionary">data dictionary</a>:
+a table that names each column, guesses its data type and units,
+and describes the range of values you should expect.
+You must then check that dictionary against the actual file.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A vague prompt like this produces unreliable output:</p>
+<blockquote>
+<p>Tell me about the penguins dataset.</p>
+</blockquote>
+<p>The LLM answers from its training data, not from the file in front of you.
+It may describe a version of the dataset that differs from yours,
+invent column names or units that do not exist,
+or report statistics that do not match your file.
+The giveaway is that the answer sounds authoritative but you cannot verify any of it
+without checking the original source yourself, at which point you did not need the LLM.
+Fix it by pasting the actual file contents into the prompt.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>I am pasting the first five lines of a CSV file below.
+List each column name exactly as it appears in the header,
+infer its most likely data type (integer, float, or string) and units if any,
+write a one-sentence description of what the column measures,
+and flag any column whose purpose is not obvious from its name.
+Do not add any columns that are not in the file.</p>
+<p><code>species,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex
+Adelie,Torgersen,39.1,18.7,181,3750,MALE
+Adelie,Torgersen,39.5,17.4,186,3800,FEMALE
+Adelie,Torgersen,40.3,18.0,195,3250,FEMALE
+Adelie,Torgersen,NA,NA,NA,NA,NA</code></p>
+</blockquote>
+<p>A typical response:</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Column</th>
+<th scope="col">Type</th>
+<th scope="col">Units</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>species</code></td>
+<td>string</td>
+<td></td>
+<td>Penguin species (e.g., Adelie, Chinstrap, Gentoo)</td>
+</tr>
+<tr>
+<td><code>island</code></td>
+<td>string</td>
+<td></td>
+<td>Island where the penguin was observed</td>
+</tr>
+<tr>
+<td><code>bill_length_mm</code></td>
+<td>float</td>
+<td>mm</td>
+<td>Length of the bill from base to tip; <code>NA</code> where not recorded</td>
+</tr>
+<tr>
+<td><code>bill_depth_mm</code></td>
+<td>float</td>
+<td>mm</td>
+<td>Depth (height) of the bill at its base; <code>NA</code> where not recorded</td>
+</tr>
+<tr>
+<td><code>flipper_length_mm</code></td>
+<td>integer</td>
+<td>mm</td>
+<td>Length of the flipper; <code>NA</code> where not recorded</td>
+</tr>
+<tr>
+<td><code>body_mass_g</code></td>
+<td>integer</td>
+<td>g</td>
+<td>Body mass; <code>NA</code> where not recorded</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td>string</td>
+<td></td>
+<td>Sex of the penguin (<code>MALE</code>, <code>FEMALE</code>, or <code>NA</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>The LLM also notes that the fourth data row is all <code>NA</code>,
+which suggests there are rows with entirely missing measurements that may need to be dropped.</p>
+</details>
+<details class="explanation">
+<summary>Checking the data dictionary</summary>
+<p>Start with the column names.
+Run <code>head -1 _extras/penguins.csv</code> and compare every name in the LLM's table
+to the actual header one by one.
+A hallucinated column name, or one that was silently corrected, means the dictionary cannot be trusted.</p>
+<p>Next, check the value ranges.
+Run <code>cut -d, -f3 _extras/penguins.csv | sort -n | head -3</code> to see the smallest bill lengths
+and <code>cut -d, -f3 _extras/penguins.csv | sort -n | tail -3</code> to see the largest.
+If the LLM claimed bill length is "typically between 35 and 60 mm",
+confirm those numbers match the file.</p>
+<p>Finally, check the missing value claim.
+Run <code>grep -c "NA" _extras/penguins.csv</code> and compare the count
+to the LLM's description of how missing values are encoded.
+If the LLM said there are two rows with entirely missing values but <code>grep</code> finds
+<code>NA</code> scattered across many rows, the explanation is wrong.</p>
+</details>
+<h3 id="manage-shell-inspect">Inspect an unfamiliar file with shell tools</h3>
+<p>Before opening a data file in Python, you can learn a great deal from the command line in seconds.
+Asking an LLM to write the shell commands that reveal encoding, line count, and first few rows
+is faster than remembering the exact flags yourself,
+and running those commands confirms the file is what it claims to be
+before you invest time analyzing it.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this is too vague:</p>
+<blockquote>
+<p>How do I look at a CSV file?</p>
+</blockquote>
+<p>The LLM will suggest opening it in a spreadsheet, loading it with Python, or using a text editor.
+None of those report the file's encoding before you have committed to opening it,
+and none can be scripted into a reproducible workflow.
+Fix it by naming the file and the specific properties you want to know.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Write three shell commands for <code>_extras/squirrels.csv</code>:
+one to report its encoding,
+one to count the number of lines,
+and one to show the first three rows.
+Use only <code>file</code>, <code>wc</code>, and <code>head</code>.</p>
+</blockquote>
+<p>A typical response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>file<span class="w"> </span>_extras/squirrels.csv
+wc<span class="w"> </span>-l<span class="w"> </span>_extras/squirrels.csv
+head<span class="w"> </span>-3<span class="w"> </span>_extras/squirrels.csv
+</code></pre></div>
+<p>Running these shows the encoding (<code>UTF-8 Unicode text</code>), the total line count,
+and the header plus the first two data rows.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Compare the line count from <code>wc -l</code> to the count your collaborator or the dataset documentation claims.
+The squirrels census documentation reports 3023 sightings;
+<code>wc -l</code> returns one more because it counts the header row.
+If <code>file</code> reports Latin-1 instead of UTF-8,
+the file may contain characters outside the ASCII range that will raise errors when you load it into Python.</p>
+</details>
+<h3 id="manage-distinct-values">Count distinct values in a column</h3>
+<p>Before running any analysis on the squirrels dataset, you want to know how many distinct hectares appear in the data.
+A single shell pipeline answers this without loading the file,
+but the exact flags for <code>cut</code>, <code>sort</code>, and <code>wc</code> are easy to misremember.
+An LLM writes the pipeline in seconds; you verify the result against the documentation.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this is incomplete:</p>
+<blockquote>
+<p>Count the hectares.</p>
+</blockquote>
+<p>The LLM does not know which file, which column, or which tool you want.
+It may write Python when you want a shell one-liner,
+or it may include the header row in the count.
+Fix it by naming the file, the column position, and the tools.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Write a shell pipeline that counts the number of distinct values in column 4
+of <code>_extras/squirrels.csv</code>, excluding the header row.
+Use <code>tail</code>, <code>cut</code>, <code>sort</code>, and <code>wc</code>.</p>
+</blockquote>
+<p>A typical response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span>+2<span class="w"> </span>_extras/squirrels.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d,<span class="w"> </span>-f4<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+<p>Running this returns <code>339</code>.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>The official squirrels census documentation says there are 339 hectares.
+If your count is 340, the header was not excluded despite <code>tail -n +2</code>.
+If it is 338, run <code>tail -n +2 _extras/squirrels.csv | cut -d, -f4 | sort -u | head -5</code>
+to inspect the first few values for inconsistent formatting
+that might split one logical hectare into two distinct strings.</p>
+</details>
+<h3 id="manage-schema-vs-csv">Compare a SQLite schema to the original CSV</h3>
+<p>The penguins data is available both as a CSV and as a SQLite database,
+and the two should describe the same data.
+But a database schema encodes type information that a CSV header cannot,
+and checking both side by side can reveal mismatches before they cause silent errors.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Write the sqlite3 commands to list all tables in <code>_extras/example.db</code>
+and display the full schema of the <code>penguins</code> table.</p>
+</blockquote>
+<p>A typical response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>sqlite3<span class="w"> </span>_extras/example.db<span class="w"> </span><span class="s2">".tables"</span>
+sqlite3<span class="w"> </span>_extras/example.db<span class="w"> </span><span class="s2">".schema penguins"</span>
+</code></pre></div>
+<p>The schema shows column types such as <code>real</code> and <code>integer</code>
+that the CSV header does not provide.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Compare every column name in the schema to the CSV header from <code>head -1 _extras/penguins.csv</code>.
+They should match exactly, including capitalization and underscores.
+Then check the declared types against the values you see in the file:
+if <code>flipper_length_mm</code> is declared as <code>integer</code> in the schema
+but the CSV contains decimal values in some rows,
+queries that filter on that column may behave unexpectedly.</p>
+</details>
+<h3 id="manage-license">Evaluate a dataset's license</h3>
+<p>Before using a public dataset in a paper, you need to know what its license permits.
+An LLM can explain what a specific license means,
+but you must verify its summary against the actual license text before you rely on it.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this cannot be answered usefully:</p>
+<blockquote>
+<p>Can I use this dataset in my paper?</p>
+</blockquote>
+<p>The LLM does not know which dataset, which license, or what "use" means in your context.
+Fix it by naming the license and describing your intended use in specific terms.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>The Palmer Penguins dataset is released under a CC0 1.0 Universal license.
+I want to use the data in a published paper,
+include it as a downloadable supplement,
+and publish a cleaned version as a separate dataset.
+What does this license allow me to do in each case?</p>
+</blockquote>
+<p>A typical response explains that CC0 releases data into the public domain,
+allowing all three uses without any attribution requirement,
+though citing the original authors remains good practice.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Read the actual CC0 license at creativecommons.org and confirm the LLM's summary for each use case.
+Then ask: if the dataset were CC-BY-NC instead of CC0,
+which of your three uses would be restricted?
+Verify that answer against the CC-BY-NC license text as well.</p>
+</details>
+<h3 id="manage-staleness">Assess whether a dataset is current enough for your question</h3>
+<p>The squirrels dataset was collected in 2018.
+Whether that makes it adequate depends entirely on your research question.
+An LLM can help you think through the implications,
+but the judgment about relevance is yours to make.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this cannot be answered:</p>
+<blockquote>
+<p>Is the squirrels dataset up to date?</p>
+</blockquote>
+<p>"Up to date" means nothing without knowing what question you are trying to answer.
+Fix it by stating your research question and asking whether the dataset's collection date affects your ability to answer it.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>The Central Park squirrel census data was collected in October 2018.
+I want to study whether squirrel fur color distribution has changed over time.
+Is a single year of data from 2018 adequate, and if not, what data would I need?</p>
+</blockquote>
+<p>A typical response explains that a trend question requires at least two comparable time points,
+and notes that an earlier squirrel census was conducted in 2012 using similar methods.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Verify the claim about the 2012 census independently before designing a study around it.
+If no 2012 census exists, or its methodology is too different to compare,
+the LLM's suggestion collapses your research design.
+Specific-sounding claims about the existence of external datasets are exactly
+what LLMs hallucinate most confidently.</p>
+</details>
+<h3 id="manage-log-entry">Write a useful log entry</h3>
+<p>A log entry that says "used LLM to count squirrels, kept output" is useless six months later.
+A useful entry records the exact prompt, the tool, what was kept, and what was changed:
+enough for a colleague to reproduce what you did without asking you.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this produces a generic template rather than a useful record:</p>
+<blockquote>
+<p>Write a log entry for my squirrel analysis.</p>
+</blockquote>
+<p>The LLM knows nothing about what you actually did,
+so it will invent plausible-sounding steps.
+Fix it by giving the LLM the specific facts and asking it only to format them.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>I asked an LLM to write a shell command to count squirrel sightings by primary fur color.
+It produced <code>cut -d, -f9 _extras/squirrels.csv | sort | uniq -c | sort -rn</code>,
+which I modified by adding <code>tail -n +2</code> before <code>cut</code> to skip the header.
+The output showed gray as the most common color.
+Write a log entry with five fields: date, prompt sent, tool used, output kept (yes/no), corrections made.</p>
+</blockquote>
+<p>A typical response produces a structured entry with all five fields,
+recording the exact prompt text and the specific correction rather than a paraphrase.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Confirm the log entry contains the exact prompt you sent, not a reworded version.
+Check that "corrections made" describes what you actually changed (adding <code>tail -n +2</code>),
+not what you might have considered changing.
+Then ask a colleague who was not present whether they could reproduce your shell command
+from the log entry alone.</p>
+</details>
+<h3 id="manage-assertion">Add a defensive assertion to a data loading script</h3>
+<p>A script that loads a CSV and proceeds without checking its shape will silently produce wrong results
+if the file is truncated, gains an extra column, or is replaced by a different dataset.
+A two-line assertion catches these problems immediately at the point of loading.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this is too vague to produce a useful assertion:</p>
+<blockquote>
+<p>Make my data loading script safer.</p>
+</blockquote>
+<p>"Safer" could mean adding error handling, type checks, logging, or retries.
+Fix it by naming the specific conditions you want to catch and the exact expected values.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>I have a Polars script that loads <code>_extras/penguins.csv</code>.
+Add two assertions after loading:
+one that raises an error if the number of columns is not 7,
+and one that raises an error if the number of rows is fewer than 340.
+Print the actual shape before checking.</p>
+</blockquote>
+<p>A typical response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"_extras/penguins.csv"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Expected 7 columns, got </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">340</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Expected at least 340 rows, got </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Run the script against the real file and confirm both assertions pass.
+Then verify the column assertion fires when it should:
+run <code>cut -d, -f1-5 _extras/penguins.csv &gt; /tmp/short.csv</code>,
+change the filename in the script to <code>/tmp/short.csv</code>,
+and confirm the script raises <code>AssertionError</code> with the expected message.
+If the assertion passes when it should fail, the check is wrong.</p>
+</details>
+<h3 id="manage-blank-rows">Inspect a CSV for blank rows</h3>
+<p>Blank rows in a CSV cause subtle errors:
+a <code>wc -l</code> count that includes them will not match a Python row count,
+and some parsers silently process empty records.
+Checking for them before loading costs almost nothing.</p>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>Write two shell commands for <code>_extras/squirrels.csv</code>:
+one that counts completely blank lines (lines with no characters at all),
+and one that counts lines where the first field is empty (lines starting with a comma).
+Explain the difference between the two checks.</p>
+</blockquote>
+<p>A typical response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">"^</span>$<span class="s2">"</span><span class="w"> </span>_extras/squirrels.csv
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">"^,"</span><span class="w"> </span>_extras/squirrels.csv
+</code></pre></div>
+<p>The LLM explains that <code>^$</code> matches lines with no characters,
+while <code>^,</code> catches rows where the first field is missing but later fields may have values.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>A count of zero for both commands means neither problem is present.
+If <code>grep -c "^$"</code> returns a non-zero count,
+run <code>grep -n "^$" _extras/squirrels.csv | head -3</code> to find which line numbers are blank
+and determine whether they represent missing records or file corruption.
+A non-zero count from <code>grep -c "^,"</code> means some rows are missing their first field,
+which may indicate that the delimiter or encoding is not what you assumed.</p>
+</details>
+<h3 id="manage-format-tradeoff">Compare CSV and Parquet for a specific workflow</h3>
+<p>You have collected a dataset with ten million rows and need to decide whether to store it as CSV or Parquet.
+The right answer depends on your workflow.
+An LLM can explain the tradeoffs,
+but a generic answer that does not account for your specific constraints is not useful.</p>
+<details class="explanation">
+<summary>A prompt that sends the LLM in the wrong direction</summary>
+<p>A prompt like this produces a textbook comparison:</p>
+<blockquote>
+<p>What is the difference between CSV and Parquet?</p>
+</blockquote>
+<p>The LLM lists the standard advantages and disadvantages without connecting them to how you will actually use the data.
+Fix it by describing your workflow:
+who will use the file, how you will share it, and what operations matter most.</p>
+</details>
+<details class="explanation">
+<summary>A prompt that works</summary>
+<blockquote>
+<p>I have a dataset with 10 million rows that I will share with two collaborators who use Python.
+I will version it in git.
+Most analyses filter by date and by a categorical column.
+Give one concrete reason to prefer CSV, one to prefer Parquet, and one to prefer SQLite for this workflow.</p>
+</blockquote>
+<p>A typical response notes that CSV is easiest to share and inspect manually but too large for git;
+Parquet is compact and fast to filter but requires a compatible reader;
+SQLite supports queries natively but is a binary format that does not diff well in version control.</p>
+</details>
+<details class="explanation">
+<summary>Checking the output</summary>
+<p>Verify the size claim on a small scale.
+Convert <code>_extras/penguins.csv</code> to Parquet:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"_extras/penguins.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">write_parquet</span><span class="p">(</span><span class="s2">"penguins.parquet"</span><span class="p">)</span>
+</code></pre></div>
+<p>Compare sizes with <code>ls -lh _extras/penguins.csv penguins.parquet</code>.
+If the LLM claimed Parquet is always smaller, check whether that holds for this 344-row file.
+For small datasets, the format overhead can make Parquet larger than the equivalent CSV.</p>
+</details>
 <h2>Exercises</h2>
 <ol>
 <li>Prompt an LLM to download the Palmer Penguins CSV and confirm that the file arrived intact.<ul>
