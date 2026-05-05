@@ -6,8 +6,6 @@ fiction: true
 
 <ol id="toc"></ol>
 
-FIXME: more italics in Violet's speech patterns.
-
 <section markdown="1">
 
 ## Chapter 1: My Thanks To Those I Loved (Sindy)
@@ -51,7 +49,22 @@ Papa Roo took the toast from Sindy's plate and began spreading raspberry jam on 
 "I can do that," Sindy said.
 
 Her father nodded without stopping.
-"I know, but I like doing things for you sometimes."
+"I know, but I like to…"
+He trailed off,
+then shook his head.
+"Sorry, what was I saying?"
+
+"You were saying you like to put jam on my toast,"
+Sindy prompted.
+
+He brightened.
+"Right.
+Here you go."
+
+"Thanks, papa," she said again.
+He *was* better,
+she told herself,
+just not *all* better.
 
 Mama Roo and Sindy's sister Maddy joined them a few minutes later.
 They had brushed their fur until it almost shone,
@@ -226,15 +239,18 @@ small slips of paper with notes in the tortoise's cramped hand tucked between th
 It smelled of tea, paper, soap, and the heavy wool scarves that Special Leaf had been fond of.
 
 Papa Roo put his hands on his hips.
-"Well—it's going to take a while to sort all this out, isn't it?"
+"Well—it's going to take a while to…"
+He frowned.
+"To…"
 
-"Doesn't have to happen today,"
-Mama Roo replied,
-already tidying the piles of books.
-"Sindy,
+"To tidy this up,"
+Mama Roo finished smoothly,
+slipped her arm through his.
+"But it doesn't have to happen today.
+Sindy,
 why don't you go and see about tea?"
 
-Sindy nodded
+Sindy nodded.
 She had spent hours in Special Leaf's kitchen
 practicing with the odds and ends of tech that he had collected over the years.
 His temperamental kettle was a familiar adversary.
@@ -613,7 +629,8 @@ or does he still have—what was it this time?"
 
 "A cold, Miz Nabbles.
 He's gettin' better, but he's still a bit blurgy."
-Bravo looked at his desk as he made the excuse.
+Bravo looked at his desk as he made the excuse,
+not even trying to sound as if he believed it himself.
 
 Someone snickered.
 Miz Nabbles sniffed again.
@@ -731,15 +748,13 @@ Sindy kicked another rock into the weeds
 and tossed the last crust of her sandwich over her shoulder for luck.
 At least the bots would be happy to see her.
 
-"I am sorry,
-Sindy.
-I have promised to repair the Foxes' cart by sundown.
+"This one is sorry,"
+Dockety said a few minutes later.
+"This one has promised to repair the Foxes' cart by sundown.
 Perhaps we can play tag some other time."
-The buzzing undertone of Dockety's voice hadn't changed,
-but Sindy still wasn't used to it referring to itself as "I".
 
 "Sure," she said,
-trying to to keep the disappointment out of her voice.
+trying not to sound disappointed.
 Dockety's eyes rotated and rotated back in its equivalent of either a shrug or a smile,
 she was never sure which.
 It turned back to the cart in question,
@@ -1385,7 +1400,28 @@ It took Sindy a moment to realize it was for her.
 Papa Roo took the letter
 and held it so that he and Mama Roo could puzzle over it together.
 
-Without warning the crocodile hissed.
+"I don't know if he ever told you,"
+Special Blazes said quietly to Sindy,
+"But Leaf and I were friends once upon a time.
+He helped train me,
+back when he wore one of these."
+The tiger pointed at his uniform jacket.
+
+"That's nice,"
+she replied coldly.
+
+The tiger flicked one of his ears.
+"I've never blamed you for him being injured, I mean.
+I've had this tech for almost twenty years now,
+and I still don't understand half of what it does.
+That's why the world needs us—someone's got to keep everyone safe.
+And that's why we need to go look through his house.
+Those bits and pieces he liked to fiddle with—well,
+you wouldn't want anyone else to get hurt,
+would you?"
+
+Before Sindy could answer,
+the crocodile hissed,
 "Visitors, boss."
 
 "I hear them,"
@@ -1401,7 +1437,7 @@ but Special Blazes seemed unbothered by the bots' arrival.
 "Good morning, Special,"
 Dockety said,
 its voice buzzing slightly.
-"I am surprised to see you here."
+"This one is surprised to see you here."
 
 The tiger smiled.
 "Seems to be a common sentiment.
@@ -1867,7 +1903,7 @@ the tiger continued.
 "If it can take you over like Central did,
 we could be in a powerful mess."
 
-"I think that is unlikely," Dockety buzzed
+"This one thinks that is unlikely," Dockety buzzed
 as a murmur ran through the crowd.
 
 Special Blazes' ears went back.
@@ -1887,7 +1923,7 @@ She wriggled out from under her father's arm and hurried over to Dockety and Bee
 Dockety plucked it from her fingers with its smaller manipulator.
 Its eyes rotated one way and then the other as it studied the little piece of tech.
 "It is a communication device.
-I would have to disassemble it to learn more."
+This one would have to disassemble it to learn more."
 
 "Don't!
 Sorry, I know you wouldn't."
@@ -2368,7 +2404,7 @@ She shook her head, immediately regretting it.
 "What happened?"
 
 Dockety's eyes rotated.
-"I was hoping you could tell us."
+"This one was hoping you could tell us."
 
 "Look!"
 Bravo shouted from a few meters away,
@@ -2406,7 +2442,7 @@ The light beneath it dimmed, hummed, and went out.
 "Now what?" Sindy whispered.
 
 Dockety clicked the fingers of its smaller manipulator together in a rapid staccato.
-"I don't know."
+"This one doesn't know."
 *Is it nervous?*
 Sindy wondered.
 She had never seen Dockety nervous before,
@@ -4825,7 +4861,7 @@ and rolled into Bots' End.
 Sindy was explaining what had happend to Crusher
 when Dockety and Beevy arrived.
 Mouse warbled at it.
-"I am glad you are undamaged,"
+"This one is glad you are undamaged,"
 Dockety buzzed in reply.
 
 "And you too," the bot added,
@@ -4895,8 +4931,8 @@ A young wolfish 'brid stuck his out out of window two stories above and shouted,
 "Dockety, is this your folk?"
 
 "No," the bot buzzed.
-"I believe Miz Roo is correct.
-I believe it is an attack."
+"This one believes Miz Roo is correct.
+This is an attack."
 
 "Cody!" the mayor shouted up through cupped paws.
 "Which way they comin'?"
@@ -5714,7 +5750,7 @@ Sindy said.
 "Isn't that right, Mouse?"
 
 "Yes."
-The little bot's voice was no longer bass-deep.
+The little bot's voice was no longer tinny.
 Sindy wasn't sure why it had decided to change it,
 but she supposed it had something to do with
 all the time Mouse was spending with Z40 and Z51.
@@ -5759,9 +5795,13 @@ Sindy rolled her eyes.
 "Yes you are."
 Violet nudged her with her shoulder.
 "All those new kids to boss around?
-You're going to love it."
+You're going to love it.
+And Bravo's going to be there."
 
-She was,
+"Uh huh,"
+Sindy said,
+bumping Violet's shoulder with her own.
+She *was* looking forward to it,
 Sindy realized.
 Captain Leung was still trying to figure out
 how many other arks were still out there
