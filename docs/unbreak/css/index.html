@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CSS</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreaking Software</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a class="active" href="../css/">CSS</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../htmx/">HTMX</a></li>
+<li><a href="../alpine/">Alpine.js</a></li>
+<li><a href="../fastapi/">FastAPI</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>CSS</h1>
+<p>CSS controls how HTML elements look on screen.
+Its rules seem simple at first—select an element, set some properties—but a handful of
+non-obvious behaviors trip up almost every developer at least once.
+Open each example directly in a browser to see the problem in action.</p>
+<h2 id="css-boxmodel">Fit a panel inside a container</h2>
+<p>Open the page. The blue panel should sit entirely within the grey container.
+Does it, or does it overflow to the right?</p>
+<div data-inc="boxmodel.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/boxmodel.html" class="inc-path" role="img" tabindex="0" title="css/boxmodel.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fit a Panel Inside a Container<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">panel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Fit a panel inside a container<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The blue panel should sit entirely within the grey container.
+     Does it fit, or does it stick out to the right?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"panel"</span><span class="p">&gt;</span>Panel content<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>box-sizing: content-box</code>, which is the default. When <code>width: 100%</code> is set,
+the browser assigns 100% of the container's width to the content area alone. Padding is
+then added on top, making the element wider than the container—300px content + 20px left
+padding + 20px right padding = 340px total.</p>
+<p>Shows: the CSS box model and the difference between <code>content-box</code> and <code>border-box</code>.</p>
+<p>To find it: open DevTools, select the panel, and look at the box model diagram in the
+Computed tab. The total rendered width will exceed the container's width. Add
+<code>box-sizing: border-box</code> to the <code>.panel</code> rule so that padding is included inside the
+declared width rather than added to it.</p>
+</details>
+<h2 id="css-specificity">Override a color in a stylesheet</h2>
+<p>Open the page. Both elements use the <code>.highlight</code> class. Are they both red?</p>
+<div data-inc="specificity.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/specificity.html" class="inc-path" role="img" tabindex="0" title="css/specificity.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Override a Color in a Stylesheet<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">nav</span><span class="p">.</span><span class="nc">highlight</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">gray</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">.</span><span class="nc">highlight</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Override a color in a stylesheet<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The navigation bar below should be red. Is it?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">"highlight"</span><span class="p">&gt;</span>Site Navigation<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"highlight"</span><span class="p">&gt;</span>This paragraph uses the same class and should also be red.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a specificity conflict. The selector <code>nav.highlight</code> targets an element type
+plus a class, giving it specificity (0,1,1). The later rule <code>.highlight</code> is class-only,
+specificity (0,1,0). CSS resolves conflicts by specificity first and source order second,
+so the less-specific later rule loses to the more-specific earlier rule even though it
+appears afterward in the file.</p>
+<p>Shows: how the browser calculates specificity and why rule order alone does not determine
+which style wins.</p>
+<p>To find it: in DevTools, click the <code>&lt;nav&gt;</code> element and examine the Styles panel. The
+<code>.highlight { color: red }</code> rule will be shown with a strikethrough, indicating it was
+overridden. To fix it, either change <code>.highlight</code> to <code>nav.highlight, .highlight</code> or
+restructure the stylesheet so both elements share a single rule without the extra type
+selector.</p>
+</details>
+<h2 id="css-collapse">Add space between sections</h2>
+<p>Open the page. Section Two has <code>margin-top: 60px</code> and Section One has
+<code>margin-bottom: 20px</code>. Measure the gap. Is it 80px?</p>
+<div data-inc="collapse.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/collapse.html" class="inc-path" role="img" tabindex="0" title="css/collapse.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Add Space Between Sections<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">section</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#b3d9f7</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">section</span><span class="p">.</span><span class="nc">large-gap</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Add space between sections<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The second section has <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>margin-top: 60px<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> and the first has
+     <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>margin-bottom: 20px<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>. How much space actually appears between them?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"section"</span><span class="p">&gt;</span>Section One<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"section large-gap"</span><span class="p">&gt;</span>Section Two (margin-top: 60px)<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"section"</span><span class="p">&gt;</span>Section Three<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is margin collapsing. When two block elements are adjacent siblings, their
+vertical margins do not add up—they collapse into a single margin equal to the larger
+of the two values. The gap between Section One and Section Two is 60px (the larger
+margin), not 80px (the sum).</p>
+<p>Shows: vertical margin collapsing between adjacent siblings and why the gap is never
+the sum of both margins.</p>
+<p>To find it: in DevTools, hover over the gap between sections. The box model overlay
+will show only the dominant margin. To get the full 80px gap, convert one of the margins
+to padding on the element itself, or add <code>display: flow-root</code> to a wrapper to create a
+new block formatting context that prevents collapsing.</p>
+</details>
+<h2 id="css-clearfix">Put a border around an image and caption</h2>
+<p>Open the page. The blue border should enclose the image placeholder and the caption.
+Does the border appear to wrap them?</p>
+<div data-inc="clearfix.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/clearfix.html" class="inc-path" role="img" tabindex="0" title="css/clearfix.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Put a Border Around an Image and Caption<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">260</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#aaa</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">caption</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Put a border around an image and caption<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The blue border should wrap around both the image placeholder and the caption.
+     Does it?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">"placeholder"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"caption"</span><span class="p">&gt;</span>Photo caption here<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that floated elements are removed from the normal flow. The parent <code>.card</code>
+has no in-flow children to give it height, so it collapses to zero height (plus
+padding). The blue border wraps only the padding, not the floated image or caption.</p>
+<p>Shows: how floats interact with parent element height and the classic clearfix problem.</p>
+<p>To find it: in DevTools, select <code>.card</code> and observe its height is 16px (just padding).
+Fix it by adding <code>overflow: auto</code> to <code>.card</code>, which forces the parent to contain its
+floated children. Alternatively, add a clearing element after the floats, or switch to
+flexbox or grid.</p>
+</details>
+<h2 id="css-zindex">Show a tooltip above an icon</h2>
+<p>Open the page. The dark tooltip should appear in front of the red banner.
+Does it?</p>
+<div data-inc="zindex.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/zindex.html" class="inc-path" role="img" tabindex="0" title="css/zindex.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Show a Tooltip Above an Icon<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">icon</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">      </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">tooltip</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">banner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<span class="w">      </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">tomato</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show a tooltip above an icon<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The dark tooltip should appear in front of the red banner. Does it?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"icon"</span><span class="p">&gt;</span>?<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"tooltip"</span><span class="p">&gt;</span>Helpful tooltip text<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner"</span><span class="p">&gt;</span>I am the banner (position: relative, z-index: 10)<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>z-index</code> only works on elements with a <code>position</code> value other than
+<code>static</code>. The <code>.tooltip</code> element has no <code>position</code> property, so it remains <code>position:
+static</code> and the <code>z-index: 100</code> declaration is ignored entirely. The <code>.banner</code> element
+has <code>position: relative</code>, which enters it into stacking order, so it always paints
+on top.</p>
+<p>Shows: the requirement that <code>z-index</code> needs a non-static <code>position</code> to take effect.</p>
+<p>To find it: in DevTools, select <code>.tooltip</code> and look for <code>z-index</code> in the Computed
+styles. It will show <code>auto</code> (ignored) rather than <code>100</code>. Add <code>position: relative</code> to
+<code>.tooltip</code> to activate <code>z-index</code> and let the tooltip stack above the banner.</p>
+</details>
+<h2 id="css-pseudo">Add a decorative bullet to each list item</h2>
+<p>Open the page. Each list item should have a gold star to its left.
+Do any stars appear?</p>
+<div data-inc="pseudo.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/pseudo.html" class="inc-path" role="img" tabindex="0" title="css/pseudo.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Add a Decorative Bullet to Each List Item<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">ul</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding-left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">li</span><span class="p">::</span><span class="nd">before</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">gold</span><span class="p">;</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="kt">em</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Add a decorative bullet to each list item<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Each item below should have a gold star to its left. Do any stars appear?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Apples<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Bananas<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Cherries<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a missing <code>content</code> property. The <code>::before</code> pseudo-element exists in the
+DOM only when <code>content</code> is present—without it the pseudo-element is not generated at
+all, so no star appears regardless of how <code>color</code> or <code>font-size</code> are set.</p>
+<p>Shows: that <code>::before</code> and <code>::after</code> require <code>content</code> to exist, and that <code>content: ""</code>
+(an empty string) is the minimum needed.</p>
+<p>To find it: in DevTools, expand the <code>&lt;li&gt;</code> element. No <code>::before</code> node will appear in
+the tree. Add <code>content: "\2605"</code> (the Unicode star character) to the <code>li::before</code> rule.
+Use <code>content: ""</code> as a baseline if you only want to style a generated box with no
+visible text.</p>
+</details>
+<h2 id="css-pctheight">Fill half a page with a colored banner</h2>
+<p>Open the page. The blue banner should fill half the grey wrapper.
+Is the wrapper visible at all?</p>
+<div data-inc="pctheight.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/pctheight.html" class="inc-path" role="img" tabindex="0" title="css/pctheight.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fill Half a Page with a Colored Banner<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">wrapper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#eee</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">banner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Fill half a page with a colored banner<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The blue banner should fill half the grey wrapper. Is the wrapper visible at all?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"wrapper"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Text below the wrapper.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that percentage heights are resolved relative to the parent's computed
+height. The <code>.wrapper</code> has no explicit height—its height is <code>auto</code>, which the browser
+calculates from its in-flow content. The browser cannot resolve <code>50%</code> of <code>auto</code>, so
+it treats the child's height as zero. The blue banner has no height and is invisible;
+the grey wrapper collapses to nothing as well.</p>
+<p>Shows: how percentage heights require an explicit height on the ancestor and why <code>auto</code>
+breaks the chain.</p>
+<p>To find it: in DevTools, select <code>.banner</code> and look at its computed height: 0px. To fix
+it, give <code>.wrapper</code> an explicit height (e.g., <code>height: 300px</code>), use viewport units
+(<code>height: 50vh</code>) on the banner directly, or switch to a flexbox or grid layout.</p>
+</details>
+<h2 id="css-transition">Animate a button color on hover</h2>
+<p>Open the page and hover over the button. Does the background color fade smoothly to
+red, or does it snap?</p>
+<div data-inc="transition.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/transition.html" class="inc-path" role="img" tabindex="0" title="css/transition.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Animate a Button Color on Hover<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">btn</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="w">      </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">      </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="kc">color</span><span class="w"> </span><span class="mf">0.4</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">btn</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">tomato</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Animate a button color on hover<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hover over the button. Does the background color fade smoothly to red,
+     or does it snap?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn"</span><span class="p">&gt;</span>Hover me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>transition: color 0.4s ease</code> animates the <code>color</code> property (text
+color), not <code>background-color</code>. The hover rule changes <code>background-color</code>, which has
+no transition declared, so it jumps instantly. Only a text-color change would animate
+here, but the hover rule does not change text color, so nothing animates at all.</p>
+<p>Shows: how transitions must name the exact CSS property being changed and that <code>color</code>
+and <code>background-color</code> are distinct.</p>
+<p>To find it: in DevTools, look at the <code>.btn</code> rule and the hover rule side by side. The
+transitioned property (<code>color</code>) does not match the property changed on hover
+(<code>background-color</code>). Fix it by changing the transition to <code>background-color 0.4s ease</code>
+or using <code>transition: all 0.4s ease</code> to cover every animated property.</p>
+</details>
+<h2 id="css-flexwrap">Wrap a grid of cards to a new row</h2>
+<p>Open the page. Five cards should wrap onto two rows inside the dashed box.
+Do they wrap, or do they overflow to the right?</p>
+<div data-inc="flexwrap.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/flexwrap.html" class="inc-path" role="img" tabindex="0" title="css/flexwrap.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Wrap a Grid of Cards to a New Row<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">grid</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">dashed</span><span class="w"> </span><span class="mh">#999</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">min-width</span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">      </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">      </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Wrap a grid of cards to a new row<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Five cards should wrap onto two rows inside the dashed box.
+     Do they wrap, or do they overflow to the right?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card 1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card 2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card 3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card 4<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card 5<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>flex-wrap</code> defaults to <code>nowrap</code>. All flex children are forced onto a
+single line regardless of the container's width. When the total minimum size of the
+children exceeds the container, they shrink as much as they can and then overflow.</p>
+<p>Shows: the default <code>flex-wrap: nowrap</code> behavior and why adding <code>flex-wrap: wrap</code> is
+usually necessary for responsive grid-style layouts.</p>
+<p>To find it: open DevTools and select the <code>.grid</code> container. In the Layout panel, the
+flex wrapping option will show <code>nowrap</code>. Add <code>flex-wrap: wrap</code> to <code>.grid</code> so children
+that do not fit on one line flow onto subsequent lines.</p>
+</details>
+<h2 id="css-overflow">Add a shadow to a card</h2>
+<p>Open the page. The white card should have a visible drop shadow.
+Can you see any shadow?</p>
+<div data-inc="overflow.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/overflow.html" class="inc-path" role="img" tabindex="0" title="css/overflow.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Add a Shadow to a Card<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f0f0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Add a shadow to a card<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The white card should have a visible drop shadow. Can you see any shadow?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>Card content goes here.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>overflow: hidden</code> on the container. <code>box-shadow</code> is painted outside the
+element's border-box, in the space between the card and the container's edge. Because
+<code>overflow: hidden</code> clips everything that extends beyond the container's boundary,
+the shadow—which lives in that clipped region—is invisible.</p>
+<p>Shows: that <code>overflow: hidden</code> clips more than just scrollable content; it also clips
+effects such as <code>box-shadow</code> and <code>outline</code> that paint outside the element's box.</p>
+<p>To find it: temporarily set the container to <code>overflow: visible</code> in DevTools. The
+shadow will reappear immediately. Fix it by removing <code>overflow: hidden</code>, switching to
+<code>overflow: clip</code> (which does not affect shadows in all browsers), or adding enough
+<code>padding</code> to the container so the shadow falls inside rather than outside it.</p>
+</details>
+<h2 id="css-vw">Make a full-width header with no horizontal scroll</h2>
+<p>Open the page and scroll down until the vertical scrollbar appears.
+Does a horizontal scrollbar also appear at the bottom?</p>
+<div data-inc="vw.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/vw.html" class="inc-path" role="img" tabindex="0" title="css/vw.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Make a Full-Width Header<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">header</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">content</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">vh</span><span class="p">;</span><span class="w"> </span><span class="c">/* tall enough to force a vertical scrollbar */</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"header"</span><span class="p">&gt;</span>Full-width header<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Make a full-width header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Scroll down so the vertical scrollbar appears.
+       Does a horizontal scrollbar also appear at the bottom of the page?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>width: 100vw</code>. The <code>vw</code> unit measures the full viewport width including
+the scrollbar gutter. When a vertical scrollbar is present (about 15–17px wide on
+most platforms), the available content area is narrower than <code>100vw</code>. The header
+overflows by the scrollbar width, which causes the browser to add a horizontal
+scrollbar.</p>
+<p>Shows: the difference between <code>100vw</code> (viewport width) and <code>100%</code> (width of the
+containing block, which excludes the scrollbar).</p>
+<p>To find it: resize the window so no vertical scrollbar is present—the horizontal
+scrollbar disappears. Add the scrollbar back—it returns. Replace <code>width: 100vw</code> with
+<code>width: 100%</code> on the header. Because block-level elements default to <code>width: 100%</code>,
+you can also simply remove the width declaration entirely.</p>
+</details>
+<h2 id="css-stacking">Show a dropdown menu on top of a card</h2>
+<p>Open the page. The dark dropdown should appear in front of the red overlay.
+Does it?</p>
+<div data-inc="stacking.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/stacking.html" class="inc-path" role="img" tabindex="0" title="css/stacking.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Show a Dropdown Menu on Top of a Card<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">dropdown</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+<span class="w">      </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">overlay</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<span class="w">      </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">tomato</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">-30</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show a dropdown menu on top of a card<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The dark dropdown should appear in front of the red overlay.
+     Does it?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>
+    Card title
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown"</span><span class="p">&gt;</span>Dropdown item<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"overlay"</span><span class="p">&gt;</span>Overlay (z-index: 10)<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>opacity: 0.99</code> on <code>.card</code>. Any <code>opacity</code> value less than <code>1</code> creates a
+new stacking context. Inside that context, the dropdown's <code>z-index: 200</code> is compared
+only against other descendants of <code>.card</code>—not against elements outside it. The <code>.card</code>
+stacking context as a whole is compared to <code>.overlay</code> using <code>.card</code>'s z-index, which
+is <code>auto</code>. <code>auto</code> loses to <code>z-index: 10</code>, so the entire card (including the dropdown)
+is painted behind the overlay.</p>
+<p>Shows: how <code>opacity</code>, <code>transform</code>, <code>filter</code>, and a few other properties create new
+stacking contexts that trap child z-indices inside them.</p>
+<p>To find it: remove <code>opacity: 0.99</code> from <code>.card</code> in DevTools. The dropdown will jump
+in front of the overlay immediately. If you need transparency, apply it only to the
+card's background color using <code>rgba()</code> rather than the <code>opacity</code> property, which
+affects all descendants.</p>
+</details>
+<h2 id="css-em">Set consistent font sizes with relative units</h2>
+<p>Open the page. Each nested box uses <code>font-size: 1.5em</code>. Should they all be the same
+size?</p>
+<div data-inc="em.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/em.html" class="inc-path" role="img" tabindex="0" title="css/em.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Set Consistent Font Sizes with Relative Units<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">level-1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">level-2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">level-3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Set consistent font sizes with relative units<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Each box below uses <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>font-size: 1.5em<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>. Should they all be the same size?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"level-1"</span><span class="p">&gt;</span>
+    Level 1 (1.5em)
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"level-2"</span><span class="p">&gt;</span>
+      Level 2 (1.5em)
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"level-3"</span><span class="p">&gt;</span>
+        Level 3 (1.5em)
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>em</code> where <code>rem</code> is needed. An <code>em</code> is relative to the element's own
+computed font size—which is itself resolved from the parent's font size. Each level of
+nesting multiplies: 16px × 1.5 = 24px, then 24px × 1.5 = 36px, then 36px × 1.5 =
+54px. The text grows exponentially rather than staying constant.</p>
+<p>Shows: the difference between <code>em</code> (relative to the element's font size, which cascades)
+and <code>rem</code> (relative to the root element's font size, which stays fixed).</p>
+<p>To find it: in DevTools, check the computed <code>font-size</code> for each nested element. Each
+will be 1.5 times the previous. Replace <code>em</code> with <code>rem</code> in all three rules so every
+element resolves against the root 16px rather than its parent.</p>
+</details>
+<h2 id="css-nthchild">Highlight every other row in a table</h2>
+<p>Open the page. The blue shading should appear on rows 2 and 4 of the data (Banana
+and Date). Which rows are actually shaded?</p>
+<div data-inc="nthchild.html" data-scrub="\s*\/\*.*BUG.*"><span aria-label="Source: css/nthchild.html" class="inc-path" role="img" tabindex="0" title="css/nthchild.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Highlight Every Other Row in a Table<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">table</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">border-collapse</span><span class="p">:</span><span class="w"> </span><span class="kc">collapse</span><span class="p">;</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">th</span><span class="o">,</span><span class="w"> </span><span class="nt">td</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">steelblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#d0e8f7</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Highlight every other row in a table<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The shading should appear on rows 2 and 4 of the data (Banana and Date).
+     Which rows are actually shaded?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Fruit<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Color<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Apple<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Banana<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Yellow<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Cherry<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Date<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Brown<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>tr:nth-child(even)</code> counts all <code>&lt;tr&gt;</code> elements in the table,
+including the header row inside <code>&lt;thead&gt;</code>. The header is child 1, so the even-numbered
+children are header+1 (Apple, child 2), Cherry (child 4), which makes Apple and Cherry
+shaded instead of Banana and Date.</p>
+<p>Shows: how <code>:nth-child</code> counts all siblings of the same parent, not just elements of
+the same type, and how <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> affect the count.</p>
+<p>To find it: add <code>outline: 2px solid red</code> to <code>thead tr</code> in DevTools and count the rows.
+Fix the selector by scoping it to the body rows: <code>tbody tr:nth-child(even)</code>. Because
+<code>&lt;tbody&gt;</code> contains only the data rows, the count starts fresh at Apple (child 1),
+making Banana (child 2) and Date (child 4) the even-numbered rows.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../jsbrowser/">JavaScript Fundamentals</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../web/">HTTP and APIs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
