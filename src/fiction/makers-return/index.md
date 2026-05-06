@@ -469,7 +469,7 @@ as if suddenly aware that she hadn't eaten in well over a decade.
 "For now."
 Doctor Szego' voice came through a speaker.
 "And I'm sorry,
-but I want to keep André in isolation a little longer,
+but I still want to keep André in isolation,
 just to be safe.
 His white cell count is improving, though."
 
@@ -550,7 +550,7 @@ The ark was her home.
 "And there's another thing,"
 the captain continued.
 "We may have lost contact with Central,
-but we've picked up a comms beacon for the first time in what feels like forever.
+but we've picked up a landing beacon for the first time in what feels like forever.
 Here."
 
 He pushed his bowl aside and put an app on the table.
@@ -564,7 +564,7 @@ This, on the other hand…"
 
 Violet leaned in as he swiped the map sideways.
 "This looks like a village of some sort,
-and the signal is coming from right there.
+and the signal is coming from just outside it, here.
 See the cleared patches around it?
 Those look like fields to me."
 
@@ -1410,18 +1410,28 @@ The tiger pointed at his uniform jacket.
 "That's nice,"
 she replied coldly.
 
-The tiger flicked one of his ears.
-"I've never blamed you for him being injured, I mean.
+The tiger flicked one of his ears but plowed on.
+"I've never blamed you for his injury.
 I've had this tech for almost twenty years now,
-and I still don't understand half of what it does.
-That's why the world needs us—someone's got to keep everyone safe.
+and I still don't understand how it works.
+That's why the world needs people like us—to keep them safe.
 And that's why we need to go look through his house.
 Those bits and pieces he liked to fiddle with—well,
 you wouldn't want anyone else to get hurt,
 would you?"
 
-Before Sindy could answer,
-the crocodile hissed,
+"No," she admitted sullenly.
+
+Special Blazes nodded.
+"I didn't think so.
+That's why I'd like you to think about joining us.
+Not right away,"
+he added as Sindy's eyes widened.
+"But the Specials could use someone like you,
+and it would be a shame for you to waste your talent on something small."
+
+Sindy was still trying to make sense of she had just heard
+when the crocodile hissed,
 "Visitors, boss."
 
 "I hear them,"
@@ -1614,7 +1624,8 @@ Doctor Szego replied calmly.
 An image appeared on the main screen in front of them.
 The dark blue bulk at the bottom was the planet below them.
 A dashed green curve marked the orbit they had been in,
-while a steeper solid curve showed their altered path.
+while a steeper solid curve showed the altered path
+that would take them down to the blinking beacon on the surface.
 Dozens of thinner red lines marked the trajectories of long-dead satellites,
 fragments of booster rockets,
 and other space junk.
@@ -1647,13 +1658,13 @@ The individual bits of plastic and metal were still scattered,
 but as their speed increased
 the sound of them clattering on the hull grew louder and louder.
 
-"I'm scared,"
-André said through the speaker in Violet's headrest.
+"Are you scared?"
+André asked through the speaker in Violet's headrest.
 For once the sneer was missing from his voice.
 
-"Me too."
 She swallowed hard.
-"It'll be over soon."
+"Yup,
+But it'll be over soon."
 
 Red lines sprouted on the screen until they were as thick as Violet's hair.
 The clatter on the hull rose to a crescendo,
@@ -1676,7 +1687,8 @@ We are already experiencing atmospheric drag.
 There's no way to get a bot out there to repair it."
 
 Another swipe switched the view again.
-They were so close now that the planet filled the entire screen.
+They were so close now that the planet filled the entire screen,
+the green line showing their trajectory arcing toward the horizon.
 White clouds looked like spilled paint on an ocean-blue background.
 A break revealed land,
 brown-gray instead of the green that Violet had imagined.
@@ -1714,7 +1726,7 @@ Minutes ticked by in the corner of the screen.
 The rumbling began to subside.
 "Glide path achieved," Doctor Szego announced.
 "Ground speed is nominal.
-We did it."
+We should read the beacon in two minutes thirty eight second."
 
 "Don't jinx it," Captain Leung warned with a shaky laugh.
 "How are you holding up?"
@@ -1736,7 +1748,7 @@ only to resume again on their other side.
 
 Another river appeared.
 Violet's weight shifted as the ark banked to follow its course.
-"Are *you* all right?" she asked André.
+"Are you all right?" she asked André.
 
 "Course I am, dummy.
 You're the only one who was scared."
@@ -1752,16 +1764,16 @@ Doctor Szego announced calmly.
 "I'm using the orbital thrusters to compensate,
 but—hold on."
 The ark plummeted again.
-"Thrusters are at five percent.
+"Thrusters are at sixty-five percent.
+We are not going to reach the beacon.
 We have to set down."
 
-"Where?" the captain demanded
+"Set down? Where?" the captain demanded
 even as his hands danced across the controls.
 "We can't land in a forest!"
 
-"There is clear ground ahead,
-two minutes short of our target area.
-I'll aim for that."
+"There is an opening ahead.
+I will aim for that."
 
 "That's a swamp!"
 
@@ -1778,7 +1790,7 @@ then a road,
 a proper paved road like the ones she knew from virtual.
 Down, down, down they went,
 trees rushing away beneath them.
-A flock of birds burst into the air in terror,
+A flock of terrified birds burst into the air,
 and then the green suddenly darkened into swamp.
 
 "Ten seconds.
@@ -1802,16 +1814,15 @@ and Violet realized she was laughing too,
 and crying at the same time.
 They had done it.
 They had landed.
-They were home.
 
 The ark tilted slightly.
-"What's that?" Captain Leung demanded.
+"Now what?" Captain Leung demanded.
 "Are we taking on water?"
 
 "Checking.
 No."
 Doctor Szego paused.
-"There's something underneath us."
+"There is something underneath us."
 
 "What?
 What kind of something?"
@@ -2658,13 +2669,14 @@ I'm human, like you."
 "Are you really from space?"
 
 "Not originally,"
-Captain Leung replied,
-gesturing past the mob of armed 'brids as if they weren't there.
+Captain Leung replied.
 "Are you from the town we saw?"
 
 "Uh, yeah,"
 Sindy said hesitantly.
-"That's what Mayor Lupus is the mayor of.
+"It's called Rusty Bridge,
+on account of, well, the bridge.
+That's what Mayor Lupus is the mayor of.
 And Dockety here,
 it's like the mayor for the bots."
 Her accent made her words round and musical in Violet's ears.
@@ -2983,9 +2995,9 @@ Captain Leung barked.
 "Understood."
 The ship banked,
 pushing Sindy back into her seat.
-"I'll find somewhere to set down and call you then."
+"I'll go check out the beacon."
 
-"Rusty Bridge!" Sindy said.
+"Go to Rusty Bridge!" Sindy said.
 "You'll be safe there, I promise!"
 
 The captain glanced at her.
@@ -3082,24 +3094,14 @@ It must have followed them from the swamp.
 
 "And then your friend fired on us,"
 Captain Leung finished.
-"So we're going to land somewhere that *doesn't* have
-some kind of robo-monster lurking nearby
-and wait for Doctor Szego to tell us the ark is secure."
+"So we're going to go have a look at the landing beacon
+where we were *supposed* to touch down
+and wait for Doctor Szego to tell us the ark is secure.
+At least then we can—"
 
-FIXME: change this exchange
-
-"'Course I want to!"
-Sindy said indignantly.
-"Why wouldn't I?"
-
-"I think we should let her go now,"
-Violet ventured.
-"She hasn't done anything wrong."
-
-Whatever Captain Leung was going to say
-was interrupted by a deafening *clang!*
-The whole cabin jerked sideways,
-the engine whining beneath them as it tried to compensate
+*Clang!*
+The whole cabin jerked sideways.
+The engine whined beneath them as it tried to compensate
 for the punch the shuttle had just taken.
 
 "What the—is this what you mean by friendly?"
@@ -3120,29 +3122,10 @@ Thruster integrity—"
 Captain Leung slapped a switch to cut the voice off,
 cursing under his breath in a language Sindy didn't recognize.
 "That's torn it.
-We have to set down *now*."
-He looked at Sindy.
-"Any suggestions?"
+We *have* to set down.
+Hang on."
 
-She shook her head.
-She was pretty sure the shuttle wasn't supposed to be shaking the way it was.
-"Just stay away from the swamp.
-Oh, and Heck—the bots there don't much like people."
-
-"What's Heck?" Violet asked.
-
-"It's where Central used to live.
-Better stay out of Sandy Bend, too.
-That's where Special Blazes is from.
-I bet there's a bunch of people there that would shoot at you like Nash did."
-
-"So what you're saying is,
-we should have stayed in orbit,"
-Captain Leung muttered.
-"All right, I'm putting us down in that clearing.
-Hold on."
-
-Their landing was bumpier than their takeoff had been.
+Their landing a couple of minutes later was bumpier than their takeoff had been.
 For a moment Sindy was sure they were going to crash,
 but the shuttle slowed,
 steadied,
@@ -3161,11 +3144,10 @@ Captain Leung frowned.
 "That's quite the basement."
 
 "It's probably just an old bunker," Sindy volunteered.
-"There's lots of those around here.
-Sometimes feels like you can't go ten steps without tripping over one."
+"Sometimes feels like you can't go ten steps without tripping over one."
 
 The captain stood and put on his helmet.
-"All right, let's try this again.
+"Well, that's where the beacon is.
 Z40, you take point.
 Z51, I want you twenty meters behind it.
 Violet—"
@@ -3317,7 +3299,8 @@ Violet leaped back in fright.
 
 Sindy shrugged.
 "Some kind of bot.
-There's more of them about since Central went away.
+There's more of them about since Central shut down.
+Lots of 'em are part of a hive.
 They're mostly harmless if you don't bother them.
 One of my best friends is a bot,"
 she added.
@@ -3386,13 +3369,11 @@ to make a bracelet.
 The captain shook his head.
 His spacesuit had made him sweat too,
 she noticed with secret satisfaction.
-"No sign of anything bigger than a butterfly.
-I thought I saw something in the grass,
+"No sign of a beacon.
+I thought I saw some kind of bot in the grass,
 but it got away before I could get a good look."
 
-"It was probably some kind of bot,"
-Violet volunteered,
-glancing at Sindy.
+Violet glanced at Sindy.
 "They're mostly harmless if you don't bother them."
 
 "If you say so."
@@ -3424,13 +3405,13 @@ It's just been a long day."
 Violet asked to break the silence that followed.
 
 Captain Leung scratched the side of his nose with a gloved finger.
-"I'm thinking about it,
-but I'm still worried about whatever might be in that bunker.
-You said there were lots like it around here?"
+"It's where we were headed,
+but I'm worried about whatever might be in that bunker.
+You said there were others like it around here?"
 
 Sindy shrugged,
 looking at the braid in her lap,
-then nodded reluctantly.
+then nodded.
 "Any idea what we might find in this one?"
 the captain asked.
 
@@ -3487,7 +3468,8 @@ Will you be all right until then?"
 
 Violet heard the captain's stubble rasp against the side of his helmet as he nodded.
 "We'll be fine.
-We're going to check out the structure I mentioned earlier.
+I'm going to check out the structure I mentioned earlier
+and see if I can figure out who fired up the beacon.
 I'll put the shuttle in auto-defense mode and take both Z-bots with me.
 Leung out."
 
@@ -3778,10 +3760,9 @@ The door they had come through had closed.
 Before she could say something as obvious as, "We're trapped!"
 the one by the lever slid open.
 
-The bot that stepped into the room had a misshapen boxy body,
+The bot that stepped into the room had a boxy body that looked like an oversized doll's head,
 four legs,
-two tentacles for arms,
-and no apparent head.
+and two skinny arms.
 "I should have known it would be you,"
 Patient in Darkness said sourly,
 its voice straight out of Sindy's nightmares.
@@ -3947,7 +3928,7 @@ with a cot, a couch, a small desk, and no obvious means of escape.
 
 "What about Captain Leung?" Violet asked.
 
-Patient's tentacles writhed.
+Patient's arms twitched.
 "Your companion should have regained consciousness by now.
 I will conduct tests to determine the cause of his failure.
 And then you will tell me how you came by the technology you are wearing,
