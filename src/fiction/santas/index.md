@@ -1371,7 +1371,7 @@ let's get you that tea."
 
 ## Some Explanations
 
-A short time later
+A short time later,
 Finner found himself sitting on a stool in a slightly cramped cabin
 with a thick blanket wrapped around his shoulders,
 a steaming mug of something made of sweetened seaweed in his hands,
@@ -1380,12 +1380,11 @@ Santa Hood was somewhere beneath an even larger blanket on the bunk next to him,
 while Santa Greenwood had solved the problem of being too big for the furniture
 by sitting on the floor.
 *Deck,* Finner corrected himself.
-*It's called a deck on a ship.
-Which this is.*
+*It's called a deck on a ship.*
 
 He shook himself.
 "About the whole saving the worlds thing," he ventured.
-"And you mentioned flips."
+"And you mentioned something called flips?"
 
 Santa Greenwood swallowed a swig[^swig] of tea.
 "It's what folk call other folk who are all flipped around.
@@ -1407,7 +1406,7 @@ that his mouth had started.
 Santa Hood's muffled voice said from under her blanket.
 "After Sensei Tumbly and Shady Ann and others 
 made it okay for santas to marry santas and elves to marry elves,
-a few troublemakers got carried away
+some people got carried away
 and started saying we should throw out all the other rules too.
 Nobody took them seriously at first.
 People get odd notions sometimes,
@@ -1419,15 +1418,15 @@ Santa Greenwood scowled at the contents of his mug.
 they just started *doing* stuff.
 Santas making socks and cutlery and what-not,
 elves sneaking into places they didn't belong to do deliveries…
-It ain't natural."
+Like I said, it ain't natural."
 
 "So what happened?"
 Finner asked,
-looking into his tea so that he didn't have to make eye contact.
+staring into his tea so that he didn't have to make eye contact.
 
 "Turned out a lot more people agreed with them than anyone thought,"
-Santa Hood said wearily.
-"Or didn't exactly agree with them but figured it was none of their business
+Santa Hood sighed wearily.
+"Or didn't exactly agree with them but figured it was none of their business,
 or they didn't have a right to say it was wrong.
 Sensei Tumbly was one of the few who did."
 
@@ -1436,7 +1435,7 @@ Santa Greenwood nodded.
 Folk that stood with her and Shady Ann when they were marching and writing letters
 and getting themselves arrested—turned out a lot of them were okay with this nonsense."
 He shook his head.
-"It's disrespectful, is what it is, after all Vidancia's done."
+"It's disrespectful, after all Vidancia's done."
 
 "Who's being disrespectful?" boomed Captain Clausbeard,
 who had just opened the cabin door without bothering to knock.
@@ -1496,7 +1495,7 @@ Captain Clausbeard nodded.
 Your friends can stay here 'til we know whether we're eatin' peaches or pickles.
 That's an order," he added as Santa Hood opened her mouth.
 
-"Yes, cap'n," she said neutrally.
+"Yes, cap'n," she said meekly.
 
 Captain Clausbeard grinned and doffed his hat again before stomping out,
 his peg leg thumping on the deck.
