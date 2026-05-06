@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Object-Oriented Python</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreaking Software</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a class="active" href="../oopy/">Object-Oriented Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../css/">CSS</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../htmx/">HTMX</a></li>
+<li><a href="../alpine/">Alpine.js</a></li>
+<li><a href="../fastapi/">FastAPI</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Object-Oriented Python</h1>
+<p>Object-oriented Python looks straightforward until it doesn't work.
+A handful of rules govern how Python handles attributes, inheritance, and special methods,
+and breaking any one of them silently produces wrong results or a confusing error.
+Run each example and read the traceback before looking at the explanation.</p>
+<h2 id="oopy-no-self">Define a method on a class</h2>
+<p>Create a <code>Rectangle</code> with width 4 and height 6 and call <code>area()</code>.
+Does it return 24?</p>
+<div data-inc="no_self.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/no_self.py" class="inc-path" role="img" tabindex="0" title="oopy/no_self.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>self</code> parameter in <code>area</code>. When you call <code>r.area()</code>, Python
+automatically passes the instance <code>r</code> as the first positional argument. A method
+without <code>self</code> declares zero parameters, so Python sees one argument for zero
+parameters and raises <code>TypeError: area() takes 0 positional arguments but 1 was given</code>.</p>
+<p>Shows: that every instance method must declare <code>self</code> as its first parameter so Python
+has somewhere to put the instance it passes automatically.</p>
+<p>To find it: the traceback says the error is in the call <code>r.area()</code> and mentions "0
+positional arguments but 1 was given". Change <code>def area():</code> to <code>def area(self):</code>.</p>
+</details>
+<h2 id="oopy-no-parens">Get a value back from a method</h2>
+<p>Create a <code>Greeter</code> and print the result of calling <code>greet</code>.
+Does the output say <code>"Hello, world!"</code>?</p>
+<div data-inc="no_parens.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/no_parens.py" class="inc-path" role="img" tabindex="0" title="oopy/no_parens.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Greeter</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
+
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">Greeter</span><span class="p">(</span><span class="s2">"world"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">greet</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing parentheses. <code>g.greet</code> without <code>()</code> evaluates to the bound
+method object itself—a callable—rather than calling it and returning its string. The
+<code>print</code> then shows something like <code>&lt;bound method Greeter.greet of ...&gt;</code>, which is
+the text representation of the method, not the greeting.</p>
+<p>Shows: that methods, like all callables, must be called with <code>()</code> to run and produce
+a return value.</p>
+<p>To find it: the output will contain the word <code>bound method</code> instead of <code>Hello</code>.
+Change <code>g.greet</code> to <code>g.greet()</code>.</p>
+</details>
+<h2 id="oopy-init-return">Make <code>__init__</code> set up an object</h2>
+<p>Create a <code>Config</code> object and print its <code>debug</code> attribute.
+Does it print <code>True</code>?</p>
+<div data-inc="init_return.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/init_return.py" class="inc-path" role="img" tabindex="0" title="oopy/init_return.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">debug</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>return self</code> inside <code>__init__</code>. Python's object creation protocol
+requires <code>__init__</code> to return <code>None</code>. Any other return value raises <code>TypeError:
+__init__() should return None (not 'Config')</code>. The object is created before
+<code>__init__</code> runs, so there is no need to return it—<code>Config(True)</code> already produces
+the new instance.</p>
+<p>Shows: the contract for <code>__init__</code>: it initializes an already-created object and
+must not return anything.</p>
+<p>To find it: the traceback says <code>TypeError: __init__() should return None</code>. Remove
+the <code>return self</code> line.</p>
+</details>
+<h2 id="oopy-typo-attr">Spell an attribute name consistently</h2>
+<p>Create a <code>Student</code> and call <code>greet()</code>. Does it print the student's name?</p>
+<div data-inc="typo_attr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/typo_attr.py" class="inc-path" role="img" tabindex="0" title="oopy/typo_attr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nane</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Hi, I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a typo: <code>self.nane = name</code> in <code>__init__</code> stores the value under the
+misspelled key <code>nane</code>. When <code>greet</code> reads <code>self.name</code>, Python looks for the correctly
+spelled attribute, finds nothing, and raises <code>AttributeError</code>. Python treats each
+spelling as a distinct attribute and never connects them.</p>
+<p>Shows: how attribute-name typos produce <code>AttributeError</code> at the point of reading, not
+at the point of writing, which can make the bug appear to be in the wrong place.</p>
+<p>To find it: print <code>vars(s)</code> after creating the student. The dictionary will contain
+<code>nane</code> but not <code>name</code>. Fix the spelling in <code>__init__</code>.</p>
+</details>
+<h2 id="oopy-prop-call">Access the computed area of a circle</h2>
+<p>Create a <code>Circle</code> with radius 5 and print its area. Does it print a number close to 78.5?</p>
+<div data-inc="prop_call.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/prop_call.py" class="inc-path" role="img" tabindex="0" title="oopy/prop_call.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the parentheses in <code>c.area()</code>. Because <code>area</code> is decorated with
+<code>@property</code>, accessing <code>c.area</code> already calls the function and returns the computed
+float. Appending <code>()</code> then tries to call that float as if it were a function, raising
+<code>TypeError: 'float' object is not callable</code>.</p>
+<p>Shows: that <code>@property</code> turns a method into an attribute-style access—you read it
+like data, not call it like a function.</p>
+<p>To find it: the traceback says <code>TypeError: 'float' object is not callable</code>, pointing
+to the line with <code>c.area()</code>. Remove the parentheses: <code>c.area</code>.</p>
+</details>
+<h2 id="oopy-no-return">Retrieve the top item from a stack</h2>
+<p>Push 42 onto a <code>Stack</code> and peek at the top. Does <code>peek()</code> return 42?</p>
+<div data-inc="no_return.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/no_return.py" class="inc-path" role="img" tabindex="0" title="oopy/no_return.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">:</span>
+            <span class="n">top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>return</code> statement. <code>peek</code> computes the top item and assigns
+it to <code>top</code>, but never returns it. Python then falls off the end of the function and
+implicitly returns <code>None</code>. Adding 1 to <code>None</code> raises <code>TypeError: unsupported operand
+type(s) for +: 'NoneType' and 'int'</code>.</p>
+<p>Shows: that forgetting <code>return</code> is silent—no error at the call site—and the failure
+only appears when the caller tries to use the <code>None</code> value it received.</p>
+<p>To find it: print <code>result</code> before trying to add 1. It will print <code>None</code>. Add
+<code>return top</code> inside the <code>if</code> block.</p>
+</details>
+<h2 id="oopy-is-equals">Check whether a status matches a target</h2>
+<p>Create a <code>Status("ok")</code> and call <code>is_ok()</code>. Does it return <code>True</code>?</p>
+<div data-inc="is_equals.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/is_equals.py" class="inc-path" role="img" tabindex="0" title="oopy/is_equals.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Status</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="ow">is</span> <span class="n">Status</span><span class="p">(</span><span class="s2">"ok"</span><span class="p">)</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Status</span><span class="p">(</span><span class="s2">"ok"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">is_ok</span><span class="p">())</span>  <span class="c1"># expect True, get False</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>is</code> to compare objects. <code>is</code> tests whether two names refer to the
+exact same object in memory—identity, not equality. <code>Status("ok")</code> inside <code>is_ok</code>
+creates a brand-new object, which is a different object from <code>self</code>, so <code>self is
+Status("ok")</code> is always <code>False</code>. The fix is <code>self.code == "ok"</code>, which compares
+values.</p>
+<p>Shows: the difference between <code>is</code> (identity) and <code>==</code> (equality), and why <code>is</code>
+should be reserved for comparisons against singletons like <code>None</code>, <code>True</code>, and <code>False</code>.</p>
+<p>To find it: print <code>id(self)</code> and <code>id(Status("ok"))</code> inside <code>is_ok</code>. The numbers will
+differ. Replace <code>is</code> with <code>==</code> and compare the <code>code</code> attributes directly.</p>
+</details>
+<h2 id="oopy-wrong-args">Create a person with the right details</h2>
+<p>Create a <code>Person</code> and call <code>introduce()</code>. Does the output contain the correct name and age?</p>
+<div data-inc="wrong_args.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/wrong_args.py" class="inc-path" role="img" tabindex="0" title="oopy/wrong_args.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">, age </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"Smith"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">introduce</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the argument order. <code>Person.__init__</code> expects <code>first, last, age</code>, but the
+call passes <code>"Alice", 30, "Smith"</code>—putting the age in the <code>last</code> position and the
+last name in the <code>age</code> position. Python has no way to detect the mismatch because all
+three arguments are accepted without error, and <code>introduce</code> happily uses whatever
+values ended up in <code>self.last</code> and <code>self.age</code>.</p>
+<p>Shows: how positional argument order is enforced by position, not by name, and how
+using keyword arguments (e.g., <code>Person(first="Alice", last="Smith", age=30)</code>) prevents
+this class of mistake.</p>
+<p>To find it: compare the output of <code>introduce()</code> against what you expect. The name and
+age will be swapped. Reorder the arguments or switch to keyword arguments.</p>
+</details>
+<h2 id="oopy-late-attr">Record a score before reporting it</h2>
+<p>Create a <code>Scoreboard</code> for <code>"Alice"</code> and immediately call <code>report()</code>.
+Does it print a score?</p>
+<div data-inc="late_attr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/late_attr.py" class="inc-path" role="img" tabindex="0" title="oopy/late_attr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Scoreboard</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">player</span> <span class="o">=</span> <span class="n">player</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">points</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">player</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">Scoreboard</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>  <span class="c1"># AttributeError: 'Scoreboard' object has no attribute 'score'</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>self.score</code> is only created inside <code>record()</code>, not in <code>__init__</code>.
+If <code>report()</code> is called before <code>record()</code> has ever run, <code>self.score</code> does not exist
+and <code>report</code> raises <code>AttributeError: 'Scoreboard' object has no attribute 'score'</code>.</p>
+<p>Shows: that all instance attributes an object may need should be initialized in
+<code>__init__</code> so the object is in a consistent state from the moment it is created.</p>
+<p>To find it: add <code>print(vars(board))</code> after creating the <code>Scoreboard</code>. The dictionary
+will not contain <code>score</code>. Add <code>self.score = 0</code> to <code>__init__</code>.</p>
+</details>
+<h2 id="oopy-repr-none">Show a card as text</h2>
+<p>Create a <code>Card</code> and print its <code>repr</code>. Does the output show the rank and suit?</p>
+<div data-inc="repr_none.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/repr_none.py" class="inc-path" role="img" tabindex="0" title="oopy/repr_none.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Card</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">suit</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suit</span> <span class="o">=</span> <span class="n">suit</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">suit</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Card</span><span class="p">(</span><span class="s2">"Ace"</span><span class="p">,</span> <span class="s2">"Spades"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>return</code>. The f-string <code>f"{self.rank} of {self.suit}"</code> is
+evaluated and the resulting string is immediately discarded. <code>__repr__</code> then returns
+<code>None</code> implicitly. Python raises <code>TypeError: __repr__ returned non-string (type NoneType)</code>.</p>
+<p>Shows: that constructing a value and returning it are two separate steps—building a
+string with an f-string does nothing unless the result is returned or assigned.</p>
+<p>To find it: the traceback says <code>TypeError: __repr__ returned non-string</code>. Add
+<code>return</code> before the f-string.</p>
+</details>
+<h2 id="oopy-init-attr">Store data in an instance</h2>
+<p>Create a <code>Point</code> with <code>x=3</code> and <code>y=4</code> and call <code>distance()</code>.
+Does it return 5.0?</p>
+<div data-inc="init_attr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/init_attr.py" class="inc-path" role="img" tabindex="0" title="oopy/init_attr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">distance</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>x = x</code> and <code>y = y</code> inside <code>__init__</code>. Those lines rebind the local
+parameter names to themselves and do nothing else. Without <code>self.x = x</code> and
+<code>self.y = y</code>, the values are discarded the moment <code>__init__</code> returns, leaving the
+object with no <code>x</code> or <code>y</code> attribute. Calling <code>self.x</code> in <code>distance</code> then raises
+<code>AttributeError</code>.</p>
+<p>Shows: that instance attributes must be assigned through <code>self</code>, and that a bare
+assignment inside a method creates a local variable, not an attribute.</p>
+<p>To find it: add <code>print(vars(p))</code> after creating the point. The dictionary will be
+empty, revealing that no attributes were stored.</p>
+</details>
+<h2 id="oopy-mutable-default">Build a bag that can hold any items</h2>
+<p>Create two <code>Bag</code> objects without passing any arguments, add <code>"apple"</code> to the first,
+and print the second. Is the second bag empty?</p>
+<div data-inc="mutable_default.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/mutable_default.py" class="inc-path" role="img" tabindex="0" title="oopy/mutable_default.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Bag</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Bag</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Bag</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"apple"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>  <span class="c1"># expect [], get ['apple']</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the mutable default argument <code>items=[]</code>. Python evaluates default
+argument values once, when the <code>def</code> statement runs, not on each call. Every <code>Bag</code>
+created without an explicit list receives a reference to the same list object. Adding
+to one bag therefore adds to all of them.</p>
+<p>Shows: why mutable objects (lists, dicts, sets) must never be used as default
+argument values, and the standard fix of using <code>None</code> as the default and creating a
+new list inside the function body.</p>
+<p>To find it: print <code>id(a.items)</code> and <code>id(b.items)</code>. They are the same number,
+proving both bags point to one list. Fix it with <code>def __init__(self, items=None)</code>
+and <code>self.items = items if items is not None else []</code>.</p>
+</details>
+<h2 id="oopy-class-var">Track students enrolled in a course</h2>
+<p>Create two <code>Roster</code> objects, enroll <code>"Alice"</code> in the math roster, and print the
+science roster's students. Is the science list empty?</p>
+<div data-inc="class_var.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/class_var.py" class="inc-path" role="img" tabindex="0" title="oopy/class_var.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Roster</span><span class="p">:</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">enroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+
+
+<span class="n">math</span> <span class="o">=</span> <span class="n">Roster</span><span class="p">(</span><span class="s2">"Math"</span><span class="p">)</span>
+<span class="n">science</span> <span class="o">=</span> <span class="n">Roster</span><span class="p">(</span><span class="s2">"Science"</span><span class="p">)</span>
+<span class="n">math</span><span class="o">.</span><span class="n">enroll</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">science</span><span class="o">.</span><span class="n">students</span><span class="p">)</span>  <span class="c1"># expect [], get ['Alice']</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>students = []</code> at class level. That makes <code>students</code> a class variable:
+one list shared by every <code>Roster</code> instance. When <code>enroll</code> calls
+<code>self.students.append(student)</code>, Python looks up <code>self.students</code>, finds the class
+variable, and mutates it in place. The mutation is visible through every instance.</p>
+<p>Shows: the difference between a class variable (one copy, shared) and an instance
+variable (one copy per object), and why mutable class variables are a common source
+of unexpected sharing.</p>
+<p>To find it: print <code>Roster.students</code> after enrolling Alice. It already contains her
+name, confirming the class-level list was modified. Fix it by moving the list into
+<code>__init__</code>: <code>self.students = []</code>.</p>
+</details>
+<h2 id="oopy-super-init">Extend a class with a new attribute</h2>
+<p>Create a <code>Dog</code> named <code>"Rex"</code> with breed <code>"Labrador"</code> and call <code>describe()</code>.
+Does it print a sentence with both pieces of information?</p>
+<div data-inc="super_init.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/super_init.py" class="inc-path" role="img" tabindex="0" title="oopy/super_init.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">"Rex"</span><span class="p">,</span> <span class="s2">"Labrador"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>super().__init__(name)</code> call inside <code>Dog.__init__</code>. Python
+does not automatically run the parent class's <code>__init__</code>. Without that call,
+<code>Animal.__init__</code> never runs, so <code>self.name</code> is never set. <code>describe</code> then raises
+<code>AttributeError</code> when it tries to read <code>self.name</code>.</p>
+<p>Shows: that subclass <code>__init__</code> methods must explicitly call the parent's <code>__init__</code>
+to initialize inherited attributes, and that forgetting this call produces an error
+only when the missing attribute is accessed, not at construction time.</p>
+<p>To find it: add <code>print(vars(d))</code> right after creating the dog. The dictionary will
+contain <code>breed</code> but not <code>name</code>. Add <code>super().__init__(name)</code> as the first line of
+<code>Dog.__init__</code>.</p>
+</details>
+<h2 id="oopy-str-type">Display an object as a string</h2>
+<p>Create a <code>Temperature</code> of 100 degrees and print it.
+Does the output look like a sensible string?</p>
+<div data-inc="str_type.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/str_type.py" class="inc-path" role="img" tabindex="0" title="oopy/str_type.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Temperature</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">celsius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">celsius</span> <span class="o">=</span> <span class="n">celsius</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">celsius</span>
+
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Temperature</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is returning <code>self.celsius</code> (an integer) from <code>__str__</code>. Python requires
+<code>__str__</code> to return a <code>str</code> object. When it gets anything else, it raises
+<code>TypeError: __str__ returned non-string</code>. The value is never printed.</p>
+<p>Shows: that special methods must return the exact type Python expects, and that
+returning the wrong type produces a <code>TypeError</code> that mentions the method by name.</p>
+<p>To find it: the traceback says <code>TypeError: __str__ returned non-string (type int)</code>.
+Fix it by returning <code>str(self.celsius)</code> or <code>f"{self.celsius} C"</code>.</p>
+</details>
+<h2 id="oopy-static-class">Count how many widgets exist</h2>
+<p>Create two <code>Widget</code> objects and call <code>Widget.how_many()</code>.
+Does it return 2?</p>
+<div data-inc="static_class.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/static_class.py" class="inc-path" role="img" tabindex="0" title="oopy/static_class.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Widget</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">how_many</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">count</span>
+
+
+<span class="n">w1</span> <span class="o">=</span> <span class="n">Widget</span><span class="p">()</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">Widget</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Widget</span><span class="o">.</span><span class="n">how_many</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>@staticmethod</code>. A static method receives no implicit first argument, so
+<code>cls</code> is undefined inside <code>how_many</code> and raises <code>NameError</code>. The fix is <code>@classmethod</code>,
+which passes the class itself as the first argument, conventionally named <code>cls</code>.</p>
+<p>Shows: the distinction between <code>@staticmethod</code> (no implicit arguments) and
+<code>@classmethod</code> (receives the class as <code>cls</code>), and when each decorator is appropriate.</p>
+<p>To find it: the traceback says <code>NameError: name 'cls' is not defined</code>. Replace
+<code>@staticmethod</code> with <code>@classmethod</code> and add <code>cls</code> as the first parameter of
+<code>how_many</code>.</p>
+</details>
+<h2 id="oopy-property-setter">Update the radius of a circle</h2>
+<p>Create a <code>Circle</code> with radius 5, update the radius to 10, and print the area.
+Does the area reflect the new radius?</p>
+<div data-inc="property_setter.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/property_setter.py" class="inc-path" role="img" tabindex="0" title="oopy/property_setter.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>radius</code> is a read-only property. A <code>@property</code> decorator with no
+corresponding <code>@radius.setter</code> creates a getter only. Assigning <code>c.radius = 10</code>
+raises <code>AttributeError: can't set attribute</code> before <code>area()</code> is ever reached.</p>
+<p>Shows: that a <code>@property</code> alone is read-only, and that a companion setter must be
+defined explicitly for assignments to work.</p>
+<p>To find it: the traceback pinpoints the assignment line. Add a setter:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@radius</span><span class="o">.</span><span class="n">setter</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div>
+</details>
+<h2 id="oopy-isinstance-check">Accept any animal in a function</h2>
+<p>Call <code>make_sound</code> with a <code>Dog</code> object.
+Does it print <code>"Woof"</code>, or does it raise an error?</p>
+<div data-inc="isinstance_check.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/isinstance_check.py" class="inc-path" role="img" tabindex="0" title="oopy/isinstance_check.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"..."</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Woof"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_sound</span><span class="p">(</span><span class="n">creature</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span> <span class="o">==</span> <span class="n">Animal</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">creature</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"not an Animal"</span><span class="p">)</span>
+
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">make_sound</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>type(creature) == Animal</code>. The <code>type()</code> function returns the exact runtime
+type of an object. A <code>Dog</code> instance has type <code>Dog</code>, not <code>Animal</code>, so the comparison is
+<code>False</code> and the function raises <code>ValueError</code>—even though <code>Dog</code> is a subclass of <code>Animal</code>.
+<code>isinstance(creature, Animal)</code> returns <code>True</code> for any instance of <code>Animal</code> or any of
+its subclasses.</p>
+<p>Shows: that <code>type()</code> checks for an exact match while <code>isinstance()</code> respects the
+inheritance hierarchy, and that <code>isinstance</code> is almost always the right choice.</p>
+<p>To find it: print <code>type(d)</code> and <code>type(d) == Animal</code> before calling the function. The
+output <code>False</code> makes the bug obvious. Replace <code>type(creature) == Animal</code> with
+<code>isinstance(creature, Animal)</code>.</p>
+</details>
+<h2 id="oopy-name-mangling">Read a private attribute from outside a class</h2>
+<p>Create a <code>BankAccount</code>, deposit some money, and print the balance by accessing
+<code>account.__balance</code> directly. Does it print the correct total?</p>
+<div data-inc="name_mangling.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/name_mangling.py" class="inc-path" role="img" tabindex="0" title="oopy/name_mangling.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span> <span class="o">=</span> <span class="n">balance</span>  <span class="c1"># stored as _BankAccount__balance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span>
+
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">__balance</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is accessing <code>account.__balance</code> from outside the class. Python rewrites any
+identifier starting with two underscores (but not ending with two) to
+<code>_ClassName__attribute</code> at compile time. Inside the class, <code>self.__balance</code> is
+automatically translated to <code>self._BankAccount__balance</code>. Outside the class, writing
+<code>account.__balance</code> is not translated, so Python looks for a literal attribute named
+<code>__balance</code>, finds nothing, and raises <code>AttributeError</code>.</p>
+<p>Shows: Python's name-mangling mechanism for double-underscore attributes and how to
+access them from outside if necessary.</p>
+<p>To find it: print <code>dir(account)</code> and look for <code>_BankAccount__balance</code> in the output.
+Use the public <code>get_balance()</code> method instead, or access the mangled name directly
+as <code>account._BankAccount__balance</code> for debugging.</p>
+</details>
+<h2 id="oopy-eq-hash">Use points as dictionary keys</h2>
+<p>Create two equal <code>Point</code> objects and check whether the second is in a set containing
+the first. Does <code>p2 in seen</code> return <code>True</code>?</p>
+<div data-inc="eq_hash.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/eq_hash.py" class="inc-path" role="img" tabindex="0" title="oopy/eq_hash.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">seen</span> <span class="o">=</span> <span class="p">{</span><span class="n">p1</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is defining <code>__eq__</code> without also defining <code>__hash__</code>. Python's data model
+specifies that any class defining <code>__eq__</code> must also define <code>__hash__</code>, or Python
+sets <code>__hash__ = None</code> automatically. An object with <code>__hash__ = None</code> is unhashable:
+it cannot be placed in a <code>set</code> or used as a <code>dict</code> key, raising <code>TypeError: unhashable
+type: 'Point'</code>.</p>
+<p>Shows: the connection between <code>__eq__</code> and <code>__hash__</code>, and why both must be defined
+together when value equality is needed.</p>
+<p>To find it: the traceback mentions <code>TypeError: unhashable type</code>. Add a <code>__hash__</code>
+method that returns a hash based on the same fields used in <code>__eq__</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
+</details>
+<h2 id="oopy-iterator-reuse">Iterate over a countdown twice</h2>
+<p>Create a <code>Countdown</code> from 3 and iterate over it twice.
+Do both passes produce <code>[3, 2, 1]</code>?</p>
+<div data-inc="iterator_reuse.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/iterator_reuse.py" class="inc-path" role="img" tabindex="0" title="oopy/iterator_reuse.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Countdown</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>  <span class="c1"># [3, 2, 1]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>  <span class="c1"># expect [3, 2, 1], get []</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the <code>Countdown</code> object is both an iterable and its own iterator.
+<code>__iter__</code> returns <code>self</code>, so the second call to <code>list(c)</code> reuses the same object,
+which still has <code>self.current == 0</code> from the first pass. <code>__next__</code> immediately
+raises <code>StopIteration</code>, producing an empty list.</p>
+<p>Shows: the iterator protocol and the difference between an iterable (has <code>__iter__</code>
+returning an iterator) and an iterator (has <code>__next__</code>). A reusable iterable should
+return a fresh iterator object from <code>__iter__</code>, not <code>self</code>.</p>
+<p>To find it: print <code>c.current</code> between the two calls. It will be 0. Fix it by
+extracting the iteration state into a separate class:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">CountdownIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h2 id="oopy-method-chain">Build a query with method chaining</h2>
+<p>Build a <code>QueryBuilder</code>, chain <code>.filter()</code> and <code>.limit()</code>, and call <code>.build()</code>.
+Does it return a dictionary with both values?</p>
+<div data-inc="method_chain.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/method_chain.py" class="inc-path" role="img" tabindex="0" title="oopy/method_chain.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">QueryBuilder</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_val</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_val</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"filters"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">,</span> <span class="s2">"limit"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_val</span><span class="p">}</span>
+
+
+<span class="n">query</span> <span class="o">=</span> <span class="n">QueryBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">"age &gt; 18"</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>return self</code> in <code>filter</code>. Every method in a fluent interface
+must return the object it was called on so the next method has something to call.
+Without <code>return self</code>, <code>filter</code> returns <code>None</code>. Calling <code>.limit(10)</code> on <code>None</code> raises
+<code>AttributeError: 'NoneType' object has no attribute 'limit'</code>.</p>
+<p>Shows: how method chaining works and the discipline required to make every step
+return <code>self</code>.</p>
+<p>To find it: the traceback says the error is on the chained line, pointing at <code>.limit</code>.
+The call before it—<code>filter</code>—is the culprit. Add <code>return self</code> at the end of <code>filter</code>.</p>
+</details>
+<h2 id="oopy-attr-shadow">Add a prefix to log messages</h2>
+<p>Create an <code>AppLogger</code> and call <code>run()</code>.
+Does it print a log message, or does it raise an error?</p>
+<div data-inc="attr_shadow.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/attr_shadow.py" class="inc-path" role="img" tabindex="0" title="oopy/attr_shadow.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"LOG: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AppLogger</span><span class="p">(</span><span class="n">Logger</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="s2">"application"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">"Starting up"</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">AppLogger</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>self.log = "application"</code> inside <code>__init__</code>. That statement creates an
+instance attribute named <code>log</code> that holds the string <code>"application"</code>. When Python
+later looks up <code>self.log</code> in <code>run()</code>, it finds the instance attribute first and
+ignores the inherited <code>log()</code> method. Calling the string with <code>self.log("Starting up")</code>
+raises <code>TypeError: 'str' object is not callable</code>.</p>
+<p>Shows: how instance attributes shadow methods of the same name, and why attribute
+names must not collide with method names inherited from parent classes.</p>
+<p>To find it: print <code>type(self.log)</code> inside <code>run()</code> before the call. It will show
+<code>&lt;class 'str'&gt;</code>. Rename the attribute—for example, <code>self.prefix = "application"</code>—and
+update any references to it.</p>
+</details>
+<h2 id="oopy-len-type">Get the number of items in a dataset</h2>
+<p>Create a <code>DataSet</code> with three numbers and call <code>len()</code> on it.
+Does it return the integer 3?</p>
+<div data-inc="len_type.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/len_type.py" class="inc-path" role="img" tabindex="0" title="oopy/len_type.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DataSet</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1</span>
+
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">DataSet</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the <code>/</code> operator in <code>__len__</code>. In Python 3, <code>/</code> always performs true
+(floating-point) division and always returns a <code>float</code>, even when both operands are
+integers and the result is a whole number. <code>len()</code> requires an integer return value
+and raises <code>TypeError: 'float' object cannot be interpreted as an integer</code> when it
+gets a float.</p>
+<p>Shows: the difference between <code>/</code> (true division, returns float) and <code>//</code> (integer
+division, returns int), and that <code>__len__</code> has a strict return-type contract.</p>
+<p>To find it: the traceback says <code>TypeError</code> and names <code>__len__</code>. Replace <code>/</code> with
+<code>//</code>, or just write <code>return len(self.data)</code>.</p>
+</details>
+<h2 id="oopy-slots-attr">Add a third coordinate to a point</h2>
+<p>Create a <code>Point</code> with <code>x=3</code> and <code>y=4</code>, add <code>z=0</code>, and print all three coordinates.
+Does it work?</p>
+<div data-inc="slots_attr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: oopy/slots_attr.py" class="inc-path" role="img" tabindex="0" title="oopy/slots_attr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>__slots__</code> lists only <code>x</code> and <code>y</code>. When <code>__slots__</code> is defined,
+Python removes the instance <code>__dict__</code> and allows only the named attributes. Assigning
+<code>p.z = 0</code> raises <code>AttributeError: 'Point' object has no attribute 'z'</code> because <code>z</code>
+is not in the slot list.</p>
+<p>Shows: what <code>__slots__</code> does (restricts attributes, saves memory, improves attribute
+access speed) and the trade-off it imposes (no dynamic attributes unless <code>__dict__</code>
+is also included in <code>__slots__</code>).</p>
+<p>To find it: the traceback points directly at <code>p.z = 0</code>. Either add <code>"z"</code> to
+<code>__slots__</code>, or remove <code>__slots__</code> entirely if dynamic attributes are needed.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../interpy/">Intermediate Python</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../diot/">Data, I/O, and Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

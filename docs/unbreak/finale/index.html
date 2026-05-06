@@ -23,6 +23,7 @@
 <li><a href="../intro/">Introduction</a></li>
 <li><a href="../basicpy/">Basic Python</a></li>
 <li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../oopy/">Object-Oriented Python</a></li>
 <li><a href="../diot/">Data, I/O, and Testing</a></li>
 <li><a href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
@@ -56,49 +57,103 @@
 <main id="main-content">
 <h1>Conclusion</h1>
 <p class="subtitle">looking back and next steps</p>
-<h2>Tactics</h2>
-<p>Every exercise in this book uses one or more of the following tactics to locate
-a bug. Each tactic is a concrete action you can take in seconds; none of them
-requires guessing.</p>
+<p>Every exercise in this book uses one or more of the following tactics
+to locate a bug.</p>
+<h2>General</h2>
 <ol>
-<li>Run the code with the smallest input you can verify entirely by hand, then
-   check the output against your manual count or calculation.</li>
-<li>Print <code>type(value)</code> when a comparison unexpectedly fails — a mismatch between
-   <code>str</code> and <code>int</code>, or <code>String</code> and <code>Date</code>, explains why <code>==</code> returns <code>False</code>.</li>
-<li>Print <code>repr(string)</code> to reveal invisible characters such as trailing spaces or
-   embedded newlines that look correct in plain <code>print</code> output.</li>
-<li>Call a function twice with identical arguments and compare both return values —
-   if they differ, the function carries state between calls.</li>
 <li>Read a traceback from bottom to top: the last frame names the line that raised
-   the error; the frames above it show what triggered that line.</li>
-<li>Introduce a deliberate bug in the code under test, then rerun the test suite
-   — if the test still passes, it contains no assertion that can detect wrong output.</li>
-<li>Run each test in isolation with <code>pytest path::test_name</code> to verify it does not
-   depend on another test having run first.</li>
-<li>Replace a broad <code>except: pass</code> with <code>logging.exception("caught")</code> to see the
-   actual exception type and message being swallowed.</li>
-<li>Check the exact stored values in a column before writing a filter — use
-   <code>SELECT DISTINCT col</code> or <code>.unique()</code> to confirm the literal strings or numbers
-   the data actually contains.</li>
+   the error; the frames above it show what triggered that line. The error message
+   on the final line is often enough — read it before scrolling up.</li>
+<li>Run the code with the smallest input you can verify entirely by hand, then
+   check every output value against your manual calculation. Five items and a
+   window of three beats a thousand items every time.</li>
+<li>Binary-search the bug: comment out half the suspect code and check whether the
+   problem persists. If it does, the bug is in the half that remains; if it
+   disappears, the bug is in the half you removed. Repeat until one line is left.</li>
+<li>Add <code>print("entered function_name")</code> at the top of every function or method
+   you suspect, so you can see which ones actually run and in what order.</li>
+<li>Call a function twice with identical arguments and compare both return values.
+   If they differ, the function has hidden state that changes between calls.</li>
+</ol>
+<h2>Inspecting values</h2>
+<ol>
+<li>Print <code>type(value)</code> when a comparison unexpectedly fails. A mismatch between
+   <code>str</code> and <code>int</code>, or between a plain number and a NumPy scalar, explains why
+   <code>==</code> returns <code>False</code> or raises <code>TypeError</code>.</li>
+<li>Print <code>repr(value)</code> to reveal invisible characters such as trailing spaces,
+   embedded newlines, or a <code>\r</code> that looks identical to nothing in plain <code>print</code>
+   output but breaks every string comparison.</li>
+<li>Print <code>vars(obj)</code> to see exactly which attributes an object has stored. An
+   empty dictionary after construction means <code>__init__</code> never assigned anything
+   to <code>self</code>; a misspelled key means the attribute was stored under a different
+   name than the one being read.</li>
+<li>Print <code>id(a)</code> and <code>id(b)</code> when two names that should be independent seem
+   linked. The same number means they point to the same object in memory, which
+   explains why modifying one changes the other.</li>
+</ol>
+<h2>Contracts and exceptions</h2>
+<ol>
+<li>Check that the return type matches what the caller expects. Python's special
+    methods have exact contracts: <code>__str__</code> and <code>__repr__</code> must return <code>str</code>,
+    <code>__len__</code> must return a non-negative <code>int</code>, <code>__bool__</code> must return <code>bool</code> or
+    <code>int</code>, and <code>__init__</code> must return <code>None</code>. Returning the wrong type raises
+    <code>TypeError</code> with a message that names the method.</li>
+<li>Replace a broad <code>except Exception: pass</code> or bare <code>except: pass</code> with
+    <code>logging.exception("caught")</code> to see the actual exception type and message
+    being swallowed. Silent failure is almost never the right choice.</li>
+<li>Introduce a deliberate bug in the code under test, then rerun the test suite.
+    If the tests still pass, no assertion is checking the output that matters.</li>
+<li>Run each test in isolation with <code>pytest path/test_file.py::test_name</code> to
+    verify it does not depend on another test having run first.</li>
+<li>Add <code>print("mock was called")</code> as the first line of a mock or patch to
+    confirm it is actually intercepting the real call instead of leaving the
+    original in place.</li>
+</ol>
+<h2>Data and pipelines</h2>
+<ol>
+<li>Check the exact stored values in a column before writing a filter, e.g.,
+    use <code>SELECT DISTINCT col</code> in SQL or <code>.unique()</code> in a dataframe to confirm the
+    literal strings or numbers the data actually contains, including leading or
+    trailing spaces.</li>
 <li>Count rows before and after each transformation step to detect rows that were
-    silently dropped or duplicated.</li>
-<li>Run <code>python -m cProfile -s cumulative script.py | head -20</code> to find the slow
-    line instead of guessing which part of the code needs optimization.</li>
-<li>Add <code>print("mock was called")</code> as the first line of a mock to confirm it is
-    actually intercepting the real call.</li>
-<li>Open the browser's Network tab and Console tab to see what requests were sent,
-    what status codes came back, and what errors were logged.</li>
-<li>Echo or print the exact arguments a shell command receives before running it on
-    real data — use <code>echo $var</code> or replace a command with <code>echo command</code> to preview
-    what the shell will execute.</li>
-<li>Check HTTP status codes before parsing the response body — a non-200 response
-    often returns HTML, not JSON, so the parse error is a symptom, not the cause.</li>
-<li>Insert <code>.collect()</code> after each step in a Polars lazy pipeline to pin down which
-    transformation is raising an error, rather than waiting for the final collect.</li>
+    silently dropped, duplicated, or merged incorrectly.</li>
+<li>Insert <code>.collect()</code> after each step in a lazy query pipeline to pin down
+    which transformation is raising an error, rather than getting a single
+    traceback from the final collect.</li>
+</ol>
+<h2>Performance</h2>
+<ol>
+<li>Run <code>python -m cProfile -s cumulative script.py | head -20</code> to find the
+    slow function instead of guessing. The cumulative column shows where time
+    actually accumulates, which is rarely where intuition points.</li>
+</ol>
+<h2>Browser and frontend</h2>
+<ol>
+<li>Open the browser's Network tab before reproducing the bug, then reload: the
+    tab records every request, its status code, the request headers, and the
+    response body. Check the Console tab for JavaScript errors at the same time.</li>
+<li>When a CSS rule seems to have no effect, open DevTools, select the element,
+    and look at the Styles panel. A strikethrough means the declaration was
+    overridden by a more specific rule; a warning triangle means the value is
+    invalid and was silently discarded.</li>
+<li>Check the HTTP status code before parsing the response body: a <code>404</code> or
+    <code>422</code> response usually returns HTML or a JSON error object, not the data
+    you expected, so the parse error is a symptom and the status code is the cause.</li>
+</ol>
+<h2>Shell</h2>
+<ol>
+<li>Echo or print the exact string a shell command receives before running it on
+    real data; use <code>echo "$var"</code> to check variable contents, or replace a
+    command with <code>echo</code> to preview what the shell will execute without side effects.</li>
+<li>Sketch the directory tree on paper and count levels before running a command
+    that uses a relative path such as <code>../..</code>, since one extra or missing <code>..</code> quietly
+    reads or writes the wrong directory.</li>
+</ol>
+<h2>Patterns</h2>
+<ol>
 <li>Test a regular expression against known-invalid inputs, not just valid ones,
-    to verify the pattern rejects what it should.</li>
-<li>Sketch the directory tree on paper and count directory levels before running a
-    command that uses a relative path such as <code>../..</code>.</li>
+    to verify the pattern rejects what it should. A pattern that matches
+    everything is not the same as a pattern that matches the right things.</li>
 </ol>
 </main>
 <footer aria-label="Page navigation">
