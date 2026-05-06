@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTMX</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreaking Software</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a class="active" href="../htmx/">HTMX</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>HTMX</h1>
+<p>HTMX lets you add dynamic behavior to HTML pages by putting attributes directly on elements
+rather than writing JavaScript. Each attribute tells the browser when to make a request,
+where to send it, and which part of the page to update with the response.
+Before trying any of these examples, start the server:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>uv run server.py
+</code></pre></div>
+<p>Then open <code>http://localhost:8000</code> in a browser to see the list of examples,
+or navigate directly to <code>http://localhost:8000/&lt;slug&gt;</code> for the one you want.</p>
+<h2 id="htmx-wrongswap">Load data into a display panel</h2>
+<p>Start the server, open the page, and click Load twice.
+Does it keep working after the first click?</p>
+<div data-inc="wrongswap.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/wrongswap.html" class="inc-path" role="img" tabindex="0" title="htmx/wrongswap.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Wrong Swap Mode<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Load data into a display panel<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, then click Load twice.
+     Does it keep working after the first click?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/data"</span>
+          <span class="na">hx-target</span><span class="o">=</span><span class="s">"#panel"</span>
+          <span class="na">hx-swap</span><span class="o">=</span><span class="s">"outerHTML"</span><span class="p">&gt;</span>Load<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"panel"</span><span class="p">&gt;</span>Waiting for data...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-swap="outerHTML"</code> combined with <code>hx-target="#panel"</code>. The first click
+replaces the entire <code>&lt;div id="panel"&gt;</code> element with the server's response <code>&lt;p&gt;Result: 42&lt;/p&gt;</code>.
+That <code>&lt;p&gt;</code> has no <code>id</code> attribute, so after the swap <code>#panel</code> no longer exists in the DOM.
+The second click finds no target and silently does nothing.</p>
+<p>Shows: the difference between <code>innerHTML</code> (replace the contents of the target, leaving
+the element itself in place) and <code>outerHTML</code> (replace the target element entirely).</p>
+<p>To find it: open DevTools, click Load once, then inspect the DOM. If the <code>&lt;div id="panel"&gt;</code>
+is gone and a bare <code>&lt;p&gt;</code> has taken its place, <code>outerHTML</code> swapped out the target itself.
+Change <code>hx-swap="outerHTML"</code> to <code>hx-swap="innerHTML"</code> so the element stays in the DOM
+and the next click can still find it.</p>
+</details>
+<h2 id="htmx-notarget">Show search results on a page</h2>
+<p>Start the server, open the page, and click Search.
+Where do the results appear?</p>
+<div data-inc="notarget.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/notarget.html" class="inc-path" role="img" tabindex="0" title="htmx/notarget.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Missing Target<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show search results on a page<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, then click Search.
+     Where do the results appear?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-post</span><span class="o">=</span><span class="s">"/api/search"</span> <span class="na">hx-swap</span><span class="o">=</span><span class="s">"innerHTML"</span><span class="p">&gt;</span>Search<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"results"</span><span class="p">&gt;</span>Results will appear here.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>hx-target</code> attribute. When no target is specified, HTMX defaults
+to swapping the response into the element that triggered the request — the button itself.
+The button's label is replaced by the results HTML, and the <code>&lt;div id="results"&gt;</code> below
+it stays empty.</p>
+<p>Shows: HTMX's default target behavior and how to use <code>hx-target</code> to direct a response
+to the correct element.</p>
+<p>To find it: inspect the button in DevTools after clicking. If its content has changed to
+a list of results, the response was swapped into the wrong element. Add
+<code>hx-target="#results"</code> to the button so the response lands in the dedicated container.</p>
+</details>
+<h2 id="htmx-indicator">Display a loading message during a slow fetch</h2>
+<p>Start the server, click Fetch, and watch the page during the two-second delay.
+Does any loading message appear?</p>
+<div data-inc="indicator.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/indicator.html" class="inc-path" role="img" tabindex="0" title="htmx/indicator.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Loading Indicator<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">htmx-indicator</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">htmx-request</span><span class="w"> </span><span class="p">.</span><span class="nc">htmx-indicator</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">htmx-request</span><span class="p">.</span><span class="nc">htmx-indicator</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Display a loading message during a slow fetch<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, then click Fetch.
+     Does a loading message appear while the two-second request is in progress?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/slow"</span>
+          <span class="na">hx-target</span><span class="o">=</span><span class="s">"#output"</span>
+          <span class="na">hx-indicator</span><span class="o">=</span><span class="s">"#spinner"</span><span class="p">&gt;</span>Fetch<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"loading"</span> <span class="na">class</span><span class="o">=</span><span class="s">"htmx-indicator"</span><span class="p">&gt;</span>Loading, please wait...<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"output"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-indicator="#spinner"</code> pointing to an element that does not exist.
+The <code>&lt;span&gt;</code> on the page has <code>id="loading"</code>, not <code>id="spinner"</code>. HTMX looks for
+<code>#spinner</code> at request time, finds nothing, and never toggles visibility.</p>
+<p>Shows: how <code>hx-indicator</code> works (HTMX adds <code>htmx-request</code> to the element during the
+request, which the CSS rule converts to <code>display: inline</code>) and why element IDs must match
+exactly.</p>
+<p>To find it: open DevTools and search the DOM for an element with <code>id="spinner"</code>. If none
+exists, the indicator selector is wrong. Change <code>hx-indicator="#spinner"</code> to
+<code>hx-indicator="#loading"</code> to match the actual element.</p>
+</details>
+<h2 id="htmx-trigger">Filter a list as the user types</h2>
+<p>Start the server and watch its terminal output while you type a five-letter word
+one character at a time. How many requests arrive for each character?</p>
+<div data-inc="trigger.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/trigger.html" class="inc-path" role="img" tabindex="0" title="htmx/trigger.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Trigger Too Broad<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Filter a list as the user types<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> and watch its output while you type
+     a five-letter fruit name one key at a time.
+     How many requests does the server receive?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+         <span class="na">name</span><span class="o">=</span><span class="s">"q"</span>
+         <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/suggest"</span>
+         <span class="na">hx-target</span><span class="o">=</span><span class="s">"#suggestions"</span>
+         <span class="na">hx-trigger</span><span class="o">=</span><span class="s">"input"</span>
+         <span class="na">placeholder</span><span class="o">=</span><span class="s">"Type a fruit name"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"suggestions"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-trigger="input"</code>, which fires a new request on every single keystroke.
+Typing "apple" sends five requests in rapid succession. Each one may cancel the previous
+before the user finishes typing, and each one adds server load for a query that will
+be superseded immediately.</p>
+<p>Shows: HTMX trigger modifiers and why a debounce delay matters for search-as-you-type.</p>
+<p>To find it: watch the server log. If a request fires for every character, the trigger
+has no debounce. Change <code>hx-trigger="input"</code> to
+<code>hx-trigger="input changed delay:500ms"</code> to wait until the user pauses before sending.</p>
+</details>
+<h2 id="htmx-submitkey">Search using a text input and a button</h2>
+<p>Start the server. Type a word and press Enter. Then type the same word and click Search.
+Do both produce the same result?</p>
+<div data-inc="submitkey.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/submitkey.html" class="inc-path" role="img" tabindex="0" title="htmx/submitkey.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Submit Key<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Search using a text input and a button<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>. Type a word and press Enter.
+     Then type the same word and click Search.
+     Do both produce the same result?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"/submit"</span> <span class="na">method</span><span class="o">=</span><span class="s">"get"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"query"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Enter a search term"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/results"</span>
+            <span class="na">hx-target</span><span class="o">=</span><span class="s">"#output"</span>
+            <span class="na">hx-include</span><span class="o">=</span><span class="s">"closest form"</span><span class="p">&gt;</span>Search<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"output"</span><span class="p">&gt;</span>Results appear here.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is placing <code>hx-get</code> on the button rather than on the <code>&lt;form&gt;</code> element.
+Clicking the button triggers HTMX and does a partial-page update. Pressing Enter in
+the text field activates the form's native submit action (because no HTMX attribute
+intercepts it), which sends a GET request to <code>/submit</code> and reloads the whole page.</p>
+<p>Shows: where HTMX attributes belong when a form is involved, and how the browser's
+native form submission can bypass HTMX.</p>
+<p>To find it: press Enter in the input and observe whether the page reloads. If it does,
+the form's native <code>action</code> attribute is firing. Move <code>hx-get</code>, <code>hx-target</code>, and
+<code>hx-include</code> from the button to the <code>&lt;form&gt;</code> element so that both Enter and button-click
+go through HTMX.</p>
+</details>
+<h2 id="htmx-getdelete">Remove a record with a button click</h2>
+<p>Start the server and watch its terminal output while clicking Delete.
+Which HTTP method does the server log for each request?</p>
+<div data-inc="getdelete.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/getdelete.html" class="inc-path" role="img" tabindex="0" title="htmx/getdelete.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>GET for Deletion<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Remove a record with a button click<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> and watch its output while clicking Delete.
+     Which HTTP method does the server log for each click?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      Widget #1
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/delete?id=1"</span> <span class="na">hx-target</span><span class="o">=</span><span class="s">"#status"</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      Widget #2
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/delete?id=2"</span> <span class="na">hx-target</span><span class="o">=</span><span class="s">"#status"</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"status"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>hx-get</code> for an operation that deletes data. The HTTP specification
+defines GET as safe and idempotent: it must not change server state, and anything that
+caches or prefetches URLs (a browser, a CDN, a search engine crawler) may issue it
+without the user's knowledge. Using GET for deletion means a prefetcher could
+silently delete records.</p>
+<p>Shows: HTTP method semantics — GET for reading, DELETE (or POST) for removing — and why
+HTMX provides <code>hx-delete</code>, <code>hx-post</code>, and <code>hx-patch</code> as distinct attributes.</p>
+<p>To find it: check the server log after clicking Delete. If it shows <code>GET</code> instead of
+<code>DELETE</code>, the wrong attribute is being used. Replace <code>hx-get="/api/delete?id=1"</code> with
+<code>hx-delete="/api/items/1"</code> and update the server to handle the <code>DELETE</code> method.</p>
+</details>
+<h2 id="htmx-valsjson">Send additional parameters with a request</h2>
+<p>Start the server, click Subscribe, and read the server output.
+Does the server report receiving a <code>plan</code> field?</p>
+<div data-inc="valsjson.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/valsjson.html" class="inc-path" role="img" tabindex="0" title="htmx/valsjson.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Invalid JSON in hx-vals<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Send additional parameters with a request<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, click Subscribe, and read the server output.
+     Did the server receive a <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>plan<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> field?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-post</span><span class="o">=</span><span class="s">"/api/vals"</span>
+          <span class="na">hx-target</span><span class="o">=</span><span class="s">"#output"</span>
+          <span class="na">hx-vals</span><span class="o">=</span><span class="s">"{'plan': 'premium', 'version': 2}"</span><span class="p">&gt;</span>Subscribe<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"output"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using single quotes inside <code>hx-vals</code>. The <code>hx-vals</code> attribute must contain
+valid JSON, and JSON requires double quotes for both keys and string values. HTMX
+calls <code>JSON.parse</code> on the attribute value; when that fails it discards the extra fields
+and sends the request without them. No error appears in the page.</p>
+<p>Shows: JSON syntax (double quotes only) and how to use <code>hx-vals</code> to attach literal
+values to a request.</p>
+<p>To find it: open the browser console and look for a JSON parse error after clicking.
+Change the attribute to use double quotes and single-quote the outer HTML attribute:
+<code>hx-vals='{"plan": "premium", "version": 2}'</code>.</p>
+</details>
+<h2 id="htmx-oob">Update two page areas from a single request</h2>
+<p>Start the server, click the button, and watch the notification area at the bottom.
+Does it update?</p>
+<div data-inc="oob.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/oob.html" class="inc-path" role="img" tabindex="0" title="htmx/oob.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>OOB ID Mismatch<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Update two page areas from a single request<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, click the button.
+     Does the notification area update?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-post</span><span class="o">=</span><span class="s">"/api/action"</span> <span class="na">hx-target</span><span class="o">=</span><span class="s">"#main-area"</span><span class="p">&gt;</span>Do action<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"main-area"</span><span class="p">&gt;</span>Action result appears here.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"notifications"</span><span class="p">&gt;</span>Notifications: (none)<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is an ID mismatch between the server's out-of-band fragment and the element
+on the page. The server returns <code>&lt;div id="notification" hx-swap-oob="true"&gt;</code>, but
+the page has <code>&lt;div id="notifications"&gt;</code> (plural). HTMX looks for an element whose
+<code>id</code> matches exactly, finds none, and silently discards the OOB fragment.</p>
+<p>Shows: how out-of-band swaps work (<code>hx-swap-oob</code> targets an existing page element by
+<code>id</code>) and why typos in IDs fail without any visible error.</p>
+<p>To find it: search the server response in DevTools' Network tab for the OOB fragment.
+Compare its <code>id</code> attribute to the <code>id</code> on the element you expect to update. Fix
+whichever is wrong so the two match.</p>
+</details>
+<h2 id="htmx-pushurl">Keep the URL bar in sync with displayed content</h2>
+<p>Start the server, click View Items, then reload the page.
+What does the browser display after the reload?</p>
+<div data-inc="pushurl.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/pushurl.html" class="inc-path" role="img" tabindex="0" title="htmx/pushurl.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Push URL<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Keep the URL bar in sync with displayed content<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, click View Items, then reload the page.
+     What does the browser show after the reload?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/items"</span>
+          <span class="na">hx-target</span><span class="o">=</span><span class="s">"#content"</span>
+          <span class="na">hx-push-url</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>View Items<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>Click the button to load items.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-push-url="true"</code> on a request that targets an API endpoint. After the
+click the URL bar shows <code>/api/items</code>. Reloading the page sends a fresh GET request to
+<code>/api/items</code>, which returns a bare <code>&lt;ul&gt;</code> fragment — no <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, or <code>&lt;body&gt;</code>.
+The browser displays raw HTML tags or a blank page.</p>
+<p>Shows: what <code>hx-push-url</code> does (it changes the browser's URL history entry) and why the
+pushed URL must correspond to a real page that returns a full HTML document.</p>
+<p>To find it: after clicking, copy the URL from the address bar and paste it into a new
+tab. If you see a fragment instead of a page, the URL should not have been pushed.
+Use <code>hx-push-url="/items"</code> where <code>/items</code> returns a complete page, or remove
+<code>hx-push-url</code> entirely if history support is not needed.</p>
+</details>
+<h2 id="htmx-boost">Add HTMX to a page with existing links</h2>
+<p>Start the server, open <code>http://localhost:8000/boost</code>, and click "Download CSV".
+Does the file download, or does something else happen?</p>
+<div data-inc="boost.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/boost.html" class="inc-path" role="img" tabindex="0" title="htmx/boost.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>hx-boost and Downloads<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Add HTMX to a page with existing links<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, open <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>http://localhost:8000/boost<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>,
+     then click "Download CSV".
+     Does the file download, or does something else happen?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">hx-boost</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"/wrongswap"</span><span class="p">&gt;</span>Example page<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="ni">&amp;bull;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"/download"</span><span class="p">&gt;</span>Download CSV<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Main page content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-boost="true"</code> on a <code>&lt;nav&gt;</code> that contains a download link. <code>hx-boost</code>
+converts every link click in the container into an HTMX <code>GET</code> request that swaps the
+response body into the current page. When the download link is clicked, HTMX fetches
+<code>/download</code> via XHR. The browser's built-in download behavior only triggers during
+direct navigation, not XHR, so <code>Content-Disposition: attachment</code> is ignored and the
+raw CSV text is swapped into the page instead of saved as a file.</p>
+<p>Shows: what <code>hx-boost</code> does to link clicks and that some links must remain as plain
+navigation to work correctly.</p>
+<p>To find it: add <code>hx-boost="false"</code> to the download link itself, which opts that
+element out of the boosted container. HTMX respects this override and lets the browser
+handle the click normally.</p>
+</details>
+<h2 id="htmx-include">Search using fields from a form</h2>
+<p>Start the server, type a category, click Search, and read the server output.
+Which fields did the server receive?</p>
+<div data-inc="include.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/include.html" class="inc-path" role="img" tabindex="0" title="htmx/include.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>hx-include Too Broad<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Search using fields from a form<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, type a category and click Search.
+     Read the server output. Which fields did it receive?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"search-form"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Category: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"category"</span> <span class="na">value</span><span class="o">=</span><span class="s">"books"</span><span class="p">&gt;&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-post</span><span class="o">=</span><span class="s">"/api/search-fields"</span>
+          <span class="na">hx-target</span><span class="o">=</span><span class="s">"#output"</span>
+          <span class="na">hx-include</span><span class="o">=</span><span class="s">"input"</span><span class="p">&gt;</span>Search<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"output"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"admin-form"</span> <span class="na">style</span><span class="o">=</span><span class="s">"display:none"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"admin_token"</span> <span class="na">value</span><span class="o">=</span><span class="s">"secret-abc123"</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>hx-include="input"</code>, which is a CSS selector matching every <code>&lt;input&gt;</code>
+element on the entire page. The hidden <code>admin_token</code> field in the second form is
+included and sent to the server alongside <code>category</code>, even though it belongs to a
+completely different form that should never be submitted here.</p>
+<p>Shows: how <code>hx-include</code> selectors work and why an overly broad selector can leak
+data you did not intend to send.</p>
+<p>To find it: look at the server log. If it shows fields you did not expect, the
+selector is too broad. Replace <code>hx-include="input"</code> with
+<code>hx-include="#search-form input"</code> (or <code>hx-include="closest form"</code> if the button
+is inside the form) to include only the intended fields.</p>
+</details>
+<h2 id="htmx-hxtrigger">Refresh a list when a new item is added</h2>
+<p>Start the server, add several items using the form, and watch the list below the form.
+Does it update after each addition?</p>
+<div data-inc="hxtrigger.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: htmx/hxtrigger.html" class="inc-path" role="img" tabindex="0" title="htmx/hxtrigger.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Missing HX-Trigger Header<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://unpkg.com/htmx.org@2.0.4"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Refresh a list when a new item is added<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, add a few items using the form.
+     Does the list below update automatically after each addition?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">hx-post</span><span class="o">=</span><span class="s">"/api/add-item"</span> <span class="na">hx-target</span><span class="o">=</span><span class="s">"#add-status"</span> <span class="na">hx-swap</span><span class="o">=</span><span class="s">"innerHTML"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"name"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Item name"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Add Item<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"add-status"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Current items<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">"item-list"</span>
+      <span class="na">hx-get</span><span class="o">=</span><span class="s">"/api/items-list"</span>
+      <span class="na">hx-trigger</span><span class="o">=</span><span class="s">"load, itemAdded from:body"</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is on the server side. The <code>&lt;ul&gt;</code> listens for an <code>itemAdded</code> event dispatched
+from the body (<code>hx-trigger="load, itemAdded from:body"</code>). HTMX fires that event when
+it receives a response that includes the header <code>HX-Trigger: itemAdded</code>. The server's
+<code>POST /api/add-item</code> handler does not send that header, so the event never fires and
+the list only loads once (on page load) and never again.</p>
+<p>Shows: the <code>HX-Trigger</code> response header as a server-to-client signaling mechanism,
+and how HTMX can coordinate multiple page elements without JavaScript.</p>
+<p>To find it: inspect the response headers for <code>POST /api/add-item</code> in DevTools' Network
+tab. If <code>HX-Trigger</code> is absent, the server is not sending the signal. Add the header
+to the response:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">"HX-Trigger"</span><span class="p">,</span> <span class="s2">"itemAdded"</span><span class="p">)</span>
+</code></pre></div>
+<p>The list will then re-fetch itself automatically after every successful addition.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../web/">HTTP and APIs</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../datasci/">Data Science</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
