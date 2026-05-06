@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FastAPI</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreaking Software</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../htmx/">HTMX</a></li>
+<li><a class="active" href="../fastapi/">FastAPI</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>FastAPI</h1>
+<p>FastAPI is a Python framework for building web APIs.
+You describe each endpoint as a function, annotate its parameters with types,
+and FastAPI handles routing, validation, and serialization automatically.
+Each exercise here uses two files: a server and a client.
+Open one terminal, start the server with <code>uv run &lt;slug&gt;_server.py</code>,
+then open a second terminal and run the client with <code>uv run &lt;slug&gt;_client.py</code>.
+Read both files before deciding where the bug is.</p>
+<h2 id="fastapi-wrongstatus">Check whether a new resource was created</h2>
+<p>Start the server, run the client, and read the output.
+The client says the request failed, but did it?
+Check the server terminal for any error messages.</p>
+<div data-inc="wrongstatus_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/wrongstatus_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/wrongstatus_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/items"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="wrongstatus_client.py"><span aria-label="Source: fastapi/wrongstatus_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/wrongstatus_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"http://localhost:8000/items"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"widget"</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"created:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"request failed with status </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>status_code=201</code> argument on the <code>@app.post</code> decorator.
+FastAPI defaults to <code>200 OK</code> for every route.
+A POST that creates a resource should return <code>201 Created</code>,
+and the client correctly checks for <code>201</code>, so the check fails
+even though the item was created.</p>
+<p>Shows: the range of 2xx status codes, when each is appropriate, and how to
+set a non-default status with <code>@app.post("/items", status_code=201)</code>.</p>
+<p>To find it: print <code>r.status_code</code> in the client.
+If it prints <code>200</code> for a creation endpoint,
+check the decorator for a missing <code>status_code=201</code> argument.</p>
+</details>
+<h2 id="fastapi-pathtype">Retrieve an item by its identifier</h2>
+<p>Start the server, run the client, and read the output.
+Every item comes back as "not found" even though the items exist.
+What type does the server use to look up items?</p>
+<div data-inc="pathtype_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/pathtype_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/pathtype_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">ITEMS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">"apple"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">"cherry"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items/</span><span class="si">{item_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">ITEMS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">ITEMS</span><span class="p">[</span><span class="n">item_id</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"not found"</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="pathtype_client.py"><span aria-label="Source: fastapi/pathtype_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/pathtype_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="k">for</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://localhost:8000/items/</span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"item </span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is declaring <code>item_id: str</code> in the route function.
+FastAPI parses the path segment and passes a string to the handler,
+but <code>ITEMS</code> uses integer keys.
+The expression <code>"3" in ITEMS</code> is always <code>False</code> because <code>"3" != 3</code>.</p>
+<p>Shows: how FastAPI's type annotations do more than document—they control
+parsing; changing <code>str</code> to <code>int</code> makes FastAPI convert the path segment
+before calling the handler.</p>
+<p>To find it: add <code>print(type(item_id), item_id, type(list(ITEMS.keys())[0]))</code> at
+the top of the handler.
+If the types differ, the annotation is wrong.</p>
+</details>
+<h2 id="fastapi-queryrequired">Search a catalogue with a required filter</h2>
+<p>Start the server, run the client, and read the output.
+The client prints a status code and a response body: are either what you expected?</p>
+<div data-inc="queryrequired_server.py"><span aria-label="Source: fastapi/queryrequired_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/queryrequired_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/search"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"category"</span><span class="p">:</span> <span class="n">category</span><span class="p">,</span> <span class="s2">"results"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="queryrequired_client.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/queryrequired_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/queryrequired_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/search"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is omitting the <code>category</code> query parameter in the client.
+FastAPI treats any function parameter that is not a path parameter and has
+no default value as a required query parameter.
+When the parameter is absent the server returns <code>422 Unprocessable Entity</code>
+with a JSON body describing the validation error.</p>
+<p>Shows: how FastAPI validates incoming requests before calling the handler,
+and how to give a parameter a default value (<code>category: str = ""</code>) to make
+it optional.</p>
+<p>To find it: print <code>r.status_code</code>.
+A <code>422</code> means the request was malformed.
+The <code>r.json()["detail"]</code> list names each missing or invalid field.</p>
+</details>
+<h2 id="fastapi-putpatch">Update the price of an existing item</h2>
+<p>Start the server, run the client, and compare the "before" and "after" output.
+Which fields changed that you did not intend to change?</p>
+<div data-inc="putpatch_server.py"><span aria-label="Source: fastapi/putpatch_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/putpatch_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">in_stock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">STORE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Item</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"widget"</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mf">9.99</span><span class="p">,</span> <span class="n">in_stock</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items/</span><span class="si">{item_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">STORE</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">item</span> <span class="k">if</span> <span class="n">item</span> <span class="k">else</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"not found"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">"/items/</span><span class="si">{item_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">STORE</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="n">STORE</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="putpatch_client.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/putpatch_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/putpatch_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/items/1"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"before:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">"http://localhost:8000/items/1"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"widget v2"</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"after: "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using PUT with a partial body.
+PUT replaces the entire resource with the supplied body.
+Any field not included in the request resets to its model default,
+so <code>price</code> goes from <code>9.99</code> to <code>0.0</code> and <code>in_stock</code> stays <code>True</code> only
+by coincidence; the original value is gone.</p>
+<p>Shows: the semantic difference between PUT (full replacement) and PATCH
+(partial update), and why sending only the fields you want to change requires
+a PATCH endpoint that merges the incoming data with the stored record.</p>
+<p>To find it: fetch and print the item before and after.
+If fields you did not mention in the request body have changed,
+PUT replaced the whole resource.</p>
+</details>
+<h2 id="fastapi-bodyasquery">Place an order through the API</h2>
+<p>Start the server, run the client, and read the output.
+The server returns an error even though the client sends the right data.
+Where in the HTTP request does the data actually end up?</p>
+<div data-inc="bodyasquery_server.py"><span aria-label="Source: fastapi/bodyasquery_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/bodyasquery_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Order</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">product</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/orders"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">place_order</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"product"</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">product</span><span class="p">,</span> <span class="s2">"quantity"</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">quantity</span><span class="p">,</span> <span class="s2">"total"</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">quantity</span> <span class="o">*</span> <span class="mi">5</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="bodyasquery_client.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/bodyasquery_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/bodyasquery_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">"http://localhost:8000/orders"</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"product"</span><span class="p">:</span> <span class="s2">"widget"</span><span class="p">,</span> <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>params=</code> in the POST call.
+<code>params=</code> appends key-value pairs to the URL query string.
+The server declares an <code>Order</code> Pydantic model, which tells FastAPI to look
+for a JSON body, not query parameters.
+Because the body is empty, FastAPI returns <code>422 Unprocessable Entity</code>.</p>
+<p>Shows: the difference between <code>params=</code> (query string), <code>data=</code> (form body),
+and <code>json=</code> (JSON body), and how to read the full request URL to confirm
+where data was sent.</p>
+<p>To find it: print <code>str(r.request.url)</code>.
+If the product and quantity appear after a <code>?</code> in the URL,
+the data was sent as query parameters.
+Change <code>params=</code> to <code>json=</code>.</p>
+</details>
+<h2 id="fastapi-routeorder">Navigate to a form for creating new items</h2>
+<p>Start the server, run the client, and read the response.
+Which route actually handled the request?</p>
+<div data-inc="routeorder_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/routeorder_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/routeorder_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">ITEMS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">"apple"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"banana"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items/</span><span class="si">{item_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"item_id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">"matched"</span><span class="p">:</span> <span class="s2">"parameterized route"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items/new"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">new_item_form</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">:</span> <span class="s2">"ready to create a new item"</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="routeorder_client.py"><span aria-label="Source: fastapi/routeorder_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/routeorder_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/items/new"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is declaring the parameterized route <code>/items/{item_id}</code> before the
+static route <code>/items/new</code>.
+FastAPI registers routes in the order they appear in the source and stops
+at the first match, so the string <code>"new"</code> is captured as <code>item_id</code> and the
+<code>/items/new</code> handler is never reached.</p>
+<p>Shows: how route registration order matters in FastAPI and why specific routes
+must be declared before parameterized ones that could absorb them.</p>
+<p>To find it: move <code>@app.get("/items/new")</code> above <code>@app.get("/items/{item_id}")</code>
+and rerun the client.</p>
+</details>
+<h2 id="fastapi-asyncblocking">Serve slow and fast endpoints concurrently</h2>
+<p>Start the server, run the client, and read the elapsed time.
+Both requests are sent almost simultaneously, so why does the fast one wait?</p>
+<div data-inc="asyncblocking_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/asyncblocking_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/asyncblocking_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/slow"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">slow</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"result"</span><span class="p">:</span> <span class="s2">"done"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/fast"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fast</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"result"</span><span class="p">:</span> <span class="s2">"immediate"</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="asyncblocking_client.py"><span aria-label="Source: fastapi/asyncblocking_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/asyncblocking_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+        <span class="n">slow_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/slow"</span><span class="p">))</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">fast_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/fast"</span><span class="p">))</span>
+        <span class="n">slow_r</span><span class="p">,</span> <span class="n">fast_r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">slow_task</span><span class="p">,</span> <span class="n">fast_task</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/slow: </span><span class="si">{</span><span class="n">slow_r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="si">}</span><span class="s2">  /fast: </span><span class="si">{</span><span class="n">fast_r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"total elapsed: </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s (expect ~2s if event loop was blocked)"</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is calling <code>time.sleep()</code> inside an <code>async def</code> route.
+<code>time.sleep()</code> is a blocking call that holds the CPU and prevents the event
+loop from running any other coroutine.
+While <code>/slow</code> is sleeping, <code>/fast</code> cannot be handled until the sleep finishes,
+even though it only needs a microsecond.</p>
+<p>Shows: the difference between blocking (<code>time.sleep</code>) and non-blocking
+(<code>asyncio.sleep</code>) waits, and why blocking code in an async route defeats
+the concurrency model.</p>
+<p>To find it: replace <code>time.sleep(2)</code> with <code>await asyncio.sleep(2)</code> and rerun
+the client.
+The elapsed time will drop to just over 2 seconds and <code>/fast</code> will respond
+immediately.</p>
+</details>
+<h2 id="fastapi-startupstate">Count requests to an endpoint</h2>
+<p>Start the server, run the client five times in a row, and read the output.
+What value does the counter hold on every call?</p>
+<div data-inc="startupstate_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/startupstate_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/startupstate_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/count"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"count"</span><span class="p">:</span> <span class="n">counter</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="startupstate_client.py"><span aria-label="Source: fastapi/startupstate_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/startupstate_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/count"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"call </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is initializing <code>counter = 0</code> inside the route handler.
+Python re-executes the assignment on every request, so the counter always
+starts at zero and is incremented to one before being returned.
+It never accumulates across calls.</p>
+<p>Shows: the difference between module-level state (created once when the
+module loads) and function-local state (created fresh on every call).</p>
+<p>To find it: move <code>counter = 0</code> to module level (outside the function) and
+declare it <code>global</code> inside the handler before modifying it.
+The counter will then persist between requests.</p>
+</details>
+<h2 id="fastapi-noexcept">Look up an item that may not exist</h2>
+<p>Start the server, run the client, and compare the status codes for item 1 and item 99.
+What does item 99's response look like?</p>
+<div data-inc="noexcept_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/noexcept_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/noexcept_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">ITEMS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">"apple"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"banana"</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items/</span><span class="si">{item_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ITEMS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="noexcept_client.py"><span aria-label="Source: fastapi/noexcept_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/noexcept_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="k">for</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">]:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://localhost:8000/items/</span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"item </span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">: status=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">  body=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is returning the result of <code>dict.get()</code> directly.
+When <code>item_id</code> is not in <code>ITEMS</code>, <code>get()</code> returns <code>None</code>,
+and FastAPI serializes <code>None</code> as the JSON literal <code>null</code> with a <code>200 OK</code>
+status code.
+A client has no way to distinguish "found, value is null" from "not found".</p>
+<p>Shows: how to raise <code>HTTPException(status_code=404, detail="not found")</code> so
+FastAPI returns a proper <code>404 Not Found</code> response with a JSON error body.</p>
+<p>To find it: check <code>r.status_code</code> for the missing item.
+If it is <code>200</code> with body <code>null</code>, the handler returned <code>None</code> instead of
+raising an exception.</p>
+</details>
+<h2 id="fastapi-cors">Allow a browser on another origin to call the API</h2>
+<p>Start the server, run the client, and read the output.
+Which header is missing from the response, and why does that matter for browsers?</p>
+<div data-inc="cors_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/cors_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/cors_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/data"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="cors_client.py"><span aria-label="Source: fastapi/cors_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/cors_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">"http://localhost:8000/data"</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Origin"</span><span class="p">:</span> <span class="s2">"http://example.com"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="n">allow</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"access-control-allow-origin"</span><span class="p">,</span> <span class="s2">"(missing)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Access-Control-Allow-Origin:"</span><span class="p">,</span> <span class="n">allow</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">allow</span> <span class="o">==</span> <span class="s2">"(missing)"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"A browser making a cross-origin request would block this response."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is missing CORS middleware.
+Browsers enforce the Same-Origin Policy: a page at <code>http://example.com</code> may
+not read a response from <code>http://localhost:8000</code> unless the server includes
+an <code>Access-Control-Allow-Origin</code> header granting permission.
+Without <code>CORSMiddleware</code>, FastAPI never sends that header and any browser
+making the request will block the response.</p>
+<p>Shows: how to add <code>CORSMiddleware</code> with <code>allow_origins</code>, <code>allow_methods</code>, and
+<code>allow_headers</code>, and why the <code>Origin</code> header in the client request triggers
+the CORS check.</p>
+<p>To find it: add <code>from fastapi.middleware.cors import CORSMiddleware</code> and call
+<code>app.add_middleware(CORSMiddleware, allow_origins=["*"])</code>.
+Rerun the client and confirm the <code>Access-Control-Allow-Origin</code> header now
+appears.</p>
+</details>
+<h2 id="fastapi-extrafields">Submit an item with its price</h2>
+<p>Start the server, run the client, and read the response.
+What price did the server record?
+Is it what the client sent?</p>
+<div data-inc="extrafields_server.py"><span aria-label="Source: fastapi/extrafields_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/extrafields_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/items"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"received"</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="extrafields_client.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/extrafields_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/extrafields_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">"http://localhost:8000/items"</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"widget"</span><span class="p">,</span> <span class="s2">"prise"</span><span class="p">:</span> <span class="mf">9.99</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a typo: <code>"prise"</code> instead of <code>"price"</code>.
+Pydantic's default behaviour is to ignore extra fields it does not recognise,
+so the misspelled key is silently discarded.
+<code>price</code> has a default of <code>0.0</code>, so the server receives <code>price=0.0</code> with no
+error or warning.</p>
+<p>Shows: how to configure Pydantic to reject unknown fields with
+<code>model_config = ConfigDict(extra="forbid")</code>, which would turn this silent
+data-loss into an immediate <code>422</code> error.</p>
+<p>To find it: compare the keys you sent (<code>prise</code>) against the model's field
+names (<code>price</code>).
+If you set <code>extra="forbid"</code> in the model config, Pydantic raises the error
+for you automatically.</p>
+</details>
+<h2 id="fastapi-responsemodel">Return an item with its tracking code</h2>
+<p>Start the server, run the client, and read the response.
+Which field is missing from the response even though you sent it in the request?</p>
+<div data-inc="responsemodel_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/responsemodel_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/responsemodel_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ItemIn</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">internal_code</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ItemOut</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="n">STORE</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ItemIn</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/items"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ItemOut</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">ItemIn</span><span class="p">):</span>
+    <span class="n">STORE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">item</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="responsemodel_client.py"><span aria-label="Source: fastapi/responsemodel_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/responsemodel_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">"http://localhost:8000/items"</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"widget"</span><span class="p">,</span> <span class="s2">"price"</span><span class="p">:</span> <span class="mf">9.99</span><span class="p">,</span> <span class="s2">"internal_code"</span><span class="p">:</span> <span class="s2">"W-42"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"response:"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"internal_code:"</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"internal_code"</span><span class="p">,</span> <span class="s2">"(missing)"</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>ItemOut</code> does not include <code>internal_code</code>.
+<code>response_model=ItemOut</code> tells FastAPI to filter every response through that
+schema before sending it.
+Any field in the return value that is not declared in <code>ItemOut</code> is silently
+dropped with no error and no warning.</p>
+<p>Shows: how <code>response_model</code> controls the output schema independently of the
+input schema, and how to include a field in the response model when clients
+need it.</p>
+<p>To find it: add <code>internal_code: str</code> to <code>ItemOut</code> and rerun the client.
+The field will appear in the response.</p>
+</details>
+<h2 id="fastapi-authquery">Fetch protected data with an API key</h2>
+<p>Start the server, run the client, and look at the URL the client actually sent.
+Where does the secret appear?</p>
+<div data-inc="authquery_server.py"><span aria-label="Source: fastapi/authquery_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/authquery_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">SECRET</span> <span class="o">=</span> <span class="s2">"s3cr3t"</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/data"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">api_key</span> <span class="o">!=</span> <span class="n">SECRET</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"unauthorized"</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  request URL logged by server: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="authquery_client.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/authquery_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/authquery_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"s3cr3t"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://localhost:8000/data"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">API_KEY</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"URL sent (check for the key):"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is putting the API key in the URL query string with <code>params=</code>.
+The full URL, including the key, is recorded in every server access log,
+stored in browser history, and forwarded by HTTP proxies.
+A key that appears in URLs is not secret for long.</p>
+<p>Shows: how to send credentials in an <code>Authorization</code> header
+(<code>headers={"Authorization": f"Bearer {API_KEY}"}</code>) where they are kept out
+of logs and not cached by browsers.</p>
+<p>To find it: print <code>str(r.request.url)</code>.
+If the secret appears after <code>?api_key=</code>, it will be logged.
+Switch to a header.</p>
+</details>
+<h2 id="fastapi-middleware">Log the body of every incoming request</h2>
+<p>Start the server, run the client, and compare what the middleware prints to what
+the route handler returns.
+Are they the same?</p>
+<div data-inc="middleware_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/middleware_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/middleware_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">middleware</span><span class="p">(</span><span class="s2">"http"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">log_body</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">call_next</span><span class="p">):</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  middleware read: </span><span class="si">{</span><span class="n">body</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">call_next</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/echo"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">echo</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"received"</span><span class="p">:</span> <span class="n">body</span><span class="o">.</span><span class="n">decode</span><span class="p">()}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="middleware_client.py"><span aria-label="Source: fastapi/middleware_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/middleware_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"http://localhost:8000/echo"</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s2">"hello world"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"response:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is calling <code>await request.body()</code> in the middleware without caching
+the result.
+<code>request.body()</code> reads from the underlying stream, which can only be consumed
+once.
+When the route handler calls <code>request.body()</code> it gets back <code>b""</code> because
+the stream is exhausted.</p>
+<p>Shows: how to cache the body after reading it with
+<code>request._body = body</code> so the stream appears to be re-readable by downstream
+handlers.</p>
+<p>To find it: add a print of <code>await request.body()</code> inside the route and compare
+it with what the middleware printed.
+If the route sees an empty body while the middleware saw the real one, the
+stream was consumed and not cached.</p>
+</details>
+<h2 id="fastapi-routerprefix">List all items through the API router</h2>
+<p>Start the server, run the client, and read the status codes.
+Which path actually works?</p>
+<div data-inc="routerprefix_server.py" data-scrub="\s*# BUG.*"><span aria-label="Source: fastapi/routerprefix_server.py" class="inc-path" role="img" tabindex="0" title="fastapi/routerprefix_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.routing</span><span class="w"> </span><span class="kn">import</span> <span class="n">APIRouter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"/api"</span><span class="p">)</span>
+
+
+<span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/items"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">]}</span>
+
+
+<span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"/api"</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="routerprefix_client.py"><span aria-label="Source: fastapi/routerprefix_client.py" class="inc-path" role="img" tabindex="0" title="fastapi/routerprefix_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"/api/items"</span><span class="p">,</span> <span class="s2">"/api/api/items"</span><span class="p">]:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://localhost:8000</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GET </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: status=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">  body=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">60</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is setting <code>prefix="/api"</code> in both the <code>APIRouter</code> constructor and the
+<code>include_router</code> call.
+FastAPI concatenates the two prefixes, so the registered path is
+<code>/api/api/items</code> rather than <code>/api/items</code>.
+The intended path returns <code>404</code> while the doubled path returns <code>200</code>.</p>
+<p>Shows: how FastAPI builds full paths by joining the app's base, the
+<code>include_router</code> prefix, and the router's own prefix, and why a prefix should
+appear in only one of those two places.</p>
+<p>To find it: call <code>print([r.path for r in app.routes])</code> after the
+<code>include_router</code> call and before <code>uvicorn.run</code>.
+The registered path will show the duplication.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../htmx/">HTMX</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../datasci/">Data Science</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

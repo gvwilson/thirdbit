@@ -1,0 +1,148 @@
+---
+title: "Public Subsidy, Private Profit"
+date: 2026-05-05
+category: sdgc
+---
+
+When Steve Jobs unveiled the iPhone in January 2007,
+the crowd responded as if Apple had conjured something from nothing.
+What neither Jobs nor the press mentioned was that
+every technology in that device had been developed with government money.
+The internet it connected to had been built by the Defense Advanced Research Projects Agency.
+The GPS it used had been developed and maintained by the US Air Force,
+which had turned off the deliberate signal degradation for civilian users only seven years earlier.
+Its touchscreen came from research supported by the National Science Foundation,
+which Apple had acquired by buying a small company called FingerWorks in 2005.
+Siri, added to the iPhone 4S in 2011, had started as a DARPA-funded project at SRI International.
+The government took the risk;
+the investors who held Apple stock reaped the benefits.
+
+This pattern is not unique to Apple.
+The internet began as ARPANET, a network funded by the Department of Defense from 1969
+to connect university research computers.
+The initial packet-switching protocols,
+the domain name system,
+and the basic architecture of what became the web
+were all developed in publicly funded laboratories and universities.
+The commercial internet of the 1990s built on this foundation without paying for it.
+The browser itself emerged from the National Center for Supercomputing Applications,
+funded by the National Science Foundation.
+Mosaic was not a startup product:
+It was a research project paid for by American taxpayers.
+
+The drug industry runs the same arrangement at enormous scale.
+The National Institutes of Health spends roughly $47 billion annually on biomedical research.
+Much of this money funds the basic science
+that pharmaceutical companies would not fund themselves because the returns are too distant and uncertain.
+When that basic science produces a promising compound,
+private companies license it, conduct clinical trials, and patent the result.
+The public paid for the underlying knowledge.
+The private company captures the patent and sets the price.
+Unlike every other wealthy country.
+the United States has no legal mechanism to negotiate that price.
+As a result,
+insulin costs American patients ten times what Canadians pay.
+
+<div class="callout" markdown="1">
+
+The mRNA vaccine platform that produced the Pfizer-BioNTech and Moderna COVID-19 vaccines
+illustrates this dynamic precisely.
+The fundamental science of mRNA delivery
+was developed over decades by Katalin Karikó and Drew Weissman at the University of Pennsylvania,
+supported by the National Institutes of Health.
+When COVID-19 hit,
+the US government funded the clinical trials and pre-purchased hundreds of millions of doses
+before any vaccine had received authorization.
+The government provided the science, the capital, and the guaranteed market.
+Moderna became a $200 billion company,
+and its executives became very rich.
+The NIH's claim to a share of the intellectual property—which
+would have given the government some leverage over pricing—was
+disputed by Moderna and ultimately not enforced.
+
+</div>
+
+The economist Mariana Mazzucato has called this arrangement
+the privatization of gains and the socialization of losses.
+Her argument is not that private companies add no value:
+they obviously do, in manufacturing, distribution, and application.
+Her argument is that
+the standard story of heroic private entrepreneurs taking risks that timid governments would never accept
+inverts the actual history.
+Governments took the foundational risks
+by funding research that might produce nothing,
+maintaining infrastructure that would not attract private capital,
+and training the scientists and engineers that firms would later hire.
+Technology transfer moves the results into private hands,
+almost always at prices that dramatically undervalue the public's investment.
+
+The tech companies that have benefited most from publicly funded research
+are also among the most sophisticated users of international tax structures
+designed to minimize what they pay back into the public systems that enabled them.
+Apple's arrangements in Ireland,
+described in a 2016 European Commission ruling,
+allowed the company to pay an effective tax rate of 0.005% on European profits.
+Over and over,
+public investment creates the technology,
+private firms capture the profits,
+and international tax structures ensure that
+only a tiny fraction of those profits flow back into the public budget.
+The cycle is effectively a permanent subsidy.
+
+The arrangement looks different in Europe,
+partly because European governments built in mechanisms that Americans left out.
+Germany's Fraunhofer-Gesellschaft,
+a network of applied research institutes funded jointly by the federal government,
+state governments,
+and industry,
+licenses its discoveries under terms that return revenue to the institutes themselves
+rather than transferring intellectual property to private buyers at knockdown prices.
+The European Medicines Agency negotiates drug prices on behalf of member states,
+which is why the same cancer drugs that cost American patients six figures a year
+cost Germans and French patients a fraction of that.
+When Moderna tried to sell COVID-19 vaccines to the European Union,
+EU negotiators paid roughly half the per-dose price that American buyers paid,
+for the same product developed with the same publicly funded science.
+The European model still lets private firms profit substantially from public investment.
+What it does not do is treat the transfer as a gift.
+
+China has taken a third path that makes the American arrangement look like an oversight rather than a design.
+Programs like Made in China 2025, announced in 2015,
+identify strategic industries like semiconductors, electric vehicles, robotics, and artificial intelligence,
+and pour in state capital with the explicit goal of domestic ownership of the results,
+not just the benefits.
+Companies like CATL,
+which now supplies roughly a third of the world's electric vehicle batteries,
+grew to global scale with protected home markets and state-backed financing before competing internationally.
+The distinction between public and private in this system is deliberately blurry:
+the government can require access to technology developed with state support,
+block the international transfer of profits,
+and redirect corporate strategy in ways that American or European regulators legally cannot.
+This does solve the problem Mazzucato describes,
+since the state that takes the foundational risk never fully loses its claim on the result.
+It creates a different problem, though:
+accountability runs upward to the Communist Party rather than outward to citizens,
+and the line between a national champion and an instrument of state policy disappears entirely.
+
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+
+<span id="Acemoglu2023">Acemoglu2023</span>
+:   Daron Acemoglu and Simon Johnson:
+    *Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity*.
+    PublicAffairs,
+    2023,
+    978-1541702530.
+
+<span id="Chang2012">Chang2012</span>
+:   Ha-Joon Chang:
+    *23 Things They Don't Tell You About Capitalism*.
+    Bloomsbury,
+    2012,
+    978-1608193387.
+
+<span id="Mazzucato2013">Mazzucato2013</span>
+:   Mariana Mazzucato:
+    *The Entrepreneurial State: Debunking Public vs. Private Sector Myths*.
+    PublicAffairs,
+    2015,
+    978-1610396134.

@@ -92,7 +92,7 @@ this made it an influential voice in debates about vaccine distribution,
 intellectual property waivers for low-income countries,
 and global health system priorities.
 The fact that this power was exercised with what donors believe are good intentions
-does not chnage the fact that they lack the democratic legitimacy of public institutions.
+does not change the fact that they lack the democratic legitimacy of public institutions.
 
 *[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
