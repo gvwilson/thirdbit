@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alpine.js</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreaking Software</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../htmx/">HTMX</a></li>
+<li><a class="active" href="../alpine/">Alpine.js</a></li>
+<li><a href="../fastapi/">FastAPI</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Alpine.js</h1>
+<p>Alpine.js lets you add reactive behavior to HTML pages by writing <code>x-data</code>, <code>x-bind</code>,
+and <code>x-on</code> attributes directly on elements. It evaluates those attributes in a reactive
+scope it creates and manages, which means the rules about what is in scope and when
+updates happen are subtler than they first appear.
+Before trying any of these examples, start the server:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>uv run server.py
+</code></pre></div>
+<p>Then open <code>http://localhost:8000</code> in a browser to see the list of examples,
+or navigate directly to <code>http://localhost:8000/&lt;slug&gt;</code> for the one you want.</p>
+<h2 id="alpine-wrongscope">Toggle a message with a button</h2>
+<p>Open the page and click Toggle.
+Does the message appear?</p>
+<div data-inc="wrongscope.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/wrongscope.html" class="inc-path" role="img" tabindex="0" title="alpine/wrongscope.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Wrong Scope<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Toggle a message with a button<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click the button. Does the message appear?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ visible: false }"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">x-show</span><span class="o">=</span><span class="s">"visible"</span><span class="p">&gt;</span>Hello, Alpine!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"visible = !visible"</span><span class="p">&gt;</span>Toggle<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is placing <code>x-data="{ visible: false }"</code> on an inner <code>&lt;span&gt;</code> while
+putting <code>x-show="visible"</code> and <code>@click</code> on the outer <code>&lt;div&gt;</code>. Alpine directives
+can only read data from <code>x-data</code> defined on the same element or one of its
+ancestors. A child's <code>x-data</code> is invisible to its parent's directives, so
+<code>visible</code> is undefined in the outer scope and nothing happens.</p>
+<p>Shows: Alpine's scope model — <code>x-data</code> creates a component boundary; everything
+inside it shares that scope, but nothing outside it does.</p>
+<p>To find it: open DevTools, click Toggle, and watch the console for an "undefined"
+reference. Move <code>x-data="{ visible: false }"</code> from the <code>&lt;span&gt;</code> to the outer
+<code>&lt;div&gt;</code> so that <code>x-show</code> and <code>@click</code> can both see the reactive property.</p>
+</details>
+<h2 id="alpine-noprevent">Submit a name and show a confirmation</h2>
+<p>Type a name and click Submit.
+Does the confirmation appear, or does the page reload?</p>
+<div data-inc="noprevent.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/noprevent.html" class="inc-path" role="img" tabindex="0" title="alpine/noprevent.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>No Prevent<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Submit a name and show a confirmation<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Type a name and click Submit. Does the confirmation message appear?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ name: '', submitted: false }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="err">@</span><span class="na">submit</span><span class="o">=</span><span class="s">"submitted = true"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">x-model</span><span class="o">=</span><span class="s">"name"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Your name"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">x-show</span><span class="o">=</span><span class="s">"submitted"</span><span class="p">&gt;</span>Thanks, <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>@submit</code> without the <code>.prevent</code> modifier. Without <code>.prevent</code>,
+Alpine runs <code>submitted = true</code> and then lets the browser's default form submission
+proceed. The browser reloads the page, which destroys the Alpine component and all
+its state before the confirmation can ever be shown.</p>
+<p>Shows: event modifier syntax in Alpine (<code>@submit.prevent</code>) and why <code>preventDefault()</code>
+is essential whenever a form has a <code>type="submit"</code> button.</p>
+<p>To find it: watch the address bar after clicking Submit. If it appends <code>?name=...</code>
+and refreshes, the native action is firing. Change <code>@submit</code> to <code>@submit.prevent</code>.</p>
+</details>
+<h2 id="alpine-xcloak">Show content only after Alpine loads</h2>
+<p>Reload the page with network throttling enabled in DevTools (Network tab,
+set to "Slow 3G"). Is the counter area blank for a moment before the count
+appears?</p>
+<div data-inc="xcloak.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/xcloak.html" class="inc-path" role="img" tabindex="0" title="alpine/xcloak.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Missing x-cloak CSS<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show content only after Alpine loads<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Reload the page with network throttling enabled in DevTools.
+     Does the counter appear with a value of 0, or is it briefly blank?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ count: 0 }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-cloak</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Count: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"count"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"count++"</span><span class="p">&gt;</span>Increment<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>x-cloak</code> is applied to the element, but the CSS rule that hides
+it is missing. Alpine removes the <code>x-cloak</code> attribute after it initializes the
+component, so the intended pattern is: CSS hides the element initially, then Alpine
+removes <code>x-cloak</code> to reveal it. Without the rule, the element is visible from the
+start and shows blank or partially-initialized content before Alpine processes it.</p>
+<p>Shows: how <code>x-cloak</code> works and why it requires both the attribute <em>and</em> the CSS rule:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="o">[</span><span class="nt">x-cloak</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>To find it: inspect the element and search for <code>x-cloak</code> in the Styles panel.
+If no rule targets <code>[x-cloak]</code>, add one in a <code>&lt;style&gt;</code> block in <code>&lt;head&gt;</code>, before
+the Alpine script tag.</p>
+</details>
+<h2 id="alpine-stringdata">Display a greeting from component state</h2>
+<p>Open the page. Does any text appear in the paragraph?</p>
+<div data-inc="stringdata.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/stringdata.html" class="inc-path" role="img" tabindex="0" title="alpine/stringdata.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>String Data<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Display a greeting from component state<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Does a greeting appear in the paragraph?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"'hello'"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"message"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>x-data="'hello'"</code>. Alpine evaluates the attribute value as a JavaScript
+expression, which here produces the string <code>"hello"</code>. Alpine wraps whatever
+<code>x-data</code> returns in a reactive proxy, but <code>"hello".message</code> is <code>undefined</code>, so
+<code>x-text="message"</code> sets the paragraph to an empty string.</p>
+<p>Shows: that <code>x-data</code> must receive a JavaScript <em>object literal</em> (<code>{ key: value }</code>)
+to create named reactive properties. A string, number, or array works as a data
+source only if you access its built-in properties.</p>
+<p>To find it: open DevTools and inspect the element. Check what <code>x-data</code> evaluates
+to. Replace <code>x-data="'hello'"</code> with <code>x-data="{ message: 'hello' }"</code> so that
+<code>message</code> is a named, reactive property.</p>
+</details>
+<h2 id="alpine-xiftemplate">Show and hide an error message</h2>
+<p>Open the page and click "Trigger Error" several times.
+Does the error message appear and disappear?</p>
+<div data-inc="xiftemplate.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/xiftemplate.html" class="inc-path" role="img" tabindex="0" title="alpine/xiftemplate.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>x-if on Wrong Element<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show and hide an error message<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click "Trigger Error". Does the error message appear and disappear on each click?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ hasError: false }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"hasError = !hasError"</span><span class="p">&gt;</span>Trigger Error<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-if</span><span class="o">=</span><span class="s">"hasError"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">"color: red;"</span><span class="p">&gt;</span>An error occurred!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is putting <code>x-if</code> on a <code>&lt;div&gt;</code> instead of a <code>&lt;template&gt;</code> element.
+Alpine requires <code>x-if</code> to be on a <code>&lt;template&gt;</code> tag, because <code>&lt;template&gt;</code> has
+no rendered output of its own — it is a pure placeholder. When <code>x-if</code> appears
+on any other element, Alpine silently ignores it and the content is always shown.</p>
+<p>Shows: the distinction between <code>x-if</code> (which adds and removes elements from the DOM
+entirely, and requires <code>&lt;template&gt;</code>) and <code>x-show</code> (which toggles <code>display: none</code> on
+any element).</p>
+<p>To find it: open the console. Alpine logs a warning when <code>x-if</code> is misused.
+Replace <code>&lt;div x-if="hasError"&gt;</code> with <code>&lt;template x-if="hasError"&gt;&lt;div&gt;...&lt;/div&gt;&lt;/template&gt;</code>.</p>
+</details>
+<h2 id="alpine-modelbind">Mirror text input in real time</h2>
+<p>Open the page and type in the input field.
+Does the paragraph below update as you type?</p>
+<div data-inc="modelbind.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/modelbind.html" class="inc-path" role="img" tabindex="0" title="alpine/modelbind.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>One-Way Binding<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mirror text input in real time<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Type in the input field. Does the paragraph below update?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ message: '' }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">x-bind:value</span><span class="o">=</span><span class="s">"message"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Type here"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You typed: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"message"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>x-bind:value</code> instead of <code>x-model</code>. <code>x-bind:value</code> only sets the
+input's <code>value</code> attribute from the reactive property — it does not listen for changes.
+When the user types, the input's visual content changes, but no event updates
+<code>message</code> in the Alpine component. The binding runs only one way: state to input.</p>
+<p>Shows: the difference between <code>x-bind:value</code> (one-way, state → element) and <code>x-model</code>
+(two-way, state ↔ element). <code>x-model</code> is shorthand for <code>x-bind:value</code> <em>plus</em>
+<code>@input="message = $event.target.value"</code>.</p>
+<p>To find it: type in the input and check <code>message</code> in the Alpine devtools or the
+console. If it stays empty, the input is not sending updates back. Replace
+<code>x-bind:value="message"</code> with <code>x-model="message"</code>.</p>
+</details>
+<h2 id="alpine-nexttick">Show an input and move focus to it</h2>
+<p>Open the page and click "Edit".
+Does the cursor appear inside the input field?</p>
+<div data-inc="nexttick.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/nexttick.html" class="inc-path" role="img" tabindex="0" title="alpine/nexttick.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Focus Without nextTick<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Show an input and move focus to it<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click "Edit". Does the cursor appear in the input field?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ editing: false }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"editing = true; $refs.field.focus()"</span><span class="p">&gt;</span>Edit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">x-show</span><span class="o">=</span><span class="s">"editing"</span> <span class="na">x-ref</span><span class="o">=</span><span class="s">"field"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Edit here"</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is calling <code>$refs.field.focus()</code> in the same synchronous tick as the
+<code>x-show</code> update. When <code>editing = true</code> runs, Alpine schedules the DOM update
+for the next microtask — the element is still hidden when <code>focus()</code> is called
+immediately after. Browsers refuse to focus hidden elements, so the call silently
+does nothing.</p>
+<p>Shows: Alpine's batched, asynchronous DOM updates and <code>$nextTick</code>, which delays a
+callback until after Alpine has finished applying all pending changes to the DOM.</p>
+<p>To find it: add <code>console.log($refs.field.style.display)</code> before the focus call.
+If it logs <code>"none"</code>, the element is still hidden. Change the click handler to
+<code>editing = true; $nextTick(() =&gt; $refs.field.focus())</code>.</p>
+</details>
+<h2 id="alpine-asyncinit">Load data from the server on startup</h2>
+<p>Start the server, open the page, and wait a moment.
+Does a greeting appear, or does the paragraph show the fallback message?</p>
+<div data-inc="asyncinit.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/asyncinit.html" class="inc-path" role="img" tabindex="0" title="alpine/asyncinit.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Async Init Scope<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Load data from the server on startup<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Start <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>server.py<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>, then reload this page.
+     Does a greeting appear in the paragraph?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ greeting: '' }"</span> <span class="na">x-init</span><span class="o">=</span><span class="s">"loadGreeting()"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"greeting || '(no greeting loaded)'"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadGreeting</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">'/api/greeting'</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">resp</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>loadGreeting</code> is a named global function. Inside a named function,
+bare identifiers like <code>greeting</code> refer to the surrounding JavaScript scope — in this
+case, the global (<code>window</code>) scope. Alpine evaluates <code>x-init="loadGreeting()"</code> in its
+component scope, but once execution enters the named function body, that scope is gone.
+The assignment <code>greeting = data.message</code> creates or updates <code>window.greeting</code>, not the
+component's reactive <code>greeting</code> property, so Alpine never sees the change.</p>
+<p>Shows: how Alpine's scope injection works only inside expression strings — not inside
+called function bodies — and why <code>x-init</code> expressions that use component properties
+should be written inline or receive <code>this</code> explicitly.</p>
+<p>To find it: add <code>console.log(window.greeting)</code> inside <code>loadGreeting</code> after the fetch.
+If it shows the message, the assignment hit the global scope. Fix the handler by
+writing it inline so Alpine's scope applies:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">x</span><span class="o">-</span><span class="n">init</span><span class="o">=</span><span class="s2">"async () =&gt; { const r = await fetch('/api/greeting'); greeting = (await r.json()).message; }"</span>
+</code></pre></div>
+</details>
+<h2 id="alpine-storeorder">Display a count from a shared store</h2>
+<p>Open the page and check the browser console.
+Does a number appear next to "Items in cart"?</p>
+<div data-inc="storeorder.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/storeorder.html" class="inc-path" role="img" tabindex="0" title="alpine/storeorder.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Store Not Registered<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'alpine:init'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Alpine.store('cart', { count: 0 });</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Display a count from a shared store<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Does a number appear next to "Items in cart"?
+     Check the browser console for errors.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Items in cart: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"$store.cart.count"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"$store.cart.count++"</span><span class="p">&gt;</span>Add to cart<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>Alpine.store('cart', { count: 0 })</code> is never called, so
+<code>$store.cart</code> is <code>undefined</code>. When the template tries to read <code>$store.cart.count</code>,
+JavaScript throws <code>TypeError: Cannot read properties of undefined</code>, the component
+fails to render, and the console shows an error.</p>
+<p>Shows: that <code>Alpine.store</code> must be registered before Alpine initializes the
+components that use it. The correct place to register a store is inside the
+<code>alpine:init</code> event listener, which fires before Alpine processes any components.</p>
+<p>To find it: open the console and read the error. Uncomment the
+<code>Alpine.store('cart', { count: 0 })</code> line inside the <code>alpine:init</code> listener.</p>
+</details>
+<h2 id="alpine-forkey">Remove items from a list</h2>
+<p>Open the page, type something in the second row's input, then click Delete
+next to the first item. Which row's typed text disappears?</p>
+<div data-inc="forkey.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/forkey.html" class="inc-path" role="img" tabindex="0" title="alpine/forkey.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>x-for Without Key<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Remove items from a list<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Type something in the second input field, then click Delete next to the first item.
+     Which row's input value disappears?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ items: ['Alpha', 'Beta', 'Gamma'] }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">style</span><span class="o">=</span><span class="s">"list-style: none; padding: 0;"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">x-for</span><span class="o">=</span><span class="s">"item in items"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"item"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">:placeholder</span><span class="o">=</span><span class="s">"'notes for ' + item"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"items.splice(items.indexOf(item), 1)"</span><span class="p">&gt;</span>Delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the missing <code>:key</code> binding on <code>x-for</code>. Without a key, Alpine matches
+old DOM nodes to new data items purely by position. After the first item is removed,
+every remaining item shifts up by one position. Alpine reuses the existing DOM nodes
+in order rather than creating new ones, which means the <code>&lt;input&gt;</code> that belonged to
+the second item stays in place but is now labeled as the first item. Any typed
+content appears to have moved to the wrong row.</p>
+<p>Shows: why <code>:key</code> matters and how Alpine uses it to match DOM nodes to data items
+by identity rather than by index, allowing it to move or remove the correct node.</p>
+<p>To find it: type in the second input, delete the first item, and watch which input
+retains the typed value. Add <code>:key="item"</code> to the <code>&lt;template&gt;</code> tag (or use a unique
+id if items can repeat) so Alpine tracks each DOM node correctly.</p>
+</details>
+<h2 id="alpine-globalstate">Increment a counter using an external object</h2>
+<p>Open the page and click Increment several times.
+Does the counter change?</p>
+<div data-inc="globalstate.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/globalstate.html" class="inc-path" role="img" tabindex="0" title="alpine/globalstate.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>External State Mutation<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Increment a counter using an external object<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click the button. Does the counter update?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"config"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Count: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">x-text</span><span class="o">=</span><span class="s">"count"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"config.count++"</span><span class="p">&gt;</span>Increment<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>config.count++</code>. When Alpine sees <code>x-data="config"</code>, it copies the
+properties of <code>config</code> into a new reactive proxy and uses that proxy to drive the
+template. Clicking the button updates <code>config.count</code> on the original plain object,
+which is no longer connected to Alpine's proxy. The proxy still holds the old value,
+so the display never changes.</p>
+<p>Shows: that <code>x-data</code> takes a snapshot of its argument's properties at initialization
+time. Mutations to the original object after that point are invisible to Alpine.
+Reactive updates must go through the proxy — meaning you use the bare property name
+(<code>count++</code>) inside an Alpine expression, not a reference to the external object.</p>
+<p>To find it: add <code>console.log(config.count)</code> to the click handler. If it increments
+but the display doesn't, the external object and the proxy have diverged. Change
+<code>config.count++</code> to <code>count++</code>.</p>
+</details>
+<h2 id="alpine-keyboardtarget">Close a panel by pressing Escape</h2>
+<p>Open the page, click somewhere inside the panel, and press Escape.
+Does the panel close?</p>
+<div data-inc="keyboardtarget.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><span aria-label="Source: alpine/keyboardtarget.html" class="inc-path" role="img" tabindex="0" title="alpine/keyboardtarget.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Keyboard Event Target<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Close a panel by pressing Escape<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click anywhere inside the panel, then press Escape. Does it close?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-data</span><span class="o">=</span><span class="s">"{ open: true }"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">x-show</span><span class="o">=</span><span class="s">"open"</span>
+         <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">escape</span><span class="o">=</span><span class="s">"open = false"</span>
+         <span class="na">style</span><span class="o">=</span><span class="s">"padding: 1em; border: 1px solid black;"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This panel is open. Press Escape to close it.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">x-show</span><span class="o">=</span><span class="s">"!open"</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">"open = true"</span><span class="p">&gt;</span>Reopen<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is placing <code>@keydown.escape</code> on a <code>&lt;div&gt;</code> that has no <code>tabindex</code> attribute.
+Keyboard events are dispatched only to elements that can receive focus. Plain <code>&lt;div&gt;</code>
+elements are not focusable by default, so they never appear in the keyboard event
+path and the <code>@keydown</code> listener never fires, no matter how many times you press Escape.</p>
+<p>Shows: the connection between focusability and keyboard events, and two ways Alpine
+provides to listen for window-level keyboard events:</p>
+<ul>
+<li>Add <code>tabindex="0"</code> to the <code>&lt;div&gt;</code> to make it focusable, then call <code>.focus()</code> when
+    the panel opens.</li>
+<li>Replace <code>@keydown.escape</code> with <code>@keydown.window.escape</code>, which attaches the listener
+    to the window so it fires regardless of which element has focus.</li>
+</ul>
+<p>To find it: open DevTools, click inside the panel, and check the Elements panel to
+see if the <code>&lt;div&gt;</code> is focused (a blue outline or the <code>:focus</code> pseudo-class). If it
+isn't focusable, keyboard events skip it.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../htmx/">HTMX</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../fastapi/">FastAPI</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

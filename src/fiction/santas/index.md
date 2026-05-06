@@ -1113,7 +1113,7 @@ a beautiful blue ocean with nice soft waves instead of nasty bone-breaking solid
 
 Santa Greenwood made the biggest splash:
 between his size and hitting the water in a spread-eagle bellyflop,
-he actually, briefly, made a dent in the water.
+he briefly made a dent in the water.
 Finner had only a moment to admire how Santa Hood tucked in her elbows
 to plunge into the water as gracefully as a seahawk diving for fish
 before discovering the hard way that it was very, very cold.
@@ -1135,7 +1135,7 @@ as she tossed her sack into the newborn dinghy.
 "I'm bein' careful! And it ain't stupid!" he yelled back.
 A dozen powerful one-armed strokes
 and he dragged himself up out of the water,
-nearly flipping the dinghy over as he did so.
+nearly flipping the dinghy over.
 
 Finner was too busy not drowning to really notice this.
 He'd managed to kick off one boot[^one-boot]
@@ -1143,7 +1143,7 @@ and was struggling to unbutton his coat
 when Santa Hood popped up beside him like an otter and said,
 "Here, let me do that."
 
-[^one-boot]: His mother always told him to do up his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to get my boots off so I don't drown?"
+[^one-boot]: His mother always told him to tie his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to get my boots off so I don't drown?"
 
 Panting and kicking furiously to stay afloat,
 Finner squelched his panic long enough
@@ -1168,32 +1168,35 @@ Santa Hood nodded, shivering.
 "There is that.
 You remember Kraken Claus?"
 Santa Greenwood shook himself like a very large dog
-and laid his ax across his knees,
-glaring at the ocean
+and laid his ax across his knees.
+He glared at the ocean
 as if a billion liters of salt water could be intimidated.
 
 Santa Hood hugged herself,
-teeth chattering.
+her teeth still chattering.
 "Don't you have something in your sack to keep you warm?"
 Finner asked,
-hoping the answers would be "yes" and "I have a spare".
+hoping the answer would be "yes" followed by "and I have a spare".
 
 But Santa Hood shook her head.
 "Used it a c-couple of m-missions ago."
 
 Santa Greenwood patted her shoulder.
 "Don't worry.
-We're okay for now."
+Somethin' will come along.
+Somethin' always does."
 
 As if on cue,
 a triangular gray fin sliced through the water beside them.
 "Is there a Santa Shark?" Finner asked weakly,
-hoping the answers would be "yes" and "it's actually very friendly".
+hoping the answer would be "no",
+or if not,
+"yes, and it's very friendly".
 
 "I'm af-fraid so," Santa Hood said grimly,
 her teeth still chattering.
 "She takes everything she c-can and never g-gives *anything* back.
-Be c-careful with that!" she snapped
+Be c-careful with that thing!" she snapped
 as Santa Greenwood hefted his ax.
 
 "I'm bein' careful!" Santa Greenwood said,
@@ -1201,21 +1204,21 @@ and then three things happened more or less simultaneously:[^simultaneously]
 
 [^simultaneously]: Whether or not things happen at the same time depends in part on who you are. If you're a helium atom, for example, you can expect to exist for billions of years, so "at the same time" includes pretty much all of human civilization.
 
-1.  A second, larger gray fin appeared in the water beside the first.
+-   A second, larger gray fin appeared in the water beside the first.
 
-2.  The edge of Santa Greenwood's ax nicked the dinghy's rubber gunwale.
+-   The edge of Santa Greenwood's ax nicked the dinghy's rubber gunwale.
 
-3.  There was a sharp *crack!*
+-   There was a sharp *crack!*
     like someone snapping a piece of wood over their knee.
     A moment later a cannonball whistled over their heads.
 
 "Look out!" Finner shouted instinctively as:
 
-1.  The larger gray fin changed course to head straight for them.
+-   The larger gray fin changed course to head straight for them.
 
-2.  Air began feeping[^feeping] out of the dinghy.
+-   Air began feeping[^feeping] out of the dinghy.
 
-3.  A set of black sails appeared on the horizon.
+-   A set of black sails appeared on the horizon.
     There was another *crack!*
     and a second cannonball splashed into the water nearby.
 
@@ -1223,11 +1226,10 @@ and then three things happened more or less simultaneously:[^simultaneously]
 
 Santa Greenwood stood up,
 nearly spilling the others into the ocean.
-"Come on, Periwinkle, gimme something!" he roared,
-hefting his ax again.
+"Come on, Periwinkle, gimme something!" he roared.
 "Chili grenades! Tangle muffins! Anything!"
 
-"I'm out!" Santa Hood,
+"I'm out!" Santa Hood replied,
 her arm deeper in her sack than basic physics should have allowed.[^basic-physics]
 
 [^basic-physics]: This actually made basic physics quite uncomfortable, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever."
@@ -1244,23 +1246,25 @@ Finner grabbed the santa's belt to stop him from falling out of the dinghy
 and was nearly pulled out himself.
 "Why don'tcha come here an' try that, eh?"
 
-A fourth *crack!*, another cannonball.
-As the ship closed on them
-Finner could see crew shouting and waving in the rigging and on the deck.
-"Wait! They're not shooting at us!"
-Finner exclaimed.
-"They're shooting at the sharks!"
+A fourth *crack!*, and another cannonball whistled through the air.
+As the ship closed on them,
+Finner could see the crew shouting and waving in the rigging and on the deck.
+"Wait!"
+he exclaimed.
+"They're not shooting at us!
+They're shooting at the sharks!"
 
-"Or they just can't aim!"
+"Or maybe they just can't aim!"
 Santa Hood snapped,
 her arm still deep in her sack.
 
 And then the owner of the first gray fin decided it was now or never
 and changed course toward them.
-The dinghy squelch beneath Finner's bootless foot
-as Santa Greenwood tried to stand up again
-and Santa Hood ducked so as not to be beheaded by the ax
-he actually wasn't being very careful with.
+The dinghy squelched beneath Finner's bootless foot
+as Santa Greenwood tried to stand up again.
+
+Santa Hood ducked so as not to be beheaded by the ax
+that Santa Greenwood actually wasn't being very careful with.
 "Got it!" she said triumphantly,
 pulling something out of her sack and throwing it.
 
@@ -1284,7 +1288,7 @@ The black ship came up beside them.
 Rope ladders were already draped over her side,
 each with a sailor hanging from it with their arm out.
 With a one, two, and *three* (Santa Greenwood being rather heavy)
-the dinghy was left empty in the ship's wake.[^empty-dinghy]
+the deflating dinghy was left empty in the ship's wake.[^empty-dinghy]
 
 [^empty-dinghy]: The dinghy rather appreciated having some time to itself, what with the first few minutes of its inflated existence being so full of new experiences. Then it sank, which only goes to show—something.
 
@@ -1301,8 +1305,8 @@ and the very large, very sharp cutlass in his hands,
 
 "Well, ain't you the lucky ones?" the santa boomed,
 a twinkle in his eye.
-"Us happenin' along just now an' all.
-Coulda been mighty dicey there, mighty dicey indeed."
+"Us happenin' to be in the neighborhood just now.
+Coulda been mighty dicey otherwise, mighty dicey indeed."
 
 "We were doin' all right," Santa Greenwood muttered sullenly.
 
