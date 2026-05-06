@@ -1555,11 +1555,12 @@ Finner's hands put themselves up.[^hands-up]
 
 [^hands-up]: Whic is more accurate than saying "he raised his hands" because his brain wasn't involved in the process.
 
-"Uh huh.
-And I suppose you want me to believe that
+"Uh huh,"
+Santa Hood said skeptically.
+"And I suppose you want me to believe that
 you just happened to be in sensei's house when those robots followed through the wherever?"
 
-Finner's mouth worked.
+Finner gaped.
 "Robots?" he finally managed to get out.
 "I don't know anything about robots!
 And I don't know why you call my gran-granna 'sensei',
@@ -1570,12 +1571,13 @@ Santa Hood pressed a button on the ray gun with her thumb.
 It hummed threateningly in response.
 "You're not going anywhere until I'm sure you're not a robot yourself."
 
-"What!?
-I'm not a robot!"
+"What!?"
+Finner lowered his hands a fraction.
+"I'm not a robot!"
 
 "Uh uh uh."
 Santa Hood gestured with the gun.
-Finner's hands shot back into the air.
+Finner's hands obediently shot back into the air.
 "Better.
 I said,
 prove to me that you're not a robot.
@@ -1585,8 +1587,8 @@ They could have replaced you then."
 For a moment Finner just gaped at her.
 *You could check my pulse,* he thought,
 immediately squashing the idea
-back into the corner of his brain where he kept all the other troubling thoughts
-he had about women, comma, attractive.
+back into the corner of his brain where he had recently started to cram
+all the other troubling thoughts he had about women, comma, attractive.
 "I'm bleeding," he blurted.
 "I mean, just a bit, but I scraped my arm.
 I can…?"
@@ -1599,7 +1601,7 @@ It wasn't actually much of a scratch,
 but it was red and yay,
 there was in fact a small splotch on his skin.
 
-Santa Hood studied it a moment,
+Santa Hood studied it,
 then pressed the button the ray gun again.
 With a disappointed *mmrrrmmm*
 the end of the gun dimmed and blinked out.
@@ -1644,7 +1646,7 @@ Finally he sat up,
 rolled his head from side to side to get a kink out of his neck,
 and picked up the ray gun Santa Hood had given him.
 
-It looked like a well-made toy with its gnurled grip and shiny barrel,
+It looked like a well-made toy with its stippled grip and shiny barrel,
 but was heavy in a way that said,
 "No, I can actually make holes in things."
 He pointed it at the porthole,
@@ -1659,13 +1661,10 @@ then tossed the ray gun onto the desk as if it had just bitten him.
 "Wuzza?" Santa Hood grunted in her sleep.
 Finner held his breath until she rolled over under blankets
 and started snoring again.
-The ray gun just lay there the whole time
-like an unopened note for his parents from his writing teacher.[^writing-teacher]
 
-[^writing-teacher]: The first time Finner had to bring home a note from that teacher, his parents let it sit on the dinner table *until dinner* before opening it. They didn't mention it or even look at it until then, which of course meant Finner couldn't think about anything else. It turned out to be a reminder about an overdue book addressed to another student, which left Finner feeling somehow cheated out of a calamity.
-
+The ray gun lay there like an unopened note for his parents from his writing teacher.[^writing-teacher]
 "Right," Finner muttered under his breath.
-He picked up the ray run gingerly with just his thumb and one finger.
+He picked up the ray run gingerly with his thumb and one finger.
 The porthole was definitely glassless.
 He brightened slightly.
 Maybe instead of just being baggage he could actually help Santa Hood.
@@ -1675,10 +1674,13 @@ blasting away with the ray gun while his new-found teammates tossed their grenad
 and waved their ax menacingly.
 Maybe he could even—
 
+[^writing-teacher]: The first time Finner had to bring home a note from that teacher, his parents let it sit on the dinner table *until dinner* before opening it. They didn't mention it or even look at it until then, which of course meant Finner couldn't think about anything else. It turned out to be a reminder about an overdue book addressed to another student, which left Finner feeling somehow cheated out of a calamity.
+
 *Crack!*
 *Crack!*
 The ship shuddered beneath his feet as the cannons above him fired.
 Shouts rang on the deck outside the cabin.
+
 "Wuzza!?" Santa Hood grunted again, sitting up.
 "Wuz g'non?"
 
@@ -1689,20 +1691,21 @@ and transferred it to his pocket
 as he pulled the cabin door open
 and stepped out into chaos.
 
-Half a dozen sailors were firing rifles and complicated crossbow-ish things into the air.
+Half a dozen sailors were firing rifles and complicated-looking crossbows into the air.
 Others were reloading the ship's cannons
 as Captain Clausbeard and his parrot[^parrot-time] bellowed orders.
 In between them,
 Santa Greenbeard was hacking at an enormous black tentacle with his ax.
 No, not a tentacle—it was a metal cable as thick as Finner's arm
-dangling from the blue-and-gray airship that now floated above the ship.
+dangling from the blue-and-gray airship that now floated above them.
 
 [^parrot-time]: Sorry, sorry—the parrot that usually chose to spend time with the captain.
 
-A second cable dropped from the airship as Finner gaped up into the sky,
+A second cable dropped from the airship as Finner gaped skyward,
 then a third.
-The sailors' bullets and arrow-ish things had no more effect on the airship
+The sailors' bullets and arrows had no more effect on the airship
 than Santa Greenwood's ax had on the cable.
+
 "Stand by to repel boarders, ye grumble-fisted knucklewaddlers!"
 Captain Clausbeard shouted,
 drawing his cutlass and passing a tiny replica of it to the parrot,
@@ -1735,7 +1738,7 @@ For a moment it looked like the fight would be over as quickly as it had begun,
 but more boarders were sliding down the cables into the ship's rigging.
 
 "Away wi' ye!" Santa Greenbeard bellowed.
-With one might swing of his ax
+With one mighty swing of his ax
 he sent two elves flying over the gunwale.[^gunwale-sharks]
 His backswing snapped a santa's sword in half.
 He raised the ax over his head,
