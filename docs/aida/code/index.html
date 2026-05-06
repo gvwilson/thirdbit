@@ -60,7 +60,6 @@
 <li>Ask it to explain what its code does before asking it to fix anything</li>
 </ul>
 </li>
-<li>FIXME: example session</li>
 </ul>
 <h2>Code quality</h2>
 <ul>
@@ -155,10 +154,8 @@ that it makes a good first test of whether the LLM's output can be trusted.</p>
 </blockquote>
 <p>The LLM does not know whether you want a single total, counts per species,
 or something else entirely.
-It may write a SQL query, a Python script, or a shell command,
-and you have no way to tell it which approach fits your setup.
-The result may be technically correct for some interpretation of the question
-but useless for yours.
+It may write a SQL query, a Python script, or a shell command
+because you haven't told it what your setup is.
 Fix it by naming the table, the column to group by, and the database engine.</p>
 </details>
 <details class="explanation">
@@ -206,15 +203,16 @@ Name the count column <code>n</code>.</p>
 The penguins CSV has a header row, so the number of data rows is
 <code>wc -l _extras/penguins.csv</code> minus one.
 If the sum of the three counts does not match that number,
-either the query dropped some rows or the CSV contains blank lines.</p>
+either the query dropped some rows or the CSV contains blanks in the <code>species</code> column
+(which have been loaded into the database as <code>null</code>).</p>
 <p>Second, spot-check one species directly.
 Run <code>grep -c "^Adelie" _extras/penguins.csv</code> to count lines that begin with <code>Adelie</code>
 and compare it to the query result of 152.
 If they differ, either the query is wrong or there are rows in the database
 that do not appear in the CSV.</p>
 <p>Third, check the sort order by eye.
-Adelie is the most common penguin in the dataset, which is easy to verify
-against the original Palmer Penguins publication.
+Adelie is the most common penguin in the dataset,
+which is easy to verify against the original Palmer Penguins publication.
 If the LLM listed Chinstrap first, the <code>order by</code> clause is wrong.</p>
 </details>
 <h3 id="code-join-type">Inspect the join type a query uses</h3>
@@ -235,7 +233,7 @@ Fix it by stating the tables, the key column, and what you want to happen to unm
 <summary>A prompt that works</summary>
 <blockquote>
 <p>The <code>penguins</code> table has a column <code>island</code>.
-Suppose there is an <code>islands</code> table with one row per island and a column <code>island</code> as the key.
+The <code>islands</code> table has one row per island and a column <code>island</code> as the key.
 Write a SQLite query that joins <code>penguins</code> to <code>islands</code> so that every penguin appears in the result,
 even if its island is not in the <code>islands</code> table.
 State which join type you used and why.</p>
@@ -259,38 +257,37 @@ a null in the sort column can silently change the answer.</p>
 <summary>A prompt that works</summary>
 <blockquote>
 <p>Write a SQLite query that returns all penguins sorted by <code>body_mass_g</code> from lightest to heaviest.
-After writing the query, tell me where rows with a null <code>body_mass_g</code> will appear in the result.</p>
+Tell me where rows with a null <code>body_mass_g</code> appear in the result.</p>
 </blockquote>
 <p>A typical response produces the query and states that SQLite places nulls first in ascending order.</p>
 </details>
 <details class="explanation">
 <summary>Checking the output</summary>
 <p>Run the query against <code>_extras/example.db</code> and examine the first five rows.
-If the LLM said nulls appear first, confirm that the first rows have no <code>body_mass_g</code> value.
-Then run the same query with <code>order by body_mass_g desc</code> and check where nulls appear in that result.
-If the behavior differs from the LLM's prediction, it described a different database engine's rules.</p>
+If the LLM said nulls appear first, confirm that the first rows have no <code>body_mass_g</code> value.</p>
 </details>
 <h3 id="code-api-mixing">Detect Pandas syntax in Polars code</h3>
 <p>If you describe a task using one library's vocabulary and ask for code in another,
 an LLM may mix the two APIs.
-The code will fail at runtime, but the error message may not make it obvious which library is at fault.</p>
+The code will fail at runtime,
+but the error message may not make it obvious that the choice of library is at fault.</p>
 <details class="explanation">
 <summary>A prompt that sends the LLM in the wrong direction</summary>
 <p>Describing a Polars task in Pandas terms invites mixing:</p>
 <blockquote>
-<p>I have a pandas DataFrame with columns <code>species</code> and <code>bill_length_mm</code>.
-Compute the mean bill length per species using Polars.</p>
+<p>I have a Polars dataframe with columns <code>species</code> and <code>bill_length_mm</code>.
+Use <code>groupby</code> and <code>mean</code> to compute the mean bill length per species.</p>
 </blockquote>
-<p>The LLM may produce Pandas method calls (<code>.groupby()</code>, <code>.mean()</code>) inside Polars code.
-Fix it by describing the data accurately and specifying the library without ambiguity.</p>
+<p>The LLM will probably use Pandas methods (<code>.groupby()</code> and <code>.mean()</code>) because you told it to.
+Fix it by specifying the library without ambiguity.</p>
 </details>
 <details class="explanation">
 <summary>A prompt that works</summary>
 <p>After getting mixed code, send this follow-up:</p>
 <blockquote>
 <p>The code you wrote uses <code>.groupby()</code>, which is a Pandas method.
-The data is a Polars DataFrame.
-Rewrite only the grouping line using the correct Polars API.</p>
+The data is a Polars dataframe.
+Rewrite the grouping line using the Polars API's methods.</p>
 </blockquote>
 <p>A typical response replaces <code>.groupby("species").mean()</code> with
 <code>.group_by("species").agg(pl.col("bill_length_mm").mean())</code>.</p>
@@ -298,29 +295,26 @@ Rewrite only the grouping line using the correct Polars API.</p>
 <details class="explanation">
 <summary>Checking the output</summary>
 <p>Run the corrected code against <code>_extras/penguins.csv</code> loaded with Polars
-and confirm it produces one row per species with a <code>bill_length_mm</code> mean column.
-Verify the Adelie mean is approximately 38.8 mm by computing it manually on a few rows.</p>
+and confirm it produces one row per species with a <code>bill_length_mm</code> mean column.</p>
 </details>
 <h3 id="code-nonexistent-method">Ask for a method that does not exist</h3>
-<p>LLMs occasionally hallucinate library method names that sound plausible but do not exist.
+<p>LLMs often hallucinate library method names that sound plausible but do not exist.
 The code runs until it hits that line and then raises an <code>AttributeError</code>.
 Observing this failure and correcting it is more instructive than avoiding it,
 because it shows you exactly what hallucination looks like in practice.</p>
 <details class="explanation">
 <summary>A prompt that produces a hallucination</summary>
 <blockquote>
-<p>Use the Polars method <code>.group_mean()</code> to compute average flipper length by island.</p>
+<p>Use Polars to compute average flipper length by island.</p>
 </blockquote>
-<p>There is no <code>.group_mean()</code> method in Polars.
-An LLM that generates code using it without flagging the problem is hallucinating.
-An LLM that flags the problem immediately is behaving correctly.</p>
+<p>The response includes a called to <code>.group_mean()</code>, but there is no such method in Polars.</p>
 </details>
 <details class="explanation">
 <summary>A prompt that fixes the problem</summary>
 <p>If the LLM produced broken code, send this follow-up:</p>
 <blockquote>
 <p>The method <code>.group_mean()</code> does not exist in Polars.
-Rewrite the computation using only methods that appear in the Polars documentation for <code>GroupBy</code>.</p>
+Rewrite the computation using only methods that appear in the Polars documentation.</p>
 </blockquote>
 <p>A typical correct response:</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -333,22 +327,22 @@ Rewrite the computation using only methods that appear in the Polars documentati
 <summary>Checking the output</summary>
 <p>Run the corrected code and confirm it produces one row per island.
 Verify the result has three rows (Biscoe, Dream, Torgersen)
-by checking that the islands in the output match the distinct values in the CSV.
-If a fourth island appears, the LLM hallucinated a value.</p>
+by checking that the islands in the output match the distinct values in the CSV.</p>
 </details>
 <h3 id="code-correlation-causation">Interpret a correlation without implying causation</h3>
 <p>Pearson correlation measures the strength of a linear relationship.
-It does not tell you which variable drives the other, whether both are driven by a third variable,
+It does not tell you which variable drives the other,
+whether both are driven by a third variable,
 or whether the relationship holds outside the range you measured.
-An LLM asked to "interpret" a correlation often states or implies causation,
+An LLM prompted to "interpret" a correlation often states or implies causation;
 and you must notice and correct that.</p>
 <details class="explanation">
 <summary>A prompt that works</summary>
 <blockquote>
-<p>Using the penguins dataset, compute the Pearson correlation between <code>bill_depth_mm</code> and <code>body_mass_g</code>
-for all species combined.
-Then write two sentences interpreting the result.
-Do not imply that either variable causes the other.</p>
+<p>Using the penguins dataset, compute the Pearson correlation between
+<code>bill_depth_mm</code> and <code>body_mass_g</code> for all species combined.  Then
+write two sentences interpreting the result.  Do not imply that
+either variable causes the other.</p>
 </blockquote>
 <p>A typical response computes the correlation (approximately -0.47 for all species combined)
 and notes that penguins with deeper bills tend to have lower body mass across the dataset,
@@ -357,11 +351,11 @@ without claiming that bill depth determines mass.</p>
 <details class="explanation">
 <summary>Checking the output</summary>
 <p>Check the interpretation for causal language: "leads to," "causes," "results in," or "because of."
-If you find any, rewrite the sentence to say only what the correlation shows.
-Then compute the same correlation separately for each species.
+If you find any, rewrite the sentence to say only what the correlation shows,
+then compute the same correlation separately for each species.
 If the within-species correlations have a different sign than the combined correlation,
 ask the LLM to explain why, and verify that its explanation is correct.
-(This is a well-known phenomenon called Simpson's paradox.)</p>
+(This phenomenon is called Simpson's paradox.)</p>
 </details>
 <h3 id="code-threshold-sensitivity">Test sensitivity to a threshold choice</h3>
 <p>Statistical thresholds like "two standard deviations from the mean" are conventions, not laws.
@@ -397,8 +391,8 @@ is one of the strongest tests you can run.</p>
 <blockquote>
 <p>Generate a Polars DataFrame with 200 rows and one column called <code>value</code>,
 where the values are drawn from a normal distribution with a true mean of 50.0 and standard deviation of 5.0.
-Set a random seed of 42.
-Then compute the mean of <code>value</code> and report how close it is to 50.0.</p>
+Set a random seed of 42,
+then compute the mean of <code>value</code> and report how close it is to 50.0.</p>
 </blockquote>
 <p>A typical response:</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -414,13 +408,13 @@ Then compute the mean of <code>value</code> and report how close it is to 50.0.<
 <summary>Checking the output</summary>
 <p>Run the script and confirm the computed mean is within 1.0 of 50.0.
 Ask the LLM to explain in one sentence why the result is unlikely to be exactly 50.0.
-If the explanation does not mention sampling variability or the finite sample size, it is incomplete.
-Then change the seed from 42 to 43 and confirm the mean changes but remains close to 50.0.</p>
+If the explanation does not mention sampling variability or the finite sample size, it is incomplete.</p>
 </details>
 <h3 id="code-groupby-nulls">Check how GROUP BY handles null values</h3>
 <p>A <code>group by</code> query creates one group per distinct value in the grouping column.
-If that column contains nulls, different databases handle them differently:
-SQLite groups nulls together; some databases silently drop them.
+If that column contains nulls,
+SQLite groups nulls together,
+while some other databases silently drop them.
 The only reliable way to know what your database does is to test it explicitly.</p>
 <details class="explanation">
 <summary>A prompt that works</summary>
@@ -441,18 +435,20 @@ If the total is wrong, either the LLM's description of null handling is incorrec
 or there are rows in the database that do not appear in any group.</p>
 </details>
 <h3 id="code-invariants">Write post-cleaning invariant checks</h3>
-<p>After cleaning a dataset, it is easy to accidentally drop valid rows, introduce new nulls,
+<p>When cleaning a dataset,
+it is easy to accidentally drop valid rows,
+introduce new nulls,
 or change the set of categories.
-Three short assertions that check for these problems take two minutes to write
-and catch errors that would otherwise propagate silently through every subsequent analysis.</p>
+Three short assertions that check for these problems
+can catch errors that would otherwise propagate silently through every subsequent analysis.</p>
 <details class="explanation">
 <summary>A prompt that works</summary>
 <blockquote>
 <p>I have a Polars cleaning script that processes the penguins dataset.
 Add code after cleaning that checks three invariants:
-the row count equals rows kept plus rows dropped;
-no column has more null values after cleaning than before;
-the set of distinct values in the <code>species</code> column is unchanged.
+the row count equals rows kept plus rows dropped,
+no column has more null values after cleaning than before,
+and the set of distinct values in the <code>species</code> column is unchanged.
 Raise an informative error if any check fails.</p>
 </blockquote>
 <p>A typical response:</p>
@@ -466,7 +462,7 @@ Raise an informative error if any check fails.</p>
 </details>
 <details class="explanation">
 <summary>Checking the output</summary>
-<p>Run the checks against your cleaned dataset and confirm all three pass.
+<p>Run the checks against your cleaned dataset and confirm that all three pass.
 Then deliberately introduce a bug—for example, drop all Gentoo rows—and confirm
 the third assertion fires with an informative message.
 If the assertion raises a generic <code>AssertionError</code> with no message,
