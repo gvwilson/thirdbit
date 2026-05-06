@@ -10741,96 +10741,14 @@ and she missed fresh air and the sound of the ocean and Aunt Naggie
 and her bird book and even the toilet on the *Guinevere*,
 which she would never admit to anyone.
 
-After a few minutes she wiped her eyes on her sleeve
-and climbed back down.
-Edson was still snoring,
-so she picked up the old app and began swiping through it.
-
-*«message»*
-
-She almost dropped the app when the thought appeared in her head.
-*Hello?*
-
-The app's screen went blank for a moment,
-and then the picture of the crow from her bird book appeared
-with the word "corvus" beneath it.
-She glanced at Edson and tapped it.
-
-- *`iffy?`*
-- `who you?`
-- *`we built corvus together you all right?`*
-
-She hesitated.
-If this was a trap it had already sprung.
-
-- `i remember where you?`
-- *`hiding safe for now where you?`*
-
-She hesitated again.
-
-- `was in bharati got out`
-
-- *`good`* The word appeared almost immediately. *`not a good place`*
-
-- `yeah do you know what really happened there?`
-
-The moment stretched so long that she was sure the connection had dropped,
-but then words appeared all at once.
-
-- *`gayathri's father and the governor tried to use your first to talk to the machines`*
-- *`didn't go well`*
-- *`was gayathri there?`*
-
-Iffy tapped the screen furiously.
-
-- `my first was there an you dint tell me?`
-
-A slight pause.
-
-- *`i wasnt there only found out after`*
-- *`was gayathri there? important`*
-- `yes why important?`
-- *`did she seem different?`*
-
-Iffy swore under her breath.
-
-- `how wld i know? different how?`
-
-Another long moment, and then:
-
-- *`she imprints herself with her father. been doing it more / getting worse. dangerous.`*
-
-Iffy stared at the screen,
-her skin crawling.
-
-- `why?`
-- *`too many imprints your own personality breaks down v bad`*
-- *`no, y does she do it?`*
-
-Another long moment.
-
-- *`says she wants to finish his mission save the world`*
-- *`he's less reasonable than her dangerous`*
-
-Iffy remembered looking at Doctor Johel when Sandrine had been in charge of her body.
-
-- `did he used to do a thing with his pen?`
-- *`twirl it in his fingers?`*
-- `yes`
-- *`damn okay stay out of their way`*
-
-Iffy rolled her eyes at that.
-
-- `sure` she typed. `what're you gonna do?`
-
-She waited for an answer.
-When none came,
-she put the app back on the floor beside her cot,
-lay down,
-and let Edson's snores carry her off to sleep.
+After a few minutes she wiped her eyes on her sleeve,
+climbed back down,
+curled up on her cot,
+and tried to make herself believe that Edson's gentle snores were
+the sound of waves.
 
 "Aright,"
-Edson finally said a couple of days later,
+he finally said a couple of days later,
 straightening after yet another series of yoga poses.
 "Let's tidy up an' get outta here."
 
@@ -10879,13 +10797,64 @@ but with luck they would look like a colony of arctic hares in a burrow
 rather than two people
 kilometers away from anywhere people ought to be.
 
-She tossed and turned in her tent,
-unable to fall asleep.
-Its roof was claustrophobically close above her.
+*«message»*
+
+She froze as the thought appeared in her head.
+*Hello?*
+
+- *iffy*
+- *Who is this?*
+- *we built corvus together are you all right*
+
+She hesitated.
+If this was a trap it had already sprung.
+
+- *I remember. Where are you an' how are you talkin' to me?*
+- *hiding safe for now asked our furry friends for a favor where are you*
+
+She hesitated again.
+
+- *I was in Bharati. I got out.*
+- *good* She could feel the relief in the thought. *not a good place*
+- *No kidding. D'you know what really happened there?*
+
+The moment stretched so long that she was sure he was gone,
+but then words appeared all at once.
+
+- *gayathri's father and the governor tried to use your first to talk to the machines it didn't go well was she there*
+
+Iffy swore under her breath.
+
+- *My First? She was there an' you knew an' you didn't tell me?*
+
+Another pause.
+
+- *i wasnt there only found out after was gayathri there important*
+- *Yeah she was there. Why's that so important?*
+- *was she playing with her pen*
+
+Playing with her pen?
+Iffy remembered watching Doctor Johel when Sandrine had been in charge of her body.
+
+- *Twirlin' it around in her fingers? Yeah she was doin' that. Why's that matter?*
+
+Another long moment, and then:
+
+- *damn that's not her that's her father she imprints herself been doing it more and more very bad idea*
+
+Iffy felt her skin crawl.
+
+- *Why?*
+- *too many imprints your own personality breaks down*
+- *No, why's she do it?*
+- *she wants to finish what he started wants to use you like he used your first*
+- *can't let that happen you stay hidden i'll come find you*
+
+She waited for the next thought.
+When it didn't come she rolled over with an exasperated sigh.
+The tent's roof was claustrophobically close above her.
 The wind sounded wrong,
-and the ground was uneven and still.
-She missed the swell of the ocean.
-She missed its smell and her bird book
+the ground didn't rock her the way the ocean did,
 and she was tired of things happening to her.
 
 When Edson wriggled out of his tent a few hours later
