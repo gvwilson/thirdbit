@@ -4771,7 +4771,7 @@ Mere electricity proved too slow
 and was replaced by light
 and then by quantum effects that barely existed at all.*
 
-*But no matter what else the world ran short of,
+But no matter what else the world ran short of,
 there was always plenty of mistrust and suspicion.
 Old rivals smiled at each other and sharpened their knives.
 Madmen with calm voices told each other in private meetings
@@ -6570,7 +6570,8 @@ Iffy blurted.
 She said she was gonna come find you."
 
 Wales nodded slowly.
-"Then we'd better get going."
+"I imagine she would.
+We'd better get going."
 The tech in his temples sparkled.
 An answering glitter danced beneath the raccoon's fur.
 The creature disappeared through a hole barely wide enough for its shoulders.
@@ -6836,8 +6837,9 @@ he could make a person who'd be able to figure them out and explain them to the 
 Iffy's mouth worked as a dozen questions tried to get out at once.
 "So my First was some kind of *experiment*?"
 
-Wales shook his head.
-"Not the First you knew when you were little—she was a clone herself—but yes.
+For the first time,
+Wales wouldn't meet her eyes.
+"Yup.
 It didn't work,
 though,
 not until you came along."
@@ -6857,9 +6859,10 @@ You can see machines the way cores do.
 You can see how things fit together."
 
 He straightened.
-"Gayathri only knows about your spatial reasoning.
-If she realizes you can talk to the machines as well,
-there's nothing she won't do to get her hands on you."
+"Gayathri knows about your spatial reasoning.
+If she realizes you can already talk to the machines as well,
+there's nothing she won't do to get her hands on you.
+And nothing she won't do to you once she's got you."
 
 Iffy nodded.
 She had played enough sims to know what happened to people with special abilities,
@@ -6993,7 +6996,7 @@ They couldn't be trusted,
 and neither could anyone villainous enough to partner with them,
 especially not his clone in Rothera.
 
-And the *Bengal* had disappeared.
+And the *Bengal* had somehow vanished.
 "Anyone who sights the ship should immediately—"
 
 Aunt Naggie silenced the broadcast with a swipe.
@@ -7061,7 +7064,9 @@ the green bar on the screen beside her face reading 99%.
 Wales asked.
 
 Doctor Johel's eyes glittered.
-"Of getting to Mount Tyree."
+"Of getting to Mount Tyree.
+And doing something useful once we're there.
+You know what's at stake, Johnson."
 
 Through the window of the pilot house,
 Iffy saw a figure climb through a hatch and onto the *Bengal*'s deck.
@@ -7078,22 +7083,25 @@ then made a pistol with her hand and pointed it at them.
 
 "What the hell is *she* doing here?" Wales growled.
 
-"She needed a ride,"
+"I thought the Australians would be more welcoming if I showed up with a gift,"
 Doctor Johel replied calmly.
-"And I thought the Australians would be more welcoming if I showed up with a gift."
+"And I thought *you* might be more reasonable if I had a stick as well as a carrot."
+
+"Still waiting for the carrot,"
+Wales muttered.
 
 The doctor and three Marines came over to the *Guinevere* an hour later
 in a sleek little runabout that looked like a lethal miniature of the *Bengal*.
 As the Marines began setting up a tent on the *Guinevere*'s stern,
-she stared at one of them.
+Iffy stared at one of them.
 It couldn't be.
 
-Doctor Johel saw the expression on Iffy's face.
+Doctor Johel saw the expression on her face.
 "Ah, yes," she purred.
 "I believe you two know each other."
 She beckoned the Marine forward.
 
-"Honesty?" Iffy somehow managed to say.
+"Honesty?" Iffy managed to say.
 
 The Marine flipped der visor up.
 "Hello Iffy."
@@ -10397,11 +10405,11 @@ when the mine closed
 and its last residents were relocated to other settlements,
 voluntarily or otherwise.
 
-She parked the pod in the shadows beneath a small cliff,
+She parked the hoverjeep in the shadows beneath a small cliff,
 wincing when its side scraped against stone.
 "Stay hidden," she told its little core,
 then lifted the plastic windshield on its hydraulic hinges and clambered out
-as the pod made itself more or less invisible.
+as the little craft made itself more or less invisible.
 
 The ground was sandy and slightly damp.
 A few tufts of grass had managed to colonize it,
@@ -10416,12 +10424,12 @@ She saw two birds in the distance,
 though they might just have been spotter drones searching for her.
 At one point something the size of an arctic hare
 scurried from one tuft of grass to another.
-When the pod's app finally pinged she stood up
+When the jeep's app finally pinged she stood up
 and tossed another piece of gravel at the blotch on the cliff
 she had decided was Doctor Johel's face.
 
 Two minutes.
-The pod's vibration sensor painted a green trace on the map
+The jeep's vibration sensor painted a green trace on the map
 that solidified as the core became more certain of its epicenter.
 One two three four thumb,
 one four two three thumb.
@@ -11503,15 +11511,16 @@ and Jeep,
 and the *Guinevere*,
 and flip through her bird book and go to sleep on her own mattress.
 
-Her eyelids were just starting to lose their battle with gravity
-when an alarm began to bleat.
+Her eyelids had just lost their battle with gravity when an alarm began to bleat.
+*What now?* she thought wearily.
+
 Edson was on his feet and in his jacket
 before she finished sitting up.
 "Somethin's comin'," he said,
 frowning at the app in his hand.
 "Del that—there's a whole bunch o' somethin's coming."
 
-"The ox?"
+"The herd?"
 Iffy asked,
 struggling to lace her boots
 with fingers that felt like they were made of tofu.
@@ -11584,9 +11593,14 @@ Another charging a Marine,
 only to have its target step aside at the last moment
 and snap a kick that broke the ox's leg.
 
+The Marine crouched down beside the fallen ox
+and raised the visor on her helmet.
+Captain Kerse grinned savagely,
+then made a pistol with her hand and pointed it at them.
+
 The app flashed.
 The images froze as whatever had been transmitting went offline.
-"Mother Yanina, Mother Pao, forgive our crimes and arrogance,"
+"Santa Yanina, forgive us our crimes and arrogance,"
 Edson whispered.
 
 And then Iffy heard it,
@@ -11652,6 +11666,7 @@ his eyes still on the approaching hovercraft.
 
 Iffy swallowed.
 The battle had taken less than thirty seconds.
+She wondered what color Captain Kerse's dot was now.
 "Half o' them are down.
 The others are pullin' out."
 
@@ -11662,7 +11677,7 @@ She tapped the app to bring up tiles of camera views.
 Steam jetted out of the ground in some.
 Others showed shattered rock and fallen trees.
 And one—
-"One o' the greenhouses got hit," she said.
+"One o' the greenhouses is smashed up," she said.
 "Looks like a tree came down on it."
 
 Edson let out a long breath.
@@ -11841,10 +11856,11 @@ He tossed his rifle aside,
 its ammunition spent,
 and scuttled uphill to sit beside her with his back against the outcrop.
 
-"Citizens!"
-The Marine sounded more disappointed than angry.
-"For your own safety,
-we urge you to surrender."
+"Hey you lot!"
+Iffy's heart sank at the sound of Captain Kerse's voice.
+"You got two choices—smart or dead.
+I figure Wales is gonna come look for you either way,
+so it's no nevermind to me which you pick."
 
 Edson looked at Iffy.
 "Any ideas?"
@@ -11857,13 +11873,15 @@ He was still chuckling when the Marines edged cautiously around the rocks
 and hauled them to their feet.
 
 One Marine carried Iffy despite her protests.
-Another kept a metal-gloved hand on Edson's shoulder,
-while two more carried their bicycles down the slope to meet the hovercraft.
-A hatch opened on its leading edge just as they reached it.
+Another kept a metal-gloved hand on Edson's arm.
+Two more carried their bicycles down the slope to meet the hovercraft,
+while Captain Kerse brought up the rear,
+whistling a little tune that Iffy didn't recognize.
+
+A hatch opened on the hovercraft's leading edge just as they reached it.
 Something bulbous poked out.
 Iffy thought it was a bot,
 but then she removed her helmet.
-
 "Well,"
 Doctor Johel said conversationally.
 "You've caused quite a ruckus.
@@ -11901,15 +11919,12 @@ The old woman put her hand on her chest.
 I have no desire at all to pick a fight with the Shepherds.
 Whatever secrets you have will remain yours and yours alone."
 
-"Yeah."
 Edson sighed.
 "I wish I believed you,
 but your record ain't that great,
-an' you just havin' been kicked outta your home,
-well,
-that's gotta make you a little desperate."
+an' I figure you're already more than desperate."
 
-He turned to Iffy and wrapped his arms around her in a fierce hug.
+He turned to Iffy and gave her in a fierce hug.
 "I'm sorry,"
 he whispered in her ear.
 "I'm so sorry.
@@ -11967,13 +11982,12 @@ and their network of shelters and greenhouses weren't actually as secret as they
 
 Iffy expected to be locked up next to Edson.
 Instead,
-a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
+Captain Kerse ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," Doctor Johel said,
 gesturing at the padded chair to the left of hers.
 
-"And buckle up,"
-a familiar voice said.
-Captain Kerse turned around in her seat and gave Iffy a wolf-like grin.
+"And buckle up."
+Captain Kerse took another seat and gave Iffy a wolf-like grin.
 "This yobbo was built for shock and awe, not comfort."
 
 Iffy limped over to the chair
@@ -12004,12 +12018,19 @@ Doctor Johel replied absently
 as she rearranged the display with a few flicks of her fingers.
 "And if we're lucky,
 we might meet an old friend.
-A patrol spotted Johnson a couple of hundred kilometers from here yesterday."
+We picked up an odd signal a couple of days ago.
+Seems that Johnson was only a few hundred kilometers away."
 
+She picked up a pen,
+twirled it through her fingers,
+and glanced at Iffy.
+"I don't suppose you'd know anything about that?"
+
+Iffy shrugged.
 "That man's a cockroach,"
 Captain Kerse growled.
 
-Doctor Johel.
+Doctor Johel nodded.
 "I certainly hope so.
 Now, don't mind the noise.
 You'll get used to it."
@@ -12031,7 +12052,28 @@ and the pressure lifted from her chest.
 She took a deep breath and watched the world race by
 as the hovercraft bumped and shook toward the horizon.
 
-A Marine showed up a few minutes later
+Doctor Johel unbuckled her harness and stood up.
+"Can I trust you to behave yourself?"
+she asked Captain Kerse.
+The Aussie nodded.
+With a last, appraising look at Iffy,
+Doctor Johel left them.
+
+"The doctor reckoned me the cruddup with your olders,"
+the captain said once she was gone.
+
+"What's it to you?"
+Iffy asked sullenly.
+
+"My youngers were on the *Taroona*.
+Both of 'em."
+Her voice was almost gentle.
+"Bumpin' your Mister Wales won't bring 'em back,
+but I 'spect it'll help me sleep.
+He comes for you,
+best you not be in the way."
+
+A Marine arrived a few silent minutes later
 with a patch to dull the pain in Iffy's knee
 and speed its healing.
 Her eyelids grew heavy
@@ -12109,7 +12151,7 @@ She took the plate that the expressionless Marine offered her
 and fumbled with the chopsticks
 while she waited for her mind to catch up with the rest of her.
 
-Doctor Johel was gone.
+Doctor Johel and Captain Kerse were gone.
 The gently undulating tundra on the screens around her looked the same as it had.
 Their speed hadn't changed either,
 she noticed,
