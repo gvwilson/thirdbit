@@ -22,13 +22,21 @@ category: sdgc
     2017,
     978-1400888740.
 
-<span id="Adams1905">Adams1905</span>
-:   Samuel Hopkins Adams:
-    *The Great American Fraud*.
-    Collier,
-    1906.
+<span id="Arendt2006">Arendt2006</span>
+:   Hannah Arendt:
+    *Eichmann in Jerusalem: A Report on the Banality of Evil*.
+    Penguin,
+    2006,
+    978-0143039884
 
 ## B
+
+<span id="Bakan2005">Bakan200t</span>
+:   Joel Bakan:
+    *The Corporation: The Pathological Pursuit of Profit and Power*.
+    Simon and Shuster,
+    2005,
+    978-0743247467.
 
 <span id="Baldwin2014">Baldwin2014</span>
 :   Peter Baldwin:
@@ -37,19 +45,13 @@ category: sdgc
     2014,
     978-1400851911.
 
-<span id="Banaji2013">Banaji2013</span>
-:   Mahzarin R. Banaji and Anthony G. Greenwald:
-    *Blindspot: Hidden Biases of Good People*.
-    Delacorte,
-    2013,
-    978-0553804645.
-
-<span id="Beard2017">Beard2017</span>
-:   Mary Beard:
-    *Women & Power: A Manifesto*.
-    Profile Books,
-    2017,
-    978-1788160612.
+<span id="Bandura1999">Bandura1999</span>
+:   Albert Bandura:
+    "Moral Disengagement in the Perpetration of Inhumanities."
+    *Personality and Social Psychology Review*,
+    3(3),
+    1999,
+    doi:10.1207/s15327957pspr0303_3.
 
 <span id="Beckerman2022">Beckerman2022</span>
 :   Gal Beckerman:
@@ -58,13 +60,6 @@ category: sdgc
     2022,
     97801524759186.
 
-<span id="Beckert2014">Beckert2014</span>
-:   Sven Beckert:
-    *Empire of Cotton: A Global History*.
-    Knopf,
-    2014,
-    978-0375713965.
-
 <span id="Bellos2024">Bellos2024</span>
 :   David Bellos and Alexandre Montagu:
     *Who Owns This Sentence?: A History of Copyrights and Wrongs*.
@@ -72,12 +67,19 @@ category: sdgc
     2024,
     978-1324073710.
 
-<span id="Bellotti2021">Bellotti2021</span>
-:   Marianne Bellotti:
-    *Kill It With Fire: Manage Aging Computer Systems (and Future Proof Modern Ones)*.
-    No Starch Press,
-    2021,
-    978-1718501188.
+<span id="Berlin1991">Berlin1991</span>
+:   Isaiah Berlin:
+    *The Crooked Timber Of Humanity: Chapters in the History of Ideas*.
+    Alfred A. Knopf,
+    1991,
+    978-0679401315.
+
+<span id="Black2005">Black2005</span>
+:   William K. Black:
+    *The Best Way to Rob a Bank Is to Own One: How Corporate Executives and Politicians Looted the S&L Industry*.
+    University of Texas Press,
+    2005,
+    978-0292706385.
 
 <span id="Blackmon2008">Blackmon2008</span>
 :   Douglas A. Blackmon:
@@ -101,19 +103,6 @@ category: sdgc
     2019,
     978-1108790697.
 
-<span id="Branch2011">Branch2011</span>
-:   Taylor Branch:
-    "The Shame of College Sports."
-    *The Atlantic*,
-    October 2011.
-
-<span id="BuenoDeMesquita2022">BuenoDeMesquita2022</span>
-:   Bruce Bueno de Mesquita and Alastair Smith:
-    *The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics*.
-    PublicAffairs,
-    2022,
-    978-1541701366.
-
 ## C
 
 <span id="Campbell2001">Campbell2001</span>
@@ -123,19 +112,12 @@ category: sdgc
     2011,
     97800275981136.
 
-<span id="Caro1974">Caro1974</span>
-:   Robert A. Caro:
-    *The Power Broker: Robert Moses and the Fall of New York*.
-    Knopf,
-    1974,
-    978-0394480763.
-
-<span id="Carson1962">Carson1962</span>
-:   Rachel Carson:
-    *Silent Spring*.
-    Houghton Mifflin,
-    1962,
-    978-0618249060.
+<span id="Cassidy2025">Cassidy2025</span>
+:   John Cassidy:
+    *Capitalism and Its Critics: A History: From the Industrial Revolution to AI*.
+    Farrar, Straus and Giroux,
+    2025,
+    978-0374601089.
 
 <span id="Cech2021">Cech2021</span>
 :   Erin Cech:
@@ -144,12 +126,27 @@ category: sdgc
     2021,
     978-0520303232.
 
+<span id="Chang2012">Chang2012</span>
+:   Ha-Joon Chang:
+    *23 Things They Don't Tell You About Capitalism*.
+    Bloomsbury,
+    2012,
+    978-1608193387.
+
 <span id="Chenoweth2011">Chenoweth2011</span>
 :   Erica Chenoweth and Maria J. Stephan:
     *Why Civil Resistance Works: The Strategic Logic of Nonviolent Conflict*.
     Columbia University Press,
     2011,
     978-0231156820.
+
+<span id="Chouldechova2017">Chouldechova2017</span>
+:   Alexandra Chouldechova:
+    "Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments".
+    *Big Data*,
+    5(2),
+    2017,
+    doi:10.1089/big.2016.0047.
 
 <span id="Cottom2017">Cottom2017</span>
 :   Tressie McMillan Cottom:
@@ -159,6 +156,13 @@ category: sdgc
     978-1620970607.
 
 ## D
+
+<span id="Dallaire2005">Dallaire2005</span>
+:   Roméo Dallaire with Brent Beardsley:
+    *Shake Hands with the Devil: The Failure of Humanity in Rwanda*.
+    Carroll & Graf,
+    2005,
+    978-0786715107
 
 <span id="Daniel1972">Daniel1972</span>
 :   Pete Daniel:
@@ -174,26 +178,12 @@ category: sdgc
     2022,
     978-1982114930.
 
-<span id="Davies2024">Davies2024</span>
-:   Dan Davies:
-    *The Unaccountability Machine: Why Big Systems Make Terrible Decisions and How the World Lost Its Mind*.
-    University of Chicago Press,
-    2024,
-    978-0226843087.
-
-<span id="DeVries2008">DeVries2008</span>
+<span id="Devries2008">Devries2008</span>
 :   Jan de Vries:
     *The Industrious Revolution: Consumer Behavior and the Household Economy, 1650 to the Present*.
     Cambridge University Press,
     2008,
     978-0521719254.
-
-<span id="Dines2010">Dines2010</span>
-:   Gail Dines:
-    *Pornland: How Porn Has Hijacked Our Sexuality*.
-    Beacon Press,
-    2010,
-    978-0807044520.
 
 <span id="Doctorow2022">Doctorow2022</span>
 :   Cory Doctorow and Rebecca Giblin:
@@ -202,6 +192,13 @@ category: sdgc
     2022,
     978-0807007068.
 
+<span id="Doctorow2025">Doctorow2025</span>
+:   Cory Doctorow:
+    *Enshittification: Why Everything Suddenly Got Worse and What to Do About It*.
+    Farrar, Straus and Giroux,
+    2025,
+    978-0374619329.
+
 <span id="Douglas2002">Douglas2002</span>
 :   Mary Douglas:
     *Purity and Danger: An Analysis of Concepts of Pollution and Taboo*.
@@ -209,7 +206,28 @@ category: sdgc
     2002,
     978-0415289955.
 
+<span id="Dowbiggin2007">Dowbiggin2007</span>                                                                    
+:   Ian Dowbiggin:
+    *A Concise History of Euthanasia: Life, Death, God, and Medicine*.
+    Bloomsbury,
+    2007,
+    978-0742531116.
+
 ## E
+
+<span id="Ehmke2025">Ehmke2025</span>
+:   Coraline Ada Ehmke:
+    *We Just Build Hammers: Stories from the Past, Present, and Future of Responsible Tech*.
+    Apress,
+    2025,
+    979-8868812484.
+
+<span id="Eubanks2018">Eubanks2018</span>
+:   Virginia Eubanks:
+    *Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor*.
+    St. Martin's Press,
+    2018,
+    978-1250074317.
 
 ## F
 
@@ -220,14 +238,17 @@ category: sdgc
     2015,
     978-1451694123.
 
-<span id="Fagin2013">Fagin2013</span>
-:   Dan Fagin:
-    *Toms River: A Story of Science and Salvation*.
-    Island Press,
+<span id="Ferguson2015">Ferguson2015</span>
+:   Christopher J. Ferguson:
+    "Do Angry Birds Make for Angry Children?
+    A Meta-Analysis of Video Game Influences on Children's and Adolescents' Aggression,
+    Mental Health, Prosocial Behavior, and Academic Performance."
+    *Perspectives on Psychological Science*,
+    10(5),
     2015,
-    978-1610915915.
+    doi:10.1177/1745691615592234.
 
-<span id="Funder2003">Funder2003</span>
+<span id="Funder2011">Funder2011</span>
 :   Anna Funder:
     *Stasiland: Stories from Behind the Berlin Wall*.
     Harper Collins,
@@ -236,19 +257,19 @@ category: sdgc
 
 ## G
 
-<span id="Gambetta1993">Gambetta1993</span>
-:   Diego Gambetta:
-    *The Sicilian Mafia: The Business of Private Protection*.
-    Harvard University Press,
-    1993,
-    978-0674807426.
+<span id="Galbraith1954">Galbraith1954</span>
+:   John Kenneth Galbraith:
+    *The Great Crash 1929*.
+    Houghton Mifflin,
+    1954,
+    978-0395859995.
 
 <span id="GartonAsh2016">GartonAsh2016</span>
 :   Timothy Garton Ash:
     *Free Speech: Ten Principles for a Connected World*.
     Yale University Press,
     2016,
-    978-0300161168.
+    978-0300226942.
 
 <span id="Gawande2009">Gawande2009</span>
 :   Atul Gawande:
@@ -264,6 +285,27 @@ category: sdgc
     2014,
     978-0805095159.
 
+<span id="Giridharadas2018">Giridharadas2018</span>
+:   Anand Giridharadas:
+    *Winners Take All: The Elite Charade of Changing the World*.
+    Knopf,
+    2018,
+    978-0525533184.
+
+<span id="Gordon2001">Gordon2001</span>
+:   Andrew Gordon:
+    *The Wages of Affluence: Labor and Management in Postwar Japan*.
+    Harvard University Press,
+    2001,
+    978-0674007062.
+
+<span id="Gray2009">Gray2009</span>
+:   Mary L. Gray:
+    *Out in the Country: Youth, Media, and Queer Visibility in Rural America*.
+    NYU Press,
+    2009,
+    978-0814731932.
+
 <span id="Grossman1995">Grossman1995</span>
 :   Dave Grossman:
     *On Killing: The Psychological Cost of Learning to Kill in War and Society*.
@@ -271,7 +313,21 @@ category: sdgc
     1995,
     978-0316330114.
 
+<span id="Grossman1999">Grossman1999</span>
+:   Dave Grossman and Gloria Degaetano:
+    *Stop Teaching Our Kids to Kill: A Call to Action Against TV, Movie and Video Game Violence*.
+    Crown,
+    1999,
+    978-0609605685.
+
 ## H
+
+<span id="Hannig2023">Hannig2023</span>
+:   Anita Hannig:
+    *The Day I Die The Untold Story of Assisted Dying in America*.
+    Sourcebooks,
+    2023,
+    978-1728259420.
 
 <span id="Hari2015">Hari2015</span>
 :   Johann Hari:
@@ -287,10 +343,12 @@ category: sdgc
     2009,
     978-0520258464.
 
-<span id="Hicks2022">Hicks2022</span>
-:   Catherine Hicks:
-    "It's Like Coding in the Dark."
-    2022.
+<span id="Herman1988">Herman1988</span>
+:   Edward S. Herman and Noam Chomsky:
+    *Manufacturing Consent: The Political Economy of the Mass Media*.
+    Pantheon,
+    1988,
+    978-0375714498.
 
 <span id="Hirshman2012">Hirshman2012</span>
 :   Linda Hirshman:
@@ -298,13 +356,6 @@ category: sdgc
     Harper,
     2012,
     978-0061965500.
-
-<span id="Hochschild1998">Hochschild1998</span>
-:   Adam Hochschild:
-    *King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa*.
-    Houghton Mifflin,
-    1998,
-    978-0618001903.
 
 <span id="Hoffer2010">Hoffer2010</span>
 :   Eric Hoffer:
@@ -354,6 +405,13 @@ category: sdgc
     2021,
     978-0385545686.
 
+<span id="Kelly2012">Kelly2012</span>
+:   Marjorie Kelly:
+    *Owning Our Future: The Emerging Ownership Revolution*.
+    Berrett-Koehler,
+    2012,
+    978-1605093109.
+
 <span id="Kelly2022">Kelly2022</span>
 :   Kim Kelly:
     *Fight Like Hell: The Untold History of American Labor*.
@@ -368,6 +426,28 @@ category: sdgc
     126(3),
     2017.
 
+<span id="Khera2019">Khera2019</span>
+:   Reetika Khera (ed.):
+    *Dissent on Aadhaar: Big Data Meets Big Brother*.
+    Orient BlackSwan,
+    2019,
+    978-9352875429.
+
+<span id="Kindleberger2005">Kindleberger2005</span>
+:   Charles P. Kindleberger and Robert Aliber:
+    *Manias, Panics, and Crashes: A History of Financial Crises*
+    (5th ed.).
+    Wiley,
+    2005,
+    978-0471467144.
+
+<span id="Kohn1999">Kohn1999</span>
+:   Linda T. Kohn, Janet M. Corrigan, and Molla S. Donaldson (eds.):
+    *To Err is Human: Building a Safer Health System*.
+    National Academies Press,
+    2000,
+    978-0309068376.
+
 ## L
 
 <span id="Lakey2018">Lakey2018</span>
@@ -376,6 +456,27 @@ category: sdgc
     Melville House,
     2018,
     978-1612197531.
+
+<span id="Lapierre2002">Lapierre2002</span>
+:   Dominique Lapierre and Javier Moro:
+    *Five Past Midnight in Bhopal: The Epic Story of the World's Deadliest Industrial Disaster*.
+    Grand Central Publishing,
+    2002,
+    978-0446530880.
+
+<span id="Lewis2010">Lewis2010</span>
+:   Michael Lewis:
+    *The Big Short: Inside the Doomsday Machine*.
+    W. W. Norton,
+    2010,
+    978-0393338829.
+
+<span id="Lewy2011">Lewy2011</span>
+:   Guenter Lewy:
+    *Assisted Death in Europe and America Four Regimes and Their Lessons*.
+    Oxford University Press,
+    2011,
+    978-0199746415.
 
 <span id="Lindsey1942">Lindsey1942</span>
 :   Almont Lindsey:
@@ -399,6 +500,20 @@ category: sdgc
 
 ## M
 
+<span id="Macintyre2020">Macintyre2020</span>
+:   Stuart Macintyre:
+    *A Concise History of Australia*
+    (5th ed.).
+    Cambridge University Press,
+    2020,
+    978-1108728485.
+
+<span id="Mackay1841">Mackay1841</span>
+:   Charles Mackay:
+    *Extraordinary Popular Delusions and the Madness of Crowds*.
+    Richard Bentley,
+    1841.
+
 <span id="Markey2017">Markey2017</span>
 :   Patrick M. Markey and Christopher J. Ferguson:
     *Moral Combat: Why the War on Violent Video Games Is Wrong*.
@@ -406,12 +521,12 @@ category: sdgc
     2017,
     978-1942952992.
 
-<span id="McGhee2021">McGhee2021</span>
-:   Heather McGhee:
-    *The Sum of Us: What Racism Costs Everyone and How We Can Prosper Together*.
-    One World,
-    2021,
-    978-0525509561.
+<span id="Mazzucato2013">Mazzucato2013</span>
+:   Mariana Mazzucato:
+    *The Entrepreneurial State: Debunking Public vs. Private Sector Myths*.
+    PublicAffairs,
+    2015,
+    978-1610396134.
 
 <span id="Michaels2008">Michaels2008</span>
 :   David Michaels:
@@ -421,12 +536,6 @@ category: sdgc
     978-0195300673.
 
 ## N
-
-<span id="Nader1965">Nader1965</span>
-:   Ralph Nader:
-    *Unsafe at Any Speed: The Designed-In Dangers of the American Automobile*.
-    Grossman,
-    1965.
 
 <span id="Nasaw2000">Nasaw2000</span>
 :   David Nasaw:
@@ -442,28 +551,35 @@ category: sdgc
     2011,
     978-0674049307.
 
-<span id="Nocera2016">Nocera2016</span>
-:   Joe Nocera and Ben Strauss:
-    *Indentured: The Battle to End the Exploitation of College Athletes*.
-    Portfolio,
-    2016,
-    978-0143130550.
-
 <span id="Nutt2012">Nutt2012</span>
 :   David Nutt:
     *Drugs Without the Hot Air: Making Sense of the Drug Debate*.
-    UIT Cambridge,
+    Bloomsbury,
     2012,
     978-1906860165.
 
 ## O
 
-<span id="ONeill2016">ONeill2016</span>
+<span id="Oluo2018">Oluo2018</span>
+:   Ijeoma Oluo:
+    *So You Want to Talk About Race*.
+    Basic Books,
+    2018,
+    978-1580056786.
+
+<span id="Oneil2016">ONeil2016</span>
 :   Cathy O'Neil:
     *Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy*.
     Crown,
     2016,
     978-0553418811.
+
+<span id="Orenstein2020">Orenstein2020</span>
+:   Peggy Orenstein:
+    *Boys & Sex: Young Men on Hookups, Love, Porn, Loneliness, Vulnerability, and the Search for Something Real*.
+    Harper,
+    2020,
+    978-0062666987.
 
 <span id="Oreskes2010">Oreskes2010</span>
 :   Naomi Oreskes and Erik M. Conway:
@@ -481,17 +597,25 @@ category: sdgc
 
 ## P
 
+<span id="Paasonen2011">Paasonen2011</span>
+:   Susanna Paasonen:
+    *Carnal Resonance: Affect and Online Pornography*.
+    MIT Press,
+    2011,
+    978-0262551274.
+
 <span id="Packard1957">Packard1957</span>
 :   Vance Packard:
     *The Hidden Persuaders*.
     McKay,
     1957.
 
-<span id="Packard1960">Packard1960</span>
-:   Vance Packard:
-    *The Waste Makers*.
-    McKay,
-    1960.
+<span id="Palazzo2025">Palazzo2025</span>
+:   Guido Palazzo and Ulrich Hoffrage:
+    *The Dark Pattern: The Hidden Dynamics of Corporate Scandals*.
+    PublicAffairs,
+    2025,
+    978-1541705302.
 
 <span id="Pasquale2015">Pasquale2015</span>
 :   Frank Pasquale:
@@ -507,6 +631,13 @@ category: sdgc
     2017,
     978-0520299931.
 
+<span id="Peiss2011">Peiss2011</span>
+:   Kathy Peiss:
+    *Hope in a Jar: The Making of America's Beauty Culture*.
+    University of Pennsylvania Press,
+    2011,
+    978-0812221404.
+
 <span id="Perrow1999">Perrow1999</span>
 :   Charles Perrow:
     *Normal Accidents: Living with High-Risk Technologies*.
@@ -521,23 +652,23 @@ category: sdgc
     2019,
     978-1786635167.
 
-<span id="Posner2020">Posner2020</span>
-:   Gerald Posner:
-    *Pharma: Greed, Lies, and the Poisoning of America*.
-    Avid Reader Press,
-    2020,
-    978-1501151897.
+<span id="Popper2011">Popper2011</span>
+:   Karl Popper:
+    *The Open Society and Its Enemies*.
+    Routledge,
+    2011,
+    978-0415610216.
 
 ## Q
 
 ## R
 
-<span id="Robin2017">Robin2017</span>
-:   Corey Robin:
-    *The Reactionary Mind*.
-    Oxford University Press,
-    2017,
-    978-0190692001.
+<span id="Reich2018">Reich2018</span>
+:   Rob Reich:
+    *Just Giving: Why Philanthropy Is Failing Democracy and How It Can Do Better*.
+    Princeton University Press,
+    2018,
+    978-0691183497.
 
 <span id="Rivera2015">Rivera2015</span>
 :   Lauren A. Rivera:
@@ -546,14 +677,14 @@ category: sdgc
     2015,
     978-0691155623.
 
-## S
+<span id="Robin2017">Robin2017</span>
+:   Corey Robin:
+    *The Reactionary Mind*.
+    Oxford University Press,
+    2017,
+    978-0190692001.
 
-<span id="Sale1995">Sale1995</span>
-:   Kirkpatrick Sale:
-    *Rebels Against the Future: The Luddites and Their War on the Industrial Revolution*.
-    Basic Books,
-    1996,
-    978-0201407181.
+## S
 
 <span id="Sandel2020">Sandel2020</span>
 :   Michael J. Sandel:
@@ -561,20 +692,6 @@ category: sdgc
     Farrar, Straus and Giroux,
     2020,
     978-0374289980.
-
-<span id="Scahill2007">Scahill2007</span>
-:   Jeremy Scahill:
-    *Blackwater: The Rise of the World's Most Powerful Mercenary Army*.
-    Nation Books,
-    2008,
-    978-1568583945.
-
-<span id="Schatz1988">Schatz1988</span>
-:   Thomas Schatz:
-    *The Genius of the System: Hollywood Filmmaking in the Studio Era*.
-    University of Minnesota Pres,
-    2010,
-    978-0816670109.
 
 <span id="Schlosser2001">Schlosser2001</span>
 :   Eric Schlosser:
@@ -604,20 +721,20 @@ category: sdgc
     2013,
     978-0786476145.
 
-<span id="Slade2006">Slade2006</span>
-:   Giles Slade:
-    *Made to Break: Technology and Obsolescence in America*.
-    Harvard University Press,
-    2007,
-    978-0674025721.
+<span id="Shaxson2011">Shaxson2011</span>
+:   Nicholas Shaxson:
+    *Treasure Islands: Uncovering the Damage of Offshore Banking and Tax Havens*.
+    St. Martin's,
+    2012,
+    978-0230341722.
 
-<span id="SingerPW2003">SingerPW2003</span>
-:   P.W. Singer:
-    *Corporate Warriors: The Rise of the Privatized Military Industry*
-    (2nd ed.).
-    Cornell University Press,
-    2011,
-    978-0801459603.
+<span id="Shiller2015">Shiller2015</span>
+:   Robert J. Shiller:
+    *Irrational Exuberance*
+    (3rd ed.).
+    Princeton University Press,
+    2015,
+    978-0691166261.
 
 <span id="Silver2003">Silver2003</span>
 :   Beverly J. Silver:
@@ -640,7 +757,7 @@ category: sdgc
     2014,
     978-0199328499.
 
-<span id="Southern1970">Southern1970</span>
+<span id="Southern1990">Southern1990</span>
 :   R.W. Southern:
     *Western Society and the Church in the Middle Ages*
     (2nd ed.).
@@ -648,12 +765,12 @@ category: sdgc
     1990,
     978-0140137552.
 
-<span id="Starr1982">Starr1982</span>
-:   Paul Starr:
-    *The Social Transformation of American Medicine*.
-    Basic Books,
-    1982,
-    978-0465079353.
+<span id="Spufford2012">Spufford2012</span>
+:   Francis Spufford:
+    *Red Plenty*.
+    Graywolf Press,
+    2012,
+    978-1555976040.
 
 <span id="SteinLubrano2024">SteinLubrano2024</span>
 :   Alexis Stein Lubrano:
@@ -678,13 +795,12 @@ category: sdgc
     2016,
     978-0190205140.
 
-<span id="Tedre2008">Tedre2008</span>
-:   Matti Tedre and Erkki Sutinen:
-    "Three Traditions of Computing: What Educators Should Know."
-    *Computer Science Education*,
-    18(3),
-    2008,
-    doi:10.1080/08993400802332332.
+<span id="Thelen1992">Thelen1992</span>
+:   Kathleen Thelen:
+    *Union of Parts: Labor Politics in Postwar Germany*.
+    Cornell University Press,
+    1991,
+    978-0801425868.
 
 <span id="Thompson1963">Thompson1963</span>
 :   E.P. Thompson:
@@ -704,12 +820,11 @@ category: sdgc
     1996,
     978-0226851754.
 
-<span id="Vinsel2019">Vinsel2019</span>
-:   Lee Vinsel:
-    *Moving Violations: Automobiles, Experts, and Regulations in the United States*.
-    Johns Hopkins University Press,
-    2019,
-    978-1421429656.
+<span id="Veblen1899">Veblen1899</span>
+:   Thorstein Veblen:
+    *The Theory of the Leisure Class*.
+    Macmillan,
+    1899.
 
 ## W
 
@@ -720,12 +835,26 @@ category: sdgc
     2017,
     978-1610397704.
 
+<span id="Walder2017">Walder2017</span>
+:   Andrew G. Walder:
+    *China Under Mao A Revolution Derailed*.
+    Harvard University Press,
+    2017,
+    9780674975491.
+
 <span id="Waldron2012">Waldron2012</span>
 :   Jeremy Waldron:
     *The Harm in Hate Speech*.
     Harvard University Press,
     2014,
     978-0674416864.
+
+<span id="Whyte1991">Whyte1991</span>
+:   William Foote Whyte and Kathleen King Whyte:
+    *Making Mondragón: The Growth and Dynamics of the Worker Cooperative Complex*.
+    Cornell University Press,
+    1991,
+    978-0875461823.
 
 <span id="Wilkinson2011">Wilkinson2011</span>
 :   Richard Wilkinson and Kate Pickett:
@@ -759,6 +888,12 @@ category: sdgc
 
 ## Y
 
+<span id="Young1958">Young1958</span>
+:   Michael Young:
+    *The Rise of the Meritocracy*.
+    Thames and Hudson,
+    1958.
+
 <span id="Young2024">Young2024</span>
 :   Kevin A. Young:
     *Abolishing Fossil Fuels: Lessons From Movements That Won*.
@@ -768,9 +903,9 @@ category: sdgc
 
 ## Z
 
-<span id="Zuboff2019">Zuboff2019</span>
-:   Shoshana Zuboff:
-    *The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power*.
-    PublicAffairs,
-    2019,
-    978-1610395694.
+<span id="Zucman2015">Zucman2015</span>
+:   Gabriel Zucman:
+    *The Hidden Wealth of Nations: The Scourge of Tax Havens*.
+    University of Chicago Press,
+    2015,
+    978-0226422640.
