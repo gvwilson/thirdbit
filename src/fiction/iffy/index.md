@@ -13834,14 +13834,15 @@ his eyes widening.
 
 He looked from her to the raccoon and back.
 "You can talk to them," he breathed.
-She nodded.
+"Like, properly talk 'n' all."
 
+She nodded.
 A wide grin split his face.
-He put his right hand over his heart.
+He put his right hand over his heart and made a slight bow.
 "Saint Iffy."
 
 "What?"
-She shook her head, bewildered.
+She shook her head.
 "I ain't no saint."
 
 *«get used to it»*
@@ -13892,14 +13893,33 @@ The Zillions are tizzied too."
 Iffy grinned.
 "Tell 'em we'll explain when we get there."
 
+A moment later Edson tapped her shoulder again and said,
+"They want you t' make a speech,"
+then laughed at her reaction.
+
 Aunt Naggie was waiting when they landed on the road outside town.
 Her hug was as deep as the ocean.
 Iffy could have stayed in her foster mother's arms forever,
 but a familiar "Hey," pulled her out.
 Honesty climbed out of the little green truck,
-a cane in each hand.
-Beside her,
-Jeep raised a tentative hand to wave.
+using a cane to steady herself.
+
+Iffy smiled hesitantly.
+"Hey back.
+How—how are you doin'?"
+
+Honesty shrugged, then winced, then smiled ruefully.
+"Aright 'long as I don't move too much.
+More m'self than I was," she added.
+"But there's still a lot o' her in here."
+
+Iffy took her hand and gave it a squeeze.
+"I got t' meet her.
+Sandrine, I mean.
+Got some stories t' tell you 'bout her,
+but seems I'm supposed t' make a speech first.
+I don't suppose you—"
+And then Honesty kissed her and she forgot what she had been about to say.
 
 The sailors and Marines behind them watched but didn't interfere.
 Like Edson's,
@@ -13907,13 +13927,13 @@ their apps were full of news about machines falling still all over the world
 while animals emerged from hiding to take over their strange cities.
 Everywhere people looked in Hell,
 they saw one message:
-"look after each other".
+"listen to her and look after each other".
 
 *good enough?*
 The thought felt small and distant,
 like a farewell shouted from a receding ship.
 
 Iffy smiled.
-"Good enough."
+*Good enough.*
 
 </section>
