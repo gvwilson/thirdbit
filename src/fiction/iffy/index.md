@@ -12615,7 +12615,7 @@ She grinned at Edson.
 Whatever he might have said in reply was cut off by a low rumble.
 She whirled around and froze as a white-furred head lifted off the snow three strides away.
 "*Mãe do mundo*," Edson breathed
-as the polar bear rosed to its feet.
+as the polar bear rose to its feet.
 
 </section>
 
@@ -12685,14 +12685,28 @@ your bunkers would allow them to wait out the worst the southern continent could
 ## Chapter 14
 
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
-but then she saw the familiar silver sheen beneath the bear's fur.
+but then she saw the silver sheen beneath the bear's fur.
+A moment later a familiar voice said,
+"Well,
+fancy meeting you here,"
+and Johnson Wales stepped out from behind a nearby rock.
 
-*«danger / nearing / haste»*
+Iffy had never wanted to hug someone and shoot them at the same time before,
+so she settled for crossing her arms and glaring at him.
+He had lost weight,
+and one of his boots seemed to be held together by tape and twine,
+but his tired smile hadn't changed.
 
-"It says trouble's comin'," Iffy relayed.
+Edson looked back and forth between them and the polar bear.
+When neither spoke,
+and the bear didn't move,
+he cleared his throat.
+"So what now?"
 
-"No shad," Edson muttered.
-"Don't suppose it's offerin' to help?"
+"Now we finish this, once and for all,"
+Wales said quietly.
+"Or you do, anyway,"
+he added to Iffy.
 
 As if on cue two more bears ambled around the outcropping.
 One of them stopped next to the first.
@@ -12703,10 +12717,9 @@ Iffy realized.
 It was just several hundred kilograms of predator
 looking at something edible and defenseless.
 
-*«haste»*
-
 Iffy jerked her chin at the hatch.
-"It wants us to get movin'."
+"Marines'll be behind us.
+We should get movin'."
 
 "Aright."
 Edson stepped into the small chamber,
@@ -12744,27 +12757,47 @@ She shrugged.
 
 The Ecologist snorted.
 "Nope."
+He turned to Wales.
+"What about you?
+What d'you think is down there?"
 
-He oophed as she hugged him.
+"The past.
+Maybe the future, too.
+After all these years,
+I really don't know."
+Wales looked at Iffy.
+"We'll try to give you as much time as we can."
+
+She nodded.
+"You oughta know,
+Cap'n Kerse is with 'em.
+Her youngers were on th' *Taroona* when…"
+She let the sentence trail off.
+
+"Yeah."
+Wales looked at Edson.
+"We should get going."
+
+Edson oophed as Iffy hugged him.
 "Don't do anythin' stupid,"
 she said fiercely.
 
 He chuckled into her ear.
 "Don't *you*."
 They squeezed each other once more,
-and then he turned to the bears.
-"Aright, let's get goin'."
+and then he turned to Wales and the bears.
+"Aright, let's go say hello."
 
-Iffy watched the foursome head downhill,
+Iffy watched them head downhill,
 wondering if it was just by chance that the two modified bears
-kept themselves between their unmodified partner and Edson.
+kept themselves between their unmodified partner and the two humans.
 The Marines' infrared would spot them immediately,
 but even as she had the thought,
 schematics and false-color visualizations flashed through her head.
 The tweaked bears' tech would dampen and modify their heat signatures
 to make them look like half a dozen arctic rabbits
 fleeing from their unmodified companion.
-As for Edson—
+As for Edson and Wales—
 
 She shook her head.
 It didn't matter.
@@ -12772,7 +12805,7 @@ They would do what they could, and so would she.
 With a deep breath,
 she turned around and started her descent.
 
-Iffy was halfway down the ladder when her nose told her something was wrong.
+She was halfway down the ladder when her nose told her something was wrong.
 The smell wasn't rank like the week-dead seagull
 she had once found in a dumpster behind the Sandhus' store,
 trapped when the lid closed as it scrounged for scraps.
@@ -12824,7 +12857,7 @@ if she cycled the personality integrity algorithms rapidly enough,
 but I think she just wanted to be with Georgia."
 
 He paused as if to rub his eyes.
-"And I tried to disable the wolves,
+"And I tried to disable the sentries,
 but some of them are still loose in the tunnels,
 and they've figured out how to open the doors.
 I know we all agreed that the project needed a failsafe,
@@ -13055,24 +13088,24 @@ The crippled bot rose on its three good legs.
 It didn't make a sound,
 but Iffy imagined that it would have whined if it could have.
 "They'll be aright,"
-she told it as she took her seat on the dolly,
+she told it as she sat beside it on the dolly,
 wishing she believed her own words
 and wondering how much of the Shepherds was now in the guard robots,
 and how much of their programming was in the Shepherds.
 
-The first explosion echoed through the tunnel a few moments later.
+The first *crack!* echoed through the tunnel a few moments later.
+Gunfire chattered in the distance—Iffy couldn't tell how far away—followed by
+the sound of another explosion.
+Her heart sank.
+If Marines were in the tunnel,
+the Edson and Wales were—
+
+She pushed the thought away.
 "Full speed!"
 she ordered the harnessed bots.
-Gunfire chattered behind them—Iffy couldn't tell how far away—and then
-the sound-shock of another explosion rolled past them.
-
-"Get down!" she ordered.
-The three-legged bot had risen to its feet again,
-its body swaying slightly as its algorithms steadied its misbalanced weight.
-"I said—whoa!"
-The dolly slewed wildly,
-skidded,
-and straightened out.
+"And you! Get down!" she ordered as the dolly jerked forward.
+The three-legged bot crouched,
+swaying slightly as its algorithms compensated for its misbalanced weight.
 
 The tunnel climbed a long steady incline.
 The first painted stripe on the wall flew past so quickly that
@@ -13153,7 +13186,7 @@ two figures in exoskeletons stepped out from behind the reactor.
 Iffy felt rather than saw the three-legged bot move.
 "No!" she shouted.
 Even as its gun spun and aimed,
-the lead Marine's auto-targeted shot brought it down.
+the lead figure's auto-targeted shot brought it down.
 
 She was falling too.
 Something had knocked the breath out of her.
@@ -13169,11 +13202,11 @@ but the words came out in a gasp.
 She could breathe again but wished she couldn't
 as the hurt spread through her like milk poured into tea.
 
-Her head lolled to the side as the Marine placed her on a nearby workbench
+Her head lolled to the side as the person carrying her placed her on a nearby workbench
 and put a patch on her arm to take the pain away,
 except it was more like taking her away from the pain.
 She floated away from her own body as if lying in a warm bath
-while the Marine sliced open her parka with a very sharp knife
+while they sliced open her parka with a very sharp knife
 and squeezed cold pink goo into the hole in her side that the needle gun had made.
 
 Looking up/down/inside she saw a schematic of herself.
@@ -13186,11 +13219,11 @@ healing would take time
 and that was something she/they/the world didn't have enough of right now.
 
 "Serves you bloody right,"
-the Marine said in an Australian accent.
-He raised his visor and looked at her
+said an Australian voice.
+Captain Kerse raised her visor and looked at her
 as if she was a barnacle to be scraped off the side of a ship.
 Her last thought before the drugs took her away was,
-"Captain Kerse?"
+"Great…"
 
 She woke feeling nauseous.
 Yawning triggered a dull ache in her side,
@@ -13200,7 +13233,7 @@ She pressed a hand gingerly against the wound.
 Whoever had done it had cut open her parka and part of her shirt.
 
 "She's with us,"
-a voice said.
+Captain Kerse said.
 
 "Thank you,"
 Doctor Johel replied.
@@ -13277,14 +13310,16 @@ nobody would have cried if that happened.
 Trust me,
 people that rich made the governors look like saints.
 No,
-my father and his colleagues wanted to imprint themselves on the entire global network
+my colleagues wanted to imprint themselves on the entire global network
 so that they could fix the things no one else could.
 People had tried it before,
 but they had some new ideas about how to make it work,
 and they were desperate."
 
-She gestured at the room.
-"So they built this and locked the door behind them.
+She gestured at the room,
+except Iffy knew now that "she" wasn't entirely right.
+This was the older Johel talking.
+"So we built this and locked the door behind us.
 Nothing in, nothing out, just a handful of the smartest human beings alive
 and enough equipment to settle Mars."
 She chuckled.
@@ -13296,16 +13331,18 @@ Iffy asked despite herself after a few moments of silence.
 
 "It didn't work,"
 Doctor Johel said bleakly.
-"They weren't ready,
-but they didn't know if they ever would be,
+"We weren't ready,
+but we didn't know if we ever would be,
 and things were getting worse faster than anyone had predicted.
-They argued and argued,
+We argued and argued,
 then decided to go for it and hope for the best.
-I imagine they listened to their favorite music one last time
-or had one last cup of real coffee
+They drew straws,
+then listened to their favorite music one last time
+and had one last cup of real coffee
 and made jokes about seeing each other in the next life,
-and then they climbed into their capsules.
-The next thing we knew they were all dead.
+and then…"
+Doctor Johel gestured at the superconducting ring.
+"And then the next thing we knew they were all dead.
 All of them except you and Johnson."
 
 Iffy stared at her.
@@ -13319,7 +13356,7 @@ The older version of Iffy that she had seen in the bunker looked back at her.
 "Her name wasn't Ang Kwan,"
 she said quietly.
 "It was Suhailah Yuen.
-And while my father and his team were working on *their* project,
+And while we were working on *our* project,
 she was working on one of her own.
 She and Johnson were the only people from the team who survived,
 and your First was a tweaked clone of her.
@@ -13363,11 +13400,16 @@ she spat.
 "Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
 an' th' other kids knocked me around 'cuz I was bad luck."
 She wiped her sleeve angrily across her face.
+"And there wasn't anyone lookin' out for my First
+when you dragged her to Bharati an' did your experiments on her
+an' then killed all those people to cover it up."
 
-"I'm sorry,"
-Doctor Johel said.
-"I wish I had been there to help.
-I truly do."
+"That wasn't me,"
+Doctor Johel corrected.
+"Or not just me, anyway.
+The governor—well, you've met the other two.
+You can imagine what he was like when he thought
+he'd been handed a way to control the machines."
 
 Something clicked in Iffy's head.
 "So Mister Wales bumpin' into me at th' Sandhu's—that
@@ -13495,7 +13537,7 @@ Captain Kerse eyed her.
 
 "I can't go inside the ring,"
 Doctor Johel said testily.
-"The field will tear my mods right out of my head."
+"The magnetic field will tear my mods right out of my head."
 
 Captain Kerse grunted,
 stepped back into the ring,
@@ -13519,7 +13561,7 @@ rather than for her own benefit."
 The air behind Doctor Johel shimmered and solidified.
 Johnson Wales' sad smile somehow made the small pistol he pressed against Doctor Johel's temple
 look even more menacing.
-"I'm sorry, Gayathri," he said.
+"I'm sorry, Surjinder," he said.
 "I can't let you do this."
 
 Doctor Johel lifted her hands a few centimers off her app
@@ -13529,12 +13571,12 @@ but otherwise didn't move.
 Wales shrugged apologetically.
 "I had some time to think.
 And to check some of our old simulations.
-The odds of your father's plan working are—"
+The odds of your plan working are—"
 
-"My *father's* plan?"
+"*My* plan?"
 Doctor Johel snapped.
 "It was your plan too, Johnson,
-yours as much as his.
+yours as much as mine.
 And yes,
 I know the odds,
 but what other choice do we have?"
@@ -13544,7 +13586,7 @@ Wales recited.
 "Remember that?
 I think it applies to the machines too now,
 or at least to their wild friends.
-They're something new, Gayathri, something wonderful.
+They're something new—something wonderful.
 I think we should give them a chance."
 
 "T minus sixty seconds," a melodious mechanical voice said.
@@ -13577,11 +13619,10 @@ when they'd realized there was nothing they could do to save themselves?
 Would Aunt Naggie and Honesty and Jeep and Edson
 spend the rest of their lives wondering what had happened to her?
 
-Wales heaved the sentry bot off him
-just as the bot's simple core finally found its target.
+Wales heaved the sentry bot off him just as the bot fired.
 "Gayathri!" Wales shouted as Doctor Johel crumpled to the floor.
 He jammed his pistol into the hole where the bot's missing leg would have joined its torso
-and fired over and over again until the machine went still.
+and pulled the trigger over and over again until the machine went still.
 
 Wales scrambled over to the fallen doctor.
 Through blurry eyes,
@@ -13779,16 +13820,20 @@ then paused to look back at her.
 
 Edson was waiting for them on the surface.
 "You look like hell," he said,
-hugging her.
+hugging her tight.
 
 "You too," she sniffled into his shoulder.
+"I'm glad you're not dead."
+
+*«nuzzle later work now»*
+The thought was amused but impatient.
 
 Edson let go of her and stepped back,
 his eyes widening.
 "What's wrong?" she asked.
 
 He looked from her to the raccoon and back.
-"You can talk to them now," he breathed.
+"You can talk to them," he breathed.
 She nodded.
 
 A wide grin split his face.
