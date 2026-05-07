@@ -453,9 +453,6 @@ Gran-Granna Tumbly pursed her lips.
 "That's twice they've shown up,"
 she said to the second santa,
 who nodded before turning her gaze on Finner.
-
-Something that felt like a mild electric shock ran down his spine
-as her dark eyes locked with his.
 "And who's this?" she asked.
 
 Before anyone could answer there was another pair of thumps upstairs.
@@ -1585,10 +1582,6 @@ Because you were gone an awfully long time at Santa Hotep's.
 They could have replaced you then."
 
 For a moment Finner just gaped at her.
-*You could check my pulse,* he thought,
-immediately squashing the idea
-back into the corner of his brain where he had recently started to cram
-all the other troubling thoughts he had about women, comma, attractive.
 "I'm bleeding," he blurted.
 "I mean, just a bit, but I scraped my arm.
 I can…?"
@@ -1834,15 +1827,16 @@ Why was he strapped down in what looked like an operating room?
 Half a dozen possible explanations raced through his mind,
 each less pleasant than the one before.
 
-He was wondering if he should call for help
-or hope that his captors had forgotten him
+He was wondering where Santa Greenwood and Santa Hood were,
+and whether he should call for help
+or hope that his captors had forgotten him,
 when the door near his feet slid open.
 A short, plump santa wearing a white coat and a matching white mask stepped into the room,
 exclaimed,
 "You're awake!"
 and fled.
 
-"Hello?" Finner said.
+"Hello?" Finner called.
 "Could someone please—um, could someone please let me up?
 I'd like to go to the bathroom."
 
@@ -1859,12 +1853,12 @@ and was pointed at Finner.
 "I—"
 *I just want to go home,* he finished in his head,
 but what he said out loud was,
-"I really do need to go to the bathroom.
+"I really need to go to the bathroom.
 Please."
 
 The elf scowled a moment longer,
 then turned her head slightly.
-"Undo him," she ordered the santa without taking her eyes off Finner.
+"Undo him," she ordered the santa behind her without taking her eyes off Finner.
 She held the ray gun steady as the santa nervously unbuckled the straps holding Finner down.
 
 He sat up and rubbed his wrists.
@@ -1874,10 +1868,10 @@ The elf waggled her ray gun toward the door.
 
 [^try-funny]: She probably didn't mean, "Don't try stuffing a sock in my mouth," but we'll never know.
 
-"To the right" was a narrow corridor with painted metal walls and a rubberized floor.
+"On the right" was a narrow corridor with painted metal walls and a rubberized floor.
 Flat strips set into the ceiling cast orange light
 on doors like the one that slid closed behind them,
-each with a number and a cryptic legend like "Aux Batt" or "Emerg Whvr" stencilled on it.
+each with a number and a cryptic label like "Aux Batt" or "Emerg Whvr" stencilled on it.
 Finner fumbled with the bathroom's handle,
 then sighed with relief at the sight of a perfectly normal toilet and sink.
 
@@ -1894,13 +1888,13 @@ The two and a half minutes that Finner spent in the bathroom matter even less,
 so let's just skip ahead to the moment after he washed his hands.*
 
 Finner slid the door open.
-The elf hadn't shifted,
+The elf hadn't moved,
 and neither had her scowl,
 but her ray gun was holstered on her hip instead of in her hand.
 "Let's go," she ordered,
 nodding to show the way.
-"And remember, don't try anything—damn, why do they always run?"
-Because of course that's what Finner did.
+"And remember, don't try anything—oh drat, why do they always run?"
+Because of course that's what Finner had just done.
 
 His boots thumped on the rubberized floor as he pelted down the corridor.
 The first door he tried was locked.
@@ -1925,7 +1919,7 @@ There was nothing except his own breathing
 and the deep *thrum thrum thrum* of distant motors.
 
 He put his back against the wall and slid down to the floor.
-"Well," he said,
+"Well," he said to himself,
 then hugged his knees and pressed his face into them.
 He had no idea where he was,
 but he was hungry
@@ -1940,8 +1934,8 @@ and flipped the switch.
 Four light strips in the ceiling came to life
 to show Finner a room like the one he had woken up in.
 Instead of an operating table it had a desk,
-and the walls were filled with filing cabinets.
-Each drawer had a picture on it of a santa or an elf.
+and the walls were lined with filing cabinets.
+Each drawer had a picture of a santa or an elf on it.
 Some were photographs,
 some were drawings,
 and others sparkled slightly and tracked Finner with their eyes.
@@ -1950,22 +1944,21 @@ each with a date and a six-letter code of some sort.
 
 The door opened behind him.
 He whirled around.
-The elf he had run away from looked at him with just a touch of annoyance on her face.
-"How about you come with me?"
-she suggested.
+The elf looked at him with weary annoyance on her face.
+"If you're quite finished, how about you come with me?"
 
 Ninety seconds and three corners later,
 the corridor brought them to a short ladder with rungs polished by frequent use.
-Finner clambered up it into the murmur and bustle of
-the bridge of a airship in flight.
+Finner clambered up into the murmur and bustle of
+the bridge of an airship in flight.
 The front window was made of hexagonal glass panels
 held together by thin strips of brass.
 The walls to either side were filled with instruments and controls.
 Santas and elves in blue uniforms paced back and forth beside them,
 adjusting dials and jotting notes on clipboards.
 A uniformed elf stood facing the enormous window
-with her hands clasped behind her back.
-Her straight back and the cutlass at her side practically shouted "captain".
+with her hands clasped behind her.
+Her straight back and the cutlass on her hip practically shouted "captain".
 
 "Alpha Two reporting with salvage in tow,"
 the elf behind Finner reported crisply.
@@ -1987,7 +1980,7 @@ Alpha Two saluted, turned, and slid back down the ladder.
 then stopped as the captain put her hand on the hilt of her cutlass
 and turned around.
 She was taller than Gran-Granna Tumbly and didn't have nearly as many wrinkles on her face,[^wrinkles-face]
-but she gave off the same feeling of being an irresistible force in search of an immovable object.
+but she gave the same impression of being an irresistible force temporarily at rest.
 
 [^wrinkles-face]: Old people don't actually have more wrinkles than young ones: young people's skin just hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows or smirk over and over while a personal trainer urges them on.
 
@@ -5483,7 +5476,7 @@ loudly enough to do Santazilla proud.
 "Wait! It's not a trick!"
 Finner stood and raised his hands.
 
-"You damn crayon-snuffling robots!"
+"You gormless crayon-snuffling robots!"
 Santa Greenwood grabbed the lamp beside his narrow cot.
 "I'll show you tricks!"
 
