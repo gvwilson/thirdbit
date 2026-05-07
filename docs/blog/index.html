@@ -208,6 +208,167 @@ University of Chicago Press,
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/05/06/algorithmic-justice/">
+      Algorithmic Criminal Justice
+    </a>
+  </h2>
+  <p><time datetime="2026-05-05" class="post-date">2026-05-05</time></p>
+  <p>In May 2016, two reporters at ProPublica named Julia Angwin and Jeff Larson
+published an investigation of a risk assessment tool called COMPAS,
+which was being used in Broward County, Florida to help judges make bail and sentencing decisions.
+COMPAS was built by a company called Northpointe
+and had been adopted by courts across the United States;
+it produced a score from one to ten predicting a defendant&rsquo;s likelihood of reoffending.
+The ProPublica analysis found that Black defendants were nearly twice as likely as white defendants
+to be falsely flagged as high risk,
+i.e., 
+to be scored as likely to reoffend when they did not,
+while white defendants were more likely to be falsely flagged as low risk
+and then go on to commit new offenses.</p>
+<p>COMPAS does not use race as an input.
+Its inputs include things like criminal history, age, employment status, and residential stability.
+These variables are legally permissible and individually plausible as predictors of behavior.
+They are also deeply correlated with race,
+as a consequence of decades of differential policing,
+prosecution,
+and sentencing.
+A Black defendant with the same criminal history as a white defendant
+is likely to have received that history because of more intensive police scrutiny,
+in a neighborhood with higher patrol density,
+in a jurisdiction with more aggressive charging practices.
+The algorithm does not <em>need</em> to see race;
+the other, legal inputs serve as proxies.</p>
+<p>The dispute between ProPublica and Northpointe could not be resolved by better data.
+Computer scientists Alexandra Chouldechova proved in 2017 that
+no algorithm can simultaneously provide both equal false positive rates across groups
+<em>and</em> equal calibration across groups
+when the underlying base rates differ between groups.
+Broward County&rsquo;s Black and white populations had different historical recidivism rates,
+as a result of differential enforcement.
+No single risk assessment instrument could treat both groups equitably by both measures at once.
+This is not a bug that better engineering will fix;
+it is a mathematical consequence of deploying statistical tools
+using data produced by historical discrimination.</p>
+<div class="callout">
+<p>Actuarial tools in criminal justice are not a recent invention.
+The criminologist Ernest Burgess developed the first statistical parole prediction instrument
+in Illinois in the 1920s,
+using factors including offense type, employment history, and national origin.
+His tool was adopted by several state parole boards and used for decades.
+The national origin variable,
+which explicitly penalized immigrants,
+was quietly dropped after the Second World War,
+but the broader approach survived.
+By the time the COMPAS investigation was published in 2016,
+at least forty-six US states were using risk assessment instruments somewhere in their criminal justice systems.
+The tools were marketed as scientific improvements over subjective judicial discretion,
+but most simply encoded prior biases in a form that was harder to question.</p>
+</div>
+<p>In January 2020,
+Detroit police arrested Robert Williams,
+a Black man,
+on suspicion of theft.
+He was taken to a police station,
+shown a photograph taken from surveillance footage,
+and asked if it was him.
+He held the photograph next to his face and said:
+&ldquo;I hope you don&rsquo;t think all Black men look alike.&rdquo;</p>
+<p>The photograph was not Williams,
+but had been identified as a match by a facial recognition system operated by the Michigan State Police.
+This was the first documented case of a wrongful arrest
+directly resulting from facial recognition identification,
+but more were to come.
+In every such case over the next two years,
+the wrongfully arrested person was Black.
+Audits done by the National Institute of Standards and Technology had shown that
+these facial recognition systems
+had error rates for darker-skinned faces
+that were ten to one hundred times higher than for lighter-skinned faces.
+They were deployed anyway.</p>
+<p>The legal framework for challenging these tools is nearly nonexistent.
+COMPAS and similar instruments are proprietary.
+When defendants have sought to examine the algorithms,
+courts have generally ruled that the commercial trade secret protects the code from disclosure.
+In other words,
+a person&rsquo;s liberty can be determined by a calculation they are legally prevented from inspecting or contesting.
+The right to confront the evidence against you,
+which has been foundational to criminal procedure since the seventeenth century,
+does not currently extend to the algorithms that generate that &ldquo;evidence&rdquo;.</p>
+<p>Virginia Eubanks&rsquo;s research on automated decision-making in social services
+tells a similar story in a different context.
+In Indiana,
+an automated eligibility determination system introduced in 2006 to manage welfare, Medicaid, and food stamps
+terminated benefits for hundreds of thousands of low-income residents,
+often for minor procedural failures that the previous human caseworkers would have sorted out with a phone call.
+In Allegheny County, Pennsylvania, a predictive risk model used by child protective services
+assessed children&rsquo;s likelihood of being removed from their families
+using data that included whether their parents had used the county&rsquo;s crisis services,
+creating direct incentives for poor families not to seek help.
+In both cases,
+the introduction of algorithmic decision-making
+was described as an improvement over biased human judgment.
+What it actually did was entrench the biases already present in the data
+while removing human discretion.</p>
+<p>India&rsquo;s Aadhaar program is the same story at continental scale.
+Introduced as a biometric identity database,
+Aadhaar was linked to food ration distribution in several states starting around 2016.
+The system required residents to authenticate their identity with a fingerprint scan at the ration shop.
+Agricultural workers whose fingerprints had worn smooth from years of labor,
+elderly residents whose biometrics had drifted with age,
+and anyone whose enrollment data contained errors were denied food.
+Journalists and researchers documented deaths linked to starvation
+after benefits were terminated because a scanner could not read someone&rsquo;s hand.
+The Indian government&rsquo;s response was largely to attribute failures to local implementation
+rather than to the design itself.</p>
+<p>The outcome was different in the Netherlands.
+The Dutch government&rsquo;s SyRI system cross-referenced
+seventeen government datasets to assign welfare fraud risk scores,
+and was deployed predominantly in lower-income, immigrant-heavy neighborhoods.
+In 2020,
+a Dutch court struck it down as a violation of the European Convention on Human Rights,
+ruling that the government had not explained how it worked,
+demonstrated that it was accurate,
+or justified why it targeted certain communities.
+The fact that it required a human rights case rather than any technology-specific law
+is as telling as the victory itself.</p>
+<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
+<dl>
+<dt><span id="Chouldechova2017">Chouldechova2017</span></dt>
+<dd>Alexandra Chouldechova:
+&ldquo;Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments&rdquo;.
+<em>Big Data</em>,
+5(2),
+2017,
+doi:10.1089/big.2016.0047.</dd>
+<dt><span id="Eubanks2018">Eubanks2018</span></dt>
+<dd>Virginia Eubanks:
+<em>Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor</em>.
+St. Martin&rsquo;s Press,
+2018,
+978-1250074317.</dd>
+<dt><span id="Khera2019">Khera2019</span></dt>
+<dd>Reetika Khera (ed.):
+<em>Dissent on Aadhaar: Big Data Meets Big Brother</em>.
+Orient BlackSwan,
+2019,
+978-9352875429.</dd>
+<dt><span id="Oneil2016">ONeil2016</span></dt>
+<dd>Cathy O&rsquo;Neil:
+<em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>.
+Crown,
+2016,
+978-0553418811.</dd>
+<dt><span id="Pasquale2015">Pasquale2015</span></dt>
+<dd>Frank Pasquale:
+<em>The Black Box Society: The Secret Algorithms That Control Money and Information</em>.
+Harvard University Press,
+2015,
+978-0674368279.</dd>
+</dl>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/05/06/public-subsidy-private-profit/">
       Public Subsidy, Private Profit
     </a>
@@ -1327,111 +1488,6 @@ Cornell University Press,
 Cornell University Press,
 1991,
 978-0875461823.</dd>
-</dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/02/intellectual-property/">
-      The Invention of Intellectual Property
-    </a>
-  </h2>
-  <p><time datetime="2026-05-02" class="post-date">2026-05-02</time></p>
-  <p>Copyright, patent, and trademark are not natural rights:
-they are legal instruments invented at specific times to serve specific interests.
-The expansion of intellectual property rights over the past forty years was a deliberate political project,
-pursued by specific industries,
-over the objection of economists who predicted (correctly) that it would harm innovation.
-Understanding this history is essential for evaluating current claims
-about AI training data, open source licensing, and platform ownership of content created by users.</p>
-<p>The Statute of Anne,
-enacted in England in 1710,
-is generally identified as the first copyright law.
-It was not passed to protect authors,
-but to end a monopoly held by the London Stationers&rsquo; Company,
-a guild of printers that had controlled the trade in printed books since the sixteenth century,
-and to create a new system of publisher monopolies that would operate for limited terms.
-Authors received rights in the statute,
-but only to the extent that they assigned those rights to publishers,
-who were the real beneficiaries of the act.
-The framing of copyright as a natural right of creators,
-which dominates popular and political discussion today,
-was a later construction that reversed the actual historical origin.</p>
-<p>Patent and copyright terms have been extended repeatedly,
-almost always to be longer, broader, and allow fewer exceptions.
-United States copyright terms have moved from 14 years under the Copyright Act of 1790
-to the current life-plus-70 years.
-(The 1998 Sonny Bono Copyright Term Extension Act was timed
-to prevent the earliest Mickey Mouse films from entering the public domain.)
-Patent terms have been less dramatically extended,
-but the scope of what is patentable has expanded substantially,
-particularly with the rise of software patents.
-Each extension was the result of lobbying by specific industries,
-over the objections of economists
-who consistently argued that the existing terms were already longer than necessary to incentivize creation.</p>
-<div class="callout">
-<p>Pharmaceutical companies have been extremely effective at shaping intellectual property law globally.
-Beginning with the Agreement on Trade-Related Aspects of Intellectual Property Rights (TRIPS) in 1994,
-high-income countries required all members of the World Trade Organization
-to adopt patent standards that matched or exceeded their own.
-Countries that had deliberately excluded pharmaceutical products from patentability
-in order to build domestic generic drug industries,
-including India, Brazil, and several African countries,
-were required to change their laws.
-The result was a substantial transfer of rents to pharmaceutical companies operating in rich countries,
-and a significant increase in drug prices in countries that could least afford them.</p>
-</div>
-<p>Software patents are a category of intellectual property right
-whose practical operation differs substantially from the stated purpose of the patent system.
-The original argument for patents is that they encourage disclosure:
-an inventor gets a time-limited monopoly
-in exchange for publishing a description of the invention
-sufficient to allow others to replicate it after the term expires.
-In contrast,
-software patents are often written at high levels of abstraction,
-covering broad categories of computational method rather than specific implementations.
-They are concentrated in the portfolios of large technology companies, financial institutions,
-and patent assertion entities:
-organizations that hold patents without producing anything,
-but derive revenue entirely from licensing and litigation.
-Software patents are used primarily against smaller companies and open source projects,
-which lack the resources to defend extended litigation.</p>
-<p>Open source licensing emerged in part as
-a response to the expansion of intellectual property rights over software.
-The GNU Public License (GPL) and its relatives use copyright law against itself:
-the license grants broad permissions
-that apply only on the condition that derivative works carry the same license,
-making it legally difficult to take open source software and close it.
-This has only been a partial success:
-big tech companies have learned to extract enormous value from open source software
-while contributing relatively little back,
-because their primary product is not the software but the service running on it.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<dl>
-<dt><span id="Baldwin2014">Baldwin2014</span></dt>
-<dd>Peter Baldwin:
-<em>The Copyright Wars: Three Centuries of Trans-Atlantic Battle</em>.
-Princeton University Press,
-2014,
-978-1400851911.</dd>
-<dt><span id="Bellos2024">Bellos2024</span></dt>
-<dd>David Bellos and Alexandre Montagu:
-<em>Who Owns This Sentence?: A History of Copyrights and Wrongs</em>.
-WW Norton,
-2024,
-978-1324073710.</dd>
-<dt><span id="Bracha2019">Bracha2019</span></dt>
-<dd>Oren Bracha:
-<em>Owning Ideas: The Intellectual Origins of American Intellectual Property, 1790-1909</em>.
-Cambridge University Press,
-2019,
-978-1108790697.</dd>
-<dt><span id="Doctorow2022">Doctorow2022</span></dt>
-<dd>Cory Doctorow and Rebecca Giblin:
-<em>Chokepoint Capitalism: How Big Tech and Big Content Captured Creative Labor Markets and How We&rsquo;ll Win Them Back</em>.
-Beacon Press,
-2022,
-978-0807007068.</dd>
 </dl>
 </article>
 

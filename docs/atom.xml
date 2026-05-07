@@ -135,6 +135,165 @@ University of Chicago Press,
  </entry>
  
  <entry>
+   <title>Algorithmic Criminal Justice</title>
+   <link href="https://third-bit.com/2026/05/06/algorithmic-justice/"/>
+   <updated>2026-05-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/05/06/algorithmic-justice/</id>
+   <content type="html">&lt;p&gt;In May 2016, two reporters at ProPublica named Julia Angwin and Jeff Larson
+published an investigation of a risk assessment tool called COMPAS,
+which was being used in Broward County, Florida to help judges make bail and sentencing decisions.
+COMPAS was built by a company called Northpointe
+and had been adopted by courts across the United States;
+it produced a score from one to ten predicting a defendant&amp;rsquo;s likelihood of reoffending.
+The ProPublica analysis found that Black defendants were nearly twice as likely as white defendants
+to be falsely flagged as high risk,
+i.e., 
+to be scored as likely to reoffend when they did not,
+while white defendants were more likely to be falsely flagged as low risk
+and then go on to commit new offenses.&lt;/p&gt;
+&lt;p&gt;COMPAS does not use race as an input.
+Its inputs include things like criminal history, age, employment status, and residential stability.
+These variables are legally permissible and individually plausible as predictors of behavior.
+They are also deeply correlated with race,
+as a consequence of decades of differential policing,
+prosecution,
+and sentencing.
+A Black defendant with the same criminal history as a white defendant
+is likely to have received that history because of more intensive police scrutiny,
+in a neighborhood with higher patrol density,
+in a jurisdiction with more aggressive charging practices.
+The algorithm does not &lt;em&gt;need&lt;/em&gt; to see race;
+the other, legal inputs serve as proxies.&lt;/p&gt;
+&lt;p&gt;The dispute between ProPublica and Northpointe could not be resolved by better data.
+Computer scientists Alexandra Chouldechova proved in 2017 that
+no algorithm can simultaneously provide both equal false positive rates across groups
+&lt;em&gt;and&lt;/em&gt; equal calibration across groups
+when the underlying base rates differ between groups.
+Broward County&amp;rsquo;s Black and white populations had different historical recidivism rates,
+as a result of differential enforcement.
+No single risk assessment instrument could treat both groups equitably by both measures at once.
+This is not a bug that better engineering will fix;
+it is a mathematical consequence of deploying statistical tools
+using data produced by historical discrimination.&lt;/p&gt;
+&lt;div class=&#34;callout&#34;&gt;
+&lt;p&gt;Actuarial tools in criminal justice are not a recent invention.
+The criminologist Ernest Burgess developed the first statistical parole prediction instrument
+in Illinois in the 1920s,
+using factors including offense type, employment history, and national origin.
+His tool was adopted by several state parole boards and used for decades.
+The national origin variable,
+which explicitly penalized immigrants,
+was quietly dropped after the Second World War,
+but the broader approach survived.
+By the time the COMPAS investigation was published in 2016,
+at least forty-six US states were using risk assessment instruments somewhere in their criminal justice systems.
+The tools were marketed as scientific improvements over subjective judicial discretion,
+but most simply encoded prior biases in a form that was harder to question.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In January 2020,
+Detroit police arrested Robert Williams,
+a Black man,
+on suspicion of theft.
+He was taken to a police station,
+shown a photograph taken from surveillance footage,
+and asked if it was him.
+He held the photograph next to his face and said:
+&amp;ldquo;I hope you don&amp;rsquo;t think all Black men look alike.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;The photograph was not Williams,
+but had been identified as a match by a facial recognition system operated by the Michigan State Police.
+This was the first documented case of a wrongful arrest
+directly resulting from facial recognition identification,
+but more were to come.
+In every such case over the next two years,
+the wrongfully arrested person was Black.
+Audits done by the National Institute of Standards and Technology had shown that
+these facial recognition systems
+had error rates for darker-skinned faces
+that were ten to one hundred times higher than for lighter-skinned faces.
+They were deployed anyway.&lt;/p&gt;
+&lt;p&gt;The legal framework for challenging these tools is nearly nonexistent.
+COMPAS and similar instruments are proprietary.
+When defendants have sought to examine the algorithms,
+courts have generally ruled that the commercial trade secret protects the code from disclosure.
+In other words,
+a person&amp;rsquo;s liberty can be determined by a calculation they are legally prevented from inspecting or contesting.
+The right to confront the evidence against you,
+which has been foundational to criminal procedure since the seventeenth century,
+does not currently extend to the algorithms that generate that &amp;ldquo;evidence&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Virginia Eubanks&amp;rsquo;s research on automated decision-making in social services
+tells a similar story in a different context.
+In Indiana,
+an automated eligibility determination system introduced in 2006 to manage welfare, Medicaid, and food stamps
+terminated benefits for hundreds of thousands of low-income residents,
+often for minor procedural failures that the previous human caseworkers would have sorted out with a phone call.
+In Allegheny County, Pennsylvania, a predictive risk model used by child protective services
+assessed children&amp;rsquo;s likelihood of being removed from their families
+using data that included whether their parents had used the county&amp;rsquo;s crisis services,
+creating direct incentives for poor families not to seek help.
+In both cases,
+the introduction of algorithmic decision-making
+was described as an improvement over biased human judgment.
+What it actually did was entrench the biases already present in the data
+while removing human discretion.&lt;/p&gt;
+&lt;p&gt;India&amp;rsquo;s Aadhaar program is the same story at continental scale.
+Introduced as a biometric identity database,
+Aadhaar was linked to food ration distribution in several states starting around 2016.
+The system required residents to authenticate their identity with a fingerprint scan at the ration shop.
+Agricultural workers whose fingerprints had worn smooth from years of labor,
+elderly residents whose biometrics had drifted with age,
+and anyone whose enrollment data contained errors were denied food.
+Journalists and researchers documented deaths linked to starvation
+after benefits were terminated because a scanner could not read someone&amp;rsquo;s hand.
+The Indian government&amp;rsquo;s response was largely to attribute failures to local implementation
+rather than to the design itself.&lt;/p&gt;
+&lt;p&gt;The outcome was different in the Netherlands.
+The Dutch government&amp;rsquo;s SyRI system cross-referenced
+seventeen government datasets to assign welfare fraud risk scores,
+and was deployed predominantly in lower-income, immigrant-heavy neighborhoods.
+In 2020,
+a Dutch court struck it down as a violation of the European Convention on Human Rights,
+ruling that the government had not explained how it worked,
+demonstrated that it was accurate,
+or justified why it targeted certain communities.
+The fact that it required a human rights case rather than any technology-specific law
+is as telling as the victory itself.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;span id=&#34;Chouldechova2017&#34;&gt;Chouldechova2017&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Alexandra Chouldechova:
+&amp;ldquo;Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments&amp;rdquo;.
+&lt;em&gt;Big Data&lt;/em&gt;,
+5(2),
+2017,
+doi:10.1089/big.2016.0047.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Eubanks2018&#34;&gt;Eubanks2018&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Virginia Eubanks:
+&lt;em&gt;Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor&lt;/em&gt;.
+St. Martin&amp;rsquo;s Press,
+2018,
+978-1250074317.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Khera2019&#34;&gt;Khera2019&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Reetika Khera (ed.):
+&lt;em&gt;Dissent on Aadhaar: Big Data Meets Big Brother&lt;/em&gt;.
+Orient BlackSwan,
+2019,
+978-9352875429.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Oneil2016&#34;&gt;ONeil2016&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Cathy O&amp;rsquo;Neil:
+&lt;em&gt;Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy&lt;/em&gt;.
+Crown,
+2016,
+978-0553418811.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Pasquale2015&#34;&gt;Pasquale2015&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Frank Pasquale:
+&lt;em&gt;The Black Box Society: The Secret Algorithms That Control Money and Information&lt;/em&gt;.
+Harvard University Press,
+2015,
+978-0674368279.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Public Subsidy, Private Profit</title>
    <link href="https://third-bit.com/2026/05/06/public-subsidy-private-profit/"/>
    <updated>2026-05-05T00:00:00Z</updated>
@@ -2650,134 +2809,6 @@ Harvard University Press,
 University of California Press,
 2017,
 978-0520299931.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Big Tech is Like Standard Oil</title>
-   <link href="https://third-bit.com/2026/04/27/big-tech-as-standard-oil/"/>
-   <updated>2026-04-27T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/04/27/big-tech-as-standard-oil/</id>
-   <content type="html">&lt;p&gt;Venture-funded platform competition is a tontine.
-In European finance from the seventeenth through the nineteenth centuries,
-a tontine was a pooled investment in which,
-as each subscriber died,
-the remaining subscribers&amp;rsquo; shares increased,
-with the last survivor inheriting the entire fund.
-Most governments eventually banned tontines because they created obvious incentives
-to hasten the death of other participants.&lt;/p&gt;
-&lt;p&gt;In platform competition,
-the explicit goal from the first investment round
-is to be the one platform that achieves dominance while all competitors fail.
-Operating below cost to build market share,
-sometimes for years,
-makes financial sense
-if it eliminates alternatives and enables the extraction of monopoly rents afterward.
-Investors who hold positions in multiple competing platforms profit regardless of which one wins;
-the workers, users, and communities that depended on those platforms do not.&lt;/p&gt;
-&lt;p&gt;The life cycle of a dominant firm in a network industry follows a pattern:
-enter the market with a genuinely useful product,
-use that position to acquire or drive out competitors,
-then extract maximum value from the resulting captive market.
-Standard Oil, railway companies, the Bell telephone system, cable television,
-and major record labels all followed this playbook.
-The constraints that eventually constrained them
-were the result of political struggles that the industries fought at length.&lt;/p&gt;
-&lt;p&gt;At its peak,
-Standard Oil controlled roughly ninety percent of US oil refining capacity.
-It didn&amp;rsquo;t achieve this through superior efficiency
-but through secret railroad rebates,
-predatory pricing against competitors,
-and strategic acquisitions of rivals.
-The Sherman Antitrust Act of 1890 was written in direct response,
-and the landmark 1911 Supreme Court decision that broke Standard Oil into thirty-four separate companies
-is often cited as the definitive antitrust remedy.
-What is less often noted is that several successor companies immediately reconsolidated,
-and that John D. Rockefeller&amp;rsquo;s personal fortune &lt;em&gt;increased&lt;/em&gt; after the breakup
-as the stock prices of the subsidiaries rose.
-The remedy addressed the legal structure of the monopoly
-without fundamentally altering the underlying concentration of wealth or market power.&lt;/p&gt;
-&lt;p&gt;The Standard Oil breakup points toward a limit that antitrust has not resolved:
-separating a company into parts does not eliminate coordination between those parts.
-Japan&amp;rsquo;s prewar zaibatsu were family-controlled conglomerates
-combining a bank, a trading company, and manufacturing enterprises across multiple industries.
-The bank provided capital to affiliated companies on terms unavailable to competitors;
-the trading company controlled export markets;
-profitable units cross-subsidized struggling ones during competitive battles.&lt;/p&gt;
-&lt;p&gt;The American occupation dissolved the zaibatsu after 1945.
-Within a decade, the keiretsu emerged:
-networks of former zaibatsu firms coordinated through mutual shareholding,
-preferential supply relationships, and regular executive meetings.
-The legal structure of centralized control had been dismantled,
-but the practical coordination continued in a different form.&lt;/p&gt;
-&lt;p&gt;The Bell network evolved along slightly different lines than Standard Oil.
-AT&amp;amp;T&amp;rsquo;s control over telephone infrastructure from the 1910s until its breakup in 1984
-was maintained by a regulatory compact
-in which AT&amp;amp;T accepted rate regulation in exchange for a protected monopoly position.
-That compact produced genuine achievements:
-Bell Labs generated an extraordinary concentration of fundamental research,
-including the transistor, the laser, information theory, and Unix.
-It also suppressed the development of competitive long-distance service
-and technologies that threatened the core telephone business.&lt;/p&gt;
-&lt;p&gt;The British railway mania of the 1840s followed the same cycle earlier and more visibly.
-Between 1844 and 1847,
-Parliament authorized more than nine thousand miles of new railway,
-most of it capitalized by a speculative bubble that collapsed in 1847.
-The consolidation that followed produced a small number of large regional monopolies.
-Parliament responded with rate controls and mandated third-party access to track,
-which the railway companies contested for decades.
-They made the same arguments then that social media and AI companies make today:
-the industry was too complex to regulate effectively,
-regulation would destroy investment incentives,
-and the market would eventually take care of things anyway.&lt;/p&gt;
-&lt;p&gt;Network effects and switching costs
-are what make monopolies in network industries self-reinforcing.
-A telephone network becomes more valuable as more people join it,
-giving the dominant network an advantage separate from the quality or price of the underlying service.
-Switching costs compound this:
-users who have built workflows and contact lists around a platform
-can&amp;rsquo;t afford to move to a competitor even when the competitor offers a better product.&lt;/p&gt;
-&lt;p&gt;Cory Doctorow coined the term &amp;ldquo;enshittification&amp;rdquo;
-to describe these dynamics.
-A platform enters a market by subsidizing users—offering a service below cost to build a user base.
-Once users are locked in it starts subsidizing business customers,
-using the captive user base as leverage.
-Once business customers are also locked in,
-it harvests both by degrading service quality and raising prices.
-The platform can get away with this because
-the switching costs that lock users in also protect it from competitive consequences.&lt;/p&gt;
-&lt;p&gt;Antitrust law in the United States was supposed to prevent this.
-Beginning in the 1970s,
-however,
-it was weakened by a legal school associated with the University of Chicago
-that argued courts should evaluate mergers solely on whether they reduced consumer welfare in the short run.
-Under this standard,
-acquisitions of nascent competitors were not anticompetitive
-if the acquired company had not yet raised prices.
-Platform companies used this framework to acquire dozens of potential competitors
-before they could grow large enough to threaten market share.
-The current debate over platform regulation is therefore partly a debate about
-whether antitrust law should return to its original concern with concentration of power.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Doctorow2025&#34;&gt;Doctorow2025&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Cory Doctorow:
-&lt;em&gt;Enshittification: Why Everything Suddenly Got Worse and What to Do About It&lt;/em&gt;.
-Farrar, Straus and Giroux,
-2025,
-978-0374619329.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Stoller2019&#34;&gt;Stoller2019&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Matt Stoller:
-&lt;em&gt;Goliath: The 100-Year War Between Monopoly Power and Democracy&lt;/em&gt;.
-Simon &amp;amp; Schuster,
-2019,
-978-1501183089.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Wu2010&#34;&gt;Wu2010&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Tim Wu:
-&lt;em&gt;The Master Switch: The Rise and Fall of Information Empires&lt;/em&gt;.
-Knopf,
-2011,
-978-0307390998.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  
