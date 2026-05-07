@@ -1,6 +1,6 @@
 ---
 title: "Algorithmic Criminal Justice"
-date: 2026-05-05
+date: 2026-05-06
 category: sdgc
 ---
 
