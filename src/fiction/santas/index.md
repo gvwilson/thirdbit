@@ -1871,7 +1871,7 @@ The elf waggled her ray gun toward the door.
 "On the right" was a narrow corridor with painted metal walls and a rubberized floor.
 Flat strips set into the ceiling cast orange light
 on doors like the one that slid closed behind them,
-each with a number and a cryptic label like "Aux Batt" or "Emerg Whvr" stencilled on it.
+each with a number and a cryptic label like "Aux Batt" or "Emerg Whrvr" stencilled on it.
 Finner fumbled with the bathroom's handle,
 then sighed with relief at the sight of a perfectly normal toilet and sink.
 
@@ -2016,16 +2016,15 @@ when we were,
 um,
 earlier.
 I hope I didn't hurt anyone with it,"
-he added hurriedly,
-thinking of the glass that wasn't in the porthole of Santa Greenwood's old cabin any longer.
+he added hurriedly.
 
-"If hope was soup we'd never go hungry,"
+"If hope was soup, we'd never go hungry,"
 the captain said evenly.
 "You put one of my crew in the infirmary with a rather nasty burn,
 though the doctor says de'll be fine."
 
 "I'm sorry,"
-Finner said contritely.
+Finner said meekly.
 "I thought you were attacking us and I wanted to help."
 
 "We were, and unfortunately you did.
@@ -2046,7 +2045,7 @@ and if Finner had been paying attention
 he would have heard quiet murmurs about
 damage control crews reporting hull breaches
 and steering vanes needing in-flight repairs.
-The skirmish with Captain Clausbeard's ship had only been
+The skirmish with Captain Clausbeard's ship had been
 the equivalent of two cats taking swipes at one another
 and then pretending each other didn't exist,
 but airships are fragile things.
@@ -2079,7 +2078,7 @@ It was the best two years of my life."
 only to have people like Tumbly say that
 I should have stay stranded rather than betray our traditions."
 She stared out the window,
-past the darkening clouds and into painful memories.
+past the darkening clouds.
 
 "So—so you're a flip?"
 Finner ventured.
@@ -2093,7 +2092,8 @@ and who are they planning to replace next?"
 [^absolute-expression]: In the sense of "absolute zero".
 
 "Robots?
-I don't know anything about robots!"
+I don't know anything about robots!
+Or about anybody replacing anybody!"
 But even as he said it,
 he remembered Santa Hood pointing the ray gun at him on board the *Dancing Marmot*.
 
@@ -2105,11 +2105,13 @@ A nearby crew member saluted.
 
 "Remove Mister Finner to the brig, if you would.
 Find someone from Beta watch who has annoyed me recently
-and tell them to keep an eye on him until I he's ready to talk to us."
+and tell them to keep an eye on him until he's ready to talk to us."
 
-A few moments later Finner was back at the bottom of the ladder.
+A few moments,
+later Finner was back at the bottom of the ladder.
 "That way,"
 Alpha Seven told him, pointing.
+
 They had only gone three steps when an alarm began to blare
 and the overhead lights changed from orange to red.
 "All hands, all hands, battle stations!"
@@ -2126,15 +2128,15 @@ Finner ran.
 *I'm getting pretty good at this,* he thought giddily
 as he half-slid, half-bounced around a corner.
 There!
-Door number one oh six, "Emerg Whvr".
-He hoped it meant what he thought it meant,
+That was the door.
+He hoped the label "Emerg Whrvr" meant what he thought it meant,
 because if it didn't,
 he was going to set a record for the world's briefest escape.
 
 He twisted the handle,
-pulled the door aside,
+slid the door aside,
 tripped on the sill as he stepped through,
-slid the door shut behind him and snicked the lock.
+shut the door behind him and snicked the lock.
 At least he hoped that was a lock.
 Even more,
 he hoped he wouldn't be here long enough to find out if it wasn't.
@@ -2143,11 +2145,10 @@ The room was smaller than the one he'd woken up in.
 There was no furniture and no window,
 just a line drawing of an archway on one whitewashed wall
 with a pair of heavy brass dials beside it.
-Codes were stencilled on the wall beside it:
-"QCD 143.7 22.8",
-"NAR 96.0 533.5"…
-The last one was "OVB".
-The numbers had been crossed out
+Codes like "QCD 143.7 22.8" and "NAR 96.0 533.5"
+were stencilled on the wall beside it.
+The last one was "OVB",
+but the numbers had been crossed out
 and the words "We miss you Alpha Five" written in their place.
 
 "Hey!"
@@ -2166,7 +2167,7 @@ because he was pretty sure "OVB" wasn't.
 "Last chance!" Alpha Seven bellowed.
 "Either you open this door or I zap it open!"
 
-Finner said a word he was pretty sure his parents thought he still didn't know.
+Finner said a word he wouldn't have used in front of his parents.
 If he picked a world at random
 he could wind up on the moon without a spacesuit
 or back in the ocean wondering if the cold or Kraken Claus would get to him first.
