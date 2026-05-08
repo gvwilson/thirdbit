@@ -270,19 +270,28 @@ a necklace whose beads changed color at a thought:
 they had spent hours together figuring out what each one did.
 
 Sindy frowned and took a gray cylinder from the box.
-It was new—at least,
-she didn't remember seeing it before.
+She didn't remember seeing it before.
 She turned it over in her hands,
 but couldn't see anything that looked like a switch or a button.
-One end had a odd texture,
-like very fine sandstone,
-but other than that,
-the only remarkable thing about was the odd twinge
+The only remarkable thing about it was the odd twinge
 that she always felt in the back of her head
-when handling any of the Makers' ancient tech.
+when she handled any of the Makers' ancient tech.
 
-"Sindy?
-Where have you—oh, there you are."
+Had it belonged to one of the bots that had moved out of Heck after Central shut down?
+One or two had come to stay with Dockety and the others outside Rusty Bridge,
+but most had moved on.
+"They are afraid,"
+Dockety had said when she asked why they hadn't stayed.
+"Some of them have vanished.
+No one knows why."
+
+"Do you think it's the Specials?" Sindy had asked.
+
+"No one knows," Dockety had repeated.
+
+"Sindy?"
+She jumped at the sound of her mother's voice.
+"Where have you—oh, there you are."
 Mama Roo joined her in the kitchen
 and took the kettle off the stove.
 "Papa and I were just talking about getting chocolate at the Wayside on the way home as a treat.
@@ -758,15 +767,14 @@ trying not to sound disappointed.
 Dockety's eyes rotated and rotated back in its equivalent of either a shrug or a smile,
 she was never sure which.
 It turned back to the cart in question,
-the back end of which was resting on a tree stump
-while the bot fitted it with a new rear axle.
+the back end of which was resting on a stump
+while the bot fitted it with a new axle.
 
 Crusher and Beevy were busy turning logs into planks,
 not that either would been much fun to play tag with:
 Crusher was too bit,
 and Beevy still had trouble with the idea of fun.
-She didn't really know any of the other bots she could see
-well enough to ask them to play.
+She didn't really know any of the other bots well enough to ask them to play.
 *I should have just gone home,*
 she thought,
 then jumped and squeaked as something pinched her ankle.
@@ -1266,7 +1274,7 @@ then handed it back to Sindy and scratched her ear doubtfully.
 but after everythin' you've been through…"
 
 She leaned back in her chair.
-"You think this has anythin' to do with your time in Heck?"
+"You think this has anythin' to do with what happened to you in Heck?"
 she asked Papa Roo.
 
 Sindy's father shifted uncomfortably.
@@ -1289,7 +1297,7 @@ raising a finger to cut Sindy off.
 
 She sighed,
 looking at the little framed sketch on her desk that Maddy had drawn
-of her and Special Leaf playing checkers.
+of her playing checkers with Special Leaf.
 "Wish you were here,"
 she murmured.
 "You always had somethin' useful to suggest at times like these."
@@ -1322,8 +1330,10 @@ use the back door.
 Lickety quick now."
 
 She turned to the Roos as Cody scampered away.
-"I expect this is gonna have somethin' to do with Special Leaf passin'.
-You folks want to be in the conversation,
+"This is either gonna be about them bots from Heck that have gone missin'
+or about Special Leaf passin'.
+Either way,
+d'you folks want to be in the conversation,
 or would you rather make use o' the back door as well?"
 
 Mama Roo straightened.
