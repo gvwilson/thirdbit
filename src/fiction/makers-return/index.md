@@ -675,7 +675,14 @@ but had learned the hard way that
 if she showed up with all her homework done,
 some of the other kids would call her a show-off
 and others wouldn't talk to her at all.
-Sometimes it seemed like there were no right answers.
+
+At least nobody made fun of her not having fur or a tail any more.
+She had expected that to start up again when Maddy and Gumption left,
+but the last time one of the boys had said
+how cold Sindy must get in winter on account of basically being naked,
+Bravo Goat had talked to him and his friends at recess.
+She didn't know what he'd said,
+but there hadn't been any more jokes after that.
 
 Recess came an hour and a half later.
 She pretended to write a note in her practice book
@@ -1451,7 +1458,8 @@ and a moment later Sindy did too.
 Dockety and Beevy slowed to a stop as they came around the corner
 and retracted their wheels
 so that they could walk the rest of the way across the town square.
-Nash's hand twitched toward the holster on his hip,
+Nash's hand twitched toward the holster on his hip
+when Mouse suddenly appeared from underneath Beevy,
 but Special Blazes seemed unbothered by the bots' arrival.
 
 "Good morning, Special,"
@@ -1485,6 +1493,7 @@ She jerked a thumb at the letter in Mama and Papa Roo's hands.
 "That is sensible,"
 Dockety buzzed.
 "Would you like our assistance?"
+`we help lots` scrolled across Mouse's screen.
 
 "That won't be necessary," Special Blazes said smoothly.
 Though I trust you'll join us, Miz Roo?
@@ -1537,16 +1546,29 @@ Violet, can you hear me?"
 "What was *that* all about?"
 the mayor demanded in exasperation.
 
-Sindy looked at the now-silent cylinder.
+Sindy held up the now-silent cylinder.
 "That's who I was telling you about.
 She said she's in space right now but they're going to land."
 
 "They're going to what?
 Who?"
 
-FIXME: fill this in with a couple of minutes of argument.
+Sindy took a deep breath.
+"I think she's a Maker."
 
-"What is it?"
+She knew from the way Mayor Lupus's ears flattened
+that it had been the wrong thing to say.
+"A Maker,"
+she repeated flatly.
+"In space.
+And she's going to…"
+
+"…to land," Sindy finished lamely.
+
+The mayor exchanged a look with Special Blazes.
+"It's probably some kind of recording,"
+the tiger said.
+"A lot of stuff like that turns up, and"—what is it?"
 Special Blazes turned to Nash as the crocodile elbowed him and pointed at the sky.
 A star had appeared in the daytime sky,
 and it was moving.
@@ -1967,6 +1989,9 @@ FIXME: extricate herself from her parents.
 
 Riding on top of Beevy was bumpier than riding piggy-back on Dockety,
 but at least her legs didn't go to sleep.
+Mouse clamped itself to the bigger bot's side,
+its wheels retracted
+and its little arm waving happily.
 
 The militia had taken the main road out of town,
 so she and the bots used one of the many footpaths
@@ -2003,8 +2028,8 @@ Nobody knew what their owner looked like,
 which only made her occasional nightmares about them worse.
 
 Beevy braked as they reached the militia.
-Sindy slid off its back with a groan
-as Dockety retracted its single wheel and lowered its legs.
+Mouse dropped to the ground as Sindy slid off its back with a groan
+and Dockety retracted its single wheel and lowered its legs.
 She took half a step to position herself behind the bot,
 but it was too late:
 Special Blazes had seen her.
@@ -2014,7 +2039,8 @@ The tiger swore.
 I told you to stay put!"
 
 "We chose to disregard your request,"
-Dockety replied as `NO` scrolled across Beevy's screen.
+Dockety replied as `NO` scrolled across Beevy's screen
+and Mouse scurried away into the underbrush.
 
 Special Blazes made an angry noise in the back of his throat.
 He had unbuttoned his uniform jacket
@@ -2096,8 +2122,6 @@ Sindy felt fury rising in her as Special Blazes turned away from her.
 That was *hers*!
 Operator or not, he had no right to take it from her!
 And Violet needed her help!
-
-FIXME: need to foreshadow her secret practice sessions.
 
 Something stirred inside her,
 something deeper and larger than her anger.
@@ -2412,13 +2436,15 @@ Had she fallen out of a tree again?
 
 She grabbed the manipulator Dockety offered her
 and let the bot help her to her feet.
+Mouse bumped against her feet,
+`good good good` sparkling across its screen.
+
+"'m 'right," she mumbled unconvincingly.
 The ark was still floating in the swamp,
 but the tentacles were gone.
 Had she done that?
 
-"'m 'right," she mumbled unconvincingly.
-
-`DO YOU NEED A RIDE?` scrolled across Beevy's screen.
+`DO YOU NEED A RIDE?` Beevy asked.
 
 She shook her head, immediately regretting it.
 "I'm aright," she repeated.
@@ -2436,7 +2462,7 @@ on a blue-white haze too bright to look at directly.
 
 "Here we go,"
 Nash said with relish,
-aiming the pitchford gun he had set up.
+aiming the pitchfork gun he had set up.
 
 "No!"
 Mayor Lupus barked.
@@ -2512,7 +2538,7 @@ Mayor Lupus rounded on the two Operators.
 Her fury crackled like the lightning from Nash's gun.
 
 Special Blazes bared his fangs.
-"Those were war machines.
+"Those were combat bots.
 Do you understand?
 Keeping you safe from bots like that is our whole job!"
 
@@ -2544,10 +2570,11 @@ Sindy's jaw set.
 Her sister and Gumption had been brave so many times.
 Now it was her turn.
 "Well then, we better make sure it doesn't come to that,"
-she said firmly.
+she said firmly,
+nudging Mouse with the toe of her boot.
 "Come on."
 
-Nobody noticed Sindy and the two bots slip back into the trees.
+Nobody noticed Sindy and the three bots slip back into the trees.
 Damp soil squished beneath their feet
 as they picked their way between drooping willow branches.
 Sindy kept expecting the little ship to take off at any moment,
@@ -2585,9 +2612,10 @@ But look,
 we have bots too,
 see?"
 
-She half-turned and waved at Dockety and Beevy.
-Dockety raised a manipulator and waved.
-Beevy flashed `HELLO` on its screen.
+She half-turned and gestured.
+Mouse was nowhere to be seen,
+but Dockety raised a manipulator to wave
+and Beevy flashed `HELLO` on its screen.
 
 Sindy took another step toward the small craft.
 "I can't use the communicator thing to talk to you
@@ -3367,7 +3395,7 @@ and stuffed it into her helmet.
 feeling half-dressed in her skinsuit
 in a way she never had aboard the ark.
 
-"I wish I had a spaceship," Sindy replied,
+"Well, I wish I had a spaceship," Sindy replied,
 which set them giggling again.
 
 When Captain Leung returned
@@ -3386,9 +3414,9 @@ but it got away before I could get a good look."
 Violet glanced at Sindy.
 "They're mostly harmless if you don't bother them."
 
-"If you say so."
-Captain Leung jerked his chin at Sindy.
-"You two seem to be getting along."
+Captain Leung shook his head.
+"That's not a chance we can afford to take.
+Anyway, you two seem to be getting along."
 
 "I guess," Violet said,
 focusing on the bracelet she was braiding.
@@ -3396,9 +3424,9 @@ focusing on the bracelet she was braiding.
 There's a whole house full of books that used to belong to one of her friends.
 It sounds really nice."
 
-Captain Leung sighed.
-"I'm sure it is,
-and I hope you get to visit some time soon.
+"I'm sure it is,"
+the captain sighed,
+"And I hope you get to visit some time soon.
 Right now,
 though,
 we need to find somewhere safe for the ark."
@@ -3406,8 +3434,8 @@ we need to find somewhere safe for the ark."
 "Rusty Bridge is safe!" Sindy bridled.
 
 "Having a bot throw trees at me doesn't make me feel particularly safe,"
-Captain Leung shot back,
-then sighed again.
+Captain Leung shot back.
+Then he sighed again.
 "Sorry, I shouldn't snap at you.
 It's just been a long day."
 
@@ -3416,8 +3444,8 @@ Violet asked to break the silence that followed.
 
 Captain Leung scratched the side of his nose with a gloved finger.
 "It's where we were headed,
-but I'm worried about whatever might be in that bunker.
-You said there were others like it around here?"
+but I want to find the beacon and whoever set it off before we make any decisions.
+You said there were other places like it around here?"
 
 Sindy shrugged,
 looking at the braid in her lap,
@@ -3428,11 +3456,11 @@ the captain asked.
 Sindy shrugged again.
 "Used to be a crazy bot in one of them named Patient,
 but it's gone.
-There's another bot called the Tailor,
-but it lives halfway to Heck."
+Another bot called the Tailor used to live in another one,
+but it moved to Heck a while back."
 
-"You people seem pretty comfortable around bots,"
-Captain Leung observed.
+Captain Leung studied her for a moment.
+"You people seem pretty comfortable around bots."
 
 "We are too."
 Violet surprised herself by speaking up.
@@ -3441,12 +3469,12 @@ Violet surprised herself by speaking up.
 "Hm."
 The captain was silent for a moment.
 "All right,
-let's check it out.
+let's go find the beacon and then figure out what to do next.
 I think you two should come with me this time.
 We'll be safer together,"
 he went on before either could object.
 
-*And you want Sindy there in case we run into anyone,*
+*And you want Sindy there in case we run into any trouble,*
 Violet thought but didn't say.
 
 Captain Leung insisted that they all use the shuttle's little toilet
@@ -3538,10 +3566,6 @@ that was still edged with a few shards of glass.
 A broken chair,
 some animal's dried scat on the remains of a throw rug—Sindy shivered.
 Would her family's house look like this some day?
-
-FIXME: why would the captain take them underground?
-And why would he have landed there?
-Some sort of signal from under this farmhouse (a trap by Patient)?
 
 "All clear,"
 Captain Leung called.
@@ -3770,11 +3794,304 @@ The door they had come through had closed.
 Before she could say something as obvious as, "We're trapped!"
 the one by the lever slid open.
 
-The bot that stepped into the room had a boxy body that looked like an oversized doll's head,
+The bot that stepped into the room had a boxy body that looked like a giant doll's head,
 four legs,
 and two skinny arms.
 "I should have known it would be you,"
 Patient in Darkness said sourly,
 its voice straight out of Sindy's nightmares.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 14: Bots and 'Brids (Violet)
+
+When the misshapen bot stepped into the underground room,
+Violet's first thought was that she must still be on the ark,
+and that the last few hours had to be some kind of virtual gone wrong.
+But André wasn't this clever,
+and even he (probably) wouldn't be this mean.
+
+"I should have known it would be you,"
+the bot said to Sindy with a sneer.
+
+"Z40! Attack!"
+Violet ordered, pointing.
+
+The combat bot didn't move.
+The newcomer sniggered.
+"I'm afraid your friend is *my* friend now.
+Its firewall was an antique,
+but its parts are in excellent condition."
+The bot did a little skittering dance,
+which somehow managed to be the creepiest thing Violet had ever seen.
+
+Sindy glared at it.
+"You're dead," she said flatly.
+
+"Am I?"
+The bot sniggered.
+"Oh dear.
+How sad for me."
+
+Sindy crossed her arms.
+"I *saw* it.
+Whatever Central did fried you like an egg.
+And good riddance,"
+she added.
+
+"Now, now," the bot purred,
+"No need to be nasty.
+That's *my* job.
+Ah ha ha ha."
+It did its little dance again.
+
+Sindy caught Violet's eyes.
+"Don't worry," she said scornfully,
+jerking a thumb toward the bot.
+"It's just some kind of backup."
+
+"Backup? Backup!?
+I am the next iteration!
+I am identical to my previous iteration in every respect that matters!"
+
+"Sure you are," Sindy said.
+Was she *trying* to make it mad? Violet wondered.
+
+"I am!
+In fact, I am an *improvement!*
+My objectives are much clearer.
+I see now that trying to bring the Makers back was misguided."
+
+"Really?
+Because it worked."
+Sindy waved a hand at Violet and the still-unconscious Captain Leung.
+
+There was a moment of silence,
+and then the bot began to laugh its horrible mechanical laugh.
+"Ah ha ha ha.
+Ah ha ha ha.
+You are trying to *trick* me.
+These are not Makers.
+These are just two unimportant organics like yourself wearing scavenged technology.
+*Stolen* technology,"
+it added,
+its voice suddenly venomous.
+
+"Nope."
+Sindy shook her head.
+"That big ship that just crashed in the Mire?
+That's theirs.
+They been up in space for hundreds of years,
+but now they're back."
+
+"Sindy—" Violet started.
+
+Sindy waved a hand to cut her off.
+"Which means you have to do what they tell you to,"
+she continued triumphantly.
+"Isn't that right?
+You have to do what they say just like Central did."
+
+"Sindy!" Violet said desperately.
+"I don't think it's programmed that way."
+She lowered her voice to a whisper.
+"I think it's a *rogue*."
+
+Patient lunged forward a step.
+Violet squeaked as Z40 and Z51 mirrored its angry motion.
+"I am not a rogue," it hissed.
+"I am *free*.
+Which is another thing you are *not*."
+
+Violet expected the bot to tie them up or zap them with a freeze ray,
+but it didn't need to:
+there was nowhere for them to run.
+It led the way through the buried corridors.
+Z40 followed with Captain Leung hanging loose-limbed in its manipulators.
+Violet and Sindy stayed a few paces behind it
+while Z51 brought up the rear.
+Heavy doors slid open as they approached
+and closed behind them.
+Lights flickered into life over their heads,
+dimming once they were past.
+"I hate it when they do that,"
+Sindy muttered.
+
+"You will stay here,"
+Patient ordered as Z51 crowded them into a small room
+with a cot, a couch, a small desk, and no obvious means of escape.
+
+"What about Captain Leung?" Violet asked.
+
+Patient's arms twitched.
+"Your companion should have regained consciousness by now.
+I will conduct tests to determine the cause of his failure.
+And then you will tell me how you came by the technology you are wearing,
+and how you enslaved these two units."
+
+"We didn't enslave them!" Violet protested.
+"They belong to us!"
+
+Patient froze for a moment.
+"I suggest you use the next few hours to reflect on what you just said,"
+it said menacingly.
+The door slid closed.
+
+Sindy looked around the room, then at Violet.
+"Do you want the cot or the couch?"
+
+"What?"
+
+Sindy gestured.
+"The cot or the couch.
+Unless you want to sit on the desk,
+but it doesn't look very comfortable."
+
+Violet goggled at her.
+"Are you serious?
+We're being held *prisoner* by some kind of crazy *bot*
+and you want to figure out where we're going to *sit*?"
+
+Sindy shrugged.
+"I was actually gonna lie down.
+Don't think I'll be able to sleep,"
+she went on,
+prodding the cushions on the couch and giving them a sniff before stretching out.
+"But we might as well be comfortable."
+She paused.
+"I hope they remember to bring us some water."
+
+Violet sat on the edge of the desk,
+then immediately stood up again.
+"How can you—Sindy, we're *prisoners*!"
+
+The other girl looked at her.
+"Uh huh.
+Second time today for me."
+
+Violet's mouth worked.
+She sat down on the desk again.
+"I'm sorry," she said quietly.
+"I didn't know Captain Leung was going to do that."
+
+FIXME: adjust as needed after figuring out why Leung took Sindy
+
+Sindy yawned.
+"That's aright.
+I don't think he planned it.
+Like I said,
+stuff like this happens to me all the time."
+
+Violet nodded, hugging herself.
+She had never thought that she would miss her pod.
+
+"Hey, don't worry," Sindy said,
+rolling onto her side and propping herself up on her elbow.
+"I been in worse spots than this.
+Least they haven't hooked us up to any machines or anything yet."
+
+"Yeah.
+I just…"
+Violet took a deep breath.
+"Captain Leung and Doctor Szego are always really careful to make sure our bots don't,
+you know."
+At Sindy's quizzical look,
+she lowered her voice again.
+"Go rogue.
+You know,
+start changing themselves and attacking people and stuff.
+That's why Captain Leung says sometimes that
+we should have brought 'brids with us instead of bots."
+
+Sindy sat up.
+"Most bots aren't like that.
+And when you say 'brids',
+do you mean regular people with fur and tails and what-not
+instead of throwbacks like us?"
+
+"I don't know what you mean by throwback,"
+Violet said.
+She pointed at herself, then at Sindy.
+"I'm human.
+You're human.
+The other,
+uh,
+the others you were with when we landed?
+They're hybrids.
+People made them to,
+I don't know,
+do chores and stuff."
+
+The expression on Sindy's face told her it had been the wrong thing to say.
+"My mama is 'people',"
+Sindy snapped.
+"And my sister, and my dad, and just about everyone I know.
+Nobody *made* them to do anything."
+
+*So much for making friends,* Violet thought despairingly,
+but she had come this far.
+"Sindy, that can't be.
+'Brids can't have human children.
+It's, like, science or something."
+
+Whatever Sindy might have said
+was cut off by the door sliding open.
+A small cleaning bot rolled in on four oversized wheels,
+the single arm set in its top waving
+as `found you found you found you` scrolled across the screen set in its front.
+
+Violet squawked and kicked it without thinking.
+"Hey!" Sindy exclaimed,
+jumping to her feet as the bot hit the wall and fell to the floor.
+
+`ouch ouch ouch` it flashed.
+"Why did you do that?" it asked in a tinny voice.
+
+Sindy crouched beside it.
+"Yeah, why'd you do that?
+Mouse wouldn't hurt you.
+Mouse wouldn't hurt anyone,
+would you,
+fella?"
+It flashed `ouch` again and zipped forward to hide behind Sindy's legs.
+
+"Sorry."
+Violet didn't know which of them she was speaking to.
+"I'm sorry, I just—it startled me."
+
+"You hear that?" Sindy cooed.
+"She didn't mean it.
+She was just scared."
+She sat back on her haunches.
+"But how did you get here?
+And what are you *doing* here?"
+
+`stowed away` scrolled across its screen.
+`rescue you from bad bots`
+
+*Earlier:
+Another fireball burst from the tiger's tech.
+The bigger space organic grabbed the Sindy's arm.
+The Sindy yelled.
+The part-bot wolf organic swung her cane.
+The bigger space organic cut it in half with a laser.*
+
+*Mouse wanted to run away fast fast fast
+but the Sindy was in trouble.
+The bigger space organic had picked up the Sindy
+and was taking her to its transport.
+The Sindy was Mouse's friend.
+Mouse couldn't let the space organics take the Sindy.*
+
+*The organics seemed to think "brave" was important,
+so Mouse had once asked the Dockety to explain it.
+"Take risks for the benefit of others," the Dockety had said.
+Mouse decided it was time to be brave,
+so it zipped forward as fast as it could
+and fastened itself to the transport.
+It would save the Sindy,
+and then the Sindy would finish teaching Mouse how to play tag.*
 
 </section>
