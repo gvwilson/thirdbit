@@ -2197,15 +2197,15 @@ and used exactly the same word Finner had used moments before.
 ## Cold That Seeps Into Your Soul
 
 You have probably been cold at some point in your life.
-Maybe you wriggled out from under your blanket as a baby
+Maybe you wriggled out from under your blanket when you were a baby
 and weren't yet able to wriggle back underneath it.
 Maybe you didn't realize that someone else in the house liked cold showers
 and turned on the water *while you were already standing there*
 and were blasted with the last few seconds of that previous person's liquid self-loathing.
 
 Or perhaps you have had to endure the kind of bone-deep chill of being poor in winter,
-of not being able to afford to turn up the heat during the day
-or to buy a coat that's thick enough to keep out the wind.
+when your parents couldn't afford to turn up the heat during the day
+or buy you a coat that was thick enough to keep out the wind.
 That kind of cold is the worst:
 it seeps into your soul as well as your body
 because you lose hope of it ever ending.
@@ -2214,14 +2214,14 @@ Thirty seconds after whumping
 into a snowbank somewhere very Arctic,
 Finner felt even colder than that.
 The sky above him was an impossibly clear blue
-and the sun was so bright he couldn't even look *near* it,
-but each time he took a breath
+and the sun was so bright he couldn't even look *near* it.
+Each time he took a breath
 he felt icy tendrils of air in every little corner of his lungs.
 Tiny icicles formed in his nostrils,
-and his beard crackled when opened or closed his mouth.
+and his beard crackled when he opened and closed his mouth.
 
 The snow squeaked beneath his boots with every step.
-Basic survival training is part of every santa's education,
+Basic survival training was part of every santa's education,
 so Finner knew that if he just stood still and shivered,
 he wouldn't shiver for long.
 He had no idea where he was going,
@@ -2233,18 +2233,17 @@ and rubbed his eyes with fingers he could no longer feel properly.
 Were there icicles in his eyelashes as well?
 That wasn't important.
 What mattered was that he could see something large, dark, and rectangular on the horizon.
-A factory,
-a fortress,
-a research station abandoned when an attempt to reanimate the dead
-worked a little too well:
-as long as it wasn't ice,
+A factory?
+A fortress?
+A research station abandoned when an attempt to reanimate the dead
+worked a little too well?
+As long as it wasn't ice,
 it was something to aim for.
 He stumbled toward it,
 hugging himself to hold on to what little body heat he had left.
 
-When he reached the top of the next ridge
-he had to stop and rub his eyes again.
-It was a factory—an enormous factory sitting in a shallow valley
+When he reached the top of the next ridge he stopped and rubbed his eyes again.
+It *was* a factory—an enormous factory sitting in a shallow valley
 that offered a little protection from the intensifying wind.
 Finner could have stacked ten copies of his house on top of one another
 and still not reached the building's steeply-slanted roof.
@@ -2265,7 +2264,7 @@ which meant it was a *santasaurus rex*,
 but it was ten times bigger than any he'd ever heard of.
 It was also between him and his only hope of not freezing.
 
-"Well that's a problem,"
+"Well *that's* a problem,"
 a voice said.
 "Whatever shall we do?"
 
@@ -2286,10 +2285,10 @@ It tucked the ray gun into a pocket and held out its hand.
 Let's get you somewhere warm."
 
 The robot's feet were flat round pads that left shallow circular dents in the top of the snow.
-After stopping several times for Finner could catch up,
-it picked him up and carried him.
+After stopping several times so Finner could catch up,
+it picked him up and carried him like an oversized child carrying a very limp doll.
 Finner would have protested,
-but he was too tired to more than mumble.
+but he was too tired to do more than mumble.
 His ears had stopped hurting.
 He was pretty sure that was a bad sign.
 Why was he trying to keep his eyes open?
@@ -2307,8 +2306,8 @@ momentarily grateful that whoever had taken his clothes off
 hadn't strapped him down.
 
 He had been lying on a bench whose vinyl cushions were flaking with age
-in a room that looked like an abandoned subway station.
-with cracked floor tiles and a truly memorable bouquet
+in a room that looked like an abandoned subway station
+with cracked floor tiles and a truly memorable smell
 that was equal parts damp earth, oily rust, and wet dog,
 the last of which came from the blankets.
 Two square glass panels connected to a boxy battery
@@ -2335,7 +2334,7 @@ as battered and worn as the subway station.
 
 The santa tsk'ed.
 "People, that's what happened.
-People who kept wishing for bigger ray guns and explody things than their neighbors.
+People who kept wishing for bigger ray guns and explody things than their neighbors had.
 It all turned into speeches and, well, as you've seen.
 How's the tea?"
 
@@ -2362,7 +2361,6 @@ while he picked his way around the piles of salvage.
 passing a light to Finner.
 She punched a code into the panel beside the door,
 turned a key in a lock,
-turned a second key in another lock,
 and swung the door open.
 
 "Wow," Finner said.
@@ -2427,7 +2425,7 @@ How did you wind up here?"
 Finner put down *Mechanical Motors Part XVII*.
 He didn't want to lie,
 but after everything he had been through,
-the whole truth seemed ill-advised.
+telling the whole truth didn't seem like a good idea.
 "By accident," he confessed.
 "I was fooling around with a wherever and set it off by mistake.
 So if I could just use yours to get home, I'd really appreciate it."
