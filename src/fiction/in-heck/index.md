@@ -158,7 +158,7 @@ A murmur ran through the crowd
 as two bots entered the square
 with a pair of muddy, sullen goats between them.
 Dockety was in the lead,
-its mis-matched arms swinging as it strode toward the crowd.
+its mismatched arms swinging as it strode toward the crowd.
 Its companion Crusher brought up the rear on heavy treads,
 and in between—
 
@@ -2653,7 +2653,7 @@ Thoughtful's shot pinged off one of the crab tanks.
 *Chonk!*
 His second shot knocked over one of the little scouts.
 It tumbled,
-righted itself with spindly mis-matched arms,
+righted itself with spindly mismatched arms,
 and raced toward them again.
 
 "Hey boss—who are these guys?"
@@ -5203,7 +5203,7 @@ it passed through the light as easily as it would have a shadow.
 Somewhere near the center of Heck
 (or not—Gumption had lost all sense of its size)
 Patient stopped in front of a blank gray building
-that looked no different from any of its neighbots
+that looked no different from any of its neighbors
 and tapped a code into the keypad beside the door.
 Inside,
 a flight of stairs brought them to a corridor lined with doors.

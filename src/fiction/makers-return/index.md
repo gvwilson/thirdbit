@@ -2225,7 +2225,7 @@ and put it together on a bet."
 
 "Perhaps it's some sort of personal assistant,"
 Doctor Szego mused.
-"Do you see how its arms are mis-matched?
+"Do you see how its arms are mismatched?
 The delicate one could be for medical work."
 
 "But what about the *girl*?" Violet burst out.
