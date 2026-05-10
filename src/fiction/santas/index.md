@@ -2458,6 +2458,7 @@ Though when he thought about it
 (which he did every night as he tried to get comfortable on his bench)
 "happy" was the wrong word.
 "Rewarding" or "fulfilling" would be more accurate.
+
 Despite her protests that she was still learning,
 the santa knew a *lot* about mending and fixing things.
 She also knew enough about young people to give Finner time to try things out for himself.
@@ -2490,7 +2491,7 @@ wincing at a slight squeak.
 
 [^lock-picking]: *Yuen's* is crisply written, logically organized, and clearly illustrated. It is everything that a book like me aspires to be.
 
-A light bulb flickered on overhead automatically
+A light bulb flickered on overhead
 to reveal stacked with arms, legs, hands, feet, and other parts that we don't specifically need to name,
 thank you very much.
 Every shelf was neatly labelled and everything was tidy,
@@ -2504,7 +2505,7 @@ Swallowing hard,
 he stepped forward and poked the nearest leg with his finger.
 It yielded slightly,
 just like the real thing,
-but it didn't twitch and the toes didn't wiggle
+but it didn't twitch and the toes didn't wiggle,
 so at least there was that.
 
 He had just realized that it had a metal strut where a bone should have been[^bone]
@@ -2531,7 +2532,7 @@ in the picture but not quite part of it,
 a bespectacled elf looked at the pair with wistful pride in his eyes.
 
 A chill ran down Finner's spine.
-The last time he had seen that photograph
+The last time he had seen that photograph,
 it had been on the wall of Gran-Granna Tumbly's living room.
 Why did the santa have a copy too?
 And why did she have a room full of exactly the parts she would need
@@ -2588,12 +2589,12 @@ as Finner passed him a box.
 The man's arms and jaw had mechanical joints,
 and his eyes were lightbulbs like Elfabot's.
 Finner glanced sidelong at the santa,
-but she had sunk into her parka,
+but she had sunk into her survival suit,
 and the shadows under her eyes were even deeper and darker
 than when they left the subway station.
 
-They made half a dozen stops after that,
-and were met each time by someone cheerful and mechanical.
+They made half a dozen stops after that.
+Each time they were met by someone cheerful and mechanical.
 When Finner finally worked up the courage to point this out to Elfabot,
 its response was,
 "It's best she doesn't know."
