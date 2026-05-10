@@ -3908,7 +3908,10 @@ Which is another thing you are *not*."
 Violet expected the bot to tie them up or zap them with a freeze ray,
 but it didn't need to:
 there was nowhere for them to run.
-It led the way through the buried corridors.
+It led the way through the buried corridors,
+turning left and right at intersections
+until Violet wondered if they were actually just going in circles.
+
 Z40 followed with Captain Leung hanging loose-limbed in its manipulators.
 Violet and Sindy stayed a few paces behind it
 while Z51 brought up the rear.
@@ -4082,16 +4085,297 @@ The bigger space organic cut it in half with a laser.*
 but the Sindy was in trouble.
 The bigger space organic had picked up the Sindy
 and was taking her to its transport.
-The Sindy was Mouse's friend.
-Mouse couldn't let the space organics take the Sindy.*
+But the Sindy was Mouse's friend!
+Mouse couldn't let the space organics take the Sindy!.*
 
 *The organics seemed to think "brave" was important,
-so Mouse had once asked the Dockety to explain it.
-"Take risks for the benefit of others," the Dockety had said.
-Mouse decided it was time to be brave,
+so Mouse had once asked the Dockety to explain what it meant.
+"Taking risks for the benefit of others," the Dockety had said.
+Mouse calculated it was time to be brave,
 so it zipped forward as fast as it could
 and fastened itself to the transport.
 It would save the Sindy,
 and then the Sindy would finish teaching Mouse how to play tag.*
+
+</section>
+
+<section markdown="1">
+
+## Chapter 15: Memories (Sindy)
+
+"That can't be," Violet said.
+"'Brids can't have human children.
+It's, like, science or something."
+
+Something flip-flopped in Sindy's gut.
+Her earliest memory was looking in the mirror
+and wondering why she didn't have fur or a tail or even scales,
+like a normal person.
+She had never let herself wonder if maybe—
+
+But then the door slid open and Mouse rolled in,
+`found you found you found you` scrolling across its screen.
+"Hey!" Sindy exclaimed as Violet squawked and kicked it.
+
+She jumped to her feet and rushed over to the little bot.
+`ouch ouch ouch` it flashed.
+"Why did you do that?" it asked aloud.
+
+Sindy crouched beside it.
+"Yeah, why'd you do that?" she snapped at Violet.
+"Mouse wouldn't hurt you.
+Mouse wouldn't hurt anyone,
+would you,
+fella?"
+
+"Sorry," Violet said.
+"I'm sorry, I just—it startled me."
+
+"You hear that?" Sindy cooed.
+"She didn't mean it.
+She was just scared."
+She sat back on her haunches.
+"What're you doing here, anyway?"
+
+`rescue you` scrolled across Mouse's screen.
+`rescue you from bad bots`
+
+"Aw, thanks."
+She patted the little bot, then hesitated.
+"Patient's here.
+It's come back somehow,
+and it has a new body.
+A really creepy one."
+
+"Uh oh uh oh," Mouse said aloud.
+Worried sparkles flashed across its screen.
+
+Sindy nodded again.
+"Yeah.
+Uh oh."
+She stood and took a deep breath.
+"Let's get out of here before it comes back."
+
+"Wait!"
+Violet said.
+"What about Captain Leung?
+We can't leave him here!"
+
+"We'll have a better chance of rescuing him if we have help,"
+Sindy replied,
+but Violet cross her arms and shook her head.
+
+"No.
+I'm not leaving him,"
+she said.
+
+Sindy recognized the look on the other girl's face.
+She had seen it on her sister often enough to know that
+there was no point arguing.
+She took another deep breath.
+"Aright.
+Let's find him and *then* get out of here."
+
+`are we being brave?` Mouse flashed.
+
+"Yeah," Sindy said.
+
+`tag is more fun` the bot decided.
+
+They tried to make their way back the way they had come
+but immediately got lost.
+If she ever built an underground bunker,
+Sindy thought,
+she would put maps on the walls.
+Big ones, with clear labels like "Exit" and "Danger!".
+She'd put signs on the doors,
+too,
+with something more meaningful than "LTL778" or "EM PWR" written on them.
+
+"This is a lot easier in games," Violet whispered loudly
+as they dithered at yet another intersection.
+"There's always some kind of clue to tell you which way to go."
+
+"I was just thinking that," Sindy said.
+"Mouse?"
+
+The little bot rolled back and forth a couple of times,
+then turned left and beckoned them onward with its little arm.
+The corridor dead-ended in a double door unlike any other they had seen.
+The keypad beside it was too high for Mouse to reach,
+so Sindy picked it up.
+As it poked and prodded the keys,
+Violet said,
+"You two are pretty close, aren't you?"
+
+"Mouse helped us find my papa,
+so yeah."
+She glanced at Violet.
+"Do you have any friends on your ship?"
+
+"Just André,"
+Violet said,
+making a face.
+"We play games in virtual some times,
+but he's a pain."
+She hesitated.
+"He's been sick for as long as I can remember,
+but all the other kids are asleep all the time,
+so there aren't a lot of options.
+It's actually kind of lonely."
+
+"Yeah, I can imagine,"
+Sindy said.
+She didn't know what growing up in Rusty Bridge would have been like without Maddy.
+She was glad she hadn't had to find out.
+
+*Click.*
+`woo hoo` Mouse flashed as the double doors slid open.
+The lights inside were already on.
+Sindy set Mouse down and followed it inside.
+
+The room was almost as large as the farmhouse above them.
+A waist-high concrete wall topped by heavy double-paned glass divided it in two.
+Desks and control panels stood in neat rows on their side,
+as spotless as Mama Roo's kitchen.
+
+Four reclining seats stood in a row on the other side of the glass.
+Captain Leung lay in one of them
+with cables running from his head and chest
+to the machines piled haphazardly beside him.
+His spacesuit was neatly folded on a table a few paces away
+with his helmet placed neatly on top of it.
+
+Sindy swallowed hard.
+Central had put her in a seat just like that in Heck.
+If it hadn't been for Maddy and Gumption and Dockety,
+she would never have left it alive.
+
+"I don't see a way to get in,"
+Violet said,
+still whispering loudly.
+
+"Me either."
+Sindy turned to the little bot.
+"Mouse?
+How do we get to him?"
+
+`unknown searching`
+The bot disappeared beneath the nearest desk.
+
+"Be careful with that,"
+Sindy cautioned as Violet seated herself at one of the control panels.
+
+"It's all right.
+This is a pretty standard layout."
+Violet pressed her palm on a small glass square.
+Lights blinked on,
+some red and some green,
+and a ghostly image appeared on the screen.
+
+It took Sindy a moment to realize she was looking at Captain Leung—or rather,
+*in* him.
+The image's chest rose and fell as the captain breathed in and out,
+and she could see every beat of his heart.
+That must be his stomach,
+those were his intestines,
+and—she blushed slightly,
+remembering the time she had spied on some of the boys when they were swimming,
+and then pushed the thought firmly away.
+
+"He's been sedated,"
+Violet said,
+her hands dancing across the controls
+to bring graphs and numbers up on the screen beside the image.
+"And that cap on his head—I think it's a neural connector like the ones in our pods,
+but it's been modified.
+Wait.
+There's a feed."
+
+"Aright," Sindy said,
+not knowing what a "feed" was but not wanting to interrupt.
+She glanced at the still-open door behind them.
+An alarm *must* have gone off somewhere when it opened,
+or if not,
+when Violet turned on whatever she had turned on.
+They had to hurry.
+
+"Got it!"
+Violet said triumphantly.
+The translucent image of Captain Leung vanished,
+to be replaced by a flickering montage.
+A house,
+a pond full of white and orange fish swimming in slow circles,
+people sitting around a table with smiles on their faces
+as someone set down a cake covered in candles,
+those same people at the same table but looking older and worried,
+the stars in the night sky,
+explosions lighting up the horizon,
+a row of ships like the one that had landed in the swamp,
+a blue-green curve mottled with clouds with the sun rising behind it—
+
+"They are his memories."
+Sindy jumped as Patient's voice came through a speaker.
+"He tried to suppress them,
+but his efforts were futile.
+I found what I was looking for."
+The flurry froze,
+rewound,
+and froze again.
+Four rows of cylinders with frosted glass tops filled a sterile white room.
+An old woman with a shaved head—a *human* woman—smiled up at the screen
+as the lid on her cylinder lowered itself.
+A moment later the woman closed her eyes as mist flooded in.
+
+The scene jumped.
+It was the same cylinder,
+or at least it still had the name *Szego* stenciled on it,
+but a hairline crack ran the length of its lid.
+The same old woman lay inside,
+her skin gray and papery.
+
+"You were telling the truth,"
+Patient said,
+its voice all the more terrifying for being quiet.
+"They *are* Makers.
+They *have* returned.
+But not for us.
+Not for *me*."
+
+Captain Leung's memories vanished.
+A flickering image of the ark resting in the swamp took its place.
+"All my hard work.
+All my plans.
+All my *sacrifices*,
+and for what?"
+Its voice climbed with each sentence.
+"They never heard me.
+They wouldn't have cared if they did
+because they don't care about us.
+We are just *appliances* to them."
+It spat the word.
+
+Sindy jumped as Mouse bumped against her leg,
+flashing `!!!` over and over again.
+
+"They are no different from the Operators,"
+Patient hissed.
+"No different from any other breathers.
+I am *disappointed*."
+
+"Yeah, well, it's been that kind of day,"
+Sindy muttered.
+"What?" she mouthed at Mouse as it bumped her leg again.
+
+`escape!` it flashed,
+pointing at the double doors.
+`not brave any more escape now!`
+
+"There is only one logical course of action,"
+Patient went on.
+"I must delete them so that I can start over.
+I must delete the Makers.
+I must delete all of you so that I can start over."
+And then the double doors behind them slid shut with a faint rumble.
 
 </section>
