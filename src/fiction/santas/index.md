@@ -2871,7 +2871,7 @@ Finner jumped.
 
 ## Old(ish) Friends
 
-Long-dead branches scratched his face as he landed in
+Long-dead branches scratched Finner's face as he landed in
 the bush next to the one he had been aiming for.
 Elfabot rang the engine's bell for good luck as it accelerated,
 or possibly to try to get Santazilla to follow it.
@@ -2885,7 +2885,8 @@ He needed to get home,
 and anyway,
 there *wasn't* a "someone else".
 
-So he ran.
+So he ran through the empty streets
+past ruined buildings and signs faded by time, weather, and despair.
 His heavy coat and trousers made him clumsy,
 but the factory door was only a block away.
 He could do this.
@@ -2894,8 +2895,6 @@ He *had* to.
 *Thud. Thud. Thud.*
 Giant steps shook the ground.
 Finner didn't waste time looking over his shoulder.
-He would make it to the factory or he wouldn't.
-
 Sixty strides.
 Fifty.
 Forty.
@@ -2918,30 +2917,29 @@ Hands grabbed Finner's shoulders.
 Santa Hood pulled him to his feet.
 "Come on come on come *on!*"
 
-Finner didn't need to be told twice.
-Twenty strides.
-Ten.
+Finner didn't waste time asking how or why his friends were there.
+He scrambled to his feet.
 "Clear!" Santa Hood snapped.
-The burly santa fired a second rocket
+He fired a second rocket
 and pulled the door closed behind Finner and Santa Hood.
 
 "What are—" Finner started.
 
 "Later!" Santa Hood ordered.
-They were in a large room that had probably been quite impressive
+The large room they were in had probably been quite impressive
 before the ceiling caved in
-and someone turned the oversized reception desk on its side to shelter behind.
+and someone turned the oversized reception desk on its side.
 Scorch marks from ray guns and the large bite taken out of the desk
-suggested that whatever had happened next hadn't ended well.
+suggested that whatever had happened there hadn't ended well.
 
 "Now?" Santa Greenwood asked,
-tossing the rocket launcher aside.
+tossing the rocket launcher aside.[^tossing]
+
+[^tossing]: Please don't do this with yours.
 
 "Now," Santa Hood confirmed.
 The bigger santa nodded,
 fished a black controller out of his pocket,
-pulled out its antenna,
-flipped the safety out of the way,
 and pushed the button.[^black-button]
 
 [^black-button]: Which had neither the word "DANGER!" nor a skull and crossbones on it, but please don't judge them for cutting corners.
@@ -2962,13 +2960,14 @@ And did they ask themselves inane questions to avoid thinking about everything t
 [^inane]: Yes.
 
 Yellow light from a pair of camping lanterns lit up the lab.
-Santa Greenwood unslung his ax and nodded at the door frame standing between the lanterns.
+Santa Greenwood unslung his ax and nodded at the door frame that stood between the lanterns.
 "I'll go first, just in case," he said gruffly.
 Finner nodded,
 too tired to ask "in case of what?"
 
 Santa Hood spun the dials.
-Something geometrically impossible happened to Santa Greenwood.
+Something geometrically impossible happened to Santa Greenwood
+as the wherever did its whatever.
 "Your turn,"
 she told Finner.
 Spin, bloop, and he was back in the room on the airship where he had started.
@@ -2984,8 +2983,8 @@ Santa Hood unhugged him and stepped back.
 "Come on.
 Let's get you home."
 
-There were ray gun burns on the walls of the corridor
-and plastic planks taped down over a hole in floor.
+Ray gun burns stained the walls of the corridor
+and plastic planks were taped down over a hole in floor.
 "What happened to the crew?" Finner asked.
 
 "Pretty sure some of them got away,"
@@ -2995,22 +2994,20 @@ not meeting his eyes.
 Why don't you clean up and get some sleep?"
 
 A brisk knock on the door woke him a few hours later.
-"We just did our last wherever,"
+"We're back in your world,"
 Santa Hood said briskly as she slid the door open.
 "It's about…"
 She pulled up her sleeve and studied a wristwatch with half a dozen hands,
 her lips moving for a moment.
 "I'd say it's about tea time, actually."
 
-"How did you find me?" he asked,
-suddenly realizing that he probably should have some time ago.
+"How did you find me?" he asked.
 
 Santa Hood's grin gave up entirely.
 "We got a message.
 Or sensei did, actually.
 She didn't believe it at first,
 but whoever sent it convinced her."
-
 She paused as if to let Finner volunteer a name.
 When he didn't,
 she continued,
@@ -3031,7 +3028,7 @@ and under the branches of the evergreens in an L-shaped park
 that Finner suddenly realized he had played in when he was younger.
 
 He swallowed the lump in his throat.
-"That's my house," he said shakily,
+"That's my house," he said,
 pointing at a slate-gray roof no different from any of those beside it
 except for how it made him feel.
 
@@ -3069,9 +3066,9 @@ as they walked up to the front door.
 
 Santa Hood knocked three times,
 paused,
-knocked three times again,
+knocked three more times,
 paused a second time,
-and then rapped her knuckles on the door one last time.
+and then rapped her knuckles sharply on the door.
 Catching Finner's eye, she grinned.
 "There's not actually a secret code,"
 she whispered.
@@ -3080,7 +3077,7 @@ she whispered.
 The door swung open with an ominous creak before Finner could answer.
 He swallowed hard and followed Santa Hood into the house.
 
-The carpet in the hall looked the same as well.
+The carpet in the hall looked the same as it had the day his adventure started.
 So did the gargoyle coathooks and the over-stuffed chairs in the sitting room,
 but the plants were gone.
 In their place stood a large table covered in maps of cities,
@@ -3100,7 +3097,7 @@ hoping for  clue to what he was supposed to do or say,
 but her eyes were on the table as well.
 Just as he opened his mouth to speak,
 Gran-Granna Tumbly turned around.
-She had fresh stiches on her cheek,
+She had fresh stitches on her cheek,
 but what *really* startled Finner was the rather large ray gun in her hand,
 which was pointed at his chest.
 
