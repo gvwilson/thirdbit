@@ -2657,17 +2657,17 @@ The delivery trip exhausted Shady Ann.
 She spent all of the next day in bed,
 coughing when she was awake
 and wheezing when she was asleep.
-Elfabot made cup after cup of tea,
-dosing it with something that made Finner's eyes water.
+Elfabot made cup after cup of lemon-ginger tea,
+each strong enough to make Finner's eyes water.
 
 He had so many questions to ask that he started writing a list,
 only to have Elfabot tear it up.
 "She will tell you what she wants to tell you when she wants to tell you,"
-it told him when he protested.
+it said when he protested.
 It waited until he nodded,
 then went back to sorting through the haul from its latest scavenging run.
 
-Finally Shady Ann was able to sit up.
+Finally, Shady Ann was able to sit up.
 "I hate being sick,"
 she told Finner.
 "Not just the ache of it, but the time it steals."
@@ -2677,17 +2677,19 @@ then set the bowl aside and looked at him for a moment.
 
 "Sure."
 He forced a smile.
-"We'll just go up to Santazilla and say please may we use the wherever."
+"We'll just go up to Santazilla and say, please may we use the wherever."
 
 Shady Ann smiled back wanly.
 "Something like that."
 
 It took them another week to finish fixing the subway train.
-Finner enjoyed it despite worrying about what Elfabot might do.
+Finner enjoyed it despite thinking about how worried his parents must be
+and wondering what had happened to Santa Hood and Santa Greenwood.
 He bashed his thumb with a mallet at one point,
 which really hurt,
-and he was frustrated over and over again by how little he knew,
-but there were plane joints, hinge joints, pivot joints,
+and he was frustrated over and over again by how little he knew.
+On the other hand,
+there were plane joints, hinge joints, pivot joints,
 and (lower your voice when you say it) condyloid joints,
 all of which had to be connected with sleeve couplings,
 flanged couplings,
@@ -2715,7 +2717,7 @@ talking to herself as much as to Finner.
 "So you'll take the elevated track to here,
 switch lines,
 pick up speed on this downhill,
-the slow a little for this bend for you to jump off,
+then slow a little for this bend for you to jump off,
 then pick up speed again and—"
 
 "Hang on,"
@@ -2742,21 +2744,21 @@ Finner hefted it.
 "Thank you.
 What is it?"
 
-"It's your tools,"
+"They're your tools,"
 she said,
-clapping Finner on the shoulder awkwardly.
+clapping Finner on the shoulder.
 "Good luck."
 
 Finner swallowed the sudden lump in his throat
 and tucked the case into his pocket.
 It was heavy,
-but the weight was welcome.
+but the weight was somehow comforting.
 
 "All set?"
 Elfabot asked as Finner closed the subway door behind himself.
 
 "No," Finner said.
-He through the window at Shady Ann,
+He looked at Shady Ann through the window,
 who waved.
 "She's really sick, isn't she?"
 
@@ -2770,7 +2772,7 @@ It paused.
 like the ones I made of the others.
 I think a copy would just make me feel lonely."
 
-Before Finner could ask any of questions that prompted,
+Finner had no idea what to say to that.
 Elfabot pulled first one lever and then another.
 The subway car vibrated faintly as the engine came to life.
 The robot slowly pressed a pedal down with a booted foot.
@@ -2807,16 +2809,17 @@ he wasn't sure where the cold beans he'd had for breakfast were going.
 Elfabot pedalled pedals and pulled levers
 as the ruined buildings around them grew taller.
 The few shards of glass left in their windows looked like jagged teeth in hungry mouths.
-Then a windowless tower a few blocks away lifted, swung forward, and came down
+Then a huge leg a few blocks away lifted, swung forward, and came down
 with a thud that made the train shiver on the tracks.
 "Oh dear,"
 Elfabot said.
 
-"It's trying to cut us off!" Finner shouted.
+"It's Santazilla!" Finner shouted.
+"It's trying to cut us off!"
 
 Elfabot pulled another lever.
 Steam whistled from the control panel as they picked up even more speed.
-"Well then it's a good thing I took the safeties off the engine, isn't it?
+"Then it's a good thing I took the safeties off the engine, isn't it?
 Otherwise it would shut down to stop from exploding!"
 
 For a moment they were surrounded by overgrown park instead of buildings.
@@ -2849,7 +2852,7 @@ just as Santazilla stepped on it.
 
 You would be annoyed if a firecracker went off under your boot.
 You would probably be more than just annoyed if it went off under your bare foot.
-And if you a highly territorial predator,
+And if you were a highly territorial predator,
 five stories tall,
 and hungry,
 and had just been knocked off your feet by the explosion,
