@@ -4690,28 +4690,176 @@ but other than that everything looked the same.
 She nodded at Violet.
 "Let's go."
 
-FIXME
+They were halfway back to the shuttle when Mouse said, "uh oh,"
+and stuck the tip of its little arm in Sindy's nose.
+She squawked and dropped it.
+"go go go be brave" it said,
+disappearing into the grass.
 
-Sindy was explaining what had happend to Crusher
-when Dockety and Beevy arrived.
-Mouse warbled at it.
-"This one is glad you are undamaged,"
+"Mouse!"
+Sindy cupped her hands around her mouth.
+"Mouse, where are you?
+Let go!"
+She shook off Violet's hand angrily.
+
+"We have to keep going,"
+the other girl urged.
+
+"I'm not leavin' him!"
+
+Violet looked her in the eyes.
+"I left Captain Leung."
+
+Sindy was the first to look away.
+"Aright."
+
+The shuttle's hatch wheezed opened when Violet put her hand on it.
+"It's keyed to my DNA,"
+she explained over her shoulder as she scrambled up the steps,
+but Sindy didn't care enough to ask what that meant.
+She couldn't lose Mouse,
+not after losing Special Leaf—she just couldn't.
+
+She buckled herself into the seat beside Violet's.
+"You flown one o' these before?" she asked.
+
+"Plenty of times," Violet said,
+then spoiled it by adding,
+"In virtual.
+I didn't even know we *had* real shuttles until we landed.
+But how hard can it—look out!"
+
+Sindy threw up her arms instinctively
+as a bush crashed into the windshield in front of her.
+"I *found* you,"
+an amplified voice said gleefully
+as the largest bot Sindy had ever seen strode out of the trees.
+It was shaped like a person,
+with two legs and two arms and a head and a body,
+but it was at least three stories tall.
+
+The worst thing was,
+it was made out of other bots
+that had been taken apart and stuck back together.
+One of its arms looked like two sweeperbots welded to a cranebot
+with a cleaning bot for a thumb and two others for fingers.
+Was this what had happened to the bots that had disappeared from Heck?
+
+"Hang on!" Violet shouted.
+The shuttle's engines whined to life,
+and the little craft jumped sideways like a startled cricket,
+just in time to avoid another tree.
+
+Sindy dug her fingers into the arms of her chair.
+"Take off! Take off *now*!"
+
+"I'm trying!"
+Violet slapped more switches and panels.
+The shuttle spun in a circle,
+tipped to one side,
+shot into the air,
+and began flying backward.
+
+"No!" the giant bot bellowed.
+It lumbered forward clumsily,
+picking up speed with every step.
+
+And that was when Sindy realized that its head was Patient.
+
+"Turn around! Turn around!" she shouted.
+
+"I'm *trying*!" Violet shouted back.
+
+The shuttle slowed.
+Its nose dipped,
+and suddenly they were going forward,
+straight at the oncoming bot.
+
+"Hang on!"
+Sindy's stomach lurched as they dove toward the ground.
+Violet pulled up at the last moment.
+One of Patient's giant feet scraped the top of the shuttle
+and then it was behind them,
+bellowing with rage.
+
+Sindy whooped,
+then saw the look on Violet's face.
+"What's wrong?"
+
+"The cooling system."
+Violet pointed at the red lights blinking across the screen in front of her.
+"Between the tree that hit us and being kicked by that thing,
+it's completely broken."
+
+"So what?" Sindy asked.
+"It's not hot in here."
+
+"It's not for us, it's for the engine.
+Look—it's already overheating."
+She pointed at the screen and gave Sindy a stricken look.
+"It could shut down at any moment.
+Or blow up, or, or, I don't know, but it's *bad*."
+
+"Aright."
+Sindy pointed through the windshield.
+"Head that way, as fast as you can."
+Violet nodded.
+
+They raced over the treetops,
+dropping lower with each second.
+More red lights began blinking on the control panel
+as the engine beneath them began making a high-pitched whine.
+*Come on, come on, you can do it,* Sindy begged.
+
+"There!"
+She pointed at the buildings standing beside the road up ahead.
+"Get us down there!"
+
+The engine's whine turned into a shriek.
+"Here we go!" Violet said.
+The shuttle thumped into the dirt road,
+bounced,
+thumped again,
+and skidded to a stop.
+
+"Go! Go!" Violet ordered as the hatch swung open.
+Sindy didn't have to be told twice.
+She took the steps two at a time and ran for the buildings,
+only glancing back once to make sure Violet was right behind her.
+
+They had just reached the nearest shed when the shuttle's whine turned into a whistle.
+A moment later there was a loud *pop!*
+Sindy whirled around.
+Steam was rising from the puddles beneath the shuttle,
+but the glowing light on its underside had gone out.
+
+She bent over and put her hands on her knees to catch her breath,
+then straightened up and forced a smile.
+"Welcome to Bots' End," she told Violet.
+
+Sindy was explaining what had happend to Crusher and Beevy
+when Dockety arrived.
+"This one is glad you are undamaged, and hopes Mouse is as well,"
 Dockety buzzed.
-"But you are correct:
-if Patient causes the spacecraft's engines to detonate,
+"But you are correct.
+If Patient causes the spacecraft's engines to detonate,
 we will all be vaporized.
 That is undesirable.
 We must seek assistance in Rusty Bridge."
 
-Dockety carried her on its back and Mouse in its manipulators.
-Violet lay on Beevy's back,
-her eyes squeezed shut.
-FIXME: more here
+Violet lay on Beevy,
+her eyes squeezed shut as the bot galloped toward Rusty Bridge.
+Dockety carried Sindy piggyback.
+She desperately wanted to tell the bot to drop her at her house
+so she could get a hug and drink some tea and take a bath
+and not have anything happen to her for the rest of the day.
+Instead,
+she clung on as tightly as she could.
 
 Mayor Lupus and Special Blazes were glaring at each other
 in front of the mayor's house
-when they reached Rusty Bridge.
-A handful of militia were standing about,
+when she and the others reached Rusty Bridge.
+A handful of militia were standing nearby,
 not sure if they were supposed to stay or if they could go home.
 Nash was nowhere to be seen—Sindy guessed the crocodile was still at the ark.
 
@@ -4720,20 +4868,20 @@ She *really* wanted to go and lie in a hot bath,
 but that would have to wait.
 
 "Is this who I think it is?" the mayor growled,
-nodding at Violet.
+nodding at Violet as she slid clumsily off Beevy's back.
 
 "Yeah, but that's not important right now."
 Sindy took a deep breath.
 "Patient is back.
 We saw it at the farmhouse.
-It's got control of some other bots,
-and it's going to use them to blow up the spaceship!"
+It's a giant now,
+and it's gonna use the bots from outer space to blow up the spaceship!"
 
 The mayor and Special Blazes exchanged looks.
-"Is it now?" the tiger said skeptically.
+"Is that so?" the tiger said skeptically.
 
 "Yes!
-And if it does, it'll blow up the whole valley!
+And if it does, it'll destroy the whole valley!
 We have to stop it!"
 
 Before she could say anything more,
