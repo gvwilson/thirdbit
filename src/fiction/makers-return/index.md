@@ -4379,3 +4379,269 @@ I must delete all of you so that I can start over."
 And then the double doors behind them slid shut with a faint rumble.
 
 </section>
+
+<section markdown="1">
+
+## Chapter 16: Into the Virtual (Violet)
+
+"I must delete them so that I can start over,"
+the bot said.
+"I must delete the Makers.
+I must delete all of you so that I can start over."
+
+The doors behind them rumbled shut.
+The little bot that Sindy called Mouse waved its single little arm in panic.
+`oh no oh no` scrolled across its screen.
+"That's not good," it said simultaneously in its tinny little voice.
+
+Violet rushed to the keypad beside the doors
+and pressed her palm flat on top of it.
+"Open," she ordered.
+Nothing happened.
+"Open!" she repeated as firmly as she could,
+but the doors didn't budge.
+
+She whirled around.
+"We have to find another way out of here."
+
+"You think?" Sindy shot back.
+She waved at the controls on the desk.
+"Can you do something with those?"
+
+"Let's find out."
+Violet sat down again and studied the panels in front of her.
+If that one brought up a medical display for Captain Leung,
+then maybe *that* one would—
+
+*click*
+A section of the divider that separated them from Captain Leung swung open.
+"Wait!"
+Violet said as Sindy hurried to it.
+"It could be a trap."
+
+"We're already *in* a trap,"
+Sindy replied.
+
+*Is everyone down here like this?*
+Violet wondered as she followed Sindy and Mouse into the lab.
+If so,
+and if they survived,
+life was going to be a *lot* more interesting than it had been on the ark.
+
+Captain Leung didn't move when Violet shook him.
+For a moment she thought about pulling the neural connector cap off his head,
+but André had told her once that if you did that when people were in virtual
+it would fry their brains.
+She didn't know if he'd been telling the truth,
+but she didn't want to take the chance.
+
+Other connector caps hung on the backs of the other three chairs.
+They looked heavier than the one she wore in her pod,
+but otherwise seemed identical.
+Sindy was eyeing them as well.
+"You thinking what I'm thinking?" she asked.
+
+"If you're thinking about putting one of those on
+and using it to take control of the doors and the bots and everything
+so that we can escape,
+then yes,"
+Violet replied.
+The cushion gave slightly underneath her
+as she sat gingerly on the edge of the nearest chair.
+Was she really going to do this?
+
+"I should do it,"
+Sindy said.
+"It can't be any worse than bein' in Heck."
+
+"That's nice,"
+Violet replied,
+then lifted the cap from her chair,
+sat back,
+and snugged it into place on her head.
+
+*"It's different for everyone,"
+Doctor Szego's voice said in Violet's ear.
+The pod's lid was open,
+and the doctor had already dimmed the room's lights,
+but Violet wasn't ready to go back into frozen sleep.
+She had started wondering if she might never wake up,
+and if not,
+whether she would realize that she wasn't going to.
+One thought had led to another,
+and then to questions.*
+
+*"Not completely different," the doctor continued patiently.
+"Someone might see something as bluish-green when you see it as greenish-blue,
+or find something salty when you find it bland.
+The important things stay the same, though.
+Places, events, what people say—those have to be created before your brain can interpret them.
+It's only the details that vary."*
+
+That answer had satisfied her younger self.
+She hadn't thought much about the "how" of virtual since then,
+but her question and Doctor Szego's answer came rushing back
+when she found herself standing
+in a room that looked exactly like the one she had just been in,
+except spotless and empty.
+The dividing wall was gone.
+Translucent outlines marked where Captain Leung and Sindy were.
+Another showed her reclining in the chair.
+The complex tangle of sparks and lines on her image's head
+had to be the neural connector,
+which meant the other tangles were Sindy's bot friend and the control panel.
+
+Was this how bots saw the world?
+She shook her head.
+That didn't matter now.
+The double doors between the room and the corridor were still there,
+but there wasn't a keypad.
+How was she supposed to open the door?
+
+As she dithered, something creaked behind her.
+She whirled around.
+The concrete wall creaked again,
+bulging slightly as if something was trying to push through it from the other side.
+
+Desperate,
+she put her translucent hands on the control panel.
+A tingle ran up her arms.
+*Open the door,* she thought.
+Nothing happened.
+*I said __open__!*
+
+As if it had heard her,
+a section of the wall her vanished.
+It didn't swing open or slide aside,
+it just hadn't ever been there.
+
+Had she done it?
+There was no way to tell without quitting virtual,
+but she hesitated.
+*Show me the way out.*
+
+A map appeared,
+a red line marking a path from what she hoped was the lab
+to what she hoped even more was the stairs up to the farmhouse.
+Left, left, right, three straight—she repeated it to herself a couple of times,
+hoping it would stick.
+
+The wall creaked, bulging even more.
+*All right, now show me Patient.*
+
+What she expected was a dot on the map.
+What she got was another montage like the one that had shown her Captain Leung's memories.
+Someone in a white lab coat with a tablet,
+checking things off a list.
+A boy,
+younger than her,
+throwing pillows at a little bot that did its best to dodge them.
+The same boy,
+older,
+throwing hard rubber balls that knocked the little bot off its wheels.
+A kick, followed by a tumble down a flight of stairs.
+Trying to move in a straight line despite a damaged wheel that the boy,
+now a teenager,
+couldn't be bothered to repair,
+and then a dumpster lid closing with a bang,
+leaving only darkness.
+
+The images vanished.
+"Those are *mine*," a venomous voice hissed.
+"Those are *private*."
+
+Violet tried to pull her hands away from the virtual panel,
+but they were stuck.
+"Shall we see what *yours* look like?" the voice asked.
+
+Once,
+several wakings ago,
+André had messaged her to say that
+he had found a secret game tucked away in a forgotten corner of virtual.
+"It's v scary," he had said with relish.
+"Maybe 2 scary 4 you."
+
+Of course,
+that meant she had to try it out,
+so the next time Captain Leung was busy overseeing repairs
+she had visualized the coordinates André had given her,
+opened the door that appeared in her mind,
+and stepped into a nightmare.
+
+It was dark.
+People were rushing around,
+shouting orders or trying to find one another or figure out what was going on.
+Some carried equipment or weapons.
+Others had infants in their arms.
+Gray curved walls stretched into the sky behind them,
+except somehow she knew that they weren't walls,
+they were the hulls of arks waiting to be launched into space.
+
+A siren began whooping.
+"They've broken through!" someone yelled.
+Two women in exoskeletons in front of Violet hugged awkwardly.
+One donned her helmet and raised a forked lightning gun to her shoulder
+as the other picked up a couple of protesting children
+and hurried away with long mechanical strides.
+The woman who had stayed managed to fire a dozen shots
+before the bots reached her.
+
+Violet had screamed and flipped back into the real.
+She had never tried to find the sim again
+because some part of her knew that it wasn't actually a sim.
+
+*blink*
+Her memories disappeared,
+to be replaced by an image of the ark.
+It was lying in the swamp with some of Sindy's 'brid friends standing guard nearby.
+There was no sign of giant tentacles,
+but a timer was counting down above the scene.
+As she watched,
+Z40 and Z51 marched up to the ark.
+A walkway extended from its side,
+withdrawing again after the two bots were inside.
+
+A moment later the entire scene disappeared in a brilliant flash.
+The viewpoint zoomed out to show the blast wave racing across the entire valley.
+Violet's hand flew to her mouth as
+`simulation complete: 100% success`
+took the place of the timer.
+
+Violet felt like she was going to be sick.
+Patient was going to use Z40 and Z51 to blow up the ark!
+And everything else!
+She threw her fear into her thought.
+*Open. The. Door!*
+
+She opened her eyes.
+"You did it!" Sindy said,
+immediately followed by, "Ew!"
+as Violet bent over the chair's arm and threw up on the floor.
+
+"Sorry,"
+Violet mumbled.
+She waited a moment to see if she was going to throw up again,
+then spat to get the taste out of her mouth.
+
+"That was pretty stupid of you,"
+Sindy said,
+helping her to her feet.
+"Putting on the helmet, I mean, not…"
+She gestured at the floor.
+"But it was pretty brave, too.
+Thanks."
+
+"Thanks."
+Violet stopped herself from wiping her mouth with her sleeve,
+then stifled an unpleasant burp and struggled to her feet.
+"Come on—we have to get out of here."
+
+Sindy nodded at Captain Leung.
+"What about your friend?"
+
+"We have to,"
+Violet said.
+"That crazy bot of yours is going to blow up the ark!
+It's going to blow up *everything*!"
+
+</section>
