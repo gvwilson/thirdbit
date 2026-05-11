@@ -35,8 +35,10 @@ there should have been a workshop that taught politics, economics, and sociology
 so that they would understand how the world actually works.
 I tried to crowdsource the necessary material,
 but that didn't work out.
+
 Nine years and a lot of reading later,
-I think I finally know enough to writing something that is less wrong than it would have been.
+unemployment is giving me time to collect my thoughts,
+I think I finally know enough to write something that is less wrong than it would have been.
 I still don't think I'll ever try to turn these posts into a book,
 but I hope that they'll prompt people who actually know about this stuff
 to take the time to correct me.
