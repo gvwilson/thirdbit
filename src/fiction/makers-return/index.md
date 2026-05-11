@@ -4637,11 +4637,106 @@ then stifled an unpleasant burp and struggled to her feet.
 "Come on—we have to get out of here."
 
 Sindy nodded at Captain Leung.
-"What about your friend?"
+"What about your friend?
+We can't just leave him here!"
 
 "We have to,"
 Violet said.
 "That crazy bot of yours is going to blow up the ark!
 It's going to blow up *everything*!"
+
+</section>
+
+<section markdown="1">
+
+## Chapter 17: Flight (Sindy)
+
+"What about your friend?"
+Sindy asked.
+"We can't just leave him here!"
+
+"We have to,"
+Violet said,
+making a face at the taste in her mouth.
+"That crazy bot of yours is going to blow up the ark!
+It's going to blow *everything* up!"
+
+*It's not my bot,* Sindy thought,
+but what she said was,
+"What? How?"
+
+"It's going to use Z40 and Z51 to get on board
+except they're going to be carrying bombs or something,
+I don't know about that part,
+but they're going to blow up *inside* the ark,"
+Violet explained in rush.
+"And if that happens its engines will blow up too
+and destroy everything!
+Like,
+the whole valley and, and *everything*!
+We have to get back to the shuttle.
+Come on!"
+
+She and Violet ran back through the corridor.
+Mouse zipped along behind them,
+tipping onto two wheels at corners.
+"Need help," it said when they reached the stairs.
+Sindy scooped it up and took the steps two at a time.
+
+"Wait!" she said as Violet rushed for the door.
+She peeked around the frame of the empty window beside it.
+The shadows had grown longer,
+but other than that everything looked the same.
+She nodded at Violet.
+"Let's go."
+
+FIXME
+
+Sindy was explaining what had happend to Crusher
+when Dockety and Beevy arrived.
+Mouse warbled at it.
+"This one is glad you are undamaged,"
+Dockety buzzed.
+"But you are correct:
+if Patient causes the spacecraft's engines to detonate,
+we will all be vaporized.
+That is undesirable.
+We must seek assistance in Rusty Bridge."
+
+Dockety carried her on its back and Mouse in its manipulators.
+Violet lay on Beevy's back,
+her eyes squeezed shut.
+FIXME: more here
+
+Mayor Lupus and Special Blazes were glaring at each other
+in front of the mayor's house
+when they reached Rusty Bridge.
+A handful of militia were standing about,
+not sure if they were supposed to stay or if they could go home.
+Nash was nowhere to be seen—Sindy guessed the crocodile was still at the ark.
+
+"Oww," Sindy whimpered as Dockety let her down.
+She *really* wanted to go and lie in a hot bath,
+but that would have to wait.
+
+"Is this who I think it is?" the mayor growled,
+nodding at Violet.
+
+"Yeah, but that's not important right now."
+Sindy took a deep breath.
+"Patient is back.
+We saw it at the farmhouse.
+It's got control of some other bots,
+and it's going to use them to blow up the spaceship!"
+
+The mayor and Special Blazes exchanged looks.
+"Is it now?" the tiger said skeptically.
+
+"Yes!
+And if it does, it'll blow up the whole valley!
+We have to stop it!"
+
+Before she could say anything more,
+the alarm bell in the belfry above them began to ring.
 
 </section>
