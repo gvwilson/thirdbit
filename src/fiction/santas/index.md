@@ -3116,6 +3116,7 @@ it is relatively rare for people to threaten you with ray guns—you
 will probably find it hard to believe that
 having them pointed at you can become a little bit boring
 if it happens frequently enough.
+
 But it's rather like living in a house next to a railway line or a spaceport:
 the first few nights,
 you wake up every time a train goes by or a rocket blasts off,
@@ -3123,7 +3124,7 @@ but then your brain gets used to it and says,
 "Meh."
 
 That said,
-it does depend on the weapon and on who's doing the pointing.
+it does depend on the weapon and who's doing the pointing.
 It's pretty hard for a brain to say "meh"
 to something that looks like it was designed to make holes in steel plate,
 and if the person pointing it
@@ -3132,11 +3133,11 @@ your brain is far more likely to go "meep!"
 
 Finner's hands put themselves up,
 just as they had on board the *Dancing Marmot*.
-"I'm Finner Tumbly," he said.
-"I'm your gran-grandson."
+"I'm Finner Tumbly!" he said.
+"I'm your gran-grandson!"
 
 The ray gun didn't waver.
-"Ask me something only I would," Finner said desperately.
+"Ask me something only I would know," Finner said desperately.
 "Like—like that picture!"
 He pointed at a crayon drawing in a frame on the wall.
 "My dad drew that when he was little,
@@ -3145,7 +3146,7 @@ but he took it and had one of the elves frame it
 so he could give it to you a second time,
 only my mum says you would rather he hadn't
 because it doesn't go with anything else in the room
-and you think it was better off on the fridge."
+and you think it looked better on the fridge."
 
 Gran-Granna Tumbly's jaw tightened.
 "I knew it," she hissed.
@@ -3186,12 +3187,12 @@ Sit down and tell me *everything*."
 "Everything" took about an hour.[^everything-hour]
 She scowled when Santa Hotep's pyramid was attacked,
 smacked the table with the palm of her hand during the bit with the sharks,
-but cut short his encounter with Captain Abacus.
+but cut him off when he started to describe Captain Abacus.
 "That particular problem has already been resolved,"
 she said curtly,
 glancing at Santa Hood.
 
-[^everything-hour]: Fun fact: if could talk approximately 120,094,200,000,000 times faster than normal, you could tell someone everything that had happened to a single subatomic particle since the beginning of the universe.
+[^everything-hour]: Fun fact: if you could talk approximately 120,094,200,000,000 times faster than normal, you could tell someone everything that had happened to a single subatomic particle since the beginning of the universe.
 
 Gran-Granna Tumbly's habitual scowl deepened
 as Finner described his rescue by Elfabot,
@@ -3225,7 +3226,7 @@ Hm…"
 
 From the look on his gran-granna's face,
 Finner guessed that wheels were turning in her head,
-the kinds of turning that eventually produces a plan for kidnapping a robot.
+the kind of turning that eventually produces a plan for kidnapping a robot.
 All of a sudden he felt annoyed.
 "She's really sick, you know.
 Shady Ann, I mean."
@@ -3263,11 +3264,11 @@ but can also be the most annoying.
 Sometimes it's deliberate,
 like when they share your baby pictures with your friends just to make you squirm,
 or if their parents were cruel to them and they haven't learned any better since,
-when they keep making jokes about your haircut long after you're in tears.
+or when they keep making jokes about your haircut long after you're in tears.
 Mostly,
 though,
 parents are annoying because you think you're ready to be a grownup and they don't agree,
-or do but aren't ready to let you go.
+or they do but they aren't ready to let you go.
 
 Going to your gran-granna's for a cup of tea and not coming home for a couple of weeks
 pretty much guarantees annoying parental behavior,
@@ -3275,19 +3276,19 @@ especially if the parents in question have somehow found out that
 you spent that week dealing with ray guns, sharks, and a giant santasaurus.
 When they ask if you're all right,
 what they really mean is that they were scared.[^they-were-scared]
-And when they fuss over you and tell you everything's all right now,
-they're trying to convince themselves as much as you.
+And when they fuss over you,
+they're comforting themselves as much as you.
 
 [^they-were-scared]: You won't really understand *how* scared unless you have kids of your own, at which point you will occasionally wake up in a cold sweat in the middle of the night wondering how common meteor strikes are or how often leopards escape from zoos.
 
 We are therefore going to skip over the next few hours of Finner's life
 and most of the week that followed.
-His father baked three batches of his favorite cookies[^chili-lime]
+His father baked three batches of Finner's favorite cookies[^chili-lime]
 while his mother kept checking that he was warm enough.
 His classmates crowded around him and asked what had happened
 and whether it was true that he'd been in an airship battle
 and could he show them his scars or his tattoo,
-because obviously if he'd been through all of that he had to have one or the other.
+because if he'd been through all of that he *had* to have one or the other.
 He mostly mumbled in response,
 uncomfortable at suddenly being the center of attention
 instead of in his usual place on the edge of the crowd
@@ -3310,10 +3311,11 @@ he had other things to think about,
 like making sure his parents didn't find out about his tools
 or the odds and ends he smuggled into his bedroom.
 A rusty pair of scissors that he spotted near a bus stop on his way home from school.
-a ball of string that he slipped into his pocket during science class.
+A ball of string that he slipped into his pocket during science class.
 Some construction paper that had to be folded carefully and then creased twice to make a straight seam,
 and best of all,
 a roll of tape with only a little bit of lint stuck to it.
+
 He couldn't stop himself.
 He needed to make things.
 No, he *needed* to make things,
