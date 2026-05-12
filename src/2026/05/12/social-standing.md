@@ -27,14 +27,14 @@ Thorstein Veblen noticed this in 1899,
 before there were smartphones or social media
 (or economists to argue with his heresy).
 *The Theory of the Leisure Class*
-introduced the term [%g conspicuous_consumption "conspicuous consumption" %]
+introduced the term conspicuous_consumption
 to describe spending whose primary purpose is to signal social rank.
 His key insight is that the signal only works if it is costly:
 something that only the wealthy can afford communicates rank precisely because of its price.
 
 Similarly,
 in a world where most people have to do physical labor,
-[%g conspicuous_leisure "conspicuous leisure" %] is only possible for the rich.
+conspicuous leisure is only possible for the rich.
 As leisure became more broadly available,
 the signal shifted:
 today,
@@ -45,7 +45,7 @@ is the modern equivalent of the nineteenth-century aristocrat who demonstrably n
 <div class="callout" markdown="1">
 
 "Being seen" may be the most important part of the previous sentence.
-[%g invisible_labor "Invisible labor" %] like housework,
+Invisible labor like housework,
 mentoring junior colleagues,
 or smothering your feelings for the benefit of others
 has lower status.
@@ -61,7 +61,7 @@ The competition is real but the gains are illusory;
 the spending continues because the first person to stop stops loses ground to those who don't.
 
 Robert Frank built on Veblen's work
-with a careful study of wage patterns within firms [%b Frank1985 %].
+with a careful study of wage patterns within firms.
 Standard economics predicts that workers will always move toward higher absolute pay:
 if they can earn more elsewhere, they will go elsewhere.
 Frank found that this prediction fails systematically.
@@ -84,7 +84,7 @@ but pay relative to colleagues doing similar work.
 Across many countries and industries,
 fairness within the reference group matters more than the number itself.
 
-Fred Hirsch introduced the concept of [%g positional_goods "positional goods" %],
+Fred Hirsch introduced the concept of positional goods,
 whose value depends on how many other people have it.
 A house with an ocean view is a positional good:
 if everyone had a house with an ocean view, the view would cease to confer distinction.

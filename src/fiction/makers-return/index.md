@@ -3922,8 +3922,20 @@ dimming once they were past.
 "I hate it when they do that,"
 Sindy muttered.
 
+Most of the doors they passed were closed,
+but not all.
+The rooms they could see into were full of parts:
+arms and legs,
+gears as big as Violet's head,
+propellors,
+and once,
+horribly,
+dozens of different kinds of mechanical eyes arranged neatly on a wall.
+She reached for Sindy's hand as they passed that one.
+The other girl gave hers a squeeze, then let go.
+
 "You will stay here,"
-Patient ordered as Z51 crowded them into a small room
+Patient ordered as Z51 finally crowded them into a small room
 with a cot, a couch, a small desk, and no obvious means of escape.
 
 "What about Captain Leung?" Violet asked.
@@ -4690,11 +4702,22 @@ but other than that everything looked the same.
 She nodded at Violet.
 "Let's go."
 
-They were halfway back to the shuttle when Mouse said, "uh oh,"
-and stuck the tip of its little arm in Sindy's nose.
+They were halfway back to the shuttle when something rumbled behind them.
+They spun around,
+and for a moment Sindy couldn't make sense of what she was seeing.
+The farmhouse was collapsing to one side,
+but no,
+that wasn't right,
+it was *tilting*
+as if someone or something had taken hold of one edge
+and was lifting it to look underneath.
+
+Mouse said, "uh oh" and stuck the tip of its little arm in Sindy's nose.
 She squawked and dropped it.
+"What are you doing?"
+
 "go go go be brave" it said,
-disappearing into the grass.
+turning back toward the farmhouse and disappearing into the grass.
 
 "Mouse!"
 Sindy cupped her hands around her mouth.
@@ -4705,13 +4728,11 @@ She shook off Violet's hand angrily.
 "We have to keep going,"
 the other girl urged.
 
-"I'm not leavin' him!"
+"We can't just leave him!"
 
 Violet looked her in the eyes.
-"I left Captain Leung."
-
+"Like we left Captain Leung?"
 Sindy was the first to look away.
-"Aright."
 
 The shuttle's hatch wheezed opened when Violet put her hand on it.
 "It's keyed to my DNA,"
@@ -4777,7 +4798,7 @@ straight at the oncoming bot.
 
 "Hang on!"
 Sindy's stomach lurched as they dove toward the ground.
-Violet pulled up at the last moment.
+Violet pulled up just in time.
 One of Patient's giant feet scraped the top of the shuttle
 and then it was behind them,
 bellowing with rage.
@@ -4856,35 +4877,60 @@ and not have anything happen to her for the rest of the day.
 Instead,
 she clung on as tightly as she could.
 
-Mayor Lupus and Special Blazes were glaring at each other
-in front of the mayor's house
-when she and the others reached Rusty Bridge.
-A handful of militia were standing nearby,
-not sure if they were supposed to stay or if they could go home.
-Nash was nowhere to be seen—Sindy guessed the crocodile was still at the ark.
-
+A handful of militia were milling about in the square when they got there.
 "Oww," Sindy whimpered as Dockety let her down.
 She *really* wanted to go and lie in a hot bath,
 but that would have to wait.
 
-"Is this who I think it is?" the mayor growled,
-nodding at Violet as she slid clumsily off Beevy's back.
+"Hey!"
+Bravo pushed past one of the Ox brothers and trotted over
+with his pike on his shoulder
+and a scowling Bluster in his wake.
+"Where've you been?
+Are you aright?"
 
-"Yeah, but that's not important right now."
+"I'm fine," she said automatically
+before the concern in his voice registered.
+Since when did he care about what happened to her?
+
+Bravo jerked his chin at Violet as she slid clumsily off Beevy's back.
+"Is this who I think it is?"
+
+"Prob'ly, but that's not important right now."
 Sindy took a deep breath.
-"Patient is back.
-We saw it at the farmhouse.
-It's a giant now,
-and it's gonna use the bots from outer space to blow up the spaceship!"
+"Patient is back,
+and it's gonna blow up the spaceship!"
 
-The mayor and Special Blazes exchanged looks.
-"Is that so?" the tiger said skeptically.
+The two goats exchanged looks.
+"Uh huh," Bluster said skeptically.
 
-"Yes!
-And if it does, it'll destroy the whole valley!
+"It *is*!
+We have to tell the mayor!
+And, and everyone!
 We have to stop it!"
+
+"Stop what?"
+Sindy whirled around
+as Mayor Lupus stumped down the steps,
+a broomstick in her hand in place of her beloved cane.
+Behind her,
+Special Blazes closed the door of the mayor's house
+but stayed on the porch.
+
+"It's Patient.
+It's back,
+but it's a giant now,
+and it's going to use the bots from outer space to blow up the spaceship."
+
+"Good riddance," Bluster muttered behind her.
+
+Sindy stamped her foot.
+"You don't *understand*.
+If it does, it'll destroy the whole valley!"
 
 Before she could say anything more,
 the alarm bell in the belfry above them began to ring.
+Cody Wolf stuck his out out of window two stories above and shouted,
+"Bots! There's bots comin'! And one of 'em *huge*!"
 
 </section>
