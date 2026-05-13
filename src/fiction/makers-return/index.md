@@ -5403,7 +5403,9 @@ He touched a finger to the rim of his hat.
 
 "Sindy!"
 She spun around as Violet and Special Blazes arrived on Beevy's back.
-The tiger slid off Beevy's back and strode over to Nash.
+The tiger slid off Beevy's back and limped over to Nash.
+There was blood on his fur.
+
 "Well done," he said,
 clapping the other Operator on the shoulder.
 The crocodile's smile showed far too many teeth,
@@ -5418,5 +5420,76 @@ she asked anxiously.
 "Us Roos are pretty fast," Sindy said.
 
 "And clever," Special Blazes added.
+
+</section>
+
+<section markdown="1">
+
+## Epilog
+
+*One week later…*
+
+"I'm always going to worry a little bit,"
+Captain Leung admitted,
+adding,
+"Thank you,"
+as Papa Roo passed him a cup of tea.
+
+"Bots have been repairing each other for a long time,"
+Sindy said.
+"Isn't that right, Mouse?"
+
+"Yes."
+Its voice was no longer tinny.
+Sindy wasn't sure why it had decided to change it,
+but she supposed it had something to do with
+all the time the little bot was spending with Z40 and Z51.
+
+"I suppose,"
+the captain said skeptically,
+blowing on his tea.
+He brightened as Violet joined them on the porch,
+collapsing onto the seat next to Sindy's.
+"How's it going in there?"
+
+"He's making *such a mess," Violet complained.
+"Honestly,
+we should have just left him in his pod."
+
+"I heard that,"
+André called from inside.
+
+Violet and Sindy exchanged grins.
+Real baking was a lot messier than virtual,
+but a lot more satisfying.
+And if André's first batch of muffins were a little dry and floury,
+well,
+he could always make another.
+
+"So are you looking forward to school tomorrow?"
+Papa Roo asked,
+ruffling his daughter's hair.
+
+Sindy rolled her eyes.
+"No."
+
+"Yes you are."
+Violet nudged her with her shoulder.
+"All those new kids to boss around?
+You're going to love it.
+And Bravo's going to be there."
+
+"Whatever,"
+Sindy said.
+She *was* looking forward to it,
+Sindy realized.
+Captain Leung was still trying to figure out
+how many other arks were still out there
+and how to call them home,
+and the mayor was fretting about how the town was going to look after
+all the children who were waking up one by one into a strange new world,
+but they could figure that all out later.
+Tomorrow,
+she was going to teach them how to play tag.
 
 </section>
