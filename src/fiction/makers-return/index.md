@@ -5168,3 +5168,267 @@ she said excitedly.
 "Come on!"
 
 </section>
+
+<section markdown="1">
+
+## Chapter 19: Catch Me If You Can (Sindy)
+
+Violet clicked the whatever it was she taken from Special Leaf's hidden stash
+into the glove
+and then pulled it on.
+Her eyes widened.
+"I know what this is!"
+she said excitedly.
+"Come on!"
+
+"Wait!" Sindy said,
+but Violet was already running for the door.
+Sindy gave the hidden cupboard a forlorn look.
+Special Leaf was still looking after her.
+
+She caught up with the girl from outer space in the alley by the mayor's house.
+Together they peered around the corner.
+Sindy's heart sank.
+Patient's bots had driven the militia back.
+Their net guns were exhausted,
+so all they could do was fend off the attackers with their pikes.
+
+Z40 and Z51 fought side by side.
+Beevy, Dockety, and Special Blazes were doing their best to keep them occupied,
+but their best clearly wasn't good enough.
+One of Dockety's manipulators dangled from its shoulder,
+held on by a single cable,
+and Special Blazes was limping badly.
+
+Even as Sindy watched,
+Bluster and Bravo charged something that looked like
+a water tank balanced on two thick legs.
+Bluster feinted.
+When the bot trapped his weapon beneath its foot,
+Bravo jabbed his pike into its ankle.
+The bot stumbled and fell.
+Bluster whooped and thrust at its knee joint,
+only for a kick from the bot to send him flying.
+"Bluster!" his brother shouted.
+
+"All right," Violet muttered.
+"Let's see if this still works."
+She made a fist with her gloved hand,
+then splayed her fingers wide as she pointed at Z40.
+
+The combat bot froze mid-stride.
+"Gotcha!" Violet said triumphantly.
+She clenched her hand back into a fist.
+Z40 collapsed to the pavement as its legs curled up beneath it.
+
+Beevy seized its chance.
+It charged at the fallen bot,
+slamming into it and knocking it onto its side.
+Two of the militia fell on its before it could regain its footing,
+pinning it to the ground with their pikes.
+
+"Get the other one!" Violet shouted,
+her hand still clenched.
+"I can't hold it forever!"
+
+"Dockety!"
+Sindy shouted.
+"Dockety, you gotta pin 'em both!"
+She concentrated as hard as she could,
+hoping to do whatever it was she had done to the tentacled thing in the swamp,
+but nothing happened.
+
+Z51 scrabbled at the cobblestones.
+As half a dozen pikes thrust at Z40,
+the other bots started falling back,
+leaving metal parts and injured people lying side by side.
+Kneeling beside his brother,
+Bravo caught Sindy's eye.
+The stricken expression on his face made her heart skip a beat,
+but there wasn't time to think about that
+before something made the ground shake beneath her.
+
+*Thud.*
+The ground shook again.
+The alarm bell above them rang furiously,
+and Cody started howling.
+
+A shadow fell across the square.
+Patient had arrived.
+
+It stepped over a house and swung a tree-sized arm at the belfry.
+"Get outta there!" Mayor Lupus shouted
+just before its fist slammed into the wooden walls,
+splintering it.
+The alarm bell clanged one last time
+as the giant's second swing sent the top of the belfry crashing down
+into the street below.
+
+"Ah ha ha ha," its voice boomed.
+"Ah ha ha ha.
+Finally, this will end!"
+
+Sindy grabbed Violet's arm.
+"Use the glove! Use the glove!"
+
+Violet nodded and reached for the giant bot with her gloved hand.
+Nothing happened.
+She thrust her arm as if to push the bot backward,
+but she might as well have been blowing raspberries.
+
+"Ah ha," the giant's voice boomed again.
+"*There* you are!"
+
+Sindy and Violet screamed as the giant took a huge step toward them,
+bending down awkwardly to reach for them.
+Sindy pulled Violet back into the alley
+an instant before a rust-stained three-fingered hand the size of a cart
+slammed down on the cobblestones where they had been standing.
+
+*Think think think!* Sindy told herself frantically as they ran.
+Squeeze through the hole in Papa Cartmuddle's fence.
+Duck under the underclothes hanging from his laundry line.
+Put out an arm to block Violet from running across the street
+because that would put her out in the open
+where Patient could see her.
+Point at the shed Zeke Bear was forever promising to convert into a pottery studio.
+Sidle toward its door,
+backs against the wall,
+and duck inside.
+
+*Thud. Thud. Thud.*
+"Come out, come out, wherever you are,"
+Patient said,
+its voice making windows rattle in their frames.
+
+"Does it think we're playing *tag*?" Violet squeaked.
+
+Sindy looked at her wide-eyed.
+"That's it!"
+She pushed Violet toward the back of the shed.
+"You stay here.
+And don't use that thing 'til it's outta the way!"
+she added,
+pointing at the glove.
+
+"What do you mean, out of the way?
+Hey, where are you going?"
+But Sindy was already out the door.
+
+She ran into the middle of the street and waved her arms.
+"Hey!
+Over here!
+Think you can catch me,
+you big stupid pile of rusty scraps?"
+Without waiting for an answer,
+she ran as she had never run before.
+
+She had never told her parents about the times the other children had chased her.
+She knew ever shortcut and back way in Rusty Bridge.
+She had ever created a couple of them,
+like the board that just happened to lie across a ditch that was too wide for her to jump
+or the three bricks stacked in just the right place
+to help her clamber over a wall.
+
+But Rusty Bridge was only so big.
+It only took her a couple of minutes to reach the schoolhouse.
+Under other circumstances she might have whooped or laughed
+at the sound of the giant bot's foot coming down on the school's roof,
+but she couldn't slow down for that now.
+
+The forest waited on the other side of the schoolyard.
+She raced between the trees,
+trusting that they and the muddy ground would slow Patient down,
+and splashed through the little stream
+where she and Maddy and Gumption had collected tadpoles when she was little.
+*That'll make a mess of my boots,* she thought giddily.
+
+FIXME: no, the Mire is further away than this - she rides Dockety
+
+The footpath became a track became a graveled road.
+She rounded the last corner and there it was,
+the ark,
+still sitting in the swamp.
+And there *they* were,
+the militia,
+yelling and pointing past her at the giant coming toward them.
+
+"Shoot it!" she yelled at Nash.
+She tripped and sprawled face-first in the weeds,
+skinning her knees.
+
+The lightning gun made a single sharp *crack!*
+The whole world was so bright for an instant
+that she could see it through her closed eyes.
+
+FIXME: too easy
+
+She scrambled to her feet.
+The giant bot still stood,
+but was shivering as if it was cold.
+"Wh-wh-wh-" Patient stuttered.
+
+"Look out!"
+one of the militia yelled.
+The bot tipped forward and fell with a crash.
+
+People began cheering.
+"Good shot," Sindy told Nash breathlessly.
+He touched a finger to the rim of his hat.
+
+"Sindy!"
+She spun around to see Violet and Special Blazes arrive on Beevy's back.
+Dockety rolled beside them,
+its arm still dangling by one cable.
+
+Special Blazes slid off Beevy's back and strode over to Nash.
+"Good shot," he said,
+clapping the other Operator on the shoulder.
+The crocodile's smile showed far too many teeth,
+but Sindy didn't care.
+They'd won!
+
+Violet rushed over to her.
+"Are you all right?"
+she asked anxiously.
+"I was *sure* it was going to get you!"
+
+"Us Roos are pretty fast," Sindy said.
+
+"And clever," Special Blazes added.
+"Mind me asking how you got that bot back in the square to shut down?
+We'd have been sunk if it hadn't."
+
+"That wasn't me."
+Sindy jerked her chin at Violet.
+"She's the one who saved you."
+
+"It wasn't really me either," Violet said,
+holding up her hand.
+"It was this."
+
+The tiger frowned.
+"May I have a look at that?
+Please?"
+he added.
+
+Violet looked at Sindy.
+When Sindy shrugged,
+she took off the glove and handed it to Special Blazes.
+He studied it for a moment,
+then slipped it on.
+
+"Oh," he breathed,
+his fur standing on end.
+"That's…different."
+And then he pointed at Dockety and made a fist.
+
+Dockety collapsed as if it were a puppet whose strings had been cut.
+"Now now," Special Blazes said,
+pointing at Beevy.
+The bot froze,
+one leg in the air.
+
+FIXME: Nash betrays them, not Special Blazes - he gets a redemption arc.
+
+</section>
