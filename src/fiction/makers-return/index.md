@@ -907,13 +907,18 @@ blinking as if suddenly remembering that Violet could overhear him.
 he said with a smile Violet assumed was supposed to be reassuring.
 "We'll sort it out."
 
-FIXME: mention remote manipulator to foreshadow the one they find in Leaf's house
-
 Sorting it out turned out to mean a space walk.
 Doctor Szego wanted to send one of the service bots,
-but Captain Leung insisted that he had to do it.
+so Captain Leung donned a pair of remote control gloves.
+At first everything seemed to be working:
+the service bot raised and lowered its arms obediently as he waggled his fingers.
+As soon as he tried to get it to move,
+though,
+the bot wobbled from side to side and clawed at the wall.
+
 "They're as skiffy as the ark,"
-he argued.
+he argued,
+tossing the heavy black gloves on the table in disgust.
 "If it has an episode while it's out there,
 it could cripple us or worse.
 And it's not like you can do it."
@@ -930,8 +935,6 @@ Violet asked André on their private channel.
 He blew a raspberry through the speaker.
 "Fat chance.
 They're lucky they can get even one suit working any more.
-By the time they let us try
-we'll be lucky if there's a pair of gloves left.
 Bet you something goes kablooie while he's out there.
 I saw that happen in virtual once.
 The guy's head swelled up and—"
@@ -1952,7 +1955,7 @@ we could be in a powerful mess."
 as a murmur ran through the crowd.
 
 Special Blazes' ears went back.
-"Likely or not, it's a risk we're not going to take.
+"Likely or not, we're not going to take the risk.
 As for the rest of you,
 form up.
 The sooner we find out what this thing is,
@@ -1981,22 +1984,25 @@ but she hoped she was all right.
 Dockety handed back the communicator.
 Sindy tucked it back in her pocket.
 Her jaw set.
-People had come to her rescue.
+People had rescued her.
 Now it was her turn.
 "How long will it take us to get to the Mire?" she asked.
 
-FIXME: how does she know to go to the Mire?
+Dockety's eyes rotated.
+"Sixteen minutes.
+Why?"
 
-FIXME: extricate herself from her parents.
+"I'll tell you on the way,"
+Sindy said.
 
-Riding on top of Beevy was bumpier than riding piggy-back on Dockety,
+Lying on top of Beevy was bumpier than riding piggy-back on Dockety,
 but at least her legs didn't go to sleep.
 Mouse clamped itself to the bigger bot's side,
 its wheels retracted
 and its little arm waving happily.
 
 The militia had taken the main road out of town,
-so she and the bots used one of the many footpaths
+so she and the bots used one of the footpaths
 that ran between the outlying farms.
 Grampa Elk shouted something to her as they raced past his beehives.
 She waved in response,
@@ -2004,7 +2010,12 @@ nearly sliding off Beevy's back as she did so.
 After that she ignored the few people they saw
 and focused on dodging low-hanging branches while not falling off.
 
-FIXME: they have to be chasing the ark in its final stages to find the right place in the Mire.
+"There it is!" she shouted,
+pointing and then grabbing hold of Beevy again so that she didn't slide off.
+The fireball in the sky had turned into a bright white fleck
+that was growing larger by the second.
+It passed over their heads,
+followed a few seconds later by a long roll of thunder.
 
 The Mire was just a hundred meters away from the spot where
 the path joined up with the Makers' road.
@@ -2296,8 +2307,6 @@ she said,
 but what she thought was,
 *I'm going outside!*
 
-FIXME: make more of a deal about André being left behind
-
 "It's not fair,"
 André groused a few moments later.
 "How come I have to stay in my pod and you get to fight monsters?"
@@ -2308,7 +2317,10 @@ mentally adding,
 "And you have to stay inside because you're sick.
 You know that."
 
-"Still isn't fair.
+"I'm *always* sick,"
+he replied petulantly.
+"I'm always *going* to be sick.
+It's not *fair*.
 Don't screw it up, all right?"
 
 Their first stop was the airlock that held the space suits.
@@ -2320,7 +2332,7 @@ there was more than a whiff of ancient sweat.
 
 "Keep your visor up anyway,"
 was all Captain Leung said when she commented on it.
-He swapped its gloves for another pair and muttered something about spare parts,
+He swapped muttered something about spare parts,
 then stepped back and said that would have to do.
 
 Violet's legs swished against each other as she followed him to the central ladder.
@@ -2928,8 +2940,6 @@ pushing Violet toward the stairs.
 As another fireball burst from the tiger's tech
 the captain lunged forward and grabbed Sindy's arm.
 
-FIXME: why does Leung take her? something to do with Bravo
-
 "Hey! Let go!" Sindy yelled.
 The mayor swung her cane.
 Captain Leung blocked it with his arm and pointed a straightened finger.
@@ -2946,7 +2956,9 @@ their manipulators clacking menacingly.
 
 Captain Leung dropped Sindy into the seat beside his
 and pushed her down again when she tried to get up.
-"You gotta let me go!" she shouted at him.
+"What are you doing?"
+she shouted at him.
+"You gotta let me go!"
 
 "What I… have to do… is get this bird… in the air," he grunted,
 strapping her in.
@@ -2967,7 +2979,9 @@ and grabbed hold of the shuttle.
 
 Captain Leung dropped Sindy into a padded seat
 and pushed her down again when she tried to get up.
-"You gotta let me go!" she shouted at him.
+"What are you doing?"
+she shouted at him.
+You gotta let me go!"
 
 "What I… have to do… is get this bird… in the air," he grunted.
 Behind him,
@@ -2986,7 +3000,7 @@ The calm female voice came from all around her.
 Metal clanged as more tentacles erupted from the swamp
 and fell across the hull.
 
-"Maybe—" Violet started to stay behind Sindy.
+"Maybe—" Violet started to say behind Sindy.
 
 "Hang on!"
 The captain threw himself into the seat beside Sindy's
@@ -3010,7 +3024,7 @@ A little help, please?"
 
 "Well, ours aren't,"
 Captain Leung muttered.
-A gloved hand flipped a cover off a red switch.
+He flipped a cover off a red switch.
 Dipping and spinning again,
 he pointed the ship's nose at the swamp and fired.
 
@@ -3035,16 +3049,30 @@ Captain Leung barked.
 "Understood."
 The ship banked,
 pushing Sindy back into her seat.
-"I'll go check out the beacon."
+"I'll head for the beacon."
+
+"What?
+No!
+You gotta let me go!
+You're *kidnapping* me!"
+Sindy twisted around in her seat.
+"He's *kidnapping* me!"
+
+"Captain—" Violet started.
+
+"She's the only human we've seen,
+and we can apologize later,"
+Captain Leung snapped.
+"Right now we need to get somewhere safe."
 
 "Go to Rusty Bridge!" Sindy said.
-"You'll be safe there, I promise!"
+"It's safe, I promise!"
 
 The captain glanced at her.
 "That's the town we saw?
 That's where you're from?"
 
-"We're all from there except Special Blazes and his partner.
+"We're all from there except Special Blazes and the crocodile.
 Look,
 that thing in the swamp—it ain't ours.
 It wasn't Patient's or Central's, either.
@@ -3444,7 +3472,7 @@ It's just been a long day."
 "Can't you bring the ark here?"
 Violet asked to break the silence that followed.
 
-Captain Leung scratched the side of his nose with a gloved finger.
+Captain Leung scratched the side of his nose.
 "It's where we were headed,
 but I want to find the beacon and whoever set it off before we make any decisions.
 You said there were other places like it around here?"
@@ -3704,8 +3732,9 @@ She pointed at the lever on the wall beside the other door.
 "'Least, I think that's what it'll do."
 
 Captain Leung grunted.
-"Worth a shot."
-He grabbed it with a gloved hand.
+"Worth a shot,"
+he said,
+grabbing it.
 
 Sindy waited for him to pull it down,
 but he didn't move.
@@ -3993,11 +4022,9 @@ She sat down on the desk again.
 "I'm sorry," she said quietly.
 "I didn't know Captain Leung was going to do that."
 
-FIXME: adjust as needed after figuring out why Leung took Sindy
-
 Sindy yawned.
-"That's aright.
-I don't think he planned it.
+"That's aright,
+it's not your fault.
 Like I said,
 stuff like this happens to me all the time."
 
@@ -5046,12 +5073,12 @@ A hologram of palm trees on a beach appeared above it, rotating slowly.
 The beads Sindy grabbed next obediently cycled through a rainbow.
 
 Violet picked up a heavy black glove
-with empty sockets on the back
-and shook her head.
-"I've never seen any of this.
-There's all sorts of different stuff on the ark,"
-she continue defensively in response to Sindy's scowl.
-"But they're mostly, you know, inside things, not just lying around in pieces.
+and pointed to the empty sockets on the back.
+"I think this is a remote control, but it's missing the control part.
+I don't recognize the rest of this.
+There's a lot of stuff on the ark!"
+she protested in response to Sindy's scowl.
+"But it's mostly, you know, inside things, not just lying around in pieces.
 Like that."
 She pointed at the playback screen hanging by the sink.
 
@@ -5251,15 +5278,14 @@ before something made the ground shake beneath her.
 *Thud.*
 The ground shook again.
 The alarm bell above them rang furiously,
-and Cody started howling.
+and Cody started howling as a shadow fell across the square.
 
-A shadow fell across the square.
 Patient had arrived.
 
-It stepped over a house and swung a tree-sized arm at the belfry.
-"Get outta there!" Mayor Lupus shouted
-just before its fist slammed into the wooden walls,
-splintering it.
+"Get outta there!" Mayor Lupus shouted.
+The bot stepped over a house and swung a tree-sized arm at the belfry.
+Its fist slammed into the wooden wall,
+splintering them.
 The alarm bell clanged one last time
 as the giant's second swing sent the top of the belfry crashing down
 into the street below.
@@ -5274,13 +5300,12 @@ Sindy grabbed Violet's arm.
 Violet nodded and reached for the giant bot with her gloved hand.
 Nothing happened.
 She thrust her arm as if to push the bot backward,
-but she might as well have been blowing raspberries.
+but she might as well have been blowing raspberries at it.
 
 "Ah ha," the giant's voice boomed again.
-"*There* you are!"
+"That *tickles*!"
 
-Sindy and Violet screamed as the giant took a huge step toward them,
-bending down awkwardly to reach for them.
+Sindy and Violet screamed as the giant took a huge step toward them.
 Sindy pulled Violet back into the alley
 an instant before a rust-stained three-fingered hand the size of a cart
 slammed down on the cobblestones where they had been standing.
@@ -5315,74 +5340,71 @@ pointing at the glove.
 Hey, where are you going?"
 But Sindy was already out the door.
 
-She ran into the middle of the street and waved her arms.
-"Hey!
-Over here!
-Think you can catch me,
+She ran back the way they had come,
+careful to keep out of sight.
+"Dockety!"
+She ran across the square to the bot,
+which was trying to reattach its dangling arm.
+"I need a ride!"
+
+She climbed onto his back without waiting for answer.
+"Hey!"
+Bravo was still kneeling beside his fallen twin.
+"What're you doin'?"
+
+"Savin' the world!" Sindy shouted.
+"Come on, let's go!"
+
+Dockety lowered its wheel,
+retracted its legs,
+and zipped out of the square.
+"Hey!" Sindy shouted as they raced past Patient.
+"Down here!
+Think you can catch us,
 you big stupid pile of rusty scraps?"
-Without waiting for an answer,
-she ran as she had never run before.
 
-She had never told her parents about the times the other children had chased her.
-She knew ever shortcut and back way in Rusty Bridge.
+She had never told her parents about the times the other children had chased her,
+but she had learned every shortcut and back way in Rusty Bridge.
 She had ever created a couple of them,
-like the board that just happened to lie across a ditch that was too wide for her to jump
-or the three bricks stacked in just the right place
-to help her clamber over a wall.
+like the board that just happened to lie across a ditch that was too wide for her to jump.
+She yelled instructions at Dockety as they zigzagged through town
+with Patient chasing after them.
 
-But Rusty Bridge was only so big.
-It only took her a couple of minutes to reach the schoolhouse.
+It only took a couple of minutes to reach the schoolhouse.
 Under other circumstances she might have whooped or laughed
 at the sound of the giant bot's foot coming down on the school's roof,
 but she couldn't slow down for that now.
 
 The forest waited on the other side of the schoolyard.
-She raced between the trees,
-trusting that they and the muddy ground would slow Patient down,
-and splashed through the little stream
+They raced along the footpath and splashed through the little stream
 where she and Maddy and Gumption had collected tadpoles when she was little.
-*That'll make a mess of my boots,* she thought giddily.
-
-FIXME: no, the Mire is further away than this - she rides Dockety
-
 The footpath became a track became a graveled road.
-She rounded the last corner and there it was,
+They rounded the last corner and there it was,
 the ark,
 still sitting in the swamp.
+
 And there *they* were,
 the militia,
-yelling and pointing past her at the giant coming toward them.
+yelling and pointing past her at the giant behind them.
 
 "Shoot it!" she yelled at Nash.
-She tripped and sprawled face-first in the weeds,
-skinning her knees.
-
-The lightning gun made a single sharp *crack!*
+The lightning gun made a sharp *crack!*
 The whole world was so bright for an instant
 that she could see it through her closed eyes.
-
-FIXME: too easy
 
 She scrambled to her feet.
 The giant bot still stood,
 but was shivering as if it was cold.
-"Wh-wh-wh-" Patient stuttered.
-
-"Look out!"
-one of the militia yelled.
-The bot tipped forward and fell with a crash.
+"Wh-wh-wh-" Patient stuttered, then fell silent.
 
 People began cheering.
 "Good shot," Sindy told Nash breathlessly.
 He touched a finger to the rim of his hat.
 
 "Sindy!"
-She spun around to see Violet and Special Blazes arrive on Beevy's back.
-Dockety rolled beside them,
-its arm still dangling by one cable.
-
-Special Blazes slid off Beevy's back and strode over to Nash.
-"Good shot," he said,
+She spun around as Violet and Special Blazes arrived on Beevy's back.
+The tiger slid off Beevy's back and strode over to Nash.
+"Well done," he said,
 clapping the other Operator on the shoulder.
 The crocodile's smile showed far too many teeth,
 but Sindy didn't care.
@@ -5396,39 +5418,5 @@ she asked anxiously.
 "Us Roos are pretty fast," Sindy said.
 
 "And clever," Special Blazes added.
-"Mind me asking how you got that bot back in the square to shut down?
-We'd have been sunk if it hadn't."
-
-"That wasn't me."
-Sindy jerked her chin at Violet.
-"She's the one who saved you."
-
-"It wasn't really me either," Violet said,
-holding up her hand.
-"It was this."
-
-The tiger frowned.
-"May I have a look at that?
-Please?"
-he added.
-
-Violet looked at Sindy.
-When Sindy shrugged,
-she took off the glove and handed it to Special Blazes.
-He studied it for a moment,
-then slipped it on.
-
-"Oh," he breathed,
-his fur standing on end.
-"That's…different."
-And then he pointed at Dockety and made a fist.
-
-Dockety collapsed as if it were a puppet whose strings had been cut.
-"Now now," Special Blazes said,
-pointing at Beevy.
-The bot froze,
-one leg in the air.
-
-FIXME: Nash betrays them, not Special Blazes - he gets a redemption arc.
 
 </section>
