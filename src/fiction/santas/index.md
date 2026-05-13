@@ -3367,8 +3367,7 @@ one of the staff would ask.
 "Everyone else will be there."
 
 If he had been at home or at school and said, "No thank you,"
-the person asking might have pressed him once or twice
-but would eventually have taken the hint.
+the person asking would have taken the hint.
 Not at The Building, though.
 There,
 "no thank you" produced an endless sequence of, "Are you sure?"
@@ -3424,10 +3423,11 @@ Four of them sat together,
 grimly enjoying a complicated game of cards.
 The other two sat at the same table
 but did their best to ignore each other.
-Finner assumed they would have preferred to sit by themselves,
-but as he had found out the hard way,
+Finner assumed they would have preferred to sit by themselves.
+However,
+he had found out the hard way that if you did that,
 one of the staff would show up in about ninety seconds
-to encourage you to be more social if you did that.
+to encourage you to be more social.
 And while throwing food at them was briefly satisfying,
 it only made them heartier.
 One of them had actually started caroling
@@ -3491,7 +3491,7 @@ but The Building's locks were simple enough
 for him to open using what he remembered.
 He drank three large glasses of water before going to bed
 so that his bladder would wake him up in the middle of the night,
-then use some dental floss,
+then used some dental floss,
 a mismatched pair of paper clips,
 and a piece of veneer pried off the edge of the desk in his room
 to open his door.
@@ -3534,10 +3534,10 @@ wincing as it squeaked.
 
 The fan grill set into the closet's back wall was right where Zubi had said it would be.
 After a bit of pointing and miming,
-they stacked some boxes to stand on,
-undid the screws holding the grill in place using Finner's scrap of veneer,
-and wrestled the fan out of its hole.
+they stacked some boxes to stand on
+and undid the screws holding the grill in place using Finner's scrap of veneer.
 
+It took them a moment to wrestle the fan out of its hole.
 "You sure you'll fit?"
 Zubi asked.
 
@@ -3572,8 +3572,8 @@ Finner looked at the tall fence outlined against the night sky behind her.
 Could Zubi get over it on der own?
 Or was de already on der way back to der room?
 *I guess I'll find out tomorrow,* he thought,
-suddenly too tired to be disappointed at being caught
-or angry at the way the two santas who'd been manning the lights
+suddenly too tired to be disappointed at being caught.
+He was even too tired to be angry when the two santas who'd been manning the lights
 fell in behind him
 while the one who'd spoken led them back into The Building.
 
