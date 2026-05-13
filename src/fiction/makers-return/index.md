@@ -5395,7 +5395,8 @@ that she could see it through her closed eyes.
 She scrambled to her feet.
 The giant bot still stood,
 but was shivering as if it was cold.
-"Wh-wh-wh-" Patient stuttered, then fell silent.
+"Wh-wh-wh-" Patient stuttered,
+then slumped and fell silent.
 
 People began cheering.
 "Good shot," Sindy told Nash breathlessly.
@@ -5419,7 +5420,16 @@ she asked anxiously.
 
 "Us Roos are pretty fast," Sindy said.
 
-"And clever," Special Blazes added.
+"And clever," Special Blazes added,
+clapping her on the shoulder.
+
+And then Patient straightened up.
+"No," it hissed,
+"You will *not* stop me."
+A giant foot came down on top of Nash's lightning gun,
+crushing it.
+As the militia scattered,
+the giant bot began striding toward the ark.
 
 </section>
 
