@@ -3633,18 +3633,18 @@ Gran-Granna Tumbly's eyes widened with shock.
 
 "Because I think she wanted to,"
 Finner plowed on.
-"I think she wanted to more than anything.
+"I think she wanted to go home more than anything.
 She didn't believe she had one any more.
 At least you haven't taken *that* from me."
 
 Later,
-Finner would wonder what would have happened if he hadn't provoked her.
+Finner would wonder what might have happened if he hadn't provoked her.
 Would she have taken the photographs from her bag?
 Would she have tossed them onto the table between their chairs?
 Would he have picked them up and flipped through them,
 confused at first but then nauseous
 at the sight of his parents sitting at dinner with someone who looked just like him
-but whose smile was relaxed in a way his hadn't been for such a long time?
+but whose smile was relaxed in a way his hadn't been for a very long time?
 The leaves outside the picture window and his mother's haircut told him
 that the pictures were recent.
 
@@ -3661,7 +3661,7 @@ he told the santa who opened it.
 
 Later that afternoon,
 Finner lay back with his hands behind his head
-and stared at sleigh-and-reindeer mobile hanging from the ceiling.
+and stared at the sleigh-and-reindeer mobile hanging from the ceiling.
 
 And blinked.
 
@@ -3688,7 +3688,7 @@ and tucked his feet into his slippers one by one.
 "Did someone lose this?" he asked a moment later,
 holding the key out
 for the santa behind the desk to inspect.
-He had an eyepatch,
+The santa had an eyepatch,
 but looked more like someone who had been clumsy with a broom
 than like Clausbeard.
 
@@ -3756,7 +3756,7 @@ He unfolded the letter ticked in between the pages.
 > after I told him that I liked trees more than pirating.
 > We still argue sometimes
 > and he's never going to enjoy being in the forest
-> instead of on the ocean
+> instead of on the ocean,
 > but he wears the peg leg I made for him
 > and tells my friends his dumb jokes
 > and that's good enough for me.
@@ -3773,7 +3773,7 @@ And stopped.
 And slowly,
 looking up at the mobile rather than at the stiff cardboard in his hands,
 used his finger to tear open the sides of the envelope
-so that he could open it up.
+so that he could unfold it.
 
 Faint silver lines reflected the light
 when he tilted the envelope at the right angle.

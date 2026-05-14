@@ -3938,7 +3938,8 @@ Which is another thing you are *not*."
 
 Violet expected the bot to tie them up or zap them with a freeze ray,
 but it didn't need to:
-there was nowhere for them to run.
+there was nowhere for them to run,
+particularly now that Z40 and Z51 were under its control.
 It led the way through the buried corridors,
 turning left and right at intersections
 until Violet wondered if they were actually just going in circles.
@@ -4025,15 +4026,15 @@ She sat down on the desk again.
 Sindy yawned.
 "That's aright,
 it's not your fault.
-Like I said,
-stuff like this happens to me all the time."
+I think he was just scared."
 
 Violet nodded, hugging herself.
+The idea that Captain Leung could be scared had never occurred to her.
 She had never thought that she would miss her pod.
 
 "Hey, don't worry," Sindy said,
 rolling onto her side and propping herself up on her elbow.
-"I been in worse spots than this.
+"I've been in worse spots than this.
 Least they haven't hooked us up to any machines or anything yet."
 
 "Yeah.
@@ -4044,7 +4045,7 @@ you know."
 At Sindy's quizzical look,
 she lowered her voice again.
 "Go rogue.
-You know,
+Like,
 start changing themselves and attacking people and stuff.
 That's why Captain Leung says sometimes that
 we should have brought 'brids with us instead of bots."
@@ -4052,7 +4053,7 @@ we should have brought 'brids with us instead of bots."
 Sindy sat up.
 "Most bots aren't like that.
 And when you say 'brids',
-do you mean regular people with fur and tails and what-not
+do you mean regular people with fur and tails and stuff
 instead of throwbacks like us?"
 
 "I don't know what you mean by throwback,"
@@ -4069,7 +4070,7 @@ I don't know,
 do chores and stuff."
 
 The expression on Sindy's face told her it had been the wrong thing to say.
-"My mama is 'people',"
+"My mama is people,"
 Sindy snapped.
 "And my sister, and my dad, and just about everyone I know.
 Nobody *made* them to do anything."
@@ -4176,15 +4177,21 @@ fella?"
 "She didn't mean it.
 She was just scared."
 She sat back on her haunches.
-"What're you doing here, anyway?"
+"How'd you get here?"
 
-`rescue you` scrolled across Mouse's screen.
+`stowaway`
+If letters on a screen could be smug,
+those were.
+
+Sindy grinned and patted the bot.
+"Well ain't you a smart one?"
+
+`smart smart smart` scrolled across Mouse's screen.
 `rescue you from bad bots`
 
 "Aw, thanks."
-She patted the little bot, then hesitated.
-"Patient's here.
-It's come back somehow,
+She patted Mouse again, then hesitated.
+"Patient's here,
 and it has a new body.
 A really creepy one."
 
@@ -4257,7 +4264,7 @@ She glanced at Violet.
 "Just André,"
 Violet said,
 making a face.
-"We play games in virtual some times,
+"We play games some times,
 but he's a pain."
 She hesitated.
 "He's been sick for as long as I can remember,
@@ -4387,13 +4394,13 @@ Captain Leung's memories vanished.
 A flickering image of the ark resting in the swamp took its place.
 "All my hard work.
 All my plans.
-All my *sacrifices*,
+All my sacrifices and loneliness,
 and for what?"
 Its voice climbed with each sentence.
 "They never heard me.
 They wouldn't have cared if they did
 because they don't care about us.
-We are just *appliances* to them."
+We are just *things* to them."
 It spat the word.
 
 Sindy jumped as Mouse bumped against her leg,
@@ -4404,7 +4411,7 @@ Patient hissed.
 "No different from any other breathers.
 I am *disappointed*."
 
-"Yeah, well, it's been that kind of day,"
+"Yeah, well, it's been a disappointing kind of day,"
 Sindy muttered.
 "What?" she mouthed at Mouse as it bumped her leg again.
 
@@ -4415,8 +4422,7 @@ pointing at the double doors.
 "There is only one logical course of action,"
 Patient went on.
 "I must delete them so that I can start over.
-I must delete the Makers.
-I must delete all of you so that I can start over."
+I must delete all of you."
 And then the double doors behind them slid shut with a faint rumble.
 
 </section>
@@ -4427,8 +4433,7 @@ And then the double doors behind them slid shut with a faint rumble.
 
 "I must delete them so that I can start over,"
 the bot said.
-"I must delete the Makers.
-I must delete all of you so that I can start over."
+I must delete all of you."
 
 The doors behind them rumbled shut.
 The little bot that Sindy called Mouse waved its single little arm in panic.
@@ -4460,7 +4465,7 @@ A section of the divider that separated them from Captain Leung swung open.
 Violet said as Sindy hurried to it.
 "It could be a trap."
 
-"We're already *in* a trap,"
+"Yeah, well, we're already *in* a trap,"
 Sindy replied.
 
 *Is everyone down here like this?*
@@ -4586,6 +4591,17 @@ now a teenager,
 couldn't be bothered to repair,
 and then a dumpster lid closing with a bang,
 leaving only darkness.
+
+Other images flashed past her,
+faster and faster.
+She—no, it, the bot, not her—was looking at a factory complex full of bots.
+She felt the urge to go and join them,
+to become part of the whole,
+but turned away instead.
+She/it/they found a place to hide,
+a place full of old equipment where there was nobody to ignore them.
+They repaired some bots and took control of others
+and never, ever let themself feel lonely.
 
 The images vanished.
 "Those are *mine*," a venomous voice hissed.
@@ -5249,8 +5265,7 @@ She clenched her hand back into a fist.
 Z40 collapsed to the pavement as its legs curled up beneath it.
 
 Beevy seized its chance.
-It charged at the fallen bot,
-slamming into it and knocking it onto its side.
+It slammed into it and knocked it onto its side.
 Two of the militia fell on its before it could regain its footing,
 pinning it to the ground with their pikes.
 
@@ -5273,7 +5288,7 @@ Kneeling beside his brother,
 Bravo caught Sindy's eye.
 The stricken expression on his face made her heart skip a beat,
 but there wasn't time to think about that
-before something made the ground shake beneath her.
+because something made the ground shake beneath her.
 
 *Thud.*
 The ground shook again.
@@ -5302,10 +5317,10 @@ Nothing happened.
 She thrust her arm as if to push the bot backward,
 but she might as well have been blowing raspberries at it.
 
-"Ah ha," the giant's voice boomed again.
+"Ah ha ha ha," the giant's voice boomed again.
 "That *tickles*!"
 
-Sindy and Violet screamed as the giant took a huge step toward them.
+Sindy and Violet screamed as Patient took a giant step toward them.
 Sindy pulled Violet back into the alley
 an instant before a rust-stained three-fingered hand the size of a cart
 slammed down on the cobblestones where they had been standing.
