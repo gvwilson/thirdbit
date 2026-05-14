@@ -76,24 +76,26 @@ or why.
 
 *[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
-<span id="Bernays1928">Bernays1928</span>
+<span id="Bernays2024">Bernays2024</span>
 :   Edward L. Bernays:
     *Propaganda*.
-    Horace Liveright,
-    1928.
+    Martino Fine Books,
+    2024,
+	[9781684228416](https://isbnsearch.org/isbn/9781684228416).
 
-<span id="Galbraith1958">Galbraith1958</span>
+<span id="Galbraith1998">Galbraith1998</span>
 :   John Kenneth Galbraith:
     *The Affluent Society*.
     Houghton Mifflin,
-    1958,
+    1998,
     [9780395925003](https://isbnsearch.org/isbn/9780395925003).
 
-<span id="Packard1957">Packard1957</span>
+<span id="Packard2007">Packard2007</span>
 :   Vance Packard:
     *The Hidden Persuaders*.
-    McKay,
-    1957.
+    Ig Publishing,
+    2007,
+	[9780978843106](https://isbnsearch.org/isbn/9780978843106)..
 
 <span id="Veblen1899">Veblen1899</span>
 :   Thorstein Veblen:
