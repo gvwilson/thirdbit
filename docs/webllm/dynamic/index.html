@@ -57,7 +57,9 @@
 <li>Write server routes that return HTML fragments instead of complete pages.</li>
 </ul>
 <h2>What Is HTMX?</h2>
-<p><em>What problem does HTMX solve, and what would the same interaction look like without it?</em></p>
+<blockquote>
+<p>What problem does HTMX solve, and what would the same interaction look like without it?</p>
+</blockquote>
 <ul>
 <li>Every page built so far responds to user actions by reloading the entire page<ul>
 <li>Clicking a link sends a GET request, and submitting a form sends a POST request</li>
@@ -81,7 +83,9 @@
 </ul>
 </li>
 </ul>
-<p><em>How does HTMX get loaded, and what does a minimal HTMX attribute look like?</em></p>
+<blockquote>
+<p>How does HTMX get loaded, and what does a minimal HTMX attribute look like?</p>
+</blockquote>
 <ul>
 <li>HTMX is loaded with a single <code>&lt;script&gt;</code> tag pointing to a content delivery network (CDN):</li>
 </ul>
@@ -103,8 +107,10 @@
 </li>
 </ul>
 <h2>Loading More Rows on Scroll</h2>
-<p><em>Create a server that shows the first 20 sightings in a fixed-height scrollable table.
-When the user scrolls to the bottom, the table should automatically request and display the next 20 rows.</em></p>
+<blockquote>
+<p>Create a server that shows the first 20 sightings in a fixed-height scrollable table.
+When the user scrolls to the bottom, the table should automatically request and display the next 20 rows.</p>
+</blockquote>
 <ul>
 <li>The table sits inside a <code>&lt;div class="scroll-container"&gt;</code> whose CSS sets <code>height: 400px</code>
     and <code>overflow-y: scroll</code>, so only a few rows are visible at a time</li>
@@ -119,7 +125,9 @@ When the user scrolls to the bottom, the table should automatically request and 
 </ul>
 </li>
 </ul>
-<p><em>What does the <code>/rows</code> route return, and how does it know when to stop adding sentinels?</em></p>
+<blockquote>
+<p>What does the <code>/rows</code> route return, and how does it know when to stop adding sentinels?</p>
+</blockquote>
 <ul>
 <li><code>/rows?offset=N</code> fetches the next page of rows from the database and returns raw <code>&lt;tr&gt;</code> elements<ul>
 <li>No <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, or <code>&lt;body&gt;</code> tags: just the rows</li>
@@ -216,8 +224,10 @@ When the user scrolls to the bottom, the table should automatically request and 
 </li>
 </ul>
 <h2>Showing a Detail Pane on Click</h2>
-<p><em>Add a panel below the table that shows the full record for any row the user clicks.
-The panel must update in place without reloading the page or affecting the scroll position.</em></p>
+<blockquote>
+<p>Add a panel below the table that shows the full record for any row the user clicks.
+The panel must update in place without reloading the page or affecting the scroll position.</p>
+</blockquote>
 <ul>
 <li>Copy <code>server_scroll.py</code> to <code>server_detail.py</code> and make two changes to the page</li>
 <li>Each data row gets three HTMX attributes:<ul>
@@ -235,7 +245,9 @@ The panel must update in place without reloading the page or affecting the scrol
 </ul>
 </li>
 </ul>
-<p><em>Write the server route that returns the detail fragment.</em></p>
+<blockquote>
+<p>Write the server route that returns the detail fragment.</p>
+</blockquote>
 <ul>
 <li><code>GET /sighting/{sighting_id}/detail</code> queries the database for one record
     and returns a <code>&lt;table&gt;</code> of field-value pairs with no surrounding page structure<ul>
@@ -338,10 +350,6 @@ The correct trigger is <code>hx-trigger="revealed"</code>, which fires when the 
 </details>
 <details>
 <summary>The <code>/rows</code> route below always appends a sentinel, even when it fetches the last rows. What does the user see, and what extra work does the server do?</summary>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">make_row</span><span class="p">(</span><span class="n">row</span><span class="p">))</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">make_sentinel</span><span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span><span class="p">))</span>
-<span class="k">return</span> <span class="n">result</span>
-</code></pre></div>
 <p>The sentinel appears after the last real row.
 When the user scrolls to it, the browser sends one more request to <code>/rows?offset=...</code>.
 The server queries the database, finds zero rows, and returns an empty string.
@@ -349,6 +357,10 @@ HTMX replaces the sentinel with the empty string, which removes it.
 The user sees the sentinel flicker briefly; the server does one unnecessary database query per table load.
 The fix is to only append the sentinel when <code>len(rows) == PAGE_SIZE</code>.</p>
 </details>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">make_row</span><span class="p">(</span><span class="n">row</span><span class="p">))</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">make_sentinel</span><span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span><span class="p">))</span>
+<span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
 <details>
 <summary>Change <code>hx-swap="innerHTML"</code> on each data row to <code>hx-swap="outerHTML"</code>. What goes wrong after the first click?</summary>
 <p><code>outerHTML</code> replaces the entire <code>#detail</code> element, not just its contents.

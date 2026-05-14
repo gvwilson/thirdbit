@@ -59,7 +59,9 @@
 <li>Use CSS classes to apply styles selectively.</li>
 </ul>
 <h2>What HTML Looks Like</h2>
-<p><em>Show me a simple HTML page about Sasquatch sightings with a heading, a paragraph, and a list.</em></p>
+<blockquote>
+<p>Show me a simple HTML page about Sasquatch sightings with a heading, a paragraph, and a list.</p>
+</blockquote>
 <ul>
 <li><a class="gl-ref" href="../glossary/#html">HyperText Markup Language</a> (HTML) is the language browsers use to display content</li>
 <li>An HTML document is made of <a class="gl-ref" href="../glossary/#element">elements</a> marked by <a class="gl-ref" href="../glossary/#tag">tags</a><ul>
@@ -69,7 +71,9 @@
 </ul>
 </li>
 </ul>
-<p><em>Explain how multiple tags can be used together.</em></p>
+<blockquote>
+<p>Explain how multiple tags can be used together.</p>
+</blockquote>
 <ul>
 <li>Elements must form a <a class="gl-ref" href="../glossary/#tree">tree</a>: they can nest but cannot overlap<ul>
 <li><code>&lt;ul&gt;&lt;li&gt;first&lt;/li&gt;&lt;li&gt;second&lt;/li&gt;&lt;/ul&gt;</code> is correct</li>
@@ -120,7 +124,9 @@ Most web applications, including this tutorial, generate HTML programmatically r
 which is why understanding HTML matters even if you rarely type it yourself.</p>
 </div>
 <h2>Page Structure</h2>
-<p><em>What does every valid HTML page need to have?</em></p>
+<blockquote>
+<p>What does every valid HTML page need to have?</p>
+</blockquote>
 <ul>
 <li>Every valid HTML page has four required parts in order:<ul>
 <li><code>&lt;!DOCTYPE html&gt;</code> on the very first line tells the browser this is modern HTML</li>
@@ -130,7 +136,9 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 </ul>
 </li>
 </ul>
-<p><em>How do I add notes inside an HTML file that won't appear in the browser?</em></p>
+<blockquote>
+<p>How do I add notes inside an HTML file that won't appear in the browser?</p>
+</blockquote>
 <ul>
 <li>Indentation and blank lines don't change how the browser renders the page: they exist for human readers</li>
 <li><code>&lt;!-- this is a comment --&gt;</code> adds notes the browser ignores<ul>
@@ -139,7 +147,9 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 </li>
 </ul>
 <h2>Common Tags</h2>
-<p><em>What are the most common HTML tags?</em></p>
+<blockquote>
+<p>What are the most common HTML tags?</p>
+</blockquote>
 <ul>
 <li>A short list of tags covers most structural needs:<ul>
 <li><code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> for headings: use them in order, don't skip levels</li>
@@ -148,7 +158,9 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 </ul>
 </li>
 </ul>
-<p><em>What tags do I use to add emphasis, links, and images?</em></p>
+<blockquote>
+<p>What tags do I use to add emphasis, links, and images?</p>
+</blockquote>
 <ul>
 <li><code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> for emphasis and strong emphasis<ul>
 <li>Use these instead of <code>&lt;i&gt;</code> (italics) and <code>&lt;b&gt;</code> (bold)</li>
@@ -156,13 +168,17 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 </li>
 </ul>
 <h2>Special Characters</h2>
-<p><em>If a less-than sign is special, how do I include one in HTML without the browser treating it as a tag?</em></p>
+<blockquote>
+<p>If a less-than sign is special, how do I include one in HTML without the browser treating it as a tag?</p>
+</blockquote>
 <ul>
 <li><code>&lt;</code> and <code>&gt;</code> mark the boundaries of tags, so they cannot appear as-is in text content</li>
 <li><a class="gl-ref" href="../glossary/#html-entity">HTML entities</a> are a way to include them and other special characters safely</li>
 <li>An entity starts with <code>&amp;</code>, ends with <code>;</code>, and has a name or number in between</li>
 </ul>
-<p><em>What are the most common HTML entities I will actually need?</em></p>
+<blockquote>
+<p>What are the most common HTML entities I will actually need?</p>
+</blockquote>
 <ul>
 <li>The entities that come up most often are:<ul>
 <li><code>&amp;lt;</code> displays as <code>&lt;</code></li>
@@ -176,7 +192,9 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 <li>A browser that sees <code>&amp;lt;b&amp;gt;</code> in text displays <code>&lt;b&gt;</code> rather than treating it as a bold tag</li>
 </ul>
 <h2>Attributes and Links</h2>
-<p><em>How do I link from one part of a page to another in HTML?</em></p>
+<blockquote>
+<p>How do I link from one part of a page to another in HTML?</p>
+</blockquote>
 <ul>
 <li><a class="gl-ref" href="../glossary/#attribute">Attributes</a> appear inside the opening tag and customize how an element behaves: <code>&lt;tagname name="value"&gt;</code></li>
 <li>The <code>&lt;a&gt;</code> tag creates a link; its <code>href</code> attribute says where the link goes:<ul>
@@ -188,7 +206,9 @@ which is why understanding HTML matters even if you rarely type it yourself.</p>
 </li>
 <li>Create an anchor target with an <code>id</code> attribute on any element: <code>&lt;h2 id="recent"&gt;Recent Sightings&lt;/h2&gt;</code></li>
 </ul>
-<p><em>How do I embed an image in an HTML page?</em></p>
+<blockquote>
+<p>How do I embed an image in an HTML page?</p>
+</blockquote>
 <ul>
 <li>The <code>&lt;img&gt;</code> tag embeds an image; it is a <a class="gl-ref" href="../glossary/#void-element">void element</a> with no closing tag,
     because it has no text content:<ul>
@@ -209,7 +229,9 @@ The same distinction applies to <code>href</code> in <code>&lt;link&gt;</code> a
 For pages you are developing locally, file paths let you work without running a web server.</p>
 </div>
 <h2>Tables</h2>
-<p><em>Rewrite the sightings list as a table with columns for date, species, location, and notes.</em></p>
+<blockquote>
+<p>Rewrite the sightings list as a table with columns for date, species, location, and notes.</p>
+</blockquote>
 <ul>
 <li>A table is made of rows, and each row is made of cells</li>
 <li><code>&lt;table&gt;</code> wraps the whole table</li>
@@ -217,7 +239,9 @@ For pages you are developing locally, file paths let you work without running a 
 <li><code>&lt;th&gt;</code> is a header cell (bold and centered by default)</li>
 <li><code>&lt;td&gt;</code> is a data cell</li>
 </ul>
-<p><em>What does the HTML for a table with a header row and three data rows look like?</em></p>
+<blockquote>
+<p>What does the HTML for a table with a header row and three data rows look like?</p>
+</blockquote>
 <ul>
 <li>Rows are listed top to bottom; cells within a row are listed left to right</li>
 <li>Without CSS a table has no visible borders: the structure is there but the grid lines are not</li>
@@ -277,7 +301,9 @@ For pages you are developing locally, file paths let you work without running a 
 </code></pre></div>
 </div>
 <h2>Styling with CSS</h2>
-<p><em>Add a stylesheet to the sightings page that sets the font and page width, and puts borders on the table.</em></p>
+<blockquote>
+<p>Add a stylesheet to the sightings page that sets the font and page width, and puts borders on the table.</p>
+</blockquote>
 <ul>
 <li>Putting visual styling directly in HTML attributes works but creates problems:<ul>
 <li><code>&lt;h1 align="center"&gt;</code> makes every heading a separate style decision</li>
@@ -296,7 +322,9 @@ For pages you are developing locally, file paths let you work without running a 
 <span class="w">    </span><span class="n">another-property</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><em>Show me CSS rules that center a heading, set a page font, and add borders to table cells.</em></p>
+<blockquote>
+<p>Show me CSS rules that center a heading, set a page font, and add borders to table cells.</p>
+</blockquote>
 <ul>
 <li>The selector says which elements the rule applies to</li>
 <li><code>body { font-family: sans-serif; }</code> sets the font for the entire page</li>
@@ -359,7 +387,9 @@ If you later decide to change that shade of red, you have to hunt down and updat
 A stylesheet keeps all the style decisions in one place so one change affects everything at once.</p>
 </div>
 <h2>CSS Classes</h2>
-<p><em>How do I make some table cells look different from others using CSS?</em></p>
+<blockquote>
+<p>How do I make some table cells look different from others using CSS?</p>
+</blockquote>
 <ul>
 <li>Give elements a <a class="gl-ref" href="../glossary/#css-class">class</a> attribute to group them for styling:
     <code>&lt;td class="note"&gt;Female; weight &amp;lt; 150 kg&lt;/td&gt;</code></li>
@@ -367,7 +397,9 @@ A stylesheet keeps all the style decisions in one place so one change affects ev
 <li>Combine a tag name and a class to be more specific: <code>td.note { font-style: italic; }</code>
     (only <code>&lt;td&gt;</code> elements with class <code>note</code>, not <code>&lt;p class="note"&gt;</code>)</li>
 </ul>
-<p><em>How do I style one specific element differently from all others of the same type?</em></p>
+<blockquote>
+<p>How do I style one specific element differently from all others of the same type?</p>
+</blockquote>
 <ul>
 <li>Target a specific element by its unique <code>id</code>: <code>#main-title { font-size: 2em; }</code></li>
 <li>An element can belong to multiple classes: <code>&lt;td class="note warning"&gt;</code></li>
@@ -379,6 +411,7 @@ A stylesheet keeps all the style decisions in one place so one change affects ev
     and <code>copyright</code> centers and shrinks the footer line</li>
 </ul>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for (much) more information.</p>
 <details>
 <summary>What is wrong with <code>&lt;p&gt;first &lt;b&gt;bold&lt;/p&gt;&lt;/b&gt;</code>?</summary>
 <p>The <code>&lt;b&gt;</code> and <code>&lt;p&gt;</code> elements overlap: <code>&lt;b&gt;</code> opens inside <code>&lt;p&gt;</code> but closes after <code>&lt;/p&gt;</code>.
@@ -405,7 +438,6 @@ To change a color, you edit one rule in <code>&lt;style&gt;</code> rather than f
 An external stylesheet (a separate <code>.css</code> file included with <code>&lt;link&gt;</code>) is even better for sites
 with many pages, because one file can style all of them.</p>
 </details>
-<p>See [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for (much) more information.</p>
 <details>
 <summary>A page has <code>&lt;img src="photo.jpg"&gt;</code> and the image shows a broken icon in the browser. The file <code>photo.jpg</code> is in a folder called <code>images</code> that sits next to the HTML file. What is wrong and how do you fix it?</summary>
 <p>The <code>src</code> attribute points to <code>photo.jpg</code> in the same directory as the HTML file,

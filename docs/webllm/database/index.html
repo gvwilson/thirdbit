@@ -58,7 +58,9 @@
 <li>Use a temporary database in tests so that tests do not depend on production data.</li>
 </ul>
 <h2>Why Not a List?</h2>
-<p><em>What are the problems with storing the sightings data in a Python list?</em></p>
+<blockquote>
+<p>What are the problems with storing the sightings data in a Python list?</p>
+</blockquote>
 <ul>
 <li>Every time the server restarts, the list is re-created from the source code<ul>
 <li>Any records added while the server was running are lost</li>
@@ -73,7 +75,9 @@
 </ul>
 </li>
 </ul>
-<p><em>What is a database and why is SQLite a good choice for this application?</em></p>
+<blockquote>
+<p>What is a database and why is SQLite a good choice for this application?</p>
+</blockquote>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#database">database</a> stores data in a way that survives program restarts</li>
 <li>A <a class="gl-ref" href="../glossary/#sql">SQL</a> database organizes data into <a class="gl-ref" href="../glossary/#db-table">tables</a>,
@@ -83,9 +87,11 @@
 <li>Python includes the <code>sqlite3</code> module in its standard library, so no extra packages are needed</li>
 </ul>
 <h2>Creating a Database</h2>
-<p><em>Write a Python script called <code>create_db.py</code> that uses <code>sqlite3</code> to create a file called
+<blockquote>
+<p>Write a Python script called <code>create_db.py</code> that uses <code>sqlite3</code> to create a file called
 <code>sightings.db</code> with one table named <code>sightings</code>.
-The table should be populated with the data from <code>dataset.py</code>.</em></p>
+The table should be populated with the data from <code>dataset.py</code>.</p>
+</blockquote>
 <ul>
 <li><code>sqlite3.connect(path)</code> opens the database at <code>path</code>, creating the file if it does not exist</li>
 <li><code>conn.execute(sql)</code> runs a <a class="gl-ref" href="../glossary/#query">query</a> against the open database</li>
@@ -165,10 +171,12 @@ The table should be populated with the data from <code>dataset.py</code>.</em></
 </code></pre></div>
 </div>
 <h2>A Database-Backed Server</h2>
-<p><em>Rewrite <code>server_testable.py</code> as <code>server_db.py</code> so that <code>make_app</code> takes a database path instead of a
-list of sightings.
-The index route should read all rows from the database, and the detail route should look up
-one row by ID.</em></p>
+<blockquote>
+<p>Rewrite <code>server_testable.py</code> as <code>server_db.py</code> so that <code>make_app</code> takes a database path
+instead of a list of sightings.
+The index route should read all rows from the database,
+and the detail route should look up one row by ID.</p>
+</blockquote>
 <ul>
 <li><code>sqlite3.connect(db_path)</code> opens the database; <code>conn.close()</code> releases it when done</li>
 <li>Setting <code>conn.row_factory = sqlite3.Row</code> makes each result row behave like a dictionary,
@@ -276,9 +284,11 @@ never as SQL.</p>
 </code></pre></div>
 </div>
 <h2>Testing with a Temporary Database</h2>
-<p><em>Write a test file called <code>test_server_db.py</code> that uses pytest's <code>tmp_path</code> fixture to create
-a small temporary database for each test, and uses <code>make_app</code> with that database path to
-test the index, detail, and 404 routes.</em></p>
+<blockquote>
+<p>Write a test file called <code>test_server_db.py</code> that uses pytest's <code>tmp_path</code> fixture
+to create a small temporary database for each test,
+and uses <code>make_app</code> with that database path to test the index, detail, and 404 routes.</p>
+</blockquote>
 <ul>
 <li>pytest's built-in <code>tmp_path</code> fixture provides a fresh temporary directory for each test<ul>
 <li>The directory and everything in it is automatically deleted when the test finishes</li>
@@ -363,6 +373,8 @@ test the index, detail, and 404 routes.</em></p>
 </code></pre></div>
 </div>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#sqlite2025">sqlite2025</a>] for the SQLite documentation and [<a class="bib-ref" href="../bibliography/#python-sqlite2025">python-sqlite2025</a>]
+for the Python <code>sqlite3</code> module reference.</p>
 <details>
 <summary>What happens if you call <code>conn.execute(...)</code> several times but never call <code>conn.commit()</code>?</summary>
 <p>The changes are held in memory but never written to disk.
@@ -371,25 +383,23 @@ The database file on disk remains unchanged, as if the <code>execute</code> call
 </details>
 <details>
 <summary>The code below always prints zero rows, even though <code>sightings.db</code> has twenty rows. What is wrong?</summary>
+<p><code>conn.commit()</code> is missing after the <code>insert</code>.
+Without it, the insert is not saved to disk, so the <code>select</code> that follows still sees the
+original twenty rows---and once <code>conn.close()</code> is called, the insert is discarded entirely.
+Add <code>conn.commit()</code> between the <code>execute</code> and the <code>select</code>.</p>
+</details>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"sightings.db"</span><span class="p">)</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"insert into sightings values (?, ?, ?, ?, ?, ?, ?, ?)"</span><span class="p">,</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s2">"G. canadensis"</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="s2">"brown"</span><span class="p">,</span> <span class="s2">"2024-08-01 10:00"</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">120.0</span><span class="p">])</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select * from sightings"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p><code>conn.commit()</code> is missing after the <code>insert</code>.
-Without it, the insert is not saved to disk, so the <code>select</code> that follows still sees the
-original twenty rows---and once <code>conn.close()</code> is called, the insert is discarded entirely.
-Add <code>conn.commit()</code> between the <code>execute</code> and the <code>select</code>.</p>
-</details>
 <details>
 <summary>What does <code>fetchone()</code> return when no row matches the <code>where</code> clause?</summary>
 <p>It returns <code>None</code>.
 This is why <code>server_db.py</code> checks <code>if row is None</code> before trying to read values from the row:
 accessing a column on <code>None</code> would raise an <code>AttributeError</code>.</p>
 </details>
-<p>See [<a class="bib-ref" href="../bibliography/#sqlite2025">sqlite2025</a>] for the SQLite documentation and [<a class="bib-ref" href="../bibliography/#python-sqlite2025">python-sqlite2025</a>]
-for the Python <code>sqlite3</code> module reference.</p>
 <h2>Exercises</h2>
 <h3>Count the Rows</h3>
 <p>After calling <code>create_db</code>, open <code>sightings.db</code> in a Python script and print the number of

@@ -58,7 +58,9 @@
 <li>Build a table from data using a list comprehension.</li>
 </ul>
 <h2>Three Ways to Do It</h2>
-<p><em>What are the main ways to generate HTML from Python, and what are the tradeoffs?</em></p>
+<blockquote>
+<p>What are the main ways to generate HTML from Python, and what are the tradeoffs?</p>
+</blockquote>
 <ul>
 <li>Every web application has to turn data into HTML</li>
 <li>Method 1: f-strings and concatenation<ul>
@@ -83,7 +85,9 @@
 </ul>
 </li>
 </ul>
-<p><em>Show an example of how htpy works.</em></p>
+<blockquote>
+<p>Show an example of how htpy works.</p>
+</blockquote>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ul</span><span class="p">,</span> <span class="n">li</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ul</span><span class="p">[</span><span class="n">li</span><span class="p">[</span><span class="s2">"item one"</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="s2">"item two"</span><span class="p">]]))</span>
 </code></pre></div>
@@ -95,13 +99,17 @@
 <li>Because it is all Python you can use loops, functions, and variables exactly as you would anywhere else</li>
 </ul>
 <h2>Building the Basic Page</h2>
-<p><em>Rewrite <code>htmlcss/basic_page.html</code> as a Python script using htpy.</em></p>
+<blockquote>
+<p>Rewrite <code>htmlcss/basic_page.html</code> as a Python script using htpy.</p>
+</blockquote>
 <ul>
 <li>Import each tag you need from <code>htpy</code> at the top of the file</li>
 <li>Build the page by nesting elements inside each other using <code>[...]</code></li>
 <li>Call <code>print(str(page))</code> at the end to write the HTML to the terminal</li>
 </ul>
-<p><em>How do I add an <code>id</code> attribute to an element in htpy?</em></p>
+<blockquote>
+<p>How do I add an <code>id</code> attribute to an element in htpy?</p>
+</blockquote>
 <ul>
 <li>Pass attributes as <a class="gl-ref" href="../glossary/#keyword-argument">keyword arguments</a>
     when you call the element: <code>h2(id="recent")["Recent Sightings"]</code></li>
@@ -155,7 +163,9 @@
 </code></pre></div>
 </div>
 <h2>Building the Table Page</h2>
-<p><em>Rewrite <code>htmlcss/table_page.html</code> as a Python script using htpy. Store the sightings data in a list of tuples.</em></p>
+<blockquote>
+<p>Rewrite <code>htmlcss/table_page.html</code> as a Python script using htpy. Store the sightings data in a list of tuples.</p>
+</blockquote>
 <ul>
 <li>Import <code>table</code>, <code>tr</code>, <code>th</code>, and <code>td</code> from <code>htpy</code></li>
 <li>Put the data in a list of tuples near the top of the file so it is easy to find and change</li>
@@ -220,7 +230,10 @@
 </code></pre></div>
 </div>
 <h2>Adding a Stylesheet</h2>
-<p><em>Rewrite <code>htmlcss/styled_page.html</code> as a Python script using htpy. Include the CSS stylesheet and apply the <code>note</code> and <code>copyright</code> classes.</em></p>
+<blockquote>
+<p>Rewrite <code>htmlcss/styled_page.html</code> as a Python script using htpy.
+Include the CSS stylesheet and apply the <code>note</code> and <code>copyright</code> classes.</p>
+</blockquote>
 <ul>
 <li>Import <code>style</code> from <code>htpy</code> and put your CSS inside it as a plain Python string</li>
 <li>htpy does <em>not</em> escape the contents of <code>&lt;style&gt;</code> elements,
@@ -284,6 +297,7 @@
 </code></pre></div>
 </div>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#htpy2025">htpy2025</a>] for the full htpy documentation and [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for reference on HTML elements and attributes.</p>
 <details>
 <summary>What does htpy use instead of <code>class="..."</code> as a keyword argument, and why?</summary>
 <p>htpy uses <code>class_</code> (with a trailing underscore) because <code>class</code> is a reserved word in Python---it
@@ -325,7 +339,7 @@ A better approach is to define <code>.centered { text-align: center; }</code> in
 <code>h1(class_="centered")["Title"]</code>, so one change in the CSS affects every element that uses the class.</p>
 </details>
 <details>
-<summary>The <code>SIGHTINGS</code> list in <code>table_page.py</code> contains the string <code>'Male; color described as "reddish-brown"'</code>. The original <code>table_page.html</code> uses <code>&amp;quot;</code> for those double-quotes. What does htpy put in the output---<code>&amp;quot;</code>, <code>&amp;#34;</code>, the literal <code>"</code>, or something else?</summary>
+<summary>The <code>SIGHTINGS</code> list in <code>table_page.py</code> contains the string <code>'Male; color described as "reddish-brown"'</code>. The original <code>table_page.html</code> uses <code>&amp;quot;</code> for those double-quotes. What does htpy put in the output: <code>&amp;quot;</code>, <code>&amp;#34;</code>, the literal <code>"</code>, or something else?</summary>
 <p>htpy outputs <code>&amp;#34;</code>, the numeric character reference for <code>"</code>.
 The original HTML file used <code>&amp;quot;</code>, which is the named entity for the same character.
 Both are valid HTML and display identically in a browser.
@@ -333,7 +347,6 @@ Double-quotes do not actually need escaping in text content (only inside attribu
 but htpy escapes them anyway using the numeric form.
 You can verify this yourself by running <code>python table_page.py</code> and searching the output.</p>
 </details>
-<p>See [<a class="bib-ref" href="../bibliography/#htpy2025">htpy2025</a>] for the full htpy documentation and [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for reference on HTML elements and attributes.</p>
 <h2>Exercises</h2>
 <h3>Add a Caption</h3>
 <p>HTML tables support an optional <code>&lt;caption&gt;</code> element placed immediately after the opening <code>&lt;table&gt;</code> tag.

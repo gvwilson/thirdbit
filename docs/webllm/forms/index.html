@@ -58,7 +58,9 @@
 <li>Test routes that modify the database.</li>
 </ul>
 <h2>Deleting a Record</h2>
-<p><em>What is the difference between a GET request and a POST request?</em></p>
+<blockquote>
+<p>What is the difference between a GET request and a POST request?</p>
+</blockquote>
 <ul>
 <li>Every HTTP request uses a method that tells the server what the client wants to do</li>
 <li>GET asks the server to return data without changing anything<ul>
@@ -75,8 +77,11 @@
 </ul>
 </li>
 </ul>
-<p><em>Modify <code>server_db.py</code> to create <code>server_delete.py</code>. Add a Delete button to the sighting detail
-page that sends a POST request to remove the sighting and then sends the browser back to the home page.</em></p>
+<blockquote>
+<p>Modify <code>server_db.py</code> to create <code>server_delete.py</code>.
+Add a Delete button to the sighting detail page that sends a POST request
+to remove the sighting and then sends the browser back to the home page.</p>
+</blockquote>
 <ul>
 <li>An HTML <a class="gl-ref" href="../glossary/#form">form</a> groups one or more inputs together with a submit button<ul>
 <li><code>&lt;form method="post" action="/delete/1"&gt;</code> sends a POST request to <code>/delete/1</code> when submitted</li>
@@ -141,8 +146,10 @@ page that sends a POST request to remove the sighting and then sends the browser
 </code></pre></div>
 </div>
 <h2>Adding a Record</h2>
-<p><em>Add a link to the home page and a <code>GET /add</code> route that displays a form for adding a new sighting.
-Save the result as <code>server_add.py</code>.</em></p>
+<blockquote>
+<p>Add a link to the home page and a <code>GET /add</code> route that displays a form for adding a new sighting.
+Save the result as <code>server_add.py</code>.</p>
+</blockquote>
 <ul>
 <li><code>&lt;form method="post" action="/add"&gt;</code> sends the completed form to <code>/add</code> when submitted</li>
 <li><code>&lt;input type="text" name="species" required&gt;</code> creates a one-line text box<ul>
@@ -208,8 +215,10 @@ Save the result as <code>server_add.py</code>.</em></p>
     <span class="p">)</span>
 </code></pre></div>
 </div>
-<p><em>Add a <code>POST /add</code> route to <code>server_add.py</code> that reads the submitted form data, inserts a new row,
-and redirects the user to the home page.</em></p>
+<blockquote>
+<p>Add a <code>POST /add</code> route to <code>server_add.py</code> that reads the submitted form data, inserts a new row,
+and redirects the user to the home page.</p>
+</blockquote>
 <ul>
 <li>When a form is submitted, the browser encodes its fields as
     <code>species=G.+canadensis&amp;color=brown&amp;...</code> and sends them in the request body</li>
@@ -253,8 +262,10 @@ and redirects the user to the home page.</em></p>
 </code></pre></div>
 </div>
 <h2>Uploading Many Records at Once</h2>
-<p><em>What does a form look like when it needs to send a file instead of typed text,
-and how does the server receive and parse the contents?</em></p>
+<blockquote>
+<p>What does a form look like when it needs to send a file instead of typed text,
+and how does the server receive and parse the contents?</p>
+</blockquote>
 <ul>
 <li>File uploads require <code>enctype="multipart/form-data"</code> on the <code>&lt;form&gt;</code> tag<ul>
 <li>Without this attribute the browser sends only the filename, not the file's contents</li>
@@ -272,9 +283,11 @@ and how does the server receive and parse the contents?</em></p>
 </ul>
 </li>
 </ul>
-<p><em>Add <code>GET /upload</code> and <code>POST /upload</code> routes to <code>server_add.py</code> to create <code>server_upload.py</code>.
+<blockquote>
+<p>Add <code>GET /upload</code> and <code>POST /upload</code> routes to <code>server_add.py</code> to create <code>server_upload.py</code>.
 The GET route should show a file upload form; the POST route should read the CSV and insert
-all its rows into the database.</em></p>
+all its rows into the database.</p>
+</blockquote>
 <ul>
 <li>Litestar receives the uploaded file through a <code>dataclass</code> whose field names match
     the <code>name</code> attributes in the form<ul>
@@ -371,7 +384,9 @@ G. horribilus,,,black,2024-07-16 14:00,54.10,-116.90
 </code></pre></div>
 </div>
 <h2>Testing Routes That Change Data</h2>
-<p><em>How do you test a route that deletes a row from the database?</em></p>
+<blockquote>
+<p>How do you test a route that deletes a row from the database?</p>
+</blockquote>
 <ul>
 <li>Reuse the <code>small_db</code> fixture from the previous lesson to give each test a fresh temporary database</li>
 <li>Send the POST request with <code>client.post("/delete/1")</code></li>
@@ -383,7 +398,9 @@ G. horribilus,,,black,2024-07-16 14:00,54.10,-116.90
 <li>A helper function <code>count_rows(db_path)</code> avoids repeating the connect-query-close pattern
     in every test</li>
 </ul>
-<p><em>Write tests for the add route and the CSV upload route in <code>test_server_forms.py</code>.</em></p>
+<blockquote>
+<p>Write tests for the add route and the CSV upload route in <code>test_server_forms.py</code>.</p>
+</blockquote>
 <ul>
 <li><code>client.post("/add", data={...})</code> sends URL-encoded form data, exactly as a browser would<ul>
 <li>Keys in <code>data</code> must match the <code>name</code> attributes on the form's <code>&lt;input&gt;</code> elements</li>

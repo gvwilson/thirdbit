@@ -56,8 +56,10 @@
 <li>Split tests into multiple files, each focused on one part of the application.</li>
 </ul>
 <h2>The Duplication Problem</h2>
-<p><em>The previous lesson put <code>small_db</code> directly in <code>test_server_db.py</code>.
-What happens if you want to write a second test file that also needs a small database?</em></p>
+<blockquote>
+<p>The previous lesson put <code>small_db</code> directly in <code>test_server_db.py</code>.
+What happens if you want to write a second test file that also needs a small database?</p>
+</blockquote>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#fixture">fixture</a> defined inside a test file is private to that file<ul>
 <li>Importing it from another test file would work, but it breaks pytest's fixture discovery</li>
@@ -70,7 +72,9 @@ What happens if you want to write a second test file that also needs a small dat
 </ul>
 </li>
 </ul>
-<p><em>Where does pytest look when it needs a fixture that is not defined in the current test file?</em></p>
+<blockquote>
+<p>Where does pytest look when it needs a fixture that is not defined in the current test file?</p>
+</blockquote>
 <ul>
 <li>pytest looks for a file named <a class="gl-ref" href="../glossary/#conftest-file"><code>conftest.py</code></a> in the same directory as the test file,
     then in each parent directory up to the project root<ul>
@@ -81,8 +85,10 @@ What happens if you want to write a second test file that also needs a small dat
 </li>
 </ul>
 <h2>Extracting the Fixture</h2>
-<p><em>Move the <code>SMALL</code> list, the SQL constants, and the <code>small_db</code> fixture from <code>test_server_db.py</code>
-into a new file called <code>conftest.py</code> in the same directory.</em></p>
+<blockquote>
+<p>Move the <code>SMALL</code> list, the SQL constants, and the <code>small_db</code> fixture from <code>test_server_db.py</code>
+into a new file called <code>conftest.py</code> in the same directory.</p>
+</blockquote>
 <ul>
 <li>Everything the fixture needs moves with it: <code>SMALL</code>, <code>CREATE_TABLE</code>, and <code>INSERT_ROW</code><ul>
 <li>Test files that use <code>small_db</code> do not import anything from <code>conftest.py</code>;
@@ -127,9 +133,11 @@ into a new file called <code>conftest.py</code> in the same directory.</em></p>
 </code></pre></div>
 </div>
 <h2>Testing in Separate Files</h2>
-<p><em>Write a file called <code>test_index.py</code> with tests that check the index route,
+<blockquote>
+<p>Write a file called <code>test_index.py</code> with tests that check the index route,
 and a file called <code>test_detail.py</code> with tests that check the detail route.
-Both files should use <code>small_db</code>.</em></p>
+Both files should use <code>small_db</code>.</p>
+</blockquote>
 <ul>
 <li><code>test_index.py</code> imports only <code>TestClient</code> and <code>make_app</code><ul>
 <li><code>small_db</code> arrives as a parameter</li>
@@ -201,18 +209,20 @@ Both files should use <code>small_db</code>.</em></p>
     so a write in one test cannot affect another</li>
 </ul>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation,
+including the reference page on fixtures and <code>conftest.py</code>.</p>
 <details>
 <summary>The code below causes an error even though <code>small_db</code> is defined in <code>conftest.py</code>. What is wrong?</summary>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">conftest</span><span class="w"> </span><span class="kn">import</span> <span class="n">small_db</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_index_ok</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
-    <span class="o">...</span>
-</code></pre></div>
 <p>pytest injects fixtures automatically by matching parameter names.
 Importing a fixture function and passing it as a parameter bypasses that mechanism.
 pytest no longer recognizes it as a fixture and raises an error.
 Remove the import line and let pytest inject <code>small_db</code> on its own.</p>
 </details>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">conftest</span><span class="w"> </span><span class="kn">import</span> <span class="n">small_db</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_index_ok</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
 <details>
 <summary>Each test that uses <code>small_db</code> gets its own database. What would happen if they all shared one database instead?</summary>
 <p>Tests that add or delete rows would affect every test that runs afterward.
@@ -222,17 +232,15 @@ Keeping each test isolated means it can be run alone or in any order and still p
 </details>
 <details>
 <summary>The test below always passes, even when it should not. What is wrong?</summary>
+<p><code>status_code != 200</code> passes for any code other than 200, including 500 (server error).
+A bug that causes the server to crash would make this test pass when it should fail.
+The assertion should be <code>assert response.status_code == 404</code> to confirm the right kind of failure.</p>
+</details>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_missing_sighting</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">make_app</span><span class="p">(</span><span class="n">small_db</span><span class="p">))</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/sighting/9999"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span>
 </code></pre></div>
-<p><code>status_code != 200</code> passes for any code other than 200, including 500 (server error).
-A bug that causes the server to crash would make this test pass when it should fail.
-The assertion should be <code>assert response.status_code == 404</code> to confirm the right kind of failure.</p>
-</details>
-<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation,
-including the reference page on fixtures and <code>conftest.py</code>.</p>
 <h2>Exercises</h2>
 <h3>Add a Test for the CSS Route</h3>
 <p>Add a test to <code>test_index.py</code> that sends <code>GET /style.css</code>.

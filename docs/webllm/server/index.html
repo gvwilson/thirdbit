@@ -57,7 +57,9 @@
 <li>Add a second page linked from the first.</li>
 </ul>
 <h2>What a Web Server Does</h2>
-<p><em>What is a web server and how is it different from opening an HTML file in a browser?</em></p>
+<blockquote>
+<p>What is a web server and how is it different from opening an HTML file in a browser?</p>
+</blockquote>
 <ul>
 <li>When you double-click an HTML file, the browser reads it from disk: no network involved</li>
 <li>A <a class="gl-ref" href="../glossary/#web-server">web server</a> is a program that listens for requests from browsers
@@ -69,7 +71,9 @@
 <li>This matters because a server can generate different pages for different requests,
     read from a database, and accept form submissions, none of which work with static files</li>
 </ul>
-<p><em>What is Litestar and how do I add it to the project?</em></p>
+<blockquote>
+<p>What is Litestar and how do I add it to the project?</p>
+</blockquote>
 <ul>
 <li><a href="https://litestar.dev/">Litestar</a> is a Python <a class="gl-ref" href="../glossary/#web-framework">web framework</a>:<ul>
 <li>A library that handles the low-level details of receiving requests and sending responses
@@ -83,8 +87,10 @@
 </li>
 </ul>
 <h2>A First Server</h2>
-<p><em>Write a Litestar server with a single route at <code>/</code> that returns the message
-"Hello from the Sasquatch Observatory!".</em></p>
+<blockquote>
+<p>Write a Litestar server with a single route at <code>/</code> that returns the message
+"Hello from the Sasquatch Observatory!".</p>
+</blockquote>
 <ul>
 <li>The <code>@get("/")</code> decorator marks the function as a handler for GET requests to <code>/</code></li>
 <li>The function's return <a class="gl-ref" href="../glossary/#type-annotation">type annotation</a> (<code>-&gt; str</code>)
@@ -128,7 +134,9 @@
 </ul>
 </li>
 </ul>
-<p><em>Explain what happens step by step when the browser visits <code>http://127.0.0.1:8000</code>.</em></p>
+<blockquote>
+<p>Explain what happens step by step when the browser visits <code>http://127.0.0.1:8000</code>.</p>
+</blockquote>
 <ul>
 <li>The browser opens a connection to port 8000 on the loopback address
     and sends an <a class="gl-ref" href="../glossary/#http-request">HTTP request</a>: "GET / HTTP/1.1"</li>
@@ -146,10 +154,12 @@ Modern frameworks keep the convention: the function that handles requests for <c
 because it serves the site's front page.</p>
 </div>
 <h2>A Table of Sightings</h2>
-<p><em>Create a file called <code>dataset.py</code> containing twenty rows of synthetic sasquatch sighting data.
+<blockquote>
+<p>Create a file called <code>dataset.py</code> containing twenty rows of synthetic sasquatch sighting data.
 Each row must be a dict with keys for ID, species, sex, weight, color, date/time,
 latitude, and longitude. Some sex and weight values should be <code>None</code> to represent
-observations where those details were not recorded.</em></p>
+observations where those details were not recorded.</p>
+</blockquote>
 <ul>
 <li>The LLM produces a list of dicts</li>
 <li>Store it in a variable called <code>SIGHTINGS</code></li>
@@ -169,15 +179,19 @@ observations where those details were not recorded.</em></p>
     <span class="p">},</span>
 </code></pre></div>
 </div>
-<p><em>Write a Litestar route at <code>/</code> that imports <code>SIGHTINGS</code> from <code>dataset.py</code> and returns
-an HTML page with a table of all sightings</em></p>
+<blockquote>
+<p>Write a Litestar route at <code>/</code> that imports <code>SIGHTINGS</code> from <code>dataset.py</code> and returns
+an HTML page with a table of all sightings</p>
+</blockquote>
 <ul>
 <li>Pass <code>media_type=MediaType.HTML</code> to <code>@get</code> so the browser renders the response as HTML
     rather than displaying the raw tags as text</li>
 <li>Display <code>None</code> values as an empty string with <code>str(s[k]) if s[k] is not None else ""</code></li>
 </ul>
-<p><em>Modify the Litestar route to Link to an external CSS file called <code>style.css</code>.
-Also add a route at <code>/style.css</code> to read and return that file.</em></p>
+<blockquote>
+<p>Modify the Litestar route to Link to an external CSS file called <code>style.css</code>.
+Also add a route at <code>/style.css</code> to read and return that file.</p>
+</blockquote>
 <ul>
 <li>Link to the stylesheet with <code>link(rel="stylesheet", href="/style.css")</code> in the <code>&lt;head&gt;</code></li>
 <li>When the browser parses that link it makes a second GET request to <code>/style.css</code>,
@@ -221,7 +235,9 @@ Also add a route at <code>/style.css</code> to read and return that file.</em></
 <span class="n">app</span> <span class="o">=</span> <span class="n">Litestar</span><span class="p">([</span><span class="n">index</span><span class="p">,</span> <span class="n">styles</span><span class="p">])</span>
 </code></pre></div>
 </div>
-<p><em>Explain what <code>MediaType.HTML</code> does and what the browser would show if it was left out.</em></p>
+<blockquote>
+<p>Explain what <code>MediaType.HTML</code> does and what the browser would show if it was left out.</p>
+</blockquote>
 <ul>
 <li>HTTP responses carry a <a class="gl-ref" href="../glossary/#media-type">media type</a> (sometimes called a MIME type)
     that tells the browser what kind of content it is receiving</li>
@@ -229,8 +245,10 @@ Also add a route at <code>/style.css</code> to read and return that file.</em></
 <li>With <code>text/plain</code> the browser treats the content as literal characters,
     so <code>&lt;table&gt;</code> appears on screen as <code>&lt;table&gt;</code> rather than becoming a rendered table</li>
 </ul>
-<p><em>Write a simple CSS stylesheet that sets the font and page width, puts borders on the table cells,
-and makes the header row slightly gray.</em></p>
+<blockquote>
+<p>Write a simple CSS stylesheet that sets the font and page width, puts borders on the table cells,
+and makes the header row slightly gray.</p>
+</blockquote>
 <div data-inc="style.css"><span aria-label="Source: server/style.css" class="inc-path" role="img" tabindex="0" title="server/style.css">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
 <span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">960</span><span class="kt">px</span><span class="p">;</span>
@@ -261,9 +279,11 @@ and makes the header row slightly gray.</em></p>
 </code></pre></div>
 </div>
 <h2>Detail Pages</h2>
-<p><em>Make each sighting ID in the table a link to <code>/sighting/{id}</code>.
+<blockquote>
+<p>Make each sighting ID in the table a link to <code>/sighting/{id}</code>.
 Add a route that looks up that ID and displays the sighting's details
-in a two-column table with the field names on the left and values on the right.</em></p>
+in a two-column table with the field names on the left and values on the right.</p>
+</blockquote>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#path-parameter">path parameter</a> is a variable segment of the URL:
     <code>{sighting_id:int}</code> matches <code>/sighting/1</code>, <code>/sighting/2</code>, and so on,
@@ -338,7 +358,9 @@ in a two-column table with the field names on the left and values on the right.<
 <div data-inc="run3.sh"><span aria-label="Source: server/run3.sh" class="inc-path" role="img" tabindex="0" title="server/run3.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--app<span class="w"> </span>server_detail:app
 </code></pre></div>
 </div>
-<p><em>Trace what happens when a user visits <code>/sighting/99</code> and ID 99 is not in the data.</em></p>
+<blockquote>
+<p>Trace what happens when a user visits <code>/sighting/99</code> and ID 99 is not in the data.</p>
+</blockquote>
 <ul>
 <li>Litestar matches the URL to <code>detail</code> and calls it with <code>sighting_id=99</code></li>
 <li>The <code>for</code> loop finishes without finding a match, so execution reaches <code>raise NotFoundException</code></li>
@@ -349,6 +371,7 @@ in a two-column table with the field names on the left and values on the right.<
 </li>
 </ul>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#litestar2025">litestar2025</a>] for the full Litestar documentation and [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for the HTTP reference.</p>
 <details>
 <summary>What is the difference between <code>@get("/")</code> and <code>@get("/sightings")</code>?</summary>
 <p>Both decorate a function as a GET request handler, but they respond to different URLs.
@@ -365,10 +388,6 @@ Check the terminal where you launched the server for error messages.</p>
 </details>
 <details>
 <summary>The code below is supposed to show an HTML page, but the browser displays the raw tags as text. What is wrong and how do you fix it?</summary>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">html</span><span class="p">[</span><span class="n">body</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">"Hello"</span><span class="p">]]])</span>
-</code></pre></div>
 <p>The route is missing <code>media_type=MediaType.HTML</code>, so Litestar sends the response as <code>text/plain</code>.
 The browser therefore treats the content as literal text rather than markup.
 The fix is:</p>
@@ -377,6 +396,10 @@ The fix is:</p>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">html</span><span class="p">[</span><span class="n">body</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">"Hello"</span><span class="p">]]])</span>
 </code></pre></div>
 </details>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">html</span><span class="p">[</span><span class="n">body</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">"Hello"</span><span class="p">]]])</span>
+</code></pre></div>
 <details>
 <summary>Why does the browser make two requests when it loads the sightings table page?</summary>
 <p>The first request is for the page itself (<code>GET /</code>).
@@ -389,10 +412,6 @@ This is why <code>server_table.py</code> needs both an <code>index</code> route 
 <summary>The route below is supposed to display a sighting's details, but visiting
 <code>/sighting/abc</code> crashes the server with an unhandled exception. Why, and how does adding <code>:int</code>
 to the path parameter fix it?</summary>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/</span><span class="si">{sighting_id}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="o">...</span>
-</code></pre></div>
 <p>Without <code>:int</code>, Litestar captures the URL segment as a plain string and passes it to the handler.
 When the handler tries to compare it to the integer IDs in <code>SIGHTINGS</code> the logic may fail,
 and any code that treats it as a number will raise a <code>ValueError</code> or <code>TypeError</code>.
@@ -400,7 +419,10 @@ Writing <code>{sighting_id:int}</code> tells Litestar to convert the segment to 
 If the segment is not a valid integer, such as <code>abc</code>, Litestar itself returns a 400 Bad Request response
 before your function is ever called.</p>
 </details>
-<p>See [<a class="bib-ref" href="../bibliography/#litestar2025">litestar2025</a>] for the full Litestar documentation and [<a class="bib-ref" href="../bibliography/#mdn-html2024">mdn-html2024</a>] for the HTTP reference.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/</span><span class="si">{sighting_id}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
 <h2>Exercises</h2>
 <h3>Add a Heading to Every Page</h3>
 <p>Add an <code>&lt;h1&gt;</code> heading to the <code>&lt;body&gt;</code> of both the index page and the detail page in <code>server_detail.py</code>.

@@ -58,7 +58,9 @@
 <li>Use Playwright to fill in and submit a form.</li>
 </ul>
 <h2>Why Test in a Browser?</h2>
-<p><em>What kinds of bugs can a browser catch that Litestar's test client cannot?</em></p>
+<blockquote>
+<p>What kinds of bugs can a browser catch that Litestar's test client cannot?</p>
+</blockquote>
 <ul>
 <li>The test client from the previous lessons sends HTTP requests directly to the application in memory:
     it never runs a real browser<ul>
@@ -78,7 +80,9 @@
 </ul>
 </li>
 </ul>
-<p><em>What do I need to install to run Playwright tests with pytest?</em></p>
+<blockquote>
+<p>What do I need to install to run Playwright tests with pytest?</p>
+</blockquote>
 <ul>
 <li><code>uv add pytest-playwright</code> adds the Playwright library and a pytest plugin
     that provides browser fixtures automatically</li>
@@ -96,7 +100,9 @@
 </li>
 </ul>
 <h2>Starting a Server for Tests</h2>
-<p><em>What is the difference between tests that use Litestar's test client and tests that use Playwright?</em></p>
+<blockquote>
+<p>What is the difference between tests that use Litestar's test client and tests that use Playwright?</p>
+</blockquote>
 <ul>
 <li>The test client talks directly to the application object in Python memory<ul>
 <li>no network connection, no open port, no running process</li>
@@ -107,7 +113,9 @@
 <li><code>subprocess.Popen</code> starts a separate process from inside Python,
     exactly as if you had typed the command in a terminal</li>
 </ul>
-<p><em>What does <code>scope="session"</code> mean for a pytest fixture, and why use it for a server?</em></p>
+<blockquote>
+<p>What does <code>scope="session"</code> mean for a pytest fixture, and why use it for a server?</p>
+</blockquote>
 <ul>
 <li>By default a fixture has <code>scope="function"</code>, which means pytest creates a fresh copy for every
     test function and tears it down when that function finishes<ul>
@@ -123,8 +131,10 @@
 </ul>
 </li>
 </ul>
-<p><em>Write a <code>conftest.py</code> with a session-scoped fixture called <code>server_url</code> that starts
-<code>server_pw.py</code> and shuts it down after all tests finish.</em></p>
+<blockquote>
+<p>Write a <code>conftest.py</code> with a session-scoped fixture called <code>server_url</code> that starts
+<code>server_pw.py</code> and shuts it down after all tests finish.</p>
+</blockquote>
 <ul>
 <li><code>subprocess.Popen(["uv", "run", "litestar", "run", "--app", "server_pw:app"], cwd=LESSON_DIR)</code>
     starts the server as a separate process, just as if you had typed the command in a terminal<ul>
@@ -161,7 +171,9 @@
 </code></pre></div>
 </div>
 <h2>Navigating Pages</h2>
-<p><em>Copy the server from the forms lesson into this directory as <code>server_pw.py</code>.</em></p>
+<blockquote>
+<p>Copy the server from the forms lesson into this directory as <code>server_pw.py</code>.</p>
+</blockquote>
 <ul>
 <li>The server already supports every route the Playwright tests will use:
     index, detail, delete, add form, and CSV upload</li>
@@ -184,8 +196,10 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
 </code></pre></div>
 </div>
-<p><em>Write a test file called <code>test_browser.py</code> with a single test that opens the home page
-and checks its title.</em></p>
+<blockquote>
+<p>Write a test file called <code>test_browser.py</code> with a single test that opens the home page
+and checks its title.</p>
+</blockquote>
 <ul>
 <li><code>page</code> is provided by pytest-playwright: it represents a single browser tab,
     created fresh for each test function</li>
@@ -193,8 +207,10 @@ and checks its title.</em></p>
 <li><code>page.title()</code> returns the text from the <code>&lt;title&gt;</code> element,
     matching what the browser's title bar shows</li>
 </ul>
-<p><em>Add two more tests: one that confirms the sightings table is present, and one that clicks
-a row link and waits for the detail page to load.</em></p>
+<blockquote>
+<p>Add two more tests: one that confirms the sightings table is present, and one that clicks
+a row link and waits for the detail page to load.</p>
+</blockquote>
 <ul>
 <li><code>page.locator("table")</code> finds all <code>&lt;table&gt;</code> elements on the page;
     <code>.count()</code> returns how many there are<ul>
@@ -214,7 +230,9 @@ a row link and waits for the detail page to load.</em></p>
 </li>
 </ul>
 <h2>Filling in a Form</h2>
-<p><em>How does Playwright simulate typing in a form field, and how do you select which field to target?</em></p>
+<blockquote>
+<p>How does Playwright simulate typing in a form field, and how do you select which field to target?</p>
+</blockquote>
 <ul>
 <li><code>page.fill('[name="species"]', "G. canadensis")</code> finds the input whose <code>name</code> attribute
     is <code>species</code> and types the value into it, firing the same keyboard events a real user would<ul>
@@ -225,8 +243,10 @@ a row link and waits for the detail page to load.</em></p>
 </ul>
 </li>
 </ul>
-<p><em>Add a test to <code>test_browser.py</code> that opens the add-sighting form, fills in the required fields,
-submits the form, and confirms the browser ends up back on the home page.</em></p>
+<blockquote>
+<p>Add a test to <code>test_browser.py</code> that opens the add-sighting form, fills in the required fields,
+submits the form, and confirms the browser ends up back on the home page.</p>
+</blockquote>
 <ul>
 <li><code>page.click('[type="submit"]')</code> clicks the submit button, which triggers the form POST<ul>
 <li>The server processes the request and responds with a 303 redirect to <code>/</code></li>
@@ -290,15 +310,15 @@ and tears it down only after the last one finishes.</p>
 </details>
 <details>
 <summary>The test below fails intermittently: it passes on a fast machine and fails on a slow one. What is the most likely cause, and how do you fix it?</summary>
+<p>After <code>.click()</code>, the browser sends the request and starts loading the detail page, but the assertion may run before the new page has finished loading.
+On a fast machine the timing happens to work out; on a slow one it reads the old title and fails.
+Adding <code>page.wait_for_url("**/sighting/**")</code> after the click tells Playwright to pause until the navigation is complete before reading the title.</p>
+</details>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_click_link</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">server_url</span><span class="p">):</span>
     <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">server_url</span><span class="p">)</span>
     <span class="n">page</span><span class="o">.</span><span class="n">locator</span><span class="p">(</span><span class="s2">"table a"</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
     <span class="k">assert</span> <span class="s2">"Sighting"</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 </code></pre></div>
-<p>After <code>.click()</code>, the browser sends the request and starts loading the detail page, but the assertion may run before the new page has finished loading.
-On a fast machine the timing happens to work out; on a slow one it reads the old title and fails.
-Adding <code>page.wait_for_url("**/sighting/**")</code> after the click tells Playwright to pause until the navigation is complete before reading the title.</p>
-</details>
 <details>
 <summary>After <code>proc.terminate()</code>, why does <code>conftest.py</code> also call <code>proc.wait()</code>?</summary>
 <p><code>proc.terminate()</code> sends a signal telling the server process to stop,

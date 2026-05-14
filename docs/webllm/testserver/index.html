@@ -57,7 +57,9 @@
 <li>Refactor the server to accept a dataset as a parameter so tests can use small, controlled data.</li>
 </ul>
 <h2>Why Not Just Click?</h2>
-<p><em>What are the problems with checking every route by opening a browser and clicking around?</em></p>
+<blockquote>
+<p>What are the problems with checking every route by opening a browser and clicking around?</p>
+</blockquote>
 <ul>
 <li>Every change means repeating the same steps by hand:<ul>
 <li>Start the server</li>
@@ -71,15 +73,19 @@
 <li>Clicking is easy to rush or skip, so bugs slip through</li>
 <li>The more routes the application has, the more steps there are to forget</li>
 </ul>
-<p><em>What do I need to install to test a Litestar application with pytest?</em></p>
+<blockquote>
+<p>What do I need to install to test a Litestar application with pytest?</p>
+</blockquote>
 <ul>
 <li><code>uv add pytest</code> adds the <a href="https://docs.pytest.org/">pytest</a> testing framework</li>
 <li>Litestar's test client uses the <a href="https://www.python-httpx.org/">httpx</a> library internally, so <code>uv add httpx</code> is needed too</li>
 <li>Both packages are now available whenever you run pytest</li>
 </ul>
 <h2>A First Test</h2>
-<p><em>Write a pytest test file called <code>test_server_status.py</code> that uses Litestar's TestClient to check that
-<code>GET /</code> returns a 200 status code and that the page contains the text "Sasquatch Sightings".</em></p>
+<blockquote>
+<p>Write a pytest test file called <code>test_server_status.py</code> that uses Litestar's TestClient to check that
+<code>GET /</code> returns a 200 status code and that the page contains the text "Sasquatch Sightings".</p>
+</blockquote>
 <ul>
 <li><code>TestClient</code> from <code>litestar.testing</code> is a <a class="gl-ref" href="../glossary/#test-client">test client</a>:
     it wraps the application and lets you call routes directly in memory, with no real server or browser</li>
@@ -125,8 +131,10 @@
 </code></pre></div>
 </div>
 <h2>Testing Error Responses</h2>
-<p><em>Add two more tests to <code>test_server_status.py</code>: one that checks a valid sighting ID returns 200,
-and one that checks a missing ID returns 404.</em></p>
+<blockquote>
+<p>Add two more tests to <code>test_server_status.py</code>: one that checks a valid sighting ID returns 200,
+and one that checks a missing ID returns 404.</p>
+</blockquote>
 <ul>
 <li>Testing both the success path and the error path builds confidence that the code handles both correctly<ul>
 <li>A route that never returns 404 when it should is just as broken as one that returns 200 when it should not</li>
@@ -137,16 +145,20 @@ and one that checks a missing ID returns 404.</em></p>
 <li>pytest reports pass or fail for each function separately, so you can see at a glance which path broke</li>
 </ul>
 <h2>A Testable Server</h2>
-<p><em>What is the risk of writing a test like <code>assert "G. horribilus" in response.text</code>
-when "G. horribilus" comes from the <code>SIGHTINGS</code> list in <code>dataset.py</code>?</em></p>
+<blockquote>
+<p>What is the risk of writing a test like <code>assert "G. horribilus" in response.text</code>
+when "G. horribilus" comes from the <code>SIGHTINGS</code> list in <code>dataset.py</code>?</p>
+</blockquote>
 <ul>
 <li>If someone updates <code>dataset.py</code> by correcting a species name, adding rows, or removing old ones,
     the test breaks even though the route is working correctly</li>
 <li>A test that fails for the wrong reason wastes time and erodes trust in the whole test suite</li>
 <li>The fix is to control exactly what data the server uses during the test</li>
 </ul>
-<p><em>Refactor <code>server_detail.py</code> into a new file <code>server_testable.py</code> by wrapping the route definitions in a function
-called <code>make_app</code> that takes the sightings list as a parameter.</em></p>
+<blockquote>
+<p>Refactor <code>server_detail.py</code> into a new file <code>server_testable.py</code> by wrapping the route definitions in a function
+called <code>make_app</code> that takes the sightings list as a parameter.</p>
+</blockquote>
 <ul>
 <li><code>make_app(sightings=SIGHTINGS)</code> is a function that defines the route handlers and returns the app<ul>
 <li>The default value means calling <code>make_app()</code> with no arguments behaves exactly like <code>server_detail.py</code></li>
@@ -219,9 +231,11 @@ called <code>make_app</code> that takes the sightings list as a parameter.</em><
 </code></pre></div>
 </div>
 <h2>Testing with Controlled Data</h2>
-<p><em>Write a second test file called <code>test_server_data.py</code> that defines a two-row list called <code>SMALL</code>
+<blockquote>
+<p>Write a second test file called <code>test_server_data.py</code> that defines a two-row list called <code>SMALL</code>
 and uses <code>make_app(SMALL)</code> to test the index links, the detail page content,
-and the display of <code>None</code> values.</em></p>
+and the display of <code>None</code> values.</p>
+</blockquote>
 <ul>
 <li><code>SMALL</code> has exactly two rows, so it is easy to see at a glance what each test is checking</li>
 <li><code>make_app(SMALL)</code> creates a fresh app that serves only those two rows<ul>
@@ -260,6 +274,7 @@ and the display of <code>None</code> values.</em></p>
 </code></pre></div>
 </div>
 <h2>Check Understanding</h2>
+<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation and [<a class="bib-ref" href="../bibliography/#litestar2025">litestar2025</a>] for Litestar's testing reference.</p>
 <details>
 <summary>What is the difference between running <code>litestar run --app server_testable:app</code> and calling <code>client.get("/")</code> in a test?</summary>
 <p><code>litestar run</code> starts a real server process that listens on port 8000 and waits for browser requests
@@ -316,7 +331,6 @@ The fix is to drop the quotes: <code>assert response.status_code == 200</code>.<
 The line <code>def make_app(sightings=SIGHTINGS):</code> means any call that omits the argument gets the full
 twenty-row dataset, exactly as <code>server_detail.py</code> behaved.</p>
 </details>
-<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation and [<a class="bib-ref" href="../bibliography/#litestar2025">litestar2025</a>] for Litestar's testing reference.</p>
 <h2>Exercises</h2>
 <h3>Test the CSS Route</h3>
 <p>Add a test to <code>test_server_status.py</code> that sends <code>GET /style.css</code> and checks that the response

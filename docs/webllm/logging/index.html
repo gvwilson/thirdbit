@@ -58,7 +58,9 @@
 <li>Catch exceptions with <code>logger.exception</code> to record a full traceback when something goes wrong.</li>
 </ul>
 <h2>Why Not Just Print?</h2>
-<p><em>What is wrong with using <code>print</code> to debug an application?</em></p>
+<blockquote>
+<p>What is wrong with using <code>print</code> to debug an application?</p>
+</blockquote>
 <ul>
 <li>Every <code>print</code> call runs unconditionally, whether you want its output or not</li>
 <li>When you are done debugging, you have to find and remove each one by hand<ul>
@@ -68,7 +70,9 @@
 <li>All <code>print</code> output looks the same: there is no way to tell a routine status message from a serious error</li>
 <li>A server handling dozens of requests per minute produces a wall of text that is hard to read</li>
 </ul>
-<p><em>What does Python's <code>logging</code> module give you that <code>print</code> does not?</em></p>
+<blockquote>
+<p>What does Python's <code>logging</code> module give you that <code>print</code> does not?</p>
+</blockquote>
 <ul>
 <li>Every message has a <a class="gl-ref" href="../glossary/#log-level">log level</a>: <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, or <code>CRITICAL</code>,
     in increasing order of severity<ul>
@@ -89,8 +93,10 @@
 </li>
 </ul>
 <h2>Adding a Logger to the Server</h2>
-<p><em>Add logging to <code>server_stream.py</code> so that the server records what it is doing.
-Add a <code>configure_logging</code> function that can be called once at startup.</em></p>
+<blockquote>
+<p>Add logging to <code>server_stream.py</code> so that the server records what it is doing.
+Add a <code>configure_logging</code> function that can be called once at startup.</p>
+</blockquote>
 <ul>
 <li><code>logger = logging.getLogger(__name__)</code> goes below the imports and above the first function,
     at module level so every handler in the file shares the same logger</li>
@@ -107,8 +113,10 @@ Add a <code>configure_logging</code> function that can be called once at startup
 <li>Calling <code>configure_logging()</code> at module level, before <code>app = make_app()</code>, means logging is
     ready before any request arrives</li>
 </ul>
-<p><em>Add log calls to the handlers. Use <code>INFO</code> when a sighting is inserted or deleted,
-<code>WARNING</code> when an optional field is left blank, and <code>DEBUG</code> when a detail page loads successfully.</em></p>
+<blockquote>
+<p>Add log calls to the handlers. Use <code>INFO</code> when a sighting is inserted or deleted,
+<code>WARNING</code> when an optional field is left blank, and <code>DEBUG</code> when a detail page loads successfully.</p>
+</blockquote>
 <ul>
 <li><code>logger.info("home page: %d sightings", len(rows))</code> records the count each time the index loads</li>
 </ul>
@@ -241,8 +249,10 @@ The terminal shows timestamped lines like these:</p>
 </code></pre></div>
 </div>
 <h2>Writing Logs to a File</h2>
-<p><em>Copy <code>server_stream.py</code> to <code>server_rotate.py</code>
-and update <code>configure_logging</code> to also write to a file alongside the terminal output.</em></p>
+<blockquote>
+<p>Copy <code>server_stream.py</code> to <code>server_rotate.py</code>
+and update <code>configure_logging</code> to also write to a file alongside the terminal output.</p>
+</blockquote>
 <ul>
 <li><code>LOG_PATH = LESSON_DIR / "sightings.log"</code> puts the file next to the server code</li>
 <li><code>logging.FileHandler(LOG_PATH)</code> opens the file and writes each message to it</li>
@@ -254,7 +264,9 @@ and update <code>configure_logging</code> to also write to a file alongside the 
 </ul>
 </li>
 </ul>
-<p><em>What happens if the log file grows too large, and how do you handle it?</em></p>
+<blockquote>
+<p>What happens if the log file grows too large, and how do you handle it?</p>
+</blockquote>
 <ul>
 <li>A server running for months can produce a log file large enough to fill the disk</li>
 <li><code>logging.handlers.RotatingFileHandler(LOG_PATH, maxBytes=1_000_000, backupCount=3)</code>
@@ -269,8 +281,10 @@ and update <code>configure_logging</code> to also write to a file alongside the 
     <code>import logging.handlers</code>; it is not available through <code>import logging</code> alone</li>
 </ul>
 <h2>Catching Exceptions in the Log</h2>
-<p><em>Modify the CSV upload handler in <code>server_rotate.py</code> to catch exceptions and record the full
-traceback instead of crashing and returning a 500 response.</em></p>
+<blockquote>
+<p>Modify the CSV upload handler in <code>server_rotate.py</code> to catch exceptions and record the full
+traceback instead of crashing and returning a 500 response.</p>
+</blockquote>
 <ul>
 <li>Without a try/except, a malformed CSV row terminates the handler immediately and returns a
     blank 500 error; the log shows nothing useful</li>
@@ -284,8 +298,10 @@ traceback instead of crashing and returning a 500 response.</em></p>
 </ul>
 </li>
 </ul>
-<p><em>What does the log file contain after a CSV upload whose column names do not match what the
-handler expects?</em></p>
+<blockquote>
+<p>What does the log file contain after a CSV upload whose column names do not match what the
+handler expects?</p>
+</blockquote>
 <ul>
 <li>The Python dictionary lookup <code>row["species"]</code> raises <code>KeyError</code> if the CSV header is
     <code>Species</code> (capital S) instead of <code>species</code></li>
@@ -378,13 +394,13 @@ so total disk use stays bounded regardless of how long the server runs.</p>
 </details>
 <details>
 <summary>The code below is meant to log a failure, but the traceback never appears in the log file. What is wrong?</summary>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"upload failed: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</code></pre></div>
 <p><code>logger.error</code> logs the message but discards the traceback.
 Replace it with <code>logger.exception("upload failed: %s", e)</code>,
 which automatically appends the current exception's full traceback to the log entry.</p>
 </details>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"upload failed: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
 <h2>Exercises</h2>
 <h3>Log Elapsed Time</h3>
 <p>Add timing to the <code>detail</code> handler.
