@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logging</title>
+<meta content="Learning Web Programming with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">WebLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../htmlcss/">HTML and CSS</a></li>
+<li><a href="../genhtml/">Generating HTML</a></li>
+<li><a href="../server/">Serving Data</a></li>
+<li><a href="../testserver/">Testing the Server</a></li>
+<li><a href="../database/">Using a Database</a></li>
+<li><a href="../testdatabase/">Testing with Fixtures</a></li>
+<li><a href="../forms/">Forms</a></li>
+<li><a href="../testclient/">Testing with a Browser</a></li>
+<li><a class="active" href="../logging/">Logging</a></li>
+<li><a href="../dynamic/">Dynamic pages</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/webllm">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Logging</h1>
+<h2>Goals</h2>
+<ul>
+<li>Understand why structured logging is more useful than <code>print</code> statements.</li>
+<li>Use Python's built-in <code>logging</code> module to create a named logger for a module.</li>
+<li>Call a <code>configure_logging</code> function to set the active level and route messages to the terminal.</li>
+<li>Add a file handler so that log records survive after the server stops.</li>
+<li>Catch exceptions with <code>logger.exception</code> to record a full traceback when something goes wrong.</li>
+</ul>
+<h2>Why Not Just Print?</h2>
+<p><em>What is wrong with using <code>print</code> to debug an application?</em></p>
+<ul>
+<li>Every <code>print</code> call runs unconditionally, whether you want its output or not</li>
+<li>When you are done debugging, you have to find and remove each one by hand<ul>
+<li>Missing even one leaves stray output in every response forever</li>
+</ul>
+</li>
+<li>All <code>print</code> output looks the same: there is no way to tell a routine status message from a serious error</li>
+<li>A server handling dozens of requests per minute produces a wall of text that is hard to read</li>
+</ul>
+<p><em>What does Python's <code>logging</code> module give you that <code>print</code> does not?</em></p>
+<ul>
+<li>Every message has a <a class="gl-ref" href="../glossary/#log-level">log level</a>: <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, or <code>CRITICAL</code>,
+    in increasing order of severity<ul>
+<li>One setting silences everything below a chosen level without touching the code:
+    switching from <code>DEBUG</code> to <code>INFO</code> hides all the verbose diagnostic messages at once</li>
+</ul>
+</li>
+<li>Every message is stamped automatically with the time, the level, and the name of the source that produced it</li>
+<li>A <a class="gl-ref" href="../glossary/#logger">logger</a> is created once per module with <code>logging.getLogger(__name__)</code><ul>
+<li><code>__name__</code> is Python's built-in name for the current module, so each logger is named after its file</li>
+<li>Separate names make it easy to trace a message back to its source when reading the log later</li>
+</ul>
+</li>
+<li>Log messages go to one or more <a class="gl-ref" href="../glossary/#log-handler">log handlers</a>
+    that decide where the output actually lands<ul>
+<li>Terminal, file, database, or monitoring service</li>
+</ul>
+</li>
+</ul>
+<h2>Adding a Logger to the Server</h2>
+<p><em>Add logging to <code>server_stream.py</code> so that the server records what it is doing.
+Add a <code>configure_logging</code> function that can be called once at startup.</em></p>
+<ul>
+<li><code>logger = logging.getLogger(__name__)</code> goes below the imports and above the first function,
+    at module level so every handler in the file shares the same logger</li>
+<li><code>configure_logging</code> calls <code>logging.basicConfig</code>, which sets up the root logger:<ul>
+<li><code>level=logging.DEBUG</code> shows every message; raise it to <code>logging.INFO</code> in production
+    to silence diagnostic chatter without changing any handler code</li>
+<li><code>format="%(asctime)s %(levelname)-8s %(name)s %(message)s"</code> stamps each line with
+    the time, the level (padded to eight characters so columns stay aligned),
+    the logger name, and the message</li>
+<li><code>handlers=[logging.StreamHandler()]</code> sends output to the terminal</li>
+</ul>
+</li>
+<li>Nothing appears in the log until <code>configure_logging()</code> is called; this is a common first-time surprise</li>
+<li>Calling <code>configure_logging()</code> at module level, before <code>app = make_app()</code>, means logging is
+    ready before any request arrives</li>
+</ul>
+<p><em>Add log calls to the handlers. Use <code>INFO</code> when a sighting is inserted or deleted,
+<code>WARNING</code> when an optional field is left blank, and <code>DEBUG</code> when a detail page loads successfully.</em></p>
+<ul>
+<li><code>logger.info("home page: %d sightings", len(rows))</code> records the count each time the index loads</li>
+</ul>
+<div class="callout">
+<h3>Pass Values as Arguments, Not f-Strings</h3>
+<p>Write <code>logger.info("count: %d", n)</code> rather than <code>logger.info(f"count: {n}")</code>.
+The <code>logging</code> module skips string formatting entirely when the message level is below the active threshold,
+so the f-string approach does unnecessary work on every call even when the output is never shown.</p>
+</div>
+<ul>
+<li><code>logger.warning("new sighting added without weight")</code> flags incomplete submissions without crashing</li>
+<li><code>logger.debug("sighting %d retrieved", sighting_id)</code> disappears automatically when the level is
+    raised to <code>INFO</code>, so it costs nothing in production</li>
+<li><code>logger.warning("sighting %d not found", sighting_id)</code> before raising <code>NotFoundException</code>
+    records every 404 before the framework handles it</li>
+</ul>
+<div data-inc="server_stream.py" data-mark="logging-setup"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">a</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">html</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="nb">input</span> <span class="k">as</span> <span class="n">inp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">label</span><span class="p">,</span> <span class="n">li</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">ul</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Litestar</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">post</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.datastructures</span><span class="w"> </span><span class="kn">import</span> <span class="n">UploadFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestEncodingType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotFoundException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">Body</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Redirect</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">HEADERS</span><span class="p">,</span> <span class="n">KEYS</span><span class="p">,</span> <span class="n">LABELS</span><span class="p">,</span> <span class="n">fmt</span>
+
+<span class="n">LESSON_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">DB_PATH</span> <span class="o">=</span> <span class="n">LESSON_DIR</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"database"</span> <span class="o">/</span> <span class="s2">"sightings.db"</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">INSERT_ROW</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"insert into sightings (species, sex, weight, color, datetime, latitude, longitude) "</span>
+    <span class="s2">"values (?, ?, ?, ?, ?, ?, ?)"</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">configure_logging</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()],</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_stream.py" data-mark="detail-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">"select * from sightings where id = ?"</span><span class="p">,</span> <span class="p">[</span><span class="n">sighting_id</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"sighting </span><span class="si">%d</span><span class="s2"> not found"</span><span class="p">,</span> <span class="n">sighting_id</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">NotFoundException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"sighting </span><span class="si">%d</span><span class="s2"> retrieved"</span><span class="p">,</span> <span class="n">sighting_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+            <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
+                <span class="n">head</span><span class="p">[</span>
+                    <span class="n">title</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Sighting </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
+                    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">"/style.css"</span><span class="p">),</span>
+                <span class="p">],</span>
+                <span class="n">body</span><span class="p">[</span>
+                    <span class="n">table</span><span class="p">[</span>
+                        <span class="p">[</span>
+                            <span class="n">tr</span><span class="p">[</span>
+                                <span class="n">td</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">"label"</span><span class="p">)[</span><span class="n">lbl</span><span class="p">],</span>
+                                <span class="n">td</span><span class="p">[</span><span class="n">fmt</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">])],</span>
+                            <span class="p">]</span>
+                            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">LABELS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                        <span class="p">],</span>
+                    <span class="p">],</span>
+                    <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
+                    <span class="n">form</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">"/delete/</span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)[</span>
+                        <span class="n">button</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="p">)[</span><span class="s2">"Delete this sighting"</span><span class="p">],</span>
+                    <span class="p">],</span>
+                <span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_stream.py" data-mark="add-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_sighting</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">URL_ENCODED</span><span class="p">)],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"new sighting added without sex"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"new sighting added without weight"</span><span class="p">)</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="n">INSERT_ROW</span><span class="p">,</span>
+            <span class="p">[</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">"species"</span><span class="p">],</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">])</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">"color"</span><span class="p">],</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">"datetime"</span><span class="p">],</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"latitude"</span><span class="p">]),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"longitude"</span><span class="p">]),</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"inserted sighting: species=</span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">"species"</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Start the server from the <code>logging/</code> directory:</p>
+<div data-inc="run.sh"><span aria-label="Source: logging/run.sh" class="inc-path" role="img" tabindex="0" title="logging/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--app<span class="w"> </span>server_rotate:app
+</code></pre></div>
+</div>
+<p>Open the app in a browser and add a sighting with the weight field blank.
+The terminal shows timestamped lines like these:</p>
+<div data-inc="sample.log"><span aria-label="Source: logging/sample.log" class="inc-path" role="img" tabindex="0" title="logging/sample.log">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>2026-05-11 10:32:04,812 INFO     server_stream home page: 47 sightings
+2026-05-11 10:32:07,091 DEBUG    server_stream sighting 12 retrieved
+2026-05-11 10:32:15,334 WARNING  server_stream new sighting added without weight
+2026-05-11 10:32:15,335 INFO     server_stream inserted sighting: species=G. canadensis
+</code></pre></div>
+</div>
+<h2>Writing Logs to a File</h2>
+<p><em>Copy <code>server_stream.py</code> to <code>server_rotate.py</code>
+and update <code>configure_logging</code> to also write to a file alongside the terminal output.</em></p>
+<ul>
+<li><code>LOG_PATH = LESSON_DIR / "sightings.log"</code> puts the file next to the server code</li>
+<li><code>logging.FileHandler(LOG_PATH)</code> opens the file and writes each message to it</li>
+<li>A single logger can have any number of handlers:
+    if both a <code>StreamHandler</code> and a <code>FileHandler</code> are given to <code>basicConfig</code>
+    then each message goes to both destinations</li>
+<li>Log files should not be committed to version control<ul>
+<li>Add <code>*.log</code> to <code>.gitignore</code> so the file never ends up in a repository by accident</li>
+</ul>
+</li>
+</ul>
+<p><em>What happens if the log file grows too large, and how do you handle it?</em></p>
+<ul>
+<li>A server running for months can produce a log file large enough to fill the disk</li>
+<li><code>logging.handlers.RotatingFileHandler(LOG_PATH, maxBytes=1_000_000, backupCount=3)</code>
+    creates a file that resets instead of growing without limit<ul>
+<li>When the file reaches <code>maxBytes</code> bytes (here, one megabyte), the handler renames it
+    <code>sightings.log.1</code> and starts a fresh <code>sightings.log</code></li>
+<li>Old backups beyond <code>backupCount</code> are deleted automatically,
+    so the total disk use never exceeds four megabytes regardless of how long the server runs</li>
+</ul>
+</li>
+<li><code>logging.handlers</code> is a submodule that must be imported explicitly with
+    <code>import logging.handlers</code>; it is not available through <code>import logging</code> alone</li>
+</ul>
+<h2>Catching Exceptions in the Log</h2>
+<p><em>Modify the CSV upload handler in <code>server_rotate.py</code> to catch exceptions and record the full
+traceback instead of crashing and returning a 500 response.</em></p>
+<ul>
+<li>Without a try/except, a malformed CSV row terminates the handler immediately and returns a
+    blank 500 error; the log shows nothing useful</li>
+<li>Wrapping each row insert in <code>try</code> / <code>except Exception</code> catches any error that might arise:
+    a missing column, a value that cannot be converted to a float, a database constraint violation</li>
+<li>After the except block, the loop continues with the next row rather than aborting the upload</li>
+<li><code>logger.exception("failed to insert row: %s", dict(row))</code> logs the message and then appends
+    the full traceback automatically<ul>
+<li><code>exception</code> is shorthand for <code>error</code> combined with <code>traceback.format_exc()</code>;
+    using <code>logger.error</code> alone would log the message but lose the traceback</li>
+</ul>
+</li>
+</ul>
+<p><em>What does the log file contain after a CSV upload whose column names do not match what the
+handler expects?</em></p>
+<ul>
+<li>The Python dictionary lookup <code>row["species"]</code> raises <code>KeyError</code> if the CSV header is
+    <code>Species</code> (capital S) instead of <code>species</code></li>
+<li>The log entry looks like this:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="mi">2026</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span><span class="mi">019</span><span class="w"> </span><span class="n">ERROR</span><span class="w">    </span><span class="n">server_rotate</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">row</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s1">'Species'</span><span class="p">:</span><span class="w"> </span><span class="s1">'G. canadensis'</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">}</span>
+<span class="n">Traceback</span><span class="w"> </span><span class="p">(</span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">last</span><span class="p">):</span>
+<span class="w">  </span><span class="n">File</span><span class="w"> </span><span class="s2">"server_rotate.py"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">upload_csv</span>
+<span class="w">    </span><span class="n">row</span><span class="p">[</span><span class="s2">"species"</span><span class="p">],</span>
+<span class="n">KeyError</span><span class="p">:</span><span class="w"> </span><span class="s1">'species'</span>
+</code></pre></div>
+<ul>
+<li>The timestamp, level, and module name appear on the first line; the traceback follows immediately</li>
+<li>The log file now contains a permanent record of the failure even after the server restarts,
+    which makes it possible to diagnose problems that happened hours ago</li>
+</ul>
+<div data-inc="server_rotate.py" data-mark="configure-logging"><span aria-label="Source: logging/server_rotate.py" class="inc-path" role="img" tabindex="0" title="logging/server_rotate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">configure_logging</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(),</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">RotatingFileHandler</span><span class="p">(</span>
+                <span class="n">LOG_PATH</span><span class="p">,</span> <span class="n">maxBytes</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">backupCount</span><span class="o">=</span><span class="mi">3</span>
+            <span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_rotate.py" data-mark="upload-csv"><span aria-label="Source: logging/server_rotate.py" class="inc-path" role="img" tabindex="0" title="logging/server_rotate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/upload"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_csv</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">CsvUpload</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">MULTI_PART</span><span class="p">)],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">data</span><span class="o">.</span><span class="n">csv_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)))</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                    <span class="n">INSERT_ROW</span><span class="p">,</span>
+                    <span class="p">[</span>
+                        <span class="n">row</span><span class="p">[</span><span class="s2">"species"</span><span class="p">],</span>
+                        <span class="n">row</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">])</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">row</span><span class="p">[</span><span class="s2">"color"</span><span class="p">],</span>
+                        <span class="n">row</span><span class="p">[</span><span class="s2">"datetime"</span><span class="p">],</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"latitude"</span><span class="p">]),</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"longitude"</span><span class="p">]),</span>
+                    <span class="p">],</span>
+                <span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">"failed to insert row: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"CSV upload complete: </span><span class="si">%d</span><span class="s2"> rows inserted"</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>See [<a class="bib-ref" href="../bibliography/#python-logging2025">python-logging2025</a>] for the full Python logging documentation.</p>
+<h2>Check Understanding</h2>
+<details>
+<summary>A classmate adds <code>logger.debug("starting upload")</code> to the upload handler but sees nothing in the terminal. What are the two most likely causes?</summary>
+<p>Either <code>configure_logging</code> was never called, so no handler is attached to the root logger,
+or <code>configure_logging</code> was called with <code>level=logging.INFO</code>, which silences <code>DEBUG</code> messages.
+Both produce the same symptom: complete silence.</p>
+</details>
+<details>
+<summary>Two modules each call <code>logging.getLogger("sightings")</code> instead of <code>logging.getLogger(__name__)</code>. When reading the log, how can you tell which module produced a given message?</summary>
+<p>You cannot.
+Both loggers share the same name, so every message shows <code>"sightings"</code> as the source
+regardless of which file it came from.
+Using <code>logging.getLogger(__name__)</code> in each module gives each logger a distinct name
+matching its filename, making every message traceable to its origin.</p>
+</details>
+<details>
+<summary>Why is <code>logger.warning</code> the right level when a sighting is submitted without a weight, rather than <code>logger.info</code> or <code>logger.error</code>?</summary>
+<p><code>INFO</code> is for routine events during normal operation.
+<code>ERROR</code> is for failures that prevent the operation from completing.
+A missing optional weight is neither: the sighting was inserted successfully,
+but the data is incomplete in a way worth noticing.
+<code>WARNING</code> communicates "something unusual happened, but the application is still working."</p>
+</details>
+<details>
+<summary>After three weeks, the <code>sightings.log</code> file is four gigabytes and the disk is full. What one change to <code>configure_logging</code> prevents this from recurring?</summary>
+<p>Replace <code>FileHandler</code> with <code>logging.handlers.RotatingFileHandler</code> and set <code>maxBytes</code> and <code>backupCount</code>.
+The handler then caps the file at <code>maxBytes</code> bytes and keeps at most <code>backupCount</code> old copies,
+so total disk use stays bounded regardless of how long the server runs.</p>
+</details>
+<details>
+<summary>The code below is meant to log a failure, but the traceback never appears in the log file. What is wrong?</summary>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"upload failed: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p><code>logger.error</code> logs the message but discards the traceback.
+Replace it with <code>logger.exception("upload failed: %s", e)</code>,
+which automatically appends the current exception's full traceback to the log entry.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Log Elapsed Time</h3>
+<p>Add timing to the <code>detail</code> handler.
+Use <code>time.perf_counter()</code> before and after the database query to measure elapsed time in milliseconds,
+and log it at the <code>DEBUG</code> level: <code>"sighting %d retrieved in %.1f ms"</code>.</p>
+<h3>Filter Levels to Separate Files</h3>
+<p>Configure <code>configure_logging</code> with two <code>RotatingFileHandler</code> instances: one that records only
+<code>WARNING</code> and above to <code>errors.log</code>, and one that records everything to <code>all.log</code>.
+To restrict a handler to a minimum level, call <code>handler.setLevel(logging.WARNING)</code> before passing
+it into <code>basicConfig</code>.
+Submit the add form once with weight left blank and confirm the warning appears in both files.</p>
+<h3>Log Events to the Database</h3>
+<p>Add a table called <code>event_log</code> to the sightings database with columns for the timestamp,
+level name, logger name, and message.
+Ask an LLM to generate a logging handler that inserts each log record into this table as a row,
+then add the handler to <code>configure_logging</code> alongside the existing file handler.
+Start the server, load a few pages, and confirm the handler is working by running
+<code>select * from event_log limit 5</code> in the SQLite shell.</p>
+<h3>Test That Warnings Are Emitted</h3>
+<p>Write a pytest test that submits the add form with weight left blank
+and confirms that a warning was recorded.
+pytest's <code>caplog</code> fixture captures log records during a test without writing to a file:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_missing_weight_logged</span><span class="p">(</span><span class="n">caplog</span><span class="p">,</span> <span class="n">small_db</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">caplog</span><span class="o">.</span><span class="n">at_level</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">):</span>
+        <span class="c1"># submit form and check records</span>
+        <span class="k">assert</span> <span class="nb">any</span><span class="p">(</span><span class="s2">"without weight"</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">message</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">caplog</span><span class="o">.</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+<p>Reuse the <code>small_db</code> fixture from the <code>testdatabase</code> lesson to give the test a fresh database.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../testclient/">Testing with a Browser</a>
+</div>
+<div class="col-6 center">
+<a href="../">WebLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../dynamic/">Dynamic pages</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

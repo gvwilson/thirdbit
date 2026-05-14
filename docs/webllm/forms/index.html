@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forms</title>
+<meta content="Learning Web Programming with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">WebLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../htmlcss/">HTML and CSS</a></li>
+<li><a href="../genhtml/">Generating HTML</a></li>
+<li><a href="../server/">Serving Data</a></li>
+<li><a href="../testserver/">Testing the Server</a></li>
+<li><a href="../database/">Using a Database</a></li>
+<li><a href="../testdatabase/">Testing with Fixtures</a></li>
+<li><a class="active" href="../forms/">Forms</a></li>
+<li><a href="../testclient/">Testing with a Browser</a></li>
+<li><a href="../logging/">Logging</a></li>
+<li><a href="../dynamic/">Dynamic pages</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/webllm">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Forms</h1>
+<h2>Goals</h2>
+<ul>
+<li>Understand how HTML forms send data to a server using POST requests.</li>
+<li>Add a route that deletes a sighting when a user clicks a button.</li>
+<li>Add routes that let a user fill in a form to add a new sighting.</li>
+<li>Add routes that let a user upload a CSV file to add many sightings at once.</li>
+<li>Test routes that modify the database.</li>
+</ul>
+<h2>Deleting a Record</h2>
+<p><em>What is the difference between a GET request and a POST request?</em></p>
+<ul>
+<li>Every HTTP request uses a method that tells the server what the client wants to do</li>
+<li>GET asks the server to return data without changing anything<ul>
+<li>Browsers send GET requests when a user types a URL or clicks a link</li>
+</ul>
+</li>
+<li>POST asks the server to process data the browser is sending, usually by writing to a database<ul>
+<li>Browsers send POST requests when a user submits a form</li>
+</ul>
+</li>
+<li>Deleting a record must use POST, not GET<ul>
+<li>Search engines and browser prefetch features send GET requests to URLs they discover automatically</li>
+<li>If a link could trigger a deletion, those tools could wipe out data without anyone asking them to</li>
+</ul>
+</li>
+</ul>
+<p><em>Modify <code>server_db.py</code> to create <code>server_delete.py</code>. Add a Delete button to the sighting detail
+page that sends a POST request to remove the sighting and then sends the browser back to the home page.</em></p>
+<ul>
+<li>An HTML <a class="gl-ref" href="../glossary/#form">form</a> groups one or more inputs together with a submit button<ul>
+<li><code>&lt;form method="post" action="/delete/1"&gt;</code> sends a POST request to <code>/delete/1</code> when submitted</li>
+<li>A <code>&lt;button type="submit"&gt;</code> inside the form triggers the submission when clicked</li>
+<li>This form needs no text inputs: the sighting ID is already in the URL</li>
+</ul>
+</li>
+<li><code>@post</code> in Litestar marks a handler that responds to POST requests,
+    just as <code>@get</code> marks one that responds to GET</li>
+<li><code>delete from sightings where id = ?</code> removes the matching row; <code>conn.commit()</code> writes the change to disk</li>
+<li>After deleting, the handler returns a <a class="gl-ref" href="../glossary/#http-303">HTTP 303</a> <a class="gl-ref" href="../glossary/#redirect">redirect</a>
+    that tells the browser to fetch another URL<ul>
+<li><code>Redirect("/", status_code=303)</code> sends the browser to the home page</li>
+<li>This is called the Post/Redirect/Get pattern</li>
+<li>If the user presses Refresh afterward, the browser replays the GET, not the POST,
+    so the record is not deleted a second time</li>
+</ul>
+</li>
+</ul>
+<div data-inc="server_delete.py" data-mark="detail-with-delete"><span aria-label="Source: forms/server_delete.py" class="inc-path" role="img" tabindex="0" title="forms/server_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">"select * from sightings where id = ?"</span><span class="p">,</span> <span class="p">[</span><span class="n">sighting_id</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFoundException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+            <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
+                <span class="n">head</span><span class="p">[</span>
+                    <span class="n">title</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Sighting </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
+                    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">"/style.css"</span><span class="p">),</span>
+                <span class="p">],</span>
+                <span class="n">body</span><span class="p">[</span>
+                    <span class="n">table</span><span class="p">[</span>
+                        <span class="p">[</span>
+                            <span class="n">tr</span><span class="p">[</span>
+                                <span class="n">td</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">"label"</span><span class="p">)[</span><span class="n">lbl</span><span class="p">],</span>
+                                <span class="n">td</span><span class="p">[</span><span class="n">fmt</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">])],</span>
+                            <span class="p">]</span>
+                            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">LABELS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                        <span class="p">],</span>
+                    <span class="p">],</span>
+                    <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
+                    <span class="n">form</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">"/delete/</span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)[</span>
+                        <span class="n">button</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="p">)[</span><span class="s2">"Delete this sighting"</span><span class="p">],</span>
+                    <span class="p">],</span>
+                <span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_delete.py" data-mark="delete-route"><span aria-label="Source: forms/server_delete.py" class="inc-path" role="img" tabindex="0" title="forms/server_delete.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/delete/{sighting_id:int}"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">delete_sighting</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"delete from sightings where id = ?"</span><span class="p">,</span> <span class="p">[</span><span class="n">sighting_id</span><span class="p">])</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Adding a Record</h2>
+<p><em>Add a link to the home page and a <code>GET /add</code> route that displays a form for adding a new sighting.
+Save the result as <code>server_add.py</code>.</em></p>
+<ul>
+<li><code>&lt;form method="post" action="/add"&gt;</code> sends the completed form to <code>/add</code> when submitted</li>
+<li><code>&lt;input type="text" name="species" required&gt;</code> creates a one-line text box<ul>
+<li>The <code>name</code> attribute is the key the browser uses when sending the field to the server</li>
+<li><code>required</code> tells the browser to refuse to submit the form if this field is empty</li>
+</ul>
+</li>
+<li><code>&lt;input type="number" name="latitude" step="0.01"&gt;</code> creates a number box that only accepts numeric input<ul>
+<li><code>step="0.01"</code> allows values with up to two decimal places;
+    without it, only whole numbers are accepted</li>
+</ul>
+</li>
+<li>Optional fields like <code>sex</code> and <code>weight</code> omit <code>required</code>,
+    so the form can be submitted even when they are blank</li>
+</ul>
+<div data-inc="server_add.py" data-mark="add-form"><span aria-label="Source: forms/server_add.py" class="inc-path" role="img" tabindex="0" title="forms/server_add.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@get</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_form</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+        <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
+            <span class="n">head</span><span class="p">[</span>
+                <span class="n">title</span><span class="p">[</span><span class="s2">"Add a Sighting"</span><span class="p">],</span>
+                <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">"/style.css"</span><span class="p">),</span>
+            <span class="p">],</span>
+            <span class="n">body</span><span class="p">[</span>
+                <span class="n">h1</span><span class="p">[</span><span class="s2">"Add a New Sighting"</span><span class="p">],</span>
+                <span class="n">form</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"/add"</span><span class="p">)[</span>
+                    <span class="n">label</span><span class="p">[</span>
+                        <span class="s2">"Species"</span><span class="p">,</span> <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"species"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="p">],</span>
+                    <span class="n">label</span><span class="p">[</span><span class="s2">"Sex (optional)"</span><span class="p">,</span> <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sex"</span><span class="p">)],</span>
+                    <span class="n">label</span><span class="p">[</span>
+                        <span class="s2">"Weight in kg (optional)"</span><span class="p">,</span>
+                        <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"number"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"weight"</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="s2">"0.1"</span><span class="p">),</span>
+                    <span class="p">],</span>
+                    <span class="n">label</span><span class="p">[</span><span class="s2">"Color"</span><span class="p">,</span> <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"color"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
+                    <span class="n">label</span><span class="p">[</span>
+                        <span class="s2">"Date and time (YYYY-MM-DD HH:MM)"</span><span class="p">,</span>
+                        <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"datetime"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                    <span class="p">],</span>
+                    <span class="n">label</span><span class="p">[</span>
+                        <span class="s2">"Latitude"</span><span class="p">,</span>
+                        <span class="n">inp</span><span class="p">(</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="s2">"number"</span><span class="p">,</span>
+                            <span class="n">name</span><span class="o">=</span><span class="s2">"latitude"</span><span class="p">,</span>
+                            <span class="n">step</span><span class="o">=</span><span class="s2">"0.01"</span><span class="p">,</span>
+                            <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">],</span>
+                    <span class="n">label</span><span class="p">[</span>
+                        <span class="s2">"Longitude"</span><span class="p">,</span>
+                        <span class="n">inp</span><span class="p">(</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="s2">"number"</span><span class="p">,</span>
+                            <span class="n">name</span><span class="o">=</span><span class="s2">"longitude"</span><span class="p">,</span>
+                            <span class="n">step</span><span class="o">=</span><span class="s2">"0.01"</span><span class="p">,</span>
+                            <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">],</span>
+                    <span class="n">button</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="p">)[</span><span class="s2">"Add Sighting"</span><span class="p">],</span>
+                <span class="p">],</span>
+                <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
+            <span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<p><em>Add a <code>POST /add</code> route to <code>server_add.py</code> that reads the submitted form data, inserts a new row,
+and redirects the user to the home page.</em></p>
+<ul>
+<li>When a form is submitted, the browser encodes its fields as
+    <code>species=G.+canadensis&amp;color=brown&amp;...</code> and sends them in the request body</li>
+<li>Litestar decodes these into a dictionary when the handler is annotated with
+    <code>Body(media_type=RequestEncodingType.URL_ENCODED)</code><ul>
+<li><code>data["species"]</code> reads the field whose <code>name</code> attribute is <code>"species"</code> in the form</li>
+<li>Optional fields left blank arrive as empty strings;
+    <code>data["sex"] or None</code> converts them to <code>None</code> before inserting into the database</li>
+<li>Number fields also arrive as strings; <code>float(data["latitude"])</code> converts them before inserting</li>
+</ul>
+</li>
+</ul>
+<div data-inc="server_add.py" data-mark="add-sighting"><span aria-label="Source: forms/server_add.py" class="inc-path" role="img" tabindex="0" title="forms/server_add.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@post</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_sighting</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">URL_ENCODED</span><span class="p">)],</span>
+    <span class="n">db_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="n">INSERT_ROW</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"species"</span><span class="p">],</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">])</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"color"</span><span class="p">],</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"datetime"</span><span class="p">],</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"latitude"</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"longitude"</span><span class="p">]),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_add.py" data-mark="make-app"><span aria-label="Source: forms/server_add.py" class="inc-path" role="img" tabindex="0" title="forms/server_add.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_app</span><span class="p">(</span><span class="n">db_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">DB_PATH</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Litestar</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Litestar</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">detail</span><span class="p">,</span> <span class="n">delete_sighting</span><span class="p">,</span> <span class="n">add_form</span><span class="p">,</span> <span class="n">add_sighting</span><span class="p">,</span> <span class="n">styles</span><span class="p">],</span>
+        <span class="n">dependencies</span><span class="o">=</span><span class="p">{</span><span class="s2">"db_path"</span><span class="p">:</span> <span class="n">Provide</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">db_path</span><span class="p">,</span> <span class="n">sync_to_thread</span><span class="o">=</span><span class="kc">False</span><span class="p">)},</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Uploading Many Records at Once</h2>
+<p><em>What does a form look like when it needs to send a file instead of typed text,
+and how does the server receive and parse the contents?</em></p>
+<ul>
+<li>File uploads require <code>enctype="multipart/form-data"</code> on the <code>&lt;form&gt;</code> tag<ul>
+<li>Without this attribute the browser sends only the filename, not the file's contents</li>
+<li><a class="gl-ref" href="../glossary/#multipart">Multipart</a> encoding splits the request into separate labelled sections,
+    one for each field, with file contents in their own section</li>
+</ul>
+</li>
+<li><code>&lt;input type="file" name="csv_file" accept=".csv"&gt;</code> adds a file picker to the form<ul>
+<li><code>accept=".csv"</code> filters the file picker to show only CSV files by default</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#csv">CSV</a> (comma-separated values) is a plain-text format for tabular data<ul>
+<li>The first line lists column names; each subsequent line is one row of data</li>
+<li>Empty values appear as two consecutive commas</li>
+</ul>
+</li>
+</ul>
+<p><em>Add <code>GET /upload</code> and <code>POST /upload</code> routes to <code>server_add.py</code> to create <code>server_upload.py</code>.
+The GET route should show a file upload form; the POST route should read the CSV and insert
+all its rows into the database.</em></p>
+<ul>
+<li>Litestar receives the uploaded file through a <code>dataclass</code> whose field names match
+    the <code>name</code> attributes in the form<ul>
+<li><code>await data.csv_file.read()</code> returns the file contents as <code>bytes</code></li>
+<li><code>.decode("utf-8")</code> converts them to a string that the <code>csv</code> module can read</li>
+</ul>
+</li>
+<li><code>csv.DictReader</code> turns the string into an iterator of dictionaries, one per data row,
+    using the header line for the keys<ul>
+<li><code>io.StringIO</code> wraps the string so <code>DictReader</code> treats it like a file</li>
+</ul>
+</li>
+<li>One <code>conn.commit()</code> at the end saves all the new rows in a single write to disk</li>
+</ul>
+<div data-inc="server_upload.py" data-mark="csv-dataclass"><span aria-label="Source: forms/server_upload.py" class="inc-path" role="img" tabindex="0" title="forms/server_upload.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CsvUpload</span><span class="p">:</span>
+    <span class="n">csv_file</span><span class="p">:</span> <span class="n">UploadFile</span>
+</code></pre></div>
+</div>
+<div data-inc="server_upload.py" data-mark="upload-form"><span aria-label="Source: forms/server_upload.py" class="inc-path" role="img" tabindex="0" title="forms/server_upload.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/upload"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_form</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+            <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
+                <span class="n">head</span><span class="p">[</span>
+                    <span class="n">title</span><span class="p">[</span><span class="s2">"Upload Sightings"</span><span class="p">],</span>
+                    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">"/style.css"</span><span class="p">),</span>
+                <span class="p">],</span>
+                <span class="n">body</span><span class="p">[</span>
+                    <span class="n">h1</span><span class="p">[</span><span class="s2">"Upload Sightings from a CSV File"</span><span class="p">],</span>
+                    <span class="n">form</span><span class="p">(</span>
+                        <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"/upload"</span><span class="p">,</span> <span class="n">enctype</span><span class="o">=</span><span class="s2">"multipart/form-data"</span>
+                    <span class="p">)[</span>
+                        <span class="n">label</span><span class="p">[</span>
+                            <span class="s2">"CSV file"</span><span class="p">,</span> <span class="n">inp</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"file"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"csv_file"</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="s2">".csv"</span><span class="p">)</span>
+                        <span class="p">],</span>
+                        <span class="n">button</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="p">)[</span><span class="s2">"Upload"</span><span class="p">],</span>
+                    <span class="p">],</span>
+                    <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
+                <span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_upload.py" data-mark="upload-csv"><span aria-label="Source: forms/server_upload.py" class="inc-path" role="img" tabindex="0" title="forms/server_upload.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/upload"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_csv</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">CsvUpload</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">MULTI_PART</span><span class="p">)],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">data</span><span class="o">.</span><span class="n">csv_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)))</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                <span class="n">INSERT_ROW</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="n">row</span><span class="p">[</span><span class="s2">"species"</span><span class="p">],</span>
+                    <span class="n">row</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">])</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="n">row</span><span class="p">[</span><span class="s2">"color"</span><span class="p">],</span>
+                    <span class="n">row</span><span class="p">[</span><span class="s2">"datetime"</span><span class="p">],</span>
+                    <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"latitude"</span><span class="p">]),</span>
+                    <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"longitude"</span><span class="p">]),</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="server_upload.py" data-mark="make-app"><span aria-label="Source: forms/server_upload.py" class="inc-path" role="img" tabindex="0" title="forms/server_upload.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">return</span> <span class="n">Litestar</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">index</span><span class="p">,</span>
+            <span class="n">detail</span><span class="p">,</span>
+            <span class="n">delete_sighting</span><span class="p">,</span>
+            <span class="n">add_form</span><span class="p">,</span>
+            <span class="n">add_sighting</span><span class="p">,</span>
+            <span class="n">upload_form</span><span class="p">,</span>
+            <span class="n">upload_csv</span><span class="p">,</span>
+            <span class="n">styles</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>A sample CSV for testing the upload:</p>
+<div data-inc="sample.csv"><span aria-label="Source: forms/sample.csv" class="inc-path" role="img" tabindex="0" title="forms/sample.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>species,sex,weight,color,datetime,latitude,longitude
+G. canadensis,Male,180,brown,2024-07-15 08:00,53.20,-117.40
+G. horribilus,,,black,2024-07-16 14:00,54.10,-116.90
+</code></pre></div>
+</div>
+<p>Start the server:</p>
+<div data-inc="run.sh"><span aria-label="Source: forms/run.sh" class="inc-path" role="img" tabindex="0" title="forms/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--app<span class="w"> </span>server_upload:app
+</code></pre></div>
+</div>
+<h2>Testing Routes That Change Data</h2>
+<p><em>How do you test a route that deletes a row from the database?</em></p>
+<ul>
+<li>Reuse the <code>small_db</code> fixture from the previous lesson to give each test a fresh temporary database</li>
+<li>Send the POST request with <code>client.post("/delete/1")</code></li>
+<li>After the <code>with</code> block closes the client, open the database directly with <code>sqlite3.connect</code>
+    and count the rows<ul>
+<li>This checks the actual database state, not just what the server put in the response</li>
+</ul>
+</li>
+<li>A helper function <code>count_rows(db_path)</code> avoids repeating the connect-query-close pattern
+    in every test</li>
+</ul>
+<p><em>Write tests for the add route and the CSV upload route in <code>test_server_forms.py</code>.</em></p>
+<ul>
+<li><code>client.post("/add", data={...})</code> sends URL-encoded form data, exactly as a browser would<ul>
+<li>Keys in <code>data</code> must match the <code>name</code> attributes on the form's <code>&lt;input&gt;</code> elements</li>
+<li>Pass empty strings for optional fields the user would leave blank</li>
+</ul>
+</li>
+<li><code>client.post("/upload", files={"csv_file": ("upload.csv", content, "text/csv")})</code> sends
+    a multipart request with a file attached<ul>
+<li>The tuple contains the filename, the file contents as bytes, and the media type</li>
+</ul>
+</li>
+</ul>
+<div data-inc="test_server_forms.py" data-mark="count-rows"><span aria-label="Source: forms/test_server_forms.py" class="inc-path" role="img" tabindex="0" title="forms/test_server_forms.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">count_rows</span><span class="p">(</span><span class="n">db_path</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select count(*) from sightings"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">n</span>
+</code></pre></div>
+</div>
+<div data-inc="test_server_forms.py" data-mark="form-tests"><span aria-label="Source: forms/test_server_forms.py" class="inc-path" role="img" tabindex="0" title="forms/test_server_forms.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_delete_removes_row</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">make_app</span><span class="p">(</span><span class="n">small_db</span><span class="p">))</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/delete/1"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">count_rows</span><span class="p">(</span><span class="n">small_db</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_delete_unknown_id_is_harmless</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">make_app</span><span class="p">(</span><span class="n">small_db</span><span class="p">))</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/delete/9999"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">count_rows</span><span class="p">(</span><span class="n">small_db</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_add_inserts_row</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
+    <span class="n">new_sighting</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"species"</span><span class="p">:</span> <span class="s2">"G. canadensis"</span><span class="p">,</span>
+        <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"weight"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"grey"</span><span class="p">,</span>
+        <span class="s2">"datetime"</span><span class="p">:</span> <span class="s2">"2024-06-01 09:00"</span><span class="p">,</span>
+        <span class="s2">"latitude"</span><span class="p">:</span> <span class="s2">"52.10"</span><span class="p">,</span>
+        <span class="s2">"longitude"</span><span class="p">:</span> <span class="s2">"-118.50"</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">with</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">make_app</span><span class="p">(</span><span class="n">small_db</span><span class="p">))</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">new_sighting</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">count_rows</span><span class="p">(</span><span class="n">small_db</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upload_csv_inserts_rows</span><span class="p">(</span><span class="n">small_db</span><span class="p">):</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"species,sex,weight,color,datetime,latitude,longitude</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"G. canadensis,Male,180,brown,2024-07-15 08:00,53.20,-117.40</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"G. horribilus,,,black,2024-07-16 14:00,54.10,-116.90</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">make_app</span><span class="p">(</span><span class="n">small_db</span><span class="p">))</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s2">"/upload"</span><span class="p">,</span>
+            <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">"csv_file"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"upload.csv"</span><span class="p">,</span> <span class="n">csv_content</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="s2">"text/csv"</span><span class="p">)},</span>
+        <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">count_rows</span><span class="p">(</span><span class="n">small_db</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+</code></pre></div>
+</div>
+<p>Run the tests from the <code>forms/</code> directory:</p>
+<div data-inc="run_tests.sh"><span aria-label="Source: forms/run_tests.sh" class="inc-path" role="img" tabindex="0" title="forms/run_tests.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>pytest<span class="w"> </span>test_server_forms.py<span class="w"> </span>-v
+</code></pre></div>
+</div>
+<p>See [<a class="bib-ref" href="../bibliography/#mdn-forms2025">mdn-forms2025</a>] for the HTML forms reference and [<a class="bib-ref" href="../bibliography/#python-csv2025">python-csv2025</a>]
+for the Python <code>csv</code> module documentation.</p>
+<h2>Check Understanding</h2>
+<details>
+<summary>A classmate adds a Delete link rather than a button: <code>&lt;a href="/delete/5"&gt;Delete&lt;/a&gt;</code>. What goes wrong, and how do you fix it?</summary>
+<p>A link sends a GET request, not a POST request.
+The server should never delete data in response to a GET, because search engines,
+browsers, and prefetch tools send GET requests automatically.
+The fix is to wrap a <code>&lt;button type="submit"&gt;</code> inside
+<code>&lt;form method="post" action="/delete/5"&gt;</code>.</p>
+</details>
+<details>
+<summary>The weight field is left blank when a user submits the add form. The handler stores <code>data["weight"]</code> directly in the database. What does the database contain, and why is that a problem?</summary>
+<p>An empty form field sends the empty string <code>""</code> to the server, so the database stores <code>""</code>.
+An empty string is not the same as SQL null: it is a string with no characters,
+not a missing value.
+The fix is <code>float(data["weight"]) if data["weight"] else None</code>,
+which converts an empty string to <code>None</code>.
+Python's <code>sqlite3</code> module stores <code>None</code> as SQL null.</p>
+</details>
+<details>
+<summary>The CSV file uses the header <code>Species</code> (capital S) but the handler reads <code>row["species"]</code> (lowercase s). What happens?</summary>
+<p>Python's dictionary lookup is case-sensitive, so <code>row["species"]</code> raises a <code>KeyError</code>.
+The header in the CSV must exactly match the key the handler uses.
+The simplest fix is to use the exact header from the CSV; a more robust fix converts
+all header names to lowercase when reading the file.</p>
+</details>
+<details>
+<summary>Moving <code>conn.commit()</code> inside the loop so it runs after every insert changes the behavior. When does this matter, and when does it not?</summary>
+<p>Either way, all rows that were inserted successfully end up in the database.
+The difference is what happens if the server crashes mid-upload.
+Committing once at the end means no rows are saved if the crash happens before
+the commit: the database is unchanged.
+Committing after every insert means every row committed before the crash stays,
+leaving partial data in the database.
+For a small CSV in a tutorial, the difference is unnoticeable.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Add a Confirmation Step</h3>
+<p>Modify the delete route so that clicking "Delete this sighting" first shows a page asking
+"Are you sure?" with Confirm and Cancel buttons.
+Only delete the row if the user clicks Confirm.</p>
+<h3>Validate the Input Before Inserting</h3>
+<p>The add handler trusts that latitude is between -90 and 90 and longitude is between -180 and 180.
+Add a check in the <code>POST /add</code> handler that returns an error message if either value is out of range,
+without inserting any row.</p>
+<h3>Report Upload Errors</h3>
+<p>If a row in the CSV is missing a required field, the handler raises an unhandled error.
+Modify it to skip bad rows and return a page that lists which row numbers were skipped and why.</p>
+<h3>Edit an Existing Record</h3>
+<p>Add a <code>GET /edit/{id}</code> route that shows a form pre-filled with the current values of a sighting,
+and a <code>POST /edit/{id}</code> route that updates the row in the database with the submitted values.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../testdatabase/">Testing with Fixtures</a>
+</div>
+<div class="col-6 center">
+<a href="../">WebLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../testclient/">Testing with a Browser</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
