@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Better Prompts</title>
+<meta content="Learning Data Science with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DSLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">First Steps</a></li>
+<li><a href="../chart/">First Charts</a></li>
+<li><a href="../clean/">Cleaning</a></li>
+<li><a href="../summarize/">Summarizing</a></li>
+<li><a href="../tables/">Tables</a></li>
+<li><a class="active" href="../prompts/">Better Prompts</a></li>
+<li><a href="../change/">Tracking Change</a></li>
+<li><a href="../join/">Joining Data</a></li>
+<li><a href="../stories/">Telling Stories</a></li>
+<li><a href="../validate/">Checking Your Work</a></li>
+<li><a href="../repro/">Reproducibility</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Better Prompts</h1>
+<h2>Goals</h2>
+<ul>
+<li>Identify what information an LLM needs to write useful data-science code.</li>
+<li>Write prompts that include data shape, goal, and constraints.</li>
+<li>Interpret a probability as a proportion and connect it to observed counts.</li>
+</ul>
+<h2>Why Vague Prompts Fail</h2>
+<blockquote>
+<p>What goes wrong when I give an LLM a vague prompt?</p>
+</blockquote>
+<ul>
+<li>The dataset for this session is the Environment and Climate Change Canada National Pollutant Release Inventory (NPRI) [<a class="bib-ref" href="../bibliography/#npri2025">npri2025</a>]<ul>
+<li>Download the most recent annual CSV from <a href="https://www.canada.ca/en/environment-climate-change/services/national-pollutant-release-inventory.html">NPRI</a></li>
+<li>It has one row per facility per substance reported, with columns for facility name, province, substance name (in English and French), the quantity released, and the units</li>
+<li>Under Canadian law, facilities that release more than threshold quantities of listed substances must report them here</li>
+</ul>
+</li>
+<li>Consider the vague prompt: "How many facilities released dangerous amounts of lead?"<ul>
+<li>The LLM does not know the column name for substance, so it invents one</li>
+<li>It does not know the threshold or the substance name as it appears in the file, so it guesses</li>
+<li>The code may run without error and be entirely wrong</li>
+</ul>
+</li>
+</ul>
+<div data-inc="vague_prompt.py"><span aria-label="Source: prompts/vague_prompt.py" class="inc-path" role="img" tabindex="0" title="prompts/vague_prompt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="c1"># The LLM invented "substance" and "lead_threshold" -- neither exists.</span>
+<span class="c1"># This code will crash with KeyError: 'substance'</span>
+<span class="n">dangerous</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"substance"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"lead"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"lead_threshold"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities releasing dangerous amounts of lead: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dangerous</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>This code may crash (<code>KeyError: 'substance'</code>) or silently return the wrong answer (if the LLM guessed a column name that happens to exist but refers to something else)</li>
+</ul>
+<h2>Anatomy of a Good Prompt</h2>
+<blockquote>
+<p>What information does a prompt need to include to get useful code?</p>
+</blockquote>
+<ul>
+<li>A useful prompt has three parts: a description of the data, the goal, and any constraints<ul>
+<li>Data description: column names, data types, and a sample row</li>
+<li>Goal: exactly what you want to compute or display</li>
+<li>Constraints: the exact substance name as it appears in the file, the threshold, the units</li>
+</ul>
+</li>
+<li>To give the LLM column names and a sample row, print them first:</li>
+</ul>
+<div data-inc="show_sample.py"><span aria-label="Source: prompts/show_sample.py" class="inc-path" role="img" tabindex="0" title="prompts/show_sample.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Column names:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First row:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Distinct substance names (first 20):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Substance_Name_English"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Then include that output in your prompt: "The data has columns NPRI_ID, Facility_Name, Province_Territory, Substance_Name_English, Total_Released_Tonnes. One row looks like: {row}. Using Polars, find the proportion of facilities that released more than 1 tonne of 'Lead (and its compounds)' in the most recent year."<ul>
+<li>Now the LLM knows the exact column names, the exact substance string, and the threshold</li>
+<li>This is the difference between a guess and a grounded answer</li>
+</ul>
+</li>
+</ul>
+<h2>Computing a Proportion</h2>
+<blockquote>
+<p>What proportion of facilities released more than one tonne of lead compounds in the most recent year?</p>
+</blockquote>
+<ul>
+<li>Paste the well-structured prompt from above</li>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="lead_prop.py"><span aria-label="Source: prompts/lead_prop.py" class="inc-path" role="img" tabindex="0" title="prompts/lead_prop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tonnes; NPRI reporting threshold for lead (and its compounds)</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"Lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_lead</span><span class="p">)</span>
+<span class="n">exceeds</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">LEAD_THRESHOLD</span><span class="p">)</span><span class="o">.</span><span class="n">height</span>
+<span class="n">proportion</span> <span class="o">=</span> <span class="n">exceeds</span> <span class="o">/</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Year: </span><span class="si">{</span><span class="n">most_recent_year</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities reporting lead with release data: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities releasing more than </span><span class="si">{</span><span class="n">LEAD_THRESHOLD</span><span class="si">}</span><span class="s2"> tonne: </span><span class="si">{</span><span class="n">exceeds</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proportion: </span><span class="si">{</span><span class="n">proportion</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (about 1 in </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">proportion</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Read through the code before running it<ul>
+<li><code>LEAD_THRESHOLD = 1.0</code> is a named constant (good)</li>
+<li><code>LEAD_SUBSTANCE</code> names the exact string from the file: this will only work if it matches the CSV exactly</li>
+<li>The final print statement shows the proportion and its 1-in-N equivalent:
+    check that both numbers are consistent</li>
+</ul>
+</li>
+</ul>
+<h2>Probability as a Proportion</h2>
+<blockquote>
+<p>What does it mean to say the probability of exceeding the threshold is 0.059?</p>
+</blockquote>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#probability">probability</a> between 0 and 1 is a proportion<ul>
+<li>0.059 means about 59 out of 1 000 facilities (or roughly 1 in 17)</li>
+<li>0 means it never happened in this sample; 1 means it always occurred</li>
+<li>It is a description of this dataset, not a guarantee about any individual facility</li>
+</ul>
+</li>
+<li>Probability is estimated from counts: if 47 of 800 facilities exceed the threshold, the estimated probability is 0.059<ul>
+<li>A larger sample gives a more reliable estimate</li>
+<li>Facilities from one province may not represent the national picture</li>
+</ul>
+</li>
+</ul>
+<h2>Verifying by Hand</h2>
+<blockquote>
+<p>How do I check that the code produced the right answer?</p>
+</blockquote>
+<ul>
+<li>For a proportion, the verification is simple: count a small subset by hand<ul>
+<li>Sort the lead rows by quantity descending; check how many of the first 20 exceed 1 tonne</li>
+<li>Multiply that fraction by the total facility count and compare to the code's output</li>
+</ul>
+</li>
+</ul>
+<div data-inc="verify.py"><span aria-label="Source: prompts/verify.py" class="inc-path" role="img" tabindex="0" title="prompts/verify.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"Lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"Facility_Name"</span><span class="p">,</span> <span class="s2">"Province_Territory"</span><span class="p">,</span> <span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Rows in this sample above </span><span class="si">{</span><span class="n">LEAD_THRESHOLD</span><span class="si">}</span><span class="s2"> tonne: "</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sample</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">'Total_Released_Tonnes'</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">LEAD_THRESHOLD</span><span class="p">)</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Look at the output and count the rows above 1 tonne yourself<ul>
+<li>If the code says 4 out of 20 and you count 4, the proportion calculation is probably correct</li>
+<li>If you count 3 and the code says 4, find which row the code counted that you did not</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>You paste the prompt: "Compute the average lead released." The LLM produces code that reads <code>df["lead_tonnes"].mean()</code> but your column is named <code>Total_Released_Tonnes</code>. The code crashes. Rewrite the prompt so this error cannot happen.</summary>
+<p>Include the exact column names and a sample row: "The dataset has columns NPRI_ID, Facility_Name, Province_Territory, Substance_Name_English, Total_Released_Tonnes. Using Polars, filter to rows where Substance_Name_English is 'Lead (and its compounds)' and compute the mean of Total_Released_Tonnes, excluding nulls."
+With the exact column name in the prompt, the LLM cannot invent an alternative.</p>
+</details>
+<details>
+<summary>The code filters to <code>Substance_Name_English == "Lead (and its compounds)"</code> and returns 0 rows. You can see lead entries in the first few rows of the file. What are two likely causes?</summary>
+<p>First, the substance name in the file might use different capitalisation or punctuation
+(for example, "Lead and its compounds" without parentheses, or "lead (and its compounds)" in lowercase).
+Print <code>df["Substance_Name_English"].unique()</code> and search for rows containing "Lead" to find the exact string.
+Second, the filter may be applied before the year filter, so the correct rows exist in the full data but are excluded by an earlier step.
+Print the dataframe at each step to find where the rows disappear.</p>
+</details>
+<details>
+<summary>The code returns a proportion of 0.031. You check the first 20 lead-reporting rows and find 2 above 1 tonne. Is the code consistent with your check? Show your reasoning.</summary>
+<p>2 out of 20 is 0.10, which is much higher than 0.031.
+This discrepancy is suspicious.
+Possible causes: the first 20 rows may be sorted by quantity descending, so they overrepresent high-release facilities; the LLM may have filtered to a different set of rows for the proportion than for the sample; or the denominator may be different (perhaps it counted all facilities, not just lead-reporting ones).
+Expand the hand-check to a random sample of rows rather than the first 20.</p>
+</details>
+<details>
+<summary>A report says "6% of facilities reporting to NPRI released more than 1 tonne of lead compounds." Someone reads this and says "my city's factory has a 6% chance of being a lead emitter." What is wrong with this interpretation?</summary>
+<p>The 6% is a proportion across all NPRI-reporting facilities, which are a specific, non-random group
+(facilities large enough to meet reporting thresholds).
+A factory that does not meet any NPRI reporting threshold is not in the denominator at all.
+The proportion from a non-random, self-selected reporting group cannot be applied as a probability to a specific facility that may or may not be in the group.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Provincial Breakdown</h3>
+<p>Ask the LLM to compute the proportion of facilities exceeding 1 tonne separately for each province.
+Which provinces have the highest proportions?
+Is there a pattern you would expect given Canada's industrial geography?</p>
+<h3>Multiple Substances</h3>
+<p>The NPRI tracks many pollutants.
+Ask the LLM to compute the proportion of facilities exceeding reporting thresholds for mercury (Hg, threshold 5 kg) and arsenic (As, threshold 1 tonne) in addition to lead.
+Compare the three proportions.</p>
+<h3>Trend Over Time</h3>
+<p>Ask the LLM to compute the proportion of facilities reporting lead releases above 1 tonne for each year in the dataset.
+Has the proportion changed over time?</p>
+<h3>Re-prompt After Failure</h3>
+<p>Give the LLM the vague prompt "How many facilities released dangerous amounts of lead?" and record what it produces.
+Then give it the well-structured prompt from this session and compare the two results.
+Write one sentence describing what changed between the two outputs.</p>
+<h3>Threshold Set Too High</h3>
+<p>The following code computes the proportion of lead-reporting facilities that exceeded a threshold,
+but the proportion is much smaller than the figure reported in published NPRI summaries.
+Work with an LLM to find the wrong constant and correct it.</p>
+<div data-inc="threshold_bug.py"><span aria-label="Source: prompts/threshold_bug.py" class="inc-path" role="img" tabindex="0" title="prompts/threshold_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># tonnes</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"Lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_lead</span><span class="p">)</span>
+<span class="n">exceeds</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">LEAD_THRESHOLD</span><span class="p">)</span><span class="o">.</span><span class="n">height</span>
+<span class="n">proportion</span> <span class="o">=</span> <span class="n">exceeds</span> <span class="o">/</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Year: </span><span class="si">{</span><span class="n">most_recent_year</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities reporting lead: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities exceeding threshold: </span><span class="si">{</span><span class="n">exceeds</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proportion: </span><span class="si">{</span><span class="n">proportion</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>The corrected proportion should be close to the figure in the NPRI annual summary for the same year.
+Also check that the constant name <code>LEAD_THRESHOLD</code> matches the value described in the NPRI documentation.</p>
+</details>
+<h3>Substance Name Does Not Match</h3>
+<p>The following code filters to lead-reporting facilities but returns zero rows.
+Work with an LLM to explain why the filter finds nothing and fix the string.</p>
+<div data-inc="substance_bug.py"><span aria-label="Source: prompts/substance_bug.py" class="inc-path" role="img" tabindex="0" title="prompts/substance_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tonnes</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows matching substance filter: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_lead</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distinct substances in full dataset (sample):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Substance_Name_English"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>After fixing, the row count should be greater than zero.
+Print <code>df["Substance_Name_English"].unique()</code> and search for "lead" to find the exact string as it appears in the file,
+then confirm the constant matches it character for character.</p>
+</details>
+<h3>Wrong Denominator</h3>
+<p>The following code computes the proportion of facilities exceeding the lead threshold,
+but uses the total number of NPRI-reporting facilities as the denominator rather than
+just the facilities that reported lead.
+Work with an LLM to identify which denominator is correct and fix the calculation.</p>
+<div data-inc="denom_bug.py"><span aria-label="Source: prompts/denom_bug.py" class="inc-path" role="img" tabindex="0" title="prompts/denom_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tonnes</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"Lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+
+<span class="n">all_facilities</span> <span class="o">=</span> <span class="n">df_year</span><span class="p">[</span><span class="s2">"NPRI_ID"</span><span class="p">]</span><span class="o">.</span><span class="n">n_unique</span><span class="p">()</span>
+<span class="n">exceeds</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">LEAD_THRESHOLD</span><span class="p">)</span><span class="o">.</span><span class="n">height</span>
+<span class="n">proportion</span> <span class="o">=</span> <span class="n">exceeds</span> <span class="o">/</span> <span class="n">all_facilities</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Year: </span><span class="si">{</span><span class="n">most_recent_year</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"All facilities this year: </span><span class="si">{</span><span class="n">all_facilities</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Lead-reporting facilities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_lead</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Facilities exceeding </span><span class="si">{</span><span class="n">LEAD_THRESHOLD</span><span class="si">}</span><span class="s2"> t: </span><span class="si">{</span><span class="n">exceeds</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proportion (of all facilities): </span><span class="si">{</span><span class="n">proportion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>The code already prints both <code>all_facilities</code> and <code>len(df_lead)</code>.
+Compute both proportions by hand and decide which one answers the question
+"of facilities that reported lead, what fraction exceeded the threshold?"</p>
+</details>
+<h3>Print the Evidence</h3>
+<p>The following code prints a proportion but not the numerator or denominator,
+so there is no way to verify the arithmetic by eye.
+Work with an LLM to extend it to also print the count of facilities exceeding the threshold
+and the total count of lead-reporting facilities.</p>
+<div data-inc="count_extend.py"><span aria-label="Source: prompts/count_extend.py" class="inc-path" role="img" tabindex="0" title="prompts/count_extend.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LEAD_THRESHOLD</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># tonnes</span>
+<span class="n">LEAD_SUBSTANCE</span> <span class="o">=</span> <span class="s2">"Lead (and its compounds)"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"npri_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Reporting_Year"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_lead</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Reporting_Year"</span><span class="p">)</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Substance_Name_English"</span><span class="p">)</span> <span class="o">==</span> <span class="n">LEAD_SUBSTANCE</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">])</span>
+<span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_lead</span><span class="p">)</span>
+<span class="n">exceeds</span> <span class="o">=</span> <span class="n">df_lead</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Total_Released_Tonnes"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">LEAD_THRESHOLD</span><span class="p">)</span><span class="o">.</span><span class="n">height</span>
+<span class="n">proportion</span> <span class="o">=</span> <span class="n">exceeds</span> <span class="o">/</span> <span class="n">total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proportion exceeding </span><span class="si">{</span><span class="n">LEAD_THRESHOLD</span><span class="si">}</span><span class="s2"> t: </span><span class="si">{</span><span class="n">proportion</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># TODO: also print exceeds and total so the reader can verify</span>
+<span class="c1"># that proportion = exceeds / total</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the addition is correct?</summary>
+<p>Divide the two new numbers yourself and confirm the result matches the printed proportion.
+If <code>exceeds / total</code> does not equal the proportion shown, there is a bug in the original computation.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../tables/">Tables</a>
+</div>
+<div class="col-6 center">
+<a href="../">DSLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../change/">Tracking Change</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

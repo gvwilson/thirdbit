@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checking Your Work</title>
+<meta content="Learning Data Science with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DSLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">First Steps</a></li>
+<li><a href="../chart/">First Charts</a></li>
+<li><a href="../clean/">Cleaning</a></li>
+<li><a href="../summarize/">Summarizing</a></li>
+<li><a href="../tables/">Tables</a></li>
+<li><a href="../prompts/">Better Prompts</a></li>
+<li><a href="../change/">Tracking Change</a></li>
+<li><a href="../join/">Joining Data</a></li>
+<li><a href="../stories/">Telling Stories</a></li>
+<li><a class="active" href="../validate/">Checking Your Work</a></li>
+<li><a href="../repro/">Reproducibility</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Checking Your Work</h1>
+<h2>Goals</h2>
+<ul>
+<li>Verify LLM output by checking it against known values and common sense.</li>
+<li>Interpret a hypothesis test result without misreading it as certainty.</li>
+<li>Recognize that a confident-sounding LLM answer is not a correct answer.</li>
+</ul>
+<h2>The Unit Error</h2>
+<blockquote>
+<p>What happens when the LLM silently uses the wrong units?</p>
+</blockquote>
+<ul>
+<li>The dataset for this session comes from
+    the Canada Energy Regulator and Natural Resources Canada [<a class="bib-ref" href="../bibliography/#cer2025">cer2025</a>]<ul>
+<li>Download two tables from <a href="https://www.cer-rec.gc.ca/en/data-analysis/energy-commodities/natural-gas/">Canada Energy Regulator</a>:<ul>
+<li>Provincial natural gas production reported in thousands of cubic metres (10³ m³)</li>
+<li>Provincial natural gas consumption reported in millions of cubic metres (10⁶ m³)</li>
+</ul>
+</li>
+<li>Both tables cover the same years and provinces but use different prefixes</li>
+</ul>
+</li>
+<li>When you ask the LLM to compare production to consumption, it reads both columns and divides them<ul>
+<li>The code runs without error and returns a number</li>
+<li>That number is off by a factor of 1 000, because 1 million m³ = 1 000 thousand m³</li>
+<li>Nothing in the code signals that anything is wrong</li>
+</ul>
+</li>
+</ul>
+<div data-inc="unit_error.py"><span aria-label="Source: validate/unit_error.py" class="inc-path" role="img" tabindex="0" title="validate/unit_error.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>   <span class="c1"># units: 10³ m³ (thousands)</span>
+<span class="n">consumption</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_consumption_mcm.csv"</span><span class="p">)</span>  <span class="c1"># units: 10⁶ m³ (millions)</span>
+
+<span class="c1"># BUG: treats 10³ m³ and 10⁶ m³ as the same unit.</span>
+<span class="c1"># The ratio will be off by a factor of 1 000.</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">production</span><span class="p">[</span><span class="s2">"production"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">consumption</span><span class="p">[</span><span class="s2">"consumption"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Production-to-consumption ratio: </span><span class="si">{</span><span class="n">ratio</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"(This number is wrong if the units have not been converted.)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and look at the ratio<ul>
+<li>Alberta produces far more gas than it consumes:
+    a ratio well above 1 for a major exporting province is plausible</li>
+<li>If the ratio is in the hundreds or in the thousandths, there is a unit error</li>
+</ul>
+</li>
+</ul>
+<h2>Checking Without Reading Code</h2>
+<blockquote>
+<p>What strategies let me catch this error without reading the code?</p>
+</blockquote>
+<ul>
+<li>Check a single known value by hand<ul>
+<li>The Canada Energy Regulator publishes summary statistics; find Alberta's production for one recent year</li>
+<li>If the CER says Alberta produced approximately 163 billion m³ in 2022, and your file shows 163 000 for that row, the column is in millions of m³ (163 000 × 10⁶ = 163 × 10⁹ m³)</li>
+<li>Confirm the units before computing any ratio</li>
+</ul>
+</li>
+<li>Ask the LLM what units it assumed<ul>
+<li>Paste the code into a new prompt: "What units did you assume for each column in this code?"</li>
+<li>A well-functioning LLM will identify the unit columns; a poorly-prompted one will guess</li>
+</ul>
+</li>
+<li>Compare to a published figure<ul>
+<li>If your computed ratio is 1 000 or 0.001, the units do not match</li>
+</ul>
+</li>
+</ul>
+<h2>The Correct Comparison</h2>
+<blockquote>
+<p>Fix the code so both columns use the same unit before comparing.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>The production column is in 10³ m³ (thousands of cubic metres)
+and the consumption column is in 10⁶ m³ (millions of cubic metres).
+Convert the production column to 10⁶ m³ by dividing by 1000 before computing the ratio.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="unit_fix.py"><span aria-label="Source: validate/unit_fix.py" class="inc-path" role="img" tabindex="0" title="validate/unit_fix.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># 1 × 10⁶ m³ = 1 000 × 10³ m³</span>
+<span class="c1"># Divide production (10³ m³) by 1 000 to convert to 10⁶ m³ before comparing.</span>
+<span class="n">TCM_TO_MCM</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1_000.0</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>
+<span class="n">consumption</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_consumption_mcm.csv"</span><span class="p">)</span>
+
+<span class="n">production_mcm</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"production"</span><span class="p">)</span> <span class="o">*</span> <span class="n">TCM_TO_MCM</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"production_mcm"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">production_mcm</span><span class="p">[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">consumption</span><span class="p">[</span><span class="s2">"consumption"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Production (mean, 10⁶ m³): </span><span class="si">{</span><span class="n">production_mcm</span><span class="p">[</span><span class="s1">'production_mcm'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Consumption (mean, 10⁶ m³): </span><span class="si">{</span><span class="n">consumption</span><span class="p">[</span><span class="s1">'consumption'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ratio (production / consumption, same units): </span><span class="si">{</span><span class="n">ratio</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and check: does the result match the by-hand estimate from the previous section?</li>
+</ul>
+<h2>Running a Hypothesis Test</h2>
+<blockquote>
+<p>Run a t-test to check whether natural gas production differs significantly
+between Alberta and British Columbia.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>Using Polars and scipy.stats, read gas_production.csv,
+extract the production values for Alberta and BC, and run a Welch's t-test.
+Print the t-statistic and the p-value.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="ttest.py"><span aria-label="Source: validate/ttest.py" class="inc-path" role="img" tabindex="0" title="validate/ttest.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Convert to consistent units before comparing (10³ m³ → 10⁶ m³)</span>
+<span class="n">TCM_TO_MCM</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1_000.0</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>
+<span class="n">production</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"production"</span><span class="p">)</span> <span class="o">*</span> <span class="n">TCM_TO_MCM</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"production_mcm"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">alberta</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"AB"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"BC"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">alberta</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t-statistic: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p-value:     </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Result: statistically significant at the 0.05 level."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Result: not statistically significant at the 0.05 level."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and look at the p-value</li>
+</ul>
+<h2>What a P-Value Means</h2>
+<blockquote>
+<p>What does it actually mean when the p-value is 0.003?</p>
+</blockquote>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#p-value">p-value</a> is the probability of seeing a difference at least this large if there were truly no difference between the two groups<ul>
+<li>p = 0.003 means that if Alberta and BC truly had identical production levels,
+     only 0.3% of random samples would show a difference this large or larger</li>
+<li>It does not mean "there is a 99.7% chance the difference is real"</li>
+</ul>
+</li>
+<li>Rejecting the <a class="gl-ref" href="../glossary/#null-hypothesis">null hypothesis</a> (the assumption of no difference) at p &lt; 0.05
+     means "this result is surprising enough that we should take it seriously"<ul>
+<li>It does not mean the difference is large enough to matter practically</li>
+<li>It does not mean the measurement was correct</li>
+</ul>
+</li>
+<li>A unit error that inflates one column by 1 000× will produce a very significant p-value<ul>
+<li>The difference is real, but you measured the wrong thing</li>
+</ul>
+</li>
+</ul>
+<h2>When Significance Misleads</h2>
+<blockquote>
+<p>Why can a statistically significant result be meaningless?</p>
+</blockquote>
+<ul>
+<li>Statistical significance tells you the signal is large relative to the noise in your sample<ul>
+<li>It says nothing about whether you measured the right quantity</li>
+<li>A perfectly measured wrong quantity can be highly significant</li>
+</ul>
+</li>
+<li>The unit error in this session is an example<ul>
+<li>After the error, production appears 1 000 times larger relative to consumption than it should</li>
+<li>That difference is highly statistically significant, and entirely artifactual</li>
+</ul>
+</li>
+<li>Before interpreting a significant p-value, confirm the inputs are correct<ul>
+<li>Do the units match? Do the columns contain what you think they contain?</li>
+<li>Has someone checked a known row by hand?</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>The LLM produces a production-to-consumption ratio of 0.001 for Alberta. You expected a value around 5 (Alberta exports far more than it consumes). What unit conversion did the LLM get backwards, and what is the correct ratio?</summary>
+<p>The LLM divided thousands of m³ of production by millions of m³ of consumption without converting.
+1 million m³ = 1000 thousand m³, so consumption in millions
+is 1000 times larger than the same value in thousands.
+To get the correct ratio,
+first convert production from 10³ m³ to 10⁶ m³ by dividing by 1000,
+then divide production by consumption.
+If Alberta produced roughly 163 000 in 10³ m³ units (163 million m³) and consumed 20 million m³,
+the correct ratio is approximately 8.</p>
+</details>
+<details>
+<summary>A t-test returns p = 0.0004. A classmate says "this proves Alberta and BC have different production levels." Correct their interpretation in one or two sentences.</summary>
+<p>p = 0.0004 means that if Alberta and BC truly had identical production levels,
+only 0.04% of random samples would show a difference this large.
+It does not prove they are different.
+It says the observed difference is very unlikely under the null hypothesis,
+and it says nothing about whether the units were correct
+or whether the difference is large enough to be practically meaningful.</p>
+</details>
+<details>
+<summary>You check a single row by hand and find the LLM's computed ratio for 2020 is 0.0081, but your manual calculation gives 8.1. List the steps you would take before re-running the analysis.</summary>
+<p>First, confirm your manual calculation by re-deriving the 2020 values from the published CER tables
+and recomputing the ratio.
+Second, ask the LLM which columns it used and what units it assumed for each.
+Third, check whether the code reads the correct rows for 2020,
+as there may be summary rows or header rows the LLM included.
+Fourth, re-run the corrected code on only the 2020 row
+to confirm the output matches your manual result before running on the full dataset.</p>
+</details>
+<details>
+<summary>After fixing the unit error, you re-run the t-test comparing Alberta and BC production and get p = 0.21. The original (incorrect) analysis gave p &lt; 0.001. What does this change tell you?</summary>
+<p>The original highly significant result was driven entirely by the unit error,
+which made BC and Alberta production appear 1000 times more different than they actually are.
+After correcting the units,
+the actual year-to-year variation in production within each province is large enough that
+the difference between provinces is not statistically distinguishable from chance.
+This shows why significance alone is not enough:
+the first analysis produced a convincingly significant result that was measuring the wrong thing.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Three-Province Comparison</h3>
+<p>Add Saskatchewan to the comparison.
+Ask the LLM to compute mean natural gas production for Alberta, BC, and Saskatchewan in the same unit.
+Verify your result against a published CER summary table.</p>
+<h3>Ask About Assumptions</h3>
+<p>Take any code from an earlier session and paste it into a new prompt:
+"What assumptions did you make about the data types and units of each column?"
+Compare the LLM's answer to the actual column types in the data.</p>
+<h3>Sensitivity Analysis</h3>
+<p>For the Alberta vs. BC comparison, vary the significance threshold from 0.01 to 0.10 in steps of 0.01.
+At which threshold does the corrected analysis first become significant?
+What does this tell you about using a single fixed threshold?</p>
+<h3>Find the Published Figure</h3>
+<p>The CER publishes annual energy market reports.
+Find their stated value for Alberta natural gas production in the most recent year
+and compare it to your computed total.
+Do they match?</p>
+<h3>Units Not Converted</h3>
+<p>The following code computes Alberta's production-to-consumption ratio,
+but the result is off by a factor of 1,000 because the two columns use different units.
+Work with an LLM to identify which column needs to be converted and fix the calculation.</p>
+<div data-inc="unit_bug.py"><span aria-label="Source: validate/unit_bug.py" class="inc-path" role="img" tabindex="0" title="validate/unit_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>   <span class="c1"># units: 10³ m³ (thousands)</span>
+<span class="n">consumption</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_consumption_mcm.csv"</span><span class="p">)</span>  <span class="c1"># units: 10⁶ m³ (millions)</span>
+
+<span class="n">ab_prod</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"AB"</span><span class="p">)[</span><span class="s2">"production"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ab_cons</span> <span class="o">=</span> <span class="n">consumption</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"AB"</span><span class="p">)[</span><span class="s2">"consumption"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">ab_prod</span> <span class="o">/</span> <span class="n">ab_cons</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alberta mean annual production: </span><span class="si">{</span><span class="n">ab_prod</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alberta mean annual consumption: </span><span class="si">{</span><span class="n">ab_cons</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Production-to-consumption ratio: </span><span class="si">{</span><span class="n">ratio</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>Alberta is a major natural gas exporter, so its ratio should be well above 1, around 5 to 10.
+If the result is in the thousandths or in the thousands, the unit conversion is still wrong.
+Check one year's production value against a published CER figure to confirm the units.</p>
+</details>
+<h3>One-Tailed Test When Two-Tailed Is Needed</h3>
+<p>The following code runs a t-test to compare Alberta and BC production,
+but uses <code>alternative="greater"</code> rather than testing for any difference.
+Work with an LLM to explain what this assumption means and correct the test.</p>
+<div data-inc="onetail_bug.py"><span aria-label="Source: validate/onetail_bug.py" class="inc-path" role="img" tabindex="0" title="validate/onetail_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">TCM_TO_MCM</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1_000.0</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>
+<span class="n">production</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"production"</span><span class="p">)</span> <span class="o">*</span> <span class="n">TCM_TO_MCM</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"production_mcm"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">alberta</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"AB"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"BC"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">alberta</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"greater"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t-statistic: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p-value:     </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Result: statistically significant at the 0.05 level."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Result: not statistically significant at the 0.05 level."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>The two-sided p-value is approximately twice the one-sided p-value when the test statistic is positive.
+Confirm this relationship holds by comparing the outputs of both versions.
+Also describe in one sentence what assumption <code>alternative="greater"</code> makes that may not be justified.</p>
+</details>
+<h3>Province Names Do Not Match</h3>
+<p>The following code runs a t-test but prints zero rows for both provinces,
+producing a <code>NaN</code> t-statistic.
+Work with an LLM to find why the filter returns no data and fix the province names.</p>
+<div data-inc="col_bug.py"><span aria-label="Source: validate/col_bug.py" class="inc-path" role="img" tabindex="0" title="validate/col_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">TCM_TO_MCM</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1_000.0</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>
+<span class="n">production</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"production"</span><span class="p">)</span> <span class="o">*</span> <span class="n">TCM_TO_MCM</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"production_mcm"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distinct province values: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">production</span><span class="p">[</span><span class="s1">'province'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">alberta</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Alberta"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"British Columbia"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alberta rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alberta</span><span class="p">)</span><span class="si">}</span><span class="s2">, BC rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bc</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">alberta</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t-statistic: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p-value:     </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>The code already prints the distinct province values in the data.
+After fixing, the Alberta and BC arrays should each have one value per year,
+and the t-statistic should be a real number.</p>
+</details>
+<h3>Adding Effect Size</h3>
+<p>The following code runs a t-test and reports whether the result is statistically significant.
+Work with an LLM to extend it to also compute and print Cohen's d,
+along with a label indicating whether the effect size is small, medium, or large.</p>
+<div data-inc="effect_extend.py"><span aria-label="Source: validate/effect_extend.py" class="inc-path" role="img" tabindex="0" title="validate/effect_extend.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">TCM_TO_MCM</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1_000.0</span>
+
+<span class="n">production</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"gas_production_tcm.csv"</span><span class="p">)</span>
+<span class="n">production</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"production"</span><span class="p">)</span> <span class="o">*</span> <span class="n">TCM_TO_MCM</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"production_mcm"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">alberta</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"AB"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">production</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"province"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"BC"</span><span class="p">)[</span><span class="s2">"production_mcm"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">alberta</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t-statistic: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p-value:     </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># TODO: compute Cohen's d = (mean_alberta - mean_bc) / pooled_std,</span>
+<span class="c1"># where pooled_std = sqrt((std_alberta**2 + std_bc**2) / 2),</span>
+<span class="c1"># and print it alongside an interpretation (small &lt; 0.2, medium 0.2–0.8, large &gt; 0.8)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the addition is correct?</summary>
+<p>Compute Cohen's d by hand using the means and standard deviations already available
+and confirm it matches the printed value.
+A very large or very small d that contradicts the t-test result suggests a calculation error.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../stories/">Telling Stories</a>
+</div>
+<div class="col-6 center">
+<a href="../">DSLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../repro/">Reproducibility</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

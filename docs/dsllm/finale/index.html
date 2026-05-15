@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion</title>
+<meta content="Learning Data Science with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DSLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">First Steps</a></li>
+<li><a href="../chart/">First Charts</a></li>
+<li><a href="../clean/">Cleaning</a></li>
+<li><a href="../summarize/">Summarizing</a></li>
+<li><a href="../tables/">Tables</a></li>
+<li><a href="../prompts/">Better Prompts</a></li>
+<li><a href="../change/">Tracking Change</a></li>
+<li><a href="../join/">Joining Data</a></li>
+<li><a href="../stories/">Telling Stories</a></li>
+<li><a href="../validate/">Checking Your Work</a></li>
+<li><a href="../repro/">Reproducibility</a></li>
+<li><a class="active" href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Conclusion</h1>
+<h2>Goals</h2>
+<ul>
+<li>Review the workflow built across twelve sessions.</li>
+<li>Know where to find help when an LLM fails.</li>
+<li>Make an informed choice about when to use LLM tools and when not to.</li>
+<li>Identify the next skills worth learning.</li>
+</ul>
+<h2>The Workflow You Built</h2>
+<blockquote>
+<p>Look back at the code and charts you produced over twelve sessions. What steps appear in every session?</p>
+</blockquote>
+<ul>
+<li>Every session followed the same loop, even when the dataset and question changed:<ul>
+<li>Write a prompt that describes the data, the goal, and any constraints</li>
+<li>Paste the LLM's code into a notebook cell and run it</li>
+<li>Check whether the output is plausible before trusting it</li>
+<li>Iterate: ask the LLM to fix what is wrong, or adjust the prompt and try again</li>
+<li>Produce a chart or table and verify it against the raw data</li>
+</ul>
+</li>
+<li>The loop looks simple, but the judgment inside each step takes practice<ul>
+<li>Knowing what counts as "plausible" requires knowing the domain</li>
+<li>Knowing how to check output requires knowing what could go wrong</li>
+<li>Knowing when to stop iterating requires knowing what "good enough" looks like for your question</li>
+</ul>
+</li>
+<li>Sessions 1 through 6 asked you to focus on prompting and interpreting</li>
+<li>Sessions 7 through 12 asked you to read the code well enough to catch errors<ul>
+<li>You do not need to write code from scratch to be a competent data scientist</li>
+<li>You do need to understand what the code is doing well enough to know when it is wrong</li>
+</ul>
+</li>
+</ul>
+<h2>When LLMs Fail</h2>
+<blockquote>
+<p>What do I do when the LLM produces code that crashes, or code that runs but gives the wrong answer?</p>
+</blockquote>
+<ul>
+<li>When the code crashes, the error message is your first clue<ul>
+<li>Copy the error message into a new prompt: "I got this error: [paste]. What is wrong?"</li>
+<li>Most errors have a standard fix; the LLM has seen them many times</li>
+<li>If the LLM's fix crashes too, read the error message yourself before prompting again</li>
+</ul>
+</li>
+<li>When the code runs but produces a suspicious result, the LLM is the wrong tool to ask<ul>
+<li>Checking output is your job, not the LLM's</li>
+<li>The strategies from <a href="../validate/">session 11</a>: check a known row by hand, compare to a published figure, ask "what units did you assume?"</li>
+</ul>
+</li>
+<li>When the LLM cannot help, other resources can:<ul>
+<li>The official documentation for Polars, Altair, and Python is free, current, and accurate [<a class="bib-ref" href="../bibliography/#polars2025">polars2025</a>] [<a class="bib-ref" href="../bibliography/#altair2025">altair2025</a>]</li>
+<li>Stack Overflow has answered most beginner questions many times; look for answers with many upvotes and recent dates</li>
+<li>A colleague who codes is often the fastest path to a correct answer</li>
+</ul>
+</li>
+</ul>
+<h2>The Environmental and Labor Costs</h2>
+<blockquote>
+<p>Given everything this course has covered, how should I decide when to use an LLM?</p>
+</blockquote>
+<ul>
+<li>The energy cost of a single query is small; the aggregate cost of millions of queries is not [<a class="bib-ref" href="../bibliography/#strubell2019">strubell2019</a>]<ul>
+<li>Using an LLM to automate a repetitive, well-understood step is a reasonable use of that energy</li>
+<li>Using an LLM to avoid thinking about your data is not</li>
+</ul>
+</li>
+<li>The people whose writing trained these models were not compensated for that use<ul>
+<li>This is an ongoing legal and ethical debate, not a resolved one</li>
+<li>Being aware of it is the beginning of making informed choices</li>
+</ul>
+</li>
+<li>The deskilling risk is real but not inevitable<ul>
+<li>Every session in this course asked you to interpret the output yourself</li>
+<li>If you have been doing that, you have been building skills, not losing them</li>
+<li>If you have been copying results without reading them, review the sessions where you did not check the output</li>
+</ul>
+</li>
+</ul>
+<h2>Where to Go Next</h2>
+<blockquote>
+<p>What should I learn after finishing this course?</p>
+</blockquote>
+<ul>
+<li>More statistics: this course introduced mean, median, correlation, regression, confidence intervals, and hypothesis testing<ul>
+<li>A next step is understanding when each is appropriate and what the assumptions behind them are</li>
+<li>A good free resource is the OpenIntro Statistics textbook [<a class="bib-ref" href="../bibliography/#openintro2019">openintro2019</a>]</li>
+</ul>
+</li>
+<li>Reproducible research workflows: notebooks are a start, but projects with many collaborators need more<ul>
+<li>Version control with <a href="https://git-scm.com/">Git</a> tracks who changed what and when</li>
+<li>Environments managed with uv or conda ensure that someone else can re-run your analysis on their machine</li>
+</ul>
+</li>
+<li>More Python: this course asked you to read code, not write it<ul>
+<li>If you want to modify code or write your own analyses, a Python fundamentals course is a natural next step</li>
+<li>Software Carpentry offers free, research-focused Python lessons [<a class="bib-ref" href="../bibliography/#swc-python2024">swc-python2024</a>]</li>
+</ul>
+</li>
+<li>Machine learning: once you can produce honest descriptive statistics, you can ask whether a model generalizes<ul>
+<li>Machine learning without the foundations in this course produces models whose errors you cannot diagnose</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>A colleague says "I don't need to check the LLM's output because it's always right for standard tasks." What is the flaw in this reasoning, and how would you explain it?</summary>
+<p>The LLM produces plausible text, not correct answers.
+For standard tasks it is right most of the time,
+which is what makes unchecked errors dangerous:
+they look like correct output.
+A unit error, a wrong column name, or a dropped null
+can all produce results that appear reasonable without a sanity check.
+The right approach is to check every result against something the LLM did <em>not</em> generate,
+such as a known row or a manual calculation.</p>
+</details>
+<details>
+<summary>You want to share your analysis with a collaborator so they can re-run it. List three things they will need, and one thing that can silently break even when all three are present.</summary>
+<p>They need: the data file, the notebook (with all cells run in order), and the same software versions (Polars, Altair, Python).
+Something that can silently break: if the data file is updated by its source (many government datasets are refreshed regularly),
+re-running the notebook will produce different results even with identical code.
+Record the date you downloaded the data and, if possible, save a copy alongside the notebook.</p>
+</details>
+<details>
+<summary>Explain the difference between statistical significance and practical significance, using an example from any session in this course.</summary>
+<p>Statistical significance means the result is unlikely to have arisen by chance given the sample size.
+Practical significance means the effect is large enough to matter in the real world.
+From session 11: a unit error can inflate numbers by a factor of nearly 300, making a trivial difference appear highly significant.
+A result can be statistically significant (p-value well below 0.05) and practically meaningless,
+or practically large and statistically insignificant if the sample is small.
+Both kinds of significance matter; neither alone is enough.</p>
+</details>
+<details>
+<summary>What is one question from your own field that you could now answer with the tools from this course, and one that you could not? Explain the difference.</summary>
+<p>Answers will vary.
+A question this course equips you to answer: "Do two groups in my dataset have different mean values, and is that difference larger than what chance would produce?"
+A question it does not equip you to answer: "Will this model correctly classify new cases it has never seen?" (That requires machine learning, not just descriptive statistics.)
+The difference is between describing what is in the data and predicting what is not yet in it.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Write Your Own Methods Section</h3>
+<p>Take any analysis you produced in this course and write a methods section for it, as if you were submitting it to a journal.
+Include the data source, the cleaning steps, the software used, and the statistical methods applied.</p>
+<h3>Find a Retraction</h3>
+<p>Search for a published paper in your field that was retracted because of a data or statistical error.
+Identify which step in the workflow introduced the error.
+Describe what check from this course would have caught it.</p>
+<h3>Teach It Back</h3>
+<p>Pick one statistical concept from this course (mean vs. median, confidence intervals, correlation vs. causation) and write a one-page explanation aimed at a first-year undergraduate with no statistics background.
+Use an example that is not from this course.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../repro/">Reproducibility</a>
+</div>
+<div class="col-6 center">
+<a href="../">DSLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../license/">License</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

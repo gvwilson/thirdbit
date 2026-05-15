@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cleaning</title>
+<meta content="Learning Data Science with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DSLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">First Steps</a></li>
+<li><a href="../chart/">First Charts</a></li>
+<li><a class="active" href="../clean/">Cleaning</a></li>
+<li><a href="../summarize/">Summarizing</a></li>
+<li><a href="../tables/">Tables</a></li>
+<li><a href="../prompts/">Better Prompts</a></li>
+<li><a href="../change/">Tracking Change</a></li>
+<li><a href="../join/">Joining Data</a></li>
+<li><a href="../stories/">Telling Stories</a></li>
+<li><a href="../validate/">Checking Your Work</a></li>
+<li><a href="../repro/">Reproducibility</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Cleaning</h1>
+<h2>Goals</h2>
+<ul>
+<li>Prompt an LLM to find missing values and inconsistent categories.</li>
+<li>Prompt an LLM to find missing values and inconsistent categories.</li>
+<li>Interpret before-and-after output to confirm cleaning worked.</li>
+<li>Explain how missing data can make a sample unrepresentative.</li>
+</ul>
+<h2>Why Real Data Is Dirty</h2>
+<blockquote>
+<p>What kinds of problems appear in real datasets, and why?</p>
+</blockquote>
+<ul>
+<li>Real datasets almost always have problems that need fixing before analysis:<ul>
+<li><a class="gl-ref" href="../glossary/#missing-value">Missing values</a> recorded as <code>U</code> (unknown),
+    <code>Q</code> (not applicable), blank cells, or special codes like <code>-99</code></li>
+<li>The same category recorded with different codes in different years as forms change</li>
+<li>Duplicate records from merging data from multiple sources or systems</li>
+<li>Columns where the meaning of a code changed between reporting periods</li>
+</ul>
+</li>
+<li>These problems arise because data is collected by different agencies at different times using different tools<ul>
+<li>A traffic collision form may have been redesigned several times over decades</li>
+<li>Merging records from ten provincial systems produces ten different conventions in one table</li>
+</ul>
+</li>
+<li>The dataset for this session is the Transport Canada National Collision Database (NCDB) [<a class="bib-ref" href="../bibliography/#ncdb2025">ncdb2025</a>]<ul>
+<li>Download <code>collision_data.csv</code> from <a href="https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a">Transport Canada NCDB</a></li>
+<li>It contains individual motor vehicle collision records going back decades,
+    with columns for year, province, road conditions, and person characteristics</li>
+</ul>
+</li>
+</ul>
+<h2>Finding Missing Values</h2>
+<blockquote>
+<p>Show me how many missing or unknown values each column has.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>Using Polars, read collision_data.csv, treat U, Q, and N as missing values,
+then print a table showing each column name and how many missing values it has,
+sorted from most to fewest.</p>
+</blockquote>
+<ul>
+<li>The NCDB uses coded values: <code>U</code> means unknown, <code>Q</code> means not applicable, <code>N</code> means not stated<ul>
+<li>None of these are the same as a number: they mean "we do not know this value"</li>
+<li>Polars reads them as strings, not as nulls, unless you tell it otherwise</li>
+</ul>
+</li>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="find_missing.py"><span aria-label="Source: clean/find_missing.py" class="inc-path" role="img" tabindex="0" title="clean/find_missing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">null_count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">include_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header_name</span><span class="o">=</span><span class="s2">"column"</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="p">[</span><span class="s2">"missing"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"missing"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"missing"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and look at the output<ul>
+<li>Some columns may have missing values in the majority of rows</li>
+<li>Columns like <code>C_WTHR</code> (weather condition) are often missing when conditions were not recorded at the scene</li>
+</ul>
+</li>
+</ul>
+<h2>Checking Category Values</h2>
+<blockquote>
+<p>Show me every distinct value in the sex column.</p>
+</blockquote>
+<p>or:</p>
+<blockquote>
+<p>Using Polars, read collision_data.csv with U, Q, and N as missing,
+then print every distinct value in the P_SEX column and how many times each appears.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="check_sex.py"><span aria-label="Source: clean/check_sex.py" class="inc-path" role="img" tabindex="0" title="clean/check_sex.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"P_SEX"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The output should show <code>M</code>, <code>F</code>, and possibly <code>U</code> or blank
+    if some rows were not caught by the null-value argument<ul>
+<li><code>M</code> = male, <code>F</code> = female, <code>U</code> = unknown sex</li>
+<li>Unknown sex is not the same as a missing value:
+    the record exists, but the person's sex was not recorded at the scene</li>
+</ul>
+</li>
+</ul>
+<h2>Normalizing Values</h2>
+<blockquote>
+<p>Treat U and N as missing so only M and F remain in the sex column.</p>
+</blockquote>
+<p>or:</p>
+<blockquote>
+<p>Using Polars, read collision_data.csv with U, Q, and N as missing.
+Print the distinct values and counts in P_SEX after cleaning.
+Print the total number of rows before and after dropping rows where P_SEX is null.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="normalize.py"><span aria-label="Source: clean/normalize.py" class="inc-path" role="img" tabindex="0" title="clean/normalize.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows before cleaning: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Distinct P_SEX values after null coding:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"P_SEX"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"P_SEX"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Rows after dropping null P_SEX: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_clean</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and check:<ul>
+<li>Only <code>M</code> and <code>F</code> appear in the cleaned column</li>
+<li>The row count after dropping null sex is smaller than before</li>
+<li>Spot-check: find one row that had <code>U</code> and confirm it is now null or gone</li>
+</ul>
+</li>
+</ul>
+<h2>Understanding Sampling Bias</h2>
+<blockquote>
+<p>If collision records in remote areas are under-reported, what does that mean for our analysis?</p>
+</blockquote>
+<ul>
+<li><a class="gl-ref" href="../glossary/#sampling-bias">Sampling bias</a> occurs when the data we have
+    is not a fair sample of the population we are studying<ul>
+<li>In Canada, minor collisions on remote roads may not be reported to police or to Transport Canada</li>
+<li>If remote collisions are missing from the database,
+    any analysis of "where roads are most dangerous" underestimates rural risk</li>
+<li>The LLM has no way to warn you about this: it only knows the data you give it</li>
+</ul>
+</li>
+<li>One way to check for bias is to compare what was recorded against what you know about the population</li>
+</ul>
+<blockquote>
+<p>Show me the distribution of P_PROV (province) in the data. Is it proportional to provincial population?</p>
+</blockquote>
+<ul>
+<li>If a province is severely under-represented, its collision records may be less complete</li>
+</ul>
+<blockquote>
+<p>Why can an LLM not fix sampling bias for you?</p>
+</blockquote>
+<ul>
+<li>The LLM can clean the coded values as instructed, but it cannot know what collisions were never recorded<ul>
+<li>Knowing whether the bias matters requires understanding your research question and data collection process</li>
+<li>Every cleaning decision is also a research decision: dropping rows,
+    treating codes as missing,
+    or pooling categories all change the population you are studying</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>After treating U as missing in the P_SEX column, a classmate removes all rows where sex is null to get a "clean" dataset. What assumption are they making, and when is that assumption wrong?</summary>
+<p>They are assuming that rows with unknown sex are missing at random,
+i.e., that collisions where sex was not recorded are otherwise the same as collisions where it was.
+If sex is less likely to be recorded for pedestrians, cyclists,
+or collisions involving multiple vehicles, dropping those rows changes the composition of the dataset.
+The cleaned sample no longer represents the same population as the full collision database.</p>
+</details>
+<details>
+<summary>You run the missing-value check and find that the C_WTHR (weather condition) column is 40% missing. The LLM suggests filling in the missing values with "Clear" since that is the most common value. What is wrong with this approach?</summary>
+<p>Filling in 40% of a column with the most common value assumes that weather condition was missing randomly
+and that most missing records happened on clear days.
+Neither assumption is justified.
+Collisions in bad weather may be more likely to have incomplete police reports
+if responding officers were busy managing the scene.
+Filling missing weather values with "Clear" would make conditions appear better than they were
+for a large fraction of the data,
+biasing any analysis of weather effects on collision rates.</p>
+</details>
+<details>
+<summary>The LLM produces code that reads null_values=["U", "Q", "N"]. You run it and then print the distinct values of P_SEX. You still see "U" in the output. What likely went wrong?</summary>
+<p>Polars requires null_values to match the exact string in the file,
+including any surrounding whitespace.
+If the file stores " U" (with a leading space) rather than "U",
+the match fails and the value is left as a string.
+Print <code>df["P_SEX"].unique()</code> and look carefully at the values:
+use <code>df["P_SEX"].str.strip().unique()</code> to reveal hidden spaces.
+Then either add the padded version to null_values or strip the column before checking.</p>
+</details>
+<details>
+<summary>You want to compare collision rates per 100 000 people between provinces. After cleaning, Alberta has 80 000 records and Prince Edward Island has 2 000. Should you compare raw counts or rates? Why?</summary>
+<p>Compare rates (collisions per 100 000 people), not raw counts.
+Alberta has roughly 25 times the population of PEI,
+so more collisions are expected regardless of road safety differences.
+Dividing by population puts the provinces on a comparable scale.
+The raw counts differ because the populations differ,
+not necessarily because one province has more dangerous roads.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Weather Conditions</h3>
+<p>Print the distinct values and counts for the <code>C_WTHR</code> (weather condition) column
+before and after treating unknown codes as missing.
+What proportion of collision records have known weather conditions?</p>
+<h3>Road Surface</h3>
+<p>The <code>C_RSUR</code> column codes the road surface condition (dry, wet, snow/ice, etc.).
+Ask the LLM to show the proportion of collisions for each road condition.
+Does icy or snowy road surface correspond to a higher proportion of fatal collisions (P_INJ = 1)?</p>
+<h3>Before and After</h3>
+<p>Ask the LLM to compute the percentage of collisions
+that resulted in at least one fatality (P_INJ = 1)
+before and after dropping rows where P_SEX is unknown.
+Does the fatality rate change? What does that tell you?</p>
+<h3>Provincial Distribution</h3>
+<p>Ask the LLM to count how many records come from each province (C_PROV).
+Compare the provincial shares to the 2021 census population shares.
+Which provinces appear over- or under-represented in the collision database?</p>
+<h3>Incomplete Null List</h3>
+<p>The following code reads the collision data and reports missing-value counts,
+but the number of null values is much lower than expected:
+the NCDB uses <code>U</code>, <code>Q</code>, and <code>N</code> as missing codes, but not all are declared.
+Work with an LLM to find what is missing and fix the <code>null_values</code> argument.</p>
+<div data-inc="null_partial.py"><span aria-label="Source: clean/null_partial.py" class="inc-path" role="img" tabindex="0" title="clean/null_partial.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">])</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">null_count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">include_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header_name</span><span class="o">=</span><span class="s2">"column"</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="p">[</span><span class="s2">"missing"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"missing"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"missing"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Distinct C_WTHR values: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'C_WTHR'</span><span class="p">]</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>After fixing, the distinct values printed for <code>C_WTHR</code> should contain only numeric codes,
+not the letters <code>Q</code> or <code>N</code>.
+Re-run the missing-value count and confirm it is higher than before.</p>
+</details>
+<h3>Hidden Whitespace in Categories</h3>
+<p>The following code counts province values, but prints more distinct provinces than Canada has.
+Work with an LLM to identify what is causing the extra groups and fix the code.</p>
+<div data-inc="strip_bug.py"><span aria-label="Source: clean/strip_bug.py" class="inc-path" role="img" tabindex="0" title="clean/strip_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+
+<span class="n">province_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"C_PROV"</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distinct province values: </span><span class="si">{</span><span class="n">province_counts</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">province_counts</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>Canada has 13 provinces and territories.
+After fixing, the number of distinct <code>C_PROV</code> values should be 13 or fewer.
+Print the unique values and confirm none look like duplicates with extra spaces.</p>
+</details>
+<h3>Dropping Too Many Rows</h3>
+<p>The following code removes rows with unknown sex, but the row count after cleaning is far smaller than expected.
+Work with an LLM to explain why so many rows were dropped and rewrite the cleaning step.</p>
+<div data-inc="drop_bug.py"><span aria-label="Source: clean/drop_bug.py" class="inc-path" role="img" tabindex="0" title="clean/drop_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows before cleaning: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows after cleaning: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_clean</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Distinct P_SEX values after cleaning:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="s2">"P_SEX"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>The correctly cleaned dataset should only lose the rows where <code>P_SEX</code> is null,
+not rows where any other column is null.
+Compare the before and after row counts to the count from <code>normalize.py</code> to verify.</p>
+</details>
+<h3>Raw Counts vs. Rates</h3>
+<p>The following code prints the number of collision records per province,
+but raw counts are misleading because provinces have very different populations.
+Work with an LLM to add a column showing collisions per 100,000 people
+using 2021 census population figures.</p>
+<div data-inc="rate_extend.py"><span aria-label="Source: clean/rate_extend.py" class="inc-path" role="img" tabindex="0" title="clean/rate_extend.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"collision_data.csv"</span><span class="p">,</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">"U"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"UU"</span><span class="p">,</span> <span class="s2">"QQ"</span><span class="p">,</span> <span class="s2">"NN"</span><span class="p">])</span>
+
+<span class="n">province_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"C_PROV"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"collisions"</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"collisions"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">province_counts</span><span class="p">)</span>
+<span class="c1"># TODO: add a column showing collisions per 100,000 people using 2021 census population</span>
+<span class="c1"># figures for each province, then re-sort by rate instead of raw count</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the addition is correct?</summary>
+<p>Compute one rate by hand for a province whose population you know,
+and confirm it matches the new column.
+Re-sort by rate: if the ordering changes significantly compared to raw counts,
+the rates are doing their job.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../chart/">First Charts</a>
+</div>
+<div class="col-6 center">
+<a href="../">DSLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../summarize/">Summarizing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

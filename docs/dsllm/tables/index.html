@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tables</title>
+<meta content="Learning Data Science with LLMs" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DSLLM</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">First Steps</a></li>
+<li><a href="../chart/">First Charts</a></li>
+<li><a href="../clean/">Cleaning</a></li>
+<li><a href="../summarize/">Summarizing</a></li>
+<li><a class="active" href="../tables/">Tables</a></li>
+<li><a href="../prompts/">Better Prompts</a></li>
+<li><a href="../change/">Tracking Change</a></li>
+<li><a href="../join/">Joining Data</a></li>
+<li><a href="../stories/">Telling Stories</a></li>
+<li><a href="../validate/">Checking Your Work</a></li>
+<li><a href="../repro/">Reproducibility</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Tables</h1>
+<h2>Goals</h2>
+<ul>
+<li>Prompt an LLM to load tabular data and describe what it contains.</li>
+<li>Interpret shape, column names, and data types.</li>
+<li>Ask the LLM to compute standard deviation and range and explain what they mean for this data.</li>
+</ul>
+<h2>What a Dataframe Contains</h2>
+<blockquote>
+<p>What is a dataframe, and what does it look like?</p>
+</blockquote>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#dataframe">dataframe</a> is a table with named columns where each column holds one type of data<ul>
+<li>Text columns hold strings; numeric columns hold integers or decimal numbers; date columns hold dates</li>
+<li>Every row has a value for every column, or a special null marker if the value is missing</li>
+<li>A dataframe is the in-memory representation of data; a CSV file is one way to store it on disk</li>
+</ul>
+</li>
+<li>The dataset for this session is the Environment and Climate Change Canada HYDAT National Water Data Archive [<a class="bib-ref" href="../bibliography/#hydat2025">hydat2025</a>]<ul>
+<li>HYDAT is a database of streamflow and water level measurements at Canadian rivers and streams going back to the 1800s</li>
+<li>Download a CSV export from <a href="https://www.canada.ca/en/environment-climate-change/services/water-overview/quantity/monitoring/survey/data-products-services/national-archive-hydat.html">HYDAT</a> using the online data explorer, or use the tidyhydat R package to export a station subset as CSV</li>
+<li>The file has one row per station-month with columns for station number, station name, year, month, and mean monthly streamflow in cubic metres per second (m³/s)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Why do different columns have different types, and why does it matter?</p>
+</blockquote>
+<ul>
+<li>A station number like <code>08MF065</code> looks like text but is stored as a string, so arithmetic on station IDs is meaningless<ul>
+<li>Polars reads it correctly as a string by default</li>
+<li>Date columns stored as text cannot be sorted chronologically without conversion</li>
+<li>Confirm the type of any date column before using it in a time-series analysis</li>
+</ul>
+</li>
+</ul>
+<h2>Shape, Types, and Sample Rows</h2>
+<blockquote>
+<p>Load the HYDAT flow data and tell me how many rows and columns it has, what each column contains, and what the data types are.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>Using Polars, read flow_data.csv and print: the number of rows and columns, the name and type of each column, and the first two rows.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="describe_flow.py"><span aria-label="Source: tables/describe_flow.py" class="inc-path" role="img" tabindex="0" title="tables/describe_flow.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">, Columns: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and check each part of the output:<ul>
+<li>Does the number of rows match the documentation for the stations and years you downloaded?</li>
+<li>Do the column types make sense? (<code>YEAR</code> and <code>MONTH</code> should be integers; <code>FLOW</code> should be a float; <code>STATION_NUMBER</code> should be a string)</li>
+<li>Does the sample row look like a real river observation?</li>
+</ul>
+</li>
+<li>If <code>FLOW</code> shows type <code>String</code>, the LLM did not parse it correctly<ul>
+<li>Ask: "The FLOW column shows type String. How do I cast it to Float64 in Polars?"</li>
+</ul>
+</li>
+</ul>
+<h2>Standard Deviation and Range</h2>
+<blockquote>
+<p>Compute the standard deviation and range of the streamflow column.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>Compute the mean, standard deviation, minimum, maximum, and range of the FLOW column in flow_data.csv.</p>
+</blockquote>
+<ul>
+<li>The LLM will produce something like:</li>
+</ul>
+<div data-inc="spread_flow.py"><span aria-label="Source: tables/spread_flow.py" class="inc-path" role="img" tabindex="0" title="tables/spread_flow.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">)</span>
+
+<span class="n">spread</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"std_dev"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"minimum"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"maximum"</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"range"</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spread</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Run the cell and look at the numbers<ul>
+<li>A standard deviation larger than the mean is common for streamflow data:
+    most months are near baseflow, but spring snowmelt can produce flows orders of magnitude higher</li>
+<li>A range of zero would mean every observation is identical: clearly wrong for river flow data</li>
+<li>A negative minimum would mean a data entry error: flow cannot be negative</li>
+</ul>
+</li>
+</ul>
+<h2>Interpreting High Spread</h2>
+<blockquote>
+<p>What does a large standard deviation mean for river flow data?</p>
+</blockquote>
+<ul>
+<li><a class="gl-ref" href="../glossary/#standard-deviation">Standard deviation</a> measures how far a typical observation sits from the mean<ul>
+<li>If the mean flow is 50 m³/s and the standard deviation is 200 m³/s, most months are far from the average</li>
+<li>This is not a data error: Canadian rivers experience dramatic seasonal variation</li>
+<li>A prairie river fed by snowmelt may run nearly dry in late summer and surge to hundreds of m³/s in May</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#stat-range">Range</a> is the distance from the smallest to the largest value<ul>
+<li>A high range reflects the difference between the lowest late-summer baseflow and the highest spring flood</li>
+<li>A single extreme flood event can set the maximum for decades of record</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Why is spread as important as the mean?</p>
+</blockquote>
+<ul>
+<li>Two stations with the same mean monthly flow can look completely different across the year<ul>
+<li>Station A: flows of 40, 45, 50, 55, 60 m³/s all year (low spread, stable, likely groundwater-fed)</li>
+<li>Station B: flows of 2, 3, 250, 80, 10 m³/s (high spread, snowmelt-dominated)</li>
+<li>Both have approximately the same mean, but very different seasonal behaviour</li>
+</ul>
+</li>
+<li>A report that mentions only the mean without the spread hides information critical to flood risk and water management</li>
+</ul>
+<h2>Checking a Single Station</h2>
+<blockquote>
+<p>Filter to one known station and verify its row count against the dataset documentation.</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>Filter flow_data.csv to rows where STATION_NUMBER is '02GA010' and print the number of rows and the range of years covered.</p>
+</blockquote>
+<ul>
+<li>Station <code>02GA010</code> is the Grand River at Galt (Cambridge, Ontario), one of the longest continuous records in Canada</li>
+<li>The HYDAT documentation describes how many years each station has been active<ul>
+<li>If the station has been active since 1912 and the dataset covers monthly data, you expect roughly (current year - 1912) × 12 rows</li>
+<li>A very different number suggests the filter is wrong or the station ID format does not match</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>You load a CSV and see that the <code>YEAR</code> column has type <code>String</code>. When you ask the LLM to filter rows where YEAR is greater than 2000, the filter returns no results. What is wrong and how do you fix it?</summary>
+<p>Polars compares strings lexicographically, not numerically.
+"2001" &gt; "2000" works alphabetically, but "999" &gt; "2000" does not, because "9" comes after "2" in character order.
+More importantly, the filter <code>pl.col("YEAR") &gt; 2000</code> compares a string to an integer, which Polars may reject with an error or handle incorrectly.
+The fix is to cast the column first: <code>df.with_columns(pl.col("YEAR").cast(pl.Int64))</code>.</p>
+</details>
+<details>
+<summary>The mean monthly flow is 35 m³/s and the standard deviation is 120 m³/s. A classmate says "the data must be wrong because the standard deviation is larger than the mean." Are they right?</summary>
+<p>No.
+A standard deviation larger than the mean is common for streamflow data;
+it happens when the distribution is <a class="gl-ref" href="../glossary/#right-skewed">right-skewed</a>.
+Most months have low flow near baseflow,
+but a few months during spring snowmelt have extremely high flows that pull the mean upward
+while the standard deviation reflects the wide spread.
+The correct response is to plot the distribution and check whether the high values are physically plausible,
+not to assume the data is wrong.</p>
+</details>
+<details>
+<summary>You filter to station <code>02GA010</code> and get 0 rows. The documentation says this station has records going back to 1912. List two things you would check.</summary>
+<p>First, check whether the station identifier column is named <code>STATION_NUMBER</code> in the actual CSV:
+it might be <code>Station_Number</code>, <code>stn_id</code>, or something else entirely.
+Print <code>df.columns</code> to see the exact names before filtering.
+Second, check whether the value <code>"02GA010"</code> is stored with the same capitalisation and zero-padding in the data.
+If the file uses <code>"2GA010"</code> without the leading zero, the filter will not match.
+Print <code>df["STATION_NUMBER"].head()</code> to see the actual format.</p>
+</details>
+<details>
+<summary>You compute a maximum flow of 99 999 m³/s for one station. The mean is 18 m³/s and all other values are below 2 000 m³/s. Does this suggest a data error? What would you do next?</summary>
+<p>Yes, 99 999 is a suspicious round number that may be a sentinel value used to indicate an error or a missing data code in HYDAT's historic records.
+Check the HYDAT data dictionary for what sentinel values are used.
+Filter to rows where FLOW equals 99 999 and examine those rows for other patterns:
+a specific year, a specific data quality symbol, or a note column.
+Do not include that value in any statistical computation until you have confirmed what it represents.</p>
+</details>
+<h2>Exercises</h2>
+<h3>Most Variable Rivers</h3>
+<p>Ask the LLM to compute the coefficient of variation (standard deviation divided by mean) for each station.
+Which stations have the highest coefficient of variation?
+Are they in regions you would expect to have highly variable flow?</p>
+<h3>Seasonal Pattern</h3>
+<p>Pick one station and ask the LLM to compute the mean flow for each month (January through December) averaged across all years.
+Plot the result as a bar chart.
+Does the seasonal pattern match what you would expect for the region?</p>
+<h3>Stations with Suspicious Values</h3>
+<p>Ask the LLM to find all rows where FLOW is negative, zero, or greater than 50 000 m³/s.
+How many rows have each kind of extreme value?</p>
+<h3>Long-Term Change</h3>
+<p>For one station with records going back at least fifty years, ask the LLM to compute the mean annual flow for each year and plot it over time.
+Is there a trend?</p>
+<h3>Column Forced to the Wrong Type</h3>
+<p>The following code loads the streamflow data and prints basic statistics,
+but mean, max, and min all print as <code>None</code>.
+Work with an LLM to explain why and fix the code.</p>
+<div data-inc="type_bug.py"><span aria-label="Source: tables/type_bug.py" class="inc-path" role="img" tabindex="0" title="tables/type_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">,</span> <span class="n">schema_overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">"FLOW"</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">String</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FLOW column type: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'FLOW'</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean flow: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'FLOW'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Max flow:  </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'FLOW'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Min flow:  </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'FLOW'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>After fixing, <code>df["FLOW"].dtype</code> should show <code>Float64</code>.
+The mean should be a positive number, and the maximum should be larger than the mean.</p>
+</details>
+<h3>Sentinel Value Skewing the Statistics</h3>
+<p>The following code computes spread statistics for the <code>FLOW</code> column,
+but the reported maximum is an implausibly round large number.
+Work with an LLM to identify what kind of value this is, remove it, and recompute.</p>
+<div data-inc="sentinel_bug.py"><span aria-label="Source: tables/sentinel_bug.py" class="inc-path" role="img" tabindex="0" title="tables/sentinel_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">)</span>
+
+<span class="n">spread</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"std_dev"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"minimum"</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"maximum"</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spread</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>After removing sentinel values, the maximum should be physically plausible for a Canadian river
+(check the HYDAT station description for the station's known peak flow).
+Also confirm that the mean drops noticeably once the sentinel is removed.</p>
+</details>
+<h3>Adding Coefficient of Variation</h3>
+<p>The following code computes mean and standard deviation per station.
+Work with an LLM to extend it so it also computes and prints the coefficient of variation
+(standard deviation divided by mean) for each station, sorted from highest to lowest.</p>
+<div data-inc="std_extend.py"><span aria-label="Source: tables/std_extend.py" class="inc-path" role="img" tabindex="0" title="tables/std_extend.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">is_not_null</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">50_000</span><span class="p">))</span>
+
+<span class="n">station_stats</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"STATION_NUMBER"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">([</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean_flow"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"FLOW"</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"std_flow"</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"std_flow"</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">station_stats</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1"># TODO: add a column "cv" (coefficient of variation) equal to std_flow / mean_flow,</span>
+<span class="c1"># then re-sort by cv descending and print the top 10</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the addition is correct?</summary>
+<p>For one station, compute <code>std / mean</code> by hand from the values already printed
+and confirm it matches the new <code>cv</code> column.
+Stations in snowmelt-dominated regions should have higher coefficients of variation
+than groundwater-fed stations.</p>
+</details>
+<h3>Column Name Capitalisation</h3>
+<p>The following code filters to one station and prints its row count,
+but the output says zero rows were found even though HYDAT records show this station
+has been active since 1912.
+Work with an LLM to find the cause and fix it.</p>
+<div data-inc="filter_bug.py"><span aria-label="Source: tables/filter_bug.py" class="inc-path" role="img" tabindex="0" title="tables/filter_bug.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"flow_data.csv"</span><span class="p">)</span>
+
+<span class="n">station</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Station_Number"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"02GA010"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows for station 02GA010: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">station</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">station</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Years covered: </span><span class="si">{</span><span class="n">station</span><span class="p">[</span><span class="s1">'YEAR'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">station</span><span class="p">[</span><span class="s1">'YEAR'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No rows found."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>How do you know the fix worked?</summary>
+<p>Print <code>df.columns</code> before filtering to confirm the exact column name.
+After fixing, the row count should be roughly <code>(current year - 1912) × 12</code>,
+and the year range should start in or near 1912.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../summarize/">Summarizing</a>
+</div>
+<div class="col-6 center">
+<a href="../">DSLLM</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../prompts/">Better Prompts</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
