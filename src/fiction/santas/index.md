@@ -4232,7 +4232,7 @@ He ran.
 
 ## Choose Your Enemy
 
-"Stop!" Captain Abacus shouted behind him
+"Stop!" Captain Abacus shouted behind Finner
 as he vaulted over an ottoman,
 ducked under the prow of a funeral barge,
 and fled down the corridor.
@@ -4279,7 +4279,7 @@ again."
 
 A few minutes and a change of trousers later[^change-trousers],
 Finner sat down on Santa Hotep's blue-and-gold striped couch.
-He made sure to leave plenty of room for Captain Abacus,
+He made sure to leave plenty of space between himself and Captain Abacus,
 whose expression had softened from murderous to merely irritated.
 "It was a foolish and unnecessary risk,"
 she said curtly.
@@ -4406,8 +4406,8 @@ so after shifting his grip a couple of times
 he focused on not letting it slip out from under his arm.
 
 Up, up, up they went,
-the passage cutting back on itself more and more frequently
-until they rounded the final bend
+the passage cutting back on itself ever more frequently.
+They rounded the final bend
 and were almost blinded once again
 by the bright blue square of empty sky in front of them.
 
@@ -4458,8 +4458,7 @@ but the expressions on the pirates' faces almost made Finner wish they had.[^sha
 [^sharks-almost]: Almost.
 
 "So,"
-Captain Clausbeard said evenly
-once Finner and Captain Abacus had pulled on their boots.
+Captain Clausbeard said once Finner and Captain Abacus were on board.
 "I'm guessin' you're not here to surrender,
 and I'm not about to be surrendin' to you,
 so to what do I owe the pleasure o' this visit?"
@@ -4469,7 +4468,7 @@ It took Finner a moment to realize that Captain Abacus was waiting for him to re
 "He's been captured by my gran-granna,
 except not really because she's been replaced by a robot.
 I think I know where they are,"
-he continued hurriedly.
+he continued hurriedly as the frown on Captain Clausbeard's face turned angry.
 "And I think I know where the robots are coming from,
 and—"
 
@@ -4484,7 +4483,7 @@ Captain Abacus said.
 "But as this young man just said,
 it's not really her."
 
-Captain Clausbeard glare shifted from Finner to the airship captain and back.
+Captain Clausbeard's glare shifted from Finner to the airship captain and back.
 His fingers tightened on the hilt of his cutlass.
 Around them,
 his crew muttered and hefted various sharp and/or thuddy things.[^thuddy]
@@ -4494,8 +4493,8 @@ he growled.
 
 [^thuddy]: I.e., things that go "thud" when they hit you.
 
-"It's a trick!" the parrot squawked.
-"It's a trick!"
+"It's a trick! It's a trick!"
+the parrot squawked.
 
 "Wait!"
 Finner shouted as the pirate crew closed in.
@@ -4504,7 +4503,7 @@ He said so in his letter.
 Here!"
 He fished the envelope out of his pocket and handed it to Clausbeard.
 
-The pirate captain took out the letter and unfolded it.
+The pirate captain unfolded the letter.
 His lips moved as he read it,
 and then to Finner's astonishment he wiped a tear off his cheek.
 "Always was a sentimental one, that lad," he sniffled
