@@ -4765,8 +4765,7 @@ and are going to do something[^something-dastardly] when they get there.
 If you take their various sharp, thuddy, and boomy things away from them
 and herd them like sheep,
 though,
-you will also take the spring out of their step,
-and the determined looks on their faces will turn sour.
+you will also take the spring out of their step.
 
 [^something-dastardly]: Probably something dastardly.
 
@@ -4794,15 +4793,13 @@ At one point their path took them beneath a raised track.
 A shallow crater and the remains of a subway car,
 both lightly dusted with snow,
 were evidence of Finner and Elfabot's previous encounter with Santazilla.
-He paused for a moment as if to catch his breath[^catch-breath]
+He paused for a moment to catch his breath
 and looked back along the tracks.
 There:
 he was just able to make out a corkscrew-shaped section of track in the distance
-before one of the robots waved its ray gun to show that he should keep moving.
+before one of the robots waved its ray gun to urge him on again.
 
-[^catch-breath]: All right, to *actually* catch his breath.
-
-A few minutes later they turned a corner and he stopped short.
+A few minutes later they turned a corner.
 One of the pirates said a bad word.
 Another shushed her.
 "Welcome to Flump Street," Elfabot said brightly.
@@ -4835,7 +4832,7 @@ He swallowed,
 glanced at Captain Abacus,
 and then walked up to the front door and knocked.
 
-The door opened a moment later.
+The door opened.
 "Figures,"
 Gran-Granna Tumbly said curtly.
 She glared past him at Captain Abacus and the robots.
@@ -4844,21 +4841,21 @@ don't dawdle—come in."
 
 There wasn't a richly-patterned carpet in the hall that looked like it might still be able to fly.
 There weren't gargoyle coathooks either,
-or the potted plants that Finner remembered from Gran-Granna Tumbly's house,
-but there was a pair of overstuffed armchairs,
+or the potted plants that Finner remembered from Gran-Granna Tumbly's house.
+There was, however, a pair of overstuffed armchairs,
 a reindeer rocking horse,
 and a framed photograph of two santas and an elf hanging above the mantel.
 
 Gran-Granna Tumbly seated herself in one of the armchairs
 while Finner and Captain Abacus divested themselves of their boots and parkas.
-"I'll stand, thank you," the captain said neutrally
+"I'll stand, thank you," the captain said
 when Gran-Granna Tumbly gestured at the other chair.
 The two locked eyes as Finner lowered himself onto
 a cushion that felt as soft as a marshmallow.
 
 "You realize you have to blink eventually, right?"
 he said after a moment,
-closing his eyes and letting himself sink into the chair.
+letting himself sink into the chair.
 A pair of "hmphs" were followed by
 the sound of his great-grandmother slurping tea
 and Captain Abacus drumming her fingers on her thigh.
@@ -4866,8 +4863,8 @@ and Captain Abacus drumming her fingers on her thigh.
 "I'm sure you have questions,"
 Gran-Granna Tumbly said.
 
-Finner opened his eyes.
-"Not really."
+"Not really,"
+Finner said.
 He jerked his chin at the photograph.
 "He was your elf, wasn't he?
 The one in the pictures.
@@ -4884,7 +4881,7 @@ He was very supportive, even when… Even after.
 He just wanted her to be happy."
 
 She raised her teacup halfway to her lips,
-then lowered it undrunk.
+then lowered it.
 Finner realized with a start that it was the first time he'd ever seen her unsure of herself.
 "She and I were spending all our time campaigning—holding meetings,
 giving speeches,
@@ -4895,10 +4892,11 @@ to the presents people were asking for
 and what they might do with them.
 And then Ooph got sick and didn't tell her.
 She only found out after he was gone.
-She came back here to try to make up for it all,
+She came back here to try to fix it all,
 but…"
 The old woman shook her head.
-"She never forgave herself."
+"She never forgave herself for giving them what they asked for
+instead of what they needed."
 
 "I'm sorry for your loss,"
 Captain Abacus said quietly.
@@ -4944,8 +4942,7 @@ surprising himself as much as his great-grandmother.
 I assume there are bedrooms?
 And then maybe we can talk about dinner?"
 
-His great-grandmother and the airship captain glared at him for a moment
-before Gran-Granna Tumbly at the stairs with her teacup.
+His great-grandmother and the airship captain glared at him together.
 Finner stood,
 waited a moment to see if Captain Abacus would join him,
 and then left them to resume their staring contest.
@@ -5013,9 +5010,8 @@ She said we'd probably all be more comfortable that way."
 
 Captain Abacus finally turned and looked at him.
 "Your great-grandmother doesn't think that people like us should exist,"
-she said levelly.
-"I don't think I can change her mind about that,
-and I'd be surprised if you could either,
+she said.
+"I don't think we can change her mind about that,
 so yes,
 I think I'd be more comfortable if I didn't have to tiptoe around her feelings,
 and I'm *sure* she'd rather not have to constantly be biting her tongue."
@@ -5055,19 +5051,20 @@ And if he so much as mentioned making or fixing things,
 his great-grandmother launched into a lecture on ho-ho-ho'ing
 or asked pointedly if he had thought about trying to find a chimney to practice on.
 
-They scavenged in threes and fours
+The prisoners scavenged in threes and fours
 with a robot to watch over each group.
-Each team had a mix of flips and tinsels,
-which Finner quickly learned was
+Each team had a mix of flips and tinsels.
+Finner quickly learned the latter word was
 (a) what flips called prisoners who shared Gran-Granna Tumbly's views
-and (b) a word best used sparingly unless one was looking for a fight.
+and (b) best used sparingly unless one was looking for a fight.
 Since the areas near Flump Street had been cleaned out,
 each expedition required a long walk through ruined streets.
-After filling their sacks and wagons for an hour or two,
+
+After filling their sacks and wagons with whatever they could find,
 they took a few minutes to rest before starting back.
 It was tiring,
 and his parka soon began to smell like a raccoon had been sleeping in it,
-but it gave him a chance to learn his way around
+but the scavenging gave him a chance to learn his way around
 and move a few things into place.
 
 The only excitement came a couple of days after their capture.
@@ -5084,7 +5081,7 @@ Whatever the captain might have pointedly *not* said in return was cut off by a 
 Finner jumped up,
 ran to the door,
 and pulled it open
-just in time to hear Santazilla bellow another challenge.
+just in time to hear Santazilla bellow a challenge.
 
 "Eleven, twelve, thirteen…" Captain Abacus counted behind him.
 Jars rattled on shelves as the giant santasaurus began to move.
@@ -5135,7 +5132,7 @@ The other caught Finner's eye,
 studying him for a moment before nodding slowly and following der teammate.
 
 The door to the basement had a lock.
-A quick twist of his mittened wrist set it to snib into place behind him.
+A quick twist of his mittened wrist snibbed it shut behind him.
 He turned on his flashlight,
 hurried down the stairs into the gloom,
 picked his way through the boxes and rubble,
@@ -5185,10 +5182,10 @@ By the time he reached the first bend in the track
 he was drenched in sweat and puffing like a locomotive.
 *Keep going,* he told himself,
 not daring to look back for fear that if he did he would catch Santazilla's eye.
-Another bend,
-a slight dip too shallow for him to have noticed while he was riding the subway with Elfabot,
-the overgrown park,
-the towering buildings whose broken windows looked like mouths full of jagged teeth
+Another bend.
+A slight dip too shallow for him to have noticed while he was riding the subway with Elfabot.
+The overgrown park.
+The towering buildings whose broken windows looked like mouths full of jagged teeth,
 and then the stretch he had been dreading
 where the track went up and down, up and down like a roller coaster.
 
@@ -5221,7 +5218,7 @@ dreading what he would see.
 
 A robotic version of himself raised a hand.
 Finner waved back uncertainly.
-The robot wore the face he he saw in the mirror every morning,
+The robot wore the face he saw in the mirror every morning,
 and its arms had skin,
 but its torso and legs were just metal plates, gears, and cables.
 
@@ -5246,8 +5243,8 @@ I'm sure it will gobble you up really quickly."
 "I'm sure it will,"
 Finner said.
 
-Shady Ann was asleep,
-and judging from the stale smell of the blankets piled on top of her,
+Shady Ann was asleep.
+Judging from the stale smell of the blankets piled on top of her,
 Finner guessed it had been a while since she had left her room.
 He moved a bag of knitting off the stool beside her bed and sat down.
 "Would you like me to—" Robo-Finner started.
@@ -5305,9 +5302,10 @@ You can rest now."
 ## Together or Not At All
 
 Finner closed the door quietly behind him.
-"Thank you,"
-he said to his robo-self as it handed him a mug of cold water
+His robo-self as it handed him a mug of cold water
 with a tea bag slowly leaching into it.
+"Thank you,"
+Finner said.
 
 "I hope you like it,"
 the robot said anxiously.
@@ -5328,7 +5326,7 @@ Good.
 Now,
 I'll just get these straps around your wrists like this…
 Excellent.
-And some more around your ankles… good.
+And some more around your ankles…
 All right,
 can you move?
 No?
@@ -5336,8 +5334,8 @@ Great.
 This should only take a moment."
 
 As he reached for the back of the robot's head to turn it off,
-it froze for a second,
-and then something changed in its posture.
+the robot froze for a second,
+and then straightened up and squared its shoulders.
 Somehow,
 he knew that the machinery in front of him was now under Elfabot's control.
 
@@ -5349,7 +5347,7 @@ I expected you to be long gone by now."
 
 Finner shrugged.
 "Where would I go?
-Really, I'm just embarrased I didn't figure it out sooner.
+Really, I'm just embarrassed I didn't figure it out sooner.
 The santasaurus,"
 he went on as Elfabot cocked its head,
 hoping he sounded more confident than he felt.
@@ -5366,7 +5364,7 @@ Finner shrugged again.
 "They just want to get home.
 I have bigger plans than that."
 And before Elfabot could say anything else,
-Finner's fingers found the switch on the back of the robot's head and flipped it.
+Finner flipped its switch.
 
 Its eyes flickered, but only for a moment.
 "Did you really think that would work?"
@@ -5377,7 +5375,7 @@ Its eyes flickered, but only for a moment.
 Elfabot looked down
 as if only now realizing its arms and legs were fastened to the chair.
 As it struggled to free itself,
-Finner opened drawers and boxes and more drawers and toolboxes and even more boxes.
+Finner opened drawers and boxes.
 "Ah ha!"
 He held up a blocky control like Captain Clausbeard's.
 
@@ -5389,7 +5387,7 @@ Finner paused.
 "I'm sorry,"
 he said quietly.
 "She doesn't need looking after any more."
-And then he opened the heavy metal door and stepped out into the cold.
+He opened the heavy metal door and stepped out into the cold.
 
 Santazilla was two blocks away,
 sniffing an overturned bus suspiciously.
@@ -5400,21 +5398,20 @@ waving his arms.
 I tried to blow you up with—uh oh."
 
 The santasaurus roared and kicked the bus out of its way.[^kicked-bus]
-Every mammalian fiber of Finner's being wanted desperately to run and hide
+Every mammalian fiber of Finner's being desperately wanted to run and hide
 as it strode toward him,
 its fetid breath steaming from its nostrils,
 but he stood his ground.
-If the collar around its neck wasn't what he thought it was,
-this was going to be the briefest day of his life.
+He really, really hoped the collar around the creature's neck was what he thought it was.
 
 [^kicked-bus]: It would later realize that it had broken a freshly-manicured claw doing this, and feel somewhat embarrassed by its petulance.
 
 Not yet…
 Not yet…
 *Now!*
-He ran toward the giant reptile.
+Finner ran toward the giant reptile.
 As it opened its jaws and lowered its head,
-he pressed the button on the control in his hand.
+he pressed the button on the control pad.
 
 The universe blooped.
 Santazilla's foot squished into the soft mud at the bottom of a pond.
@@ -5434,13 +5431,13 @@ Come and get me!"
 The santasaurus bellowed,
 lumbered forward,
 and seized the fence in its jaws.
-With a single disdainful jerk it tore a section out of the ground
+With a single jerk it tore a section out of the ground
 and tossed it away.
-More or less simultaneously
+More or less simultaneously,
 a door burst open behind Finner.
-Two burly santas stepped out,
+Two burly guards stepped out,
 took one look at the scene in front of them,
-and immediately retreated.
+and immediately fled back inside.
 A moment later,
 all of The Building's other alarms began to bleat and wail.
 
@@ -5456,8 +5453,8 @@ or exactly who he was.
 Left.
 Right.
 Right again.
-Through a cafeteria full of not-yet-panicked people.
-"Hi, Zubi!" he called out,
+Finner dodged through a cafeteria full of not-yet-panicked people.
+"Hi, Zubi!" he called,
 waving without slowing down.
 Up the stairs,
 left,
@@ -5465,11 +5462,12 @@ and there:
 the room he had been "allowed" to stay in after his first escape attempt.
 
 He dropped his mittens on the carpeted floor,
-pulled his tools out of his pocket,
-and crouched down.
+pulled his tools out of his pocket.
+Crouching down,
+he slipped a pick into the lock.
 Left.
 Right.
-Wiggle.
+Wiggle-wiggle.
 Left again.
 No,
 not that much.
@@ -5511,7 +5509,7 @@ The floor shook slightly beneath their feet
 as Santazilla did to The Building
 what monsters have done to buildings
 for as long as both have existed.
-"It'll tear this whole place down if you don't let me get back to it,"
+"It'll tear this whole place down if I don't stop it,"
 Finner said.
 
 Robo-Tumbly scowled.
@@ -5523,8 +5521,7 @@ Finner replied.
 and the one after that.
 Every prison you build,
 every cage you make,
-every time anyone tells someone else
-they can't be who they really are,
+every time you tell someone they can't be who they really are,
 someone will set them free."
 
 Whatever the robot might have said in reply was interrupted
@@ -5538,7 +5535,7 @@ A few moments later they were back in the cafeteria.
 Santa Greenwood bellowed at its definitely-now-panicking occupants.
 "The lad has something you need to hear!"
 
-Finner stepped onto a chair.
+Finner stepped up on a chair.
 "Anyone who wants to stay can stay,"
 he said as loudly as he could.
 "But if you want to leave,
@@ -5574,7 +5571,7 @@ turned back toward The Building,
 and growled.
 "Steady!" Finner gripped the control.
 
-Santazilla opened its jaws and began to lower its head.
+Santazilla opened its jaws.
 "Now!"
 Finner pressed the button.
 The universes blooped
@@ -5583,8 +5580,8 @@ and they were surrounded by lush greenery instead of cheerfully-painted concrete
 "There you are!"
 a warm voice hissed.
 A human-sized version of the santasaurus stepped out from behind a bush.
-It was wearing a red jacket and a jaunty red hat with a white pom-pom,
-and a pair of spectacles wered perched on its snout.
+It was wearing a red jacket and a jaunty red hat topped with a white pom-pom.
+A pair of spectacles were perched on its snout.
 "Now where did you get off to—oh, hello!"
 
 "Hi,"
@@ -5629,7 +5626,7 @@ to talk to Gran-Granna Tumbly and people like her."
 probably be…
 the hardest part,"
 Santa Hotep warned.
-"It's hard…
+"It is hard…
 to make people…
 see things…
 in new ways."
