@@ -37,6 +37,7 @@
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
+<li><a href="../secure/">Securing the Site</a></li>
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../contributing/">Contributing</a></li>
@@ -64,6 +65,18 @@ For example, <code>href</code> in <code>&lt;a href="..."&gt;</code> specifies wh
 including fonts, colors, spacing, and layout.  "Cascading" refers
 to the rules that determine which style wins when more than one
 rule applies to the same element.</dd>
+<dt><span id="certificate">certificate</span></dt>
+<dd>A file that proves a server's identity during a secure connection.
+It contains the server's hostname, a public key used for encryption, and a digital signature
+from a certificate authority that vouches for its authenticity.
+Browsers check this signature before allowing an encrypted connection to proceed.</dd>
+<dt><span id="certificate-authority">certificate authority</span> (CA)</dt>
+<dd>An organization that issues and digitally signs certificates, vouching for the identity of
+the server named in each certificate.
+Browsers ship with a built-in list of trusted CAs; a certificate signed by any of them is
+accepted without a warning.
+For local development, <code>mkcert</code> acts as a private CA whose root certificate you add to your
+own machine's trust store.</dd>
 <dt><span id="column">column</span></dt>
 <dd>A named field in a database table that holds one kind of value for every row.
 For example, the <code>sightings</code> table has columns named <code>species</code>, <code>sex</code>, and <code>weight</code>.
@@ -170,6 +183,11 @@ Each request includes the URL path, any headers, and (for POST) a body.</dd>
 <dd>A message sent from a web server back to the browser in reply to an HTTP request.
 It includes a status code (200 for success, 404 for not found, etc.),
 headers such as the media type, and a body containing the requested content.</dd>
+<dt><span id="https">HTTPS</span> (Hypertext Transfer Protocol Secure)</dt>
+<dd>An extension of HTTP that encrypts all traffic between the browser and the server using TLS.
+A URL beginning with <code>https://</code> signals that the connection is encrypted;
+browsers display a padlock icon to confirm this.
+HTTPS also requires the server to present a certificate so the browser can verify its identity.</dd>
 <dt><span id="html">HyperText Markup Language</span> (HTML)</dt>
 <dd>The standard language for creating web pages.
 An HTML document describes content using nested elements marked by tags,
@@ -329,6 +347,11 @@ value and handles loops and conditionals with <code>{% %}</code> blocks.</dd>
 without starting a real server or opening a browser.
 The application handles requests normally, so tests can check status codes and response content
 without any network setup.</dd>
+<dt><span id="tls">TLS</span> (Transport Layer Security)</dt>
+<dd>A protocol that encrypts the connection between a browser and a server so that
+data cannot be read or modified in transit.
+TLS is the mechanism that makes HTTPS secure; when you see a padlock in the browser,
+TLS is doing the work of protecting the connection.</dd>
 <dt><span id="tree">tree</span></dt>
 <dd>A data structure in which each item has at most one parent and any number of children,
 with a single root item at the top.
