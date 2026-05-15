@@ -3935,9 +3935,15 @@ someone's coming."
 "Finner?
 Hey, Finner, are you there?"
 
+…
+
 "Finner?"
 
+…
+
 "Psst! Finner, are you there?"
+
+…
 
 "Hey—Finner.
 Good luck, okay?"
@@ -3948,15 +3954,15 @@ Good luck, okay?"
 
 ## Outside the Fence
 
-Santa Greenwood was waiting exactly where his map said he could be,
+Santa Greenwood was waiting exactly where his map said he would be,
 hidden among the trees outside the fence.
 He wrinkled his nose when Finner came close.
 
 "It was a *sanitation* shaft, not a ventilation shaft," Finner explained,
-plucking at the odoriferous clothes sticking damply to his skin.
+plucking at the stinking clothes sticking damply to his skin.
 
 Santa Greenwood jerked a thumb at the pond to his left.
-"Take a dip and clean up if you want."
+"You can take a quick dip if you want."
 Something large and toothy swished through the water as if in response.
 "All right, never mind.
 Can't be any worse than when the llamas get into the candy canes."
@@ -3978,7 +3984,7 @@ Santa Hood said dryly,
 stepping out of the shadows behind Santa Greenwood.
 
 Finner goggled at her.
-"Why are you both even here?"
+"Why are you two even here?"
 
 Santa Greenwood looked away uncomfortably.
 "Thought Sensei Tumbly might have made a mistake.
@@ -4005,7 +4011,7 @@ Santa Greenwood winced at the word,
 but Finner plowed on.
 "What I *do* know is that I want to find out
 and I'm not going to here.
-I hope it doesn't mean we have to be on opposite sides of—whoosh!"
+I hope it doesn't mean we have to be on opposite sides of—ooph!"
 He grunted as Santa Greenwood picked him up,
 hugged him hard,
 and set him back down.
@@ -4041,9 +4047,8 @@ His hand twitched toward the ax strapped to his back.
 
 "I'm sorry,"
 she repeated,
-"But sensei has had her doubts about your for a while—ever since
-you started making planter boxes,
-maybe longer.
+"But sensei has had her doubts about you
+ever since you started making planter boxes—maybe longer.
 She needed to see if you were just a little confused
 or if you would actually betray us.
 I was really hoping you wouldn't."
@@ -4062,7 +4067,8 @@ That's what you really want—I know it is."
 
 "That's what they both want.
 They just don't realize it yet."
-Finner's jaw dropped[^jaw-dropped] as Gran-Granna stepped out from behind a nearby tree,
+Finner's jaw dropped[^jaw-dropped]
+as Gran-Granna Tumbly stepped out from behind a nearby tree,
 her sword cane in her hand.
 "So what do you say?
 Shall we do this the easy way or the hard way?"
@@ -4071,7 +4077,7 @@ Shall we do this the easy way or the hard way?"
 
 Santa Greenwood studied her for a long moment,
 then grinned the kind of grin
-that would make even the toughest lumberjack think about becoming a cheese maker.
+that would make even the toughest lumberjack think about a change of career.
 "Well, my dad would say that if it ain't hard, it ain't worth doing.
 And then he'd say *now, Hotep, now!*"
 
@@ -4092,11 +4098,10 @@ It just looked dangerous.
 "Help Hotep!"
 Santa Greenwood yelled,
 settling into a wide-legged stance
-as Gran-Granna Tumbly rocked her head from side to side to crack her neck.
+as Gran-Granna Tumbly cracked her neck.
 
-"What exactly do you want me to do?"
-Finner didn't ask,
-because he had now been in enough battles to know that
+Finner didn't bother to ask what he should do next.
+He had now been in enough battles to know that
 there's a time for asking and there's a time for doing,
 and if your great-grandmother and the santa who was trying to rescue you
 had just started trading cuts and jabs and blocks,
@@ -4115,7 +4120,7 @@ Santa Hood reached into her sack
 and threw something at Santa Greenwood.
 
 *Flick!*
-He knocked the rubber bath duck aside with his ax.
+Santa Greenwood knocked the rubber bath duck aside with his ax.
 "Hey, I've been looking for that!" he shouted.
 
 "I was going to give it back!"
@@ -4123,11 +4128,11 @@ Santa Hood shouted back,
 rolling to dodge a swipe from a statue cat.
 A frisbee,
 an armored slipper:
-something that made a loud *pop!* and scattered glitter over everyone:
-she pulled one thing after another from her sack
-to throw at the advancing cat until she crowed,
+something that made a loud *pop!* and scattered glitter over everyone—she
+pulled one thing after another from her sack
+to fling at the advancing cat until she crowed,
 "Got it!"
-and tossed a grenade at it.
+and tossed a grenade.
 
 *Crack!*
 Green foam billowed in all directions,
@@ -4148,8 +4153,7 @@ One of the santas fired his ray gun just as he stumbled on a root.
 The shot caught Gran-Granna Tumbly in the chest,
 but the old santa didn't fall to the ground.
 Instead,
-she looked down at the sparks spitting out of the hole the shot had made
-with a rueful expression.
+she looked down at the sparks spitting out of the hole the shot had made.
 
 "Well, that's awkward," she said,
 and then redoubled her attack.
@@ -4179,6 +4183,7 @@ Metal clanged on metal and ray gun blasts drew angry feline yowls of protest
 as Finner followed Santa Hotep through the trees.
 The mummy moved more quickly than Finner would have believed possible,
 its long strides forcing him to jog.
+
 "This isn't over!" Santa Hood yelled behind them.
 "We'll find you!
 You know we will!"
@@ -4204,6 +4209,7 @@ a pirate.
 They aren't…
 a naturally…
 trusting…
+type of…
 people."
 
 The second key clicked into place.
