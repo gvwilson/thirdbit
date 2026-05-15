@@ -1,5 +1,5 @@
-<ul>
+<table>
 {% for post in site._posts|reverse %}
-{%- if post.category == category_name -%}<li>{{post.date}}: <a href="{{post.url}}">{{post.title}}</a></li>{%- endif -%}
+{%- if post.category == category_name -%}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{%- endif -%}
 {% endfor %}
-</ul>
+</table>
