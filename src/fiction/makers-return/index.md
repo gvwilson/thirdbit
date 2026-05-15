@@ -3956,15 +3956,15 @@ Sindy muttered.
 
 Most of the doors they passed were closed,
 but not all.
-The rooms they could see into were full of parts:
-arms and legs,
-gears as big as Violet's head,
+Some rooms held arms and legs,
+gears,
 propellors,
-and once,
-horribly,
-dozens of different kinds of mechanical eyes arranged neatly on a wall.
-She reached for Sindy's hand as they passed that one.
-The other girl gave hers a squeeze, then let go.
+or a dozen different mechanical heads arranged neatly on shelves.
+Another held a bot that reminded Violet of a stork
+hopping from one leg to another.
+"Help. Help," it said tonelessly as they passed.
+She reached for Sindy's hand at the sight.
+The other girl gave hers a squeeze.
 
 "You will stay here,"
 Patient ordered as Z51 finally crowded them into a small room
@@ -4754,8 +4754,7 @@ The farmhouse was collapsing to one side,
 but no,
 that wasn't right,
 it was *tilting*
-as if someone or something had taken hold of one edge
-and was lifting it to look underneath.
+as if someone was lifting it like a hatch.
 
 Mouse said, "uh oh" and stuck the tip of its little arm in Sindy's nose.
 She squawked and dropped it.
@@ -4809,7 +4808,15 @@ it was made out of other bots
 that had been taken apart and stuck back together.
 One of its arms looked like two sweeperbots welded to a cranebot
 with a cleaning bot for a thumb and two others for fingers.
+
 Was this what had happened to the bots that had disappeared from Heck?
+A sudden pain spiked her temple.
+She could *hear* them,
+just like she had heard the tentacled thing back in the swamp.
+Some of the bots it was made of were still switched on
+even though they couldn't control their own bodies any more.
+
+And that was when she realized that the bot's head was Patient.
 
 "Hang on!" Violet shouted.
 The shuttle's engines whined to life,
@@ -4826,11 +4833,9 @@ tipped to one side,
 shot into the air,
 and began flying backward.
 
-"No!" the giant bot bellowed.
-It lumbered forward clumsily,
+"No!" Patient bellowed.
+It lumbered forward,
 picking up speed with every step.
-
-And that was when Sindy realized that its head was Patient.
 
 "Turn around! Turn around!" she shouted.
 
@@ -5418,7 +5423,7 @@ People began cheering.
 He touched a finger to the rim of his hat.
 
 "Sindy!"
-She spun around as Violet and Special Blazes arrived on Beevy's back.
+She spun around as Violet, Special Blazes, and Bravo arrived on Beevy's back.
 The tiger slid off Beevy's back and limped over to Nash.
 There was blood on his fur.
 
@@ -5435,16 +5440,257 @@ she asked anxiously.
 
 "Us Roos are pretty fast," Sindy said.
 
-"And clever," Special Blazes added,
-clapping her on the shoulder.
+"And clever," Special Blazes added.
+He clapped her on the shoulder,
+but she barely noticed.
+
+"Is Bluster aright?" she asked Bravo anxiously.
+
+He shook his head.
+"Doc Whinny's lookin' at him.
+How 'bout you?"
+
+"I'm fine," she said.
 
 And then Patient straightened up.
 "No," it hissed,
 "You will *not* stop me."
-A giant foot came down on top of Nash's lightning gun,
+A foot the size of a wagon came down on top of Nash's lightning gun,
 crushing it.
 As the militia scattered,
 the giant bot began striding toward the ark.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 20: Whatever You Can (Violet)
+
+"Is Bluster aright?" Sindy asked the goat 'brid.
+
+He shook his head.
+"Doc Whinny's lookin' at him.
+How 'bout you?"
+
+"I'm fine," Sindy said,
+but then the giant bot straightened up.
+
+"No," it said in a voice like angry steam.
+"You will *not* stop me."
+
+Violet shrieked as Sindy pulled her out of the way
+just before the bot's huge foot crushed the crocodile's lightning gun.
+"Run!" Sindy shouted.
+
+Violet shook her off.
+"No! We have to save the ark!"
+
+"Us?
+What are *we* supposed to do?"
+the goat 'brid demanded.
+
+"I don't know!" Violet said.
+"But we have to *try*!"
+
+Sindy nodded.
+"She's right," she told the goat.
+"I'm going to try something."
+She squeezed her eyes closed.
+
+"What are you doing?"
+he demanded.
+
+"Trying to talk to them," Sindy grunted.
+A moment later she gasped.
+"It's no use.
+I can't—all its parts,
+they're completely—I can hear them,
+but I can't—wait! Mouse?"
+She clenched her fists.
+A moment later the giant bot stumbled and went to one knee
+as if its right leg had suddenly given way.
+
+Violet had no idea what Sindy was doing or what Mouse had to do with this,
+but she suddenly knew what *she* had to do.
+She sprinted to the tiger and grabbed his sleeve.
+"Hey!
+The communicator—do you still have it?"
+
+"Let go of me!" the 'brid snarled.
+
+Violet didn't.
+"Doctor Szego is still on the ark.
+I need to talk to her!
+Please!"
+
+"Boss…" the crocodile started.
+
+The tiger bared his teeth.
+"What have we got to lose?"
+He fished the little cylinder out of his pocket.
+
+Violet snatched it out of his paw.
+"Doctor Szego! Can you hear me?"
+*Thud!*
+She jumped as the giant bot took another step,
+dragging its right leg.
+"Doctor Szego!"
+
+"Hello, Violet.
+I can hear you.
+Are you all right?"
+
+She almost burst into tears at the familiar voice.
+"No!
+There's a great big rogue bot headed straight for you!
+You need to get out of here!"
+
+"I'm afraid I can't do that, Violet."
+Doctor Szego sounded as calm as ever.
+"Only the captain can initiate a launch."
+
+"Captain Leung's stuck in a bunker!
+You have to take off *now* or that thing is going to tear the ark apart!"
+
+"I'm afraid I can't do that," the doctor repeated.
+"And unfortunately my defenses are still offline."
+
+Violet's heart sank.
+The 'brids were forming up between the bot and the edge of the swamp.
+They didn't stand a chance.
+
+The tiger had obviously reached the same conclusion.
+"Come on," he told the crocodile.
+
+"Are you crazy?"
+The other 'brid took a step back.
+"The gun's smashed!
+Whaddaya think we're gonna do against *that*?"
+
+The tiger spat on the grass.
+"Whatever we can.
+That's the job."
+He looked at Violet.
+"A pleasure to meet you, miss.
+I'm sorry it wasn't under better circumstances."
+And then he broke into a limping run straight toward Patient
+with the combat bot they called Beevy on his heels.
+
+"Idiot," the crocodile shouted,
+turning and running the other way.
+
+Bravo looked from Sindy to Violet.
+"Look after her, aright?"
+And then he ran after the tiger.
+
+The tiger's first fireball caught Patient right in the head.
+The bot bellowed and twisted around,
+clumsy becaue of its leg but still faster than anything that big had a right to be.
+Its swipe would have knocked Special Blazes all the way back to Rusty Bridge if it had connected,
+but the tiger threw himself forward in a roll at the last second to duck under it.
+
+A second fireball splattered against the bot's chest.
+"Get under it!" he yelled.
+Beevy dodged around him and charged at Patient's foot as it came down.
+The bot bellowed again as it tripped,
+falling to one knee.
+Bravo picked up a pike that someone had abandoned,
+yelled,
+and thrust it into Patient's ankle joint.
+
+The 'brids cheered and charged.
+A shot from a tangle gun wrapped a sticky web around the bot's left knee,
+but the bot was already struggling back to its feet.
+
+The bot swung its arm at Bravo.
+Special Blazes threw himself at the goat boy,
+knocking him out of the way.
+"No!" Violet shouted
+as the tiger's limp body flew through the air and splashed into the swamp.
+
+"Mouse…" Sindy gasped.
+"Help me."
+She opened her eyes,
+gave Violet a blank stare,
+and collapsed on the ground.
+
+"Sindy!"
+Violet rushed to her and dropped to her knees.
+She cradled the other girl's head.
+"Doctor Szego!" she sobbed into the communicator.
+"Doctor Szego, what do I do?"
+And then she shrieked as something bumped into her leg.
+
+"uh oh" Mouse said,
+poking at Sindy with its little arm.
+
+Violet gaped at it.
+"Where did *you* come from?"
+
+"stowaway"
+She looked from it to Patient.
+The bot was tearing the webbing off its knee.
+
+"On *that*?"
+
+"yes yes clever"
+It poked Sindy again.
+"hurt?"
+
+Violet wiped her eyes with her sleeve.
+"Yes!
+And that thing's going to destroy the ark!
+It's going to kill *everyone*!
+We have to stop it!"
+
+*Mouse had been clever,
+just like Dockety and other big bots were clever.
+It had attached itself to the bad bot and talked to its parts
+and when they heard the Sindy
+it told them she was nice,
+she played with Mouse and they should listen to her.
+Now Mouse wanted to run away fast fast fast
+but the Sindy was in trouble again.*
+
+*If Mouse had been equipped with lungs, it would have sighed.
+At this rate it would <b>never</b> learn how to play tag.
+It spun around and raced as fast as it could to the edge of the swamp.*
+
+*Mouse had spent years hiding in Patient's lair.
+It had never dared to make friends with the bots that Patient had captured and controlled,
+but those weren't the only bots in the Mire.
+It was time to ask an old friend for a favor…*
+
+Patient took another step, then another.
+Beevy grabbed hold of the pike that Bravo had thrust into its ankle,
+but the giant bot didn't even bother to shake it off.
+"Ah ha ha ha! Ah ha ha ha!" it bellowed triumphantly,
+not noticing the little cleaning bot perched on the shore,
+frantic sparkles dancing across its screen.
+Patient strode into the swamp,
+the water surging around its ankles its shins its knees
+as it reached for the ark—
+
+—and two enormous tentacles lifted out of the water
+and wrapped themselves around it.
+"No!"
+It clutched at the tentacles,
+tearing them off its torso,
+but two more had already taken hold.
+
+"No!"
+Patient's scream of outrage was deafening.
+"No!"
+It tried to brace itself,
+but its feet couldn't find purchase in the muck and silt at the bottom of the swamp.
+Another tentacle wrapped around its neck
+and then the giant bot disappeared beneath the scum with a *bloop*.
+
+"Doctor Szego! Doctor Szego! Did you see that?"
+Violet shouted into the communicator.
+
+"I did," she said, as calm as ever.
+"Well done."
 
 </section>
 
@@ -5468,7 +5714,7 @@ Sindy said.
 Its voice was no longer tinny.
 Sindy wasn't sure why it had decided to change it,
 but she supposed it had something to do with
-all the time the little bot was spending with Z40 and Z51.
+all the time the little bot was spending at the swamp.
 
 "I suppose,"
 the captain said skeptically,
@@ -5487,9 +5733,9 @@ André called from inside.
 Violet and Sindy exchanged grins.
 Real baking was a lot messier than virtual,
 but a lot more satisfying.
-And if André's first batch of muffins were a little dry and floury,
+And if André's first batch of muffins had been dry and floury,
 well,
-he could always make another.
+he had to learn some time.
 
 "So are you looking forward to school tomorrow?"
 Papa Roo asked,
@@ -5508,11 +5754,13 @@ And Bravo's going to be there."
 Sindy said.
 She *was* looking forward to it,
 Sindy realized.
+Violet was still getting used to the idea that 
+the Doctor Szego she had known had been a simulation.
 Captain Leung was still trying to figure out
 how many other arks were still out there
 and how to call them home,
 and the mayor was fretting about how the town was going to look after
-all the children who were waking up one by one into a strange new world,
+the children who were waking up one by one into a strange new world,
 but they could figure that all out later.
 Tomorrow,
 she was going to teach them how to play tag.
