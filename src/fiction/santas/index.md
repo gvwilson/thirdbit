@@ -4528,7 +4528,7 @@ When people think of pirates,
 they usually think of tropical seas with palm-covered islands.
 Snowstorms, ice floes, parkas, and triple-thick socks don't normally make an appearance,
 but actual working pirates know that cold seas are a lot more common than warm ones,
-and are always ready to dress accordingly.
+and are always prepared to dress accordingly.
 
 It therefore took only a few minutes
 for the dozen santas and elves that Captain Clausbeard selected from his crew
@@ -4541,8 +4541,9 @@ She bit his ear and dug her claws into his shoulder.
 He ruffled her feathers with the tip of his finger.
 
 The crew slung rope ladders over the ship's starboard gunwale.
-The two captains and Finner took up positions on the forward ladder
+The two captains and Finner took positions on the forward ladder
 while three pirates clambered down each of the others.
+
 "Ready?"
 Captain Clausbeard asked,
 taking a bulky control with an extensible antenna out of his pocket.
@@ -4563,13 +4564,14 @@ and moved *this* from *here* to *there*.
 
 [^sighed-inaudibly]: It never occurs to most people to ask the universes how they feel about people traveling about willy-nilly. Yes, it's a rather small thing compared to, for example, galaxies colliding or an evil genius inventing a [REDACTED] that can [REDACTED], but still…
 
-One moment the ship was plowing through the waves north-northeast of Isla de Las Anguilas.
-The next it was skidding to a stop in deep snow,
+One moment the ship was plowing through the waves northeast of Isla de Las Anguilas.
+The next,
+it was skidding to a stop in deep snow,
 its keel leaving a deep furrow behind it.
 "Sharpish, now, the lot of you!"
 Captain Clausbeard barked.
-The pirates dropped to the snow and scrambled out of the way.
 
+The pirates dropped to the snow.
 Finner followed suit with Captain Abacus behind him.
 He could already feel the skin on his cheeks tightening from the cold.
 "Aright, away wi' you!"
@@ -4587,24 +4589,24 @@ to mutter in his ear.
 Weapons at the ready,
 they set off.
 
-Once again the sky was a cloudless blue
-and the sun was so bright that it hurt Finner's eyes.
+Once again the sky was a cloudless blue,
+and the sun so bright that it hurt Finner's eyes.
 But he was dressed for the cold this time,
 and he knew (roughly) where he was going.
 Most importantly,
-he knew *why* he was going there
-and had companions to go there with,
-even if Captain Abacus looked less gruntled than ever
-and some of the pirates kept looking at him
+he knew *why*,
+and had companions to go with.
+So what if Captain Abacus looked less gruntled than ever,
+and some of the pirates kept glancing at him
 as though he was an unwanted present fit only to be put in a closet
-until enough time had passed that he could be thrown out or thrifted.
+until enough time had passed that he could be thrown out or thrifted?
 
 As they came up to the crest of a ridge
-Captain Clausbeard raised a hand.
+Captain Clausbeard raised a hook.
 Finner advanced the last few steps in a crouch.
 The factory he had seen on his first visit lay waiting in the hollow below.
 He wiped ice from his eyelashes.
-"There," he mouthed, pointing unnecessarily
+"There," Finner mouthed, pointing unnecessarily
 at the Santazilla standing guard beside it.
 
 "Crikey," one of the pirates muttered.
@@ -4682,7 +4684,7 @@ and charged.
 The first three pepper canisters burst against the santasaurus's scaly chest,
 enveloping the monster in a stinging orange cloud.
 It roared again,
-then surprised itself and its attackers with an enormous sneeze.
+spoiling the effect slightly with an enormous sneeze.
 
 "Reload, you gormless slackpeelers!" Captain Clausbeard yelled
 as Santazilla stopped and tried vainly to wipe its eyes with arms that couldn't quite reach.
@@ -4717,19 +4719,19 @@ he added to Finner.
 
 "—you realize they're the ones who've got *you*,"
 a familiar voice finished.
-
 Finner whirled around.
+
 "Hello," Elfabot said,
 its cheerful tone at odds with the rather large ray gun pointing at Captain Clausbeard.
-Half a dozen other bots stood beside with similar weaponry pointed in similar directions.
+Half a dozen other bots stood beside it pointing weaponry of their own.
 Some still wore the human faces Finner had seen when doing deliveries,
 but had dispensed with the parkas and gloves that had hidden their steel frames.
 Others had discarded part or all of their faces,
-revealing skull-like grins that were more terrifying than the angry santasaurus's teeth.
+revealing skull-like metal grins.
 
 "Please don't," Elfabot continued calmly
 as Captain Clausbeard's hand twitched toward his own ray gun.
-"We've done our best to adjust these to stun,
+"We've done our best to adjust these weapons to stun,
 but our calculations are obviously not precise.
 If you could put your weapons down,
 we'd be happy to show you to your new homes."
