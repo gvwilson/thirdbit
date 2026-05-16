@@ -731,7 +731,7 @@ I would have sighed. "Be easy, brother," I told him. "You are with
 friends." Behind me stood a half-dozen Men Without Names. All but one
 had a spear or bow aimed at my great-grandnephew.
 
-Liar!" he snarled, and leapt at me. To the others, it would have seemed
+"Liar!" he snarled, and leapt at me. To the others, it would have seemed
 as fast than lightning. I had time to decide once again not to kill him,
 catch his arm, and throw him to the ground.
 
@@ -1045,7 +1045,7 @@ blue and silver were waiting in a neat row.
 
 An hour later, Tahura was sitting with her fellow cloudherds on
 something that Fat Andre called a "couch", sipping hot mint tea and
-wondering whether Garheim needed a full-time cloudherd. Her room as
+wondering whether Garheim needed a full-time cloudherd. Her room was as
 large as the one-room house that she shared with her mother in
 Marandine, and had a real glass window. Instead of a bath, she had been
 shown to a sauna. She and Miguello's twin sister Miguella had sat
@@ -1581,7 +1581,7 @@ the city in front of them. "Hence, the belltowers."
 "By 'some of them', Your Grace, I take it you mean the Clear Light?"
 he ventured.
 
-"Ah, so you *do* listen to me somtimes," she said approvingly. "We
+"Ah, so you *do* listen to me sometimes," she said approvingly. "We
 might teach you to think yet." She shifted in her chair, then smoothed
 the quilt that lay across her legs. "Now, breakfast. Tell me everything
 you saw and heard. *Everything.*"
@@ -2239,7 +2239,7 @@ them. You were supposed to give them the Great Chief's regards."
 "We thank the Great Chief for his concern," Nils interrupted smoothly,
 smiling as if he were speaking to a child.
 
-"And he send this letter of safe conduct," the second tern continued.
+"And he sent this letter of safe conduct," the second tern continued.
 "The one tied to my leg. It tickles."
 
 Nils gestured to one of the soldiers standing behind him. The man knelt,
@@ -2997,8 +2997,8 @@ arrived), to fishing rights, the restoration of noble titles to the
 family of a whale who had fought with the Anuat during the rebellion,
 and responsibility for cleaning up some of the ugly spells left behind
 by the war. Through all of it, Prince Evan stayed at the Balance's
-side, fetching papers, reading aloud, and taking notes. They ate lunch
-dried fish and flatbread as they worked, then broke each night for
+side, fetching papers, reading aloud, and taking notes. They ate a lunch
+of dried fish and flatbread as they worked, then broke each night for
 dinner long after the prince's stomach started to grumble.
 
 On the second day, the Balance, Nils, and Gudrun were invited to eat
@@ -4468,9 +4468,9 @@ The prince shook his head. "I never heard of a ghost that you could
 smell," he said, gesturing at Arne.
 
 They stood there, the southerners silent, Piqaluujaq singing, as the
-wolf closed the last hundred yards. It stopped a few feet away from them
+wolf closed the last hundred yards. She stopped a few feet away from them
 and sat on her haunches, her red tongue lolling out. The prince could
-hear it panting.
+hear her panting.
 
 Piqaluujaq ended his song and opened his eyes. The wolf seemed to grin.
 "Very nice," she said in Garheimman. "But it sounds better in the
