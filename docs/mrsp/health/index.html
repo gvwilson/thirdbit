@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Health</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Project Health</h1>
+<p class="subtitle">a baseline to start from</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Name the six dimensions of a minimum viable research software project.</li>
+<li>Score your own project on each dimension.</li>
+<li>Identify the highest-priority gaps.</li>
+</ul>
+<h2>Before</h2>
+<p>Three weeks after Jess started their post-doc,
+she got an email from Aaron at another lab,
+who had been trying to get the simulator running for two days without success.
+The setup instructions referenced a Conda environment file that no longer matched the pinned versions,
+and the tests didn't pass because he didn't have the dataset
+that Jess had downloaded on her machine.</p>
+<p>"Healthy" for a research software project means more than "runs on my machine."
+It means the project is findable by people who could use it,
+reproducible by people who want to build on it,
+and maintainable by someone who isn't you.
+Most research software projects score well on none of these,
+and most researchers don't find out until someone like Aaron emails them.</p>
+<h2>What "Healthy" Means</h2>
+<p>You can use these six dimensions to assess the state of your project:</p>
+<dl>
+<dt><a class="gl-ref" href="../glossary/#findability">Findability</a></dt>
+<dd>The project has a <a class="gl-ref" href="../glossary/#doi">DOI</a> and a <code>CITATION.cff</code> file,
+is listed in at least one relevant registry,
+and follows the <a class="gl-ref" href="../glossary/#fair">FAIR Principles</a> for findable, accessible, interoperable,
+and reusable data [<a class="bib-ref" href="../bibliography/#Lin2020">Lin2020</a>, <a class="bib-ref" href="../bibliography/#Wilkinson2016">Wilkinson2016</a>].
+Without these,
+two groups will independently build the same tool,
+and neither will find the other until years later.</dd>
+<dt><a class="gl-ref" href="../glossary/#reproducibility">Reproducibility</a></dt>
+<dd>Dependencies are <a class="gl-ref" href="../glossary/#pin-dependencies">pinned</a>,
+the project runs inside a <a class="gl-ref" href="../glossary/#virtual-environment">virtual environment</a> or <a class="gl-ref" href="../glossary/#container">container</a>,
+and there is a script that re-runs the whole analysis from raw data
+with a fixed <a class="gl-ref" href="../glossary/#rng-seed">seed</a> for any stochastic steps [<a class="bib-ref" href="../bibliography/#Taschuk2017">Taschuk2017</a>].
+Without this,
+collaborators can't run the code or check results.</dd>
+<dt><a class="gl-ref" href="../glossary/#testability">Testability</a></dt>
+<dd>Automated tests exist and are run on every change via <a class="gl-ref" href="../glossary/#ci">continuous integration</a>.
+Without this, every fix can introduce new bugs.
+(You may or may not track test <a class="gl-ref" href="../glossary/#test-coverage">test coverage</a>;
+if you do,
+you keep track so that it doesn't quietly decline.)</dd>
+<dt><a class="gl-ref" href="../glossary/#contribution-pathway">Contribution Pathway</a></dt>
+<dd>There is a <code>CONTRIBUTING.md</code> that a stranger could follow,
+issues are labeled so newcomers can find things to do,
+and the process for submitting and reviewing pull requests is written down.
+Without this, potential contributors will quickly give up.</dd>
+<dt><a class="gl-ref" href="../glossary/#governance">Governance</a></dt>
+<dd>There are written rules for who decides what and how those decisions are made public.
+Without this,
+decisions get made by whoever shouts loudest or gives up last.</dd>
+<dt><a class="gl-ref" href="../glossary/#sustainability">Sustainability</a></dt>
+<dd>More than one person can make a release,
+the <a class="gl-ref" href="../glossary/#lottery-factory">lottery factor</a> is documented,
+and there is a <a class="gl-ref" href="../glossary/#succession-plan">succession plan</a>.
+Without this, the project dies when the post-doc graduates.</dd>
+</dl>
+<div class="callout">
+<p>These six points focus mostly on the software, not on the team,
+because that's what most participants in this workshop have the most experience with,
+and what they are most comfortable talking about at first.
+Later modules will talk more about the human aspects of management.</p>
+</div>
+<h2>Honesty is Uncomfortable</h2>
+<p>Starting with an honest audit is uncomfortable.
+It matters because it tells you which something to fix first.
+Improving your lowest dimension by one point before next week
+is worth more than polishing a dimension that's already 4/5.</p>
+<p>In our experience,
+an LLM will usually give your project a higher score than it deserves:
+it has no way to know whether your <code>CONTRIBUTING.md</code> has been tested recently,
+whether your CI actually blocks merges,
+or whether anyone other than you can cut a release.</p>
+<h2>After</h2>
+<p>Here are Jess's scores:</p>
+<table>
+<thead>
+<tr>
+<th scope="col" style="text-align: left;">item</th>
+<th scope="col" style="text-align: right;">score</th>
+<th scope="col">explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Findability</td>
+<td style="text-align: right;">2/5</td>
+<td>GitHub repo exists, no DOI, not in any registry</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reproducibility</td>
+<td style="text-align: right;">1/5</td>
+<td>a <code>requirements.txt</code> exists but versions aren't pinned</td>
+</tr>
+<tr>
+<td style="text-align: left;">Testability</td>
+<td style="text-align: right;">3/5</td>
+<td>a pytest suite exists, but CI is not configured</td>
+</tr>
+<tr>
+<td style="text-align: left;">Contribution pathway</td>
+<td style="text-align: right;">1/5</td>
+<td><code>CONTRIBUTING.md</code> is one sentence: "We welcome pull requests."</td>
+</tr>
+<tr>
+<td style="text-align: left;">Governance</td>
+<td style="text-align: right;">0/5</td>
+<td>nothing is written down</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sustainability</td>
+<td style="text-align: right;">2/5</td>
+<td>Jess can make a release; her colleague Tahia probably could with help</td>
+</tr>
+</tbody>
+</table>
+<p>The 0 on governance was the one that surprised her.
+She hadn't written down how decisions were made because nobody had disagreed yet.
+She found out later that this pattern is nearly universal:
+governance feels unnecessary until the moment it isn't.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Self-Audit (10 min)</h3>
+<p>Using the six-dimension rubric, score your project.
+Include evidence for each dimension,
+(e.g., the URL of the governance description).</p>
+</section>
+<section class="exercise">
+<h3>LLM Audit (5 min)</h3>
+<p>Repeat the audit using an LLM.</p>
+<blockquote>
+<p>I have a research software project called [name].
+It does [one sentence].
+Its repository is [URL if public].
+Score it on these six dimensions and explain each score:
+findability, reproducibility, testability,
+contribution pathway, governance, sustainability.</p>
+</blockquote>
+<p>Note any dimension where the LLM seems to have assumed something exists
+that you know doesn't.
+Note dimensions where the LLM's score differs from yours by more than one point.</p>
+</section>
+<section class="exercise">
+<h3>Action Planning (5 min)</h3>
+<ol>
+<li>
+<p>Identify the two dimensions with the largest gaps.</p>
+</li>
+<li>
+<p>Write one concrete action you could take in the next two weeks to raise the score.</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../checklist/">Checklists</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

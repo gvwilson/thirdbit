@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Managing Your Manager</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a class="active" href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Managing Your Manager</h1>
+<p class="subtitle">the relationship that controls your freedom to act</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Translate technical decisions into language non-technical decision-makers can act on.</li>
+<li>Push back on requests you can't fulfill without losing credibility.</li>
+<li>Frame resource requests in terms of impact rather than effort.</li>
+</ul>
+<h2>Before</h2>
+<p>At every team meeting,
+Jess's supervisor added items to the simulator's roadmap.
+By the end of the third meeting,
+the roadmap had seventeen items that Jess and Tahia had not agreed to
+and could not realistically deliver.
+The supervisor did not think of himself as creating a problem.
+He was excited about the project,
+but he assumed that because he was the PI,
+his ideas were the plan.
+Jess could say yes to everything and deliver nothing on time
+while quietly resenting the situation,
+Or she could learn to manage the relationship.</p>
+<h2>Working With the People Above You</h2>
+<p>Managing your manager does not mean undermining them or working around them.
+It means making the relationship productive in both directions.
+Your manager has authority over resources and priorities;
+you have information about what is technically feasible
+and how long it actually takes.
+Neither of you can do the other's job.
+A manager who adds seventeen items to a roadmap without cost information
+is not being unreasonable—they genuinely don't know the costs.
+Your job is to provide that information clearly and early.</p>
+<p>Three practices make the relationship work:</p>
+<dl>
+<dt>Translate effort into impact.</dt>
+<dd>"That feature would take three weeks" rarely lands.
+"If we build that feature, we won't be able to fix the reproducibility problem
+before the ESIP conference,
+which means our three submitted talks will all demo a version that doesn't run on Windows" lands.
+Managers make priority decisions by comparing impacts, not by estimating hours.</dd>
+<dt>Say no by offering alternatives.</dt>
+<dd>"I can't do that" puts your manager in the position of having to disagree with you or back down.
+"I can do that if we defer item 12, which would push the March release by two weeks" gives them a choice.
+Most managers will make the trade-off sensibly when it is presented as a trade-off.</dd>
+<dt>Give written updates before they ask.</dt>
+<dd>A brief weekly email summarizing what's done, what's in progress, and what's blocking
+takes five minutes to write and prevents thirty minutes of ad hoc check-ins.
+It also creates a record that protects you when someone asks why the March release slipped:
+you told them in February.</dd>
+</dl>
+<div class="callout">
+<p>Most supervisors who overload their teams are not doing it deliberately.
+They have more ideas than capacity and they have never seen their team's capacity written down.
+Making capacity visible is not complaining;
+it is giving your manager the information they need to make good decisions.
+If you don't give them that information, they'll make decisions without it.</p>
+</div>
+<h2>After</h2>
+<p>Jess started keeping a one-page "capacity document" that listed the team's current commitments
+with rough time estimates.
+Before each meeting with her PI,
+she emailed it to him with one sentence for each proposed new item:
+"Adding this would require moving [existing item] to Q3."
+Her supervisor stopped adding items without asking about capacity first.
+The conversation shifted from "here are more things to do"
+to "here is the trade-off I'm asking you to make".</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Translate a Technical Decision (10 min)</h3>
+<p>Think of a technical decision your project has made or needs to make,
+such as refactoring a module or switching a dependency.
+Prompt an LLM with something like this:</p>
+<blockquote>
+<p>I need to explain a technical decision to a non-technical supervisor.
+The decision is [describe it].
+The technical justification is [one or two sentences].
+Write a two-paragraph explanation that describes the decision in terms of risk,
+reliability, and impact rather than technical detail.</p>
+</blockquote>
+<ol>
+<li>
+<p>Run the prompt and read the output.
+    Does it describe the trade-off clearly?
+    Does it use any technical terms your supervisor wouldn't know?</p>
+</li>
+<li>
+<p>Rewrite the explanation for your actual supervisor,
+    based on what they actually care about.
+    What would make them say yes?
+    What would make them say "let's wait until next quarter"?
+reader.</p>
+</li>
+</ol>
+</section>
+<section class="exercise">
+<h3>The Alternative Offer (10 min)</h3>
+<ol>
+<li>
+<p>Work in pairs.
+    One person plays a manager who has just asked for something unreasonable
+    (use a real example from your own work, or use Jess's situation).
+    The other person practices saying no by offering an alternative.
+    You cannot say "that's not possible" or "we don't have time";
+    you must frame your response as, "I can do [X] if we [trade-off]."</p>
+</li>
+<li>
+<p>Repeat the exercise using an LLM as your manager.
+    What prompt did you give it?
+    Was its output useful for helping you practice for a real conversation?</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../finale/">The Next 90 Days</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../safety/">Psychological Safety</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

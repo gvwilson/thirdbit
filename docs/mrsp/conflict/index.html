@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Managing Conflict</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a class="active" href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Managing Conflict</h1>
+<p>Conflicts in software projects almost always involve people, not code. Two
+contributors submit competing implementations of the same feature. Someone
+argues about every design decision but never ships anything. A long-time
+contributor starts missing deadlines without explanation. These situations are
+uncomfortable to address, which is why most managers don't address them until
+they've gotten much worse.</p>
+<p>The key insight is that doing nothing is not neutral: it signals to everyone
+watching that the behavior is acceptable.</p>
+<h2>What to Do</h2>
+<p>When someone on your team or among your contributors is causing problems, work
+through these steps in order. Most situations resolve at step three or four;
+reaching step seven means you have a serious problem, but it also means you have
+documentation.</p>
+<dl>
+<dt>Make sure you are not guilty of the same sin.</dt>
+<dd>You won't get far complaining that a contributor is rude in code reviews if
+your own reviews have the same tone. Check yourself first.</dd>
+<dt>Check your expectations.</dt>
+<dd>Are you certain the other person knows what standard they are supposed to
+meet? If your contribution guidelines don't specify what a good commit
+message looks like, you can't reasonably be frustrated when someone writes
+"fix stuff". Document expectations first, then enforce them.</dd>
+<dt>Check the situation.</dt>
+<dd>Is something else going on? Someone who has been reliable for a year and
+suddenly goes quiet may be dealing with something you don't know about.
+Ask directly but leave room: "I've noticed you've been less active lately.
+Is everything okay? Is there anything blocking you?" gives them space to
+explain without feeling interrogated.</dd>
+<dt>Document the issue.</dt>
+<dd>Write down specifically what happened and why it falls short of expectations.
+Vague frustration ("they're just difficult") doesn't help you or anyone else.
+"In the last three pull requests, the contributor dismissed review feedback
+without explanation and merged without approval" is actionable.</dd>
+<dt>Check whether others see the same thing.</dt>
+<dd>If you are the only person having this experience, you may be missing
+context. If multiple people have the same concern, that's important
+information—both for addressing the issue and for deciding how urgently to
+act.</dd>
+<dt>Talk with the person directly.</dt>
+<dd>Have a private conversation before escalating. State what you have observed,
+not what you have concluded. "I noticed that the last two PRs were merged
+without waiting for review" is better than "you keep ignoring the review
+process." Then give them a chance to respond before deciding on next steps.</dd>
+<dt>Escalate if the problem continues.</dt>
+<dd>One serious offense or a repeated pattern after a direct conversation
+warrants escalation. In a workplace context this means your HR department or
+your manager. In an open-source community context it means invoking the Code
+of Conduct process. Do this sooner rather than later: people who act in bad
+faith count on others giving them another chance until the situation becomes
+impossible to address.</dd>
+</dl>
+<h2>Toxic Contributors</h2>
+<p>Research software projects regularly attract contributors who argue about
+everything but finish little, or who are technically skilled but consistently
+hostile in review. They are a significant drain on maintainers [<a class="bib-ref" href="../bibliography/#Aurora2019">Aurora2019</a>].</p>
+<p>The standard advice—be patient, assume good faith, try harder—is often wrong
+when applied to people who have already demonstrated a pattern. A more useful
+frame: you are running a community, and the health of that community is your
+responsibility. Allowing one person to make others feel unwelcome costs you
+multiple contributors and damages the project far more than losing one difficult
+person does.</p>
+<p>When a contributor's behavior is affecting others, you can:</p>
+<dl>
+<dt>Document and warn.</dt>
+<dd>Issue a formal warning citing specific incidents. The purpose is not
+punishment but clarity: the person now knows exactly what is expected and
+that continued violations will have consequences.</dd>
+<dt>Restrict access.</dt>
+<dd>On platforms like GitHub you can require that a particular contributor's
+pull requests be approved before they are merged, or that all their comments
+be moderated. Use these tools before banning.</dd>
+<dt>Remove them.</dt>
+<dd>If the behavior continues after a warning, remove the contributor's access
+to the project. This is easier if your Code of Conduct says clearly that
+the maintainers reserve this right, which is another reason to have one.</dd>
+</dl>
+<p>None of this needs to be permanent. People sometimes come back later in a better
+frame of mind and make genuine contributions. But you don't owe anyone indefinite
+chances to disrupt your project.</p>
+<h2>When the Whole Team is Dysfunctional</h2>
+<p>Occasionally the problem isn't one person but the dynamics of the whole group.
+Individuals who work fine separately somehow produce a team that is worse than
+the sum of its parts.</p>
+<p>If you are managing the team, the first step is to acknowledge that the problem
+exists. The second is to look for structural causes: Are roles unclear? Are
+decisions being made without input from the people who have to implement them?
+Is there a history that's producing resentment nobody is naming directly?</p>
+<p>Sometimes the answer is to reset team structure, redistribute work, or bring in
+a mediator. The worst thing you can do is hope the situation improves on its
+own. It almost never does.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../process/">Development Process</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../security/">Security</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

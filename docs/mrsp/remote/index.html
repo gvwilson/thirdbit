@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Remote Collaboration</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a class="active" href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Remote Collaboration</h1>
+<p class="subtitle">most of your contributors have never been in the same room</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Identify the specific failure modes of distributed research software teams.</li>
+<li>Apply async-first practices to reduce latency and improve inclusion.</li>
+<li>Design a communication structure that works across time zones.</li>
+</ul>
+<h2>Before</h2>
+<p>The simulator's contributor base had spread without anyone planning it.
+Carlos was in Warsaw, seven hours ahead of the lab.
+Fatima was in Rabat, six hours ahead.
+A contributor named Ji-ho had joined from Seoul, fourteen hours ahead,
+and Jess was in Toronto.
+The four of them had never been in the same meeting.
+Carlos's pull requests sat for twenty-four hours before anyone reviewed them
+because by the time Jess's workday started, Carlos had finished his and gone home.
+Ji-ho had stopped asking questions in GitHub issues
+because the answers typically arrived while he was asleep
+and the thread had moved on by the time he responded.</p>
+<h2>When the Team Is Everywhere (10 min)</h2>
+<p>The failure modes of distributed teams are predictable and mostly not about technology.
+They are about the implicit assumption that the team shares a working day.</p>
+<dl>
+<dt>Review latency</dt>
+<dd>Pull requests that sit for more than 48 hours create a feedback loop
+that discourages contribution.
+The contributor finishes work, waits, forgets the context, gets the review,
+has to re-read everything, and produces a smaller next contribution.
+Across a time zone gap, this is the default behavior unless something actively prevents it.</dd>
+<dt>Synchronous-first culture</dt>
+<dd>When the default answer to "how do we decide this?" is "we'll talk about it in the meeting,"
+everyone who can't attend that meeting is excluded from the decision.
+Research software projects often run meetings at times convenient for the lead's institution,
+which means contributors in other time zones either attend at bad hours or don't attend—and
+then discover that decisions were made without them.</dd>
+<dt>Invisible contribution</dt>
+<dd>Code review, answering questions, updating documentation, and triaging issues
+are often done asynchronously and leave less visible trace than committed code.
+In distributed teams these contributions are even harder to see
+because the people doing them are also not in meetings where they might be acknowledged.</dd>
+<dt>Trust without familiarity</dt>
+<dd>Co-located teams build trust through incidental contact.
+Distributed teams have to build it deliberately through code review,
+written communication,
+and the consistency of showing up.
+A new contributor who gets good code review feedback on their first three PRs
+will contribute more than one who gets silence or generic approval.</dd>
+</dl>
+<h2>What Async-First Means in Practice</h2>
+<p>Async-first does not mean "no meetings".
+It means that meetings are for things that genuinely require real-time discussion,
+and everything else is handled in writing
+where it is searchable, accessible to people in other time zones,
+and not dependent on everyone being available simultaneously.</p>
+<ul>
+<li>Decisions are written down in issues or a decision log before they are acted on,
+    not announced in meetings and then minuted.</li>
+<li>Code review responses are expected within 48 hours, not "whenever".</li>
+<li>Status updates are written, not spoken:
+    the three-column format discussed earlier works asynchronously by default.</li>
+<li>Questions asked in writing get answers in the same thread,
+    not in a chat message that disappears.</li>
+</ul>
+<div class="callout">
+<p>Research on virtual conferences found that they significantly broaden participation
+across geography and career stage [<a class="bib-ref" href="../bibliography/#Skiles2021">Skiles2021</a>].
+The same logic applies to distributed teams:
+many have a rule against mixed-mode meetings,
+i.e.,
+meetings where some participants are in a room and others are remote.
+In a mixed-mode meeting, the people in the room dominate by default:
+they can see each other's reactions,
+they can interrupt more easily,
+and the conversation moves at their pace.
+If you can't have everyone in person, have everyone remote.
+The meeting will not only be fairer,
+it will usually also be shorter.</p>
+</div>
+<h2>After</h2>
+<p>Jess moved the simulator to a 48-hour review policy:
+any PR open for 48 hours without a review got pinged in the contributor's time zone
+via a GitHub notification.
+She moved the weekly status update to a shared document
+that contributors could fill in whenever their working day started
+rather than requiring synchronous attendance.
+She scheduled one video call per month at a time that rotated to share the inconvenience
+across time zones.
+Ji-ho started asking questions again within two weeks of the policy change.
+He said the previous silence had felt like indifference.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Communication Audit (10 min)</h3>
+<p>Answer these questions for your project:</p>
+<ol>
+<li>What is the longest a pull request or issue comment has gone without a response
+    in the last three months? What time zone was the contributor in?</li>
+<li>When are your regular meetings scheduled? Which contributors can't attend at that
+    time without rearranging their workday?</li>
+<li>Where are decisions made? Are they accessible to contributors who weren't in the
+    meeting?</li>
+<li>Which contributors haven't engaged in the last month? What do you know about why?</li>
+</ol>
+<p>Then prompt an LLM like this:</p>
+<blockquote>
+<p>I manage a distributed research software team with contributors in [list time zones].
+Our current practices are [describe briefly].
+What specific failure modes should I watch for,
+and what are the three highest-priority changes to make?"</p>
+</blockquote>
+<p>Compare the LLM's suggestions to your audit answers.
+What did it get right?
+What did it get wrong because it lacked context about your specific project?</p>
+</section>
+<section class="exercise">
+<h3>Design a Communication Structure (10 min)</h3>
+<p>Design a communication structure for a team with contributors
+in at least three time zones.
+(Use your own project, or use Jess's team: Toronto, Rabat, Warsaw, and Seoul).
+Specify:</p>
+<ul>
+<li>How often synchronous meetings happen and when (rotate or fixed?).</li>
+<li>How decisions are made for things that can't wait for a meeting.</li>
+<li>What the expected response time is for code reviews and issues.</li>
+<li>How contributors who miss a meeting find out what was decided.</li>
+</ul>
+<p>Compare your structure with a partner's.
+Identify one thing they included that you missed.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../career/">Career Development for RSEs</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../burnout/">Recognizing and Responding to Burnout</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Psychological Safety</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a class="active" href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Psychological Safety</h1>
+<p class="subtitle">why your team won't tell you what you need to know</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Describe what psychological safety is and why it predicts team performance.</li>
+<li>Identify specific behaviors that create or destroy it.</li>
+<li>Change one practice in your own project to make it safer to admit uncertainty.</li>
+</ul>
+<h2>Before</h2>
+<p>Jess had been noticing for a while that
+Ren only brought problems to her after they had become crises.
+When Jess asked him about it,
+his answer was that the last time he'd admitted he didn't know how to do something,
+she had said, "You're the programmer, figure it out."
+He had spent three hours figuring it out,
+filed it away as "don't bring Jess your problems,"
+and adjusted his behavior accordingly.
+Jess had no memory of saying it.</p>
+<h2>What Psychological Safety Is and Isn't</h2>
+<p>[<a class="bib-ref" href="../bibliography/#Edmondson1999">Edmondson1999</a>] studied 51 work teams in a hospital and found that
+psychological safety—the shared belief that it is safe to take interpersonal risks—was
+the strongest predictor of team learning behavior.
+Teams with high psychological safety admitted errors,
+asked questions,
+and flagged problems early.
+Teams with low psychological safety did the same amount of work
+but missed more problems and learned less from them.
+The difference was not the team members' skill or motivation;
+it was whether they believed that speaking up would be held against them.</p>
+<p>[<a class="bib-ref" href="../bibliography/#Forsgren2018">Forsgren2018</a>] found the same pattern in software delivery:
+the highest-performing engineering teams were distinguished
+not by their tools or processes
+but by whether team members felt safe to admit mistakes and ask for help.
+Low psychological safety produced two predictable failure modes:
+problems discovered late and silent workarounds that nobody else knew existed.</p>
+<p>Psychological safety is not the same as niceness or the absence of conflict.
+High-safety teams disagree often and directly.
+The difference is that the disagreement is about ideas and work
+rather than about people's competence or standing.
+A team where nobody ever says, "I don't think that's right," is not a psychologically safe team—it's
+a team where people have learned that disagreement is dangerous.</p>
+<h2>What Managers Do to Destroy It</h2>
+<p>The most common manager behaviors that destroy psychological safety
+are small, repeated, and often unintentional:</p>
+<ul>
+<li>Responding to bad news with visible frustration
+    ("why didn't you catch this earlier?")</li>
+<li>Dismissing questions in public
+    ("that's covered in the documentation")</li>
+<li>Solving someone's problem for them rather than helping them solve it,
+     which signals that you don't trust their judgment</li>
+<li>Only seeking input from the same two people in every meeting</li>
+<li>Changing direction without explaining why,
+    which teaches people that their work can be cancelled without warning</li>
+</ul>
+<h2>What Managers Do to Build It</h2>
+<ul>
+<li>Respond to bad news with curiosity rather than frustration:
+     "tell me more about how this happened"</li>
+<li>Publicly acknowledge your own mistakes and what you learned from them</li>
+<li>Ask for input explicitly from people who haven't spoken</li>
+<li>When someone brings you a problem,
+    ask what they've already tried before offering a solution</li>
+<li>Close the loop:
+    when someone flags a risk and it turns out to be real, acknowledge that they were right</li>
+</ul>
+<h2>After</h2>
+<p>After the conversation with Ren,
+Jess started keeping track of how she responded when people brought her bad news.
+She was surprised to find that her first instinct was often,
+"Why didn't you catch this earlier?"
+She didn't intend it to sound like blaming, but it was heard that way.
+She started replacing that question with,
+"What was the first sign something was wrong?"
+The answers were more useful,
+and the conversation stopped feeling like a debrief and more like problem-solving.</p>
+<div class="callout">
+<p>You cannot survey your team and ask them whether they feel psychologically safe:
+if psychological safety is low,
+they won't tell you honestly.
+The best proxies are behavioral:
+How quickly do problems surface?
+How often do people ask questions in meetings rather than afterward?
+How many of your sprint retrospectives produce the same items as last time?
+If the answers are "late," "rarely," and "all of them,"
+psychological safety is the likely culprit.</p>
+</div>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Diagnose Your Team (10 min)</h3>
+<p>Prompt the LLM like this:</p>
+<blockquote>
+<p>I manage a small research software team of [N] people.
+I'm trying to assess whether psychological safety is an issue.
+Based on the following observable behaviors,
+tell me which are warning signs and which are neutral:
+[list three to five things you've observed recently in your team,
+e.g., "problems come to me late",
+"the same person dominates code review discussions",
+or "nobody has disagreed with a technical decision in months"].</p>
+</blockquote>
+<p>Steps:</p>
+<ol>
+<li>
+<p>Run the prompt. Note what the LLM flagged as warning signs and whether
+    you agree.</p>
+</li>
+<li>
+<p>Individually, write:</p>
+<ul>
+<li>One behavior from your team that might indicate low psychological safety.</li>
+<li>One thing you have said or done in the last month that could have made it
+    less safe to bring you problems.</li>
+<li>One change you will make in how you respond to bad news.</li>
+</ul>
+</li>
+</ol>
+</section>
+<section class="exercise">
+<h3>Practice Responding (10 min)</h3>
+<ol>
+<li>
+<p>In pairs: one person describes a realistic bad-news scenario,
+    such as a test suite has been silently failing for two weeks.
+    The other person practices responding in a way
+    that makes it more likely the person will bring problems sooner next time.</p>
+</li>
+<li>
+<p>Switch roles.
+    Observers: note one phrase the manager used
+     that would make you more likely to bring problems early,
+    and one that would make you less likely.
+    Compare your answers with those given by the LLM in the previous exercise.</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../upward/">Managing Your Manager</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../lifecycle/">Succession and Endings</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

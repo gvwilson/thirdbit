@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recognizing and Responding to Burnout</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a class="active" href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Recognizing and Responding to Burnout</h1>
+<p class="subtitle">the difference between tired and burned out matters</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Distinguish burnout from ordinary fatigue and underperformance.</li>
+<li>Identify early warning signs in yourself and your team members.</li>
+<li>Take at least one concrete protective action for your team this week.</li>
+</ul>
+<h2>Before</h2>
+<p>Over the course of three months, Ren's commit frequency dropped by 70%.
+His pull request descriptions, which had been detailed and clear, became one-liners,
+and he stopped asking questions in code review.
+He replied to chat messages in the evenings instead of during working hours.
+Jess noticed the commit frequency because she looked at the contributor graph.
+She didn't notice anything else until Ren told her at a one-to-one that he was thinking about leaving.</p>
+<p>Jess knew Tahia was working weekends because of the timestamps on her commits.
+Jess had interpreted this as dedication,
+but Tahia was actually trying to stay ahead of a growing maintenance burden
+that she didn't feel she could raise with Jess
+because the last time she had,
+Jess had just said, "Yeah, that stuff piles up.".</p>
+<p>Jess herself had not taken a day off since the post-doc started.
+She didn't think of this as a problem.
+She thought of it as commitment—which is, as [<a class="bib-ref" href="../bibliography/#Jaffe2021">Jaffe2021</a>] argues,
+exactly what keeps workers exploited.</p>
+<h2>When the Pattern Changes</h2>
+<p>[<a class="bib-ref" href="../bibliography/#Maslach2024">Maslach2024</a>] describes burnout as having three dimensions:
+emotional exhaustion (feeling drained by your work rather than energized by it),
+depersonalization (becoming cynical or detached from the people and purpose of your work),
+and reduced personal accomplishment (feeling like your effort doesn't matter or produce results).
+People who are simply tired recover with rest.
+People who are burned out don't,
+or don't quickly,
+because the problem is not a deficit of rest but a chronic mismatch between
+what their work demands and what their work provides.</p>
+<p>If you are managing a research project,
+you can divide people into three groups:</p>
+<dl>
+<dt>Yourself</dt>
+<dd>Researchers who manage are often also expected to write code, publish, teach, and attend conferences.
+The expectation that you will do all of these at the same level as
+before you had management responsibilities is usually not stated explicitly
+and never revised downward.
+You have to revise it yourself.</dd>
+<dt>Your team members</dt>
+<dd>RSEs in research environments often carry an invisible maintenance burden—the work
+that keeps existing software running—alongside new development work.
+Maintenance is rarely recognized or celebrated.
+It accumulates silently.
+The person doing it often doesn't raise it because it feels like complaining.</dd>
+<dt>External contributors</dt>
+<dd>Volunteer contributors to open source research software burn out too,
+and their burnout is invisible in a different way.
+They simply stop showing up.</dd>
+</dl>
+<p>The warning signs in others include
+declining engagement (fewer commits, shorter messages, slower responses),
+working unusual hours as the only way to keep up,
+declining to take on new things without explanation,
+and increased negativity in code review.</p>
+<p>The warning signs in yourself are
+dreading work you used to find interesting,
+feeling like nothing you do is enough,
+losing the ability to tell a good week from a bad one because they all feel the same,
+and working more hours while producing less.</p>
+<div class="callout">
+<p>Burnout looks like underperformance,
+and the response to underperformance is typically increased pressure
+and more frequent check-ins.
+Doing this to someone who is burned out makes things worse.
+Before treating someone as underperforming,
+ask yourself if their engagement pattern changed,
+if the demands on them have changed,
+or if there is something you should have noticed earlier and didn't?
+If the answer is yes, the person doing the work is probably not the problem.</p>
+</div>
+<h2>What Managers Can Do</h2>
+<ul>
+<li>Make maintenance work visible.
+    Count it, acknowledge it, and allocate time for it explicitly in planning meetings.</li>
+<li>Protect time.
+    A team member who is working 60-hour weeks is not more productive than one working 40;
+    they are accumulating a debt that will be called in later.</li>
+<li>Create explicit permission to not respond after hours.
+    If you send emails at 11pm,
+    your team will feel pressure to respond at 11pm even if you tell them they don't have to.</li>
+<li>Check in about workload, not just work.
+    "How are things going?" is not a workload check.
+    "Is the amount of work you have right now sustainable?" is.</li>
+</ul>
+<h2>After</h2>
+<p>After the conversation with Ren, Jess did three things:</p>
+<ol>
+<li>She added a standing agenda item to every one-to-one: "Is your current workload sustainable?"</li>
+<li>She moved maintenance work into the milestone tracker so it was visible alongside feature work.</li>
+<li>She took a week off, during which she didn't check the group chat
+    (which proved to be a lot harder than she expected).</li>
+</ol>
+<p>When she came back, she noticed that Tahia had handled everything competently
+and that nobody had emailed her to say the project was collapsing.
+She took this as evidence that she was less of a single point of failure than she'd feared,
+and more of an obstacle to her team's autonomy than she'd realized.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Personal Sustainability Check (8 min)</h3>
+<p>Answer honestly:</p>
+<ol>
+<li>How many hours did you work last week? Is that typical?</li>
+<li>In the last month, have you done something purely for enjoyment that had nothing to do with work?</li>
+<li>Name one thing that used to energize you about this project that currently doesn't.</li>
+<li>If a team member were behaving the way you currently are, what would you say to them?</li>
+</ol>
+<p>You don't need to share your answers. Write them for yourself.</p>
+</section>
+<section class="exercise">
+<h3>Team Protection Plan (12 min)</h3>
+<p>In pairs:</p>
+<ol>
+<li>
+<p>Describe one person on your team whose workload you are not sure is sustainable.
+    What do you know about their current situation?
+    What don't you know?</p>
+</li>
+<li>
+<p>Write three concrete things you could do this week to make their situation more sustainable
+    or to find out whether it is.
+    Be specific:
+    not "check in with them"
+    but "at tomorrow's one-to-one,
+    ask whether the amount of work they currently have is sustainable,
+    and listen to the answer without immediately offering solutions."</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../remote/">Remote Collaboration</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../politics/">Office Politics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcoming Newcomers</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a class="active" href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Welcoming Newcomers</h1>
+<p class="subtitle">you only have one chance to make a first impression</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Explain why a <code>CONTRIBUTING.md</code> file matters even for a two-person project.</li>
+<li>Evaluate a <code>CONTRIBUTING.md</code> for a real newcomer's experience.</li>
+<li>Produce a draft <code>CONTRIBUTING.md</code> that a stranger could follow.</li>
+</ul>
+<h2>Before</h2>
+<p>Two external contributors had submitted pull requests to the simulator
+six weeks before this workshop.
+Jess knew their names:
+one was a postdoc in Finland who had added support for a new habitat type,
+and the other was a grad student in New Zealand who had fixed a bug in the climate data parser.
+Both were good changes.
+Jess had meant to review them, but she'd been busy.</p>
+<p>Both contributors had gone quiet.
+When Jess emailed to apologize,
+the Finnish postdoc replied politely that she'd already implemented the feature in her own fork.
+The New Zealand student didn't reply at all.</p>
+<h2>Feeling Welcome</h2>
+<p>[<a class="bib-ref" href="../bibliography/#Steinmacher2015">Steinmacher2015</a>] studied why newcomers abandon open source projects
+and found that the majority of drop-off doesn't happen because of technical problems,
+but because no one responds,
+the response is confusing or unwelcoming,
+or there is no clear path to the next step.
+The contributor from Finland had run into all three.
+She'd read the <code>CONTRIBUTING.md</code> (one sentence: "We welcome pull requests"),
+had questions about coding style,
+had waited three weeks for someone to answer her question,
+and then solved the problem herself.
+The technical barrier was never the issue.</p>
+<p>A useful <code>CONTRIBUTING.md</code> removes these barriers before they become drop-off points.
+It needs to say:</p>
+<ul>
+<li>How to set up the development environment (exact commands, not "install dependencies")</li>
+<li>How to run the tests and what the expected output looks like</li>
+<li>What kinds of contributions are and aren't welcome</li>
+<li>How to submit a pull request and what happens next</li>
+<li>Who to contact when stuck, and a realistic response time</li>
+</ul>
+<p>A useless <code>CONTRIBUTING.md</code> contains aspirational language about community values,
+instructions that assume a specific operating system or Python version,
+and setup steps that haven't been tested in eight months.
+Most projects have the useless version.</p>
+<div class="callout">
+<p>The "good first issue" label is a promise.
+If you use the label and a newcomer spends six hours on it
+only to discover it requires understanding three years of architectural decisions,
+you have broken the promise.
+Before adding the label,
+have someone who hasn't worked on that part of the code estimate
+how long it would take them.
+If they can't estimate, the issue isn't ready for the label.</p>
+</div>
+<h2>Legitimate Peripheral Participation</h2>
+<p><a class="gl-ref" href="../glossary/#lpp">Legitimate peripheral participation</a> is the idea that
+newcomers ease into a <a class="gl-ref" href="../glossary/#community-of-practice">community of practice</a> by starting with small, low-risk tasks
+that still contribute something real [<a class="bib-ref" href="../bibliography/#Sholler2019">Sholler2019</a>, <a class="bib-ref" href="../bibliography/#Wenger1999">Wenger1999</a>].
+Jess asked Ren to write one test before touching any production code.
+He learned the project structure,
+got a successful pull request merged,
+and felt like a contributor
+before tackling a new feature.
+The test took him two hours;
+the next pull request took him thirty minutes.</p>
+<div class="callout">
+<p>A Code of Conduct is not optional.
+Its existence signals what kind of project this is,
+and so does its absence.
+But a Code of Conduct that doesn't describe who handles complaints,
+and how,
+is decoration.
+Do cannot write the enforcement mechanism when you need it;
+you need to write it before [<a class="bib-ref" href="../bibliography/#Aurora2019">Aurora2019</a>].</p>
+</div>
+<h2>After</h2>
+<p>After the two abandoned pull requests,
+Jess rewrote the <code>CONTRIBUTING.md</code> from scratch.
+She had an LLM follow the steps on her computer,
+which was successful,
+then asked a colleague who had never seen the project to try it on a clean machine.
+He got stuck at step three:
+the instructions said <code>pip install -e .</code>
+but didn't mention that the project required GDAL,
+which can't be installed with pip on most systems.
+Jess had forgotten she'd installed GDAL separately years ago.
+The test took forty minutes and found a bug in the instructions
+that three years of contributors had silently worked around.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Draft Your CONTRIBUTING.md (10 min)</h3>
+<p>You have a template with section headers already in place:</p>
+<ul>
+<li>Setup</li>
+<li>Running the tests</li>
+<li>Submitting changes</li>
+<li>What we're looking for</li>
+<li>Getting help</li>
+</ul>
+<p>Prompt an LLM like this:</p>
+<blockquote>
+<p>Write a CONTRIBUTING.md for a Python research software project called [name]
+that [one sentence about what it does].
+The main dependencies are [list].
+Tests are run with [command].
+The project is hosted on GitHub.
+Be specific about setup steps.</p>
+</blockquote>
+<ol>
+<li>
+<p>Ask yourself,
+    "Could a competent Python programmer who has never seen this project follow these instructions successfully?"</p>
+</li>
+<li>
+<p>Edit the draft generated by the LLM.
+    Replace anything generic with specifics.
+    Mark any section you can't fill in yet for further work.</p>
+</li>
+</ol>
+</section>
+<section class="exercise">
+<h3>Fresh Eyes Test (8 min)</h3>
+<p>Swap your draft with a partner.</p>
+<ol>
+<li>
+<p>(5 min) What command should you run first?
+    What does a successful test run look like?
+    Who do you contact if you get stuck?</p>
+</li>
+<li>
+<p>(3 min) Ask your partner one "what do I do if…" question
+    that their document doesn't answer.</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../checklist/">Checklists</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../governance/">Governance</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

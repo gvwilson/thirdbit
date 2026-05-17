@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Development Process</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a class="active" href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Development Process</h1>
+<p>A <a class="gl-ref" href="../glossary/#project-manager">project manager</a>'s job is not to assign tasks but to
+remove obstacles—which means understanding how work actually flows through a
+team. Over the past fifty years, researchers and practitioners have described
+dozens of development processes. Most have passionate advocates and equally
+passionate critics, but the differences between them are smaller in practice
+than in theory.</p>
+<h2>How Most Small Teams Actually Work</h2>
+<p>Most small research software teams don't follow any named process. They have a
+list of things to do, people pick items off the list, and eventually the list
+gets shorter. This works until the team grows past three or four people or the
+project reaches a level of complexity where nobody can keep the whole thing in
+their head at once.</p>
+<p>The problem isn't chaos—it's invisible chaos. When Jess asked Ren what he was
+working on and discovered he'd been stuck for two days on a dependency issue,
+the team had already lost time that better process would have surfaced earlier.
+What most teams need isn't a complete methodology overhaul: it's a few
+lightweight practices that make progress and blockers visible.</p>
+<h2>Agile for Research Software Teams</h2>
+<p><a class="gl-ref" href="../glossary/#devops">Agile</a> development broke down work into short cycles, typically
+one or two weeks, each of which produces something demonstrable. The most widely
+used flavor is Scrum, which organizes work around sprints. At the start of each
+sprint, the team agrees on what they will finish. During the sprint, a brief
+daily check-in surfaces blockers. At the end, the team reviews what got done and
+adjusts their plan.</p>
+<p>Scrum works well for research software teams when:</p>
+<ul>
+<li>
+<p>Requirements change frequently, which is true of most research software.</p>
+</li>
+<li>
+<p>The team is small enough that everyone can be in a single stand-up.</p>
+</li>
+<li>
+<p>People can make meaningful progress at least a few days a week.</p>
+</li>
+</ul>
+<p>The danger of adopting "agile" without discipline is that it becomes an excuse
+for not planning at all. The stand-up meeting only works if each task is small
+enough to report on meaningfully in a day. "Still working on the climate parser"
+every day for a week is not a stand-up; it's a warning sign.</p>
+<h2>Planning and Estimation</h2>
+<p>If you have a rough sense of what needs to be done over the next few months, a
+planning session at the start of each sprint is worth the time. The
+<a class="gl-ref" href="../glossary/#product-manager">product manager</a>—which in a small lab is often you—
+brings a prioritized list of desired work. The team discusses what's feasible in
+the sprint, makes estimates, and commits to a subset.</p>
+<p>The hardest part is estimation. Nobody is good at it without practice, and
+nobody gets better without comparing estimates to outcomes. Keep track: at the
+end of each sprint, note which tasks took longer than expected and by how much.
+After three or four sprints, your estimates will improve and you'll have data to
+show stakeholders when they ask why something is taking so long.</p>
+<p>A few things help:</p>
+<dl>
+<dt>Break tasks until each one fits in a day.</dt>
+<dd>If you can't describe what "done" looks like for a task in a single sentence,
+the task is too large. Split it until you can.</dd>
+<dt>Separate feature work from maintenance.</dt>
+<dd>Reserve part of each sprint for bug fixes, documentation, and technical debt.
+If you don't, these accumulate until they dominate everything else.</dd>
+<dt>Add a buffer.</dt>
+<dd>Unplanned work always arrives. Someone files an urgent bug report. A
+collaborator needs help running the code. Leave slack in the schedule rather
+than pretending the sprint will go exactly as planned.</dd>
+</dl>
+<h2>Triage</h2>
+<p>When the backlog is longer than the team can address in any reasonable time,
+you have to triage it. Prioritize ruthlessly using two axes: how much do users
+need this, and how hard is it to do?</p>
+<p>High-need, low-effort items go first. High-need, high-effort items need
+scheduling and possibly scoping discussions. Low-need items, regardless of
+effort, should be closed or deferred unless someone steps up to own them.</p>
+<p>[<a class="bib-ref" href="../bibliography/#Forsgren2018">Forsgren2018</a>] found that the highest-performing software teams
+deployed frequently and recovered quickly from failures. Those outcomes came not
+from a particular named process but from short feedback loops and good
+measurement. Whatever process you choose, design it around those two things.</p>
+<h2>Cutting Scope</h2>
+<p>A schedule's main purpose is not to tell you what to do each day but to tell
+you when to stop adding things. If you are halfway through a planned sprint and
+have completed a third of the work, the right response is to update the plan,
+not to work nights and weekends.</p>
+<p>When the math says you won't finish, drop features. Announce it early: "We
+won't have the multi-site comparison tool for the October release, but it will
+be in January" is useful information. The same news delivered on October 30 is
+not. Real users and collaborators will respect the honesty if it gives them time
+to plan around it. They will not respect a release that includes a broken version
+of a feature you promised.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../glossary/">Glossary</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../conflict/">Managing Conflict</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

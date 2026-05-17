@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Requirements</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a class="active" href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Requirements</h1>
+<p class="subtitle">figuring out what people actually need</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Distinguish between a feature request and an underlying need.</li>
+<li>Conduct a short requirements conversation and extract a concrete specification.</li>
+<li>Prioritize a backlog using a two-axis framework.</li>
+</ul>
+<h2>Before</h2>
+<p>The email arrived on a Tuesday:
+"Hi Jess, I love the simulator but I really need to be able to add notes to my data.
+Can you add that?"
+Jess's first instinct was to open a GitHub issue titled
+"Add notes feature"
+and start thinking about the database schema.
+Her second instinct,
+shaped by a bad experience adding a feature that nobody ended up using,
+was to reply with five questions before writing a single line of code.</p>
+<ol>
+<li>"What kind of notes?"
+    The user meant short labels, not paragraphs.</li>
+<li>"Are they shared with other people?"
+    Yes, which changed everything about the implementation.</li>
+<li>"Can you search for them?"
+    No.</li>
+<li>"Can you change them?"
+    Yes, but old versions don't need to be kept.</li>
+<li>"Who sees the result and what do they do with it?"
+    The notes go into a report that goes to a regulatory agency.</li>
+</ol>
+<p>The "shared" answer turned a one-afternoon feature into a two-week project
+with access control implications.
+The "regulatory agency" answer added a requirement for audit logging
+that the user hadn't mentioned because it hadn't occurred to them that software could provide it.
+Neither piece of information was in the original email.</p>
+<h2>Digging Deeper</h2>
+<p>Users describe what they want in terms of their current workflow,
+not in terms of what would actually solve their problem.
+The product manager's job is to surface the real requirement,
+not to implement the stated one.
+The key to doing this is to manage the requirements conversation:</p>
+<ul>
+<li>Ask about problems, not solutions:
+    "What takes the most time?" not "What feature do you want?"</li>
+<li>Ask about frequency and severity:
+    "How often does this happen?" and "What do you do instead?"</li>
+<li>Ask about the downstream decision:
+    "Who sees this result and what do they do with it?"</li>
+</ul>
+<p>Crucially, write down what they say, not what you think they should have said.</p>
+<h2>Prioritizing the Backlog</h2>
+<p>Once you have translated users' needs into features,
+place each one on a 2x2 grid whose axes are "impact" and "effort".
+This grid has four quadrants:</p>
+<ul>
+<li>Quick wins (high impact, low effort): do these first.</li>
+<li>Strategic investments (high impact, high effort): plan carefully.</li>
+<li>Fill-ins (low impact, low effort): do during slack time.</li>
+<li>Money pits (low impact, high effort): just don't.</li>
+</ul>
+<p>The money pit is the one to watch.
+It is often technically interesting,
+which is why it keeps coming up in planning meetings,
+but this doesn't justify building it if few users will notice when it's done.
+(The sad truth is that most features are never used by most users,
+and that adding features makes maintenance harder
+for everyone who uses the features you already have [<a class="bib-ref" href="../bibliography/#Perri2018">Perri2018</a>].)</p>
+<h2>After</h2>
+<p>After the notes conversation,
+Jess applied the same five-question approach to the four oldest items on her backlog.
+Two of them turned out to address needs that users had already solved in other ways,
+so she could close the issues without writing code.
+One was a money pit:
+it would give her and her team a chance to play with 3D visualization,
+but would help less than 5% of users
+The fourth was a genuine quick win that she'd been avoiding because it seemed unimportant;
+it turned out to be the most useful thing anyone had asked for once she asked the right questions.</p>
+<div class="callout">
+<p>The LLM can simulate a user making a feature request.
+It cannot simulate what your actual users have tried,
+what workarounds they've built,
+or how they feel about the software they've been using for three years.
+The LLM conversation is useful practice;
+the human conversation is where you learn what actually matters.</p>
+</div>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>LLM Requirements Conversation (8 min)</h3>
+<p>Prompt the LLM like this:</p>
+<blockquote>
+<p>Play the role of a postdoc in ecology who uses [project name] for their data analysis.
+You want to be able to [feature request from your real backlog].
+Answer my questions about your needs in character.
+Don't reveal your real requirements immediately:
+let me ask the right questions."</p>
+</blockquote>
+<p>Ask at least five questions before proposing anything.
+Stop when you can write a one-sentence requirement in the form:
+"When [situation], [user type] needs to [action] so that [outcome]."</p>
+</section>
+<section class="exercise">
+<h3>Human Requirements Conversation (10 min)</h3>
+<p>Switch to a real partner.
+Pick a different feature request from your backlog.
+One person is the user, the other is the product manager.</p>
+<ol>
+<li>
+<p>(7 min) Ask five questions before proposing anything.
+    Write the requirement sentence.</p>
+</li>
+<li>
+<p>(3 min) Compare the two conversations.
+    What did the real person tell you that the LLM couldn't?
+    What did the LLM simulate well?</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../marketing/">Marketing</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../hirefire/">Hiring and Firing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

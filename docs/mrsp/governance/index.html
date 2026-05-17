@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Governance</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a class="active" href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Governance</h1>
+<p class="subtitle">making decisions together</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Describe two ways informal decision-making fails as projects grow.</li>
+<li>Apply Martha's Rules to a concrete proposal.</li>
+<li>Write a one-paragraph governance statement for your project.</li>
+<li>Establish authorship and credit policies before a conflict makes them necessary.</li>
+</ul>
+<h2>Before</h2>
+<p>The simulator now had four regular contributors outside the lab.
+In October, two of them—Carlos from a university in Brazil
+and Fatima from a government agency in Morocco—independently submitted pull requests
+that fixed the same bug in the climate data parser.
+Both fixes worked, but the approaches were very different.
+Jess read both,
+thought Carlos's was cleaner,
+and merged it. Fatima's PR sat open for a week before Jess closed it with a brief comment:
+"Duplicate of #147, which has been merged."</p>
+<p>Fatima stopped contributing.
+Jess only found out two months later, when Carlos mentioned it.
+Fatima had assumed that a closed pull request without explanation meant that
+her contributions weren't wanted.
+Nobody had written down how decisions about competing implementations were made,
+so from the outside there was no way to tell the difference
+between "Jess chose Carlos's approach after careful consideration"
+and "Jess chose Carlos's approach because she knows him better."</p>
+<div class="callout">
+<h2>Why Informal Governance Fails</h2>
+<p>Jo Freeman's classic essay on the tyranny of structurelessness [<a class="bib-ref" href="../bibliography/#Freeman1972">Freeman1972</a>] argued
+that informal groups always have power structures—they're just invisible and unaccountable.
+[<a class="bib-ref" href="../bibliography/#Majumder2019">Majumder2019</a>] analyzed over a thousand GitHub projects
+and found that 80% are <a class="gl-ref" href="../glossary/#hero-project">hero projects</a>
+in which 5% or fewer of contributors account for 95% or more of substantive interactions.
+This is understandable in specialized research domains,
+but if a project wants to attract new contributors (and keep existing ones)
+it's important that decisions be made transparently,
+rather than by the people with the most time and loudest voices,
+or who happened to room with the project's creator one summer.</p>
+</div>
+<h2>Governance Statement</h2>
+<p>Every project, no matter how small, needs written answers to three questions:</p>
+<ol>
+<li>Who gets a vote on what?</li>
+<li>How are decisions recorded and communicated to people who weren't in the room?</li>
+<li>How does someone raise a concern if they don't have a seat at the table?</li>
+</ol>
+<p><a class="gl-ref" href="../glossary/#marthas-rules">Martha's Rules</a> [<a class="bib-ref" href="../bibliography/#Minahan1986">Minahan1986</a>] is
+a lightweight decision process that answers all three
+(and scales better than <a class="gl-ref" href="../glossary/#roberts-rules">Robert's Rules</a> for small teams):</p>
+<ul>
+<li>Proposals are filed at least 24 hours before a meeting.</li>
+<li>A proposal is at most one page:
+    a summary, a concrete proposal, some discussion of pros and cons, and alternatives.</li>
+<li>Members cast a <a class="gl-ref" href="../glossary/#sense-vote">sense vote</a>: support, neutral, or oppose.</li>
+<li>If everyone supports or is neutral, the motion passes.</li>
+<li>If there is opposition,
+    the group gets 10 minutes of moderated discussion followed by a binary vote
+    in which everyone must support or oppose.
+    No one is allowed to be neutral in this vote,
+    because the proposal is either going to be adopted or not.</li>
+<li>Decisions go in a public decision log.</li>
+</ul>
+<p>What makes it work is that
+proposals must be written and specific before discussion starts.
+Most governance fights Jess had experienced,
+including the one she'd just caused with Fatima,
+happened because someone acted without warning
+and the affected parties had no structured way to respond.</p>
+<div class="callout">
+<p>If I have spent a week thinking something through,
+then only give you a couple of minutes to think about how to respond,
+I will probably be able to get things past you
+that you would notice and object to if given more time.
+Proposals must be submitted at least a day in advance
+to prevent this kind of <a class="gl-ref" href="../glossary/#sandbagging">sandbagging</a>.</p>
+</div>
+<p>Writing governance feels premature until you need it.
+The moment you need it,
+it is too late to write it calmly.
+The Fatima incident took a minutes to create and two months to discover.
+Writing down how competing pull requests are handled would have taken twenty minutes.</p>
+<h2>Meetings as Governance</h2>
+<p>Good meetings are a governance tool.
+An agenda with time allocations sent in advance,
+a rotating facilitator,
+a designated note-taker,
+and a public decision log
+all serve the same function as a governance document:
+they make the project's behavior visible and predictable to people who weren't in the room.
+Brief status updates in the format
+"what I did, what I'll do, what's blocking me"
+keep meetings focused on problems rather than updates.</p>
+<h2>After</h2>
+<p>After the Fatima incident,
+Jess wrote a one-page governance document.
+The hardest question to answer is the first one:
+who gets a vote.
+Jess realized she didn't have an answer
+because she'd never thought of the project as having an "outside".
+She had been treating it as a small group of people
+who trusted her to make all the decisions.
+It had quietly become something larger, and the governance hadn't kept up.</p>
+<h2>Credit</h2>
+<p>Ren wrote 40% of the early code for the simulator
+before graduating and taking a job at a genomics company.
+A year later,
+Jess started drafting the software paper.
+She emailed Ren to say she was planning to include him in the acknowledgments.
+He replied that he expected to be a co-author.
+Tahia,
+who had rewritten most of what Ren had originally built,
+expected first authorship.
+Nobody had discussed authorship when they joined the project because it had felt premature.</p>
+<p>Three questions that get confused:</p>
+<ol>
+<li>Who wrote the code?
+    <code>git log</code> can answer that, but doesn't record reviews and other contributions.
+    A <code>CONTRIBUTORS.md</code> file can record that, but only if it is kept up to date.</li>
+<li>Who deserves credit for the software as a research contribution?
+    <a href="https://zenodo.org/">Zenodo</a> and <code>CITATION.cff</code> can track this,
+    but again,
+    someone has to decide.</li>
+<li>Who is an author on the paper about the software?
+    This is what people argue about, and unfortunately there is no formula.</li>
+</ol>
+<p>As a manager, you should do two things before conflict happens:</p>
+<ol>
+<li>Write down in <code>CONTRIBUTING.md</code> what kinds of contributions qualify someone
+    for authorship on papers about the software.
+    Do this before anyone asks.</li>
+<li>Keep a <code>CONTRIBUTORS.md</code> file or something similar up to date
+    so that people's contributions don't disappear from the record.</li>
+</ol>
+<div class="callout">
+<p>Power dynamics complicate authorship in ways that governance documents don't fully address.
+The PI who expects authorship on everything the lab produces often goes unchallenged
+because challenging them is professionally risky.
+Your governance document is your best tool:
+"our authorship policy says" is easier than "I don't think you deserve authorship".
+Writing the policy before there's an actual paper at stake
+is easier than doing it during a crunch.</p>
+</div>
+<p>The Ren and Tahia authorship conflict took three months to resolve,
+cost Jess significant goodwill with both of them,
+and ended with an authorship order that neither found fully satisfying.
+Afterward,
+Jess wrote two sentences for the <code>CONTRIBUTING.md</code>:
+one defining what kinds of contributions qualify for authorship,
+and one describing how someone who believes they've been omitted can raise the issue.
+Both sentences were harder to write than she expected
+because they required being specific about things she had been comfortable leaving vague.</p>
+<section class="exercise">
+<h2>Exercises</h2>
+<h3>Draft Your Governance Statement (12 min)</h3>
+<p>Write a short governance statement that answers the three questions posed earlier,
+then compare your answer to what you get from an LLM with a prompt like this:</p>
+<blockquote>
+<p>Write a one-page governance document for a small open-source research software project.
+The project has [N] active contributors.
+The document must explain who gets a vote,
+how decisions are recorded,
+and how non-voting contributors can raise concerns.
+Assume the project uses Martha's Rules for formal decisions.</p>
+</blockquote>
+<p>Rewrite your governance statement based on insights from the LLM's response.</p>
+</section>
+<section class="exercise">
+<h3>Authorship Policy (7 min)</h3>
+<p>Write two sentences for the "Authorship" section of your <code>CONTRIBUTING.md</code>:</p>
+<ul>
+<li>Sentence 1:
+    what kinds of contributions qualify someone for authorship
+    on a paper about the software.
+    Be specific: not "substantial contribution" but something that could be assessed independently
+    after the fact.</li>
+<li>Sentence 2:
+    how someone who believes they have been omitted can raise the issue.</li>
+</ul>
+<p>Once this is done,
+prompt an LLM to look through the history of the project,
+including email archives and other discussions,
+and see who it thinks deserves credit.
+Note that this means sharing that history with the LLM:
+are you sure everyone in the discussions is comfortable doing that?</p>
+</section>
+<section class="exercise">
+<h3>Stress Test (8 min)</h3>
+<p>Work in groups of three.
+One person reads their governance statement aloud.
+The other two play roles:</p>
+<ol>
+<li>A confused newcomer who wants to contribute
+    but has never interacted with the project.
+    Ask one question the statement doesn't answer.</li>
+<li>A disgruntled long-term contributor who disagrees with a recent decision.
+    Ask one question about how they could have raised that disagreement.</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../newcomers/">Welcoming Newcomers</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../marketing/">Marketing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

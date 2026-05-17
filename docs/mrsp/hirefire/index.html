@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hiring and Firing</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a class="active" href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Hiring and Firing</h1>
+<p class="subtitle">the decisions that define your team</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Describe the most common mistakes in hiring for a research software position.</li>
+<li>Follow a structured process for letting someone go without making it worse.</li>
+<li>Know how to protect yourself if you are the one being let go.</li>
+</ul>
+<h2>Before</h2>
+<p>Jess needed to fill a six-month contract position to help with data pipeline work
+while Tahia was on maternity leave.
+She mentioned it to a colleague at lunch,
+who said one of his recent graduates would be perfect.
+He pointed out that posting the job and doing interviews would take weeks.</p>
+<p>Jess took the shortcut.
+Three months later,
+the contractor had broken the test suite twice,
+submitted zero documentation,
+and wasn't answering email.
+Getting rid of him took six weeks of HR paperwork
+and left Jess doing pipeline work herself for a month.</p>
+<h2>Hiring</h2>
+<p>Hiring and firing shape everything else about a team.
+Both reward preparation and punish shortcuts.
+The basics that frequently get skipped:</p>
+<ul>
+<li>Talk to Human Resources before doing anything else.
+    Rules change, and "I didn't know" is not a defense.</li>
+<li>Always post positions publicly,
+    even if you think you already know who you want.</li>
+<li>Publish a salary band before applications open.
+    Negotiating from a blank slate advantages whoever is least worried about asking for more.</li>
+<li>Describe the actual job:
+    "Must have experience with large-scale distributed data pipelines"
+    helps both sides.</li>
+</ul>
+<h2>Interviewing</h2>
+<p>[<a class="bib-ref" href="../bibliography/#Behroozi2020">Behroozi2020</a>] studied hundreds of technical hiring processes
+and found that interviewers consistently overrate performance under artificial pressure
+and underrate communication skills and documentation habits.
+Hiring decisions also systematically favor candidates whose cultural references and manner
+signal membership in networks the interviewer recognizes—a form of
+<a class="gl-ref" href="../glossary/#social-legibility">social legibility</a> that disadvantages equally qualified people from
+different backgrounds [<a class="bib-ref" href="../bibliography/#Rivera2015">Rivera2015</a>].
+The person who freezes on a whiteboard problem
+but writes clear commit messages and asks good questions in code review
+is usually more valuable to a research software team than the reverse.</p>
+<div class="callout">
+<p>A better alternative to whiteboard problems is a work sample:
+give candidates a small, realistic task similar to what the job actually involves,
+and pay them for their time.
+It surfaces relevant skills and signals that you respect people's time.</p>
+<p>If that isn't an option,
+give candidates a debugging exercise rather than asking them to write code from scratch.
+Most people spend more time debugging than writing new code,
+so this will let you see how well they do that using their preferred tools.</p>
+</div>
+<h2>Firing</h2>
+<p>Sometimes people have good reasons for poor performance.
+But sometimes the fit is genuinely wrong,
+or the person is simply unreliable, argumentative, lazy, or dishonest.
+Keeping them on is bad for morale as well as productivity.
+Firing them is the hardest part of managing a team.
+The steps below don't make it easier,
+but they make it less likely to go badly.</p>
+<dl>
+<dt>Talk to HR first.</dt>
+<dd>Every jurisdiction has rules about termination, and some offer
+<a class="gl-ref" href="../glossary/#at-will-employment">at-will employment</a> while others require documented cause.
+Talk to Human Resources before doing anything else,
+including before telling anyone on your team that you're considering it.
+If your project is open source and the person is a volunteer contributor,
+your governance document should already spell out criteria for membership
+and who decides when that privilege is revoked.</dd>
+<dt>Check with someone outside the project.</dt>
+<dd>It is hard to think clearly about someone who has frustrated you for months.
+Not liking someone is not sufficient reason to let them go,
+and the two are easy to confuse.
+Before you do anything you might regret,
+talk to a colleague or mentor outside the project with no stake in the outcome.
+They are more likely to be objective
+(and less likely to let something slip back to your team before you are ready to act).</dd>
+<dt>Create a transition plan.</dt>
+<dd>The better practice is to ask everyone to document their work all the time,
+which keeps roles and responsibilities current
+and means you are not caught short in any departure, voluntary or otherwise.
+Before the termination conversation,
+write out the immediate steps,
+like changing passwords and removing them from permission lists.
+Going through this list in advance is also a useful reminder of
+how much organizational overhead has quietly accumulated around your project.</dd>
+<dt>No surprises.</dt>
+<dd>If someone is surprised they are being fired, you have made a mistake.
+If the reason is behavior,
+they should know what is in the code of conduct,
+and you should have given them clear warnings before reaching this point.
+If the reason is performance,
+you should have told them directly that they were not meeting expectations
+and given them a genuine opportunity to improve.
+The no-surprises rule also protects you:
+you will feel bad if you discover they have been missing deadlines
+because of a family illness they were too embarrassed to mention.</dd>
+<dt>Delivery.</dt>
+<dd>Write out what you are going to say and keep it short.
+Practice it out loud:
+not to read from a script,
+but because rehearsing forces you to find the words before the moment arrives.
+Get straight to the point and do not get drawn into "what if" discussions.
+Stick to the practical matters you identified in the transition plan.</dd>
+<dt>Telling the team.</dt>
+<dd>Make sure your team hears the news from you before rumors start.
+Keep the statement brief and factual and do not discuss the details.
+The person you let go has a right to privacy,
+and other team members will notice that you talked about someone's private situation
+and wonder what you would say about them.</dd>
+<dt>Keep a record.</dt>
+<dd>Do all follow-up communication by email so that both sides have accurate records.
+If someone insists on a call,
+ask to record it or have a neutral third party present.
+People do not always act in good faith when they are hurt or angry,
+and a record protects everyone.</dd>
+</dl>
+<h2>Being Fired</h2>
+<p>Most management guides skip this section.
+They probably shouldn't,
+because the first time it happens to you,
+you will probably have no idea what to do.
+If you were fired because money ran out or the project changed direction,
+do your best to take it in stride.
+If,
+on the other hand,
+you feel you were fired unfairly,
+these rules may help.</p>
+<div class="callout">
+<p>Do not expect the organization to admit they were wrong.
+Their lawyers probably will not allow any statement that acknowledges wrongdoing or liability,
+and whatever happened probably wouldn't have
+if they were the sort of institution that could readily admit mistakes.</p>
+</div>
+<dl>
+<dt>You are not a lawyer.</dt>
+<dd>Do not cite specific laws unless a lawyer tells you to.
+Legal language probably does not mean what you think it means,
+and whoever fired you almost certainly has legal representation
+that will seize on any misstatement you make.</dd>
+<dt>Keep public statements brief.</dt>
+<dd>People may care about what happened to you,
+but most will not care as much as you do.
+A simple, factual account is usually more damning to whoever fired you than an emotional one.</dd>
+<dt>Correct mistakes publicly.</dt>
+<dd>If you need to correct something said publicly about your departure,
+add a timestamped correction rather than editing what you previously wrote.
+Editing looks like rewriting history,
+and you should be prepared for the other side to imply that you're being dishonest.</dd>
+<dt>Be honest about your own failings.</dt>
+<dd>Speak to all the issues directly rather than glossing over things you would rather not discuss.
+Your honesty is your greatest asset in this kind of situation,
+and it is hypocritical to criticize the organization for spin if you are doing the same thing.</dd>
+<dt>Don't sign away your right to speak.</dt>
+<dd>Do not sign any agreement that prevents you from speaking about moral or legal concerns
+without ensuring your concerns are explicitly excluded first.
+This advice is easier to follow from a position of financial security.
+Someone whose immigration status or family income is threatened may not have a real choice,
+which is precisely why people who do have a choice also have an obligation to push back when they can.</dd>
+<dt>Cry if you need to.</dt>
+<dd>Or go for long walks,
+or pick up something that requires you to focus
+on anything other than the situation for a while.
+Exhausted people make poor decisions,
+and you need to be at your best.</dd>
+</dl>
+<section class="exercise">
+<h2>Exercises</h2>
+<h3>The Hiring Brief (10 min)</h3>
+<p>Write the job description for the next hire on your team,
+thene check it against these questions:</p>
+<ul>
+<li>Does it describe the actual work, or the ideal candidate?</li>
+<li>Does it include a salary range?</li>
+<li>Does it describe how candidates will be evaluated?</li>
+</ul>
+<p>Use an LLM to critique what you wrote:</p>
+<blockquote>
+<p>I'm hiring a research software engineer for a small academic project.
+Here is my draft job description.
+Identify any language that might discourage qualified candidates from applying
+or that signals poor hiring practices.</p>
+</blockquote>
+</section>
+<section class="exercise">
+<h3>Transition Plan (8 min)</h3>
+<p>Write a transition plan for the most critical role on your current team.
+The plan should include:</p>
+<ul>
+<li>What knowledge or access only they currently hold</li>
+<li>The steps needed to transfer or document that knowledge</li>
+<li>The immediate actions required on their last day</li>
+</ul>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../requirements/">Requirements</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../performance/">Performance and Growth</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

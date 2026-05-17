@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contributing</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a class="active" href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Contributing</h1>
+<p>Contributions are very welcome;
+please contact us <a href="mailto:gvwilson@third-bit.com">by email</a> or by filing an issue in <a href="https://github.com/gvwilson/mrsp">our repository</a>.
+All contributors must abide by our <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+<h2>Contributors</h2>
+<p><em><a href="https://third-bit.com/">Greg Wilson</a></em> is a programmer, author, and educator based in Toronto.
+He was the co-founder and first Executive Director of Software Carpentry
+and received ACM SIGSOFT's Influential Educator Award in 2020.</p>
+<p>Thanks to:</p>
+<ul>
+<li>Daniel Standage for helping create the original workshop</li>
+<li>Karl Fogel for <em><a href="https://producingoss.com/">Producing Open Source Software</a></em></li>
+<li>Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, and Charlotte Wickham for <em><a href="https://third-bit.com/py-rse/">Research Software Engineering with Python</a></em></li>
+<li>Everyone cited in the bibliography</li>
+</ul>
+<h2>Setup and Operation</h2>
+<ul>
+<li>Install <a href="https://github.com/astral-sh/uv">uv</a>.</li>
+<li>Create a virtual environment by running <code>uv venv --python 3.12</code> in the root directory.</li>
+<li>Activate it by running <code>source .venv/bin/activate</code> in your shell.</li>
+<li>Install dependencies by running <code>uv sync</code>.</li>
+<li>This project uses <a href="https://pypi.org/project/mccole/">McCole</a> to generate HTML and check the project's structure</li>
+<li>Run <code>make</code> on its own to see a list of common commands</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th scope="col">make task</th>
+<th scope="col">effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>build</td>
+<td>render HTML pages</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>clean up</td>
+</tr>
+<tr>
+<td>commands</td>
+<td>show available commands (default)</td>
+</tr>
+<tr>
+<td>links</td>
+<td>check links in published site</td>
+</tr>
+<tr>
+<td>lint</td>
+<td>check structure and content</td>
+</tr>
+<tr>
+<td>serve</td>
+<td>serve generated HTML</td>
+</tr>
+</tbody>
+</table>
+<h2>Structure</h2>
+<ul>
+<li>Lessons are in <code>nn_slug</code> directories<ul>
+<li><code>nn</code> is two-digit sequence number</li>
+<li><code>slug</code> is short mnemonic</li>
+<li>Each lesson must have an <code>index.md</code> file containing its content</li>
+</ul>
+</li>
+<li>Diagrams should be SVG files created with <a href="https://www.drawio.com/">draw.io</a></li>
+<li><code>bibliography.md</code> has the bibliography as a definition list<ul>
+<li>Citation keys have IDs for linking</li>
+<li>Use an inline HTML link <code>b:key</code> in files to create links</li>
+</ul>
+</li>
+<li><code>glossary.md</code> has the glossary as definition list<ul>
+<li>Reference keys have IDs for linking</li>
+<li>Use an inline HTML link <code>g:key</code> in files to create links</li>
+</ul>
+</li>
+<li>The <code>static</code> directory contains static files</li>
+<li>The <code>templates</code> directory contains <a href="https://jinja.palletsprojects.com/">Jinja</a> templates used to generate HTML<ul>
+<li><code>page.html</code>: template for website pages</li>
+</ul>
+</li>
+</ul>
+<h2>FAQ</h2>
+<dl>
+<dt>Do you need any help?</dt>
+<dd>Yes—please see the issues in <a href="https://github.com/gvwilson/mrsp">our repository</a>.</dd>
+<dt>What sort of feedback would be useful?</dt>
+<dd>Everything is welcome,
+from pointing out mistakes in the code to suggestions for better explanations.</dd>
+<dt>Can I add a new section?</dt>
+<dd>Absolutely, but please <a href="mailto:gvwilson@third-bit.com">reach out</a> before doing so.</dd>
+<dt>Why is this material free to read?</dt>
+<dd>Because if we all give a little, we all get a lot.</dd>
+</dl>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../bibliography/">Bibliography</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

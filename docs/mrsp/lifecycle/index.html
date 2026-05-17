@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Succession and Endings</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a class="active" href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Succession and Endings</h1>
+<p class="subtitle">planning for endings before they're emergencies</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Assess your project's lottery factor and identify single points of failure.</li>
+<li>Write a one-page advance directive for your project.</li>
+<li>Begin a succession plan for your own role.</li>
+</ul>
+<h2>Before</h2>
+<p>At Tahia's annual review,
+she mentioned that she was applying for faculty positions,
+and expected to hear back within six months.
+Jess went home that evening and tried to answer a simple question:
+if Tahia left tomorrow, what could the project still do?</p>
+<p>The answer was sobering.
+Tahia was the only person who knew how to package a release.
+She held the credentials for the Zenodo account that issued DOIs.
+She had written the data pipeline that fed the simulator's climate inputs,
+and while the code was in the repository,
+the configuration files that made it work with the university's HPC cluster
+were in a directory on Tahia's laptop.
+The simulator's automated tests passed on the CI server and on Tahia's machine,
+but not on anyone else's.</p>
+<h2>Preparing for Endings Before They Happen (10 min)</h2>
+<p>The lottery factor is a rough measure of project fragility:
+how many people would need to be unexpectedly unavailable before the project couldn't function?
+A lottery factor of one means the project is one departure, illness, or winning ticket away from a crisis.
+Most research software projects have a lottery factor of one for at least one critical function,
+and most project leads don't find out until the person has left.</p>
+<p>Preparing for a transition does not mean planning for failure.
+It means making the project's health independent of any individual's continued participation.
+The <a href="https://third-bit.com/closure/">closure workshop</a> covers this in depth;
+the minimum version for an ongoing project is three things:</p>
+<dl>
+<dt>A shared credentials document</dt>
+<dd>Every account, service, and resource the project depends on
+must be stored in a password manager that at least two people can access.
+This takes you from "we use Zenodo" to
+"the Zenodo account is managed through the lab's shared 1Password vault,
+the recovery key is with the department administrator."</dd>
+<dt>A release checklist</dt>
+<dd>The exact steps to make a release—including how to update the version number
+following <a class="gl-ref" href="../glossary/#semantic-versioning">semantic versioning</a>—with enough detail
+that someone who has never done it can follow the checklist and succeed.
+Run through it with a second person or an LLM before you need to.
+The moment you need to use it for real is not the moment to discover that
+it is incomplete and out of date..</dd>
+<dt>An advance directive</dt>
+<dd>A one-page document that set out the conditions under which this project should be wound down,
+who has the authority to make that decision,
+and what must be preserved before it can be considered closed.
+Writing this when the project is healthy is not morbid:
+it is the same reasoning that makes you test your backup before you lose data.</dd>
+</dl>
+<div class="callout">
+<p>"Document everything" is not a succession plan.
+People reliably short-change documentation in favor of doing other work,
+and what they do document usually doesn't address tomorrow's actual needs.
+A succession plan is a specific document about a specific transition:
+who does what, in what order, and how to verify it worked.
+It is written with the person who will use it in mind,
+not the person who already knows how everything works.</p>
+</div>
+<h2>After</h2>
+<p>Jess spent two afternoons with Tahia documenting the release process and the HPC configuration.
+They discovered that two steps in the process required a personal account
+rather than a shared project account.
+They also discovered that one of the configuration files had been modified six months ago
+in a way that hadn't been committed to the repository.
+The documentation surfaced both problems before they became emergencies.
+Tahia ended up staying for another year,
+but the project was no longer fragile in the same way.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Lottery Factor Audit (10 min)</h3>
+<p>Answer these questions for your project:</p>
+<ol>
+<li>Who can create a release?</li>
+<li>Which credentials exist only on someone's personal account rather than a shared project account?</li>
+<li>What would your project be unable to do if you were unavailable for three months?</li>
+<li>What would be unrecoverable if a key team member left without any notice?</li>
+</ol>
+</section>
+<section class="exercise">
+<h3>Write Your Advance Directive (10 min)</h3>
+<p>Write a one-page document covering:</p>
+<ul>
+<li>The conditions under which this project should be wound down
+    (not just "when funding runs out" but specific observable signals:
+    contributor count, response time to issues, number of active users).</li>
+<li>Who has the authority to make that call.</li>
+<li>What assets must be preserved before shutdown is complete.</li>
+<li>What obligations must be honored before the project can be considered closed.</li>
+</ul>
+<p>Give the document to an LLM and prompt it to identify three realistic scenarios it doesn't cover.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../safety/">Psychological Safety</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../career/">Career Development for RSEs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

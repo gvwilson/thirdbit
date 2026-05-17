@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Managing the Work</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a class="active" href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Managing the Work</h1>
+<p class="subtitle">knowing who is doing what and what is in their way</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Set up a lightweight tracking system for a small team.</li>
+<li>Write a status update that makes blockers visible.</li>
+</ul>
+<h2>Before</h2>
+<p>Jess held her first sprint planning meeting with Tahia and Ren six weeks into the post-doc.
+She had a list of fourteen open GitHub issues and a whiteboard.
+Two hours later they had agreed on a prioritized set of work for the next three weeks.
+The following Monday,
+Jess asked each of them what they were working on.
+Tahia was working on a <a class="gl-ref" href="../glossary/#refactoring">refactoring</a> she had decided was necessary,
+but which wasn't on the list.
+Ren was working on her first item
+but had been stuck for two days on a dependency issue he hadn't mentioned
+because he hadn't wanted to look like he couldn't handle it.</p>
+<h2>Knowing Who Is Doing What</h2>
+<p>Project management at Jess's scale is not Gantt charts.
+It is knowing who is working on what and what is in their way.
+[<a class="bib-ref" href="../bibliography/#Brooks1995">Brooks1995</a>, <a class="bib-ref" href="../bibliography/#Fournier2017">Fournier2017</a>] both put it clearly:
+the manager's job is to remove obstacles, not to assign tasks.
+The planning meeting matters less than the Monday morning check-in
+that reveals that someone is stuck.</p>
+<p>The three-column status update makes blockers visible
+without requiring a long meeting to surface them.
+Before the meeting,
+everyone writes <em>and shares</em> bullet points explaining:</p>
+<ul>
+<li><em>Progress</em>: what they finished since last time</li>
+<li><em>Plans</em>: what they will finish before next time</li>
+<li><em>Problems</em>: what is blocking them (or might)</li>
+</ul>
+<p>Progress and Plans are read; the meeting discusses Problems.</p>
+<div class="callout">
+<p>This format only works if "Problems" is psychologically safe to fill in.
+If people think admitting a blocker will be treated as evidence of incompetence,
+they'll leave it blank,
+and the manager will find out two weeks later.</p>
+</div>
+<p>Issues work as a to-do list when each one has an assignee, a milestone, and a time estimate.
+"Someday/maybe" items get a backlog label,
+not a slot in the active milestone.
+Issues are closed when the work is done,
+not when the pull request is merged.
+The issue tracker is the record of what the team decided to do;
+the PR history is the record of what they actually built.</p>
+<div class="callout">
+<p>Issues that have not been triaged are a signal that no one is running the project.
+Once a week (at least),
+go through all newly-filed issues and assign each a category and a priority
+(even if that priority is "not on the roadmap").</p>
+</div>
+<h2>Cutting</h2>
+<p>Cutting scope always feels like failure,
+but deferring the cut almost always costs more than the cut itself.
+If you have a feature that is 80% done at the end of a sprint and it is blocking a release,
+the options are to delay the release,
+ship with something that is known to be incomplete,
+or cut the feature.
+None of these feels good,
+but deciding to cut two weeks after you should have is always more expensive.</p>
+<h2>After</h2>
+<p>Jess instituted two changes after the sprint planning failure.
+First,
+she asked everyone to write a three-column status update in a shared document by 9:30 am on Monday.
+Second, she labeled Ren's blocker immediately as "needs external help"
+and spent thirty minutes on the dependency issue with him before her next meeting.
+He had been stuck for two days on something that took thirty minutes to resolve
+because she hadn't known to look.</p>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Write a Status Update (8 min)</h3>
+<p>Write one three-column status update for yourself,
+then swap with a partner.
+Read their Problems column and identify one thing you could do to help.</p>
+</section>
+<section class="exercise">
+<h3>Set Up a Milestone (7 min)</h3>
+<p>Prompt the LLM with something like this:</p>
+<blockquote>
+<p>Given these open issues in my project [paste 5-8 real issue titles],
+help me create a four-week milestone.
+Assign each to either the milestone or a backlog.
+For each milestone issue, estimate the effort in hours and identify dependencies.</p>
+</blockquote>
+<ol>
+<li>
+<p>Note which assignments the LLM got wrong
+    because it doesn't know your project's history or your team's actual capacity.</p>
+</li>
+<li>
+<p>Open your project's issue tracker.
+    Create a milestone ending four weeks from today.
+    Move or create 3-5 issues into it, each with an assignee and a time estimate.
+    Flag any "in progress" issue with no recent activity as "stalled."</p>
+</li>
+</ol>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../performance/">Performance and Growth</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">The Next 90 Days</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

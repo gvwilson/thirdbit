@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a class="active" href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Security</h1>
+<p>Most security failures in research software projects are not the result of
+sophisticated attacks. They happen because someone reused a password, clicked a
+link they shouldn't have, or gave a service more access than it needed. The
+good news is that a small number of practices eliminates most of the risk. The
+bad news is that most projects never adopt them.</p>
+<h2>Threat Models</h2>
+<p>Before deciding what to protect, you need to know what you are protecting
+against. The three most common threats for research software projects are:</p>
+<p><a class="gl-ref" href="../glossary/#casual-threat">Casual threats</a> are opportunistic. Someone notices that
+your project uses a public API key checked into GitHub and uses it to run compute
+jobs at your expense. Someone tries a list of common passwords against every
+account on your server. The attack isn't targeted; your project just happened to
+be vulnerable.</p>
+<p><a class="gl-ref" href="../glossary/#intimate-threat">Intimate threats</a> come from people who have legitimate
+access but abuse it. A departing collaborator copies data they shouldn't. A
+disgruntled contributor alters code in a way that's hard to detect. These are
+rarer but tend to cause more damage because the attacker already knows the
+systems.</p>
+<p><a class="gl-ref" href="../glossary/#insider-threat">Insider threats</a> from institutions—a university IT
+department with broad access, a cloud provider that can read your data—are
+usually covered by contract and policy rather than technical controls. Know what
+your institution's policies say.</p>
+<p>Most research software projects face casual threats almost exclusively. Design
+for those, and you will also reduce your exposure to the other two.</p>
+<h2>Authentication</h2>
+<p>Weak passwords are the single most common point of failure. A few rules that
+actually help:</p>
+<dl>
+<dt>Use a <a class="gl-ref" href="../glossary/#password-manager">password manager</a>.</dt>
+<dd>Generate a unique random password for every service. Yes, this means you
+won't be able to remember them. That's the point. If you can remember a
+password, an attacker can probably guess it.</dd>
+<dt>Use a <a class="gl-ref" href="../glossary/#passphrase">passphrase</a> for anything you have to type from memory.</dt>
+<dd>Four unrelated words strung together ("correct horse battery staple") are
+both more memorable and harder to crack than a short password with
+substitutions.</dd>
+<dt>Enable <a class="gl-ref" href="../glossary/#2fa">two-factor authentication</a> everywhere it is available.</dt>
+<dd>An attacker who gets your password still can't log in without your second
+factor. Use an authenticator app rather than SMS, which can be intercepted.</dd>
+<dt>Recognize <a class="gl-ref" href="../glossary/#phishing">phishing</a>.</dt>
+<dd>A common attack is to trigger a password reset and then call the target
+pretending to be IT support—asking them to read back the confirmation code
+to "verify their identity." If you give them the code, they own your account.
+Never share confirmation codes with anyone who contacts you.</dd>
+</dl>
+<p>As a developer, require strong passwords and support two-factor authentication
+for any system where users have accounts. Use a well-tested library; don't build
+authentication yourself.</p>
+<h2>Least Privilege</h2>
+<p>The <a class="gl-ref" href="../glossary/#least-privilege">principle of least privilege</a> says that each
+component of a system should have access to only what it needs and nothing more.
+In practice this means:</p>
+<ul>
+<li>
+<p>API keys and credentials should be stored in environment variables or a
+    secrets manager, never in source code or configuration files checked into
+    version control. If a key is accidentally committed, rotate it immediately—
+    assume it has been compromised, because automated scanners watch public
+    repositories and will find it.</p>
+</li>
+<li>
+<p>Service accounts for automated processes (CI runners, deployment scripts)
+    should have the minimum permissions needed. A CI runner that only needs to
+    run tests shouldn't have write access to production infrastructure.</p>
+</li>
+<li>
+<p>When someone leaves the project, revoke their access promptly. Credentials
+    that nobody is monitoring are credentials that will eventually be misused.</p>
+</li>
+</ul>
+<h2>Protecting Research Data</h2>
+<p>Research data often has privacy or regulatory implications that general software
+advice doesn't address. A few things to know:</p>
+<dl>
+<dt>Don't store what you don't need.</dt>
+<dd>If your software processes data that contains personal information, consider
+whether you actually need to retain it. Data you don't have can't be
+breached.</dd>
+<dt>Encrypt sensitive data at rest and in transit.</dt>
+<dd>Cloud storage is not encrypted by default on most platforms. Check your
+configuration. Use HTTPS for anything transmitted over a network.</dd>
+<dt>Know your institution's requirements.</dt>
+<dd>IRB approvals, data use agreements, and export control rules may constrain
+where data can be stored and who can access it. These are legal obligations,
+not suggestions. If you aren't sure what applies to your project, ask your
+institution's research data office before setting up your infrastructure.</dd>
+</dl>
+<h2>Security Theater</h2>
+<p>Much of what gets called security is actually <a class="gl-ref" href="../glossary/#security-theater">security
+theater</a>: practices that create the appearance of protection without
+meaningfully reducing risk. Requiring passwords to be changed every 90 days
+makes people choose worse passwords. Mandatory complex password rules ("must
+include a number, a capital letter, and a hieroglyph") produce passwords like
+"Password1!" that are in every attacker's dictionary.
+The predictable result is <a class="gl-ref" href="../glossary/#security-fatigue">security fatigue</a>:
+people stop caring about security precisely because the demands are unreasonable.</p>
+<p>Real security comes from a small number of practices applied consistently:
+unique passwords via a password manager, two-factor authentication, least
+privilege, and encryption. Everything else is mostly noise [<a class="bib-ref" href="../bibliography/#Smalls2021">Smalls2021</a>].</p>
+<h2>What to Do When Something Goes Wrong</h2>
+<p>If credentials are compromised or a breach is suspected:</p>
+<ol>
+<li>
+<p>Rotate affected credentials immediately, even before you understand the
+    full scope of the problem.</p>
+</li>
+<li>
+<p>Notify affected users promptly and specifically. "We have become aware of
+    a security incident" is not useful. "On Tuesday, an attacker gained access
+    to our user database. Email addresses were exposed. Passwords were stored
+    as hashes and were not directly readable, but you should change your
+    password on any other service where you used the same one" is useful.</p>
+</li>
+<li>
+<p>Figure out how it happened before restoring normal operations. Patching
+    the symptom without addressing the cause means it will happen again.</p>
+</li>
+<li>
+<p>Document what happened and what you did about it. This is both good
+    practice and often legally required.</p>
+</li>
+</ol>
+<p>The hardest thing about security incidents is that you need to have thought
+through your response before they happen. A breach at 2 a.m. is not the moment
+to figure out who has the credentials to rotate, or how to contact all your users.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conflict/">Managing Conflict</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>

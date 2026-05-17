@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marketing</title>
+<meta content="Managing Research Software Projects" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">MRSP</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../health/">Project Health</a></li>
+<li><a href="../checklist/">Checklists</a></li>
+<li><a href="../newcomers/">Welcoming Newcomers</a></li>
+<li><a href="../governance/">Governance</a></li>
+<li><a class="active" href="../marketing/">Marketing</a></li>
+<li><a href="../requirements/">Requirements</a></li>
+<li><a href="../hirefire/">Hiring and Firing</a></li>
+<li><a href="../performance/">Performance and Growth</a></li>
+<li><a href="../project/">Managing the Work</a></li>
+<li><a href="../finale/">The Next 90 Days</a></li>
+<li><a href="../upward/">Managing Your Manager</a></li>
+<li><a href="../safety/">Psychological Safety</a></li>
+<li><a href="../lifecycle/">Succession and Endings</a></li>
+<li><a href="../career/">Career Development for RSEs</a></li>
+<li><a href="../remote/">Remote Collaboration</a></li>
+<li><a href="../burnout/">Recognizing and Responding to Burnout</a></li>
+<li><a href="../politics/">Office Politics</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../process/">Development Process</a></li>
+<li><a href="../conflict/">Managing Conflict</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/mrsp">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Marketing</h1>
+<p class="subtitle">they can't use something if they don't know it exists</p>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Distinguish between marketing, sales, and support.</li>
+<li>Write a one-paragraph description of your project aimed at a specific audience.</li>
+<li>Identify one concrete action to make your project easier to find and adopt.</li>
+</ul>
+<h2>Before</h2>
+<p>Jess discovered the problem when a colleague forwarded her a grant proposal citing
+"RodentSim, a widely-used simulator for mammal range change".
+RodentSim wasn't Jess's simulator;
+it was a tool developed by a lab in Germany
+that had apparently been doing similar work for three years.
+The German lab had published a software paper,
+registered the tool in two ecological software registries,
+and written a clear one-page description of what it did.
+Jess's simulator existed only as a GitHub repository
+with a README that said,
+"Simulator for rodent range changes. Contact Jess for details."</p>
+<p>Jess's simulator was faster, more accurate, and better documented,
+but nobody outside her immediate circle knew it existed.
+Researchers who were looking for exactly what it provided were finding something else instead,
+and describing that something else in their grant proposals.</p>
+<h2>What Marketing Is(n't)</h2>
+<p>"Marketing" has a bad reputation in academic circles,
+but it just means making sure that
+the people you could help know you exist and understand what you can do for them [<a class="bib-ref" href="../bibliography/#Kuchner2011">Kuchner2011</a>].
+If you don't do this,
+then either someone else will describe your software for you (usually incorrectly)
+or nobody will talk about it at all.</p>
+<p>Three activities often get confused with each other:</p>
+<ul>
+<li>Marketing (awareness): someone learns you exist and roughly what you do.</li>
+<li>Sales (adoption): someone goes from "this looks interesting" to "I'm using it."</li>
+<li>Support (success): someone who is already using it keeps being able to use it.</li>
+</ul>
+<p>Each addresses a different stage in the adoption pipeline,
+and all three are necessary.
+A project can have great awareness and terrible adoption
+because the first-contact experience is broken;
+equally,
+it can have great adoption and terrible retention
+because there's nowhere to get help.</p>
+<h2>Writing a Pitch</h2>
+<p>A pitch is not a list of features.
+It is a description of who has a specific problem,
+how they currently deal with it,
+and why your software makes their lives better.
+The test is whether you can explain this in one sentence to someone outside your field.
+Jess's current pitch fails this test:
+when she says, "It's a simulator for rodent range changes,"
+Nobody outside ecology knows what that means or why they should care.</p>
+<p>The same software needs different descriptions for different audiences:</p>
+<ul>
+<li>A graduate student working in the area wants to know if it will run on their laptop,
+    if there examples to start from,
+    and if anyone else has used it successfully.</li>
+<li>A senior researcher wants to know if it's maintained,
+    if it has a citable paper,
+    and whether adopting it will cost their group time they don't have.</li>
+<li>A program officer wants to know about impact and sustainability.</li>
+</ul>
+<div class="callout">
+<p>The things that cost almost nothing help the most:</p>
+<ul>
+<li>A <code>CITATION.cff</code> file so people know how to credit you.</li>
+<li>One example in the README that runs in under five minutes.</li>
+<li>One blog post or short paper describing a real use case rather than the software itself.</li>
+<li>Answering questions on whatever forum you want people to use.</li>
+</ul>
+</div>
+<h2>After</h2>
+<p>After discovering RodentSim,
+Jess spent one afternoon doing three things:
+registering the simulator in two ecological software registries,
+adding a <code>CITATION.cff</code> file,
+and writing a 200-word description of the simulator aimed at graduate students in ecology.
+She sent the description to two colleagues
+and asked them to tell her what they still didn't understand.
+Both of them had the same question,
+so she rewrote the description.
+Within three months,
+the simulator was being mentioned in grant proposals.</p>
+<div class="callout">
+<p>Scientists feel marketing is beneath them,
+and grant committees sometimes reinforce this by treating "impact" as an afterthought.
+But your actual audience for grant proposals—program officers
+who are not specialists in your subfield—needs
+the same thing your users need:
+a clear statement of what you built,
+who it helps,
+and why it works better than the alternative.
+Writing pitches for different audiences is practice for writing grant proposals.</p>
+</div>
+<h2>Exercises</h2>
+<section class="exercise">
+<h3>Write Three Pitches (12 min)</h3>
+<p>Prompt the LLM with something like this:</p>
+<blockquote>
+<p>Write three one-paragraph descriptions of this research software project
+for three different audiences:
+(1) a graduate student in [field] looking for a tool,
+(2) a senior researcher deciding whether to recommend it to their group, and
+(3) a funding agency program officer.
+The software does [one sentence].
+Its main advantage over alternatives is [one sentence].</p>
+</blockquote>
+<p>Run the prompt,
+read each paragraph in the response,
+and check for factual errors.
+Does the "main advantage" actually match your software?</p>
+<h3>Write One More Pitch (5 min)</h3>
+<p>Pick the one person you most need to reach.
+Rewrite that paragraph from scratch specifically for them.
+What do they actually care about?
+What would make them skeptical?
+What <em>don't</em> you know about how they will evaluate your project?</p>
+</section>
+<section class="exercise">
+<h3>Objection Handling (8 min)</h3>
+<p>Pair up.
+One person picks one of the three roles,
+reads the other person's statement,
+and asks a question or raises an objection that it doesn't answer.
+Switch roles and repeat the exercise,
+then rewrite your pitches.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../governance/">Governance</a>
+</div>
+<div class="col-6 center">
+<a href="../">MRSP</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../requirements/">Requirements</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
