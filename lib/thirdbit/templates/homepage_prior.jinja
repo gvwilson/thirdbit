@@ -1,213 +1,29 @@
 <h2>Projects and Books</h2>
 
+{% for pair in site.prior_entries | batch(2, '') %}
 <div class="row">
+  {% for entry in pair %}
+  {% if entry %}
   <div class="col-6 col">
-    <div class="card">
-      <h3><em><a href="https://carpentries.org">The Carpentries</a></em></h3>
-      <p>
-        A non-profit organization teaching basic software and data skills to researchers world-wide
-        (1998–present).
-      </p>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="http://neverworkintheory.org"><em>It Will Never Work in Theory</em></a></h3>
-      <p>
-        Brief reviews for working programmers of empirical results in software engineering
-        (2011–2023).
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card">
-      <h3><em><a href="@root/change">Organizational Change</a></em></h3>
-      <p>
-        This workshop is
-        a short introduction to organizational change for people with backgrounds in research.
-      </p>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="@root/closure"><em>Closing Time</em></a></h3>
-      <p>
-        This workshop is
-        a short introduction to winding down research and software projects,
-        either deliberately or on short notice.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card beta">
-      <h3><em><a href="@root/webllm">Learning Web Programming with LLMs</a></em></h3>
-      <p>
-        A short introduction to web programming using LLMs as a teaching aid.
-      </p>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card beta">
-      <h3><a href="@root/dsllm"><em>Learning Data Science with LLMs</em></a></h3>
-      <p>
-        A short introduction to data science using LLMs as a teaching aid.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card beta">
-      <h3><em><a href="@root/dsdx">Distributed Systems Design by Example</a></em></h3>
-      <p>
-        Thirteen worked examples of distributed systems in Python.
-        This material is currently under development.
-      </p>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card beta">
-      <h3><a href="@root/rstx"><em>Research Software Testing by Example</em></a></h3>
-      <p>
-        Thirty-one short examples that explore how to test research software.
-        This material is currently under development.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card beta">
-      <h3><em><a href="@root/unbreak">Unbreaking Software</a></em></h3>
-      <p>
-        An example-driven tutorial on finding and fixing bugs in software.
-        This material is currently under development.
-      </p>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="@root/sql"><em>Introduction to SQL</em></a></h3>
-      <p>
-        A one-day introduction to the basics of SQL.
-        This is a shortened version of <a href="https://gvwilson.github.io/sql/">this longer tutorial</a>.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card">
-      <h3><em><a href="@root/sdxpy/">Software Design by Example in Python</a></em></h3>
+    <div class="card{% if entry.beta is defined and entry.beta %} beta{% endif %}">
+      <h3 class="card-title"><em><a href="{{ entry.url }}">{{ entry.title }}</a></em></h3>
+      {% if entry.image is defined %}
       <div class="row">
         <div class="col-4">
-          <a href="@root/sdxpy/">
-            <img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Software Design by Example in Python" width="80%" class="image centered">
+          <a href="{{ entry.url }}">
+            <img src="{{ entry.image.src }}" alt="{{ entry.image.alt }}" width="80%" class="image centered">
           </a>
         </div>
         <div class="col-8">
-          <p>
-            Two dozen worked examples that teach software design
-            by showing how to build the tools that programmers use every day using Python
-            (2024).
-          </p>
+          <p>{{ entry.description }}</p>
         </div>
       </div>
+      {% else %}
+      <p>{{ entry.description }}</p>
+      {% endif %}
     </div>
   </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><em><a href="@root/sdxjs/">Software Design by Example in JavaScript</a></em></h3>
-      <div class="row">
-        <div class="col-4">
-          <a href="@root/sdxjs/">
-            <img src="@root/sdxjs/_static/sdxjs-cover.png" alt="Software Design by Example in JavaScript"  width="80%" class="image centered">
-          </a>
-        </div>
-        <div class="col-8">
-          <p>
-            Twenty worked examples that teach software design
-            by showing how to build the tools that programmers use every day using JavaScript
-            (2022).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% endif %}
+  {% endfor %}
 </div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="@root/py-rse/"><em>Research Software Engineering with Python</em></a></h3>
-      <div class="row">
-        <div class="col-4">
-          <img src="@root/files/bib/py-rse.png" alt="Research Software Engineering with Python" width="80%" class="image centered"/>
-        </div>
-        <div class="col-8">
-          <p>
-            A textbook on building research software and running research software projects (2021).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="@root/js4ds/"><em>JavaScript for Data Science</em></a></h3>
-      <div class="row">
-        <div class="col-4">
-          <img src="@root/files/bib/js4ds.jpg" alt="JavaScript for Data Scientists" width="80%" class="image centered"/>
-        </div>
-        <div class="col-8">
-          <p>
-            An introduction to JavaScript and web programming for data scientists (2020).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="http://teachtogether.tech"><em>Teaching Tech Together</em></a></h3>
-      <div class="row">
-        <div class="col-4">
-          <img src="@root/files/bib/t3.jpg" alt="Teaching Tech Together" width="80%" class="image centered"/>
-        </div>
-        <div class="col-8">
-          <p>
-            An introduction to evidence-based teaching for people with technical backgrounds
-            (2019).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <h3><a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a></h3>
-      <div class="row">
-        <div class="col-4">
-          <img src="@root/files/bib/aosa-1.jpg" alt="Architecture of Open Source Applications" width="80%" class="image centered"/>
-        </div>
-        <div class="col-8">
-          <p>
-            A collection of essays describing the architectures of fifty open source projects (2011–12).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
