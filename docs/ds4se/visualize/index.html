@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Visualization with Altair</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a class="active" href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Visualization with Altair</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Explain why visualization must precede calculation using Anscombe's quartet</li>
+<li>Build histograms, scatter plots, and box plots in Altair</li>
+<li>Choose between linear and log scales for skewed distributions</li>
+<li>Use jitter, color, and faceting to reveal structure hidden in aggregates</li>
+</ul>
+<h2>Why Visualize Before You Calculate?</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#anscombes_quartet">Anscombe's quartet</a> is the classic demonstration that summary statistics lie by omission<ul>
+<li>Four datasets, each with nearly identical means, variances, and correlations</li>
+<li>Plot them and they look completely different: one linear, one curved, one with an outlier, one nearly vertical</li>
+<li>The lesson: always look at your data before trusting any single number</li>
+</ul>
+</li>
+<li>The Prechelt data from Lesson 1 illustrates the same point<ul>
+<li>The mean working hours is pulled up by a handful of very slow participants</li>
+<li>The box plot reveals the skew that the mean conceals</li>
+</ul>
+</li>
+</ul>
+<h2>Altair's Grammar</h2>
+<ul>
+<li>Altair describes charts in terms of three things: data, marks, and encodings<ul>
+<li>Data: a Pandas or Polars dataframe (Altair works with Pandas internally, so call <code>.to_pandas()</code>)</li>
+<li>Mark: the geometric shape used to represent each row (<code>mark_bar</code>, <code>mark_point</code>, <code>mark_boxplot</code>, ...)</li>
+<li>Encoding: which column maps to which visual channel (<code>x</code>, <code>y</code>, <code>color</code>, <code>facet</code>, ...)</li>
+</ul>
+</li>
+<li>A minimal chart looks like this:<ul>
+<li><code>alt.Chart(df).mark_point().encode(x="col_a", y="col_b")</code></li>
+</ul>
+</li>
+<li>Add <code>.properties(title="...")</code> to set a title; chain <code>.save("file.html")</code> to write output</li>
+</ul>
+<h2>Histograms</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#histogram">histogram</a> groups numerical values into bins and counts how many observations fall in each bin<ul>
+<li>Use <code>mark_bar</code> with <code>alt.X("col:Q", bin=True)</code> for automatic binning</li>
+<li>Control bin width with <code>alt.Bin(maxbins=30)</code> or <code>alt.Bin(step=10)</code></li>
+</ul>
+</li>
+<li>Bin width matters: too few bins hides structure; too many bins adds noise<ul>
+<li>Always try at least two different bin widths before settling on one</li>
+</ul>
+</li>
+<li>The <code>Q</code> type annotation tells Altair the column is quantitative; use <code>N</code> for nominal (categorical) and <code>O</code> for ordinal</li>
+</ul>
+<h2>Scatter Plots</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#scatter_plot">scatter plot</a> maps one column to the x-axis and another to the y-axis, with one point per row<ul>
+<li>Use <code>mark_point</code> with <code>x</code> and <code>y</code> encodings</li>
+<li>When many points overlap, the plot becomes a solid mass that reveals nothing</li>
+<li>Add <code>size=alt.value(20)</code> and <code>opacity=alt.value(0.3)</code> to make overlap visible</li>
+</ul>
+</li>
+<li>Color is a third variable for free: <code>.encode(color="category:N")</code><ul>
+<li>Use color for categorical variables; avoid it for continuous variables unless you have a good reason</li>
+</ul>
+</li>
+</ul>
+<h2>Box Plots</h2>
+<ul>
+<li><code>mark_boxplot</code> draws the five-number summary without any manual aggregation<ul>
+<li>The box spans the 25th to 75th percentile; the line inside is the median</li>
+<li>Whiskers extend to 1.5 times the interquartile range; points beyond that are shown individually</li>
+</ul>
+</li>
+<li>Combine a box plot with a strip plot to show the raw data behind the summary<ul>
+<li>Layer two charts with <code>chart1 + chart2</code></li>
+</ul>
+</li>
+</ul>
+<h2>Log Scales</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#log_scale">log scale</a> replaces equal additive steps with equal multiplicative steps<ul>
+<li>On a linear axis, 10, 20, 30 are equally spaced; on a log axis, 1, 10, 100, 1000 are equally spaced</li>
+<li>Use it when values span several orders of magnitude, or when the distribution has a long right tail</li>
+</ul>
+</li>
+<li>File sizes, response times, bug counts, and release counts are all candidates for log scales<ul>
+<li>If most values cluster near zero and a few are ten or a hundred times larger, a linear axis compresses everything interesting into a thin sliver</li>
+</ul>
+</li>
+<li>Set a log scale with <code>alt.Y("col:Q", scale=alt.Scale(type="log"))</code><ul>
+<li>Log scales cannot include zero; filter or add 1 before plotting if your data contains zeros</li>
+</ul>
+</li>
+</ul>
+<h2>Jitter</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#jitter">Jitter</a> adds a small random displacement to points that would otherwise overlap exactly<ul>
+<li>Without jitter, ten points at <code>x=5</code> look like one point</li>
+<li>With jitter, you can see the density</li>
+</ul>
+</li>
+<li>In Altair, add jitter with <code>transform_calculate</code>:<ul>
+<li><code>transform_calculate(jitter="random()")</code> and encode the result as a secondary x or y offset</li>
+</ul>
+</li>
+<li>Jitter is random, so set a random seed or document that the plot will look slightly different each run</li>
+</ul>
+<h2>Faceting</h2>
+<ul>
+<li>Faceting creates one sub-plot per value of a categorical variable, all with the same axes<ul>
+<li>Use <code>facet("language:N")</code> to split by language; combine with <code>columns=2</code> to set layout</li>
+<li>Shared axes make comparisons honest; independent axes make patterns within each group clearer</li>
+</ul>
+</li>
+<li>Color and faceting serve different purposes<ul>
+<li>Color: easy to compare a small number of groups within a single plot</li>
+<li>Faceting: better when groups overlap badly or when you have more than four or five categories</li>
+</ul>
+</li>
+</ul>
+<div data-inc="charts.py"><span aria-label="Source: visualize/charts.py" class="inc-path" role="img" tabindex="0" title="visualize/charts.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Altair visualization examples using Prechelt and function-count data."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Box plot of working hours by language (Prechelt)</span>
+<span class="n">prechelt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/jccpprtTR.csv"</span><span class="p">)</span>
+<span class="n">chart1</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">prechelt</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">mark_boxplot</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"lang:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Language"</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"whours:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Working Hours"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Development Time by Language"</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">chart1</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"figures/boxplot.html"</span><span class="p">)</span>
+
+<span class="c1"># Log-scale histogram of lines per file</span>
+<span class="n">funcs</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/py_func_counts.csv"</span><span class="p">)</span>
+<span class="n">chart2</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">funcs</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"lines:Q"</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Bin</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Lines per File"</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"count():Q"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"log"</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Count (log)"</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Python File Sizes (log scale)"</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">chart2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"figures/file_sizes.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Check Understanding</h2>
+<details>
+<summary>What does Anscombe's quartet demonstrate about the relationship between summary statistics and data distributions?</summary>
+<p>Anscombe's quartet is four datasets that share nearly identical means, variances, and correlations, yet look completely different when plotted. One is linear, one is curved, one has a single outlier that distorts the regression line, and one is nearly a vertical cluster with one distant point. The quartet demonstrates that a handful of numbers can never fully describe a distribution, and that visualization is not optional — it is the first step of any honest analysis.</p>
+</details>
+<details>
+<summary>The code below is supposed to display a log Y axis. What is wrong with it, and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
+         <span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"count()"</span><span class="p">))</span>
+<span class="c1"># the user wants a log Y axis</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"count()"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">"log"</span><span class="p">))</span>
+</code></pre></div>
+</summary>
+<p>Two things are wrong. First, <code>scale="log"</code> is not a valid argument: Altair expects an <code>alt.Scale</code> object, not a bare string. Second, calling <code>.encode()</code> on an already-built chart does not modify it in place — it returns a new chart, but only overrides the channels explicitly listed, which can cause unexpected merging behavior. The correct approach is to set the encoding in one place from the start:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
+         <span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span>
+         <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"language:N"</span><span class="p">,</span>
+                 <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"count():Q"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"log"</span><span class="p">))))</span>
+</code></pre></div>
+</details>
+<details>
+<summary>When should you use a log scale instead of a linear scale?</summary>
+<p>Use a log scale when the data spans several orders of magnitude or has a heavy right tail — situations where most values are small but a few are vastly larger. File sizes, response times, bug counts, and package release counts are typical candidates. A log scale compresses the long tail and spreads out the dense cluster near zero, making the shape of the distribution visible. If your data contains zero, you cannot use a log scale directly; add 1 first or filter out the zeros and explain why.</p>
+</details>
+<details>
+<summary>What is the difference between color encoding and faceting in Altair, and when would you use each?</summary>
+<p>Color encoding adds a third variable to a single plot by assigning different colors to different categories. Faceting splits the data into separate sub-plots, one per category, all sharing the same axes. Use color when you have a small number of groups (ideally no more than four or five) and the groups do not overlap too much. Use faceting when the groups overlap badly, when you have more categories than colors you can distinguish, or when you want readers to focus on the shape of each group rather than on comparisons between groups. Shared axes in a faceted plot make cross-group comparison honest; independent axes highlight within-group structure.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Linear vs. Log Y Axis</h3>
+<p>Make two histograms of lines-per-file from the Python function-count dataset: one with a linear Y axis and one with a log Y axis, using the same bin width for both. Write two sentences comparing what each version reveals. The linear version likely shows a large spike at very small file sizes; the log version probably makes the shape of the rest of the distribution visible. Then write a Polars filter that selects only files with fewer than five lines and inspect their contents to check whether they are empty or contain only comments or docstrings.</p>
+</div>
+<div class="exercise">
+<h3>Scatter Plot with Size Categories</h3>
+<p>Make a scatter plot of lines-per-file (X axis) versus functions-per-file (Y axis) for the Python dataset. Add a color encoding for a size category column that you compute in Polars: "small" for files with fewer than 50 lines, "medium" for 50 to 500 lines, and "large" for more than 500 lines. Use <code>opacity=alt.value(0.4)</code> to reduce overplotting. Write one sentence describing the pattern you see in the large-file region, and one sentence explaining whether the relationship between lines and functions looks linear across all size categories.</p>
+</div>
+<div class="exercise">
+<h3>Jittered Strip Plot</h3>
+<p>Reproduce the Prechelt box plot of working hours by language using Altair. Then layer a jittered strip plot on top of it by adding a second <code>mark_point</code> layer that uses <code>transform_calculate</code> to add a small random horizontal offset to each point. The two layers should share the same data and the same Y axis. Write one sentence about what the individual points reveal that the box plot alone does not show — for example, whether any language has a suspicious cluster of identical values or a single extreme outlier that dominates the box.</p>
+</div>
+<div class="exercise">
+<h3>Faceted Histogram</h3>
+<p>Load both the Python and JavaScript function-count datasets, add a <code>language</code> column to each, and concatenate them into a single dataframe. Create a faceted histogram of lines-per-function using 20-line bins, with one panel per language and a shared Y axis. Write one sentence about what the shared Y axis reveals that you would miss if each panel had an independent Y axis scaled to its own data — specifically, whether the two languages have similar absolute counts in each bin or whether one language simply has far more files.</p>
+</div>
+<div class="exercise">
+<h3>Anscombe's Fifth Example</h3>
+<p>Find or construct two numerical variables where the Pearson correlation coefficient is between 0.9 and 1.0, but the scatter plot reveals an obvious non-linearity or a single dominant outlier that is driving the correlation. You might use a quadratic relationship sampled at evenly-spaced x values, or a dataset where removing one point drops the correlation below 0.5. Write the Polars code to compute the correlation, produce the scatter plot in Altair, and write two sentences explaining why a researcher who reported only the correlation value would be misleading their readers — even though the number itself is technically correct.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../grouping/">Grouping, Aggregating, and Joining</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../describe/">Descriptive Statistics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

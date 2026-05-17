@@ -52,7 +52,16 @@ papers = [
 ]
 
 prior_entries = [
-    # Books with cover images
+    {
+        "title": "The Carpentries",
+        "url": "https://carpentries.org",
+        "description": "A non-profit organization teaching basic software and data skills to researchers world-wide (1998–present).",
+    },
+    {
+        "title": "It Will Never Work in Theory",
+        "url": "http://neverworkintheory.org",
+        "description": "Brief reviews for working programmers of empirical results in software engineering (2011–2023).",
+    },
     {
         "title": "Software Design by Example in Python",
         "url": "@root/sdxpy/",
@@ -89,17 +98,6 @@ prior_entries = [
         "description": "A collection of essays describing the architectures of fifty open source projects (2011–12).",
         "image": {"src": "@root/files/bib/aosa-1.jpg", "alt": "Architecture of Open Source Applications"},
     },
-    # Non-beta entries without cover images
-    {
-        "title": "The Carpentries",
-        "url": "https://carpentries.org",
-        "description": "A non-profit organization teaching basic software and data skills to researchers world-wide (1998–present).",
-    },
-    {
-        "title": "It Will Never Work in Theory",
-        "url": "http://neverworkintheory.org",
-        "description": "Brief reviews for working programmers of empirical results in software engineering (2011–2023).",
-    },
     {
         "title": "Organizational Change",
         "url": "@root/change",
@@ -115,35 +113,46 @@ prior_entries = [
         "url": "@root/sql",
         "description": "A one-day introduction to the basics of SQL.",
     },
-    # Beta entries
-    {
-        "title": "Learning Web Programming with LLMs",
-        "url": "@root/webllm",
-        "description": "A short introduction to web programming using LLMs as a teaching aid.",
-        "beta": True,
-    },
-    {
-        "title": "Learning Data Science with LLMs",
-        "url": "@root/dsllm",
-        "description": "A short introduction to data science using LLMs as a teaching aid.",
-        "beta": True,
-    },
     {
         "title": "Distributed Systems Design by Example",
         "url": "@root/dsdx",
-        "description": "Thirteen worked examples of distributed systems in Python. This material is currently under development.",
-        "beta": True,
-    },
-    {
-        "title": "Research Software Testing by Example",
-        "url": "@root/rstx",
-        "description": "Thirty-one short examples that explore how to test research software. This material is currently under development.",
+        "description": "Thirteen worked examples of distributed systems in Python (beta).",
         "beta": True,
     },
     {
         "title": "Unbreaking Software",
         "url": "@root/unbreak",
-        "description": "An example-driven tutorial on finding and fixing bugs in software. This material is currently under development.",
+        "description": "An example-driven tutorial on finding and fixing bugs in software (beta).",
+        "beta": True,
+    },
+    {
+        "title": "Learning Web Programming with LLMs",
+        "url": "@root/webllm",
+        "description": "A short introduction to web programming using LLMs as a teaching aid (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Learning Data Science with LLMs",
+        "url": "@root/dsllm",
+        "description": "A short introduction to data science using LLMs as a teaching aid (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Research Software Testing by Example",
+        "url": "@root/rstx",
+        "description": "Thirty-one short examples that explore how to test research software (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Managing Research Software Projects",
+        "url": "@root/mrsp",
+        "description": "The ideas and tools you need to manage a team of research software developers (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Data Science for Software Engineers",
+        "url": "@root/ds4se",
+        "description": "What software engineers need to understand to tell good studies from bad ones (alpha).",
         "beta": True,
     },
 ]

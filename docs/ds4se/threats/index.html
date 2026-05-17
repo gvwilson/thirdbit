@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Confounds, Bias, and Threats to Validity</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a class="active" href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Confounds, Bias, and Threats to Validity</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Identify and name specific threats to validity in published SE studies</li>
+<li>Distinguish confounds, selection bias, and survivorship bias</li>
+<li>Explain why GitHub data over-represents certain types of projects</li>
+<li>Apply the Kalliamvakou criteria to classify repositories as real projects or not</li>
+</ul>
+<h2>Lesson</h2>
+<ul>
+<li>Bird et al. studied file ownership and defect rates in Windows Vista and Windows 7 [<a class="bib-ref" href="../bibliography/#Bird2011">Bird2011</a>]<ul>
+<li>Files with low ownership (many contributors, none dominant) had significantly higher post-release defect rates</li>
+<li>But larger files also have more defects, and larger files tend to attract more contributors</li>
+<li>File size is a <a class="gl-ref" href="../glossary/#confound">confound</a>: a third variable that affects both the apparent cause
+    (ownership) and the apparent effect (defect rate), making it hard to isolate the real relationship</li>
+<li>Bird et al. controlled for file size; if you do not, you cannot tell whether ownership matters or
+    whether you are just rediscovering that big files are complicated</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#selection_bias">Selection bias</a> occurs when the sample you study is not representative of the
+    population you care about<ul>
+<li>GitHub hosts millions of repositories, which sounds like a comprehensive sample of software</li>
+<li>Kalliamvakou et al. examined 3,000 GitHub projects and found that the majority were personal
+    experiments, mirrors of other repositories, or clearly abandoned [<a class="bib-ref" href="../bibliography/#Kalliamvakou2014">Kalliamvakou2014</a>]</li>
+<li>Fewer than 8% had an active pull-request workflow; most repositories had a single contributor</li>
+<li>Studying "GitHub projects" and calling the results representative of software development
+    is like studying Amazon reviews and calling them representative of consumer opinion</li>
+</ul>
+</li>
+<li>Kalliamvakou et al. proposed concrete criteria for identifying repositories worth studying<ul>
+<li>Fewer than 5 commits: not a real project</li>
+<li>Only one contributor: not a collaborative project</li>
+<li>Last commit more than two years ago: likely abandoned</li>
+<li>Applying these filters removes most repositories from any random GitHub sample</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#survivorship_bias">Survivorship bias</a> is a specific form of selection bias that targets things
+    that survived a process, ignoring everything that did not<ul>
+<li>Ait et al. found that a large fraction of GitHub projects go inactive within months of creation,
+    and these projects are almost never studied [<a class="bib-ref" href="../bibliography/#Ait2022">Ait2022</a>]</li>
+<li>If you want to know what makes software projects succeed, studying only successful projects
+    tells you what survivors look like, not what causes survival</li>
+<li>The missing projects may be the most informative data you have</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#hero_developer">Hero developers</a> add a confound to ownership studies [<a class="bib-ref" href="../bibliography/#Majumder2019">Majumder2019</a>]<ul>
+<li>In many open-source projects, one person makes more than 80% of the commits</li>
+<li>A file that appears to have "high ownership" (one dominant contributor) may simply be
+    a file the hero cares about, not a file that benefits from single ownership</li>
+<li>The hero's attention, not the ownership structure, may be what reduces defects</li>
+</ul>
+</li>
+<li>He et al. found that GitHub star counts are routinely inflated by bots and paid services [<a class="bib-ref" href="../bibliography/#He2024">He2024</a>]<ul>
+<li>Millions of stars across tens of thousands of repositories appear to be fake</li>
+<li>Stars are used as a proxy for project quality and adoption in dozens of published studies</li>
+<li>A metric that can be purchased for a few dollars is not a reliable signal of anything</li>
+</ul>
+</li>
+<li>Acciai et al. found systematic bias in who gets access to shared research data [<a class="bib-ref" href="../bibliography/#Acciai2023">Acciai2023</a>]<ul>
+<li>Researchers at high-prestige institutions are more likely to receive shared datasets</li>
+<li>This means replication attempts are not evenly distributed across the research community</li>
+<li>The studies most likely to be replicated are studies by the researchers least likely to need it</li>
+</ul>
+</li>
+<li>Furia et al. argue that most observational SE studies support only correlational claims [<a class="bib-ref" href="../bibliography/#Furia2023">Furia2023</a>]<ul>
+<li>Correlation describes what tends to happen together; causation describes what produces what</li>
+<li>Claiming that a correlation implies causation is one of the most common threats to validity in SE</li>
+<li>A confound, a reverse causation, or a shared underlying driver can all produce strong correlations</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#observer_effect">observer effect</a> applies when programmers know they are being studied<ul>
+<li>Developers in productivity studies often produce unusually clean, well-documented code</li>
+<li>Self-reported data about hours worked and task difficulty is systematically biased toward
+    what respondents think the researchers want to hear</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#external_validity">External validity</a> asks whether findings generalize beyond the study context<ul>
+<li>A study of undergraduate students in a two-hour lab session may not generalize to a professional
+    team shipping production software over six months</li>
+<li>Open-source projects and proprietary commercial software differ in structure, incentives,
+    and contributor motivation; findings in one setting may not transfer</li>
+</ul>
+</li>
+<li>The code below loads a sample of 200 GitHub repositories, applies the Kalliamvakou criteria,
+    and computes Pearson r between stars and commits</li>
+</ul>
+<div data-inc="classify_repos.py"><span aria-label="Source: threats/classify_repos.py" class="inc-path" role="img" tabindex="0" title="threats/classify_repos.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Apply Kalliamvakou criteria to classify GitHub repositories."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/github_repos.csv"</span><span class="p">)</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">730</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+
+<span class="n">not_real</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"commits"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"contributors"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"last_commit"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Repositories failing Kalliamvakou criteria: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">not_real</span><span class="p">)</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">not_real</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span>
+<span class="p">)</span>
+
+<span class="n">r</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"stars"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"commits"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Pearson r (stars vs. commits): </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The fraction that fails the Kalliamvakou criteria is typically large, often more than half<ul>
+<li>The correlation between stars and commits reveals whether popularity and activity are linked</li>
+<li>A high r might suggest stars track real activity; it might also reflect that active repos
+    attract both legitimate users and bots</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is the difference between a confound and selection bias? Give one example of each from SE research.</summary>
+<p>A confound is a variable that affects both the cause and the effect in a study, creating
+a spurious relationship between them. For example, in the Bird et al. study, file size
+affects both the number of contributors (big files attract more contributors) and the
+defect rate (big files have more defects), so any relationship between contributors and
+defects could be explained by size alone.</p>
+<p>Selection bias occurs when the sample studied is not representative of the population of
+interest because of how participants or cases were selected. For example, studying only
+active GitHub repositories biases toward projects that already succeeded, omitting the
+failed projects that might reveal what causes failure.</p>
+</details>
+<details>
+<summary>The following code tries to filter repositories whose last commit was more than two years ago, but it does not work correctly. What is the bug and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">cutoff</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">730</span><span class="p">)</span>
+<span class="n">old</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"last_commit"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">)</span>
+<span class="c1"># last_commit column contains strings like "2023-04-15"</span>
+</code></pre></div>
+</summary>
+<p>There are two bugs. First, <code>datetime.datetime.today()</code> returns a datetime object, but
+<code>last_commit</code> contains ISO date strings. Comparing a string to a datetime object will
+either raise an error or produce incorrect results depending on the comparison method.
+Second, subtracting a timedelta from a datetime gives another datetime; you need an ISO
+format string to compare against the string column. The fix is:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">cutoff</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">730</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="n">old</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"last_commit"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">)</span>
+</code></pre></div>
+<p>This produces a string like <code>"2024-05-16"</code> that sorts lexicographically in the same order
+as chronologically, so the string comparison is correct.</p>
+</details>
+<details>
+<summary>Why does studying only active GitHub repositories introduce survivorship bias?</summary>
+<p>Survivorship bias occurs because the repositories you can observe are the ones that
+survived long enough to still exist and still be active. Projects that were abandoned
+early, deleted by their owners, or never gained any traction are absent from the sample.
+If you want to understand what makes projects succeed, you are missing the very data that
+would contrast success with failure. The effect is that your conclusions describe what
+active projects look like, not what causes a project to become active.</p>
+</details>
+<details>
+<summary>A paper finds that repositories with more GitHub stars have higher code quality as measured by static analysis. Why can't you conclude that gaining stars causes quality to improve?</summary>
+<p>Correlation between stars and quality is consistent with at least three explanations.
+Stars might cause quality if developers clean up their code after it becomes popular.
+Quality might cause stars if well-written code attracts users. Or a third variable, such
+as the reputation and skill of the original author, might cause both high quality and high
+star counts independently. Without an experiment or a careful causal design, you cannot
+distinguish between these explanations. The correlation is real; the direction and
+mechanism are unknown.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Threats to validity in a published claim</h3>
+<p>In a small group, review the following hypothetical finding: "Teams that conduct daily
+standups ship features 30% faster, based on a voluntary survey of 200 developers at a
+single company." Identify three specific threats to validity in this study design,
+name each threat using the vocabulary from this lesson, and describe one concrete change
+to the study design that would address each threat. For each change, estimate in one
+sentence how difficult that change would be to implement in practice.</p>
+</div>
+<div class="exercise">
+<h3>Stars as a quality signal</h3>
+<p>He et al. found that millions of GitHub stars appear to be fake. Using the 200-repository
+sample, compute Pearson r between star counts and commit counts. Write one sentence
+interpreting the correlation you find. Write a second sentence explaining why a high
+correlation between stars and commits still does not make star count a reliable signal of
+project quality, given what He et al. found.</p>
+</div>
+<div class="exercise">
+<h3>Controlling for a confound</h3>
+<p>Bird et al. controlled for file size when studying the relationship between ownership and
+defect rates. In the 200-repository sample, compute Pearson r between the number of
+commits and the number of contributors. Write two sentences explaining why this
+correlation matters when any study claims that either variable affects code quality.
+Then describe in one sentence the statistical approach you would use to study the effect
+of commits while controlling for contributors.</p>
+</div>
+<div class="exercise">
+<h3>From correlation to causal claim</h3>
+<p>Furia et al. argue that observational data supports only correlational claims, not causal
+ones. Pick any finding from the first week of the course (for example, Python files tend
+to be longer than JavaScript files). Write one sentence stating the correlation. Write a
+second sentence proposing a plausible confound that could explain the correlation without
+any causal relationship between language choice and file length. Write a third sentence
+describing the study design you would need to rule out that confound.</p>
+</div>
+<div class="exercise">
+<h3>Activity and star counts</h3>
+<p>Ait et al. found that many GitHub projects go inactive shortly after creation. In the
+200-repository sample, classify each repository as active (last commit within 12 months)
+or inactive (last commit more than 12 months ago). Compute the mean star count for each
+group. Report whether active repositories have more stars on average. Write two sentences
+interpreting the result and explaining whether the difference, if any, implies that star
+count is a useful predictor of project activity.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../correlate/">Correlation and Prediction</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../tddlab/">Lab: Does Test-Driven Development Work?</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

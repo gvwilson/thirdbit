@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capstone: Design Your Own Study</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a class="active" href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Capstone: Design Your Own Study</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Identify an existing published result to replicate as a baseline</li>
+<li>Write a complete one-page study design with research question, data, variables, analysis, and threats</li>
+<li>Give and receive structured methodological critique using the framework from the previous lesson</li>
+</ul>
+<h2>Part 1: Choose a Replication Baseline (10 minutes, individual)</h2>
+<ul>
+<li>Before designing a new study, identify an existing result you intend to replicate<ul>
+<li>A replication baseline is not just background reading; it is a specific claim you will try to reproduce with your own data before you extend it</li>
+<li>You cannot evaluate whether your new result is different from prior work unless you first verify that you can reproduce prior work at all</li>
+</ul>
+</li>
+<li>Pick one published result from the studies covered in this tutorial<ul>
+<li>State the claim in one sentence ("Fucci et al. found no significant difference in external quality between TDD and TLD in a multi-site study")</li>
+<li>Identify the key number (effect size, p-value, or percentage)</li>
+<li>Identify the dataset or data type the original authors used</li>
+</ul>
+</li>
+<li>At this stage, just confirm that the baseline claim is specific enough to check<ul>
+<li>Vague baselines ("studies show TDD is good") cannot be replicated</li>
+<li>A good baseline has a number, a sample, and a method</li>
+</ul>
+</li>
+</ul>
+<h2>Part 2: Design Your Study (20 minutes, individual)</h2>
+<ul>
+<li>Pick one research question from the list below, or propose your own with instructor approval<ul>
+<li>Does code review comment length predict whether the comment is accepted?</li>
+<li>Do projects that adopt linters have fewer bugs in later commits?</li>
+<li>Is there a relationship between number of dependencies and how long a package stays active?</li>
+<li>Does time between bug report and fix vary by programming language?</li>
+<li>Do commit messages written at night differ in quality from those written during the day?</li>
+</ul>
+</li>
+<li>Write a one-page study design covering each of the following components<ul>
+<li>Research question: one sentence</li>
+<li>Connection to your replication baseline: how does your new question extend or challenge the prior result?</li>
+<li>Data source: where will you get data and how will you access it?</li>
+<li>Variables: what exactly will you measure, how will you operationalize each variable, and how will you handle missing data?</li>
+<li>Analysis: which statistical methods from this tutorial apply, and why are they appropriate for your data type and research question?</li>
+<li>Threats: at least three specific threats to validity, each with a proposed mitigation</li>
+<li>Interpretation: what would a positive result look like, and what would a null result mean?</li>
+</ul>
+</li>
+</ul>
+<h2>Part 3: Group Critique (30 minutes, groups of three)</h2>
+<ul>
+<li>Share your designs within your group; each person has about eight minutes total<ul>
+<li>The designer presents for two to three minutes</li>
+<li>The other two give specific feedback for five to six minutes</li>
+</ul>
+</li>
+<li>Use the red-flag framework from the previous lesson to structure your feedback<ul>
+<li>Identify the single biggest methodological risk in each design</li>
+<li>Comment on whether the variables are operationalized specifically enough to measure</li>
+<li>Check whether the proposed analysis matches the data type (categorical, continuous, ordinal)</li>
+</ul>
+</li>
+<li>For each design, answer this question as a group: can the replication baseline actually be reproduced with the proposed data?<ul>
+<li>If not, what would need to change in the data source or the design?</li>
+<li>This is not a failure; it is useful information before anyone spends time collecting data</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is the difference between a replication baseline and your new research question?</summary>
+<p>A replication baseline is a specific published claim you are trying to reproduce — same question, same method, same kind of data, checking whether you get the same number. A new research question is something you want to investigate that goes beyond the original study: a different context, a different variable, a different population. The baseline matters because it lets you calibrate your methods before you trust your new results. If you cannot reproduce the original finding, you should understand why before you try to extend it.</p>
+</details>
+<details>
+<summary>What is wrong with this study design? "We will collect tweets mentioning our product and count positive vs. negative words to measure user satisfaction with our new feature." List two specific problems.</summary>
+<p>The first problem is that tweets about a product are a self-selected sample: only users who felt strongly enough to post something publicly are included, which excludes the silent majority. Satisfaction measured from tweets is not representative of satisfaction in the user base as a whole. The second problem is that counting positive vs. negative words (a simple lexicon-based sentiment analysis) conflates many things: sarcasm, complaints about unrelated issues, and neutral technical questions will all be misclassified. The operationalization of "user satisfaction" as word polarity is too coarse to be meaningful.</p>
+</details>
+<details>
+<summary>Why does Part 3 of the capstone require you to check whether your replication baseline can actually be reproduced with your proposed data?</summary>
+<p>A study design can be logically coherent and still be impossible to execute if the data it requires does not exist or cannot be accessed. Checking whether your proposed data can reproduce the baseline forces you to confront this early, when you can still adjust the design. If the baseline requires a dataset you cannot access, or variables that your data source does not record, you need to know that before collecting data rather than after analyzing it.</p>
+</details>
+<details>
+<summary>What makes a study "pre-registered" rather than just "planned in advance"?</summary>
+<p>Pre-registration means submitting your research question, hypotheses, data collection procedure, and analysis plan to a public registry before you collect or see any data. The timestamp proves that you decided what to test before you saw the results. Planning in advance without pre-registration can still involve unconscious adjustment of the analysis after seeing the data — choosing which test to report, which outliers to exclude, or which subgroup to highlight based on what the data show. Pre-registration does not prevent errors, but it prevents the specific error of treating exploratory findings as confirmatory ones.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Looking Back</h3>
+<p>Looking back across all 18 sessions, identify the single concept that most changed how you think about software engineering claims you encounter in blog posts, conference talks, or vendor marketing. Write three sentences: state the concept in one sentence using plain language, describe a specific claim you have seen in the wild that this concept helps you evaluate, and explain what question you would now ask before accepting that claim.</p>
+</div>
+<div class="exercise">
+<h3>Replication Divergence</h3>
+<p>You have replicated results from at least five published studies in this tutorial. Identify the replication in which your numbers diverged most from the published values. Write two sentences: describe the divergence (what the paper reported versus what you computed) and give your best explanation for it. Then write one sentence about what that experience implies for how much weight you should give to a single published result when making a decision.</p>
+</div>
+<div class="exercise">
+<h3>Study Type</h3>
+<p>This tutorial covered controlled experiments, observational studies, and mining studies. For the study you designed in Part 2 of this capstone, identify which type you ended up with. Write two sentences explaining one specific change to your design that would move it one step closer to a controlled experiment, and then write one sentence assessing whether that change is feasible given realistic constraints of time, access, and ethics.</p>
+</div>
+<div class="exercise">
+<h3>Measuring Productivity</h3>
+<p>Noda et al. argue that developer productivity is multidimensional [<a class="bib-ref" href="../bibliography/#Noda2023">Noda2023</a>]. If your employer asked you to evaluate whether a new tool increases team productivity, write three sentences describing the measurement approach you would use: one sentence naming at least two dimensions of productivity you would measure and how you would operationalize them, one sentence identifying which statistical method from this tutorial you would apply and why, and one sentence identifying the single biggest threat to validity in your proposed approach and how you would mitigate it.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../reading/">Reading and Critiquing the Literature</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

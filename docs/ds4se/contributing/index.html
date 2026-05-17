@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Contributing</title>
-<meta content="Organizational Change" name="description"/>
+<meta content="Data Science for Software Engineers" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
@@ -16,16 +16,34 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Organizational Change</a>
+<a class="brand" href="../">DS4SE</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../gst/">Goals, Strategies, and Tactics</a></li>
-<li><a href="../power/">Power</a></li>
-<li><a href="../starting/">Starting</a></li>
-<li><a href="../finishing/">Finishing</a></li>
-<li><a href="../finale/">Conclusion</a></li>
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
 </ul>
 </div>
 <div class="dropdown">
@@ -36,11 +54,10 @@
 <li><a class="active" href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
-<li><a href="../meetings/">How to Run a Meeting</a></li>
-<li><a href="../bonus/">Bonus Material</a></li>
+<li><a href="../datasets/">Datasets</a></li>
 </ul>
 </div>
-<a href="https://github.com/gvwilson/change">Repository</a>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
 </div>
 </nav>
 <main id="main-content">
@@ -48,6 +65,10 @@
 <p>Contributions are very welcome;
 please contact us <a href="mailto:gvwilson@third-bit.com">by email</a> or by filing an issue in <a href="https://github.com/gvwilson/change">our repository</a>.
 All contributors must abide by our Code of Conduct.</p>
+<h2>Contributors</h2>
+<p><a href="https://third-bit.com/"><em>Greg Wilson</em></a> is a programmer, author, and educator based in Toronto.
+He was the co-founder and first Executive Director of Software Carpentry
+and received ACM SIGSOFT's Influential Educator Award in 2020.</p>
 <h2>Setup and Operation</h2>
 <ul>
 <li>Install <a href="https://github.com/astral-sh/uv">uv</a>.</li>
@@ -55,46 +76,6 @@ All contributors must abide by our Code of Conduct.</p>
 <li>Activate it: <code>source .venv/bin/activate</code>.</li>
 <li>Install dependencies: <code>uv sync</code>.</li>
 <li>Run <code>task --list</code> to see a list of common commands.</li>
-</ul>
-<h2>Style and Structure</h2>
-<ul>
-<li>Lessons are written in Markdown and compiled to HTML using the <code>mccole</code> static site generator.<ul>
-<li>Each lesson should take about an hour to work through.</li>
-</ul>
-</li>
-<li>Lessons are in <code>slug</code> directories<ul>
-<li><code>slug</code> is short mnemonic</li>
-<li>Each lesson must have an <code>index.md</code> file containing its content</li>
-<li>And may also have a <code>slides.md</code> file with <a href="https://shwr.me/">Shower</a> slides</li>
-</ul>
-</li>
-<li>Use <code>@/some/path/</code> for internal links<ul>
-<li>The leading <code>@</code> is translated into a relative reference to the project root</li>
-</ul>
-</li>
-<li>The Markdown link definitions in <code>_extras/links.md</code> are appended to all Markdown files<ul>
-<li>This helps ensure consistent link URLs across pages</li>
-</ul>
-</li>
-<li>Figures, code inclusions, citations, and glossary references are formatted using <code>mccole</code> shortcodes.</li>
-<li>The home page for the site is generated from <code>README.md</code><ul>
-<li>The navigation menus for lessons and appendices are generated from
-    the <code>lessons</code> and <code>appendices</code> <code>div</code> elements in <code>README.md</code></li>
-</ul>
-</li>
-<li>Diagrams should be SVG files created with <a href="https://www.drawio.com/">draw.io</a></li>
-<li><code>bibliography/index.md</code> has the bibliography as a definition list<ul>
-<li>Citation keys have IDs for linking</li>
-<li>Use an inline HTML link <code>b:key</code> in files to create links</li>
-</ul>
-</li>
-<li><code>glossary/index.md</code> has the glossary as definition list<ul>
-<li>Reference keys have IDs for linking</li>
-<li>Use an inline HTML link <code>g:key</code> in files to create links</li>
-</ul>
-</li>
-<li>The <code>_static</code> directory contains CSS and JavaScript files</li>
-<li>The <code>_templates</code> directory contains <a href="https://jinja.palletsprojects.com/">Jinja</a> templates used to generate HTML</li>
 </ul>
 <h2>FAQ</h2>
 <dl>
@@ -115,7 +96,7 @@ from pointing out mistakes to suggestions for better explanations.</dd>
 <span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
 </div>
 <div class="col-6 center">
-<a href="../">Organizational Change</a>
+<a href="../">DS4SE</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
