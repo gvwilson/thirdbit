@@ -243,6 +243,16 @@ table {
     margin: 0 auto var(--len-half);
 }
 
+/* Two-column table: force equal 50% column widths */
+table.two-col {
+    table-layout: fixed;
+    width: 90%;
+}
+table.two-col th,
+table.two-col td {
+    width: 50%;
+}
+
 td, th {
     border: solid var(--len-thin) var(--color-lightGrey);
     padding: 1.2rem 0.8rem;
