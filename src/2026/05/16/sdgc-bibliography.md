@@ -29,6 +29,12 @@ I will update this as new entries are added.
     2023,
     [9781957363578](https://isbnsearch.org/isbn/9781957363578).
 
+<span id="Allport1954">Allport1954</span>
+:   Gordon W. Allport:
+    *The Nature of Prejudice*.
+    Addison-Wesley,
+    1954.
+
 <span id="Andreessen2023">Andreessen2023</span>
 :   Marc Andreessen:
     "The Techno-Optimist Manifesto."
@@ -153,6 +159,13 @@ I will update this as new entries are added.
     New Society Publishers,
     2025,
     [9781774060117](https://isbnsearch.org/isbn/9781774060117).
+
+<span id="Bowles2011">Bowles2011</span>
+:   Samuel Bowles and Herbert Gintis:
+    *A Cooperative Species: Human Reciprocity and Its Evolution*.
+    Princeton University Press,
+    2011,
+    [9780691151250](https://isbnsearch.org/isbn/9780691151250).
 
 <span id="Boyce2010">Boyce2010</span>
 :   Christopher J. Boyce, Gordon D. A. Brown, and Simon C. Moore:
@@ -442,6 +455,13 @@ I will update this as new entries are added.
     2016,
     [9780300226942](https://isbnsearch.org/isbn/9780300226942).
 
+<span id="Garvin2013">Garvin2013</span>
+:   David A. Garvin:
+    "How Google Sold Its Engineers on Management."
+    *Harvard Business Review*,
+    December 2013,
+    <https://hbr.org/2013/12/how-google-sold-its-engineers-on-management>.
+
 <span id="Gawande2009">Gawande2009</span>
 :   Atul Gawande:
     *The Checklist Manifesto: How to Get Things Right*.
@@ -477,6 +497,20 @@ I will update this as new entries are added.
     2001,
     [9780674007062](https://isbnsearch.org/isbn/9780674007062).
 
+<span id="Graeber2011">Graeber2011</span>
+:   David Graeber:
+    *Debt: The First 5,000 Years*.
+    Melville House,
+    2011,
+    [9781933633862](https://isbnsearch.org/isbn/9781933633862).
+
+<span id="Graeber2018">Graeber2018</span>
+:   David Graeber:
+    *Bullshit Jobs: A Theory*.
+    Simon & Schuster,
+    2018,
+    [9781501143335](https://isbnsearch.org/isbn/9781501143335).
+
 <span id="Gray2009">Gray2009</span>
 :   Mary L. Gray:
     *Out in the Country: Youth, Media, and Queer Visibility in Rural America*.
@@ -506,6 +540,14 @@ I will update this as new entries are added.
     Sourcebooks,
     2023,
     [9781728259420](https://isbnsearch.org/isbn/9781728259420).
+
+<span id="Hardin1968">Hardin1968</span>
+:   Garrett Hardin:
+    "The Tragedy of the Commons."
+    *Science*,
+    162(3859),
+    1968,
+    [10.1126/science.162.3859.1243](https://doi.org/10.1126/science.162.3859.1243).
 
 <span id="Hari2015">Hari2015</span>
 :   Johann Hari:
@@ -555,6 +597,13 @@ I will update this as new entries are added.
     Harper Perennial,
     2010,
     [9780060505912](https://isbnsearch.org/isbn/9780060505912).
+
+<span id="Hunt2007">Hunt2007</span>
+:   Lynn Hunt:
+    *Inventing Human Rights: A History*.
+    W. W. Norton,
+    2007,
+    [9780393060959](https://isbnsearch.org/isbn/9780393060959).
 
 ## I
 
@@ -632,6 +681,20 @@ I will update this as new entries are added.
     One Signal,
     2022,
     [9781982171063](https://isbnsearch.org/isbn/9781982171063).
+
+<span id="Kendi2016">Kendi2016</span>
+:   Ibram X. Kendi:
+    *Stamped from the Beginning: The Definitive History of Racist Ideas in America*.
+    Nation Books,
+    2016,
+    [9781568584638](https://isbnsearch.org/isbn/9781568584638).
+
+<span id="Keynes1930">Keynes1930</span>
+:   John Maynard Keynes:
+    "Economic Possibilities for Our Grandchildren."
+    In *Essays in Persuasion*.
+    Macmillan,
+    1931.
 
 <span id="Khan2017">Khan2017</span>
 :   Lina Khan:
@@ -756,6 +819,13 @@ I will update this as new entries are added.
     2015,
     [9781610396134](https://isbnsearch.org/isbn/9781610396134).
 
+<span id="McLeay2014">McLeay2014</span>
+:   Michael McLeay, Amar Radia, and Ryland Thomas:
+    "Money Creation in the Modern Economy."
+    *Bank of England Quarterly Bulletin*,
+    2014 Q1,
+    <https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy>.
+
 <span id="Michaels2008">Michaels2008</span>
 :   David Michaels:
     *Doubt Is Their Product: How Industry's Assault on Science Threatens Your Health*.
@@ -776,6 +846,13 @@ I will update this as new entries are added.
     New Society Publishers,
     1991,
     [9780865712546](https://isbnsearch.org/isbn/9780865712546).
+
+<span id="Moyn2010">Moyn2010</span>
+:   Samuel Moyn:
+    *The Last Utopia: Human Rights in History*.
+    Harvard University Press,
+    2010,
+    [9780674048720](https://isbnsearch.org/isbn/9780674048720).
 
 ## N
 
@@ -815,6 +892,14 @@ I will update this as new entries are added.
     2018,
     [9781580056786](https://isbnsearch.org/isbn/9781580056786).
 
+<span id="OmiWinant2015">OmiWinant2015</span>
+:   Michael Omi and Howard Winant:
+    *Racial Formation in the United States*
+    (3rd ed.).
+    Routledge,
+    2015,
+    [9780415520317](https://isbnsearch.org/isbn/9780415520317).
+
 <span id="Oneil2016">Oneil2016</span>
 :   Cathy O'Neil:
     *Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy*.
@@ -851,13 +936,6 @@ I will update this as new entries are added.
     [9781107569782](https://isbnsearch.org/isbn/9781107569782).
 
 ## P
-
-<span id="Paxton2004">Paxton2004</span>
-:   Robert O. Paxton:
-    *The Anatomy of Fascism*.
-    Knopf,
-    2004,
-    [9781400040940](https://isbnsearch.org/isbn/9781400040940).
 
 <span id="Paasonen2011">Paasonen2011</span>
 :   Susanna Paasonen:
@@ -900,6 +978,13 @@ I will update this as new entries are added.
     University of California Press,
     2017,
     [9780520299931](https://isbnsearch.org/isbn/9780520299931).
+
+<span id="Paxton2004">Paxton2004</span>
+:   Robert O. Paxton:
+    *The Anatomy of Fascism*.
+    Knopf,
+    2004,
+    [9781400040940](https://isbnsearch.org/isbn/9781400040940).
 
 <span id="Peiss2011">Peiss2011</span>
 :   Kathy Peiss:
@@ -945,6 +1030,13 @@ I will update this as new entries are added.
     [9780415610216](https://isbnsearch.org/isbn/9780415610216).
 
 ## Q
+
+<span id="Quarantelli1998">Quarantelli1998</span>
+:   E.L. Quarantelli (ed.):
+    *What Is a Disaster?: A Dozen Perspectives on the Question*.
+    Routledge,
+    1998,
+    [9780415171069](https://isbnsearch.org/isbn/9780415171069).
 
 ## R
 
@@ -1056,6 +1148,12 @@ I will update this as new entries are added.
     2003,
     [9780521520775](https://isbnsearch.org/isbn/9780521520775).
 
+<span id="Singer1981">Singer1981</span>
+:   Peter Singer:
+    *The Expanding Circle: Ethics and Sociobiology*.
+    Farrar, Straus and Giroux,
+    1981.
+
 <span id="Singer2023">Singer2023</span>
 :   Jessie Singer:
     *There Are No Accidents: The Deadly Rise of Injury and Disaster*.
@@ -1069,6 +1167,13 @@ I will update this as new entries are added.
     Oxford University Press,
     2014,
     [9780199328499](https://isbnsearch.org/isbn/9780199328499).
+
+<span id="Solnit2009">Solnit2009</span>
+:   Rebecca Solnit:
+    *A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster*.
+    Viking,
+    2009,
+    [9780670021307](https://isbnsearch.org/isbn/9780670021307).
 
 <span id="Southern1990">Southern1990</span>
 :   R.W. Southern:
@@ -1091,6 +1196,13 @@ I will update this as new entries are added.
     Polity Press,
     2016,
     [9781509504862](https://isbnsearch.org/isbn/9781509504862).
+
+<span id="Steele2010">Steele2010</span>
+:   Claude M. Steele:
+    *Whistling Vivaldi: How Stereotypes Affect Us and What We Can Do*.
+    W.W. Norton,
+    2010,
+    [9780393339727](https://isbnsearch.org/isbn/9780393339727).
 
 <span id="SteinLubrano2024">SteinLubrano2024</span>
 :   Alexis Stein Lubrano:
@@ -1158,6 +1270,14 @@ I will update this as new entries are added.
     1966,
     [9780394703220](https://isbnsearch.org/isbn/9780394703220).
 
+<span id="Tierney2006">Tierney2006</span>
+:   Kathleen Tierney, Christine Bevc, and Erica Kuligowski:
+    "Metaphors Matter: Disaster Myths, Media Frames, and Their Consequences in Hurricane Katrina."
+    *The Annals of the American Academy of Political and Social Science*,
+    604,
+    2006,
+    [10.1177/0002716205285589](https://doi.org/10.1177/0002716205285589).
+
 <span id="TorresGebru2023">TorresGebru2023</span>
 :   Émile P. Torres and Timnit Gebru:
     "TESCREAL bundle: Eugenics and the promise of utopia through artificial general intelligence."
@@ -1184,13 +1304,6 @@ I will update this as new entries are added.
     1899.
 
 ## W
-
-<span id="Wilhoit2018">Wilhoit2018</span>
-:   Frank Wilhoit:
-    Comment on "Liberals Against Progressives."
-    *Crooked Timber*,
-    March 21, 2018.
-    <https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288>.
 
 <span id="Wainwright2017">Wainwright2017</span>
 :   Tom Wainwright:
@@ -1219,6 +1332,20 @@ I will update this as new entries are added.
     Cornell University Press,
     1991,
     [9780875461823](https://isbnsearch.org/isbn/9780875461823).
+
+<span id="Wilhoit2018">Wilhoit2018</span>
+:   Frank Wilhoit:
+    Comment on "Liberals Against Progressives."
+    *Crooked Timber*,
+    March 21, 2018.
+    <https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288>.
+
+<span id="Wilkerson2020">Wilkerson2020</span>
+:   Isabel Wilkerson:
+    *Caste: The Origins of Our Discontents*.
+    Random House,
+    2020,
+    [9780593230251](https://isbnsearch.org/isbn/9780593230251).
 
 <span id="Wilkinson2011">Wilkinson2011</span>
 :   Richard Wilkinson and Kate Pickett:
