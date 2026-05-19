@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Statistical Reference</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction: What Do We Actually Know?</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a class="active" href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Statistical Reference</h1>
+<p>This appendix summarizes the statistical concepts used in the lessons.
+It is not a statistics course. It is a reference for practitioners who
+need to decode a methods section without getting a degree first. Read it
+when a lesson references something you have forgotten, or use it to check
+whether a study you are evaluating applied the right tool.</p>
+<h2>Descriptive Statistics</h2>
+<ul>
+<li>The <em>mean</em> is the sum of values divided by the count; it is sensitive
+    to outliers</li>
+<li>The <em>median</em> is the middle value when sorted; use it when the
+    distribution is skewed or when outliers are meaningful data points
+    (e.g., response times, salaries)</li>
+<li>The <em>mode</em> is the most frequent value; useful for categorical data</li>
+<li><em>Variance</em> is the average squared deviation from the mean; hard to
+    interpret because it is in squared units</li>
+<li><em>Standard deviation</em> (SD) is the square root of variance; it is in
+    the same units as the data</li>
+<li>The <em>interquartile range</em> (IQR) is the distance between the 25th and
+    75th percentiles; more robust than SD when outliers are present</li>
+<li>A <em>box plot</em> shows median, IQR, and outliers; it is more informative
+    than a bar chart with error bars for most research purposes</li>
+</ul>
+<h2>Probability and Distributions</h2>
+<ul>
+<li>A <em>probability distribution</em> describes how likely each possible value
+    is; discrete distributions apply to counts, continuous distributions
+    to measurements</li>
+<li>The <em>normal distribution</em> is symmetric and bell-shaped; it appears
+    often because the <em>central limit theorem</em> says that averages of
+    many independent random variables tend toward normal, regardless of
+    the original distribution</li>
+<li>Many things in software engineering are <em>not</em> normally distributed:
+    task completion times, file sizes, defect counts, and developer
+    productivity are typically right-skewed (long tail of large values)</li>
+<li>When normality is violated, use non-parametric tests (Mann-Whitney U
+    instead of t-test; Spearman's ρ instead of Pearson's r)</li>
+<li>The <em>distribution of a sample mean</em> (the sampling distribution) is
+    distinct from the distribution of individual observations; it has
+    smaller spread (SD / √n) and is more nearly normal even when
+    individual observations are not</li>
+</ul>
+<h2>Hypothesis Testing</h2>
+<ul>
+<li>The <em>null hypothesis</em> (H₀) is the claim that
+    there is no effect; the alternative hypothesis (H₁) is that there is one</li>
+<li>You test H₀ by asking: how likely is my data if H₀ were true?</li>
+<li>A <em>p-value</em> is this probability; small p-values are
+    evidence against H₀</li>
+<li><em>Type I error</em> (false positive, α): rejecting H₀ when it is true;
+    conventional threshold α = 0.05</li>
+<li><em>Type II error</em> (false negative, β): failing to reject H₀ when H₁
+    is true; power = 1 − β</li>
+<li>A <em>confidence interval</em> (CI) gives a range of values consistent with
+    the data; a 95% CI means: if the study were repeated many times, 95%
+    of intervals would contain the true value<ul>
+<li>A CI that does not include zero is equivalent to p &lt; 0.05 for
+    a two-sided test at α = 0.05</li>
+<li>CIs are usually more informative than p-values alone because they
+    show direction and magnitude, not just significance</li>
+</ul>
+</li>
+</ul>
+<h2>Effect Sizes</h2>
+<ul>
+<li>Effect size measures the <em>magnitude</em> of an effect, independent of
+    sample size</li>
+<li><em>Cohen's d</em> for comparing two means:
+    d = (mean₁ − mean₂) / pooled SD<ul>
+<li>d = 0.2: small; d = 0.5: medium; d = 0.8: large</li>
+<li>These benchmarks are rough guides from psychology; interpret in
+    context</li>
+</ul>
+</li>
+<li><em>Odds ratio</em> (OR): for binary outcomes, the ratio of odds in two
+    groups; OR = 1 means no effect; OR &gt; 1 means higher odds in the
+    treatment group</li>
+<li><em>Relative risk</em> (RR): for binary outcomes, the ratio of proportions;
+    more intuitive than OR but only valid for prospective studies</li>
+<li><em>Pearson's r</em>: correlation between two continuous variables; ranges
+    from −1 to 1; r² is the proportion of variance in one variable
+    explained by the other</li>
+<li><em>Spearman's ρ</em> (rho): rank-order correlation; use when the relationship
+    is monotone but not linear, or when variables are ordinal</li>
+</ul>
+<h2>Statistical Power and Sample Size</h2>
+<ul>
+<li><em>Power</em> is the probability of detecting
+    a real effect; usually targeted at 0.80</li>
+<li>Power increases with: larger sample size, larger true effect, higher α</li>
+<li>The required sample size for a two-sample t-test is approximately:
+    n = 2(z_α + z_β)²σ²/δ²
+    where δ is the minimum detectable difference, σ is the population SD,
+    z_α = 1.96 for α = 0.05, and z_β = 0.84 for 80% power</li>
+<li>Most software engineering experiments are underpowered [<a class="bib-ref" href="../bibliography/#Kampenes2007">Kampenes2007</a>]:
+    typical sample sizes of 20–50 participants can only detect large effects
+    (d &gt; 0.8) reliably</li>
+<li><em>Post-hoc power analysis</em> (calculating power after a null result) is
+    generally uninformative and should be treated with skepticism</li>
+</ul>
+<h2>Multiple Comparisons</h2>
+<ul>
+<li>If you run k independent tests each at α = 0.05, the probability of
+    at least one false positive is 1 − (0.95)^k<ul>
+<li>k = 10: 40% chance of a false positive; k = 20: 64%</li>
+</ul>
+</li>
+<li><em>Bonferroni correction</em>: use α/k as the threshold for each test;
+    conservative (reduces power), but simple</li>
+<li><em>False discovery rate</em> (FDR, Benjamini-Hochberg): controls the
+    expected proportion of false positives among rejected hypotheses;
+    less conservative than Bonferroni for large numbers of tests</li>
+<li>Exploratory analyses that test many hypotheses should be clearly
+    labeled as exploratory; confirmatory claims require pre-registration
+    or replication</li>
+</ul>
+<h2>Common Tests and When to Use Them</h2>
+<table>
+<thead>
+<tr>
+<th scope="col">Test</th>
+<th scope="col">When to use</th>
+<th scope="col">Assumptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two-sample t-test</td>
+<td>Compare means of two groups</td>
+<td>Normality, approximately equal variance</td>
+</tr>
+<tr>
+<td>Mann-Whitney U</td>
+<td>Compare distributions of two groups</td>
+<td>None (non-parametric)</td>
+</tr>
+<tr>
+<td>Paired t-test</td>
+<td>Compare means within pairs (before/after)</td>
+<td>Paired differences are normal</td>
+</tr>
+<tr>
+<td>Wilcoxon signed-rank</td>
+<td>Paired comparison, non-parametric</td>
+<td>Symmetric differences</td>
+</tr>
+<tr>
+<td>Chi-square</td>
+<td>Compare frequencies or proportions</td>
+<td>Expected count ≥ 5 per cell</td>
+</tr>
+<tr>
+<td>One-way ANOVA</td>
+<td>Compare means across 3+ groups</td>
+<td>Normality, equal variance</td>
+</tr>
+<tr>
+<td>Kruskal-Wallis</td>
+<td>Non-parametric ANOVA</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Pearson correlation</td>
+<td>Linear relationship between two continuous vars</td>
+<td>Bivariate normality</td>
+</tr>
+<tr>
+<td>Spearman correlation</td>
+<td>Monotone relationship; ordinal or skewed data</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Linear regression</td>
+<td>Model continuous outcome from predictors</td>
+<td>Linearity, normality of residuals, homoscedasticity</td>
+</tr>
+<tr>
+<td>Logistic regression</td>
+<td>Model binary outcome</td>
+<td>Logistic relationship</td>
+</tr>
+</tbody>
+</table>
+<h2>Correlation vs. Causation</h2>
+<ul>
+<li>Correlation measures association; causation is a claim about mechanism</li>
+<li>Three alternative explanations for a correlation between A and B:<ul>
+<li>A causes B</li>
+<li>B causes A (reverse causation)</li>
+<li>C causes both A and B (confounding)</li>
+</ul>
+</li>
+<li>Randomization is the mechanism that makes causal claims defensible:
+    random assignment distributes confounders evenly across conditions</li>
+<li>Observational studies require additional assumptions to support causal
+    claims (parallel trends for DiD, exclusion restriction for instrumental
+    variables, no unmeasured confounders for regression)</li>
+<li><em>Directed acyclic graphs</em> (DAGs) help
+    identify which variables need to be controlled and which should not be
+    (controlling for a mediator blocks the causal path you want to estimate)</li>
+</ul>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../glossary/">Glossary</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qualitative Methods: Interviews and Surveys</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction: What Do We Actually Know?</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a class="active" href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Qualitative Methods: Interviews and Surveys</h1>
+<p>In 2024, a team led by Jenny Liang surveyed 410 professional developers
+across industries about their experience with AI programming assistants
+[<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>]. They did not just ask "is this useful?" They asked
+about specific scenarios, frustrations, workarounds, and the kinds of
+tasks where developers had learned to distrust the tools. The result was
+a detailed map of where AI assistance actually helps and where it gets in
+the way—knowledge that would have been invisible to a study that only
+measured task completion times.</p>
+<p>Qualitative methods are how you find out what is actually going on when
+numbers alone cannot tell you.</p>
+<h2>When Qualitative Methods Are the Right Choice</h2>
+<ul>
+<li>When you do not yet know what to measure—qualitative work often
+    precedes quantitative work by identifying the right variables</li>
+<li>When the phenomenon involves meaning, interpretation, or context
+    that a number cannot capture</li>
+<li>When your sample is small or access is limited (surveys of 10 people
+    are not statistically powerful, but interviews with 10 people can be
+    rich)</li>
+<li>When you want to understand <em>why</em> a pattern exists, not just that it does</li>
+<li>When stakeholders need to be heard rather than counted</li>
+</ul>
+<h2>Designing Interviews</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#structured_interview">Structured interviews</a> use a fixed script;
+    <a class="gl-ref" href="../glossary/#semi_structured_interview">semi-structured interviews</a>
+    have a guide but allow follow-up;
+    <a class="gl-ref" href="../glossary/#unstructured_interview">unstructured interviews</a>
+    follow the participant's lead<ul>
+<li>Semi-structured is the most common in software engineering research:
+    consistent enough to compare across participants, flexible enough to
+    surface surprises</li>
+</ul>
+</li>
+<li>Open questions invite narrative: "Tell me about a time when the AI
+    suggestion was wrong in a way that surprised you"</li>
+<li>Closed questions invite classification: "On a scale of 1 to 5, how
+    often do you accept AI suggestions without reading them?"</li>
+<li>Probing follows up on what a participant says: "You mentioned you don't
+    trust it for security-related code—can you say more about that?"</li>
+<li>Avoid leading questions: "Don't you find it faster?" assumes the answer</li>
+<li>Avoid hypothetical questions: "Would you use X if Y?" People are poor
+    predictors of their own behavior</li>
+</ul>
+<h2>Designing Surveys</h2>
+<ul>
+<li>Surveys trade depth for breadth: you can reach many more people but
+    get shallower data from each</li>
+<li><a class="gl-ref" href="../glossary/#likert_scale">Likert scales</a> ("Strongly agree" to "Strongly
+    disagree") are common but have known problems:<ul>
+<li>People cluster toward the middle or toward the extremes</li>
+<li>The same label means different things to different people</li>
+<li>Use at least 5 points; 7 points gives more resolution</li>
+</ul>
+</li>
+<li>Response bias: people answer differently depending on question order,
+    framing, and what they think the researcher wants to hear</li>
+<li><a class="gl-ref" href="../glossary/#sampling_strategy">Sampling strategy</a> determines who you can
+    generalize to:<ul>
+<li>Convenience samples (whoever responds to a Twitter post) are
+    common and usually biased toward engaged, technical users</li>
+<li>Stratified samples deliberately include proportional representation
+    of subgroups</li>
+</ul>
+</li>
+<li>Pilot your survey with 3-5 people and revise before distributing</li>
+</ul>
+<h2>Thematic Analysis</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#thematic_analysis">Thematic analysis</a> is the standard approach
+    for analyzing qualitative data</li>
+<li><a class="gl-ref" href="../glossary/#open_coding">Open coding</a>: read through the data and tag segments
+    with descriptive labels (e.g., "trust in AI suggestions," "time saved on boilerplate")</li>
+<li><a class="gl-ref" href="../glossary/#axial_coding">Axial coding</a>: group codes into higher-level themes
+    and examine relationships between them</li>
+<li><a class="gl-ref" href="../glossary/#saturation">Saturation</a>: stop collecting data when new
+    interviews or responses stop introducing new codes—a practical
+    definition of "enough data"</li>
+<li>Code with a second researcher and measure <a class="gl-ref" href="../glossary/#intercoder_reliability">intercoder reliability</a> (Cohen's kappa) to reduce individual bias</li>
+<li>Keep an audit trail: document coding decisions so others can evaluate them</li>
+</ul>
+<h2>Experience Sampling</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#experience_sampling">Experience sampling</a> prompts participants
+    at random or scheduled intervals during their workday to report their
+    current task, perceived state, or productivity</li>
+<li>It captures in-the-moment data that retrospective surveys miss: a
+    developer's sense of how productive a day was often differs from
+    what they reported each hour during that day</li>
+<li>A field study using hourly self-reports found that developers categorized
+    into six types (focused, social, lone, balanced, leading, goal-oriented)
+    and that productivity patterns varied substantially by time of day and
+    individual [<a class="bib-ref" href="../bibliography/#Meyer2017">Meyer2017</a>]</li>
+<li>When measuring subjective states, use validated instruments rather
+    than writing your own questions: scales like SPANE (Scale of Positive
+    and Negative Experience) have known psychometric properties; a
+    five-item Likert question drafted for a single study does not</li>
+</ul>
+<h2>Triangulation</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#triangulation">Triangulation</a> means combining multiple data
+    sources or methods to increase confidence in a finding</li>
+<li>If your interviews, your survey, and your observation of developers
+    at work all point to the same conclusion, that conclusion is more
+    credible than if only one source supports it</li>
+<li>Types of triangulation: data (multiple sources), investigator (multiple
+    coders), method (qualitative + quantitative), theory (multiple
+    interpretive frameworks)</li>
+</ul>
+<h2>Common Mistakes</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#leading_question">Leading questions</a>:
+    "Most developers find AI helpful—would you agree?"</li>
+<li><a class="gl-ref" href="../glossary/#convenience_sampling">Convenience sampling</a>:
+    surveying your own users, your own colleagues,
+    or respondents to a post in a community that already agrees with you</li>
+<li><a class="gl-ref" href="../glossary/#confirmation_bias">Confirmation bias</a>:
+    stopping analysis when you have enough data to
+    support your hypothesis rather than when you reach saturation</li>
+<li><a class="gl-ref" href="../glossary/#overgeneralization">Overgeneralization</a>:
+    "Developers find AI tools frustrating" from a
+    study of 20 junior developers at one company</li>
+<li><a class="gl-ref" href="../glossary/#ignoring_non_response">Ignoring non-response</a>:
+    if only 10% of people surveyed respond, the
+    90% who did not may have very different views</li>
+</ul>
+<h2>Misconceptions</h2>
+<dl>
+<dt>Qualitative research is just asking people what they think.</dt>
+<dd>Rigorous qualitative work involves systematic data collection,
+structured analysis (open coding, axial coding), documentation of
+decisions, and assessment of intercoder reliability. Asking a few
+colleagues over lunch is not a study.</dd>
+<dt>More interviews always produce better qualitative results.</dt>
+<dd>Depth matters more than volume. A study with twenty rich,
+well-analyzed interviews reaching saturation is more informative
+than one with a hundred superficial ones that never probe below
+the surface.</dd>
+<dt>A high response count makes a survey representative.</dt>
+<dd>Representativeness depends on who responds relative to who you
+want to generalize to—not on the raw number of responses. A
+million responses from a self-selected online audience is still a
+biased convenience sample.</dd>
+<dt>Thematic analysis is subjective and therefore unreliable.</dt>
+<dd>The subjectivity of interpretation is a known feature, not a flaw:
+qualitative researchers manage it through audit trails, multiple
+coders, and transparent documentation of how codes and themes were
+derived.</dd>
+</dl>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is the difference between open coding and axial coding in thematic analysis?</summary>
+<p>Open coding is the first pass through the data, where you tag individual
+segments with descriptive labels close to what the participant actually said.
+Axial coding is a second-order process where you group those labels into
+higher-level themes and begin to examine how the themes relate to each other.
+Open coding is inductive and close to the data; axial coding is more
+interpretive and moves toward an explanatory structure.</p>
+</details>
+<details>
+<summary>A researcher surveyed developers by posting a link in a popular programming subreddit and got 800 responses. They concluded that "the majority of developers are satisfied with AI coding tools." Identify two specific problems with this conclusion.</summary>
+<p>First, the sample is a convenience sample skewed toward developers who
+actively participate in that community, who are likely more technically
+engaged and more likely to already use AI tools than average. Second, the
+phrasing "majority of developers" implies generalizability to a population
+(all developers) that the sample does not represent. The conclusion should be
+"the majority of respondents to this survey were satisfied"—a much weaker
+claim. A third problem: people who are satisfied are more likely to respond
+to a survey about satisfaction (self-selection bias).</p>
+</details>
+<details>
+<summary>Why is "Would you use an AI coding assistant if it were integrated into your IDE?" a poor interview question?</summary>
+<p>It is a hypothetical question, and people are unreliable predictors of
+their own future behavior. Developers may say yes because the scenario
+sounds appealing, but their actual behavior when faced with the tool may
+differ significantly. A better question asks about past or present
+behavior: "Tell me about the last time you used an AI coding assistant.
+What did you do with the suggestion it gave you?"</p>
+</details>
+<details>
+<summary>The following interview question contains a flaw. Identify it and rewrite the question: "Given that AI tools can generate boilerplate code automatically, how much time do you think you save using them?"</summary>
+<p>The question is leading: it presupposes that AI tools save time ("given that
+they can generate boilerplate code automatically") and asks the participant
+to quantify that saving. A respondent who does not save time, or who finds
+the tools slow them down, is implicitly pushed toward a positive answer.
+A better version: "When you use AI coding tools, what effect do they have
+on how long tasks take you? Can you give me a specific recent example?"</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Write an Interview Guide (20 minutes)</h3>
+<p>Write a semi-structured interview guide (6-8 questions plus follow-up
+probes) for a study on how developers decide when to accept or reject AI
+code suggestions. Include at least one open question, one probe, and
+identify one question from your first draft that was leading and explain
+how you revised it.</p>
+</div>
+<div class="exercise">
+<h3>Code This Excerpt (15 minutes)</h3>
+<p>Apply open coding to the following interview excerpt. Identify at least
+four distinct codes, quote the specific text that led to each code, and
+then group your codes into two higher-level themes.</p>
+<blockquote>
+<p>"I use it mostly for stuff I already know how to do—like if I need
+to write a regex or remember the syntax for something in a library
+I don't use often. But for the core logic of whatever I'm building,
+I don't trust it. It'll give you something that looks right but misses
+an edge case, and you won't notice until production. I've started just
+not using it for anything security-related at all."</p>
+</blockquote>
+</div>
+<div class="exercise">
+<h3>Evaluate a Survey (15 minutes)</h3>
+<p>Find the methods section of Liang et al. 2024 ("A Large-Scale Survey on
+the Usability of AI Programming Assistants") or another published survey
+of developer experience with AI tools. Identify the sampling strategy,
+the response rate (if reported), and one specific design choice that
+reduces bias. Then identify one limitation the authors acknowledge and
+one they do not.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../productivity/">Defining Productivity</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../experiments/">Quantitative Methods: Controlled Experiments</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

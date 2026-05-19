@@ -243,6 +243,16 @@ table {
     margin: 0 auto var(--len-half);
 }
 
+/* Two-column table: force equal 50% column widths */
+table.two-col {
+    table-layout: fixed;
+    width: 90%;
+}
+table.two-col th,
+table.two-col td {
+    width: 50%;
+}
+
 td, th {
     border: solid var(--len-thin) var(--color-lightGrey);
     padding: 1.2rem 0.8rem;
@@ -312,6 +322,14 @@ a.gl-ref::after {
 /* Spacing between successive details elements matches dl dt/dd spacing */
 details + details {
     margin-top: var(--len-half);
+}
+
+/* Always pad details to prevent reflow on open; border only when expanded */
+details {
+    padding: var(--len-half);
+}
+details[open] {
+    border: solid var(--len-thin) var(--color-lightGrey);
 }
 
 /* Collapsible explanation blocks */

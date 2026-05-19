@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Observational Studies and Natural Experiments</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction: What Do We Actually Know?</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a class="active" href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Observational Studies and Natural Experiments</h1>
+<p>In 2014, Eirini Kalliamvakou and her colleagues published a paper with
+a title that tells you everything you need to know: "The Promises and
+Perils of Mining GitHub" [<a class="bib-ref" href="../bibliography/#Kalliamvakou2014">Kalliamvakou2014</a>]. They systematically
+documented the ways in which GitHub repository data is not a representative
+sample of software development—inactive repositories, personal experiments,
+class assignments, and mirrored projects all appear in the data alongside
+real production software. The paper did not say "don't use GitHub data."
+It said: be specific about what you are measuring, because the data does
+not mean what you think it means.</p>
+<h2>What Observational Studies Are</h2>
+<ul>
+<li>An <a class="gl-ref" href="../glossary/#observational_study">observational study</a> measures the world
+    as it is, without manipulating any variables</li>
+<li>You observe what people do, what code looks like, what repositories
+    contain—you do not assign anyone to a treatment</li>
+<li>Advantages: real-world behavior, large datasets, no ethical concerns
+    about withholding interventions, no Hawthorne effect from
+    artificial conditions</li>
+<li>Disadvantage: you cannot establish causation because you cannot rule
+    out <a class="gl-ref" href="../glossary/#confounding_variable">confounding variables</a></li>
+</ul>
+<h2>Mining Software Repositories</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#msr">Mining software repositories</a> (MSR) extracts data from
+    version control systems, issue trackers, code review tools, and CI/CD
+    logs</li>
+<li>GitHub, GitLab, and similar platforms expose APIs that make large-scale
+    data collection straightforward</li>
+<li>Common MSR datasets: commit history, issue lifecycles, code review
+    comments, contributor networks, dependency graphs</li>
+<li>Kalliamvakou et al.'s documented biases in GitHub data:<ul>
+<li>Many repositories are not active software projects</li>
+<li>Pull requests are used differently across teams (some merge locally)</li>
+<li>Contributor counts overestimate team size</li>
+<li>Stars and forks measure visibility, not quality</li>
+</ul>
+</li>
+</ul>
+<h2>Bias Types</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#selection_bias">Selection bias</a>: your sample is not representative
+    of the population you want to generalize to<ul>
+<li>Open-source projects on GitHub are not representative of all
+    software projects (commercial, government, embedded)</li>
+<li>Developers who share their code publicly differ from those who do not</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#survivorship_bias">Survivorship bias</a>: you only see projects
+    that still exist; failed or abandoned projects leave incomplete records</li>
+<li>Confounding: the variable you are measuring correlates with an
+    unmeasured variable that is the real cause<ul>
+<li>Example: projects that use more tests also tend to have more
+    experienced developers; you cannot attribute lower defect rates to
+    testing alone</li>
+</ul>
+</li>
+</ul>
+<h2>The Control-Validity Trade-off</h2>
+<ul>
+<li>Every study design makes a trade-off between internal and external
+    validity [<a class="bib-ref" href="../bibliography/#Campbell1963">Campbell1963</a>, <a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>]</li>
+<li>Controlled experiments maximize internal validity: randomization
+    distributes confounders evenly, making causal claims defensible. The
+    cost is artificiality — the lab task is not the real job</li>
+<li>Observational studies maximize external validity: you are watching real
+    developers on real work. The cost is that confounding variables cannot
+    be ruled out</li>
+<li>Quasi-experimental designs sit in between: they use real-world
+    interventions but without full randomization, accepting some ambiguity
+    about causation in exchange for ecological realism</li>
+<li>No single design is always better; the right choice depends on whether
+    you need a causal claim or a realistic estimate in the wild</li>
+<li>A mature research program uses all three: controlled experiments to
+    establish that X can cause Y, quasi-experiments to estimate the effect
+    size in realistic settings, and observational studies to establish that
+    the phenomenon exists at scale in practice</li>
+</ul>
+<h2>Quasi-Experimental Designs</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#difference_in_differences">Difference-in-differences</a> (DiD)
+    compares the change in outcome for a treated group against the change
+    for a control group over the same period<ul>
+<li>Requires a "parallel trends" assumption: the two groups would have
+    changed similarly if neither had been treated</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#interrupted_time_series">Interrupted time series</a> (ITS) looks
+    for a change in trend at the point when an intervention was introduced<ul>
+<li>Requires enough data before and after the intervention to estimate
+    the trend</li>
+<li>Example: measuring defect rates before and after a company mandates
+    code review, using the trend line to distinguish the effect from
+    natural improvement over time</li>
+</ul>
+</li>
+</ul>
+<h2>Natural Experiments</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#natural_experiment">natural experiment</a> uses real-world
+    variation that was not created by the researcher but that approximates
+    random assignment</li>
+<li>Examples in software engineering:<ul>
+<li>A policy change that applies to some teams but not others at the
+    same time</li>
+<li>A tool being made available to some offices due to licensing
+    constraints</li>
+<li>A GitHub outage that forced some developers to work differently
+    for a period</li>
+</ul>
+</li>
+<li>Natural experiments can support stronger causal claims than pure
+    observational studies if the variation is plausibly independent of
+    the outcome</li>
+</ul>
+<h2>Grounded Theory</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#grounded_theory">Grounded theory</a> is a qualitative methodology
+    in which theory develops inductively from data through iterative coding,
+    rather than testing a predetermined hypothesis</li>
+<li>A researcher records observations or interviews, codes them, identifies
+    patterns, collects more data to challenge those patterns, and continues
+    until saturation</li>
+<li>Two software engineering examples: Sedano et al. spent 2.5 years embedded
+    at Pivotal and produced a nine-category taxonomy of software development
+    waste [<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]; Zieris and Prechelt recorded 60+ pair programming
+    sessions at a dozen companies and identified the knowledge gap constellations
+    that student experiments had controlled away [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
+<li>Grounded theory is expensive and slow but produces theory that is
+    directly grounded in the messiness of real practice</li>
+</ul>
+<h2>Field Study Design</h2>
+<ul>
+<li>Longitudinal field studies observe participants over weeks or months in
+    their actual work environment, bridging the gap between lab experiments
+    and pure observational analysis</li>
+<li>Define acceptance criteria before you begin: minimum participation
+    duration, minimum activity thresholds, or minimum number of tasks
+    completed — and report dropout transparently</li>
+<li>A study of Mylyn (a task-focused IDE plugin) recruited 99 developers,
+    but only 16 met the pre-specified coding activity thresholds; the 6:1
+    funnel was reported honestly and shapes interpretation of the results
+    [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
+</ul>
+<h2>Correlation and Causation</h2>
+<ul>
+<li>Empirical knowledge about a relationship comes in three levels
+    [<a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>]:<ul>
+<li>Descriptive: patterns observed across cases — "projects that adopt
+    code review tend to have fewer defects" — with no quantified
+    relationship and no claim about cause</li>
+<li>Correlational: a quantified relationship between variables, but
+    still without establishing direction or causation</li>
+<li>Causal: X causes Y, established by ruling out all alternative
+    explanations through randomization or a strong natural experiment</li>
+</ul>
+</li>
+<li>Moving from descriptive to correlational requires measurement and
+    statistical analysis; moving from correlational to causal requires
+    study design that prevents confounders from being the explanation</li>
+<li>Most published SE research sits at the descriptive or correlational
+    level but is often reported as if it were causal — which is the most
+    common source of misinterpretation</li>
+<li>Standard alternative explanations for an observed correlation: reverse
+    causation (B causes A), confounding (C causes both A and B), coincidence</li>
+<li><a class="gl-ref" href="../glossary/#directed_acyclic_graph">Directed acyclic graphs</a> (DAGs) are
+    a formal tool for representing causal assumptions and identifying
+    which variables must be controlled for</li>
+</ul>
+<h2>Misconceptions</h2>
+<dl>
+<dt>A large enough sample turns correlation into causation.</dt>
+<dd>Sample size increases the precision of an estimate, not its causal
+interpretation.  An observational study with a million data points
+is still observational: you have not manipulated anything, and
+confounders remain.</dd>
+<dt>GitHub data represents software development.</dt>
+<dd>Open-source projects on GitHub are a small, self-selected slice of
+the software that actually gets built. Commercial software,
+government systems, and embedded code are largely invisible to MSR
+studies.</dd>
+<dt>Including a confounder as a control variable in a regression removes its effect.</dt>
+<dd>You can only control for confounders you have measured and
+measured accurately. Unmeasured confounders, and those measured
+with error, continue to bias your estimates even after
+"controlling for" them.</dd>
+<dt>Natural experiments are as reliable as randomized controlled trials.</dt>
+<dd>Natural experiments require assumptions—like parallel trends in
+difference-in-differences—that cannot be tested with the data
+available.  They are stronger than raw observational studies but
+weaker than true randomization.</dd>
+</dl>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is the difference between an observational study and a controlled experiment?</summary>
+<p>In a controlled experiment, the researcher assigns participants to conditions
+(treatment and control) and manipulates the independent variable. This allows
+causal claims because randomization distributes confounding variables evenly.
+In an observational study, the researcher measures the world as it is without
+manipulation. Observational studies can detect correlations and, with care,
+support causal inference—but they require additional assumptions (like
+parallel trends in DiD) that experiments do not.</p>
+</details>
+<details>
+<summary>A study mines GitHub data and finds that projects with more frequent releases have fewer open issues. A blog post says "releasing frequently reduces issue backlogs." What is wrong with this interpretation?</summary>
+<p>The study shows a correlation, not causation. Several alternative explanations
+are equally consistent with the data: projects with better-resourced teams
+might both release more often and close issues faster (confounding);
+projects that close issues might release more often as a result (reverse
+causation); the projects might differ in type or maturity in ways that
+explain both patterns. Without randomization or a natural experiment, the
+causal direction cannot be established from this data.</p>
+</details>
+<details>
+<summary>What is survivorship bias, and why is it a particular concern when studying software project success using GitHub data?</summary>
+<p>Survivorship bias occurs when you only analyze cases that survived a
+selection process, missing the failed cases. On GitHub, abandoned projects,
+failed startups, and discontinued tools are either deleted or go silent.
+A study of "successful open-source projects" based on currently active
+repositories excludes all the projects that tried the same practices and
+failed. This makes successful practices look more predictive than they are.</p>
+</details>
+<details>
+<summary>A company introduces mandatory code review for Team A in January. Team B does not change its practices. Both teams' defect rates decline over the year. Explain how a difference-in-differences analysis would determine whether code review had an effect.</summary>
+<p>DiD compares the change in Team A's defect rate to the change in
+Team B's defect rate over the same period. If both teams declined by
+the same amount, that suggests the decline was due to factors affecting
+both teams (e.g., improved tooling, team learning). If Team A declined
+more than Team B, the excess decline is attributed to the code review
+intervention—under the assumption that without the intervention, both
+teams would have changed similarly (the parallel trends assumption).</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Spot the Bias (15 minutes)</h3>
+<p>Read the abstract and methods section of a paper that uses GitHub data
+to study software development practices (any paper from the MSR
+conference proceedings will work). Identify one specific example of
+selection bias, survivorship bias, or confounding that the paper either
+acknowledges or does not address. Write two sentences explaining how
+it affects the conclusions.</p>
+</div>
+<div class="exercise">
+<h3>Design a Natural Experiment (20 minutes)</h3>
+<p>A large technology company is rolling out an AI coding assistant to its
+engineering teams over six months—some teams will get it first, others
+later, based on the order in which their managers signed up. Design an
+observational study that treats this rollout as a natural experiment.
+Specify: what you would measure, how you would use the staggered rollout
+as a source of variation, one threat to the parallel trends assumption,
+and one data source you would need access to.</p>
+</div>
+<div class="exercise">
+<h3>Causal Diagram (15 minutes)</h3>
+<p>Draw a directed acyclic graph (DAG) for the following claim: "Using AI
+coding tools increases developer satisfaction, which reduces turnover."
+Add at least two plausible confounding variables. For each confounder,
+explain what you would need to control for in an observational analysis
+to isolate the effect of AI tool use on turnover.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../experiments/">Quantitative Methods: Controlled Experiments</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../critical/">Reading Studies Critically</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

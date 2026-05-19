@@ -16,7 +16,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">DSDX</a>
+<a class="brand" href="../">Distributed Systems Design by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -114,7 +114,7 @@ This hierarchy prevents circular dependencies and allows the system to scale.
 End-user computers typically sync with stratum 2 or 3 servers.</p>
 <h2 id="ntp-impl">Implementation</h2>
 <p>Our simulation starts with the NTP message structure:</p>
-<div data-inc="ntp_message.py" data-mark="ntpmessage"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="ntp_message.py" data-mark="ntpmessage"><span aria-label="Source: ntp/ntp_message.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_message.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">NTPMessage</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A simplified NTP message packet."""</span>
 
@@ -151,7 +151,7 @@ End-user computers typically sync with stratum 2 or 3 servers.</p>
 In our simulation, the server's clock is accurate:
 it uses <code>self.now</code>, which is the simulation's true time.
 The <code>stratum</code> field indicates this server's level in the time hierarchy:</p>
-<div data-inc="ntp_server.py" data-mark="ntpserver"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ntp_server.py" data-mark="ntpserver"><span aria-label="Source: ntp/ntp_server.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_server.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""An NTP time server that responds to client requests."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -200,7 +200,7 @@ The constructor stores the server queue,
 sync interval,
 simulated network delay,
 and an initial clock offset that represents how far off the client starts:</p>
-<div data-inc="ntp_client.py" data-mark="client_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ntp_client.py" data-mark="client_init"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NTPClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""An NTP client that synchronizes its clock with a server."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -230,7 +230,7 @@ and an initial clock offset that represents how far off the client starts:</p>
 </code></pre></div>
 </div>
 <p>The <code>run</code> method simply waits for each sync interval before calling <code>_sync_with_server</code>:</p>
-<div data-inc="ntp_client.py" data-mark="client_run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="ntp_client.py" data-mark="client_run"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Periodically sync with NTP server."""</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Wait for sync interval</span>
@@ -245,7 +245,7 @@ It records the send time t1,
 waits for the server's response containing t2 and t3,
 records the receive time t4,
 and then applies the calculated offset:</p>
-<div data-inc="ntp_client.py" data-mark="client_sync"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_sync_with_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="ntp_client.py" data-mark="client_sync"><span aria-label="Source: ntp/ntp_client.py" class="inc-path" role="img" tabindex="0" title="ntp/ntp_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_sync_with_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Execute one NTP synchronization cycle."""</span>
         <span class="c1"># Create request message with client send time (t1)</span>
         <span class="n">message</span> <span class="o">=</span> <span class="n">NTPMessage</span><span class="p">(</span><span class="n">t1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_local_time</span><span class="p">())</span>
@@ -292,7 +292,7 @@ Notice that <code>get_local_time()</code> returns the client's view of time,
 which may differ from simulation time until synchronization occurs.</p>
 <h2>Running a Simulation</h2>
 <p>Let's see clock synchronization in action:</p>
-<div data-inc="ex_usage.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_usage.py" data-mark="simulate"><span aria-label="Source: ntp/ex_usage.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_usage.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Simulate NTP clock synchronization."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -347,7 +347,7 @@ which may differ from simulation time until synchronization occurs.</p>
 <p>The output shows clients starting with different clock offsets—some fast, some slow—and
 gradually converging toward the true time as they sync with the server.
 After a few iterations, all clients are within milliseconds of true time.</p>
-<div data-inc="ex_usage.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
+<div data-inc="ex_usage.out"><span aria-label="Source: ntp/ex_usage.out" class="inc-path" role="img" tabindex="0" title="ntp/ex_usage.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
 [5.000] client2.local: Sending sync request (local_time=3.200, offset=-1.800)
 [5.101] time.example.com (stratum 1): Responding to request (t2=5.100, t3=5.101)
 [5.201] client1.local: Received response (offset=-2.500, delay=0.200)
@@ -414,7 +414,7 @@ client3.local:
 <h2>Stratum Hierarchy</h2>
 <p>In real NTP deployments, servers form a hierarchy.
 Let's simulate this with a server:</p>
-<div data-inc="ex_stratum.py" data-mark="stratumserver"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumServerProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ex_stratum.py" data-mark="stratumserver"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumServerProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Server process for a stratum N+1 NTP server."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -452,7 +452,7 @@ Let's simulate this with a server:</p>
 </code></pre></div>
 </div>
 <p>We also need a client for the stratum simulation:</p>
-<div data-inc="ex_stratum.py" data-mark="stratumclient"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumClientProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ex_stratum.py" data-mark="stratumclient"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StratumClientProcess</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client process for a stratum N+1 NTP server."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -505,7 +505,7 @@ and serve stratum N+1 clients (as a server).
 We implement this with two separate processes that share clock state via a dictionary.
 The client process syncs with upstream and updates the shared clock offset.
 The server process reads from the shared clock offset when responding to downstream requests.</p>
-<div data-inc="ex_stratum.py" data-mark="hierarchy"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_stratum.py" data-mark="hierarchy"><span aria-label="Source: ntp/ex_stratum.py" class="inc-path" role="img" tabindex="0" title="ntp/ex_stratum.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Demonstrate NTP stratum hierarchy."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -578,7 +578,7 @@ which is perfectly adequate for log timestamps or cache expiration.</p>
 <span aria-hidden="true">⇐</span> <a href="../dns/">DNS</a>
 </div>
 <div class="col-6 center">
-<a href="../">DSDX</a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

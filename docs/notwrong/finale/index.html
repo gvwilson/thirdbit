@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion: What to Do Next</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction: What Do We Actually Know?</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a class="active" href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Conclusion: What to Do Next</h1>
+<p>In 2001, Mark Harman and Bryan Jones published a paper proposing that
+software engineering problems could be treated as search problems—find
+the test suite that maximizes coverage, or the configuration that minimizes
+defects—and solved with optimization algorithms [<a class="bib-ref" href="../bibliography/#Harman2001">Harman2001</a>]. At the
+time, this seemed like an interesting theoretical curiosity. Two decades
+later, search-based software engineering is a thriving subfield with annual
+conferences, graduate programs, and practical tools. It exists because
+someone decided to ask a question that had not previously been asked.</p>
+<p>The questions researchers ask shape what the field knows. The questions
+practitioners ask shape what gets funded and studied. You now have the
+tools to ask better questions.</p>
+<h2>Matching Research Questions to Methods</h2>
+<ul>
+<li>"Is there a difference?" → controlled experiment or quasi-experiment</li>
+<li>"How large is the difference?" → effect size and confidence intervals</li>
+<li>"Why does this happen?" → qualitative methods (interviews, observation)</li>
+<li>"What do practitioners think?" → surveys</li>
+<li>"What patterns exist in large codebases?" → mining software repositories</li>
+<li>"What causes what?" → natural experiments, DiD, ITS—or randomization</li>
+<li>No single method answers all questions; complex questions need mixed methods</li>
+<li>The hardest step is often translating a vague concern ("is AI bad for
+    us?") into a specific, answerable question</li>
+</ul>
+<h2>What We Know About AI and Developer Productivity</h2>
+<ul>
+<li>Controlled experiments show AI tools can speed up specific, well-defined
+    tasks (code generation, boilerplate, test writing) for individual developers</li>
+<li>Effects on end-to-end software delivery (defect rates, lead time, system
+    quality) are much less studied and less consistent</li>
+<li>The "best" developers appear to benefit less or even be slowed down;
+    the "least experienced" developers show the largest gains on narrow tasks
+    [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>]</li>
+<li>Long-term effects (skill development, code maintainability, team
+    knowledge sharing) have barely been studied</li>
+<li>Nearly all studies are short-term, use artificial or narrow tasks,
+    and are conducted on volunteers or students—external validity to
+    large-scale professional software development is largely assumed</li>
+</ul>
+<h2>What Is Being Oversold</h2>
+<ul>
+<li>Aggregate productivity claims ("AI makes everyone 55% faster") are
+    derived from specific task studies; the generalization is rarely justified</li>
+<li>Industry reports on AI adoption frequently lack peer review, methodology
+    sections, and conflict-of-interest disclosures</li>
+<li>The absence of replications is treated as evidence the original
+    finding stands, rather than as a gap in the evidence base</li>
+<li>Environmental and societal costs of AI-assisted development receive
+    almost no empirical attention in software engineering research</li>
+</ul>
+<h2>Staying Current Without Drowning</h2>
+<ul>
+<li>Follow proceedings of top venues: ICSE, FSE, MSR, ESEM, ASE</li>
+<li>Use Google Scholar alerts for specific research questions
+    rather than general topic feeds</li>
+<li>Check pre-registration databases (AsPredicted, OSF) for upcoming studies
+    on topics you care about</li>
+<li>Be skeptical of preprints until they appear in peer-reviewed venues,
+    and skeptical of peer-reviewed papers until they are replicated</li>
+<li>Build a network: one well-chosen researcher to follow is more valuable
+    than a hundred papers to skim</li>
+</ul>
+<h2>What Good Research Would Look Like</h2>
+<ul>
+<li>Studies of process maturity programs provide the longest available
+    evidence on organizational productivity change: across 14 CMM improvement
+    programs, Herbsleb et al. found a median 35% annual productivity
+    improvement; one company reduced rework from 41% to 6% of effort over a
+    decade of sustained effort [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]. Most AI productivity
+    claims have no comparable long-term evidence</li>
+<li>Pre-registered, adequately powered studies with real professional
+    developers on real tasks over realistic time periods</li>
+<li>Independent replication before claims enter policy or practice</li>
+<li>Outcome measures that include code quality, team dynamics, and
+    developer well-being, not just speed</li>
+<li>Transparent conflict-of-interest disclosure and independent funding</li>
+<li>Long-term follow-up on deskilling, dependency, and maintainability</li>
+</ul>
+<h2>How to Push for Better Evidence</h2>
+<ul>
+<li>Ask for evidence before adopting tools at your organization: what study
+    supports this claim, and is that study applicable to your context?</li>
+<li>Contribute to the evidence base: document your own organization's
+    experience carefully and share it, even in blog posts or case studies</li>
+<li>Support pre-registration when you run internal studies</li>
+<li>When an executive cites a statistic about AI productivity, ask:
+    who funded the study, what task was studied, and was there a control group?</li>
+</ul>
+<h2>Misconceptions</h2>
+<dl>
+<dt>The evidence on AI and developer productivity is settled.</dt>
+<dd>The field is less than a decade old, dominated by short-term
+studies on narrow tasks, heavily influenced by industry funding,
+and almost entirely lacking independent replication. The honest
+summary is that some things seem to be true in some contexts; very
+little has been established across contexts.</dd>
+<dt>More published studies on a topic means we know more about it.</dt>
+<dd>More studies increase knowledge only if they are well-designed,
+independently replicated, and free of systematic bias. A hundred
+underpowered studies funded by the same industry stakeholders add
+less than one independent, pre-registered, adequately powered
+replication.</dd>
+<dt>Practitioner experience is a reliable substitute for empirical study.</dt>
+<dd>Practitioners are subject to the same cognitive biases as anyone
+else: confirmation bias, availability heuristics, and the tendency
+to remember vivid cases over representative ones. Systematic study
+is not a criticism of experience—it is a way to check whether
+experience is misleading you.</dd>
+</dl>
+<h2>Check Understanding</h2>
+<details>
+<summary>A colleague says: "There are hundreds of studies showing AI tools improve developer productivity—the evidence is overwhelming." What is the most important methodological concern you would raise?</summary>
+<p>Publication bias: studies showing positive effects are more likely to be
+published than studies showing null or negative effects. A large number of
+published studies showing positive effects does not mean the weight of
+evidence is positive—it may mean that negative results are in file drawers.
+A well-conducted meta-analysis that corrects for publication bias (using
+funnel plots and trim-and-fill methods) would give a more reliable picture
+than a count of positive studies.</p>
+</details>
+<details>
+<summary>Name two types of long-term effects of AI coding tools that have not been adequately studied, and for each, describe what method you would use to study it and why.</summary>
+<p>Deskilling: the concern that relying on AI suggestions atrophies developers'
+ability to solve problems independently. This is hard to study with an
+experiment (you cannot ethically deprive developers of tools for years).
+A longitudinal observational study comparing skill assessments (code
+challenges, interview performance, debugging exercises) over time for heavy
+versus light AI tool users would be one approach—with careful attention to
+confounding by role, tenure, and tool type.</p>
+<p>Code maintainability: whether AI-generated code is harder or easier to
+maintain over time. An MSR study following repositories that adopted
+AI coding tools and measuring maintainability metrics (churn rate, code
+complexity, time to understand unfamiliar code) over one to two years would
+provide evidence—again with caution about confounding and selection bias.</p>
+</details>
+<details>
+<summary>You are asked to advise your organization on whether to mandate AI coding tools for all developers. What two pieces of evidence would you most want before making a recommendation, and why?</summary>
+<p>Answers will vary, but strong answers will ask for: (1) evidence from a
+context similar to your organization (not students on artificial tasks),
+including effect sizes and confidence intervals; and (2) evidence on outcome
+measures that matter to your organization (defect rates, lead time, developer
+satisfaction), not just speed on isolated tasks. Additional credit for
+noting the importance of long-term evidence (not just 90-minute experiments)
+and for asking about conflict of interest in the cited studies.</p>
+</details>
+<details>
+<summary>The following sentence contains a reasoning error. Identify and correct it: "No study has found that AI tools deskill developers, so we can safely assume they don't."</summary>
+<p>This is absence of evidence used as evidence of absence. The lack of
+published studies showing deskilling could mean deskilling does not occur,
+or it could mean no one has run a well-powered long-term study designed to
+detect it. Given that most AI coding tool studies are short-term and
+focused on productivity, the absence of deskilling findings is unsurprising
+and uninformative. The correct statement is: "The evidence on whether AI
+tools cause deskilling is insufficient to draw conclusions."</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Research Agenda (20 minutes)</h3>
+<p>Write a one-page research agenda for one question you care about related
+to AI and software development. Include: the specific research question,
+the method you would use, the sample you would need, the outcome measure,
+two threats to validity, and one ethical consideration. Be honest about
+what your proposed design can and cannot establish.</p>
+</div>
+<div class="exercise">
+<h3>Evidence Briefing (20 minutes)</h3>
+<p>Prepare a five-minute verbal briefing for a non-technical manager who
+wants to know "what does the research say about AI coding tools?"
+Write bullet points covering: what the evidence actually shows, what
+important questions are unanswered, and one specific caution about
+how to interpret the most widely cited statistic they are likely to
+have heard.</p>
+</div>
+<div class="exercise">
+<h3>The Question Behind the Question (15 minutes)</h3>
+<p>A manager says: "We're spending $X per developer per year on AI coding
+tools. Are we getting our money's worth?" Restate this as three specific,
+answerable research questions. For each, name the method you would use
+and one data source you would need. Then explain which question matters
+most to the organization and why.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../running/">Running Studies in Your Organization</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../license/">License</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
