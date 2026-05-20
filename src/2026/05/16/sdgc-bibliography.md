@@ -6,6 +6,8 @@ category: sdgc
 
 I will update this as new entries are added.
 
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+
 ## A
 
 <span id="Acemoglu2023">Acemoglu2023</span>
