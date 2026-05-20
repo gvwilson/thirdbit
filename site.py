@@ -150,8 +150,8 @@ prior_entries = [
         "beta": True,
     },
     {
-        "title": "Data Science for Software Engineers",
-        "url": "@root/ds4se",
+        "title": "How to Not Be Wrong About AI",
+        "url": "@root/notwrong",
         "description": "What software engineers need to understand to tell good studies from bad ones (alpha).",
         "beta": True,
     },
