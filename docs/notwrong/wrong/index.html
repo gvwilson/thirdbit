@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Be Wrong</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../wrong/">How to Be Wrong</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>How to Be Wrong</h1>
+<p>Suppose your manager asks you next week to demonstrate that the AI coding tools
+your company just purchased are worth the subscription cost. What would you
+measure? Lines of code generated? Tickets closed? A survey asking whether
+developers feel more productive? Each of those answers is wrong in a specific
+way. This chapter describes twelve of the most common mistakes currently being
+made, in published research and in organizations. At least one of them is
+probably something you, your team, or your employer is doing right now.</p>
+<h2>Counting Lines of Code Generated</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#proxy_metric">Proxy metrics</a> stand in for concepts that are hard
+    to measure directly; lines of code is one of the oldest</li>
+<li>AI assistants generate more code, not necessarily better outcomes — a team
+    that sees a 40% increase in lines of code per developer after adopting AI
+    tools has measured verbosity</li>
+<li>Deleting 2,000 lines of tangled logic and replacing it with 200 clean ones
+    is an improvement that looks like a loss on this metric [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
+<li>More code means more to read, maintain, and debug; AI's contribution to
+    that future burden does not appear in the line count</li>
+</ul>
+<h2>Timing Artificial Tasks</h2>
+<ul>
+<li>A widely cited study found developers using GitHub Copilot completed a task
+    55% faster than those who did not [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>]</li>
+<li>The task was implementing an HTTP server in JavaScript, from scratch,
+    in ninety minutes, by developers with no other obligations that day</li>
+<li>Real software development involves navigating a large codebase you did not
+    write, understanding a requirement described ambiguously in a ticket,
+    coordinating with three colleagues, and attending four meetings</li>
+<li>Speed on a greenfield toy task does not predict speed on any of that</li>
+</ul>
+<h2>Before/After With No Control Group</h2>
+<ul>
+<li>You roll out AI tools in January; by June, pull requests are shipping faster;
+    the tools are working, right?</li>
+<li>Also between January and June: you hired twelve engineers, refactored the CI
+    pipeline, and the team blocked on a legacy system finally got it rewritten</li>
+<li>Without a group that did not receive the tools, you cannot separate the AI
+    effect from any of the other changes that happened at the same time</li>
+<li><a class="gl-ref" href="../glossary/#internal_validity">Internal validity</a> requires a credible
+    counterfactual — some way of knowing what would have happened otherwise</li>
+</ul>
+<h2>Asking Developers If They Feel More Productive</h2>
+<ul>
+<li>Survey results like "87% of developers report feeling more productive with AI
+    tools" are regularly cited as evidence that the tools work [<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>]</li>
+<li>Three things make self-report systematically misleading here:<ul>
+<li>The <a class="gl-ref" href="../glossary/#hawthorne_effect">Hawthorne effect</a>: people work differently
+    when they know they are being observed and evaluated</li>
+<li>The <a class="gl-ref" href="../glossary/#novelty_effect">novelty effect</a>: new tools feel faster
+    because they are novel; the effect typically fades within weeks</li>
+<li>Social desirability bias: respondents tend to say what they believe
+    the survey wants to hear, especially when management chose the tool</li>
+</ul>
+</li>
+<li>Feeling more productive is not the same as being more productive, and
+    the gap between the two is exactly what measurement is supposed to close</li>
+</ul>
+<h2>Counting Commits, Pull Requests, and Tickets</h2>
+<ul>
+<li>In 2023, McKinsey proposed measuring individual developer productivity
+    using counts of commits, pull requests, code reviews, and similar activities
+    [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>]</li>
+<li><a class="gl-ref" href="../glossary/#goodharts_law">Goodhart's Law</a>: when a measure becomes a target,
+    it ceases to be a good measure [<a class="bib-ref" href="../bibliography/#Goodhart1984">Goodhart1984</a>]</li>
+<li>When developers know their commit count is tracked, they make more, smaller
+    commits; when ticket counts are tracked, tickets get split; the numbers
+    improve while the underlying work does not [<a class="bib-ref" href="../bibliography/#Beck2023">Beck2023</a>]</li>
+<li>Activity is not output; output is not value</li>
+</ul>
+<h2>Measuring Only the Easy Half</h2>
+<ul>
+<li>AI tools make code generation faster; that half is easy to measure</li>
+<li>The other half: time spent reviewing AI-generated code for correctness,
+    time lost debugging confidently wrong suggestions, security vulnerabilities
+    introduced by plausible-looking but insecure code, and technical debt from
+    suggestions that solved the immediate problem while ignoring the surrounding
+    design</li>
+<li>A study of GitHub Copilot's code found that a substantial fraction of
+    generated code contained security vulnerabilities, and that developers under
+    time pressure accepted insecure suggestions at higher rates [<a class="bib-ref" href="../bibliography/#Pearce2022">Pearce2022</a>]</li>
+<li>Measuring only the inputs that go up while ignoring the costs that also
+    rise is not measurement; it is marketing</li>
+</ul>
+<h2>Treating Adoption Rate as a Success Metric</h2>
+<ul>
+<li>"We have achieved 90% AI tool adoption across engineering" is a procurement
+    outcome, not a productivity outcome</li>
+<li>Adoption measures whether the tool is installed and opened; it says nothing
+    about whether suggestions are useful, whether developers accept them
+    thoughtlessly, or whether the accepted suggestions are correct</li>
+<li>High adoption combined with low suggestion quality produces a workforce
+    spending time managing a tool rather than benefiting from one</li>
+<li>Adoption is easier to measure than benefit, which is exactly why it gets
+    reported instead</li>
+</ul>
+<h2>Comparing Volunteers to Non-Volunteers</h2>
+<ul>
+<li>Studies that compare developers who chose to use AI tools against those who
+    did not are comparing two different populations, not two conditions</li>
+<li>Early adopters differ from late adopters and non-adopters in ways that
+    directly predict productivity: they are more motivated to experiment, more
+    comfortable with new tooling, and more likely to already be high performers</li>
+<li><a class="gl-ref" href="../glossary/#selection_bias">Selection bias</a> means any observed difference
+    between the groups may be a property of the person rather than the tool</li>
+<li>This is the most common design flaw in industry AI productivity reports,
+    because it is the cheapest study to run</li>
+</ul>
+<h2>Measuring the Individual Instead of the System</h2>
+<ul>
+<li>Individual coding speed is the easiest thing to measure, so it gets measured</li>
+<li>If AI tools help developers write code 30% faster but the team's time from
+    ticket to production does not change, the bottleneck was not writing code</li>
+<li>More code generated means more code to review: if AI increases code volume
+    without increasing review capacity, cycle time may worsen [<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]</li>
+<li>Optimizing one stage of a pipeline while ignoring the others is a
+    systems-thinking failure dressed as a productivity study</li>
+</ul>
+<h2>Measuring During the Novelty Period</h2>
+<ul>
+<li>A four-week study that finds a productivity boost has found a four-week
+    productivity boost</li>
+<li>The novelty effect is real: developers are more engaged with new tools
+    during the initial period, inflating observed performance relative to
+    the long-run baseline</li>
+<li>Effects that actually matter — skill atrophy for tasks now delegated to the
+    AI, accumulation of technical debt from wrong suggestions, changes in how
+    teams collaborate — emerge over months, not weeks</li>
+<li>A study designed to detect a short-term benefit, and finding one, has not
+    told you anything about what happens after the study ends</li>
+</ul>
+<h2>Treating Suggestion Acceptance Rate as a Quality Signal</h2>
+<ul>
+<li>AI coding assistants commonly report what fraction of their suggestions
+    developers accept, and higher acceptance rates are presented as evidence
+    that the tool is useful</li>
+<li>Acceptance measures whether the generated code looked plausible enough for
+    a developer to press Tab; it does not measure whether the code was correct,
+    secure, or maintainable</li>
+<li>Developers under time pressure accept more suggestions, including insecure
+    ones [<a class="bib-ref" href="../bibliography/#Pearce2022">Pearce2022</a>]; a tight deadline makes acceptance rate rise for
+    exactly the wrong reasons</li>
+<li>A metric that rewards looking good enough is not a metric that rewards
+    being good</li>
+</ul>
+<h2>Comparing AI to Nothing</h2>
+<ul>
+<li>Studies that compare AI-assisted developers to a control group using nothing
+    have chosen a baseline that does not exist in practice</li>
+<li>Developers without AI assistants use Stack Overflow, documentation,
+    colleagues, and the time they would otherwise spend thinking through
+    the problem themselves</li>
+<li>The relevant question is whether AI tools outperform the alternatives
+    developers already have; that comparison is rarely made [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>]</li>
+<li>Choosing a weak baseline makes any tool look good; it does not make the
+    tool useful</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Your company surveys developers three weeks after rolling out an AI coding assistant. Seventy-eight percent report feeling more productive. Your manager says this proves the tools are working. Identify two specific flaws in this conclusion.</summary>
+<p>First, the survey was conducted three weeks after adoption, which falls within the
+novelty period: developers are typically more engaged and positive about new tools
+during the initial weeks, and that enthusiasm inflates self-reported productivity
+regardless of actual performance. Second, feeling more productive is not the same
+as being more productive. Self-report surveys measure perception, which is also
+distorted by the Hawthorne effect (people perform differently when they know they
+are being watched) and social desirability bias (respondents tend to say what they
+think the survey wants).</p>
+</details>
+<details>
+<summary>A study compares fifty developers who volunteered to use an AI assistant against fifty who did not. The AI group closes 25% more tickets per week. What is the most likely alternative explanation for this result, and what design change would address it?</summary>
+<p>The most likely alternative explanation is selection bias: developers who
+volunteered to use the tool differ from those who did not in ways that predict
+productivity independently of the tool. Early adopters tend to be more motivated,
+more comfortable with new technology, and more likely to already be high performers.
+A design change that would address this is random assignment: randomly give the
+tool to half the developers rather than letting them self-select, so that the two
+groups are comparable on average.</p>
+</details>
+<details>
+<summary>The following measurement plan contains at least two flaws. Identify them and describe a better approach: "To evaluate our AI tools, we will measure lines of code committed per developer per week, comparing the two weeks before and two weeks after tool adoption."</summary>
+<p>First, lines of code has low <a class="gl-ref" href="../glossary/#construct_validity">construct validity</a> as a
+productivity measure: developers can write more lines by generating verbose or
+redundant code without improving outcomes, and meaningful refactoring shows up as
+a reduction. Second, a two-week window falls entirely within the novelty period
+and cannot capture longer-run effects such as skill changes, technical debt, or
+shifts in code review load.</p>
+<p>A better approach would use an outcome-linked metric — such as deployment frequency
+paired with change failure rate, or cycle time from ticket creation to production
+deployment — and extend the measurement window to at least three to six months.
+Including a team that did not adopt the tools would provide a control group to
+separate the AI effect from other concurrent changes.</p>
+</details>
+<details>
+<summary>A vendor announces that their AI assistant's suggestion acceptance rate rose from 25% to 40% over the past quarter and calls this a "quality improvement." What is wrong with this interpretation?</summary>
+<p>Acceptance rate measures whether a suggestion looked plausible enough for a
+developer to accept it, not whether the accepted code was correct, secure, or
+maintainable. A rise in acceptance rate can reflect better suggestions, but it can
+equally reflect increased time pressure (developers accepting more suggestions
+because they have less time to evaluate them), a shift toward simpler tasks where
+AI does better, or habituation (developers becoming less critical over time).
+Without a separate measure of the quality of accepted suggestions — defect rates,
+security vulnerability rates, code review rejection rates — acceptance rate
+tells you nothing about whether the tool is producing better code.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Audit Your Own Organization (20 minutes)</h3>
+<p>List three metrics your organization currently uses (or has used recently)
+to evaluate the impact of a tool, practice, or process change on developer
+productivity. For each metric, identify which of the twelve failure modes
+from this chapter it falls into, and explain in one sentence why. If you
+believe a metric avoids all twelve traps, write one sentence explaining
+why you think so. If you cannot think of three metrics your organization
+uses, use the GitHub Copilot study [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>] and the McKinsey
+productivity framework [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>] as your examples.</p>
+</div>
+<div class="exercise">
+<h3>Redesign a Flawed Study (15 minutes)</h3>
+<p>A company wants to know whether their AI coding tool improves developer
+productivity. Their current plan: survey developers about perceived
+productivity after two weeks, compare responses to a pre-adoption baseline
+survey, and report the percentage who say they feel more productive.</p>
+<p>Identify at least three problems with this design. Then describe a better
+approach in four to six sentences, specifying what you would measure,
+over what time period, and how you would construct a comparison group.</p>
+</div>
+<div class="exercise">
+<h3>Find the Baseline (10 minutes)</h3>
+<p>Find a vendor claim about an AI tool's impact on developer productivity
+(a blog post, marketing page, white paper, or case study published in the
+last two years). Identify the baseline the claim uses: what does the
+AI-assisted group get compared to? Then write two sentences describing
+a more informative baseline and why it would change the interpretation
+of the result.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../productivity/">Defining Productivity</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
