@@ -16,6 +16,7 @@ I will update this as new entries are added.
     PublicAffairs,
     2023,
     [9781541702530](https://isbnsearch.org/isbn/9781541702530).
+    *Argues that technological progress has historically served elites over workers, and outlines what would be needed to redirect it toward shared prosperity.*
 
 <span id="Achen2017">Achen2017</span>
 :   Christopher Achen and Larry Bartels:
@@ -23,6 +24,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2017,
     [9781400888740](https://isbnsearch.org/isbn/9781400888740).
+    *Challenges the idea that elections produce representative government, arguing that voters choose based on group identity and retrospective satisfaction rather than policy.*
 
 <span id="Adelstein2023">Adelstein2023</span>
 :   Jake Adelstein:
@@ -30,18 +32,21 @@ I will update this as new entries are added.
     Scribe,
     2023,
     [9781957363578](https://isbnsearch.org/isbn/9781957363578).
+    *A journalist's firsthand account of decades covering the Yakuza, Japan's organized crime syndicates, and the underworld culture surrounding them.*
 
 <span id="Allport1954">Allport1954</span>
 :   Gordon W. Allport:
     *The Nature of Prejudice*.
     Addison-Wesley,
     1954.
+    *Foundational psychological study of the origins and mechanisms of prejudice, establishing contact theory as a path to reducing intergroup hostility.*
 
 <span id="Andreessen2023">Andreessen2023</span>
 :   Marc Andreessen:
     "The Techno-Optimist Manifesto."
     Andreessen Horowitz,
     2023.
+    *Silicon Valley venture capitalist's self-serving manifesto arguing that technology is an unambiguous force for human progress and that pessimism about it is irrational.*
 
 <span id="Arendt2006">Arendt2006</span>
 :   Hannah Arendt:
@@ -49,6 +54,7 @@ I will update this as new entries are added.
     Penguin,
     2006,
     [9780143039884](https://isbnsearch.org/isbn/9780143039884).
+    *Report on the trial of Nazi bureaucrat Adolf Eichmann, introducing the concept of the "banality of evil" to describe how ordinary people commit atrocities within institutional structures.*
 
 ## B
 
@@ -59,6 +65,7 @@ I will update this as new entries are added.
     HarperBusiness,
     2019,
     [9780062697547](https://isbnsearch.org/isbn/9780062697547).
+    *Examines how psychopathic personality traits (charm, ruthlessness, and lack of empathy) can enable corporate success while causing organizational harm.*
 
 <span id="Bakan2005">Bakan2005</span>
 :   Joel Bakan:
@@ -66,6 +73,7 @@ I will update this as new entries are added.
     Simon and Shuster,
     2005,
     [9780743247467](https://isbnsearch.org/isbn/9780743247467).
+    *Argues that the modern corporation, by legal mandate and design, behaves like a psychopath.*
 
 <span id="Baldwin2014">Baldwin2014</span>
 :   Peter Baldwin:
@@ -73,6 +81,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2014,
     [9781400851911](https://isbnsearch.org/isbn/9781400851911).
+    *Traces three centuries of transatlantic disputes over copyright law, showing how cultural and economic interests have repeatedly clashed over who owns creative work.*
 
 <span id="Bandura1999">Bandura1999</span>
 :   Albert Bandura:
@@ -81,6 +90,7 @@ I will update this as new entries are added.
     3(3),
     1999,
     [10.1207/s15327957pspr0303_3](https://doi.org/10.1207/s15327957pspr0303_3).
+    *Analyzes the psychological mechanisms (moral justification, euphemistic labeling, and diffusion of responsibility) that allow people to commit harmful acts without feeling culpable.*
 
 <span id="Barthes1972">Barthes1972</span>
 :   Roland Barthes:
@@ -89,6 +99,7 @@ I will update this as new entries are added.
     Hill and Wang,
     1972,
     [9780374521509](https://isbnsearch.org/isbn/9780374521509).
+    *Shows how myths naturalize what are actually historical, ideological constructions to make happenstance appear inevitable.*
 
 <span id="Beckerman2022">Beckerman2022</span>
 :   Gal Beckerman:
@@ -96,6 +107,7 @@ I will update this as new entries are added.
     Crown,
     2022,
     [9781524759186](https://isbnsearch.org/isbn/9781524759186).
+    *Traces how radical social movements have historically incubated in "slow media" like letters, pamphlets, and newsletters before breaking into public consciousness.*
 
 <span id="Bellos2024">Bellos2024</span>
 :   David Bellos and Alexandre Montagu:
@@ -103,6 +115,7 @@ I will update this as new entries are added.
     WW Norton,
     2024,
     [9781324073710](https://isbnsearch.org/isbn/9781324073710).
+    *A history of copyright law that shows how it has consistently favored powerful intermediaries over creators and users.*
 
 <span id="Berlin1991">Berlin1991</span>
 :   Isaiah Berlin:
@@ -110,6 +123,7 @@ I will update this as new entries are added.
     Alfred A. Knopf,
     1991,
     [9780679401315](https://isbnsearch.org/isbn/9780679401315).
+    *Essays arguing that the pursuit of utopian ideals inevitably leads to violence when imposed on the real world.*
 
 <span id="Bernays2024">Bernays2024</span>
 :   Edward L. Bernays:
@@ -117,13 +131,15 @@ I will update this as new entries are added.
     Martino Fine Books,
     2024,
     [9781684228416](https://isbnsearch.org/isbn/9781684228416).
+    *The foundational text of modern public relations, arguing that manufactured consent through propaganda is necessary and beneficial in a mass democracy.*
 
 <span id="Black2001">Black2001</span>
 :   Edwin Black:
     *IBM and the Holocaust: The Strategic Alliance Between Nazi Germany and America's Most Powerful Corporation*.
     Crown,
     2001,
-    9780609607992.
+    [9780609607992](https://isbnsearch.org/isbn/9780609607992).
+    *Documents IBM's business relationship with Nazi Germany, showing how its punch-card technology enabled the systematic identification and persecution of Jews.*
 
 <span id="Black2005">Black2005</span>
 :   William K. Black:
@@ -131,6 +147,7 @@ I will update this as new entries are added.
     University of Texas Press,
     2005,
     [9780292706385](https://isbnsearch.org/isbn/9780292706385).
+    *Forensic analysis of how savings-and-loan executives in the 1980s systematically looted their own institutions with the complicity of regulators and politicians.*
 
 <span id="Blackmon2008">Blackmon2008</span>
 :   Douglas A. Blackmon:
@@ -138,6 +155,7 @@ I will update this as new entries are added.
     Doubleday,
     2008,
     [9780385722704](https://isbnsearch.org/isbn/9780385722704).
+    *Documents how Southern states re-imposed forced labor on Black Americans after the Civil War through convict leasing and debt peonage.*
 
 <span id="Blasi2013">Blasi2013</span>
 :   Joseph R. Blasi, Richard B. Freeman, and Douglas L. Kruse:
@@ -145,6 +163,7 @@ I will update this as new entries are added.
     Yale University Press,
     2013,
     [9780300209334](https://isbnsearch.org/isbn/9780300209334).
+    *Historical and economic argument for broadening employee ownership as a way to share the gains from capitalism more widely.*
 
 <span id="BoardFritzon2005">BoardFritzon2005</span>
 :   Belinda J. Board and Katarina Fritzon:
@@ -153,6 +172,7 @@ I will update this as new entries are added.
     11(1),
     2005,
     [10.1080/10683160310001634304](https://doi.org/10.1080/10683160310001634304).
+    *Study finding that senior British executives score higher on several psychopathic personality traits than criminal inmates in a high-security hospital.*
 
 <span id="Bollier2014">Bollier2014</span>
 :   David Bollier:
@@ -161,6 +181,7 @@ I will update this as new entries are added.
     New Society Publishers,
     2025,
     [9781774060117](https://isbnsearch.org/isbn/9781774060117).
+    *Accessible introduction to the concept of the commons—shared resources governed collectively.*
 
 <span id="Bowles2011">Bowles2011</span>
 :   Samuel Bowles and Herbert Gintis:
@@ -168,6 +189,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2011,
     [9780691151250](https://isbnsearch.org/isbn/9780691151250).
+    *Argues that humans evolved as a fundamentally cooperative species, not as self-interested maximizers.*
 
 <span id="Boyce2010">Boyce2010</span>
 :   Christopher J. Boyce, Gordon D. A. Brown, and Simon C. Moore:
@@ -176,6 +198,7 @@ I will update this as new entries are added.
     21(4),
     2010,
     [10.1177/0956797610362671](https://doi.org/10.1177/0956797610362671).
+    *Study showing that relative income predicts life satisfaction better than absolute income.*
 
 <span id="Bracha2019">Bracha2019</span>
 :   Oren Bracha:
@@ -183,6 +206,7 @@ I will update this as new entries are added.
     Cambridge University Press,
     2019,
     [9781108790697](https://isbnsearch.org/isbn/9781108790697).
+    *A history of how American intellectual property law developed from competing visions of authorship, invention, and the public good.*
 
 <span id="Brandt2007">Brandt2007</span>
 :   Allan M. Brandt:
@@ -190,6 +214,23 @@ I will update this as new entries are added.
     Basic Books,
     2007,
     [9780465070480](https://isbnsearch.org/isbn/9780465070480).
+    *A history of how the tobacco industry created, marketed, and defended cigarettes while suppressing evidence of harm through scientific manipulation and regulatory capture.*
+
+<span id="Breckenridge2016">Breckenridge2016</span>
+:   Keith Breckenridge:
+    *Biometric State: The Global Politics of Identification and Surveillance in South Africa, 1850 to the Present*.
+    Cambridge University Press,
+    2016,
+    [9781107434899](https://isbnsearch.org/isbn/9781107434899).
+    *A history of how South Africa became a global pioneer in biometric identification in order to implement apartheid.*
+
+<span id="Browne2015">Browne2015</span>
+:   Simone Browne:
+    *Dark Matters: On the Surveillance of Blackness*.
+    Duke University Press,
+    2015,
+    [9780822359388](https://isbnsearch.org/isbn/9780822359388).
+    *Argues that surveillance technologies have always been designed with Black people as primary targets, from slave passes to facial recognition systems.*
 
 <span id="BuenodeMesquita2011">BuenodeMesquita2011</span>
 :   Bruce Bueno de Mesquita and Alastair Smith:
@@ -197,6 +238,7 @@ I will update this as new entries are added.
     PublicAffairs,
     2011,
     [9781610390446](https://isbnsearch.org/isbn/9781610390446).
+    *Argues that political leaders of all regime types prioritize keeping a small coalition of key supporters satisfied over serving the general population.*
 
 ## C
 
@@ -206,6 +248,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2011,
     [9780275981136](https://isbnsearch.org/isbn/9780275981136).
+    *Debunks the legend that yellow journalism caused the Spanish-American War, while examining how the press shapes and distorts historical memory.*
 
 <span id="Cassidy2025">Cassidy2025</span>
 :   John Cassidy:
@@ -213,6 +256,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2025,
     [9780241457009](https://isbnsearch.org/isbn/9780241457009).
+    *A history of the critics of capitalism from Luddites to present-day AI skeptics.*
 
 <span id="Cech2021">Cech2021</span>
 :   Erin Cech:
@@ -220,6 +264,7 @@ I will update this as new entries are added.
     University of California Press,
     2021,
     [9780520303232](https://isbnsearch.org/isbn/9780520303232).
+    *Shows how the ideology of "following your passion" in work intensifies labor exploitation and concentrates opportunity among already-privileged groups.*
 
 <span id="Chang2012">Chang2012</span>
 :   Ha-Joon Chang:
@@ -227,6 +272,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2012,
     [9781608193387](https://isbnsearch.org/isbn/9781608193387).
+    *An accessible refutation of twenty-three standard free-market claims about capitalism, drawing on economic history to show the gap between theory and practice.*
 
 <span id="Chenoweth2011">Chenoweth2011</span>
 :   Erica Chenoweth and Maria J. Stephan:
@@ -234,6 +280,7 @@ I will update this as new entries are added.
     Columbia University Press,
     2011,
     [9780231156820](https://isbnsearch.org/isbn/9780231156820).
+    *An empirical study showing nonviolent civil resistance campaigns succeed roughly twice as often as violent ones in achieving political goals.*
 
 <span id="Chouldechova2017">Chouldechova2017</span>
 :   Alexandra Chouldechova:
@@ -242,6 +289,15 @@ I will update this as new entries are added.
     5(2),
     2017,
     [10.1089/big.2016.0047](https://doi.org/10.1089/big.2016.0047).
+    *Mathematical proof that commonly used fairness criteria for recidivism prediction algorithms are mutually incompatible when base rates differ across groups.*
+
+<span id="Cole2002">Cole2002</span>
+:   Simon A. Cole:
+    *Suspect Identities: A History of Fingerprinting and Criminal Identification*.
+    Harvard University Press,
+    2002,
+    [9780674010024](https://isbnsearch.org/isbn/9780674010024).
+    *A history of fingerprinting from its origins in colonial India through its adoption by police worldwide.*
 
 <span id="Conquest1986">Conquest1986</span>
 :   Robert Conquest:
@@ -249,6 +305,7 @@ I will update this as new entries are added.
     Oxford University Press,
     1986,
     [9780195051803](https://isbnsearch.org/isbn/9780195051803).
+    *A history of Stalin's forced collectivization of Soviet agriculture in the early 1930s and the resulting famine that killed millions, particularly in Ukraine.*
 
 <span id="Cottom2017">Cottom2017</span>
 :   Tressie McMillan Cottom:
@@ -256,6 +313,7 @@ I will update this as new entries are added.
     The New Press,
     2017,
     [9781620970607](https://isbnsearch.org/isbn/9781620970607).
+    *Describes how for-profit colleges exploit credential-seeking among low-income and minority students, leaving them with debt and worthless degrees.*
 
 <span id="Crick2000">Crick2000</span>
 :   Bernard Crick:
@@ -264,6 +322,7 @@ I will update this as new entries are added.
     Continuum,
     2000,
     [9780826450654](https://isbnsearch.org/isbn/9780826450654).
+    *A classic defense of politics, understood as the negotiation of competing interests, against ideologies that promise to transcend it through technocracy or purity.*
 
 ## D
 
@@ -273,6 +332,7 @@ I will update this as new entries are added.
     Carroll & Graf,
     2005,
     [9780786715107](https://isbnsearch.org/isbn/9780786715107).
+    *Memoir by the UN force commander in Rwanda who witnessed the 1994 genocide and was prevented from intervening to stop it by the international community.*
 
 <span id="Daniel1972">Daniel1972</span>
 :   Pete Daniel:
@@ -280,6 +340,7 @@ I will update this as new entries are added.
     University of Illinois Press,
     1972,
     [9780252061462](https://isbnsearch.org/isbn/9780252061462).
+    *History of peonage in the American South after Reconstruction, documenting how debt bondage re-created conditions of virtual slavery for Black and poor white workers.*
 
 <span id="Davies2022">Davies2022</span>
 :   Dan Davies:
@@ -287,6 +348,7 @@ I will update this as new entries are added.
     Scribner,
     2022,
     [9781982114930](https://isbnsearch.org/isbn/9781982114930).
+    *Explains the mechanics of financial fraud by showing the structural features of markets that make them possible.*
 
 <span id="Devries2008">Devries2008</span>
 :   Jan de Vries:
@@ -294,6 +356,7 @@ I will update this as new entries are added.
     Cambridge University Press,
     2008,
     [9780521719254](https://isbnsearch.org/isbn/9780521719254).
+    *Argues that the shift toward market-oriented household labor preceded and enabled the Industrial Revolution, reframing who drove early economic growth.*
 
 <span id="Doctorow2022">Doctorow2022</span>
 :   Cory Doctorow and Rebecca Giblin:
@@ -301,6 +364,7 @@ I will update this as new entries are added.
     Beacon Press,
     2022,
     [9780807007068](https://isbnsearch.org/isbn/9780807007068).
+    *Examines how power concentrated in media and technology allows corporations to lock in both creators and consumers.*
 
 <span id="Doctorow2025">Doctorow2025</span>
 :   Cory Doctorow:
@@ -308,6 +372,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2025,
     [9780374619329](https://isbnsearch.org/isbn/9780374619329).
+    *Diagnoses the systematic degradation of digital platforms from useful services into exploitative traps, and argues for structural reforms to reverse it.*
 
 <span id="Douglas2002">Douglas2002</span>
 :   Mary Douglas:
@@ -315,13 +380,15 @@ I will update this as new entries are added.
     Routledge,
     2002,
     [9780415289955](https://isbnsearch.org/isbn/9780415289955).
+    *Anthropological analysis of how all societies use categories of purity and pollution to enforce social boundaries and mark outsiders as dangerous.*
 
-<span id="Dowbiggin2007">Dowbiggin2007</span>                                                                    
+<span id="Dowbiggin2007">Dowbiggin2007</span>
 :   Ian Dowbiggin:
     *A Concise History of Euthanasia: Life, Death, God, and Medicine*.
     Bloomsbury,
     2007,
     [9780742531116](https://isbnsearch.org/isbn/9780742531116).
+    *A history of euthanasia debates in Western societies, tracing how medical, religious, and political arguments have shifted over a century and a half.*
 
 <span id="Dreze2013">Dreze2013</span>
 :   Jean Drèze and Amartya Sen:
@@ -329,6 +396,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2013,
     [9780691160795](https://isbnsearch.org/isbn/9780691160795).
+    *Examines India's economic development failures, arguing that growth has not translated into adequate improvements in health, education, or equality.*
 
 <span id="Dudley2022">Dudley2022</span>
 :   Renée Dudley and Daniel Golden:
@@ -336,6 +404,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2022,
     [9780374603304](https://isbnsearch.org/isbn/9780374603304).
+    *An account of a volunteer team of malware analysts who hunt ransomware gangs, exposing the criminal infrastructure behind a billion-dollar extortion industry.*
 
 <span id="Dutton2013">Dutton2013</span>
 :   Kevin Dutton:
@@ -343,6 +412,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2013,
     [9780374533984](https://isbnsearch.org/isbn/9780374533984).
+    *Argues that psychopathic traits are not uniformly harmful and can confer advantages in professions requiring high-stakes decision-making.*
 
 ## E
 
@@ -351,6 +421,7 @@ I will update this as new entries are added.
     "Ur-Fascism."
     *New York Review of Books*,
     June 22, 1995.
+    *Identifies recurring features of fascist ideology that can combine in varied forms.*
 
 <span id="Ehmke2025">Ehmke2025</span>
 :   Coraline Ada Ehmke:
@@ -358,6 +429,7 @@ I will update this as new entries are added.
     Apress,
     2025,
     [9798868812484](https://isbnsearch.org/isbn/9798868812484).
+    *Collection of stories and analysis about how technologists have confronted the harmful uses of their work and what responsible practice might look like.*
 
 <span id="Eubanks2018">Eubanks2018</span>
 :   Virginia Eubanks:
@@ -365,6 +437,7 @@ I will update this as new entries are added.
     St. Martin's Press,
     2018,
     [9781250074317](https://isbnsearch.org/isbn/9781250074317).
+    *Documents how automated decision systems in welfare, child protection, and criminal justice systematically harm poor and working-class Americans.*
 
 <span id="Ewing2017">Ewing2017</span>
 :   Jack Ewing:
@@ -372,6 +445,7 @@ I will update this as new entries are added.
     W. W. Norton,
     2017,
     [9780393254501](https://isbnsearch.org/isbn/9780393254501).
+    *Describes how Volkswagen spent a decade systematically cheating on emissions tests, and how a culture of hierarchical pressure made the fraud possible.*
 
 ## F
 
@@ -381,6 +455,15 @@ I will update this as new entries are added.
     Simon & Schuster,
     2015,
     [9781451694123](https://isbnsearch.org/isbn/9781451694123).
+    *Comprehensive history of the American gay rights movement from the 1950s through marriage equality, told through the lives of its activists and adversaries.*
+
+<span id="Federici2004">Federici2004</span>
+:   Silvia Federici:
+    *Caliban and the Witch: Women, the Body and Primitive Accumulation*.
+    Autonomedia,
+    2004,
+    [9781570270598](https://isbnsearch.org/isbn/9781570270598).
+    *Argues that the early modern witch trials were a way to discipline female labor and enclosing women's reproductive work inside unpaid domestic roles.*
 
 <span id="Ferguson2015">Ferguson2015</span>
 :   Christopher J. Ferguson:
@@ -391,6 +474,7 @@ I will update this as new entries are added.
     10(5),
     2015,
     [10.1177/1745691615592234](https://doi.org/10.1177/1745691615592234).
+    *Meta-analysis of research on violent video games finding minimal evidence that they cause aggression, identifying methodological flaws in studies claiming otherwise.*
 
 <span id="FitzPatrick2020">FitzPatrick2020</span>
 :   Robert L. FitzPatrick:
@@ -398,6 +482,15 @@ I will update this as new entries are added.
     Pyramid Scheme Alert Press,
     2020,
     [9780970975430](https://isbnsearch.org/isbn/9780970975430).
+    *A detailed exposé of the multi-level marketing industry's structural similarities to pyramid schemes and the financial harm it inflicts on most participants.*
+
+<span id="Folbre2001">Folbre2001</span>
+:   Nancy Folbre:
+    *The Invisible Heart: Economics and Family Values*.
+    The New Press,
+    2001,
+    [9781565846555](https://isbnsearch.org/isbn/9781565846555).
+    *Shows how unpaid care work sustains the entire economy while remaining systematically excluded from economic measurement and theory.*
 
 <span id="Frank1985">Frank1985</span>
 :   Robert H. Frank:
@@ -405,6 +498,7 @@ I will update this as new entries are added.
     Oxford University Press,
     1985,
     [9780195049459](https://isbnsearch.org/isbn/9780195049459).
+    *Argues that humans care about relative status within local reference groups more than absolute wealth, explaining many economically "irrational" behaviors.*
 
 <span id="Frankfurt2005">Frankfurt2005</span>
 :   Harry G. Frankfurt:
@@ -412,6 +506,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2005,
     [9780691122946](https://isbnsearch.org/isbn/9780691122946).
+    *A philosophical analysis distinguishing bullshit (indifference to truth) from lying.*
 
 <span id="Frenkel2021">Frenkel2021</span>
 :   Sheera Frenkel and Cecilia Kang:
@@ -419,6 +514,7 @@ I will update this as new entries are added.
     Harper,
     2021,
     [9780062960672](https://isbnsearch.org/isbn/9780062960672).
+    *Describes Facebook's decade of prioritizing growth and engagement over addressing its platform's role in misinformation and political manipulation.*
 
 <span id="Freudenberg2011">Freudenberg2011</span>
 :   William R. Freudenburg and Robert Gramling:
@@ -426,6 +522,7 @@ I will update this as new entries are added.
     MIT Press,
     2011,
     [9780262015837](https://isbnsearch.org/isbn/9780262015837).
+    *An analysis of the BP Deepwater Horizon disaster as the predictable result of regulatory capture, industry self-governance, and systematic suppression of safety concerns.*
 
 <span id="Funder2011">Funder2011</span>
 :   Anna Funder:
@@ -433,6 +530,7 @@ I will update this as new entries are added.
     Harper Collins,
     2011,
     [9780062077325](https://isbnsearch.org/isbn/9780062077325).
+    *Oral histories from East Germans who lived under Stasi surveillance, revealing the devastation wrought by a state security apparatus that infected every relationship.*
 
 ## G
 
@@ -442,6 +540,7 @@ I will update this as new entries are added.
     Houghton Mifflin,
     1954,
     [9780395859995](https://isbnsearch.org/isbn/9780395859995).
+    *Classic account of the speculative bubble and crash of 1929, examining the psychological, institutional, and regulatory failures that produced it.*
 
 <span id="Galbraith1998">Galbraith1998</span>
 :   John Kenneth Galbraith:
@@ -449,6 +548,7 @@ I will update this as new entries are added.
     Houghton Mifflin,
     1998,
     [9780395925003](https://isbnsearch.org/isbn/9780395925003).
+    *Argued that postwar American prosperity masked a dangerous imbalance: abundance of private goods alongside systematic neglect of public ones.*
 
 <span id="GartonAsh2016">GartonAsh2016</span>
 :   Timothy Garton Ash:
@@ -456,6 +556,7 @@ I will update this as new entries are added.
     Yale University Press,
     2016,
     [9780300226942](https://isbnsearch.org/isbn/9780300226942).
+    *Proposes principles for governing free speech in a globally connected world, balancing liberal commitments against hate, incitement, and power asymmetries.*
 
 <span id="Garvin2013">Garvin2013</span>
 :   David A. Garvin:
@@ -463,6 +564,7 @@ I will update this as new entries are added.
     *Harvard Business Review*,
     December 2013,
     <https://hbr.org/2013/12/how-google-sold-its-engineers-on-management>.
+    *Describes how Google used internal data to persuade its engineers that management added value, overcoming cultural resistance to hierarchy.*
 
 <span id="Gawande2009">Gawande2009</span>
 :   Atul Gawande:
@@ -470,6 +572,7 @@ I will update this as new entries are added.
     Metropolitan Books,
     2009,
     [9780805091748](https://isbnsearch.org/isbn/9780805091748).
+    *Argues that checklists are the most effective tool for reducing catastrophic error in complex high-stakes environments.*
 
 <span id="Gawande2014">Gawande2014</span>
 :   Atul Gawande:
@@ -477,6 +580,7 @@ I will update this as new entries are added.
     Metropolitan Books / Henry Holt,
     2014,
     [9780805095159](https://isbnsearch.org/isbn/9780805095159).
+    *Describes how American medicine handles aging and death badly, prioritizing intervention over quality of life and dignity in dying.*
 
 <span id="Giridharadas2018">Giridharadas2018</span>
 :   Anand Giridharadas:
@@ -484,6 +588,7 @@ I will update this as new entries are added.
     Knopf,
     2018,
     [9780525533184](https://isbnsearch.org/isbn/9780525533184).
+    *Argues that plutocratic philanthropy allows the wealthy to appear to help the world while preserving the economic arrangements that make help necessary.*
 
 <span id="Goffman1959">Goffman1959</span>
 :   Erving Goffman:
@@ -491,6 +596,7 @@ I will update this as new entries are added.
     Anchor,
     1959,
     [9780385094023](https://isbnsearch.org/isbn/9780385094023).
+    *Argues that everyday social interaction is a kind of performance in which people manage impressions to shape how others perceive and treat them.*
 
 <span id="Gordon2001">Gordon2001</span>
 :   Andrew Gordon:
@@ -498,6 +604,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2001,
     [9780674007062](https://isbnsearch.org/isbn/9780674007062).
+    *A history of Japanese labor-management relations from postwar reconstruction through the economic miracle, examining how cooperation was built.*
 
 <span id="Graeber2011">Graeber2011</span>
 :   David Graeber:
@@ -505,6 +612,7 @@ I will update this as new entries are added.
     Melville House,
     2011,
     [9781933633862](https://isbnsearch.org/isbn/9781933633862).
+    *Anthropological history of debt across five thousand years, arguing that the standard economic account of money emerging from barter is a myth.*
 
 <span id="Graeber2018">Graeber2018</span>
 :   David Graeber:
@@ -512,6 +620,7 @@ I will update this as new entries are added.
     Simon & Schuster,
     2018,
     [9781501143335](https://isbnsearch.org/isbn/9781501143335).
+    *Argues that a large fraction of modern employment consists of jobs that even those who hold them consider pointless, and explores why such work proliferates.*
 
 <span id="Gray2009">Gray2009</span>
 :   Mary L. Gray:
@@ -519,6 +628,7 @@ I will update this as new entries are added.
     NYU Press,
     2009,
     [9780814731932](https://isbnsearch.org/isbn/9780814731932).
+    *Examines how rural LGBTQ+ youth use media and internet access to create community and visibility outside urban queer spaces.*
 
 <span id="Grossman1995">Grossman1995</span>
 :   Dave Grossman:
@@ -526,6 +636,7 @@ I will update this as new entries are added.
     Little, Brown,
     1995,
     [9780316330114](https://isbnsearch.org/isbn/9780316330114).
+    *A military historian's analysis of the psychological barriers to killing in combat, and how modern training methods systematically overcome them.*
 
 <span id="Grossman1999">Grossman1999</span>
 :   Dave Grossman and Gloria Degaetano:
@@ -533,6 +644,7 @@ I will update this as new entries are added.
     Crown,
     1999,
     [9780804139359](https://isbnsearch.org/isbn/9780804139359).
+    *Argues that violent media, particularly video games, condition children to kill by overcoming the same inhibitions targeted by military training.*
 
 ## H
 
@@ -542,6 +654,7 @@ I will update this as new entries are added.
     Sourcebooks,
     2023,
     [9781728259420](https://isbnsearch.org/isbn/9781728259420).
+    *Ethnographic account of the assisted dying debate in America through the stories of patients, families, and practitioners.*
 
 <span id="Hardin1968">Hardin1968</span>
 :   Garrett Hardin:
@@ -550,6 +663,7 @@ I will update this as new entries are added.
     162(3859),
     1968,
     [10.1126/science.162.3859.1243](https://doi.org/10.1126/science.162.3859.1243).
+    *Influential but deeply flawed essay arguing that individuals will inevitably overexploit shared resources, used to justify privatization.*
 
 <span id="Hari2015">Hari2015</span>
 :   Johann Hari:
@@ -557,6 +671,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2015,
     [9781408857823](https://isbnsearch.org/isbn/9781408857823).
+    *Shows that the war on drugs was built on racism and prohibition ideology rather than evidence of harm.*
 
 <span id="Hemenway2009">Hemenway2009</span>
 :   David Hemenway:
@@ -564,6 +679,7 @@ I will update this as new entries are added.
     University of California Press,
     2009,
     [9780520258464](https://isbnsearch.org/isbn/9780520258464).
+    *Documents successful public health campaigns in injury prevention to identify what makes safety regulation actually work.*
 
 <span id="Herman1988">Herman1988</span>
 :   Edward S. Herman and Noam Chomsky:
@@ -571,6 +687,7 @@ I will update this as new entries are added.
     Pantheon,
     1988,
     [9780375714498](https://isbnsearch.org/isbn/9780375714498).
+    *Proposes a "propaganda model" of media, arguing that commercial pressures, advertiser dependence, and sourcing from official institutions systematically filter out dissent.*
 
 <span id="Hilts2003">Hilts2003</span>
 :   Philip J. Hilts:
@@ -578,6 +695,7 @@ I will update this as new entries are added.
     University of North Carolina Press,
     2003,
     [9780807854716](https://isbnsearch.org/isbn/9780807854716).
+    *A history of the FDA as an institution that has repeatedly been captured by the industries it regulates, then periodically reformed after public health disasters.*
 
 <span id="Hirsch2015">Hirsch2015</span>
 :   Fred Hirsch:
@@ -585,6 +703,7 @@ I will update this as new entries are added.
     Routledge,
     2015,
     [9781138834941](https://isbnsearch.org/isbn/9781138834941).
+    *Argues that positional goods lose value as more people gain access to them, creating a growth trap.*
 
 <span id="Hirshman2012">Hirshman2012</span>
 :   Linda Hirshman:
@@ -592,6 +711,23 @@ I will update this as new entries are added.
     Harper,
     2012,
     [9780061965500](https://isbnsearch.org/isbn/9780061965500).
+    *Political history of the American gay rights movement's legal and legislative strategy.*
+
+<span id="Hochschild2006">Hochschild2006</span>
+:   Adam Hochschild:
+    *Bury The Chains: Prophets and Rebels in the Fight to Free an Empire's Slaves*.
+    Mariner Books,
+    2006,
+    [9780618619078](https://isbnsearch.org/isbn/9780618619078).
+    *History of the British abolitionist movement, showing how a small group of dedicated people built the world's first successful human rights campaign.*
+
+<span id="HochschildMachung1989">HochschildMachung1989</span>
+:   Arlie Hochschild and Anne Machung:
+    *The Second Shift: Working Families and the Revolution at Home*.
+    Viking,
+    1989,
+    [9780142002926](https://isbnsearch.org/isbn/9780142002926).
+    *Describes how women in dual-income American households perform roughly a month of additional unpaid domestic labor per year compared to their partners, and how they rationalize this inequality as personal choice.*
 
 <span id="Hoffer2010">Hoffer2010</span>
 :   Eric Hoffer:
@@ -599,6 +735,7 @@ I will update this as new entries are added.
     Harper Perennial,
     2010,
     [9780060505912](https://isbnsearch.org/isbn/9780060505912).
+    *Psychological portrait of mass movement fanatics, arguing that personal frustration and self-hatred drive fanatical commitment.*
 
 <span id="Hunt2007">Hunt2007</span>
 :   Lynn Hunt:
@@ -606,6 +743,7 @@ I will update this as new entries are added.
     W. W. Norton,
     2007,
     [9780393060959](https://isbnsearch.org/isbn/9780393060959).
+    *Argues that the concept of human rights was invented in the eighteenth century through the spread of empathy enabled by the novel as a literary form.*
 
 ## I
 
@@ -615,6 +753,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2020,
     [9780674244795](https://isbnsearch.org/isbn/9780674244795).
+    *History of how American attitudes toward privacy have shifted from the nineteenth century to the present, shaped by census surveys, social science, and surveillance technology.*
 
 ## J
 
@@ -624,6 +763,7 @@ I will update this as new entries are added.
     Bold Type Books,
     2021,
     [9781568589398](https://isbnsearch.org/isbn/9781568589398).
+    *Argues that the ideology of work-as-passion serves employers by inducing workers to accept poor conditions in exchange for the feeling of doing something meaningful.*
 
 <span id="Jaffrelot2023">Jaffrelot2023</span>
 :   Christophe Jaffrelot:
@@ -631,6 +771,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2021,
     [9780691247908](https://isbnsearch.org/isbn/9780691247908).
+    *Describes how Modi's government has systematically weakened Indian democratic institutions while mobilizing Hindu nationalist identity politics.*
 
 <span id="JohnsonKwak2010">JohnsonKwak2010</span>
 :   Simon Johnson and James Kwak:
@@ -638,6 +779,7 @@ I will update this as new entries are added.
     Pantheon Books,
     2010,
     [9780307379054](https://isbnsearch.org/isbn/9780307379054).
+    *Describes how the concentration of Wall Street banks created a financial oligarchy that captured regulatory agencies that led to the 2008 financial crisis.*
 
 ## K
 
@@ -647,6 +789,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2011,
     [9780374533557](https://isbnsearch.org/isbn/9780374533557).
+    *Synthesizes decades of behavioral economics research to show that human judgment is systematically distorted by cognitive biases that violate rational-choice theory.*
 
 <span id="Kaplan2012">Kaplan2012</span>
 :   David E. Kaplan and Alec Dubro:
@@ -655,6 +798,7 @@ I will update this as new entries are added.
     University of California Press,
     2012,
     [9780520269064](https://isbnsearch.org/isbn/9780520269064).
+    *A comprehensive history of the Yakuza, examining their structure, social functions, political connections, and decline.*
 
 <span id="Karabel2006">Karabel2006</span>
 :   Jerome Karabel:
@@ -662,6 +806,7 @@ I will update this as new entries are added.
     Mariner Books,
     2006,
     [9780618773558](https://isbnsearch.org/isbn/9780618773558).
+    *Describes how Harvard, Yale, and Princeton used admissions criteria ostensibly about merit to exclude Jews and maintain the dominance of Protestant elites through the twentieth century.*
 
 <span id="Keefe2021">Keefe2021</span>
 :   Patrick Radden Keefe:
@@ -669,6 +814,7 @@ I will update this as new entries are added.
     Doubleday,
     2021,
     [9780385545686](https://isbnsearch.org/isbn/9780385545686).
+    *Investigative history of the Sackler family and Purdue Pharma, showing how they created and sustained the opioid epidemic while insulating themselves from accountability.*
 
 <span id="Kelly2012">Kelly2012</span>
 :   Marjorie Kelly:
@@ -676,6 +822,7 @@ I will update this as new entries are added.
     Berrett-Koehler,
     2012,
     [9781605093109](https://isbnsearch.org/isbn/9781605093109).
+    *Argues that a revolution in ownership forms—including worker cooperatives, community land trusts, and public banks—is already underway and could replace the shareholder corporation.*
 
 <span id="Kelly2022">Kelly2022</span>
 :   Kim Kelly:
@@ -683,6 +830,7 @@ I will update this as new entries are added.
     One Signal,
     2022,
     [9781982171063](https://isbnsearch.org/isbn/9781982171063).
+    *A history of organized labor in the US, told through the stories of workers and organizers across industries.*
 
 <span id="Kendi2016">Kendi2016</span>
 :   Ibram X. Kendi:
@@ -690,6 +838,7 @@ I will update this as new entries are added.
     Nation Books,
     2016,
     [9781568584638](https://isbnsearch.org/isbn/9781568584638).
+    *A history of racist ideas in American intellectual and political life, arguing that racism is not ignorance but a post-hoc justification for policies serving elite interests.*
 
 <span id="Keynes1930">Keynes1930</span>
 :   John Maynard Keynes:
@@ -697,6 +846,7 @@ I will update this as new entries are added.
     In *Essays in Persuasion*.
     Macmillan,
     1931.
+    *An essay predicting that technological productivity would reduce the workweek to fifteen hours within a century.*
 
 <span id="Khan2017">Khan2017</span>
 :   Lina Khan:
@@ -704,6 +854,7 @@ I will update this as new entries are added.
     *Yale Law Journal*,
     126(3),
     2017.
+    *A legal argument that antitrust doctrine has failed to address Amazon's anti-competitive behavior because it focuses only on consumer prices, ignoring market power.*
 
 <span id="Khera2019">Khera2019</span>
 :   Reetika Khera (ed.):
@@ -711,6 +862,7 @@ I will update this as new entries are added.
     Orient BlackSwan,
     2019,
     [9789352875429](https://isbnsearch.org/isbn/9789352875429).
+    *A collection of critical essays on India's Aadhaar biometric identity system, examining its governance failures, exclusions, and surveillance.*
 
 <span id="Kindleberger2005">Kindleberger2005</span>
 :   Charles P. Kindleberger and Robert Aliber:
@@ -719,6 +871,7 @@ I will update this as new entries are added.
     Wiley,
     2005,
     [9780471467144](https://isbnsearch.org/isbn/9780471467144).
+    *A classic analysis of financial crises from the seventeenth century to the late twentieth.*
 
 <span id="Kohn1999">Kohn1999</span>
 :   Linda T. Kohn, Janet M. Corrigan, and Molla S. Donaldson (eds.):
@@ -726,6 +879,7 @@ I will update this as new entries are added.
     National Academies Press,
     2000,
     [9780309068376](https://isbnsearch.org/isbn/9780309068376).
+    *A landmark report documenting that medical errors kill tens of thousands of Americans annually, calling for a systemic safety approach rather than individual blame.*
 
 ## L
 
@@ -735,6 +889,7 @@ I will update this as new entries are added.
     Melville House,
     2018,
     [9781612197531](https://isbnsearch.org/isbn/9781612197531).
+    *A practical handbook for nonviolent direct action campaigns, drawing on historical examples to identify effective strategies and organizational structures.*
 
 <span id="Lapierre2002">Lapierre2002</span>
 :   Dominique Lapierre and Javier Moro:
@@ -742,6 +897,7 @@ I will update this as new entries are added.
     Grand Central Publishing,
     2002,
     [9780446530880](https://isbnsearch.org/isbn/9780446530880).
+    *Describes the 1984 Bhopal gas disaster—the worst industrial accident in history—and the corporate decisions that led to it.*
 
 <span id="Lewis2010">Lewis2010</span>
 :   Michael Lewis:
@@ -749,19 +905,22 @@ I will update this as new entries are added.
     W. W. Norton,
     2010,
     [9780393338829](https://isbnsearch.org/isbn/9780393338829).
+    *The story of the traders and analysts who bet on the 2008 mortgage collapse.*
 
 <span id="Lewy2011">Lewy2011</span>
 :   Guenter Lewy:
-    *Assisted Death in Europe and America Four Regimes and Their Lessons*.
+    *Assisted Death in Europe and America: Four Regimes and Their Lessons*.
     Oxford University Press,
     2011,
     [9780199746415](https://isbnsearch.org/isbn/9780199746415).
+    *Comparative analysis of assisted dying policy in the Netherlands, Belgium, Oregon, and Switzerland.*
 
 <span id="Lindsey1942">Lindsey1942</span>
 :   Almont Lindsey:
     *The Pullman Strike: The Story of a Unique Experiment and of a Great Labor Upheaval*.
     University of Chicago Press,
     1942.
+    *Describes the 1894 Pullman Strike, in which Pullman's company town became the site of a nationwide railroad boycott and federal intervention.*
 
 <span id="Linebaugh2014">Linebaugh2014</span>
 :   Peter Linebaugh:
@@ -769,6 +928,7 @@ I will update this as new entries are added.
     PM Press,
     2014,
     [9781604867473](https://isbnsearch.org/isbn/9781604867473).
+    *Essays arguing that the historical enclosure of common lands was not inevitable economic progress but a deliberate dispossession, and tracing resistance to it.*
 
 <span id="Linklater2015">Linklater2015</span>
 :   Andro Linklater:
@@ -776,6 +936,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2015,
     [9781620402917](https://isbnsearch.org/isbn/9781620402917).
+    *Global history of land ownership, arguing that private property in land has been the central driver of economic and political history.*
 
 ## M
 
@@ -786,12 +947,14 @@ I will update this as new entries are added.
     Cambridge University Press,
     2020,
     [9781108728485](https://isbnsearch.org/isbn/9781108728485).
+    *Concise history of Australia from indigenous settlement through the present, examining colonization, federation, immigration, and the evolution of national identity.*
 
 <span id="Mackay1841">Mackay1841</span>
 :   Charles Mackay:
     *Extraordinary Popular Delusions and the Madness of Crowds*.
     Richard Bentley,
     1841.
+    *Classic description of episodes of collective folly, including the Dutch tulip mania and South Sea Bubble.*
 
 <span id="Markey2017">Markey2017</span>
 :   Patrick M. Markey and Christopher J. Ferguson:
@@ -799,6 +962,7 @@ I will update this as new entries are added.
     BenBella,
     2017,
     [9781942952992](https://isbnsearch.org/isbn/9781942952992).
+    *Argues that the moral panic over violent video games was manufactured by politicians and activists and is unsupported by decades of research.*
 
 <span id="Mashaw1990">Mashaw1990</span>
 :   Jerry L. Mashaw and David L. Harfst:
@@ -806,6 +970,7 @@ I will update this as new entries are added.
     Harvard University Press,
     1990,
     [9780674845305](https://isbnsearch.org/isbn/9780674845305).
+    *Study of how the National Highway Traffic Safety Administration was systematically weakened by industry lobbying, showing how regulatory capture works in practice.*
 
 <span id="Mazer1998">Mazer1998</span>
 :   Sharon Mazer:
@@ -813,6 +978,7 @@ I will update this as new entries are added.
     University Press of Mississippi,
     1998,
     [9781578060566](https://isbnsearch.org/isbn/9781578060566).
+    *Academic analysis of professional wrestling as a form of popular culture.*
 
 <span id="Mazzucato2013">Mazzucato2013</span>
 :   Mariana Mazzucato:
@@ -820,6 +986,7 @@ I will update this as new entries are added.
     PublicAffairs,
     2015,
     [9781610396134](https://isbnsearch.org/isbn/9781610396134).
+    *Argues that the state, not private enterprise, has been the primary source of transformative technological innovation, and that public investment deserves public reward.*
 
 <span id="McLeay2014">McLeay2014</span>
 :   Michael McLeay, Amar Radia, and Ryland Thomas:
@@ -827,6 +994,7 @@ I will update this as new entries are added.
     *Bank of England Quarterly Bulletin*,
     2014 Q1,
     <https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy>.
+    *The Bank of England's explanation of how commercial banks create money through lending rather than lending out pre-existing deposits.*
 
 <span id="Michaels2008">Michaels2008</span>
 :   David Michaels:
@@ -834,6 +1002,7 @@ I will update this as new entries are added.
     Oxford University Press,
     2008,
     [9780195300673](https://isbnsearch.org/isbn/9780195300673).
+    *Documents the tobacco industry's strategy of manufacturing scientific doubt, showing how it was adopted by other industries to delay regulation of harmful products.*
 
 <span id="Milgram1974">Milgram1974</span>
 :   Stanley Milgram:
@@ -841,6 +1010,7 @@ I will update this as new entries are added.
     Harper & Row,
     1974,
     [9780061312946](https://isbnsearch.org/isbn/9780061312946).
+    *Reports on the famous experiments showing that ordinary people will commit immoral acts when instructed to by authority figures.*
 
 <span id="Morrison1991">Morrison1991</span>
 :   Roy Morrison:
@@ -848,6 +1018,7 @@ I will update this as new entries are added.
     New Society Publishers,
     1991,
     [9780865712546](https://isbnsearch.org/isbn/9780865712546).
+    *Detailed account of the Mondragón cooperative network in the Basque Country.*
 
 <span id="Moyn2010">Moyn2010</span>
 :   Samuel Moyn:
@@ -855,6 +1026,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2010,
     [9780674048720](https://isbnsearch.org/isbn/9780674048720).
+    *Argues that human rights became a global political movement because other utopian visions had failed.*
 
 ## N
 
@@ -863,6 +1035,7 @@ I will update this as new entries are added.
     *Unsafe at Any Speed: The Designed-In Dangers of the American Automobile*.
     Grossman Publishers,
     1965.
+    *A classic exposé of systematic safety defects in American automobiles that launched the consumer safety movement.*
 
 <span id="Nasaw2000">Nasaw2000</span>
 :   David Nasaw:
@@ -870,6 +1043,7 @@ I will update this as new entries are added.
     Houghton Mifflin,
     2000,
     [9780618154463](https://isbnsearch.org/isbn/9780618154463).
+    *Biography of newspaper magnate William Randolph Hearst, examining how his personal ambition and commercial interests shaped American journalism and politics.*
 
 <span id="Nixon2011">Nixon2011</span>
 :   Rob Nixon:
@@ -877,6 +1051,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2011,
     [9780674049307](https://isbnsearch.org/isbn/9780674049307).
+    *Argues that environmental harm inflicted on poor and indigenous communities is largely invisible to the media because it unfolds slowly rather than catastrophically.*
 
 <span id="Nutt2012">Nutt2012</span>
 :   David Nutt:
@@ -884,6 +1059,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2012,
     [9781906860165](https://isbnsearch.org/isbn/9781906860165).
+    *Evidence-based analysis of legal and illegal drugs by a former UK government chief drug adviser, arguing that policy is systematically disconnected from evidence of harm.*
 
 ## O
 
@@ -893,6 +1069,7 @@ I will update this as new entries are added.
     Basic Books,
     2018,
     [9781580056786](https://isbnsearch.org/isbn/9781580056786).
+    *An accessible guide to conversations about race in the US, centered around racism as a system rather than individual prejudice.*
 
 <span id="OmiWinant2015">OmiWinant2015</span>
 :   Michael Omi and Howard Winant:
@@ -901,6 +1078,7 @@ I will update this as new entries are added.
     Routledge,
     2015,
     [9780415520317](https://isbnsearch.org/isbn/9780415520317).
+    *Introduces racial formation theory: the argument that race is an unstable social and political construct continuously remade through institutional and everyday practices.*
 
 <span id="Oneil2016">Oneil2016</span>
 :   Cathy O'Neil:
@@ -908,6 +1086,7 @@ I will update this as new entries are added.
     Crown,
     2016,
     [9780553418811](https://isbnsearch.org/isbn/9780553418811).
+    *Documents how algorithmic models in education, criminal justice, and finance systematically discriminate against the poor while appearing objective.*
 
 <span id="Orenstein2020">Orenstein2020</span>
 :   Peggy Orenstein:
@@ -915,6 +1094,7 @@ I will update this as new entries are added.
     Harper,
     2020,
     [9780062666987](https://isbnsearch.org/isbn/9780062666987).
+    *An investigation of how young men navigate sexuality, pornography, and consent.*
 
 <span id="Oreskes2010">Oreskes2010</span>
 :   Naomi Oreskes and Erik M. Conway:
@@ -922,6 +1102,7 @@ I will update this as new entries are added.
     Bloomsbury,
     2010,
     [9781608193943](https://isbnsearch.org/isbn/9781608193943).
+    *Documents how a small network of scientists participated in a decades-long campaign to sow doubt about tobacco, climate change, acid rain, and other threats.*
 
 <span id="Orleck1995">Orleck1995</span>
 :   Annelise Orleck:
@@ -929,6 +1110,7 @@ I will update this as new entries are added.
     University of North Carolina Press,
     1995,
     [9780807844977](https://isbnsearch.org/isbn/9780807844977).
+    *A history of the immigrant Jewish women workers in early twentieth-century New York who built the labor movement and redefined working-class political culture.*
 
 <span id="Ostrom2015">Ostrom2015</span>
 :   Elinor Ostrom:
@@ -936,6 +1118,7 @@ I will update this as new entries are added.
     Cambridge University Press,
     2015,
     [9781107569782](https://isbnsearch.org/isbn/9781107569782).
+    *Research showing that communities can successfully govern shared resources without privatization or state control, refuting the tragedy-of-the-commons argument.*
 
 ## P
 
@@ -945,6 +1128,7 @@ I will update this as new entries are added.
     MIT Press,
     2011,
     [9780262551274](https://isbnsearch.org/isbn/9780262551274).
+    *An academic analysis of online pornography, examining its effects on viewers.*
 
 <span id="Packard2007">Packard2007</span>
 :   Vance Packard:
@@ -952,6 +1136,7 @@ I will update this as new entries are added.
     Ig Publishing,
     2007,
     [9780978843106](https://isbnsearch.org/isbn/9780978843106)..
+    *1957 exposé of the advertising and public relations industries' use of hidden psychological techniques to manipulate consumer behavior and political opinion.*
 
 <span id="Palazzo2025">Palazzo2025</span>
 :   Guido Palazzo and Ulrich Hoffrage:
@@ -959,6 +1144,7 @@ I will update this as new entries are added.
     PublicAffairs,
     2025,
     [9781541705302](https://isbnsearch.org/isbn/9781541705302).
+    *Analysis of corporate scandals, identifying the organizational and psychological dynamics that normalizes unethical behavior.*
 
 <span id="Parson2003">Parson2003</span>
 :   Edward A. Parson:
@@ -966,6 +1152,7 @@ I will update this as new entries are added.
     Oxford University Press,
     2003,
     [9780195155143](https://isbnsearch.org/isbn/9780195155143).
+    *A detailed history of the scientific, diplomatic, and economic processes that produced the Montreal Protocol and successfully addressed the ozone hole.*
 
 <span id="Pasquale2015">Pasquale2015</span>
 :   Frank Pasquale:
@@ -973,6 +1160,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2015,
     [9780674368279](https://isbnsearch.org/isbn/9780674368279).
+    *Argues that financial and information industries use proprietary algorithms to make consequential decisions while remaining unaccountable to those they affect.*
 
 <span id="Patel2017">Patel2017</span>
 :   Raj Patel and Jason W. Moore:
@@ -980,6 +1168,7 @@ I will update this as new entries are added.
     University of California Press,
     2017,
     [9780520299931](https://isbnsearch.org/isbn/9780520299931).
+    *Argues that capitalism has been built by making nature, money, work, care, food, energy, and lives artificially cheap in order to transfer costs onto the powerless.*
 
 <span id="Paxton2004">Paxton2004</span>
 :   Robert O. Paxton:
@@ -987,6 +1176,7 @@ I will update this as new entries are added.
     Knopf,
     2004,
     [9781400040940](https://isbnsearch.org/isbn/9781400040940).
+    *Identifies core features of fascism through comparative historical analysis of its rise and exercise of power in Mussolini's Italy and Hitler's Germany.*
 
 <span id="Peiss2011">Peiss2011</span>
 :   Kathy Peiss:
@@ -994,6 +1184,7 @@ I will update this as new entries are added.
     University of Pennsylvania Press,
     2011,
     [9780812221404](https://isbnsearch.org/isbn/9780812221404).
+    *A critical history of the American beauty industry.*
 
 <span id="PerezTruglia2020">PerezTruglia2020</span>
 :   Ricardo Perez-Truglia:
@@ -1002,6 +1193,7 @@ I will update this as new entries are added.
     110(4),
     2020,
     [10.1257/aer.20160256](https://doi.org/10.1257/aer.20160256).
+    *Describes a natural experiment using Norway's public tax records showing that people's well-being is more affected by how their income compares to neighbors than its absolute level.*
 
 <span id="Perrow1999">Perrow1999</span>
 :   Charles Perrow:
@@ -1009,6 +1201,7 @@ I will update this as new entries are added.
     Princeton University Press,
     1999,
     [9780691004129](https://isbnsearch.org/isbn/9780691004129).
+    *Argues that catastrophic accidents in complex, tightly coupled systems are not aberrations but normal and inevitable outcomes.*
 
 <span id="Pfeffer1992">Pfeffer1992</span>
 :   Jeffrey Pfeffer:
@@ -1016,6 +1209,7 @@ I will update this as new entries are added.
     Harvard Business Press,
     1992,
     [9780875844404](https://isbnsearch.org/isbn/9780875844404).
+    *Argues that organizational success depends on understanding and exercising power, and that managers who ignore politics systematically lose to those who don't.*
 
 <span id="Phillips2019">Phillips2019</span>
 :   Leigh Phillips and Michal Rozworski:
@@ -1023,6 +1217,7 @@ I will update this as new entries are added.
     Verso,
     2019,
     [9781786635167](https://isbnsearch.org/isbn/9781786635167).
+    *Argues that giant corporations like Walmart already engage in complex central planning, undermining the claim that it is inherently inefficient.*
 
 <span id="Popper2011">Popper2011</span>
 :   Karl Popper:
@@ -1030,6 +1225,7 @@ I will update this as new entries are added.
     Routledge,
     2011,
     [9780415610216](https://isbnsearch.org/isbn/9780415610216).
+    *A classic philosophical critique of totalitarianism.*
 
 ## Q
 
@@ -1038,7 +1234,8 @@ I will update this as new entries are added.
     *What Is a Disaster?: A Dozen Perspectives on the Question*.
     Routledge,
     1998,
-    [9780415171069](https://isbnsearch.org/isbn/9780415171069).
+    [9780415178990](https://isbnsearch.org/isbn/9780415178990).
+    *A collection of essays from disaster researchers examining what makes an event a disaster, showing how the concept is contested across disciplines.*
 
 ## R
 
@@ -1048,6 +1245,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2018,
     [9780691183497](https://isbnsearch.org/isbn/9780691183497).
+    *Argues that philanthropy by the wealthy is anti-democratic, allowing rich individuals to direct public priorities without public accountability.*
 
 <span id="Rivera2015">Rivera2015</span>
 :   Lauren A. Rivera:
@@ -1055,6 +1253,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2015,
     [9780691155623](https://isbnsearch.org/isbn/9780691155623).
+    *An ethnographic study of how elite professional firms hire, finding they select for cultural fit with the upper class rather than actual merit.*
 
 <span id="Roan1989">Roan1989</span>
 :   Sharon L. Roan:
@@ -1062,6 +1261,7 @@ I will update this as new entries are added.
     Wiley,
     1989,
     [9780471522720](https://isbnsearch.org/isbn/9780471522720).
+    *A history of the discovery of the ozone hole and the political and scientific debates that preceded the Montreal Protocol.*
 
 <span id="Robin2018">Robin2018</span>
 :   Corey Robin:
@@ -1069,6 +1269,7 @@ I will update this as new entries are added.
     Oxford University Press,
     2018,
     [9780190692001](https://isbnsearch.org/isbn/9780190692001).
+    *Argues that conservatism is not about tradition or stability but about preserving hierarchies of power against challenges from below.*
 
 <span id="Roediger1989">Roediger1989</span>
 :   David R. Roediger and Philip S. Foner:
@@ -1076,8 +1277,7 @@ I will update this as new entries are added.
     Greenwood Press,
     1989,
     [9780313261206](https://isbnsearch.org/isbn/9780313261206).
-
-## S
+    *A history of the American labor movement's century-long campaign for the eight-hour working day, showing how it redefined citizenship and the meaning of labor.*
 
 <span id="Runciman2014">Runciman2014</span>
 :   David Runciman:
@@ -1085,6 +1285,17 @@ I will update this as new entries are added.
     Profile Books,
     2014,
     [9781846685989](https://isbnsearch.org/isbn/9781846685989).
+    *A short, accessible introduction to what politics is, why it matters, and why its messiness is preferable to the alternatives.*
+
+<span id="Russell2014">Russell2014</span>
+:   Andrew L. Russell:
+    *Open Standards and the Digital Age: History, Ideology and Networks*.
+    Cambridge University Press,
+    2014,
+    [9781107612044](https://isbnsearch.org/isbn/9781107612044).
+    *Explores how technical standards in telecommunications came to be, and the tension between open and proprietary approaches.*
+
+## S
 
 <span id="Sandel2020">Sandel2020</span>
 :   Michael J. Sandel:
@@ -1092,6 +1303,7 @@ I will update this as new entries are added.
     Farrar, Straus and Giroux,
     2020,
     [9780374289980](https://isbnsearch.org/isbn/9780374289980).
+    *Argues that the ideology of meritocracy is both false and corrosive, breeding hubris among winners and humiliation among losers while obscuring structural inequality.*
 
 <span id="Schlosser2001">Schlosser2001</span>
 :   Eric Schlosser:
@@ -1099,6 +1311,7 @@ I will update this as new entries are added.
     Houghton Mifflin,
     2001,
     [9780395977897](https://isbnsearch.org/isbn/9780395977897).
+    *A critical investigation of the American fast food industry.*
 
 <span id="Schneier2023">Schneier2023</span>
 :   Bruce Schneier:
@@ -1106,6 +1319,7 @@ I will update this as new entries are added.
     WW Norton,
     2023,
     [9780393866667](https://isbnsearch.org/isbn/9780393866667).
+    *Argues that the rich and powerful hack laws, regulations, and markets in ways that are similar to computer hacking.*
 
 <span id="Scott1998">Scott1998</span>
 :   James C. Scott:
@@ -1113,6 +1327,7 @@ I will update this as new entries are added.
     Yale University Press,
     1998,
     [9780300078152](https://isbnsearch.org/isbn/9780300078152).
+    *Argues that large-scale state projects to improve society fail when they ignore local knowledge.*
 
 <span id="Segrave1994">Segrave1994</span>
 :   Kerry Segrave:
@@ -1120,6 +1335,15 @@ I will update this as new entries are added.
     McFarland,
     2013,
     [9780786476145](https://isbnsearch.org/isbn/9780786476145).
+    *A history of payola in the music industry from the nineteenth century to the 1990s.*
+
+<span id="Shapiro1999">Shapiro1999</span>
+:   Carl Shapiro and Hal R. Varian:
+    *Information Rules: A Strategic Guide to the Network Economy*.
+    Harvard Business School Press,
+    1999,
+    [9780875848631](https://isbnsearch.org/isbn/9780875848631).
+    *A guide to the economics of information goods, describing lock-in, switching costs, and network effects as the key dynamics of the information economy.*
 
 <span id="Shaxson2011">Shaxson2011</span>
 :   Nicholas Shaxson:
@@ -1127,6 +1351,7 @@ I will update this as new entries are added.
     St. Martin's,
     2012,
     [9780230341722](https://isbnsearch.org/isbn/9780230341722).
+    *An investigation of offshore tax havens, showing how they enable corporations and wealthy individuals to pay less than most citizens.*
 
 <span id="Shiller2015">Shiller2015</span>
 :   Robert J. Shiller:
@@ -1135,6 +1360,7 @@ I will update this as new entries are added.
     Princeton University Press,
     2015,
     [9780691166261](https://isbnsearch.org/isbn/9780691166261).
+    *Argues that stock and real estate markets are driven by narrative and social dynamics, creating cycles of irrational valuation.*
 
 <span id="Shortland2019">Shortland2019</span>
 :   Anja Shortland:
@@ -1142,6 +1368,7 @@ I will update this as new entries are added.
     Oxford University Press,
     2019,
     [9780198815471](https://isbnsearch.org/isbn/9780198815471).
+    *Economic analysis of the kidnap-for-ransom industry, showing that it operates according to surprisingly stable rules and that ransom insurance creates perverse incentives.*
 
 <span id="Silver2003">Silver2003</span>
 :   Beverly J. Silver:
@@ -1149,12 +1376,14 @@ I will update this as new entries are added.
     Cambridge University Press,
     2003,
     [9780521520775](https://isbnsearch.org/isbn/9780521520775).
+    *Examines how labor movements have arisen in response to capital mobility and technological change.*
 
 <span id="Singer1981">Singer1981</span>
 :   Peter Singer:
     *The Expanding Circle: Ethics and Sociobiology*.
     Farrar, Straus and Giroux,
     1981.
+    *Argues that the circle of moral concern has expanded historically and should eventually encompass all sentient beings.*
 
 <span id="Singer2023">Singer2023</span>
 :   Jessie Singer:
@@ -1162,6 +1391,7 @@ I will update this as new entries are added.
     Simon & Schuster,
     2023,
     [9781982129668](https://isbnsearch.org/isbn/9781982129668).
+    *Argues that accidents are not random misfortune but the predictable results of choices by powerful institutions, and that the "accident" framing obscures accountability.*
 
 <span id="Skarbek2014">Skarbek2014</span>
 :   David Skarbek:
@@ -1169,13 +1399,15 @@ I will update this as new entries are added.
     Oxford University Press,
     2014,
     [9780199328499](https://isbnsearch.org/isbn/9780199328499).
+    *Argues that American prison gangs emerged as governance institutions filling the vacuum left by inadequate official oversight of the incarcerated.*
 
 <span id="Solnit2009">Solnit2009</span>
 :   Rebecca Solnit:
     *A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster*.
     Viking,
     2009,
-    [9780670021307](https://isbnsearch.org/isbn/9780670021307).
+    [9780670021079](https://isbnsearch.org/isbn/9780670021079).
+    *Presents case studies of disasters from San Francisco 1906 to Katrina to show that communities respond to catastrophe with mutual aid and solidarity rather than panic.*
 
 <span id="Southern1990">Southern1990</span>
 :   R.W. Southern:
@@ -1184,6 +1416,7 @@ I will update this as new entries are added.
     Penguin,
     1990,
     [9780140137552](https://isbnsearch.org/isbn/9780140137552).
+    *Classic history of the medieval Western church.*
 
 <span id="Spufford2012">Spufford2012</span>
 :   Francis Spufford:
@@ -1191,6 +1424,7 @@ I will update this as new entries are added.
     Graywolf Press,
     2012,
     [9781555976040](https://isbnsearch.org/isbn/9781555976040).
+    *A partly fictional account of the Soviet Union's attempt to build a planned economy in the 1950s and why it ultimately failed.*
 
 <span id="Srnicek2016">Srnicek2016</span>
 :   Nick Srnicek:
@@ -1198,13 +1432,7 @@ I will update this as new entries are added.
     Polity Press,
     2016,
     [9781509504862](https://isbnsearch.org/isbn/9781509504862).
-
-<span id="Steele2010">Steele2010</span>
-:   Claude M. Steele:
-    *Whistling Vivaldi: How Stereotypes Affect Us and What We Can Do*.
-    W.W. Norton,
-    2010,
-    [9780393339727](https://isbnsearch.org/isbn/9780393339727).
+    *Analyzes digital platforms as a new capitalist form, in which data extraction and network effects replace traditional models of production and profit.*
 
 <span id="SteinLubrano2024">SteinLubrano2024</span>
 :   Alexis Stein Lubrano:
@@ -1212,6 +1440,7 @@ I will update this as new entries are added.
     Bloomsbury Continuum,
     2025,
     [9781399413923](https://isbnsearch.org/isbn/9781399413923).
+    *Argues that evidence-based persuasion techniques are more effective than fact-dumping at changing minds.*
 
 <span id="Stigler1971">Stigler1971</span>
 :   George J. Stigler:
@@ -1220,6 +1449,7 @@ I will update this as new entries are added.
     2(1),
     1971,
     [10.2307/3003160](https://doi.org/10.2307/3003160).
+    *Influential economic theory arguing that regulatory agencies are systematically captured by the industries they regulate because those industries have concentrated incentives to do so.*
 
 <span id="Stoller2019">Stoller2019</span>
 :   Matt Stoller:
@@ -1227,6 +1457,7 @@ I will update this as new entries are added.
     Simon & Schuster,
     2019,
     [9781501183089](https://isbnsearch.org/isbn/9781501183089).
+    *A history of the American antitrust movement, arguing that its recent abandonment has allowed monopoly power to distort politics and the economy.*
 
 <span id="Studwell2013">Studwell2013</span>
 :   Joe Studwell:
@@ -1234,6 +1465,7 @@ I will update this as new entries are added.
     Grove Press,
     2013,
     [9780802121431](https://isbnsearch.org/isbn/9780802121431).
+    *A comparative analysis of East Asian economies showing that land reform and industrial policy, not free markets, drove their economic growth.*
 
 ## T
 
@@ -1243,6 +1475,7 @@ I will update this as new entries are added.
     Oxford University Press,
     2016,
     [9780190205140](https://isbnsearch.org/isbn/9780190205140).
+    *Accessible overview of the pornography industry's economics, legal history, labor conditions, and public health debates.*
 
 <span id="Thaler2009">Thaler2009</span>
 :   Richard H. Thaler and Cass R. Sunstein:
@@ -1250,6 +1483,7 @@ I will update this as new entries are added.
     Penguin,
     2009,
     [9780143115267](https://isbnsearch.org/isbn/9780143115267).
+    *Argues that choice environments can be designed to nudge people toward better decisions.*
 
 <span id="Thelen1992">Thelen1992</span>
 :   Kathleen Thelen:
@@ -1257,6 +1491,7 @@ I will update this as new entries are added.
     Cornell University Press,
     1991,
     [9780801425868](https://isbnsearch.org/isbn/9780801425868).
+    *Comparative study of labor politics in West Germany showing how postwar industrial relations were constructed through political choices rather than economic necessity.*
 
 <span id="Thiel2014">Thiel2014</span>
 :   Peter Thiel and Blake Masters:
@@ -1264,6 +1499,7 @@ I will update this as new entries are added.
     Crown Business,
     2014,
     [9780804139298](https://isbnsearch.org/isbn/9780804139298).
+    *A Silicon Valley technofascist's argument that startups should try to create monopolies, and that competition is for losers.*
 
 <span id="Thompson1963">Thompson1963</span>
 :   E.P. Thompson:
@@ -1271,6 +1507,7 @@ I will update this as new entries are added.
     Knopf,
     1966,
     [9780394703220](https://isbnsearch.org/isbn/9780394703220).
+    *Classic history arguing that the English working class was not a product of industrial conditions but actively made itself through culture and politics.*
 
 <span id="Tierney2006">Tierney2006</span>
 :   Kathleen Tierney, Christine Bevc, and Erica Kuligowski:
@@ -1279,14 +1516,24 @@ I will update this as new entries are added.
     604,
     2006,
     [10.1177/0002716205285589](https://doi.org/10.1177/0002716205285589).
+    *Shows how media coverage of Hurricane Katrina deployed myths of looting and social breakdown that contradicted evidence and guided disastrously wrong government responses.*
 
-<span id="TorresGebru2023">TorresGebru2023</span>
+<span id="Torpey2000">Torpey2000</span>
+:   John Torpey:
+    *The Invention of the Passport: Surveillance, Citizenship and the State*.
+    Cambridge University Press,
+    2000,
+    [9780521634939](https://isbnsearch.org/isbn/9780521634939).
+    *A history of how the passport was invented by states as a tool for controlling population movement.*
+
+<span id="TorresGebru2024">TorresGebru2024</span>
 :   Émile P. Torres and Timnit Gebru:
     "TESCREAL bundle: Eugenics and the promise of utopia through artificial general intelligence."
     *First Monday*,
     29(4),
     2024,
     [10.5210/fm.v29i4.13636](https://doi.org/10.5210/fm.v29i4.13636 ).
+    *Argues that the ideological cluster underlying effective altruism and longtermism draws on transhumanist and eugenic traditions with harmful implications for present-day AI policy.*
 
 ## U
 
@@ -1298,12 +1545,14 @@ I will update this as new entries are added.
     University of Chicago Press,
     1996,
     [9780226851754](https://isbnsearch.org/isbn/9780226851754).
+    *A study of the Challenger disaster that shows it resulted not from aberrant behavior but from the gradual institutionalization of acceptable risk.*
 
 <span id="Veblen1899">Veblen1899</span>
 :   Thorstein Veblen:
     *The Theory of the Leisure Class*.
     Macmillan,
     1899.
+    *Classic sociological argument that conspicuous consumption drives much of economic behavior in wealthy societies.*
 
 ## W
 
@@ -1313,6 +1562,7 @@ I will update this as new entries are added.
     PublicAffairs,
     2017,
     [9781610397704](https://isbnsearch.org/isbn/9781610397704).
+    *Applies business analysis to drug cartels, showing that their strategies, challenges, and vulnerabilities mirror those of legitimate corporations operating under extreme conditions.*
 
 <span id="Walder2017">Walder2017</span>
 :   Andrew G. Walder:
@@ -1320,6 +1570,7 @@ I will update this as new entries are added.
     Harvard University Press,
     2017,
     [9780674975491](https://isbnsearch.org/isbn/9780674975491).
+    *A historical analysis of revolutionary violence in Mao's China.*
 
 <span id="Waldron2012">Waldron2012</span>
 :   Jeremy Waldron:
@@ -1327,6 +1578,15 @@ I will update this as new entries are added.
     Harvard University Press,
     2014,
     [9780674416864](https://isbnsearch.org/isbn/9780674416864).
+    *Argues that hate speech causes a distinctive harm—the denial of civic dignity—that justifies legal restriction.*
+
+<span id="Waring1988">Waring1988</span>
+:   Marilyn Waring:
+    *If Women Counted: A New Feminist Economics*.
+    Harper & Row,
+    1988,
+    [9780062509338](https://isbnsearch.org/isbn/9780062509338).
+    *Exposes how the UN System of National Accounts deliberately excludes unpaid domestic and care labor from GDP, with concrete economic consequences for women's pensions, credit access, and political standing.*
 
 <span id="Whyte1991">Whyte1991</span>
 :   William Foote Whyte and Kathleen King Whyte:
@@ -1334,6 +1594,7 @@ I will update this as new entries are added.
     Cornell University Press,
     1991,
     [9780875461823](https://isbnsearch.org/isbn/9780875461823).
+    *A detailed study of the Mondragón cooperatives.*
 
 <span id="Wilhoit2018">Wilhoit2018</span>
 :   Frank Wilhoit:
@@ -1341,6 +1602,7 @@ I will update this as new entries are added.
     *Crooked Timber*,
     March 21, 2018.
     <https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288>.
+    *A comment that went viral, defining conservatism as a system in which the law protects in-groups from out-groups while binding only the out-groups.*
 
 <span id="Wilkerson2020">Wilkerson2020</span>
 :   Isabel Wilkerson:
@@ -1348,6 +1610,7 @@ I will update this as new entries are added.
     Random House,
     2020,
     [9780593230251](https://isbnsearch.org/isbn/9780593230251).
+    *Argues that American racial hierarchy is best understood not as racism but as a caste system.*
 
 <span id="Wilkinson2011">Wilkinson2011</span>
 :   Richard Wilkinson and Kate Pickett:
@@ -1355,6 +1618,7 @@ I will update this as new entries are added.
     Bloomsbury Press,
     2011,
     [9781608193417](https://isbnsearch.org/isbn/9781608193417).
+    *Cross-national empirical study showing that greater economic inequality correlates with worse outcomes on virtually every social indicator, from health to violence.*
 
 <span id="Winkler2011">Winkler2011</span>
 :   Adam Winkler:
@@ -1362,6 +1626,7 @@ I will update this as new entries are added.
     W.W. Norton,
     2013,
     [9780393345834](https://isbnsearch.org/isbn/9780393345834).
+    *A legal history of the US Second Amendment showing that gun rights have always been contested and that the current individual right interpretation is historically novel.*
 
 <span id="Wright2013">Wright2013</span>
 :   Lawrence Wright:
@@ -1369,6 +1634,7 @@ I will update this as new entries are added.
     Knopf,
     2013,
     [9780307700667](https://isbnsearch.org/isbn/9780307700667).
+    *Investigative account of Scientology's origins, doctrines, and internal culture.*
 
 <span id="Wu2010">Wu2010</span>
 :   Tim Wu:
@@ -1376,6 +1642,7 @@ I will update this as new entries are added.
     Knopf,
     2011,
     [9780307390998](https://isbnsearch.org/isbn/9780307390998).
+    *History of successive information industries that shows a recurring cycle from open innovation to monopoly to disruption.*
 
 <span id="Wu2016">Wu2016</span>
 :   Tim Wu:
@@ -1383,6 +1650,7 @@ I will update this as new entries are added.
     Random House,
     2016,
     [9780385352017](https://isbnsearch.org/isbn/9780385352017).
+    *A history of the advertising industry's colonization of human attention.*
 
 ## X
 
@@ -1393,6 +1661,7 @@ I will update this as new entries are added.
     *The Rise of the Meritocracy*.
     Thames and Hudson,
     1958.
+    *A satirical novel that coined the term "meritocracy".*
 
 <span id="Young2024">Young2024</span>
 :   Kevin A. Young:
@@ -1400,6 +1669,7 @@ I will update this as new entries are added.
     PM Press,
     2024,
     [9798887440330](https://isbnsearch.org/isbn/9798887440330).
+    *A comparative history of successful campaigns to abolish or curtail harmful industries that argues real change only comes when economic pressure is applied on business.*
 
 ## Z
 
@@ -1409,3 +1679,4 @@ I will update this as new entries are added.
     University of Chicago Press,
     2015,
     [9780226422640](https://isbnsearch.org/isbn/9780226422640).
+    *Economic analysis of offshore tax evasion.*
