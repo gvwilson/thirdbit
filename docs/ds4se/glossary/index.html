@@ -24,6 +24,7 @@
 <li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
 <li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
 <li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../dashboard/">Interactive Dashboards</a></li>
 <li><a href="../describe/">Descriptive Statistics</a></li>
 <li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
 <li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
@@ -55,6 +56,7 @@
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a class="active" href="../glossary/">Glossary</a></li>
 <li><a href="../datasets/">Datasets</a></li>
+<li><a href="../morellms/">More About LLMs</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/ds4se">Repository</a>
@@ -64,6 +66,11 @@
 <h1>Glossary</h1>
 <h2>A</h2>
 <dl>
+<dt><span id="agent">agent</span></dt>
+<dd>An LLM-based program that runs a loop of observe, plan, and act steps,
+using tool calls (file access, code execution, database queries) to complete
+a task that requires more than one step. Unlike a single prompt-response
+exchange, an agent can take irreversible actions and accumulate errors across steps.</dd>
 <dt><span id="aggregation">aggregation</span></dt>
 <dd>Computing a summary value (such as a count, sum, mean, or maximum)
 for a group of rows in a dataframe.</dd>
@@ -127,6 +134,11 @@ whether the relationship between cause and effect is real.</dd>
 <dd>A core technique in grounded theory in which each new piece of
 data is compared against everything coded so far, ensuring that
 the emerging theory is continuously refined.</dd>
+<dt><span id="context_window">context window</span></dt>
+<dd>The maximum number of tokens an LLM can process in a single call, including
+both the prompt and the response. Content outside the context window is not
+visible to the model. Longer contexts cost more and can cause the model to
+pay less attention to information in the middle of the window.</dd>
 </dl>
 <h2>D</h2>
 <dl>
@@ -142,6 +154,11 @@ categories emerge from the data.</dd>
 relationship, independent of sample size. Common effect size
 measures include Cohen's d, Cliff's delta, and the common-language
 effect size.</dd>
+<dt><span id="exponential_backoff">exponential back-off</span></dt>
+<dd>A retry strategy in which successive wait times grow exponentially (1 second,
+then 2, then 4, etc.) after a failed request. Used when calling APIs that
+impose rate limits, to avoid overwhelming the endpoint while still retrying
+automatically.</dd>
 <dt><span id="external_validity">external validity</span></dt>
 <dd>The degree to which the findings of a study generalize beyond the
 specific sample, setting, and time period studied.</dd>
@@ -166,6 +183,8 @@ not well understood.</dd>
 </dl>
 <h2>H</h2>
 <dl>
+<dt><span id="hallucination">hallucination</span></dt>
+<dd>Output from an LLM</dd>
 <dt><span id="hero_developer">hero developer</span></dt>
 <dd>A contributor who is responsible for a disproportionately large
 share of work in a software project, often defined as the person
@@ -174,6 +193,14 @@ responsible for more than 80% of all commits.</dd>
 <dd>A bar chart that shows the distribution of a numerical variable by
 grouping values into bins and counting the number of observations
 in each bin.</dd>
+<dt><span id="htmx">HTMX</span></dt>
+<dd>A JavaScript library included automatically by FastHTML that lets HTML elements
+make HTTP requests and update parts of a page without reloading it. Behavior is
+controlled through HTML attributes such as <code>hx-get</code>, <code>hx-target</code>, and <code>hx-trigger</code>
+rather than by writing JavaScript. that is fluent and confident-sounding but factually
+wrong. Hallucination is structurally inevitable because the model predicts
+the most probable next token rather than retrieving verified facts. Also
+called confabulation.</dd>
 </dl>
 <h2>I</h2>
 <dl>
@@ -213,6 +240,11 @@ normality.</dd>
 <dd>A statistical model that describes the relationship between a
 dependent variable and one or more independent variables as a
 straight line, minimizing the sum of squared residuals.</dd>
+<dt><span id="llm_skill">LLM skill</span></dt>
+<dd>A Markdown file containing a system prompt that specializes an LLM's
+behavior for a specific task, such as always checking documentation before
+generating code or always flagging causal language in interpretations. Skills
+are stored in a configuration directory and applied at the start of a session.</dd>
 <dt><span id="log_scale">log scale</span></dt>
 <dd>An axis scale in which each equal interval represents a
 multiplication by a constant factor rather than an addition of a
@@ -241,6 +273,11 @@ values. More robust to outliers than the mean.</dd>
 collection and analysis in a single study. The quantitative part
 answers "how much" and "how often"; the qualitative part answers
 "why" and "in what context."</dd>
+<dt><span id="mcp">Model Context Protocol</span></dt>
+<dd>An open standard for connecting LLM applications to external tools and data
+sources. An MCP server exposes named tools with defined input schemas; the
+LLM selects and calls tools, and the client executes them and returns results.
+Common servers provide access to SQLite databases, file systems, and web search.</dd>
 </dl>
 <h2>N</h2>
 <dl>
@@ -312,6 +349,14 @@ theory rather than by statistical tests.</dd>
 </dl>
 <h2>R</h2>
 <dl>
+<dt><span id="rate_limit">rate limit</span></dt>
+<dd>A constraint imposed by an API provider on how many requests or tokens a
+client can submit per unit of time. Exceeding a rate limit typically returns
+an HTTP 429 error. Clients should use exponential back-off when retrying.</dd>
+<dt><span id="rlhf">reinforcement learning from human feedback</span></dt>
+<dd>A training method in which human raters rank model outputs, and the model
+is updated to produce higher-ranked responses. RLHF tends to reward
+agreeable, confident-sounding answers, which can produce sycophantic behavior.</dd>
 <dt><span id="replication">replication</span></dt>
 <dd>Repeating a study with the same or different materials to check
 whether the original findings hold. Exact replication uses the
@@ -321,6 +366,10 @@ hypothesis with different data or methods.</dd>
 <dd>The difference between an observed value and the value predicted
 by a model. Examining residuals reveals whether the model's
 assumptions are met.</dd>
+<dt><span id="route">route</span></dt>
+<dd>In a web framework, a mapping between a URL path and the function
+that handles requests to that path. In FastHTML, routes are defined
+with the <code>@rt("/path")</code> decorator.</dd>
 </dl>
 <h2>S</h2>
 <dl>
@@ -332,6 +381,11 @@ the y-axis, with one point per observation.</dd>
 <dd>A distortion of results that occurs when the sample studied is not
 representative of the population of interest because of how it was
 selected.</dd>
+<dt><span id="server_side_rendering">server-side rendering</span></dt>
+<dd>Generating the HTML for a web page on the server in response to
+each request, as opposed to building it in the browser with
+JavaScript. FastHTML uses server-side rendering: Python functions
+return HTML elements that the server serializes and sends to the browser.</dd>
 <dt><span id="skewness">skewness</span></dt>
 <dd>A measure of the asymmetry of a distribution. A positive (right)
 skew means the distribution has a long tail to the right; a
@@ -354,10 +408,15 @@ chance of missing a real effect.</dd>
 <dt><span id="t_test">Student's t-test</span></dt>
 <dd>A parametric test for comparing the means of two groups, assuming
 the data in each group is approximately normally distributed.</dd>
-<dt><span id="survivorship_bias">survivorship bias</span></dt>
+<dt><span id="survivor_bias">survivor bias</span></dt>
 <dd>A form of selection bias in which only entities that "survived" a
 process are studied, ignoring those that did not survive, leading
 to overly optimistic conclusions.</dd>
+<dt><span id="sycophancy">sycophancy</span></dt>
+<dd>The tendency of LLMs to agree with or confirm whatever a user asserts,
+rather than correcting errors. A side effect of RLHF training, in which
+human raters reward agreeable responses. Asking "Is there anything wrong
+with this?" elicits more critical responses than asking "Is this right?"</dd>
 </dl>
 <h2>T</h2>
 <dl>
@@ -373,6 +432,11 @@ that the emerging theory is sufficiently developed.</dd>
 <dd>A standard way of organizing data in which each column represents
 one variable, each row represents one observation, and each table
 contains one set of observations (Wickham 2014).</dd>
+<dt><span id="training_cutoff">training cutoff</span></dt>
+<dd>The date after which new events, publications, and API changes are not
+reflected in an LLM's weights. The model may still generate confident text
+about post-cutoff events by extrapolating from prior patterns, and frequently
+generates code using library APIs that were deprecated after the cutoff.</dd>
 <dt><span id="triangulation">triangulation</span></dt>
 <dd>In mixed methods research, using multiple data sources or methods
 to cross-check findings. When quantitative and qualitative results

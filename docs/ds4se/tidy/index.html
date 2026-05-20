@@ -24,6 +24,7 @@
 <li><a class="active" href="../tidy/">Tidy Data and Polars Basics</a></li>
 <li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
 <li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../dashboard/">Interactive Dashboards</a></li>
 <li><a href="../describe/">Descriptive Statistics</a></li>
 <li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
 <li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
@@ -55,6 +56,7 @@
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 <li><a href="../datasets/">Datasets</a></li>
+<li><a href="../morellms/">More About LLMs</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/ds4se">Repository</a>
@@ -107,6 +109,14 @@
 <li><code>df.drop_nulls("column_name")</code> removes every row where that column is null</li>
 <li><code>df.fill_null(value)</code> replaces every null with the given value; use this only when
     you have a defensible reason for the replacement</li>
+</ul>
+</li>
+<li>LLMs commonly suggest Pandas-style code when asked to help with Polars, because Pandas
+    dominated their training data<ul>
+<li>Index assignment (<code>df["col"] = value</code>) raises a <code>TypeError</code> in Polars; use <code>with_columns</code> instead</li>
+<li><code>.groupby()</code> does not exist in Polars; the correct method is <code>.group_by()</code></li>
+<li>If LLM-generated code fails on first run with an <code>AttributeError</code> or <code>TypeError</code>, check
+    whether it mixed up the two libraries before assuming your data is wrong</li>
 </ul>
 </li>
 <li>

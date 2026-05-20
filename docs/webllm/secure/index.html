@@ -55,7 +55,7 @@
 <li>Understand what HTTPS and TLS certificates are and why browsers require them.</li>
 <li>Install mkcert to create locally-trusted development certificates.</li>
 <li>Generate a certificate for localhost.</li>
-<li>Start the Litestar server in HTTPS mode.</li>
+<li>Start the server in HTTPS mode using uvicorn.</li>
 </ul>
 <h2>What the Browser Checks</h2>
 <p><em>What is the difference between HTTP and HTTPS?</em></p>
@@ -148,11 +148,11 @@
 </ul>
 </li>
 </ul>
-<p><em>How do I start a Litestar server with HTTPS enabled?</em></p>
+<p><em>How do I start the server with HTTPS enabled?</em></p>
 <ul>
-<li>Pass the certificate and key files to <code>litestar run</code>:</li>
+<li>Pass the certificate and key files to <code>uvicorn</code>:</li>
 </ul>
-<div data-inc="run_secure.sh"><span aria-label="Source: secure/run_secure.sh" class="inc-path" role="img" tabindex="0" title="secure/run_secure.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--ssl-certfile<span class="w"> </span>localhost.pem<span class="w"> </span>--ssl-keyfile<span class="w"> </span>localhost-key.pem<span class="w"> </span>--app<span class="w"> </span>server:app
+<div data-inc="run_secure.sh"><span aria-label="Source: secure/run_secure.sh" class="inc-path" role="img" tabindex="0" title="secure/run_secure.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>uvicorn<span class="w"> </span>server:app<span class="w"> </span>--ssl-certfile<span class="w"> </span>localhost.pem<span class="w"> </span>--ssl-keyfile<span class="w"> </span>localhost-key.pem
 </code></pre></div>
 </div>
 <ul>
@@ -193,14 +193,14 @@ A server that leaks data through poorly written queries or missing access contro
 even when the padlock is showing.</p>
 </details>
 <details>
-<summary>The <code>litestar run</code> command below is supposed to start a secure server, but the browser shows a connection error. What is wrong?</summary>
+<summary>The <code>uvicorn</code> command below is supposed to start a secure server, but the browser shows a connection error. What is wrong?</summary>
 <p>The two file arguments are swapped.
 <code>--ssl-certfile</code> should point to <code>localhost.pem</code> (the certificate)
 and <code>--ssl-keyfile</code> should point to <code>localhost-key.pem</code> (the private key).
 Passing the key where the certificate is expected causes the TLS handshake to fail
 before the browser can connect.</p>
 </details>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar run --ssl-certfile localhost-key.pem --ssl-keyfile localhost.pem --app server:app
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>uvicorn server:app --ssl-certfile localhost-key.pem --ssl-keyfile localhost.pem
 </code></pre></div>
 <h2>Exercises</h2>
 <h3>Generate a Certificate for Both localhost and 127.0.0.1</h3>

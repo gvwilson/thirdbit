@@ -60,7 +60,7 @@
 </ul>
 <h2>Why Test in a Browser?</h2>
 <blockquote>
-<p>What kinds of bugs can a browser catch that Litestar's test client cannot?</p>
+<p>What kinds of bugs can a browser catch that the test client cannot?</p>
 </blockquote>
 <ul>
 <li>The test client from the previous lessons sends HTTP requests directly to the application in memory:
@@ -102,7 +102,7 @@
 </ul>
 <h2>Starting a Server for Tests</h2>
 <blockquote>
-<p>What is the difference between tests that use Litestar's test client and tests that use Playwright?</p>
+<p>What is the difference between tests that use a test client and tests that use Playwright?</p>
 </blockquote>
 <ul>
 <li>The test client talks directly to the application object in Python memory<ul>
@@ -137,7 +137,7 @@
 <code>server_pw.py</code> and shuts it down after all tests finish.</p>
 </blockquote>
 <ul>
-<li><code>subprocess.Popen(["uv", "run", "litestar", "run", "--app", "server_pw:app"], cwd=LESSON_DIR)</code>
+<li><code>subprocess.Popen(["uv", "run", "uvicorn", "server_pw:app", "--port", "8000"], cwd=LESSON_DIR)</code>
     starts the server as a separate process, just as if you had typed the command in a terminal<ul>
 <li><code>cwd=LESSON_DIR</code> runs the command in the directory where <code>server_pw.py</code> lives</li>
 </ul>
@@ -162,7 +162,7 @@
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"session"</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">server_url</span><span class="p">():</span>
     <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-        <span class="p">[</span><span class="s2">"uv"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="s2">"litestar"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="s2">"--app"</span><span class="p">,</span> <span class="s2">"server_pw:app"</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">"uv"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="s2">"uvicorn"</span><span class="p">,</span> <span class="s2">"server_pw:app"</span><span class="p">,</span> <span class="s2">"--port"</span><span class="p">,</span> <span class="s2">"8000"</span><span class="p">],</span>
         <span class="n">cwd</span><span class="o">=</span><span class="n">LESSON_DIR</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
@@ -180,18 +180,7 @@
     index, detail, delete, add form, and CSV upload</li>
 <li>No changes to the server are needed for Playwright testing</li>
 </ul>
-<div data-inc="server_pw.py" data-mark="make-app"><span aria-label="Source: testclient/server_pw.py" class="inc-path" role="img" tabindex="0" title="testclient/server_pw.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">return</span> <span class="n">Litestar</span><span class="p">(</span>
-        <span class="p">[</span>
-            <span class="n">index</span><span class="p">,</span>
-            <span class="n">detail</span><span class="p">,</span>
-            <span class="n">delete_sighting</span><span class="p">,</span>
-            <span class="n">add_form</span><span class="p">,</span>
-            <span class="n">add_sighting</span><span class="p">,</span>
-            <span class="n">upload_form</span><span class="p">,</span>
-            <span class="n">upload_csv</span><span class="p">,</span>
-            <span class="n">styles</span><span class="p">,</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
+<div data-inc="server_pw.py" data-mark="make-app"><span aria-label="Source: testclient/server_pw.py" class="inc-path" role="img" tabindex="0" title="testclient/server_pw.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">return</span> <span class="n">app</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
@@ -293,8 +282,8 @@ submits the form, and confirms the browser ends up back on the home page.</p>
 <p>See [<a class="bib-ref" href="../bibliography/#playwright2025">playwright2025</a>] for the full Playwright for Python documentation.</p>
 <h2>Check Understanding</h2>
 <details>
-<summary>A classmate writes <code>client.post("/add", data={...})</code> with Litestar's TestClient to test the add form. What does this test confirm, and what does it miss?</summary>
-<p>The TestClient test confirms that the server receives the POST request,
+<summary>A classmate writes <code>client.post("/add", data={...})</code> with a test client to test the add form. What does this test confirm, and what does it miss?</summary>
+<p>The test client test confirms that the server receives the POST request,
 inserts the row into the database,
 and returns a 303 redirect.
 It does not confirm that the <code>required</code> attribute on the form actually stops an empty field from being submitted, because that check happens in the browser before the request is ever sent.

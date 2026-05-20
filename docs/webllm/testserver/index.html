@@ -53,7 +53,7 @@
 <h2>Goals</h2>
 <ul>
 <li>Understand why running automated tests is faster and more reliable than manually checking routes in a browser.</li>
-<li>Use Litestar's test client to send HTTP requests to the application without starting a real server.</li>
+<li>Use a test client to send HTTP requests to the application without starting a real server.</li>
 <li>Write tests against the application's existing data to check status codes and page content.</li>
 <li>Refactor the server to accept a dataset as a parameter so tests can use small, controlled data.</li>
 </ul>
@@ -75,20 +75,20 @@
 <li>The more routes the application has, the more steps there are to forget</li>
 </ul>
 <blockquote>
-<p>What do I need to install to test a Litestar application with pytest?</p>
+<p>What do I need to install to test a FastHTML application with pytest?</p>
 </blockquote>
 <ul>
 <li><code>uv add pytest</code> adds the <a href="https://docs.pytest.org/">pytest</a> testing framework</li>
-<li>Litestar's test client uses the <a href="https://www.python-httpx.org/">httpx</a> library internally, so <code>uv add httpx</code> is needed too</li>
+<li><code>uv add httpx</code> adds the <a href="https://www.python-httpx.org/">httpx</a> library that the test client uses internally</li>
 <li>Both packages are now available whenever you run pytest</li>
 </ul>
 <h2>A First Test</h2>
 <blockquote>
-<p>Write a pytest test file called <code>test_server_status.py</code> that uses Litestar's TestClient to check that
+<p>Write a pytest test file called <code>test_server_status.py</code> that uses Starlette's TestClient to check that
 <code>GET /</code> returns a 200 status code and that the page contains the text "Sasquatch Sightings".</p>
 </blockquote>
 <ul>
-<li><code>TestClient</code> from <code>litestar.testing</code> is a <a class="gl-ref" href="../glossary/#test-client">test client</a>:
+<li><code>TestClient</code> from <code>starlette.testclient</code> is a <a class="gl-ref" href="../glossary/#test-client">test client</a>:
     it wraps the application and lets you call routes directly in memory, with no real server or browser</li>
 <li><code>with TestClient(app=make_app()) as client:</code> sets up the client and tears it down cleanly
     at the end of the <code>with</code> block</li>
@@ -102,7 +102,7 @@
 <div data-inc="run_tests.sh"><span aria-label="Source: testserver/run_tests.sh" class="inc-path" role="img" tabindex="0" title="testserver/run_tests.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>pytest<span class="w"> </span>-v
 </code></pre></div>
 </div>
-<div data-inc="test_server_status.py"><span aria-label="Source: testserver/test_server_status.py" class="inc-path" role="img" tabindex="0" title="testserver/test_server_status.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
+<div data-inc="test_server_status.py"><span aria-label="Source: testserver/test_server_status.py" class="inc-path" role="img" tabindex="0" title="testserver/test_server_status.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">starlette.testclient</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">server_testable</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_app</span>
 
@@ -142,7 +142,7 @@ and one that checks a missing ID returns 404.</p>
 </ul>
 </li>
 <li>The 20 rows in <code>SIGHTINGS</code> use IDs 1 through 20,
-    so ID 9999 is guaranteed to be missing and will trigger <code>raise NotFoundException</code></li>
+    so ID 9999 is guaranteed to be missing and will trigger <code>raise HTTPException(status_code=404, ...)</code></li>
 <li>pytest reports pass or fail for each function separately, so you can see at a glance which path broke</li>
 </ul>
 <h2>A Testable Server</h2>
@@ -161,19 +161,22 @@ when "G. horribilus" comes from the <code>SIGHTINGS</code> list in <code>dataset
 called <code>make_app</code> that takes the sightings list as a parameter.</p>
 </blockquote>
 <ul>
-<li><code>make_app(sightings=SIGHTINGS)</code> is a function that defines the route handlers and returns the app<ul>
+<li><code>make_app(sightings=SIGHTINGS)</code> is a function that creates a fresh <code>FastHTML()</code> app,
+    defines the route handlers inside it, and returns the app<ul>
 <li>The default value means calling <code>make_app()</code> with no arguments behaves exactly like <code>server_detail.py</code></li>
 <li>Calling <code>make_app(SMALL)</code> returns an app that serves <code>SMALL</code> instead of the full dataset</li>
 </ul>
 </li>
 <li>The handlers inside <code>make_app</code> use <code>sightings</code> just like any function uses a parameter:
     wherever <code>server_detail.py</code> wrote <code>for s in SIGHTINGS</code>, <code>server_testable.py</code> writes <code>for s in sightings</code></li>
-<li><code>app = make_app()</code> at the bottom keeps <code>litestar run --app server_testable:app</code> working from the terminal</li>
+<li><code>app = make_app()</code> at the bottom keeps <code>uvicorn server_testable:app</code> working from the terminal</li>
 </ul>
 <div data-inc="server_testable.py" data-mark="make-app"><span aria-label="Source: testserver/server_testable.py" class="inc-path" role="img" tabindex="0" title="testserver/server_testable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_app</span><span class="p">(</span><span class="n">sightings</span><span class="o">=</span><span class="n">SIGHTINGS</span><span class="p">):</span>
-    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">FastHTML</span><span class="p">()</span>
+
+    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span>
             <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
                 <span class="n">head</span><span class="p">[</span>
                     <span class="n">title</span><span class="p">[</span><span class="s2">"Sasquatch Sightings"</span><span class="p">],</span>
@@ -192,14 +195,14 @@ called <code>make_app</code> that takes the sightings list as a parameter.</p>
                     <span class="p">],</span>
                 <span class="p">],</span>
             <span class="p">]</span>
-        <span class="p">)</span>
+        <span class="p">))</span>
 </code></pre></div>
 </div>
-<div data-inc="server_testable.py" data-mark="detail-and-close"><span aria-label="Source: testserver/server_testable.py" class="inc-path" role="img" tabindex="0" title="testserver/server_testable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div data-inc="server_testable.py" data-mark="detail-and-close"><span aria-label="Source: testserver/server_testable.py" class="inc-path" role="img" tabindex="0" title="testserver/server_testable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sightings</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">sighting_id</span><span class="p">:</span>
-                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span>
                     <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
                         <span class="n">head</span><span class="p">[</span>
                             <span class="n">title</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Sighting </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
@@ -218,14 +221,14 @@ called <code>make_app</code> that takes the sightings list as a parameter.</p>
                             <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
                         <span class="p">],</span>
                     <span class="p">]</span>
-                <span class="p">)</span>
-        <span class="k">raise</span> <span class="n">NotFoundException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="p">))</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/style.css"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">"text/css"</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">styles</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">LESSON_DIR</span> <span class="o">/</span> <span class="s2">"style.css"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/style.css"</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">styles</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">((</span><span class="n">LESSON_DIR</span> <span class="o">/</span> <span class="s2">"style.css"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">"text/css"</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">Litestar</span><span class="p">([</span><span class="n">index</span><span class="p">,</span> <span class="n">detail</span><span class="p">,</span> <span class="n">styles</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">app</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
@@ -249,7 +252,7 @@ and the display of <code>None</code> values.</p>
 </ul>
 </li>
 </ul>
-<div data-inc="test_server_data.py"><span aria-label="Source: testserver/test_server_data.py" class="inc-path" role="img" tabindex="0" title="testserver/test_server_data.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
+<div data-inc="test_server_data.py"><span aria-label="Source: testserver/test_server_data.py" class="inc-path" role="img" tabindex="0" title="testserver/test_server_data.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">starlette.testclient</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">server_testable</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_app</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">small</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMALL</span>
@@ -275,17 +278,17 @@ and the display of <code>None</code> values.</p>
 </code></pre></div>
 </div>
 <h2>Check Understanding</h2>
-<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation and [<a class="bib-ref" href="../bibliography/#litestar2025">litestar2025</a>] for Litestar's testing reference.</p>
+<p>See [<a class="bib-ref" href="../bibliography/#pytest2025">pytest2025</a>] for the full pytest documentation and [<a class="bib-ref" href="../bibliography/#fasthtml2025">fasthtml2025</a>] for FastHTML's reference.</p>
 <details>
-<summary>What is the difference between running <code>litestar run --app server_testable:app</code> and calling <code>client.get("/")</code> in a test?</summary>
-<p><code>litestar run</code> starts a real server process that listens on port 8000 and waits for browser requests
+<summary>What is the difference between running <code>uvicorn server_testable:app</code> and calling <code>client.get("/")</code> in a test?</summary>
+<p><code>uvicorn server_testable:app</code> starts a real server process that listens on port 8000 and waits for browser requests
 over the network.
 <code>client.get("/")</code> sends a request directly to the application in memory without any network connection.
 Tests therefore run without a browser and without needing a free port.</p>
 </details>
 <details>
 <summary>Why does <code>server_testable.py</code> still have the line <code>app = make_app()</code> at the bottom?</summary>
-<p><code>litestar run --app server_testable:app</code> looks for a module-level name called <code>app</code>.
+<p><code>uvicorn server_testable:app</code> looks for a module-level name called <code>app</code>.
 Without that line, running the server from the terminal would fail with an import error.
 The factory function is for tests; the module-level <code>app</code> is for the command line.</p>
 </details>
@@ -340,8 +343,8 @@ status code is 200 and that the response text contains the word <code>"table"</c
 <p>Add a test using <code>make_app(SMALL)</code> that visits <code>/sighting/2</code> and confirms that the
 text <code>"G. horribilus"</code> appears in the response.</p>
 <h3>Test an Invalid Path Parameter</h3>
-<p>Visit <code>/sighting/abc</code> in a test and assert that the response status code is 400.
-Look up what HTTP status code 400 means and write a comment in the test explaining why 400 is the
+<p>Visit <code>/sighting/abc</code> in a test and assert that the response status code is 422.
+Look up what HTTP status code 422 means and write a comment in the test explaining why 422 is the
 right code here rather than 404.</p>
 <h3>Test Both Species in the Index</h3>
 <p>Write a test using <code>make_app(SMALL)</code> that visits the index page and asserts that both
@@ -366,7 +369,7 @@ depending on which version you use.</p>
 <h3>Add a Route for a Missing Page</h3>
 <p>Add a new route to <code>server_db.py</code> that handles any URL not matched by the existing routes
 and returns a page with the text "Page not found" and HTTP status 404.
-Look up Litestar's <code>ExceptionHandler</code> to see how to do this,
+Look up Starlette's exception handlers to see how to do this,
 and then add a test for it.</p>
 </main>
 <footer aria-label="Page navigation">

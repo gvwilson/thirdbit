@@ -211,13 +211,15 @@ The <code>?</code> placeholder prevents this by telling <code>sqlite3</code> to 
 never as SQL.</p>
 </div>
 <div data-inc="server_db.py" data-mark="db-index"><span aria-label="Source: database/server_db.py" class="inc-path" role="img" tabindex="0" title="database/server_db.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_app</span><span class="p">(</span><span class="n">db_path</span><span class="o">=</span><span class="n">DB_PATH</span><span class="p">):</span>
-    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">FastHTML</span><span class="p">()</span>
+
+    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
         <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
         <span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select * from sightings"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span>
             <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
                 <span class="n">head</span><span class="p">[</span>
                     <span class="n">title</span><span class="p">[</span><span class="s2">"Sasquatch Sightings"</span><span class="p">],</span>
@@ -236,11 +238,11 @@ never as SQL.</p>
                     <span class="p">],</span>
                 <span class="p">],</span>
             <span class="p">]</span>
-        <span class="p">)</span>
+        <span class="p">))</span>
 </code></pre></div>
 </div>
-<div data-inc="server_db.py" data-mark="db-detail"><span aria-label="Source: database/server_db.py" class="inc-path" role="img" tabindex="0" title="database/server_db.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div data-inc="server_db.py" data-mark="db-detail"><span aria-label="Source: database/server_db.py" class="inc-path" role="img" tabindex="0" title="database/server_db.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
@@ -248,8 +250,8 @@ never as SQL.</p>
         <span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">NotFoundException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+            <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span>
             <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
                 <span class="n">head</span><span class="p">[</span>
                     <span class="n">title</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Sighting </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
@@ -268,20 +270,20 @@ never as SQL.</p>
                     <span class="n">a</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="s2">"/"</span><span class="p">)[</span><span class="s2">"Back to all sightings"</span><span class="p">],</span>
                 <span class="p">],</span>
             <span class="p">]</span>
-        <span class="p">)</span>
+        <span class="p">))</span>
 
-    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/style.css"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">"text/css"</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">styles</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">LESSON_DIR</span> <span class="o">/</span> <span class="s2">"style.css"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/style.css"</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">styles</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">((</span><span class="n">LESSON_DIR</span> <span class="o">/</span> <span class="s2">"style.css"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">"text/css"</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">Litestar</span><span class="p">([</span><span class="n">index</span><span class="p">,</span> <span class="n">detail</span><span class="p">,</span> <span class="n">styles</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">app</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>Start the server the same way as before (after running <code>create_db.py</code> first):</p>
-<div data-inc="run.sh"><span aria-label="Source: database/run.sh" class="inc-path" role="img" tabindex="0" title="database/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--app<span class="w"> </span>server_db:app
+<div data-inc="run.sh"><span aria-label="Source: database/run.sh" class="inc-path" role="img" tabindex="0" title="database/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>uvicorn<span class="w"> </span>server_db:app<span class="w"> </span>--reload
 </code></pre></div>
 </div>
 <h2>Testing with a Temporary Database</h2>
@@ -309,7 +311,7 @@ and uses <code>make_app</code> with that database path to test the index, detail
 <div data-inc="test_server_db.py"><span aria-label="Source: database/test_server_db.py" class="inc-path" role="img" tabindex="0" title="database/test_server_db.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.testclient</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">CREATE_TABLE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">server_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_app</span>

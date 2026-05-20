@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interactive Dashboards</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a class="active" href="../dashboard/">Interactive Dashboards</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+<li><a href="../morellms/">More About LLMs</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Interactive Dashboards</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Explain how a dashboard differs from a static chart file</li>
+<li>Build a FastHTML app that serves an Altair chart from a running web server</li>
+<li>Use HTMX attributes to update one part of a page without reloading it</li>
+<li>Trace the request-response cycle when a dropdown filter changes</li>
+</ul>
+<h2>Why Static Charts Are Not Enough</h2>
+<ul>
+<li>A PNG or a saved HTML chart answers one specific question with one specific slice of data<ul>
+<li>A colleague who wants to see work hours for Java only, then for Perl only,
+    needs you to regenerate and re-send the chart each time</li>
+<li>A chart in a paper is a frozen snapshot; a dashboard is a live view</li>
+</ul>
+</li>
+<li>A dashboard serves charts from a running web server<ul>
+<li>Collaborators filter and explore the data themselves without writing any code</li>
+<li>The researcher who built the dashboard controls what data is available and
+    what filters make sense</li>
+</ul>
+</li>
+<li>The Prechelt data from Lesson 1 is a good example<ul>
+<li>Seven languages, widely varying work hours, a question every reader wants to ask:
+    "What does this look like for just the language I care about?"</li>
+<li>Building that filter into a dashboard takes about fifty lines of Python</li>
+</ul>
+</li>
+</ul>
+<h2>How FastHTML Works</h2>
+<ul>
+<li><a href="https://fastht.ml/">FastHTML</a> is a Python web framework: you write Python functions, it generates HTML<ul>
+<li>A <a class="gl-ref" href="../glossary/#route">route</a> maps a URL path to a Python function;
+    when a browser visits that path, the function runs and its return value becomes the response</li>
+<li>HTML elements are Python constructors: <code>Div(P("hello"))</code> produces <code>&lt;div&gt;&lt;p&gt;hello&lt;/p&gt;&lt;/div&gt;</code></li>
+<li>No template files, no HTML to write by hand, no string formatting</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#server_side_rendering">Server-side rendering</a> means the HTML is built on the server
+    for each request<ul>
+<li>The browser receives complete HTML and displays it immediately</li>
+<li>All data access and computation happen in Python on the server,
+    where you already know how to work</li>
+</ul>
+</li>
+</ul>
+<h2>HTMX: Interactivity Without JavaScript</h2>
+<ul>
+<li>Normally, a browser interaction (selecting a dropdown, clicking a button) either does nothing
+    or reloads the entire page with a new URL</li>
+<li><a class="gl-ref" href="../glossary/#htmx">HTMX</a> changes that: add a few attributes to an HTML element and it will
+    send a server request when something happens, then replace one targeted element
+    on the page with the response<ul>
+<li>The whole page does not reload; only the element you name is updated</li>
+<li>The server returns an HTML fragment, not a full page</li>
+</ul>
+</li>
+<li>FastHTML exposes HTMX attributes as Python keyword arguments:
+    <code>hx_get="/chart"</code> becomes <code>hx-get="/chart"</code> in the rendered HTML</li>
+<li>Three attributes cover the most common pattern:<ul>
+<li><code>hx_get="/path"</code>: send a GET request to this path when the trigger fires</li>
+<li><code>hx_target="#element-id"</code>: put the response into the element with this CSS id selector</li>
+<li><code>hx_trigger="change"</code>: fire when this HTML event occurs
+    (<code>change</code>, <code>click</code>, <code>input</code>, <code>load</code>, and others)</li>
+</ul>
+</li>
+</ul>
+<h2>A Minimal FastHTML App</h2>
+<ul>
+<li><code>fast_app()</code> creates the application and routing table and returns two objects:
+    the app itself and a route decorator</li>
+<li>Decorate a function with <code>@rt("/")</code> to make it handle GET requests to the root URL</li>
+<li><code>Titled("Title", content)</code> produces a page with a heading and body content</li>
+<li><code>serve()</code> starts the development server on <code>http://localhost:5001</code>; stop it with Ctrl-C</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fasthtml.common</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">app</span><span class="p">,</span> <span class="n">rt</span> <span class="o">=</span> <span class="n">fast_app</span><span class="p">()</span>
+
+<span class="nd">@rt</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Titled</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="n">P</span><span class="p">(</span><span class="s2">"Welcome to my dashboard"</span><span class="p">))</span>
+
+<span class="n">serve</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>Run this file and open <code>http://localhost:5001</code> in a browser to see the result</li>
+</ul>
+<h2>Adding a Chart</h2>
+<ul>
+<li>Install <code>fh-altair</code> with <code>uv add fh-altair</code>; it bridges FastHTML and Altair</li>
+<li>Pass <code>hdrs=altair_headers</code> to <code>fast_app()</code> to load the Vega-Lite JavaScript libraries
+    in the page <code>&lt;head&gt;</code> — without this, the chart renders as a blank rectangle</li>
+<li><code>altair2fasthtml(chart)</code> converts an Altair chart object to an HTML div
+    that the browser renders as an interactive Vega-Lite chart</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fasthtml.common</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fh_altair</span><span class="w"> </span><span class="kn">import</span> <span class="n">altair_headers</span><span class="p">,</span> <span class="n">altair2fasthtml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">app</span><span class="p">,</span> <span class="n">rt</span> <span class="o">=</span> <span class="n">fast_app</span><span class="p">(</span><span class="n">hdrs</span><span class="o">=</span><span class="n">altair_headers</span><span class="p">)</span>
+
+<span class="nd">@rt</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/jccpprtTR.csv"</span><span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_boxplot</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"lang:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Language"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"whours:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Work hours"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">560</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">320</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">Titled</span><span class="p">(</span><span class="s2">"Work Hours"</span><span class="p">,</span> <span class="n">altair2fasthtml</span><span class="p">(</span><span class="n">chart</span><span class="p">))</span>
+
+<span class="n">serve</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>Altair 6 accepts Polars DataFrames directly; no conversion to Pandas is needed</li>
+<li>The chart is interactive out of the box: scroll to zoom, drag to pan, hover for tooltips</li>
+</ul>
+<h2>Making It Interactive</h2>
+<ul>
+<li>A <code>Select</code> element with HTMX attributes sends the selected value to the server
+    when the user changes the dropdown</li>
+<li>The server function receives the value as a plain Python parameter</li>
+<li>The server filters the data and returns a new chart fragment,
+    which HTMX swaps into the <code>#chart</code> div without touching the rest of the page</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@rt</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/jccpprtTR.csv"</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="n">Option</span><span class="p">(</span><span class="s2">"All languages"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"All"</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">Option</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">LANGUAGES</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">Titled</span><span class="p">(</span>
+        <span class="s2">"Development Time Explorer"</span><span class="p">,</span>
+        <span class="n">Div</span><span class="p">(</span>
+            <span class="n">Label</span><span class="p">(</span>
+                <span class="s2">"Filter by language: "</span><span class="p">,</span>
+                <span class="n">Select</span><span class="p">(</span>
+                    <span class="o">*</span><span class="n">options</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
+                    <span class="n">hx_get</span><span class="o">=</span><span class="s2">"/chart"</span><span class="p">,</span>
+                    <span class="n">hx_target</span><span class="o">=</span><span class="s2">"#chart"</span><span class="p">,</span>
+                    <span class="n">hx_trigger</span><span class="o">=</span><span class="s2">"change"</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">Div</span><span class="p">(</span><span class="n">altair2fasthtml</span><span class="p">(</span><span class="n">build_chart</span><span class="p">(</span><span class="n">df</span><span class="p">)),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"chart"</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+<span class="nd">@rt</span><span class="p">(</span><span class="s2">"/chart"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">language</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"All"</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/jccpprtTR.csv"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">language</span> <span class="o">!=</span> <span class="s2">"All"</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"lang"</span><span class="p">)</span> <span class="o">==</span> <span class="n">language</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">altair2fasthtml</span><span class="p">(</span><span class="n">build_chart</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</code></pre></div>
+<ul>
+<li>When HTMX sends <code>GET /chart?language=Java</code>, FastHTML converts the query parameter
+    to the <code>language</code> argument automatically</li>
+<li>The default value <code>language: str = "All"</code> prevents an error when the page first
+    loads and <code>/chart</code> has not yet been called with any argument</li>
+<li>The <code>id="chart"</code> on the outer <code>Div</code> is the target that <code>hx_target="#chart"</code> refers to;
+    the <code>#</code> prefix is the CSS selector for an element with that id</li>
+</ul>
+<h2>Code</h2>
+<div data-inc="dashboard.py"><span aria-label="Source: dashboard/dashboard.py" class="inc-path" role="img" tabindex="0" title="dashboard/dashboard.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Interactive dashboard for exploring Prechelt development-time data."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fasthtml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">Div</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Option</span><span class="p">,</span> <span class="n">Select</span><span class="p">,</span> <span class="n">Titled</span><span class="p">,</span> <span class="n">fast_app</span><span class="p">,</span> <span class="n">serve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fh_altair</span><span class="w"> </span><span class="kn">import</span> <span class="n">altair_headers</span><span class="p">,</span> <span class="n">altair2fasthtml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"C++"</span><span class="p">,</span> <span class="s2">"Java"</span><span class="p">,</span> <span class="s2">"Perl"</span><span class="p">,</span> <span class="s2">"Rexx"</span><span class="p">,</span> <span class="s2">"Tcl"</span><span class="p">]</span>
+
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">"data/jccpprtTR.csv"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">build_chart</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a box plot of work hours per language."""</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_boxplot</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"lang:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Language"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"whours:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Work hours"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">560</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Development time by language"</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="n">app</span><span class="p">,</span> <span class="n">rt</span> <span class="o">=</span> <span class="n">fast_app</span><span class="p">(</span><span class="n">hdrs</span><span class="o">=</span><span class="n">altair_headers</span><span class="p">)</span>
+
+
+<span class="nd">@rt</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="n">Option</span><span class="p">(</span><span class="s2">"All languages"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"All"</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">Option</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">LANGUAGES</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">Titled</span><span class="p">(</span>
+        <span class="s2">"Development Time Explorer"</span><span class="p">,</span>
+        <span class="n">Div</span><span class="p">(</span>
+            <span class="n">Label</span><span class="p">(</span>
+                <span class="s2">"Filter by language: "</span><span class="p">,</span>
+                <span class="n">Select</span><span class="p">(</span>
+                    <span class="o">*</span><span class="n">options</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
+                    <span class="n">hx_get</span><span class="o">=</span><span class="s2">"/chart"</span><span class="p">,</span>
+                    <span class="n">hx_target</span><span class="o">=</span><span class="s2">"#chart"</span><span class="p">,</span>
+                    <span class="n">hx_trigger</span><span class="o">=</span><span class="s2">"change"</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">Div</span><span class="p">(</span><span class="n">altair2fasthtml</span><span class="p">(</span><span class="n">build_chart</span><span class="p">(</span><span class="n">df</span><span class="p">)),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"chart"</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@rt</span><span class="p">(</span><span class="s2">"/chart"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">chart</span><span class="p">(</span><span class="n">language</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"All"</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">language</span> <span class="o">!=</span> <span class="s2">"All"</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"lang"</span><span class="p">)</span> <span class="o">==</span> <span class="n">language</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">altair2fasthtml</span><span class="p">(</span><span class="n">build_chart</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+
+<span class="n">serve</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<h2>Check Understanding</h2>
+<details>
+<summary>Trace what happens in the browser and on the server when a user changes the dropdown from "All languages" to "Java".</summary>
+<p>The browser fires a <code>change</code> event on the <code>Select</code> element. HTMX intercepts it and sends a GET request to <code>/chart?language=Java</code>. The server receives the request, FastHTML routes it to the second <code>get</code> function, and the <code>language</code> parameter is set to <code>"Java"</code>. The function loads the CSV, filters it to Java rows only, builds a box plot of those rows, converts it to an HTML div with <code>altair2fasthtml</code>, and returns it. HTMX receives the HTML fragment and replaces the contents of the element with <code>id="chart"</code> with the new chart. The rest of the page — the heading, the dropdown — is unchanged.</p>
+</details>
+<details>
+<summary>The code below does not update the chart when the dropdown changes. What is wrong and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Select</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">options</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
+    <span class="n">hx_get</span><span class="o">=</span><span class="s2">"/chart"</span><span class="p">,</span>
+    <span class="n">hx_target</span><span class="o">=</span><span class="s2">"chart"</span><span class="p">,</span>
+    <span class="n">hx_trigger</span><span class="o">=</span><span class="s2">"change"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+</summary>
+<p><code>hx_target="chart"</code> looks for an element whose tag name is <code>chart</code>, which does not exist in HTML. HTMX targets use CSS selectors: a bare word is a tag name, and an id must be prefixed with <code>#</code>. The fix is <code>hx_target="#chart"</code>, which correctly targets the <code>Div</code> whose <code>id</code> is <code>"chart"</code>. Without the <code>#</code>, HTMX finds nothing to update and silently does nothing.</p>
+</details>
+<details>
+<summary>Why does the <code>/chart</code> route need a default value for the <code>language</code> parameter?</summary>
+<p>When the page first loads, only the root route <code>/</code> is called. The <code>Div</code> with <code>id="chart"</code> is populated directly by calling <code>build_chart(df)</code> inside the <code>/</code> handler. The <code>/chart</code> route is only triggered by HTMX when the dropdown changes, and HTMX always sends the current dropdown value as a query parameter. However, FastHTML would raise an error if a request arrived at <code>/chart</code> without a <code>language</code> parameter and the function had no default. Providing <code>language: str = "All"</code> as a default means the route is safe to call even if the parameter is missing — for example, when testing the route directly in the browser.</p>
+</details>
+<details>
+<summary>What goes wrong if you forget to pass <code>hdrs=altair_headers</code> to <code>fast_app()</code>?</summary>
+<p><code>altair_headers</code> loads the Vega, Vega-Lite, and vegaEmbed JavaScript libraries in the page <code>&lt;head&gt;</code>. The <code>altair2fasthtml</code> function produces an HTML div with a short script that calls <code>vegaEmbed</code> to render the chart specification. If those libraries are not loaded, <code>vegaEmbed</code> is undefined and the script throws a JavaScript error. The div that was supposed to contain the chart is blank. The rest of the page loads normally, which makes the problem easy to miss: everything appears to work except that the chart area is empty.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Add a Work-Hours Range Filter (30 min)</h3>
+<p>Add two number inputs below the language dropdown: one for a minimum work-hours cutoff and one for a maximum. When either input changes, the chart should update to show only developers whose <code>whours</code> value falls within the range. Use a Polars <code>filter</code> combining both conditions. Verify that setting the range to 0–100 shows all developers and that setting it to 0–10 shows only those who finished quickly.</p>
+</div>
+<div class="exercise">
+<h3>Show a Summary Card (20 min)</h3>
+<p>Add a second HTMX target below the chart: a <code>Div</code> with <code>id="summary"</code> that shows the count and median work hours for the currently selected data. Update both the chart and the summary card on each dropdown change. One approach is to have the <code>/chart</code> route return both the chart fragment and the summary card fragment as siblings inside a wrapper <code>Div</code>.</p>
+</div>
+<div class="exercise">
+<h3>Add a Scatter Plot Tab (30 min)</h3>
+<p>Add a second route <code>/scatter</code> that returns a scatter plot of <code>whours</code> (x axis) versus <code>stmtL</code> (statement lines, y axis) for the filtered language. Add a pair of buttons — "Box plot" and "Scatter plot" — that each trigger a request to the appropriate route and replace the <code>#chart</code> div. Use <code>hx_trigger="click"</code> on each button.</p>
+</div>
+<div class="exercise">
+<h3>Show the Five Slowest Developers (20 min)</h3>
+<p>Below the chart, add a table showing the five developers with the highest work hours in the current selection. Use Polars to sort the filtered data descending by <code>whours</code> and take the first five rows. Build the table using FastHTML's <code>Table</code>, <code>Tr</code>, <code>Th</code>, and <code>Td</code> constructors. Update the table alongside the chart whenever the filter changes.</p>
+</div>
+<div class="exercise">
+<h3>Share with a Classmate (15 min)</h3>
+<p>By default, <code>serve()</code> binds to <code>localhost</code>, which means only your own machine can reach it. Change the call to <code>serve(host="0.0.0.0")</code> and find your machine's local IP address. Ask a classmate on the same network to open <code>http://your-ip:5001</code> in their browser. Verify that their dropdown selections update the chart they see and do not affect the chart you see. Write one sentence explaining why two users can interact with the dashboard independently even though only one Python process is running.</p>
+</div>
+<div class="exercise">
+<h3>Handle an Empty Filter Result (20 min)</h3>
+<p>Currently, if a language filter produces zero rows (for example, if someone edits the URL directly), <code>build_chart</code> passes an empty DataFrame to Altair, which may produce an error or a blank chart. Add a check: if <code>df</code> is empty after filtering, return a <code>P</code> element saying "No data for this selection" instead of a chart. Verify by temporarily adding an impossible filter condition (<code>pl.col("whours") &lt; 0</code>) and confirming the message appears.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../visualize/">Visualization with Altair</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../describe/">Descriptive Statistics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

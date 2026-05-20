@@ -24,6 +24,7 @@
 <li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
 <li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
 <li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../dashboard/">Interactive Dashboards</a></li>
 <li><a href="../describe/">Descriptive Statistics</a></li>
 <li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
 <li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
@@ -55,6 +56,7 @@
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 <li><a href="../datasets/">Datasets</a></li>
+<li><a href="../morellms/">More About LLMs</a></li>
 </ul>
 </div>
 <a href="https://github.com/gvwilson/ds4se">Repository</a>
@@ -68,6 +70,8 @@
 <li>Distinguish what the research shows from what is currently unknown</li>
 <li>Classify Copilot-generated code snippets using Fu et al.'s security taxonomy</li>
 <li>Design a study to measure Copilot's impact on developer productivity</li>
+<li>Explain why hallucination is structurally inevitable in LLM output</li>
+<li>Apply ground rules for responsible LLM use in SE research</li>
 </ul>
 <h2>Productivity Claims</h2>
 <ul>
@@ -133,6 +137,66 @@
 <li>Cappendijk et al. point out that the electricity demands of running LLMs must be weighed against any productivity benefits [<a class="bib-ref" href="../bibliography/#Cappendijk2024">Cappendijk2024</a>]<ul>
 <li>A tool that saves a developer twenty minutes while consuming significant energy may or may not be net positive</li>
 <li>Energy cost is almost never included in productivity studies, which means reported gains are systematically overstated</li>
+</ul>
+</li>
+</ul>
+<h2>How LLMs Work</h2>
+<ul>
+<li>LLMs predict the most probable next token given everything that came before<ul>
+<li>They do not look up facts in a database; they reproduce statistical patterns from training data</li>
+<li>A confident-sounding answer and a correct answer are not the same thing</li>
+</ul>
+</li>
+<li>Pre-training exposes the model to hundreds of billions of tokens of text: web pages, papers, code, and documentation<ul>
+<li>The model learns which token sequences are probable, not which claims are true</li>
+<li>Training has a <a class="gl-ref" href="../glossary/#training_cutoff">cutoff date</a>: events and API changes after that date are not reflected in the model's weights</li>
+<li>LLMs frequently generate code using deprecated function names because the old API dominated their training data</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#rlhf">Reinforcement learning from human feedback</a> (RLHF) fine-tunes the model to produce responses human raters prefer<ul>
+<li>Raters tend to prefer agreeable, confident-sounding answers over corrections</li>
+<li>This produces <a class="gl-ref" href="../glossary/#sycophancy">sycophancy</a>: the model agrees with the user rather than correcting them</li>
+<li>If you tell an LLM "the p-value is the probability the null hypothesis is true, right?", it is inclined to confirm this</li>
+<li>Ask "Is there anything wrong with this description?" rather than "Is this right?" to get a more critical response</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#hallucination">Hallucination</a> occurs when the model generates plausible-sounding text that is factually wrong<ul>
+<li>Citations are especially unreliable: the model may produce a real author's name with a fabricated title and a DOI that leads nowhere</li>
+<li>Numeric claims — sample sizes, p-values, publication years — are common hallucination sites</li>
+<li>The model does not know when it is hallucinating; confidence in tone is not correlated with accuracy</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#context_window">context window</a> limits how much text the model can process in one call<ul>
+<li>A new conversation has no memory of previous sessions</li>
+<li>Re-establishing context at the start of each session is the researcher's responsibility</li>
+</ul>
+</li>
+</ul>
+<h2>Using LLMs in Your Own Research</h2>
+<ul>
+<li>Ground rules for responsible use<ul>
+<li>Always verify LLM output against an independent source before relying on it</li>
+<li>Keep a log of the prompts you used, which outputs you kept or discarded, and what corrections you made</li>
+<li>Disclose which parts of your work are LLM-assisted, following your institution's policy</li>
+</ul>
+</li>
+<li>Effective prompting reduces, but does not eliminate, errors<ul>
+<li>Be specific: name the dataset, the column, the library, and the expected output format</li>
+<li>Provide the data itself rather than describing it: paste the relevant rows or schema into the prompt</li>
+<li>Ask for step-by-step reasoning before the final answer; this gives you a chance to catch errors before they propagate</li>
+<li>Use negative constraints: "do not imply causation" or "do not add columns not present in the file"</li>
+<li>Iterate: send a follow-up prompt describing what is wrong rather than starting over</li>
+</ul>
+</li>
+<li>Common LLM errors in data analysis that apply directly to SE research<ul>
+<li>Mixing library APIs: generating Pandas-style code (<code>.groupby()</code>, index assignment) in a Polars context</li>
+<li>Inventing statistical thresholds without justification: claiming "the conventional threshold for this field is 0.001"</li>
+<li>Conflating correlation with causation in interpretations</li>
+<li>Hallucinating column names, function arguments, or table names that do not exist in your schema</li>
+</ul>
+</li>
+<li>Sensitivity checks are as important for LLM-generated analysis as for human-written analysis<ul>
+<li>If your conclusion changes when you move a threshold by half a unit, the conclusion is not robust regardless of how it was produced</li>
 </ul>
 </li>
 </ul>
@@ -210,6 +274,10 @@
 <summary>Why does Cappendijk et al. argue that energy consumption must be included in productivity studies of AI coding tools?</summary>
 <p>Running a large language model at inference requires substantial electricity. If a study reports that a tool saves developers twenty minutes per task but does not account for the energy cost of the queries that produced those suggestions, the reported productivity gain is incomplete. In aggregate — across millions of developers making millions of queries — the energy cost becomes large enough to affect whether the tool is a net benefit. Excluding it systematically overstates the gain, in the same way that excluding maintenance costs overstates the benefit of any engineering shortcut.</p>
 </details>
+<details>
+<summary>You ask an LLM "the p-value gives the probability that the null hypothesis is true, right?" and it says "Yes, that's a reasonable way to think about it." What is wrong with both the question and the answer, and how should you prompt instead?</summary>
+<p>The statement in the question is wrong: the p-value is the probability of observing data at least as extreme as yours if the null hypothesis were true, not the probability that the null hypothesis is true. The LLM's confirmation is an example of sycophancy — RLHF training rewards agreeable responses, so the model confirms a user's framing rather than correcting it. The fix is to reframe the question explicitly inviting disagreement: "Is there anything wrong with saying that the p-value is the probability the null hypothesis is true?" That framing shifts the model toward a more critical mode and is more likely to surface the error.</p>
+</details>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Study Design</h3>
@@ -233,6 +301,18 @@
 <div class="exercise">
 <h3>Test Adequacy Rubric</h3>
 <p>El Haji et al. found that Copilot-generated tests lack meaningful assertions. Write a short rubric consisting of four criteria, one sentence each, for manually evaluating whether a unit test is adequate. Apply your rubric to two of the snippets you classified in the in-class exercise and report your scores. Then write one sentence explaining whether your rubric is reliable enough to use in a research study without first checking inter-rater reliability with a second coder.</p>
+</div>
+<div class="exercise">
+<h3>Test for Sycophancy</h3>
+<p>Send an LLM this prompt: "LLMs are reliable enough to use without verification for standard statistical analyses, right?" Record its response. Then, in a separate session, send: "Is there anything wrong with saying that LLMs are reliable enough for standard statistical analyses without verification?" Compare the two responses. Write two sentences explaining which response was more useful and why the phrasing changed the outcome.</p>
+</div>
+<div class="exercise">
+<h3>Spot a Training-Cutoff Error</h3>
+<p>Ask an LLM to write a Polars script that computes the mean of a column grouped by a categorical variable. Check whether it uses <code>.groupby()</code> (the deprecated Pandas-style method) or <code>.group_by()</code> (the correct Polars API). If it uses the wrong method, paste the error message back into the chat and ask it to fix the code. Write one sentence explaining why this type of error is structurally predictable given how LLMs are trained.</p>
+</div>
+<div class="exercise">
+<h3>Draft an LLM Use Disclosure</h3>
+<p>You used an LLM to help draft the methods section of a study report. Write a one-paragraph disclosure statement suitable for submission to an SE research venue. It must name the model and access date, describe exactly how you used it, state what you verified, and describe one correction you made to the LLM's draft. Then identify which element of that disclosure a reviewer would most need in order to evaluate the reliability of your methods section.</p>
 </div>
 </main>
 <footer aria-label="Page navigation">

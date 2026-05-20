@@ -138,19 +138,15 @@ so the f-string approach does unnecessary work on every call even when the outpu
 <span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">fasthtml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastHTML</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">a</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">html</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="nb">input</span> <span class="k">as</span> <span class="n">inp</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">htpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">label</span><span class="p">,</span> <span class="n">li</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">ul</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Litestar</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">,</span> <span class="n">get</span><span class="p">,</span> <span class="n">post</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.datastructures</span><span class="w"> </span><span class="kn">import</span> <span class="n">UploadFile</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestEncodingType</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotFoundException</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">Body</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">litestar.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Redirect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.responses</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTMLResponse</span><span class="p">,</span> <span class="n">RedirectResponse</span><span class="p">,</span> <span class="n">Response</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">HEADERS</span><span class="p">,</span> <span class="n">KEYS</span><span class="p">,</span> <span class="n">LABELS</span><span class="p">,</span> <span class="n">fmt</span>
 
@@ -173,8 +169,8 @@ so the f-string approach does unnecessary work on every call even when the outpu
     <span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="server_stream.py" data-mark="detail-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">MediaType</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div data-inc="server_stream.py" data-mark="detail-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/sighting/{sighting_id:int}"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detail</span><span class="p">(</span><span class="n">sighting_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
@@ -183,9 +179,9 @@ so the f-string approach does unnecessary work on every call even when the outpu
         <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"sighting </span><span class="si">%d</span><span class="s2"> not found"</span><span class="p">,</span> <span class="n">sighting_id</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="n">NotFoundException</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">"No sighting with ID </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"sighting </span><span class="si">%d</span><span class="s2"> retrieved"</span><span class="p">,</span> <span class="n">sighting_id</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span>
             <span class="n">html</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)[</span>
                 <span class="n">head</span><span class="p">[</span>
                     <span class="n">title</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Sighting </span><span class="si">{</span><span class="n">sighting_id</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span>
@@ -207,13 +203,12 @@ so the f-string approach does unnecessary work on every call even when the outpu
                     <span class="p">],</span>
                 <span class="p">],</span>
             <span class="p">]</span>
-        <span class="p">)</span>
+        <span class="p">))</span>
 </code></pre></div>
 </div>
-<div data-inc="server_stream.py" data-mark="add-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_sighting</span><span class="p">(</span>
-        <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">URL_ENCODED</span><span class="p">)],</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
+<div data-inc="server_stream.py" data-mark="add-handler"><span aria-label="Source: logging/server_stream.py" class="inc-path" role="img" tabindex="0" title="logging/server_stream.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/add"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_sighting</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"new sighting added without sex"</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s2">"weight"</span><span class="p">]:</span>
@@ -234,11 +229,11 @@ so the f-string approach does unnecessary work on every call even when the outpu
         <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"inserted sighting: species=</span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">"species"</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">RedirectResponse</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Start the server from the <code>logging/</code> directory:</p>
-<div data-inc="run.sh"><span aria-label="Source: logging/run.sh" class="inc-path" role="img" tabindex="0" title="logging/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>litestar<span class="w"> </span>run<span class="w"> </span>--app<span class="w"> </span>server_rotate:app
+<div data-inc="run.sh"><span aria-label="Source: logging/run.sh" class="inc-path" role="img" tabindex="0" title="logging/run.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>uvicorn<span class="w"> </span>server_rotate:app<span class="w"> </span>--reload
 </code></pre></div>
 </div>
 <p>Open the app in a browser and add a sighting with the weight field blank.
@@ -332,11 +327,11 @@ handler expects?</p>
     <span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="server_rotate.py" data-mark="upload-csv"><span aria-label="Source: logging/server_rotate.py" class="inc-path" role="img" tabindex="0" title="logging/server_rotate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@post</span><span class="p">(</span><span class="s2">"/upload"</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_csv</span><span class="p">(</span>
-        <span class="n">data</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">CsvUpload</span><span class="p">,</span> <span class="n">Body</span><span class="p">(</span><span class="n">media_type</span><span class="o">=</span><span class="n">RequestEncodingType</span><span class="o">.</span><span class="n">MULTI_PART</span><span class="p">)],</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirect</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">data</span><span class="o">.</span><span class="n">csv_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div data-inc="server_rotate.py" data-mark="upload-csv"><span aria-label="Source: logging/server_rotate.py" class="inc-path" role="img" tabindex="0" title="logging/server_rotate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/upload"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_csv</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+        <span class="n">form_data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
+        <span class="n">csv_file</span> <span class="o">=</span> <span class="n">form_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"csv_file"</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">csv_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)))</span>
         <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
         <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -360,7 +355,7 @@ handler expects?</p>
         <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"CSV upload complete: </span><span class="si">%d</span><span class="s2"> rows inserted"</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Redirect</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">RedirectResponse</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>See [<a class="bib-ref" href="../bibliography/#python-logging2025">python-logging2025</a>] for the full Python logging documentation.</p>
