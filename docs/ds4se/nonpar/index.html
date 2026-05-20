@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Non-Parametric Methods and Rank-Based Tests</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a class="active" href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Non-Parametric Methods and Rank-Based Tests</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Apply bootstrap resampling to compute confidence intervals without distributional assumptions</li>
+<li>Run a Kruskal-Wallis test and explain why it is preferable to one-way ANOVA for SE data</li>
+<li>Compute Spearman rank correlation between teacher predictions and student error data</li>
+<li>Reproduce the Brown and Altadmri finding that educators' rankings correlate poorly with Blackbox data</li>
+</ul>
+<h2>When to Distrust Parametric Tests</h2>
+<ul>
+<li>Parametric tests like the t-test assume the data follow a specific distribution, usually normal<ul>
+<li>SE data — error counts, response times, bug counts, commit counts — is almost never normally distributed</li>
+<li>Applying a parametric test to heavily skewed count data produces p-values you cannot trust</li>
+</ul>
+</li>
+<li>Rank-based and resampling methods make no distributional assumptions<ul>
+<li>They transform the data into ranks or resample it directly, then compute statistics on those</li>
+<li>The cost is slightly lower power when the normality assumption would actually hold, which in SE research is rare enough to be worth ignoring</li>
+</ul>
+</li>
+</ul>
+<h2>What Brown and Altadmri Found</h2>
+<ul>
+<li>Brown and Altadmri asked experienced programming teachers to rank the most common mistakes novice programmers make [<a class="bib-ref" href="../bibliography/#Brown2017">Brown2017</a>]<ul>
+<li>They then compared those rankings to actual frequency data from Blackbox, a system that logged millions of student Java compilation attempts</li>
+<li>Teachers were wrong in systematic ways: they over-predicted mistakes they teach explicitly and under-predicted mistakes students actually make repeatedly</li>
+</ul>
+</li>
+<li>The key finding is not just that teachers were wrong, but that their errors were consistent<ul>
+<li>If teachers were wrong randomly, averaging across many teachers would give you a reasonable estimate</li>
+<li>Because the errors are systematic, averaging makes the bias worse</li>
+</ul>
+</li>
+</ul>
+<h2>Spearman Rank Correlation</h2>
+<ul>
+<li>Spearman rank correlation measures whether two ranked lists agree, without assuming the distances between ranks are equal<ul>
+<li>Pearson correlation assumes that the difference between ranks 1 and 2 is the same as between ranks 9 and 10</li>
+<li>Spearman makes no such assumption: it converts both variables to ranks and then computes Pearson on the ranks</li>
+</ul>
+</li>
+<li>A Spearman r of 1.0 means the two lists are in perfect agreement; -1.0 means they are perfectly reversed; 0 means no monotone relationship<ul>
+<li>For the Brown and Altadmri data, r values close to zero or negative mean individual teachers are not reliably tracking what students actually struggle with</li>
+</ul>
+</li>
+<li>Use <code>scipy.stats.spearmanr</code> and read the <code>.statistic</code> attribute for the correlation value</li>
+</ul>
+<h2>Kruskal-Wallis Test</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#kruskal_wallis">Kruskal-Wallis test</a> compares more than two groups without assuming normality<ul>
+<li>It is the rank-based generalization of the Mann-Whitney U test</li>
+<li>The null hypothesis is that all groups are drawn from the same distribution</li>
+</ul>
+</li>
+<li>It is preferable to one-way ANOVA for SE data because ANOVA assumes that observations within each group are normally distributed with equal variance<ul>
+<li>Error counts in different categories violate both assumptions routinely</li>
+<li>Kruskal-Wallis converts all observations to ranks across the combined dataset and tests whether the average ranks differ by group</li>
+</ul>
+</li>
+<li>A significant Kruskal-Wallis result tells you that at least one group differs; it does not tell you which ones<ul>
+<li>Follow up with pairwise Mann-Whitney U tests and apply the Bonferroni correction</li>
+</ul>
+</li>
+</ul>
+<h2>Bootstrap Resampling</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#bootstrap_resampling">Bootstrap resampling</a> estimates the sampling distribution of any statistic without assuming a distribution<ul>
+<li>Draw N samples with replacement from your data (N = size of the original dataset)</li>
+<li>Compute your statistic on the resample</li>
+<li>Repeat 1,000 or more times</li>
+<li>Take the 2.5th and 97.5th percentiles of the resulting distribution as your 95% confidence interval</li>
+</ul>
+</li>
+<li>The bootstrap works for almost any statistic: means, medians, Gini coefficients, Spearman correlations, regression slopes<ul>
+<li>The only requirement is that your original sample is a reasonable representation of the population</li>
+<li>It does not fix a biased sample; it only quantifies uncertainty given the sample you have</li>
+</ul>
+</li>
+<li>Use <code>numpy.random.default_rng</code> with a fixed seed for reproducibility, and <code>rng.choice(..., replace=True)</code> for the resample<ul>
+<li>Never use the deprecated <code>numpy.random.choice</code>; the new generator API is safer and faster</li>
+</ul>
+</li>
+</ul>
+<h2>When to Bootstrap vs. When to Use a Parametric Test</h2>
+<ul>
+<li>Use bootstrap when: the data is non-normal, the statistic has no closed-form sampling distribution, the sample is small, or you want a check on a parametric result</li>
+<li>Use parametric tests when: you have strong theoretical reasons to expect normality, you need maximum power with a large sample, or you are computing a statistic for which bootstrap is known to perform poorly (e.g., the minimum or maximum)</li>
+<li>In practice, running both and checking for disagreement is a useful diagnostic<ul>
+<li>If the bootstrap CI and the parametric CI are very different, the parametric assumptions are probably violated</li>
+</ul>
+</li>
+</ul>
+<h2>Code</h2>
+<div data-inc="bootstrap.py"><span aria-label="Source: nonpar/bootstrap.py" class="inc-path" role="img" tabindex="0" title="nonpar/bootstrap.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Bootstrap confidence interval for Spearman correlation between educator rankings and Blackbox data."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/educator_rankings.csv"</span><span class="p">)</span>
+<span class="n">blackbox</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"blackbox_rank"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># Compute Spearman r for each educator</span>
+<span class="n">educator_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"educator_"</span><span class="p">)]</span>
+<span class="n">spearman_rs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">blackbox</span><span class="p">)</span><span class="o">.</span><span class="n">statistic</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">educator_cols</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Median Spearman r across educators: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">spearman_rs</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Bootstrap 95% CI for median Spearman r</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">spearman_rs</span><span class="p">)</span>
+<span class="n">boot_medians</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">spearman_rs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">boot_medians</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"95% bootstrap CI: [</span><span class="si">{</span><span class="n">lo</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">hi</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Check Understanding</h2>
+<details>
+<summary>What does Spearman rank correlation measure that Pearson correlation does not?</summary>
+<p>Spearman rank correlation measures whether the relationship between two variables is monotone — that is, whether one tends to increase as the other increases, regardless of whether that relationship is linear. Pearson correlation measures the strength of a linear relationship specifically. A dataset where one variable grows as the square of another would show a high Spearman r (because the monotone trend is strong) but possibly a lower Pearson r (because the relationship is not linear). For ranked lists like the educator and Blackbox rankings, Spearman is the natural choice because the concept of "twice as far apart in rank" is not well-defined.</p>
+</details>
+<details>
+<summary>The following bootstrap loop has a bug. What is wrong and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">boot_medians</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># no replace=True</span>
+    <span class="n">boot_medians</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+</code></pre></div>
+</summary>
+<p>The call to <code>np.random.choice</code> is missing <code>replace=True</code>. Without replacement, every resample is just a permutation of the original data and every median will be identical to the original median. The whole point of bootstrap resampling is to sample with replacement so that different values appear different numbers of times, which simulates the variability you would see across repeated studies. The fix:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">boot_medians</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">boot_medians</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+</code></pre></div>
+<p>Using <code>np.random.default_rng</code> rather than <code>np.random.choice</code> is also better practice because the new generator API is reproducible with an explicit seed and avoids global state.</p>
+</details>
+<details>
+<summary>Why is Kruskal-Wallis preferable to a one-way ANOVA for comparing error counts across three or more categories of programming mistakes?</summary>
+<p>One-way ANOVA assumes that observations within each group follow a normal distribution with equal variance across groups. Error counts are non-negative integers that are often heavily right-skewed — a few error types occur very frequently while most occur rarely. That distribution is not normal, and the variance across error categories is unlikely to be equal. Kruskal-Wallis makes neither assumption. It ranks all observations together and tests whether the average rank differs by group, which is a valid procedure regardless of the underlying distribution.</p>
+</details>
+<details>
+<summary>If the bootstrap 95% CI for median Spearman r across educators is [-0.1, 0.3], what does this tell you about whether educators predict student errors reliably?</summary>
+<p>A confidence interval that spans from negative to positive includes zero, which means the data are consistent with no relationship at all between educator rankings and the Blackbox data. The upper bound of 0.3 is a weak positive correlation even in the most optimistic reading. Taken together, this interval tells you that there is no reliable evidence that educators predict student error frequencies better than chance. Any individual educator who happens to have a positive r may simply be lucky; the uncertainty in the estimate is too large to conclude otherwise.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Educators vs. Reality vs. Each Other</h3>
+<p>Test whether educators agree with each other more than they agree with reality. Compute the average Spearman r between all pairs of educators, and separately compute the average Spearman r between each educator and the Blackbox ranking. Report both averages. Write three sentences interpreting the comparison: what the relative magnitudes tell you about where educators' beliefs about novice mistakes come from, what this implies for the design of programming courses that aim to address the errors students most frequently make, and what additional data you would need to determine whether changing course content would actually reduce those errors.</p>
+</div>
+<div class="exercise">
+<h3>Kruskal-Wallis on Error Categories</h3>
+<p>Run a Kruskal-Wallis test on error counts grouped by error category, using at least three distinct categories (syntax errors, type errors, and logic errors) from the educator rankings dataset. Report the test statistic and p-value. Write two sentences explaining your choice of Kruskal-Wallis over one-way ANOVA for this particular data — be specific about the properties of error count data that make the ANOVA assumptions implausible.</p>
+</div>
+<div class="exercise">
+<h3>Bootstrap CI for the Best Educator</h3>
+<p>Identify the educator whose ranking has the highest Spearman r with the Blackbox data. Compute a bootstrap 95% confidence interval for that correlation using 1,000 bootstrap samples. Report the interval. Write one sentence interpreting whether even the best-performing educator's rankings are reliably better than chance, given the width and location of the interval.</p>
+</div>
+<div class="exercise">
+<h3>Visualizing Bootstrap Uncertainty</h3>
+<p>Plot the distribution of the 1,000 bootstrap median Spearman r values as a histogram using Altair. Add two vertical rules marking the 2.5th and 97.5th percentiles, using a distinct color or stroke pattern for each. Write one sentence explaining what the width of the distribution tells you about uncertainty in your estimate of the median Spearman r — specifically, whether you would reach the same conclusion if you had surveyed a different set of educators.</p>
+</div>
+<div class="exercise">
+<h3>Systematic Over-Prediction</h3>
+<p>Identify the three error types that educators most consistently over-predict relative to the Blackbox data — that is, the three types where educator rankings systematically place the error as more common than the Blackbox frequency data show. Write two sentences suggesting why educators might systematically over-estimate the frequency of those particular errors: consider what gets emphasized in introductory teaching materials, what kinds of errors instructors see and remember, and what kinds of errors students fix quickly and therefore stop making.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../mining/">Mining Software Repositories</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../design/">Study Design and Replication</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

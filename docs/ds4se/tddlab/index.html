@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lab: Does Test-Driven Development Work?</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a class="active" href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Lab: Does Test-Driven Development Work?</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Reproduce Mann-Whitney U tests and Cliff's delta values from Fucci et al. [<a class="bib-ref" href="../bibliography/#Fucci2016">Fucci2016</a>]</li>
+<li>Evaluate how exclusion criteria affect statistical results</li>
+<li>Explain why TDD and TLD produce similar outcomes in controlled experiments</li>
+<li>Interpret null results in terms of statistical power</li>
+</ul>
+<h2>Lesson</h2>
+<ul>
+<li>Test-driven development (TDD) is one of the most debated practices in software engineering<ul>
+<li>The premise: write a failing test before writing the code that makes it pass</li>
+<li>Many developers swear by it; many others ignore it; few have looked at the evidence carefully</li>
+<li>Today you will look at the evidence yourself and decide what to believe</li>
+</ul>
+</li>
+<li>Fucci et al. ran a multi-site blind analysis with five academic sites [<a class="bib-ref" href="../bibliography/#Fucci2016">Fucci2016</a>]<ul>
+<li>Participants were professional developers, not students, across multiple countries</li>
+<li>Each participant implemented a feature either test-first (TDD) or test-last (TLD)</li>
+<li>Outcomes measured: number of passing tests (TESTS), external quality (QLTY), productivity (PROD)</li>
+<li>"Blind analysis" means the researchers committed to their analysis plan before seeing the results</li>
+</ul>
+</li>
+<li>The lab workflow follows the steps of a real replication study<ul>
+<li>Load the Fucci dataset and inspect its structure</li>
+<li>Apply the same exclusion criteria the original authors used</li>
+<li>Run Mann-Whitney U tests on all three outcome variables</li>
+<li>Compute Cliff's delta for each outcome</li>
+<li>Compare your numbers to Table 3 of the paper</li>
+<li>If your numbers differ by more than rounding, diagnose the discrepancy before moving on</li>
+</ul>
+</li>
+<li>The target values from Fucci et al. Table 3 are:<ul>
+<li>TESTS: p = 0.052, Cliff's delta = 0.19</li>
+<li>QLTY: p = 0.38, Cliff's delta = 0.12</li>
+<li>PROD: p = 0.89, Cliff's delta = 0.02</li>
+</ul>
+</li>
+<li>The code below loads the dataset, runs the tests, and prints a comparison table</li>
+</ul>
+<div data-inc="replicate_fucci.py"><span aria-label="Source: tddlab/replicate_fucci.py" class="inc-path" role="img" tabindex="0" title="tddlab/replicate_fucci.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Replicate Mann-Whitney U and Cliff's delta from Fucci et al. (2016)."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cliffs_delta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">greater</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">less</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">greater</span> <span class="o">-</span> <span class="n">less</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/fucci_tdd.csv"</span><span class="p">)</span>
+<span class="n">tdd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"approach"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"TDD"</span><span class="p">)</span>
+<span class="n">tld</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"approach"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"TLD"</span><span class="p">)</span>
+
+<span class="n">published</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"TESTS"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.052</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">),</span> <span class="s2">"QLTY"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">),</span> <span class="s2">"PROD"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Outcome'</span><span class="si">:</span><span class="s2">&lt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'U'</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'p'</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'delta'</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'pub_p'</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'pub_d'</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"TESTS"</span><span class="p">,</span> <span class="s2">"QLTY"</span><span class="p">,</span> <span class="s2">"PROD"</span><span class="p">]:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tdd</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tld</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">cliffs_delta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">pub_p</span><span class="p">,</span> <span class="n">pub_d</span> <span class="o">=</span> <span class="n">published</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">outcome</span><span class="si">:</span><span class="s2">&lt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">u</span><span class="si">:</span><span class="s2">&gt;8.1f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">&gt;10.3e</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">delta</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">pub_p</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">pub_d</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>If your p-values match the published ones to within rounding, the replication succeeded<ul>
+<li>Small discrepancies often trace to differences in how null values are handled or how the
+    exclusion criteria are applied — track these down before calling it a match</li>
+<li>Large discrepancies suggest a substantive difference in the dataset or the test setup</li>
+</ul>
+</li>
+<li>Fucci et al. [<a class="bib-ref" href="../bibliography/#Fucci2017">Fucci2017</a>] followed up with a deeper analysis of the same data<ul>
+<li>TDD and TLD produce similar outcomes in terms of quality and productivity</li>
+<li>What matters more is the rhythm of test-code interleaving: developers who switched
+    frequently between writing tests and writing code performed better regardless of which came first</li>
+<li>The test-first vs. test-last distinction turns out to be less important than how granular
+    the development cycle is</li>
+</ul>
+</li>
+<li>What does this mean for your team?<ul>
+<li>Nagappan et al. found TDD reduced defects by 40-90% in industrial case studies [<a class="bib-ref" href="../bibliography/#Nagappan2008a">Nagappan2008a</a>]</li>
+<li>Fucci et al. found little effect in controlled experiments</li>
+<li>Both findings can be correct: controlled experiments isolate a single variable;
+    industrial case studies capture the full complexity of real teams and real incentives</li>
+<li>The safest conclusion is that TDD is not magic, and TDD that is done badly is not better
+    than thoughtful test-last development</li>
+</ul>
+</li>
+<li>Wrap-up: the distinction between belief and evidence matters<ul>
+<li>"We believe TDD works" is not evidence</li>
+<li>"We measured TDD and found these results" is the beginning of evidence</li>
+<li>Even measured results need replication, and even replication needs interpretation</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Fucci et al. found no significant difference in QLTY or PROD between TDD and TLD. What are two possible explanations for this null result?</summary>
+<p>One explanation is that TDD and TLD genuinely produce equivalent outcomes for quality and
+productivity, at least in short controlled experiments with professional developers, and
+the null result reflects the true state of affairs. A second explanation is that the study
+was underpowered: with the number of participants in the study, the statistical tests could
+not reliably detect a small-to-medium effect even if one existed. Dyba et al. showed that
+most SE experiments lack sufficient power to detect realistic effects [<a class="bib-ref" href="../bibliography/#Dyba2006">Dyba2006</a>], so a
+null result often means "we could not see it" rather than "it is not there."</p>
+</details>
+<details>
+<summary>The following code produces an error when run on the Fucci data. What is the bug and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">tdd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"approach"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"TDD"</span><span class="p">)</span>
+<span class="n">tld</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"approach"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"TLD"</span><span class="p">)</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">tdd</span><span class="p">[</span><span class="s2">"PROD"</span><span class="p">],</span> <span class="n">tld</span><span class="p">[</span><span class="s2">"PROD"</span><span class="p">])</span>
+</code></pre></div>
+</summary>
+<p><code>stats.mannwhitneyu</code> requires NumPy arrays or Python lists, not Polars Series. Passing a
+Polars Series directly will raise a TypeError. The fix is to call <code>.to_numpy()</code> and drop
+null values before passing the data to the test:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tdd</span><span class="p">[</span><span class="s2">"PROD"</span><span class="p">]</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tld</span><span class="p">[</span><span class="s2">"PROD"</span><span class="p">]</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>alternative="two-sided"</code> argument is also important: the default in older versions of
+scipy is <code>"two-sided"</code>, but specifying it explicitly matches the analysis in the paper and
+avoids confusion about which alternative hypothesis is being tested.</p>
+</details>
+<details>
+<summary>What does it mean for a study to be underpowered, and why might an underpowered study produce a null result even when a real effect exists?</summary>
+<p>Statistical power is the probability that a test will correctly reject the null hypothesis
+when a real effect exists. A study is underpowered when its sample size is too small to
+give the test a reasonable chance of detecting an effect of the expected size. If power is
+0.30 for a medium effect, the test will fail to detect that effect 70% of the time purely
+due to sampling noise. An underpowered study that finds p &gt; 0.05 cannot conclude there is
+no effect; it can only conclude that its sample was not large enough to see one if it is there.</p>
+</details>
+<details>
+<summary>Nagappan et al. found TDD reduced defects by 40-90% in industrial case studies, while Fucci et al. found little effect in a controlled experiment. How can both findings be correct?</summary>
+<p>The two studies measured different things in different contexts. Nagappan et al. studied
+real teams on real projects over extended periods, where TDD adoption likely came bundled
+with other practices: more careful design, better discipline, and organizational support
+for quality. Fucci et al. isolated the test-first vs. test-last distinction in a short
+controlled task, removing most of the surrounding context. It is plausible that TDD's
+benefits in industry come from the culture and habits it encourages rather than from the
+mechanical act of writing tests before code. The external validity of a controlled
+experiment is always limited, and the internal validity of an industrial case study is
+always limited. Together they are more informative than either alone.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Reproduce Table 3</h3>
+<p>Run <code>replicate_fucci.py</code> and compare your output to the published values for all three
+outcomes. Report your reproduced p-values and Cliff's delta values alongside the published
+values in a table. For any discrepancy larger than 0.01 in either p or delta, write one
+sentence hypothesizing what might cause the discrepancy, considering differences in
+exclusion criteria, null value handling, or test parameterization.</p>
+</div>
+<div class="exercise">
+<h3>Effect of exclusion criteria</h3>
+<p>Rerun the Mann-Whitney U tests for all three outcomes without applying any exclusion
+criteria used in the original analysis (include all rows in the dataset). Report how the
+p-values change compared to the analysis with exclusions. Write two sentences explaining
+whether the exclusion decisions strengthen or weaken the main finding, and whether you
+think the original authors were justified in applying them.</p>
+</div>
+<div class="exercise">
+<h3>Operationalizing rhythm</h3>
+<p>Fucci et al. [<a class="bib-ref" href="../bibliography/#Fucci2017">Fucci2017</a>] found that the rhythm of test-code interleaving matters more
+than whether tests are written first or last. Write one sentence defining an
+operationalization of "rhythm" that could be measured from a version control history (for
+example, using commit timestamps and commit messages or file names to identify test commits
+vs. implementation commits). Write a second sentence describing the dataset you would need
+to measure this operationalization across a sample of open-source projects.</p>
+</div>
+<div class="exercise">
+<h3>Power analysis</h3>
+<p>Using <code>scipy.stats</code> or a power analysis library such as <code>statsmodels.stats.power</code>, compute
+the statistical power of a Mann-Whitney U test with the actual sample sizes in the Fucci
+dataset to detect a medium effect (Cliff's delta ≈ 0.3). Report the power value. Write
+two sentences explaining what this power level implies for how much confidence you should
+place in the null results for QLTY and PROD, given that both outcomes showed p &gt; 0.05.</p>
+</div>
+<div class="exercise">
+<h3>Reconciling contradictory findings</h3>
+<p>Nagappan et al. found TDD reduced defects by 40-90% in industrial case studies [<a class="bib-ref" href="../bibliography/#Nagappan2008a">Nagappan2008a</a>],
+while Fucci et al. found little effect in a controlled experiment. Write three sentences
+reconciling these findings, using the concepts of external validity, confounds, and effect
+size. Your answer should explain how both studies can be correct without either being
+dishonest or incompetent.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../threats/">Confounds, Bias, and Threats to Validity</a>
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../mining/">Mining Software Repositories</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

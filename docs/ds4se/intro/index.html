@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Should You Care What Researchers Found?</title>
+<meta content="Data Science for Software Engineers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">DS4SE</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a class="active" href="../intro/">Why Should You Care What Researchers Found?</a></li>
+<li><a href="../tidy/">Tidy Data and Polars Basics</a></li>
+<li><a href="../grouping/">Grouping, Aggregating, and Joining</a></li>
+<li><a href="../visualize/">Visualization with Altair</a></li>
+<li><a href="../describe/">Descriptive Statistics</a></li>
+<li><a href="../pep8lab/">Lab: Python Coding Style at Scale</a></li>
+<li><a href="../hypotest/">The Logic of Hypothesis Testing</a></li>
+<li><a href="../compare/">Comparing Two Groups</a></li>
+<li><a href="../effectsize/">Effect Size and Practical Significance</a></li>
+<li><a href="../correlate/">Correlation and Prediction</a></li>
+<li><a href="../threats/">Confounds, Bias, and Threats to Validity</a></li>
+<li><a href="../tddlab/">Lab: Does Test-Driven Development Work?</a></li>
+<li><a href="../mining/">Mining Software Repositories</a></li>
+<li><a href="../nonpar/">Non-Parametric Methods and Rank-Based Tests</a></li>
+<li><a href="../design/">Study Design and Replication</a></li>
+<li><a href="../aitools/">AI Tools and Software Engineering</a></li>
+<li><a href="../reading/">Reading and Critiquing the Literature</a></li>
+<li><a href="../capstone/">Capstone: Design Your Own Study</a></li>
+<li><a href="../qualdata/">What Qualitative Data Looks Like in SE Research</a></li>
+<li><a href="../themes/">Thematic Analysis</a></li>
+<li><a href="../reliability/">Coding Schemes and Inter-Rater Reliability</a></li>
+<li><a href="../grounded/">Grounded Theory: A Practical Introduction</a></li>
+<li><a href="../interviews/">Interviews and Survey Open-Ends</a></li>
+<li><a href="../mixed/">Mixed Methods</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../datasets/">Datasets</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/ds4se">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Why Should You Care What Researchers Found?</h1>
+<h2>Learning Goals</h2>
+<ul>
+<li>Load a CSV with Polars and compute basic percentiles</li>
+<li>Explain why the 10X productivity claim depends on measurement choices</li>
+<li>Use the Noda DevEx framework to identify dimensions of developer experience</li>
+<li>Recognize how Goodhart's Law undermines productivity metrics</li>
+</ul>
+<h2>Lesson</h2>
+<ul>
+<li>In 2000, Lutz Prechelt asked dozens of programmers to solve the same phone-book problem
+    in the language of their choice [<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>, <a class="bib-ref" href="../bibliography/#Prechelt2019">Prechelt2019</a>]<ul>
+<li>The data file <code>jccpprtTR.csv</code> has one row per programmer with columns like
+    <code>person</code>, <code>lang</code>, <code>whours</code> (work hours), <code>stmtL</code> (statement lines), and <code>whours</code></li>
+<li>Every participant produced a working solution; the question is how long it took</li>
+</ul>
+</li>
+<li>The famous "10X programmer" claim lives in this dataset, but the number you get depends
+    entirely on what you measure<ul>
+<li>Comparing the single fastest to the single slowest gives a 105X ratio</li>
+<li>Restricting to Java alone gives 17X</li>
+<li>Comparing the 90th <a class="gl-ref" href="../glossary/#percentile">percentile</a> to the 10th gives a much smaller number</li>
+<li>Comparing the <a class="gl-ref" href="../glossary/#median">median</a> across language groups gives a different story again</li>
+</ul>
+</li>
+<li>A <a class="gl-ref" href="../glossary/#box_and_whisker_plot">box-and-whisker plot</a> shows these differences clearly<ul>
+<li>The box spans the 25th to 75th percentile; the center line is the median</li>
+<li>Points outside the whiskers are not necessarily errors; they are just far from typical</li>
+</ul>
+</li>
+<li>Begel and Zimmermann asked hundreds of Microsoft engineers what questions they most
+    wanted researchers to answer [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>]<ul>
+<li>Top concerns span code quality, team productivity, and tool effectiveness</li>
+<li>None of the top-ten questions ask about individual programmer speed</li>
+<li>Engineers care about systems, not about ranking colleagues</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#goodharts_law">Goodhart's Law</a> explains why individual productivity metrics fail:
+    once you use a measure to evaluate people, they optimize the measure instead of the
+    underlying goal<ul>
+<li>If you reward lines of code per day, people write more lines per day</li>
+<li>If you reward closed tickets, people close tickets without fixing the underlying problem</li>
+<li>The measure stops tracking what you actually care about</li>
+</ul>
+</li>
+<li>Devanbu, Zimmermann, and Bird surveyed developers about their beliefs regarding software
+    engineering practice [<a class="bib-ref" href="../bibliography/#Devanbu2016">Devanbu2016</a>]<ul>
+<li>Developers held strong opinions that often contradicted evidence in their own project data</li>
+<li>Experience in one context does not automatically transfer to another context</li>
+<li>Personal intuition is data, but it is one data point with a very small sample size</li>
+</ul>
+</li>
+<li>Noda et al. argue that developer experience (DevEx) has three distinct dimensions
+    [<a class="bib-ref" href="../bibliography/#Noda2023">Noda2023</a>]<ul>
+<li>Feedback loops: how quickly do developers get signals about whether their work is correct?</li>
+<li>Flow state: how often can developers work without interruption?</li>
+<li>Cognitive load: how much mental effort does the environment impose beyond the actual problem?</li>
+<li>Simple metrics like lines of code per day collapse all three dimensions into noise</li>
+</ul>
+</li>
+<li>Before measuring productivity, you have to decide what productivity means<ul>
+<li>A developer who writes 50 lines of clean, tested, documented code may deliver more value
+    than one who writes 200 lines of tangled code that breaks the next sprint</li>
+<li>This is not a philosophical point; it changes which data you collect and how you analyze it</li>
+</ul>
+</li>
+<li>This tutorial covers 18 sessions organized into four days<ul>
+<li>Day 1: loading, cleaning, grouping, and visualizing real data</li>
+<li>Day 2: hypothesis testing, effect size, correlation, and threats to validity</li>
+<li>Day 3: mining repositories and understanding the impact of AI tools</li>
+<li>Day 4: analyzing qualitative data from interviews and open-ended surveys</li>
+</ul>
+</li>
+</ul>
+<div data-inc="prechelt.py"><span aria-label="Source: intro/prechelt.py" class="inc-path" role="img" tabindex="0" title="intro/prechelt.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""Compute development-time percentiles from Prechelt data."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/jccpprtTR.csv"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"All languages:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p10"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p50"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p90"</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="n">p10</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>
+<span class="n">p90</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"90th/10th ratio: </span><span class="si">{</span><span class="n">p90</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p10</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">X"</span><span class="p">)</span>
+
+<span class="n">java</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"lang"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Java"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Java only:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">java</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p10"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p50"</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"whours"</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"p90"</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is wrong with claiming 10X productivity by comparing the best programmer to the worst?</summary>
+<p>Comparing extremes guarantees an inflated ratio regardless of the underlying distribution.
+Every dataset has a maximum and a minimum; the ratio between them tells you about the
+tails, not about typical performance. Prechelt found a 105X ratio across all languages,
+but the 90th/10th percentile ratio in the same data is far smaller. Picking a comparison
+method after seeing the data is also a form of cherry-picking: you can get almost any
+number you want by choosing the right pair of values to compare.</p>
+</details>
+<details>
+<summary>The following code is supposed to compute the 10th and 90th percentile ratio, but it contains a bug. What is wrong and how do you fix it?
+
+
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">p10</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">p90</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">p90</span> <span class="o">/</span> <span class="n">p10</span>
+</code></pre></div>
+</summary>
+<p>The <code>quantile</code> method in Polars takes a value between 0.0 and 1.0, not a percentage.
+Passing <code>10</code> asks for the value at the 10th <em>multiple</em> of the distribution, which is
+out of range and will either raise an error or return <code>None</code>. The fix is:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">p10</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>
+<span class="n">p90</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"whours"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">p90</span> <span class="o">/</span> <span class="n">p10</span>
+</code></pre></div>
+</details>
+<details>
+<summary>What does Goodhart's Law predict will happen if a company starts evaluating developers by lines of code written per week?</summary>
+<p>Developers will write more lines of code per week, because that is the measure they are
+being evaluated on. This can happen in several ways: removing whitespace compression,
+splitting statements across multiple lines, avoiding helper functions that reduce
+duplication, or simply writing verbose code where concise code would do. The number goes
+up; the underlying quality of the software does not necessarily follow. Eventually the
+metric stops reflecting what the company actually cares about, which is working software
+delivered efficiently.</p>
+</details>
+<details>
+<summary>How does the Noda DevEx framework improve on simple productivity metrics like lines-per-day or tickets-closed?</summary>
+<p>The DevEx framework identifies three distinct dimensions of developer experience: feedback
+loops, flow state, and cognitive load. A single metric like lines-per-day collapses all
+three into one number, which means you cannot tell whether a low score reflects slow
+feedback from CI/CD pipelines, constant interruptions, or a genuinely hard problem. By
+measuring each dimension separately, teams can diagnose which specific aspect of their
+environment is limiting productivity and target improvements accordingly. A developer
+might be highly productive despite closing few tickets because they are carrying heavy
+cognitive load imposed by poorly documented legacy code.</p>
+</details>
+<details>
+<summary>Devanbu et al. found that developers held beliefs about their own projects that contradicted evidence in the project's own data. What does this suggest about relying on team leads' opinions when evaluating a new tool?</summary>
+<p>It suggests that opinion alone is unreliable evidence, even when the person has direct
+experience with the project in question. A team lead's intuition is shaped by memorable
+incidents, recent events, and the subset of the codebase they interact with most
+frequently. Data collected systematically across the whole project often tells a different
+story. This does not mean team leads are wrong about everything, but it does mean their
+opinions should be treated as hypotheses to be checked against data rather than as
+conclusions.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Reproduce Prechelt's Java Claim</h3>
+<p>Load the Prechelt data file and filter it to Java submissions only. Find the minimum and
+maximum values of <code>whours</code> in that subset and compute their ratio. Then compute the same
+ratio for each other language in the dataset and present all ratios in a single Polars
+dataframe, sorted from largest to smallest. Write a one-sentence interpretation of what
+the table tells you about language choice and development time variability.</p>
+</div>
+<div class="exercise">
+<h3>DevEx Self-Assessment</h3>
+<p>Pick two programming tasks you completed in the past two weeks: one that felt frustrating
+and one that felt productive. For each task, rate it from 1 to 5 on the three DevEx
+dimensions (feedback loops, flow state, cognitive load) and write a sentence explaining
+each rating. Then identify which single dimension most limited your productivity on the
+frustrating task and describe one concrete change to your environment or process that
+would improve that dimension.</p>
+</div>
+<div class="exercise">
+<h3>Percentiles by Language</h3>
+<p>Using the Prechelt data, compute the 25th, 50th, and 75th percentile of <code>whours</code> for
+each programming language as a single Polars dataframe with one row per language. Sort
+the rows by median development time. Identify the language with the widest interquartile
+range (75th minus 25th percentile) and write a sentence explaining what a wide range
+implies about predictability for project managers estimating delivery time.</p>
+</div>
+<div class="exercise">
+<h3>Gaming a Metric</h3>
+<p>Choose one of the questions from the Begel and Zimmermann top-ten list [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>]
+that involves a measurable outcome. Describe a specific metric that a team might use to
+track progress on that question. Then describe in concrete terms how a developer or
+manager could game that metric: that is, how they could improve the number without
+improving the underlying outcome the metric was designed to measure. Explain which aspect
+of Goodhart's Law your example illustrates.</p>
+</div>
+<div class="exercise">
+<h3>Belief Versus Evidence</h3>
+<p>The Devanbu et al. study [<a class="bib-ref" href="../bibliography/#Devanbu2016">Devanbu2016</a>] found that developers' beliefs often do not
+match the evidence in their own projects. Write a short paragraph proposing one hypothesis
+about why this gap exists: for example, why might a developer's experience with a
+particular module lead them to a false belief about the codebase as a whole? Then propose
+a study design that a team could run with their own project data to test whether a
+specific commonly-held belief is accurate. Specify what data you would collect, how you
+would collect it, and what result would count as evidence against the belief.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+</div>
+<div class="col-6 center">
+<a href="../">DS4SE</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../tidy/">Tidy Data and Polars Basics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
