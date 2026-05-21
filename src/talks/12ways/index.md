@@ -14,21 +14,19 @@ date: "2026-05-21"
 
 --
 
--   I am not saying AI-assisted coding doesn't work: I'm saying *we don't know*
+-   I am not going to say AI-assisted coding doesn't work: I'm going to say *we don't know*
 
 -   Because most of the "evidence" I've seen is methodologically broken
 
 ---
 
-## 1. Counting Lines of Code Generated
+## 1. Counting Lines of Code
 
 -   Lines of code is a proxy metric for productivity
 
 -   LLMs generate more code, not necessarily better outcomes
 
 -   A 40% increase in lines per developer measures verbosity
-
---
 
 -   Deleting 2000 tangled lines and replacing them with 200 clean ones
     looks like a *loss* on this metric [Sadowski2019]
@@ -42,8 +40,6 @@ date: "2026-05-21"
 -   Copilot users completed a greenfield task 55% faster [Peng2023]
 
 -   The task: implement an HTTP server in JavaScript from scratch, in 90 minutes
-
---
 
 -   Real work: navigate an unfamiliar codebase, interpret ambiguous tickets,
     coordinate with colleagues, attend meetings
@@ -59,8 +55,6 @@ date: "2026-05-21"
 
 -   But you also hired twelve engineers, refactored CI, and switched cloud providers
 
---
-
 -   Without a control group, you cannot separate LLM effects
     from everything else that changed
 
@@ -72,13 +66,11 @@ date: "2026-05-21"
 
 -   "87% of developers report feeling more productive with AI tools" [Liang2024]
 
---
+-   Hawthorne effect: people work differently when they know they're being watched
 
--   **Hawthorne effect**: people work differently when they know they're being watched
+-   Novelty effect: new tools feel faster because they're new — and that fades
 
--   **Novelty effect**: new tools feel faster because they're new — and that fades
-
--   **Social desirability bias**: respondents say what they think management wants to hear
+-   Social desirability bias: respondents say what they think management wants to hear
 
 ---
 
@@ -87,8 +79,6 @@ date: "2026-05-21"
 -   McKinsey proposed measuring productivity via commit and PR counts [McKinsey2023]
 
 -   Goodhart's Law: when a measure becomes a target, it ceases to be a good measure [Goodhart1984]
-
---
 
 -   Developers make more, smaller commits when commit count is tracked
 
@@ -103,8 +93,6 @@ date: "2026-05-21"
 -   Code generation speed is easy to measure, so it gets measured
 
 -   The other half: review time, debugging wrong suggestions, security debt
-
---
 
 -   A substantial fraction of Copilot-generated code contained security vulnerabilities
 
@@ -122,8 +110,6 @@ date: "2026-05-21"
 
 -   Adoption measures whether the tool is installed and opened
 
---
-
 -   Says nothing about whether suggestions are useful, accepted thoughtlessly, or correct
 
 -   Gains from IBM's enterprise AI assistant were not experienced uniformly across users [Weisz2025]
@@ -138,9 +124,7 @@ date: "2026-05-21"
 
 -   Early adopters are more motivated, more comfortable with new tooling, more likely to be high performers
 
---
-
--   **Selection bias**: any observed difference may be a property of the *person*, not the tool
+-   Selection bias: any observed difference may be a property of the *person*, not the tool
 
 -   A two-year longitudinal study found Copilot users were consistently more active than non-users
     *even before* the tool was introduced [Stray2026]
@@ -153,8 +137,6 @@ date: "2026-05-21"
 
 -   But if developers write code 30% faster and cycle time doesn't change,
     writing code wasn't the bottleneck
-
---
 
 -   More code means more review: AI volume without increased review capacity
     can *worsen* cycle time [Forsgren2021]
@@ -170,8 +152,6 @@ date: "2026-05-21"
 
 -   The novelty effect inflates observed performance relative to the long-run baseline
 
---
-
 -   Effects that matter emerge over months: skill atrophy, technical debt accumulation,
     changes in team collaboration
 
@@ -185,8 +165,6 @@ date: "2026-05-21"
 -   Higher acceptance rates are presented as evidence the tool is useful
 
 -   Acceptance measures whether code looked plausible enough to press Tab
-
---
 
 -   Developers under time pressure accept more suggestions, including insecure ones [Pearce2022]
 
@@ -204,11 +182,7 @@ date: "2026-05-21"
 
 -   Developers without LLM assistants use documentation, colleagues, and their own thinking
 
---
-
 -   The relevant question: do LLM tools outperform the alternatives developers already have?
-
--   That comparison is rarely made [Peng2023]
 
 -   Choosing a weak baseline makes any tool look good; it does not make the tool useful
 
@@ -222,12 +196,10 @@ date: "2026-05-21"
 
 -   The fix is to apply what the human sciences already know
 
---
-
 -   The full post, with citations: <https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/>
 
 -   If you'd like a one-day introduction to research methods that avoid these errors,
-    [reach out](mailto:gvwilson@third-bit.com)
+    I'm [gvwilson@third-bit.com](mailto:gvwilson@third-bit.com)
 
 ---
 
