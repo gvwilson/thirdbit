@@ -1,0 +1,41 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}}: {{node.title}}</title>
+{% endblock %}
+
+{% block page_title %}
+<h1>{{node.title}}</h1>
+{% endblock %}
+
+{% block content %}
+<p>
+  I am always happy to talk:
+  please see <a href="@root/talks/speaking/">this rider</a> for details.
+</p>
+
+{% for pair in site.talks_entries | batch(2, '') %}
+<div class="row">
+  {% for entry in pair %}
+  {% if entry %}
+  <div class="col-6 col">
+    <div class="card">
+      <h3 class="card-title">{{ entry.title }}</h3>
+      <p>
+        {{ entry.description }}
+        <br>
+        <em>
+          {%- for link in entry.links -%}
+            {%- if not loop.first %}; {% endif -%}
+            <a href="{{ link.url }}">{{ link.text }}</a>
+          {%- endfor -%}
+          ; last updated {{ entry.updated }}.
+        </em>
+      </p>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

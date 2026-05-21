@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../assets/tango.css">
+  <link rel="stylesheet" href="../../assets/slides.css">
+  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script
+    type="text/javascript"
+    id="MathJax-script"
+    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Twelve Ways to Be Wrong About AI-Assisted Coding</title>
+</head>
+
+  <body>
+    <textarea id="source">
+
+<div class="center">
+  <h1>Twelve Ways to Be Wrong About AI-Assisted Coding</h1>
+  
+  <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
+  <h2>Greg Wilson</h2>
+  <p>2026-05-21</p>
+  <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+</div>
+
+---
+
+
+## Why Should You Listen to Me?
+
+-   Forty years writing and teaching software
+
+-   Spent the last few years reading research on software engineering methods
+
+-   The question: how do we *know* AI coding tools are working?
+
+--
+
+-   I am not saying AI-assisted coding doesn't work: I'm saying *we don't know*
+
+-   Because most of the "evidence" I've seen is methodologically broken
+
+---
+
+## 1. Counting Lines of Code Generated
+
+-   Lines of code is a proxy metric for productivity
+
+-   LLMs generate more code, not necessarily better outcomes
+
+-   A 40% increase in lines per developer measures verbosity
+
+--
+
+-   Deleting 2000 tangled lines and replacing them with 200 clean ones
+    looks like a *loss* on this metric [Sadowski2019]
+
+-   More code also means more to read, maintain, and debug
+
+---
+
+## 2. Timing Artificial Tasks
+
+-   Copilot users completed a greenfield task 55% faster [Peng2023]
+
+-   The task: implement an HTTP server in JavaScript from scratch, in 90 minutes
+
+--
+
+-   Real work: navigate an unfamiliar codebase, interpret ambiguous tickets,
+    coordinate with colleagues, attend meetings
+
+-   A randomized controlled trial with experienced open-source developers
+    found AI tools *increased* task completion time by 19% [Becker2025]
+
+---
+
+## 3. Before/After With No Control Group
+
+-   You adopt LLMs in January; pull requests ship faster by June
+
+-   But you also hired twelve engineers, refactored CI, and switched cloud providers
+
+--
+
+-   Without a control group, you cannot separate LLM effects
+    from everything else that changed
+
+-   Internal validity requires a credible counterfactual
+
+---
+
+## 4. Asking Developers If They Feel More Productive
+
+-   "87% of developers report feeling more productive with AI tools" [Liang2024]
+
+--
+
+-   **Hawthorne effect**: people work differently when they know they're being watched
+
+-   **Novelty effect**: new tools feel faster because they're new — and that fades
+
+-   **Social desirability bias**: respondents say what they think management wants to hear
+
+---
+
+## 5. Counting Commits, Pull Requests, and Tickets
+
+-   McKinsey proposed measuring productivity via commit and PR counts [McKinsey2023]
+
+-   Goodhart's Law: when a measure becomes a target, it ceases to be a good measure [Goodhart1984]
+
+--
+
+-   Developers make more, smaller commits when commit count is tracked
+
+-   Tickets get split when ticket count is tracked
+
+-   Activity is not output; output is not value [Beck2023]
+
+---
+
+## 6. Measuring Only the Easy Half
+
+-   Code generation speed is easy to measure, so it gets measured
+
+-   The other half: review time, debugging wrong suggestions, security debt
+
+--
+
+-   A substantial fraction of Copilot-generated code contained security vulnerabilities
+
+-   Developers under time pressure accepted insecure suggestions at higher rates [Pearce2022]
+
+-   Five major LLMs evaluated in 2025: none produced web code meeting industry security standards [Dora2025]
+
+-   15% of AI-authored commits introduce a quality issue; nearly a quarter persist long-term [Liu2026]
+
+---
+
+## 7. Treating Adoption Rate as a Success Metric
+
+-   "90% AI tool adoption across engineering" is a procurement outcome, not a productivity outcome
+
+-   Adoption measures whether the tool is installed and opened
+
+--
+
+-   Says nothing about whether suggestions are useful, accepted thoughtlessly, or correct
+
+-   Gains from IBM's enterprise AI assistant were not experienced uniformly across users [Weisz2025]
+
+-   Adoption is easier to measure than benefit, which is exactly why it gets reported
+
+---
+
+## 8. Comparing Volunteers to Non-Volunteers
+
+-   Studies comparing LLM adopters to non-adopters are comparing two different populations
+
+-   Early adopters are more motivated, more comfortable with new tooling, more likely to be high performers
+
+--
+
+-   **Selection bias**: any observed difference may be a property of the *person*, not the tool
+
+-   A two-year longitudinal study found Copilot users were consistently more active than non-users
+    *even before* the tool was introduced [Stray2026]
+
+---
+
+## 9. Measuring the Individual Instead of the System
+
+-   Individual coding speed is the easiest thing to measure, so it gets measured
+
+-   But if developers write code 30% faster and cycle time doesn't change,
+    writing code wasn't the bottleneck
+
+--
+
+-   More code means more review: AI volume without increased review capacity
+    can *worsen* cycle time [Forsgren2021]
+
+-   Senior developers experienced a 19% productivity decline as they absorbed
+    a 6.5% increase in code review load from AI-generated code [Xu2025]
+
+---
+
+## 10. Measuring During the Novelty Period
+
+-   A four-week study that finds a productivity boost has found a *four-week* boost
+
+-   The novelty effect inflates observed performance relative to the long-run baseline
+
+--
+
+-   Effects that matter emerge over months: skill atrophy, technical debt accumulation,
+    changes in team collaboration
+
+-   Analysis of 807 open-source repos adopting Cursor: large but transient velocity increase,
+    alongside substantial and *persistent* increase in code complexity [He2026]
+
+---
+
+## 11. Treating Suggestion Acceptance Rate as a Quality Signal
+
+-   Higher acceptance rates are presented as evidence the tool is useful
+
+-   Acceptance measures whether code looked plausible enough to press Tab
+
+--
+
+-   Developers under time pressure accept more suggestions, including insecure ones [Pearce2022]
+
+-   An enterprise study found 33% average acceptance rate and high satisfaction,
+    but tracked no measure of correctness or security of accepted code [Bakal2025]
+
+-   A metric that rewards *looking good enough* is not a metric that rewards *being good*
+
+---
+
+## 12. Comparing AI to Nothing
+
+-   Studies comparing AI-assisted developers to a control group using *nothing*
+    have chosen a baseline that does not exist in practice
+
+-   Developers without LLM assistants use documentation, colleagues, and their own thinking
+
+--
+
+-   The relevant question: do LLM tools outperform the alternatives developers already have?
+
+-   That comparison is rarely made [Peng2023]
+
+-   Choosing a weak baseline makes any tool look good; it does not make the tool useful
+
+---
+
+## Conclusion
+
+-   These twelve errors are not unique to AI research
+
+-   The same problems appear in studies of agile, TDD, and other practices
+
+-   The fix is to apply what the human sciences already know
+
+--
+
+-   The full post, with citations: <https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/>
+
+-   If you'd like a one-day introduction to research methods that avoid these errors,
+    [reach out](mailto:gvwilson@third-bit.com)
+
+---
+
+<div>
+  <div class="center">
+  <h2>Thank You</h2>
+  </div>
+  <div class="row">
+  <div class="col-6">
+  <p><img src="../../files/cv/gvwilson-gage-2019.png" width="80%"></p>
+  </div>
+  <div class="col-6">
+  <p><a href="http://third-bit.com">Greg Wilson</a></p>
+  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+  <p><a href="http://third-bit.com/talks/12ways/">http://third-bit.com/talks/12ways/</a></p>
+  </div>
+  </div>
+  <div class="center">
+  <p><em>start where you are &middot; use what you have &middot; help who you can</em></p>
+  </div>
+</div>
+
+
+    </textarea>
+    <script src="../../assets/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create()
+    </script>
+  </body>
+</html>

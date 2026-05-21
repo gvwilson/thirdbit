@@ -157,6 +157,96 @@ prior_entries = [
     },
 ]
 
+talks_entries = [
+    {
+        "title": "Twelve Ways to Be Wrong About AI-Assisted Coding",
+        "description": "Outlines twelve common methodological errors in studies claiming to measure the productivity impact of AI coding tools.",
+        "updated": "May 2026",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/12ways/"},
+        ],
+    },
+    {
+        "title": "Thirty Years of Python",
+        "description": "A personal look at how Python has evolved over three decades and what that evolution has cost in learnability.",
+        "updated": "February 2026",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/py30/"},
+        ],
+    },
+    {
+        "title": "Cocaine and Conway's Law",
+        "description": "Outlines what a course for programmers on civics and society might contain and how it ought to be presented.",
+        "updated": "October 2025",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/sdgc/"},
+            {"text": "video", "url": "https://youtu.be/f86KBeJ7e2M"},
+        ],
+    },
+    {
+        "title": "Giving a Tech Talk That Doesn't Suck",
+        "description": "A few simple rules (or questions) for giving technical presentations.",
+        "updated": "July 2025",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/tech-talk/"},
+        ],
+    },
+    {
+        "title": "Software Engineering's Greatest Hits",
+        "description": "Software engineering is turning itself into an evidence-based discipline. This talk describes how, why it matters, and a few interesting findings.",
+        "updated": "May 2023",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/greatest-hits/"},
+            {"text": "video", "url": "https://www.youtube.com/watch?v=HrVtA-ue-x0"},
+        ],
+    },
+    {
+        "title": "Writing a Technical Book",
+        "description": "I've written several technical books and edited several others. This talk summarizes what I've learned that first-time authors might find useful.",
+        "updated": "November 2022",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/writing-book/"},
+        ],
+    },
+    {
+        "title": "Software Design for Data Scientists",
+        "description": "Many data scientists are self-taught programmers and have never been shown how to think about design in the large. This talk presents ten different approaches, each of which gives different insights.",
+        "updated": "July 2021",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/sd4ds/"},
+        ],
+    },
+    {
+        "title": "Teaching Tech Together",
+        "description": "Having tried to cram a dozen books about teaching into a two-day course, I have now tried to cram key ideas from that course into this one-hour talk.",
+        "updated": "July 2021",
+        "links": [
+            {"text": "OpenOffice", "url": "@root/files/talks/teaching-learning.odp"},
+            {"text": "Google Slides", "url": "https://docs.google.com/presentation/d/1INHfSJzkNpdKonzqYzNlIq6D-H5dyKqs57qoVCAYxB0/"},
+            {"text": "video", "url": "https://www.youtube.com/watch?v=ewXvFQByRqY"},
+        ],
+    },
+    {
+        "title": "How to Run a Meeting",
+        "description": "A few simple rules that can make everyone's life run a little more smoothly.",
+        "updated": "July 2020",
+        "links": [
+            {"text": "OpenOffice", "url": "@root/files/talks/meeting.odp"},
+            {"text": "Google Slides", "url": "https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/"},
+            {"text": "video", "url": "https://www.youtube.com/watch?v=5f3-q9SzkeE"},
+        ],
+    },
+    {
+        "title": "Late Night Thoughts on Listening to Ike Quebec",
+        "description": "Keynote at CarpentryCon 2018 in Dublin.",
+        "updated": "May 2018",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/late-night/"},
+            {"text": "video", "url": "https://www.youtube.com/watch?v=7xR50ty5DZ0"},
+        ],
+    },
+]
+
 src_dir = "src"
 out_dir = "docs"
 extension = "/"
