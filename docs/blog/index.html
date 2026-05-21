@@ -391,6 +391,305 @@ Knopf,
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/05/20/twelve-ways-to-be-wrong/">
+      Twelve Ways to Be Wrong About AI-Assisted Coding
+    </a>
+  </h2>
+  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
+  <p>Suppose your manager asks you next week to demonstrate that
+the AI coding tools your company signed up for
+are worth the subscription cost.
+Would you measure lines of code generated, or tickets closed?
+Or would you send out a survey asking whether developers feel more productive?
+Each of those approaches is flawed in a different way;
+the sections below explain why.</p>
+<blockquote>
+<p>Note: this post is about how people are assessing AI,
+not at LLM-assisted coding itself;
+with a little rewording,
+these criticisms could be applied to a lot of the claims that have been made
+about agile development, test-driven development, and other practices.
+If I&rsquo;ve learned anything in the last twenty years,
+it&rsquo;s that software engineering would be a lot further ahead today
+if we had been willing to let our peers in the human sciences
+teach us how to study these kinds of things properly.</p>
+<p>Also, if you&rsquo;d a one-day introduction to the research methods you should use
+to avoid making these errors, please <a href="mailto:gvwilson@third-bit.com">reach out</a>.
+I&rsquo;m not qualified to teach it, but I know people who are,
+and I could probably talk them into doing it…</p>
+</blockquote>
+<h2>Counting Lines of Code Generated</h2>
+<p>Proxy metrics stand in for concepts that are hard to measure directly,
+and lines of code is one of the oldest.
+LLMs generate more code, but not necessarily better outcomes:
+a team that sees a 40% increase in lines of code per developer
+after adopting LLM tools has measured verbosity, not productivity.
+Deleting 2000 lines of tangled logic and replacing it with 200 clean ones
+is an improvement that looks like a loss on this metric [Sadowski2019].
+More code also means more to read, maintain, and debug,
+and AI&rsquo;s contribution to that future burden does not appear in the line count.</p>
+<h2>Timing Artificial Tasks</h2>
+<p>A widely cited study found that
+developers who used GitHub Copilot completed a task 55% faster than those who did not [Peng2023].
+The task was implementing an HTTP server in JavaScript from scratch, in ninety minutes;
+the developers had no other obligations that day.
+Real software development involves navigating a large codebase you did not write,
+understanding a requirement described ambiguously in a ticket,
+coordinating with colleagues,
+and attending meetings.
+Speed on a greenfield toy task does not predict speed on any of that.
+A randomized controlled trial with experienced open-source developers
+found the opposite of what participants themselves predicted:
+giving them access to AI tools increased task completion time by 19% [Becker2025].</p>
+<h2>Before/After With No Control Group</h2>
+<p>You start using LLMs in January;
+by June, pull requests are shipping faster, so the tools must be working, right?
+But between January and June you hired twelve engineers,
+refactored the CI pipeline,
+and switched your cloud provider.
+Without a group that did not adopt the tools,
+you cannot separate the effect of LLMs
+from any of the other changes that happened at the same time.
+Internal validity requires a credible counterfactual,
+i.e., some way of knowing what would have happened otherwise.</p>
+<h2>Asking Developers If They Feel More Productive</h2>
+<p>Survey results like
+&ldquo;87% of developers report feeling more productive with AI tools&rdquo;
+are regularly cited as evidence that the tools work [Liang2024],
+but three things make self-report systematically misleading:</p>
+<ul>
+<li>
+<p>The Hawthorne effect means people work differently
+    when they know they are being observed and evaluated;</p>
+</li>
+<li>
+<p>The novelty effect means new tools feel faster because they are novel,
+    and that feeling typically fades within weeks; and</p>
+</li>
+<li>
+<p>Social desirability bias means respondents tend to say
+    what they believe the survey wants to hear,
+    especially when management chose the tool.</p>
+</li>
+</ul>
+<h2>Counting Commits, Pull Requests, and Tickets</h2>
+<p>In 2023,
+McKinsey proposed measuring individual developer productivity
+using counts of commits, pull requests, code reviews, and similar activities [McKinsey2023].
+Goodhart&rsquo;s Law states that when a measure becomes a target,
+it ceases to be a good measure [Goodhart1984].
+When developers know their commit count is tracked, they make more, smaller commits;
+when ticket counts are tracked, tickets get split.
+The numbers improve while the underlying work does not [Beck2023].
+Activity is not output; output is not value.</p>
+<h2>Measuring Only the Easy Half</h2>
+<p>LLMs make code generation faster, and that half is easy to measure.
+The other half is harder:
+time spent reviewing LLM-generated code for correctness,
+time lost debugging confidently wrong suggestions,
+security vulnerabilities introduced by plausible-looking but insecure code,
+and technical debt from suggestions that solved the immediate problem
+while ignoring the surrounding design.
+A study of GitHub Copilot&rsquo;s code found
+that a substantial fraction of generated code contained security vulnerabilities,
+and that developers under time pressure accepted insecure suggestions at higher rates [Pearce2022].
+A 2025 evaluation of five major LLMs found that
+none produced web application code meeting industry security standards [Dora2025].
+A large-scale analysis of over 300,000 AI-authored commits found that
+more than 15% introduce at least one quality issue,
+and nearly a quarter of those issues persist in the codebase long-term [Liu2026].
+Measuring only the inputs that go up while ignoring the costs that also rise is not measurement;
+it is marketing.</p>
+<h2>Treating Adoption Rate as a Success Metric</h2>
+<p>&ldquo;We have achieved 90% AI tool adoption across engineering&rdquo;
+is a procurement outcome,
+not a productivity outcome.
+Adoption measures whether the tool is installed and opened;
+it says nothing about whether suggestions are useful,
+whether developers accept them thoughtlessly,
+or whether the accepted suggestions are correct.
+High adoption combined with low suggestion quality
+produces a workforce spending time managing a tool rather than benefiting from one.
+A study of IBM&rsquo;s enterprise AI coding assistant found that
+while the tool often provided net productivity increases,
+those gains were not experienced uniformly across its user base [Weisz2025].
+But adoption is easier to measure than benefit,
+which is exactly why it gets reported instead.</p>
+<h2>Comparing Volunteers to Non-Volunteers</h2>
+<p>Studies that compare developers who chose to use LLMs against those who did not
+are comparing two different populations,
+not two conditions.
+Early adopters differ from late adopters and non-adopters
+in ways that directly predict productivity:
+they are more motivated to experiment,
+more comfortable with new tooling,
+and more likely to already be high performers.
+Selection bias means any observed difference between the groups
+may be a property of the person rather than the tool.
+This is the most common design flaw in industry AI productivity reports,
+because it is the cheapest study to run.
+A two-year longitudinal study of Copilot use at a large IT organization found that
+developers who used the tool were consistently more active than non-users
+even before it was introduced [Stray2026].</p>
+<h2>Measuring the Individual Instead of the System</h2>
+<p>Individual coding speed is the easiest thing to measure, so it gets measured.
+But if AI tools help developers write code 30% faster
+and the team&rsquo;s time from ticket to production does not change,
+the bottleneck was not writing code.
+More code generated also means more code to review:
+if AI increases code volume without increasing review capacity,
+cycle time may worsen [Forsgren2021].
+An empirical study of professional developers found that while AI tools boosted output for
+less-experienced contributors, senior developers experienced a 19% decline in their own
+productivity as they absorbed a 6.5% increase in code review load from AI-generated code [Xu2025].
+Optimizing one stage of a pipeline while ignoring the others is a systems-thinking failure
+dressed as a productivity study.</p>
+<h2>Measuring During the Novelty Period</h2>
+<p>A four-week study that finds a productivity boost has found a four-week productivity boost.
+The novelty effect is real:
+developers are more engaged with new tools during the initial period,
+which inflates observed performance relative to the long-run baseline.
+Effects that actually matter emerge over months, not weeks,
+including skill atrophy for tasks now delegated to the AI,
+accumulation of technical debt from wrong suggestions,
+or changes in how teams collaborate.
+A study designed to detect a short-term benefit,
+has not told you anything about what happens after the study ends.
+An analysis of 807 open-source repositories adopting Cursor found exactly this pattern:
+adoption produced a large but transient increase in development velocity alongside
+a substantial and persistent increase in code complexity and static analysis warnings [He2026].</p>
+<h2>Treating Suggestion Acceptance Rate as a Quality Signal</h2>
+<p>LLM coding assistants commonly report what fraction of their suggestions developers accept,
+and higher acceptance rates are presented as evidence that the tool is useful.
+Acceptance measures whether the generated code looked plausible enough
+for a developer to press Tab;
+it does not measure whether the code was correct, secure, or maintainable.
+Developers under time pressure accept more suggestions, including insecure ones [Pearce2022],
+so a tight deadline makes acceptance rate rise for exactly the wrong reasons.
+An enterprise study of 400 developers found a 33% average acceptance rate
+alongside high developer satisfaction,
+but tracked no measure of the correctness or security of accepted code [Bakal2025].
+A metric that rewards looking good enough is not a metric that rewards being good.</p>
+<h2>Comparing AI to Nothing</h2>
+<p>Studies that compare AI-assisted developers to a control group using nothing
+have chosen a baseline that does not exist in practice.
+Developers without LLM assistants use documentation, colleagues,
+and the time they would otherwise spend thinking through the problem themselves.
+The relevant question is whether LLM tools outperform the alternatives developers already have,
+and that comparison is rarely made [Peng2023].
+Choosing a weak baseline makes any tool look good; it does not make the tool useful.</p>
+<blockquote>
+<p>I am profoundly grateful to everyone who has taken the time over the years
+to explain this stuff to me.
+Any errors or over-simplifications in what I&rsquo;ve written are entirely my fault.</p>
+</blockquote>
+<h2>Bibliography</h2>
+<dl>
+<dt>Bakal2025</dt>
+<dd>Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy Levin:
+&ldquo;Experience with GitHub Copilot for Developer Productivity at Zoominfo.&rdquo;
+arXiv:2501.13282,
+2025.</dd>
+<dt>Becker2025</dt>
+<dd>Joel Becker, Nate Rush, Elizabeth Barnes, and David Rein:
+&ldquo;Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.&rdquo;
+arXiv:2507.09089,
+2025.</dd>
+<dt>Beck2023</dt>
+<dd>Kent Beck:
+&ldquo;Measuring Developer Productivity: Real-World Examples.&rdquo;
+Medium,
+2023.
+<a href="https://tidyfirst.substack.com/p/measuring-developer-productivity">https://tidyfirst.substack.com/p/measuring-developer-productivity</a></dd>
+<dt>Dora2025</dt>
+<dd>Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and Sandeep Kumar Shukla:
+&ldquo;The Hidden Risks of LLM-Generated Web Application Code:
+A Security-Centric Evaluation of Code Generation Capabilities in Large Language Models.&rdquo;
+arXiv:2504.20612,
+2025.</dd>
+<dt>Flournoy2025</dt>
+<dd>John C. Flournoy, Carol S. Lee, Maggie Wu, and Catherine M. Hicks:
+&ldquo;No Silver Bullets: Why Understanding Software Cycle Time is Messy, Not Magic.&rdquo;
+arXiv:2503.05040,
+2025.</dd>
+<dt>Forsgren2021</dt>
+<dd>Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler:
+&ldquo;The SPACE of Developer Productivity.&rdquo;
+<em>ACM Queue</em>,
+19(1), 2021.</dd>
+<dt>Goodhart1984</dt>
+<dd>Charles Goodhart:
+&ldquo;Problems of Monetary Management: The U.K. Experience.&rdquo;
+In Anthony Courakis (ed.),
+<em>Inflation, Depression, and Economic Policy in the West</em>,
+Rowman and Littlefield,
+1984.</dd>
+<dt>He2026</dt>
+<dd>Hao He, Courtney Miller, Shyam Agarwal, Christian Kästner, and Bogdan Vasilescu:
+&ldquo;Speed at the Cost of Quality: How Cursor AI Increases Short-Term Velocity and Long-Term Complexity in Open-Source Projects.&rdquo;
+<em>Proc. MSR &lsquo;26</em>,
+2026.</dd>
+<dt>Hicks2025</dt>
+<dd>Catherine M. Hicks, Carol Lee, and Kristen Foster-Marks:
+&ldquo;The New Developer: AI Skill Threat, Identity Change &amp; Developer Thriving in the Transition to AI-Assisted Software Development.&rdquo;
+<a href="https://osf.io/preprints/psyarxiv/2gej5_v2">https://osf.io/preprints/psyarxiv/2gej5_v2</a>,
+2025,
+https://doi.org/10.31234/osf.io/2gej5_v2.</dd>
+<dt>Liang2024</dt>
+<dd>Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
+&ldquo;A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges.&rdquo;
+<em>Proc. ICSE 2024</em>,
+2024.</dd>
+<dt>Liu2026</dt>
+<dd>Yue Liu, Ratnadira Widyasari, Yanjie Zhao, Ivana Clairine Irsan, Junkai Chen,
+and David Lo:
+&ldquo;Debt Behind the AI Boom: A Large-Scale Empirical Study of AI-Generated Code in the Wild.&rdquo;
+arXiv:2603.28592,
+2026.</dd>
+<dt>McKinsey2023</dt>
+<dd>Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
+&ldquo;Yes, You Can Measure Software Developer Productivity.&rdquo;
+McKinsey &amp; Company,
+2023.
+<a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity</a></dd>
+<dt>Pearce2022</dt>
+<dd>Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri:
+&ldquo;Asleep at the Keyboard? Assessing the Security of GitHub Copilot&rsquo;s Code Contributions.&rdquo;
+<em>Proc. IEEE S&amp;P 2022</em>,
+2022,
+doi:10.1109/SP46214.2022.9833571.</dd>
+<dt>Peng2023</dt>
+<dd>Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer:
+&ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot.&rdquo;
+arXiv:2302.06590,
+2023.</dd>
+<dt>Sadowski2019</dt>
+<dd>Caitlin Sadowski and Thomas Zimmermann (eds.):
+<em>Rethinking Productivity in Software Engineering</em>.
+Apress,
+2019,
+978-1484242209.</dd>
+<dt>Stray2026</dt>
+<dd>Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen Wivestad, Astri Barbala, and Nils Brede Moe:
+&ldquo;Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study.&rdquo;
+<em>Proc. HICSS-59</em>,
+2026.</dd>
+<dt>Weisz2025</dt>
+<dd>Justin D. Weisz, Shraddha Kumar, Michael Muller, Karen-Ellen Browne, Arielle Goldberg, Ellice Heintze, and Shagun Bajpai:
+&ldquo;Examining the Use and Impact of an AI Code Assistant on Developer Productivity and Experience in the Enterprise.&rdquo;
+<em>Proc. CHI&lsquo;25</em>,
+2025.</dd>
+<dt>Xu2025</dt>
+<dd>Feiyang Xu, Poonacha K. Medappa, Murat M. Tunc, Martijn Vroegindeweij, and Jan C. Fransoo:
+&ldquo;AI-Assisted Programming Decreases the Productivity of Experienced Developers
+by Increasing the Technical Debt and Maintenance Burden.&rdquo;
+arXiv:2510.10165,
+2025.</dd>
+</dl>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/05/20/glossary/">
       SDGC Glossary
     </a>
@@ -1742,196 +2041,6 @@ NYU Press,
 Routledge,
 2015,
 <a href="https://isbnsearch.org/isbn/9780415520317">9780415520317</a>.</dd>
-</dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/17/not-so-selfish-after-all/">
-      Not So Selfish After All
-    </a>
-  </h2>
-  <p><time datetime="2026-05-17" class="post-date">2026-05-17</time></p>
-  <p>Imagine you are given ten dollars to split with a stranger.
-You can offer them any amount you like.
-If they accept, you both keep your shares,
-but if they reject the offer,
-neither of you gets anything.
-A purely self-interested stranger, according to classical economics,
-should accept any positive offer—even one dollar—because one dollar is better than nothing.</p>
-<p>When researchers ran this experiment across dozens of countries,
-they found that offers below thirty percent of the total were rejected roughly half the time:
-people would rather walk away with nothing
-than accept an outcome they perceived as unfair.
-In some communities, rejection rates were even higher.</p>
-<p>This experiment, called the ultimatum game,
-has been run so many times and reproduced so reliably
-that its basic finding is no longer seriously contested.
-People care about fairness,
-punish violations of it at cost to themselves,
-and do so even with strangers they will never see again.
-This directly contradicts the assumptions that underlie most of modern economics,
-much conservative political thought,
-and a substantial proportion of technology design.</p>
-<p>The idea that human beings are fundamentally self-interested did not emerge from evidence.
-It emerged from political argument,
-was later dressed in mathematical formalism,
-and eventually achieved the status of dogma.
-Thomas Hobbes, writing in 1651,
-described the natural condition of humanity as &ldquo;a war of all against all.&rdquo;
-Life without government, he argued, was &ldquo;solitary, poor, nasty, brutish, and short.&rdquo;
-Hobbes wasn&rsquo;t reporting on anthropology—he was making a political case for sovereign authority.
-If humans are naturally predatory,
-then the powerful state he wanted is the only alternative to chaos.</p>
-<p>Two centuries later,
-Herbert Spencer read Charles Darwin&rsquo;s account of natural selection
-and announced that it confirmed what Hobbes had suspected.
-&ldquo;Survival of the fittest&rdquo; is Spencer&rsquo;s phrase, not Darwin&rsquo;s.
-Darwin described differential reproductive success;
-Spencer described a cosmic competition for dominance
-in which helping the weak was a biological error.
-Social Darwinism,
-as this cluster of ideas became known,
-provided intellectual cover for opposing labor rights and public health measures,
-and for fighting almost any intervention that might protect people from market outcomes.
-After all,
-if the weak lost,
-it was because Nature <em>intended</em> them to lose.</p>
-<p>By the mid-twentieth century,
-economists had turned these self-serving rationalizations into mathematics.
-<em>Homo economicus</em> was a rational agent who consistently and accurately maximized his own utility.
-He did not care about fairness or make mistakes;
-he also didn&rsquo;t care about other people&rsquo;s welfare unless it affected his own.
-(And yes, I&rsquo;m using the male pronoun deliberately.)
-The behavioral economics research described in an earlier post explains how this is fiction,
-but the model is not just wrong about how people think,
-but about what they want.</p>
-<p>The ultimatum game is one of dozens of experiments
-that have been used to study human social preferences across cultures.
-Public goods games ask participants to contribute to a shared fund that pays out to everyone,
-including those who contribute nothing.
-Standard economic theory predicts that rational individuals will free-ride
-(i.e., contribute nothing while collecting their share of others&rsquo; contributions)
-until the fund collapses.
-In practice, initial contribution rates are typically between forty and sixty percent,
-and when participants can identify and punish free-riders,
-contribution rates rise and stay high.</p>
-<p>People punish free-riders even when punishment costs them something.
-What&rsquo;s more,
-they do it in one-shot interactions where there is no future reputation at stake.
-Samuel Bowles and Herbert Gintis spent years synthesizing this evidence,
-arguing that humans evolved not just as individuals competing for resources
-but as groups competing against other groups.
-Cooperation within groups enforced by altruistic punishment of defectors was
-a successful evolutionary strategy.
-The capacity for that cooperation,
-and the emotional responses that sustain it like fairness, shame, and indignation,
-are as deeply embedded in human nature as any appetite for self-interest.</p>
-<p>None of this means humans are angels.
-Self-interested behavior is real.
-But so is cooperation, fairness, and punishment of norm violation.
-The question is which tendencies a given institutional design tends to elicit.</p>
-<p>In 1968, the ecologist Garrett Hardin published an essay
-in which he described a common pasture open to all herders.
-Each one, acting rationally in their own interest,
-would add animals to the pasture until it was destroyed.
-The gains from each additional animal went to the individual herder,
-but the costs of the degraded pasture were borne by all.
-Self-interest would, inevitably, exhaust the commons.
-The only solutions Hardin could see were privatization or state regulation.</p>
-<p>&ldquo;The Tragedy of the Commons&rdquo; became one of the most cited papers in academic history.
-It appeared in economics, political science, environmental policy, and law.
-Its intellectual framework shaped fisheries policy, water rights law,
-and debates about global climate governance.</p>
-<p>There was just one problem:
-Hardin hadn&rsquo;t studied any actual commons.
-He had described an <em>unmanaged</em> commons with no rules, no governance, and no community.
-The historically managed commons of medieval England,
-the Alpine meadows of Switzerland,
-the forest communities of Japan,
-and the irrigation systems of Valencia and Bali all had elaborate rules developed over generations,
-mechanisms for monitoring compliance,
-graduated sanctions for violations,
-and processes for resolving disputes.
-They had been managing shared resources sustainably, in some cases, for centuries.
-The real tragedy in Hardin&rsquo;s work was his ignorance of how the real world actually worked.</p>
-<p>In contrast,
-the political scientist Elinor Ostrom spent her career studying actual systems.
-The picture that emerged was not a tragedy,
-but a sophisticated diversity of institutions,
-each one adapted to local conditions,
-and each one solving the collective action problem
-that Hardin had assumed was unsolvable without markets or states.</p>
-<p>Ostrom identified eight design principles that successful self-governing commons tend to share:</p>
-<ol>
-<li>Members have clearly defined rights to the resource.</li>
-<li>Rules are adapted to local conditions rather than imposed from outside.</li>
-<li>People affected by the rules have meaningful input into changing them.</li>
-<li>A system exists for monitoring both the resource and the behavior of users.</li>
-<li>Sanctions are graduated—minor violations draw minor consequences.</li>
-<li>Conflicts can be resolved quickly and cheaply.</li>
-<li>External authorities recognize the community&rsquo;s right to self-organize.</li>
-<li>Larger systems are built from nested smaller ones.</li>
-</ol>
-<p>In 2009, Ostrom was awarded the Nobel Prize in Economics for her work.
-The prize committee cited her demonstration that
-&ldquo;economic analysis can shed light on most forms of social organization.&rdquo;
-What her work actually demonstrated was narrower and more radical than that:
-that communities could govern shared resources sustainably
-without either privatizing them or handing them to the state,
-and that the dominant theoretical model had failed to predict this
-because it had assumed the wrong things about human nature.</p>
-<p>If the evidence against <em>homo economicus</em> is this extensive,
-why does the model retain such a hold on policy and institutional design?
-Part of the answer is that the model is self-fulfilling in a useful way.
-If you design a system that assumes people will free-ride,
-you build in monitoring, penalties, and enforcement mechanisms.
-Those mechanisms signal distrust,
-which tends to erode the social norms that sustained voluntary cooperation.
-People who might have contributed voluntarily
-now respond to being treated as suspects.
-The system that assumed selfishness produces the selfishness it expected.
-In contrast,
-Ostrom&rsquo;s communities worked partly because the institutions expressed trust:
-users had a voice in the rules,
-sanctions were proportionate rather than punitive,
-and the system treated people as members of a community rather than as threats to be managed.</p>
-<p>Technology platforms have largely chosen the other path.
-Terms of service are written for adversaries.
-Moderation systems treat all users as potential bad actors.
-Engagement optimization assumes that appetites can be exploited.
-These choices reflect a theory of human nature,
-and that theory has consequences—not just for the products built on it,
-but for the kind of behavior those products elicit and reward.</p>
-<p>Ostrom&rsquo;s lesson is not that humans always cooperate.
-It is that cooperation is a realistic outcome
-<em>if</em> systems are designed to support it,
-and that assuming the worst tends to prevent the better from occurring.
-The tragedy of the commons was not inevitable.
-It was what happened when community governance was absent.
-Building that governance, it turns out, is something humans are rather good at,
-so long as institutions give them room to try.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<dl>
-<dt><span id="Bowles2011">Bowles2011</span></dt>
-<dd>Samuel Bowles and Herbert Gintis:
-<em>A Cooperative Species: Human Reciprocity and Its Evolution</em>.
-Princeton University Press,
-2011,
-<a href="https://isbnsearch.org/isbn/9780691151250">9780691151250</a>.</dd>
-<dt><span id="Hardin1968">Hardin1968</span></dt>
-<dd>Garrett Hardin:
-&ldquo;The Tragedy of the Commons.&rdquo;
-<em>Science</em>,
-162(3859),
-1968,
-<a href="https://doi.org/10.1126/science.162.3859.1243">10.1126/science.162.3859.1243</a>.</dd>
-<dt><span id="Ostrom2015">Ostrom2015</span></dt>
-<dd>Elinor Ostrom:
-<em>Governing the Commons: The Evolution of Institutions for Collective Action</em>.
-Cambridge University Press,
-2015,
-<a href="https://isbnsearch.org/isbn/9781107569782">9781107569782</a>.</dd>
 </dl>
 </article>
 
