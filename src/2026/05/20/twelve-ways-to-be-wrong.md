@@ -21,7 +21,7 @@ the sections below explain why.
 > if we had been willing to let our peers in the human sciences
 > teach us how to study these kinds of things properly.
 >
-> Also, if you'd a one-day introduction to the research methods you should use
+> Also, if you'd like a one-day introduction to the research methods you should use
 > to avoid making these errors, please [reach out](mailto:gvwilson@third-bit.com).
 > I'm not qualified to teach it, but I know people who are,
 > and I could probably talk them into doing it…
