@@ -43,7 +43,7 @@ also protect it from competitive consequences.
 
 Enshittification depends on two things:
 network effects and structural lock-in.
-Neither is not specific to digital platforms.
+Neither is specific to digital platforms.
 The record club Columbia House ran the same play in a different era.
 Launched in the 1950s in the United States and Canada
 and later extended to the United Kingdom, Australia, and Brazil,
