@@ -54,6 +54,19 @@
 </nav>
 <main id="main-content">
 <h1>A Work-Stealing Scheduler</h1>
+<div class="objectives">
+<ul>
+<li>Explain why a single centralized task queue becomes a bottleneck at high worker counts
+    and how per-worker deques address this.</li>
+<li>Describe the asymmetry between owner operations (push/pop from one end)
+    and thief operations (steal from the other end)
+    and explain why this asymmetry matters.</li>
+<li>Explain why a real work-stealing deque requires atomic operations and careful memory ordering,
+    and why a Python list is not sufficient.</li>
+<li>Describe what livelock looks like in a work-stealing system
+    and identify at least one strategy to prevent it.</li>
+</ul>
+</div>
 <p>How do you distribute work
 When you have hundreds or thousands of tasks to execute and a handful of CPU cores?
 A naïve approach is to use a single queue,
@@ -503,14 +516,187 @@ Worker 2: executed=6, stolen=0, queue=0
 Worker 3: executed=6, stolen=0, queue=0
 </code></pre></div>
 </div>
+<h2 id="worksteal-join">Parent-Child Join</h2>
+<p>The current workers spawn child tasks and move on immediately.
+For divide-and-conquer algorithms,
+the parent usually needs to wait for all children to finish before it can complete its own work—
+this is the <a class="gl-ref" href="../glossary/#fork-join">fork-join</a> pattern.</p>
+<p><code>JoiningWorker</code> implements this by suspending the parent at the join point
+and resuming it only when all children have signaled completion:</p>
+<div data-inc="joining_worker.py" data-mark="joining"><span aria-label="Source: worksteal/joining_worker.py" class="inc-path" role="img" tabindex="0" title="worksteal/joining_worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">JoiningWorker</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Worker that tracks parent-child relationships and waits for children.</span>
+
+<span class="sd">    When a task spawns children, it does not complete until all children have</span>
+<span class="sd">    finished.  This models the fork-join pattern used in parallel divide-and-conquer</span>
+<span class="sd">    algorithms such as merge sort or parallel tree traversal.</span>
+
+<span class="sd">    Hidden complexity note:</span>
+<span class="sd">    In a real work-stealing runtime (e.g. Go's goroutine scheduler or Java's</span>
+<span class="sd">    ForkJoin framework) this wait is implemented with a *continuation*: the</span>
+<span class="sd">    parent task is suspended at the join point and placed back onto the deque</span>
+<span class="sd">    so other workers can continue making progress.  The parent only resumes</span>
+<span class="sd">    once a counter of outstanding children reaches zero.</span>
+
+<span class="sd">    Our simulation uses asimpy queues to implement the same idea: the parent</span>
+<span class="sd">    awaits a completion queue, and each child posts to that queue when it</span>
+<span class="sd">    finishes.  Because asimpy is single-threaded (event-driven), there are no</span>
+<span class="sd">    race conditions, but in a real concurrent system the counter decrement must</span>
+<span class="sd">    be atomic to avoid the parent waking up before all children are done.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">worker_id</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="c1"># Maps parent_id -&gt; Queue that the parent is waiting on.</span>
+        <span class="c1"># Each child posts to this queue when it completes.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">join_queues</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Queue</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Maps parent_id -&gt; number of children still outstanding.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pending_children</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Execute task, spawn children, and wait for all of them to finish."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks_executed</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
+                <span class="sa">f</span><span class="s2">"Executing </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Do the first half of the work.</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Randomly spawn children (simulating divide-and-conquer).</span>
+        <span class="n">children_spawned</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">:</span>
+            <span class="n">num_children</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="c1"># Create a queue that children will signal when they are done.</span>
+            <span class="n">join_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">join_queues</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">join_queue</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pending_children</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_children</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_children</span><span class="p">):</span>
+                <span class="n">child</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+                    <span class="n">task_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="n">duration</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span>
+                    <span class="n">parent_id</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">deque</span><span class="o">.</span><span class="n">push_bottom</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">children_spawned</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
+                        <span class="sa">f</span><span class="s2">"Spawned child </span><span class="si">{</span><span class="n">child</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="p">)</span>
+
+        <span class="c1"># If children were spawned, wait until all of them complete.</span>
+        <span class="k">if</span> <span class="n">children_spawned</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">join_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_queues</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_children</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">join_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="c1"># (Each child posts one item when it finishes.)</span>
+
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_queues</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_children</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
+                    <span class="sa">f</span><span class="s2">"All children of </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2"> done; resuming parent"</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Do the second half of the work.</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Worker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span><span class="si">}</span><span class="s2">: "</span>
+                <span class="sa">f</span><span class="s2">"Completed </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Notify parent (if any) that this child is done.</span>
+        <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Find the worker that is waiting for this child.</span>
+            <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">workers</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="nb">isinstance</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="n">JoiningWorker</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">task</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">in</span> <span class="n">worker</span><span class="o">.</span><span class="n">join_queues</span>
+                <span class="p">):</span>
+                    <span class="n">worker</span><span class="o">.</span><span class="n">pending_children</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">parent_id</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">await</span> <span class="n">worker</span><span class="o">.</span><span class="n">join_queues</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">parent_id</span><span class="p">]</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span>
+                    <span class="k">break</span>
+</code></pre></div>
+</div>
+<p>Each child posts to the parent's join queue when it finishes;
+the parent counts down to zero and then resumes.</p>
+<p><strong>Hidden complexity:</strong> In a real multi-threaded work-stealing runtime
+(Go's goroutine scheduler, Java's ForkJoin, Tokio in Rust),
+the parent cannot simply <code>await</code> a queue—
+doing so would block the OS thread, preventing that thread from stealing and running other tasks.
+Instead, the runtime saves the parent's continuation (the code to run after the join)
+and suspends the parent without blocking the thread.
+The thread is free to steal and execute other tasks while the parent waits.
+When the last child completes, it decrements an atomic counter;
+if the counter reaches zero, it schedules the parent's continuation back onto the deque.
+This requires lock-free atomic operations on the counter and careful memory ordering
+to ensure the parent sees all of the children's writes before it resumes.
+Our simulation sidesteps all of this with asimpy's event-driven, single-threaded model,
+but students building a real scheduler must address it.</p>
+<h2 id="worksteal-livelock">Preventing Livelock</h2>
 <p>Our implementations demonstrate the core concepts of work stealing,
 but production systems go further.
 In particular,
 they try to prevent <a class="gl-ref" href="../glossary/#livelock">livelock</a> by limiting how long a worker searches for victims,
 and use exponential backoff rather than spinning continuously when trying to steal work.</p>
+<p>Livelock in work-stealing looks like this:
+all workers are simultaneously idle (no local tasks),
+all try to steal from each other at the same instant,
+all fail (because everyone is already popping from the top),
+all wait and retry,
+and the cycle repeats.
+The fix is:
+(1) cap the number of steal attempts per idle cycle so workers don't spin-steal forever, and
+(2) use exponential backoff—after each failed steal attempt, wait twice as long before trying again.
+The backoff period is bounded (typically at 1–10 ms) so a newly available task is still noticed quickly.</p>
 <section aria-label="Exercises" class="exercises">
 <h2 id="worksteal-exercises">Exercises</h2>
-<p>FIXME: add exercises.</p>
+<ol>
+<li>
+<p>In the basic simulation, vary the number of workers from 2 to 8
+    while keeping the total number of tasks fixed at 20.
+    How does the steal rate change?
+    At what worker count does adding more workers stop helping?</p>
+</li>
+<li>
+<p>The deque uses a Python list,
+    which would require a lock if multiple threads accessed it simultaneously.
+    Find the <code>push_bottom</code>, <code>pop_bottom</code>, and <code>steal_top</code> methods in <code>worker_deque.py</code>.
+    For each method, identify which operation would be unsafe if two threads called it concurrently
+    without a lock (e.g., what can go wrong if <code>steal_top</code> and <code>pop_bottom</code> run at the same time?).</p>
+</li>
+<li>
+<p>Run the joining worker simulation.
+    Find a task in the output where the parent waits for children.
+    How much longer does the parent take to complete compared to what it would take without children?
+    What determines the critical path length when tasks have children?</p>
+</li>
+<li>
+<p>Add exponential backoff to the basic worker's steal loop.
+    After each failed steal attempt, double the wait time (starting at 0.05, capped at 0.5).
+    Reset the wait time to 0.05 on a successful steal.
+    Compare the total simulation time and idle time against the baseline.
+    (Starter: add <code>backoff = 0.05</code> to the worker's <code>init</code> and update it in <code>try_steal</code>.)</p>
+</li>
+<li>
+<p>The adaptive worker steals from the largest queue.
+    Compare its steal count and total simulation time against the random-target worker
+    on a workload where tasks arrive in bursts (e.g., all tasks for worker 0 arrive at t=0,
+    all tasks for worker 1 arrive at t=5).
+    Does adaptive selection help or hurt in this case?</p>
+</li>
+</ol>
 </section>
 </main>
 <footer aria-label="Page navigation">

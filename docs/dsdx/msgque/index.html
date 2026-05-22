@@ -55,6 +55,18 @@
 <main id="main-content">
 <h1>A Publish-Subscribe Message Queue</h1>
 <p class="subtitle">loosely-coupled communication</p>
+<div class="objectives">
+<ul>
+<li>Explain what decoupling means in a pub-sub system
+    and why it makes producers and consumers easier to scale independently.</li>
+<li>Describe the three backpressure strategies (drop, block, signal)
+    and the trade-offs each one makes between throughput and message loss.</li>
+<li>Explain why acknowledgment-based delivery gives at-least-once semantics
+    and what subscribers must do to handle duplicate messages safely.</li>
+<li>Compare round-robin and partition-based consumer group assignment
+    and explain why the choice affects message ordering guarantees.</li>
+</ul>
+</div>
 <p>When a web server processes an order,
 it might need to notify the inventory system,
 trigger an email,
@@ -143,7 +155,7 @@ the broker looks up the topic and places the message in each subscriber's queue:
 </code></pre></div>
 </div>
 <p>To test this,
-let's create a publisher that sendss messages to a specific topic at some rate:</p>
+let's create a publisher that sends messages to a specific topic at some rate:</p>
 <div data-inc="publisher.py" data-mark="publisher"><span aria-label="Source: msgque/publisher.py" class="inc-path" role="img" tabindex="0" title="msgque/publisher.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Publisher</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Publishes messages to topics."""</span>
 
@@ -256,7 +268,7 @@ but <code>FirstOf</code> captures the same semantics.</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Analytics received: </span><span class="si">{</span><span class="n">analytics</span><span class="o">.</span><span class="n">num_received</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p>The output shows being published and consumed asynchronously:</p>
+<p>The output shows messages being published and consumed asynchronously:</p>
 <div data-head="10" data-inc="ex_simple.out"><span aria-label="Source: msgque/ex_simple.out" class="inc-path" role="img" tabindex="0" title="msgque/ex_simple.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] OrderService publishing: Message 1 from OrderService
 [0.0] UserService publishing: Message 1 from UserService
 [0.0] Inventory received from 'orders': Message 1 from OrderService (latency: 0.0)
@@ -567,6 +579,18 @@ Messages not acknowledged within the timeout are redelivered.</p>
             <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span>
 </code></pre></div>
 </div>
+<p>At-least-once delivery makes redelivery possible,
+so subscribers must be prepared to receive the same message more than once.
+This is the <strong>idempotence requirement</strong>: processing a message twice must have the same effect as processing it once.</p>
+<p>Consider a subscriber that increments a counter in a database when it receives an "order placed" message.
+If the broker redelivers the message because the subscriber crashed before acknowledging,
+the counter will be incremented a second time, double-counting the order.
+The fix is to make the operation idempotent: check whether the order ID has already been processed
+before incrementing, and skip the increment if so.
+This "exactly-once processing" pattern—at-least-once delivery plus idempotent consumers—
+is the standard way to achieve reliable message processing in production systems.
+Exactly-once delivery at the broker level is theoretically possible but requires distributed transactions,
+which are expensive and rarely worth the cost compared to idempotent consumers.</p>
 <h2 id="msgque-balance">Consumer Groups and Load Balancing</h2>
 <p>In production systems,
 multiple instances of the same subscriber type often share the workload.
@@ -623,7 +647,40 @@ least-loaded routing,
 or partition-based assignment.</p>
 <section aria-label="Exercises" class="exercises">
 <h2 id="msgque-exercises">Exercises</h2>
-<p>FIXME: add exercises.</p>
+<ol>
+<li>
+<p>In the backpressure simulation, what happens if you increase the publisher's
+    base interval to match the subscriber's processing time?
+    What if you set the queue size to 1?
+    Run both variations and describe the equilibrium behavior in each case.</p>
+</li>
+<li>
+<p>The priority broker evicts low-priority messages when the queue is full.
+    Add a counter to track how many messages of each priority level were dropped.
+    Run a simulation where the publisher sends equal numbers of high- and low-priority messages.
+    What fraction of each priority level was dropped?
+    (Starter: add <code>dropped_by_priority: dict</code> to the broker's <code>init</code>.)</p>
+</li>
+<li>
+<p>A subscriber crashes after dequeuing a message but before acknowledging it.
+    In the acknowledgment broker, what happens to that message?
+    Trace through <code>ack_broker.py</code> to find where the timeout fires and what it does.
+    What would happen if the subscriber crashed again on the redelivered message?</p>
+</li>
+<li>
+<p>The consumer group uses round-robin distribution.
+    Write a simulation where one consumer in a group is 10x slower than the others
+    (it takes 10 time units to process each message instead of 1).
+    Does round-robin distribute load evenly in this case?
+    Propose a least-loaded distribution strategy and describe what state the distributor would need to track.</p>
+</li>
+<li>
+<p>The current broker does not persist messages to disk.
+    If the broker process crashes, all queued messages are lost.
+    Describe the changes needed to support durable messaging (messages survive broker restarts).
+    What is the performance cost of each change?</p>
+</li>
+</ol>
 </section>
 </main>
 <footer aria-label="Page navigation">

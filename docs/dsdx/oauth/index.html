@@ -54,6 +54,19 @@
 </nav>
 <main id="main-content">
 <h1>OAuth</h1>
+<div class="objectives">
+<ul>
+<li>Trace the authorization code flow through all four parties
+    (resource owner, client, authorization server, resource server)
+    and explain what each step accomplishes.</li>
+<li>Explain what PKCE adds to the authorization code flow
+    and why it is necessary for public clients such as mobile apps.</li>
+<li>Describe the client credentials flow
+    and explain when to use it instead of the authorization code flow.</li>
+<li>Identify the risks of storing access tokens insecurely
+    and describe what an attacker can do with a stolen token.</li>
+</ul>
+</div>
 <p>When you use your identity on one site to sign in on another,
 you're using <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>.
 This protocol has become the standard way for applications to access user data
@@ -777,6 +790,273 @@ which the client was never granted permission to read.</p>
 [2.3] Client: Failed - insufficient_scope
 </code></pre></div>
 </div>
+<h2 id="oauth-pkce">PKCE for Public Clients</h2>
+<p>The authorization code flow above assumes the client has a <code>client_secret</code>—
+a shared secret between the client and the authorization server.
+Mobile apps and single-page apps cannot keep a secret:
+anyone who installs the app or reads the JavaScript source code can extract it.
+PKCE (Proof Key for Code Exchange, RFC 7636) solves this.</p>
+<p>Before making the authorization request, the client generates a random <em>code verifier</em>
+and computes a <em>code challenge</em> by hashing it with SHA-256:</p>
+<div data-inc="pkce_client.py" data-mark="pkce_helpers"><span aria-label="Source: oauth/pkce_client.py" class="inc-path" role="img" tabindex="0" title="oauth/pkce_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_code_verifier</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Generate a cryptographically random code verifier.</span>
+
+<span class="sd">    The verifier must be 43–128 characters of URL-safe random data.</span>
+<span class="sd">    In production, use os.urandom and encode as base64url.</span>
+<span class="sd">    We use a simpler approach here since we are not cryptographically</span>
+<span class="sd">    concerned in a simulation.</span>
+<span class="sd">    """</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">"="</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">)[:</span><span class="n">length</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_code_challenge</span><span class="p">(</span><span class="n">verifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compute SHA-256 hash of the verifier, base64url-encoded (no padding).</span>
+
+<span class="sd">    This is the S256 method from RFC 7636.  The 'plain' method (sending the</span>
+<span class="sd">    verifier as the challenge) is allowed by the spec but provides no</span>
+<span class="sd">    additional security and should not be used.</span>
+<span class="sd">    """</span>
+    <span class="n">digest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">verifier</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">))</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">"="</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_challenge</span><span class="p">(</span><span class="n">verifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stored_challenge</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Verify that the verifier matches the stored challenge."""</span>
+    <span class="k">return</span> <span class="n">compute_code_challenge</span><span class="p">(</span><span class="n">verifier</span><span class="p">)</span> <span class="o">==</span> <span class="n">stored_challenge</span>
+</code></pre></div>
+</div>
+<p>The client sends the challenge (not the verifier) in the authorization request.
+When exchanging the code for a token, it sends the original verifier.
+The server hashes it and checks that it matches the stored challenge.
+An attacker who intercepts the code cannot use it without knowing the verifier,
+which was never sent over the network.</p>
+<div data-inc="pkce_client.py" data-mark="pkce_client"><span aria-label="Source: oauth/pkce_client.py" class="inc-path" role="img" tabindex="0" title="oauth/pkce_client.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PKCEClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""OAuth client that uses PKCE for the authorization code flow.</span>
+
+<span class="sd">    This client generates a code verifier before requesting authorization,</span>
+<span class="sd">    sends the code challenge with the authorization request,</span>
+<span class="sd">    and proves knowledge of the verifier when exchanging the code for a token.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">redirect_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">auth_server_auth_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
+        <span class="n">auth_server_token_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redirect_uri</span> <span class="o">=</span> <span class="n">redirect_uri</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_auth_queue</span> <span class="o">=</span> <span class="n">auth_server_auth_queue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_token_queue</span> <span class="o">=</span> <span class="n">auth_server_token_queue</span>
+
+        <span class="c1"># PKCE clients have no client_secret (they are public clients).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_code_verifier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient '</span><span class="si">{</span><span class="n">client_id</span><span class="si">}</span><span class="s2">' started (no client secret)"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Demonstrate the PKCE flow."""</span>
+        <span class="n">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"profile"</span><span class="p">,</span> <span class="s2">"photos"</span><span class="p">]</span>
+
+        <span class="c1"># Step 1: Generate verifier and challenge BEFORE the authorization request.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_code_verifier</span> <span class="o">=</span> <span class="n">generate_code_verifier</span><span class="p">()</span>
+        <span class="n">challenge</span> <span class="o">=</span> <span class="n">compute_code_challenge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_code_verifier</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: Generated code verifier "</span>
+            <span class="sa">f</span><span class="s2">"(challenge=</span><span class="si">{</span><span class="n">challenge</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span><span class="si">}</span><span class="s2">...)"</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Step 2: Send authorization request with the challenge.</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_authorization</span><span class="p">(</span><span class="n">scopes</span><span class="p">,</span> <span class="n">challenge</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: Authorization failed"</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Step 3: Exchange code for token using the verifier.</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exchange_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: Token exchange failed"</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: Token acquired successfully via PKCE"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_request_authorization</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">challenge</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Send authorization request including the code challenge."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">oauth_types</span><span class="w"> </span><span class="kn">import</span> <span class="n">AuthorizationRequest</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="s2">"state"</span><span class="p">)</span>
+        <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+
+        <span class="c1"># In a real request this would be an HTTP redirect to the authorization</span>
+        <span class="c1"># server with code_challenge and code_challenge_method=S256 as query params.</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">AuthorizationRequest</span><span class="p">(</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">redirect_uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+            <span class="n">scope</span><span class="o">=</span><span class="n">scopes</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
+            <span class="n">response_queue</span><span class="o">=</span><span class="n">response_queue</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Attach PKCE fields (would be query parameters in real HTTP).</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">code_challenge</span> <span class="o">=</span> <span class="n">challenge</span>          <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">code_challenge_method</span> <span class="o">=</span> <span class="s2">"S256"</span>      <span class="c1"># type: ignore[attr-defined]</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_auth_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">state</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: State mismatch — CSRF?"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">code</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_exchange_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Exchange the authorization code for a token, proving the verifier."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">oauth_types</span><span class="w"> </span><span class="kn">import</span> <span class="n">TokenRequest</span>
+
+        <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">TokenRequest</span><span class="p">(</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">client_secret</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>        <span class="c1"># Public clients have no secret.</span>
+            <span class="n">redirect_uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">redirect_uri</span><span class="p">,</span>
+            <span class="n">response_queue</span><span class="o">=</span><span class="n">response_queue</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Attach the code verifier — the server will hash it and compare.</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">code_verifier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_code_verifier</span>   <span class="c1"># type: ignore[attr-defined]</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_token_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">response</span><span class="p">:</span> <span class="n">TokenResponse</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">token_type</span> <span class="o">==</span> <span class="s2">"error"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PKCEClient: Token exchange error"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">access_token</span>
+</code></pre></div>
+</div>
+<p><strong>Token storage:</strong> Once a client has an access token, it must store it securely.
+On mobile apps, use the platform's secure storage (iOS Keychain, Android Keystore).
+In web apps, prefer <code>sessionStorage</code> over <code>localStorage</code>—
+tokens in <code>localStorage</code> are accessible to any JavaScript on the page,
+including third-party analytics scripts.
+Never store tokens in non-<code>HttpOnly</code> cookies,
+which are readable by JavaScript and vulnerable to XSS.</p>
+<h2 id="oauth-cc">Client Credentials Flow</h2>
+<p>The authorization code flow authenticates <em>users</em>.
+Server-to-server communication—batch jobs, microservices, scheduled tasks—often has no user.
+The Client Credentials flow handles this case:
+the application authenticates itself directly and receives a token representing the application,
+not any particular user.</p>
+<div data-inc="client_credentials.py" data-mark="cc_token_request"><span aria-label="Source: oauth/client_credentials.py" class="inc-path" role="img" tabindex="0" title="oauth/client_credentials.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ClientCredentialsRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Token request for the client credentials flow.</span>
+
+<span class="sd">    Unlike an authorization code request, there is no code to exchange.</span>
+<span class="sd">    The client authenticates directly with its credentials.</span>
+<span class="sd">    """</span>
+
+    <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">scope</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span>
+</code></pre></div>
+</div>
+<div data-inc="client_credentials.py" data-mark="cc_client"><span aria-label="Source: oauth/client_credentials.py" class="inc-path" role="img" tabindex="0" title="oauth/client_credentials.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ClientCredentialsClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""OAuth client using the client credentials flow.</span>
+
+<span class="sd">    Suitable for server-to-server communication where there is no user.</span>
+<span class="sd">    The client authenticates itself and receives a token that represents</span>
+<span class="sd">    the application's own identity rather than any particular user.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">auth_server_token_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span>
+        <span class="n">scopes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_secret</span> <span class="o">=</span> <span class="n">client_secret</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_token_queue</span> <span class="o">=</span> <span class="n">auth_server_token_queue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scopes</span> <span class="o">=</span> <span class="n">scopes</span> <span class="ow">or</span> <span class="p">[</span><span class="s2">"read"</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_expiry</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client '</span><span class="si">{</span><span class="n">client_id</span><span class="si">}</span><span class="s2">' started "</span>
+            <span class="sa">f</span><span class="s2">"(scopes: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Acquire a token and use it; refresh when it expires."""</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_token</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Token acquired, "</span>
+                <span class="sa">f</span><span class="s2">"making API calls..."</span>
+            <span class="p">)</span>
+            <span class="c1"># Simulate periodic API calls.</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_api_call</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Failed to acquire token"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_acquire_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Request a token directly from the token endpoint."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Requesting token with client credentials"</span><span class="p">)</span>
+
+        <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">ClientCredentialsRequest</span><span class="p">(</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_secret</span><span class="p">,</span>
+            <span class="n">scope</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scopes</span><span class="p">,</span>
+            <span class="n">response_queue</span><span class="o">=</span><span class="n">response_queue</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth_server_token_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">"access_token"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">access_token</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">token_expiry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="mf">60.0</span>   <span class="c1"># tokens typically last 1 hour</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Token acquired "</span>
+                <span class="sa">f</span><span class="s2">"(expires at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">token_expiry</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)"</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Token request failed"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_make_api_call</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Make an API call, refreshing the token if it has expired."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_expiry</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Token expired, refreshing..."</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_token</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: API call with token "</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s2">..."</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] M2M client: Cannot call API, no token"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The flow is simpler than authorization code:
+there is no redirect, no authorization code, and no user consent screen.
+The client sends its <code>client_id</code> and <code>client_secret</code> directly to the token endpoint.
+This means the <code>client_secret</code> is the application's password and must be protected accordingly.</p>
 <h2 id="oauth-refresh">Refresh Tokens</h2>
 <p>Access tokens expire quickly (typically 1 hour).
 Refresh tokens allow clients to get new access tokens without user interaction.
@@ -806,6 +1086,46 @@ to prevent CSRF attacks.
 They also need token management,
 so that a resource server can check token validity with an authorization server
 or a user can revoke a token in order to do things like sign out of all devices.</p>
+<section aria-label="Exercises" class="exercises">
+<h2 id="oauth-exercises">Exercises</h2>
+<ol>
+<li>
+<p>In the basic OAuth simulation, the authorization server accepts any redirect URI
+    that was pre-registered.
+    Modify the example to register two redirect URIs for <code>photo_app</code>:
+    <code>"https://photo.example.com/callback"</code> and <code>"https://photo.example.com/mobile"</code>.
+    Verify that a request with a URI that is not in the registered list is rejected.
+    Why is this check important?</p>
+</li>
+<li>
+<p>The authorization code is single-use.
+    Find the line in <code>authorization_server.py</code> that marks a code as used.
+    What would happen if this line were removed?
+    Write a test that reuses the same code twice and verify that the second use fails.</p>
+</li>
+<li>
+<p>Trace through the PKCE flow for this interception scenario:
+    An attacker has intercepted the authorization code but does not know the code verifier.
+    What happens when the attacker sends the code to the token endpoint without a verifier?
+    What happens if the attacker sends the code with a wrong verifier?
+    Verify by modifying <code>PKCEClient._exchange_code</code> to send a tampered verifier.</p>
+</li>
+<li>
+<p>The client credentials flow is used for machine-to-machine authentication.
+    Modify <code>ClientCredentialsClient</code> to automatically retry token acquisition
+    if the first attempt fails, with exponential backoff.
+    What should the retry limit be, and why?</p>
+</li>
+<li>
+<p>Access tokens expire (after 60 seconds in the simulation).
+    What happens if a client tries to use an expired token?
+    Trace through <code>resource_server.py</code> to find the expiry check.
+    Now modify <code>OAuthClient</code> to detect a token-expired error in the resource response
+    and automatically request a new token before retrying.
+    (This is the "token refresh" pattern; you can use a refresh token or re-run the full flow.)</p>
+</li>
+</ol>
+</section>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

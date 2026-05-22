@@ -55,6 +55,17 @@
 <main id="main-content">
 <h1>Conflict-Free Replicated Data Types</h1>
 <p class="subtitle">scalable data structures</p>
+<div class="objectives">
+<ul>
+<li>Explain why last-write-wins registers can lose updates in concurrent systems
+    and when that trade-off is acceptable.</li>
+<li>Implement a grow-only counter and a positive-negative counter using the merge-by-maximum rule.</li>
+<li>Describe the add-wins semantics of an OR-Set
+    and trace through a concurrent add-and-remove to show the correct outcome.</li>
+<li>Explain what "convergence" means for a replicated data structure
+    and why it holds even after a network partition.</li>
+</ul>
+</div>
 <p>When multiple people edit an online document simultaneously,
 the system ensures everyone eventually sees the same content.
 Similarly,
@@ -334,10 +345,31 @@ Each remains monotonically increasing, so the G-Counter merge properties still a
 <h2 id="crdt-orset">Observed-Remove Set (OR-Set)</h2>
 <p>Sets are trickier to implement than counters.
 If Ahmed adds X and Baemi removes X concurrently, should X be in the final set?</p>
-<p>The OR-Set uses unique tags to track which adds have been observed by which removes.
-The key idea is that an element is in the set if there is an add tag that hasn't been removed.
-This gives "add-wins" semantics:
-concurrent add and remove operations result in the element being present.</p>
+<p>The most natural answer is "remove wins": the element is absent.
+But this makes it impossible to add an element back after a concurrent remove has been received—
+the remove has already been applied.
+The OR-Set chooses "add-wins" semantics instead,
+by using unique tags to distinguish each add operation.</p>
+<p>When Ahmed adds element X, the OR-Set creates a unique tag (say, <code>(Ahmed, 42)</code>) and records the pair <code>(X, {(Ahmed,42)})</code>.
+When Baemi later removes X, the remove records <em>which tags it has seen</em>—in this case <code>(Ahmed, 42)</code>.
+If Chiti concurrently adds X with a new tag <code>(Chiti, 7)</code>, that tag has never been seen by Baemi's remove.
+After merging all three replicas, X is still present because tag <code>(Chiti, 7)</code> was added but never removed.
+The element is present if and only if there exists at least one add tag that no remove has ever seen.</p>
+<p>To make the concurrent case concrete:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nx">Time</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">replicas</span><span class="w"> </span><span class="nx">have</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="nx">Ahmed</span><span class="w"> </span><span class="nx">adds</span><span class="w"> </span><span class="nx">X</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Ahmed</span><span class="err">'</span><span class="nx">s</span><span class="w"> </span><span class="nx">state</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="nx">Ahmed</span><span class="p">,</span><span class="mi">1</span><span class="p">)}}</span>
+<span class="nx">Baemi</span><span class="w"> </span><span class="nx">removes</span><span class="w"> </span><span class="nx">X</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nx">Baemi</span><span class="w"> </span><span class="nx">observes</span><span class="w"> </span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="nx">Ahmed</span><span class="p">,</span><span class="mi">1</span><span class="p">)}},</span><span class="w"> </span><span class="nx">so</span><span class="w"> </span><span class="nx">removes</span><span class="w"> </span><span class="nx">tag</span><span class="w"> </span><span class="p">(</span><span class="nx">Ahmed</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                   </span><span class="nx">Baemi</span><span class="err">'</span><span class="nx">s</span><span class="w"> </span><span class="nx">state</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">(</span><span class="nx">no</span><span class="w"> </span><span class="nx">remaining</span><span class="w"> </span><span class="nx">tags</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">Chiti</span><span class="w"> </span><span class="nx">adds</span><span class="w"> </span><span class="nx">X</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="p">(</span><span class="nx">concurrent</span><span class="w"> </span><span class="nx">with</span><span class="w"> </span><span class="nx">Baemi</span><span class="err">'</span><span class="nx">s</span><span class="w"> </span><span class="nx">remove</span><span class="p">)</span>
+<span class="w">                   </span><span class="nx">Chiti</span><span class="err">'</span><span class="nx">s</span><span class="w"> </span><span class="nx">state</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="nx">Chiti</span><span class="p">,</span><span class="mi">1</span><span class="p">)}}</span>
+
+<span class="nx">Merge</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">three</span><span class="p">:</span>
+<span class="w">  </span><span class="nx">Ahmed</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="nx">Ahmed</span><span class="p">,</span><span class="mi">1</span><span class="p">)}}</span>
+<span class="w">  </span><span class="nx">Baemi</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="nx">removes</span><span class="p">={(</span><span class="nx">Ahmed</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
+<span class="w">  </span><span class="nx">Chiti</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="nx">Chiti</span><span class="p">,</span><span class="mi">1</span><span class="p">)}}</span>
+<span class="w">  </span><span class="nx">Result</span><span class="p">:</span><span class="w"> </span><span class="nx">X</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">present</span><span class="w"> </span><span class="nx">because</span><span class="w"> </span><span class="p">(</span><span class="nx">Chiti</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nx">was</span><span class="w"> </span><span class="nx">never</span><span class="w"> </span><span class="nx">removed</span><span class="p">.</span>
+</code></pre></div>
 <div data-inc="orset.py" data-mark="orset"><span aria-label="Source: crdt/orset.py" class="inc-path" role="img" tabindex="0" title="crdt/orset.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ORSet</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Observed-Remove Set (state-based CRDT)."""</span>
@@ -505,6 +537,12 @@ to ensure that every operation reaches every replica exactly once.
 In practice,
 this means tracking which operations have been delivered and handling duplicates,
 which is what the <code>applied_ops</code> member of the <code>OpBasedCounter</code> class above does.</p>
+<p>"Exactly once" does not mean the network must guarantee it—networks never do.
+Instead, the sender can re-send operations as many times as needed (achieving "at least once"),
+and the receiver deduplicates using the unique operation ID (<code>applied_ops</code>).
+Together these give "exactly once" <em>effect</em>: the operation changes state only the first time it arrives.
+This is why operation IDs must be globally unique (not just unique per replica) and must be stored permanently—
+discarding <code>applied_ops</code> would allow a re-delivered operation to be applied twice, breaking convergence.</p>
 <p>The <code>Replica</code> class below exercises this counter:</p>
 <div data-inc="ex_opbased_counter.py" data-mark="replica"><span aria-label="Source: crdt/ex_opbased_counter.py" class="inc-path" role="img" tabindex="0" title="crdt/ex_opbased_counter.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A replica that creates operations and broadcasts them to peers."""</span>
@@ -801,7 +839,40 @@ GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2 id="crdt-exercises">Exercises</h2>
-<p>FIXME: add exercises.</p>
+<ol>
+<li>
+<p>The LWW-Register breaks ties by comparing replica IDs alphabetically.
+    Change the simulation so that Chiti's replica ID is "AAA" (alphabetically first).
+    What is the final value after merging?
+    Why might choosing the alphabetically last ID as the winner be a bad choice for real deployments?</p>
+</li>
+<li>
+<p>In the G-Counter, each replica only modifies its own slot in the vector.
+    What happens if two replicas accidentally use the same replica ID?
+    Trace through a scenario with two replicas both named "R1" doing one increment each and then merging.
+    What is the final value, and why is it wrong?</p>
+</li>
+<li>
+<p>The OR-Set gives "add-wins" semantics.
+    Design an "remove-wins" set where a concurrent add and remove results in the element being absent.
+    Sketch the data structure:
+    you do not need to implement it fully,
+    just describe what the merge operation must do differently.</p>
+</li>
+<li>
+<p>In the operation-based counter, <code>applied_ops</code> grows without bound.
+    Propose a strategy to bound its size.
+    What guarantee must hold for your strategy to be safe?
+    (Hint: think about what it means for all replicas to have received an operation.)</p>
+</li>
+<li>
+<p>In the network partition simulation, the counter recovers after the partition heals.
+    Run the simulation with the partition lasting twice as long.
+    Does the final value change?
+    Now run it with the partition never healing.
+    What happens, and does this violate any of the three CRDT guarantees?</p>
+</li>
+</ol>
 </section>
 </main>
 <footer aria-label="Page navigation">

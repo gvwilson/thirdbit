@@ -54,6 +54,18 @@
 </nav>
 <main id="main-content">
 <h1>The Saga Pattern</h1>
+<div class="objectives">
+<ul>
+<li>Explain why traditional ACID transactions cannot span multiple independent services
+    and what problem sagas solve.</li>
+<li>Describe the difference between orchestration and choreography,
+    and give a scenario where each approach is more suitable.</li>
+<li>State the rule for compensation ordering (reverse of forward steps)
+    and explain why violating it can leave the system in an inconsistent state.</li>
+<li>Identify what happens if the orchestrator crashes mid-saga
+    and explain what a production implementation must do to survive this failure.</li>
+</ul>
+</div>
 <p>When you book a flight, reserve a hotel, and rent a car in a single transaction,
 what happens if the car rental fails but the flight and hotel are already reserved?
 In a monolithic system you would roll back the entire transaction,
@@ -528,6 +540,13 @@ undoing each completed step:</p>
                     <span class="p">)</span>
 </code></pre></div>
 </div>
+<p>The compensation pass runs in reverse order—this is not an implementation detail but a logical requirement.
+If the forward steps are A → B → C and C fails,
+we must compensate B before compensating A.
+Compensating A first could leave the system in a state where A's compensation
+removes a resource that B's compensation still needs to reference.
+Reversing the order ensures that each compensation sees the same state
+as the step that originally succeeded.</p>
 <h2>Basic Orchestration Example</h2>
 <p>Let's see orchestration in action:</p>
 <div data-inc="ex_saga.py" data-mark="orchestratedexample"><span aria-label="Source: saga/ex_saga.py" class="inc-path" role="img" tabindex="0" title="saga/ex_saga.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -679,6 +698,273 @@ Completed sagas: 1
 Failed sagas: 4
 </code></pre></div>
 </div>
+<h2 id="saga-choreo">Choreography-Based Saga</h2>
+<p>In orchestration, the orchestrator is a single point of failure:
+if it crashes mid-saga, the saga is stuck.
+Choreography avoids this by removing the central coordinator entirely.
+Instead, each service listens for events and decides what to do next.</p>
+<p>The event bus routes events to subscribers:</p>
+<div data-inc="saga_choreography.py" data-mark="event_bus"><span aria-label="Source: saga/saga_choreography.py" class="inc-path" role="img" tabindex="0" title="saga/saga_choreography.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">EventBus</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Simple pub-sub event bus for choreography.</span>
+
+<span class="sd">    Services publish events to named topics.</span>
+<span class="sd">    Other services subscribe to topics and receive events.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Queue</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events_published</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Event bus has no run loop; it is used directly via publish/subscribe."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">9999</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Subscribe queue to receive events of a given type."""</span>
+        <span class="k">if</span> <span class="n">event_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">event_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">[</span><span class="n">event_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Publish an event to all subscribers."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events_published</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] EventBus: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">event_type</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">subscribers</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Each service subscribes to the events it cares about.
+The flight service listens for <code>"booking_started"</code> and <code>"hotel_compensated"</code>:</p>
+<div data-inc="saga_choreography.py" data-mark="choreographed_flight"><span aria-label="Source: saga/saga_choreography.py" class="inc-path" role="img" tabindex="0" title="saga/saga_choreography.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ChoreographedFlightService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Flight service driven by events rather than direct calls.</span>
+
+<span class="sd">    Listens for "booking_started" events, tries to book a flight,</span>
+<span class="sd">    then publishes "flight_booked" or "flight_booking_failed".</span>
+<span class="sd">    On compensation, listens for "hotel_compensated" and cancels the flight.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">bus</span><span class="p">:</span> <span class="n">EventBus</span><span class="p">,</span>
+        <span class="n">flight_service</span><span class="p">:</span> <span class="n">FlightService</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bus</span> <span class="o">=</span> <span class="n">bus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span> <span class="o">=</span> <span class="n">flight_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+
+        <span class="c1"># Subscribe to relevant events.</span>
+        <span class="n">bus</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">"booking_started"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">)</span>
+        <span class="n">bus</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">"hotel_compensated"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process events concurrently: forward bookings and compensations."""</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Wait for either a new booking or a compensation request.</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">FirstOf</span>
+            <span class="n">trigger</span> <span class="o">=</span> <span class="n">FirstOf</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+            <span class="p">)</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">trigger</span>
+
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">"booking_started"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_booking</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">"hotel_compensated"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_compensation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_booking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">booking_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"booking_id"</span><span class="p">]</span>
+        <span class="n">flight_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"flight_id"</span><span class="p">]</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># simulate network delay</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span><span class="o">.</span><span class="n">book_flight</span><span class="p">(</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">flight_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"flight_booked"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">,</span> <span class="s2">"flight_id"</span><span class="p">:</span> <span class="n">flight_id</span><span class="p">},</span>
+            <span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"flight_booking_failed"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+            <span class="p">))</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_compensation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">booking_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"booking_id"</span><span class="p">]</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span><span class="o">.</span><span class="n">cancel_flight</span><span class="p">(</span><span class="n">booking_id</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+            <span class="n">event_type</span><span class="o">=</span><span class="s2">"flight_compensated"</span><span class="p">,</span>
+            <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+        <span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The hotel service listens for <code>"flight_booked"</code> (forward step)
+and <code>"car_booking_failed"</code> (trigger for its own compensation):</p>
+<div data-inc="saga_choreography.py" data-mark="choreographed_hotel"><span aria-label="Source: saga/saga_choreography.py" class="inc-path" role="img" tabindex="0" title="saga/saga_choreography.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ChoreographedHotelService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Hotel service driven by events.</span>
+
+<span class="sd">    Listens for "flight_booked", tries to book a hotel, and publishes</span>
+<span class="sd">    "hotel_booked" or "hotel_booking_failed".</span>
+<span class="sd">    Compensation is triggered by "car_booking_failed".</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bus</span><span class="p">:</span> <span class="n">EventBus</span><span class="p">,</span> <span class="n">hotel_service</span><span class="p">:</span> <span class="n">HotelService</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bus</span> <span class="o">=</span> <span class="n">bus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span> <span class="o">=</span> <span class="n">hotel_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="n">bus</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">"flight_booked"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">)</span>
+        <span class="n">bus</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">"car_booking_failed"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">FirstOf</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">trigger</span> <span class="o">=</span> <span class="n">FirstOf</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">compensate_inbox</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+            <span class="p">)</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">trigger</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">"flight_booked"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_booking</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">"car_booking_failed"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_compensation</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_booking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">booking_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"booking_id"</span><span class="p">]</span>
+        <span class="n">hotel_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"hotel_id"</span><span class="p">,</span> <span class="s2">"hotel-1"</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span><span class="o">.</span><span class="n">book_hotel</span><span class="p">(</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">hotel_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"hotel_booked"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+            <span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"hotel_booking_failed"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+            <span class="p">))</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_compensation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Compensations run in reverse order: car failed, so cancel hotel first.</span>
+        <span class="n">booking_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"booking_id"</span><span class="p">]</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span><span class="o">.</span><span class="n">cancel_hotel</span><span class="p">(</span><span class="n">booking_id</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+            <span class="n">event_type</span><span class="o">=</span><span class="s2">"hotel_compensated"</span><span class="p">,</span>
+            <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+        <span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The car service is the last step,
+so it triggers the compensation chain when it fails:</p>
+<div data-inc="saga_choreography.py" data-mark="choreographed_car"><span aria-label="Source: saga/saga_choreography.py" class="inc-path" role="img" tabindex="0" title="saga/saga_choreography.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ChoreographedCarService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Car rental service driven by events.</span>
+
+<span class="sd">    Listens for "hotel_booked" and publishes "car_booked" or "car_booking_failed".</span>
+<span class="sd">    Car is the last step, so it initiates compensation when it fails.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bus</span><span class="p">:</span> <span class="n">EventBus</span><span class="p">,</span> <span class="n">car_service</span><span class="p">:</span> <span class="n">CarRentalService</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bus</span> <span class="o">=</span> <span class="n">bus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">car_service</span> <span class="o">=</span> <span class="n">car_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="n">bus</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">"hotel_booked"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_booking</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_booking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">SagaEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">booking_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"booking_id"</span><span class="p">]</span>
+        <span class="n">car_id</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"car_id"</span><span class="p">,</span> <span class="s2">"car-1"</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">car_service</span><span class="o">.</span><span class="n">book_car</span><span class="p">(</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">car_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"car_booked"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+            <span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Car is the last step; trigger compensation chain in reverse.</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">SagaEvent</span><span class="p">(</span>
+                <span class="n">event_type</span><span class="o">=</span><span class="s2">"car_booking_failed"</span><span class="p">,</span>
+                <span class="n">saga_id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">saga_id</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"booking_id"</span><span class="p">:</span> <span class="n">booking_id</span><span class="p">},</span>
+            <span class="p">))</span>
+</code></pre></div>
+</div>
+<p>The compensation chain in choreography works the same way as in orchestration—reverse order—
+but the ordering is <em>implicit</em> in the event subscriptions rather than explicit in a loop.
+The car service publishes <code>"car_booking_failed"</code>,
+which the hotel service receives and handles before publishing <code>"hotel_compensated"</code>,
+which the flight service receives and handles last.
+This event chain enforces the required reverse order automatically.</p>
+<p><strong>Orchestrator crash and persistence:</strong>
+In choreography, there is no orchestrator to crash,
+but each service can still crash while processing an event.
+A service must acknowledge the event only after it has successfully committed its local transaction.
+If it crashes before acknowledging, the event bus redelivers the event (at-least-once semantics),
+and the service's handler must be idempotent.
+In orchestration, the orchestrator must persist the saga state (which steps have completed)
+to durable storage before driving each step forward.
+Without persistence, an orchestrator crash means starting the saga over from scratch,
+which could double-book resources.
+Real orchestrators (like AWS Step Functions or Temporal) store the saga state in a database
+and replay from the last checkpoint on restart.</p>
+<section aria-label="Exercises" class="exercises">
+<h2 id="saga-exercises">Exercises</h2>
+<ol>
+<li>
+<p>Run the orchestration example several times (without fixing the random seed).
+    In what fraction of runs does the car booking fail?
+    When it fails, does the hotel always get compensated?
+    Add a counter to verify that the number of successful compensations equals
+    the number of completed forward steps whenever the saga fails.</p>
+</li>
+<li>
+<p>The compensation order is reversed in <code>execute_compensation</code>.
+    Change it to run in forward order (same order as the forward steps)
+    and run a scenario where the hotel booking succeeds but car booking fails.
+    What state are the flight and hotel bookings in after compensation?
+    Why is this wrong?</p>
+</li>
+<li>
+<p>The car rental service has a 30% failure rate.
+    This means roughly 30% of sagas will fail at the car step.
+    Add a retry to the orchestrator: if the car booking fails, try it again once before compensating.
+    Does this change the success rate?
+    What problem could retrying introduce if the service is not idempotent?</p>
+</li>
+<li>
+<p>In choreography, the compensation chain is enforced by event subscriptions.
+    Draw the event flow for a successful booking (all three services succeed)
+    and a failed booking (car fails after hotel and flight succeed).
+    Label each event and arrow.
+    What events are published in each scenario?</p>
+</li>
+<li>
+<p>Suppose the hotel service crashes after booking the hotel but before publishing <code>"hotel_booked"</code>.
+    What happens in the choreography scenario?
+    Will the flight ever be compensated?
+    What mechanism would be needed to detect and recover from this situation?</p>
+</li>
+</ol>
+</section>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

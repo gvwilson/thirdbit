@@ -54,6 +54,18 @@
 </nav>
 <main id="main-content">
 <h1>Eventually Consistent Key-Value Store</h1>
+<div class="objectives">
+<ul>
+<li>Explain what "availability" and "partition tolerance" mean
+    and why a system must choose between them and strong consistency during a network partition.</li>
+<li>Describe how vector clocks track causal history
+    and explain why taking the element-wise maximum is the correct merge operation.</li>
+<li>Trace how a write's causal context is propagated
+    so that a replica can detect out-of-order updates.</li>
+<li>Identify the version explosion problem
+    and explain when it becomes a practical concern.</li>
+</ul>
+</div>
 <p>The <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> says that when network partitions occur,
 systems must choose between consistency (all nodes see the same data)
 and availability (the system continues to respond).
@@ -138,11 +150,16 @@ Each replica maintains a counter for every replica in the system:</p>
 <p>In our implementation,
 the vector clock is a dictionary mapping replica IDs to integers.
 When a replica performs an operation, it increments its own counter.
-When a recplica receives a message with a vector clock,
-it takes the maximum of each component with its local clock.
-The key insight is that if clock A happens-before clock B,
-then A's event causally precedes B's.
-If neither happens-before the other,
+When a replica receives a message with a vector clock,
+it takes the element-wise maximum of each component with its local clock.
+"Element-wise maximum" means: for each replica ID in either clock,
+the merged result uses the larger of the two values.
+For example, merging <code>{"R1": 3, "R2": 1}</code> with <code>{"R1": 2, "R2": 4, "R3": 1}</code>
+produces <code>{"R1": 3, "R2": 4, "R3": 1}</code>.</p>
+<p>The key insight is that if clock A happens-before clock B,
+then every entry in A's vector is ≤ the corresponding entry in B's vector,
+with at least one entry strictly less.
+If neither vector dominates the other element-wise,
 the events are concurrent.</p>
 <h2 id="eventual-version">Versioned Values</h2>
 <p>Each value is stored with its vector clock:</p>
@@ -240,7 +257,15 @@ The node's constructor sets up its data store and creates the queue it uses to r
 <p>The write handler is where causality is maintained.
 It increments the local clock,
 merges the client's causal context,
-and discards any stored versions superseded by the new value:</p>
+and discards any stored versions superseded by the new value.</p>
+<p>"Merging the client's causal context" means the storage node takes the element-wise maximum
+of its local vector clock and the clock the client sent.
+The client's clock represents "what the client has already seen"—
+it was returned to the client after a previous read.
+By merging it in, the storage node ensures the new write is recorded as happening
+<em>after</em> anything the client observed.
+Without this step, a write that the client intended to follow a previous read
+might appear concurrent with it, creating a spurious conflict.</p>
 <div data-inc="storage_node.py" data-mark="storage_write"><span aria-label="Source: eventual/storage_node.py" class="inc-path" role="img" tabindex="0" title="eventual/storage_node.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">WriteRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WriteResponse</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Write a value, handling concurrent versions."""</span>
         <span class="c1"># Increment our clock</span>
@@ -918,9 +943,126 @@ Over time, this brings all replicas into sync.</p>
 </li>
 <li>
 <p>Compaction:
-    Nodes merge version history periodically to avoid unbounded growth.</p>
+    Nodes merge version history periodically to avoid unbounded growth.
+    This matters more than it might seem: if many concurrent writes reach the same key
+    before any of them has been "dominated" by a later write,
+    the number of concurrent versions grows.
+    A system under heavy concurrent write load can accumulate hundreds of conflicting versions
+    for a single key, making every subsequent read expensive.
+    Real systems cap the number of concurrent versions and force conflict resolution
+    when the cap is reached.</p>
 </li>
 </ol>
+<h2 id="eventual-partition-out">Partition Example Output</h2>
+<p>Let's try the partition simulation:</p>
+<div data-inc="ex_partition.py" data-mark="partitionexample"><span aria-label="Source: eventual/ex_partition.py" class="inc-path" role="img" tabindex="0" title="eventual/ex_partition.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Demonstrate behavior during network partition."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Node</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">PartitionedCoordinator</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">read_quorum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">write_quorum</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Initial write</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client1"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="s2">"healthy"</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client that writes after partition</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client2"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="s2">"degraded"</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">initial_delay</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create partition manager</span>
+    <span class="n">PartitionManager</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_partition.out"><span aria-label="Source: eventual/ex_partition.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_partition.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node3: Wrote status = healthy with clock {Node3:1}
+[0.0] Node4: Wrote status = healthy with clock {Node4:1}
+[0.0] Client1: Wrote status = healthy
+[0.5] Node3: Read status -&gt; 1 version(s)
+[0.5] Node4: Read status -&gt; 1 version(s)
+[0.5] Client1: Read status -&gt; CONFLICT: 2 versions
+  - healthy (clock: {Node3:1}, ts: 0)
+  - healthy (clock: {Node4:1}, ts: 0)
+[0.5] Client1: Resolved to healthy
+[2.0] PARTITION: Node3 is unreachable
+[3.0] Node4: Wrote status = degraded with clock {Node4:2}
+[3.0] Node5: Wrote status = degraded with clock {Node5:1}
+[3.0] Client2: Wrote status = degraded
+[3.5] Node4: Read status -&gt; 1 version(s)
+[3.5] Node5: Read status -&gt; 1 version(s)
+[3.5] Client2: Read status -&gt; CONFLICT: 2 versions
+  - degraded (clock: {Node4:2}, ts: 3.0)
+  - degraded (clock: {Node5:1}, ts: 3.0)
+[3.5] Client2: Resolved to degraded
+[5.0] HEALED: Node3 is reachable
+</code></pre></div>
+</div>
+<p>The output shows that reads succeed while nodes are reachable (up to the quorum),
+fail when too few nodes are available,
+and succeed again after the partition heals.
+Notice that the system does not lose data during the partition:
+writes that succeeded on the available replicas
+are picked up by the previously-partitioned replica during the next read repair cycle.</p>
+<section aria-label="Exercises" class="exercises">
+<h2 id="eventual-exercises">Exercises</h2>
+<ol>
+<li>
+<p>The quorum parameters in the basic simulation are N=3, R=2, W=2.
+    Change W to 1 and R to 3 and run the conflict scenario.
+    What happens?
+    Now try W=3 and R=1.
+    For each configuration, describe a scenario where a client could read a stale value.</p>
+</li>
+<li>
+<p>Trace the vector clocks through this scenario manually (no code needed):</p>
+<ul>
+<li>Three replicas: R1, R2, R3. All start with clock <code>{}</code>.</li>
+<li>Client A writes "x=1" to R1. R1's clock becomes <code>{"R1": 1}</code>.</li>
+<li>Client B writes "x=2" to R3. R3's clock becomes <code>{"R3": 1}</code>.</li>
+<li>R1 and R3 merge. What is the resulting set of versions? Are they concurrent or is one dominated?</li>
+<li>Client C then writes "x=3" to R2, passing the merged clock from the previous step.
+  What is R2's clock after this write? Is x=1 or x=2 still in the version set?</li>
+</ul>
+</li>
+<li>
+<p>The write handler merges the client's causal context before storing the new version.
+    Find the storage node's write handler in <code>storage_node.py</code>.
+    Add a <code>print</code> statement that shows the client's clock, the node's clock before merging,
+    and the node's clock after merging.
+    Run the conflict scenario and explain the output.</p>
+</li>
+<li>
+<p>Read repair queries all replicas on every read.
+    This is expensive—in a real system with thousands of keys and many replicas,
+    you would not want to do it every time.
+    Propose two strategies for reducing how often read repair runs.
+    What consistency properties does each strategy sacrifice?</p>
+</li>
+<li>
+<p>The simulation uses last-write-wins (by timestamp) to resolve conflicts.
+    Describe a scenario where this produces the wrong result from the application's perspective.
+    What alternative conflict resolution strategy would work better for that scenario?</p>
+</li>
+</ol>
+</section>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

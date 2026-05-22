@@ -54,6 +54,19 @@
 </nav>
 <main id="main-content">
 <h1>Distributed Lock Manager</h1>
+<div class="objectives">
+<ul>
+<li>Describe the split-brain problem
+    and explain why a lock acquired over an unreliable network
+    can be held by two clients simultaneously.</li>
+<li>Explain how fencing tokens prevent stale lock holders from corrupting shared state
+    even after they believe they still hold the lock.</li>
+<li>Justify why a majority quorum (more than half the replicas) is the minimum needed
+    to guarantee that two clients cannot both acquire the lock.</li>
+<li>Identify what happens to a fencing token counter if the lock server restarts
+    and explain how to prevent counter reuse.</li>
+</ul>
+</div>
 <p>Multiple processes running on different machines often need to coordinate access to shared resources.
 For example,
 when a database migration runs,
@@ -631,6 +644,26 @@ The replicated manager holds references to all lock server replicas and a config
         <span class="bp">self</span><span class="o">.</span><span class="n">majority</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_servers</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div>
 </div>
+<p>Why majority?
+If we have N replicas and require agreement from M &gt; N/2 of them,
+then any two successful acquires must share at least one replica in common.
+That shared replica can only grant one lock at a time,
+so two clients can never both achieve a majority simultaneously.
+With N=3, majority is 2: if client A gets yes from replicas 1 and 2,
+client B can get yes from at most replica 3 (one), which is not a majority.
+With N=5, majority is 3: any two sets of 3 from 5 must overlap in at least 1 replica.</p>
+<p>Majority also determines fault tolerance:
+with N=3 you can tolerate 1 failed replica;
+with N=5 you can tolerate 2.
+In general, a majority quorum tolerates floor(N/2) failures,
+which is why lock clusters almost always have an odd number of nodes.</p>
+<p>There is a subtlety around fencing tokens and restarts.
+If the lock server crashes and restarts, it must restore its token counter from durable storage—
+not restart at zero.
+A restarted server that forgets its previous token value could issue token 1 again
+after it has already been used,
+allowing a stale client with the old token 1 to pass the resource's fencing check.
+Real systems write the token to disk before issuing it to the client.</p>
 <p>To acquire a lock, the manager sends requests to all replicas and waits until a majority grant it:</p>
 <div data-inc="replicated_lock_manager.py" data-mark="replicated_acquire"><span aria-label="Source: distlock/replicated_lock_manager.py" class="inc-path" role="img" tabindex="0" title="distlock/replicated_lock_manager.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Try to acquire lock from majority of servers."""</span>
@@ -780,6 +813,44 @@ but production distributed lock managers need additional features:</p>
     and lock-free algorithms where possible.</p>
 </li>
 </ol>
+<section aria-label="Exercises" class="exercises">
+<h2 id="distlock-exercises">Exercises</h2>
+<ol>
+<li>
+<p>In the basic simulation,
+    what happens if the lease duration is set to 0.5 (shorter than the client's work time)?
+    Run the failure scenario with lease duration 0.5 and work duration 2.0.
+    Does the second client always acquire the lock?
+    What problem does this reveal?</p>
+</li>
+<li>
+<p>The fencing token implementation rejects requests whose token is older than the highest seen.
+    Suppose two clients acquire the lock in sequence: client A gets token 1, then client B gets token 2.
+    Client B finishes and releases. Client A then wakes up from a long pause.
+    Trace through the output and explain what the resource does with client A's request.
+    Why is this the correct behavior even though client A legitimately held the lock at one point?</p>
+</li>
+<li>
+<p>The replicated manager waits for a majority of replicas to respond before granting the lock.
+    Modify <code>replicated_lock_manager.py</code> to print which replicas granted the lock for each acquisition.
+    Run the simulation and verify that the two clients never share a common granting replica
+    at the same time.
+    (Starter: add <code>print(f"Lock granted by: {granted}")</code> after collecting majority responses.)</p>
+</li>
+<li>
+<p>What happens if one of the three lock server replicas is permanently unavailable?
+    Modify the example to disable one replica from the start and verify the system still works.
+    What is the minimum number of available replicas required for the system to function?</p>
+</li>
+<li>
+<p>The current implementation does not handle the case where a client crashes
+    while holding a replicated lock—it holds the lock on some replicas but not others.
+    Describe what state the system is in after the lease expires.
+    Does the system recover correctly?
+    Trace through the code to verify your answer.</p>
+</li>
+</ol>
+</section>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

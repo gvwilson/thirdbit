@@ -54,6 +54,18 @@
 </nav>
 <main id="main-content">
 <h1>Distributed Tracing</h1>
+<div class="objectives">
+<ul>
+<li>Explain what a span and a trace are,
+    and describe how spans form a tree that represents a distributed call graph.</li>
+<li>Describe how a decorator can add tracing to a function without modifying the function's body.</li>
+<li>Explain what head-based sampling is,
+    how it reduces overhead,
+    and what class of problems it cannot detect.</li>
+<li>Explain how trace context is propagated across service boundaries
+    and why a module-level variable is not sufficient in a concurrent service.</li>
+</ul>
+</div>
 <p>If a monolithic application is slow,
 we can profile a single process to find out why.
 In a <a class="gl-ref" href="../glossary/#microservice">microservices</a> architecture,
@@ -719,9 +731,231 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
 </div>
 <p>It isn't something anyone would browse for fun,
 but (hopefully) everything needed to track down problems is there.</p>
+<h2 id="tracing-sampling">Sampling</h2>
+<p>Recording every trace in a high-traffic system is prohibitively expensive.
+A service processing 10,000 requests per second produces 10,000 root spans per second,
+plus all their children.
+Sampling records only a fraction of traces and discards the rest.</p>
+<p>Head-based sampling decides at the <em>start</em> of a trace—before any spans are created—
+whether to record it:</p>
+<div data-inc="sampled_tracer.py" data-mark="sampler"><span aria-label="Source: tracing/sampled_tracer.py" class="inc-path" role="img" tabindex="0" title="tracing/sampled_tracer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HeadSampler</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Decides at trace start whether to record this trace.</span>
+
+<span class="sd">    Head-based sampling uses a fixed probability per trace.</span>
+<span class="sd">    Every span in a sampled trace is recorded; spans from unsampled traces</span>
+<span class="sd">    are discarded immediately.</span>
+
+<span class="sd">    Advantages: simple, low overhead, no buffering required.</span>
+<span class="sd">    Disadvantages: slow/erroneous traces are as likely to be dropped as fast ones.</span>
+<span class="sd">    For production use, tail-based sampling (buffer then decide) is more useful</span>
+<span class="sd">    for diagnosing performance problems, but requires buffering all spans briefly.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""rate: fraction of traces to record, 0.0 to 1.0."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sample rate must be between 0.0 and 1.0, got </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_traces</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampled_traces</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">should_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return True if this trace should be recorded."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_traces</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampled_traces</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_rate_actual</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Observed sampling rate (may differ from target due to randomness)."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_traces</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampled_traces</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_traces</span>
+</code></pre></div>
+</div>
+<p>The sampling decision is made once and propagated with the trace context.
+Every service in the chain checks <code>ctx</code> before creating a span:
+if <code>ctx</code> is <code>None</code>, no span is created, so unsampled requests have zero tracing overhead.</p>
+<h2 id="tracing-propagation">Cross-Service Propagation</h2>
+<p>The basic tracer stores context in a module-level variable.
+This works in a single process but breaks across service boundaries.
+The only correct way to propagate context between services is to include it
+in the request itself—conventionally as HTTP headers.</p>
+<p><code>PropagatedRequest</code> carries the trace context as a field:</p>
+<div data-inc="sampled_tracer.py" data-mark="propagated_context"><span aria-label="Source: tracing/sampled_tracer.py" class="inc-path" role="img" tabindex="0" title="tracing/sampled_tracer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PropagatedRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A request that carries trace context for cross-service propagation.</span>
+
+<span class="sd">    In a real HTTP system these fields would be HTTP headers:</span>
+<span class="sd">        X-Trace-Id, X-Span-Id, X-Parent-Span-Id</span>
+<span class="sd">    Attaching them to the message (rather than storing them globally)</span>
+<span class="sd">    ensures that each concurrent request has its own context and</span>
+<span class="sd">    context from one request cannot bleed into another.</span>
+<span class="sd">    """</span>
+
+    <span class="n">request_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">payload</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span>
+    <span class="c1"># Trace context propagated from the caller, or None if not sampled.</span>
+    <span class="n">trace_context</span><span class="p">:</span> <span class="n">TraceContext</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+</div>
+<p><code>SampledService</code> reads the context from the request and passes a child context
+to any downstream service it calls:</p>
+<div data-inc="sampled_tracer.py" data-mark="sampled_service"><span aria-label="Source: tracing/sampled_tracer.py" class="inc-path" role="img" tabindex="0" title="tracing/sampled_tracer.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SampledService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Service that applies head-based sampling before creating spans.</span>
+
+<span class="sd">    When a request arrives with a trace context, the context dictates whether</span>
+<span class="sd">    to record spans (the sampling decision was made by the initiating service).</span>
+<span class="sd">    When a request arrives with no context (this service initiates the trace),</span>
+<span class="sd">    the sampler decides.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">collector</span><span class="p">:</span> <span class="n">BaseCollector</span><span class="p">,</span>
+        <span class="n">sampler</span><span class="p">:</span> <span class="n">HeadSampler</span><span class="p">,</span>
+        <span class="n">downstream</span><span class="p">:</span> <span class="s2">"SampledService | None"</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_name</span> <span class="o">=</span> <span class="n">service_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collector</span> <span class="o">=</span> <span class="n">collector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span> <span class="o">=</span> <span class="n">sampler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">downstream</span> <span class="o">=</span> <span class="n">downstream</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">:</span> <span class="n">PropagatedRequest</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">:</span> <span class="n">PropagatedRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle request, creating a span only if this trace is sampled."""</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">trace_context</span>
+
+        <span class="c1"># If no context, this service initiates the trace.</span>
+        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">should_sample</span><span class="p">():</span>
+                <span class="n">trace_id</span> <span class="o">=</span> <span class="n">generate_id</span><span class="p">(</span><span class="s2">"trace_"</span><span class="p">)</span>
+                <span class="n">span_id</span> <span class="o">=</span> <span class="n">generate_id</span><span class="p">(</span><span class="s2">"span_"</span><span class="p">)</span>
+                <span class="n">ctx</span> <span class="o">=</span> <span class="n">TraceContext</span><span class="p">(</span><span class="n">trace_id</span><span class="o">=</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">span_id</span><span class="o">=</span><span class="n">span_id</span><span class="p">)</span>
+            <span class="c1"># else: not sampled — ctx stays None</span>
+
+        <span class="n">span</span><span class="p">:</span> <span class="n">Span</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">span</span> <span class="o">=</span> <span class="n">Span</span><span class="p">(</span>
+                <span class="n">trace_id</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span>
+                <span class="n">span_id</span><span class="o">=</span><span class="n">generate_id</span><span class="p">(</span><span class="s2">"span_"</span><span class="p">),</span>
+                <span class="n">parent_span_id</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">span_id</span><span class="p">,</span>
+                <span class="n">operation_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">service_name</span><span class="si">}</span><span class="s2">.handle"</span><span class="p">,</span>
+                <span class="n">service_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                <span class="n">start_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="c1"># Create a child context for downstream propagation.</span>
+            <span class="n">child_ctx</span> <span class="o">=</span> <span class="n">TraceContext</span><span class="p">(</span>
+                <span class="n">trace_id</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span>
+                <span class="n">span_id</span><span class="o">=</span><span class="n">span</span><span class="o">.</span><span class="n">span_id</span><span class="p">,</span>
+                <span class="n">parent_span_id</span><span class="o">=</span><span class="n">ctx</span><span class="o">.</span><span class="n">span_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">child_ctx</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Simulate work.</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+
+        <span class="c1"># Call downstream service if present, propagating the trace context.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">downstream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">downstream_req</span> <span class="o">=</span> <span class="n">PropagatedRequest</span><span class="p">(</span>
+                <span class="n">request_id</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">request_id</span><span class="p">,</span>
+                <span class="n">payload</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">payload</span><span class="p">,</span>
+                <span class="n">response_queue</span><span class="o">=</span><span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">),</span>
+                <span class="n">trace_context</span><span class="o">=</span><span class="n">child_ctx</span><span class="p">,</span>  <span class="c1"># propagated via message, not global state</span>
+            <span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">downstream</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">downstream_req</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">downstream_req</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="c1"># Finish and record span.</span>
+        <span class="k">if</span> <span class="n">span</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">span</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">span_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">child_ctx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">service_name</span><span class="si">}</span><span class="s2">: Recorded span "</span>
+                    <span class="sa">f</span><span class="s2">"trace=</span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">trace_id</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s2">... "</span>
+                    <span class="sa">f</span><span class="s2">"(sampled=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">rate</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">)"</span>
+                <span class="p">)</span>
+
+        <span class="k">await</span> <span class="n">req</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">({</span><span class="s2">"ok"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<p><strong>Thread safety and <code>contextvars</code>:</strong>
+In the basic tracer, <code>Storage</code> is a module-level singleton.
+In a real async service, many coroutines run concurrently in the same process.
+If two requests are being processed at the same time, both would read and write
+the same <code>Storage._current_context</code>, causing one request's context to leak into the other.</p>
+<p>Python's <code>contextvars.ContextVar</code> solves this:
+each asyncio task automatically gets its own copy of a <code>ContextVar</code>.
+When a new task is created (e.g., by <code>asyncio.create_task</code>), it inherits
+the parent task's context at the moment of creation.
+This means you can <code>set</code> a <code>ContextVar</code> in a request handler without
+affecting any other concurrent request handler.
+The pattern is:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">contextvars</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContextVar</span>
+
+<span class="n">_active_context</span><span class="p">:</span> <span class="n">ContextVar</span><span class="p">[</span><span class="n">TraceContext</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">ContextVar</span><span class="p">(</span>
+    <span class="s2">"_active_context"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="c1"># In a traced function:</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">_active_context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">new_context</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">some_work</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">_active_context</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>   <span class="c1"># restores previous value in this task</span>
+</code></pre></div>
+<p>Our simulation uses a single event loop with cooperative scheduling,
+so module-level state is safe.
+But any production tracing library must use <code>ContextVar</code> (or thread-local storage)
+to be correct under real concurrency.</p>
 <section aria-label="Exercises" class="exercises">
 <h2 id="tracing-exercises">Exercises</h2>
-<p>FIXME: add exercises.</p>
+<ol>
+<li>
+<p>Run the basic decorator example and count how many spans are produced.
+    Now wrap the client in a sampler with rate=0.5 and run 10 requests.
+    On average, how many traces are recorded?
+    What is the variance?
+    Why might a 50% sample rate still miss the single slowest request?</p>
+</li>
+<li>
+<p>The <code>SampledService</code> creates a child context and passes it to downstream services.
+    Add a third service (Database) as a downstream of the second service.
+    Run a sampled trace and verify that the span tree has three levels:
+    Client → Service A → Service B → Database.
+    Print the <code>parent_span_id</code> of each span to confirm the chain.</p>
+</li>
+<li>
+<p>The basic tracer stores context in a module-level variable.
+    Write a scenario that demonstrates the concurrency bug:
+    start two requests at the same time and print the <code>trace_id</code> that each service sees.
+    Do both requests always see their own <code>trace_id</code>?
+    (Hint: since asimpy is single-threaded, you may need to add a yield point.)</p>
+</li>
+<li>
+<p>Tail-based sampling buffers all spans for a trace and decides whether to keep them
+    only after the root span completes (allowing it to always record slow requests).
+    Sketch the data structure needed to buffer spans until the root span finishes.
+    What is the maximum memory cost per in-flight request?</p>
+</li>
+<li>
+<p>The JSON collector (in <code>json_collector.py</code>) generates over 300 lines of output
+    for a simple example.
+    Write a summary function that takes the collector's completed traces and prints,
+    for each trace: total duration, number of spans, and the name of the slowest span.
+    (Starter: iterate <code>collector.completed_traces</code> and use <code>Trace.duration()</code>.)</p>
+</li>
+</ol>
 </section>
 </main>
 <footer aria-label="Page navigation">

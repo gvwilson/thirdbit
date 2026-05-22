@@ -54,6 +54,19 @@
 </nav>
 <main id="main-content">
 <h1>MapReduce Framework</h1>
+<div class="objectives">
+<ul>
+<li>Describe the five phases of MapReduce (input split, map, shuffle, reduce, output)
+    and explain what happens in each phase.</li>
+<li>Explain what a combiner does,
+    when it is safe to use one,
+    and why it reduces network traffic.</li>
+<li>Explain why MapReduce handles worker failures transparently
+    and what assumption makes re-execution safe.</li>
+<li>Identify the kinds of problems MapReduce handles poorly
+    and explain why iterative algorithms are a poor fit.</li>
+</ul>
+</div>
 <p>[<a class="bib-ref" href="../bibliography/#Dean2004">Dean2004</a>] introduced the MapReduce framework,
 which allowed programmers to perform many different data processing tasks
 by using two abstractions called (as you might guess) map and reduce.
@@ -163,7 +176,7 @@ The classic MapReduce example counts how often each word occurs in a document.</
 </code></pre></div>
 </div>
 <p>As this example shows,
-he programmer writes two simple functions and runs a process to coordinate them.
+the programmer writes two simple functions and runs a process to coordinate them.
 The framework handles distribution, parallelization, and aggregation.</p>
 <h2 id="mapreduce-datastructures">Core Data Structures</h2>
 <p>Let's start with some dataclasses to represent the data flowing through the framework.
@@ -540,6 +553,20 @@ this coroutine is awaited by the <code>Process</code> that the user writes.</p>
 <p>A combiner is a local reduce that runs on each mapper's output before shuffling
 in order to reduce network traffic.
 Doing this can dramatically improve performance for operations like summation or counting.</p>
+<p>To see why, consider the word-count example with the input "the cat sat on the mat".
+Without a combiner, the mapper for this chunk emits six intermediate pairs:
+<code>("the", 1), ("cat", 1), ("sat", 1), ("on", 1), ("the", 1), ("mat", 1)</code>.
+All six travel over the network to the reducers.</p>
+<p>With a combiner that runs the same reduce function locally,
+the mapper first reduces these to <code>("the", 2), ("cat", 1), ("sat", 1), ("on", 1), ("mat", 1)</code>.
+Now only five pairs cross the network, and the saving grows with repetition:
+for a chunk of 10,000 words with a vocabulary of 500, the combiner might reduce 10,000 pairs
+to 500, a 20x reduction in network traffic.</p>
+<p>A combiner is only correct when the reduce function is commutative and associative
+(the same requirement as the reduce phase itself).
+Summation, counting, max, and min all qualify.
+Average does not—<code>average(average(1,2), 3)</code> ≠ <code>average(1,2,3)</code>—so a combiner cannot be used
+for averages without keeping both the sum and count separately.</p>
 <div data-inc="coordinator_with_combiner.py"><span aria-label="Source: mapreduce/coordinator_with_combiner.py" class="inc-path" role="img" tabindex="0" title="mapreduce/coordinator_with_combiner.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">"""MapReduce coordinator with combiner optimization."""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span>
@@ -749,6 +776,45 @@ The fix is to use <code>hashlib.md5</code> (or another deterministic hash functi
 to convert keys to integers.
 The result is not affected by <code>PYTHONHASHSEED</code>,
 so the examples produce the same output every time.</p>
+<section aria-label="Exercises" class="exercises">
+<h2 id="mapreduce-exercises">Exercises</h2>
+<ol>
+<li>
+<p>Run the word-count example twice without calling <code>random.seed()</code>.
+    Do the results change between runs?
+    Now add <code>random.seed(42)</code> before the simulation and run it again.
+    Are the results now reproducible?
+    Why or why not—is the hash function the only source of non-determinism?</p>
+</li>
+<li>
+<p>The combiner reduces network traffic by pre-aggregating mapper output.
+    Modify the word-count example to count how many key-value pairs the mapper produces
+    and how many it would produce after combining.
+    Use a corpus of 1000 words with a vocabulary of 50 distinct words
+    and measure the reduction factor.</p>
+</li>
+<li>
+<p>The current implementation retries failed tasks until they succeed.
+    What happens if a task always fails (e.g., because the input data is corrupt)?
+    Add a maximum retry count to the coordinator and have it report a permanent failure
+    after three attempts.
+    (Starter: add a <code>retry_count: dict</code> to <code>MRCoordinator.__init__</code> and increment it in the failure handler.)</p>
+</li>
+<li>
+<p>Speculative execution launches a backup copy of a slow task.
+    What happens if both the original and the backup succeed at almost the same time?
+    Trace through <code>speculative_coordinator.py</code> to find where duplicate results are handled.
+    Is there a window where the coordinator could accept both?</p>
+</li>
+<li>
+<p>MapReduce is described as unsuitable for iterative algorithms.
+    Sketch how you would compute PageRank (which requires iterating until convergence)
+    using multiple MapReduce jobs chained together.
+    How many jobs would be needed for 10 iterations?
+    What is the overhead compared to a system that keeps data in memory between iterations?</p>
+</li>
+</ol>
+</section>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
