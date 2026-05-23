@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -54,169 +55,178 @@
 <li>Evaluate a claim by asking what evidence would refute it.</li>
 </ul>
 </div>
-<p>In 2023, a team at GitHub published a paper claiming that developers using
-Copilot completed tasks 55% faster than those who did not [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>].
+<p>In 2023,
+a team at GitHub published a paper claiming that
+developers using Copilot completed tasks 55% faster than those who did not [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>].
 That number spread through tech media like a cold through an open-plan office.
-Executives cited it in all-hands meetings. Blog posts called it a "landmark
-study." A few people asked whether 55% was even plausible.</p>
-<p>They were right to ask. The study used 95 participants on a single
-artificial task (implementing an HTTP server in JavaScript), lasted
-ninety minutes, and was funded by GitHub. None of that makes it wrong,
-but it does mean "55% faster" applies to a very narrow slice of software
-development. This workshop is about learning to ask that kind of question
-systematically.</p>
+Executives cited it in all-hands meetings,
+and blog posts called it a "landmark study".</p>
+<p>Only a few people asked whether 55% was even plausible.
+They were right to do so.
+The study used 95 participants on a single artificial task
+(implementing an HTTP server in JavaScript),
+lasted ninety minutes,
+and was funded by GitHub.
+None of that makes it wrong,
+but it does mean "55% faster" applies to a very narrow slice of software development.
+This workshop is about how to do those studies better.</p>
 <h2>What Empirical Software Engineering Is</h2>
 <ul>
 <li><a class="gl-ref" href="../glossary/#empirical_software_engineering">Empirical software engineering</a>
     (ESE) uses observation and experiment to study how software is built,
-    who builds it, and what practices actually work</li>
+    and what practices actually work<ul>
+<li>ESE is distinct from building better tools: its goal is knowledge, not artifacts</li>
+</ul>
+</li>
 <li>It draws on methods from psychology, sociology, economics, and statistics</li>
-<li>The field has existed since at least the 1970s (Sackman et al.'s
-    controversial 1968 study on programmer productivity is an early example)
-    [<a class="bib-ref" href="../bibliography/#Sackman1968">Sackman1968</a>]</li>
-<li>Even simple-sounding questions resist easy answers: Prechelt measured 73
-    professional developers solving the same programming task and found
-    completion times ranged from 0.6 to 63 hours — a 105-fold difference
-    [<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>]. After controlling for programming language the ratio
-    shrank to 17-fold; with a careful definition of "more productive" it
-    shrank further to 5-to-11-fold. The answer changed with every
-    definitional choice</li>
-<li>ESE is distinct from "building better tools"—its goal is knowledge, not
-    artifacts</li>
+<li>The field has existed since at least the 1970s<ul>
+<li>Sackman et al's deeply flawed but widely quoted study on programmer productivity
+    from 1968 is an early example [<a class="bib-ref" href="../bibliography/#Sackman1968">Sackman1968</a>]</li>
+</ul>
+</li>
+<li>Even simple-sounding questions resist easy answers<ul>
+<li>Prechelt measured 73 professional developers solving the same programming task
+     and found completion times ranged from 0.6 to 63 hours [<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>]</li>
+<li>After controlling for programming language the ratio shrank to 17-fold</li>
+<li>With a careful definition of "more productive" it shrank further to 5-to-11-fold</li>
+<li>The answer depends a lot on exactly what question is asked</li>
+</ul>
+</li>
 </ul>
 <h2>Why Media Coverage Is Unreliable</h2>
 <ul>
-<li>Journalists rarely read past the abstract, and abstracts rarely report
-    limitations</li>
-<li>Press releases are written by communications teams whose job is to
-    generate coverage, not accuracy</li>
-<li>Preprints (papers not yet peer-reviewed) circulate as freely as
-    peer-reviewed papers, with no visible distinction to non-specialists</li>
-<li>Conflict of interest is common: a large fraction of AI/productivity
-    studies are funded by the companies selling the tools being studied</li>
-<li>Replication is rare in software engineering research: most results are
-    reported once and never checked</li>
+<li>Journalists rarely read past the abstract,
+    and abstracts rarely report limitations</li>
+<li>Press releases are written by communications teams whose job is to generate coverage,
+    not accuracy</li>
+<li><a class="gl-ref" href="../glossary/#preprint">Preprints</a> circulate as freely as peer-reviewed papers,
+    with no visible distinction to non-specialists</li>
+<li>Conflict of interest is common<ul>
+<li>A large fraction of AI productivity studies are funded by
+     the companies selling the tools being studied</li>
+</ul>
+</li>
+<li>Replication is rare in software engineering research<ul>
+<li>Most results are reported once and never checked</li>
+</ul>
+</li>
 </ul>
 <h2>Claims, Studies, and Evidence</h2>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#claim">claim</a> is an assertion: "AI tools make programmers more productive"</li>
 <li>A <a class="gl-ref" href="../glossary/#study">study</a> is a systematic attempt to test a claim</li>
-<li><a class="gl-ref" href="../glossary/#evidence">Evidence</a> is what a study produces, and evidence varies in quality</li>
-<li>The chain from claim to policy is often much shorter than it should be:
-    one study with a nice headline can change hiring practices, procurement
-    decisions, and university curricula</li>
-<li>Good scientific practice distinguishes between "this study found X" and
-    "X is true"</li>
+<li><a class="gl-ref" href="../glossary/#evidence">Evidence</a> is what a study produces, and varies in quality</li>
+<li>The chain from claim to policy is often much shorter than it should be<ul>
+<li>One study with a nice headline can change hiring practices, procurement decisions,
+     and university curricula</li>
+</ul>
+</li>
+<li>Good scientific practice distinguishes between "this study found X" and "X is true"</li>
 </ul>
 <h2>Qualitative vs. Quantitative</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#quantitative_methods">Quantitative methods</a>
-    measure things: task completion time, defect rate, commit frequency<ul>
+<li><a class="gl-ref" href="../glossary/#quantitative_methods">Quantitative methods</a> measure things:
+    task completion time, defect rate, commit frequency<ul>
 <li>Good for "how much" and "is there a difference"</li>
 <li>Requires that you can define and measure what you care about</li>
 </ul>
 </li>
-<li><a class="gl-ref" href="../glossary/#qualitative_methods">Qualitative methods</a>
-    describe things: what developers think about a tool,
-    how teams decide what to build, why a particular practice was adopted<ul>
+<li><a class="gl-ref" href="../glossary/#qualitative_methods">Qualitative methods</a> describe things:
+     what developers think about a tool,
+    how teams decide what to build,
+    why a particular practice was adopted<ul>
 <li>Good for "why" and "what is happening here"</li>
 <li>Requires that you can access and interpret people's experiences</li>
 </ul>
 </li>
-<li>Neither is inherently superior; the question determines the method</li>
-<li>Mixed-methods studies use both, which is more expensive but often more
-    informative</li>
+<li>Neither is superior<ul>
+<li>The question determines the method</li>
+</ul>
+</li>
+<li>Mixed-methods studies use both, which is more expensive but often more informative</li>
 </ul>
 <h2>Misconceptions</h2>
 <dl>
 <dt>Peer review means a study is correct.</dt>
 <dd>Peer review is a filter for obvious errors and implausible claims,
-not a certificate of validity. Reviewers rarely re-run analyses,
-check raw data, or verify that reported results follow from the
-methods described.</dd>
+not a certificate of validity.
+Reviewers rarely re-run analyses,
+check raw data,
+or verify that reported results follow from the methods described.</dd>
 <dt>A larger sample always makes a study better.</dt>
-<dd>Sample size matters, but it cannot fix a flawed design. A study
-with ten thousand participants on an irrelevant task still tells
-you nothing about the question you care about.</dd>
+<dd>Sample size matters, but it cannot fix a flawed design.
+A study with ten thousand participants on an irrelevant task
+tells you nothing about the question you care about.</dd>
 <dt>Qualitative methods are less rigorous than quantitative methods.</dt>
-<dd>They use different standards of rigor—saturation instead of power,
-audit trails instead of pre-registration—not lower ones. Choosing
-the wrong method for a question is the rigor failure, not using
-qualitative methods at all.</dd>
+<dd>They use different standards of rigor, not lower ones.</dd>
 <dt>One well-designed study settles a question.</dt>
-<dd>Single studies, however well designed, report what happened in one
-sample under one set of conditions.  A finding becomes reliable
-through replication across different samples, contexts, and
-research teams.</dd>
+<dd>Single studies, however well designed,
+report what happened in one sample under one set of conditions.
+A finding becomes reliable through replication across different samples,
+contexts, and research teams.</dd>
 </dl>
 <h2>Check Understanding</h2>
 <details>
 <summary>What is the difference between a claim and evidence?</summary>
-<p>A claim is an assertion—"AI tools make programmers more productive." Evidence
-is what a systematic study produces when it tests that claim. Evidence varies
-in quality depending on the study design, sample size, context, and potential
-for bias. A single study produces evidence for or against a specific claim
-under specific conditions; it does not prove or disprove the claim in general.</p>
+<p>A claim is an assertion, such as, "AI tools make programmers more productive."
+Evidence is what a systematic study produces when it tests that claim.
+Evidence varies in quality depending on the study design,
+sample size, context, and potential for bias.
+A single study produces evidence for or against a specific claim under specific conditions;
+it does not prove or disprove the claim in general.</p>
 </details>
 <details>
-<summary>The GitHub Copilot study found a 55% speed increase. A colleague says this means "AI doubles productivity." Identify two specific problems with that interpretation.</summary>
-<p>First, the study used an artificial task (implementing an HTTP server in
-JavaScript in 90 minutes), which may not represent the full range of
-software development work. Second, "55% faster on one task" is not the
-same as "doubles overall productivity"—productivity involves much more than
-task completion time, and the effect on the full working day is unknown.
-A third problem, if needed: the study was funded by GitHub, which has a
-financial interest in Copilot appearing effective.</p>
+<summary>The GitHub Copilot study found a 55% speed increase. A colleague says this means that AI doubles productivity. Identify two specific problems with that interpretation.</summary>
+<p>First, the study used an artificial task,
+which does not represent the full range of software development work.
+Second, "55% faster on one task" is not the same as "doubles overall productivity".
+Productivity involves much more than task completion time,
+and the effect on the full working day is unknown.
+A third problem, if needed:
+the study was funded by GitHub,
+which has a financial interest in Copilot appearing effective.</p>
 </details>
 <details>
-<summary>A researcher says: "We used qualitative methods because quantitative methods can't capture the nuances of developer experience." A second researcher says: "We used quantitative methods because qualitative findings can't be generalized." Which researcher is right?</summary>
-<p>Neither is straightforwardly right. Qualitative methods are better suited to
-understanding why and what is happening, while quantitative methods are
-better suited to measuring how much and whether there is a difference.
-The choice of method should depend on the research question, not on a
-general preference. Dismissing the other approach without considering the
-question is a sign of methodological tribalism, not sound reasoning.</p>
-</details>
-<details>
-<summary>The following sentence contains an error in statistical reasoning. Identify and fix it: "The study was pre-registered, so its results must be valid."</summary>
-<p>Pre-registration means the researchers committed to their hypotheses and
-analysis plan before collecting data, which reduces the risk of HARKing
-(Hypothesizing After Results are Known) and p-hacking. However, it does not
-guarantee valid results. A pre-registered study can still have design flaws,
-measurement problems, small samples, biased participants, or errors in
-analysis. Pre-registration is a quality indicator for transparency, not a
-certificate of correctness.</p>
+<summary>A researcher says, "We used qualitative methods because quantitative methods can't capture the nuances of developer experience." A second researcher says, "We used quantitative methods because qualitative findings can't be generalized." Which researcher is right?</summary>
+<p>Neither.
+Qualitative methods are better suited to understanding what is happening and why,
+while quantitative methods are better suited to measuring how much and whether there is a difference.
+The choice of method should depend on the research question.
+Dismissing either approach without considering the question is a sign of methodological tribalism,
+not sound reasoning.</p>
 </details>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Find the Funding (15 minutes)</h3>
 <p>Find a recent news article about an AI tool's impact on software development.
 Locate the original study it references (or the closest study you can find).
-Identify who funded the study, what the actual sample was, what task was
-studied, and what the abstract claims versus what the methods section
-actually supports. Write two or three sentences summarizing the gap between
-the headline and the evidence.</p>
+Identify who funded the study,
+what the actual sample was,
+what task was studied,
+and what the abstract claims versus what the methods section actually supports.
+Write two or three sentences summarizing the gap between the headline and the evidence.</p>
 </div>
 <div class="exercise">
 <h3>Qualitative or Quantitative? (10 minutes)</h3>
-<p>For each of the following research questions, decide whether you would
-primarily use qualitative or quantitative methods, and give one sentence
-explaining why:</p>
+<p>For each of the following research questions,
+decide whether you would primarily use qualitative or quantitative methods,
+and give one sentence explaining why:</p>
 <ul>
 <li>Do developers who use pair programming make fewer defects?</li>
 <li>Why do some teams adopt test-driven development while others reject it?</li>
-<li>How do developers decide when to ask an AI assistant for help versus
-    working through a problem themselves?</li>
+<li>How do developers decide when to ask an AI assistant for help
+     versus working through a problem themselves?</li>
 <li>Does code review time decrease when teams adopt a particular tool?</li>
 </ul>
 </div>
 <div class="exercise">
 <h3>Replication Reality Check (20 minutes)</h3>
 <p>Pick one claim you have heard or read about AI and software development
-(e.g., "AI tools reduce onboarding time," "AI-generated code has more
-security vulnerabilities"). Search for at least two studies that address
-this claim. Do they agree? If not, what differences in method might explain
-the disagreement?</p>
+(e.g., "AI tools reduce onboarding time" or
+"AI-generated code has more security vulnerabilities").
+Search for at least two studies that address this claim.
+Do they agree?
+If not, what differences in method might explain the disagreement?</p>
 </div>
 </main>
 <footer aria-label="Page navigation">
