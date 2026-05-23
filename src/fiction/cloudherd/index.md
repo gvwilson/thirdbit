@@ -932,7 +932,6 @@ You 'n' Noxy get 'em loaded up fast as you can."
 "It's going to get bumpy!"
 
 </section>
-
 <section markdown="1">
 
 ## Chapter 2
@@ -1880,7 +1879,6 @@ Moments later,
 her snoring joined her mother's.
 
 </section>
-
 <section markdown="1">
 
 ## Chapter 3
@@ -2572,6 +2570,313 @@ The satchel's weight dragged the stick forward until it stuck against the pond's
 Safely wrapped in three layers of waxed paper,
 the tralpa's letters slipped out just moments before the satchel filled with water
 and sank to the bottom of the pond.*
+
+Indy took one look at her bedraggled daughter
+and ordered Noxy to go straight to the bath house.
+Noxy had never been so happy to see hot water in her life.
+The women's half of the bath house was empty,
+so she stripped down to her underclothes
+and started to work the polished handle of the pump in the center of the room.
+Water gurgled through cured bamboo pipes,
+then splashed into the stone trough that waited beneath the pump's spout.
+Within moments it began to steam
+as the spell on the trough heated it up.
+
+One bucket, two buckets, three…
+By the time Noxy had filled her favorite tub,
+the work of pumping had driven the chill off her skin.
+She hung her underclothes over the side of the tub and stepped into bliss.
+She couldn't straighten her legs the way she had been able to as a little girl,
+but it still felt wonderful.
+She took a deep breath—
+
+—and jumped as the door burst open.
+"Could you *knock* next time?" she snapped at Sensy.
+
+Her friend stared at her.
+"Why?  Nobody else does."
+
+"Well, maybe they should start," Noxy grumbled.
+
+Sensy rolled her eyes, then pulled up a stool and sat down.
+"Granna Fee says you rescued the *tralpa*.
+What happened?"
+
+"I'll tell you if you get me some more hot water."
+Sensy pouted but got up and started pumping while Noxy brought her up to date,
+leaving out the part where the troll brought back Private Thokmay's sword.
+She needed to figure out what she thought about that.
+
+"Saints," Sensy breathed when Noxy was done.
+"You could have been killed!"
+
+Noxy shrugged.
+"I suppose.  Aaah…" she added
+as her friend poured a fresh bucket of hot water into the wooden tub.
+
+Sensy sat down once again.
+"So what's he like?
+Private Thokmay, I mean, not the *tralpa*."
+
+Noxy shrugged again.
+"I don't know.  He doesn't say much."
+
+Sensy leaned forward.
+"Did he say how he got those scars on his face?
+Rash said it looked like the tiger had clawed him."
+
+"Maybe," Noxy allowed,
+thinking about the matching scars she had seen on the young soldier's arm.
+She was definitely not sharing that part of the story with Sensy either.
+
+But the thought led her to another.
+It was time to figure out why her two best friends were mad at each other.
+"So what's going on with you and Rash?"
+she asked as casually as she could.
+
+Out of the corner of her eye she saw Sensy freeze.
+"What do you mean?"
+
+"Oh, please."
+Noxy flicked a few drops of water at her.
+"I'm not blind."
+
+Sensy squirmed.
+"I know.
+I just—I was going to tell you when we were out picking spiderwebs,
+but then—you know, everything just kind of happened
+and we haven't really had a chance to talk since then and—you're not mad, are you?"
+
+"Me?  Why would I be mad?" Noxy asked blankly.
+What was Sensy talking about?
+She and Rash were the ones who were mad at each other, weren't they?
+
+"He asked me to go to the spring fancy with him and I said yes,"
+Sensy said in a rush.
+"I'm really glad you aren't mad."
+
+"Of course not," Noxy said,
+trying her best to sound as though she meant it.
+The spring fancy was the biggest celebration of the year in Stale,
+bigger even than Yearagain Eve.
+When the adults brought the village's clouds back and the first pack traders came through the pass,
+every family decorated their house with
+whatever funny or scary ornaments they had spent the winter making,
+then put on their best clothes and gathered in the village square
+to tell stories and exchange gifts and above all, to dance.
+She and Sensy and Rash had gone together ever since they were little, but now…
+
+"Of course not," Noxy repeated briskly.
+"Though if you ask me,
+you ought to tell him that he has to shave that ridiculous mustache he's trying to grow
+before he tries to kiss you."
+
+"He's already kissed me," Sensy confessed,
+blushing slightly as she tucked one of her braids back behind her ear.
+
+"Oh." Noxy digested that.
+She felt stupid for not having figured out what was going on,
+and also, suddenly, very alone.
+
+"Anyway, what about Private Thokmay?
+You could ask him to the fancy,"
+Sensy suggested, then exclaimed,
+"It was just an idea!"
+as Noxy flicked more water at her.
+
+"It was a stupid idea," Noxy grumbled.
+"I don't even know if I'm going to go this year."
+
+"I *knew* you'd be mad," Sensy sighed.
+
+"I'm not mad!" Noxy said angrily,
+sinking lower into the tub.
+In the silence that followed,
+she heard voices murmuring on the other side of the wall.
+The petulant tone of the first had to belong to the *tralpa*,
+and the deep rumble of the second could only be the tiger.
+For one moment she wondered what would happen if she invited *him* to the fancy.
+
+"Anyway," Sensy broke in,
+standing and brushing her hands against her trousers,
+"I should go and see if anyone needs help with anything.
+Aft says the storm's going to be a big one.
+See you later?"
+
+"Sure."
+Noxy waited until she heard the door close before pulling her knees to her chest
+and closing her eyes and wondering why everything suddenly seemed so complicated.
+
+Stale was no stranger to storms.
+When bulls battled each other in the dead of winter,
+the snow fell so thick and so fast that people had to string ropes between the
+houses to find their way.
+And in the summer,
+when nimbus clouds that had stayed in the north to give birth flew south to rejoin their herds,
+the sky could darken in the time it took to sing a nursery rhyme.
+When that happened,
+the villagers knew it was time to tie their shutters closed and get the goofs into their pens,
+because the rain was going to come down in sheets instead of drops.
+
+"I am from Thind," Kulbinder growled
+when Indy told him why she wanted the soldiers to stay in the trading hall.
+"I have lived through monsoons.
+This could not possibly be worse."
+
+"Maybe not, but I bet it'll be a lot colder," she said.
+
+Kulbinder sniffed.
+"Storm or not, someone should be on patrol.
+But I agree, it would be best if the men stayed warm."
+
+"How is Thokmay?" Noxy asked.
+She had changed into her other shirt and trousers,
+then hung her muddy clothes over the rack behind the house
+in the hope that the rain would do at least half the work of washing them clean.
+
+The tiger blinked slowly.
+"He is well.
+I have set him to watch over the *tralpa* until some other arrangement can be made."
+
+The sun had almost disappeared behind the mountains
+when the first sharp line of lightning lashed the far-off clouds.
+"Let's not dawdle," Granna Fee said briskly,
+settling a canvas tarp over her vegetable plot and weighting it down with stones.
+Children, elders, and everyone else who could walk hurried to ready the village,
+stepping around soldiers or shooing them out of the way.
+
+When Noxy got home, her mother was chopping onions.
+"Thanks, sweetling," she said, blinking away a tear.
+"Can you do some potatoes?
+And see if the cheese is still fit to eat.
+I hope the tiger isn't too picky."
+
+Noxy pulled up short.
+"The tiger?"
+
+Indy sniffled.
+"Yes, he's coming for dinner with the sergeant."
+She swept a double handful of diced onions into the cooking pot with the back of the knife
+and started peeling what was probably the last knob of ginger in Stale.
+"It's the polite thing to do,"
+she continued without looking as Noxy opened and then closed her mouth.
+
+"Yes, *amma*."
+Noxy set the loosely-woven bag of potatoes on the potato
+and began to scrub the skins off them with a piece of pumice.
+
+Sergeant Dorbu knocked on their door just as the rain began to fall.
+Noxy had been expecting him to be in his uniform,
+but he had traded in his battle mask for a simple knit cap that any cloudherd might have worn,
+and had left his sword behind.
+
+Kulbinder padded in behind him while he and Indy were saying their hellos.
+He flowed up onto the chair across from Noxy
+and watched impassively as she swept the last scraps of potato off the table.
+"The boy sends his greetings," the tiger said.
+
+Noxy jumped slightly.
+"Oh. Um, thank you. I'm glad he's all right.
+It's pretty dangerous, getting frozen like that.
+It happened to one of the goofs a couple of years ago.
+She got out of their pen and tried to get across the—um.
+It doesn't matter.
+I'm glad he's all right."
+She felt her cheeks burn under the tiger's cool stare.
+
+Her cheeks heated up even more when she saw Sergeant Dorbu's grin.
+"Don't worry," he said cheerfully.
+"He does that to everyone.
+Saints, I almost swallowed my fork the first time I met him."
+
+"It was a spoon," Kulbinder corrected.
+"And it was more than 'almost'."
+
+And just like that the rhythm of the meal took shape.
+Sergeant Dorbu had a seemingly inexhaustible supply of stories
+about his own foolishness, clumsiness, or bad choices.
+Indy asked just enough questions to keep the stories coming,
+while Kulbinder's dry comments provoked protests of innocence and occasional snorts of laughter.
+As she table a tray bearing grilled slabs of cheese,
+fried onions,
+and boiled potatoes,
+Noxy realized with a start that she was actually enjoying herself.
+The mood was only slightly dampened by the tiger sniffing at the cheese
+and then saying thank you,
+but it would probably upset his digestion,
+he would hunt in the forest after the storm was over.
+
+Conversation became more serious after the dishes were cleared.
+The soldiers had been on the move almost constantly since they had taken Learned Shudarga's side.
+"Getting to a fight,
+or getting away from one,
+or trying to get enough food in our bellies to keep us fighting—that's
+mostly what being a soldier is about, not the fighting itself,"
+Sergeant Dorbu sighed.
+
+"So why did you chose her side?"
+Indy asked as she splashed some dark mountain *rak* into a glass and passed it to him.
+Catching Noxy's eye,
+she poured a thimbleworth into another glass and handed it to her daughter.
+The pungent fumes tingled in Noxy's nose as she tasted it gingerly.
+
+Sergeant Dorbu rolled his glass between his hands to warm it.
+"My family used to have land.
+Not much—a couple of hundred apple trees and some corn—but
+it was enough to keep us.
+Then one of our neighbors decided she wanted to build a mill,
+and,
+well,
+we were on the other side of the river she had her eye on,
+so she honeyed up the local *tralpa*, promised him a slice of the takings, and…"
+He spread his hands.
+"By the time we got to court,
+she'd rented all the laws that would have saved us.
+We had a week to clear out after living their all our lives."
+
+"That must have been horrible,"
+Indy said sympathetically.
+
+"It is foolishness," Kulbinder rumbled.
+"The law in Thind is not something one rents like a bullock for plowing.
+There are rules for each station, and that is that."
+
+"But then how does the king raise money?" Noxy asked.
+
+Kulbinder blinked slowly.
+"He takes what tradition dictates.
+It is much simpler."
+
+"Simpler *and* fairer,"
+Sergeant Dorbu added with a quiet intensity that hadn't been there a moment earlier.
+"And that's what we want—something simple and fair.
+Laws should be there for everyone,
+all the time,
+not just for whoever has the most money on the day of a trial.
+And if that means a bunch of royals have to work for a living
+instead of renting out laws some king gave their great-great-grands way back when,
+that's fine by me."
+He drained his glass in one quick gulp.
+When her mother did the same, Noxy held her breath and swallowed her own *rak*.
+
+The thick black liquid felt like fiery smoke as it went down her throat.
+She clenched her jaw,
+but a strangled cough managed to escape.
+"And that's enough for *you* tonight,"
+her mother said in mock-disapproval.
+
+The sergeant stretched.
+"I think that's enough for all of us.
+Thank you again, honored,"
+he said.
+"Come on, cat.
+It's time for bed."
+
+*In the forest below the village,
+a small stream splashed and gurgled with new-fallen rain.
+No one was there to notice it tug at a small packet of letters wrapped in wax paper.
+The packet came free and slipped over the edge of the pond
+to resume its journey down the mountain.*
 
 </section>
 <section markdown="1">
