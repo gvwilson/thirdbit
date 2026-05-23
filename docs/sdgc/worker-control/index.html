@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Controlling Workers</title>
+<meta content="Sex &amp; Drugs &amp; Guns &amp; Code" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">SDGC</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../seeing/">Reading the World</a></li>
+<li><a href="../behavior/">What Drives Behavior</a></li>
+<li><a href="../monopoly/">Money, Monopoly, and Bubbles</a></li>
+<li><a href="../disruption/">Disruption, Fraud, and Enclosure</a></li>
+<li><a href="../ownership/">Who Owns What</a></li>
+<li><a class="active" href="../worker-control/">Controlling Workers</a></li>
+<li><a href="../inside-orgs/">Power Inside Organizations</a></li>
+<li><a href="../alternatives/">Alternatives and Dead Weight</a></li>
+<li><a href="../gatekeeping/">Media and Gatekeeping</a></li>
+<li><a href="../surveillance/">Surveillance, Identity, and Desire</a></li>
+<li><a href="../inequality/">Who Gets What and Why</a></li>
+<li><a href="../harm-culture/">Race, Culture, and Harm</a></li>
+<li><a href="../institutions/">Institutional Power</a></li>
+<li><a href="../capture-fascism/">Capture, Control, and Fascism</a></li>
+<li><a href="../harmful-models/">When the Model Is the Harm</a></li>
+<li><a href="../leverage/">Lock-In, Leverage, and Legalization</a></li>
+<li><a href="../speech-arms/">Speech, Arms, and Algorithms</a></li>
+<li><a href="../moral-change/">Harm, Morality, and Empathy</a></li>
+<li><a href="../regulation-works/">Regulation That Worked</a></li>
+<li><a href="../how-change/">What Changes and How</a></li>
+<li><a href="../ai-happens/">When the Algorithm Comes for You</a></li>
+<li><a href="../on-voting/">Elections, Courts, and Democratic Erosion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
+<ul class="dropdown-content" id="nav-slides">
+<li><a href="../seeing/slides.html">Reading the World</a></li>
+<li><a href="../behavior/slides.html">What Drives Behavior</a></li>
+<li><a href="../monopoly/slides.html">Money, Monopoly, and Bubbles</a></li>
+<li><a href="../disruption/slides.html">Disruption, Fraud, and Enclosure</a></li>
+<li><a href="../ownership/slides.html">Who Owns What</a></li>
+<li><a href="../worker-control/slides.html">Controlling Workers</a></li>
+<li><a href="../inside-orgs/slides.html">Power Inside Organizations</a></li>
+<li><a href="../alternatives/slides.html">Alternatives and Dead Weight</a></li>
+<li><a href="../gatekeeping/slides.html">Media and Gatekeeping</a></li>
+<li><a href="../surveillance/slides.html">Surveillance, Identity, and Desire</a></li>
+<li><a href="../inequality/slides.html">Who Gets What and Why</a></li>
+<li><a href="../harm-culture/slides.html">Race, Culture, and Harm</a></li>
+<li><a href="../institutions/slides.html">Institutional Power</a></li>
+<li><a href="../capture-fascism/slides.html">Capture, Control, and Fascism</a></li>
+<li><a href="../on-voting/slides.html">Elections, Courts, and Democratic Erosion</a></li>
+<li><a href="../harmful-models/slides.html">When the Model Is the Harm</a></li>
+<li><a href="../leverage/slides.html">Lock-In, Leverage, and Legalization</a></li>
+<li><a href="../regulation-works/slides.html">Regulation That Worked</a></li>
+<li><a href="../speech-arms/slides.html">Speech, Arms, and Algorithms</a></li>
+<li><a href="../moral-change/slides.html">Harm, Morality, and Empathy</a></li>
+<li><a href="../ai-happens/slides.html">When the Algorithm Comes for You</a></li>
+<li><a href="../how-change/slides.html">What Changes and How</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sdgc">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Controlling Workers</h1>
+<h2>Big Tech is Like the Sharecropping System</h2>
+<p>After the American Civil War,
+former slaves and poor white farmers in the South farmed land they did not own
+under a system called <a class="gl-ref" href="../glossary/#sharecropping">sharecropping</a>.
+Contracts that gave the landowner a percentage of the harvest,
+required them to buy supplies on credit from the landowner's store at prices the landowner set,
+and prohibited them from selling to anyone other than the landowner.
+The debt was structured so that a bad harvest
+(or even a good one, depending on how the accounts were kept)
+left the farmer owing more at year's end than at the beginning.
+The system was legal,
+entered into "voluntarily" (by people with no other options),
+and reproduced the economic relations of slavery without the formal institution.</p>
+<p>Historians and economists have found systematic underweighting of harvests and overcharging of credit accounts.
+The system was designed to perpetuate indebtedness, not resolve it.
+To make a bad situation worse,
+the merchant providing supplies was often the same person as the landowner;
+if not,
+they usually operated as a tied supplier.
+The farmer could not buy supplies from a competing merchant because
+the <a class="gl-ref" href="../glossary/#crop_lien">crop lien</a> pledged the entire harvest to the furnishing merchant
+as collateral for the advance.
+"On credit" prices at the furnishing merchant's store were set at a markup over cash prices
+that could run from thirty to sixty percent.</p>
+<p>By pledging next year's crop to cover this year's debt,
+the farmer legally committed future labor before that labor was performed.
+This is the structure of platform lock-in:
+time and effort are committed to a platform
+before the platform's terms are known for the following year.
+A sharecropper who improved the land was <em>more</em> trapped,
+not less,
+because the accumulated investment had nowhere else to go.
+The same is true of a creator who has built a hundred thousand subscribers
+on a platform that then changes its revenue-sharing terms.</p>
+<p><a class="gl-ref" href="../glossary/#peonage">Peonage</a> was the name for debt arrangements that crossed from exploitative into criminal.
+It refers to holding a worker in involuntary servitude through debt
+while using threats or actual violence to prevent them from leaving.
+Federal peonage statutes were enacted after Reconstruction,
+and some prosecutions did occur in the early twentieth century
+after investigative journalism and advocacy exposed conditions
+in the turpentine camps and cotton plantations of the Deep South.
+These prosecutions targeted individual employers;
+they did not address the systemic accounting fraud or the market structure that produced mass indebtedness
+[<a class="bib-ref" href="../bibliography/#Daniel1972">Daniel1972</a>, <a class="bib-ref" href="../bibliography/#Blackmon2008">Blackmon2008</a>].</p>
+<p>The platform equivalent of this operates through percentage fees,
+arbitrary algorithmic changes,
+and paid promotion requirements.
+When YouTube changed its monetization criteria in 2018
+to require one thousand subscribers and four thousand watch hours
+before a channel could earn advertising revenue,
+channels that had not yet crossed those thresholds were cut off from income they had been building toward.
+When organic reach on Facebook declined sharply for business pages after 2012,
+businesses that had invested in building Facebook audiences were told
+they could pay for promotion to reach the audiences they had already acquired.
+The audience is the crop;
+the algorithm change is the landlord raising the rent after the harvest is in.</p>
+<p>A related but distinct mechanism appears in gig economy work,
+which parallels the <a class="gl-ref" href="../glossary/#putting_out_system">putting-out system</a> of early modern textile production.
+Merchants in eighteenth and nineteenth century Britain supplied raw materials to rural householders,
+who processed them at home using their own equipment.
+The merchants then collected the finished goods at prices they set.
+The household owned its tools;
+the merchant owned the raw material, the finished product, and the customer relationship.
+If demand fell,
+the merchant stopped delivering material and the household had to absorb the income shock.
+The merchant's flexibility was the household's precarity, by design
+[<a class="bib-ref" href="../bibliography/#Devries2008">Devries2008</a>].</p>
+<p>Gig economy platforms reproduce this structure.
+The delivery worker owns the car or bicycle.
+The platform owns the customer relationship, the pricing mechanism, and access to the market.
+A worker who attempts to find customers outside the platform risks deactivation,
+which functions as accusations of theft or embezzlement did in the putting-out system:
+because formal ownership of the customer relationship belongs to the platform,
+any attempt to access that relationship independently constitutes
+a violation of the terms of service that governs continued access to work.</p>
+<p>E.P. Thompson's account of the transition from putting-out to factory production
+made a point that factories were initially not more efficient at producing cloth:
+they were more effective at eliminating worker autonomy.
+Before industrialization,
+workers controlled their own time and pace,
+could share work across household members,
+and could resist disadvantageous terms through slow work, variable quality, and informal coordination.
+The factory closed off these responses:
+workers arrived at fixed times,
+worked at a supervised pace,
+and until labor unions emerged,
+had no practical means of collective withdrawal.
+The shift to app-based platform work is doing the same thing today.
+The app is not merely a more convenient interface.
+It is supervisory infrastructure that monitors pace and completion rates
+and eliminates the degrees of freedom that less tightly managed arrangement permitted
+[<a class="bib-ref" href="../bibliography/#Thompson1963">Thompson1963</a>].</p>
+<div class="callout">
+<p>Grab and Gojek motorcycle drivers in Jakarta,
+who own their vehicles but are subject to algorithmically set rates they cannot negotiate
+and risk deactivation for declining rides,
+have organized repeated strikes—the precise form of collective resistance
+available to workers who cannot withdraw their invested capital.</p>
+</div>
+<h2>Big Tech is Like a Company Town</h2>
+<p>George Pullman built Pullman, Illinois in the 1880s alongside his railroad car factory:
+a planned community where the company owned the workers' housing, stores, church, library, and bank.
+Workers were paid partly in <a class="gl-ref" href="../glossary/#scrip">scrip</a> redeemable only at company stores.
+When Pullman cut wages during the depression of 1893 while holding rents fixed,
+workers could not cushion the blow by cutting other expenses,
+because the company controlled those too.
+They had no recourse and nothing left to lose.
+The 1894 Pullman Strike paralyzed rail traffic across the country
+and required federal troops to suppress,
+which tells you something about what total control eventually produces.</p>
+<p>A developer whose business depends entirely on the App Store,
+a seller whose inventory and customer relationships live on Amazon,
+or a creator whose audience exists only within a single platform
+is in an equivalent position:
+the terms can be changed at any time,
+the cost of departure is prohibitive,
+and the entity that provides the housing also adjudicates disputes about it.</p>
+<p>What the company town reveals is something market economics tends to obscure:
+the difference between an employer and an infrastructure provider is a matter of degree,
+not kind.
+An employer controls your income;
+an infrastructure provider controls the conditions
+under which you can earn, spend, and participate in social life.
+Pullman did not merely employ his workers:
+he owned the physical environment in which they lived,
+which meant that the power relationship extended past the end of the workday
+into every dimension of daily existence.</p>
+<p>Pullman justified all of this in the language of paternalistic improvement.
+The company town was presented as a planned community
+designed to give workers superior housing, sanitation, and amenities
+compared to what they could obtain elsewhere.
+This was partly true:
+Pullman, Illinois was better built than most industrial housing of the period.
+But the justification also framed the absence of collective bargaining as a feature rather than a constraint.
+Workers who were being improved did not need unions.
+They needed to trust the judgment of the person improving them.
+Conveniently,
+this gave the appearance of converting a power arrangement into a benevolent one
+[<a class="bib-ref" href="../bibliography/#Lindsey1942">Lindsey1942</a>].</p>
+<p>The Pullman case was not unusual.
+Coal patches in Appalachia and the Canadian Maritimes operated on the same model:
+company-owned housing,
+company stores where scrip could be spent,
+company control of access roads and community infrastructure.
+In the post-Civil War South, plantation stores extended dependency relationships
+across the formal end of slavery,
+tying sharecroppers to specific land through debt
+that was nearly impossible to escape
+without leaving behind the credit, relationships, and community standing
+that they depended on.
+Mining camps across Latin America reproduced the same structure under different flags.
+The company town is a recurring organizational form
+because it solves a genuine problem for whoever controls it:
+it makes exit nearly impossible while appearing to be voluntary.</p>
+<div class="callout">
+<p>Foxconn's manufacturing campuses in Shenzhen house hundreds of thousands of workers in company dormitories,
+sell goods through company stores, and provide company-managed transportation—
+the Pullman model operating at a scale Pullman could not have imagined,
+producing the consumer electronics sold by companies that will not acknowledge the supply chain.</p>
+</div>
+<p>The distinction between short-term dependency and structural lock-in
+is what keeps workers and developers in arrangements that are getting worse.
+Short-term dependency is a rational calculation:
+you stay because the current terms are good enough and leaving has costs.
+Structural lock-in is different.
+The costs of leaving have been deliberately raised
+so that the calculation does not change even as the terms worsen.
+A platform can worsen its terms incrementally;
+each incremental worsening is individually insufficient to justify the exit cost,
+even if the cumulative total is large.</p>
+<p>A more extreme form of this appears in the danwei,
+the work unit system through which Mao-era China organized urban life.
+The danwei was the unit through which citizens accessed employment,
+housing, healthcare, food rations, and education for their children.
+To be removed from a danwei was to lose access to all of these simultaneously.
+The contemporary parallel is super-apps like WeChat
+that integrate messaging, payments, healthcare bookings,
+government service access, merchant discovery, and social identity in a single system.
+A user whose account is suspended loses not just a communication tool
+but the infrastructure through which they conduct their civic and commercial life.
+The Pullman Company controlled the economic conditions of workers' lives.
+The super-app, at its most developed, aims to be a danwei
+[<a class="bib-ref" href="../bibliography/#Stoller2019">Stoller2019</a>, <a class="bib-ref" href="../bibliography/#Walder2017">Walder2017</a>].</p>
+<h2>Big Tech is Like a Fast Food Franchise</h2>
+<p>A McDonald's franchisee invests several hundred thousand dollars building and equipping a restaurant,
+recruits and trains staff,
+manages daily operations,
+and absorbs the risk of a bad location.
+McDonald's sets the menu,
+the supplier list,
+the pricing guidelines,
+the design specifications,
+the training requirements,
+and the standards against which the franchise can be audited and revoked.
+The franchisee's capital is at risk;
+McDonald's corporate's is not.
+McDonald's also, in most arrangements, owns the real estate and charges the franchisee rent.
+The arrangement is voluntary in the sense that no one forces the franchisee to sign.
+It is asymmetric in the sense that every significant decision rests with one party.</p>
+<p>The franchisee agreed to all of this in advance.</p>
+<p>McDonald's corporate revenue derives primarily from real estate, not from food.
+The company acquires the land and building,
+then leases them to the franchisee
+at rates that capture a substantial share of the location's economic value
+regardless of operating performance.
+Franchise royalties are calculated as a percentage of gross sales,
+not profit,
+meaning the franchisor collects whether the franchisee makes money or not.
+The hamburgers are the mechanism by which the real estate and royalty revenue are generated.
+This structure is not incidental to the model;
+it <em>is</em> the model.</p>
+<p>The parallel to third-party sellers on Amazon,
+app developers on iOS and Android,
+and content creators on social media is structural:
+the platform sets the rules,
+extracts a percentage,
+and can change the terms or terminate the relationship on short notice
+[<a class="bib-ref" href="../bibliography/#Schlosser2001">Schlosser2001</a>].</p>
+<p>Platform fees work like franchise royalties:
+they are a take on gross transaction value,
+not on seller profit.</p>
+<p>Apple's standard rate is thirty percent of revenue from in-app purchases,
+a figure that it set unilaterally
+and has adjusted modestly only under regulatory pressure.
+The developer has no alternative distribution channel for iOS users,
+because Apple prohibits <a class="gl-ref" href="../glossary/#sideloading">sideloading</a> and third-party app stores on its platform.
+This makes the fee unavoidable for any developer who wants access to iOS customers.
+What's more,
+Apple and Google review apps before they are listed,
+can remove them after listing,
+and adjudicate appeals internally.
+There is no neutral third party with authority to override a platform's decision.</p>
+<p>All this creates an investment trap for platform participants.
+A seller who has accumulated reviews, rankings, and sales history on Amazon
+cannot transfer that reputation to another marketplace;
+a developer whose app has a rating history on the App Store
+cannot move that history to Google Play.
+This is not an accident:
+it is the mechanism that keeps participants in the system
+after the platform has extracted the value of introducing customers to them.</p>
+<p>Antitrust law has historically been reluctant to treat voluntarily agreed contractual terms as coercive,
+even when the practical alternatives to agreement are limited.
+The prevailing view is that if the franchisee had an alternative and chose this arrangement,
+the arrangement is presumptively legitimate.
+This framing does not account for information asymmetry at the time of contracting
+or the way switching costs increase over time.
+And it does not account for the fact that the "voluntary" choice
+is often a choice between accepting one set of platform terms
+or not accessing a market at all
+[<a class="bib-ref" href="../bibliography/#Stoller2019">Stoller2019</a>].</p>
+<div class="callout">
+<p>The UK Supreme Court ruled in 2021 that Uber drivers were workers entitled to minimum wage and holiday pay,
+not independent contractors—the first major judicial rejection of the claim
+that a platform's "voluntary" contractual structure exempts it from employment law,
+now being contested and replicated across Europe.</p>
+</div>
+<h2>Labor and Passion</h2>
+<p>Collective action by workers is not a recent invention,
+and the history of how it has succeeded, failed, been suppressed, and revived
+is more useful than speculation about what tech workers might do.
+Unions didn't arise because workers read pamphlets about class consciousness.
+They arose because individual bargaining consistently produced worse outcomes
+than <a class="gl-ref" href="../glossary/#collective_bargaining">collective bargaining</a>.
+Once workers understood that,
+they were willing to accept short-term costs for long-term gains.
+The question is why it took so long where it <em>did</em> happen,
+and why in some industries and countries it has barely happened at all.</p>
+<p>The concrete achievements of organized labor
+are consistently underestimated by people who have never not had them:
+the eight-hour workday,
+the two-day weekend,
+workplace safety standards that are actually enforced,
+prohibition of child labor,
+unemployment insurance,
+and employer contributions to healthcare and retirement.
+These were not conceded voluntarily by employers:
+they were won through sustained collective action,
+frequently met with private and state violence
+[<a class="bib-ref" href="../bibliography/#Gordon2001">Gordon2001</a>].</p>
+<p>The British trade union movement traces through roughly 150 years of conflict with the state.
+The Combination Acts of 1799 and 1800 made union organizing a criminal conspiracy.
+Their repeal in 1824 was followed by a period of organizing
+that prompted restriction again.
+The Tolpuddle Martyrs were transported to Australia in 1834
+for administering illegal oaths in the course of forming an agricultural union.
+The law shifted gradually through the nineteenth century toward grudging tolerance,
+and the union movement grew through the early twentieth century into a major institutional force.
+The General Strike of 1926,
+called in solidarity with striking coal miners,
+lasted nine days before the Trades Union Congress called it off
+without achieving its central demands—a failure that revealed the limits of sympathy action
+and the state's willingness to use emergency powers against organized labor.
+The Thatcher government's legislation in the 1980s systematically dismantled union power
+through restrictions on secondary action,
+changes to balloting requirements,
+and direct confrontation with the miners' strike of 1984-85.
+British unions have never recovered.</p>
+<p>The German <a class="gl-ref" href="../glossary/#mitbestimmung">Mitbestimmung</a> system
+(the word means <a class="gl-ref" href="../glossary/#codetermination">codetermination</a>)
+is structurally different than the adversarial model that evolved in the UK and US.
+Under German law,
+workers in firms with more than 2,000 employees hold half the seats on the supervisory board
+that hires and oversees management.
+This is not advisory participation;
+it is formal institutional authority over corporate governance.
+The system emerged from specific post-war conditions:
+Allied occupation policy that sought to break the power of the industrial combines
+that had supported National Socialism,
+the political strength of the Social Democratic party,
+and an industrial union structure
+that organized by sector rather than trade
+and could negotiate industry-wide agreements.
+None of those conditions existed in the same combination elsewhere,
+which explains why codetermination spread within Germany
+but was not replicated in comparable form in other wealthy democracies
+[<a class="bib-ref" href="../bibliography/#Thelen1992">Thelen1992</a>].</p>
+<div class="callout">
+<p>Australia's Conciliation and Arbitration Act of 1904
+built a labor system unlike either the British adversarial model or German codetermination.
+A federal industrial court—not collective bargaining—set wages and conditions
+through legally binding "awards" that applied across whole industries.
+The 1907 <em>Harvester</em> judgment established the "basic wage"
+as the minimum needed to support a family in frugal comfort,
+making the court rather than the union the primary institution for raising living standards.
+Union membership was high because
+belonging to a union was a condition of accessing the award system in many industries,
+not because workers had achieved industrial leverage through organizing.
+The entire structure was dismantled during the 1990s under market liberalization,
+replaced by enterprise bargaining that produces outcomes
+the arbitration system was specifically designed to avoid:
+wide variation in wages and conditions within the same industry,
+and workers negotiating individually against employers who negotiate collectively.</p>
+</div>
+<p>South Africa's Congress of South African Trade Unions (COSATU),
+founded in 1985,
+illustrates how labor organizing and political mobilization can reinforce each other
+in conditions where both operate against state repression.
+The apartheid state imposed restrictions on Black union activity
+that made conventional organizing dangerous.
+COSATU built power through industrial action,
+consumer boycotts,
+and explicit political alignment with the African National Congress
+and the South African Communist Party.
+Strikes that shut down production in the mining and transport sectors
+imposed economic costs that the apartheid government could not absorb indefinitely.
+The combination of internal pressure from COSATU and community organizations,
+and external pressure from the international sanctions and divestment campaign,
+eventually forced the apartheid government to the negotiating table.
+Labor organizing did not produce South African democracy alone,
+but it was a necessary component of the coalition that did
+[<a class="bib-ref" href="../bibliography/#Silver2003">Silver2003</a>, <a class="bib-ref" href="../bibliography/#Macintyre2020">Macintyre2020</a>].</p>
+<p>Workers are frequently persuaded not to organize in their own economic interest,
+and the mechanisms deserve careful examination.
+High individual compensation is the most direct approach:
+workers who are paid well relative to their labor market alternatives
+have less to gain from collective bargaining,
+and more to lose from conflict with employers who pay them well.
+<a class="gl-ref" href="../glossary/#union_avoidance">Union avoidance</a> is a formal management discipline
+with a consulting industry behind it:
+labor relations firms advise employers on how to structure workplaces and compensation
+to prevent the conditions under which organizing becomes attractive.</p>
+<p>But structural barriers and employer tactics do not fully explain tech workers' resistance to organizing.
+The sociologist Erin Cech calls the deeper mechanism the <a class="gl-ref" href="../glossary/#passion_principle">passion principle</a>:
+the expectation that workers should pursue work they find personally fulfilling,
+and that fulfillment is a legitimate criterion for choosing and evaluating a job.
+What began as an aspiration of the professional class has,
+over the past several decades,
+been generalized into something closer to a moral obligation.
+The question of who captures the surplus when workers internalize this norm has a clear answer:
+employers.
+A worker who derives intrinsic meaning from a job will accept lower wages,
+longer hours,
+and worse conditions than a worker who treats employment as a transaction.</p>
+<p>The passion principle does not eliminate the imbalance of power;
+it serves to conceal it.
+Mission-driven culture,
+<a class="gl-ref" href="../glossary/#equity_compensation">equity compensation</a> that vests over four years,
+elaborate campus amenities,
+and the language of changing the world
+are all intended to align workers' identities with their employers' interests.
+In exchange,
+tech workers accept the effective absence of collective bargaining rights,
+employment-at-will conditions that make them instantly terminable,
+and mandatory arbitration clauses that eliminate their access to courts.
+The exchange is not hidden:
+instead,
+tech companies brag about it.
+Organizing feels like betrayal—not because the employer has convinced workers that unions are bad,
+but because workers have been convinced that they are not really workers at all
+[<a class="bib-ref" href="../bibliography/#Cech2021">Cech2021</a>].</p>
+<div class="callout">
+<p>The Japanese postwar <em>salaryman</em>—the white-collar male employee of a major corporation—is
+the fullest institutional form of this identity fusion.
+Enterprise unions organized workers at a single company rather than across an industry,
+which aligned union interests with their employer's competitive position
+rather than with the interests of workers doing the same job elsewhere.
+Lifetime employment guarantees and seniority-based wages
+made departure from a major employer genuinely costly
+in ways that went beyond lost salary.
+<em>Karoshi</em>—death from overwork—was officially recognized as
+a workplace harm by Japanese courts from the 1970s onward,
+naming a phenomenon that emerged directly from the expectation of total commitment to the firm.
+The arrangement was a bargain:
+workers surrendered occupational mobility and class solidarity,
+and in exchange employers provided security, status, and predictable advancement.
+When Japan's asset bubble collapsed in 1990,
+corporations began breaking this compact
+through restructuring and the expansion of precarious "non-regular" employment,
+leaving a generation of workers without the security the old model promised
+and without the collective bargaining structures a differently organized labor movement might have preserved.</p>
+</div>
+<p>Cech's research shows that the passion principle falls hardest on workers
+from less privileged socioeconomic backgrounds,
+who have the most to lose from accepting its terms.
+Workers from more privileged backgrounds are better positioned to absorb the costs of passion-coded careers:
+family wealth provides a cushion,
+networks provide alternative paths,
+and prior social capital makes it easier to exit without losing everything.
+For workers without those resources,
+the passion principle is not a path to fulfillment.
+It is a mechanism that extracts years of discounted labor
+before returning them to the general labor market
+with depleted savings and credentials that do not transfer.</p>
+<p><a class="gl-ref" href="../glossary/#precarious_workers">Precarious workers</a>
+like gig workers and seasonal workers are hit hardest by this.
+Organizing takes time that precarious workers may not have.
+It also requires a willingness to accept risk of termination,
+which workers without income security cannot absorb as readily.
+Many precarious workers are formally classified as independent contractors,
+which in most jurisdictions removes them from the legal framework
+that protects organizing activity for employees.
+The legal boundary between employee and contractor has been contested in dozens of jurisdictions
+and in relation to dozens of firms,
+with outcomes that vary by jurisdiction and have been inconsistent even within jurisdictions.
+Over and over,
+rules are rewritten or re-interpreted to ensure that
+the workers most exposed to poor conditions and wage theft,
+who have the most to gain from collective bargaining,
+are least able to fight back
+[<a class="bib-ref" href="../bibliography/#Jaffe2021">Jaffe2021</a>, <a class="bib-ref" href="../bibliography/#Kelly2022">Kelly2022</a>].</p>
+<h2>Women's Work</h2>
+<p>On October 24, 1975,
+ninety percent of Icelandic women refused to work at paid jobs,
+in the home,
+or anywhere else.
+They called it a "day off",
+though what they demonstrated was how much labor had been invisible.
+Schools closed,
+factories shut down,
+flights were cancelled,
+and men brought their children to work because there was no one else to care for them.
+The economy of Iceland effectively stopped.
+The women named what had been unnamed:
+everything they did without wages was work,
+and its absence was catastrophic.</p>
+<p>The standard way economists measure an economy is through gross domestic product.
+GDP counts what is bought and sold,
+but not what is done without money changing hands.
+A woman who cooks dinner for her family contributes nothing to GDP,
+but if she hires someone to cook dinner
+and goes out to work herself,
+GDP goes up twice:
+once for her wages and once for the cook's.
+The economic system counts the second arrangement as more productive.
+This is not an oversight.
+Marilyn Waring,
+a New Zealand politician and economist,
+spent years documenting the specific decisions embedded in the UN System of National Accounts
+that made domestic and care labor invisible.
+Her 1988 book showed that these decisions were choices
+made by people who had never performed most of the work in question.</p>
+<p>The consequences of that invisibility are far-reaching.
+Women have fewer pension entitlements because pension systems are built on formal wage labor.
+They have less access to credit because banks valued declared income,
+not the labor of raising children or caring for elderly parents.
+When Waring raised these issues in the New Zealand parliament,
+she was told that economics was a technical matter and not a feminist one.
+She pointed out that someone had already decided that
+preparing food counted as productive activity only if someone received a wage for it.
+If that is not a political decision,
+it is hard to know what is
+[<a class="bib-ref" href="../bibliography/#Waring1988">Waring1988</a>].</p>
+<p>In Japan,
+the term <em>sengyo shufu</em>—"full-time housewife"—became widespread only in the postwar period,
+when rapid industrialization in the 1950s and 1960s created male industrial jobs
+and pushed women into domestic roles.
+The image of the <em>sengyo shufu</em> as a traditional Japanese institution
+is largely the invention of corporations and government policy
+from a period of perhaps thirty years.
+Before industrialization,
+Japanese women had worked extensively in agriculture,
+small business,
+and textile production.
+The "tradition" was assembled recently under identifiable political and economic pressure.</p>
+<p>The sociologist Arlie Hochschild spent years tracking what happened
+when both partners in a household entered paid employment,
+which most households in wealthy countries had done by the 1980s.
+She found that women in dual-income couples
+were coming home and working a second shift of domestic labor
+while their partners rested.
+Over the course of a year,
+the average woman in her study worked roughly a full additional month compared to her partner.
+Hochschild called this the second shift,
+and the pattern was consistent across Europe,
+Australia,
+South Korea,
+and Latin America:
+when women entered paid work,
+they tended to add paid hours on top of unpaid hours
+rather than trading one for the other.</p>
+<p>Hochschild also found that
+the women she interviewed had largely rationalized the inequality
+by developing what she called "family myths":
+stories about why the division made sense in their particular case.
+The myths varied but the pattern was constant:
+women interpreted inequitable arrangements as choices,
+and blamed themselves when the choices felt unsustainable
+[<a class="bib-ref" href="../bibliography/#HochschildMachung1989">HochschildMachung1989</a>].
+This is the same mechanism by which the "passion principle" (discussed <a href="../labor/">earlier</a>) operates:
+exploitation is most durable when those experiencing it explain it to themselves as freedom.</p>
+<p>The historian Silvia Federici argued that the witch trials of the sixteenth and seventeenth centuries,
+during which tens of thousands of women were murdered,
+were primarily a way to discipline female labor.
+The women most often accused were those who lived outside household structures,
+like widows, healers, and midwives.
+The trials coincided with the enclosure of common land
+and the creation of a landless wage-labor force.
+Federici showed that enclosing women's reproductive and domestic labor inside the household,
+unpaid and culturally devalued,
+was an economic project as much as a cultural one;
+it produced a class of workers whose labor was essential and whose compensation was called love
+[<a class="bib-ref" href="../bibliography/#Federici2004">Federici2004</a>].</p>
+<p>Today,
+the global economy depends on nursing, childcare, eldercare, and domestic service,
+which are all systematically undervalued because they are feminized.
+The workers are underpaid not because care work is unskilled
+but because the labor market for care work is structured differently
+from the labor market for work that men predominantly perform.
+In India,
+the national health system relies heavily on informal women's health workers,
+the ASHAs,
+who are classified as volunteers rather than employees
+and receive "incentive payments" rather than wages.
+This is not an oversight;
+it is a legal and administrative decision with direct economic consequences
+for nearly a million women.
+The ASHAs have organized and struck repeatedly for employee status and wage protections.
+The government has consistently refused.</p>
+<p>Platform labor has reproduced the same structure with new interfaces.
+Apps coordinating domestic cleaning,
+childcare,
+elder companionship,
+and household maintenance present themselves as markets
+connecting independent contractors with clients.
+What they actually do is take informal,
+feminized labor that was already undervalued
+and formalize it while keeping the wages and protections of the informal economy.
+The worker bears the risk,
+and the platform takes the margin;
+the work is performed overwhelmingly by women
+(often migrant women)
+working for rates that reflect the historical devaluation of care.</p>
+<p>Invisible labor is endemic to tech companies.
+Research has shown again and again that
+women perform more of the relational maintenance that holds teams together,
+such mentoring junior colleagues and managing interpersonal conflict,
+without receiving credit for it in performance reviews or promotion decisions.
+A study of a large software company found that women spent significantly more time
+on what the researchers called "non-promotable tasks"
+that benefited the organization
+but was invisible to the criteria used to evaluate careers.
+When it was pointed out that women were doing more of this work,
+the response from management was to encourage everyone to do less of it,
+which predictably meant that women continued to do it
+and men continued not to.</p>
+<p>Five years after the 1975 strike in Iceland,
+Iceland elected its first female president,
+Vigdís Finnbogadóttir,
+who went on to serve four terms.
+The organizing that preceded the strike built the political infrastructure
+that made the election possible.
+Fifty years on,
+though,
+the gap between men's and women's wages in Iceland has not closed,
+and women still perform more unpaid domestic labor
+[<a class="bib-ref" href="../bibliography/#Folbre2001">Folbre2001</a>].</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../ownership">Who Owns What</a>
+</div>
+<div class="col-6 center">
+<a href="../">SDGC</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../inside-orgs">Power Inside Organizations</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
