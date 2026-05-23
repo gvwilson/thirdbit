@@ -1,10 +1,16 @@
 {% extends "base.jinja" %}
 
 {% block content %}
+<div class="row">
+<div class="col-6">
 <h2>Favorites</h2>
 {% set category_name = "favorite" %}
 {% include "category.jinja" %}
+</div>
+<div class="col-6">
 <h2>Anecdotes</h2>
 {% set category_name = "anecdote" %}
 {% include "category.jinja" %}
+</div>
+</div>
 {% endblock %}
