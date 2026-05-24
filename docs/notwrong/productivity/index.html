@@ -10,7 +10,6 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -47,7 +46,7 @@
 </nav>
 <main id="main-content">
 <h1>Defining Productivity</h1>
-<div class="objectives">
+<div class="callout">
 <ul>
 <li>Explain construct validity and why it matters when measuring productivity.</li>
 <li>Identify proxy metrics and their common failure modes.</li>
@@ -235,6 +234,33 @@ defect-reporting practices, inflating the count. A better operationalization
 would measure defect escape rate (defects found in production per release)
 before and after the intervention, using a consistent defect definition.</p>
 </details>
+<h2>Further Reading</h2>
+<ul>
+<li>[<a class="bib-ref" href="../bibliography/#ElEmam2001">ElEmam2001</a>]:
+    Class size confounds OO metrics validation studies;
+    after controlling for size,
+    many previously validated metrics lose their association with fault-proneness
+    in a large C++ telecom framework.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]:
+    Brief commentary noting developer productivity is more complex than commonly assumed.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Inozemtseva2014">Inozemtseva2014</a>]:
+    Studies correlating code coverage with fault detection show no consensus;
+    confounding from suite size and use of adequate/synthetic suites limits generalizability to real projects.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Junior2009">Junior2009</a>]:
+    Reviews productivity measurement in software organizations;
+    proposes a Value Size Metrics framework
+    and a process for defining organization-specific productivity models aligned with management goals.</li>
+<li>[<a class="bib-ref" href="../bibliography/#SanchezRuiz2023">SanchezRuiz2023</a>]:
+    DORA metrics cannot be directly applied to OSS projects;
+    proposes adapted benchmark (Release Frequency, Lead Time, Time To Repair, Bug Rate)
+    collected automatically from GitHub;
+    applied to Angular, Kubernetes, TensorFlow, VS Code.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Tregubov2017">Tregubov2017</a>]:
+    Study of cross-project multitasking via developer self-reported logs;
+    developers in 2+ projects spend 17% of effort on cross-project interruptions;
+    Weinberg's heuristic overestimates this;
+    number of projects correlates strongly with interruption count.</li>
+</ul>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Operationalize It (15 minutes)</h3>
