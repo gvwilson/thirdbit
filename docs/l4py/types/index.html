@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Types</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a class="active" href="../types/">Types</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Types</h1>
+<ul>
+<li>A structure is a <a class="gl-ref" href="../glossary/#product_type">product type</a><ul>
+<li>Possible values are the cross-product of the values of the first field
+    with the values of the second field, etc.</li>
+</ul>
+</li>
+<li>Explore other kinds of types</li>
+</ul>
+<h2>Sum Types</h2>
+<div data-inc="sum_types.lean"><span aria-label="Source: types/sum_types.lean" class="inc-path" role="img" tabindex="0" title="types/sum_types.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A sum type that can hold either a String or an Int</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">StringOrInt</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">StringOrInt</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">StringOrInt</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- Construct a value of each kind</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">StringOrInt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">StringOrInt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">42</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">greeting</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">answer</span>
+
+<span class="c1">-- A list can hold a mix of both</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">mixed</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">StringOrInt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">,</span>
+<span class="w">  </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">42</span><span class="o">,</span>
+<span class="w">  </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"world"</span>
+<span class="o">]</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">mixed</span>
+
+<span class="c1">-- Use pattern matching to extract the value</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">StringOrInt</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"string: </span><span class="se">\"</span><span class="s2">{s}</span><span class="se">\"</span><span class="s2">"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"number: {n}"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">greeting</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">answer</span>
+</code></pre></div>
+</div>
+<div data-inc="sum_types.out"><span aria-label="Source: types/sum_types.out" class="inc-path" role="img" tabindex="0" title="types/sum_types.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>StringOrInt.str "hello"
+StringOrInt.num 42
+[StringOrInt.str "hello", StringOrInt.num 42, StringOrInt.str "world"]
+"string: \"hello\""
+"number: 42"
+</code></pre></div>
+</div>
+<ul>
+<li>An <a class="gl-ref" href="../glossary/#sum_type">sum type</a> is a choice between alternatives<ul>
+<li>The possible values are the sum of the possibilities of each alternative</li>
+<li>Use <code>inductive</code> to define one: we'll explain the name later (DEBT)</li>
+</ul>
+</li>
+<li><code>StringOrInt</code> is a type whose values wrap either a <code>String</code> or an <code>Int</code><ul>
+<li><code>StringOrInt.str</code> constructs a string-flavored value</li>
+<li><code>StringOrInt.num</code> constructs a number-flavored value</li>
+</ul>
+</li>
+<li><code>deriving Repr</code> is like Python's <code>__repr__</code><ul>
+<li>We'll explain why it's called <code>deriving</code> later (DEBT)</li>
+</ul>
+</li>
+<li>Since every element of the list has type <code>StringOrInt</code>, the list is homogeneous</li>
+<li>Use <code>match</code> to extract the wrapped value<ul>
+<li>The compiler checks that you handle both cases</li>
+</ul>
+</li>
+<li>We've already seen a sum type: <code>Option</code> in <a href="../basics/">basics</a> is either <code>some</code> or <code>none</code></li>
+</ul>
+<h2>Trees</h2>
+<div data-inc="binary_tree.lean"><span aria-label="Source: types/binary_tree.lean" class="inc-path" role="img" tabindex="0" title="types/binary_tree.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A binary tree with strings at the leaves</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- Build a tree</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">myTree</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span>
+<span class="w">    </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span>
+<span class="w">      </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"alpha"</span><span class="o">)</span>
+<span class="w">      </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"beta"</span><span class="o">))</span>
+<span class="w">    </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"gamma"</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">myTree</span>
+
+<span class="c1">-- Calculate total length of all strings in the tree</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">length</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="n">right</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">totalLength</span><span class="w"> </span><span class="n">myTree</span>
+</code></pre></div>
+</div>
+<div data-inc="binary_tree.out"><span aria-label="Source: types/binary_tree.out" class="inc-path" role="img" tabindex="0" title="types/binary_tree.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Tree.node (Tree.node (Tree.leaf "alpha") (Tree.leaf "beta")) (Tree.leaf "gamma")
+14
+</code></pre></div>
+</div>
+<ul>
+<li><code>inductive</code> can define recursive types, not just flat sums<ul>
+<li><code>Tree</code> is either a <code>leaf</code> containing a <code>String</code>…</li>
+<li>…or a <code>node</code> containing two <code>Tree</code>s</li>
+</ul>
+</li>
+<li>Like defining a Python class where each instance is either a leaf or a branch<ul>
+<li>But the compiler enforces that you can't mix the two accidentally</li>
+</ul>
+</li>
+<li>This is why the keyword is <code>inductive</code><ul>
+<li>The definition refers to itself: <code>node</code> takes two <code>Tree</code> arguments</li>
+<li>Like mathematical induction: base cases (<code>leaf</code>) and inductive steps (<code>node</code>)</li>
+</ul>
+</li>
+<li><code>totalLength</code> uses <code>match</code> on the tree shape</li>
+<li>Compiler checks that code handles both <code>leaf</code> and <code>node</code> cases<ul>
+<li>Same exhaustiveness guarantee as <code>match</code> on lists</li>
+</ul>
+</li>
+</ul>
+<h2>Polymorphism</h2>
+<div data-inc="polymorphism.lean"><span aria-label="Source: types/polymorphism.lean" class="inc-path" role="img" tabindex="0" title="types/polymorphism.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A polymorphic binary tree: leaves can be any type α</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- A function that works for trees of any type</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="n">right</span>
+
+<span class="c1">-- A tree of numbers</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">numTree</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span>
+<span class="w">    </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span>
+<span class="w">      </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span>
+<span class="w">      </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="mi">2</span><span class="o">))</span>
+<span class="w">    </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">numTree</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="n">numTree</span>
+</code></pre></div>
+</div>
+<div data-inc="polymorphism.out"><span aria-label="Source: types/polymorphism.out" class="inc-path" role="img" tabindex="0" title="types/polymorphism.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Tree.node (Tree.node (Tree.leaf 1) (Tree.leaf 2)) (Tree.leaf 3)
+3
+</code></pre></div>
+</div>
+<ul>
+<li>Add a <a class="gl-ref" href="../glossary/#type_parameter">type parameter</a> to make a type work with any element type</li>
+<li><code>α</code> (alpha) is the conventional Greek letter for the first type parameter<ul>
+<li>Type it as <code>\a</code> in Lean</li>
+</ul>
+</li>
+<li>Same <code>inductive</code> shape as the string-only <code>Tree</code> above<ul>
+<li>But now <code>leaf</code> can hold any type</li>
+</ul>
+</li>
+<li><code>numTree</code> and <code>strTree</code> are the same shape, different leaf types<ul>
+<li>The compiler prevents you from putting a string leaf in <code>numTree</code></li>
+</ul>
+</li>
+<li><code>countLeaves</code> works on <code>Tree α</code> for any <code>α</code><ul>
+<li>Uses <code>_</code> in the <code>leaf</code> branch because it doesn't need the value, just the count</li>
+</ul>
+</li>
+</ul>
+<h2>Enumerations</h2>
+<div data-inc="enum.lean"><span aria-label="Source: types/enum.lean" class="inc-path" role="img" tabindex="0" title="types/enum.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A sum type with no data: just labels</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Season</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">spring</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">summer</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">fall</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">winter</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">BEq</span><span class="o">,</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Season</span><span class="bp">.</span><span class="n">summer</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Season</span><span class="bp">.</span><span class="n">summer</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Season</span><span class="bp">.</span><span class="n">winter</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Season</span><span class="bp">.</span><span class="n">summer</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Season</span><span class="bp">.</span><span class="n">summer</span>
+</code></pre></div>
+</div>
+<div data-inc="enum.out"><span aria-label="Source: types/enum.out" class="inc-path" role="img" tabindex="0" title="types/enum.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Season.summer
+false
+true
+</code></pre></div>
+</div>
+<ul>
+<li>An <a class="gl-ref" href="../glossary/#enumeration">enumeration</a> is a sum type where no constructor carries data<ul>
+<li>Like Python's <code>enum.Enum</code></li>
+</ul>
+</li>
+<li><code>inductive Season</code> defines four possible values with no extra payload</li>
+<li><code>deriving BEq</code> generates the <code>==</code> operator<ul>
+<li>Without it, you can't compare <code>Season</code> values</li>
+<li>We'll explain the name <code>BEq</code> later (DEBT)</li>
+</ul>
+</li>
+</ul>
+<h2>Sum Types with Data</h2>
+<div data-inc="shape.lean"><span aria-label="Source: types/shape.lean" class="inc-path" role="img" tabindex="0" title="types/shape.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A sum type where each constructor carries different data</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">circle</span><span class="w"> </span><span class="o">(</span><span class="n">radius</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">(</span><span class="n">width</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">height</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="mf">5.0</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">s1</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">s2</span>
+</code></pre></div>
+</div>
+<div data-inc="shape.out"><span aria-label="Source: types/shape.out" class="inc-path" role="img" tabindex="0" title="types/shape.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Shape.circle 3.000000
+Shape.rect 2.000000 5.000000
+</code></pre></div>
+</div>
+<ul>
+<li>Constructors in a sum type can carry one or more data fields<ul>
+<li><code>Shape.circle</code> takes a <code>Float</code> for the radius</li>
+<li><code>Shape.rect</code> takes two <code>Float</code>s for width and height</li>
+</ul>
+</li>
+<li>Like a <a class="gl-ref" href="../glossary/#tagged_union">tagged union</a> where each tag stores different-shaped data<ul>
+<li>Python equivalent: a <code>@dataclass</code> discriminator field plus a union of subclasses</li>
+</ul>
+</li>
+</ul>
+<h2>Pattern Matching on Sum Types</h2>
+<div data-inc="match_sum.lean"><span aria-label="Source: types/match_sum.lean" class="inc-path" role="img" tabindex="0" title="types/match_sum.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Pattern matching must handle every constructor</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">circle</span><span class="w"> </span><span class="o">(</span><span class="n">radius</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">(</span><span class="n">width</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">height</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Float</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mf">3.14159</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">r</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">h</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="mf">3.0</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="mf">5.0</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<div data-inc="match_sum.out"><span aria-label="Source: types/match_sum.out" class="inc-path" role="img" tabindex="0" title="types/match_sum.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>28.274310
+10.000000
+</code></pre></div>
+</div>
+<ul>
+<li><code>match</code> on a sum type works exactly like <code>match</code> on a list<ul>
+<li>Each constructor gets its own branch</li>
+<li>The compiler checks that every constructor is handled</li>
+</ul>
+</li>
+<li><code>area</code> is written in definition-by-cases style<ul>
+<li><code>Shape.circle r =&gt; …</code> <a class="gl-ref" href="../glossary/#destructuring">destructures</a> the constructor and binds <code>r</code></li>
+</ul>
+</li>
+<li>If you forget a case, the compiler rejects the definition entirely<ul>
+<li>Unlike Python, where a missing <code>case</code> silently falls through or raises at runtime</li>
+</ul>
+</li>
+</ul>
+<h2><code>deriving</code> Explained</h2>
+<div data-inc="deriving.lean"><span aria-label="Source: types/deriving.lean" class="inc-path" role="img" tabindex="0" title="types/deriving.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- 'deriving' generates boilerplate for common type classes</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">blue</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">BEq</span><span class="o">,</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- 'deriving BEq' lets us compare values with ==</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">red</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">green</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">red</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">red</span>
+
+<span class="c1">-- 'deriving Repr' makes #eval display values readably</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">blue</span>
+</code></pre></div>
+</div>
+<div data-inc="deriving.out"><span aria-label="Source: types/deriving.out" class="inc-path" role="img" tabindex="0" title="types/deriving.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>false
+true
+Color.blue
+</code></pre></div>
+</div>
+<ul>
+<li><code>deriving</code> tells the compiler to generate code for common type classes<ul>
+<li>(DEBT) A bigger topic we'll return to later</li>
+</ul>
+</li>
+<li><code>deriving Repr</code> generates a readable display for <code>#eval</code></li>
+<li><code>deriving BEq</code> generates <code>==</code><ul>
+<li>Without it, comparing <code>Color</code> values is a compile error</li>
+</ul>
+</li>
+</ul>
+<h2><code>Option</code> is a Sum Type</h2>
+<div data-inc="option_revealed.lean"><span aria-label="Source: types/option_revealed.lean" class="inc-path" role="img" tabindex="0" title="types/option_revealed.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Option is defined in the standard library as:</span>
+<span class="c1">-- inductive Option (α : Type) where</span>
+<span class="c1">--   | none : Option α</span>
+<span class="c1">--   | some (val : α) : Option α</span>
+
+<span class="c1">-- So you can pattern match on it like any other sum type</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describeOpt</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"nothing"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"got {n}"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOpt</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="mi">42</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOpt</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span>
+</code></pre></div>
+</div>
+<div data-inc="option_revealed.out"><span aria-label="Source: types/option_revealed.out" class="inc-path" role="img" tabindex="0" title="types/option_revealed.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"got 42"
+"nothing"
+</code></pre></div>
+</div>
+<ul>
+<li><code>Option</code> isn't magic: it's defined as an <code>inductive</code> type in the standard library<ul>
+<li><code>Option.none</code> is a constructor with no data</li>
+<li><code>Option.some</code> is a constructor that carries one value of type <code>α</code></li>
+</ul>
+</li>
+<li>Because it's a regular sum type, you can pattern match on it directly<ul>
+<li>No special syntax: the same <code>match</code> you already know</li>
+</ul>
+</li>
+<li>Everything we learned about <code>Option</code> in <a href="../basics/">basics</a> was sum types all along</li>
+</ul>
+<h2><code>List</code> is a Recursive Inductive Type</h2>
+<div data-inc="list_revealed.lean"><span aria-label="Source: types/list_revealed.lean" class="inc-path" role="img" tabindex="0" title="types/list_revealed.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List is defined in the standard library as:</span>
+<span class="c1">-- inductive List (α : Type) where</span>
+<span class="c1">--   | nil : List α</span>
+<span class="c1">--   | cons (head : α) (tail : List α) : List α</span>
+
+<span class="c1">-- [] is shorthand for List.nil</span>
+<span class="c1">-- head :: tail is shorthand for List.cons head tail</span>
+
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">cons</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">cons</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">nil</span><span class="o">))</span>
+</code></pre></div>
+</div>
+<div data-inc="list_revealed.out"><span aria-label="Source: types/list_revealed.out" class="inc-path" role="img" tabindex="0" title="types/list_revealed.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[] : List ?m.1
+[1, 2, 3] : List Nat
+[1, 2, 3] : List Nat
+</code></pre></div>
+</div>
+<ul>
+<li><code>List</code> is also an <code>inductive</code> type with two constructors<ul>
+<li><code>nil</code> for the empty list (written <code>[]</code>)</li>
+<li><code>cons</code> for adding an element to the front (written <code>head :: tail</code>)</li>
+<li>The name "cons" is short for "construct", and goes back to the 1950s</li>
+</ul>
+</li>
+<li><code>::</code> is just <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a> for <code>List.cons</code></li>
+<li><code>[]</code> is syntactic sugar for <code>List.nil</code></li>
+<li>This is why <code>match</code> on lists uses <code>[]</code> and <code>head :: tail</code>:
+    they are the two constructors of the underlying inductive type</li>
+</ul>
+<h2>Computing on Inductive Types</h2>
+<div data-inc="expr_eval.lean"><span aria-label="Source: types/expr_eval.lean" class="inc-path" role="img" tabindex="0" title="types/expr_eval.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A tiny expression language: numbers, addition, multiplication</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Expr</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">(</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">right</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="o">(</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">right</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- Evaluate an expression by recursing on its structure</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Int</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">add</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">r</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">mul</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">r</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">add</span><span class="w"> </span><span class="o">(</span><span class="n">Expr</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Expr</span><span class="bp">.</span><span class="n">mul</span><span class="w"> </span><span class="o">(</span><span class="n">Expr</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Expr</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">5</span><span class="o">))</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">e</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">e</span>
+</code></pre></div>
+</div>
+<div data-inc="expr_eval.out"><span aria-label="Source: types/expr_eval.out" class="inc-path" role="img" tabindex="0" title="types/expr_eval.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Expr.add (Expr.num 3) (Expr.mul (Expr.num 4) (Expr.num 5))
+23
+</code></pre></div>
+</div>
+<ul>
+<li>Create a tiny expression language in four lines<ul>
+<li><code>Expr.num</code> wraps a plain integer</li>
+<li><code>Expr.add</code> and <code>Expr.mul</code> each contain two sub-expressions</li>
+</ul>
+</li>
+<li><code>eval</code> is a recursive function that mirrors the type structure</li>
+<li>"Define a type, then write functions by cases" is the heart of Lean</li>
+</ul>
+<h2>Generic Sum Types</h2>
+<div data-inc="result.lean"><span aria-label="Source: types/result.lean" class="inc-path" role="img" tabindex="0" title="types/result.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A generic sum type for success or failure</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">β</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">(</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">β</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">Result</span><span class="bp">.</span><span class="n">err</span><span class="w"> </span><span class="s2">"division by zero"</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">Result</span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="bp">/</span><span class="w"> </span><span class="n">b</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<div data-inc="result.out"><span aria-label="Source: types/result.out" class="inc-path" role="img" tabindex="0" title="types/result.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Result.ok 5
+Result.err "division by zero"
+</code></pre></div>
+</div>
+<ul>
+<li>A sum type can have multiple type parameters<ul>
+<li><code>Result α β</code> is generic over both the success type and the error type</li>
+</ul>
+</li>
+<li>Like Rust's <code>Result</code> or Haskell's <code>Either</code></li>
+<li>Cleaner than Python's convention of returning <code>(value, error)</code> tuples<ul>
+<li>The compiler forces the caller to handle both <code>ok</code> and <code>err</code></li>
+</ul>
+</li>
+</ul>
+<h2><code>match</code> with Conditions</h2>
+<div data-inc="match_guard.lean"><span aria-label="Source: types/match_guard.lean" class="inc-path" role="img" tabindex="0" title="types/match_guard.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Use conditionals inside match branches when constructors aren't enough</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">n'</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n'</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"positive"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n'</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"negative"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="s2">"zero"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="mi">5</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="bp">-</span><span class="mi">3</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<div data-inc="match_guard.out"><span aria-label="Source: types/match_guard.out" class="inc-path" role="img" tabindex="0" title="types/match_guard.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"positive"
+"negative"
+"zero"
+</code></pre></div>
+</div>
+<ul>
+<li>Sometimes constructors alone aren't enough: you need finer discrimination</li>
+<li><code>match</code> arms are just expressions, so you can use <code>if</code>/<code>else if</code>/<code>else</code> inside them<ul>
+<li>The <code>n'</code> pattern matches any <code>Int</code>, then the conditional further refines the result</li>
+<li>Pronounced "en prime"</li>
+</ul>
+</li>
+<li>The compiler still checks that the <code>match</code> is exhaustive<ul>
+<li>A single <code>n'</code> branch covers all <code>Int</code> values, so no catch-all is needed here</li>
+</ul>
+</li>
+</ul>
+<h2>Nested Patterns</h2>
+<div data-inc="nested_match.lean"><span aria-label="Source: types/nested_match.lean" class="inc-path" role="img" tabindex="0" title="types/nested_match.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Match on nested types: destructure an Option containing a List</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describeOptList</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"nothing"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"empty list"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"singleton: {n}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"longer list"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOptList</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOptList</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="o">[])</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOptList</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="o">[</span><span class="mi">7</span><span class="o">])</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">describeOptList</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">])</span>
+</code></pre></div>
+</div>
+<div data-inc="nested_match.out"><span aria-label="Source: types/nested_match.out" class="inc-path" role="img" tabindex="0" title="types/nested_match.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"nothing"
+"empty list"
+"singleton: 7"
+"longer list"
+</code></pre></div>
+</div>
+<ul>
+<li>Types combine: you can have an <code>Option</code> containing a <code>List</code></li>
+<li><code>match</code> handles this by nesting patterns<ul>
+<li><code>Option.some []</code> matches a <code>some</code> wrapping an empty list</li>
+<li><code>Option.some [n]</code> destructures the list inside the option</li>
+</ul>
+</li>
+<li>Like Python's structural pattern matching (<code>match</code>/<code>case</code>)<ul>
+<li>But again, the compiler verifies that every combination is covered</li>
+</ul>
+</li>
+</ul>
+<h2>Product Types are Inductive</h2>
+<div data-inc="product_inductive.lean"><span aria-label="Source: types/product_inductive.lean" class="inc-path" role="img" tabindex="0" title="types/product_inductive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A structure groups related values under one name</span>
+<span class="kn">structure</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span>
+<span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- A product type is really an inductive with a single constructor</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Point'</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">mk</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">y</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">1.0</span><span class="o">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">}</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Point'</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Point'</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">2.0</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">p1</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">p2</span>
+</code></pre></div>
+</div>
+<div data-inc="product_inductive.out"><span aria-label="Source: types/product_inductive.out" class="inc-path" role="img" tabindex="0" title="types/product_inductive.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>{ x := 1.000000, y := 2.000000 }
+Point'.mk 1.000000 2.000000
+</code></pre></div>
+</div>
+<ul>
+<li><code>structure</code> is syntactic sugar for <code>inductive</code> with exactly one constructor<ul>
+<li><code>Point.mk 1.0 2.0</code> and <code>{ x := 1.0, y := 2.0 }</code> are equivalent</li>
+</ul>
+</li>
+<li>Product types (structures) and sum types are both <code>inductive</code> under the hood<ul>
+<li>A structure has one constructor; a sum type has two or more</li>
+</ul>
+</li>
+<li>The type system unifies both concepts</li>
+</ul>
+<h2>A Command Interpreter</h2>
+<div data-inc="commands.lean"><span aria-label="Source: types/commands.lean" class="inc-path" role="img" tabindex="0" title="types/commands.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A tiny command language in three lines of type definition</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Cmd</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="o">(</span><span class="n">steps</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="o">(</span><span class="n">degrees</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">say</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- Pattern matching plus recursion equals an interpreter</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">(</span><span class="n">cmds</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Cmd</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">cmds</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"done"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">say</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"said '{msg}'; {run rest}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">forward</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"moved {n}; {run rest}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">turn</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"turned {d}°; {run rest}"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Cmd</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">forward</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span>
+<span class="w">  </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">say</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">,</span>
+<span class="w">  </span><span class="n">Cmd</span><span class="bp">.</span><span class="n">turn</span><span class="w"> </span><span class="mi">90</span>
+<span class="o">]</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">program</span>
+</code></pre></div>
+</div>
+<div data-inc="commands.out"><span aria-label="Source: types/commands.out" class="inc-path" role="img" tabindex="0" title="types/commands.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"moved 3; said 'hello'; turned 90°; done"
+</code></pre></div>
+</div>
+<ul>
+<li>Define a tiny domain-specific language in three lines of type definition<ul>
+<li><code>Cmd.forward n</code> moves forward <code>n</code> steps</li>
+<li><code>Cmd.turn d</code> turns <code>d</code> degrees</li>
+<li><code>Cmd.say msg</code> prints a message</li>
+</ul>
+</li>
+<li><code>run</code> is an interpreter: pattern matching plus recursion over the command list</li>
+<li>This is the payoff: define your data shapes with <code>inductive</code>, then process them with <code>match</code></li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Missing Constructor in Match</h3>
+<div data-inc="ex_bug_sum_match.lean"><span aria-label="Source: types/ex_bug_sum_match.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_sum_match.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should describe a StringOrInt, but the match</span>
+<span class="c1">-- is missing a case. Fix it.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">StringOrInt</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">StringOrInt</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">StringOrInt</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">StringOrInt</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">StringOrInt</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"string: </span><span class="se">\"</span><span class="s2">{s}</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The <code>describe</code> function only handles <code>StringOrInt.str</code> but not <code>StringOrInt.num</code></li>
+<li>Add a branch for the <code>num</code> constructor that formats the integer value</li>
+</ul>
+</details>
+<h3>Fix: Missing <code>deriving</code> Clause</h3>
+<div data-inc="ex_bug_deriving.lean"><span aria-label="Source: types/ex_bug_deriving.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_deriving.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Comparing Color values should work, but the code won't compile.</span>
+<span class="c1">-- Fix it by adding a `deriving` clause.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">blue</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">isRed</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Color</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">red</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Color</code> is missing a <code>deriving</code> clause</li>
+<li>The <code>==</code> operator needs a <code>BEq</code> instance to compare values</li>
+<li>Add <code>deriving BEq</code> (and <code>Repr</code> wouldn't hurt) to the <code>inductive</code> line</li>
+</ul>
+</details>
+<h3>Fix: Missing Base Case in Recursion</h3>
+<div data-inc="ex_bug_tree.lean"><span aria-label="Source: types/ex_bug_tree.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_tree.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should sum all numbers in a tree, but the match</span>
+<span class="c1">-- is missing the leaf case. Fix it.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">IntTree</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">IntTree</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IntTree</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">IntTree</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">IntTree</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">totalSum</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IntTree</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">IntTree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">totalSum</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">totalSum</span><span class="w"> </span><span class="n">right</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>totalSum</code> handles <code>IntTree.node</code> but not <code>IntTree.leaf</code></li>
+<li>The compiler rejects incomplete pattern matches on inductive types</li>
+<li>Add a branch for <code>IntTree.leaf n</code> that returns <code>n</code></li>
+</ul>
+</details>
+<h3>Fix: Unhandled Error Case</h3>
+<div data-inc="ex_bug_result.lean"><span aria-label="Source: types/ex_bug_result.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_result.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should describe both success and failure,</span>
+<span class="c1">-- but the match only handles the ok case. Fix it.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">β</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">(</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">β</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="n">r</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Result</span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"success: {n}"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>describe</code> only matches <code>Result.ok</code> but not <code>Result.err</code></li>
+<li>The compiler checks that every constructor of a sum type is handled</li>
+<li>Add a branch for <code>Result.err msg</code> that formats the error message</li>
+</ul>
+</details>
+<h3>Fix: Missing Case in <code>eval</code></h3>
+<div data-inc="ex_bug_expr.lean"><span aria-label="Source: types/ex_bug_expr.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_expr.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This eval function should handle all expression types,</span>
+<span class="c1">-- but the mul case is missing. Fix it.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Expr</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">(</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">right</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="o">(</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">right</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Expr</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Int</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Expr</span><span class="bp">.</span><span class="n">add</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">eval</span><span class="w"> </span><span class="n">r</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>eval</code> handles <code>Expr.num</code> and <code>Expr.add</code> but not <code>Expr.mul</code></li>
+<li>The compiler reports which constructors are missing</li>
+<li>Add a line for <code>Expr.mul l r</code> that calls <code>eval</code> on both sides and multiplies</li>
+</ul>
+</details>
+<h3>Fix: Wrong Return Type</h3>
+<div data-inc="ex_bug_type_param.lean"><span aria-label="Source: types/ex_bug_type_param.lean" class="inc-path" role="img" tabindex="0" title="types/ex_bug_type_param.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Count the leaves in a polymorphic tree. The return type</span>
+<span class="c1">-- annotation is wrong. Fix it.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">countLeaves</span><span class="w"> </span><span class="n">right</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The <code>countLeaves</code> function body returns <code>Nat</code> values (<code>1</code>, <code>+</code> on <code>Nat</code>)</li>
+<li>But the type annotation says <code>String</code></li>
+<li>Fix the return type annotation to match what the body actually computes</li>
+</ul>
+</details>
+<h3>Write: Weekday or Weekend</h3>
+<div data-inc="ex_days.lean"><span aria-label="Source: types/ex_days.lean" class="inc-path" role="img" tabindex="0" title="types/ex_days.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function 'isWeekend' that returns true for Saturday and Sunday.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">monday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">tuesday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">wednesday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">thursday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">friday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">saturday</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">sunday</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">BEq</span><span class="o">,</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">isWeekend</span><span class="w"> </span><span class="o">(</span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Day</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">isWeekend</span><span class="w"> </span><span class="n">Day</span><span class="bp">.</span><span class="n">saturday</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">true</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">isWeekend</span><span class="w"> </span><span class="n">Day</span><span class="bp">.</span><span class="n">sunday</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">true</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">isWeekend</span><span class="w"> </span><span class="n">Day</span><span class="bp">.</span><span class="n">monday</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">false</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>match</code> on the <code>Day</code> argument to check which day it is</li>
+<li>Return <code>true</code> for <code>Day.saturday</code> and <code>Day.sunday</code>, <code>false</code> for everything else</li>
+<li>Use <code>_</code> as a catch-all for the five weekdays to keep the code short</li>
+</ul>
+</details>
+<h3>Write: Tree Height</h3>
+<div data-inc="ex_tree_height.lean"><span aria-label="Source: types/ex_tree_height.lean" class="inc-path" role="img" tabindex="0" title="types/ex_tree_height.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function 'height' that computes the height of a Tree.</span>
+<span class="c1">-- The height of a leaf is 0; a node's height is 1 + max of children.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="mi">0</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"x"</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"a"</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"b"</span><span class="o">))</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">1</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"a"</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"b"</span><span class="o">))</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"c"</span><span class="o">))</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>match t with</code> to handle the two constructors: <code>Tree.leaf</code> and <code>Tree.node</code></li>
+<li>A leaf has height <code>0</code>; a node's height is <code>1</code> plus the larger of its children</li>
+<li>Use <code>Nat.max</code> to compare two <code>Nat</code> values</li>
+</ul>
+</details>
+<h3>Write: Map from Scratch</h3>
+<div data-inc="ex_list_map.lean"><span aria-label="Source: types/ex_list_map.lean" class="inc-path" role="img" tabindex="0" title="types/ex_list_map.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write 'myMap' that works like List.map, but using the inductive</span>
+<span class="c1">-- List constructors directly (List.nil and List.cons) instead of</span>
+<span class="c1">-- the [] and :: shorthand. This reveals what's really happening.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">myMap</span><span class="w"> </span><span class="o">(</span><span class="n">f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">β</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">β</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">myMap</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">myMap</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>match</code> on the list with the inductive constructors: <code>List.nil</code> and <code>List.cons</code></li>
+<li><code>List.nil</code> is the empty list; <code>List.cons h t</code> puts element <code>h</code> at the front of list <code>t</code></li>
+<li>In the <code>cons</code> case, apply <code>f</code> to the head and recurse on the tail</li>
+</ul>
+</details>
+<h3>Write: Safe Division</h3>
+<div data-inc="ex_safe_div.lean"><span aria-label="Source: types/ex_safe_div.lean" class="inc-path" role="img" tabindex="0" title="types/ex_safe_div.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write 'safeDiv' that returns an Option Int:</span>
+<span class="c1">-- Option.some of the quotient if b ≠ 0, Option.none otherwise.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">safeDiv</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">safeDiv</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="mi">5</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">safeDiv</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">safeDiv</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Check if <code>b</code> is zero using an <code>if</code>/<code>else</code> expression</li>
+<li>Return <code>Option.none</code> when <code>b == 0</code>, <code>Option.some (a / b)</code> otherwise</li>
+<li>This is like Python's <code>None</code> but the compiler forces callers to handle it</li>
+</ul>
+</details>
+<h3>Write: Mirror a Tree</h3>
+<div data-inc="ex_mirror_tree.lean"><span aria-label="Source: types/ex_mirror_tree.lean" class="inc-path" role="img" tabindex="0" title="types/ex_mirror_tree.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write 'mirrorTree' that swaps left and right subtrees of every node.</span>
+<span class="c1">-- A leaf is unchanged.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">BEq</span><span class="o">,</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">mirrorTree</span><span class="w"> </span><span class="o">(</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">t</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mirrorTree</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="mi">1</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mirrorTree</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"a"</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"b"</span><span class="o">))</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Tree</span><span class="bp">.</span><span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"b"</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">Tree</span><span class="bp">.</span><span class="n">leaf</span><span class="w"> </span><span class="s2">"a"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>match t with</code> to distinguish <code>Tree.leaf</code> from <code>Tree.node</code></li>
+<li>A leaf is unchanged: return it as-is</li>
+<li>For a node, create a new node with left and right subtrees swapped using recursion</li>
+</ul>
+</details>
+<h3>Write: Get or Else</h3>
+<div data-inc="ex_get_or_else.lean"><span aria-label="Source: types/ex_get_or_else.lean" class="inc-path" role="img" tabindex="0" title="types/ex_get_or_else.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write 'getOrElse' that returns the value inside an Option if it's 'some',</span>
+<span class="c1">-- or a default value if it's 'none'.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getOrElse</span><span class="w"> </span><span class="o">(</span><span class="n">opt</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">default</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">default</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getOrElse</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="mi">5</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">5</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getOrElse</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">none</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getOrElse</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="bp">.</span><span class="n">some</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">)</span><span class="w"> </span><span class="s2">"world"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"hello"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>match opt with</code> to handle <code>Option.some</code> and <code>Option.none</code></li>
+<li><code>Option.some val</code> means return <code>val</code> (ignore the default)</li>
+<li><code>Option.none</code> means return the <code>default</code> argument</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../basics">Basics</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

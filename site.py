@@ -155,6 +155,12 @@ prior_entries = [
         "description": "What software engineers need to understand to tell good studies from bad ones (alpha).",
         "beta": True,
     },
+    {
+        "title": "Lean for Python Programmers",
+        "url": "@root/l4py",
+        "description": "An introduction to Lean for Python programmers (pre-alpha).",
+        "beta": True,
+    },
 ]
 
 talks_entries = [
