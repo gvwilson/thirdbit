@@ -16,7 +16,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Distributed Systems Design by Example</a>
+<a class="brand" href="../">dsdx</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +54,7 @@
 </nav>
 <main id="main-content">
 <h1>Building TCP on UDP</h1>
-<div class="objectives">
+<div class="callout">
 <ul>
 <li>Explain how sequence numbers, acknowledgments, and retransmission together
     guarantee reliable delivery over an unreliable network.</li>
@@ -1101,8 +1101,6 @@ On a fast retransmit, <code>cwnd</code> is halved (less severe than a timeout, w
 
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Send all data, adapting window based on ACKs and losses."""</span>
-        <span class="n">ack_handler</span> <span class="o">=</span> <span class="n">_AckHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-
         <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="c1"># Wait until the congestion window allows another segment in flight.</span>
             <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unacked</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cong</span><span class="o">.</span><span class="n">effective_window</span><span class="p">(</span><span class="mi">64</span><span class="p">):</span>
@@ -1255,15 +1253,15 @@ With 15% loss and 4-segment window:</p>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../saga/">The Saga Pattern</a>
+<span aria-hidden="true">⇐</span> <a href="../saga">The Saga Pattern</a>
 </div>
 <div class="col-6 center">
-<a href="../">Distributed Systems Design by Example</a>
+<a href="../">dsdx</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../dns/">DNS</a> <span aria-hidden="true">⇒</span>
+<a href="../dns">DNS</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

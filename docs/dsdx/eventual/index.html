@@ -16,7 +16,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Distributed Systems Design by Example</a>
+<a class="brand" href="../">dsdx</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +54,7 @@
 </nav>
 <main id="main-content">
 <h1>Eventually Consistent Key-Value Store</h1>
-<div class="objectives">
+<div class="callout">
 <ul>
 <li>Explain what "availability" and "partition tolerance" mean
     and why a system must choose between them and strong consistency during a network partition.</li>
@@ -595,20 +595,20 @@ it resolves using last-write-wins but merges all clocks to capture the complete 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_basic.out"><span aria-label="Source: eventual/ex_basic.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_basic.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node1: Wrote X = 1 with clock {Node1:1}
-[0.0] Node2: Wrote X = 1 with clock {Node2:1}
+<div data-inc="ex_basic.out"><span aria-label="Source: eventual/ex_basic.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_basic.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node2: Wrote X = 1 with clock {Node2:1}
 [0.0] Node3: Wrote X = 1 with clock {Node3:1}
+[0.0] Node1: Wrote X = 1 with clock {Node1:1}
 [0.0] Client1: Wrote X = 1
-[0.5] Node1: Wrote X = 2 with clock {Node1:3, Node2:1}
-[0.5] Node2: Wrote X = 2 with clock {Node1:1, Node2:3}
-[0.5] Node3: Wrote X = 2 with clock {Node1:1, Node2:1, Node3:3}
+[0.5] Node2: Wrote X = 2 with clock {Node2:3, Node3:1}
+[0.5] Node3: Wrote X = 2 with clock {Node2:1, Node3:3}
+[0.5] Node1: Wrote X = 2 with clock {Node1:3, Node2:1, Node3:1}
 [0.5] Client1: Wrote X = 2
-[3.0] Node1: Read X -&gt; 1 version(s)
 [3.0] Node2: Read X -&gt; 1 version(s)
 [3.0] Node3: Read X -&gt; 1 version(s)
+[3.0] Node1: Read X -&gt; 1 version(s)
 [3.0] Client2: Read X -&gt; CONFLICT: 2 versions
-  - 2 (clock: {Node1:3, Node2:1}, ts: 0.5)
-  - 2 (clock: {Node1:1, Node2:3}, ts: 0.5)
+  - 2 (clock: {Node2:3, Node3:1}, ts: 0.5)
+  - 2 (clock: {Node2:1, Node3:3}, ts: 0.5)
 [3.0] Client2: Resolved to 2
 </code></pre></div>
 </div>
@@ -662,31 +662,31 @@ it resolves using last-write-wins but merges all clocks to capture the complete 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_conflict.out"><span aria-label="Source: eventual/ex_conflict.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_conflict.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node5: Wrote cart = ['item1'] with clock {Node5:1}
+<div data-inc="ex_conflict.out"><span aria-label="Source: eventual/ex_conflict.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_conflict.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node4: Wrote cart = ['item1'] with clock {Node4:1}
+[0.0] Node5: Wrote cart = ['item1'] with clock {Node5:1}
 [0.0] Node1: Wrote cart = ['item1'] with clock {Node1:1}
-[0.0] Node2: Wrote cart = ['item1'] with clock {Node2:1}
 [0.0] Client1: Wrote cart = ['item1']
+[0.2] Node4: Wrote cart = ['item2'] with clock {Node4:2}
 [0.2] Node5: Wrote cart = ['item2'] with clock {Node5:2}
 [0.2] Node1: Wrote cart = ['item2'] with clock {Node1:2}
-[0.2] Node2: Wrote cart = ['item2'] with clock {Node2:2}
 [0.2] Client2: Wrote cart = ['item2']
+[0.5] Node4: Read cart -&gt; 1 version(s)
 [0.5] Node5: Read cart -&gt; 1 version(s)
 [0.5] Node1: Read cart -&gt; 1 version(s)
-[0.5] Node2: Read cart -&gt; 1 version(s)
 [0.5] Client1: Read cart -&gt; CONFLICT: 2 versions
+  - ['item2'] (clock: {Node4:2}, ts: 0.2)
   - ['item2'] (clock: {Node5:2}, ts: 0.2)
-  - ['item2'] (clock: {Node1:2}, ts: 0.2)
 [0.5] Client1: Resolved to ['item2']
+[3.0] Node4: Read cart -&gt; 1 version(s)
 [3.0] Node5: Read cart -&gt; 1 version(s)
 [3.0] Node1: Read cart -&gt; 1 version(s)
-[3.0] Node2: Read cart -&gt; 1 version(s)
 [3.0] Client3: Read cart -&gt; CONFLICT: 2 versions
+  - ['item2'] (clock: {Node4:2}, ts: 0.2)
   - ['item2'] (clock: {Node5:2}, ts: 0.2)
-  - ['item2'] (clock: {Node1:2}, ts: 0.2)
 [3.0] Client3: Resolved to ['item2']
-[3.5] Node5: Wrote cart = ['item1', 'item2'] with clock {Node1:2, Node5:4}
-[3.5] Node1: Wrote cart = ['item1', 'item2'] with clock {Node1:4, Node5:2}
-[3.5] Node2: Wrote cart = ['item1', 'item2'] with clock {Node1:2, Node2:4, Node5:2}
+[3.5] Node4: Wrote cart = ['item1', 'item2'] with clock {Node4:4, Node5:2}
+[3.5] Node5: Wrote cart = ['item1', 'item2'] with clock {Node4:2, Node5:4}
+[3.5] Node1: Wrote cart = ['item1', 'item2'] with clock {Node1:4, Node4:2, Node5:2}
 [3.5] Client3: Wrote cart = ['item1', 'item2']
 </code></pre></div>
 </div>
@@ -993,24 +993,24 @@ Over time, this brings all replicas into sync.</p>
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_partition.out"><span aria-label="Source: eventual/ex_partition.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_partition.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node3: Wrote status = healthy with clock {Node3:1}
-[0.0] Node4: Wrote status = healthy with clock {Node4:1}
+<div data-inc="ex_partition.out"><span aria-label="Source: eventual/ex_partition.out" class="inc-path" role="img" tabindex="0" title="eventual/ex_partition.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node2: Wrote status = healthy with clock {Node2:1}
+[0.0] Node3: Wrote status = healthy with clock {Node3:1}
 [0.0] Client1: Wrote status = healthy
+[0.5] Node2: Read status -&gt; 1 version(s)
 [0.5] Node3: Read status -&gt; 1 version(s)
-[0.5] Node4: Read status -&gt; 1 version(s)
 [0.5] Client1: Read status -&gt; CONFLICT: 2 versions
+  - healthy (clock: {Node2:1}, ts: 0)
   - healthy (clock: {Node3:1}, ts: 0)
-  - healthy (clock: {Node4:1}, ts: 0)
 [0.5] Client1: Resolved to healthy
 [2.0] PARTITION: Node3 is unreachable
-[3.0] Node4: Wrote status = degraded with clock {Node4:2}
-[3.0] Node5: Wrote status = degraded with clock {Node5:1}
+[3.0] Node2: Wrote status = degraded with clock {Node2:2}
+[3.0] Node4: Wrote status = degraded with clock {Node4:1}
 [3.0] Client2: Wrote status = degraded
+[3.5] Node2: Read status -&gt; 1 version(s)
 [3.5] Node4: Read status -&gt; 1 version(s)
-[3.5] Node5: Read status -&gt; 1 version(s)
 [3.5] Client2: Read status -&gt; CONFLICT: 2 versions
-  - degraded (clock: {Node4:2}, ts: 3.0)
-  - degraded (clock: {Node5:1}, ts: 3.0)
+  - degraded (clock: {Node2:2}, ts: 3.0)
+  - degraded (clock: {Node4:1}, ts: 3.0)
 [3.5] Client2: Resolved to degraded
 [5.0] HEALED: Node3 is reachable
 </code></pre></div>
@@ -1067,15 +1067,15 @@ are picked up by the previously-partitioned replica during the next read repair 
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../torrent/">BitTorrent</a>
+<span aria-hidden="true">⇐</span> <a href="../torrent">BitTorrent</a>
 </div>
 <div class="col-6 center">
-<a href="../">Distributed Systems Design by Example</a>
+<a href="../">dsdx</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../saga/">The Saga Pattern</a> <span aria-hidden="true">⇒</span>
+<a href="../saga">The Saga Pattern</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

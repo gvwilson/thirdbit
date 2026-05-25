@@ -16,7 +16,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Distributed Systems Design by Example</a>
+<a class="brand" href="../">dsdx</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +54,7 @@
 </nav>
 <main id="main-content">
 <h1>The Saga Pattern</h1>
-<div class="objectives">
+<div class="callout">
 <ul>
 <li>Explain why traditional ACID transactions cannot span multiple independent services
     and what problem sagas solve.</li>
@@ -761,7 +761,6 @@ The flight service listens for <code>"booking_started"</code> and <code>"hotel_c
 
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Process events concurrently: forward bookings and compensations."""</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Wait for either a new booking or a compensation request.</span>
             <span class="kn">from</span><span class="w"> </span><span class="nn">asimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">FirstOf</span>
@@ -969,15 +968,15 @@ and replay from the last checkpoint on restart.</p>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<span aria-hidden="true">⇐</span> <a href="../eventual">Eventually Consistent Key-Value Store</a>
 </div>
 <div class="col-6 center">
-<a href="../">Distributed Systems Design by Example</a>
+<a href="../">dsdx</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../tcp/">TCP</a> <span aria-hidden="true">⇒</span>
+<a href="../tcp">TCP</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
