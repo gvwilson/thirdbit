@@ -126,18 +126,6 @@ prior_entries = [
         "beta": True,
     },
     {
-        "title": "Learning Web Programming with LLMs",
-        "url": "@root/webllm",
-        "description": "A short introduction to web programming using LLMs as a teaching aid (alpha).",
-        "beta": True,
-    },
-    {
-        "title": "Learning Data Science with LLMs",
-        "url": "@root/dsllm",
-        "description": "A short introduction to data science using LLMs as a teaching aid (alpha).",
-        "beta": True,
-    },
-    {
         "title": "Research Software Testing by Example",
         "url": "@root/rstx",
         "description": "Thirty-one short examples that explore how to test research software (alpha).",
@@ -159,6 +147,21 @@ prior_entries = [
         "title": "Lean for Python Programmers",
         "url": "@root/l4py",
         "description": "An introduction to Lean for Python programmers (pre-alpha).",
+        "beta": True,
+    },
+]
+
+unused_entries = [
+    {
+        "title": "Learning Web Programming with LLMs",
+        "url": "@root/webllm",
+        "description": "A short introduction to web programming using LLMs as a teaching aid (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Learning Data Science with LLMs",
+        "url": "@root/dsllm",
+        "description": "A short introduction to data science using LLMs as a teaching aid (alpha).",
         "beta": True,
     },
 ]
