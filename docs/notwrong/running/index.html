@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -20,10 +21,10 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
 <li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
 <li><a href="../critical/">Reading Studies Critically</a></li>
 <li><a class="active" href="../running/">Running Studies in Your Organization</a></li>
@@ -52,44 +53,38 @@
 <li>Apply Goal-Question-Metric (GQM) to define measurable research questions.</li>
 <li>Scope a study given practical constraints on time, access, and data.</li>
 <li>Navigate legal, HR, and management approval for internal research.</li>
+<li>Share results responsibly when external publication is not possible.</li>
 </ul>
 </div>
-<p>In 2014, Andrew Begel and Nachiappan Nagappan surveyed both researchers
-and engineers at Microsoft to find out which questions practitioners most
-want answered and which research methods they find credible [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>].
-The top questions were practical: how do I hire the right people? How do I
-improve team productivity? How do I reduce technical debt? The most credible
-methods, in practitioners' view, were those that used their own data from
-their own systems. Practitioners did not want controlled experiments or
-thematic analyses of interviews with strangers—they wanted evidence from
-people like them, in contexts like theirs.</p>
-<p>You are probably one of those practitioners.</p>
+<p>In 2014,
+Andrew Begel and Nachiappan Nagappan surveyed researchers and engineers at Microsoft
+to find out which questions practitioners most want answered [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>].
+The top questions were practical: how do I hire the right people?
+How do I improve team productivity?
+How do I reduce technical debt?
+The most credible methods, in practitioners' view,
+were those that used their own data from their own systems.
+Practitioners did not want controlled experiments or thematic analyses of interviews with strangers;
+they wanted evidence from people like them, in contexts like theirs.
+We created these lessons because you probably do too.</p>
 <h2>Ethical Considerations</h2>
 <ul>
-<li>Research on people requires ethical oversight, even when it is
-    "internal" research on your own employees</li>
-<li><a class="gl-ref" href="../glossary/#informed_consent">Informed consent</a> means participants know
-    what data is being collected, how it will be used, and that they can
-    withdraw without penalty<ul>
-<li>"It's in the employment contract" is not informed consent for a study</li>
+<li>Reminder: research on people requires ethical oversight,
+    even when it is "internal" research on your own employees<ul>
+<li>Review <a href="../qualitative/">earlier discussion</a></li>
 </ul>
 </li>
-<li>Privacy: commit data, ticket data, and code review data can reveal
-    individual performance, health issues (through absence patterns), and
-    dissatisfaction</li>
-<li>Harm: studies that measure individual productivity can be used to
-    justify performance management decisions, creating pressure on
-    participants to perform, not just participate</li>
-<li>"It's just internal data" is not a free pass: the fact that you already
-    have access to data does not mean using it for research is harmless</li>
-<li>When monitoring developers — even with their consent — store data locally
-    or give participants full control over what is shared; some developers
-    will leave an organization rather than submit to monitoring they perceive
-    as surveillance</li>
-<li>Monitoring that erodes the psychological safety that predicts team
-    performance defeats the purpose of the study before it begins</li>
-<li>Consider involving your legal, HR, and ethics teams before collecting
-    data on individuals</li>
+<li>"It's just internal data" is not a free pass:
+    the fact that you already have access to data
+    does not mean using it for research is harmless</li>
+<li>When monitoring developers—even with their consent—store data locally
+    or give participants full control over what is shared<ul>
+<li>Some developers will leave an organization
+    rather than submit to monitoring they perceive as surveillance</li>
+</ul>
+</li>
+<li>Monitoring that erodes the psychological safety that predicts team performance,
+    which defeats the purpose of the study before it begins</li>
 </ul>
 <h2>Practical Study Designs for Practitioners</h2>
 <ul>
@@ -97,236 +92,251 @@ people like them, in contexts like theirs.</p>
     no random assignment, no control group, limited time, limited budget</li>
 <li>Practical alternatives:<ul>
 <li><a class="gl-ref" href="../glossary/#retrospective_analysis">Retrospective analysis</a>:
-    study what already happened using data
-    you already have (commit logs, ticket history, review comments)</li>
+    study what already happened using data you already have
+    (commit logs, ticket history, review comments)</li>
 <li>Interrupted time series:
     use a policy or tool change as a natural experiment</li>
 <li><a class="gl-ref" href="../glossary/#internal_survey">Internal survey</a>:
     structured survey of your own team, with clear scope and honest limitations</li>
 <li><a class="gl-ref" href="../glossary/#ab_testing">A/B testing</a>:
     if you are deploying software, random assignment of
-    users to conditions is often feasible and already part of your
-    infrastructure</li>
+    users to conditions is often feasible and already part of your infrastructure</li>
 </ul>
 </li>
-<li>Be honest with yourself about what design you actually have, not what
-    you wish you had</li>
+<li>Be honest with yourself about what design you actually have,
+    not what you wish you had</li>
 </ul>
 <h2>Identifying Waste as a Study Entry Point</h2>
 <ul>
-<li>If your organization is skeptical of productivity measurement but open
-    to process improvement, frame the study around waste identification
-    rather than output measurement</li>
-<li>Ask: what work consumes effort without delivering value? The answer is
-    usually less politically charged than "who is productive?" and often
-    surfaces actionable interventions</li>
-<li>Sedano et al.'s nine waste categories (building wrong features, backlog
-    mismanagement, rework, unnecessary complexity, cognitive load,
-    psychological distress, waiting, knowledge loss, ineffective
-    communication) are a useful starting checklist [<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]</li>
-<li>Waste removal is often easier to prioritize than productivity
-    improvement because it is clear what "done" looks like</li>
+<li>If your organization is skeptical of productivity measurement
+    but open to process improvement,
+    frame the study around waste identification rather than output measurement<ul>
+<li>Waste removal is often easier to prioritize than productivity improvement
+    because it is clear what "done" looks like</li>
+</ul>
+</li>
+<li>Ask what work consumes effort without delivering value?<ul>
+<li>The answer is usually less politically charged than, "Who is productive?"</li>
+<li>And often surfaces actionable interventions</li>
+</ul>
+</li>
+<li>[<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]'s nine waste categories are a useful starting checklist <ul>
+<li>See <a href="../qualitative/">earlier discussion</a></li>
+</ul>
+</li>
 </ul>
 <h2>Scoping a Study</h2>
 <ul>
-<li>A study that tries to answer "does AI make our developers more
-    productive?" cannot be answered without first answering what you mean
-    by productive, which developers, at which tasks, over what time period</li>
-<li>A scoped question: "Did the time to first review decrease for pull requests
-    submitted after we deployed Copilot, compared to the three months before?"</li>
+<li>A study that tries to answer "does AI make our developers more productive?"
+    cannot be answered without first answering what you mean by productive,
+    which developers, at which tasks, over what time period</li>
+<li>A scoped question:
+    "Did the time to first review decrease for pull requests submitted after we deployed Claude
+    compared to the three months before?"</li>
 <li>Scoping criteria: one team, one metric, one comparison, one time period</li>
-<li>If your scoped question does not answer what stakeholders actually need
-    to know, that is important information—surface it before you run the study</li>
+<li>If your scoped question does not answer what stakeholders actually need to know,
+    that is important to know <em>before</em> you run the study</li>
 </ul>
 <h2>Defining What to Measure: GQM</h2>
 <ul>
-<li>Knowing you want to study "productivity" is not enough: you need a
-    specific, defensible measurement before you collect any data</li>
-<li>The <a class="gl-ref" href="../glossary/#gqm">Goal-Question-Metric (GQM)</a> approach provides a
-    structured path from intent to measurement [<a class="bib-ref" href="../bibliography/#Basili1994">Basili1994</a>]:<ul>
-<li>Define the goal: what object are you studying, what property of
-    that object, from whose viewpoint, and in what context?</li>
-<li>Generate the questions whose answers would tell you whether the
-    goal was achieved</li>
-<li>Identify the metric — the specific, operationalized number — that
-    answers each question</li>
+<li>Knowing you want to study "productivity" is not enough:
+    you need a specific, defensible measurement before you collect any data</li>
+<li>The <a class="gl-ref" href="../glossary/#gqm">Goal-Question-Metric (GQM)</a> approach
+    provides a structured path from intent to measurement [<a class="bib-ref" href="../bibliography/#Basili1994">Basili1994</a>]<ul>
+<li>Define the goal:
+    what object are you studying, what property of that object,
+    from whose viewpoint, and in what context?</li>
+<li>Generate the questions whose answers would tell you whether the goal was achieved</li>
+<li>Identify the specific, operationalized metric that answers each question</li>
 </ul>
 </li>
-<li>Example: goal = "understand the impact of AI coding assistants on
-    delivery speed, from the engineering manager's viewpoint, in our
-    current sprint process"<ul>
-<li>Question 1: does time-to-merge change after adoption?
-    → metric: median hours from PR open to merge, per sprint</li>
-<li>Question 2: does the volume of completed work change?
-    → metric: story points delivered per sprint</li>
-<li>Question 3: does defect rate change?
-    → metric: bugs filed within 14 days of a PR merge</li>
+<li>Example:<ul>
+<li>Goal: "understand the impact of AI coding assistants on delivery speed,
+    from the engineering manager's viewpoint, in our current sprint process"</li>
+<li>Question 1: does time-to-merge change after adoption?</li>
+<li>Question 2: does the volume of completed work change?</li>
+<li>Question 3: does defect rate change?</li>
+<li>Metric 1: median hours from PR open to merge, per sprint</li>
+<li>Metric 2: story points delivered per sprint</li>
+<li>Metric 3: bugs filed within 14 days of a PR merge</li>
 </ul>
 </li>
-<li>GQM makes implicit assumptions explicit: the choice of metric embeds a
-    claim that this number measures what you care about — and that claim
-    can be challenged before you collect a single data point</li>
-<li>If you cannot identify a metric for a question, either the question is
-    not operationalizable (and should be addressed qualitatively) or the
-    goal needs to be refined</li>
+<li>GQM makes implicit assumptions explicit:
+    the choice of metric embeds a claim that this number measures what you care about<ul>
+<li>And that claim can be challenged before you collect a single data point</li>
+</ul>
+</li>
+<li>If you cannot identify a metric for a question,
+    either the question is not operationalizable (and should be addressed qualitatively)
+    or the goal needs to be refined</li>
 </ul>
 <h2>Iterating Your Study Design</h2>
 <ul>
-<li>A first study rarely answers the question you thought you were asking:
-    metrics turn out to be noisier than expected, the comparison group was
-    not comparable, or the interesting result was a side-effect you did not
-    plan to measure</li>
-<li>Invest no more than a quarter of your budget in the first run; use what
-    you learn to refine the question, metrics, and design before committing
-    the rest [<a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>]</li>
-<li>Common refinements after a first run:<ul>
-<li>A variable you treated as a parameter (held constant) actually
-    varied and affected results — add it as a blocking variable or factor</li>
-<li>Your primary metric has low construct validity — replace or
-    supplement it</li>
-<li>The comparison was unfair — one group had more experience, better
-    tooling, or easier tasks</li>
+<li>A first study rarely answers the question you thought you were asking<ul>
+<li>Metrics turn out to be noisier than expected</li>
+<li>The comparison group was not comparable</li>
+<li>The interesting result was a side-effect you did not plan to measure</li>
 </ul>
 </li>
-<li>Negative results from a first run are often more informative than a
-    clean positive: they tell you what the interesting question actually is</li>
-<li>Document each iteration, including what changed and why — this is the
-    study history that makes later replication and interpretation possible</li>
+<li>Invest no more than a quarter of your budget in the first run<ul>
+<li>Use what you learn to refine the question, metrics, and design
+    before committing the rest</li>
+</ul>
+</li>
+<li>Common refinements after a first run:<ul>
+<li>A variable you treated as a parameter (held constant)
+    actually varied and affected results
+    , so add it as a blocking variable or factor</li>
+<li>Your primary metric has low construct validity,
+    so replace or supplement it</li>
+<li>The comparison was unfair:
+    one group had more experience, better tooling, or easier tasks</li>
+</ul>
+</li>
+<li>Negative results from a first run are often more informative than a clean positive<ul>
+<li>They tell you what the interesting question actually is</li>
+</ul>
+</li>
+<li>Document each iteration, including what changed and why<ul>
+<li>This history makes later replication and interpretation possible</li>
+</ul>
+</li>
 </ul>
 <h2>Sharing Results Responsibly</h2>
 <ul>
-<li>Every study has limitations; state them before stakeholders ask</li>
-<li>Distinguish between "we found no effect" and "our study was not
-    designed to detect an effect"</li>
-<li>Present uncertainty: confidence intervals, effect sizes, and sample
-    sizes belong in results presented to management, not just in appendices</li>
-<li>Resist pressure to oversell: a negative result honestly reported
-    is more valuable than a positive result that cannot be replicated</li>
-<li>Consider who will see the results and how they might be misused</li>
+<li>Every study has limitations; state them <em>before</em> stakeholders ask</li>
+<li>Distinguish between "we found no effect" and
+    "our study was not designed to detect an effect"</li>
+<li>Present uncertainty:
+    confidence intervals, effect sizes, and sample sizes belong in results presented to management,
+    not just in appendices</li>
+<li>Resist pressure to oversell:
+    a negative result honestly reported is more valuable than
+    a positive result that cannot be replicated</li>
+<li>Consider who will see the results and how they might be misused<ul>
+<li>"What happens if this appears on Reddit?"</li>
+</ul>
+</li>
 </ul>
 <h2>Working with Legal, HR, and Management</h2>
 <ul>
 <li>Get legal and HR involved before you collect individual-level data;
     retroactive approval is harder than proactive review</li>
-<li>Management may want to use study results for performance evaluation;
-    clarify before you start whether this is permitted and communicate
-    it to participants</li>
-<li>Document your study design, analysis plan, and data handling before
-    you begin—this creates accountability and reduces the temptation to
-    change the analysis after seeing results</li>
-<li>If you cannot publish externally, write an internal report that follows
-    the same standards you would apply to a published paper</li>
+<li>Management may want to use study results for performance evaluation<ul>
+<li>Clarify before you start whether this is permitted
+    and communicate it to participants</li>
+</ul>
+</li>
+<li>Document your study design, analysis plan, and data handling before you begin<ul>
+<li>This creates accountability and reduces the temptation
+    to change the analysis after seeing results</li>
+</ul>
+</li>
 </ul>
 <h2>What to Do When You Cannot Publish</h2>
 <ul>
-<li>Internal research is valuable even without external publication</li>
 <li>Write a memo or report with methods, results, limitations, and conclusions</li>
-<li>Share it with the team that was studied, not just the leadership team
-    that commissioned the study</li>
-<li>Archive the data and analysis scripts so the study can be revisited
-    or extended</li>
-<li>Be aware that internal research may be subject to legal discovery
-    in litigation, especially if it touches on employment decisions</li>
+<li>Share it with the team that was studied,
+    not just the leadership team that commissioned the study<ul>
+<li>If nothing else, builds support for the next study</li>
+</ul>
+</li>
+<li>Archive the data and analysis scripts so the study can be revisited or extended</li>
+<li>Be aware that internal research may be subject to legal discovery in litigation,
+    especially if it touches on employment decisions</li>
 </ul>
 <h2>Misconceptions</h2>
 <dl>
 <dt>Internal data has no ethical constraints because the company already owns it.</dt>
-<dd>Collecting data for operational purposes (paying people,
-tracking bugs) does not authorize using it for research purposes.
-The intended use of data matters, and research use requires separate
-consideration of consent, privacy, and potential harm.</dd>
+<dd>Collecting data for operational purposes does not authorize using it for research purposes.
+The intended use of data matters,
+and research use requires separate consideration of consent, privacy, and potential harm.</dd>
 <dt>A/B testing is a reliable all-purpose tool for internal studies.</dt>
-<dd>A/B testing works well for product features where random assignment
-is natural and outcomes are measured automatically. Most questions
-about developer productivity—does code review help, does pair
-programming improve quality—do not fit this template.</dd>
+<dd>A/B testing works well for product features where random assignment is natural
+and outcomes are measured automatically.
+Most questions about developer productivity do not fit this description.</dd>
 <dt>Measuring developer productivity motivates developers to be more productive.</dt>
-<dd>Metrics change behavior, but not always in the intended direction.
-Developers subjected to daily productivity tracking often become less
-autonomous and more stressed — and may optimize the metric rather than
-the work [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]. The purpose of measurement is to improve
-outcomes. If measurement degrades the psychological conditions that
-produce good work, it defeats itself.</dd>
+<dd>Developers subjected to daily productivity tracking often become
+less autonomous and more stressed,
+and may optimize the metric rather than the work.
+If measurement degrades the psychological conditions that produce good work,
+it defeats itself.</dd>
 <dt>Negative results from an internal study are not worth reporting.</dt>
-<dd>A well-run study that finds no effect is valuable: it prevents the
-organization from acting on a false assumption and contributes to a
-more accurate picture of what actually works. Suppressing negative
-results creates the same file-drawer problem inside organizations
+<dd>A well-run study that finds no effect is valuable:
+it prevents the organization from acting on a false assumption
+and contributes to a more accurate picture of what actually works.
+Suppressing negative results creates the same file-drawer problem inside organizations
 that it creates in academic publishing.</dd>
 </dl>
 <h2>Check Understanding</h2>
 <details>
 <summary>Why is "it's in the employment contract" insufficient as a basis for informed consent in a workplace study?</summary>
-<p>Informed consent requires that participants know specifically what is
-being studied, what data is collected, how it will be used, and that
-they can withdraw without consequence. An employment contract grants
-broad data collection rights as a condition of employment—participants
-cannot meaningfully withdraw without leaving their job. This creates
-a power imbalance that undermines the voluntariness of consent. Research
-ethics require that consent be specific, informed, and genuinely voluntary.</p>
+<p>Informed consent requires that participants know specifically what is being studied,
+what data is collected,
+how it will be used,
+and that they can withdraw without consequence.
+An employment contract grants broad data collection rights as a condition of employment:
+participants cannot meaningfully withdraw without leaving their job.
+This creates a power imbalance that undermines the voluntariness of consent.
+Research ethics require that consent be specific, informed, and genuinely voluntary.</p>
 </details>
 <details>
 <summary>A team wants to study the effect of mandatory code review on defect rates. They have six months of data before the policy and six months after. What design are they using, and what is its main threat to validity?</summary>
-<p>They are using an interrupted time series design. The main threat to validity
-is that other things changed at the same time as the policy: team composition,
-codebase complexity, the types of features being built, or external tooling.
-Without a control group that did not change its code review policy, it is
-impossible to separate the effect of code review from other concurrent changes.
-A stronger design would include a comparison team.</p>
+<p>They are using an interrupted time series design.
+The main threat to validity is that other things changed at the same time as the policy.
+Without a control group that did not change its code review policy,
+it is impossible to separate the effect of code review from other concurrent changes.
+A stronger design would include a comparison team,
+but that might not be possible.</p>
 </details>
 <details>
 <summary>A manager asks you to run a study on "which developers are least productive" using commit data. Identify two specific ethical concerns and one way to address each.</summary>
-<p>First, using commit data as a productivity measure has low construct validity
-and can be gamed—measuring it for performance purposes creates perverse
-incentives (more commits, not better work). Address this by using outcome
-metrics (defect rates, feature delivery time) rather than activity metrics.
-Second, identifying "least productive" individuals creates harm risk:
-participants may face disciplinary action, feel surveilled, or experience
-increased anxiety. Address this by committing in advance that the study
-results will be used for process improvement, not performance management,
+<p>First,
+using commit data as a productivity measure has low construct validity and can be gamed.
+Address this by using outcome metrics (e.g., defect rates or feature delivery time)
+rather than activity metrics.
+Second,
+identifying "least productive" individuals creates harm risk:
+participants may face disciplinary action, feel surveilled, or experience increased anxiety.
+Address this by committing in advance that
+the study results will be used for process improvement,
+not performance management,
 and communicating this to all participants.</p>
 </details>
 <details>
 <summary>The following study report contains a presentational problem. Identify it: "We found that time-to-merge decreased by 18% after deploying the tool (p = 0.02). We recommend all teams adopt this tool immediately."</summary>
-<p>The recommendation does not account for the limitations of the study or the
-uncertainty in the estimate. An 18% decrease with p = 0.02 is statistically
-significant but the effect size, confidence interval, and practical
-significance are not reported. More importantly, "all teams" is an
-overgeneralization—the study covers one team, one tool, one metric, and one
-time period. A responsible recommendation would specify the conditions under
-which adoption seems warranted and acknowledge the limitations of generalizing
-from a single internal study.</p>
+<p>The recommendation does not account for the limitations of the study
+or the uncertainty in the estimate.
+An 18% decrease with p = 0.02 is statistically significant,
+but the effect size, confidence interval, and practical significance are not reported.
+More importantly,
+"all teams" is an overgeneralization:
+the study covers one team, one tool, one metric, and one time period.
+A responsible recommendation would specify the conditions under which adoption seems warranted
+and acknowledge the limitations of generalizing from a single internal study.</p>
 </details>
 <h2>Further Reading</h2>
 <ul>
-<li>[<a class="bib-ref" href="../bibliography/#Baltes2025">Baltes2025</a>]:
-    22-researcher effort producing a taxonomy of 7 LLM study types in SE research
-    and 8 reproducibility guidelines;
-    covers LLM disclosure, versioning, output validation, baselines, and limitations reporting.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Davis2023">Davis2023</a>]:
-    26 researcher interviews yield taxonomy of 18 barriers to programmer user studies;
-    23 solution strategies and 4 behavioral-science-inspired design ideas;
-    validated with 16-person focus group.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Gold2020">Gold2020</a>]:
-    Discusses ethics implications of MSR research using MSR challenge datasets (2010-2019);
-    highlights data privacy and consent challenges;
-    calls for greater ethics awareness in MSR publications.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Baltes2025">Baltes2025</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Davis2023">Davis2023</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Gold2020">Gold2020</a>]</li>
 </ul>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Ethics Review (15 minutes)</h3>
-<p>You want to study whether weekly one-on-one meetings between managers and
-developers improve developer satisfaction and retention. Write a one-page
-ethics review that identifies: what data you would collect, the risks to
-participants, how you would obtain informed consent, and how you would
-protect participant privacy against retaliation if a participant rates
-their manager poorly.</p>
+<p>You want to study whether weekly one-on-one meetings between managers and developers
+improve developer satisfaction and retention.
+Write a one-page ethics review that identifies what data you would collect,
+the risks to participants,
+how you would obtain informed consent,
+and how you would protect participant privacy against retaliation
+if a participant rates their manager poorly.</p>
 </div>
 <div class="exercise">
 <h3>Scope It Down (15 minutes)</h3>
 <p>Take one of the following broad questions and write a scoped version
-that could be answered with data available to a typical software team
-in three months. Specify the metric, the comparison, and the time period:</p>
+that could be answered in three months with data available to a typical software team.
+Specify the metric, the comparison, and the time period.</p>
 <ul>
 <li>Does using an AI coding assistant improve code quality?</li>
 <li>Does test-driven development reduce bug rates?</li>
@@ -335,11 +345,14 @@ in three months. Specify the metric, the comparison, and the time period:</p>
 </div>
 <div class="exercise">
 <h3>Write the Limitations (20 minutes)</h3>
-<p>You ran an internal A/B test: 30 developers used an AI code review tool
-for 8 weeks and 30 did not; the treatment group's time-to-merge decreased
-by 22%. Write the "Limitations" section of the internal report. Address
-at least: sample size and power, external validity, alternative explanations,
-and one ethical consideration.</p>
+<p>You ran an internal A/B test:
+30 developers used an AI code review tool for 8 weeks and 30 did not,
+and the treatment group's time-to-merge decreased by 22%.
+Write the "Limitations" section of the internal report.
+Address sample size and power,
+external validity,
+alternative explanations,
+and ethical considerations.</p>
 </div>
 </main>
 <footer aria-label="Page navigation">

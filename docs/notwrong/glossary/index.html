@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -20,10 +21,10 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
 <li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
 <li><a href="../critical/">Reading Studies Critically</a></li>
 <li><a href="../running/">Running Studies in Your Organization</a></li>
@@ -52,6 +53,10 @@
 <dd>A controlled experiment in which participants or users are randomly
 assigned to one of two variants to measure which performs better on a
 defined metric.</dd>
+<dt><span id="agile_manifesto">agile manifesto</span></dt>
+<dd>The 2001 statement of four values and twelve principles for agile
+software development, emphasizing individuals and interactions, working
+software, customer collaboration, and responding to change.</dd>
 <dt><span id="alternative_hypothesis">alternative hypothesis</span></dt>
 <dd>The hypothesis that an effect exists; denoted H₁. Accepted when the
 null hypothesis is rejected.</dd>
@@ -71,6 +76,14 @@ participant is in, reducing expectation bias.</dd>
 controlled by grouping experimental units into blocks of similar values
 before randomization, guaranteeing that the nuisance factor's effect is
 distributed evenly across treatment conditions.</dd>
+<dt><span id="bonferroni_correction">Bonferroni correction</span></dt>
+<dd>A method for adjusting significance thresholds when performing multiple
+statistical tests, dividing the desired alpha level by the number of
+comparisons to control the family-wise error rate.</dd>
+<dt><span id="boredom_effect">boredom effect</span></dt>
+<dd>A threat to internal validity in which participants' performance or
+attention degrades over time due to fatigue or disengagement, rather
+than any effect of the treatment.</dd>
 </dl>
 <h2>C</h2>
 <dl>
@@ -93,6 +106,10 @@ multiple comparisons.</dd>
 <dt><span id="confirmation_bias">confirmation bias</span></dt>
 <dd>The tendency to search for, interpret, and recall information in ways
 that confirm pre-existing beliefs, distorting the analysis of data.</dd>
+<dt><span id="confirmatory_analysis">confirmatory analysis</span></dt>
+<dd>Analysis designed to test a pre-specified hypothesis using data
+collected expressly for that purpose, as opposed to exploratory analysis
+which searches for patterns without a prior hypothesis.</dd>
 <dt><span id="confounding_variable">confounding variable</span></dt>
 <dd>A variable that is associated with both the independent variable and the
 outcome, potentially explaining an observed relationship without there
@@ -122,9 +139,10 @@ of the four DORA metrics used to measure software delivery performance.</dd>
 <dt><span id="difference_in_differences">difference-in-differences</span></dt>
 <dd>A quasi-experimental design that compares the change in outcome for a
 treated group to the change for a control group over the same period.</dd>
-<dt><span id="directed_acyclic_graph">directed acyclic graph (DAG)</span></dt>
-<dd>A diagram of nodes connected by directed edges with no cycles, used to
-represent causal assumptions about the relationships between variables.</dd>
+<dt><span id="double_blind_study">double blind study</span></dt>
+<dd>An experiment in which neither the participants nor the experimenters
+interacting with them know which condition each participant is in,
+reducing both participant expectation effects and experimenter bias.</dd>
 </dl>
 <h2>E</h2>
 <dl>
@@ -144,6 +162,10 @@ collected.</dd>
 scheduled intervals during their normal activities to report their current
 task, state, or perceptions, capturing in-the-moment data rather than
 retrospective recall.</dd>
+<dt><span id="exploratory_analysis">exploratory analysis</span></dt>
+<dd>Analysis that searches for patterns, relationships, or hypotheses in
+data without pre-specified predictions; used to generate rather than test
+hypotheses.</dd>
 <dt><span id="external_validity">external validity</span></dt>
 <dd>The degree to which study findings generalize beyond the specific sample,
 setting, and task studied.</dd>
@@ -178,6 +200,9 @@ testing a predetermined hypothesis.</dd>
 </dl>
 <h2>H</h2>
 <dl>
+<dt><span id="habituation">habituation</span></dt>
+<dd>A decrease in response to a repeated stimulus over time, which threatens
+internal validity.</dd>
 <dt><span id="harking">HARKing</span></dt>
 <dd>Hypothesizing After Results are Known: presenting exploratory findings
 as if they had been predicted in advance, inflating false positive rates.</dd>
@@ -191,10 +216,6 @@ where participants know they are being watched.</dd>
 </dl>
 <h2>I</h2>
 <dl>
-<dt><span id="ignoring_non_response">ignoring non-response</span></dt>
-<dd>A bias that arises when researchers analyze only survey respondents
-without accounting for those who did not reply, which can skew results
-if non-respondents differ systematically from respondents.</dd>
 <dt><span id="independent_variables">independent variable</span></dt>
 <dd>The variable that is manipulated or selected by the researcher to
 examine its effect on an outcome.</dd>
@@ -234,9 +255,17 @@ later treatment appear more effective regardless of its merit.</dd>
 <dt><span id="likert_scale">Likert scale</span></dt>
 <dd>A survey response format using ordered categories such as "Strongly
 agree" to "Strongly disagree," typically with 5 or 7 points.</dd>
+<dt><span id="longitudinal_study">longitudinal study</span></dt>
+<dd>A study that collects data from the same subjects at multiple points
+over an extended period, enabling researchers to track changes and
+developmental trends over time.</dd>
 </dl>
 <h2>M</h2>
 <dl>
+<dt><span id="maturation_effect">maturation effect</span></dt>
+<dd>A threat to internal validity in which participants naturally change
+over the course of a study (e.g., growing older, more tired, or more
+experienced) independently of the treatment.</dd>
 <dt><span id="meta_analysis">meta-analysis</span></dt>
 <dd>A statistical technique for combining results from multiple independent
 studies of the same question to estimate an overall effect size.</dd>
@@ -249,13 +278,24 @@ systems, issue trackers, code review tools, and related sources.</dd>
 <dt><span id="natural_experiment">natural experiment</span></dt>
 <dd>A study that exploits real-world variation that approximates random
 assignment, without the researcher directly manipulating any variable.</dd>
+<dt><span id="non_response_bias">non-response bias</span></dt>
+<dd>A bias that arises when researchers analyze only survey respondents
+without accounting for those who did not reply, which can skew results
+if non-respondents differ systematically from respondents.</dd>
 <dt><span id="novelty_effect">novelty effect</span></dt>
 <dd>A threat to internal validity in which any new tool, method, or process
 receives a temporary performance boost because participants are motivated
 by its novelty, inflating the apparent benefit of the intervention.</dd>
+<dt><span id="nuisance_variable">nuisance variable</span></dt>
+<dd>A variable that can affect the outcome but is not of primary interest;
+controlled through randomization, blocking, or statistical adjustment
+to isolate the effect of interest.</dd>
 <dt><span id="null_hypothesis">null hypothesis</span></dt>
 <dd>The hypothesis that there is no effect; denoted H₀. Statistical testing
 evaluates whether the data is inconsistent with the null hypothesis.</dd>
+<dt><span id="null_result">null result</span></dt>
+<dd>A study outcome in which no statistically significant effect is found;
+also called a negative result.</dd>
 </dl>
 <h2>O</h2>
 <dl>
@@ -266,6 +306,15 @@ occur, without manipulating any conditions.</dd>
 <dd>The initial stage in qualitative data analysis in which the researcher
 reads through data and attaches descriptive labels (codes) to segments
 of text.</dd>
+<dt><span id="operationalization">operationalization</span></dt>
+<dd>The process of turning an abstract concept or research construct into
+a specific, measurable variable that can be observed and recorded in
+a study.</dd>
+<dt><span id="order_effects">order effects</span></dt>
+<dd>Changes in participant responses caused by the sequence in which
+conditions are presented, such as practice or fatigue, rather than
+the conditions themselves; a threat to internal validity in
+within-subjects designs.</dd>
 <dt><span id="overgeneralization">overgeneralization</span></dt>
 <dd>Drawing conclusions that extend beyond what the data actually support,
 typically by ignoring important differences in context, population, or
@@ -303,6 +352,10 @@ context, and experience.</dd>
 <dt><span id="quantitative_methods">quantitative methods</span></dt>
 <dd>Research approaches that collect and analyze numerical data to describe
 patterns, test hypotheses, or estimate effect sizes.</dd>
+<dt><span id="quasi_experimental_design">quasi-experimental design</span></dt>
+<dd>A research design that compares groups without random assignment,
+relying on pre-existing groups or naturally occurring conditions to
+estimate treatment effects.</dd>
 </dl>
 <h2>R</h2>
 <dl>
@@ -329,9 +382,25 @@ the researcher intends to generalize to.</dd>
 <dd>An interview that follows a predetermined set of questions but allows
 the interviewer to probe further or deviate based on participant
 responses.</dd>
+<dt><span id="single_blind_study">single blind study</span></dt>
+<dd>An experiment in which participants do not know which condition they are in,
+but the experimenters do. This reduces participant bias but leaves
+experimenter influence as a possible threat.</dd>
+<dt><span id="social_desirability_bias">social desirability bias</span></dt>
+<dd>The tendency for survey or interview respondents to give answers they
+believe are more socially acceptable rather than truthful responses,
+distorting self-reported data.</dd>
 <dt><span id="statistical_power">statistical power</span></dt>
 <dd>The probability that a study will detect an effect if one truly exists;
 conventionally targeted at 0.80.</dd>
+<dt><span id="statistical_significance">statistical significance</span></dt>
+<dd>A determination that observed data is unlikely under the null
+hypothesis, typically using a threshold of p &lt; 0.05; does not
+imply practical importance or a large effect.</dd>
+<dt><span id="stratified_sampling">stratified sampling</span></dt>
+<dd>A sampling method in which the population is divided into subgroups
+(strata) and participants are drawn from each subgroup to ensure the
+sample reflects key population characteristics.</dd>
 <dt><span id="structured_interview">structured interview</span></dt>
 <dd>An interview in which every participant is asked exactly the same
 questions in the same order, enabling systematic comparison across
@@ -352,14 +421,20 @@ themes through iterative passes.</dd>
 <dd>The time it takes to recover normal operation after a failure in
 production; one of the four DORA metrics used to measure software
 delivery performance.</dd>
-<dt><span id="treatment">treatment</span></dt>
-<dd>The intervention applied to the treatment group in an experiment.</dd>
+<dt><span id="treatment_group">treatment group</span></dt>
+<dd>The group in an experiment that receives the intervention or
+manipulation being studied; compared against the control group to
+estimate the treatment effect.</dd>
 <dt><span id="triangulation">triangulation</span></dt>
 <dd>The use of multiple data sources, methods, or investigators to increase
 confidence in a finding.</dd>
 </dl>
 <h2>U</h2>
 <dl>
+<dt><span id="unconscious_formalization">unconscious formalization</span></dt>
+<dd>The tendency to treat informal, context-dependent practices as if they
+were formal, rule-based procedures, leading to oversimplified models
+of how work is actually done.</dd>
 <dt><span id="unstructured_interview">unstructured interview</span></dt>
 <dd>An interview with no fixed list of questions, guided entirely by the
 participant's responses, used to explore topics in depth without
@@ -367,6 +442,17 @@ constraining the direction of conversation.</dd>
 </dl>
 <h2>V</h2>
 <h2>W</h2>
+<dl>
+<dt><span id="winners_curse">winners curse</span></dt>
+<dd>The phenomenon in which studies that achieve statistical significance
+tend to overestimate the true effect size, because extreme results
+are more likely to cross the significance threshold.</dd>
+<dt><span id="within_subjects_design">within subjects design</span></dt>
+<dd>An experimental design in which each participant experiences all
+conditions, allowing comparison of outcomes within the same
+individual. This increases statistical power but is vulnerable to order
+effects.</dd>
+</dl>
 <h2>X</h2>
 <h2>Y</h2>
 <h2>Z</h2>

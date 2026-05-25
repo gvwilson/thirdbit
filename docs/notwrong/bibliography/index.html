@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -20,10 +21,10 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
 <li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
 <li><a href="../critical/">Reading Studies Critically</a></li>
 <li><a href="../running/">Running Studies in Your Organization</a></li>
@@ -135,6 +136,14 @@ Houghton Mifflin,
 "What's (Not) Working in Programmer User Studies?."
 <em>ACM Transactions on Software Engineering and Methodology</em>, 32(5), 1-32, 2023.
 <a href="https://doi.org/10.1145/3587157">10.1145/3587157</a>.</dd>
+<dt><span id="Diener2010">Diener2010</span></dt>
+<dd>Ed Diener, Derrick Wirtz, William Tov, Chu Kim-Prieto, Dong-won Choi, Shigehiro Oishi, and Robert Biswas-Diener:
+"New well-being measures: Short scales to assess flourishing and positive and negative feelings."
+<em>Social Indicators Research</em>,
+97,
+2010,
+<a href="https://doi.org/10.1007/s11205-009-9493-y">10.1007/s11205-009-9493-y</a>.
+Describes the Scale of Positive and Negative Experience (SPANE).</dd>
 </dl>
 <h2>E</h2>
 <dl>
@@ -142,7 +151,11 @@ Houghton Mifflin,
 <dd>K. El Emam, S. Benlarbi, N. Goel, and S.N. Rai:
 "The confounding effect of class size on the validity of object-oriented metrics."
 <em>IEEE Transactions on Software Engineering</em>, 27(7), 630-650, 2001.
-<a href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.</dd>
+<a href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
+Class size confounds OO metrics validation studies;
+after controlling for size,
+many previously validated metrics lose their association with fault-proneness
+in a large C++ telecom framework.</dd>
 <dt><span id="ElHaji2024">ElHaji2024</span></dt>
 <dd>Khalid El Haji, Carolin Brandt, and Andy Zaidman:
 "Using GitHub Copilot for Test Generation in Python: An Empirical Study."
@@ -176,7 +189,8 @@ IT Revolution Press,
 Brian Houck, and Jenna Butler:
 "The SPACE of Developer Productivity."
 <em>ACM Queue</em>,
-19(1), 2021.</dd>
+19(1), 2021.
+Brief commentary noting developer productivity is more complex than commonly assumed.</dd>
 <dt><span id="Fu2024">Fu2024</span></dt>
 <dd>Yujia Fu, Yifan Zhang, Edward Gehringer, and Kathryn T. Stolee:
 "An Empirical Study of Security Issues in AI-Generated Code."
@@ -241,7 +255,9 @@ arXiv preprint 2201.04588, 2022.
 <dd>Laura Inozemtseva and Reid Holmes:
 "Coverage is Not Strongly Correlated with Test Suite Effectiveness."
 <em>Proc. 36th International Conference on Software Engineering (ICSE 2014)</em>, 435-445, 2014.
-<a href="https://doi.org/10.1145/2568225.2568271">10.1145/2568225.2568271</a>.</dd>
+<a href="https://doi.org/10.1145/2568225.2568271">10.1145/2568225.2568271</a>.
+Studies correlating code coverage with fault detection show no consensus;
+confounding from suite size and use of adequate/synthetic suites limits generalizability to real projects.</dd>
 </dl>
 <h2>J</h2>
 <dl>
@@ -249,7 +265,10 @@ arXiv preprint 2201.04588, 2022.
 <dd>Gibeon Soares de Aquino Junior and Silvio Romero de Lemos Meira:
 "Towards Effective Productivity Measurement in Software Projects."
 <em>2009 Fourth Conference on Software Engineering Advances</em>, 241-249, 2009.
-<a href="https://doi.org/10.1109/icsea.2009.44">10.1109/icsea.2009.44</a>.</dd>
+<a href="https://doi.org/10.1109/icsea.2009.44">10.1109/icsea.2009.44</a>.
+Reviews productivity measurement in software organizations;
+proposes a Value Size Metrics framework
+and a process for defining organization-specific productivity models aligned with management goals.</dd>
 <dt><span id="Juristo2001">Juristo2001</span></dt>
 <dd>Natalia Jurstio and Ana M. Moreno:
 <em>Basics of Software Engineering Experimentation</em>.
@@ -359,7 +378,11 @@ Apress,
 <dd>José Manuel Sánchez Ruiz, Francisco José Domínguez Mayo, Xavier Oriol, José Francisco Crespo, David Benavides, and Ernest Teniente:
 "A Benchmarking Proposal for DevOps Practices on Open Source Software Projects."
 arXiv preprint 2304.14790, 2023.
-<a href="https://doi.org/10.48550/arXiv.2304.14790">10.48550/arXiv.2304.14790</a>.</dd>
+<a href="https://doi.org/10.48550/arXiv.2304.14790">10.48550/arXiv.2304.14790</a>.
+DORA metrics cannot be directly applied to OSS projects;
+proposes adapted benchmark (Release Frequency, Lead Time, Time To Repair, Bug Rate)
+collected automatically from GitHub;
+applied to Angular, Kubernetes, TensorFlow, VS Code.</dd>
 <dt><span id="Sedano2017">Sedano2017</span></dt>
 <dd>Todd Sedano, Paul Ralph, and Cécile Péraire:
 "Software Development Waste."
@@ -386,7 +409,11 @@ SAGE,
 <dd>Alexey Tregubov, Barry Boehm, Natalia Rodchenko, and Jo Ann Lane:
 "Impact of task switching and work interruptions on software development processes."
 <em>Proc. 2017 Conference on Software and System Process</em>, 134-138, 2017.
-<a href="https://doi.org/10.1145/3084100.3084116">10.1145/3084100.3084116</a>.</dd>
+<a href="https://doi.org/10.1145/3084100.3084116">10.1145/3084100.3084116</a>.
+Study of cross-project multitasking via developer self-reported logs;
+developers in 2+ projects spend 17% of effort on cross-project interruptions;
+Weinberg's heuristic overestimates this;
+number of projects correlates strongly with interruption count.</dd>
 <dt><span id="Treude2024">Treude2024</span></dt>
 <dd>Christoph Treude:
 "Qualitative Data Analysis in Software Engineering: Techniques and Teaching Insights."

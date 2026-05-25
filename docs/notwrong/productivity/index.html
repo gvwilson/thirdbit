@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -20,10 +21,10 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a class="active" href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
 <li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
 <li><a href="../critical/">Reading Studies Critically</a></li>
 <li><a href="../running/">Running Studies in Your Organization</a></li>
@@ -55,65 +56,73 @@
 </ul>
 </div>
 <p>Before you can measure whether AI makes programmers more productive,
-you have to decide what "productive" means. That turns out to be
-surprisingly hard.</p>
-<p>In 2021, researchers at Microsoft published a framework called SPACE,
-which argued that developer productivity has five dimensions: Satisfaction
-and well-being, Performance, Activity, Communication and collaboration,
-and Efficiency and flow [<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]. The paper's central argument
-is that no single metric captures productivity, and that organizations
-that optimize for one dimension (say, commit frequency) often degrade
-others (say, satisfaction or code quality). If you only measure what is
-easy to count, you will optimize for the wrong thing.</p>
+you have to decide what "productive" means.
+That turns out to be surprisingly hard.</p>
+<p>In 2021,
+researchers at Microsoft published a framework called SPACE,
+which argued that developer productivity has five dimensions:
+Satisfaction and well-being,
+Performance,
+Activity, Communication and collaboration,
+and Efficiency and flow [<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>].
+The paper's central argument is that no single metric captures productivity,
+and that organizations that optimize for one dimension (say, commit frequency)
+often degrade others (say, satisfaction or code quality).
+If you only measure what is easy to count, you will optimize for the wrong thing.</p>
 <h2>Why "Programmer Productivity" Is Hard to Define</h2>
 <ul>
-<li>Productivity in manufacturing means output per unit of time (widgets
-    per hour), which requires both output and time to be measurable</li>
-<li>Software output is not homogeneous: a ten-line bugfix may be worth
-    more than a thousand-line feature, or vice versa</li>
-<li>Much of software work is invisible: reading code, attending meetings,
-    reviewing pull requests, helping colleagues</li>
-<li>The effects of software work are often delayed: a decision made today
-    may affect defect rates six months from now</li>
-<li>Individual productivity is entangled with team and organizational
-    factors that are hard to isolate</li>
-<li>Most of a developer's time is not spent writing code: a field study
-    tracking 20 developers over two weeks found that coding activities
-    occupied roughly 25% of the working day on average; meetings, email,
-    and coordination consumed most of the rest [<a class="bib-ref" href="../bibliography/#Meyer2017">Meyer2017</a>]</li>
+<li>Productivity in manufacturing means output per unit of time
+    (widgets per hour), which requires both output and time to be measurable</li>
+<li>Software output is not homogeneous:
+    a ten-line bugfix may be worth more than a thousand-line feature or vice versa</li>
+<li>Much of software work is invisible:
+    reading code, attending meetings, reviewing pull requests, helping colleagues</li>
+<li>The effects of software work are often delayed:
+    a decision made today may affect defect rates six months from now</li>
+<li>Individual productivity is entangled with team and organizational factors
+    that are hard to isolate</li>
+<li>Most of a developer's time is not spent writing code:<ul>
+<li>A field study tracking 20 developers over two weeks found that
+    coding activities occupied roughly 25% of the working day on average</li>
+<li>Meetings, email, and coordination consumed most of the rest [<a class="bib-ref" href="../bibliography/#Meyer2017">Meyer2017</a>]</li>
+</ul>
+</li>
 </ul>
 <h2>Construct Validity</h2>
 <ul>
-<li>Construct validity is the degree to which
+<li><a class="gl-ref" href="../glossary/#construct_validity">Construct validity</a> is the degree to which
     a measurement actually captures the concept it is supposed to capture</li>
-<li>A metric has construct validity if changes in the metric reliably
-    reflect changes in the underlying concept</li>
-<li>Lines of code written per day has low construct validity as a
-    productivity measure: you can write more lines by making code worse</li>
+<li>A metric has construct validity if changes in the metric
+    reliably reflect changes in the underlying concept</li>
+<li>Lines of code written per day has low construct validity as a productivity measure<ul>
+<li>You can write more lines by making code worse</li>
+</ul>
+</li>
 <li>Construct validity is often assumed rather than demonstrated,
     especially in industry studies</li>
 </ul>
 <h2>Proxy Metrics and Their Failure Modes</h2>
 <ul>
-<li>A proxy metric is a measurable quantity used
-    as a stand-in for something harder to measure</li>
+<li>A proxy metric is a measurable quantity used as a stand-in for something harder to measure</li>
 <li>Common proxies for developer productivity and their problems:<ul>
 <li>Lines of code: incentivizes verbosity; punishes refactoring</li>
 <li>Commit frequency: incentivizes small, meaningless commits</li>
 <li>Story points completed: incentivizes inflation of estimates</li>
-<li>Pull requests merged: incentivizes trivial PRs; discourages
-    complex work</li>
+<li>Pull requests merged: incentivizes trivial PRs; discourages complex work</li>
 <li>Bugs closed: incentivizes closing without fixing</li>
 </ul>
 </li>
-<li>In the early 1980s, Apple measured programmer productivity by lines of
-    code per day. Bill Atkinson, who wrote the QuickDraw graphics library,
-    once submitted a timesheet showing -2000 lines: he had replaced 2000
-    lines with a faster, shorter algorithm [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]. The metric
-    penalized the improvement</li>
-<li>Goodhart's Law: when a measure becomes a target, it ceases to be a good
-    measure [<a class="bib-ref" href="../bibliography/#Goodhart1984">Goodhart1984</a>]</li>
+<li><a class="gl-ref" href="../glossary/#goodharts_law">Goodhart's Law</a>: when a measure becomes a target,
+    it ceases to be a good measure [<a class="bib-ref" href="../bibliography/#Goodhart1984">Goodhart1984</a>]</li>
 </ul>
+<div class="callout">
+<p>In the early 1980s,
+Apple measured programmer productivity by lines of code per day.
+l Atkinson, who wrote the QuickDraw graphics library,
+once submitted a timesheet showing -2000 lines:
+he had replaced 2000 lines with a faster, shorter algorithm [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>].
+The metric penalized the improvement.</p>
+</div>
 <h2>The DORA Metrics as a Worked Example</h2>
 <ul>
 <li>The DevOps Research and Assessment (DORA) program identified four
@@ -128,39 +137,47 @@ easy to count, you will optimize for the wrong thing.</p>
     time to recover from failures</li>
 </ul>
 </li>
-<li>These are operationalizations—specific, measurable definitions of
-    abstract concepts</li>
+<li>These are <a class="gl-ref" href="../glossary/#operationalization">operationalizations</a>:
+    specific, measurable definitions of abstract concepts</li>
 <li>DORA metrics have better construct validity than raw activity counts
     because they are tied to customer outcomes</li>
-<li>They still have blind spots: a team can score well on DORA while
-    building the wrong product</li>
+<li>They still have blind spots:
+    a team can score well on DORA while building the wrong product</li>
 </ul>
 <h2>How Definitional Choices Shape Conclusions</h2>
 <ul>
-<li>If you define productivity as "tasks completed per hour," AI tools
-    look good (faster completion on well-defined tasks)</li>
-<li>If you define productivity as "business value delivered per quarter,"
+<li>If you define productivity as "tasks completed per hour",
+    AI tools look good (faster completion on well-defined tasks)</li>
+<li>If you define productivity as "business value delivered per quarter",
     the picture is murkier (task completion speed may not be the bottleneck)</li>
-<li>If you define productivity as "developer satisfaction and retention,"
+<li>If you define productivity as "developer satisfaction and retention",
     the evidence is mixed and context-dependent</li>
 <li>The choice of definition is a values choice as much as a technical one:
     it reflects what the organization cares about</li>
-<li>Studies that do not explicitly state their operationalization of
-    productivity cannot be compared with each other</li>
-<li>Developer well-being is both a dimension of productivity and a
-    precondition for it: a survey of 1,318 developers found that the top
-    causes of unhappiness are being stuck on a problem, time pressure, and
-    dealing with bad code, and that unhappiness predicts lower cognitive
-    performance, disrupted flow, and reduced code quality [<a class="bib-ref" href="../bibliography/#Graziotin2018">Graziotin2018</a>]</li>
+<li>Studies that do not explicitly state their operationalization of productivity
+    cannot be compared with each other</li>
+<li>Developer well-being is both a dimension of productivity and a precondition for it:<ul>
+<li>A survey of 1,318 developers found that
+    the top causes of unhappiness are being stuck on a problem,
+    time pressure, and dealing with bad code,
+    and that unhappiness predicts lower cognitive performance, disrupted flow,
+    and reduced code quality [<a class="bib-ref" href="../bibliography/#Graziotin2018">Graziotin2018</a>]</li>
+</ul>
+</li>
 </ul>
 <h2>Reframing: Productivity as Waste Reduction</h2>
 <ul>
-<li>An alternative to measuring output is identifying waste: work that
-    consumes effort without delivering value</li>
-<li>A two-and-a-half-year grounded theory study at Pivotal identified nine
-    waste categories: building the wrong feature or product, mismanaging the
-    backlog, rework, unnecessarily complex solutions, extraneous cognitive
-    load, psychological distress, waiting and multitasking, knowledge loss,
+<li>An alternative to measuring output is identifying waste:
+    work that consumes effort without delivering value</li>
+<li>A two-and-a-half-year study at Pivotal identified nine waste categories:
+    building the wrong feature or product,
+    mismanaging the backlog,
+    rework,
+    unnecessarily complex solutions,
+    extraneous cognitive load,
+    psychological distress,
+    waiting and multitasking,
+    knowledge loss,
     and ineffective communication [<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]</li>
 <li>Waste is often easier to observe and quantify than output</li>
 <li>Asking "what slows us down?" is frequently more actionable than
@@ -169,131 +186,114 @@ easy to count, you will optimize for the wrong thing.</p>
 <h2>Misconceptions</h2>
 <dl>
 <dt>Writing more code means being more productive.</dt>
-<dd>This is the intuition behind lines-of-code metrics, and it is
-wrong in both directions: a developer who removes a thousand lines
-of tangled code and replaces them with a hundred clear ones has
-improved the codebase, not harmed it.</dd>
+<dd>This is the intuition behind lines-of-code metrics,
+and it is wrong in both directions:
+a developer who removes a thousand lines of tangled code
+and replaces them with a hundred clear ones has improved the codebase,
+not harmed it.</dd>
 <dt>DORA metrics measure individual developer productivity.</dt>
-<dd>They measure team and organizational delivery performance. Using
-deployment frequency or change failure rate to evaluate an
-individual developer conflates the level of analysis and ignores
-the team and system factors that dominate individual variation.</dd>
+<dd>They measure team and organizational delivery performance.
+Using deployment frequency or change failure rate to evaluate an individual developer
+conflates the level of analysis
+and ignores the team and system factors that dominate individual variation.</dd>
 <dt>If a metric improves, the underlying thing it measures must be improving.</dt>
 <dd>Goodhart's Law applies as soon as people know they are being measured.
 Metrics that look better because of behavior change around the measurement
 are not evidence of real improvement.</dd>
 <dt>Productivity is an objective property that can be measured if you have the right data.</dt>
-<dd>Every operationalization of productivity embeds a choice about
-what matters: speed, quality, satisfaction, business value. Those
-are values choices, not measurement problems.</dd>
+<dd>Every operationalization of productivity embeds a choice about what matters,
+such as speed, quality, satisfaction, or business value.
+Those are values choices, not measurement problems.</dd>
 <dt>Better measurement tools produce better management.</dt>
-<dd>Measurement is not management. Even complete data requires qualitative
-insight to explain causation, and organizations change constantly —
-making any model stale. Improving productivity requires behavior
-change, which requires judgment and trust, not more dashboards
+<dd>Measurement is not management.
+Even complete data requires qualitative insight to explain causation,
+and organizations change constantly,
+making any model stale.
+Improving productivity requires behavior change,
+which requires judgment and trust,
+not more dashboards
 [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>].</dd>
 </dl>
 <h2>Check Understanding</h2>
 <details>
 <summary>What is construct validity, and why does it matter when evaluating productivity metrics?</summary>
-<p>Construct validity is the degree to which a measurement captures the concept
-it is meant to represent. It matters because a metric with low construct
-validity will mislead you: you can improve the number without improving the
-underlying thing you care about. For productivity, a metric like "commits per
-day" has low construct validity because developers can increase it without
-becoming more productive—and may actually become less productive while doing
-so.</p>
+<p>Construct validity is the degree to which a measurement captures
+the concept it is meant to represent.
+It matters because a metric with low construct validity will mislead you:
+you can improve the number without improving the underlying thing you care about.
+For productivity,
+a metric like "commits per day" has low construct validity
+because developers can increase it without becoming more productive
+(and may actually become less productive while doing so).</p>
 </details>
 <details>
 <summary>A manager announces that their team's productivity increased 20% after adopting an AI coding assistant, measured by pull requests merged per week. Identify two specific threats to the validity of this conclusion.</summary>
-<p>First, pull requests merged per week is a proxy metric with low construct
-validity: developers may respond to the measurement by splitting work into
-smaller PRs without increasing the actual value delivered. Second, this is
-a before-and-after comparison without a control group, so any number of
-things that changed at the same time (team composition, codebase maturity,
-sprint planning practices) could explain the increase. The AI tool is one
-possible cause among many.</p>
-</details>
-<details>
-<summary>The SPACE framework identifies five dimensions of developer productivity. Name three of them and explain why measuring only one of them is insufficient.</summary>
-<p>The five dimensions are: Satisfaction and well-being, Performance, Activity,
-Communication and collaboration, and Efficiency and flow. Measuring only one
-is insufficient because the dimensions can trade off against each other.
-For example, maximizing Activity (commits, PRs, deploys) may reduce
-Satisfaction (developers feel pressured and surveilled) and degrade
-Efficiency (more interruptions, more small tasks instead of deep work).
-An intervention that improves one dimension while degrading others is not
-clearly a productivity improvement.</p>
+<p>First,
+pull requests merged per week is a proxy metric with low construct validity:
+developers may respond to the measurement by splitting work into smaller PRs
+without increasing the actual value delivered.
+Second,
+this is a before-and-after comparison without a control group,
+so any number of things that changed at the same time
+(e.g., team composition, codebase maturity, or sprint planning practices)
+could explain the increase.
+Adoption of an AI tool is one possible cause among many.</p>
 </details>
 <details>
 <summary>The following research design contains a flaw related to operationalization. Identify and fix it: "We measured the impact of code review on productivity by counting defects closed in the month after code review was introduced."</summary>
-<p>The flaw is that "defects closed" is an activity metric that reflects
-ticket-closing behavior, not actual defect elimination. After introducing
-code review, teams may close old tickets more aggressively or change their
-defect-reporting practices, inflating the count. A better operationalization
-would measure defect escape rate (defects found in production per release)
-before and after the intervention, using a consistent defect definition.</p>
+<p>The flaw is that "defects closed" is an activity metric that reflects ticket-closing behavior,
+not actual defect elimination.
+After introducing code review,
+teams may close old tickets more aggressively or change their defect-reporting practices,
+inflating the count.
+A better operationalization would measure defect escape rate
+(i.e., defects found in production per release)
+before and after the intervention,
+using a consistent defect definition.</p>
 </details>
 <h2>Further Reading</h2>
 <ul>
-<li>[<a class="bib-ref" href="../bibliography/#ElEmam2001">ElEmam2001</a>]:
-    Class size confounds OO metrics validation studies;
-    after controlling for size,
-    many previously validated metrics lose their association with fault-proneness
-    in a large C++ telecom framework.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]:
-    Brief commentary noting developer productivity is more complex than commonly assumed.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Inozemtseva2014">Inozemtseva2014</a>]:
-    Studies correlating code coverage with fault detection show no consensus;
-    confounding from suite size and use of adequate/synthetic suites limits generalizability to real projects.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Junior2009">Junior2009</a>]:
-    Reviews productivity measurement in software organizations;
-    proposes a Value Size Metrics framework
-    and a process for defining organization-specific productivity models aligned with management goals.</li>
-<li>[<a class="bib-ref" href="../bibliography/#SanchezRuiz2023">SanchezRuiz2023</a>]:
-    DORA metrics cannot be directly applied to OSS projects;
-    proposes adapted benchmark (Release Frequency, Lead Time, Time To Repair, Bug Rate)
-    collected automatically from GitHub;
-    applied to Angular, Kubernetes, TensorFlow, VS Code.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Tregubov2017">Tregubov2017</a>]:
-    Study of cross-project multitasking via developer self-reported logs;
-    developers in 2+ projects spend 17% of effort on cross-project interruptions;
-    Weinberg's heuristic overestimates this;
-    number of projects correlates strongly with interruption count.</li>
+<li>[<a class="bib-ref" href="../bibliography/#ElEmam2001">ElEmam2001</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Inozemtseva2014">Inozemtseva2014</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Junior2009">Junior2009</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#SanchezRuiz2023">SanchezRuiz2023</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Tregubov2017">Tregubov2017</a>]</li>
 </ul>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Operationalize It (15 minutes)</h3>
 <p>Choose one of the following abstract concepts and write a specific,
-measurable operationalization for it. Then write one paragraph explaining
-the ways your operationalization might fail to capture the concept:</p>
+measurable operationalization for it.
+Then write one paragraph explaining the ways your operationalization might fail to capture the concept:</p>
 <ul>
-<li>"Code quality"</li>
-<li>"Team collaboration"</li>
-<li>"Developer satisfaction"</li>
-<li>"Onboarding effectiveness"</li>
+<li>Code quality</li>
+<li>Team collaboration</li>
+<li>Developer satisfaction</li>
+<li>Onboarding effectiveness</li>
 </ul>
 </div>
 <div class="exercise">
 <h3>DORA in the Wild (20 minutes)</h3>
-<p>Look up the most recent State of DevOps Report (published annually by
-Google Cloud / DORA). Find one claim about high-performing teams and
-trace it back to the specific metric used. Then answer: what does this
-metric not capture that you would want to know before acting on the claim?</p>
+<p>Look up the most recent State of DevOps Report (published annually by Google Cloud / DORA).
+Find one claim about high-performing teams and trace it back to the specific metric used.
+Then explain what this metric does not capture that you would want to know before acting on the claim?</p>
 </div>
 <div class="exercise">
 <h3>Goodhart's Law in Practice (10 minutes)</h3>
 <p>Think of a metric you have seen used to evaluate developer performance
-(at your current or a previous organization, or from a case study you
-have read). Describe one specific way that metric was or could be gamed—
-that is, how someone could improve the number without improving the
-underlying thing the number is supposed to measure.</p>
+at your current or a previous organization,
+or from a case study you have read.
+Describe one specific way that metric was or could be gamed,
+i.e.,
+how someone could improve the number without improving the thing
+the number is supposed to measure.</p>
 </div>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../wrong">How to Be Wrong</a>
+<span aria-hidden="true">⇐</span> <a href="../intro">Introduction</a>
 </div>
 <div class="col-6 center">
 <a href="../">notwrong</a>
@@ -301,7 +301,7 @@ underlying thing the number is supposed to measure.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../qualitative">Qualitative Methods: Interviews and Surveys</a> <span aria-hidden="true">⇒</span>
+<a href="../wrong">How to Be Wrong</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

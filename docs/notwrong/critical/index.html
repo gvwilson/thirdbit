@@ -10,6 +10,7 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -20,10 +21,10 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
 <li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../experiments/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
 <li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
 <li><a class="active" href="../critical/">Reading Studies Critically</a></li>
 <li><a href="../running/">Running Studies in Your Organization</a></li>
@@ -54,107 +55,132 @@
 <li>Detect flexible operationalization as a source of bias.</li>
 </ul>
 </div>
-<p>In 2023, McKinsey published "Yes, You Can Measure Software Developer
-Productivity" [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>]. It proposed a framework involving
-dozens of metrics across multiple dimensions and was widely cited by
-managers and executives as justification for measuring individual developer
-output. Kent Beck, one of the authors of the Agile Manifesto, wrote a
-pointed response: the paper treated productivity as an objective fact
-to be measured when it is actually a judgment about what matters, made
-by people with interests [<a class="bib-ref" href="../bibliography/#Beck2023">Beck2023</a>]. Researchers in the field found
-the paper's methodology thin and its claims overclaimed. The paper was not
-obviously fraudulent—it was something more insidious: confident, plausible,
-and wrong in ways that non-specialists could not easily detect.</p>
+<p>In 2023,
+McKinsey published "Yes, You Can Measure Software Developer Productivity" [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>].
+It proposed a framework involving dozens of metrics across multiple dimensions
+and was widely cited by managers and executives
+as justification for measuring individual developer output.
+Researchers found the paper's methodology thin and its claims overclaimed.
+The paper was not obviously fraudulent—it was something more insidious:
+confident,
+plausible,
+and wrong in ways that non-specialists could not easily detect.
+Kent Beck, one of the authors of the <a class="gl-ref" href="../glossary/#agile_manifesto">Agile Manifesto</a>.</p>
 <p>This session gives you the tools to be that specialist.</p>
 <h2>How to Read a Research Paper</h2>
 <ul>
 <li>Start with the abstract: what claim is being made?</li>
-<li>Jump to the methods before reading the results: given this design,
-    what can this study actually establish?</li>
-<li>Read the results section: do the numbers support the claims made
-    in the abstract?</li>
-<li>Read the discussion and limitations: what do the authors say they
-    cannot conclude? What do they not say?</li>
-<li>Check the references: are the cited sources used accurately?</li>
-<li>An efficient order: abstract → methods → limitations → results →
-    introduction (the introduction is usually the last thing written and
-    the most polished, not the most informative)</li>
+<li>Jump to the methods before reading the results:
+    given this design, what can this study actually establish?</li>
+<li>Read the results section:
+    do the numbers support the claims made in the abstract?</li>
+<li>Read the discussion and limitations:
+    what do the authors say they cannot conclude? What do they not say?</li>
+<li>Check the references:
+    are the cited sources used accurately?</li>
+<li>An efficient order:
+    abstract → methods → limitations → results → introduction
+    (the introduction is usually the last thing written and the most polished,
+    not the most informative)</li>
 </ul>
 <h2>HARKing</h2>
 <ul>
 <li><a class="gl-ref" href="../glossary/#harking">HARKing</a> stands for Hypothesizing After Results are Known</li>
-<li>A researcher runs an analysis, finds an interesting pattern, and
-    then writes the paper as if that pattern was predicted in advance</li>
-<li>HARKing inflates false positive rates because exploratory analysis is
-    being presented as confirmatory analysis</li>
-<li>Signs of HARKing: vague hypotheses in the introduction that are
-    suddenly very specific in the results; an implausibly clean story
-    with no unexpected findings; no pre-registration</li>
-<li><a class="gl-ref" href="../glossary/#preregistration">Pre-registration</a> commits hypotheses and
-    analysis plans before data collection, making HARKing visible</li>
+<li>A researcher runs an analysis,
+    finds an interesting pattern,
+    and then writes the paper as if that pattern was predicted in advance</li>
+<li>HARKing inflates false positive rates because
+    <a class="gl-ref" href="../glossary/#exploratory_analysis">exploratory analysis</a> is presented as
+    <a class="gl-ref" href="../glossary/#confirmatory_analysis">confirmatory analysis</a></li>
+<li><a class="gl-ref" href="../glossary/#preregistration">Pre-registration</a> commits hypotheses and analysis plans
+    before data collection, making HARKing visible</li>
+<li>Signs of HARKing<ul>
+<li>Vague hypotheses in the introduction that are suddenly very specific in the results</li>
+<li>An implausibly clean story with no unexpected findings</li>
+<li>No pre-registration</li>
+</ul>
+</li>
 </ul>
 <h2>p-Hacking</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#p_hacking">p-hacking</a> means trying multiple analyses until
-    you get p &lt; 0.05—then reporting only that analysis</li>
-<li>Also called "data dredging," "specification searching," or
-    "researcher degrees of freedom"</li>
-<li>Methods: trying different subsets of the data, different covariates,
-    different outcome measures, different time windows</li>
-<li>With 20 independent tests at p &lt; 0.05, you expect one false positive
-    by chance—without correction, this is certain</li>
-<li>Signs of p-hacking: many conditions with exactly one that is
-    significant; results that depend on excluding a small number of
-    observations; no correction for multiple comparisons</li>
+<li><a class="gl-ref" href="../glossary/#p_hacking">p-hacking</a> means trying multiple analyses until you get p &lt; 0.05,
+    then reporting only that analysis<ul>
+<li>Also called "data dredging," "specification searching,"
+    or "researcher degrees of freedom"</li>
+</ul>
+</li>
+<li>Usually done by trying:<ul>
+<li>different subsets of the data</li>
+<li>different covariates</li>
+<li>different outcome measures</li>
+<li>different time windows</li>
+</ul>
+</li>
+<li>With 20 independent tests at p &lt; 0.05,
+    you expect one false positive by chance</li>
+<li>Signs of p-hacking:<ul>
+<li>Many conditions with exactly one that is significant</li>
+<li>Results that depend on excluding a small number of observations</li>
+<li>No statistical correction for doing multiple comparisons</li>
+</ul>
+</li>
 </ul>
 <h2>Publication Bias</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#publication_bias">Publication bias</a>: journals publish positive
-    results (significant effects) more often than null results</li>
-<li>Researchers internalize this and are less likely to submit null results
+<li><a class="gl-ref" href="../glossary/#publication_bias">Publication bias</a>:
+    journals publish positive results (significant effects)
+    more often than null results</li>
+<li>Researchers internalize this and are less likely to submit <a class="gl-ref" href="../glossary/#null_result">null results</a>
     (the <a class="gl-ref" href="../glossary/#file_drawer_problem">file drawer problem</a>)</li>
-<li>Consequence: the published literature overestimates effect sizes and
-    overstates how often phenomena replicate</li>
-<li><a class="gl-ref" href="../glossary/#meta_analysis">Meta-analysis</a> tries to combine results across
-    studies; <a class="gl-ref" href="../glossary/#funnel_plot">funnel plots</a> can reveal asymmetry
-    suggesting publication bias</li>
-<li>Pre-registration and registered reports (where journals commit to
-    publish regardless of outcome) are partial remedies</li>
+<li>Consequence: the published literature overestimates effect sizes
+    and overstates how often phenomena replicate</li>
+<li><a class="gl-ref" href="../glossary/#meta_analysis">Meta-analysis</a> tries to combine results across studies</li>
+<li><a class="gl-ref" href="../glossary/#funnel_plot">Funnel plots</a> can reveal asymmetry suggesting publication bias</li>
+<li>Pre-registration and registered reports
+    (where journals commit to publish regardless of outcome)
+    are partial remedies</li>
 </ul>
 <h2>Conflicts of Interest</h2>
 <ul>
-<li>Industry-funded studies in software engineering often produce results
-    favorable to their funders—not necessarily through fraud, but through
-    study design choices, outcome selection, and framing</li>
-<li>The GitHub Copilot study was conducted by GitHub employees and
-    published on arXiv without peer review before appearing in venues
-    [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>]</li>
-<li>Conflicts of interest should be disclosed; their absence in a paper
-    is a yellow flag, not a green one</li>
-<li>Ask: who benefits if this finding is true? Who paid for the study?
+<li>Industry-funded studies in software engineering
+    often produce results favorable to their funders<ul>
+<li>Not through fraud per se, but through study design choices, outcome selection, and framing</li>
+</ul>
+</li>
+<li>The GitHub Copilot study [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>] was conducted by GitHub employees
+    and published on arXiv without peer review before appearing in venues</li>
+<li>Conflicts of interest should be disclosed<ul>
+<li>Their absence in a paper is a yellow flag</li>
+</ul>
+</li>
+<li>Ask who benefits if this finding is true?
+    Who paid for the study?
     Who employs the authors?</li>
 </ul>
 <h2>Operationalization as a Site of Flexibility</h2>
 <ul>
-<li>A subtler form of researcher flexibility than p-hacking is
-    operationalization: how an abstract concept like "productivity" is
-    converted into a number</li>
-<li>Prechelt (2000) showed that the same underlying data produced ratios
-    of 105x, 17x, 11x, or 5x depending on which operationalization was
-    used [<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>]</li>
-<li>An operationalization chosen after seeing the data is functionally
-    equivalent to p-hacking: the analysis looks confirmatory but was
-    actually exploratory</li>
-<li>Signs of post-hoc operationalization: vague outcome definitions in
-    the introduction that become very specific in the results; multiple
-    outcome measures reported with emphasis on the most favorable one;
-    no pre-specified primary outcome</li>
+<li>A subtler form of researcher flexibility than p-hacking is operationalization:
+    how an abstract concept like "productivity" is converted into a number</li>
+<li>[<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>] showed that
+    the same underlying data produced ratios of 105x, 17x, 11x, or 5x
+    depending on which operationalization was used </li>
+<li>An operationalization chosen after seeing the data
+    is functionally equivalent to p-hacking<ul>
+<li>The analysis looks confirmatory but was actually exploratory</li>
+</ul>
+</li>
+<li>Signs of post-hoc operationalization<ul>
+<li>Vague outcome definitions in the introduction that become very specific in the results</li>
+<li>Multiple outcome measures reported with emphasis on the most favorable one</li>
+<li>No pre-specified primary outcome</li>
+</ul>
+</li>
 </ul>
 <h2>A Checklist for Evaluating an Empirical SE Study</h2>
 <ul>
 <li>Organizing questions around the four validity categories
-    [<a class="bib-ref" href="../bibliography/#Campbell1963">Campbell1963</a>, <a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>, <a class="bib-ref" href="../bibliography/#Juristo2001">Juristo2001</a>]
-    makes it easier to identify where a paper is weakest:</li>
+    makes it easier to identify where a paper is weakest
+    [<a class="bib-ref" href="../bibliography/#Campbell1963">Campbell1963</a>, <a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>, <a class="bib-ref" href="../bibliography/#Juristo2001">Juristo2001</a>]</li>
 <li>Conclusion validity:<ul>
 <li>Was the sample large enough to detect an effect of the expected size?</li>
 <li>Are effect sizes reported alongside p-values?</li>
@@ -182,7 +208,7 @@ and wrong in ways that non-specialists could not easily detect.</p>
 </li>
 <li>Reporting (needed for replication and honest interpretation):<ul>
 <li>Are the study's factors defined precisely enough to reproduce it?</li>
-<li>Is the analysis plan described — not just the analysis that was run?</li>
+<li>Is the analysis plan described (not just the analysis that was run)?</li>
 <li>Are limitations discussed honestly?</li>
 <li>Is there a conflict of interest disclosure?</li>
 <li>Has the study been replicated or pre-registered?</li>
@@ -191,125 +217,128 @@ and wrong in ways that non-specialists could not easily detect.</p>
 </ul>
 <h2>When the Outcome Measure Is a Dashboard</h2>
 <ul>
-<li>Many software engineering studies use dashboard data as their outcome:
-    commit counts, burndown charts, ticket closure rates, deployment frequency</li>
-<li>Dashboards embed value judgments and carry systematic risks: they favor
-    numbers over narrative, miss context, invite Goodhart's Law gaming, have
-    data quality problems, and capture only what was explicitly tracked
+<li>Many software engineering studies use dashboard data as their outcome<ul>
+<li>Commit counts, burndown charts, ticket closure rates, deployment frequency</li>
+</ul>
+</li>
+<li>Dashboards embed value judgments and carry systematic risks<ul>
+<li>They favor numbers over narrative, miss context, invite Goodhart's Law gaming,
+    have data quality problems, and capture only what was explicitly tracked
     [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
-<li>When evaluating a study that used dashboard data, ask: could the metric
-    have been gamed once participants knew it was being measured? Is the
-    outcome actually visible in this data source, or is the data a proxy for
-    a proxy?</li>
+</ul>
+</li>
+<li>When evaluating a study that used dashboard data, ask:<ul>
+<li>Could the metric have been gamed once participants knew it was being measured?</li>
+<li>Is the outcome actually visible in this data source, or is the data a proxy for a proxy?</li>
+</ul>
+</li>
 </ul>
 <h2>Misconceptions</h2>
 <dl>
 <dt>Peer review detects p-hacking and HARKing.</dt>
-<dd>Reviewers see the final manuscript, not the analysis
-history. Without access to pre-registered protocols or raw data,
-they cannot distinguish a cleanly hypothesized analysis from one
-that was tidied up after the fact.</dd>
+<dd>Reviewers see the final manuscript, not the analysis history.
+Without access to pre-registered protocols or raw data,
+they cannot distinguish a cleanly hypothesized analysis
+from one that was tidied up after the fact.</dd>
 <dt>Pre-registration guarantees that a study's results are valid.</dt>
-<dd>It reduces one class of problem—undisclosed flexibility in
-analysis—by making deviations visible. It does not fix flawed
-designs, bad measurements, unrepresentative samples, or errors in
-execution.</dd>
+<dd>It reduces one class of problem—undisclosed flexibility in analysis—by
+making deviations visible.
+It does not fix flawed designs, bad measurements, unrepresentative samples,
+or errors in execution.</dd>
 <dt>Industry-funded research is always biased toward favorable results.</dt>
-<dd>"Always" is too strong: some industry-funded studies are rigorous
-and honest. The concern is systematic, not universal: on average,
-funding source predicts outcome in ways that independent
-replication often does not support.</dd>
+<dd>"Always" is too strong:
+some industry-funded studies are rigorous and honest.
+The concern is systematic, not universal:
+on average,
+funding source predicts outcome in ways that independent replication often does not support.</dd>
 <dt>A well-cited paper is probably right. Citation counts reflect influence, not accuracy.</dt>
 <dd>Papers get cited because they tell a useful or interesting story,
-whether or not the story holds up to scrutiny.  Some of the
-most-cited results in software engineering have failed to
-replicate.</dd>
+whether or not the story holds up to scrutiny.
+Many highly-cited results in software engineering have failed to replicate.</dd>
 </dl>
 <h2>Check Understanding</h2>
 <details>
 <summary>What is the difference between p-hacking and HARKing? Can a study engage in both?</summary>
-<p>p-hacking is running many analyses and selectively reporting the one that
-gives p &lt; 0.05. HARKing is presenting exploratory findings as if they were
-predicted hypotheses. A study can engage in both: the researcher explores the
-data (p-hacking), finds a pattern, then writes the paper as if that pattern
-was hypothesized in advance (HARKing). Both inflate false positive rates and
-make the literature look more certain than it is.</p>
+<p>p-hacking is running many analyses and selectively reporting
+the one that gives p &lt; 0.05.
+HARKing is presenting exploratory findings as if they were predicted hypotheses.
+A study can engage in both if the researcher explores the data (p-hacking),
+finds a pattern,
+then writes the paper as if that pattern was hypothesized in advance (HARKing).
+Both inflate false positive rates
+and make the literature look more certain than it is.</p>
 </details>
 <details>
 <summary>A paper reports 12 comparisons across different subgroups and finds that one is significant at p = 0.04. Should you conclude there is a real effect? Why or why not?</summary>
-<p>No. With 12 independent comparisons at α = 0.05, you expect 0.6 false
-positives by chance. A single significant result from 12 comparisons is
-entirely consistent with chance—and with p = 0.04 (just barely significant),
-it is especially suspicious. The appropriate response is to apply a
-multiple comparisons correction (such as Bonferroni, which would require
-p &lt; 0.004 for any individual test) and treat the result as preliminary
-until replicated.</p>
+<p>No.
+With 12 independent comparisons at α = 0.05,
+you expect 0.6 false positives by chance.
+A single significant result from 12 comparisons is entirely consistent with chance,
+and with p = 0.04 (just barely significant),
+it is especially suspicious.
+The appropriate response is to apply a multiple comparisons correction
+(such as <a class="gl-ref" href="../glossary/#bonferroni_correction">Bonferroni</a>, which would require p &lt; 0.004 for any individual test)
+and treat the result as preliminary until replicated.</p>
 </details>
 <details>
 <summary>What is the file drawer problem and how does it affect the credibility of published research?</summary>
-<p>The file drawer problem refers to the tendency for null results—studies
-that found no significant effect—to go unpublished (they stay "in the file
-drawer"). Because journals prefer positive results, researchers are less
-likely to submit null findings. The consequence is that the published
-literature overrepresents positive findings: if you read all studies on
-a topic, you will see more support for effects than actually exists in the
-world. Meta-analyses that include only published studies inherit this bias.</p>
+<p>The file drawer problem refers to the tendency for studies that found no significant effect
+to go unpublished.
+Because journals prefer positive results,
+researchers are less ikely to submit null findings.
+The consequence is that the published literature overrepresents positive findings:
+if you read all studies on a topic,
+you will see more support for effects than actually exists in the world.
+Meta-analyses that include only published studies inherit this bias.</p>
 </details>
 <details>
 <summary>The following abstract contains a claim that is not supported by typical RCT design. Identify and explain the problem: "Our randomized controlled trial shows that developers using our tool are more productive. We therefore recommend that all engineering teams adopt it."</summary>
-<p>An RCT establishes that the treatment caused an outcome in the studied
-population under the studied conditions. "More productive" in an RCT
-typically means "faster at the specific task used in the study." The
-recommendation to "all engineering teams" is an external validity claim:
-that the effect generalizes beyond the study's sample (often students or
-volunteers at one organization), task (often artificial or narrow), and
-context. Most SE experiments cannot support broad adoption recommendations
+<p>An RCT establishes that the treatment caused an outcome in the studied population
+under the studied conditions.
+"More productive" in an RCT typically means "faster at the specific task used in the study".
+The recommendation to "all engineering teams" is an external validity claim:
+that the effect generalizes beyond the study's sample
+(often students or volunteers at one organization),
+task (often artificial or narrow),
+and context.
+Most SE experiments cannot support broad adoption recommendations
 because their external validity is limited.</p>
 </details>
 <h2>Further Reading</h2>
 <ul>
-<li>[<a class="bib-ref" href="../bibliography/#Baltes2025">Baltes2025</a>]:
-    22-researcher effort producing a taxonomy of 7 LLM study types in SE research
-    and 8 reproducibility guidelines;
-    covers LLM disclosure, versioning, output validation, baselines, and limitations reporting.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Bauer2019">Bauer2019</a>]:
-    Non-exact replication of Miara indentation study with eye tracking (22 participants);
-    found no effect of indentation level on program comprehension or visual effort;
-    could not reproduce original findings.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Cosentino2016">Cosentino2016</a>]:
-    Meta-analysis of 93 GitHub mining papers reveals concerns with dataset size,
-    replicability, sampling, lack of longitudinal studies, and limited methodological variety.</li>
-<li>[<a class="bib-ref" href="../bibliography/#FernandezPinto2023">FernandezPinto2023</a>]:
-    RL model shows industry can exploit epistemically diverse scientific communities to shift consensus
-    without corrupting individual scientists;
-    random funding allocation effectively counteracts industrial selection bias.</li>
-<li>[<a class="bib-ref" href="../bibliography/#Wyrich2023">Wyrich2023</a>]:
-    Proposes a formal definition of source code comprehension to address construct validity issues;
-    current research uses implicit task-based definitions making cross-study comparison difficult.</li>
+<li>[<a class="bib-ref" href="../bibliography/#Baltes2025">Baltes2025</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Bauer2019">Bauer2019</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Cosentino2016">Cosentino2016</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#FernandezPinto2023">FernandezPinto2023</a>]</li>
+<li>[<a class="bib-ref" href="../bibliography/#Wyrich2023">Wyrich2023</a>]</li>
 </ul>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Apply the Checklist (20 minutes)</h3>
-<p>Apply the nine-item checklist from this lesson to Peng et al. 2023
-(the GitHub Copilot study) or to the McKinsey productivity paper.
-For each item, give a one-sentence verdict and one piece of evidence
-from the paper that supports your verdict.</p>
+<p>Apply the checklist from this lesson to [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>] or [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>].
+For each item,
+give a one-sentence verdict and one piece of evidence from the paper
+that supports your verdict.</p>
 </div>
 <div class="exercise">
 <h3>Funnel Plot Interpretation (15 minutes)</h3>
-<p>Search for a meta-analysis of any software engineering practice (code
-review, pair programming, TDD, etc.) that includes a funnel plot.
-Describe what the funnel plot shows. Is there evidence of publication
-bias? If the funnel is asymmetric, what does that suggest about the
-true effect size compared to what the published literature reports?</p>
+<p>Search for a meta-analysis of any software engineering practice
+(code review, pair programming, TDD, etc.) that includes a funnel plot.
+Describe what the funnel plot shows.
+Is there evidence of publication bias?
+If the funnel is asymmetric,
+what does that suggest about the true effect size
+compared to what the published literature reports?</p>
 </div>
 <div class="exercise">
 <h3>Find the Spin (15 minutes)</h3>
-<p>Find a research paper or industry report about AI tools and developer
-productivity published in the last two years. Identify one place where
-the authors' conclusions go beyond what their methods can support—what
-a statistician would call "spin." Write two sentences: one quoting the
-overclaimed statement, one describing what the evidence actually shows.</p>
+<p>Find a research paper or industry report about AI tools and developer productivity
+published in the last two years.
+Identify one place where the authors' conclusions go beyond what their methods can support
+(what a statistician would call "spin".)
+Write two sentences:
+one quoting the overclaimed statement,
+one describing what the evidence actually shows.</p>
 </div>
 </main>
 <footer aria-label="Page navigation">
