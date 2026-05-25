@@ -1006,7 +1006,7 @@ Granna Fee rolled her eyes at Noxy
 as Indy put on the smile she used when talking to people she didn't like
 and turned to face the king's official representative in Stale Leftovers.
 
-Scholar-Candidate Nangyal insisted that the villagers use his full title
+Scholar-Candidate Yangyal insisted that the villagers use his full title
 despite being two decades past the age
 when most scholars were able to drop the word "candidate".
 He looked as though he had slept in his robe and only just woken up,
@@ -1054,7 +1054,7 @@ there's no telling what might—"
 The sergeant cleared his throat.
 "Actually, honored, it wasn't His Majesty who sent us."
 Noxy's breath caught caught
-as one of the soldiers positioned himself behind Nangyal,
+as one of the soldiers positioned himself behind Yangyal,
 his hand falling to the hilt of his sword.
 
 The whole village held its breath.
@@ -1667,7 +1667,7 @@ In one hand he held a thick book.
 "Not *now*."
 
 As the villagers approached,
-Scholar-Candidate Nangyal puffed out his chest.
+Scholar-Candidate Yangyal puffed out his chest.
 "Literally Indigestible,
 by election from its inhabitants
 and with the consent of His Majesty Denpa King Gandan made reeve of the village of Stale Leftovers,
