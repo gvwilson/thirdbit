@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>I/O and Monads</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a class="active" href="../io/">I/O and Monads</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>I/O and Monads</h1>
+<ul>
+<li>Every program eventually has to talk to the world</li>
+</ul>
+<h2>What Is IO? (And What Is a Monad?)</h2>
+<ul>
+<li>A function that does I/O has <code>IO</code> in its return type<ul>
+<li><code>String</code> means "a string, computed purely"</li>
+<li><code>IO String</code> means "an action that, when run, produces a string"</li>
+<li>This pattern's formal name is a <a class="gl-ref" href="../glossary/#monad">monad</a></li>
+</ul>
+</li>
+<li>The compiler enforces that IO only happens where you say it does<ul>
+<li>Pure functions are guaranteed not to have side effects</li>
+<li>You can test and reason about them without worrying about hidden state</li>
+</ul>
+</li>
+<li>This is like Python's <code>async def</code>: an async function must return an <code>Awaitable</code><ul>
+<li>You cannot accidentally run an async function from sync code</li>
+<li>Lean's <code>IO</code> type is the same idea: the compiler prevents IO from leaking into pure functions</li>
+</ul>
+</li>
+<li>Separately, <code>do</code> and <code>←</code> (left arrow) are how you <em>sequence</em> effectful actions<ul>
+<li>This is the monad part: chaining steps where each depends on the last</li>
+<li>Like <code>await</code> lets you write sequential-looking code asynchronously, <code>←</code> does the same for IO</li>
+</ul>
+</li>
+<li>You do not need to understand the theory to use monads in Lean<ul>
+<li>(DEBT) We will revisit the theory once we are comfortable doing I/O</li>
+</ul>
+</li>
+</ul>
+<h2>Hello World</h2>
+<div data-inc="hello_world.lean"><span aria-label="Source: io/hello_world.lean" class="inc-path" role="img" tabindex="0" title="io/hello_world.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Every Lean program starts with main</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello, world!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="hello_world.out"><span aria-label="Source: io/hello_world.out" class="inc-path" role="img" tabindex="0" title="io/hello_world.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, world!
+</code></pre></div>
+</div>
+<ul>
+<li><code>main</code> is the entry point for Lean programs<ul>
+<li>Like Python's <code>if __name__ == "__main__":</code> block</li>
+</ul>
+</li>
+<li><code>IO Unit</code> is the return type: <code>IO</code> means "does input/output", <code>Unit</code> means "no useful return value"<ul>
+<li><code>Unit</code> is like Python's <code>None</code>: the side effects are the point</li>
+</ul>
+</li>
+<li><code>IO.println</code> prints a string followed by a newline<ul>
+<li>Newline plus indentation isn't required, but it helps</li>
+</ul>
+</li>
+<li><code>#eval main</code> runs the action during compilation so we can see the output</li>
+<li>Lean doesn't have exceptions<ul>
+<li>Errors are handled with sum types like <code>Except</code>, which we'll cover later (DEBT)</li>
+</ul>
+</li>
+</ul>
+<h2>Doing More Than One Thing</h2>
+<div data-inc="do_notation.lean"><span aria-label="Source: io/do_notation.lean" class="inc-path" role="img" tabindex="0" title="io/do_notation.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Use `do` to run IO actions one after another</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Step 1: start"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Step 2: middle"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Step 3: done"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="do_notation.out"><span aria-label="Source: io/do_notation.out" class="inc-path" role="img" tabindex="0" title="io/do_notation.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Step 1: start
+Step 2: middle
+Step 3: done
+</code></pre></div>
+</div>
+<ul>
+<li><code>do</code> groups a sequence of IO actions into one<ul>
+<li>Statements run top to bottom</li>
+</ul>
+</li>
+<li>Without <code>do</code>, we can only write one IO action per function body</li>
+<li>Each line in a <code>do</code> block runs in order and must return <code>IO Unit</code><ul>
+<li>Unless we capture it: more on that shortly</li>
+</ul>
+</li>
+<li>If your function body is a single IO action, no <code>do</code> is needed</li>
+<li>If you want two or more actions in sequence, wrap them in <code>do</code></li>
+<li><code>;</code> can be used as an alternative separator inside <code>do</code> blocks<ul>
+<li>E.g., <code>IO.println "Hi"; IO.println "there"</code> is equivalent to two lines</li>
+</ul>
+</li>
+</ul>
+<h2>Forgetting <code>do</code></h2>
+<div data-inc="ex_missing_do.lean"><span aria-label="Source: io/ex_missing_do.lean" class="inc-path" role="img" tabindex="0" title="io/ex_missing_do.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Forgetting `do` is the most common IO mistake</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Starting..."</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_missing_do.out"><span aria-label="Source: io/ex_missing_do.out" class="inc-path" role="img" tabindex="0" title="io/ex_missing_do.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_missing_do.lean:4:2: error: Application type mismatch: The argument
+  IO.println
+has type
+  ?m.3 → IO Unit
+but is expected to have type
+  Void IO.RealWorld
+in the application
+  IO.println "Starting..." IO.println
+io/ex_missing_do.lean:6:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<ul>
+<li>Forgetting <code>do</code> is the most common IO mistake</li>
+<li>Without <code>do</code>, Lean tries to use the second <code>IO.println</code> as an argument to the first<ul>
+<li>That's why the error message mentions "application type mismatch"</li>
+</ul>
+</li>
+<li>The fix: add <code>do</code> after <code>:=</code></li>
+</ul>
+<h2>Pure Values Inside <code>do</code></h2>
+<div data-inc="do_let.lean"><span aria-label="Source: io/do_let.lean" class="inc-path" role="img" tabindex="0" title="io/do_let.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- `let x := expr` binds a pure value inside a do block</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"Hello, {name}!"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="s2">"Lean"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="do_let.out"><span aria-label="Source: io/do_let.out" class="inc-path" role="img" tabindex="0" title="io/do_let.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lean!
+</code></pre></div>
+</div>
+<ul>
+<li><code>let x := expr</code> binds a <em>pure</em> (non-IO) value inside a <code>do</code> block<ul>
+<li>Like Python's <code>x = expr</code> inside an async function</li>
+</ul>
+</li>
+<li><code>greet</code> is a plain function that returns a <code>String</code> (no I/O)</li>
+<li>You can call pure functions freely inside <code>do</code><ul>
+<li>Only the final <code>IO.println</code> does I/O</li>
+</ul>
+</li>
+<li>The compiler will reject <code>let msg ← greet "Lean"</code> because <code>greet</code> does not return an <code>IO</code></li>
+<li><code>let _ := expr</code> is the <em>discard</em> pattern: it binds a value but throws it away<ul>
+<li>The underscore means "I don't intend to use this"</li>
+<li>It also suppresses the unused-variable warning from the compiler</li>
+<li><em>Warning:</em> <code>let _ := someIOAction</code> stores the action without running it — use <code>←</code> for IO</li>
+</ul>
+</li>
+</ul>
+<h2>Functions That Return IO Actions</h2>
+<div data-inc="io_functions.lean"><span aria-label="Source: io/io_functions.lean" class="inc-path" role="img" tabindex="0" title="io/io_functions.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Functions can return IO actions, not just plain values</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">printTwice</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">printTwice</span><span class="w"> </span><span class="s2">"echo!"</span>
+<span class="w">  </span><span class="n">printTwice</span><span class="w"> </span><span class="s2">"again"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="io_functions.out"><span aria-label="Source: io/io_functions.out" class="inc-path" role="img" tabindex="0" title="io/io_functions.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>echo!
+echo!
+again
+again
+</code></pre></div>
+</div>
+<ul>
+<li>A function can return an <code>IO Unit</code>: a reusable IO action<ul>
+<li>Like Python's <code>async def</code>, calling it gives you something you still have to run</li>
+</ul>
+</li>
+<li><code>printTwice "echo!"</code> runs two <code>IO.println</code> calls in sequence</li>
+<li>IO functions compose: <code>main</code> calls <code>printTwice</code> twice</li>
+</ul>
+<h2>Capturing Results from IO</h2>
+<div data-inc="io_return.lean"><span aria-label="Source: io/io_return.lean" class="inc-path" role="img" tabindex="0" title="io/io_return.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Use ← to capture the result of an IO action</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">makeGreeting</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Building greeting..."</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="s2">"Hello from IO!"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">makeGreeting</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="io_return.out"><span aria-label="Source: io/io_return.out" class="inc-path" role="img" tabindex="0" title="io/io_return.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Building greeting...
+Hello from IO!
+</code></pre></div>
+</div>
+<ul>
+<li>Use <code>let x ← ioAction</code> (the left-arrow <code>←</code>) to capture the result of an IO action<ul>
+<li>Like Python's <code>x = await some_coroutine()</code></li>
+<li>Type <code>\leftarrow</code> in the editor</li>
+</ul>
+</li>
+<li><code>makeGreeting</code> has type <code>IO String</code>: it is an action that produces a <code>String</code></li>
+<li><code>return expr</code> wraps a pure value as an IO result<ul>
+<li>This is <em>not</em> the same as Python's <code>return</code>, which exits the function immediately</li>
+<li>Lean's <code>return</code> stays in the <code>do</code> block: it just marks a value as an IO result</li>
+<li>Yes, this is confusing…</li>
+</ul>
+</li>
+<li><code>let msg ← makeGreeting</code> runs the action and binds the resulting <code>String</code> to <code>msg</code></li>
+<li>Two binding forms to remember:<ul>
+<li><code>let x := expr</code> is a pure expression, no IO</li>
+<li><code>let x ← action</code> is an I/O action, captures its result</li>
+</ul>
+</li>
+</ul>
+<h2>Chaining IO Actions</h2>
+<div data-inc="chain_io.lean"><span aria-label="Source: io/chain_io.lean" class="inc-path" role="img" tabindex="0" title="io/chain_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Chain multiple ← binds in a single do block</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your first name:"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getStdin</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your last name:"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {first.trimAscii} {last.trimAscii}!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="chain_io.out"><span aria-label="Source: io/chain_io.out" class="inc-path" role="img" tabindex="0" title="io/chain_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your first name:
+Enter your last name:
+Hello,  !
+</code></pre></div>
+</div>
+<ul>
+<li><code>do</code> blocks compose naturally: you can chain as many <code>←</code> binds as you need</li>
+<li>Each <code>←</code> runs the action and captures its result for the next step</li>
+<li>Here <code>getLine</code> is called twice: once for the first name, once for the last name<ul>
+<li>Both captures are combined in a single <code>IO.println</code></li>
+</ul>
+</li>
+<li>Like writing multiple <code>await</code> calls in one <code>async</code> function</li>
+</ul>
+<h2>Reading Input</h2>
+<div data-inc="read_input.lean"><span aria-label="Source: io/read_input.lean" class="inc-path" role="img" tabindex="0" title="io/read_input.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO.getStdin gives access to standard input</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your name:"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getStdin</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {name.trimAscii}!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="read_input.out"><span aria-label="Source: io/read_input.out" class="inc-path" role="img" tabindex="0" title="io/read_input.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your name:
+Hello, !
+</code></pre></div>
+</div>
+<ul>
+<li><code>IO.getStdin</code> returns an <code>IO.FS.Stream</code> connected to standard input</li>
+<li><code>stdin.getLine</code> reads one line and returns it as an <code>IO String</code></li>
+<li>Both require <code>←</code> because they are IO actions that produce values</li>
+<li><code>String.trimAscii</code> removes leading and trailing whitespace, including the trailing newline<ul>
+<li>Without <code>.trimAscii</code>, <code>getLine</code> returns the newline character as part of the string</li>
+<li>This would make <code>s!"Hello, {name}!"</code> print an unwanted line break</li>
+</ul>
+</li>
+<li>The output above shows an empty name because <code>#eval</code> runs inside the Lean compiler process<ul>
+<li>The compiler claims stdin for its own use, so <code>stdin.getLine</code> returns an empty string</li>
+<li>This is a limitation of <code>#eval</code>, not of Lean's IO system</li>
+<li>In the next lesson we will compile and run programs as proper executables, where stdin works correctly</li>
+</ul>
+</li>
+</ul>
+<h2>Summary</h2>
+<ul>
+<li><code>do</code> and <code>←</code> let you chain IO actions in sequence</li>
+<li>The practical rules are:<ul>
+<li>Use <code>do</code> to sequence actions</li>
+<li>Use <code>let x ← action</code> to capture an IO result</li>
+<li>Use <code>let x := expr</code> for pure computation</li>
+<li>Use <code>return expr</code> to produce an IO result from a pure value</li>
+</ul>
+</li>
+<li>Lean's <code>IO</code> is more than just files and sockets</li>
+<li>It also manages random number generation and any other <a class="gl-ref" href="../glossary/#effectful">effectful</a> computation</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Missing <code>do</code></h3>
+<div data-inc="ex_bug_no_do.lean"><span aria-label="Source: io/ex_bug_no_do.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_no_do.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This should print two lines but has a bug. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"World"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_no_do.out"><span aria-label="Source: io/ex_bug_no_do.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_no_do.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_no_do.lean:4:2: error: Application type mismatch: The argument
+  IO.println
+has type
+  ?m.3 → IO Unit
+but is expected to have type
+  Void IO.RealWorld
+in the application
+  IO.println "Hello" IO.println
+io/ex_bug_no_do.lean:6:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Without <code>do</code>, Lean treats the body as a single expression</li>
+<li>The second <code>IO.println</code> looks like an argument to the first</li>
+</ul>
+</details>
+<h3>Fix: Wrong Left Arrow</h3>
+<div data-inc="ex_bug_let_bind.lean"><span aria-label="Source: io/ex_bug_let_bind.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_let_bind.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Should print the greeting, but has a bug. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">makeMsg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="s2">"Hello, Lean!"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">makeMsg</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_let_bind.out"><span aria-label="Source: io/ex_bug_let_bind.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_let_bind.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_let_bind.lean:6:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ToString (IO String)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+io/ex_bug_let_bind.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>makeMsg</code> returns <code>IO String</code>, not <code>String</code></li>
+<li><code>let msg := makeMsg</code> stores the IO action itself rather than running it</li>
+</ul>
+</details>
+<h3>Fix: Missing <code>return</code></h3>
+<div data-inc="ex_bug_return.lean"><span aria-label="Source: io/ex_bug_return.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should return a greeting, but has a bug. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getGreeting</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"Hello!"</span>
+<span class="w">  </span><span class="n">msg</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">getGreeting</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">g</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_return.out"><span aria-label="Source: io/ex_bug_return.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_return.lean:4:2: error: Type mismatch
+  msg
+has type
+  String
+but is expected to have type
+  IO String
+io/ex_bug_return.lean:10:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function body is <code>IO String</code> but <code>msg</code> has type <code>String</code></li>
+<li>Lean needs <code>return msg</code> to lift the pure value into <code>IO</code></li>
+</ul>
+</details>
+<h3>Fix: Wrong Return Type</h3>
+<div data-inc="ex_bug_return_type.lean"><span aria-label="Source: io/ex_bug_return_type.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return_type.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should print a message, but its return type is wrong. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">announce</span><span class="w"> </span><span class="o">(</span><span class="n">item</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Announcing: {item}"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">announce</span><span class="w"> </span><span class="s2">"Lean 4"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_return_type.out"><span aria-label="Source: io/ex_bug_return_type.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return_type.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_return_type.lean:3:2: error: Type mismatch
+  IO.println (toString "Announcing: " ++ toString item)
+has type
+  IO Unit
+but is expected to have type
+  IO String
+io/ex_bug_return_type.lean:6:2: error: Type mismatch
+  announce "Lean 4"
+has type
+  IO String
+but is expected to have type
+  IO Unit
+io/ex_bug_return_type.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>announce</code> prints something and returns nothing useful</li>
+<li>Its return type should be <code>IO Unit</code>, not <code>IO String</code></li>
+</ul>
+</details>
+<h3>Fix: Arrow on a Pure Expression</h3>
+<div data-inc="ex_bug_arrow.lean"><span aria-label="Source: io/ex_bug_arrow.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_arrow.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Should print the doubled value, but has a bug. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Result: {result}"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_arrow.out"><span aria-label="Source: io/ex_bug_arrow.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_arrow.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_arrow.lean:5:15: error: Type mismatch
+  double 5
+has type
+  Int
+but is expected to have type
+  IO ?m.7
+io/ex_bug_arrow.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>double 5</code> is a pure function call: it returns <code>Int</code>, not <code>IO Int</code></li>
+<li><code>←</code> is for IO actions; <code>double 5</code> is not one</li>
+</ul>
+</details>
+<h3>Fix: Silently Discarded IO Action</h3>
+<div data-inc="ex_bug_discard.lean"><span aria-label="Source: io/ex_bug_discard.lean" class="inc-path" role="img" tabindex="0" title="io/ex_bug_discard.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Should print both lines, but only prints one. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Step 1: start"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Step 2: done"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_bug_discard.out"><span aria-label="Source: io/ex_bug_discard.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_discard.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Step 1: start
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>let _ := IO.println "Step 2: done"</code> stores the IO action as a value — it never runs</li>
+<li>The underscore (<code>_</code>) means "I don't intend to use this binding"</li>
+<li>For an IO action, you want <code>←</code> (run it) or plain <code>IO.println</code> (no binding at all)</li>
+</ul>
+</details>
+<h3>Write: Two-Line Greeting</h3>
+<div data-inc="ex_hello.lean"><span aria-label="Source: io/ex_hello.lean" class="inc-path" role="img" tabindex="0" title="io/ex_hello.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Add a second line so main prints "Hello, Lean!" then "Ready to go!"</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello, Lean!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_hello.out"><span aria-label="Source: io/ex_hello.out" class="inc-path" role="img" tabindex="0" title="io/ex_hello.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lean!
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Add a second <code>IO.println</code> call inside the <code>do</code> block</li>
+<li>The text should be <code>"Ready to go!"</code></li>
+<li>Both lines are plain <code>IO.println</code> calls with no <code>←</code></li>
+</ul>
+</details>
+<h3>Write: Print in Uppercase</h3>
+<div data-inc="ex_shout.lean"><span aria-label="Source: io/ex_shout.lean" class="inc-path" role="img" tabindex="0" title="io/ex_shout.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix printLoud so it prints the message in uppercase.</span>
+<span class="c1">-- Hint: String.toUpper converts a String to all caps.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">printLoud</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">printLoud</span><span class="w"> </span><span class="s2">"hello"</span>
+<span class="w">  </span><span class="n">printLoud</span><span class="w"> </span><span class="s2">"world"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_shout.out"><span aria-label="Source: io/ex_shout.out" class="inc-path" role="img" tabindex="0" title="io/ex_shout.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>hello
+world
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>IO.println msg</code> with <code>IO.println msg.toUpper</code></li>
+<li><code>String.toUpper</code> (or <code>.toUpper</code>) converts a string to all capitals</li>
+<li>The body is a single expression, so no <code>do</code> needed</li>
+</ul>
+</details>
+<h3>Write: Build a Message</h3>
+<ul>
+<li>Use <code>++</code> to concatenate strings</li>
+</ul>
+<div data-inc="ex_build_msg.lean"><span aria-label="Source: io/ex_build_msg.lean" class="inc-path" role="img" tabindex="0" title="io/ex_build_msg.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix buildMsg so it returns "Message: " ++ text (using return).</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">buildMsg</span><span class="w"> </span><span class="o">(</span><span class="n">text</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">text</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">buildMsg</span><span class="w"> </span><span class="s2">"ready"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_build_msg.out"><span aria-label="Source: io/ex_build_msg.out" class="inc-path" role="img" tabindex="0" title="io/ex_build_msg.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>ready
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function should return <code>"Message: " ++ text</code></li>
+<li>Use <code>return ("Message: " ++ text)</code> to lift the pure result into <code>IO</code></li>
+<li>When you fix it, <code>main</code> should print <code>Message: ready</code></li>
+</ul>
+</details>
+<h3>Write: Use a Pure Function in IO</h3>
+<div data-inc="ex_pure_io.lean"><span aria-label="Source: io/ex_pure_io.lean" class="inc-path" role="img" tabindex="0" title="io/ex_pure_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix main so it computes and prints the sum of the list (should be 15).</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">addUp</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">xs</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="bp">·</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Sum is 0"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_pure_io.out"><span aria-label="Source: io/ex_pure_io.out" class="inc-path" role="img" tabindex="0" title="io/ex_pure_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Sum is 0
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Call <code>addUp [1, 2, 3, 4, 5]</code> with <code>let total := ...</code> (plain <code>let</code>, not <code>←</code>)</li>
+<li>Then use <code>total</code> inside <code>s!"Sum is {total}"</code> in the <code>IO.println</code> call</li>
+<li>The output should be <code>Sum is 15</code></li>
+</ul>
+</details>
+<h3>Write: Repeat Three Times</h3>
+<div data-inc="ex_repeat.lean"><span aria-label="Source: io/ex_repeat.lean" class="inc-path" role="img" tabindex="0" title="io/ex_repeat.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix repeat3 so it calls IO.println with msg exactly three times.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">repeat3</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">repeat3</span><span class="w"> </span><span class="s2">"again"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_repeat.out"><span aria-label="Source: io/ex_repeat.out" class="inc-path" role="img" tabindex="0" title="io/ex_repeat.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>again
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Add <code>do</code> to the body of <code>repeat3</code> and call <code>IO.println msg</code> three times</li>
+<li>Each call is a separate line in the <code>do</code> block</li>
+<li>When fixed, <code>main</code> should print <code>again</code> three times</li>
+</ul>
+</details>
+<h3>Write: Read and Greet</h3>
+<div data-inc="ex_read_greet.lean"><span aria-label="Source: io/ex_read_greet.lean" class="inc-path" role="img" tabindex="0" title="io/ex_read_greet.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix main to read a name from stdin and print "Hello, &lt;name&gt;!"</span>
+<span class="c1">-- instead of always printing "Hello, stranger!"</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getStdin</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="bp">_</span><span class="n">name</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello, stranger!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_read_greet.out"><span aria-label="Source: io/ex_read_greet.out" class="inc-path" role="img" tabindex="0" title="io/ex_read_greet.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, stranger!
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>_name</code> uses <code>_</code> (underscore prefix) to suppress the unused-variable warning<ul>
+<li>Lean warns you when a variable is bound but never used</li>
+<li>Prefixing with <code>_</code> tells Lean "I'm keeping this binding but not using it yet"</li>
+</ul>
+</li>
+<li>Change <code>_name</code> to <code>name</code> so the binding is used</li>
+<li>Replace <code>"Hello, stranger!"</code> with <code>s!"Hello, {name.trimAscii}!"</code><ul>
+<li><code>getLine</code> returns the line <em>with</em> the trailing newline</li>
+<li>Use <code>.trimAscii</code> to remove it before printing</li>
+</ul>
+</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../types">Types</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
