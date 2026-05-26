@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A File Archiver</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a class="active" href="../archive/">A File Archiver</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>A File Archiver</h1>
+<div class="callout">
+<ul>
+<li>Build a content-addressable file archiver like Git's object store</li>
+<li>Hash files, deduplicate by content, and store blobs under their hash</li>
+<li>Combine everything from previous lessons: types, pipelines, IO, and testing with <code>#guard</code></li>
+</ul>
+</div>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#content_addressable">content-addressable</a> store identifies files by their hash
+    rather than their name<ul>
+<li>Two files with the same content get the same address</li>
+<li>Like Git's <code>.git/objects</code> directory</li>
+</ul>
+</li>
+<li>We'll build it in layers: types first, then pure logic, then I/O</li>
+<li>See the <a href="https://third-bit.com/sdxjs/backup/">JavaScript</a> and <a href="https://third-bit.com/sdxpy/archive/">Python</a> versions for comparison</li>
+</ul>
+<h2>Type Aliases</h2>
+<div data-inc="archive.lean" data-mark="hash-abbrev"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A content address is just a hex string of the hash</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>abbrev</code> creates a <a class="gl-ref" href="../glossary/#type_alias">type alias</a> (a shorter name for an existing type)<ul>
+<li><code>Hash</code> and <code>String</code> are interchangeable</li>
+</ul>
+</li>
+<li>A content address is just a hex string of the file's hash</li>
+</ul>
+<div data-inc="archive.lean" data-mark="manifest-abbrev"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A manifest maps each original file path to its content hash</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>A manifest maps original file paths to their content hashes</li>
+<li><code>List (String × Hash)</code> is a list of <code>(path, hash)</code> pairs</li>
+<li><code>abbrev</code> makes the intent clearer than writing <code>List (String × Hash)</code> everywhere</li>
+</ul>
+<h2>Hashing Bytes</h2>
+<div data-inc="archive.lean" data-mark="hash-bytes"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Hash a ByteArray to a 16-character hex string</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="o">(</span><span class="n">ba</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt64</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">ba</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="bp">.</span><span class="n">toList</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">digits</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="mi">16</span><span class="o">)</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">nibble</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">(</span><span class="mi">60</span><span class="w"> </span><span class="bp">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt64</span><span class="o">)</span><span class="w"> </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xF</span>
+<span class="w">    </span><span class="n">hex</span><span class="o">[</span><span class="n">nibble</span><span class="bp">.</span><span class="n">toNat</span><span class="o">]!</span>
+<span class="w">  </span><span class="n">String</span><span class="bp">.</span><span class="n">ofList</span><span class="w"> </span><span class="n">digits</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>hashBytes</code> takes a <code>ByteArray</code> and returns a 16-character hex <code>Hash</code></li>
+<li><code>hash</code> is Lean's built-in structural hash function<ul>
+<li>Returns a <code>UInt64</code> (unsigned 64-bit integer)</li>
+<li>A real archiver would use SHA-256, but this is good enough for teaching</li>
+</ul>
+</li>
+<li>The body formats the <code>UInt64</code> into hex by extracting each 4-bit nibble<ul>
+<li><code>h &gt;&gt;&gt; n</code> shifts the hash right by <code>n</code> bits</li>
+<li><code>&amp;&amp;&amp; 0xF</code> masks off the lowest 4 bits to get one hex digit</li>
+</ul>
+</li>
+<li><code>String.ofList digits</code> converts the list of <code>Char</code> to a <code>String</code><ul>
+<li><code>String.mk</code> would also work, but Lean now prefers <code>String.ofList</code></li>
+</ul>
+</li>
+</ul>
+<h2>Building the Manifest</h2>
+<div data-inc="archive.lean" data-mark="build-manifest"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Pure: deduplicate a list of (path, bytes) pairs into (Manifest, blob store)</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">buildManifest</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">Manifest</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">Hash</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">files</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="n">bytes</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">entries</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">entries</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="n">init</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[])</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">acc</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="m">1</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">h</span><span class="o">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[(</span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)]</span>
+<span class="w">  </span><span class="o">(</span><span class="n">manifest</span><span class="o">,</span><span class="w"> </span><span class="n">blobs</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>buildManifest</code> is the <a class="gl-ref" href="../glossary/#pure">pure</a> core of the archiver<ul>
+<li>No I/O: takes data in, returns data out</li>
+<li>Hence the name "pure"</li>
+</ul>
+</li>
+<li>Step 1: hash every file's bytes and create <code>(path, hash, bytes)</code> triples</li>
+<li>Step 2: extract just the <code>(path, hash)</code> pairs into the manifest</li>
+<li>Step 3: deduplicate blobs by checking if a hash already exists in the accumulator<ul>
+<li><code>acc.any (·.1 == h)</code>: "does any entry in <code>acc</code> have <code>.1</code> equal to <code>h</code>?"</li>
+<li><code>(·.1 == h)</code> uses the <code>·</code> placeholder for the tuple's first field</li>
+</ul>
+</li>
+<li>Returns a pair <code>(manifest, blobs)</code><ul>
+<li><code>manifest</code> maps every path to its hash (even duplicates)</li>
+<li><code>blobs</code> stores each unique <code>(hash, bytes)</code> pair only once</li>
+</ul>
+</li>
+</ul>
+<h2>Snapshot: Writing Files</h2>
+<div data-inc="archive.lean" data-mark="snapshot"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO: write each unique blob to a file named &lt;hash&gt;.bck</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">(</span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">IO</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="o">,</span><span class="w"> </span><span class="n">blobs</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">buildManifest</span><span class="w"> </span><span class="n">files</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">writeBinFile</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{archiveDir}/{h}.bck"</span><span class="w"> </span><span class="n">bytes</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">manifest</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>snapshot</code> is an I/O function: note the <code>IO Manifest</code> return type</li>
+<li>Calls the pure <code>buildManifest</code>, then writes each unique blob to disk</li>
+<li><code>for (h, bytes) in blobs do</code> iterates over the blob list (instead of recursing)<ul>
+<li>Destructures each <code>(hash, bytes)</code> pair in the loop header</li>
+</ul>
+</li>
+<li><code>IO.FS.writeBinFile</code> writes raw bytes to a file<ul>
+<li>Like Python's <code>open(path, "wb").write(data)</code></li>
+</ul>
+</li>
+<li>Each blob is saved as <code>archiveDir/&lt;hash&gt;.bck</code><ul>
+<li>The <code>.bck</code> extension is just a convention — like Git's loose object format</li>
+</ul>
+</li>
+<li>Returns the manifest so the caller can save or transmit it</li>
+</ul>
+<h2>Restore: Reading Files Back</h2>
+<div data-inc="archive.lean" data-mark="restore"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO: read blobs from the archive and write them back to their original paths</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">readBinFile</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{archiveDir}/{h}.bck"</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">writeBinFile</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">bytes</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>restore</code> reverses the process<ul>
+<li>Read blobs from the archive</li>
+<li>Write them to original paths</li>
+</ul>
+</li>
+<li><code>IO Unit</code> means "does I/O but returns nothing useful"<ul>
+<li>Like a Python function that returns <code>None</code></li>
+</ul>
+</li>
+<li><code>←</code> captures the result of <code>IO.FS.readBinFile</code><ul>
+<li>Reading from disk is I/O, so we need the left arrow</li>
+</ul>
+</li>
+<li><code>s!"{archiveDir}/{h}.bck"</code> constructs the blob path using string interpolation</li>
+<li>Then <code>IO.FS.writeBinFile</code> writes the bytes back to the original file path</li>
+</ul>
+<h2>Taking a Directory Snapshot</h2>
+<ul>
+<li><code>snapshotDir</code> would read an entire directory and snapshot every file in it</li>
+<li>The pattern is: list directory → filter to regular files → read each file → call <code>snapshot</code></li>
+</ul>
+<div data-inc="archive.lean" data-mark="snapshot-dir"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO: snapshot all files in a directory (requires directory listing not in prelude)</span>
+<span class="c1">-- In practice you'd use IO.FS.readDir from Std, but the prelude doesn't include it.</span>
+<span class="c1">-- The pattern is: read directory → filter files → read bytes → call snapshot.</span>
+</code></pre></div>
+</div>
+<ul>
+<li>FIXME: show how to import the library and use Std here</li>
+<li>The prelude doesn't include directory listing, so this section is a sketch<ul>
+<li><code>IO.FS.readDir</code> exists in <code>Std</code> but requires <code>import Std</code></li>
+<li>We'll see imports in detail in a later lesson (DEBT)</li>
+</ul>
+</li>
+<li>The key idea: combine a directory reader with the archiver we already built</li>
+</ul>
+<h2>Testing the Pure Core</h2>
+<div data-inc="archive.lean" data-mark="tests"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tests (pure core) ---------------------------------------------------</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">sampleFiles</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span><span class="w">   </span><span class="c1">-- same content as a.txt</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"c.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">)</span>
+<span class="o">]</span>
+
+<span class="c1">-- Two files with identical content should produce only two blobs</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">buildManifest</span><span class="w"> </span><span class="n">sampleFiles</span><span class="o">)</span><span class="bp">.</span><span class="m">2</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="c1">-- Both a.txt and b.txt map to the same hash</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">buildManifest</span><span class="w"> </span><span class="n">sampleFiles</span>
+<span class="w">  </span><span class="o">(</span><span class="n">manifest</span><span class="bp">.</span><span class="n">find?</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="m">1</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"a.txt"</span><span class="o">))</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">(</span><span class="n">manifest</span><span class="bp">.</span><span class="n">find?</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="m">1</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"b.txt"</span><span class="o">))</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="m">2</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>We can test the pure logic without touching the filesystem<ul>
+<li>Because <code>buildManifest</code> is pure, tests are fast and deterministic</li>
+</ul>
+</li>
+<li><code>sampleFiles</code> creates three files: <code>a.txt</code> and <code>b.txt</code> have identical content</li>
+<li><code>"hello".toUTF8</code> converts a string to a <code>ByteArray</code><ul>
+<li>Like Python's <code>"hello".encode("utf-8")</code></li>
+</ul>
+</li>
+<li>First <code>#guard</code>: two identical files should produce only two blobs, not three<ul>
+<li><code>.2.length</code> accesses the blob list (second element of the pair) and counts it</li>
+</ul>
+</li>
+<li>Second <code>#guard</code>: <code>a.txt</code> and <code>b.txt</code> should map to the same hash<ul>
+<li><code>manifest.find? (·.1 == "a.txt")</code> finds the entry for <code>a.txt</code></li>
+<li><code>.map (·.2)</code> extracts the hash from the found entry</li>
+</ul>
+</li>
+<li>Both <code>#guard</code> expressions evaluate to <code>true</code>, so compilation succeeds silently</li>
+</ul>
+<h2>The Full Picture</h2>
+<ul>
+<li>Forty lines of code implement a content-addressable archive</li>
+<li>The design separates pure computation from I/O<ul>
+<li><code>buildManifest</code> can be tested without touching disk</li>
+<li><code>snapshot</code> and <code>restore</code> do the actual reading and writing</li>
+</ul>
+</li>
+<li>This is the functional style in practice:<ul>
+<li>Types describe the data (<code>Hash</code>, <code>Manifest</code>)</li>
+<li>Pure functions transform it (<code>buildManifest</code>)</li>
+<li>A thin I/O layer connects to the outside world</li>
+</ul>
+</li>
+</ul>
+<h2>Running the Program</h2>
+<div data-inc="archive.lean" data-mark="main"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Entry point: snapshot sample files to ./archive-dir, then restore them</span>
+<span class="c1">-- Run with: lean --run archive/archive.lean</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"archive-dir"</span>
+<span class="w">  </span><span class="c1">-- create the archive directory (ok if it already exists)</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">createDirAll</span><span class="w"> </span><span class="n">archiveDir</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Snapshotting to {archiveDir}/"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="n">sampleFiles</span><span class="w"> </span><span class="n">archiveDir</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Created {manifest.length} manifest entries"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Restoring files..."</span>
+<span class="w">  </span><span class="n">restore</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">archiveDir</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done."</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>main</code> is the entry point when you run a Lean file as a program<ul>
+<li>Like Python's <code>if __name__ == "__main__":</code> block</li>
+</ul>
+</li>
+<li><code>IO.FS.createDirAll archiveDir</code> creates the archive directory<ul>
+<li>Won't fail if the directory already exists</li>
+</ul>
+</li>
+<li>The steps match our earlier sections exactly: snapshot, then restore</li>
+<li><code>IO.println</code> outputs a line of text to stdout</li>
+<li><code>manifest.length</code> is the number of entries in the manifest</li>
+</ul>
+<h3>Compiling and Running</h3>
+<ul>
+<li>To compile (check types, run <code>#eval</code> and <code>#guard</code>):<ul>
+<li><code>lake env lean archive/archive.lean</code></li>
+<li>This is what we've been doing all along</li>
+<li>The <code>#guard</code> tests run at compile time</li>
+<li><code>main</code> is not executed: it's just type-checked</li>
+</ul>
+</li>
+<li>To run the program (execute <code>main</code>):<ul>
+<li><code>lean --run archive/archive.lean</code></li>
+<li>This compiles the file and calls the <code>main</code> function</li>
+</ul>
+</li>
+<li>After running, check the results:<ul>
+<li><code>ls archive-dir/</code> shows the <code>.bck</code> blob files</li>
+<li>Two files, because <code>a.txt</code> and <code>b.txt</code> are deduplicated</li>
+<li><code>cat a.txt</code>, <code>cat b.txt</code>, <code>cat c.txt</code> show the restored content in the current directory</li>
+</ul>
+</li>
+<li>The two commands serve different purposes:<ul>
+<li><code>lake env lean</code> for development: type-check and test</li>
+<li><code>lean --run</code> for execution: actually do the I/O</li>
+</ul>
+</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Write: Total File Size</h3>
+<p>Write a pure function <code>totalSize : Manifest × List (Hash × ByteArray) → Nat</code> that
+returns the sum of all blob sizes (in bytes). Use <code>ByteArray.size</code> to get the size of
+each blob.</p>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Extract the blob list from the pair with <code>.2</code></li>
+<li>Use <code>List.foldl</code> with <code>(· + ·)</code> and an initial value of <code>0</code></li>
+<li>Use <code>ByteArray.size</code> inside the map to convert bytes to sizes</li>
+</ul>
+</details>
+<h3>Write: Count Duplicates</h3>
+<p>Write a pure function <code>countDuplicates (files : List (String × ByteArray)) : Nat</code> that
+returns how many files have content that also appears under another name. For the sample
+data, this should return <code>2</code> (both <code>a.txt</code> and <code>b.txt</code> are duplicates of each other).</p>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Build the manifest with <code>buildManifest</code></li>
+<li>Group files by hash: for each hash, count how many paths map to it</li>
+<li>Sum the counts for hashes that appear more than once</li>
+</ul>
+</details>
+<h3>Write: Manifest to String</h3>
+<p>Write <code>manifestToString : Manifest → String</code> that formats each entry as <code>"path:hash"</code>
+with one entry per line. Use <code>String.intercalate "\n"</code> to join the lines.</p>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>List.map</code> to convert each <code>(path, hash)</code> pair to <code>s!"{path}:{hash}"</code></li>
+<li>Then <code>String.intercalate "\n"</code> to join with newlines</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../io">I/O and Monads</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
