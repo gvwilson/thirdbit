@@ -449,7 +449,7 @@ Noxy shook her head.
 
 The prince waited another heartbeat for her to go on.
 When she didn't, he nodded.
-"All right," he promised. "Our secret."
+"All right," he promised. "It'lls stay our secret."
 
 </section>
 <section markdown="1">
