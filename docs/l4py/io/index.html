@@ -271,33 +271,6 @@ Hello from IO!
 </ul>
 </li>
 </ul>
-<h2>Chaining IO Actions</h2>
-<div data-inc="chain_io.lean"><span aria-label="Source: io/chain_io.lean" class="inc-path" role="img" tabindex="0" title="io/chain_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Chain multiple ← binds in a single do block</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your first name:"</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getStdin</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
-<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your last name:"</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
-<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {first.trimAscii} {last.trimAscii}!"</span>
-
-<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="chain_io.out"><span aria-label="Source: io/chain_io.out" class="inc-path" role="img" tabindex="0" title="io/chain_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your first name:
-Enter your last name:
-Hello,  !
-</code></pre></div>
-</div>
-<ul>
-<li><code>do</code> blocks compose naturally: you can chain as many <code>←</code> binds as you need</li>
-<li>Each <code>←</code> runs the action and captures its result for the next step</li>
-<li>Here <code>getLine</code> is called twice: once for the first name, once for the last name<ul>
-<li>Both captures are combined in a single <code>IO.println</code></li>
-</ul>
-</li>
-<li>Like writing multiple <code>await</code> calls in one <code>async</code> function</li>
-</ul>
 <h2>Reading Input</h2>
 <div data-inc="read_input.lean"><span aria-label="Source: io/read_input.lean" class="inc-path" role="img" tabindex="0" title="io/read_input.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO.getStdin gives access to standard input</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
@@ -328,6 +301,33 @@ Hello, !
 <li>In the next lesson we will compile and run programs as proper executables, where stdin works correctly</li>
 </ul>
 </li>
+</ul>
+<h2>Chaining IO Actions</h2>
+<div data-inc="chain_io.lean"><span aria-label="Source: io/chain_io.lean" class="inc-path" role="img" tabindex="0" title="io/chain_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Chain multiple ← binds in a single do block</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your first name:"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getStdin</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Enter your last name:"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">stdin</span><span class="bp">.</span><span class="n">getLine</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {first.trimAscii} {last.trimAscii}!"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="chain_io.out"><span aria-label="Source: io/chain_io.out" class="inc-path" role="img" tabindex="0" title="io/chain_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your first name:
+Enter your last name:
+Hello,  !
+</code></pre></div>
+</div>
+<ul>
+<li><code>do</code> blocks compose naturally: you can chain as many <code>←</code> binds as you need</li>
+<li>Each <code>←</code> runs the action and captures its result for the next step</li>
+<li>Here <code>getLine</code> is called twice: once for the first name, once for the last name<ul>
+<li>Both captures are combined in a single <code>IO.println</code></li>
+</ul>
+</li>
+<li>Like writing multiple <code>await</code> calls in one <code>async</code> function</li>
 </ul>
 <h2>Summary</h2>
 <ul>

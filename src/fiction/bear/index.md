@@ -92,7 +92,7 @@ down on the hard-packed dirt track.
 that's been hurt." She tried to struggle back to her feet, but the
 prince put a hand on her shoulder to stop her.
 
-"Just sit a moment," he said firmly. "Jinpa!"
+"Just sit a moment," he said firmly. "Rinpa!"
 
 "Honored?" one of the soldiers answered.
 
@@ -106,7 +106,7 @@ This time the prince didn't stop her from getting up. "The farm's
 gone," she said. "The tornado tore it to pieces."
 
 The prince's jaw tightened. "Manpa!" he barked, his voice breaking
-again. "You go with Jinpa. See if there are any survivors. Double
+again. "You go with Rinpa. See if there are any survivors. Double
 time!" The two soldiers galloped away.
 
 The prince looked back at Noxy. "Well," he said in a gentler voice.
@@ -115,7 +115,7 @@ long way from Stale."
 
 Noxy shrugged, then winced. This wasn't how she had imagined meeting
 Prince Thokmay again, not at all. "We were on our way to Chaghan. Aft
-got a contract for some rain there—he's the mayor now—and Apple
+got a contract for some rain there—he's the reeve now—and Apple
 Bridge was sort of on the way, and…" She shrugged again to hide her
 embarrassment. She had wanted to surprise him…
 
@@ -177,7 +177,7 @@ our bad luck that—"
 
 "Honored!" The soldiers who had gone down the road had come trotting
 back. Two frightened boys in hand-me-down clothes were sitting behind
-Jinpa, while an old woman rode behind Manpa.
+Rinpa, while an old woman rode behind Manpa.
 
 The two boys stared wide-eyed at the nearby clouds while their
 grandmother told her story. Her son-in-law, it was his farm, she'd
@@ -243,7 +243,7 @@ pretty hard to keep up with the others," she added, feeling a sudden
 pang of guilt. "I think that's why we couldn't get away from the
 tornado like they did."
 
-The prince handed his horse's reins to Jinpa. "Put the lady and her
+The prince handed his horse's reins to Rinpa. "Put the lady and her
 young men on Bucketbreath here," he ordered. "See them safely back to
 Apple Bridge, and tell the staff that they're to be put up in the
 garrison guest house if they can't find something more suitable. I
@@ -254,17 +254,17 @@ The soldier cleared his throat. "Um, honored, are you sure—"
 "We'll all be safer if someone is in a position to spot the tornado
 returning," the prince said crisply.
 
-"Yes sir," Jinpa replied doggedly, "But—well, Sergeant Gyalpa said
+"Yes sir," Rinpa replied doggedly, "But—well, Sergeant Gyalpa said
 to be double sure you were back along the garrison in time for the
 dinner tonight. With the new consul, sir. It being protocol and
 along like that."
 
 The prince muttered something under his breath that Noxy was glad she
 couldn't hear properly. "The cloud won't be any slower than
-horseback," he told Jinpa. "And if I'm late, I'll tell the good
+horseback," he told Rinpa. "And if I'm late, I'll tell the good
 sergeant it was my fault."
 
-"Yes sir," Jinpa said glumly. He exchanged a look with Manpa. It
+"Yes sir," Rinpa said glumly. He exchanged a look with Manpa. It
 wouldn't matter to the sergeant whose fault the prince said it was…
 
 Prince Thokmay pointed at the two little boys. "You two keep an eye
@@ -303,7 +303,7 @@ giving orders these days."
 
 The prince shrugged. "Thanks," he said, his voice breaking again. "But
 Sergeant Gyalpa is really in charge. You'll meet him when we get to
-town. And Sergeant Dambu too—she's the troop's magician. Mostly I
+town. And Sergeant Inambu too—she's the troop's magician. Mostly I
 just try to stay out of their way."
 
 "Well, it sounded pretty convincing to me," Noxy said. She lowered her
@@ -323,7 +323,7 @@ It was Noxy's turn to shrug. "She's all right, I guess. She's happy
 to be herding again instead of running things."
 
 The prince nodded. "Your letter said. I was surprised to hear she was
-no longer mayor."
+no longer reeve."
 
 "A lot of people are still angry about what happened," Noxy said, her
 eyes on the horizon. "So when Aft said he was going to stand, there
@@ -437,7 +437,7 @@ a year ago. No-one had seen him since. No-one expected to.
 
 The prince pretended not to notice the look on Noxy's face. "It's
 lucky this one didn't," he said. "The magician who was here before
-Sergeant Dambu refreshed it a few years ago, but she said she could
+Sergeant Inambu refreshed it a few years ago, but she said she could
 never re-cast it if it failed." He sighed. "And sooner or later it
 *will* fail. The only question is when."
 
@@ -522,7 +522,7 @@ gone up much in the months since.
 him.
 
 The prince jumped. "Not really. I meant to ask, any word from
-Sergeant Dambu?"
+Sergeant Inambu?"
 
 "Yes sir," the sergeant said, studying Cloak. "She and her troop got
 along back this afternoon. They were gone six days, near as they can
@@ -858,7 +858,7 @@ prince demanded, his voice breaking.
 
 The room seemed to still as the man who had entered two paces behind
 the consul bowed deeply. "Your Highness. How good to see you again."
-Captain Jinpa straightened and turned to Noxy. "And you as well,
+Captain Jigme straightened and turned to Noxy. "And you as well,
 Respected Noxious. I trust you are well."
 
 "I—I take it you've met?" Consul Yisu asked weakly, her eyes darting
@@ -867,7 +867,7 @@ two lions.
 
 "Yes," Prince Thokmay grated. "He murdered a friend of mine."
 
-Captain Jinpa coughed. "Not that I wish to begin my tenure as
+Captain Jigme coughed. "Not that I wish to begin my tenure as
 consul by disagreeing with my host, but Sergeant Dorbu's death was not
 murder."
 
@@ -876,7 +876,7 @@ same time.
 
 "How can you be consul? You're not Chaghan-o!" the prince continued.
 
-"I am now," Captain Jinpa replied calmly. "The Chaghan-o very
+"I am now," Captain Jigme replied calmly. "The Chaghan-o very
 graciously allowed me to take up land there after your father seized
 my holdings in Loghan. When Consul Yisu decided to retire, offering
 my services as her replacement seemed the least I could do to thank
@@ -884,8 +884,8 @@ them."
 
 If Noxy had been raised at court like Prince Thokmay, she might have
 noticed the angry look that briefly flitted across Consul Yisu's face
-when Captain Jinpa said she had decided to retire. As it was, she
-was too angry to notice anything, not even the way Manpa and Jinpa had
+when Captain Jigme said she had decided to retire. As it was, she
+was too angry to notice anything, not even the way Manpa and Rinpa had
 slipped into the room to stand casually by the door, very definitely
 *not* ready to draw their swords at the first hint of trouble.
 
@@ -893,14 +893,14 @@ slipped into the room to stand casually by the door, very definitely
 is find a cliff like the one you threw Sergeant Dorbu off and take a
 flying leap!"
 
-Captain Jinpa sighed theatrically. "I did not throw the sergeant
+Captain Jigme sighed theatrically. "I did not throw the sergeant
 off anything, Your Highness. We were fighting. It was difficult
 terrain, and he fell. I'm sorry it happened. I'm sorry for every
 single person or Gifted beast that died that day."
 
 "Sorry enough to come back to Stale for trial?" Noxy burst out.
 
-Captain Jinpa shook his head. "I very much doubt I would receive a
+Captain Jigme shook his head. "I very much doubt I would receive a
 fair hearing if I did so."
 
 "A fair—you don't deserve any kind of hearing! Let *go* of me!"
@@ -917,7 +917,7 @@ The prince nodded, his face years older than it had been just minutes
 ago. "I know he did. But as long as he's officially a guest of the
 king, Loghan-o law can't touch him."
 
-"Thank you, Your Highness." Captain Jinpa's hair was starting to
+"Thank you, Your Highness." Captain Jigme's hair was starting to
 gray, Noxy noticed, and he was thinner than he had been two years ago.
 She hoped it was more than just age. She hoped those two years had
 been as hard for him as they'd been for Fernando, whose broken leg had
@@ -941,7 +941,7 @@ depart?"
 "And I trust you will enjoy your stay in Apple Bridge, *Consul*,"
 Thokmay said to his other guest in a voice as cold as a mountain lake.
 
-Captain Jinpa inclined his head. "I hope so, Your Highness. I
+Captain Jigme inclined his head. "I hope so, Your Highness. I
 sincerely hope so."
 
 Sergeant Gyalpa had been standing at attention near one end of the
@@ -1184,7 +1184,7 @@ Was his name Apsu? The prince couldn't remember, though he prided
 himself on knowing names. He was so… tired…
 
 More boots pounded the planked stone corridor. "Your Highness, are you
-all right?" Sergeant Dambu asked before pulling herself up short and
+all right?" Sergeant Inambu asked before pulling herself up short and
 sniffing the air. "There's been a ghost here," she said flatly.
 
 The prince nodded. "I know," he mumbled, still shivering.
@@ -1203,7 +1203,7 @@ to choke down cold cauliflower soup…
 only his boots and a striped cotton nightshirt, but had his sword in
 his hand. "Your Highness, are you—"
 
-"It was Edward," Sergeant Dambu told him. "He passed along through
+"It was Edward," Sergeant Inambu told him. "He passed along through
 His Highness." She picked up a shard of dayglass from the desk and
 turned it over in her hand. "He's getting stronger."
 
@@ -1225,7 +1225,7 @@ bad."
 along and tell us straight?"
 
 "I'm so more worried as that he's coming clearer instead of fading,"
-Sergeant Dambu said, still turning the shard of dayglass over in her
+Sergeant Inambu said, still turning the shard of dayglass over in her
 hand. Her voice, soft and husky, seemed at odds with her skinny
 frame. "Should have moved along ages since, before we were either
 born. Why's he coming stronger? And how?"
@@ -1235,7 +1235,7 @@ stay in this world can't bode well for this town. I'll include a note
 to my father's magicians in my letter and ask for advice." He took a
 deep breath and let it out with a whoosh. "I'll do that now. It's not
 like I'm going to get to sleep any time soon. And Sergeant
-Dambu—let's speak first thing in the morning. It appears we have
+Inambu—let's speak first thing in the morning. It appears we have
 more to talk about than just what you found on your last patrol." He
 returned the two sergeants' salutes and good nights, swept the
 still-glowing dayglass into a pile in the corner of his desk, and fell
@@ -1255,7 +1255,7 @@ his bed, kicked off his boots, and was asleep by his third breath.
 
 The prince woke at dawn, still in his clothes, and groaned. He'd had
 a restless night—when Edward the Dog's memories hadn't been burbling
-in his head like a bad bean casserole, Captain Jinpa's calm smile
+in his head like a bad bean casserole, Captain Jigme's calm smile
 had mocked him. Loghan's relations with its neighbor had been shaped
 by half a dozen royal marriages, almost as many border wars, and the
 ever-present headache of the Blight. Sergeant Gyalpa was right:
@@ -1268,7 +1268,7 @@ He spent five minutes brushing the taste of dinner off his teeth
 before settling back at his desk. Almost immediately, someone knocked
 on the door to his suite. "Enter," he said loudly.
 
-Sergeant Dambu closed the door behind her and saluted. "Your
+Sergeant Inambu closed the door behind her and saluted. "Your
 Highness," she said, eyes downcast.
 
 "Sergeant." Prince Thokmay gestured at stool next to his desk. "Thank
@@ -1290,7 +1290,7 @@ on to see by where the led."
 
 "Could it have been a patrol from Chaghan?"
 
-Sergeant Dambu hesitated. "Not much likely, Your Highness," she said
+Sergeant Inambu hesitated. "Not much likely, Your Highness," she said
 after a moment. "If they were going to come along this far, they
 would have done with more trouble of themselves."
 
@@ -1312,7 +1312,7 @@ road into Apple Bridge impassable for months.
 
 That had been ten years ago. The fire was still burning.
 
-"Was there anything else?" the prince asked. When Sergeant Dambu
+"Was there anything else?" the prince asked. When Sergeant Inambu
 shook her head, he made another note. "All right, put it in the log."
 
 "Yes, Your Highness. Will that be all?"
@@ -1333,7 +1333,7 @@ some part of themselves to pay for it. Whether it was going blind to
 call a storm, or being unable to sleep under the same roof twice in
 exchange for healing a sick child, there was always a price.
 
-"Thank you, Your Highness," Sergeant Dambu said. She hadn't looked
+"Thank you, Your Highness," Sergeant Inambu said. She hadn't looked
 directly at him the whole time she had been in the room. He suspected
 that she never would, not unless she was willing to let some magic she
 had worked long ago fail. But that wasn't the sort of thing you asked
@@ -1515,22 +1515,22 @@ answered by another. As others joined in, two men materialized out of
 the crowd. "Your Highness?" the first said. "Your Highness, I think
 it's time to go."
 
-Noxy blinked. It was Jinpa, the soldier who'd been with the prince
+Noxy blinked. It was Rinpa, the soldier who'd been with the prince
 yesterday. And the other man, the one keeping an eye on the crowd
-while Jinpa gently took the wicker windmill that the princess had been
+while Rinpa gently took the wicker windmill that the princess had been
 playing with out of her hands and gave it back to the stallkeeper, was
 Manpa. Both wore sleeveless leather vests and baggy gray trousers
 instead of their uniform jackets.
 
 "Did I do something wrong?" Princess Ogmin asked plaintively.
 
-"No, no, no," Jinpa soothed. "It's just—how would you like to go
+"No, no, no," Rinpa soothed. "It's just—how would you like to go
 down to the river and see the barges? Would you like that?"
 
 She glanced at Dolly, who nodded. "All right." She brightened.
 "They sell beaver tails there too!"
 
-As Jinpa steered the princess and Dolly toward the river steps and
+As Rinpa steered the princess and Dolly toward the river steps and
 their guardian pillar, Noxy fell in beside Manpa. "What's going on?"
 she asked quietly.
 
@@ -1564,7 +1564,7 @@ lap.
 "Is that in case they get caught on a snag?" Noxy asked Dolly,
 pointing.
 
-The troll glanced at the princess, who was tugging on Jinpa's vest and
+The troll glanced at the princess, who was tugging on Rinpa's vest and
 pointing to where a fish had just splashed in the water. "Officially,"
 she replied in an undertone. "But there are thieves on the river.
 Most would think twice before trying to take a barge, but not all of
@@ -1575,7 +1575,7 @@ threw a few as well, but then felt a twinge in the back of her mind.
 Cloak was awake, and thirsty, and wondering where she was. *Soon*,
 she mind-spoke soothingly.
 
-When the princess finally declared that she was bored, Jinpa jogged up
+When the princess finally declared that she was bored, Rinpa jogged up
 the stairs, then waved for the others to join him. The shouting in
 the market had died down, the stallkeepers having lost interest in the
 aggrieved farmer's outrage as people showed up with money to spend.
@@ -1655,7 +1655,7 @@ The princess was standing in front of a dozen barrels of pressed
 apples with her hands over her mouth. An enormous brown bear was
 grumbling to herself in front of her, while the skinniest man Noxy had
 ever seen made patting motions in the air with his hands at Manpa and
-Jinpa, who had drawn their swords. "It's all right, it's all right,
+Rinpa, who had drawn their swords. "It's all right, it's all right,
 she's fine, she's fine," the skinny man fretted. Noxy wasn't sure
 whether he was talking about the princess or the bear.
 
@@ -1679,7 +1679,7 @@ sharply.
 
 "…my paw…" the bear muttered again.
 
-Prince Thokmay sighed and waved his free hand at Manpa and Jinpa and
+Prince Thokmay sighed and waved his free hand at Manpa and Rinpa and
 his bodyguards to sheathe their swords. "Are you all right?" he asked
 his sister gently.
 
@@ -1777,7 +1777,7 @@ cloud," she told the prince.
 He nodded. "I think that would be a good idea. Ogmin? I bet the
 cook has made biscuits…"
 
-As they walked toward the market gate, the prince muttered to Jinpa,
+As they walked toward the market gate, the prince muttered to Rinpa,
 "Have you ever seen him before?"
 
 "Don't think so, Your Highness," the soldier replied. "But Rust's been
@@ -1789,7 +1789,7 @@ bear's definitely in charge."
 "And people here are all right with that?" he asked, glancing
 meaningfully at Dolly.
 
-Jinpa shrugged. "I guess all right depends on who you're talking to.
+Rinpa shrugged. "I guess all right depends on who you're talking to.
 Back-mouthing a fully-grown bear's a heavy bit different than
 back-mouthing such as a troll or a pig or all."
 
@@ -1970,12 +1970,12 @@ away. She didn't need to be told twice—whatever was happening, she
 wanted to be well clear of it.
 
 Below her, the prince lowered his arm. "All good?" he asked,
-returning Jinpa's salute as the soldier halted in front of him.
+returning Rinpa's salute as the soldier halted in front of him.
 
-"Yes, Your Highness," Jinpa replied, slightly breathless. "The troll
+"Yes, Your Highness," Rinpa replied, slightly breathless. "The troll
 is minding her, and Manpa's stayed up as well."
 
-"Good. Sergeant Gyalpa, are you ready? Sergeant Dambu? Good.
+"Good. Sergeant Gyalpa, are you ready? Sergeant Inambu? Good.
 Remember, no one does anything until we find out what this is all
 about. Now, open the gate!"
 
@@ -2549,7 +2549,7 @@ tornado reached for him.
 "We're up here!" the prince yelled back without taking his eyes off
 the chase in front of him. "Come on, come *on*," he muttered.
 
-Sergeant Dambu stuck her head up through the skylight. A moment later
+Sergeant Inambu stuck her head up through the skylight. A moment later
 she clambered up onto the roof and saluted. "Sir. Sergeant Gyalpa
 sent along a runner, sir. Said you might be along by needing help."
 
@@ -2656,7 +2656,7 @@ already gone, pelting down the corridor with the water jug sloshing
 forgotten in her hand.
 
 She nearly collided with a couple of soldiers carrying a stretcher at
-the bottom of the stairs. Sergeant Dambu lay on it, her eyes open but
+the bottom of the stairs. Sergeant Inambu lay on it, her eyes open but
 her face so drawn that Noxy gasped.
 
 "'Scuse us, m'lady," the soldier in front said without breaking
@@ -2714,7 +2714,7 @@ And what was the garrison doing about it? What was the *prince* doing
 about it?
 
 When Noxy caught sight of him, the prince was arguing with Sergeant
-Gyalpa. Manpa and Jinpa stood next to him, eyes on the crowd and the
+Gyalpa. Manpa and Rinpa stood next to him, eyes on the crowd and the
 rooftops like sailors watching for signs of a storm.
 
 The prince stopped mid-sentence when he saw Noxy. "We'll discuss this
@@ -2750,7 +2750,7 @@ What if she'd been dreaming?
 As she opened her mouth, not knowing what she was going to say, the
 prince cut her off. "But right now I suppose you want to check on
 your cloud?" he asked loudly, glancing significantly at Manpa and
-Jinpa and then back at her.
+Rinpa and then back at her.
 
 "Um, yes, I should. Oh, um…" Without waiting for a reply, the
 prince had slipped his arm through hers and set off toward the back
@@ -3010,7 +3010,7 @@ hallway.
 Pacing back and forth in the entrance hall, the prince snarled, "She
 can't have just turned into a frog and hopped away! Can she?"
 
-"It's doubtful, Your Highness," Sergeant Dambu said, her eyes
+"It's doubtful, Your Highness," Sergeant Inambu said, her eyes
 downcast. "Magic along by that powerful would probably have woken me.
 And even if it din't, it would have given such to my apprentices as
 certain." She was standing, but only just, her face still drawn from
@@ -3021,7 +3021,7 @@ fretted. "She might have fallen in, or…or…"
 
 "Now, mother, I'm sure she's all right." Mope patted her shoulder
 awkwardly, even though he looked no less worried than she did. He
-glanced up as Noxy arrived, then spoke to Sergeant Dambu. "All of Her
+glanced up as Noxy arrived, then spoke to Sergeant Inambu. "All of Her
 Highness's belongings are up in her room. Can't you use them to find
 out where she's been taken?"
 
@@ -3087,7 +3087,7 @@ herself up onto Cloak's back.
 
 Noxy lay down flat and stretched out her arm. "Hurry up!"
 
-The orangutan hesitated a moment longer, then sighed and took the
+The chimpanzee hesitated a moment longer, then sighed and took the
 offered hand and clambered to sit beside Noxy. He swallowed loudly as
 Cloak began to rise.
 
@@ -3097,7 +3097,7 @@ worry, Cloak won't let you fall."
 They cleared the rooftops a moment later. "Do you see anything?" she
 asked.
 
-"Only the insides of my eyelids," the orangutan told her. Taking a
+"Only the insides of my eyelids," the chimpanzee told her. Taking a
 deep breath, he opeed his eyes and looked down. "What am I supposed to
 be looking for?"
 
@@ -3177,25 +3177,25 @@ his life telling everyone a prince shook his hand," he said to Noxy.
 "Around here, he'll spend the rest of his life telling everyone how it
 wasn't such a big deal."
 
-"Excuse me, Your Highness," Sergeant Dambu interrupted, "But you said
+"Excuse me, Your Highness," Sergeant Inambu interrupted, "But you said
 that the man in the market gave Her Highness a ribbon."
 
 "Yes, a blue one," the prince confirmed bitterly. "I thought he was
 just trying to earn some royal favor."
 
-"Do you still have it?" Sergeant Dambu asked.
+"Do you still have it?" Sergeant Inambu asked.
 
 The prince raised his eyebrows at Dolly. "I think so," she said. "Yes,
 I'm sure of it, it's upstairs on the princess's dresser."
 
 "If it could be brought down, I might be able to use it to find the
-princess," Sergeant Dambu said. Noxy could hear the reluctance in the
+princess," Sergeant Inambu said. Noxy could hear the reluctance in the
 magician's voice.
 
 Dolly didn't need any more urging. As she trotted up the stairs the
 sergeant called out, "And if Highness's hair brush could be brought
 down as well, it might also be useful." She turned to one of the
-soldiers standing beside her. "Jinpa, see if you can find my
+soldiers standing beside her. "Rinpa, see if you can find my
 apprentices. Have them meet me in the front courtyard in ten minutes."
 With a slight bow of her head to the prince, she added, "If you will
 excuse me, Your Highness? I need some time to prepare."
@@ -3206,14 +3206,14 @@ As she walked away, Sergeant Gyalpa observed gruffly, "Finding Her
 Highness could take a lot out of her."
 
 "Magic always does," the prince replied, staring down the hallway at
-Sergeant Dambu's back.
+Sergeant Inambu's back.
 
 Ten minutes later a dozen or more people stood by the water trough in
 the front courtyard of the garrison house. Some of the soldiers had
 put on their armor, as if they expected an invasion. Noxy spotted one
 with a coil of rope slung across his chest like a sash.
 
-Sergeant Dambu's two apprentices, both newly-recruited soldiers from
+Sergeant Inambu's two apprentices, both newly-recruited soldiers from
 Apple Bridge, watched her nervously as she took the rolled-up ribbon
 from Dolly and set it on a small piece of wood. "You have to be
 careful to put the fresh-cut end on the inside," the sergeant said,
@@ -3228,42 +3228,42 @@ wood. "Make sure nothing dangles," she said. "See? Nothing in the
 water to mix everything up." This block went in at the trough's other
 end.
 
-"Now…" Sergeant Dambu took a deep breath, then let it out with a
+"Now…" Sergeant Inambu took a deep breath, then let it out with a
 whoosh. The two blocks suddenly started speeding toward each other,
 moving so quickly that they each raised a small wake. They met in the
 middle of the trough with a *click!*
 
-Sergeant Dambu nodded. "She's with whoever has that roll of ribbon,"
+Sergeant Inambu nodded. "She's with whoever has that roll of ribbon,"
 she said.
 
 "Can you tell us where that is?" the prince asked, trying to keep his
 voice level.
 
-Sergeant Dambu nodded. "The green box," she said to one of her
+Sergeant Inambu nodded. "The green box," she said to one of her
 apprentices. "We'll try the easy way first."
 
 The apprentice opened the box. Inside, a dozen ordinary-looking stones
 lay in a tray, each with a neat hand-written label pasted beside
 it. The apprentice set the stones one by one on the edge of the
 trough, spacing them out as evenly as he could. As he did so, Sergeant
-Dambu took out the block with Ogmin's hair on it and handed it to her
+Inambu took out the block with Ogmin's hair on it and handed it to her
 other apprentice.
 
 "But—" The other apprentice looked confused. "Won't it be more
 accurate to look for Her Highness, rather than the ribbon?"
 
-"I think I know what I'm doing," Sergeant Dambu told her. "Of course,
+"I think I know what I'm doing," Sergeant Inambu told her. "Of course,
 if you'd like to repeat the test the other way yourself…"
 
 The apprentice swallowed. "No thank you, ma'am," she said. She stepped
 away from the trough.
 
-"Ready here, ma'am," the first apprentice said. Sergeant Dambu nodded
+"Ready here, ma'am," the first apprentice said. Sergeant Inambu nodded
 her head, then took another deep breath.
 
 Nothing happened, and then nothing, and then the block of wood started
 moving toward one side of the trough. When it hesitated, Sergeant
-Dambu said, "Take away the middle stone. No, not that one, the
+Inambu said, "Take away the middle stone. No, not that one, the
 *middle* one, to your left!"
 
 As soon as the apprentice did so, the block of wood nosed toward a
@@ -3277,7 +3277,7 @@ eyes widened. "She's in the Blight!"
 Dolly and Noxy gasped. Sergeant Gyalpa closed his eyes, then opened
 them again. "Don't worry, Your Highness," he said. "We'll find her."
 
-"That's right," the prince said distantly, his eyes on Sergeant Dambu.
+"That's right," the prince said distantly, his eyes on Sergeant Inambu.
 "We'll find her." He blinked suddenly, then nodded. "And we'll find
 who took her. Sergeant, I want every soldier you have on a horse in
 fifteen minutes. Full armor, and overnight packs. Manpa! Manpa,
@@ -3285,7 +3285,7 @@ where—there you are. Lay out my armor, and see whether we have any
 recent maps of that part of the Blight."
 
 As Sergeant Gyalpa and the other soldiers hurried away, the prince
-turned back to Sergeant Dambu. "Thank you," he said. "I hope… I hope
+turned back to Sergeant Inambu. "Thank you," he said. "I hope… I hope
 it didn't take too much."
 
 The sergeant sighed. "Do you remember your tenth birthday party?" she
@@ -3305,7 +3305,7 @@ you might need."
 Noxy hadn't realized just how many soldiers were in Apple Bridge until
 she saw them all standing at attention in rows in the front courtyard.
 She started counting, but stopped when Mope said, "Eighty, plus
-Sergeant Dambu and her two apprentices, and Erasmus over there. He's
+Sergeant Inambu and her two apprentices, and Erasmus over there. He's
 not part of the troop's regulation fighting strength any more, not
 since he lost that leg, but he keeps the horses happy."
 
@@ -3329,7 +3329,7 @@ then. Sergeant?"
 
 The prince waved at the men standing to his right. "These four squads
 will come with us. We'll leave the other four here with Sergeant
-Dambu."
+Inambu."
 
 "Yes, Your Highness," the sergeant replied.
 
@@ -3346,10 +3346,10 @@ tucking his helmet under his arm as he did so. He ran his fingers over
 his short, wiry hair as if to dry it. "How did I do?" he asked Mope,
 his voice cracking.
 
-"Well enough, I think, Your Highness," the orangutan reassured him.
+"Well enough, I think, Your Highness," the chimpanzee reassured him.
 
 "Are you sure it's wise to take so few, Your Highness?" a soft voice
-asked from behind Noxy. She jumped, startled. Sergeant Dambu was
+asked from behind Noxy. She jumped, startled. Sergeant Inambu was
 standing behind her. "It is, after all, your sister."
 
 "My father would want me to deal with this like a soldier," the prince
@@ -3357,7 +3357,7 @@ said to her evenly, "Not like a frightened child. Anything could
 happen if I leave too few here to guard the town." He studied the
 magician for a moment. "Are you…all right?"
 
-Sergeant Dambu nodded. "Yes, Your Highness. At least, I will be. But
+Sergeant Inambu nodded. "Yes, Your Highness. At least, I will be. But
 please, take both of my apprentices. I think I'll be able to take care
 of whatever might happen here in your absence."
 
@@ -3445,7 +3445,7 @@ decent meal in the last month.
 
 "That's him," the prince said. "Do they have bows?"
 
-"Not that I can see, Your Highness. Jinpa! Can you see any archers
+"Not that I can see, Your Highness. Rinpa! Can you see any archers
 among them?" the sergeant called.
 
 The soldier squinted for a moment, then called back, "No, sergeant,
@@ -3604,7 +3604,7 @@ they'd still hunt her down like an animal."
 
 "The prince would never do something like that," Dolly said firmly.
 
-"What about Dambu?" Mope asked. "She'd do it without a second
+"What about Inambu?" Mope asked. "She'd do it without a second
 thought!"
 
 They both froze as Noxy pushed the door open. Mope's rubbery lips were
@@ -3620,7 +3620,7 @@ speak.
 Mope hesitated. "If you don't tell her, I will," Dolly said, as if
 Mope was a badly-behaved child.
 
-The younger orangutan sighed. "I know the bear," he said reluctantly.
+The younger chimpanzee sighed. "I know the bear," he said reluctantly.
 "The one from the market, Rust—I recognized her from mother's
 description. She's—she's involved in politics. Just like me," he
 added, as if daring Noxy to laugh or criticize.
@@ -3713,7 +3713,7 @@ mother-of-pearl inlay in the handle. She could hear morning birds
 whistling at each other outside, and she wished more than anything
 that she was back in Stale.
 
-Finally Dolly said wearily, "Mope, we *have* to tell Sergeant Dambu
+Finally Dolly said wearily, "Mope, we *have* to tell Sergeant Inambu
 about Rust. There's no-one else left."
 
 "If she believes us, and I said 'if', she'll have every animal in
@@ -3951,8 +3951,8 @@ Noxy still didn't understand, but then suddenly she did, and her
 stomach went cold. "From the Blight?" Noxy gasped. "Someone was using
 Blight magic last night? Mope! Mope!"
 
-"Coming!" the orangutan called from two lanes away. Noxy heard a
-chicken squawk as the orangutan trod on it. "What have you found?"
+"Coming!" the chimpanzee called from two lanes away. Noxy heard a
+chicken squawk as the chimpanzee trod on it. "What have you found?"
 
 She grabbed his arm excitedly. "He says there was Blighted magic here
 last night," she hissed, nodding her head at Piqaluujaq. The Anuat
@@ -4012,7 +4012,7 @@ to catch up.
 "Blankets," Mope puffed. "And biscuits, and apple sauce."
 
 "I don't understand," Noxy said. They had slowed to a walk so that
-Mope could catch his breath. The orangutan stopped completely,
+Mope could catch his breath. The chimpanzee stopped completely,
 wheezing.
 
 "What, would, a, bear, do, with, blankets?" he gasped. "And how, would
@@ -4091,16 +4091,16 @@ tumbled past her end over end, like an axe thrown by a giant.
 
 She just had time to think that she would finally find out what it was
 like to fly when a big, hairy hand fastened onto her collar. "Don't
-let go!" Mope shouted in her ear. The orangutan grabbed the stairs
+let go!" Mope shouted in her ear. The chimpanzee grabbed the stairs
 with his other hand and both his feet. "Whatever you do, *don't let
 go!*"
 
 Something fluttered over them like a bird, then crashed to the ground
 in the middle of the parade courtyard. "There goes someone's laundry!"
-Mope shouted. "And look—there's Sergeant Dambu!"
+Mope shouted. "And look—there's Sergeant Inambu!"
 
 Noxy turned her head, scraping her cheek against the railing post. Up
-above the exit from the alley, she could see that Sergeant Dambu had
+above the exit from the alley, she could see that Sergeant Inambu had
 somehow climbed onto the roof of the middle wing of the garrison
 house. As Noxy watched, the sergeant stood up and raised her arms.
 
@@ -4110,19 +4110,19 @@ got!"
 The sergeant brought her hands together as if she were clapping. A
 sharp *crack!* cut through the sound of the tornado's winds. Noxy saw
 the tornado jerk as if it had been bitten. It leaped over a house and
-swept its tail at Sergeant Dambu.
+swept its tail at Sergeant Inambu.
 
 The sergeant reached up and grabbed the air in front of her, as if she
 was wrestling with an invisible opponent. Something pushed her back a
 step, and another. Noxy could see the tornado straining to reach her,
-held back as if by the invisible hands of a giant. Then Sergeant Dambu
+held back as if by the invisible hands of a giant. Then Sergeant Inambu
 twisted and spun around, whirling her arms in a wrestling throw.
 
 The tornado howled as it flew threw the air, tumbling end over end.
-Sergeant Dambu straightened up, raised her arms, and clapped again.
+Sergeant Inambu straightened up, raised her arms, and clapped again.
 *Crack!* The tornado doubled over.
 
-Sergeant Dambu raised her clasped hands over her head, bracing her
+Sergeant Inambu raised her clasped hands over her head, bracing her
 legs like a sailor in a rough sea. She spread her arms wide once more,
 then brought her hands together for the third time.
 
@@ -4135,7 +4135,7 @@ three times before she heard it.
 
 "Yes, I'm all right," she told him. She suddenly realized that her
 arms and back were aching from holding onto the stair railing. As the
-orangutan let go of her she scrambled to her feet.
+chimpanzee let go of her she scrambled to her feet.
 
 Splintered boards and branches, broken glass and gobs of mud… The
 garrison house's parade courtyard was covered with the remains of the
@@ -4143,7 +4143,7 @@ tornado's makeshift toys. Noxy stared at the destruction for a moment,
 then tried to shake free of Mope's grasp. "Let me go!" she
 protested. "I have to find Cloak!"
 
-"Never mind your cloud," the orangutan said. "Where's Sergeant Dambu?"
+"Never mind your cloud," the chimpanzee said. "Where's Sergeant Inambu?"
 The magician could no longer be seen on the roof of the old house.
 
 Noxy and Mope limped across the parade courtyard. They were almost at
@@ -4170,7 +4170,7 @@ tried to step past him. "Here, let me look at you."
 "I'm fine," Noxy said, pushing his hands away. "I have to talk to my
 cloud!"
 
-"Do you know what happened to Sergeant Dambu?" Mope asked from behind
+"Do you know what happened to Sergeant Inambu?" Mope asked from behind
 her.
 
 The soldier looked grim. "She's collapsed," he told them. "That spell,
@@ -4202,7 +4202,7 @@ The last of the sunlight had faded by the time she went back in the
 house. She found Mope in the kitchen, sweeping up broken glass with
 the cook and two of her assistants.
 
-"How is Sergeant Dambu?" Noxy asked.
+"How is Sergeant Inambu?" Noxy asked.
 
 Mope didn't look up. "Well enough to not want my company, or my
 mother's," he said shortly. He looked up at Noxy with hurt in his
@@ -4217,7 +4217,7 @@ exhausted. What's wrong? What's happened?"
 "The old barrel house," the soldier panted. "Down by the dock. The
 wall's caved in. There's people inside, we can hear them!"
 
-Mope turned to Noxy. "You go upstairs and tell Sergeant Dambu what we
+Mope turned to Noxy. "You go upstairs and tell Sergeant Inambu what we
 discovered," he ordered crisply. "And you, take me to the warehouse!"
 
 </section>
@@ -4284,7 +4284,7 @@ they had come.
 gestured with his sword toward a small clump of trees. "Twisted, like
 them. Something that looks like it's a hundred yards off can take you
 all day to get to. Or you can barely see it, but you ride for five
-minutes, and there you are. Sergeant Dambu said it's something to do
+minutes, and there you are. Sergeant Inambu said it's something to do
 with the way magic bends the light, and all." He shook his head. "I
 don't pretend to understand it."
 
@@ -4595,7 +4595,7 @@ mean, out there."
 "I couldn't either, Your Highness" the sergeant said. "You were just
 stumbling around, it looked like." He frowned. "I wonder… Sergeant
 
-Dambu said once that there were safe roads in the Blight. The Pilots
+Inambu said once that there were safe roads in the Blight. The Pilots
 built them so that they could cart stuff in to Fast Lake to dump
 it. Maybe this is what's left of one of those."
 
@@ -4614,7 +4614,7 @@ tornadoes. He must be planning something, but what?"
 ## Chapter 14: The Other Side of the Mirror
 
 Noxy took the stairs two at a time, but slowed to a walk as she got
-closer to Sergeant Dambu's door. She knocked hesitantly, then pushed
+closer to Sergeant Inambu's door. She knocked hesitantly, then pushed
 the door open.
 
 The room she stepped into was as large as her own, but seemed smaller.
@@ -4625,18 +4625,18 @@ of a run-down old farmhouse, and an oval mirror taller than Noxy
 hanging on the wall opposite the bed. A gentle breeze blew in past the
 open shutters on the room's single large window.
 
-"Sergeant Dambu?" Noxy asked the empty air, even though she could see
+"Sergeant Inambu?" Noxy asked the empty air, even though she could see
 no-one was present.
 
 "Noxy?" The cloudherd jumped and whirled around at the sound of a
 voice behind her.
 
 "Oh, I'm sorry, dear," Dolly said, patting her arm distractedly. "I
-didn't mean to startle you." The old orangutan looked around the room
+didn't mean to startle you." The old chimpanzee looked around the room
 curiously, just as Noxy had done a few moments before.
 
 "It's all right," Noxy replied a bit shakily. "Have you seen Sergeant
-Dambu?"
+Inambu?"
 
 "No, I haven't. The soldiers downstairs said you'd come up to look for
 her."
@@ -4664,7 +4664,7 @@ Dolly stood absolutely still for a moment. When she spoke, the tone of
 her voice reminded Noxy of Sergeant Gyalpa. "All right," she said.
 "I'll get some clothes for her, and some proper food."
 
-"I'll wait here and tell Sergeant Dambu," Noxy nodded. The orangutan
+"I'll wait here and tell Sergeant Inambu," Noxy nodded. The chimpanzee
 hurried away.
 
 Noxy took a deep breath. Cloak was feeling stronger—Noxy hadn't lied
@@ -4674,7 +4674,7 @@ could imagine what Grappa Diego or Aft would say if they ever found
 out…
 
 She was still worrying about it when the oval mirror next to Sergeant
-Dambu's cot went *bloop* and began to ripple, like a pond that someone
+Inambu's cot went *bloop* and began to ripple, like a pond that someone
 had just thrown a pebble into. For one wild second Noxy was sure that
 she was dreaming, that the whole day must have been just a dream.
 Without thinking she took a step forward. "Ouch!" she whimpered as she
@@ -4691,8 +4691,8 @@ just banged her shin against and flattened herself on the dusty wooden
 floor.
 
 She lay there, afraid to move, afraid even to breathe, until she heard
-the skinny smuggler groan and get to his feet. "Dambu?" he whispered
-loudly. "Dambu, girl, where are you? Eh?"
+the skinny smuggler groan and get to his feet. "Inambu?" he whispered
+loudly. "Inambu, girl, where are you? Eh?"
 
 Noxy saw the smuggler's feet under the edge of the sheet as he tiptoed
 past the her to the door. The door's hinges creaked slightly as he
@@ -4702,7 +4702,7 @@ heel, while the other had a delicate pattern of copper buttons
 stitched around the sole, and looked like it had just been
 polished. *I can guess where you came from,* she thought.
 
-Sergeant Dambu's cot creaked as the smuggler sat down on it. Noxy's
+Sergeant Inambu's cot creaked as the smuggler sat down on it. Noxy's
 mind raced. Dolly would be back any moment. If she found Muddh, the
 smuggler would have to—
 
@@ -4710,13 +4710,13 @@ The door creaked open. "Ah, finally!" Muddh said. Noxy heard him get
 to his feet. "I was just wondering if I should go down to the kitchen
 and see about some dinner."
 
-"They'd feed you your own ears if you did," Sergeant Dambu said. Noxy
+"They'd feed you your own ears if you did," Sergeant Inambu said. Noxy
 could hear the weariness in her voice. "Do you have any idea what that
 monster of yours has done to this town?"
 
 "Oh, they needed an excuse for a good clean-up anyway, didn't they?"
 Noxy saw Muddh's mismatched boots again. He stopped a few feet in
-front of Sergeant Dambu. "I'm more worried about what it did to
+front of Sergeant Inambu. "I'm more worried about what it did to
 *you*," he said, doing his best to sound concerned.
 
 "Nothing good," the sergeant replied shortly. She made to step past
@@ -4725,7 +4725,7 @@ toe-to-toe.
 
 "Let me look at you…" he said softly. There was a pause, and then
 
-Noxy heard him say, "Oh, Dambu. Dambu, girl—you shouldn't have done
+Noxy heard him say, "Oh, Inambu. Inambu, girl—you shouldn't have done
 this. Not this. Not for them."
 
 "You didn't leave me much choice," the sergeant replied. "There would
@@ -4734,11 +4734,11 @@ have been nothing left of this town but mud by the time it was done."
 "But girl, there's not even going to be mud left by the time we're
 done. You know that!" Muddh sounded amused.
 
-Sergeant Dambu was silent. "And I'm afraid that's the bad news I'm
+Sergeant Inambu was silent. "And I'm afraid that's the bad news I'm
 here to give you," the smuggler continued. "I'm not going to be able
 to finish this on my own. I'm going to need your help."
 
-Sergeant Dambu snorted. "Mine? Look at me, Muddh—look at me. Here,
+Sergeant Inambu snorted. "Mine? Look at me, Muddh—look at me. Here,
 would you like one as a souvenir?"
 
 "Shh, shh," Muddh said soothingly, even as he stepped back. "Don't do
@@ -4750,7 +4750,7 @@ hugged the sergeant.
 *If the door wasn't closed, I could get past them now,* Noxy thought.
 *Oh, Dolly, be careful…*
 
-"What happened, anyway?" Sergeant Dambu asked.
+"What happened, anyway?" Sergeant Inambu asked.
 
 "Turns out the Blight didn't like us much," Muddh replied. "And after
 all we're going to do for it—shows you what kind of gratitude you
@@ -4760,7 +4760,7 @@ sorry, girl, but it's gone—the land swallowed it up." He made a
 gulping noise to illustrate. "We're going to have to do this the hard
 way."
 
-There was a moment of silence. "What do you mean?" Sergeant Dambu
+There was a moment of silence. "What do you mean?" Sergeant Inambu
 asked hollowly, as if she already knew the answer, but still had some
 hope that she was wrong.
 
@@ -4772,7 +4772,7 @@ time. Once we can get to the lake and back out again without turning
 into dust, you'll have all the magic you've ever wanted, all the magic
 you've ever dreamed of. It'll be just those stories Dad used to
 tell. You'll have the power of the stars, the wind, the, the, I don't
-know, the whole *ocean*! But you have to break that dam. Dambu, you
+know, the whole *ocean*! But you have to break that dam. Inambu, you
 have to. We're so close."
 
 "I can't," the magician told him faintly. "Not now. There are five
@@ -4784,7 +4784,7 @@ troop with him, that wouldn't be a problem," Muddh snarled. "Can you
 order them away? Can you, I don't know, can you send them to look for
 what's-her-name, the girl?"
 
-"I could…" Sergeant Dambu said slowly. "Or I could have them help
+"I could…" Sergeant Inambu said slowly. "Or I could have them help
 clear up the mess your tornado made. If I gave them their orders in
 ones and twos, they wouldn't realize the dam's been left unguarded."
 Noxy saw the sergeant's feet walk over to the cot, and heard it creak
@@ -4792,13 +4792,13 @@ as she sat down. "I'm just so tired…"
 
 Noxy held her breath, then sloowwwwly slid forward so that she could
 peek under the sheet and see what was happening in the room. Muddh
-was fishing around in his pack. Sergeant Dambu was looking at her
+was fishing around in his pack. Sergeant Inambu was looking at her
 reflection in the mirror he had come through. Finally Muddh said,
 "Aha!" He pulled a small black cloth bag out of his pack, loosened
 the drawstring, and pulled out a clear glass marble.
 
 He frowned at it. "Almost empty, almost," he muttered. He sniffed at
-it, then held it out to Sergeant Dambu. "Do you think there's enough
+it, then held it out to Sergeant Inambu. "Do you think there's enough
 left for another trip?" he asked.
 
 "I don't know," the sergeant said dully.
@@ -4807,18 +4807,18 @@ left for another trip?" he asked.
 picked up one of the pebbles that rattled onto the desk, sniffed at
 it, then licked it as if it were a piece of candy. "Nope," he said. He
 picked up another. "Definitely not. Ah, here we are." He showed
-Sergeant Dambu the pebble he had selected. "The back wall of the old
+Sergeant Inambu the pebble he had selected. "The back wall of the old
 farmhouse. Remember how we used to hide there when it was time to do
 chores?"
 
-"Did we?" Sergeant Dambu said, sounding for a moment like the little
+"Did we?" Sergeant Inambu said, sounding for a moment like the little
 girl she had once been, back before the Blight took her home away from
 her. "I wish—I wish I could remember."
 
 "I'll do the remembering for both of us," Muddh promised. "For as
 long as I have to. But that won't be much longer, will it?"
 
-Sergeant Dambu blinked and heaved a deep sigh. "What are you doing?"
+Sergeant Inambu blinked and heaved a deep sigh. "What are you doing?"
 she asked, as if waking from a deep sleep.
 
 "We can't take any chances, not now," the skinny smuggler said. He
@@ -4834,7 +4834,7 @@ just remembered it. Whatever you say, make sure you send them along
 the south road. The *south* road, all right? We'll wait for them where
 the road comes around what used to be Aunt Angela's place."
 
-Sergeant Dambu sighed again. "Do we have to?" she asked.
+Sergeant Inambu sighed again. "Do we have to?" she asked.
 
 "No," the smuggler said uncaringly, "But it's the safest card to
 play." He leaned over and kissed her cheek. "I'll see you when it's
@@ -4845,11 +4845,11 @@ pebble underhanded into the mirror. Instead of bouncing off, they made
 a slight *gloop*. Once again ripples spread across the mirror. Muddh
 stepped into them and disappeared.
 
-Sergeant Dambu waited a few seconds, then stood up, crossed over to
+Sergeant Inambu waited a few seconds, then stood up, crossed over to
 the desk, picked up her sword, and drew it. "You can come out now,
 Noxy," she said quietly.
 
-Noxy held her breath, but didn't move. Sergeant Dambu waited a second,
+Noxy held her breath, but didn't move. Sergeant Inambu waited a second,
 then flipped the sheet up with her sword. "I saw you in the mirror,"
 she said tiredly. "Now come out. And please, don't try to yell." The
 sergeant hefted the sword. "It's been a while since I had to use one
@@ -4857,16 +4857,16 @@ of these, but you know what they say—once you learn, you never
 forget."
 
 Noxy edged out from underneath the dresser. As she did so, Sergeant
-Dambu stepped sideways to stay between Noxy and the door.
+Inambu stepped sideways to stay between Noxy and the door.
 
 They studied each other for a few heartbeats while Noxy dusted herself
-off. Sergeant Dambu spoke first. "Aren't you going to ask me why?"
+off. Sergeant Inambu spoke first. "Aren't you going to ask me why?"
 
 "I really don't care," Noxy said bitterly. "All I care about is that
 you're going to hurt a lot of people. A *lot* of people. And my cloud,
 too."
 
-Sergeant Dambu smiled faintly. "And all I care about is what's under
+Sergeant Inambu smiled faintly. "And all I care about is what's under
 Fast Lake. Muddh's shown me things, things I never knew were
 possible. He found a spirit trap, just a hoop of copper with some
 wires on it. Do you know what it did? It let the person a spell was
@@ -4875,10 +4875,10 @@ that would mean! Just think what it would be like to be able to do
 magic without—without—" She put her hand to her mouth and
 tugged. "Without this!"
 
-Noxy looked away from the tooth that Sergeant Dambu was holding out.
+Noxy looked away from the tooth that Sergeant Inambu was holding out.
 "And that's worth killing everyone in Apple Bridge?" she asked.
 
-"That's worth anything," Sergeant Dambu said, without hesitation,
+"That's worth anything," Sergeant Inambu said, without hesitation,
 without a trace of doubt in her voice. "Justice is worth whatever it
 costs."
 
@@ -4886,7 +4886,7 @@ costs."
 innocent people!?"
 
 "Where's the justice in magicians having to scrape themselves down to
-the bone, year after year, for other people's sake?" Sergeant Dambu
+the bone, year after year, for other people's sake?" Sergeant Inambu
 snapped back. "And where's the justice in spending your whole life
 just trying to keep a lid on some garbage that some magician who was
 dead two hundred years before I was born couldn't be bothered to clean
@@ -4897,7 +4897,7 @@ in the way."
 Noxy crossed her arms. "What are you going to do? Put me to sleep for
 a hundred years?"
 
-"No," Sergeant Dambu said, tired again. "I'm going to tie you up. I
+"No," Sergeant Inambu said, tired again. "I'm going to tie you up. I
 can't afford to waste any magic putting a spell on you right now."
 
 Noxy edged over to the cot and sat down. Without looking away from
@@ -4905,7 +4905,7 @@ her, the sergeant reached down to open her kit bag, then pulled out a
 coil of heavy twine. "Put out your hands," she ordered Noxy. "On
 second thought, stand up, so that I can—"
 
-The door burst open with a bang. Sergeant Dambu whirled around,
+The door burst open with a bang. Sergeant Inambu whirled around,
 raising her sword, but Dolly ducked under it. Before Noxy could fill
 her lungs to scream, Dolly grabbed her by the waist, slung her over a
 shoulder, and leaped through the open window.
@@ -4925,7 +4925,7 @@ that I think about it, I don't think I was ever young enough."
 
 "Did you hear them? Did you?" Noxy demanded.
 
-Dolly nodded. Noxy could hear the old orangutan's breath rasping in
+Dolly nodded. Noxy could hear the old chimpanzee's breath rasping in
 and out. "Just…just the last bit. About…about sending the soldiers
 away."
 
@@ -4935,12 +4935,12 @@ away."
 
 Noxy opened her mouth to say, "We'll tell the soldiers," then closed
 it again. Dolly was right. It would be their word against Sergeant
-Dambu's.
+Inambu's.
 
 "What—spell—" Dolly tried to say.
 
 "It's all right, don't talk," Noxy said to her, suddenly concerned.
-The old orangutan's eyes were wide, and Noxy could see her chest
+The old chimpanzee's eyes were wide, and Noxy could see her chest
 heaving. She reached out impulsively and put her arms around her
 rescuer. "Thank you," she said softly, hugging Dolly.
 
@@ -5433,7 +5433,7 @@ Noxy's feet dangled in the air. "Is it all right, dear?" Dolly asked.
 
 "Yes," Noxy said breathlessly. "You can let go."
 
-The orangutan released her arm. She dropped into the alley with an
+The chimpanzee released her arm. She dropped into the alley with an
 *oomph!* Dolly landed down beside her a moment later.
 
 "Are you hurt?" she asked in a concerned voice.
@@ -5463,7 +5463,7 @@ she reached the other end of the alley, two squads of soldiers were
 already lined up in the main courtyard. More came running into their
 places as she watched.
 
-Sergeant Dambu stood in front of them with her head and shoulders
+Sergeant Inambu stood in front of them with her head and shoulders
 bowed. She was leaning on a walking stick, and seemed oblivious to
 the noise around her. *She must have used magic to make her whistle
 louder,* Noxy thought.
@@ -5479,10 +5479,10 @@ her around. "Who do you think they'll believe, us or her?"
 
 "But we have to try!" Noxy pleaded. "The smugglers will kill them!"
 
-"They'll believe their sergeant before they'll believe an orangutan
+"They'll believe their sergeant before they'll believe an chimpanzee
 and a foreign girl," Dolly said resignedly.
 
-When Sergeant Dambu spoke, her voice was too weak to carry to the
+When Sergeant Inambu spoke, her voice was too weak to carry to the
 alley. All Noxy and Dolly heard were a few disjointed words:
 "…hill… call… help… wounded… quickly…" Then the soldiers
 saluted and ran for the stables, leaving the sergeant standing alone
@@ -5491,19 +5491,19 @@ in the middle of the courtyard.
 "Come on!" Noxy hissed. Once again Dolly had to grab her and hold her
 back.
 
-"What do you think you're doing?" the orangutan asked. "She's still
+"What do you think you're doing?" the chimpanzee asked. "She's still
 strong enough to make the whistle that we heard. Do you think she
 won't have enough strength to put you to sleep, or make you mute?"
 
 "But we have to do something!" Noxy protested. Out on the square,
-Sergeant Dambu looked up tiredly. Dolly and Noxy froze as the magician
+Sergeant Inambu looked up tiredly. Dolly and Noxy froze as the magician
 glanced around, then shook her head and started walking toward the
 gateway.
 
 "Mope will know what to do," Noxy said suddenly. "He went down to the
 warehouses to help rescue someone."
 
-They waited until Sergeant Dambu had left the courtyard, then waited a
+They waited until Sergeant Inambu had left the courtyard, then waited a
 few heartbeats longer. "Ready?" Noxy whispered. Dolly nodded. "All
 right, let's go." They ran across the courtyard to the archway and out
 into the street.
@@ -5575,7 +5575,7 @@ a doctor."
 the sergeant. She—" Dolly cut herself off as the leek seller and the
 other man lifted the wounded man to carry him out.
 
-The younger orangutan sat back on his haunches. "What has she done
+The younger chimpanzee sat back on his haunches. "What has she done
 now?" he asked wearily. "Are we all under curfew?"
 
 "No, worse." His mother dropped her voice. "Noxy and I heard her
@@ -5599,7 +5599,7 @@ Muddh can get to it," Noxy explained. "There's magic there that works
 in reverse, kind of. It takes strength from the people it works on,
 instead of from the magician casting the spell."
 
-Noxy wouldn't have thought that an orangutan's face could go pale the
+Noxy wouldn't have thought that an chimpanzee's face could go pale the
 way that Mope's did. "So it *does* exist…" he whispered. "There are
 stories—old stories, nightmares. That's what finally brought the sky
 down on the Pilots. Someone invented a kind of magic that took from
@@ -5608,7 +5608,7 @@ took more than the magic was worth. They used it on themselves until
 they'd used each other up."
 
 "Well, Muddh has one, whatever it is," Noxy said. "And now Sergeant
-Dambu's sent the soldiers out of town. Mope, she's could be at the dam
+Inambu's sent the soldiers out of town. Mope, she's could be at the dam
 right now! She might already have started!"
 
 "I wondered what that whistle was about," Mope muttered. He looked up
@@ -5616,7 +5616,7 @@ at Noxy. "Is your cloud strong enough to fly yet?" he asked.
 
 Noxy nodded. Mope stood up with a grunt. "Good. You go and warn the
 soldiers. Mother and I will figure out some way to stop Sergeant
-Dambu."
+Inambu."
 
 Dolly stretched up onto her tiptoes to kiss the cloudherd on the
 cheek. "Be careful, dear."
@@ -5630,7 +5630,7 @@ hands.
 
 Cloak rose into the air, slowly at first and then faster. In a few
 heartbeats Noxy was up above the rooftops. She glanced at the dam, but
-couldn't see Sergeant Dambu. "Fast!" she mind-spoke at Cloak. They
+couldn't see Sergeant Inambu. "Fast!" she mind-spoke at Cloak. They
 turned south and started flying above the road that led to the Blight.
 
 Noxy crept forward until she was right at the cloud's edge. The
@@ -5705,7 +5705,7 @@ prince needs us."
 
 "No, wait! That's not true! It was a trick!" Noxy saw the doubt on the
 soldier's face, and on the other faces that had turned up to look at
-her. She took a deep breath. "Sergeant Dambu is working with the
+her. She took a deep breath. "Sergeant Inambu is working with the
 smugglers. I don't know where Prince Thokmay is, but you have to get
 back to Apple Bridge right away. She's going to try to break the
 spells on the dam!"
@@ -5734,7 +5734,7 @@ short. "What's that?" he asked, clocking his head to one side. "That
 sound…" He looked grim. "She's chanting. It's started."
 
 They ran as fast as their awkward gait would carry them to the dam
-road. As they came around the last corner, they saw Sergeant Dambu
+road. As they came around the last corner, they saw Sergeant Inambu
 standing in the middle of the wooden walkway that ran along the top of
 the dam. Her arms were raised, and her voice echoed around them with
 unnatural clarity. The air in front of her shimmered with a faint blue
@@ -5745,19 +5745,19 @@ road, hefted it, and threw it at the sergeant as hard as he could. He
 grabbed two more while the first was still in the air and charged onto
 the walkway.
 
-His first stone hit Sergeant Dambu in the shoulder. She stumbled
+His first stone hit Sergeant Inambu in the shoulder. She stumbled
 forward, nearly falling off the dam into the Trout below. Mope threw
-another stone on the run. Sergeant Dambu ducked, but the stone went
+another stone on the run. Sergeant Inambu ducked, but the stone went
 wide anyway.
 
 The sergeant straightened up and made a backhanded gesture at
 Mope. The rock that had hit her leaped into the air and flew at
 Mope. It hit Mope in the middle of his chest with the force of a
-hammer, knocking him off his feet. Sergeant Dambu gestured again, and
+hammer, knocking him off his feet. Sergeant Inambu gestured again, and
 a thin sheet of flame raced across the dam. Mope rolled sideways with
 a yelp, feeling a blast of heat as the fire singed his hair.
 
-He scrambled onto his feet. Sergeant Dambu had drawn her sword. Mope
+He scrambled onto his feet. Sergeant Inambu had drawn her sword. Mope
 feinted left, then right, then lunged at her. The point of her sword
 followed his every move. He had to pull up short to avoid being
 spitted.
@@ -5765,7 +5765,7 @@ spitted.
 "It looks like a stand-off," he puffed. "I can't get past your blade,
 but you can't look away from me to cast your spells."
 
-"I don't have to look away," Sergeant Dambu said. "I just have to give
+"I don't have to look away," Sergeant Inambu said. "I just have to give
 it a bit… more… *effort*…"
 
 Suddenly the air started to sparkle again, brighter and brighter. Mope
@@ -5777,7 +5777,7 @@ break.
 
 "You'll kill us both!" Mope shrieked.
 
-"Small… price…" Sergeant Dambu gasped. Mope heard something splash
+"Small… price…" Sergeant Inambu gasped. Mope heard something splash
 in the river below, and heard a bellow of triumph as whatever it was
 broke through the spells and headed down the Trout. The smell in the
 air around him was getting stronger and stronger.
@@ -5786,15 +5786,15 @@ Mope feinted again, but the sergeant's swordpoint followed him like a
 cobra. He took a deep breath—
 
 —and a pale form on four legs bounded past him and leaped for the
-sergeant's throat. Sergeant Dambu screamed as Edward's ghost slammed
+sergeant's throat. Sergeant Inambu screamed as Edward's ghost slammed
 into her, knocking her onto her knees.
 
 "*My* town!" the ghost snarled. It leaped at her again, howling as
-Sergeant Dambu's sword cut deep into its shoulder. Ghostly blood
+Sergeant Inambu's sword cut deep into its shoulder. Ghostly blood
 poured out of the wound like smoke. The dog howled. It gathered itself
 up for one last leap—
 
-—and Dolly swung up onto the bridge behind Sergeant Dambu, waddled
+—and Dolly swung up onto the bridge behind Sergeant Inambu, waddled
 forward two steps, and thumped her hard on the back of the head.
 
 The sergeant dropped like a sack of potatoes. The sparkles in the air
@@ -5805,8 +5805,8 @@ throat. It raised its nose and sniffed the air, then half-turned its
 head toward Mope. "Humans," it snorted as its began to fade. "They
 just don't understand…"
 
-"Mother! Mother, are you all right?" The younger orangutan hopped
-awkwardly over Sergeant Dambu and hugged his mother. They were both
+"Mother! Mother, are you all right?" The younger chimpanzee hopped
+awkwardly over Sergeant Inambu and hugged his mother. They were both
 crying, he realized. When had he started crying?
 
 "Oh, Mope," Dolly sniffed. "I thought—I thought I was going to lose
@@ -5926,12 +5926,12 @@ wave…"
 
 "Oh, the dam, the dam," Muddh said with a wave of his hand. "The dam
 is still there, I dare say. The river would be a *lot* more lively
-right now if Dambu had managed to bring it down. It's a shame—we
+right now if Inambu had managed to bring it down. It's a shame—we
 worked a long time for this."
 
-"Dambu?" the prince said blankly. "Sergeant Dambu?"
+"Inambu?" the prince said blankly. "Sergeant Inambu?"
 
-"Oh, yes, *Sergeant* Dambu," Muddh agreed. He sighed. "I don't
+"Oh, yes, *Sergeant* Inambu," Muddh agreed. He sighed. "I don't
 suppose she could have survived. She got that from our mother, you
 know. She never learned how to give up either."
 
@@ -6131,7 +6131,7 @@ which I trust you have by now received. Unless I am instructed
 otherwise, I shall commend him to future patrons.*
 
 Although I probably won't need to do so soon, Thokmay added
-mentally. He had tried to talk the orangutan out of leaving, but Mope
+mentally. He had tried to talk the chimpanzee out of leaving, but Mope
 had made up his mind. "It's time I did something as myself," Mope had
 said, his face even longer than usual. "I've been trying to train you
 like the circus man trained my father. It's time I did a few of my own
@@ -6139,7 +6139,7 @@ tricks for a change."
 
 "Where will you go?" Thokmay asked.
 
-The orangutan twiddled his big toes. "Former or Latter Tongsa,
+The chimpanzee twiddled his big toes. "Former or Latter Tongsa,
 perhaps, or Chaghan. Or maybe even Garheim. Anyone can argue the law
 in Garheim."
 
@@ -6157,7 +6157,7 @@ into better shape, you can." On an impulse he hugged his tutor.
 
 "I'll miss you," he said softly.
 
-The orangutan hugged him back clumsily. "And I you, Your Highness," he
+The chimpanzee hugged him back clumsily. "And I you, Your Highness," he
 said. "You had a pretty good sense of humor, for a human."
 
 The ink on Thokmay's pen had dried. He wiped it carefully on a scrap of
@@ -6237,7 +6237,7 @@ then let her go. "But only if you help Dolly pack, all right?"
 "I'll help!" she promised. She ran out of the room. "Did you hear? Did
 you?" he heard her say.
 
-It wasn't Dolly who answered. "What's 'home'?" Dambu asked
+It wasn't Dolly who answered. "What's 'home'?" Inambu asked
 uncertainly. Prince Thokmay stared down at his letter as Princess
 Ogmin tried to explain. The sergeant had been unconscious for two
 entire days after the fight at the dam. When she had awaken, her mind
@@ -6247,7 +6247,7 @@ had been slow. She seemed to remember nothing of her former life, and
 her former apprentices said she probably never would.
 
 Princess Ogmin was still in the middle of her description of the
-wonderful things to eat in the capital when Dambu interrupted. "Do you
+wonderful things to eat in the capital when Inambu interrupted. "Do you
 think we should call this one Rose?" she asked. "Or Lily?" The prince
 could imagine her holding up one of Ogmin's many dolls.
 
