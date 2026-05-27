@@ -26,7 +26,7 @@ When the last battle was over the remaining Pilots disappeared,
 leaving the world to carry on as best it could.*
 
 *Now look there,
-in the north,
+toward the bow,
 where the Brumoso Mountains rise above the endless squabbles of the Ninety Kingdoms.
 It is Redsday, the 11th of Peridot, 1272 Years Since,
 and a girl who is no longer a child but not quite yet a woman
@@ -316,7 +316,8 @@ Narrow streets wound between camel pens, vegetable plots, and racks laden with d
 and even from a distance Noxy could hear
 the soft musical clang of the windchimes that hung by every door.
 
-To the west the fortress wall dropped straight into a steep-sided gorge.
+On the port side,
+the fortress wall dropped straight into a steep-sided gorge.
 A net woven from spider thread stretched over its top,
 as light as a dream but as strong as steel.
 Another net hung down at the gorge's mouth to make a gate.
@@ -2712,7 +2713,7 @@ When bulls battled each other in the dead of winter,
 the snow fell so thick and so fast that people had to string ropes between the
 houses to find their way.
 And in the summer,
-when nimbus clouds that had stayed in the north to give birth flew south to rejoin their herds,
+when nimbus clouds that had stayed bowwards to give birth flew sternwards to rejoin their herds,
 the sky could darken in the time it took to sing a nursery rhyme.
 When that happened,
 the villagers knew it was time to tie their shutters closed and get the goofs into their pens,
@@ -3867,5 +3868,191 @@ They held each other for a moment,
 one wondering when the other had gotten so big,
 the other wondering when the first had gotten so small,
 and then Noxy left.
+
+</section>
+<section markdown="1">
+
+## Chapter 5
+
+Noxy woke before dawn tangled in her duvet.
+The coarse cotton sheet beneath her was soaked with sweat,
+and her hair—best not to think about her hair.
+She had been dreaming again.
+The troll she had met in the forest had been talking to her.
+So had the trees,
+except they hadn't been talking so much as *being*
+in a way that meant… something.
+She groaned and rolled over as it slipped away from her.
+
+She stared at the wall,
+then sighed and extricated herself from her duvet.
+She felt exhausted,
+but she knew she wouldn't be able to get back to sleep,
+and she could hear Granna Fee and her mother in her head:
+"If you don't know what to do, do something useful."
+
+Half an hour later she had (quietly) swept the downstairs floor
+and mended the sleeve on Indy's second-best shirt.
+The sky was brightening,
+though it would still be a while before the sun climbed over the mountains sternward.
+She could get the seeds out of another bucket of thimbleberries,
+or she could go for a short ride on Pillow or Big Blue
+and deal with the thimbleberries later.
+It only took a moment to decide:
+this was basically extra time,
+so it wasn't like she was actually shirking chores,
+and after what had happened to Thokmay yesterday,
+she wanted—she wasn't sure what she wanted,
+but sitting at the kitchen table wasn't it.
+
+She was halfway across the square before she noticed the two soldiers standing by the gate.
+One was Private Kechen,
+her expression as blank as ever as she watched Noxy approach.
+She couldn't remember the other one's name,
+but at least he knew how to smile,
+so he was the one she spoke to.
+"Good morning."
+
+The soldier nodded.
+"Good morning, honored.
+Looks like it's going to be a beautiful day."
+
+"I hope so."
+She hesitated.
+'What are you doing here?' sounded like something Aft would say
+to start an argument,
+so instead she tried,
+"Are you just out to enjoy the sunrise?"
+
+The soldier glanced at Private Kechen, who shook her head.
+"Sergeant's orders.
+He wants us to keep watch."
+She jerked her chin toward the Quick Tower.
+Following her gesture,
+Noxy saw two more soldiers on its parapet.
+
+*Uh oh,* Noxy thought.
+"Keep watch for what?"
+
+The soldier whose name she didn't know shrugged.
+"Doesn't want the *tralpa* running away again, I guess.
+It's pretty normal."
+
+*Not here it isn't,* Noxy thought.
+She really wanted to go and lie on a cloud and not think about anything important for a while,
+but it didn't look like that was going to happen today.
+
+Her mother was downstairs waiting for the kettle to boil when Noxy burst through the door.
+In the two sentences it took her to explain what she had seen,
+Indy's expression went from warm and relaxed to what Rash had once (but only once) called her ice queen face.
+"I'll get dressed," was all the reeve said.
+
+Sergeant Dorbu was waiting for them at the gate.
+Noxy didn't think that was just by chance.
+He gave a brief bow as they approached and said, "Good morning, honored."
+
+"Not so far," Indy snapped.
+"I think I would remember if I had asked you to turn Stale into a prison."
+
+"Nobody is a prisoner," the soldier said calmly.
+"But given what happened yesterday, I just want to be sure that—"
+
+"What you *want* isn't the concern."
+Noxy's breath caught.
+Her mother *never* interrupted people.
+"What matters is that I am the reeve here,
+and you and your soldiers are guests.
+Guests don't stand around with swords in their hands."
+
+The corner of Sergeant Dorbu's mouth quirked up.
+"Their swords are actually sheathed, but I recognize that's not the point.
+The truth is,
+we are very grateful for your hospitality—we might well have died
+if you hadn't rescued us—but unless you can guarantee that
+nobody else is going to try to do what the *tralpa* did,
+my soldiers are going to stay where they are."
+
+The look Indy gave him would have frozen a dragon's breath.
+"I'll arrange to have some supplies delivered to the trading hall,"
+she said.
+"I trust you and your troops can take care of cooking it?"
+
+The sergeant gave her another small bow.
+"Thank you, reeve.
+And for what it's worth—"
+But Indy was already walking away with Noxy hurrying after her.
+
+Noxy wasn't surprised to hear Grappa Gas take the sergeant's side
+over a cup of tea a few minutes later.
+She was equally unsurprised when Aft burst in and demanded that Indy do something.
+"Order them to leave, that's what!" he said,
+slapping the table with his hand.
+
+For once,
+his father didn't needle him.
+"And when they say no?" he asked quietly.
+"The thing about being reeve is,
+you're only in charge as long as everyone believes you are."
+
+Aft glared at Grappa Gas but didn't respond.
+All of a sudden Noxy felt like a crayfish stuck in a trap.
+She stood up and set her undrunk tea on the table.
+"I'm going to go spend some time with *appa*," she said.
+"I'll take care of the thimbleberries when I get back, I promise."
+
+Her mother caught her hand and squeezed it as she went by.
+"Say hello for me.
+Tell him I miss him."
+
+Stale's memorial grove stood portside of the village.
+Hundreds of trees in neat rows looked down on the village:
+twisted pines planted in the ashes from funeral pyres
+and slim blue firs to commemorate those lost in flight
+or taken by the forest.
+There were no markers to record the names of the dead:
+when Rash had explained tombstones to her,
+she had wondered why anyone would need them
+unless nobody cared enough about them to remember their names.
+
+It was a quiet place,
+and she felt a slight chill in the deep shade.
+She let her feet take her to her father's tree
+and stopped in front of it with her hands in her pockets.
+The tree's branches had bright green tips.
+She never knew how to start…
+
+"Hi, *appa*," she said quietly.
+"I, uh, I guess it's been a while since I talked to you.
+*Amma* says to tell you that she misses you,
+and,
+and I do too."
+
+She took a deep breath.
+"A lot's happened.
+There are some soldiers here,
+and a tiger.
+We saved them from the forest,
+but now it feels like they're taking over."
+
+Sensy and Rash, her strange dreams, Thokmay falling into the pond,
+the way she could talk to clouds without touching them—she rambled on
+until she couldn't think of anything more to say.
+Every time she caught herself rubbing her forearm she stuck her hands back in her pockets.
+When she finally wound down she wiped her eyes on her sleeve.
+"I really miss you, *appa*.
+I promise I'll come back soon."
+
+She turned to leave,
+then froze as something rustled in the branches
+a few dozen strides deeper into the grove.
+The trees were older and taller there,
+and the path overgrown.
+For a moment she wondered if it was Kulbinder,
+but why would he be here?
+Unless he was following her?
+
+"Hello?" she called.
+Suddenly frightened,
+she turned around and squeaked as a troll dropped out of the tree onto the path.
 
 </section>
