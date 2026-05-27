@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proofs</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a class="active" href="../proof/">Proofs</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Proofs</h1>
+<div class="callout">
+<ul>
+<li>Express facts as types and proofs as values using <code>theorem</code> and <code>Prop</code></li>
+<li>Prove equalities and arithmetic facts with <code>rfl</code>, <code>omega</code>, and <code>simp</code></li>
+<li>Use <code>decide</code> to check concrete decidable propositions at compile time</li>
+<li>Structure multi-step proofs with <code>have</code>, <code>calc</code>, and <code>induction</code></li>
+</ul>
+</div>
+<ul>
+<li>Lean is not just a programming language: it is a proof assistant</li>
+<li>The same type system that checks your data shapes can check mathematical facts</li>
+</ul>
+<h2>Propositions are Types</h2>
+<div data-inc="prop_as_type.lean"><span aria-label="Source: proof/prop_as_type.lean" class="inc-path" role="img" tabindex="0" title="proof/prop_as_type.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="o">(</span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="o">(</span><span class="mi">5</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="n">True</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="n">False</span>
+</code></pre></div>
+</div>
+<div data-inc="prop_as_type.out"><span aria-label="Source: proof/prop_as_type.out" class="inc-path" role="img" tabindex="0" title="proof/prop_as_type.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>1 + 1 = 2 : Prop
+5 &gt; 3 : Prop
+True : Prop
+False : Prop
+</code></pre></div>
+</div>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#proposition">proposition</a> is a claim that may be true or false</li>
+<li>In Lean, propositions are types: <code>1 + 1 = 2</code> has type <code>Prop</code></li>
+<li><code>Prop</code> is the type of all logical claims<ul>
+<li>Like Python's <code>bool</code> but checked by the compiler, not at runtime</li>
+</ul>
+</li>
+<li><code>True</code> and <code>False</code> are also <code>Prop</code> values in the prelude</li>
+</ul>
+<h2>Proofs are Values</h2>
+<div data-inc="rfl_proof.lean"><span aria-label="Source: proof/rfl_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/rfl_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">onePlusOne</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">concatStr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"hi"</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="s2">"!"</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="s2">"hi!"</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">onePlusOne</span>
+</code></pre></div>
+</div>
+<div data-inc="rfl_proof.out"><span aria-label="Source: proof/rfl_proof.out" class="inc-path" role="img" tabindex="0" title="proof/rfl_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>onePlusOne : 1 + 1 = 2
+</code></pre></div>
+</div>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#proof_term">proof term</a> is a value whose type is a proposition</li>
+<li><code>theorem</code> is like <code>def</code> but the value being defined is a proof<ul>
+<li><code>theorem onePlusOne : 1 + 1 = 2</code> says "define a proof that <code>1 + 1 = 2</code>"</li>
+</ul>
+</li>
+<li><code>by rfl</code> is a <a class="gl-ref" href="../glossary/#tactic">tactic</a>: a command that constructs a proof automatically<ul>
+<li><code>rfl</code> stands for "reflexivity": both sides reduce to the same value</li>
+</ul>
+</li>
+<li><code>#check @onePlusOne</code> shows the type of the proof (the proposition itself)<ul>
+<li>In Lean, some arguments are <em>implicit</em>: the type-checker infers them automatically
+    rather than requiring the caller to supply them</li>
+<li><code>@</code> makes all implicit arguments explicit so <code>#check</code> shows the full type signature</li>
+<li>For <code>onePlusOne</code>, which has no implicit arguments, the output is the same either way</li>
+<li>This is like checking the type of a function with <code>#check</code></li>
+</ul>
+</li>
+</ul>
+<h2>When <code>rfl</code> Fails</h2>
+<div data-inc="rfl_fails.lean"><span aria-label="Source: proof/rfl_fails.lean" class="inc-path" role="img" tabindex="0" title="proof/rfl_fails.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- rfl only works when both sides reduce to the same value</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">wrong</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+</code></pre></div>
+</div>
+<div data-inc="rfl_fails.out"><span aria-label="Source: proof/rfl_fails.out" class="inc-path" role="img" tabindex="0" title="proof/rfl_fails.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>error: type mismatch
+  rfl
+has type
+  2 = 2 : Prop
+but is expected to have type
+  1 + 1 = 3 : Prop
+</code></pre></div>
+</div>
+<ul>
+<li><code>rfl</code> only works when both sides reduce to the same value by computation</li>
+<li><code>1 + 1 = 3</code> is false, so <code>rfl</code> fails with a type mismatch error<ul>
+<li>The error shows what <code>rfl</code> proved (<code>2 = 2</code>) vs. what was needed (<code>1 + 1 = 3</code>)</li>
+</ul>
+</li>
+<li>That's a reasonable error message for once</li>
+</ul>
+<h2>The <code>omega</code> Tactic</h2>
+<div data-inc="omega_proof.lean"><span aria-label="Source: proof/omega_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/omega_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">addComm</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">gtZero</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">noNegNat</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="bp">¬</span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">addComm</span>
+</code></pre></div>
+</div>
+<div data-inc="omega_proof.out"><span aria-label="Source: proof/omega_proof.out" class="inc-path" role="img" tabindex="0" title="proof/omega_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>addComm : ∀ (a b : ℕ), a + b = b + a
+</code></pre></div>
+</div>
+<ul>
+<li><code>omega</code> is a decision procedure for linear arithmetic over <code>Nat</code> and <code>Int</code><ul>
+<li>It can prove any true fact that involves only <code>+</code>, <code>-</code>, comparisons, and constants</li>
+<li>Named after the <a class="gl-ref" href="../glossary/#omega_test">Omega test</a> from the 1990s</li>
+</ul>
+</li>
+<li>Works with universally quantified statements: <code>(a b : Nat)</code> means "for all <code>a</code> and <code>b</code>"<ul>
+<li>Like Python's <code>def</code> parameters, but the function returns a proof, not a value</li>
+</ul>
+</li>
+<li><code>¬(n &lt; 0)</code> is the notation for "not <code>n &lt; 0</code>" (type <code>\neg</code>)<ul>
+<li>Lean rejects false arithmetic claims even if you ask nicely</li>
+</ul>
+</li>
+<li><code>rfl</code>, <code>omega</code>, <code>simp</code>, <code>decide</code>, and <code>induction</code> are built into Lean 4: no import needed<ul>
+<li><code>ring</code>, <code>linarith</code>, and <code>norm_num</code> require <code>import Mathlib.Tactic</code></li>
+</ul>
+</li>
+</ul>
+<h2>The <code>simp</code> Tactic</h2>
+<div data-inc="simp_proof.lean"><span aria-label="Source: proof/simp_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/simp_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">nilAppend</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">([]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">simp</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">appendNil</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">simp</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">listLen</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">simp</span>
+</code></pre></div>
+</div>
+<div data-inc="simp_proof.out"><span aria-label="Source: proof/simp_proof.out" class="inc-path" role="img" tabindex="0" title="proof/simp_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li><code>simp</code> is a simplification tactic: it rewrites the goal using known <a class="gl-ref" href="../glossary/#lemma">lemmas</a></li>
+<li>Knows basic list facts: empty list append, list length from literals</li>
+<li>If <code>simp</code> leaves subgoals unsolved, combine it with <code>omega</code>: <code>simp; omega</code></li>
+<li><code>simp</code> is powerful but opaque: you don't always see which rules it used<ul>
+<li>For teaching purposes, prefer <code>omega</code> or <code>rfl</code> when they work</li>
+</ul>
+</li>
+</ul>
+<h2>The <code>decide</code> Tactic</h2>
+<div data-inc="decide_proof.lean"><span aria-label="Source: proof/decide_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/decide_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">mem3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">∈</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">decide</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">mod7</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">decide</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">mem3</span>
+</code></pre></div>
+</div>
+<div data-inc="decide_proof.out"><span aria-label="Source: proof/decide_proof.out" class="inc-path" role="img" tabindex="0" title="proof/decide_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>mem3 : 3 ∈ [1, 2, 3, 4]
+</code></pre></div>
+</div>
+<ul>
+<li><code>decide</code> works for propositions that have a decidable algorithm<ul>
+<li>List membership, modular arithmetic, boolean comparisons</li>
+</ul>
+</li>
+<li>Only works for concrete values, not for universally quantified statements<ul>
+<li><code>3 ∈ [1, 2, 3, 4]</code> is decidable; <code>∀ n, n ∈ ns</code> is not</li>
+<li><code>∀ n, n ∈ ns</code> means "every natural number is in <code>ns</code>", which is always false for a finite list</li>
+<li>More importantly, checking it would require testing infinitely many values of <code>n</code>;
+    <code>decide</code> needs a finite computation, so there is no way to enumerate all <code>Nat</code> values</li>
+</ul>
+</li>
+<li>If <code>decide</code> times out, the proposition is probably too large to enumerate</li>
+</ul>
+<h2>Using <code>have</code></h2>
+<div data-inc="have_steps.lean"><span aria-label="Source: proof/have_steps.lean" class="inc-path" role="img" tabindex="0" title="proof/have_steps.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">sumThree</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="k">have</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="w">  </span><span class="k">have</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="w">  </span><span class="n">omega</span>
+</code></pre></div>
+</div>
+<div data-inc="have_steps.out"><span aria-label="Source: proof/have_steps.out" class="inc-path" role="img" tabindex="0" title="proof/have_steps.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li><code>have h : P := by tactic</code> introduces an intermediate step named <code>h</code><ul>
+<li>Like a <code>let</code> binding but for propositions instead of values</li>
+<li>Once proved, <code>h</code> can be used as a hypothesis in the remaining proof</li>
+</ul>
+</li>
+<li>Breaking a proof into named steps makes it easier to read and debug<ul>
+<li>Like decomposing a complex function into helper functions</li>
+</ul>
+</li>
+<li><code>omega</code> at the end closes the goal using all available hypotheses<ul>
+<li>After the two <code>have</code> steps, the proof state contains <code>h1 : 1 + 2 = 3</code>,
+    <code>h2 : 3 + 3 = 6</code>, and the original goal <code>1 + 2 + 3 = 6</code></li>
+<li><code>omega</code> treats all of these as a system of arithmetic constraints:
+    substituting <code>h1</code> into the goal gives <code>3 + 3 = 6</code>, which is exactly <code>h2</code></li>
+</ul>
+</li>
+</ul>
+<h2>Hypotheses in Theorems</h2>
+<div data-inc="hypotheses.lean"><span aria-label="Source: proof/hypotheses.lean" class="inc-path" role="img" tabindex="0" title="proof/hypotheses.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">positiveSum</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">ha</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="n">a</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">hb</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="n">b</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">bounded</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">positiveSum</span>
+</code></pre></div>
+</div>
+<div data-inc="hypotheses.out"><span aria-label="Source: proof/hypotheses.out" class="inc-path" role="img" tabindex="0" title="proof/hypotheses.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>positiveSum : ∀ (a b : ℤ), 0 &lt; a → 0 &lt; b → 0 &lt; a + b
+</code></pre></div>
+</div>
+<ul>
+<li>A theorem can take propositions as parameters: <code>(ha : 0 &lt; a)</code><ul>
+<li>These are hypotheses: facts the caller must supply</li>
+</ul>
+</li>
+<li>The source uses named-parameter syntax <code>(ha : 0 &lt; a)</code>, but the output of
+    <code>#check @positiveSum</code> renders each hypothesis as <code>→</code>:
+    <code>∀ (a b : ℤ), 0 &lt; a → 0 &lt; b → 0 &lt; a + b</code><ul>
+<li>This is why <code>A → B</code> in Lean means "given a proof of A, produce a proof of B"</li>
+<li>Function arrows and logical implication are the same thing in Lean</li>
+<li>Calling <code>positiveSum</code> with two integers and two proofs returns a proof of the conclusion</li>
+</ul>
+</li>
+</ul>
+<h2><code>calc</code> Chains</h2>
+<div data-inc="calc_proof.lean"><span aria-label="Source: proof/calc_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/calc_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">sixViaTwo</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="k">calc</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">    </span><span class="bp">_</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">6</span><span class="w">   </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+
+<span class="kn">theorem</span><span class="w"> </span><span class="n">boundsCheck</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">5</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="k">calc</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">    </span><span class="bp">_</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">    </span><span class="bp">_</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">10</span><span class="w">    </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+</code></pre></div>
+</div>
+<div data-inc="calc_proof.out"><span aria-label="Source: proof/calc_proof.out" class="inc-path" role="img" tabindex="0" title="proof/calc_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li><code>calc</code> is equational reasoning: a chain of steps where each links to the last<ul>
+<li><code>_</code> on the left of each step refers to the right-hand side of the previous step</li>
+<li>Each step ends with <code>:= by tactic</code></li>
+</ul>
+</li>
+<li>Like a chain of <code>assert a == b; assert b == c</code> statements in Python<ul>
+<li>But the compiler verifies that each link is correct</li>
+</ul>
+</li>
+<li>Use <code>calc</code> when you need different tactics for different steps, or when intermediate
+    steps make the reasoning explicit</li>
+<li>In <code>sixViaTwo</code>: <code>rfl</code> cannot prove <code>2 + 4 = 4 + 2</code> because <code>rfl</code> only succeeds when
+    both sides reduce to the same value by computation — Lean evaluates <code>2 + 4</code> to <code>6</code>
+    directly, but does not reorder addends, so <code>2 + 4</code> and <code>4 + 2</code> are not definitionally
+    equal even though they name the same number<ul>
+<li><code>omega</code> handles the reordering; then <code>4 + 2 = 6</code> is definitionally true, so <code>rfl</code> closes it</li>
+</ul>
+</li>
+<li><code>boundsCheck</code> shows a three-step chain mixing <code>=</code> and <code>≤</code>:
+    rewrite <code>n + n</code> as <code>2 * n</code>, apply the hypothesis <code>n ≤ 5</code> to bound it, then compute <code>2 * 5</code></li>
+</ul>
+<h2>Induction</h2>
+<div data-inc="induction_proof.lean"><span aria-label="Source: proof/induction_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/induction_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">theorem</span><span class="w"> </span><span class="n">zeroAdd</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="n">induction</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">zero</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">rfl</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">succ</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">ih</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">omega</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">zeroAdd</span>
+</code></pre></div>
+</div>
+<div data-inc="induction_proof.out"><span aria-label="Source: proof/induction_proof.out" class="inc-path" role="img" tabindex="0" title="proof/induction_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>zeroAdd : ∀ (n : ℕ), 0 + n = n
+</code></pre></div>
+</div>
+<ul>
+<li>In Lean, <code>Nat</code> is defined inductively: every natural number is either <code>zero</code> (0) or
+    <code>Nat.succ n</code> (the successor of <code>n</code>, i.e., <code>n + 1</code>)<ul>
+<li><code>2</code> is <code>Nat.succ (Nat.succ Nat.zero)</code>; <code>3</code> is one more <code>succ</code> on top of that</li>
+<li>This mirrors mathematical induction: to prove <code>P n</code> for all <code>n</code>, prove <code>P 0</code> (base case)
+    and prove that <code>P n</code> implies <code>P (n + 1)</code> (step case)</li>
+</ul>
+</li>
+<li><code>induction n with</code> splits into cases matching the <code>inductive</code> definition of <code>Nat</code><ul>
+<li><code>zero</code> case: prove the base claim</li>
+<li><code>succ n ih</code> case: prove the step, using induction hypothesis <code>ih</code></li>
+</ul>
+</li>
+<li>This is why the keyword is <code>inductive</code>: you can reason about types by induction<ul>
+<li>The same principle that lets you recurse over lists works for proofs</li>
+</ul>
+</li>
+<li><code>omega</code> in the <code>succ</code> case closes the goal using the induction hypothesis from context<ul>
+<li><code>ih : 0 + n = n</code> is a linear arithmetic fact; <code>omega</code> applies it automatically</li>
+<li>"Linear" means no variable is multiplied by another variable; the expression involves
+    only addition, subtraction, and constants, which <code>omega</code> is designed to handle</li>
+</ul>
+</li>
+</ul>
+<h2>Anonymous Proofs</h2>
+<div data-inc="example_proof.lean"><span aria-label="Source: proof/example_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/example_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">example</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="kn">example</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+</code></pre></div>
+</div>
+<div data-inc="example_proof.out"><span aria-label="Source: proof/example_proof.out" class="inc-path" role="img" tabindex="0" title="proof/example_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li><code>example</code> is an anonymous theorem: like <code>theorem</code> but with no name<ul>
+<li>Useful for quick checks without cluttering the namespace</li>
+<li>Unlike <code>#guard</code>, which checks a value at runtime, <code>example</code> checks a type</li>
+</ul>
+</li>
+<li>Multiple <code>example</code> statements don't conflict even if they prove the same thing<ul>
+<li>Named theorems like <code>theorem foo : ...</code> go into the namespace; two theorems with the
+    same name produce a duplicate-definition error</li>
+<li><code>example</code> has no name, so it never enters the namespace and cannot conflict</li>
+<li>Use them freely for exploration</li>
+</ul>
+</li>
+</ul>
+<h2>The <code>ring</code> Tactic</h2>
+<div data-inc="ring_proof.lean"><span aria-label="Source: proof/ring_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/ring_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Mathlib</span><span class="bp">.</span><span class="n">Tactic</span>
+
+<span class="kn">theorem</span><span class="w"> </span><span class="n">mulComm</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ring</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">distribLeft</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="o">(</span><span class="n">b</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">c</span><span class="o">)</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ring</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">squareSum</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="o">)</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="o">)</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ring</span>
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">mulComm</span>
+</code></pre></div>
+</div>
+<div data-inc="ring_proof.out"><span aria-label="Source: proof/ring_proof.out" class="inc-path" role="img" tabindex="0" title="proof/ring_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>mulComm : ∀ (a b : ℕ), a * b = b * a
+</code></pre></div>
+</div>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#ring">ring</a> is an algebraic structure with addition and multiplication that obeys
+    familiar rules: commutativity, associativity, distributivity, and identity elements (0 and 1)<ul>
+<li>Integers, natural numbers, and polynomials are all rings</li>
+</ul>
+</li>
+<li><code>ring</code> proves identities in commutative rings:
+    expressions involving <code>+</code>, <code>*</code>, <code>-</code>, and numeric literals<ul>
+<li><code>omega</code> handles linear arithmetic; <code>ring</code> handles polynomial algebra</li>
+<li>Not a Lean 4 built-in: requires <code>import Mathlib.Tactic</code></li>
+</ul>
+</li>
+<li><code>mulComm</code> shows multiplication commutativity<ul>
+<li><code>omega</code> cannot prove this because it involves variable * variable</li>
+</ul>
+</li>
+<li><code>squareSum</code> expands <code>(a + b) * (a + b)</code> symbolically<ul>
+<li>Like calling <code>expand()</code> in a <a class="gl-ref" href="../glossary/#computer_algebra_system">computer algebra system</a>:
+    the system rewrites <code>(a + b)^2</code> into <code>a^2 + 2ab + b^2</code> symbolically</li>
+</ul>
+</li>
+<li>The boundary: use <code>omega</code> for anything linear (no variable × variable); use <code>ring</code> for polynomials</li>
+</ul>
+<h2>Why This Matters</h2>
+<div data-inc="check_proof.lean"><span aria-label="Source: proof/check_proof.lean" class="inc-path" role="img" tabindex="0" title="proof/check_proof.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Prove that byte values stay below 256 when each input is below 128</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">safeByteAdd</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">ha</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">128</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">hb</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">128</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+
+<span class="c1">-- Verify a hexadecimal constant matches its decimal value at compile time</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">hexDecimal</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">decide</span>
+
+<span class="c1">-- Prove a list of valid HTTP status codes has the expected length</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">successCodes</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">200</span><span class="o">,</span><span class="w"> </span><span class="mi">201</span><span class="o">,</span><span class="w"> </span><span class="mi">202</span><span class="o">,</span><span class="w"> </span><span class="mi">204</span><span class="o">]</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">fourSuccessCodes</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">successCodes</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">decide</span>
+</code></pre></div>
+</div>
+<div data-inc="check_proof.out"><span aria-label="Source: proof/check_proof.out" class="inc-path" role="img" tabindex="0" title="proof/check_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li>Lean's proof tactics can verify invariants at compile time, catching bugs before they reach runtime</li>
+<li><code>omega</code> proves that arithmetic stays within safe bounds given input constraints<ul>
+<li><code>safeByteAdd</code> guarantees that adding two sub-128 values never overflows a byte:
+    this is a statement the compiler checks, not a runtime assertion that can be skipped</li>
+<li>Any caller that passes values outside the stated bounds will not type-check</li>
+</ul>
+</li>
+<li><code>decide</code> verifies that named constants match their intended values<ul>
+<li>A mismatch between <code>0xFF</code> and <code>255</code> becomes a compile-time error rather than a
+    latent bug discovered during a code review or test failure</li>
+</ul>
+</li>
+<li><code>decide</code> also checks properties of small configuration tables<ul>
+<li>If a new status code is added to <code>successCodes</code> without updating the count,
+    <code>fourSuccessCodes</code> fails at build time rather than silently at runtime</li>
+</ul>
+</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: False Equality</h3>
+<div data-inc="ex_bug_rfl.lean"><span aria-label="Source: proof/ex_bug_rfl.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_rfl.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: this theorem is false</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">wrong</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>2 + 2 = 5</code> is false; no tactic can prove it</li>
+<li>Change the right-hand side to the correct value: <code>4</code></li>
+</ul>
+</details>
+<h3>Fix: False Arithmetic Claim</h3>
+<div data-inc="ex_bug_omega.lean"><span aria-label="Source: proof/ex_bug_omega.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_omega.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: this theorem is false; omega correctly rejects it</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">claim</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>n + 1 &lt; n</code> is false for every natural number: <code>omega</code> correctly rejects it</li>
+<li>Change the claim to something true, like <code>n &lt; n + 1</code></li>
+</ul>
+</details>
+<h3>Fix: Wrong List Length</h3>
+<div data-inc="ex_bug_simp.lean"><span aria-label="Source: proof/ex_bug_simp.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_simp.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: the list has the wrong length in this claim</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">len3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">simp</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>[1, 2, 3]</code> has length <code>3</code>, not <code>4</code></li>
+<li>Change the expected length to <code>3</code> and <code>simp</code> will succeed</li>
+</ul>
+</details>
+<h3>Fix: Element Not in List</h3>
+<div data-inc="ex_bug_decide.lean"><span aria-label="Source: proof/ex_bug_decide.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_decide.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: 5 is not in this list</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">mem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">∈</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">decide</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>5</code> is not in <code>[1, 2, 3]</code>; <code>decide</code> will reject a false membership claim</li>
+<li>Either add <code>5</code> to the list, or change the element to one that is already in the list</li>
+</ul>
+</details>
+<h3>Fix: Wrong Intermediate Step</h3>
+<div data-inc="ex_bug_have.lean"><span aria-label="Source: proof/ex_bug_have.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_have.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: the intermediate step asserts the wrong value</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">sumTwo</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="k">have</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
+<span class="w">  </span><span class="n">omega</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The <code>have</code> step claims <code>10 + 20 = 31</code>, which is false</li>
+<li><code>rfl</code> will reject it — fix the claim to <code>10 + 20 = 30</code></li>
+<li>Once the intermediate step is correct, <code>omega</code> can close the goal</li>
+</ul>
+</details>
+<h3>Fix: False Arithmetic in Induction Exercise</h3>
+<div data-inc="ex_bug_induction.lean"><span aria-label="Source: proof/ex_bug_induction.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_bug_induction.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: this claim is false; omega correctly rejects it</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">alwaysGrows</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>n + 1 &gt; n + 1</code> says "strictly greater than itself", which is never true</li>
+<li>Change the claim to <code>n + 1 &gt; n</code>, which <code>omega</code> can prove directly</li>
+</ul>
+</details>
+<h3>Write: Commutativity of Addition</h3>
+<div data-inc="ex_add_comm.lean"><span aria-label="Source: proof/ex_add_comm.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_add_comm.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: replace 'sorry' with the right tactic</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">addComm</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">addComm</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with <code>omega</code></li>
+<li><code>omega</code> handles commutativity of addition over natural numbers directly</li>
+</ul>
+</details>
+<h3>Write: Double Equals Twice</h3>
+<div data-inc="ex_double_eq.lean"><span aria-label="Source: proof/ex_double_eq.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_double_eq.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: replace 'sorry' with the right tactic</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">doubleEq</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with <code>omega</code></li>
+<li><code>n + n = 2 * n</code> is a linear arithmetic fact; <code>omega</code> handles it</li>
+</ul>
+</details>
+<h3>Write: Modular Arithmetic by <code>decide</code></h3>
+<div data-inc="ex_decide_mod.lean"><span aria-label="Source: proof/ex_decide_mod.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_decide_mod.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: replace 'sorry' with the right tactic</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">mod5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with <code>decide</code></li>
+<li><code>17 % 5 = 2</code> is a concrete numerical fact; <code>decide</code> verifies it by computation</li>
+</ul>
+</details>
+<h3>Write: Empty List Append</h3>
+<div data-inc="ex_simp_nil.lean"><span aria-label="Source: proof/ex_simp_nil.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_simp_nil.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: replace 'sorry' with the right tactic</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">nilLeft</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">([]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with <code>simp</code></li>
+<li><code>simp</code> knows that <code>[] ++ xs = xs</code> and applies it automatically</li>
+</ul>
+</details>
+<h3>Write: Two-Step <code>calc</code> Proof</h3>
+<div data-inc="ex_calc_chain.lean"><span aria-label="Source: proof/ex_calc_chain.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_calc_chain.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: use calc to prove 3 + 4 = 7 in two steps</span>
+<span class="c1">-- Step 1: 3 + 4 = 4 + 3  (by omega)</span>
+<span class="c1">-- Step 2: 4 + 3 = 7      (by rfl)</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">calcExample</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with a <code>calc</code> block</li>
+<li>Step 1: <code>3 + 4 = 4 + 3 := by omega</code></li>
+<li>Step 2: <code>_ = 7 := by rfl</code></li>
+</ul>
+</details>
+<h3>Write: Zero Is a Lower Bound</h3>
+<div data-inc="ex_named_theorem.lean"><span aria-label="Source: proof/ex_named_theorem.lean" class="inc-path" role="img" tabindex="0" title="proof/ex_named_theorem.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: prove that 0 is less than or equal to any Nat</span>
+<span class="kn">theorem</span><span class="w"> </span><span class="n">geZero</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="gr">sorry</span>
+
+<span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">geZero</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>sorry</code> with <code>omega</code></li>
+<li><code>0 ≤ n</code> for <code>Nat</code> is always true because <code>Nat</code> cannot be negative</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../build">Building Projects</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

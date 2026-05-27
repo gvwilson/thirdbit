@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Building Projects</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a class="active" href="../build/">Building Projects</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Building Projects</h1>
+<div class="callout">
+<ul>
+<li>Run single-file Lean programs from the command line with <code>lean</code></li>
+<li>Create and configure multi-file projects with Lake</li>
+<li>Write a lakefile to define executables and libraries</li>
+<li>Import code from other files in the same project with <code>import</code></li>
+<li>Add external package dependencies with <code>require</code></li>
+</ul>
+</div>
+<ul>
+<li>So far we have run Lean files one at a time</li>
+<li>Real projects have multiple files, dependencies, and build steps</li>
+</ul>
+<h2>Single-File Programs</h2>
+<div data-inc="single_file.lean"><span aria-label="Source: build/single_file.lean" class="inc-path" role="img" tabindex="0" title="build/single_file.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello from a single file!"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"2 + 2 = {2 + 2}"</span>
+</code></pre></div>
+</div>
+<div data-inc="single_file.out"><span aria-label="Source: build/single_file.out" class="inc-path" role="img" tabindex="0" title="build/single_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello from a single file!
+2 + 2 = 4
+</code></pre></div>
+</div>
+<ul>
+<li>Run a single Lean file from the terminal with <code>lean filename.lean</code><ul>
+<li>Like <code>python script.py</code></li>
+</ul>
+</li>
+<li><code>def main : IO Unit</code> is the entry point<ul>
+<li>Lean executes <code>main</code> when you run the compiled file</li>
+</ul>
+</li>
+<li>For experiments and learning, single files are fine<ul>
+<li>For anything larger, use <a class="gl-ref" href="../glossary/#lake">Lake</a></li>
+</ul>
+</li>
+</ul>
+<h2>What Is Lake?</h2>
+<ul>
+<li>Lake is Lean's build system and package manager<ul>
+<li>Like Python's <code>uv</code>, Rust's <code>cargo</code>, or Node's <code>npm</code></li>
+</ul>
+</li>
+<li>A <a class="gl-ref" href="../glossary/#lakefile">lakefile</a> called <code>lakefile.lean</code> describes the project<ul>
+<li>Name, source files, and dependencies</li>
+<li>It is a Lean file that uses the Lake <a class="gl-ref" href="../glossary/#dsl">DSL</a></li>
+</ul>
+</li>
+<li><code>import Lake</code> and <code>open Lake DSL</code> bring the build language into scope</li>
+<li><code>package</code> names the project; <code>lean_exe</code> defines an executable target</li>
+</ul>
+<h2>Creating a Project</h2>
+<div data-inc="lake_new.lean"><span aria-label="Source: build/lake_new.lean" class="inc-path" role="img" tabindex="0" title="build/lake_new.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Contents of lakefile.lean created by: lake new MyProject</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">MyProject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"MyProject"</span>
+
+<span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">MyProject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+</code></pre></div>
+</div>
+<div data-inc="lake_new.out"><span aria-label="Source: build/lake_new.out" class="inc-path" role="img" tabindex="0" title="build/lake_new.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- lake new MyProject creates:
+-- MyProject/
+--   lakefile.lean
+--   Main.lean
+--   .lake/
+</code></pre></div>
+</div>
+<ul>
+<li><code>lake new MyProject</code> creates a fresh project directory<ul>
+<li>Generates a <code>lakefile.lean</code>, a <code>Main.lean</code>, and a <code>.lake/</code> cache directory</li>
+<li>Like <code>uv init</code> or <code>cargo new</code></li>
+</ul>
+</li>
+<li><code>lake init</code> does the same thing inside an existing directory</li>
+<li>The <a class="gl-ref" href="../glossary/#workspace">workspace</a> is the directory that contains <code>lakefile.lean</code><ul>
+<li>All build commands are run from the workspace root</li>
+</ul>
+</li>
+</ul>
+<h2>Minimal Lake File</h2>
+<ul>
+<li><code>package</code> names the project; the <code>«»</code> angle-quote syntax allows spaces in names<ul>
+<li>Type <code>\f&lt;&lt;</code> and <code>\f&gt;&gt;</code> to get the angle quotes</li>
+</ul>
+</li>
+<li><code>lean_exe</code> defines an executable target (a compiled binary you can run)<ul>
+<li><code>root := \</code>Main<code>tells Lake to look for</code>def main<code>in</code>Main.lean`<ul>
+<li>The backtick before <code>Main</code> is Lean's syntax for a <code>Name</code> literal</li>
+<li>It's like writing <code>"Main"</code> but using Lean's internal name type instead of a string</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Building from the Command Line</h2>
+<div data-inc="lake_build.lean"><span aria-label="Source: build/lake_build.lean" class="inc-path" role="img" tabindex="0" title="build/lake_build.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Main.lean: entry point for the compiled executable</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Built with Lake!"</span>
+</code></pre></div>
+</div>
+<div data-inc="lake_build.out"><span aria-label="Source: build/lake_build.out" class="inc-path" role="img" tabindex="0" title="build/lake_build.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- $ lake build
+-- Build completed successfully.
+-- $ .lake/build/bin/greeting
+-- Built with Lake!
+</code></pre></div>
+</div>
+<ul>
+<li><code>lake build</code> compiles all targets in the project<ul>
+<li>Like <code>cargo build</code> or <code>uv run python -m build</code></li>
+</ul>
+</li>
+<li>The compiled binary lands in <code>.lake/build/bin/</code></li>
+<li>Lake only recompiles files that have changed<ul>
+<li>Fast for large projects because the <code>.lake/</code> directory caches intermediate results</li>
+</ul>
+</li>
+<li>Lake also accepts a target name: <code>lake build MyTarget</code></li>
+</ul>
+<h2>Running an Executable</h2>
+<ul>
+<li><code>lake exe targetname</code> builds and runs an executable in one step<ul>
+<li>Like <code>cargo run</code> in Rust</li>
+</ul>
+</li>
+<li>If the project is already built, <code>lake exe</code> skips the compile step</li>
+<li>The executable name is whatever you wrote after <code>lean_exe</code> in <code>lakefile.lean</code></li>
+</ul>
+<h2>Multiple Source Files</h2>
+<div data-inc="multi_file.lean"><span aria-label="Source: build/multi_file.lean" class="inc-path" role="img" tabindex="0" title="build/multi_file.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Helpers.lean: a helper module in the same project</span>
+<span class="kn">namespace</span><span class="w"> </span><span class="n">Helpers</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"Hello, {name}!"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="o">(</span><span class="n">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">msg</span><span class="bp">.</span><span class="n">toUpper</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="s2">"!!!"</span>
+
+<span class="kn">end</span><span class="w"> </span><span class="n">Helpers</span>
+</code></pre></div>
+</div>
+<div data-inc="multi_file.out"><span aria-label="Source: build/multi_file.out" class="inc-path" role="img" tabindex="0" title="build/multi_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- This file is a module: its name becomes part of the import path
+-- Import it with: import MyProject.Helpers
+-- Then call: Helpers.greet "World"
+</code></pre></div>
+</div>
+<ul>
+<li>Split large projects into multiple <code>.lean</code> files<ul>
+<li>Each file becomes a module that other files can import</li>
+</ul>
+</li>
+<li>File names must start with a capital letter<ul>
+<li><code>Helpers.lean</code> → module <code>MyProject.Helpers</code></li>
+<li>The project name prefix comes from <code>package</code> in <code>lakefile.lean</code></li>
+</ul>
+</li>
+<li>Use <code>namespace … end</code> to group related definitions within a file</li>
+</ul>
+<h2>Importing Your Own Modules</h2>
+<div data-inc="import_module.lean"><span aria-label="Source: build/import_module.lean" class="inc-path" role="img" tabindex="0" title="build/import_module.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Main.lean: imports and uses the Helpers module</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">MyProject</span><span class="bp">.</span><span class="n">Helpers</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Helpers</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"Lake"</span><span class="o">)</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Helpers</span><span class="bp">.</span><span class="n">shout</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<div data-inc="import_module.out"><span aria-label="Source: build/import_module.out" class="inc-path" role="img" tabindex="0" title="build/import_module.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lake!
+LEAN!!!
+</code></pre></div>
+</div>
+<ul>
+<li><code>import MyProject.Helpers</code> brings <code>Helpers.lean</code> into scope<ul>
+<li>The full path is <code>PackageName.FileName</code> (no <code>.lean</code> extension)</li>
+</ul>
+</li>
+<li>After importing, call functions with the namespace prefix: <code>Helpers.greet</code><ul>
+<li>Or <code>open Helpers in greet</code> to drop the prefix for one expression</li>
+</ul>
+</li>
+<li>Import order matters: Lean processes files top to bottom<ul>
+<li>Cannot have circular imports</li>
+</ul>
+</li>
+</ul>
+<h2>Libraries vs. Executables</h2>
+<div data-inc="lib_vs_exe.lean"><span aria-label="Source: build/lib_vs_exe.lean" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"myproject"</span>
+
+<span class="c1">-- A library target: compiled but not directly runnable</span>
+<span class="n">lean_lib</span><span class="w"> </span><span class="bp">«</span><span class="n">MathUtils</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">srcDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"lib"</span>
+
+<span class="c1">-- An executable target: produces a runnable binary</span>
+<span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+</code></pre></div>
+</div>
+<div data-inc="lib_vs_exe.out"><span aria-label="Source: build/lib_vs_exe.out" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- lean_lib compiles source files into a library (.olean files)
+-- lean_exe links an entry point into a runnable binary
+-- Both targets are built with: lake build
+</code></pre></div>
+</div>
+<ul>
+<li><code>lean_lib</code> compiles source files into a reusable library<ul>
+<li>Produces <code>.olean</code> files (pre-compiled Lean objects) but no binary</li>
+<li>Other packages can depend on it with <code>require</code></li>
+<li>Lake knows to create a library because you used <code>lean_lib</code>: the keyword determines the target type</li>
+</ul>
+</li>
+<li><code>lean_exe</code> links source files into a runnable binary<ul>
+<li>Must have a <code>def main : IO Unit</code> in the root file</li>
+</ul>
+</li>
+<li>One project can define both: libraries and executables are separate targets</li>
+</ul>
+<h2>Running Lean in Project Context</h2>
+<div data-inc="lake_env.lean"><span aria-label="Source: build/lake_env.lean" class="inc-path" role="img" tabindex="0" title="build/lake_env.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- script.lean: a standalone script that uses project modules</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">MyProject</span><span class="bp">.</span><span class="n">Helpers</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Helpers</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"world"</span>
+</code></pre></div>
+</div>
+<div data-inc="lake_env.out"><span aria-label="Source: build/lake_env.out" class="inc-path" role="img" tabindex="0" title="build/lake_env.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- $ lake env lean script.lean
+-- "Hello, world!"
+-- Without lake env, the import would fail:
+-- $ lean script.lean
+-- error: unknown package 'MyProject'
+</code></pre></div>
+</div>
+<ul>
+<li><code>lake env lean file.lean</code> runs <code>lean</code> with the project's modules on the path<ul>
+<li>Without <code>lake env</code>, imports that refer to your project's modules fail</li>
+<li>Like Python's <code>uv run python script.py</code> vs. bare <code>python script.py</code></li>
+</ul>
+</li>
+<li>Use <code>lake env lean</code> for one-off scripts that need project modules but aren't targets</li>
+</ul>
+<h2>Adding a Dependency</h2>
+<div data-inc="add_dep.lean"><span aria-label="Source: build/add_dep.lean" class="inc-path" role="img" tabindex="0" title="build/add_dep.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"myproject"</span>
+
+<span class="c1">-- Add an external dependency from a git repository</span>
+<span class="n">require</span><span class="w"> </span><span class="n">Std</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">git</span>
+<span class="w">    </span><span class="s2">"https://github.com/leanprover/std4"</span><span class="w"> </span><span class="bp">@</span><span class="w"> </span><span class="s2">"main"</span>
+
+<span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+</code></pre></div>
+</div>
+<div data-inc="add_dep.out"><span aria-label="Source: build/add_dep.out" class="inc-path" role="img" tabindex="0" title="build/add_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- After editing lakefile.lean, run:
+-- $ lake update
+-- to fetch and compile the dependency
+-- Then import it in your code: import Std.Data.List.Basic
+</code></pre></div>
+</div>
+<ul>
+<li><code>require PackageName from git "url" @ "ref"</code> declares an external dependency<ul>
+<li>Lake fetches the package and caches it in <code>.lake/packages/</code></li>
+</ul>
+</li>
+<li>After editing <code>lakefile.lean</code>, run <code>lake update</code> to download the dependency<ul>
+<li>Then <code>import</code> its modules just like your own</li>
+</ul>
+</li>
+<li><code>Std</code> is the Lean standard library extension; <code>Mathlib</code> is the math library<ul>
+<li>Both are added with <code>require</code></li>
+</ul>
+</li>
+<li>For local packages not on a git remote, use a path:
+    <code>lean
+    require MyLib from "../my-lib"</code><ul>
+<li>Like a Python editable install or a Rust path dependency</li>
+</ul>
+</li>
+</ul>
+<h2>Namespaces Across Files</h2>
+<div data-inc="namespace_files.lean"><span aria-label="Source: build/namespace_files.lean" class="inc-path" role="img" tabindex="0" title="build/namespace_files.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- MathUtils/Basic.lean</span>
+<span class="c1">-- The module path is MyProject.MathUtils.Basic</span>
+<span class="c1">-- The namespace should match the module path by convention</span>
+<span class="kn">namespace</span><span class="w"> </span><span class="n">MathUtils</span><span class="bp">.</span><span class="n">Basic</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">cube</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span>
+
+<span class="kn">end</span><span class="w"> </span><span class="n">MathUtils</span><span class="bp">.</span><span class="n">Basic</span>
+</code></pre></div>
+</div>
+<div data-inc="namespace_files.out"><span aria-label="Source: build/namespace_files.out" class="inc-path" role="img" tabindex="0" title="build/namespace_files.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- Import with: import MyProject.MathUtils.Basic
+-- Call with:   MathUtils.Basic.square 4
+-- Or:          open MathUtils.Basic in square 4
+</code></pre></div>
+</div>
+<ul>
+<li>By convention, namespace names should match the module import path<ul>
+<li>File <code>MathUtils/Basic.lean</code> → module <code>MyProject.MathUtils.Basic</code></li>
+<li>Namespace inside that file: <code>MathUtils.Basic</code></li>
+</ul>
+</li>
+<li>This isn't enforced by the compiler, but it makes code easier to navigate<ul>
+<li>Like Python's module names matching the file names</li>
+</ul>
+</li>
+<li><code>open Namespace in expr</code> uses the namespace for one expression
+    without <code>open</code> polluting the whole file</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Missing Import</h3>
+<div data-inc="ex_bug_missing_import.lean"><span aria-label="Source: build/ex_bug_missing_import.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_missing_import.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: this file uses Utils.greet but forgets to import it</span>
+<span class="c1">-- Add the missing import at the top</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Utils</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"world"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Utils.greet</code> is called but <code>Utils</code> is never imported</li>
+<li>Add <code>import MyProject.Utils</code> at the top of the file</li>
+</ul>
+</details>
+<h3>Fix: Wrong Target Type</h3>
+<div data-inc="ex_bug_wrong_target.lean"><span aria-label="Source: build/ex_bug_wrong_target.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_wrong_target.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: this target should be an executable, not a library</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">app</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"app"</span>
+
+<span class="n">lean_lib</span><span class="w"> </span><span class="bp">«</span><span class="n">app</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>lean_lib</code> creates a library; it cannot be run directly</li>
+<li>Change <code>lean_lib</code> to <code>lean_exe</code> to create an executable target</li>
+<li>Also change the field from <code>srcDir</code> to <code>root := \</code>Main`</li>
+</ul>
+</details>
+<h3>Fix: Wrong Module Name Case</h3>
+<div data-inc="ex_bug_module_name.lean"><span aria-label="Source: build/ex_bug_module_name.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_module_name.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: the module name is wrong — Lean module names match the filename</span>
+<span class="c1">-- The file is 'Helpers.lean' but the import uses a lowercase name</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">MyProject</span><span class="bp">.</span><span class="n">helpers</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Helpers</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"world"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Lean module names are derived from filenames, which start with a capital letter</li>
+<li><code>helpers</code> should be <code>Helpers</code> to match <code>Helpers.lean</code></li>
+<li>Change <code>import MyProject.helpers</code> to <code>import MyProject.Helpers</code></li>
+</ul>
+</details>
+<h3>Fix: Missing <code>main</code> Function</h3>
+<div data-inc="ex_bug_missing_main.lean"><span aria-label="Source: build/ex_bug_missing_main.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_missing_main.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: executables need a 'main' function</span>
+<span class="c1">-- This file is set as the root of a lean_exe but has no main</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"Hello!"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Executables need <code>def main : IO Unit</code> as their entry point</li>
+<li>Add <code>def main : IO Unit := IO.println greet</code> to the file</li>
+<li>Without <code>main</code>, Lake cannot produce a runnable binary</li>
+</ul>
+</details>
+<h3>Fix: Wrong Namespace in Call</h3>
+<div data-inc="ex_bug_namespace.lean"><span aria-label="Source: build/ex_bug_namespace.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_namespace.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: the function is defined in namespace 'Foo' but called as 'Bar.func'</span>
+<span class="kn">namespace</span><span class="w"> </span><span class="n">Foo</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"from Foo"</span>
+
+<span class="kn">end</span><span class="w"> </span><span class="n">Foo</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">Bar</span><span class="bp">.</span><span class="n">func</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>func</code> is defined inside <code>namespace Foo</code>, so it is <code>Foo.func</code></li>
+<li>Change <code>Bar.func</code> to <code>Foo.func</code> to match the actual namespace</li>
+</ul>
+</details>
+<h3>Fix: Wrong Source Directory</h3>
+<div data-inc="ex_bug_root_module.lean"><span aria-label="Source: build/ex_bug_root_module.lean" class="inc-path" role="img" tabindex="0" title="build/ex_bug_root_module.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix: srcDir points to the wrong location</span>
+<span class="c1">-- The .lean files are in 'src/' but lakefile says 'source/'</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">myapp</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"myapp"</span>
+
+<span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">myapp</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+<span class="w">  </span><span class="n">srcDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"source"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>srcDir := "source"</code> tells Lake to look for <code>.lean</code> files in <code>source/</code></li>
+<li>But the project files are in <code>src/</code></li>
+<li>Change <code>srcDir := "source"</code> to <code>srcDir := "src"</code></li>
+</ul>
+</details>
+<h3>Write: Complete a Lake File</h3>
+<div data-inc="ex_write_lakefile.lean"><span aria-label="Source: build/ex_write_lakefile.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_lakefile.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: fill in the blanks to create a lakefile for an executable called 'greeter'</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">greeter</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"greeter"</span>
+
+<span class="c1">-- TODO: add a lean_exe target called 'greeter' with root `Main</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace the <code>TODO</code> comment with <code>lean_exe «greeter» where</code></li>
+<li>Add <code>root := \</code>Main` indented under that line</li>
+<li>The <code>«greeter»</code> must match the name you want to use in <code>lake exe greeter</code></li>
+</ul>
+</details>
+<h3>Write: Add a <code>main</code> Function</h3>
+<div data-inc="ex_write_main.lean"><span aria-label="Source: build/ex_write_main.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_main.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: add a main function that prints "Hello, Lake!"</span>
+<span class="c1">-- def main : IO Unit := ???</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Add <code>def main : IO Unit := IO.println "Hello, Lake!"</code> to the file</li>
+<li><code>IO.println</code> prints a string followed by a newline</li>
+<li>No <code>do</code> block needed for a single IO action</li>
+</ul>
+</details>
+<h3>Write: Implement a Module Function</h3>
+<div data-inc="ex_write_module.lean"><span aria-label="Source: build/ex_write_module.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_module.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: implement greet using string interpolation</span>
+<span class="kn">namespace</span><span class="w"> </span><span class="n">Greeter</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="s2">""</span><span class="w">  </span><span class="c1">-- replace with s!"Hello, {name}!"</span>
+
+<span class="kn">end</span><span class="w"> </span><span class="n">Greeter</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Greeter</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"world"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace <code>""</code> with <code>s!"Hello, {name}!"</code></li>
+<li>The <code>#eval</code> call at the bottom will print <code>"Hello, world!"</code> when correct</li>
+</ul>
+</details>
+<h3>Write: Add an Import</h3>
+<div data-inc="ex_write_import.lean"><span aria-label="Source: build/ex_write_import.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_import.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: add the missing import and fix the main function</span>
+<span class="c1">-- Assume MyProject.Greeter defines Greeter.greet</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Greeter</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"World"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Add <code>import MyProject.Greeter</code> at the top of the file</li>
+<li>The import path matches the file path: <code>MyProject/Greeter.lean</code></li>
+<li>After importing, <code>Greeter.greet</code> becomes available</li>
+</ul>
+</details>
+<h3>Write: Add a Library Target</h3>
+<div data-inc="ex_write_lib.lean"><span aria-label="Source: build/ex_write_lib.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_lib.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: add a lean_lib target called 'MathLib'</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lake</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lake</span><span class="w"> </span><span class="n">DSL</span>
+
+<span class="n">package</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"myproject"</span>
+
+<span class="n">lean_exe</span><span class="w"> </span><span class="bp">«</span><span class="n">myproject</span><span class="bp">»</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
+
+<span class="c1">-- TODO: add a lean_lib target named 'MathLib'</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Replace the <code>TODO</code> comment with <code>lean_lib MathLib { }</code></li>
+<li>A library target does not need a <code>root</code> unless you want a specific entry module</li>
+<li>Build it with <code>lake build MathLib</code></li>
+</ul>
+</details>
+<h3>Write: Fix the Namespace Name</h3>
+<div data-inc="ex_write_namespace.lean"><span aria-label="Source: build/ex_write_namespace.lean" class="inc-path" role="img" tabindex="0" title="build/ex_write_namespace.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write: the namespace should match the module name 'StringUtils'</span>
+<span class="c1">-- Currently it's 'StrUtil' — fix it</span>
+<span class="kn">namespace</span><span class="w"> </span><span class="n">StrUtil</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toUpper</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="s2">"!!!"</span>
+
+<span class="kn">end</span><span class="w"> </span><span class="n">StrUtil</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">StrUtil</span><span class="bp">.</span><span class="n">shout</span><span class="w"> </span><span class="s2">"hello"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The namespace <code>StrUtil</code> doesn't match the module name <code>StringUtils</code></li>
+<li>Change both <code>namespace StrUtil</code> and <code>end StrUtil</code> to <code>StringUtils</code></li>
+<li>Then callers can use <code>StringUtils.shout</code> which matches the file name</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../archive">A File Archiver</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../proof">Proofs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
