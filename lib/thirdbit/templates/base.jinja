@@ -10,6 +10,7 @@
     <title>{% if node.title %}{{node.title}}{% else %}{{site.title}}{% endif %}</title>
     {% endblock %}
     {% block head_includes %}{% endblock %}
+    {% if node.katex %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">{% endif %}
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -21,5 +22,17 @@
 {% block content %}{% endblock %}
     </main>
     {% include "foot.jinja" %}
+    {% if node.katex %}
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    {% endif %}
   </body>
 </html>

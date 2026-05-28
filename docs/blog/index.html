@@ -16,6 +16,7 @@
 <title>The Third Bit Blog</title>
 
     
+    
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -79,6 +80,43 @@
   </tbody>
 </table>
 
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/05/28/basic-queueing-theory/">
+      Basic Ideas in Queueing Theory
+    </a>
+  </h2>
+  <p><time datetime="2026-05-27" class="post-date">2026-05-27</time></p>
+  <h2>Arrivals, Servers, and Utilization</h2>
+<p>Three concepts underpin every queueing model. The first is <em>Poisson arrivals</em>: when customers arrive independently at a constant average rate $\lambda$, gaps between consecutive arrivals follow an <em>exponential</em> distribution with mean $1/\lambda$, and the count of arrivals in any window of width $t$ follows a Poisson distribution with mean $\lambda t$. These two descriptions are equivalent: if one holds, the other must too.</p>
+<p>The second key idea is that the exponential distribution is <em>memoryless</em>. Knowing you have already waited $s$ units gives no information about when the next arrival will come. This property makes the math simple, but means that the exponential distribution isn&rsquo;t a good fit for scenarios where events happen in bursts. Some of the later tutorials will explore models that handle this.</p>
+<p>The final concept is <em>server utilization</em>. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.</p>
+<p>The code below uses <a href="https://asimpy.readthedocs.io/">asimpy</a> to model a simple job queue. The technical term for this kind of system is an <a href="https://en.wikipedia.org/wiki/M/M/1_queue">M/M/1 queue</a>: memoryless (Poisson) arrivals, memoryless service times, and one server.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArrivalSource</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates arrivals at a Poisson rate.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">gaps</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span> <span class="o">=</span> <span class="n">gaps</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">gap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+</code></pre></div>
+<p><code>random.expovariate(rate)</code> samples from an exponential distribution with the given rate. The gaps between consecutive arrivals follow $\text{Exp}(\lambda)$, which is precisely the defining property of a Poisson process.</p>
+<h2>Understanding the Math</h2>
+<h3>Why inter-arrival gaps are exponential</h3>
+<p>Divide $[0, t]$ into $n$ tiny slices of width $\Delta = t/n$. The probability of an arrival in each slice is $\approx \lambda\Delta$; slices are independent. The probability of no arrival across all $n$ slices is $(1 - \lambda t/n)^n \to e^{-\lambda t}$ as $n \to \infty$. This is $P(X &gt; t)$ for the exponential distribution.</p>
+<h3>Why mean equals standard deviation for the exponential</h3>
+<p>If $E[X] = 1/\lambda$, then $E[X^2] = 2/\lambda^2$, so $\text{Var}(X) = 2/\lambda^2 - 1/\lambda^2 = 1/\lambda^2$ and $\text{SD}(X) = 1/\lambda = E[X]$. Equal mean and standard deviation means roughly one-third of gaps are longer than the mean.</p>
+<h3>Why the busy fraction equals $\rho$</h3>
+<p>Over a long run $T$, about $N \approx \lambda T$ customers are served, each occupying the server for mean $1/\mu$. Total service time $\approx N/\mu = \lambda T/\mu = \rho T$. Dividing by $T$ gives busy fraction $= \rho$.</p>
+<h3>Why $\rho = 1$ is unstable</h3>
+<p>At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is <em>null recurrent</em>: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
 
 <article class="post">
   <h2 class="post-title">
@@ -1716,156 +1754,6 @@ comic strip.</dd>
 <h2>Z</h2>
 </article>
 
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/20/why-dont-you-just/">
-      Why Don't You Just…
-    </a>
-  </h2>
-  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
-  <p>In 2013, the United Kingdom launched Universal Credit,
-a welfare reform ostensibly intended to simplify the benefits system
-by merging six separate payments into one.
-The new system was designed to be applied for online,
-but many claimants had no reliable internet access.
-Those who did often lacked fixed addresses,
-which the system required before it would register them.
-without registration they couldn&rsquo;t receive payments;
-without payments they couldn&rsquo;t maintain an address,
-and without an address they couldn&rsquo;t register.</p>
-<p>Government officials and advice workers,
-when presented with this loop,
-would sometimes suggest that claimants &ldquo;just go to the library&rdquo; to use a computer.
-They did not know—or had not thought through the fact—that
-some libraries require a membership card to use their computers,
-that membership cards require proof of address,
-and that the Universal Credit application times out and loses your work
-if you do not complete it in a single session.
-The word &ldquo;just&rdquo; was doing an enormous amount of lifting.</p>
-<p>&ldquo;Just&rdquo; does that in a lot of conversations.
-When someone with relative power is told about a problem they have not personally faced,
-a common response is to suggest an individual solution:
-&ldquo;Why don&rsquo;t you just move to a better neighborhood,
-just report the harassment to HR,
-just open a bank account,
-just apply for a scholarship.&rdquo;
-The suggestion is not usually made in bad faith.
-It is made because the person offering it
-has, at some point in their life,
-moved, or reported, or opened, or applied,
-and found the process manageable.
-What they cannot see is what made it manageable for them
-and what makes it unmanageable for someone else.</p>
-<p>Peggy McIntosh described this as an invisible knapsack:
-a set of advantages so routine to those who carry them
-that they are not experienced as advantages at all.
-You do not notice that your accent marks you as non-threatening,
-that your name gets you callbacks,
-that your neighborhood has a library,
-or that the official you need to speak to treats you as a legitimate claimant
-rather than a probable fraud.
-You don&rsquo;t notice it because none of it has ever caused you a problem.
-The person offering the &ldquo;just&rdquo; solution
-is usually describing what they would do,
-which is not the same thing as what the other person can do.</p>
-<p>The most obvious thing &ldquo;just&rdquo; conceals is cascading prerequisites.
-Many systems assume that the person using them
-already has a set of prior resources in place.
-FIXME: give an example other than Aadhaar</p>
-<p>A second thing &ldquo;just&rdquo; hides is the cost of the transaction.
-Taking a day off work to stand in line costs money that people without savings cannot spare.
-Challenging a decision by a government agency or a platform company
-requires knowing how to challenge it,
-having the literacy and the time to fill in forms,
-and being willing to risk the relationship with the institution you depend on.
-The last point matters more than it might seem:
-if the institution denying you a benefit is the same institution
-you are hoping will pay your rent next month,
-asserting your rights has a price.</p>
-<p>A third thing the word hides is cognitive load.
-Sendhil Mullainathan and Eldar Shafir spent years studying what poverty does to decision-making,
-and their conclusion was not what most people expect.
-Poverty makes people worse at decisions in the same way
-that keeping someone awake for twenty-four hours makes them worse at decisions:
-it depletes a finite resource.
-Managing an unpredictable income,
-keeping track of which bills are overdue,
-or calculating whether buying the cheaper item in bulk saves more than it costs to store
-consumes cognitive bandwidth
-that is then not available for navigating bureaucratic systems.
-The person telling someone to &ldquo;just&rdquo; do something
-is typically not paying this tax,
-so they have the mental capacity to think about the solution
-that the person being advised does not.</p>
-<p>The invisible knapsack metaphor is useful,
-but there is a complementary image that captures something different:
-the invisible staircase.
-People who have always lived in buildings with functioning elevators
-do not think about stairs.
-When they suggest that someone in a wheelchair &ldquo;just take the stairs,&rdquo;
-they are not being cruel.
-They have simply never had to think about stairs,
-because stairs have never been an obstacle for them.</p>
-<p>This is why the &ldquo;why don&rsquo;t you just&rdquo; response so often lands badly.
-It is not merely that the solution is wrong;
-it&rsquo;s that is reveals that the person offering it
-has never had to think about the problem.
-They are announcing their distance from it,
-and the person who has been living inside the problem knows,
-at once,
-that the advice is coming from outside.</p>
-<p>South Africa&rsquo;s apartheid pass laws required Black South Africans
-to carry a document showing they had permission to be in a given area.
-The document had to be produced on demand by any police officer.
-If a man had left his pass book at home, or lost it,
-the advice &ldquo;just get a replacement&rdquo; required
-traveling back to the township administrative office where
-the original had been issued—not the office nearest to where he was stopped.
-This meant taking time off work
-and navigating a bureaucracy that had been designed to make compliance difficult.</p>
-<p>A further problem with the &ldquo;just&rdquo; response
-persists even when the individual solution actually works.
-If a person successfully navigates the broken system,
-the system sees this as proof that it is functioning correctly.
-Virginia Eubanks documented this pattern across multiple American welfare systems:
-people who managed to get the automated system to approve their application
-had often spent dozens of hours learning its quirks,
-calling hotlines,
-finding advocates,
-or simply applying repeatedly until an error cleared itself.
-None of that effort was visible to the system.
-The system recorded a successful outcome.
-The structural problem—that the system was failing the people it was supposed to serve—was
-continuously obscured by the individual successes of the most resourceful claimants.</p>
-<p>The pattern is particularly vicious on tech platforms.
-Companies routinely advise users to &ldquo;just report&rdquo; harassment,
-&ldquo;just use a VPN&rdquo; to avoid surveillance,
-or &ldquo;just switch platforms&rdquo; when a service degrades.
-Each suggestion assumes that the user has time, technical literacy, and social capital
-that many do not have,
-and none of them fix the underlying system.
-They transfer the cost of a structural failure onto the person least able to bear it.</p>
-<dl>
-<dt><span id="Eubanks2018">Eubanks2018</span></dt>
-<dd>Virginia Eubanks:
-<em>Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor</em>.
-St. Martin&rsquo;s Press,
-2018,
-<a href="https://isbnsearch.org/isbn/9781250074317">9781250074317</a>.</dd>
-<dt><span id="McIntosh1989">McIntosh1989</span></dt>
-<dd>Peggy McIntosh:
-&ldquo;White Privilege: Unpacking the Invisible Knapsack.&rdquo;
-<em>Peace and Freedom</em>,
-July/August 1989.</dd>
-<dt><span id="MullainathanShafir2013">MullainathanShafir2013</span></dt>
-<dd>Sendhil Mullainathan and Eldar Shafir:
-<em>Scarcity: Why Having Too Little Means So Much</em>.
-Times Books/Henry Holt,
-2013,
-<a href="https://isbnsearch.org/isbn/9780805092646">9780805092646</a>.</dd>
-</dl>
-</article>
-
 
     </main>
     <footer>
@@ -1884,5 +1772,6 @@ Times Books/Henry Holt,
   <br>
   The material on this site may not be used to train AI models without the express permission of the author.
 </footer>
+    
   </body>
 </html>

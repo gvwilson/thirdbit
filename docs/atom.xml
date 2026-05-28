@@ -11,6 +11,41 @@
  </author>
  
  <entry>
+   <title>Basic Ideas in Queueing Theory</title>
+   <link href="https://third-bit.com/2026/05/28/basic-queueing-theory/"/>
+   <updated>2026-05-27T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/05/28/basic-queueing-theory/</id>
+   <content type="html">&lt;h2&gt;Arrivals, Servers, and Utilization&lt;/h2&gt;
+&lt;p&gt;Three concepts underpin every queueing model. The first is &lt;em&gt;Poisson arrivals&lt;/em&gt;: when customers arrive independently at a constant average rate $\lambda$, gaps between consecutive arrivals follow an &lt;em&gt;exponential&lt;/em&gt; distribution with mean $1/\lambda$, and the count of arrivals in any window of width $t$ follows a Poisson distribution with mean $\lambda t$. These two descriptions are equivalent: if one holds, the other must too.&lt;/p&gt;
+&lt;p&gt;The second key idea is that the exponential distribution is &lt;em&gt;memoryless&lt;/em&gt;. Knowing you have already waited $s$ units gives no information about when the next arrival will come. This property makes the math simple, but means that the exponential distribution isn&amp;rsquo;t a good fit for scenarios where events happen in bursts. Some of the later tutorials will explore models that handle this.&lt;/p&gt;
+&lt;p&gt;The final concept is &lt;em&gt;server utilization&lt;/em&gt;. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &amp;lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.&lt;/p&gt;
+&lt;p&gt;The code below uses &lt;a href=&#34;https://asimpy.readthedocs.io/&#34;&gt;asimpy&lt;/a&gt; to model a simple job queue. The technical term for this kind of system is an &lt;a href=&#34;https://en.wikipedia.org/wiki/M/M/1_queue&#34;&gt;M/M/1 queue&lt;/a&gt;: memoryless (Poisson) arrivals, memoryless service times, and one server.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;ArrivalSource&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Generates arrivals at a Poisson rate.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gaps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rate&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rate&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gaps&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gaps&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;gap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expovariate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gaps&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;random.expovariate(rate)&lt;/code&gt; samples from an exponential distribution with the given rate. The gaps between consecutive arrivals follow $\text{Exp}(\lambda)$, which is precisely the defining property of a Poisson process.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Why inter-arrival gaps are exponential&lt;/h3&gt;
+&lt;p&gt;Divide $[0, t]$ into $n$ tiny slices of width $\Delta = t/n$. The probability of an arrival in each slice is $\approx \lambda\Delta$; slices are independent. The probability of no arrival across all $n$ slices is $(1 - \lambda t/n)^n \to e^{-\lambda t}$ as $n \to \infty$. This is $P(X &amp;gt; t)$ for the exponential distribution.&lt;/p&gt;
+&lt;h3&gt;Why mean equals standard deviation for the exponential&lt;/h3&gt;
+&lt;p&gt;If $E[X] = 1/\lambda$, then $E[X^2] = 2/\lambda^2$, so $\text{Var}(X) = 2/\lambda^2 - 1/\lambda^2 = 1/\lambda^2$ and $\text{SD}(X) = 1/\lambda = E[X]$. Equal mean and standard deviation means roughly one-third of gaps are longer than the mean.&lt;/p&gt;
+&lt;h3&gt;Why the busy fraction equals $\rho$&lt;/h3&gt;
+&lt;p&gt;Over a long run $T$, about $N \approx \lambda T$ customers are served, each occupying the server for mean $1/\mu$. Total service time $\approx N/\mu = \lambda T/\mu = \rho T$. Dividing by $T$ gives busy fraction $= \rho$.&lt;/p&gt;
+&lt;h3&gt;Why $\rho = 1$ is unstable&lt;/h3&gt;
+&lt;p&gt;At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is &lt;em&gt;null recurrent&lt;/em&gt;: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Building a City, Not a Car</title>
    <link href="https://third-bit.com/2026/05/27/building-a-city-not-a-car/"/>
    <updated>2026-05-27T00:00:00Z</updated>
@@ -4849,116 +4884,6 @@ Crown Business,
 29(4),
 2024,
 &lt;a href=&#34;https://doi.org/10.5210/fm.v29i4.13636&#34;&gt;10.5210/fm.v29i4.13636&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Regulatory Capture</title>
-   <link href="https://third-bit.com/2026/05/14/regulatory-capture/"/>
-   <updated>2026-05-14T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/14/regulatory-capture/</id>
-   <content type="html">&lt;p&gt;In April 2010,
-the Deepwater Horizon drilling platform exploded,
-killing eleven workers and releasing nearly five million barrels of oil into the Gulf of Mexico
-over the following months.
-A federal investigation found that the Minerals Management Service
-(the US agency responsible for overseeing offshore drilling)
-had accepted meals, gifts, and in some cases illegal payments from the companies it regulated.
-Safety records had been falsified and inspection reports had been rubber-stamped.
-The Obama administration responded by abolishing the agency
-and dividing its responsibilities between three new ones.&lt;/p&gt;
-&lt;p&gt;The Minerals Management Service was a textbook example of
-what the economist George Stigler described in 1971 as regulatory capture:
-the process by which a regulatory agency comes to serve the interests of the industry it regulates
-rather than the public it was created to protect.
-Stigler&amp;rsquo;s argument was not that regulators were necessarily corrupt.
-It was that the incentive structures surrounding regulation systematically favor industry over the public.
-A change in environmental rules might be worth hundreds of millions of dollars to a handful of companies,
-which gives those companies powerful reasons to invest in influencing regulators.
-Each individual citizen is only slightly harmed by any given regulatory failure,
-so over time,
-the better-organized and better-funded side wins.&lt;/p&gt;
-&lt;p&gt;The revolving door accelerates the process.
-Regulatory agencies typically recruit from the industries they oversee,
-because industry employees have the technical expertise the government needs.
-Those same employees know that their next job may be back in industry,
-often at a salary much higher than what government pays.
-If you assume rational self-interest,
-the consequences are predictable.&lt;/p&gt;
-&lt;p&gt;The 2008 financial crisis resulted partly from regulators failing to challenge
-instruments that banks had designed and then lobbied to keep beyond regulatory reach.
-Alan Greenspan,
-former chair of the US Federal Reserve,
-testified before Congress in 2008 that he had found
-&amp;ldquo;a flaw&amp;rdquo; in his belief that banks would self-regulate to protect their own interests.
-The financial industry had colonized its regulators through what they called &amp;ldquo;cognitive capture&amp;rdquo;:
-regulators came to think in the same terms,
-share the same models,
-and accept the same assumptions as the banks they oversaw,
-without anyone needing to be paid off.&lt;/p&gt;
-&lt;p&gt;The tech industry is evolving in the same way.
-Platform regulation is technically complex,
-and the agencies developing it,
-such as the Federal Trade Commission in the US
-and the European Commission&amp;rsquo;s technology directorate,
-are chronically understaffed relative to the companies they oversee.
-The industry employs more lawyers, economists, and lobbyists than any regulator can afford
-(although it would be more accurate to say &amp;ldquo;than any government is willing to spend&amp;rdquo;).
-Former platform executives populate regulatory bodies,
-former regulators hold senior positions at tech companies,
-and the revolving door spins on.&lt;/p&gt;
-&lt;p&gt;This matters for AI regulation in particular.
-The companies most capable of advising governments on the risks of AI
-are also the ones with the clearest interest in ensuring that regulations are toothless.
-But capture is not inevitable.
-Food safety regulation in Sweden, South Korea, and Singapore
-has remained relatively insulated from industry control.
-The difference appears to lie in three factors:
-sufficient public attention to maintain political accountability,
-career paths that do not run primarily through the regulated industry,
-and enough institutional resources to support genuine technical independence.
-All of them require active maintenance
-and a belief that business exists to serve the pubilc,
-not the other way around.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Freudenberg2011&#34;&gt;Freudenberg2011&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;William R. Freudenburg and Robert Gramling:
-&lt;em&gt;Blowout in the Gulf: The BP Oil Spill Disaster and the Future of Energy in America&lt;/em&gt;.
-MIT Press,
-2011,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780262015837&#34;&gt;9780262015837&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;JohnsonKwak2010&#34;&gt;JohnsonKwak2010&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Simon Johnson and James Kwak:
-&lt;em&gt;13 Bankers: The Wall Street Takeover and the Next Financial Meltdown&lt;/em&gt;.
-Pantheon Books,
-2010,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780307379054&#34;&gt;9780307379054&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Lewis2010&#34;&gt;Lewis2010&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Michael Lewis:
-&lt;em&gt;The Big Short: Inside the Doomsday Machine&lt;/em&gt;.
-W. W. Norton,
-2010,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780393338829&#34;&gt;9780393338829&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Michaels2008&#34;&gt;Michaels2008&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;David Michaels:
-&lt;em&gt;Doubt Is Their Product: How Industry&amp;rsquo;s Assault on Science Threatens Your Health&lt;/em&gt;.
-Oxford University Press,
-2008,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780195300673&#34;&gt;9780195300673&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Stigler1971&#34;&gt;Stigler1971&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;George J. Stigler:
-&amp;ldquo;The Theory of Economic Regulation.&amp;rdquo;
-&lt;em&gt;Bell Journal of Economics and Management Science&lt;/em&gt;,
-2(1),
-1971,
-&lt;a href=&#34;https://doi.org/10.2307/3003160&#34;&gt;10.2307/3003160&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Wu2010&#34;&gt;Wu2010&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Tim Wu:
-&lt;em&gt;The Master Switch: The Rise and Fall of Information Empires&lt;/em&gt;.
-Knopf,
-2011,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780307390998&#34;&gt;9780307390998&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  
