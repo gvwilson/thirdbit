@@ -26,9 +26,13 @@
 <li><a href="../pipes/">Functional Pipelines</a></li>
 <li><a href="../io/">I/O and Monads</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
 <li><a href="../build/">Building Projects</a></li>
-<li><a href="../proof/">Proofs</a></li>
 <li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -651,6 +655,44 @@ origin : Point
 <ul>
 <li>Replace <code>p</code> with a new <code>Point</code> that has <code>x</code> incremented by <code>1.0</code></li>
 <li>Use the <code>{ old with field := newVal }</code> syntax shown in the structures section</li>
+</ul>
+</details>
+<h3>Fix: Let Binding Type</h3>
+<div data-inc="ex_bug_let_bind.lean"><span aria-label="Source: basics/ex_bug_let_bind.lean" class="inc-path" role="img" tabindex="0" title="basics/ex_bug_let_bind.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should return a String, but the let binding produces</span>
+<span class="c1">-- an Int without converting it. Fix the type mismatch.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">doubled</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="n">doubled</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"10"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>let doubled := x * 2</code> produces an <code>Int</code>, but the function returns <code>String</code></li>
+<li>The <code>s!"…"</code> interpolation can convert <code>Int</code> to <code>String</code> automatically</li>
+<li>The reason this looks like it should work is that <code>s!"The value is {doubled}"</code> does produce a <code>String</code></li>
+<li>Check carefully: what does <code>describeValue 5</code> actually evaluate to?</li>
+</ul>
+</details>
+<h3>Write: Sum a List</h3>
+<div data-inc="ex_sum_list.lean"><span aria-label="Source: basics/ex_sum_list.lean" class="inc-path" role="img" tabindex="0" title="basics/ex_sum_list.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that sums a list of integers</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">sumList</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="mi">0</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">sumList</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">sumList</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">6</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">sumList</span><span class="w"> </span><span class="o">[</span><span class="bp">-</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use recursion or <code>List.foldl</code> to add up the elements</li>
+<li>With recursion: handle <code>[]</code> (base case returns <code>0</code>) and <code>x :: xs</code> (add <code>x</code> to recursive call)</li>
+<li>With <code>foldl</code>: <code>xs.foldl (init := 0) (· + ·)</code></li>
+<li>The <code>#guard</code> statements will confirm your result</li>
 </ul>
 </details>
 </div>

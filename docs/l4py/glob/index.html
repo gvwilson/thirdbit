@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matching Patterns</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a class="active" href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Matching Patterns</h1>
+<div class="callout">
+<ul>
+<li>Represent shell-style glob wildcards (<code>*</code>, <code>?</code>) as an <a class="gl-ref" href="../glossary/#inductive_type">inductive type</a></li>
+<li>Implement a backtracking pattern matcher using the Chain of Responsibility pattern</li>
+<li>Use <code>partial</code> for functions that cannot be proved terminating</li>
+<li>Build a runnable program that tests patterns against file names</li>
+</ul>
+</div>
+<ul>
+<li>Command shells let you match filenames with patterns like <code>*.lean</code> or <code>data?.csv</code></li>
+<li>We'll build a <a class="gl-ref" href="../glossary/#glob">glob</a> matcher from scratch</li>
+<li>Like Python's <code>fnmatch</code> module, but implemented as a recursive descent parser</li>
+<li>This combines pattern matching from <a href="../types/">types</a> with recursion from <a href="../basics/">basics</a></li>
+</ul>
+<h2>Pattern Elements</h2>
+<div data-inc="code.lean" data-mark="elements"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Pattern elements for glob matching</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Elem</span><span class="w">   </span><span class="c1">-- literal character</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">Elem</span><span class="w">          </span><span class="c1">-- match exactly one char  (?)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Elem</span><span class="w">          </span><span class="c1">-- match zero or more chars (*)</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>inductive</code> defines a new <a class="gl-ref" href="../glossary/#sum_type">sum type</a> with three constructors<ul>
+<li>Like a Python <code>Enum</code> but each variant can carry data</li>
+</ul>
+</li>
+<li><code>Elem.Lit c</code> matches a literal character</li>
+<li><code>Elem.Any</code> matches exactly one character of any kind<ul>
+<li>Shell syntax: <code>?</code></li>
+</ul>
+</li>
+<li><code>Elem.Wild</code> matches zero or more characters<ul>
+<li>Shell syntax: <code>*</code></li>
+</ul>
+</li>
+<li><code>deriving Repr, BEq</code> auto-generates printing and equality instances<ul>
+<li>Like Python's <code>__repr__</code> and <code>__eq__</code> but generated by the compiler</li>
+</ul>
+</li>
+</ul>
+<h2>The Glob Algorithm</h2>
+<div data-inc="code.lean" data-mark="glob-core"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Chain of Responsibility: consume the matched prefix, return remaining chars.</span>
+<span class="c1">-- Uses partial because Wild tries every suffix without a decreasing measure.</span>
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w">  </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span><span class="w">          </span><span class="c1">-- * at end matches anything</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w">  </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span><span class="w">               </span><span class="c1">-- try every split point</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">))</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>glob</code> takes a pattern (list of <code>Elem</code>) and a string (list of <code>Char</code>), returns <code>Bool</code></li>
+<li>The algorithm is <a class="gl-ref" href="../glossary/#chain_of_responsibility">Chain of Responsibility</a>:<ul>
+<li>Each pattern element tries to match the front of the input</li>
+<li>If it matches, it passes the remaining input to the rest of the pattern</li>
+</ul>
+</li>
+<li>Cases:<ul>
+<li><code>[], []</code>: empty pattern matches empty input — success</li>
+<li><code>[], _</code>: empty pattern with non-empty input — fail</li>
+<li><code>Elem.Lit c</code> vs <code>c'</code>: match if characters are equal, then recurse</li>
+<li><code>Elem.Lit _</code> vs <code>[]</code>: literal needs a character but there are none</li>
+<li><code>Elem.Any</code> vs <code>_ :: cs</code>: consume one character, recurse</li>
+<li><code>Elem.Any</code> vs <code>[]</code>: wildcard needs a character</li>
+<li><code>Elem.Wild</code> vs <code>[]</code> at end of pattern: matches anything</li>
+<li><code>Elem.Wild</code> vs <code>cs</code>: try every split point from 0 to length</li>
+</ul>
+</li>
+<li>The <code>Wild</code> case uses <code>List.range</code> to generate split points and <code>.any</code> to try each<ul>
+<li>This is the backtracking: try matching 0 chars, then 1, then 2, etc.</li>
+<li><code>cs.length + 1</code> (not <code>cs.length</code>) ensures the range includes <code>cs.length</code> — the case where <code>*</code> consumes <em>all</em> remaining characters</li>
+<li>Like trying different amounts of input consumed by <code>*</code></li>
+</ul>
+</li>
+<li><code>cs.drop i</code> skips the first <code>i</code> characters for the rest of the pattern</li>
+</ul>
+<h2>The <code>partial</code> Keyword</h2>
+<ul>
+<li>Lean requires every recursive function to be provably <a class="gl-ref" href="../glossary/#termination">terminating</a><ul>
+<li>Normally you use structural recursion (the argument gets smaller each call)</li>
+</ul>
+</li>
+<li><code>glob</code> cannot be proved terminating by Lean's automatic checker<ul>
+<li>The <code>Wild</code> case calls <code>glob ps (cs.drop i)</code> where the arguments don't structurally decrease</li>
+</ul>
+</li>
+<li><code>partial</code> tells Lean: "trust me, this function terminates, don't try to prove it"<ul>
+<li>The function will still run correctly at runtime</li>
+<li>But Lean won't try to generate a termination proof</li>
+</ul>
+</li>
+<li>Only use <code>partial</code> when you're sure the function terminates<ul>
+<li>An infinite loop in <code>partial</code> code will hang the compiler</li>
+</ul>
+</li>
+</ul>
+<h2>String Matching Wrapper</h2>
+<div data-inc="code.lean" data-mark="match-glob"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Wrap glob for whole-string matching</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>matchGlob</code> converts between the <code>String</code> type and the <code>List Char</code> internal representation</li>
+<li><code>s.toList</code> converts a <code>String</code> to a <code>List Char</code><ul>
+<li>Like Python's <code>list("hello")</code> → <code>['h', 'e', 'l', 'l', 'o']</code></li>
+</ul>
+</li>
+<li>The function is pure: same inputs always produce the same result</li>
+</ul>
+<h2>Building Literal Patterns</h2>
+<div data-inc="code.lean" data-mark="lit-pat"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Helper to build a Lit element list from a string</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">litPat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>litPat</code> builds a pattern that matches a literal string exactly</li>
+<li><code>s.toList.map Elem.Lit</code> converts every character to a <code>Lit</code> element<ul>
+<li>Like Python's <code>[Elem.Lit(c) for c in s]</code></li>
+</ul>
+</li>
+<li>Useful for building patterns programmatically</li>
+</ul>
+<h2>Parsing Pattern Strings</h2>
+<div data-inc="code.lean" data-mark="parse-pat"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Parse a glob pattern string into a list of Elem</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">filterMap</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'?'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parsePat</code> converts shell syntax (<code>?</code> and <code>*</code>) into <code>Elem</code> values</li>
+<li><code>filterMap</code> applies a function and discards <code>none</code> results<ul>
+<li>Like Python's <code>[y for x in items if (y := f(x)) is not None]</code> (walrus operator, Python 3.8+)</li>
+</ul>
+</li>
+<li>Every character produces <code>some Elem</code>, so nothing is filtered<ul>
+<li>We use <code>filterMap</code> rather than <code>map</code> to show the pattern for optional parsing (DEBT)</li>
+</ul>
+</li>
+<li><code>?</code> becomes <code>Elem.Any</code>, <code>*</code> becomes <code>Elem.Wild</code>, everything else becomes <code>Elem.Lit</code></li>
+<li>Unlike <code>litPat</code>, this function understands wildcard syntax</li>
+</ul>
+<h2>Tests</h2>
+<div data-inc="code.lean" data-mark="tests"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tests ---------------------------------------------------------------</span>
+
+<span class="c1">-- Literal matching</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">litPat</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">)</span><span class="w"> </span><span class="s2">"hello"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">litPat</span><span class="w"> </span><span class="s2">"foo"</span><span class="o">)</span><span class="w"> </span><span class="s2">"bar"</span>
+
+<span class="c1">-- Wildcard at end</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">litPat</span><span class="w"> </span><span class="s2">"hi"</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">])</span><span class="w"> </span><span class="s2">"hiXYZ"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="s2">""</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="s2">"anything"</span>
+
+<span class="c1">-- Wildcard at start</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">([</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">litPat</span><span class="w"> </span><span class="s2">".txt"</span><span class="o">)</span><span class="w"> </span><span class="s2">"report.txt"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">([</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">litPat</span><span class="w"> </span><span class="s2">".txt"</span><span class="o">)</span><span class="w"> </span><span class="s2">"report.csv"</span>
+
+<span class="c1">-- Any single character</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span><span class="w"> </span><span class="s2">"x"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span><span class="w"> </span><span class="s2">""</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span><span class="w"> </span><span class="s2">"xy"</span>
+
+<span class="c1">-- Combined patterns using parsePat</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"*.html"</span><span class="o">)</span><span class="w"> </span><span class="s2">"index.html"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"*.h*"</span><span class="o">)</span><span class="w"> </span><span class="s2">"header.hpp"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"*.h??"</span><span class="o">)</span><span class="w"> </span><span class="s2">"header.hpp"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"*.h??"</span><span class="o">)</span><span class="w"> </span><span class="s2">"main.cpp"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"d?ta.*"</span><span class="o">)</span><span class="w"> </span><span class="s2">"data.txt"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"d?ta.*"</span><span class="o">)</span><span class="w"> </span><span class="s2">"date.txt"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>#guard</code> assertions are checked at compile time<ul>
+<li>All must evaluate to <code>true</code> or compilation fails</li>
+</ul>
+</li>
+<li>Test categories:<ul>
+<li>Literal matching: exact string matches</li>
+<li>Wildcard at end: <code>"hi*"</code> matches <code>"hiXYZ"</code> but not <code>"foo"</code></li>
+<li>Wildcard at start: <code>"*.txt"</code> matches <code>"report.txt"</code> but not <code>"report.csv"</code></li>
+<li>Any single character: <code>"?"</code> matches <code>"x"</code> but not <code>""</code> or <code>"xy"</code></li>
+<li>Combined patterns: <code>"*.html"</code>, <code>"*.h*"</code>, <code>"*.h??"</code>, <code>"d?ta.*"</code></li>
+</ul>
+</li>
+<li><code>!matchGlob</code> tests that the pattern does <em>not</em> match<ul>
+<li>Like Python's <code>assert not fnmatch(...)</code></li>
+</ul>
+</li>
+</ul>
+<h2>Running the Program</h2>
+<div data-inc="code.lean" data-mark="main"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Entry point: test a few patterns interactively</span>
+<span class="c1">-- Run with: lean --run glob/code.lean</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="o">(</span><span class="s2">"*.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"basics/sum_list.lean"</span><span class="o">),</span>
+<span class="w">    </span><span class="o">(</span><span class="s2">"*.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"types/option.lean"</span><span class="o">),</span>
+<span class="w">    </span><span class="o">(</span><span class="s2">"*.out"</span><span class="o">,</span><span class="w">  </span><span class="s2">"basics/sum_list.out"</span><span class="o">),</span>
+<span class="w">    </span><span class="o">(</span><span class="s2">"*.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"README.md"</span><span class="o">)</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">patStr</span><span class="o">,</span><span class="w"> </span><span class="n">target</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="n">patStr</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"✓"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s2">"✗"</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{result} '{patStr}' matches '{target}'"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done."</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>main</code> loops over a list of <code>(pattern, target)</code> pairs and reports matches</li>
+<li><code>for (patStr, target) in patterns do</code> iterates with destructuring<ul>
+<li>Like Python's <code>for pat_str, target in patterns:</code></li>
+</ul>
+</li>
+<li><code>IO.println</code> outputs a line to the terminal</li>
+<li>Compile and type-check with:<ul>
+<li><code>lake env lean glob/code.lean</code></li>
+</ul>
+</li>
+<li>Run interactively with:<ul>
+<li><code>lean --run glob/code.lean</code></li>
+</ul>
+</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Literal Match Returns Wrong</h3>
+<div data-inc="ex_bug_glob_lit.lean"><span aria-label="Source: glob/ex_bug_glob_lit.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_lit.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fix the literal matching: it always returns true</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">matchLit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">true</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchLit</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchLit</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span><span class="w"> </span><span class="bp">'</span><span class="n">b'</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function always returns <code>true</code> regardless of the characters</li>
+<li>Replace <code>true</code> with the actual comparison <code>c == c'</code></li>
+</ul>
+</details>
+<h3>Fix: <code>Any</code> Doesn't Handle Empty</h3>
+<div data-inc="ex_bug_glob_any_empty.lean"><span aria-label="Source: glob/ex_bug_glob_any_empty.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_any_empty.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This says [Elem.Any] matches empty input, but it shouldn't</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">matchAny</span><span class="w"> </span><span class="o">(</span><span class="n">es</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">es</span><span class="o">,</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs'</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchAny</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="bp">'</span><span class="n">x'</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchAny</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The pattern <code>[Elem.Any]</code> matches exactly one character</li>
+<li>An empty string has zero characters, so it should return <code>false</code></li>
+<li>Add a case for <code>Elem.Any :: _</code> with <code>[]</code></li>
+</ul>
+</details>
+<h3>Fix: Missing <code>partial</code></h3>
+<div data-inc="ex_bug_glob_partial.lean"><span aria-label="Source: glob/ex_bug_glob_partial.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_partial.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Lean reports "fail to show termination"; add the missing keyword</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">))</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">x'</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="bp">'</span><span class="n">x'</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Lean reports "fail to show termination" because the <code>Wild</code> case recurses on <code>cs.drop i</code></li>
+<li>Add the <code>partial</code> keyword before <code>def</code></li>
+</ul>
+</details>
+<h3>Fix: Wrong Match Order</h3>
+<div data-inc="ex_bug_glob_match_order.lean"><span aria-label="Source: glob/ex_bug_glob_match_order.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_match_order.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- The match arms are in the wrong order: empty match should be tried first</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">glob</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">[</span><span class="bp">'</span><span class="n">x'</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Elem.Wild :: [], _</code> matches anything when Wild is the last pattern element</li>
+<li>But the empty case should be checked first: empty pattern with empty input is success</li>
+<li>Swap the two cases so <code>[], []</code> comes before <code>Elem.Wild :: [], _</code></li>
+</ul>
+</details>
+<h3>Fix: Double Star in <code>parsePat</code></h3>
+<div data-inc="ex_bug_glob_parse_double.lean"><span aria-label="Source: glob/ex_bug_glob_parse_double.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_parse_double.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- One case is unreachable; '?' should map to Any, not Wild</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">filterMap</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"?"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="s2">"*"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The <code>if</code> chain checks <code>c == '*'</code> twice — the second branch is never reached</li>
+<li>The second <code>'*'</code> check is dead code, and <code>'?'</code> is never handled</li>
+<li>Change the second <code>c == '*'</code> to <code>c == '?'</code></li>
+</ul>
+</details>
+<h3>Fix: Backtracking Uses Wrong Range</h3>
+<div data-inc="ex_bug_glob_wild_backtrack.lean"><span aria-label="Source: glob/ex_bug_glob_wild_backtrack.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_bug_glob_wild_backtrack.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Wild backtracking range is off by one; should try consuming ALL chars</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="o">)</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="c1">-- This should match (Wild consumes all of "abc")</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">c'</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="bp">'</span><span class="n">a'</span><span class="o">,</span><span class="w"> </span><span class="bp">'</span><span class="n">b'</span><span class="o">,</span><span class="w"> </span><span class="bp">'</span><span class="n">c'</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>List.range (cs.length)</code> generates <code>[0, 1, ..., n-1]</code>, missing the case where Wild consumes everything</li>
+<li>Pass <code>cs.length + 1</code> instead so the range includes <code>n</code> (consume all remaining characters)</li>
+</ul>
+</details>
+<h3>Write: Filter by Pattern</h3>
+<div data-inc="ex_glob_filter.lean"><span aria-label="Source: glob/ex_glob_filter.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_filter.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that filters a list of strings by a glob pattern</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">))</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">filterMap</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'?'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">filterGlob</span><span class="w"> </span><span class="o">(</span><span class="n">patStr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">filterGlob</span><span class="w"> </span><span class="s2">"*.lean"</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c.lean"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c.lean"</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>List.filter</code> with a function that calls <code>matchGlob</code></li>
+<li>The filter function should be <code>fun s =&gt; matchGlob (parsePat patStr) s</code></li>
+<li><code>filterGlob "*.lean" ["a.lean", "b.txt", "c.lean"]</code> should return <code>["a.lean", "c.lean"]</code></li>
+</ul>
+</details>
+<h3>Write: Check All Match</h3>
+<div data-inc="ex_glob_matches_all.lean"><span aria-label="Source: glob/ex_glob_matches_all.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_matches_all.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that checks if a pattern matches every string in a list</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">))</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">filterMap</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'?'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">matchesAll</span><span class="w"> </span><span class="o">(</span><span class="n">patStr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">matchesAll</span><span class="w"> </span><span class="s2">"*.lean"</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b.lean"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">matchesAll</span><span class="w"> </span><span class="s2">"*.lean"</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b.txt"</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>List.all</code> to check that every string in the list matches</li>
+<li>The predicate is <code>fun s =&gt; matchGlob (parsePat patStr) s</code></li>
+<li><code>List.all</code> returns <code>true</code> if every element satisfies the predicate (like Python's <code>all()</code>)</li>
+</ul>
+</details>
+<h3>Write: Count Matches</h3>
+<div data-inc="ex_glob_count_matches.lean"><span aria-label="Source: glob/ex_glob_count_matches.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_count_matches.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that counts how many strings match a pattern</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="w">         </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="o">[],</span><span class="w">  </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w">  </span><span class="n">cs</span><span class="w">     </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">))</span><span class="bp">.</span><span class="n">any</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">(</span><span class="n">cs</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="n">i</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">c'</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="n">ps</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="n">cs</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="w">   </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">  </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">pat</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parsePat</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">filterMap</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'?'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="bp">'*'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="n">c</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">countMatches</span><span class="w"> </span><span class="o">(</span><span class="n">patStr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="mi">0</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countMatches</span><span class="w"> </span><span class="s2">"*.lean"</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c.txt"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countMatches</span><span class="w"> </span><span class="s2">"*.txt"</span><span class="w">  </span><span class="o">[</span><span class="s2">"a.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b.lean"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c.txt"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Filter the list first, then take <code>List.length</code> of the result</li>
+<li>Or use <code>List.foldl</code> to count matches in one pass</li>
+<li><code>countMatches "*.lean" ["a.lean", "b.lean", "c.txt"]</code> should return <code>2</code></li>
+</ul>
+</details>
+<h3>Write: Pattern to String</h3>
+<div data-inc="ex_glob_pattern_to_string.lean"><span aria-label="Source: glob/ex_glob_pattern_to_string.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_pattern_to_string.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that converts a list of Elem back to a pattern string</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">patternToString</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="s2">""</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">patternToString</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">h'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">t'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"h?t*"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">patternToString</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'.'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">t'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">x'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">t'</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"*.txt"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">patternToString</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">""</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Reverse of <code>parsePat</code>: convert <code>Elem</code> values back to <code>?</code> and <code>*</code> characters</li>
+<li>Use <code>List.map</code> with a function that pattern-matches on each <code>Elem</code></li>
+<li><code>Elem.Lit c</code> → the character itself, <code>Elem.Any</code> → <code>'?'</code>, <code>Elem.Wild</code> → <code>'*'</code></li>
+<li>Then use <code>String.ofList</code> to collect the result</li>
+</ul>
+</details>
+<h3>Write: Find Wildcard Positions</h3>
+<div data-inc="ex_glob_wildcard_positions.lean"><span aria-label="Source: glob/ex_glob_wildcard_positions.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_wildcard_positions.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that finds all positions of Wild elements in a pattern</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">wildcardPositions</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">wildcardPositions</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">b'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">wildcardPositions</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">x'</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">wildcardPositions</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Find all indices where <code>Elem.Wild</code> appears in the pattern</li>
+<li><code>List.findIdxs?</code> returns a list of indices matching a predicate</li>
+<li>The predicate is <code>fun e =&gt; e == Elem.Wild</code></li>
+</ul>
+</details>
+<h3>Write: Has No Wildcards</h3>
+<div data-inc="ex_glob_no_wild.lean"><span aria-label="Source: glob/ex_glob_no_wild.lean" class="inc-path" role="img" tabindex="0" title="glob/ex_glob_no_wild.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that checks if a pattern has no wildcards (no * or ?)</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Lit</span><span class="w"> </span><span class="o">(</span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="o">)</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Any</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Wild</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">hasNoWildcards</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">true</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">hasNoWildcards</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">b'</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">hasNoWildcards</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Lit</span><span class="w"> </span><span class="bp">'</span><span class="n">a'</span><span class="o">,</span><span class="w"> </span><span class="n">Elem</span><span class="bp">.</span><span class="n">Wild</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">hasNoWildcards</span><span class="w"> </span><span class="o">[</span><span class="n">Elem</span><span class="bp">.</span><span class="n">Any</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">hasNoWildcards</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Check if the pattern contains no <code>Elem.Wild</code> and no <code>Elem.Any</code> elements</li>
+<li>Use <code>List.all</code> with a function that checks each element is <code>Elem.Lit _</code></li>
+<li>Can pattern-match: <code>fun e =&gt; match e with | Elem.Lit _ =&gt; true | _ =&gt; false</code></li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../archive">A File Archiver</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../template">A Template Expander</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

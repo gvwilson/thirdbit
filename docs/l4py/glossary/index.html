@@ -26,9 +26,13 @@
 <li><a href="../pipes/">Functional Pipelines</a></li>
 <li><a href="../io/">I/O and Monads</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
 <li><a href="../build/">Building Projects</a></li>
-<li><a href="../proof/">Proofs</a></li>
 <li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -65,6 +69,9 @@ such as Maple or Mathematica.</dd>
 </dl>
 <h2>E</h2>
 <dl>
+<dt><span id="encapsulation">encapsulation</span></dt>
+<dd>Hiding the internal implementation of a component behind a stable interface,
+so that the implementation can change without affecting code that uses it.</dd>
 <dt><span id="effectful">effectful</span></dt>
 <dd>Describing a computation that performs side effects such as printing, reading input, or modifying state.</dd>
 <dt><span id="enumeration">enumeration</span></dt>
@@ -91,6 +98,12 @@ such as Maple or Mathematica.</dd>
 </dl>
 <h2>P</h2>
 <dl>
+<dt><span id="partial">partial</span></dt>
+<dd>A keyword that tells Lean to skip termination checking for a function.
+Used when a function is known to terminate but Lean's automatic checker cannot prove it.</dd>
+<dt><span id="point_free">point-free style</span></dt>
+<dd>A way of defining functions by composing other functions without naming their arguments,
+using <code>∘</code> or <code>|&gt;</code>. The "point" refers to the argument value itself.</dd>
 <dt><span id="prelude">prelude</span></dt>
 <dd>A standard library of basic types and functions automatically available in every Lean file without an explicit import.</dd>
 <dt><span id="product_type">product type</span></dt>
@@ -119,10 +132,16 @@ associativity, and distributivity; integers, natural numbers, and polynomials ar
 </dl>
 <h2>T</h2>
 <dl>
+<dt><span id="termination_checking">termination checking</span></dt>
+<dd>Lean's automatic verification that every recursive function eventually stops.
+Functions that cannot be proved terminating must be marked <code>partial</code>.</dd>
 <dt><span id="tactic">tactic</span></dt>
 <dd>A command that constructs a proof automatically, such as <code>rfl</code>, <code>omega</code>, or <code>simp</code>.</dd>
 <dt><span id="tagged_union">tagged union</span></dt>
 <dd>Another name for a sum type; a value that is one of several variants with a runtime tag indicating which variant is held.</dd>
+<dt><span id="type_class">type class</span></dt>
+<dd>An interface that defines operations a type must support, such as <code>BEq</code> for equality
+or <code>Repr</code> for display. Instances are generated automatically with <code>deriving</code> or written by hand.</dd>
 <dt><span id="type_alias">type alias</span></dt>
 <dd>An alternative name for an existing type, created to improve readability without defining a new type.</dd>
 <dt><span id="type_parameter">type parameter</span></dt>

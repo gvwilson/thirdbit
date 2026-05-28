@@ -26,9 +26,13 @@
 <li><a href="../pipes/">Functional Pipelines</a></li>
 <li><a href="../io/">I/O and Monads</a></li>
 <li><a class="active" href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
 <li><a href="../build/">Building Projects</a></li>
-<li><a href="../proof/">Proofs</a></li>
 <li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -194,24 +198,70 @@
 <li><code>s!"{archiveDir}/{h}.bck"</code> constructs the blob path using string interpolation</li>
 <li>Then <code>IO.FS.writeBinFile</code> writes the bytes back to the original file path</li>
 </ul>
-<h2>Taking a Directory Snapshot</h2>
-<ul>
-<li><code>snapshotDir</code> would read an entire directory and snapshot every file in it</li>
-<li>The pattern is: list directory → filter to regular files → read each file → call <code>snapshot</code></li>
-</ul>
-<div data-inc="archive.lean" data-mark="snapshot-dir"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- IO: snapshot all files in a directory (requires directory listing not in prelude)</span>
-<span class="c1">-- In practice you'd use IO.FS.readDir from Std, but the prelude doesn't include it.</span>
-<span class="c1">-- The pattern is: read directory → filter files → read bytes → call snapshot.</span>
+<h2>Listing a Directory</h2>
+<div data-inc="archive_dir.lean" data-mark="list-files"><span aria-label="Source: archive/archive_dir.lean" class="inc-path" role="img" tabindex="0" title="archive/archive_dir.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Collect all regular files in a directory as (path, bytes) pairs</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">listFiles</span><span class="w"> </span><span class="o">(</span><span class="n">dir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="o">(</span><span class="n">dir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">System</span><span class="bp">.</span><span class="n">FilePath</span><span class="o">)</span><span class="bp">.</span><span class="n">readDir</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[]</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">entry</span><span class="bp">.</span><span class="n">path</span><span class="bp">.</span><span class="n">metadata</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">info</span><span class="bp">.</span><span class="n">type</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">FileType</span><span class="bp">.</span><span class="n">file</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">readBinFile</span><span class="w"> </span><span class="n">entry</span><span class="bp">.</span><span class="n">path</span>
+<span class="w">      </span><span class="n">files</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[(</span><span class="n">entry</span><span class="bp">.</span><span class="n">path</span><span class="bp">.</span><span class="n">toString</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)]</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">files</span>
 </code></pre></div>
 </div>
 <ul>
-<li>FIXME: show how to import the library and use Std here</li>
-<li>The prelude doesn't include directory listing, so this section is a sketch<ul>
-<li><code>IO.FS.readDir</code> exists in <code>Std</code> but requires <code>import Std</code></li>
-<li>We'll see imports in detail in a later lesson (DEBT)</li>
+<li><code>dir.readDir</code> lists all entries in a directory and returns an <code>Array IO.FS.DirEntry</code><ul>
+<li><code>dir</code> must be a <code>System.FilePath</code>; a <code>String</code> is coerced automatically</li>
+<li>Like Python's <code>os.scandir(dir)</code> — returns both files and subdirectories</li>
 </ul>
 </li>
-<li>The key idea: combine a directory reader with the archiver we already built</li>
+<li><code>entry.path.metadata</code> inspects the filesystem entry<ul>
+<li>Returns an <code>IO.FS.Metadata</code> record with a <code>.type</code> field</li>
+<li><code>IO.FS.FileType.file</code> means a regular file; <code>.dir</code> is a subdirectory</li>
+</ul>
+</li>
+<li><code>let mut files := []</code> accumulates results using a mutable variable in the <code>do</code> block (see <a href="../io/">io</a>)</li>
+<li>The result is a list of <code>(path, bytes)</code> pairs — exactly what <code>snapshot</code> already expects</li>
+</ul>
+<h2>Archiving a Directory</h2>
+<div data-inc="archive_dir.lean" data-mark="snapshot-dir"><span aria-label="Source: archive/archive_dir.lean" class="inc-path" role="img" tabindex="0" title="archive/archive_dir.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Archive every regular file in srcDir to archiveDir</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">snapshotDir</span><span class="w"> </span><span class="o">(</span><span class="n">srcDir</span><span class="w"> </span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">createDirAll</span><span class="w"> </span><span class="n">archiveDir</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">listFiles</span><span class="w"> </span><span class="n">srcDir</span>
+<span class="w">  </span><span class="n">snapshot</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">archiveDir</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>snapshotDir</code> is four lines: create the archive directory, list files, call <code>snapshot</code></li>
+<li><code>snapshot</code> (from <code>archive.lean</code>) is unchanged — it accepts any <code>List (String × ByteArray)</code></li>
+<li>This is the payoff of pure-core design: the I/O boundary is thin and swappable<ul>
+<li>Swapping hand-written sample files for real disk files required only <code>listFiles</code></li>
+</ul>
+</li>
+</ul>
+<div data-inc="archive_dir.lean" data-mark="main-dir"><span aria-label="Source: archive/archive_dir.lean" class="inc-path" role="img" tabindex="0" title="archive/archive_dir.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Entry point: archive a directory and report results</span>
+<span class="c1">-- Run with: lean --run archive/archive_dir.lean</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"archive-dir"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Scanning current directory..."</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">snapshotDir</span><span class="w"> </span><span class="s2">"."</span><span class="w"> </span><span class="n">archiveDir</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Archived {manifest.length} file(s) to {archiveDir}/"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">buildManifest</span><span class="w"> </span><span class="o">(</span><span class="bp">←</span><span class="w"> </span><span class="n">listFiles</span><span class="w"> </span><span class="s2">"."</span><span class="o">))</span><span class="bp">.</span><span class="m">2</span><span class="bp">.</span><span class="n">length</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Unique content blobs: {blobs}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done."</span>
+</code></pre></div>
+</div>
+<ul>
+<li>To compile and type-check:<ul>
+<li><code>lake env lean archive/archive_dir.lean</code></li>
+</ul>
+</li>
+<li>To run and create a real archive:<ul>
+<li><code>lean --run archive/archive_dir.lean</code></li>
+</ul>
+</li>
 </ul>
 <h2>Testing the Pure Core</h2>
 <div data-inc="archive.lean" data-mark="tests"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tests (pure core) ---------------------------------------------------</span>
@@ -358,6 +408,209 @@ with one entry per line. Use <code>String.intercalate "\n"</code> to join the li
 <li>Then <code>String.intercalate "\n"</code> to join with newlines</li>
 </ul>
 </details>
+<h3>Fix: Hash Digits in Wrong Order</h3>
+<div data-inc="ex_bug_hash_digits.lean"><span aria-label="Source: archive/ex_bug_hash_digits.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_bug_hash_digits.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- hashBytes should produce correct hex digits, but the loop extracts</span>
+<span class="c1">-- nibbles in the wrong order. The result is reversed. Fix it.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="o">(</span><span class="n">ba</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt64</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">ba</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"0123456789abcdef"</span><span class="bp">.</span><span class="n">toList</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">digits</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="mi">16</span><span class="o">)</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">nibble</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">i</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt64</span><span class="o">)</span><span class="w"> </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xF</span>
+<span class="w">    </span><span class="n">hex</span><span class="o">[</span><span class="n">nibble</span><span class="bp">.</span><span class="n">toNat</span><span class="o">]!</span>
+<span class="w">  </span><span class="n">String</span><span class="bp">.</span><span class="n">ofList</span><span class="w"> </span><span class="n">digits</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="s2">"world"</span><span class="bp">.</span><span class="n">toUTF8</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>List.range 16</code> generates <code>[0, 1, …, 15]</code>, and <code>i * 4</code> shifts by 0, 4, 8, … bits each iteration</li>
+<li>This extracts the nibbles from least-significant to most-significant, but prints them in that same order</li>
+<li>The most-significant nibble should come first in the output</li>
+<li>Reverse the shift: <code>60 - i * 4</code> to start from the top nibble</li>
+</ul>
+</details>
+<h3>Fix: Blobs Not Deduplicated</h3>
+<div data-inc="ex_bug_no_dedup.lean"><span aria-label="Source: archive/ex_bug_no_dedup.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_bug_no_dedup.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- buildManifest should deduplicate blobs by hash, but it keeps every</span>
+<span class="c1">-- blob entry instead. The blob store has duplicates. Fix the dedup check.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="o">(</span><span class="n">ba</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">toString</span><span class="w"> </span><span class="o">(</span><span class="n">hash</span><span class="w"> </span><span class="n">ba</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">buildManifest</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">Hash</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">files</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="n">bytes</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">entries</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">entries</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">h</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span>
+<span class="w">  </span><span class="o">(</span><span class="n">manifest</span><span class="o">,</span><span class="w"> </span><span class="n">blobs</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span><span class="w">   </span><span class="c1">-- same content as a.txt</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"c.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">)</span>
+<span class="o">]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">buildManifest</span><span class="w"> </span><span class="n">sample</span><span class="o">)</span><span class="bp">.</span><span class="m">2</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>entries.map</code> copies every blob, including duplicates</li>
+<li>The original <code>buildManifest</code> uses <code>foldl</code> with a check: <code>if acc.any (·.1 == h) then acc else acc ++ [(h, bytes)]</code></li>
+<li>Add a similar deduplication step before collecting blobs</li>
+</ul>
+</details>
+<h3>Fix: Snapshot Missing Directory</h3>
+<div data-inc="ex_bug_snapshot.lean"><span aria-label="Source: archive/ex_bug_snapshot.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_bug_snapshot.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- snapshot should create the archive directory before writing blobs,</span>
+<span class="c1">-- but it doesn't. The first file write will fail. Add the missing directory</span>
+<span class="c1">-- creation step.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">(</span><span class="n">files</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">(</span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">toString</span><span class="w"> </span><span class="o">(</span><span class="n">hash</span><span class="w"> </span><span class="n">bytes</span><span class="o">)</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">writeBinFile</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{archiveDir}/{h}.bck"</span><span class="w"> </span><span class="n">bytes</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">)]</span><span class="w"> </span><span class="s2">"test-archive"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>IO.FS.writeBinFile</code> will fail if the parent directory doesn't exist</li>
+<li>Add <code>IO.FS.createDirAll archiveDir</code> before the <code>for</code> loop</li>
+<li><code>createDirAll</code> won't fail if the directory already exists (like Python's <code>os.makedirs(exist_ok=True)</code>)</li>
+</ul>
+</details>
+<h3>Fix: Restore Uses Wrong Path</h3>
+<div data-inc="ex_bug_restore_path.lean"><span aria-label="Source: archive/ex_bug_restore_path.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_bug_restore_path.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- restore constructs the blob path wrong: it uses the file path instead</span>
+<span class="c1">-- of the hash to read the blob. Fix the file path construction.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">archiveDir</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="n">h</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">readBinFile</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{archiveDir}/{path}.bck"</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">writeBinFile</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">bytes</span>
+
+<span class="c1">-- To test: first run snapshot on sample data, then restore with this.</span>
+<span class="c1">-- The bug path uses the file name instead of the hash for the blob file.</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The blob file is named <code>archiveDir/&lt;hash&gt;.bck</code>, not <code>archiveDir/&lt;path&gt;.bck</code></li>
+<li>The code uses <code>path</code> (the original filename) as the hash — that's wrong</li>
+<li>Fix the destructuring: <code>for (path, h) in manifest do</code> and use <code>h</code> in the blob path</li>
+</ul>
+</details>
+<h3>Write: Find File in Manifest</h3>
+<div data-inc="ex_find_file.lean"><span aria-label="Source: archive/ex_find_file.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_find_file.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Look up a file path in the manifest and return its hash (if present).</span>
+<span class="c1">-- You may use the existing definitions from archive.lean.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">findFile</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findFile</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc123"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"def456"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"a.txt"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"abc123"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findFile</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc123"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"c.txt"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findFile</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x.txt"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>List.find?</code> to search for the path in the manifest</li>
+<li>The predicate is <code>fun (p, _) =&gt; p == path</code></li>
+<li>If found, extract the hash with <code>.map (·.2)</code></li>
+<li><code>List.find?</code> already returns <code>Option</code>, so the result type matches</li>
+</ul>
+</details>
+<h3>Write: Count Unique Blobs</h3>
+<div data-inc="ex_unique_blobs.lean"><span aria-label="Source: archive/ex_unique_blobs.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_unique_blobs.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Count how many unique blobs are in the blob store.</span>
+<span class="c1">-- A blob store is a list of (hash, bytes) pairs.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">countUniqueBlobs</span><span class="w"> </span><span class="o">(</span><span class="n">blobs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">Hash</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="mi">0</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">sampleBlobs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">Hash</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"abc"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"def"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"abc"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hello"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">)</span><span class="w">   </span><span class="c1">-- duplicate hash, same content</span>
+<span class="o">]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countUniqueBlobs</span><span class="w"> </span><span class="n">sampleBlobs</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countUniqueBlobs</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countUniqueBlobs</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="s2">"a"</span><span class="bp">.</span><span class="n">toUTF8</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Extract all hashes from the blobs list, then deduplicate</li>
+<li>Use <code>List.map</code> to get the hash list, then keep only the first occurrence of each</li>
+<li>Same pattern as <code>dbCompact</code> from the <a href="../db/">database lesson</a>: track seen hashes in a <code>foldl</code></li>
+<li>Return <code>List.length</code> of the deduplicated list</li>
+</ul>
+</details>
+<h3>Write: Find Files by Hash</h3>
+<div data-inc="ex_find_by_hash.lean"><span aria-label="Source: archive/ex_find_by_hash.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_find_by_hash.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all file paths in the manifest that have the given hash.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">findByHash</span><span class="w"> </span><span class="o">(</span><span class="n">manifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">target</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"def"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"c.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc"</span><span class="o">)]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findByHash</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="s2">"abc"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c.txt"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findByHash</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="s2">"xyz"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">findByHash</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"abc"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use <code>List.filter</code> to keep only entries where the hash matches</li>
+<li>The predicate is <code>fun (_, h) =&gt; h == target</code></li>
+<li>Then use <code>List.map (·.1)</code> to extract just the file paths</li>
+<li>Like finding all files that share the same content (deduplicated files)</li>
+</ul>
+</details>
+<h3>Write: Diff Two Manifests</h3>
+<div data-inc="ex_diff_manifest.lean"><span aria-label="Source: archive/ex_diff_manifest.lean" class="inc-path" role="img" tabindex="0" title="archive/ex_diff_manifest.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Compare two manifests. Return the paths that appear in the first</span>
+<span class="c1">-- manifest but not the second (new or renamed files).</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Hash</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">diffManifests</span><span class="w"> </span><span class="o">(</span><span class="n">old</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">oldManifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"def"</span><span class="o">)]</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">newManifest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Manifest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"abc"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"c.txt"</span><span class="o">,</span><span class="w"> </span><span class="s2">"xyz"</span><span class="o">)]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">diffManifests</span><span class="w"> </span><span class="n">oldManifest</span><span class="w"> </span><span class="n">newManifest</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"b.txt"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">diffManifests</span><span class="w"> </span><span class="n">newManifest</span><span class="w"> </span><span class="n">oldManifest</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"c.txt"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">diffManifests</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Find paths that are in <code>old</code> but not in <code>new</code></li>
+<li>Use <code>List.filter</code> on the old manifest with a predicate that checks if the path exists in new</li>
+<li><code>new.any (fun (p, _) =&gt; p == path)</code> checks if a path exists in the new manifest</li>
+<li>This is like comparing two snapshots to find renamed or deleted files</li>
+</ul>
+</details>
 </div>
 </main>
 <footer aria-label="Page navigation">
@@ -371,7 +624,7 @@ with one entry per line. Use <code>String.intercalate "\n"</code> to join the li
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../build">Building Projects</a> <span aria-hidden="true">⇒</span>
+<a href="../glob">Matching Patterns</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Type Classes</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a class="active" href="../advanced/">Type Classes</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Type Classes</h1>
+<div class="callout">
+<ul>
+<li>Define a <a class="gl-ref" href="../glossary/#type_class">type class</a> to specify an interface that multiple types can satisfy</li>
+<li>Write <code>instance</code> declarations to implement a type class for a specific type</li>
+<li>Use <code>[ClassName α]</code> constraints to write functions that work for any type with an instance</li>
+<li>Combine multiple constraints and extend classes with <code>extends</code></li>
+<li>Understand <code>deriving</code> as automatic instance generation</li>
+</ul>
+</div>
+<ul>
+<li>So far, <code>deriving Repr</code> and <code>deriving BEq</code> have appeared without full explanation</li>
+<li>This lesson explains the mechanism behind them: type classes</li>
+<li>Like Python's abstract base classes, but checked at compile time with no runtime overhead</li>
+</ul>
+<h2>Defining a Type Class</h2>
+<div data-inc="tc_basic.lean" data-mark="tc-class"><span aria-label="Source: advanced/tc_basic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_basic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Define a type class with one required method</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>class Describable (α : Type) where</code> introduces a new type class<ul>
+<li><code>α</code> is the type parameter — a placeholder for "whichever type implements this"</li>
+<li><code>describe : α → String</code> is the required method: given a value, produce a string</li>
+</ul>
+</li>
+<li>Like Python's <code>class Describable(ABC): @abstractmethod def describe(self) -&gt; str: ...</code><ul>
+<li>Unlike Python, the compiler enforces that every use has a valid implementation</li>
+</ul>
+</li>
+<li>No code is generated yet — <code>class</code> only defines the interface</li>
+</ul>
+<h2>Writing an Instance</h2>
+<div data-inc="tc_basic.lean" data-mark="tc-bool"><span aria-label="Source: advanced/tc_basic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_basic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- An instance teaches Lean how to describe a specific type</span>
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"yes"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s2">"no"</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_basic.lean" data-mark="tc-int"><span aria-label="Source: advanced/tc_basic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_basic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"the number {n}"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>instance : Describable Bool where</code> tells Lean how to satisfy <code>Describable</code> for <code>Bool</code><ul>
+<li>The body provides all required methods</li>
+</ul>
+</li>
+<li><code>instance : Describable Int where</code> is a completely separate declaration for <code>Int</code></li>
+<li>Like registering a Python <code>@singledispatch</code> handler, but checked at compile time</li>
+<li>Two types, two instances: Lean picks the right one based on the type of the argument</li>
+</ul>
+<div data-inc="tc_basic.lean" data-mark="tc-use"><span aria-label="Source: advanced/tc_basic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_basic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="n">true</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_basic.out"><span aria-label="Source: advanced/tc_basic.out" class="inc-path" role="img" tabindex="0" title="advanced/tc_basic.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"yes"
+"the number 42"
+</code></pre></div>
+</div>
+<ul>
+<li><code>Describable.describe true</code> resolves to the <code>Bool</code> instance at compile time</li>
+<li><code>Describable.describe (42 : Int)</code> resolves to the <code>Int</code> instance</li>
+<li>No runtime dispatch: the choice is made during type-checking</li>
+</ul>
+<h2>Polymorphic Functions</h2>
+<div data-inc="tc_polymorphic.lean" data-mark="tc-poly"><span aria-label="Source: advanced/tc_polymorphic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_polymorphic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- [Describable α] is a constraint: α must have a Describable instance</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>[Describable α]</code> is a <a class="gl-ref" href="../glossary/#type_class">type class constraint</a><ul>
+<li>Read as: "for any type <code>α</code> that has a <code>Describable</code> instance"</li>
+<li>Square brackets <code>[...]</code> distinguish class constraints from ordinary arguments <code>(...)</code></li>
+</ul>
+</li>
+<li><code>showAll</code> works for <code>List Bool</code>, <code>List Int</code>, or any list whose element type has an instance</li>
+<li>Like a Python <code>Generic</code> function with a <code>Protocol</code> bound, but resolved at compile time</li>
+</ul>
+<div data-inc="tc_polymorphic.lean" data-mark="tc-poly-use"><span aria-label="Source: advanced/tc_polymorphic.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_polymorphic.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="n">true</span><span class="o">,</span><span class="w"> </span><span class="n">false</span><span class="o">,</span><span class="w"> </span><span class="n">true</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[(</span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">),</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_polymorphic.out"><span aria-label="Source: advanced/tc_polymorphic.out" class="inc-path" role="img" tabindex="0" title="advanced/tc_polymorphic.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"yes, no, yes"
+"the number 1, the number 2, the number 3"
+"'hello', 'world'"
+</code></pre></div>
+</div>
+<ul>
+<li>The same function body handles <code>Bool</code>, <code>Int</code>, and <code>String</code> lists<ul>
+<li>Lean selects the correct <code>describe</code> implementation for each call</li>
+</ul>
+</li>
+</ul>
+<h2>Multiple Type Classes</h2>
+<div data-inc="tc_multiple.lean" data-mark="tc-two-classes"><span aria-label="Source: advanced/tc_multiple.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_multiple.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Two independent type classes</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_multiple.lean" data-mark="tc-fruit"><span aria-label="Source: advanced/tc_multiple.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_multiple.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">inductive</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Banana</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Cherry</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Apple</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"apple"</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"banana"</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Cherry</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"cherry"</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Apple</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">180</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">120</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Cherry</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+</div>
+<ul>
+<li>A single type can implement any number of classes</li>
+<li><code>Fruit</code> implements both <code>Describable</code> and <code>Weighable</code> independently</li>
+<li>Like a Python class implementing multiple abstract base classes</li>
+</ul>
+<div data-inc="tc_multiple.lean" data-mark="tc-two-constraints"><span aria-label="Source: advanced/tc_multiple.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_multiple.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A function can require multiple type class constraints</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">[</span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">Weighable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"{Describable.describe x} weighs {Weighable.weight x}g"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>[Describable α] [Weighable α]</code> requires both constraints<ul>
+<li>The type must have instances for both classes to use <code>report</code></li>
+</ul>
+</li>
+<li>The compiler verifies this at the call site — no runtime AttributeError</li>
+</ul>
+<div data-inc="tc_multiple.lean" data-mark="tc-multi-use"><span aria-label="Source: advanced/tc_multiple.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_multiple.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Apple</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Banana</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Cherry</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_multiple.out"><span aria-label="Source: advanced/tc_multiple.out" class="inc-path" role="img" tabindex="0" title="advanced/tc_multiple.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"apple weighs 180g"
+"banana weighs 120g"
+"cherry weighs 5g"
+</code></pre></div>
+</div>
+<h2>Extending Type Classes</h2>
+<div data-inc="tc_extend.lean" data-mark="tc-extend"><span aria-label="Source: advanced/tc_extend.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_extend.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- extends inherits all methods of the parent class</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Verbose</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">extends</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>extends Describable α</code> means <code>Verbose</code> inherits <code>describe</code> from <code>Describable</code><ul>
+<li>An instance of <code>Verbose</code> automatically satisfies <code>Describable</code></li>
+</ul>
+</li>
+<li>Like Python's class inheritance, but for interfaces rather than implementations</li>
+</ul>
+<div data-inc="tc_extend.lean" data-mark="tc-extend-inst"><span aria-label="Source: advanced/tc_extend.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_extend.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- An instance of Verbose must provide both methods</span>
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Verbose</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">n</span><span class="w">      </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{n}"</span>
+<span class="w">  </span><span class="n">verboseDescribe</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">s!</span><span class="s2">"negative: {n}"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"zero"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">s!</span><span class="s2">"positive: {n}"</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The instance must provide all methods: both <code>describe</code> (inherited requirement) and <code>verboseDescribe</code></li>
+</ul>
+<div data-inc="tc_extend.lean" data-mark="tc-extend-use"><span aria-label="Source: advanced/tc_extend.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_extend.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Any function expecting Describable also accepts Verbose</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">[</span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"[{Describable.describe x}]"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">(</span><span class="bp">-</span><span class="mi">7</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Verbose</span><span class="bp">.</span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Verbose</span><span class="bp">.</span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">(</span><span class="mi">5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_extend.out"><span aria-label="Source: advanced/tc_extend.out" class="inc-path" role="img" tabindex="0" title="advanced/tc_extend.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"[42]"
+"[-7]"
+"zero"
+"positive: 5"
+</code></pre></div>
+</div>
+<ul>
+<li><code>label</code> only requires <code>Describable</code>, so <code>Int</code> (which has a <code>Verbose</code> instance) satisfies it<ul>
+<li>A <code>Verbose</code> instance is also a <code>Describable</code> instance</li>
+</ul>
+</li>
+</ul>
+<h2><code>deriving</code> Revisited</h2>
+<div data-inc="tc_deriving.lean" data-mark="tc-deriving-what"><span aria-label="Source: advanced/tc_deriving.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_deriving.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Repr and BEq are type classes just like any user-defined class</span>
+<span class="c1">-- deriving Repr generates an instance of the Repr class automatically</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Red</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Green</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Blue</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">BEq</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Repr</code> and <code>BEq</code> are ordinary type classes defined in the standard library</li>
+<li><code>deriving Repr</code> asks the compiler to generate a <code>Repr Color</code> instance automatically<ul>
+<li>Lean can do this for any <code>inductive</code> type it fully understands</li>
+</ul>
+</li>
+<li><code>deriving BEq</code> generates a <code>BEq Color</code> instance — structural equality</li>
+<li>Not all classes can be derived: <code>Describable</code> cannot, because Lean does not know what string you want</li>
+</ul>
+<div data-inc="tc_deriving.lean" data-mark="tc-deriving-manual"><span aria-label="Source: advanced/tc_deriving.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_deriving.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Some classes cannot be derived — you write the instance by hand</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Red</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"red"</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Green</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"green"</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Blue</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"blue"</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_deriving.lean" data-mark="tc-deriving-use"><span aria-label="Source: advanced/tc_deriving.lean" class="inc-path" role="img" tabindex="0" title="advanced/tc_deriving.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Repr (from deriving) drives #eval output</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Red</span>
+<span class="c1">-- BEq (from deriving) enables ==</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Red</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Red</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Red</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Blue</span>
+<span class="c1">-- Describable (written by hand) gives a custom string</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="n">Color</span><span class="bp">.</span><span class="n">Green</span>
+</code></pre></div>
+</div>
+<div data-inc="tc_deriving.out"><span aria-label="Source: advanced/tc_deriving.out" class="inc-path" role="img" tabindex="0" title="advanced/tc_deriving.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Color.Red
+"green"
+</code></pre></div>
+</div>
+<ul>
+<li><code>#eval Color.Red</code> uses the auto-generated <code>Repr</code> instance</li>
+<li><code>Color.Red == Color.Red</code> uses the auto-generated <code>BEq</code> instance</li>
+<li><code>Describable.describe Color.Green</code> uses the hand-written instance</li>
+<li>Whenever you see <code>deriving X</code>, there is a type class <code>X</code> behind it<ul>
+<li>You can always write the instance yourself instead — <code>deriving</code> is just a shortcut</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../proof">Proofs</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

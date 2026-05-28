@@ -26,9 +26,13 @@
 <li><a href="../pipes/">Functional Pipelines</a></li>
 <li><a class="active" href="../io/">I/O and Monads</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
 <li><a href="../build/">Building Projects</a></li>
-<li><a href="../proof/">Proofs</a></li>
 <li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -319,6 +323,61 @@ Hello,  !
 </li>
 <li>Like writing multiple <code>await</code> calls in one <code>async</code> function</li>
 </ul>
+<h2>For Loops in <code>do</code> Blocks</h2>
+<div data-inc="for_loop.lean"><span aria-label="Source: io/for_loop.lean" class="inc-path" role="img" tabindex="0" title="io/for_loop.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Iterate over a list in a do block with for</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="s2">"apple"</span><span class="o">,</span><span class="w"> </span><span class="s2">"banana"</span><span class="o">,</span><span class="w"> </span><span class="s2">"cherry"</span><span class="o">]</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="n">fruit</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">fruit</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="for_loop.out"><span aria-label="Source: io/for_loop.out" class="inc-path" role="img" tabindex="0" title="io/for_loop.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
+banana
+cherry
+</code></pre></div>
+</div>
+<ul>
+<li><code>for x in list do</code> iterates over a list inside a <code>do</code> block<ul>
+<li>Like Python's <code>for x in list:</code> but the body is an IO action</li>
+</ul>
+</li>
+<li>Each iteration runs in sequence, top to bottom</li>
+<li>Works with <code>List</code>, <code>Array</code>, and any type that implements <code>ForIn</code><ul>
+<li>Including the results of <code>IO.FS.readDir</code> (see <a href="../archive/">archive</a>)</li>
+</ul>
+</li>
+<li>The loop is syntactic sugar for recursion — there is no mutable loop variable by default</li>
+</ul>
+<h2>Accumulating Results with <code>for</code></h2>
+<div data-inc="for_accum.lean"><span aria-label="Source: io/for_accum.lean" class="inc-path" role="img" tabindex="0" title="io/for_accum.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Accumulate a result across loop iterations using let mut</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="o">,</span><span class="w"> </span><span class="s2">"from"</span><span class="o">,</span><span class="w"> </span><span class="s2">"Lean"</span><span class="o">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">w</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Words longer than 4 chars: {count}"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="for_accum.out"><span aria-label="Source: io/for_accum.out" class="inc-path" role="img" tabindex="0" title="io/for_accum.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Words longer than 4 chars: 2
+</code></pre></div>
+</div>
+<ul>
+<li><code>let mut count := 0</code> declares a mutable variable in a <code>do</code> block<ul>
+<li>Only valid inside <code>do</code>; pure functions cannot use <code>mut</code></li>
+</ul>
+</li>
+<li><code>count := count + 1</code> updates it — without <code>:=</code>, the variable is read-only</li>
+<li>Like Python's <code>count = 0; for w in words: if ...: count += 1</code></li>
+<li>Lean guarantees <code>mut</code> variables don't escape the <code>do</code> block<ul>
+<li>They are not truly mutable memory — the compiler translates them into state-passing</li>
+</ul>
+</li>
+</ul>
 <h2>Summary</h2>
 <ul>
 <li><code>do</code> and <code>←</code> let you chain IO actions in sequence</li>
@@ -331,6 +390,78 @@ Hello,  !
 </li>
 <li>Lean's <code>IO</code> is more than just files and sockets</li>
 <li>It also manages random number generation and any other <a class="gl-ref" href="../glossary/#effectful">effectful</a> computation</li>
+</ul>
+<h2>Errors Without Exceptions</h2>
+<div data-inc="except_pure.lean"><span aria-label="Source: io/except_pure.lean" class="inc-path" role="img" tabindex="0" title="io/except_pure.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Except carries either a success value or an error message</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">safeDivide</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Except</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="s2">"division by zero"</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="bp">/</span><span class="w"> </span><span class="n">b</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">safeDivide</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">n</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"result: {n}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"error: {e}"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">safeDivide</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">n</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"result: {n}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"error: {e}"</span>
+</code></pre></div>
+</div>
+<div data-inc="except_pure.out"><span aria-label="Source: io/except_pure.out" class="inc-path" role="img" tabindex="0" title="io/except_pure.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"result: 5"
+"error: division by zero"
+</code></pre></div>
+</div>
+<ul>
+<li><code>Except String Int</code> is a sum type with two constructors:<ul>
+<li><code>Except.ok n</code> — success, carrying a value of type <code>Int</code></li>
+<li><code>Except.error e</code> — failure, carrying a message of type <code>String</code></li>
+</ul>
+</li>
+<li>Like Python's <code>(value, error)</code> tuple convention, but the compiler forces you to check both cases</li>
+<li><code>match</code> on an <code>Except</code> is exhaustive: you cannot forget the error case</li>
+<li>Use <code>Except</code> for pure functions that can fail with a reason<ul>
+<li>Use <code>Option</code> when absence is normal and no explanation is needed</li>
+</ul>
+</li>
+</ul>
+<h2>IO Can Fail</h2>
+<div data-inc="except_io.lean"><span aria-label="Source: io/except_io.lean" class="inc-path" role="img" tabindex="0" title="io/except_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- try/catch wraps IO actions that might fail</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">readFileSafe</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">try</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">readFile</span><span class="w"> </span><span class="n">path</span>
+<span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">content</span>
+<span class="w">  </span><span class="n">catch</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="n">none</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1">-- hello_world.lean exists in this directory</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">readFileSafe</span><span class="w"> </span><span class="s2">"hello_world.lean"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"File found"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"File not found"</span>
+<span class="w">  </span><span class="c1">-- no_such_file.txt does not exist</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">readFileSafe</span><span class="w"> </span><span class="s2">"no_such_file.txt"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Unexpected success"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Missing file handled gracefully"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+</div>
+<div data-inc="except_io.out"><span aria-label="Source: io/except_io.out" class="inc-path" role="img" tabindex="0" title="io/except_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>File found
+Missing file handled gracefully
+</code></pre></div>
+</div>
+<ul>
+<li><code>try action catch _ =&gt; fallback</code> catches any IO exception<ul>
+<li>The <code>_</code> discards the exception value — inspect it with <code>catch e =&gt; ...</code> if needed</li>
+</ul>
+</li>
+<li>IO operations like <code>IO.FS.readFile</code> throw on failure (file not found, permission denied, etc.)</li>
+<li>Wrapping in <code>try</code>/<code>catch</code> converts an exception into a safe <code>Option</code> or <code>Except</code> value</li>
+<li>Like Python's <code>try: ... except OSError: ...</code> but typed: the return type shows the fallback</li>
+<li>Pure <code>Except</code> (from the previous section) and IO <code>try</code>/<code>catch</code> are complementary:<ul>
+<li>Pure functions use <code>Except</code> to report errors without side effects</li>
+<li>IO functions use <code>try</code>/<code>catch</code> to handle runtime failures</li>
+</ul>
+</li>
 </ul>
 <div class="exercise">
 <h2>Exercises</h2>

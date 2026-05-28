@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Database</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a class="active" href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>A Database</h1>
+<div class="callout">
+<ul>
+<li>Build a <a class="gl-ref" href="../glossary/#log_structured">log-structured</a> key-value store with pure functional operations</li>
+<li>Append new values and tombstones (deletion markers) to an immutable log</li>
+<li>Query with newest-first scanning and compact with deduplication</li>
+<li>Persist to disk using <code>IO.FS.Handle</code> with a simple line-based serialization format</li>
+</ul>
+</div>
+<ul>
+<li>Databases are the backbone of most applications</li>
+<li>We'll build a minimal key-value store from first principles</li>
+<li>Pure core that can be tested without touching disk (like <a href="../archive/">archive</a>)</li>
+<li>Builds on types from <a href="../types/">types</a>, IO from <a href="../io/">io</a>, and pipelines from <a href="../pipes/">pipes</a></li>
+</ul>
+<h2>Log Entries</h2>
+<div data-inc="code.lean" data-mark="log-entry"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A log entry: key paired with an optional value (none = deleted/tombstone)</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+</code></pre></div>
+</div>
+<ul>
+<li>A log entry is a <code>(key, value)</code> pair where the value is optional<ul>
+<li><code>some "val"</code>: the key has this value</li>
+<li><code>none</code>: the key has been deleted (a <a class="gl-ref" href="../glossary/#tombstone">tombstone</a>)</li>
+</ul>
+</li>
+<li><code>Log</code> is just a list of entries, newest at the end</li>
+<li><code>abbrev</code> creates transparent type aliases<ul>
+<li><code>LogEntry</code> and <code>String × Option String</code> are interchangeable</li>
+</ul>
+</li>
+<li>Like Git's commit history: each operation appends a new record<ul>
+<li>Nothing is ever truly deleted until you compact</li>
+</ul>
+</li>
+</ul>
+<h2>Setting Values</h2>
+<div data-inc="code.lean" data-mark="db-set"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Append a new value record to the log</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">dbSet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">log</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[(</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">val</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dbSet</code> appends a new <code>(key, some val)</code> entry to the log</li>
+<li>Does not modify or remove old entries — just adds at the end</li>
+<li>The log only grows; old values are shadowed, not overwritten</li>
+<li>Like Python's <code>log.append((key, val))</code> but returning a new list instead of mutating</li>
+</ul>
+<h2>Deleting Values</h2>
+<div data-inc="code.lean" data-mark="db-del"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Append a tombstone to mark a key as deleted</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">dbDel</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">log</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[(</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dbDel</code> appends a tombstone: <code>(key, none)</code></li>
+<li>The key still appears in the log, but its value is now <code>none</code></li>
+<li>When queried, the tombstone indicates "this key was deleted"</li>
+<li>Like setting a <code>deleted_at</code> timestamp in a soft-delete pattern</li>
+</ul>
+<h2>Getting Values</h2>
+<div data-inc="code.lean" data-mark="db-get"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Scan newest-first: return the first value found for the key</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Option</span><span class="bp">.</span><span class="n">join</span><span class="w"> </span><span class="o">((</span><span class="n">List</span><span class="bp">.</span><span class="n">reverse</span><span class="w"> </span><span class="n">log</span><span class="o">)</span><span class="bp">.</span><span class="n">findSome?</span><span class="w"> </span><span class="o">(</span><span class="n">β</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">none</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dbGet</code> scans the log newest-first (reversed) and returns the first match</li>
+<li><code>List.reverse log</code> puts newest entries first</li>
+<li><code>findSome?</code> returns the first <code>some</code> result from the scan function<ul>
+<li>The function returns <code>some v</code> when the key matches, <code>none</code> otherwise</li>
+</ul>
+</li>
+<li><code>β := Option String</code> is an explicit type annotation: Lean cannot infer the inner type of <code>findSome?</code> here without a hint</li>
+<li><code>Option.join</code> flattens <code>Option (Option String)</code> to <code>Option String</code><ul>
+<li><code>some (some "val")</code> → <code>some "val"</code> (key found with value)</li>
+<li><code>some none</code> → <code>none</code> (tombstone found)</li>
+<li><code>none</code> → <code>none</code> (key not in log)</li>
+</ul>
+</li>
+<li>Like Python's <code>next((v for k, v in reversed(log) if k == key), None)</code> but handling tombstones</li>
+</ul>
+<h2>Compaction</h2>
+<div data-inc="code.lean" data-mark="db-compact"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Compact the log: keep only the most recent entry for each key</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">dbCompact</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">kept</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">reverse</span><span class="w"> </span><span class="n">log</span><span class="o">)</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="n">init</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">([],</span><span class="w"> </span><span class="o">[]))</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">seen</span><span class="bp">.</span><span class="n">contains</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="o">(</span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">  </span><span class="n">kept</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dbCompact</code> removes redundant entries, keeping only the newest per key</li>
+<li>Algorithm: scan reversed log, keep first occurrence of each key<ul>
+<li><code>seen</code> tracks keys already encountered</li>
+<li><code>kept</code> accumulates deduplicated entries</li>
+</ul>
+</li>
+<li>Scanning newest-first and <em>prepending</em> each new entry to <code>kept</code> restores original key order<ul>
+<li>The first new key encountered (newest "b") is prepended first, then newest "a" is prepended on top of it</li>
+<li>Result: "a" before "b" — same order as the original log</li>
+<li>Same trick as reversing a list with <code>foldl</code> and prepend</li>
+</ul>
+</li>
+<li>Like Python's <code>dict(reversed(log))</code> but preserving insertion order of last write</li>
+</ul>
+<h2>Checking Key Existence</h2>
+<div data-inc="code.lean" data-mark="check-key"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Check if a key exists in the log (has a non-tombstone entry)</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">dbExists</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">dbGet</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">isSome</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dbExists</code> checks if a key has a non-tombstone value</li>
+<li><code>dbGet log key |&gt;.isSome</code> is <code>true</code> when the value is <code>some _</code></li>
+<li>Returns <code>false</code> for both missing keys and tombstoned keys</li>
+</ul>
+<h2>Serialization</h2>
+<div data-inc="code.lean" data-mark="serialize"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Serialize one entry as "key\tvalue\n" or "key\t\n" for tombstone</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">serializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">v</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"{k}</span><span class="err">\</span><span class="s2">t{v.getD ""}</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c1">-- Deserialize a "key\tvalue" line back into a LogEntry</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="err">\</span><span class="s2">t"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">v</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">       </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>serializeEntry</code> formats an entry as <code>"key\tvalue\n"</code><ul>
+<li>For tombstones, value is empty: <code>"key\t\n"</code></li>
+<li><code>v.getD ""</code> extracts the value string, defaulting to <code>""</code> for <code>none</code></li>
+</ul>
+</li>
+<li><code>deserializeEntry</code> parses a line back into a <code>LogEntry</code><ul>
+<li><code>line.splitOn "\t"</code> splits by the tab character</li>
+<li>Returns <code>none</code> for malformed lines (wrong number of fields)</li>
+</ul>
+</li>
+<li>Like CSV but with tabs as delimiters and no quoting</li>
+</ul>
+<h2>File-Backed Operations</h2>
+<div data-inc="code.lean" data-mark="file-ops"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Append one entry to a file</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">appendEntry</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">Handle</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">Mode</span><span class="bp">.</span><span class="n">append</span>
+<span class="w">  </span><span class="n">h</span><span class="bp">.</span><span class="n">putStr</span><span class="w"> </span><span class="o">(</span><span class="n">serializeEntry</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">val</span><span class="o">)</span>
+<span class="w">  </span><span class="n">h</span><span class="bp">.</span><span class="n">flush</span>
+
+<span class="c1">-- Read entire log from a file</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">readLog</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">readFile</span><span class="w"> </span><span class="n">path</span>
+<span class="w">  </span><span class="n">pure</span><span class="w"> </span><span class="o">(</span><span class="n">text</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">filterMap</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>appendEntry</code> opens a file in append mode and writes a serialized entry<ul>
+<li><code>IO.FS.Handle.mk path IO.FS.Mode.append</code> opens a file for appending</li>
+<li><code>h.putStr</code> writes the string, <code>h.flush</code> ensures it's on disk</li>
+</ul>
+</li>
+<li><code>readLog</code> reads the entire file and parses each line<ul>
+<li><code>IO.FS.readFile path</code> returns the file contents as a string</li>
+<li><code>splitOn "\n"</code> breaks into lines</li>
+<li><code>filterMap deserializeEntry</code> parses each line, discarding malformed ones</li>
+</ul>
+</li>
+<li>The file format is append-only: each new entry goes at the end<ul>
+<li>You never rewrite the file in place</li>
+<li>Compaction to a new file is the only time you write a complete log</li>
+</ul>
+</li>
+</ul>
+<h2>Tests</h2>
+<div data-inc="code.lean" data-mark="tests"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tests ---------------------------------------------------------------</span>
+
+<span class="c1">-- Set and get</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span>
+
+<span class="c1">-- Latest write wins</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span>
+
+<span class="c1">-- Tombstone</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">dbDel</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+
+<span class="c1">-- Compact reduces redundant entries</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">messyLog</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbCompact</span><span class="w"> </span><span class="n">messyLog</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+
+<span class="c1">-- Exists check</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbExists</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">dbExists</span><span class="w"> </span><span class="o">(</span><span class="n">dbDel</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span><span class="o">)</span><span class="w"> </span><span class="s2">"x"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="n">dbExists</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>#guard</code> tests verify the pure operations</li>
+<li><strong>Set and get</strong>: writing a value and reading it back</li>
+<li><strong>Latest write wins</strong>: writing the same key twice returns the newer value</li>
+<li><strong>Tombstone</strong>: deleting a key returns <code>none</code></li>
+<li><strong>Compaction</strong>: four entries reduce to two after deduplication<ul>
+<li><code>"a"</code> has two writes — only the latest (<code>"2"</code>) is kept</li>
+<li><code>"b"</code> has a write then a tombstone — only the tombstone is kept</li>
+</ul>
+</li>
+<li><strong>Existence</strong>: checks that <code>dbExists</code> returns correct boolean values</li>
+</ul>
+<h2>Running the Program</h2>
+<div data-inc="code.lean" data-mark="main"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Entry point: demonstrate the database in memory and on disk</span>
+<span class="c1">-- Run with: lean --run db/code.lean</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1">-- In-memory</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">dbSet</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">(</span><span class="n">dbSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="s2">"Lean"</span><span class="o">)</span><span class="w"> </span><span class="s2">"lang"</span><span class="w"> </span><span class="s2">"functional"</span><span class="o">)</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="s2">"Lean 4"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"In-memory log: {log}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  dbGet log </span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2"> = {dbGet log "</span><span class="n">name</span><span class="s2">"}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  dbGet log </span><span class="se">\"</span><span class="s2">lang</span><span class="se">\"</span><span class="s2"> = {dbGet log "</span><span class="n">lang</span><span class="s2">"}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  Compacted:     {dbCompact log}"</span>
+
+<span class="w">  </span><span class="c1">-- File-backed: write to a log file, then read it back</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"db/demo.log"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Writing to {path}..."</span>
+<span class="w">  </span><span class="n">appendEntry</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="s2">"hello"</span><span class="w"> </span><span class="o">(</span><span class="n">some</span><span class="w"> </span><span class="s2">"world"</span><span class="o">)</span>
+<span class="w">  </span><span class="n">appendEntry</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="s2">"count"</span><span class="w"> </span><span class="o">(</span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)</span>
+<span class="w">  </span><span class="n">appendEntry</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="s2">"count"</span><span class="w"> </span><span class="o">(</span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)</span><span class="w">   </span><span class="c1">-- latest write wins</span>
+<span class="w">  </span><span class="n">appendEntry</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="s2">"tmp"</span><span class="w">   </span><span class="n">none</span><span class="w">          </span><span class="c1">-- tombstone</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">diskLog</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">readLog</span><span class="w"> </span><span class="n">path</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  Read from disk: {diskLog}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  dbGet </span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2"> = {dbGet diskLog "</span><span class="n">hello</span><span class="s2">"}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  dbGet </span><span class="se">\"</span><span class="s2">count</span><span class="se">\"</span><span class="s2"> = {dbGet diskLog "</span><span class="n">count</span><span class="s2">"}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  dbGet </span><span class="se">\"</span><span class="s2">tmp</span><span class="se">\"</span><span class="s2">   = {dbGet diskLog "</span><span class="n">tmp</span><span class="s2">"}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done."</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>main</code> demonstrates both in-memory and file-backed operations</li>
+<li>In-memory: creates a log, queries it, compacts it</li>
+<li>File-backed: writes entries to a file, reads them back, queries<ul>
+<li><code>IO.FS.removeFile</code> is not available in the prelude, so we skip cleanup</li>
+</ul>
+</li>
+<li>Compile and type-check with:<ul>
+<li><code>lake env lean db/code.lean</code></li>
+</ul>
+</li>
+<li>Run interactively with:<ul>
+<li><code>lean --run db/code.lean</code></li>
+</ul>
+</li>
+<li>The file-backed section creates a <code>db/demo.log</code> file<ul>
+<li>You can inspect it with <code>cat db/demo.log</code></li>
+</ul>
+</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Wrong Scan Direction</h3>
+<div data-inc="ex_bug_db_get_order.lean"><span aria-label="Source: db/ex_bug_db_get_order.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_get_order.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This scans front-to-back; should scan newest-first for latest-write-wins</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Option</span><span class="bp">.</span><span class="n">join</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="bp">.</span><span class="n">findSome?</span><span class="w"> </span><span class="o">(</span><span class="n">β</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">none</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function scans the log front-to-back, returning the oldest value</li>
+<li>Reverse the log before scanning so the newest entry is found first</li>
+<li>Use <code>List.reverse log</code> instead of <code>log</code></li>
+</ul>
+</details>
+<h3>Fix: Compaction Loses Latest Value</h3>
+<div data-inc="ex_bug_db_compact_order.lean"><span aria-label="Source: db/ex_bug_db_compact_order.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_compact_order.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This keeps the oldest value instead of the newest. Fix it.</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbCompact</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">kept</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">log</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="n">init</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">([],</span><span class="w"> </span><span class="o">[]))</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">seen</span><span class="bp">.</span><span class="n">contains</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="o">(</span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">seen</span><span class="o">,</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">  </span><span class="n">kept</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbCompact</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+<span class="w">        </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Scanning unreversed log keeps the <em>first</em> occurrence of each key (the oldest)</li>
+<li>Reverse the log before folding so the newest entry is kept first</li>
+<li>The final <code>kept</code> will already be in original order after the double-reversal</li>
+</ul>
+</details>
+<h3>Fix: Serialization Drops Tombstones</h3>
+<div data-inc="ex_bug_db_serialize.lean"><span aria-label="Source: db/ex_bug_db_serialize.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_serialize.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tombstones serialize as "DELETED", but should serialize as empty string</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">serializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">v</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"{k}</span><span class="err">\</span><span class="s2">t{v.getD "</span><span class="n">DELETED</span><span class="s2">"}</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="err">\</span><span class="s2">t"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">v</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">       </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">serializeEntry</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="n">none</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">serializeEntry</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="o">(</span><span class="n">some</span><span class="w"> </span><span class="s2">"y"</span><span class="o">))</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"y"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>v.getD "DELETED"</code> writes <code>"DELETED"</code> for tombstones instead of <code>""</code></li>
+<li>Tombstones should serialize as empty values so they're distinguishable from valid data</li>
+<li>Use <code>v.getD ""</code> for an empty tombstone value</li>
+</ul>
+</details>
+<h3>Fix: Deserialization Ignores Empty Values</h3>
+<div data-inc="ex_bug_db_deser.lean"><span aria-label="Source: db/ex_bug_db_deser.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_deser.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- deserializeEntry always wraps the value in some; should detect tombstones</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="err">\</span><span class="s2">t"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">       </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="s2">"key</span><span class="err">\</span><span class="s2">tvalue"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"key"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"value"</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="s2">"key</span><span class="err">\</span><span class="s2">t"</span><span class="w">      </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"key"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">deserializeEntry</span><span class="w"> </span><span class="s2">"bad"</span><span class="w">        </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The code always wraps the value in <code>some</code>, even for tombstones</li>
+<li>Check <code>if v.isEmpty then none else some v</code> to detect tombstones</li>
+<li>Empty value after the tab means "deleted"</li>
+</ul>
+</details>
+<h3>Fix: Missing <code>do</code> in Append</h3>
+<div data-inc="ex_bug_db_append.lean"><span aria-label="Source: db/ex_bug_db_append.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_append.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Missing do block: two IO actions need sequencing</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">appendEntry</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">Handle</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">FS</span><span class="bp">.</span><span class="n">Mode</span><span class="bp">.</span><span class="n">append</span>
+<span class="w">  </span><span class="n">h</span><span class="bp">.</span><span class="n">putStr</span><span class="w"> </span><span class="n">s!</span><span class="s2">"{key}</span><span class="err">\</span><span class="s2">t{val.getD ""}</span><span class="se">\n</span><span class="s2">"</span>
+<span class="w">  </span><span class="n">h</span><span class="bp">.</span><span class="n">flush</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">appendEntry</span><span class="w"> </span><span class="s2">"db/test.log"</span><span class="w"> </span><span class="s2">"hello"</span><span class="w"> </span><span class="o">(</span><span class="n">some</span><span class="w"> </span><span class="s2">"world"</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function body has two IO actions but no <code>do</code> block</li>
+<li>Add <code>do</code> after <code>:=</code> to sequence the handle creation, writing, and flushing</li>
+</ul>
+</details>
+<h3>Fix: Tombstone Not Matched</h3>
+<div data-inc="ex_bug_db_tombstone.lean"><span aria-label="Source: db/ex_bug_db_tombstone.lean" class="inc-path" role="img" tabindex="0" title="db/ex_bug_db_tombstone.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tombstones (none values) are not detected; Option.join is missing</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">(</span><span class="n">List</span><span class="bp">.</span><span class="n">reverse</span><span class="w"> </span><span class="n">log</span><span class="o">)</span><span class="bp">.</span><span class="n">findSome?</span><span class="w"> </span><span class="o">(</span><span class="n">β</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbGet</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>findSome?</code> returns the first <code>some</code> result, but the lambda returns <code>some v</code> only for matching keys</li>
+<li>When a tombstone matches, <code>some none</code> is returned but <code>Option.join</code> is missing</li>
+<li>Add <code>Option.join</code> to flatten the result and properly detect tombstones</li>
+</ul>
+</details>
+<h3>Write: Count Entries for a Key</h3>
+<div data-inc="ex_db_count_entries.lean"><span aria-label="Source: db/ex_db_count_entries.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_count_entries.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that counts how many times a key appears in the log</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">countEntries</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="mi">0</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countEntries</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"y"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countEntries</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">2</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">countEntries</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Count how many times a key appears in the log (including tombstones)</li>
+<li>Use <code>List.foldl</code> with a counter, or <code>List.filter</code> then <code>List.length</code></li>
+<li><code>countEntries log "x"</code> should return the total number of <code>(k, v)</code> pairs where <code>k == "x"</code></li>
+</ul>
+</details>
+<h3>Write: List All Unique Keys</h3>
+<div data-inc="ex_db_keys.lean"><span aria-label="Source: db/ex_db_keys.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_keys.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that returns all unique keys in the log (deduplicated)</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"3"</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Return a deduplicated list of all keys in the log</li>
+<li>Use <code>List.map</code> to extract keys, then deduplicate</li>
+<li><code>keys</code> function: keep the first occurrence on reversed log (same pattern as <code>dbCompact</code>)</li>
+</ul>
+</details>
+<h3>Write: Merge Two Logs</h3>
+<div data-inc="ex_db_merge.lean"><span aria-label="Source: db/ex_db_merge.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_merge.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that merges two logs (second log's entries are newer)</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbMerge</span><span class="w"> </span><span class="o">(</span><span class="n">log1</span><span class="w"> </span><span class="n">log2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbMerge</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbMerge</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Append one log to the other: <code>log1 ++ log2</code></li>
+<li>Entries from <code>log2</code> are newer and will shadow <code>log1</code> entries when queried</li>
+<li>This is the simplest operation: just concatenate</li>
+</ul>
+</details>
+<h3>Write: Batch Update</h3>
+<div data-inc="ex_db_batch.lean"><span aria-label="Source: db/ex_db_batch.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_batch.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that applies a batch of (key, value) updates to a log</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbSet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">log</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[(</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">val</span><span class="o">)]</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">batchSet</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">updates</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">log</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">batchSet</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"y"</span><span class="o">,</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"y"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">batchSet</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"0"</span><span class="o">)]</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"0"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Apply a list of <code>(key, value)</code> pairs to a log</li>
+<li>Use <code>List.foldl</code> to iterate over the updates and call <code>dbSet</code> for each</li>
+<li><code>batchSet log [("x", "1"), ("y", "2")]</code> should add both entries</li>
+</ul>
+</details>
+<h3>Write: History for a Key</h3>
+<div data-inc="ex_db_history.lean"><span aria-label="Source: db/ex_db_history.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_history.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that returns the full history of values for a key</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbHistory</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbHistory</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span>
+<span class="w">        </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"2"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbHistory</span><span class="w"> </span><span class="o">[(</span><span class="s2">"y"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">)]</span><span class="w"> </span><span class="s2">"x"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Return all values for a key in chronological order (oldest first)</li>
+<li>Filter the log to entries for the key, then extract values</li>
+<li>Include <code>none</code> values (tombstones) in the history</li>
+<li>Use <code>List.filterMap</code> to both filter and extract in one pass</li>
+</ul>
+</details>
+<h3>Write: Format Log as String</h3>
+<div data-inc="ex_db_dump.lean"><span aria-label="Source: db/ex_db_dump.lean" class="inc-path" role="img" tabindex="0" title="db/ex_db_dump.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function that formats the entire log as a readable string</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">LogEntry</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span>
+<span class="kn">abbrev</span><span class="w"> </span><span class="n">Log</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">LogEntry</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">dbDump</span><span class="w"> </span><span class="o">(</span><span class="n">log</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Log</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="s2">""</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbDump</span><span class="w"> </span><span class="o">[(</span><span class="s2">"x"</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"y"</span><span class="o">,</span><span class="w"> </span><span class="n">none</span><span class="o">)]</span>
+<span class="w">        </span><span class="bp">==</span><span class="w"> </span><span class="s2">"x: 1</span><span class="se">\n</span><span class="s2">y: (deleted)"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">dbDump</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">""</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Convert the entire log to a human-readable string</li>
+<li>Use <code>List.map</code> to format each entry: <code>s!"{k}: {v.getD "(deleted)"}"</code></li>
+<li>Join with <code>String.intercalate "\n"</code></li>
+<li>Like a simple database dump command</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../template">A Template Expander</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../build">Building Projects</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
