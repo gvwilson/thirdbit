@@ -3154,7 +3154,7 @@ herself up onto Cloak's back.
 
 Noxy lay down flat and stretched out her arm. "Hurry up!"
 
-The chimpanzee hesitated a moment longer, then sighed and took the
+The gorilla hesitated a moment longer, then sighed and took the
 offered hand and clambered to sit beside Noxy. He swallowed loudly as
 Cloak began to rise.
 
@@ -3164,7 +3164,7 @@ worry, Cloak won't let you fall."
 They cleared the rooftops a moment later. "Do you see anything?" she
 asked.
 
-"Only the insides of my eyelids," the chimpanzee told her. Taking a
+"Only the insides of my eyelids," the gorilla told her. Taking a
 deep breath, he opeed his eyes and looked down. "What am I supposed to
 be looking for?"
 
@@ -3413,7 +3413,7 @@ tucking his helmet under his arm as he did so. He ran his fingers over
 his short, wiry hair as if to dry it. "How did I do?" he asked Mope,
 his voice cracking.
 
-"Well enough, I think, Your Highness," the chimpanzee reassured him.
+"Well enough, I think, Your Highness," the gorilla reassured him.
 
 "Are you sure it's wise to take so few, Your Highness?" a soft voice
 asked from behind Noxy. She jumped, startled. Sergeant Inambu was
@@ -3687,7 +3687,7 @@ speak.
 Mope hesitated. "If you don't tell her, I will," Dolly said, as if
 Mope was a badly-behaved child.
 
-The younger chimpanzee sighed. "I know the bear," he said reluctantly.
+The younger gorilla sighed. "I know the bear," he said reluctantly.
 "The one from the market, Rust—I recognized her from mother's
 description. She's—she's involved in politics. Just like me," he
 added, as if daring Noxy to laugh or criticize.
@@ -4018,8 +4018,8 @@ Noxy still didn't understand, but then suddenly she did, and her
 stomach went cold. "From the Blight?" Noxy gasped. "Someone was using
 Blight magic last night? Mope! Mope!"
 
-"Coming!" the chimpanzee called from two lanes away. Noxy heard a
-chicken squawk as the chimpanzee trod on it. "What have you found?"
+"Coming!" the gorilla called from two lanes away. Noxy heard a
+chicken squawk as the gorilla trod on it. "What have you found?"
 
 She grabbed his arm excitedly. "He says there was Blighted magic here
 last night," she hissed, nodding her head at Piqaluujaq. The Anuat
@@ -4079,7 +4079,7 @@ to catch up.
 "Blankets," Mope puffed. "And biscuits, and apple sauce."
 
 "I don't understand," Noxy said. They had slowed to a walk so that
-Mope could catch his breath. The chimpanzee stopped completely,
+Mope could catch his breath. The gorilla stopped completely,
 wheezing.
 
 "What, would, a, bear, do, with, blankets?" he gasped. "And how, would
@@ -4158,7 +4158,7 @@ tumbled past her end over end, like an axe thrown by a giant.
 
 She just had time to think that she would finally find out what it was
 like to fly when a big, hairy hand fastened onto her collar. "Don't
-let go!" Mope shouted in her ear. The chimpanzee grabbed the stairs
+let go!" Mope shouted in her ear. The gorilla grabbed the stairs
 with his other hand and both his feet. "Whatever you do, *don't let
 go!*"
 
@@ -4202,7 +4202,7 @@ three times before she heard it.
 
 "Yes, I'm all right," she told him. She suddenly realized that her
 arms and back were aching from holding onto the stair railing. As the
-chimpanzee let go of her she scrambled to her feet.
+gorilla let go of her she scrambled to her feet.
 
 Splintered boards and branches, broken glass and gobs of mud… The
 garrison house's parade courtyard was covered with the remains of the
@@ -4210,7 +4210,7 @@ tornado's makeshift toys. Noxy stared at the destruction for a moment,
 then tried to shake free of Mope's grasp. "Let me go!" she
 protested. "I have to find Cloak!"
 
-"Never mind your cloud," the chimpanzee said. "Where's Sergeant Inambu?"
+"Never mind your cloud," the gorilla said. "Where's Sergeant Inambu?"
 The magician could no longer be seen on the roof of the old house.
 
 Noxy and Mope limped across the parade courtyard. They were almost at
@@ -4699,7 +4699,7 @@ no-one was present.
 voice behind her.
 
 "Oh, I'm sorry, dear," Dolly said, patting her arm distractedly. "I
-didn't mean to startle you." The old chimpanzee looked around the room
+didn't mean to startle you." The old gorilla looked around the room
 curiously, just as Noxy had done a few moments before.
 
 "It's all right," Noxy replied a bit shakily. "Have you seen Sergeant
@@ -4731,7 +4731,7 @@ Dolly stood absolutely still for a moment. When she spoke, the tone of
 her voice reminded Noxy of Sergeant Gyalpa. "All right," she said.
 "I'll get some clothes for her, and some proper food."
 
-"I'll wait here and tell Sergeant Inambu," Noxy nodded. The chimpanzee
+"I'll wait here and tell Sergeant Inambu," Noxy nodded. The gorilla
 hurried away.
 
 Noxy took a deep breath. Cloak was feeling stronger—Noxy hadn't lied
@@ -4992,7 +4992,7 @@ that I think about it, I don't think I was ever young enough."
 
 "Did you hear them? Did you?" Noxy demanded.
 
-Dolly nodded. Noxy could hear the old chimpanzee's breath rasping in
+Dolly nodded. Noxy could hear the old gorilla's breath rasping in
 and out. "Just…just the last bit. About…about sending the soldiers
 away."
 
@@ -5007,7 +5007,7 @@ Inambu's.
 "What—spell—" Dolly tried to say.
 
 "It's all right, don't talk," Noxy said to her, suddenly concerned.
-The old chimpanzee's eyes were wide, and Noxy could see her chest
+The old gorilla's eyes were wide, and Noxy could see her chest
 heaving. She reached out impulsively and put her arms around her
 rescuer. "Thank you," she said softly, hugging Dolly.
 
@@ -5500,7 +5500,7 @@ Noxy's feet dangled in the air. "Is it all right, dear?" Dolly asked.
 
 "Yes," Noxy said breathlessly. "You can let go."
 
-The chimpanzee released her arm. She dropped into the alley with an
+The gorilla released her arm. She dropped into the alley with an
 *oomph!* Dolly landed down beside her a moment later.
 
 "Are you hurt?" she asked in a concerned voice.
@@ -5546,7 +5546,7 @@ her around. "Who do you think they'll believe, us or her?"
 
 "But we have to try!" Noxy pleaded. "The smugglers will kill them!"
 
-"They'll believe their sergeant before they'll believe an chimpanzee
+"They'll believe their sergeant before they'll believe an gorilla
 and a foreign girl," Dolly said resignedly.
 
 When Sergeant Inambu spoke, her voice was too weak to carry to the
@@ -5558,7 +5558,7 @@ in the middle of the courtyard.
 "Come on!" Noxy hissed. Once again Dolly had to grab her and hold her
 back.
 
-"What do you think you're doing?" the chimpanzee asked. "She's still
+"What do you think you're doing?" the gorilla asked. "She's still
 strong enough to make the whistle that we heard. Do you think she
 won't have enough strength to put you to sleep, or make you mute?"
 
@@ -5642,7 +5642,7 @@ a doctor."
 the sergeant. She—" Dolly cut herself off as the leek seller and the
 other man lifted the wounded man to carry him out.
 
-The younger chimpanzee sat back on his haunches. "What has she done
+The younger gorilla sat back on his haunches. "What has she done
 now?" he asked wearily. "Are we all under curfew?"
 
 "No, worse." His mother dropped her voice. "Noxy and I heard her
@@ -5666,7 +5666,7 @@ Muddh can get to it," Noxy explained. "There's magic there that works
 in reverse, kind of. It takes strength from the people it works on,
 instead of from the magician casting the spell."
 
-Noxy wouldn't have thought that an chimpanzee's face could go pale the
+Noxy wouldn't have thought that an gorilla's face could go pale the
 way that Mope's did. "So it *does* exist…" he whispered. "There are
 stories—old stories, nightmares. That's what finally brought the sky
 down on the Pilots. Someone invented a kind of magic that took from
@@ -5872,7 +5872,7 @@ throat. It raised its nose and sniffed the air, then half-turned its
 head toward Mope. "Humans," it snorted as its began to fade. "They
 just don't understand…"
 
-"Mother! Mother, are you all right?" The younger chimpanzee hopped
+"Mother! Mother, are you all right?" The younger gorilla hopped
 awkwardly over Sergeant Inambu and hugged his mother. They were both
 crying, he realized. When had he started crying?
 
@@ -6198,7 +6198,7 @@ which I trust you have by now received. Unless I am instructed
 otherwise, I shall commend him to future patrons.*
 
 Although I probably won't need to do so soon, Thokmay added
-mentally. He had tried to talk the chimpanzee out of leaving, but Mope
+mentally. He had tried to talk the gorilla out of leaving, but Mope
 had made up his mind. "It's time I did something as myself," Mope had
 said, his face even longer than usual. "I've been trying to train you
 like the circus man trained my father. It's time I did a few of my own
@@ -6206,7 +6206,7 @@ tricks for a change."
 
 "Where will you go?" Thokmay asked.
 
-The chimpanzee twiddled his big toes. "Former or Latter Tongsa,
+The gorilla twiddled his big toes. "Former or Latter Tongsa,
 perhaps, or Chaghan. Or maybe even Garheim. Anyone can argue the law
 in Garheim."
 
@@ -6224,7 +6224,7 @@ into better shape, you can." On an impulse he hugged his tutor.
 
 "I'll miss you," he said softly.
 
-The chimpanzee hugged him back clumsily. "And I you, Your Highness," he
+The gorilla hugged him back clumsily. "And I you, Your Highness," he
 said. "You had a pretty good sense of humor, for a human."
 
 The ink on Thokmay's pen had dried. He wiped it carefully on a scrap of

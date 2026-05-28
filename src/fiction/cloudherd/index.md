@@ -340,7 +340,7 @@ pointing into the trees.
 
 At first all Noxy saw was branches,
 but then a pair of dark eyes blinked.
-Black fur framed a round face with heavy brows and a gray muzzle.
+Black fur framed a round face with heavy brows.
 The troll blinked again and pulled a branch aside with one long, hairy arm.
 
 Noxy and Sensy took a step back, then another,
@@ -356,7 +356,7 @@ blocking their way.
 Branches rustled overhead.
 Two—three—four trolls swung by,
 except no,
-the fourth didn't by by.
+the fourth didn't swing by.
 She stopped and looked down at them.
 Her fur was shot through with gray,
 and even from five strides below it Noxy could see
@@ -382,7 +382,7 @@ as if their presence reminded him that he had not yet eaten lunch.
 "Wh-what?" Noxy stammered.
 
 "Are… you… all… right?" the tiger repeated impatiently.
-"Did those blasted chimpanzees harm you at all?"
+"Did those blasted gorillas harm you at all?"
 
 "No, they—I mean, we're all right.
 We're fine, thank you very much.
@@ -1479,7 +1479,7 @@ The young soldier shook his head.
 
 The tiger's tail twitched.
 "Reeve?
-Any idea why a mob of chimpanzees would be creeping around the village?"
+Any idea why a mob of gorillas would be creeping around the village?"
 
 "We call them trolls here, thank you," Indy said,
 her voice full of polite steel.
@@ -3968,14 +3968,15 @@ The corner of Sergeant Dorbu's mouth quirked up.
 "Their swords are actually sheathed, but I recognize that's not the point.
 The truth is,
 we are very grateful for your hospitality—we might well have died
-if you hadn't rescued us—but unless you can guarantee that
+if you hadn't rescued us.
+But unless you can guarantee that
 nobody else is going to try to do what the *tralpa* did,
 my soldiers are going to stay where they are."
 
 The look Indy gave him would have frozen a dragon's breath.
 "I'll arrange to have some supplies delivered to the trading hall,"
 she said.
-"I trust you and your troops can take care of cooking it?"
+"I trust you and your troops can take care of your own cooking?"
 
 The sergeant gave her another small bow.
 "Thank you, reeve.
@@ -3997,12 +3998,110 @@ you're only in charge as long as everyone believes you are."
 Aft glared at Grappa Gas but didn't respond.
 All of a sudden Noxy felt like a crayfish stuck in a trap.
 She stood up and set her undrunk tea on the table.
-"I'm going to go spend some time with *appa*," she said.
+"I'm going to see if Granna Fee needs anything," she said.
 "I'll take care of the thimbleberries when I get back, I promise."
 
 Her mother caught her hand and squeezed it as she went by.
-"Say hello for me.
-Tell him I miss him."
+"Say hello for me."
+
+Granna Fee had already heard about the sentries.
+She didn't seem particularly bothered by them.
+"I've been through worse storms," she said,
+putting a fresh cup of tea in front of her granddaughter.
+"This one will pass too."
+
+She blew on her own tea to cool it,
+then looked over the mug at Noxy.
+"So is there anything else you'd like to talk about?"
+
+Noxy didn't meet her eyes.
+"You mean like Sensy and Rash making googly eyes at each other?"
+
+"That's not what I had in mind."
+Granna Fee sat back and waited.
+
+Noxy sighed.
+"I hate it when you do that."
+
+"Do what?"
+Granna Fee asked,
+as innocent as a cat waiting to pounce on a mouse.
+
+But Noxy had played this game before.
+She put her hands on the edge of the table and wobbled it.
+"I'm pretty sure I could fix this for you."
+
+"Mm hm."
+Granna Fee sipped her tea.
+
+Noxy gave up.
+"It's the clouds.
+Sometimes I think I can hear them,
+even when I'm not touching them."
+
+Granna Fee nodded.
+"I thought that might be it."
+
+Noxy goggled at her.
+"You thought?
+Why didn't you say anything!?"
+
+Her grandmother took another sip of tea.
+"I didn't think I should stick my nose into your business.
+Besides,
+it will probably stop once your body settles down.
+It did for me."
+
+Noxy cradled her mug in her hands as Granna Fee told her story.
+She had been about the same age as Noxy,
+maybe a little older,
+she couldn't exactly remember,
+but when her changes came and she started being able to mind-talk,
+she sometimes woke up in the middle of the night
+knowing where each of the village's herd was.
+She couldn't mind-talk to them,
+not exactly,
+but when the great blizzard of '06 came early,
+she was able to rescue three newborn calves.
+
+"Only three, though," she finished with a sigh.
+"Half a dozen others were too far away.
+It was a bad year all around."
+
+"What happened then?"
+Noxy asked.
+
+Her grandmother set her mug down on the table.
+"It stopped.
+I don't know why,
+but by the time summer came again,
+I was just like everyone else."
+
+"Did you ever tell anyone?"
+
+Granna Fee glanced at the framed sketch hanging beside the door and smiled.
+"Only your grandfather.
+When your mother was born,"
+she added.
+"I was worried it might happen to her,
+and I thought he ought to know in case anything happened to me."
+
+They sat quietly for a moment.
+Outside,
+the goofs were bleating at each other
+and someone was calling their grandchildren in for breakfast.
+"I need to get ready for school,"
+Granna Fee finally said.
+"You can come help if you want.
+I promise Little Gas won't try to bite you this time."
+
+"Thanks, granna.
+Maybe some other time.
+There's something else I want to do right now."
+Noxy stood and kissed her grandmother on the top of her head.
+"Love you."
+
+"I love you too, sweetling."
 
 Stale's memorial grove stood portside of the village.
 Hundreds of trees in neat rows looked down on the village:
@@ -4054,5 +4153,102 @@ Unless he was following her?
 "Hello?" she called.
 Suddenly frightened,
 she turned around and squeaked as a troll dropped out of the tree onto the path.
+
+It wasn't the one with the scar on her leg.
+This one was bigger and male,
+and his lips were pulled back to reveal large white teeth.
+Noxy held her breath and backed up a step.
+Most trolls were Gifted, but not all.
+If she didn't startle him—
+
+"Hrrr," the troll growled.
+"Don't see what's so special about *you*."
+He knuckle-walked a step toward her.
+
+Noxy backed up again.
+A branch poked the back of her head.
+"I'm not special," she said.
+She sounded breathless.
+That was probably a bad idea.
+Animals could smell fear, couldn't they?
+Or hear it?
+Could Gifted ones?
+Should she run?
+She couldn't outrun a troll,
+not in the forest.
+She had a knife on her belt,
+but it was just a work knife for cutting rope and things like that,
+and anyway,
+she didn't know how to fight.
+
+"The forest thinks you are,"
+the troll said bitterly.
+"That's why it wants you.
+It should want *me*."
+He thumped his chest with a meaty palm.
+The sound made Noxy jump.
+
+"I don't know what you're talking about."
+Her feet wanted her to keep backing up,
+but there was nowhere to go.
+"I'm just a cloudherd.
+My name's Noxy."
+
+"And his is Signurd," a new voice said.
+The troll with the scar on her arm lowered herself onto the path
+a few steps away from Noxy.
+The big troll growled and leaned forward as if preparing to charge.
+
+"Enough of that," the old troll snapped
+in the same tone Granna Fee used when the children in her class were being rowdy.
+The big troll bared his teeth again,
+then sat back on his haunches.
+
+"Taking their side again?" he asked.
+
+The older troll humphed.
+"As I keep telling you, there are no sides.
+There is only the forest.
+Until you understand that,
+you won't truly be able to hear it.
+You can call me Alva,"
+she added,
+turning to Noxy.
+"And since he probably isn't going to apologize for his poor manners,
+please let me do so instead."
+
+"That's all right," Noxy said with all the assurance she could muster.
+"If you two need to talk, I could, um…"
+She gestured in the direction of the village.
+
+"Actually, dear, you and I are the ones who need to talk.
+Privately,"
+Alva added,
+giving Signured a pointed look.
+
+The big troll growled again.
+"This isn't right.
+You *know* this isn't right."
+
+Alva sighed.
+"Right and wrong, good and bad…
+There is only the forest."
+
+With a final snort the big troll clambered up a tree and swung away,
+making more noise than Noxy thought he needed to.
+
+Noxy swallowed.
+"So what would you like to talk about?
+Honored?"
+she added hastily.
+
+She stopped herself from flinching when the troll reached out to pat her arm.
+"Not here, dear.
+I'll come find you tonight and we can have a good long chat then.
+Right now,
+I think it would be best if you went home, don't you?"
+Without waiting for answer
+Alva turned and ambled away through the salal bushes,
+leaving Noxy open-mouthed behind her.
 
 </section>
