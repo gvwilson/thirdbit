@@ -28,6 +28,7 @@
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../build/">Building Projects</a></li>
 <li><a href="../proof/">Proofs</a></li>
+<li><a href="../binary/">Binary Data</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -153,19 +154,6 @@ Step 3: done
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done!"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_missing_do.out"><span aria-label="Source: io/ex_missing_do.out" class="inc-path" role="img" tabindex="0" title="io/ex_missing_do.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_missing_do.lean:4:2: error: Application type mismatch: The argument
-  IO.println
-has type
-  ?m.3 → IO Unit
-but is expected to have type
-  Void IO.RealWorld
-in the application
-  IO.println "Starting..." IO.println
-io/ex_missing_do.lean:6:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 </code></pre></div>
 </div>
 <ul>
@@ -355,19 +343,6 @@ Hello,  !
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_bug_no_do.out"><span aria-label="Source: io/ex_bug_no_do.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_no_do.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_no_do.lean:4:2: error: Application type mismatch: The argument
-  IO.println
-has type
-  ?m.3 → IO Unit
-but is expected to have type
-  Void IO.RealWorld
-in the application
-  IO.println "Hello" IO.println
-io/ex_bug_no_do.lean:6:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -384,15 +359,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">msg</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_bug_let_bind.out"><span aria-label="Source: io/ex_bug_let_bind.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_let_bind.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_let_bind.lean:6:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
-  ToString (IO String)
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-io/ex_bug_let_bind.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 </code></pre></div>
 </div>
 <details>
@@ -415,17 +381,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_bug_return.out"><span aria-label="Source: io/ex_bug_return.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_return.lean:4:2: error: Type mismatch
-  msg
-has type
-  String
-but is expected to have type
-  IO String
-io/ex_bug_return.lean:10:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -442,23 +397,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="w">  </span><span class="n">announce</span><span class="w"> </span><span class="s2">"Lean 4"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_bug_return_type.out"><span aria-label="Source: io/ex_bug_return_type.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_return_type.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_return_type.lean:3:2: error: Type mismatch
-  IO.println (toString "Announcing: " ++ toString item)
-has type
-  IO Unit
-but is expected to have type
-  IO String
-io/ex_bug_return_type.lean:6:2: error: Type mismatch
-  announce "Lean 4"
-has type
-  IO String
-but is expected to have type
-  IO Unit
-io/ex_bug_return_type.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 </code></pre></div>
 </div>
 <details>
@@ -479,17 +417,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_bug_arrow.out"><span aria-label="Source: io/ex_bug_arrow.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_arrow.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>io/ex_bug_arrow.lean:5:15: error: Type mismatch
-  double 5
-has type
-  Int
-but is expected to have type
-  IO ?m.7
-io/ex_bug_arrow.lean:8:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
-
-To attempt to evaluate anyway despite the risks, use the '#eval!' command.
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -506,9 +433,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_bug_discard.out"><span aria-label="Source: io/ex_bug_discard.out" class="inc-path" role="img" tabindex="0" title="io/ex_bug_discard.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Step 1: start
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -523,9 +447,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello, Lean!"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_hello.out"><span aria-label="Source: io/ex_hello.out" class="inc-path" role="img" tabindex="0" title="io/ex_hello.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lean!
 </code></pre></div>
 </div>
 <details>
@@ -547,10 +468,6 @@ To attempt to evaluate anyway despite the risks, use the '#eval!' command.
 <span class="w">  </span><span class="n">printLoud</span><span class="w"> </span><span class="s2">"world"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_shout.out"><span aria-label="Source: io/ex_shout.out" class="inc-path" role="img" tabindex="0" title="io/ex_shout.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>hello
-world
 </code></pre></div>
 </div>
 <details>
@@ -576,9 +493,6 @@ world
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_build_msg.out"><span aria-label="Source: io/ex_build_msg.out" class="inc-path" role="img" tabindex="0" title="io/ex_build_msg.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>ready
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -595,9 +509,6 @@ world
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Sum is 0"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_pure_io.out"><span aria-label="Source: io/ex_pure_io.out" class="inc-path" role="img" tabindex="0" title="io/ex_pure_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Sum is 0
 </code></pre></div>
 </div>
 <details>
@@ -619,9 +530,6 @@ world
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_repeat.out"><span aria-label="Source: io/ex_repeat.out" class="inc-path" role="img" tabindex="0" title="io/ex_repeat.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>again
-</code></pre></div>
-</div>
 <details>
 <summary>hint</summary>
 <ul>
@@ -639,9 +547,6 @@ world
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello, stranger!"</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
-</code></pre></div>
-</div>
-<div data-inc="ex_read_greet.out"><span aria-label="Source: io/ex_read_greet.out" class="inc-path" role="img" tabindex="0" title="io/ex_read_greet.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, stranger!
 </code></pre></div>
 </div>
 <details>

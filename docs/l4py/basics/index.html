@@ -28,6 +28,7 @@
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../build/">Building Projects</a></li>
 <li><a href="../proof/">Proofs</a></li>
+<li><a href="../binary/">Binary Data</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -85,10 +86,10 @@
 <li>Assignment uses <code>:=</code></li>
 </ul>
 <h2>Strict Typing</h2>
-<div data-inc="strict_values.lean"><span aria-label="Source: basics/strict_values.lean" class="inc-path" role="img" tabindex="0" title="basics/strict_values.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">nope</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="s2">"two"</span>
+<div data-inc="strict_values_err.lean"><span aria-label="Source: basics/strict_values_err.lean" class="inc-path" role="img" tabindex="0" title="basics/strict_values_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">nope</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="s2">"two"</span>
 </code></pre></div>
 </div>
-<div data-inc="strict_values.out"><span aria-label="Source: basics/strict_values.out" class="inc-path" role="img" tabindex="0" title="basics/strict_values.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>basics/strict_values.lean:1:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+<div data-inc="strict_values_err.out"><span aria-label="Source: basics/strict_values_err.out" class="inc-path" role="img" tabindex="0" title="basics/strict_values_err.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>strict_values_err.lean:1:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
   HAdd Nat String Int
 
 Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
@@ -220,22 +221,22 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 <li><code>if</code>/<code>else if</code>/<code>else</code> is an expression returning a value</li>
 <li>This doesn't work because the function isn't guaranteed to return a string</li>
 </ul>
-<div data-inc="conditional_incomplete.lean"><span aria-label="Source: basics/conditional_incomplete.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_incomplete.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<div data-inc="conditional_incomplete_err.lean"><span aria-label="Source: basics/conditional_incomplete_err.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_incomplete_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"positive"</span>
 </code></pre></div>
 </div>
-<div data-inc="conditional_incomplete.out"><span aria-label="Source: basics/conditional_incomplete.out" class="inc-path" role="img" tabindex="0" title="basics/conditional_incomplete.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>basics/conditional_incomplete.lean:3:0: error: unexpected end of input; expected 'else'
+<div data-inc="conditional_incomplete_err.out"><span aria-label="Source: basics/conditional_incomplete_err.out" class="inc-path" role="img" tabindex="0" title="basics/conditional_incomplete_err.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>conditional_incomplete_err.lean:3:0: error: unexpected end of input; expected 'else'
 </code></pre></div>
 </div>
 <ul>
 <li>This doesn't work because the types are inconsistent</li>
 </ul>
-<div data-inc="conditional_inconsistent.lean"><span aria-label="Source: basics/conditional_inconsistent.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_inconsistent.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<div data-inc="conditional_inconsistent_err.lean"><span aria-label="Source: basics/conditional_inconsistent_err.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_inconsistent_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"positive"</span>
 <span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div>
 </div>
-<div data-inc="conditional_inconsistent.out"><span aria-label="Source: basics/conditional_inconsistent.out" class="inc-path" role="img" tabindex="0" title="basics/conditional_inconsistent.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>basics/conditional_inconsistent.lean:3:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+<div data-inc="conditional_inconsistent_err.out"><span aria-label="Source: basics/conditional_inconsistent_err.out" class="inc-path" role="img" tabindex="0" title="basics/conditional_inconsistent_err.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>conditional_inconsistent_err.lean:3:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
   OfNat String 3
 numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
   String

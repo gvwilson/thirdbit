@@ -28,6 +28,7 @@
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a class="active" href="../build/">Building Projects</a></li>
 <li><a href="../proof/">Proofs</a></li>
+<li><a href="../binary/">Binary Data</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -57,6 +58,7 @@
 <ul>
 <li>So far we have run Lean files one at a time</li>
 <li>Real projects have multiple files, dependencies, and build steps</li>
+<li>DEBT: explain doc comments</li>
 </ul>
 <h2>Single-File Programs</h2>
 <div data-inc="single_file.lean"><span aria-label="Source: build/single_file.lean" class="inc-path" role="img" tabindex="0" title="build/single_file.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
@@ -64,8 +66,7 @@
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"2 + 2 = {2 + 2}"</span>
 </code></pre></div>
 </div>
-<div data-inc="single_file.out"><span aria-label="Source: build/single_file.out" class="inc-path" role="img" tabindex="0" title="build/single_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello from a single file!
-2 + 2 = 4
+<div data-inc="single_file.out"><span aria-label="Source: build/single_file.out" class="inc-path" role="img" tabindex="0" title="build/single_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -108,11 +109,7 @@
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="lake_new.out"><span aria-label="Source: build/lake_new.out" class="inc-path" role="img" tabindex="0" title="build/lake_new.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- lake new MyProject creates:
--- MyProject/
---   lakefile.lean
---   Main.lean
---   .lake/
+<div data-inc="lake_new.out"><span aria-label="Source: build/lake_new.out" class="inc-path" role="img" tabindex="0" title="build/lake_new.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -148,10 +145,7 @@
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Built with Lake!"</span>
 </code></pre></div>
 </div>
-<div data-inc="lake_build.out"><span aria-label="Source: build/lake_build.out" class="inc-path" role="img" tabindex="0" title="build/lake_build.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- $ lake build
--- Build completed successfully.
--- $ .lake/build/bin/greeting
--- Built with Lake!
+<div data-inc="lake_build.out"><span aria-label="Source: build/lake_build.out" class="inc-path" role="img" tabindex="0" title="build/lake_build.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -188,9 +182,7 @@
 <span class="kn">end</span><span class="w"> </span><span class="n">Helpers</span>
 </code></pre></div>
 </div>
-<div data-inc="multi_file.out"><span aria-label="Source: build/multi_file.out" class="inc-path" role="img" tabindex="0" title="build/multi_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- This file is a module: its name becomes part of the import path
--- Import it with: import MyProject.Helpers
--- Then call: Helpers.greet "World"
+<div data-inc="multi_file.out"><span aria-label="Source: build/multi_file.out" class="inc-path" role="img" tabindex="0" title="build/multi_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -214,7 +206,8 @@
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Helpers</span><span class="bp">.</span><span class="n">shout</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">)</span>
 </code></pre></div>
 </div>
-<div data-inc="import_module.out"><span aria-label="Source: build/import_module.out" class="inc-path" role="img" tabindex="0" title="build/import_module.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lake!
+<div data-inc="import_module.out"><span aria-label="Source: build/import_module.out" class="inc-path" role="img" tabindex="0" title="build/import_module.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Build completed successfully (0 jobs).
+Hello, Lake!
 LEAN!!!
 </code></pre></div>
 </div>
@@ -248,9 +241,10 @@ LEAN!!!
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="lib_vs_exe.out"><span aria-label="Source: build/lib_vs_exe.out" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- lean_lib compiles source files into a library (.olean files)
--- lean_exe links an entry point into a runnable binary
--- Both targets are built with: lake build
+<div data-inc="lib_vs_exe.out"><span aria-label="Source: build/lib_vs_exe.out" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.T4B1V6XyG4/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+info: myproject: no previous manifest, creating one from scratch
+info: toolchain not updated; no toolchain information found
+Build completed successfully (0 jobs).
 </code></pre></div>
 </div>
 <ul>
@@ -273,11 +267,8 @@ LEAN!!!
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Helpers</span><span class="bp">.</span><span class="n">greet</span><span class="w"> </span><span class="s2">"world"</span>
 </code></pre></div>
 </div>
-<div data-inc="lake_env.out"><span aria-label="Source: build/lake_env.out" class="inc-path" role="img" tabindex="0" title="build/lake_env.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- $ lake env lean script.lean
--- "Hello, world!"
--- Without lake env, the import would fail:
--- $ lean script.lean
--- error: unknown package 'MyProject'
+<div data-inc="lake_env.out"><span aria-label="Source: build/lake_env.out" class="inc-path" role="img" tabindex="0" title="build/lake_env.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Build completed successfully (0 jobs).
+"Hello, world!"
 </code></pre></div>
 </div>
 <ul>
@@ -303,10 +294,14 @@ LEAN!!!
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="add_dep.out"><span aria-label="Source: build/add_dep.out" class="inc-path" role="img" tabindex="0" title="build/add_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- After editing lakefile.lean, run:
--- $ lake update
--- to fetch and compile the dependency
--- Then import it in your code: import Std.Data.List.Basic
+<div data-inc="add_dep.out"><span aria-label="Source: build/add_dep.out" class="inc-path" role="img" tabindex="0" title="build/add_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.f8WWsDu3Fi/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+info: myproject: no previous manifest, creating one from scratch
+info: Std: cloning https://github.com/leanprover/std4
+info: Std: checking out revision '32dc18cde3684679f3c003de608743b57498c56f'
+info: updating toolchain to 'leanprover/lean4:v4.30.0'
+info: restarting Lake via Elan
+info: myproject: no previous manifest, creating one from scratch
+info: toolchain not updated; already up-to-date
 </code></pre></div>
 </div>
 <ul>
@@ -341,9 +336,7 @@ LEAN!!!
 <span class="kn">end</span><span class="w"> </span><span class="n">MathUtils</span><span class="bp">.</span><span class="n">Basic</span>
 </code></pre></div>
 </div>
-<div data-inc="namespace_files.out"><span aria-label="Source: build/namespace_files.out" class="inc-path" role="img" tabindex="0" title="build/namespace_files.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>-- Import with: import MyProject.MathUtils.Basic
--- Call with:   MathUtils.Basic.square 4
--- Or:          open MathUtils.Basic in square 4
+<div data-inc="namespace_files.out"><span aria-label="Source: build/namespace_files.out" class="inc-path" role="img" tabindex="0" title="build/namespace_files.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>

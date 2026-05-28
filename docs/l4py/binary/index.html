@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Binary Data</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../proof/">Proofs</a></li>
+<li><a class="active" href="../binary/">Binary Data</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Binary Data</h1>
+<h2>Outline</h2>
+<ul>
+<li>Programs usually store integers as fixed-width binary values rather than decimal strings</li>
+<li>Binary packing converts heterogeneous values into a compact byte sequence
+    for storage or transmission</li>
+<li>A format descriptor tells the unpacker how to reconstruct each value from raw bytes</li>
+<li>Variable-length data like strings needs a fixed-width length header so the reader
+    knows where each value ends</li>
+</ul>
+<h2>Packable Values</h2>
+<div data-inc="code.lean" data-mark="types"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- A value that can be packed into binary form. -/</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Value</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">str</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Value</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">DecidableEq</span>
+
+<span class="sd">/-- Format descriptor for unpacking: one tag per field in the byte stream. -/</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Fmt</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Fmt</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">str</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">Fmt</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span><span class="o">,</span><span class="w"> </span><span class="n">DecidableEq</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Value</code> is a sum type:
+    each value is either a 32-bit unsigned integer or a UTF-8 string</li>
+<li><code>Fmt</code> mirrors <code>Value</code> but carries no data — it is the blueprint used during unpacking</li>
+<li><code>deriving Repr</code> lets Lean print values in <code>#eval</code>; <code>deriving DecidableEq</code> lets <code>==</code>
+    work in <code>#guard</code> tests</li>
+<li>Like Python's <code>struct</code> format strings (<code>"I"</code> for unsigned 32-bit, <code>"s"</code> for bytes),
+    but checked at compile time</li>
+</ul>
+<h2>Packing Integers</h2>
+<div data-inc="code.lean" data-mark="pack-int"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Pack a 32-bit unsigned integer as 4 bytes, least-significant byte first (little-endian),</span>
+<span class="sd">    matching Python's struct.pack("&lt;I", n). -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">packInt32</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">ByteArray</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span>
+<span class="w">    </span><span class="o">(</span><span class="n">n</span><span class="w">           </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt8</span><span class="o">,</span>
+<span class="w">    </span><span class="o">((</span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w">  </span><span class="mi">8</span><span class="o">)</span><span class="w">  </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt8</span><span class="o">,</span>
+<span class="w">    </span><span class="o">((</span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="o">)</span><span class="w">  </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt8</span><span class="o">,</span>
+<span class="w">    </span><span class="o">((</span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">24</span><span class="o">)</span><span class="w">  </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span><span class="o">)</span><span class="bp">.</span><span class="n">toUInt8</span>
+<span class="w">  </span><span class="o">]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">packInt32</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">ByteArray</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x1F</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">packInt32</span><span class="w"> </span><span class="mi">65</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">ByteArray</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x41</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Little-endian byte order: least-significant byte first, matching most modern hardware</li>
+<li><code>n &amp;&amp;&amp; 0xFF</code> masks the lowest 8 bits; <code>n &gt;&gt;&gt; 8</code> shifts right by one byte</li>
+<li>Applying those two operations four times extracts each byte in turn</li>
+<li>Like Python's <code>struct.pack("&lt;I", 31)</code>, which produces <code>b'\x1f\x00\x00\x00'</code></li>
+<li>The <code>#guard</code> checks confirm that 31 (<code>0x1F</code>) and 65 (<code>0x41</code>) each land in the
+    first byte, with the remaining three bytes zero</li>
+</ul>
+<h2>Unpacking Integers</h2>
+<div data-inc="code.lean" data-mark="unpack-int"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Read a little-endian 32-bit unsigned integer from data at offset.</span>
+<span class="sd">    Returns the value and the offset of the next byte. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">unpackInt32</span><span class="w"> </span><span class="o">(</span><span class="n">data</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">offset</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">UInt32</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="n">data</span><span class="bp">.</span><span class="n">size</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">b0</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">data</span><span class="o">[</span><span class="n">offset</span><span class="o">]!</span><span class="bp">.</span><span class="n">toUInt32</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">data</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]!</span><span class="bp">.</span><span class="n">toUInt32</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">data</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="o">]!</span><span class="bp">.</span><span class="n">toUInt32</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">data</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">3</span><span class="o">]!</span><span class="bp">.</span><span class="n">toUInt32</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">b0</span><span class="w"> </span><span class="bp">|||</span><span class="w"> </span><span class="o">(</span><span class="n">b1</span><span class="w"> </span><span class="bp">&lt;&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="o">)</span><span class="w"> </span><span class="bp">|||</span><span class="w"> </span><span class="o">(</span><span class="n">b2</span><span class="w"> </span><span class="bp">&lt;&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="o">)</span><span class="w"> </span><span class="bp">|||</span><span class="w"> </span><span class="o">(</span><span class="n">b3</span><span class="w"> </span><span class="bp">&lt;&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="o">),</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">unpackInt32</span><span class="w"> </span><span class="o">(</span><span class="n">packInt32</span><span class="w"> </span><span class="mi">31</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="mi">31</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">unpackInt32</span><span class="w"> </span><span class="o">(</span><span class="n">packInt32</span><span class="w"> </span><span class="mi">0</span><span class="n">xDEADBEEF</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="n">xDEADBEEF</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>data[offset]!</code> reads one byte, panicking if out of bounds (the bounds check comes first)</li>
+<li><code>.toUInt32</code> widens each byte before shifting to avoid truncation</li>
+<li>OR-ing the shifted bytes reassembles the original 32-bit value</li>
+<li><code>offset + 4</code> advances past the four bytes just consumed, ready for the next field</li>
+<li>The second <code>#guard</code> uses <code>0xDEADBEEF</code> to verify that all four bytes survive the
+    round trip, not just the low byte</li>
+</ul>
+<h2>Packing Strings</h2>
+<div data-inc="code.lean" data-mark="pack-str"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Pack a String as a 4-byte little-endian length followed by its UTF-8 bytes,</span>
+<span class="sd">    matching Python's struct.pack("i", len(s)) + s.encode("utf-8"). -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">packStr</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toUTF8</span>
+<span class="w">  </span><span class="n">packInt32</span><span class="w"> </span><span class="n">bytes</span><span class="bp">.</span><span class="n">size</span><span class="bp">.</span><span class="n">toUInt32</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">bytes</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">packStr</span><span class="w"> </span><span class="s2">"hi"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">ByteArray</span><span class="bp">.</span><span class="n">mk</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x02</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x00</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x68</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x69</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>s.toUTF8</code> converts the <code>String</code> to a <code>ByteArray</code> using UTF-8 encoding</li>
+<li><code>bytes.size.toUInt32</code> converts the byte count from <code>Nat</code> to <code>UInt32</code> for the header</li>
+<li>The 4-byte length header lets the reader know how many bytes of content follow</li>
+<li>Compatible with Python's <code>pack("i", len(s)) + s.encode("utf-8")</code> from
+    <code>variable_packing.py</code> in the Python version of this lesson</li>
+</ul>
+<h2>Unpacking Strings</h2>
+<div data-inc="code.lean" data-mark="unpack-str"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Read a length-prefixed string from data at offset. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">unpackStr</span><span class="w"> </span><span class="o">(</span><span class="n">data</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">offset</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">unpackInt32</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">             </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">len</span><span class="o">,</span><span class="w"> </span><span class="n">next</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">len</span><span class="bp">.</span><span class="n">toNat</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="n">data</span><span class="bp">.</span><span class="n">size</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="bp">.</span><span class="n">fromUTF8!</span><span class="w"> </span><span class="o">(</span><span class="n">data</span><span class="bp">.</span><span class="n">extract</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">(</span><span class="n">next</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="o">)),</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="o">)</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">unpackStr</span><span class="w"> </span><span class="o">(</span><span class="n">packStr</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="mi">9</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Read the length first with <code>unpackInt32</code>, then slice exactly that many bytes</li>
+<li><code>data.extract start stop</code> returns bytes from <code>start</code> up to but not including <code>stop</code></li>
+<li><code>String.fromUTF8!</code> decodes UTF-8 bytes back into a <code>String</code>; it panics on
+    invalid UTF-8 (DEBT: show the safe <code>String.fromUTF8?</code> variant)</li>
+<li>The function can fail at two points: missing length header, or truncated body;
+    both return <code>none</code></li>
+</ul>
+<h2>Packing a List</h2>
+<div data-inc="code.lean" data-mark="pack"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Pack a single Value into bytes. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">packValue</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">ByteArray</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">packInt32</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">packStr</span><span class="w"> </span><span class="n">s</span>
+
+<span class="sd">/-- Pack a list of heterogeneous values into a ByteArray. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">pack</span><span class="w"> </span><span class="o">(</span><span class="n">values</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Value</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">values</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="n">init</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">ByteArray</span><span class="bp">.</span><span class="n">empty</span><span class="o">)</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">packValue</span><span class="w"> </span><span class="n">v</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>packValue</code> dispatches on the <code>Value</code> constructor and calls the right helper</li>
+<li><code>pack</code> folds over the list, appending each packed value to the accumulator</li>
+<li>Order is preserved: the first value in the list becomes the first bytes in the array</li>
+<li>Like Python's <code>struct.pack(fmt, *values)</code>, but the format is inferred from the
+    values themselves rather than written as a separate string</li>
+</ul>
+<h2>Unpacking a List</h2>
+<div data-inc="code.lean" data-mark="unpack"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Unpack values from a ByteArray given a list of format descriptors.</span>
+<span class="sd">    Returns none if the buffer is too short or malformed. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">unpack</span><span class="w"> </span><span class="o">(</span><span class="n">fmts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Fmt</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">data</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="w"> </span><span class="n">Value</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Fmt</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">List</span><span class="w"> </span><span class="n">Value</span><span class="o">)</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="o">[],</span><span class="w">             </span><span class="bp">_</span><span class="o">,</span><span class="w">   </span><span class="n">acc</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">acc</span><span class="bp">.</span><span class="n">reverse</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="o">,</span><span class="w"> </span><span class="n">off</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="n">unpackInt32</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">            </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="w"> </span><span class="n">off'</span><span class="o">)</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="n">off'</span><span class="w"> </span><span class="o">(</span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="o">,</span><span class="w">   </span><span class="n">off</span><span class="o">,</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="n">unpackStr</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">            </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="w"> </span><span class="n">off'</span><span class="o">)</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="n">off'</span><span class="w"> </span><span class="o">(</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span>
+<span class="w">  </span><span class="n">go</span><span class="w"> </span><span class="n">fmts</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>go</code> recurses on the format list, consuming bytes starting at <code>off</code></li>
+<li>Results accumulate in reverse order in <code>acc</code>; <code>acc.reverse</code> corrects that at the end</li>
+<li>If <code>unpackInt32</code> or <code>unpackStr</code> returns <code>none</code>, <code>go</code> propagates <code>none</code> immediately</li>
+<li>The format list must exactly match the structure of the packed data — there is no
+    self-describing header (unlike JSON or pickle)</li>
+</ul>
+<h2>Round-Trip Tests</h2>
+<div data-inc="code.lean" data-mark="guards"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="n">Value</span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">31</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">65</span><span class="o">]</span>
+<span class="w">  </span><span class="n">unpack</span><span class="w"> </span><span class="o">[</span><span class="bp">.</span><span class="n">int32</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">pack</span><span class="w"> </span><span class="n">values</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">values</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="n">Value</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"Python"</span><span class="o">]</span>
+<span class="w">  </span><span class="n">unpack</span><span class="w"> </span><span class="o">[</span><span class="bp">.</span><span class="n">str</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">pack</span><span class="w"> </span><span class="n">values</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">values</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="n">Value</span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">31</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">65</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"Python"</span><span class="o">]</span>
+<span class="w">  </span><span class="n">unpack</span><span class="w"> </span><span class="o">[</span><span class="bp">.</span><span class="n">int32</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">pack</span><span class="w"> </span><span class="n">values</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">values</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Three tests: two integers only, two strings only, then a mixed list</li>
+<li><code>#guard</code> runs at compile time; a passing guard produces no output</li>
+<li>If any <code>#guard</code> fails, the file does not compile — there is no separate test runner</li>
+</ul>
+<h2>Example Program</h2>
+<div data-inc="example.lean" data-mark="main"><span aria-label="Source: binary/example.lean" class="inc-path" role="img" tabindex="0" title="binary/example.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">31</span><span class="o">,</span>
+<span class="w">    </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="mi">65</span><span class="o">,</span>
+<span class="w">    </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">,</span>
+<span class="w">    </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"Python"</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">packed</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">pack</span><span class="w"> </span><span class="n">values</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Packed {packed.size} bytes"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">fmts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="bp">.</span><span class="n">int32</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="o">,</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="o">]</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">unpack</span><span class="w"> </span><span class="n">fmts</span><span class="w"> </span><span class="n">packed</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Error: unpack failed"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="n">for</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">int32</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  int32: {n}"</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  str:   {s}"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>import code</code> brings in the library from the same Lake package (DEBT: explain Lake)</li>
+<li>Pack two integers followed by two strings; the total is 27 bytes
+    (4 + 4 + 4+5 + 4+6)</li>
+<li>The format list <code>[.int32, .int32, .str, .str]</code> must match the order used in <code>pack</code></li>
+<li>Run with <code>lake exe example</code> from the <code>binary/</code> directory</li>
+</ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Pack a Bool (15 min)</h3>
+<p>Add a <code>| bool : Bool → Value</code> constructor to <code>Value</code> and a matching <code>| bool : Fmt</code>
+constructor to <code>Fmt</code>. Represent <code>true</code> as the byte <code>1</code> and <code>false</code> as <code>0</code>.
+Implement <code>packBool</code> and <code>unpackBool</code>, then extend <code>packValue</code> and <code>unpack</code> to handle
+the new constructor. Add <code>#guard</code> tests for round-trips of both <code>true</code> and <code>false</code>.</p>
+<h3>Detect Format Mismatch (15 min)</h3>
+<p>What does <code>unpack [.str] (pack [Value.int32 42])</code> return, and why? Write a <code>#guard</code>
+that confirms the answer, then explain in a comment why that behavior could be
+dangerous in a real system.</p>
+<h3>Count Bytes (10 min)</h3>
+<p>Write a pure function <code>packedSize (fmts : List Fmt) (values : List Value) : Nat</code>
+that computes the number of bytes <code>pack values</code> would produce <em>without</em> actually
+calling <code>pack</code>. For <code>int32</code>, the size is always 4. For <code>str</code>, it is 4 plus the
+byte length of the string's UTF-8 encoding. Add a <code>#guard</code> that checks the result
+against <code>(pack someValues).size</code> for a mixed list.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../proof">Proofs</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
