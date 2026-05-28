@@ -456,292 +456,348 @@ When she didn't, he nodded.
 
 ## Chapter 2: Apple Bridge
 
-The sun was sitting on the horizon like a fat yellow hen by the time
-Apple Bridge came into view. The town was home to twenty times as
-many people as Stale, but seemed small to Noxy after some of the
-cities she had flown over.
+The sun was sitting on the horizon like a fat yellow hen
+by the time Apple Bridge came into view.
+The town was twenty times the size of Stale,
+but seemed small to Noxy after some of the cities she had flown over.
 
-Most of the buildings were two or three stories tall. Their ground
-floors were brick and their upper stories wooden, while their roofs
-were shingled with long, skinny planks. The smell of cooking rising
-from their chimneys made Noxy's stomach rumble.
+Most of the buildings were two or three stories tall.
+Their ground floors were brick and their upper stories wooden,
+while their roofs were shingled with long, skinny planks.
+The smell of cooking rising from their chimneys made Noxy's stomach rumble.
 
-Most of Apple Bridge lay on the right bank of the Trout River. Near
-the center of town, where the river bent toward the distant sea, four
-enormous stone pillars rose from the water. Thick timber beams lay
-atop them, and wide planks across those to create the bridge that gave
-the town its name.
+Most of Apple Bridge lay on the right bank of the Trout River.
+Near the center of town,
+where the river bent toward the distant sea,
+four enormous stone pillars rose from the water.
+Thick timber beams lay atop them,
+and wide planks across those to create the bridge that gave the town its name.
 
-At the closer end of the bridge, a cobbled square was filled with
-stalls being shuttered and wagons being loaded as the town's famous
-Dog's Market began to close for the night. A three-story figure eight
-stood guard a few blocks away.
+At the closer end of the bridge,
+a cobbled square was filled with stalls being shuttered and wagons being loaded
+as the town's famous Dog's Market began to close for the night.
+A three-story figure eight stood guard a few blocks away.
 
-"That's the garrison house," the prince said. "My sister and I live
-upstairs in the north wing. The judge stays there too when she's in
-town. The sergeants and stewards have the ground floor. The rest is
-storerooms and stables and the soldiers' quarters."
+"That's the garrison house," the prince said, pointing.
+"My sister and I live upstairs in the north wing.
+The judge stays there too when she's in town.
+The sergeants and stewards have the ground floor.
+The rest is storerooms and stables and the soldiers' quarters."
 
-"And that's the dam?" Noxy pointed upriver where another four pillars
-cast long shadows. The wooden walkway strung between them was strong
-enough to support the weigh of a dozen chain-link nets, but still
-seemed fragile against the ancient stonework. Sebastian the Great had
-cast a spell on the nets a century ago to stop things from the Blight
-floating downriver. While the land downriver from them was lush and
-green, only a few stunted brambles grew upstream.
+"And that's the dam?"
+Noxy pointed upriver where another four pillars cast long shadows.
+The wooden walkway strung between them
+was strong enough to support the weigh of a dozen chain-link nets,
+but still seemed fragile against the Pilots' ancient stonework.
+Shuqang the Great had cast a spell on the nets a century ago
+to catch things floating down from the Blight.
+While the land downriver from them was lush and green,
+only a few stunted brambles grew upstream.
 
-The prince nodded. "The soldiers go up there every day to see what's
-washed up. Most of it is junk, but every once in a while…" He
-trailed off.
+The prince nodded.
+"The soldiers go up there every day to see what's washed up.
+Most of it is junk,
+but every once in a while…"
+He shrugged.
 
 "It must be quite some spell to still be working after so long.
-Ulfmaerr—" Noxy paused. "Ulfmaerr said magicians' spells usually
-fade away when they do." *Like he did,* she thought sadly. The last
-time he had come to Stale he had hardly been able to hold his own
-spoon. His eyes had been as bright as ever, but had darted from one
-face to another as he tried to remember people's names. That had been
-a year ago. No-one had seen him since. No-one expected to.
+My *appa* said magicians' spells usually fade away when they do."
+*Like he did,* she thought.
 
-The prince pretended not to notice the look on Noxy's face. "It's
-lucky this one didn't," he said. "The magician who was here before
-Sergeant Inambu refreshed it a few years ago, but she said she could
-never re-cast it if it failed." He sighed. "And sooner or later it
-*will* fail. The only question is when."
+The prince pretended not to notice the look on Noxy's face.
+"It's lucky this one didn't," he said.
+"The magician who was here before Sergeant Inambu refreshed it a few years ago,
+but she said she could never re-cast it if it failed."
+He sighed.
+"And sooner or later it *will* fail.
+The only question is when."
 
-"Cheerful as always," Noxy grumbled, punching his arm to make it a
-joke and then wincing at the ache in her own.
+"Cheerful as always," Noxy grumbled,
+punching his arm to make it a joke
+and then wincing at the sharp pain in her own.
 
-They landed in the rear courtyard of the garrison house. A middle-aged
-soldier with a bushy mustache stood waiting for them. He had two wide
-yellow ribbons sewn onto his sleeve, deep wrinkles near the corners of
-his eyes, shoulders that seemed as wide as he was tall, and no more
-expression than a stone.
+They landed in the rear courtyard of the garrison house,
+where a middle-aged soldier with a bushy mustache stood waiting for them.
+He had two wide black ribbons sewn onto his sleeve,
+deep wrinkles near the corners of his eyes,
+shoulders that made him seem as wide as he was tall,
+and no more expression than a stone.
 
-"Your Highness," he said, snapping a salute as the prince slid off
-Cloak.
+"Your Highness," he said,
+snapping a salute as the prince slid off Cloak.
 
-"Sergeant Gyalpa," the prince acknowledged, wiping his hands on his
-uniform before returning the salute. "Allow me to present Probably
-Noxious of Stale. She will be staying with us until it is well
-enough to travel again."
+"Sergeant Gyalpa," the prince acknowledged,
+wiping his hands on his uniform before returning the salute.
+"Allow me to present Probably Noxious of Stale.
+She will be staying with us until it is well enough to travel again."
 
-"Miss Noxious." The sergeant bowed formally.
+"Honored Noxious."
+The sergeant bowed formally.
 
-"Please, just call me Noxy," she replied, bowing awkwardly in return.
-She appreciated him keeping a straight face—she knew how odd
-cloudherds' names sounded to lowlanders. Even in the capital, people
-had sniggered when Aft introduced herself as 'Disgusting Aftertaste'.
-"We'll see who's laughing when the dragons hatch," Aft had said
-darkly. "We'll see if *their* names save *them* from being eaten."
+"Please, just call me Noxy," she replied,
+bowing awkwardly in return.
+She appreciated him keeping a straight face—she knew
+how odd cloudherds' names sounded to lowlanders.
+Even in the capital,
+people had sniggered when Aft introduced herself as "Disgusting Aftertaste".
+"We'll see who's laughing when the dragons fly," Aft had said darkly.
+"We'll see if *their* names save *them* from being eaten."
 
-"I take it the soldiers beat me back?" the prince said.
+"I take it the twins beat me back?" the prince said.
 
-Sergeant Gyalpa nodded. "Yes sir. They said a farm was completely
-destroyed. The woman who survived said her son-in-law came along into
-Apple Bridge today to report some suspicious men. He left going on
-about an hour. I sent along out some riders, but he's not on the
-road."
+Sergeant Gyalpa nodded.
+"Yes, honored.
+They said a farm was completely destroyed.
+The woman who survived said her son-in-law came along into Apple Bridge today
+to report some suspicious men.
+He left going on about an hour ago.
+I sent along out some riders, but he's not on the road."
 
-The prince frowned, trying to guess what the sergeant would think was
-the right thing to do. "They may have gone down the south road
-instead of straight home," he ventured. "Send another couple of
-riders to look—it would be best if they didn't get home to find that
-they no longer have one."
+The prince frowned,
+trying to guess what the sergeant would think was the right thing to do.
+"They may have gone down the south road instead of straight home," he ventured.
+"Send another couple of riders to look—it would be best
+if they didn't get home to find that they no longer have one."
 
-"Yes sir," the sergeant said approvingly. He lifted the silver whistle
-that hung on a fine chain around his neck and blew two short notes
-followed by two long ones. A moment later a handful of soldiers came
-trotting across the courtyard from various directions.
+"Yes, honored," the sergeant said approvingly.
+He blew two short notes on the silver whistle that hung around his neck.
+A moment later a handful of soldiers came trotting across the courtyard.
 
-"Does the cloud need anything?" Prince Thokmay asked while the sergeant
-gave the new arrivals their orders.
+"Does the cloud need anything?"
+Prince Thokmay asked while the sergeant gave them their orders.
 
-"Just water," Noxy said, rubbing her bruised arm. "She'll be all
-right as long as she gets some rest. But I could use a hot bath."
+"Just water," Noxy said, rubbing her bruised arm.
+"She'll be all right as long as she gets some rest.
+But I could use a hot bath."
 
-"Of course. I'll ask Dolly to see to it. She's my sister's nurse," he
-added when Noxy raised her eyebrows. "She's used to helping people
-with their baths." He beckoned to a housemaid who had been hovering
-nearby, then hesitated before adding, "It's really good to see you
-again."
+"Of course. I'll ask Dolly to see to it.
+She's my sister's nurse,"
+he added when Noxy raised her eyebrows.
+"She's used to helping people with their baths."
+He beckoned to a housemaid who had been hovering nearby,
+then hesitated before adding,
+"It's really good to see you again."
 
-"You too," Noxy replied, her face warm despite the early evening
-chill.
+"You too," Noxy replied,
+her face warm despite the early evening chill.
 
-Prince Thokmay watched as the housemaid led Noxy away. He should
-probably take a bath before dinner too, he realized. And find a clean
-shirt. And see if anyone knew the new Chaghan consul's name yet. The
-outgoing one, Yisu, had claimed not to know. "Oh, they don't tell
-*me* anything," she had said brightly the last time he had asked.
+Prince Thokmay watched as the housemaid led Noxy away.
+He should probably take a bath before dinner too,
+he thought.
+And find a clean shirt.
+And see if anyone knew the new Chaghan consul's name yet.
+The outgoing one, Yisu, had claimed not to know.
+"Oh, they don't tell *me* anything,"
+she had said brightly the last time he had asked.
 
-But instead of heading to his rooms, he clasped his hands behind his
-back and closed his eyes, trying to imagine what it would be like to
-mind-hear the way Noxy did. A *clang* from the kitchen was someone
-getting a pot down from its hook on the wall to make dinner. A duller
-*clonk, clonk, clonk* from the building behind him might be the smith
-mending a sword or bending a horseshoe into shape. The occasional
-*thock!* and curse from the other courtyard was archery
-practice—Sergeant Gyalpa had been scathing about the local standard
-of marksmanship when they had first arrived, and his opinion hadn't
-gone up much in the months since.
+But instead of heading to his rooms,
+he clasped his hands behind his back and closed his eyes,
+trying to imagine what it would be like to mind-hear the way Noxy did.
+A *clang* from the kitchen was someone getting a pot down to make dinner.
+A duller *clonk, clonk, clonk* from the building behind him might be
+the smith mending a sword or bending a horseshoe into shape.
+The occasional *thock!* and curse from the other courtyard was archery
+practice—Sergeant Gyalpa had been scathing
+about the local standard of marksmanship when they had first arrived,
+and his opinion hadn't gone up much in the months since.
 
-"Am I interrupting, Your Highness?" the sergeant asked from behind
-him.
+"Am I interrupting, honored?"
+the sergeant asked from behind him.
 
-The prince jumped. "Not really. I meant to ask, any word from
-Sergeant Inambu?"
+The prince jumped.
+"Not really.
+I meant to ask, any word from Sergeant Inambu?"
 
-"Yes sir," the sergeant said, studying Cloak. "She and her troop got
-along back this afternoon. They were gone six days, near as they can
-figure."
+"Yes, honored," the sergeant said, studying Cloak.
+"She and her troop got along back this afternoon.
+They were gone six days, near as they can figure."
 
-"Six days?" The prince blinked. "They must have gone deeper into the
-Blight than she planned."
+"Six days?" The prince blinked.
+"They must have gone deeper into the Blight than she planned."
 
-"Yes sir," the sergeant nodded. "They found fresh tracks along by some
-wash in the river. She said they looked by a wagon or such."
+"Yes, honored," the sergeant nodded.
+"They found fresh tracks along by some wash in the river.
+She said they looked by a wagon or such."
 
-"A wagon? You think the smugglers are working that far in?" the
-prince asked. Sergeant Gyalpa grunted noncommittally. "All right.
-Tell her I'll speak with her in the morning. In the morning," he
-repeated as the sergeant opened his mouth. "She needs a good night's
-sleep, and I need a bath."
+"A wagon? You think the smugglers are working that far in?"
+Sergeant Gyalpa grunted noncommittally.
+"All right.
+Tell her I'll speak with her in the morning. In the morning,"
+he repeated as the sergeant opened his mouth.
+"She needs a good night's sleep, and I need a bath."
 
-"Yes sir," Sergeant Gyalpa replied, his face as expressionless as
-ever.
+"Yes, honored," Sergeant Gyalpa replied,
+his face as expressionless as ever.
 
-At that same moment, a few blocks away, a hairy, long-armed figure
-slurped the last of his tea in a small shop on the edge of the Dog's
-Market. He was the shop's only customer—a few people had stuck
-their heads in after he had taken a table, but all had decided to go
-elsewhere. The shop's tea blender glowered behind his counter, arms
-folded.
+At that same moment, a few blocks away,
+a hairy, long-armed figure slurped the last of his tea
+in a small shop on the edge of the Dog's Market.
+He was the shop's only customer—a few people had stuck their heads in
+after he had taken a table,
+but all had decided to go elsewhere.
+The shop's tea blender glowered behind his counter,
+arms folded.
 
-"Ah… Delicious. My compliments on your blend." The hairy figure
-stood, adjusted the glasses perched on his snub nose, and dropped a
-few coppers on the table. "I will *definitely* return." Ignoring the
-tea blender's muttered curse, he sauntered out into the waning
-afternoon light.
+"Ah… Delicious. My compliments on your blend."
+The troll stood,
+adjusted the glasses perched on his snub nose,
+and dropped a few coppers on the table.
+"I will *definitely* return."
+Ignoring the tea blender's muttered curse,
+he sauntered out into the waning afternoon light.
 
-The market was closing up for the night. The merchants whose shops
-stood on its perimeter folded down awnings and fastened shutters while
-stallkeepers threw unsold vegetables onto two-wheeled scrap wagons or
-stacked bales of wool into wagons to be taken back to warehouses. A
-handful of farmers interrupted their discussion of the day's barley
-prices to stare at the troll as he waddled across the cobblestones.
-"Good evening and good morrow," he said cheerfully, nodding to them
-and continuing on without waiting for a reply that never came.
+The market was closing up for the night.
+The merchants whose shops stood on its perimeter
+folded down awnings and fastened shutters
+while stallkeepers threw unsold vegetables onto two-wheeled scrap wagons
+or stacked bales of wool into wagons to be taken back to warehouses.
+A handful of farmers interrupted their discussion of the day's barley prices
+to stare at the troll as he loped across the cobblestones.
+"Good evening and good morrow," he said cheerfully,
+nodding to them and continuing on
+without waiting for a reply that never came.
 
-He had just reached the market gate when a piebald horse suddenly
-whinnied and reared up on her hind legs. "Hold still!" barked the
-burly man trying to harness her between his wagon's draw poles.
-"Stupid creature!" He slapped her hard across her nose.
+He had just reached the market gate when a piebald horse suddenly whinnied
+and reared up on her hind legs.
+"Hold still!" barked the burly man
+trying to harness her between his wagon's draw poles.
+"Stupid creature!"
+He slapped her hard across her nose.
 
-The horse reared again, almost pulling her reins out of the farmer's
-hands. Rough-edged bricks spilled out of the back of the wagon.
-Cursing, the man yanked drew a willow switch from his belt. "I said
-hold *still*!" He raised his arm to whip the horse—
+The horse reared again,
+almost pulling her reins out of the farmer's hands.
+Rough-edged bricks spilled out of the back of the wagon.
+Cursing, the man yanked drew a willow switch from his belt.
+"I said hold *still*!"
+He raised his arm to whip the horse—
 
-—and grunted in surprise as a hairy hand grasped his wrist. "Now,
-now," chided the troll. "Let's just think on this for a moment, shall
-we? Do unto others, and all that."
+—and grunted in surprise as a hairy hand grasped his wrist.
+"Now, now," chided the troll.
+"Let's just think on this for a moment, shall we?
+Do unto others, and all that."
 
-"Let go of me, you filthy beast!" The farmer tried to yank his arm
-away, but the troll's grip was like iron. "I said let go, or I'll
-give *you* a whipping too!"
+"Let go of me, you filthy beast!"
+The farmer tried to yank his arm away,
+but the troll's grip was like iron.
+"I said let go, or I'll give *you* a whipping too!"
 
-The troll smiled, revealing strong white teeth. "I suggest you
-reconsider. And if your friend comes any closer with that cudgel, I'm
-afraid I may have to take it away from him." The man who had been
-edging up behind the troll stopped short, but tightened his grip on
-the stout length of hickory in his hands.
+The troll smiled, revealing strong white teeth.
+"I suggest you reconsider.
+And if your friend comes any closer with that cudgel,
+I'm afraid I may have to take it away from him."
+The man who had been edging up behind the troll stopped short,
+but tightened his grip on the stout length of hickory in his hands.
 
-The market had gone silent around the threesome. The troll let go of
-the farmer and wiped his hand ostentatiously on his carefully-combed
-pelt. "There, you see?" he said cheerfully. "Your horse has calmed
-down. It does usually only take a bit of patience. Now, let me wish
-you good evening and—"
+The market had gone silent around the threesome.
+The troll let go of the farmer
+and wiped his hand ostentatiously on his carefully-combed pelt.
+"There, you see?" he said cheerfully.
+"Your horse has calmed down.
+It does usually only take a bit of patience.
+Now, let me wish you good evening and—"
 
-A potato flew by his head. A second one bounced off his arm.
-Suddenly the air was full of eggs and stones and vegetables. "Skin
-him!" someone shouted. "Skin him!"
+A potato flew by his head.
+A second one bounced off his arm.
+Suddenly the air was full of eggs and stones and vegetables.
+"Skin him!" someone shouted. "Skin him!"
 
-The crowd took up the cry. Suddenly bold, the farmer swung his
-switch, then yelped in surprise as he flew through the air to crash
-against a nearby stall. The troll spun around just in time to catch
-the cudgel swung at his head. Another yelp was followed by another
-crash as the troll threw the second man after the first.
+The crowd took up the cry.
+Suddenly bold,
+the farmer swung his switch,
+then yelped in surprise as he flew through the air
+to crash against a nearby stall.
+The troll spun around just in time to catch the cudgel swung at his head.
+Another yelp was followed by another crash
+as the troll threw the second man after the first.
 
-The troll charged into the crowd. People screamed, throwing
-themselves out of his way as he leaped for the market gate. He swung
-himself up on top of it, leaped again for the nearest roof, and was
-gone.
+The troll charged into the crowd.
+People screamed,
+throwing themselves out of his way as he clambered up the market gate.
+He swung himself up on top of it,
+leaped again for the nearest roof,
+and was gone.
 
-Meanwhile, Prince Thokmay had just closed the door to his room behind
-him. A clean dress shirt was waiting on his pillow, and his town
-boots had been polished and set at the foot of his bed. He shrugged
-off his heavy uniform jacket and hung it on the tailor's dummy that
-stood in the corner, then peeled off his shirt and tossed it into the
-wicker pail under his bed. With a quick glance to make sure no one
-was watching, he stood in front of his mirror and looked at himself
-critically. His shoulders were definitely a bit broader than they had
-been six months ago. He wondered if Noxy had noticed. He had
-certainly noticed the way she had changed shape since he had last seen
-her…
+Meanwhile,
+Prince Thokmay had just closed the door to his room behind him.
+A clean dress shirt was waiting on his pillow,
+and his town boots had been polished and set at the foot of his bed.
+He shrugged off his heavy uniform jacket
+and hung it on the tailor's dummy that stood in the corner,
+then peeled off his shirt and tossed it into the wicker pail under his bed.
+With a quick glance to make sure no one was watching,
+he stood in front of his mirror and looked at himself critically.
+His shoulders were definitely a bit broader than they had been six months ago.
+He wondered if Noxy had noticed.
+He had certainly noticed the way she had changed shape
+since he had last seen her…
 
-*Rap rap rap!* He jumped at the urgent knock on his window. "Your
-Highness!" panted a familiar voice. "Might I enter? I find myself in
-rather a spot of trouble."
+*Rap rap rap!*
+He jumped at the urgent knock on his window.
+"Your Highness!" panted a familiar voice.
+"Might I enter?
+I find myself in rather a spot of trouble."
 
-"Not again," the prince sighed. He unlatched the window's
-iron-and-bamboo shutter and opened the quartered glass pane, then
-stepped back as a long-armed ball of hair and muscle swung itself into
-his room.
+"Not again," the prince sighed.
+He unlatched the window's iron-and-bamboo shutter
+and opened the quartered glass pane,
+then stepped back as a long-armed ball of hair and muscle
+swung itself into his room.
 
-"Thank you, Your Highness," his tutor puffed. He stood and
-straightened his glasses. "May I suggest that it would perhaps be
-prudent to re-bar my ingress, so as not to betray my route to passers
-by? Some of whom might regrettably be in rather foul moods?"
+"Thank you, Your Highness," his tutor puffed.
+He stood and straightened his glasses.
+"May I suggest that it would perhaps be prudent to re-bar my ingress,
+so as not to betray my route to passers by?
+Some of whom might regrettably be in rather foul moods?"
 
 "If you mean close the window so people don't know which way you came,
-certainly," the prince said, shaking his head as he did just that.
+certainly," the prince said,
+shaking his head as he did just that.
 "So what happened *this* time?"
 
-The troll laid his hand on his chest and blinked innocently. "I
-merely attempted to give one of your loyal citizens a lesson on proper
-care of their fellow creatures."
+The troll laid his hand on his chest and blinked innocently.
+"I merely attempted to give one of your loyal citizens
+a lesson on proper care of their fellow creatures."
 
-"In other words, you were arguing with someone about their animals?"
-The prince shook his head again. "Mope, you have to stop doing this."
+"In other words,
+you were arguing with someone about their animals?"
+The prince shook his head again.
+"Mope, you have to stop doing this."
 
-"I'll stop when they do," the troll said, the humor suddenly gone from
-his voice. "He was whipping the poor creature, Your Highness.
+"I'll stop when they do," the troll said,
+the humor suddenly gone from his voice.
+"He was whipping the poor creature, honored.
 Whipping her!"
 
 "Was she Gifted?"
 
-"That's irrelevant!" The prince's tutor waved an arm to emphasize his
-point. "And it was hardly her fault she was being skittish—some
-idiot flew a cloud right over the town this afternoon and scared us
-all half out of our wits, man and beast. *That's* who deserves a
-whipping!"
+"That's irrelevant!"
+The prince's tutor waved an arm to emphasize his point.
+"And it was hardly her fault she was being skittish—some idiot
+flew a cloud right over the town this afternoon
+and scared us all half out of our wits, man and beast.
+*That's* who deserves a whipping!"
 
-"Ah." The prince coughed. "About that…"
+"Ah." The prince coughed.
+"About that…"
 
-It took him several minutes, a promise to think more carefully, and
-finally a raised voice to shoo his tutor out of his room so that he
-could finish dressing. As he struggled with the laces at his cuffs,
+It took him several minutes and finally a raised voice
+to shoo his tutor out of his room
+so that he could finish dressing.
+As he struggled with the laces at his cuffs,
 he studied at the family portrait that hung next to his door.
 
-His father stood in the center in a richly embroidered uniform with
-the gold-and-turquoise collar of Loghan securely around his neck and
-his second wife, in a matching jacket and long flowing trousers,
-beside him. His youngest son, Prince Thokmay, stood in front of the
-king wearing a copy of the royal collar to show the world that he was
-the heir. Prince Thokmay and Princess Ogmin stood to either side,
-hands clasped behind their backs. Two years ago, Thokmay and Thokmin's
-positions had been reversed. He wondered if his brother thought about
-that as often as he did.
+His father stood in the center in a richly embroidered uniform
+with the gold-and-turquoise collar of Loghan securely around his neck.
+His second wife,
+in a matching jacket and long flowing trousers,
+stood beside him.
+His youngest son, Prince Thokmin, stood in front of the king
+wearing a copy of the royal collar to show the world that he was the heir.
+Prince Thokmay and Princess Ogmin stood to either side,
+hands clasped behind their backs.
+Two years ago,
+Thokmay and Thokmin's positions had been reversed.
+He wondered if his brother thought about that as often as he did.
 
 </section>
 <section markdown="1">
@@ -5048,7 +5104,7 @@ sergeant.
 Sergeant Gyalpa looked at suspiciously. "What is it?"
 
 "It's a knot that can't be untied," the prince told him. "The wizard
-Sebastian made it, a long time ago. One of the magicians at court gave
+Shuqang made it, a long time ago. One of the magicians at court gave
 it to me."
 
 The sergeant examined the knot. "Doesn't look hard," he hedged. "Just
