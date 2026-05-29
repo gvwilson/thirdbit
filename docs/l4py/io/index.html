@@ -114,8 +114,8 @@
 </ul>
 </li>
 <li><code>#eval main</code> runs the action during compilation so we can see the output</li>
-<li>Lean doesn't have exceptions<ul>
-<li>Errors are handled with sum types like <code>Except</code>, which we'll cover later (DEBT)</li>
+<li>Lean's pure functions cannot raise exceptions; IO actions can fail at runtime and are caught with <code>try</code>/<code>catch</code><ul>
+<li>Errors in pure code are handled with sum types like <code>Except</code>, which we'll cover later in this chapter</li>
 </ul>
 </li>
 </ul>
@@ -378,6 +378,41 @@ cherry
 </ul>
 </li>
 </ul>
+<h2>What <code>let mut</code> Really Does</h2>
+<div data-inc="let_mut_state.lean"><span aria-label="Source: io/let_mut_state.lean" class="inc-path" role="img" tabindex="0" title="io/let_mut_state.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- let mut looks like mutation but compiles to state-passing under the hood</span>
+<span class="c1">-- The compiler rewrites mutable variables into function arguments</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">countEvens</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">count</span>
+
+<span class="c1">-- The same logic as a pure function using foldl (no IO, no mutation)</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">countEvensPure</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">xs</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">acc</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">countEvens</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">6</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">countEvensPure</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">6</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<div data-inc="let_mut_state.out"><span aria-label="Source: io/let_mut_state.out" class="inc-path" role="img" tabindex="0" title="io/let_mut_state.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>3
+3
+</code></pre></div>
+</div>
+<ul>
+<li><code>let mut</code> is syntactic sugar: the compiler rewrites mutable variables as extra function arguments threaded through each step<ul>
+<li>The generated code is purely functional; no heap mutation occurs</li>
+<li>This is why pure functions can remain efficient even without mutable state: the compiler handles the bookkeeping</li>
+</ul>
+</li>
+<li>The pure <code>foldl</code> version and the <code>let mut</code> loop produce the same result<ul>
+<li>For straightforward accumulation, the pure form is often shorter</li>
+<li>For complex logic with multiple conditions or early exit, <code>let mut</code> is usually easier to read</li>
+</ul>
+</li>
+<li>Both approaches are O(n) in the list length</li>
+</ul>
 <h2>Summary</h2>
 <ul>
 <li><code>do</code> and <code>←</code> let you chain IO actions in sequence</li>
@@ -462,6 +497,39 @@ Missing file handled gracefully
 <li>IO functions use <code>try</code>/<code>catch</code> to handle runtime failures</li>
 </ul>
 </li>
+</ul>
+<h2>Lean's Three Error-Handling Mechanisms</h2>
+<p>Lean splits failure across three mechanisms where Python uses exceptions for all of them:</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Mechanism</th>
+<th scope="col">Where</th>
+<th scope="col">When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Option</code></td>
+<td>Pure functions</td>
+<td>Absence is normal; no explanation needed. E.g., looking up a key that may not exist.</td>
+</tr>
+<tr>
+<td><code>Except e a</code></td>
+<td>Pure functions</td>
+<td>Failure needs a reason. E.g., parsing a string that may be malformed.</td>
+</tr>
+<tr>
+<td><code>try</code>/<code>catch</code></td>
+<td>IO actions</td>
+<td>Runtime failure outside your control. E.g., file not found, network error.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>Option</code> and <code>Except</code> appear in function signatures, so the compiler forces callers to handle failure</li>
+<li><code>try</code>/<code>catch</code> is only available in <code>IO</code>; you cannot silently ignore an IO exception</li>
+<li>When migrating from Python: replace <code>None</code> returns with <code>Option</code>, replace <code>ValueError</code>/<code>KeyError</code> in pure logic with <code>Except</code>, and replace <code>OSError</code>/<code>IOError</code> with <code>try</code>/<code>catch</code> around IO actions</li>
 </ul>
 <div class="exercise">
 <h2>Exercises</h2>

@@ -462,6 +462,57 @@
 </li>
 <li>All of these compose naturally in pipelines</li>
 </ul>
+<h2>Arrays vs. Lists</h2>
+<div data-inc="arrays_vs_lists.lean"><span aria-label="Source: pipes/arrays_vs_lists.lean" class="inc-path" role="img" tabindex="0" title="pipes/arrays_vs_lists.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Arrays: contiguous memory, O(1) indexed access, fixed-size after creation</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]!</span><span class="w">          </span><span class="c1">-- 30, direct O(1) access</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="bp">.</span><span class="n">size</span><span class="w">         </span><span class="c1">-- 5</span>
+
+<span class="c1">-- Lists: singly-linked, O(1) head/tail, O(n) indexed access</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">head!</span><span class="w">       </span><span class="c1">-- 10, O(1)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">length</span><span class="w">      </span><span class="c1">-- 5, O(n): traverses the whole list</span>
+
+<span class="c1">-- Converting between them</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">toArray</span><span class="w">     </span><span class="c1">-- List → Array</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="bp">.</span><span class="n">toList</span><span class="w">       </span><span class="c1">-- Array → List</span>
+
+<span class="c1">-- Use Array when you need random access or interop with IO functions</span>
+<span class="c1">-- Use List when you need pattern matching with :: or cons-style recursion</span>
+</code></pre></div>
+</div>
+<div data-inc="arrays_vs_lists.out"><span aria-label="Source: pipes/arrays_vs_lists.out" class="inc-path" role="img" tabindex="0" title="pipes/arrays_vs_lists.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>30
+5
+10
+5
+#[10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50]
+</code></pre></div>
+</div>
+<ul>
+<li>Lean has two sequence types with different performance characteristics</li>
+<li><code>List</code> (e.g. <code>[1, 2, 3]</code>) is a singly-linked list<ul>
+<li>Adding to the front with <code>::</code> is O(1)</li>
+<li>Pattern matching on head/tail is idiomatic and efficient</li>
+<li><code>List.length</code> and indexed access <code>list[i]!</code> are O(n)</li>
+</ul>
+</li>
+<li><code>Array</code> (e.g. <code>#[1, 2, 3]</code>) stores elements contiguously in memory<ul>
+<li>Indexed access <code>arr[i]!</code> is O(1)</li>
+<li>Appending is amortized O(1) (like Python's <code>list.append</code>)</li>
+<li>Cannot be pattern-matched with <code>::</code></li>
+</ul>
+</li>
+<li>Python's <code>list</code> is closer to Lean's <code>Array</code> in performance<ul>
+<li>If you're porting Python that uses <code>xs[i]</code>, use <code>Array</code> in Lean</li>
+<li>If you're writing idiomatic Lean with <code>map</code>/<code>filter</code>/<code>foldl</code>, <code>List</code> is the natural choice</li>
+</ul>
+</li>
+<li>Most IO functions (like <code>IO.FS.readDir</code>) return <code>Array</code>; pipeline functions work on <code>List</code><ul>
+<li>Convert with <code>arr.toList</code> or <code>lst.toArray</code> as needed</li>
+</ul>
+</li>
+</ul>
 <div class="exercise">
 <h2>Exercises</h2>
 <h3>Fix: Missing Pipeline Step</h3>

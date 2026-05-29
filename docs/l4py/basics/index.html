@@ -147,6 +147,12 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 <li>Just like <code>String.length</code> earlier</li>
 </ul>
 </li>
+<li>Lean's <code>List</code> is a singly-linked list<ul>
+<li>Adding to the front (<code>::</code>) and pattern-matching head/tail are O(1)</li>
+<li><code>List.length</code> and indexed access (<code>list[i]</code>) are O(n) — they traverse the whole list</li>
+<li>If you need O(1) random access, use <code>Array</code> instead (see <a href="../pipes/">pipes</a>)</li>
+</ul>
+</li>
 </ul>
 <h2>Defining Simple Functions</h2>
 <div data-inc="simple_functions_0.lean"><span aria-label="Source: basics/simple_functions_0.lean" class="inc-path" role="img" tabindex="0" title="basics/simple_functions_0.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">alwaysTheSame</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="o">:=</span>
@@ -286,6 +292,12 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </li>
 <li>As with conditional, must handle all alternatives</li>
 <li>Lean checks that you done this have during compilation</li>
+<li>List concatenation (<code>++</code>) is O(n) in the length of the left list<ul>
+<li>Prepending a single element with <code>::</code> is O(1)</li>
+<li>Functions that build a result list by prepending and then call <code>List.reverse</code> at the end
+    are a common pattern for achieving O(n) total cost</li>
+</ul>
+</li>
 </ul>
 <h2>Map, Filter, and Fold</h2>
 <div data-inc="map_filter_fold.lean"><span aria-label="Source: basics/map_filter_fold.lean" class="inc-path" role="img" tabindex="0" title="basics/map_filter_fold.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">7</span><span class="o">]</span>
@@ -435,6 +447,22 @@ origin : Point
 <ul>
 <li><code>#check</code> checks the type of an expression without evaluating it</li>
 <li><code>Nat</code> is a natural (non-negative) number</li>
+</ul>
+<h2><code>Nat</code> vs. <code>Int</code></h2>
+<ul>
+<li>Python has one integer type; Lean has two</li>
+<li><code>Nat</code> is the natural numbers: 0, 1, 2, …<ul>
+<li>Cannot be negative: there is no <code>-1 : Nat</code></li>
+<li><code>List.length</code> returns <code>Nat</code>, because a list can never have a negative number of elements</li>
+</ul>
+</li>
+<li><code>Int</code> includes negative numbers: …, -2, -1, 0, 1, 2, …</li>
+<li>Subtraction on <code>Nat</code> is <a class="gl-ref" href="../glossary/#saturating_subtraction">saturating</a>: <code>3 - 5 : Nat</code> gives <code>0</code>, not <code>-2</code><ul>
+<li>The compiler does not warn you about this</li>
+<li>If you need negative results, use <code>Int</code> instead of <code>Nat</code></li>
+</ul>
+</li>
+<li>A whole-number literal like <code>42</code> is <code>Nat</code> by default; write <code>(42 : Int)</code> to force the type</li>
 </ul>
 <h2>Type Inference</h2>
 <div data-inc="type_inference.lean"><span aria-label="Source: basics/type_inference.lean" class="inc-path" role="img" tabindex="0" title="basics/type_inference.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Lean can infer the type from the value</span>

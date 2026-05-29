@@ -156,6 +156,11 @@
 </ul>
 </li>
 <li>Like Python's <code>dict(reversed(log))</code> but preserving insertion order of last write</li>
+<li>Performance: <code>dbCompact</code> traverses the log twice — once to reverse it, once to fold over it<ul>
+<li>Both passes are O(n); the total cost is O(n) overall</li>
+<li>For large logs this is fine; for hot paths you could compact incrementally instead</li>
+</ul>
+</li>
 </ul>
 <h2>Checking Key Existence</h2>
 <div data-inc="code.lean" data-mark="check-key"><span aria-label="Source: db/code.lean" class="inc-path" role="img" tabindex="0" title="db/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Check if a key exists in the log (has a non-tombstone entry)</span>

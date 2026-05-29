@@ -88,6 +88,22 @@
 <li><code>List (String × Hash)</code> is a list of <code>(path, hash)</code> pairs</li>
 <li><code>abbrev</code> makes the intent clearer than writing <code>List (String × Hash)</code> everywhere</li>
 </ul>
+<h2><code>abbrev</code> vs. <code>def</code> for Type Aliases</h2>
+<ul>
+<li>Lean has two ways to create a type alias: <code>abbrev</code> and <code>def</code></li>
+<li><code>abbrev</code> is <em>transparent</em>: the type checker sees through it and treats <code>Hash</code> exactly as <code>String</code><ul>
+<li>Type class instances for <code>String</code> (like <code>ToString</code> or <code>BEq</code>) automatically apply to <code>Hash</code></li>
+<li>You can pass a <code>Hash</code> anywhere a <code>String</code> is expected without any conversion</li>
+</ul>
+</li>
+<li><code>def</code> is <em>opaque</em>: the type checker treats the alias as a distinct type<ul>
+<li>Instances do not transfer automatically; you must re-derive or re-declare them</li>
+<li>Passing a <code>def</code>-aliased type where the original is expected is a type error</li>
+</ul>
+</li>
+<li>Use <code>abbrev</code> when the alias is purely for readability and you want full interchangeability</li>
+<li>Use <code>def</code> when you want the type system to enforce that the aliased type is not accidentally mixed with the original</li>
+</ul>
 <h2>Hashing Bytes</h2>
 <div data-inc="archive.lean" data-mark="hash-bytes"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Hash a ByteArray to a 16-character hex string</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">hashBytes</span><span class="w"> </span><span class="o">(</span><span class="n">ba</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="o">:=</span>
@@ -262,6 +278,7 @@
 <li><code>lean --run archive/archive_dir.lean</code></li>
 </ul>
 </li>
+<li>The distinction between these two commands is important; see <a href="../build/">build</a> for a full explanation</li>
 </ul>
 <h2>Testing the Pure Core</h2>
 <div data-inc="archive.lean" data-mark="tests"><span aria-label="Source: archive/archive.lean" class="inc-path" role="img" tabindex="0" title="archive/archive.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Tests (pure core) ---------------------------------------------------</span>

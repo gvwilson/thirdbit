@@ -154,6 +154,49 @@
 </ul>
 </li>
 </ul>
+<h2>Termination Without <code>partial</code></h2>
+<div data-inc="termination.lean"><span aria-label="Source: glob/termination.lean" class="inc-path" role="img" tabindex="0" title="glob/termination.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Structural recursion: Lean proves termination automatically</span>
+<span class="c1">-- because the list argument shrinks with each recursive call</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">mySum</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">mySum</span><span class="w"> </span><span class="n">xs</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">mySum</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">]</span>
+
+<span class="c1">-- termination_by: tell Lean which expression decreases each call</span>
+<span class="c1">-- Use this when the termination measure is not the argument itself</span>
+<span class="c1">-- decreasing_by provides a tactic to discharge the proof obligation</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">repeatStr</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">""</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">repeatStr</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">n</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">repeatStr</span><span class="w"> </span><span class="s2">"ab"</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="c1">-- partial: opt out of termination checking entirely</span>
+<span class="c1">-- Use only when you are certain the function terminates</span>
+<span class="c1">-- and cannot express the measure with termination_by</span>
+<span class="n">partial</span><span class="w"> </span><span class="kn">def</span><span class="w"> </span><span class="n">findFirst</span><span class="w"> </span><span class="o">(</span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">α</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">findFirst</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">xs</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">findFirst</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<div data-inc="termination.out"><span aria-label="Source: glob/termination.out" class="inc-path" role="img" tabindex="0" title="glob/termination.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>15
+"ababab"
+some 4
+</code></pre></div>
+</div>
+<ul>
+<li>For application programmers, there are three options when Lean rejects your recursive function:<ol>
+<li><strong>Structural recursion</strong>: match on the argument directly so Lean can see it shrinks — no annotation needed</li>
+<li><strong><code>termination_by</code></strong>: supply a decreasing measure (a <code>Nat</code> expression that gets smaller each call); Lean checks the proof automatically</li>
+<li><strong><code>partial</code></strong>: opt out of termination checking when the measure is too complex to express</li>
+</ol>
+</li>
+<li>Prefer structural recursion or <code>termination_by</code> when possible: Lean's guarantee that your function terminates is a real correctness property</li>
+<li><code>partial</code> gives up that guarantee — the function is unchecked at the type level, even if you are confident it terminates in practice</li>
+</ul>
 <h2>String Matching Wrapper</h2>
 <div data-inc="code.lean" data-mark="match-glob"><span aria-label="Source: glob/code.lean" class="inc-path" role="img" tabindex="0" title="glob/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Wrap glob for whole-string matching</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">matchGlob</span><span class="w"> </span><span class="o">(</span><span class="n">pat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Elem</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="o">:=</span>
