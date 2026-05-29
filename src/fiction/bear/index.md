@@ -805,153 +805,186 @@ He wondered if his brother thought about that as often as he did.
 ## Chapter 3: Familiar Faces
 
 *He could have told me that his sister's nurse was going to watch,*
-Noxy thought as she lowered herself self-consciously into the steaming
-water.
+Noxy thought,
+lowering herself self-consciously into the steaming water.
 
-"Warm enough, miss?" Dolly asked as she stirred the coals in the tub's
-hotbox. Her head only came up to Noxy's shoulders, but her arms were
-longer than Noxy's legs. Her orange-brown fur was speckled with gray,
+"Warm enough, miss?" Dolly asked
+as she stirred the coals in the tub's hotbox.
+Her head only came up to Noxy's shoulders,
+but her arms were longer than Noxy's legs.
+Her dark fur was speckled with gray,
 and her eyes were sad and wise.
 
-"Yes, thank you," Noxy said. "It's wonderful." It was actually almost
-too hot to bear, but she could feel the ache in her shoulder start to
-melt away.
+"Yes, thank you," Noxy said.
+"It's wonderful."
+It was actually almost too hot to bear,
+but she could feel the ache in her shoulder start to melt away.
 
-Dolly smiled. "I'm sure it is, after all you've been through. Now, let
-me have a look at that arm of yours. No, please, don't try to get up,
-just sit forward a bit. That's good… that's good… My, that *is* a
-nasty bruise, isn't it? You're lucky you didn't break your shoulder.
-Does it hurt when I—I'm sorry. Are you all right? How about this
-way?" She clucked her tongue, then went over to the cabinet next to
-the window and rummaged around. "I'm *sure* I've got some left," she
-said to herself.
+Dolly smiled.
+"I'm sure it is, after all you've been through.
+Now, let me have a look at that arm of yours.
+No, please, don't try to get up, just sit forward a bit.
+That's good… that's good…
+My, that *is* a nasty bruise, isn't it?
+You're lucky you didn't break your shoulder.
+Does it hurt when—I'm sorry.
+Are you all right?
+How about this way?"
+She clucked her tongue,
+then went to the cabinet next to the window and rummaged around.
+"I'm *sure* I have some left,"
+she said to herself.
 
-Noxy looked around the room as the troll sniffed the contents of
-various jars and bottles. The walls were painted a soft yellow. The
-cabinet, a standing mirror, and a chair and matching stool were darkly
-varnished wood, with legs that curved inward slightly like a bowlegged
-sailor's. The only other decoration was a framed needlepoint of an
-eagle atop a pole with its wings spread. Noxy wondered idly if it was
-landing or taking off, or just shaking off the rain.
+Noxy looked around the room
+as the troll sniffed the contents of various jars and bottles.
+The walls were painted a soft yellow.
+The cabinet, a standing mirror, and a chair and matching stool were darkly varnished wood,
+with legs that curved inward slightly like a bowlegged sailor's.
+The only other decoration was a framed needlepoint
+of an eagle atop a pole with its wings spread.
+Noxy wondered idly if it was taking off, landing,
+or just shaking off the rain.
 
-"That's Her Highness's work," Dolly said, noticing Noxy's gaze. "She's
-a fine one with a needle."
+"That's Her Highness's work," Dolly said, noticing Noxy's gaze.
+"She's a fine one with a needle."
 
-Noxy hesitated. "The prince told me she was…" She trailed off, not
-knowing exactly what to say.
+Noxy hesitated.
+"The prince told me she was…"
+She trailed off, not knowing exactly what to say.
 
-"Simple?" Dolly finished, undisturbed. "She is that. But as sweet as
-a ripe apple, as they say hereabouts. Now lean forward again and let
-me put some of this on you. It won't hurt. Pilots know I've done it
-often enough for Her Highness—it's a rare week she doesn't have some
-spill or other."
+"Simple?" Dolly finished, undisturbed.
+"She is that.
+But as sweet as a ripe apple, as they say hereabouts.
+Now lean forward again and let me put some of this on you.
+It won't hurt.
+Saints know I've done it often enough for Her Highness—it's
+a rare week she doesn't have some spill or other."
 
-Noxy was thankful that Dolly left her alone to dress in a pale yellow
-blouse and gray floor-length skirt that a housemaid had delivered
-while she was soaking. The skirt felt drafty—mountain women only
-wore them for weddings, funerals, and naming day parties—but when
-she wiped steam from the mirror to look at herself, the clothes' soft
-colors made her dark brown skin gleam like the furniture.
+Noxy was thankful that Dolly left her alone to dress
+in a pale yellow blouse and gray floor-length skirt
+that a housemaid had delivered while she was soaking.
+The skirt felt drafty—mountain women only wore them for weddings,
+funerals,
+and naming day parties—but
+when she wiped steam from the mirror to look at herself,
+the clothes' soft colors made her dark brown skin gleam like the furniture.
 
-She dithered for a moment before setting aside the dainty wooden court
-shoes that had come with the clothes. *No sense breaking my neck on
-the stairs,* she told herself as she pulled on her sturdy mountain
-boots instead. After tying her braids back in a thick club, she set
-out to see what she could find to quiet her grumbling stomach.
+She dithered for a moment before setting aside
+the dainty wooden court shoes that had come with the clothes.
+*No sense breaking my neck on the stairs,*
+she told herself as she pulled on her sturdy mountain boots instead.
+After tying her braids back in a thick club,
+she set out to see what she could find to quiet her grumbling stomach.
 
-The dining room on the ground floor had the largest window Noxy had
-ever seen. A double dozen people could have seated themselves at the
-table that stood in front of it, even given the room needed for the
-bewildering confusion of cutlery laid at each place.
+The dining room on the ground floor had the largest window Noxy had ever seen.
+A double dozen people could have seated themselves
+at the table that stood in front of it,
+most of which seemed to be taken up by
+the bewildering confusion of cutlery laid at each place.
 
-"Good evening, respected," the prince said solemnly, bowing. Noxy
-hesitated, not knowing if she was supposed to bow back, but then
-Thokmay winked.
+"Good evening, honored," the prince said solemnly, bowing.
+Noxy hesitated,
+not knowing if she was supposed to bow back,
+but then Thokmay winked.
 
-She scowled to hide her blush. "You're a beast, you know that?"
+She scowled to hide her blush.
+"You're a beast, you know that?"
 
-"I believe you have just been complimented, Your Highness," said a
-voice behind her. Noxy spun around.
+"I believe you have just been complimented, honored,"
+said a voice behind her.
+Noxy spun around.
 
-The troll who had just entered the room sketched an elaborate court
-bow. A small pair of glasses with heavy brass rims perched
-precariously on his tiny snub of a nose. His orange jacket was just a
-shade lighter than his fur, while his brown pants were just a shade
-darker.
+The troll who had just entered the room sketched an elaborate court bow.
+A small pair of glasses with heavy brass rims
+perched precariously on his tiny snub of a nose.
+His orange jacket was as bright as his fur was dark.
 
-"Ahem. Um, Probably Noxious of Stale, allow me to present my
-tutor, the Learned Mope."
+"Ahem.
+Um, Probably Noxious of Stale,
+allow me to present my tutor, the Learned Mope."
 
-"A pleasure to meet you, respected—the prince has spoken of you
-often," the troll said, smiling pleasantly.
+"A pleasure to meet you, honored—the prince has spoken of you often,"
+the troll said, smiling pleasantly.
 
-"Learned Mope is Dolly's son," Prince Thokmay explained to Noxy. "He's
-supposed to be teaching me law and history."
+"Learned Mope is Dolly's son," Prince Thokmay explained to Noxy.
+"He's teaching me law and history."
 
-"He's actually not a bad student," the troll told Noxy in a stage
-whisper. "He has a fine memory. He just don't know how to think
-yet. Logic! Logic is the key." He waggled a finger. "Logic and
-eloquence. And facts, of course. One must have facts as fuel for
-one's arguments…"
+"He's actually not a bad student,"
+the troll told Noxy in a stage whisper.
+"He has a fine memory.
+He just don't know how to think.
+Logic! Logic is the key."
+He waggled a finger.
+"Logic and eloquence.
+And facts, of course.
+One must have facts as fuel for one's arguments…"
 
-Noxy tried to seem interested as the troll embarked on a long story
-about how an inspired bit of logic by someone she had never heard of
-had once prevented a battle between two countries she was pretty sure
-no longer existed. It became harder after the steward stole the
-prince away with an urgent question about salad dressings and the
-placement of lanterns.
+Noxy tried to seem interested as the troll embarked on
+a long story about how an inspired bit of logic by someone she had never heard of
+had once prevented a battle between two kingdoms she was pretty sure no longer existed.
+It became harder after the steward stole the prince away
+with an urgent question about salad dressings and the placement of lanterns.
 
-As Mope's lecture approached its climax, another figure slipped into
-the room and made a beeline for the dinner table. Her skin was the
-same tea brown as the prince's, but instead of being cropped close,
-her hair hung in a dozen long braids, each ending in a small yellow
-bow.
+As Mope's lecture approached its climax,
+another figure slipped into the room
+and made a beeline for the dinner table.
+Her skin was the same tea brown as the prince's,
+but instead of being cropped close,
+her hair hung in a dozen long braids,
+each ending in a small yellow bow.
 
-The troll noticed her glance. "You've met Her Highness, I trust?" he
-asked, interrupting himself.
+The troll noticed her glance.
+"You've met Her Highness, I trust?" he asked,
+interrupting himself.
 
-"I'm afraid I haven't," Noxy replied, trying to imitate the polite
-voice her mother used when negotiating contracts. It seemed to fit
-with the delicately-carved chairs and her light-as-feathers skirt.
+"I'm afraid I haven't," Noxy replied,
+trying to imitate the polite voice her mother used when negotiating contracts.
+It seemed to fit with the delicately-carved chairs and her light-as-feathers skirt.
 
-"Well, no point standing on ceremony," Mope said, shooing her
-forward. "Your Highness?"
+"Well, no point standing on ceremony," Mope said,
+shooing her forward.
+"Your Highness?"
 
 The princess shook her head as they approached, counting slowly.
-"Four, five, six—there are six people for dinner tonight!" she
-announced proudly.
+"Four, five, six—there are six people for dinner tonight!"
+she announced proudly.
 
-The troll straightened his glasses. "Quite possibly, Your Highness,
-though logically the most we can conclude is that there will be *at
-most* six people. But no matter, no matter," he added hastily as she
-frowned. "Have you met Respected Noxious? She's a friend of your
-brother."
+The troll straightened his glasses.
+"Quite possibly, Your Highness,
+though logically the most we can conclude is that there will be *at most* six people.
+But no matter, no matter," he added hastily as she frowned.
+"Have you met Respected Noxious?
+She's a friend of your brother."
 
 "H'lo," the princess mumbled, suddenly shy.
 
-"Hello, Your Highness," Noxy said. The silence stretched awkwardly.
-As Mope opened his mouth to break it, Noxy asked, "Do you always wear
-nice shoes?"
+"Hello, Your Highness," Noxy said.
+The silence stretched awkwardly.
+As Mope opened his mouth to break it,
+Noxy asked, "Do you always wear nice shoes?"
 
-Princess Ogmin looked at her feet. Her wooden court shoes were dark
-blue with golden roses chasing one another across the top. "No?"
-Princess Ogmin said, still shy.
+Princess Ogmin looked at her feet.
+Her wooden court shoes were dark blue with golden roses chasing one another across the top.
+"No?" Princess Ogmin said, still shy.
 
-"Me neither," Noxy told her. She tugged her skirt up to reveal the
-toes of her scuffed mountain boots. "I was afraid I'd trip and fall
-down the stairs if I wore nice shoes, so I wore these instead."
+"Me neither," Noxy told her.
+She tugged her skirt up to reveal the toes of her scuffed mountain boots.
+"I was afraid I'd trip and fall down the stairs if I wore nice shoes,
+so I wore these instead."
 
-The princess's eyes widened. She giggled. "Look!" she whispered loudly
-to Mope, pointing. "She's wearing *boots*!"
+The princess's eyes widened.
+She giggled. "Look!" she whispered loudly to Mope, pointing.
+"She's wearing *boots*!"
 
-The troll grinned. "Yes she is," he agreed. "And very nice boots they
-are, wouldn't you say?"
+The troll grinned. "Yes she is," he agreed.
+"And very nice boots they are, wouldn't you say?"
 
-After that, Princess Ogmin couldn't stop talking. By the time Sergeant
-Gyalpa arrived to rescue the prince from the steward, she had told
-Noxy about her riding boots, her dolls, and the needlework she was
-making for her brother's birthday. ("But don't tell him," Princess
-Ogmin whispered, "It's a secret.")
+After that, Princess Ogmin couldn't stop talking.
+By the time Sergeant Gyalpa arrived to rescue the prince from the steward,
+she had told Noxy about her riding boots,
+her dolls,
+and the needlework she was making for her brother's birthday.
+("But don't tell him," Princess Ogmin whispered, "It's a secret.")
 
 The steward returned a few moment later to announce that the Consul of
 Chaghan had arrived with her replacement, and was begging the prince's
