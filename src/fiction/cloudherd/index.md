@@ -4332,4 +4332,269 @@ Without waiting for answer
 Alva turned and ambled away through the salal bushes,
 leaving Noxy open-mouthed behind her.
 
+FIXME: back to Stale and encounter with soldiers
+
+The sky had turned dull gray.
+Only a slightly brighter patch showed where the morning sun was hiding.
+Noxy didn't see any to rush to do the thimbleberries,
+so she walked the long way around past the tubs
+where Stale's men did everyone's laundry.
+She answered the grappas' "good mornings" with a bored "good morning" of her own,
+then two little girls that they weren't beating the dust out of a rug properly.
+Finally she turned up the little alley toward Granna Fee's.
+
+And stopped.
+And ducked back around the corner.
+And crouched down.
+And peeked around the corner just in time to see
+Private Thokmay turn the corner at the other end of the alley.
+She waited a moment for Kulbinder to appear,
+but the tigerwas nowhere in sight.
+
+"Maybe he's running away," Noxy thought.
+"Maybe they're *all* running away!"
+But no—the sentries were still at the gate.
+Whatever the young soldier was doing, he was doing on his own.
+
+Noxy sprinted down the alley.
+Private Thokmay had vanished.
+She bit her lip.
+Had he gone into someone's house? But whose? And why?
+Or had he gone all the way down the alley to…
+
+The tunnels!
+He must have gone into the old tunnels underneath the fortress.
+
+She shivered.
+Like every other child in the village (except Sensy, who couldn't stand getting dirty),
+Noxy had sneaked into the tunnels more than once on a dare.
+As fast as the adults put bars over the entrances, the children found ways around them.
+They all knew the stories about children who had become lost underground.
+Rash even swore that he sometimes heard their ghosts crying for help.
+
+Noxy scowled.
+If Private Thokmay had gone underground, she was going to find out why.
+
+An old wooden grill covered the entrance he had used.
+Blackberry brambles had sprouted in front of it,
+hiding the hole that time, the weather, and children's hands had made in it.
+They scratched the back of Noxy's neck as she squeezed between them and the wall,
+her face pressed against the cold stones.
+
+It took her eyes a moment to adjust to the faint light filtering in from behind her.
+Behind the brambles, the tunnel was half against as high as she was tall.
+Thick wooden beams, shiny-smooth with damp and age,
+were spaced every ten strides along the walls.
+Here and there she saw gaps marked by upside-down holes in the ceiling
+where they had given way over the centuries.
+She hesitated—she didn't have so much as a match,
+much less a lantern—but then realized that
+the shadows on the walls were shifting and bouncing.
+She didn't have light, but Thokmay did.
+
+She crept forward as quietly as the tunnel dipped,
+levelled off,
+split,
+and split again,
+stopping when the light on the wall stopped dancing.
+She edged forward again past another bend in the tunnel,
+placing each foot carefully before putting her weight on it.
+Another step, another…
+
+Holding her breath, she peeked around the corner.
+She had just a heartbeat to take in the lantern sitting by itself on the floor
+before a stern voice snapped, "Halt!" behind her.
+
+Noxy jumped and whirled around. 
+Private Thokmay was standing in the intersection with his sword in his hand
+and a scowl on his face.
+
+"What are you doing here?" he demanded accusingly.
+"Why were you trying to sneak up on me?"
+
+"Sneak up on you?!" Noxy replied angrily. 
+You're the one who snuck up on *me*!"
+
+"Only because you were sneaking up first," Thokmay shot back.
+He slid his sword into its scabbard.
+"I thought you were an assassin or something."
+
+"And I thought you were trying to run away like the *tralpa*."
+Noxy put her hands on her hips and tried to match the prince's glare.
+"Anyway, you shouldn't be down here.
+It's dangerous to go wandering around."
+
+"No more dangerous than it is for you!
+Or are you just hiding from chores again?"
+
+Noxy gasped in outrage.
+"Oh! You— you're— you have worse manners than a goof!"
+
+"I have *excellent* manners!" the young soldier replied stiffly.
+"At least they're better than yours.
+*You* have worse manners than a camel!"
+He kicked the wooden post nearest him.
+
+Noxy was suddenly so angry that she couldn't barely see.
+"Quit kicking that, it isn't yours!"
+Noxy took two quick steps over to the beam and kicked it herself.
+"It belongs to us,
+and we're the only ones who are allowed to kick things around here!"
+
+"I'll kick it if I want to!" Thokmay shouted.
+He kicked the post again and again.
+
+Suddenly there was a *screech!* like a thousand fingernails being dragged down a blackboard.
+The beam above their heads shifted slightly,
+groaning under the weight of the mountain.
+The two teenagers looked at each other in horror.
+
+Noxy turned to run back toward the entrance.
+"Look out!" Thokmay shouted.
+He leaped forward and pushed her out of the way.
+A block of stone that would have struck her head hit his shoulder instead.
+He grabbed her arm and yanked her forward as the beam creaked again and gave way.
+A waterfall of sharp-edged rocks and dust crashed down.
+
+"Run!" he shouted.
+
+"But that's the wrong way!" Noxy cried.
+
+"Not any more it isn't!" Thokmay snatched up his lantern. "Come on!"
+
+They stumbled away from the cave-in.
+Dust billowed up, choking them.
+A stray rock bounced past Noxy's head.
+
+The cave-in stopped as suddenly as it began.
+A last handful of pebbles rattled past them.
+Noxy and Thokmay doubled over to cough, their hearts pounding.
+
+Noxy straightened up and gasped.
+"Your jacket!" she said. 
+His uniform jacket had torn where the stone had struck his shoulder.
+
+The young soldier looked at it ruefully.
+"Uh oh. Kulbinder's going to kill me."
+
+"Better him than… than…" Noxy replied shakily.
+She put her hand over her mouth to stop herself from giggling, or maybe crying.
+
+"I'm sorry I kicked it," Private Thokmay said a few moments later.
+"I didn't think it would cave in."
+
+"I'm sorry I kicked it too. Do you think we're trapped?"
+
+"There has to be another way out," he replied. "Doesn't there?"
+
+"I don't know," Noxy admitted.
+"I've never come in this far. What were you doing down here anyway?"
+
+Thokmay shrugged. "I just wanted to get away from everyone.
+Kulbinder and Sergeant Dorbu were arguing about—about everything,
+and…
+I just want to go home.
+I know that's what all of you would like too."
+
+"It's not that bad," Noxy said awkwardly.
+"It's just… It's a lot all at once, you know?"
+
+"I suppose. Anyway, look."
+He held up his lantern and pointed.
+The spot they had been standing just a few minutes before
+was now a jumble of fallen roof timber and sharp-edged stones.
+
+"We might be able to squeeze through," Noxy said tentatively.
+
+He shook his head.
+"What if we got stuck?
+Or if we bumped something and it caved in again?
+I think we should try to find another way out."
+
+Noxy took a deep breath and let it out slowly,
+just like her mother did whenever she had a hard decision to make.
+"You're right. 
+And if we can't, we can always come back here and try it then."
+
+The tunnel ran level for a hundred paces before dipping down.
+It became steeper and steeper until finally it turned into a rough-cut staircase.
+"I think we're getting further from the village, not closer,"
+Noxy said in despair.
+"Maybe we should turn back."
+
+"Not yet," Thokmay said.
+"We haven't actually come very far, and we can't have gotten lost because there aren't any turns. Maybe it'll level off again soon."
+
+But the steps ran straight down instead into a dark, still pool of water.
+There was just enough light for them to see another set of steps rising from its far side.
+The only sound was the *ploop, ploop* of condensation dripping off the ceiling.
+
+Noxy shivered. "I wonder how deep it is?" she whispered.
+
+"*I* wonder what's in it," Thokmay whispered back.
+"There are some horrible things in the castle moat in Loghan.
+My—the king's grandfather had them brought in specially from the Blight.
+They're all teeth and tentacles and—"
+
+"Shh!" hissed Noxy. "I don't want to know!"
+She shook her head.
+"Well just have to swim. It's not very—oh, wait.
+I forgot that you don't know how."
+
+"I know how," Thokmay protested.
+"I just can't when I've got all my armor on. It's kind of heavy, you know."
+
+Noxy smiled uncertainly.
+"Well, here's your chance to prove it."
+She hesitated.
+"I'm sorry about that. About the fish pond, I mean."
+
+"It's not your fault," the prince replied absently,
+staring at the dark, still water.
+Suddenly he snapped his fingers. "I know!"
+He unbuckled his belt, 
+pulled his sword out of its scabbard,
+handed the belt to Noxy,
+and then knelt on the last step and pushed the scabbard into the water.
+A moment later he turned around with a sheepish look on his face.
+"It's only about a handspan deep.
+It won't even come over the tops of our boots."
+
+They sloshed through the pool to the other set of steps. 
+As they started up them,
+Noxy thought she could still hear something sloshing in the water behind them.
+*It's just your imagination,* she told herself firmly,
+but shuddered slightly from the chill just the same.
+
+The steps brought then back to a tunnel.
+Private Thokmay stopped and sniffed the air.
+"There's a breeze!" he said.
+"Come on!"
+
+They raced through the tunnel,
+around one corner and then another,
+and there it was: daylight.
+Another blackberry bush was blocking the tunnel entrance.
+On its other side Noxy could see Granna Vindaya's vegetable garden.
+
+They stared at it, breathing hard.
+"How long do you think we've been away?" asked Thokmay.
+
+"I don't know," said Noxy.
+"It feels like ages. Do you think anyone will have noticed?"
+
+Thokmay shook his head.
+"We'd have heard Kulbinder roaring if they had.
+He'll eat my ears if he finds out what happened.
+Do you think we could just forget to tell anyone?"
+
+Noxy almost laughed. 
+"I think my mother would put my ears in the stew pot if she found out.
+Sure, let's, um, just forget."
+
+Private Thokmay looked at the brambles.
+"I bet they're going to scratch," he sighed.
+
+FIXME: Alva visits Noxy in a dream.
+
 </section>
