@@ -4224,25 +4224,106 @@ She gestured in the direction of the village.
 "Actually, dear, you and I are the ones who need to talk.
 Privately,"
 Alva added,
-giving Signured a pointed look.
+giving Signurd a pointed look.
 
 The big troll growled again.
-"This isn't right.
-You *know* this isn't right."
+"Done talking," it grunted,
+and then it charged.
+
+Noxy shrieked and stumbled back,
+tripping over a fallen branch.
+Alva leaped in front of her and grappled with Signurd.
+He was almost twice her size,
+but somehow she managed to hold him.
+Their feet scrabbled for purchase as they wrestled.
+The big male bared his teeth as Alva began to slip back.
+
+"Old…" he grunted.
+"Weak."
+
+"But smart," the old female replied.
+With a sudden twist she pivoted and threw the male into the bushes.
+As Noxy scrambled to her feet,
+Alva pointed at him and closed her eyes.
+
+Signurd surged back onto his feet with a roar,
+took one step,
+and blinked.
+"No!" he managed before he toppled over.
+
+Alva collapsed on the path.
+Noxy rushed over to her,
+reached for her,
+and pulled her hands back.
+"Are you all right?" she asked instead.
+
+The troll sat up.
+"Yes, dear, thank you."
+She stretched out her leg and looked at it,
+her expression even sadder than it had been.
+The scar now ran all the way from her ankle to her hip.
+
+Noxy stared at it, then at her.
+"You're—you're a magician?
+I didn't know…"
+
+"You didn't know the Gifted could do magic?"
+the troll finished.
+She sighed.
+"Most can't.
+Some people say that's because talking uses up all the magic we might otherwise do,
+but I think it's just because we mostly can't be bothered to try."
+She tried to stand,
+winced,
+and settled back onto the path.
+"Not that I'll be able to do it for much longer,"
+she added,
+patting her scar.
+
+"My *appa* was a magician."
+Noxy hadn't known she was going to say it until she did.
+"He was from Garheim,
+but he liked the mountains and,
+and he fell in love with my *amma* and settled here.
+That's his tree."
+She gestured behind her without looking.
+
+The troll nodded.
+"I know, dear.
+I come and talk to him too sometimes.
+What he did was very brave."
+
+Noxy rubbed her forearm.
+"I know.
+I just wish…"
+
+"You just wish the price hadn't been so high."
+The troll sighed and forced herself onto her feet.
+"We all wish that, dear.
+We all wish that."
+
+She ambled over to the male troll,
+who was snoring gently,
+and poked her finger in his nose.
+He grunted and muttered,
+then opened his eyes and stared at her blankly for a moment
+before slapping her hand away and standing.
+"That wasn't fair," he said petulantly.
 
 Alva sighed.
-"Right and wrong, good and bad…
+"Fair, fair, fair.
+Right and wrong, good and bad…
 There is only the forest."
 
-With a final snort the big troll clambered up a tree and swung away,
+With a snort the big troll clambered up a tree and swung away,
 making more noise than Noxy thought he needed to.
 
 Noxy swallowed.
-"So what would you like to talk about?
+"So what did you like to talk about?
 Honored?"
 she added hastily.
 
-She stopped herself from flinching when the troll reached out to pat her arm.
+She stopped herself from flinching when Alva reached out to pat her arm.
 "Not here, dear.
 I'll come find you tonight and we can have a good long chat then.
 Right now,

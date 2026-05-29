@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Queue Formation</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../selected/">selected</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Queue Formation</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/05/27/building-a-city-not-a-car/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-05-27" class="post-date">2026-05-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2026/05/28/basic-queueing-theory/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><em>See the <a href="../../../../2026/05/28/basic-queueing-theory/">first post in this series</a> for the basics of queueing theory.</em></p>
+<p>We can combine arrivals (Poisson at rate $\lambda$) with a server (exponential service at rate $\mu$) into a complete queue.  The system is stable because $\rho = \lambda/\mu &lt; 1$, which means that on average, the server handles more work than arrives.</p>
+<p>Our first question is, how long is the queue? The surprising answer is that even when the server has plenty of spare capacity, customers wait.  The mean number of customers in the system (both waiting and being served) is:</p>
+<p>$$L = \frac{\rho}{1 - \rho}$$</p>
+<p>The table below gives some representative values:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$\rho$</th>
+<th style="text-align: center;">$L$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">0.11</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">4.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.9</td>
+<td style="text-align: center;">9.00</td>
+</tr>
+</tbody>
+</table>
+<p>When $\rho = 0.5$, half the server&rsquo;s capacity is idle, but there is on average one customer in the system at any moment.  That customer either had to wait for a previous customer, or is currently being served.  The queue is <em>never</em> consistently empty, even at moderate load.</p>
+<p>The formula also explains why simple queues are so sensitive to utilization: $L$ blows up as $\rho \to 1$. One way to think about this is that the denominator $(1 - \rho)$ is the spare capacity. As spare capacity vanishes, queue length increases.</p>
+<h2>Why Queues Form at All</h2>
+<p>With deterministic arrivals and service (every customer arrives exactly $1/\lambda$ apart and takes exactly $1/\mu$), a server with $\rho &lt; 1$ would never form a queue: each customer would depart before the next arrived. Randomness changes this. Sometimes three customers arrive close together before the server finishes even one, so the server falls briefly behind. While it recovers, customers wait.  These temporary pileups are unavoidable whenever inter-arrival or service times have any variance.</p>
+<p>The probability that exactly $n$ customers are in an M/M/1 system at steady state is:</p>
+<p>$$P(N = n) = (1 - \rho)\,\rho^n \qquad n = 0, 1, 2, \ldots$$</p>
+<p>This is a <em>geometric distribution</em> with success probability $1 - \rho$. The formula says the server is idle (i.e., n=0) with probability $1 - \rho$, which is consistent with the utilization result from the previous scenario. Each additional customer in the system is $\rho$ times less likely than the previous count.</p>
+<p>This formula $L = \rho/(1-\rho)$ is the foundation of the later M/M/1 nonlinearity scenario, which shows the practical consequences of the $(1-\rho)$ denominator. Every queue-length formula in queueing theory has a similar structure: a traffic factor $\rho$ divided by a spare-capacity factor $(1 - \rho)$, possibly multiplied by a variability correction.</p>
+<h2>Implementation</h2>
+<p>A <code>Customer</code> process increments a shared <code>in_system</code> counter on arrival and decrements it on departure.  A <code>Monitor</code> process samples <code>in_system[0]</code> every <code>SAMPLE_INTERVAL</code> time units.  The mean of the samples estimates $L$; the simulation sweeps $\rho$ from 0.1 to 0.9 to confirm the formula $L = \rho/(1-\rho)$.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Customer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">in_system</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>                  <span class="c1"># enter the system</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">SERVICE_RATE</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>                  <span class="c1"># depart</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Monitor</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Samples total customers in system at regular intervals.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_system</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="n">samples</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">SAMPLE_INTERVAL</span><span class="p">)</span>
+</code></pre></div>
+<p>The shared list <code>in_system</code> lets <code>Customer</code> and <code>Monitor</code> communicate without explicit message-passing: <code>Customer</code> modifies the count, <code>Monitor</code> reads it on a timer.</p>
+<h2>Understanding the Math</h2>
+<h3>Why is the queue length geometric?</h3>
+<p>The M/M/1 queue can be analyzed as a random walk on the non-negative integers.  When the server is busy, the queue grows by 1 with each arrival (with rate $\lambda$) and shrinks by 1 with each service completion (with rate $\mu$).  The ratio $\lambda/\mu = \rho$ is the probability that the queue grows rather than shrinks at the next event. Under steady state, the probability of being at level $n$ is proportional to $\rho^n$ — because reaching level $n$ requires $n$ consecutive &ldquo;up&rdquo; steps. Normalizing so the probabilities sum to 1 gives $(1-\rho)\rho^n$.</p>
+<h3>Deriving $L = \rho/(1-\rho)$ from the geometric distribution</h3>
+<p>Given $P(N = n) = (1 - \rho)\rho^n$, the mean is:</p>
+<p>$$L = E[N] = \sum_{n=0}^{\infty} n \cdot (1-\rho)\rho^n = (1-\rho) \sum_{n=0}^{\infty} n\rho^n$$</p>
+<p>A result from basic calculus is that the geometric series $\sum_{n=0}^{\infty} \rho^n = 1/(1-\rho)$.  Differentiating both sides with respect to $\rho$:</p>
+<p>$$\sum_{n=0}^{\infty} n\rho^{n-1} = \frac{1}{(1-\rho)^2}$$</p>
+<p>Multiply both sides by $\rho$:</p>
+<p>$$\sum_{n=0}^{\infty} n\rho^n = \frac{\rho}{(1-\rho)^2}$$</p>
+<p>Substituting back:</p>
+<p>$$L = (1-\rho) \cdot \frac{\rho}{(1-\rho)^2} = \frac{\rho}{1-\rho}$$</p>
+<h3>Checking the formula at the boundaries</h3>
+<p>When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.</p>
+<p>When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.</p>
+<p>Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

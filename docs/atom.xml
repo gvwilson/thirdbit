@@ -46,6 +46,94 @@
  </entry>
  
  <entry>
+   <title>Queue Formation</title>
+   <link href="https://third-bit.com/2026/05/29/queue-formation/"/>
+   <updated>2026-05-27T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/05/29/queue-formation/</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;See the &lt;a href=&#34;https://third-bit.com/2026/05/28/basic-queueing-theory/&#34;&gt;first post in this series&lt;/a&gt; for the basics of queueing theory.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We can combine arrivals (Poisson at rate $\lambda$) with a server (exponential service at rate $\mu$) into a complete queue.  The system is stable because $\rho = \lambda/\mu &amp;lt; 1$, which means that on average, the server handles more work than arrives.&lt;/p&gt;
+&lt;p&gt;Our first question is, how long is the queue? The surprising answer is that even when the server has plenty of spare capacity, customers wait.  The mean number of customers in the system (both waiting and being served) is:&lt;/p&gt;
+&lt;p&gt;$$L = \frac{\rho}{1 - \rho}$$&lt;/p&gt;
+&lt;p&gt;The table below gives some representative values:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$\rho$&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$L$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.1&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.5&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.8&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;4.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.9&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;9.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;When $\rho = 0.5$, half the server&amp;rsquo;s capacity is idle, but there is on average one customer in the system at any moment.  That customer either had to wait for a previous customer, or is currently being served.  The queue is &lt;em&gt;never&lt;/em&gt; consistently empty, even at moderate load.&lt;/p&gt;
+&lt;p&gt;The formula also explains why simple queues are so sensitive to utilization: $L$ blows up as $\rho \to 1$. One way to think about this is that the denominator $(1 - \rho)$ is the spare capacity. As spare capacity vanishes, queue length increases.&lt;/p&gt;
+&lt;h2&gt;Why Queues Form at All&lt;/h2&gt;
+&lt;p&gt;With deterministic arrivals and service (every customer arrives exactly $1/\lambda$ apart and takes exactly $1/\mu$), a server with $\rho &amp;lt; 1$ would never form a queue: each customer would depart before the next arrived. Randomness changes this. Sometimes three customers arrive close together before the server finishes even one, so the server falls briefly behind. While it recovers, customers wait.  These temporary pileups are unavoidable whenever inter-arrival or service times have any variance.&lt;/p&gt;
+&lt;p&gt;The probability that exactly $n$ customers are in an M/M/1 system at steady state is:&lt;/p&gt;
+&lt;p&gt;$$P(N = n) = (1 - \rho)\,\rho^n \qquad n = 0, 1, 2, \ldots$$&lt;/p&gt;
+&lt;p&gt;This is a &lt;em&gt;geometric distribution&lt;/em&gt; with success probability $1 - \rho$. The formula says the server is idle (i.e., n=0) with probability $1 - \rho$, which is consistent with the utilization result from the previous scenario. Each additional customer in the system is $\rho$ times less likely than the previous count.&lt;/p&gt;
+&lt;p&gt;This formula $L = \rho/(1-\rho)$ is the foundation of the later M/M/1 nonlinearity scenario, which shows the practical consequences of the $(1-\rho)$ denominator. Every queue-length formula in queueing theory has a similar structure: a traffic factor $\rho$ divided by a spare-capacity factor $(1 - \rho)$, possibly multiplied by a variability correction.&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;Customer&lt;/code&gt; process increments a shared &lt;code&gt;in_system&lt;/code&gt; counter on arrival and decrements it on departure.  A &lt;code&gt;Monitor&lt;/code&gt; process samples &lt;code&gt;in_system[0]&lt;/code&gt; every &lt;code&gt;SAMPLE_INTERVAL&lt;/code&gt; time units.  The mean of the samples estimates $L$; the simulation sweeps $\rho$ from 0.1 to 0.9 to confirm the formula $L = \rho/(1-\rho)$.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Customer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;server&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;server&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;                  &lt;span class=&#34;c1&#34;&gt;# enter the system&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;server&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expovariate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SERVICE_RATE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;                  &lt;span class=&#34;c1&#34;&gt;# depart&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Monitor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Samples total customers in system at regular intervals.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;samples&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;samples&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;samples&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;samples&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in_system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SAMPLE_INTERVAL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The shared list &lt;code&gt;in_system&lt;/code&gt; lets &lt;code&gt;Customer&lt;/code&gt; and &lt;code&gt;Monitor&lt;/code&gt; communicate without explicit message-passing: &lt;code&gt;Customer&lt;/code&gt; modifies the count, &lt;code&gt;Monitor&lt;/code&gt; reads it on a timer.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Why is the queue length geometric?&lt;/h3&gt;
+&lt;p&gt;The M/M/1 queue can be analyzed as a random walk on the non-negative integers.  When the server is busy, the queue grows by 1 with each arrival (with rate $\lambda$) and shrinks by 1 with each service completion (with rate $\mu$).  The ratio $\lambda/\mu = \rho$ is the probability that the queue grows rather than shrinks at the next event. Under steady state, the probability of being at level $n$ is proportional to $\rho^n$ — because reaching level $n$ requires $n$ consecutive &amp;ldquo;up&amp;rdquo; steps. Normalizing so the probabilities sum to 1 gives $(1-\rho)\rho^n$.&lt;/p&gt;
+&lt;h3&gt;Deriving $L = \rho/(1-\rho)$ from the geometric distribution&lt;/h3&gt;
+&lt;p&gt;Given $P(N = n) = (1 - \rho)\rho^n$, the mean is:&lt;/p&gt;
+&lt;p&gt;$$L = E[N] = \sum_{n=0}^{\infty} n \cdot (1-\rho)\rho^n = (1-\rho) \sum_{n=0}^{\infty} n\rho^n$$&lt;/p&gt;
+&lt;p&gt;A result from basic calculus is that the geometric series $\sum_{n=0}^{\infty} \rho^n = 1/(1-\rho)$.  Differentiating both sides with respect to $\rho$:&lt;/p&gt;
+&lt;p&gt;$$\sum_{n=0}^{\infty} n\rho^{n-1} = \frac{1}{(1-\rho)^2}$$&lt;/p&gt;
+&lt;p&gt;Multiply both sides by $\rho$:&lt;/p&gt;
+&lt;p&gt;$$\sum_{n=0}^{\infty} n\rho^n = \frac{\rho}{(1-\rho)^2}$$&lt;/p&gt;
+&lt;p&gt;Substituting back:&lt;/p&gt;
+&lt;p&gt;$$L = (1-\rho) \cdot \frac{\rho}{(1-\rho)^2} = \frac{\rho}{1-\rho}$$&lt;/p&gt;
+&lt;h3&gt;Checking the formula at the boundaries&lt;/h3&gt;
+&lt;p&gt;When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.&lt;/p&gt;
+&lt;p&gt;When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.&lt;/p&gt;
+&lt;p&gt;Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Building a City, Not a Car</title>
    <link href="https://third-bit.com/2026/05/27/building-a-city-not-a-car/"/>
    <updated>2026-05-27T00:00:00Z</updated>
@@ -4724,166 +4812,6 @@ Comment on &amp;ldquo;Liberals Against Progressives.&amp;rdquo;
 &lt;em&gt;Crooked Timber&lt;/em&gt;,
 March 21, 2018.
 &lt;a href=&#34;https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288&#34;&gt;https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Technofascism</title>
-   <link href="https://third-bit.com/2026/05/15/technofascism/"/>
-   <updated>2026-05-15T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/15/technofascism/</id>
-   <content type="html">&lt;p&gt;In July 2016, Peter Thiel walked onto the stage at the Republican National Convention 
-and told the crowd three things.
-First: &amp;ldquo;I build things.&amp;rdquo;
-Second: &amp;ldquo;I&amp;rsquo;m proud to be gay.&amp;rdquo;
-Third: &amp;ldquo;I&amp;rsquo;m proud to be a Republican.&amp;rdquo;
-What he did &lt;em&gt;not&lt;/em&gt; say was that he had spent years funding a blogger named Curtis Yarvin,
-who wrote under the name Mencius Moldbug.
-Yarvin argued that democracy is a mistake
-and that the United States should be governed by an unelected, unaccountable CEO-like executive.&lt;/p&gt;
-&lt;p&gt;Silicon Valley has always had a reactionary streak.
-In the 1990s,
-the technology industry&amp;rsquo;s favorite intellectual was George Gilder,
-who believed that entrepreneurs were the driving force of civilization
-and that feminism was a catastrophe.
-He wrote that the male breadwinner was the natural order of the household
-and that women in the workforce disrupted a social arrangement
-that had evolved over millennia.
-For Gilder,
-the entrepreneur was explicitly male,
-and his willingness to take risks was a specifically masculine virtue
-that feminism threatened to extinguish.
-He gave speeches at tech conferences throughout the decade
-and was treated as a prophet.
-The tech executives
-who listened to those speeches and then funded campaigns against &amp;ldquo;political correctness&amp;rdquo;
-were early versions of what Silicon Valley would become.&lt;/p&gt;
-&lt;p&gt;The ideological cluster
-that now dominates the most politically active corner of the tech industry
-is called TESCREAL,
-which stands for Transhumanism, Extropianism, Singularitarianism, Cosmism, Rationalism,
-Effective Altruism, and Longtermism.
-This rather awkward name was coined by Émile Torres and Timnit Gebru
-to describe a cluster of beliefs that are often found together and reinforce each other.&lt;/p&gt;
-&lt;p&gt;The core claim is that humanity is approaching artificial general intelligence,
-and this will be either the best or worst development in history,
-depending on who controls it.
-From this claim follows an unusual politics.
-Longtermism holds that the most important thing a person can do
-is ensure the long-run future of civilization.
-That future potentially involves trillions of humans spread across the universe,
-which means that any policy that causes harm now
-but increases the probability of that science fiction future is justified.&lt;/p&gt;
-&lt;p&gt;According to this reasoning, democratic institutions are a liability.
-They are too slow,
-too responsive to short-term preferences,
-and too controlled by people who do not share the vision.
-According to TESCREAL&amp;rsquo;s advocates,
-people who &lt;em&gt;do&lt;/em&gt; share that vision should not be constrained by those institutions.&lt;/p&gt;
-&lt;p&gt;Peter Thiel is the clearest (and ugliest) example of what this politics looks like in practice.
-In &lt;em&gt;Zero to One&lt;/em&gt;,
-Thiel argued that competition is for losers
-and that the goal of a startup is to create a monopoly.
-In a 2009 essay for a libertarian magazine,
-he wrote that he no longer believes freedom and democracy are compatible,
-and that the extension of voting rights to women had made this worse.&lt;/p&gt;
-&lt;p&gt;He funded Yarvin&amp;rsquo;s writing through grants channeled via a nonprofit.
-He funded JD Vance&amp;rsquo;s rise from a struggling podcaster to the Vice President of the United States.
-He funded a lawsuit by wrestler Hulk Hogan
-that destroyed the media company Gawker—a company that had,
-among other things,
-published unflattering reports about Thiel.
-These are not the separate hobbyist interests of an eccentric billionaire.
-They are the consistent application of a single worldview:
-democratic institutions are an obstacle
-to the people who should be running things,
-and the people who should be running things are people like Peter Thiel.&lt;/p&gt;
-&lt;p&gt;More recently,
-Thiel has been giving invitation-only lectures about the Antichrist,
-but he is not alone in having wandered into the weeds.
-In October 2023, Marc Andreessen, co-founder of the venture capital firm Andreessen Horowitz,
-published a &amp;ldquo;The Techno-Optimist Manifesto&amp;rdquo;
-that listed the intellectual heroes of the movement.
-Among them was F.T. Marinetti,
-the Italian futurist who wrote in 1909 that war is &amp;ldquo;the world&amp;rsquo;s only hygiene&amp;rdquo;
-and that civilization should be cleansed of feminism, democracy, and weakness.
-Marinetti&amp;rsquo;s 1909 manifesto directly influenced Benito Mussolini,
-the founder of Fascism;
-Andreessen&amp;rsquo;s citation was presumably not accidental.&lt;/p&gt;
-&lt;p&gt;Andreessen&amp;rsquo;s manifesto attacked anyone who thought technology should be regulated,
-that its risks should be weighed against its benefits,
-or that workers and communities affected by technological change should have a say in it.
-It was published by one of the most powerful venture capital firms in the world,
-despite having the intellectual depth and writing style
-of something a freshman would throw together in a caffeine-fueled frenzy
-after binge-listening to Joe Rogan&amp;rsquo;s podcast.&lt;/p&gt;
-&lt;div class=&#34;callout&#34;&gt;
-&lt;p&gt;The manifesto also listed among its &amp;ldquo;patron saints&amp;rdquo; Nick Land,
-a British philosopher whose work is the intellectual foundation of 
-the neoreaction movement that argues
-democracy, equality, and human rights are mistakes
-that must be reversed if civilization is to progress.
-Land&amp;rsquo;s followers take pains to distinguish their preferred governance structure
-(corporations rather than nation-states)
-from conventional fascism;
-the distinction is less comforting than they seem to think it is.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;These politics do not stay inside the United States.
-In Brazil in 2022 and 2023,
-Musk&amp;rsquo;s platform X amplified supporters of former president Jair Bolsonaro
-before and after an election Bolsonaro lost.
-When the Brazilian Supreme Court ordered X to block accounts
-that were inciting violence and spreading disinformation,
-Musk refused.
-He complied only after the court threatened to block the platform entirely
-and fine its Brazilian executives personally.
-Musk framed the court&amp;rsquo;s demand as censorship,
-clearly believing that wealth put him above the law.&lt;/p&gt;
-&lt;p&gt;In India,
-Meta&amp;rsquo;s platforms have amplifyied Hindu nationalist content
-that incites violence against Muslim communities,
-while consistently applying content moderation more aggressively to criticism of the governing BJP party
-than to nationalist propaganda.
-These decisions about what to amplify, what to suppress, and whose laws to follow
-have a direct impact on whether democratic institutions survive.&lt;/p&gt;
-&lt;p&gt;Corey Robin&amp;rsquo;s history of reactionary politics argues that
-reactionary movements consistently emerge from newly-powerful economic groups
-who feel that existing social arrangements threaten their position.
-They are not nostalgic in the sense of wanting to restore the past.
-They want to restore a hierarchy in which their own power is unchallenged,
-dressed in new language suited to new circumstances.&lt;/p&gt;
-&lt;p&gt;The TESCREAL billionaires fit this pattern precisely.
-Their argument is not that the old aristocracy was better than democracy;
-it is that they, and they alone, can lead us into a brighter future.
-Every authoritarian movement tells this story;
-what makes their version distinctive the fact that
-much of the world&amp;rsquo;s communication takes place through platforms they control.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Andreessen2023&#34;&gt;Andreessen2023&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Marc Andreessen:
-&amp;ldquo;The Techno-Optimist Manifesto.&amp;rdquo;
-Andreessen Horowitz,
-2023.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Robin2018&#34;&gt;Robin2018&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Corey Robin:
-&lt;em&gt;The Reactionary Mind: Conservatism from Edmund Burke to Donald Trump&lt;/em&gt;.
-Oxford University Press,
-2018,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780190692001&#34;&gt;9780190692001&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Thiel2014&#34;&gt;Thiel2014&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Peter Thiel and Blake Masters:
-&lt;em&gt;Zero to One: Notes on Startups, or How to Build the Future&lt;/em&gt;.
-Crown Business,
-2014,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780804139298&#34;&gt;9780804139298&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;TorresGebru2023&#34;&gt;TorresGebru2023&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Émile P. Torres and Timnit Gebru:
-&amp;ldquo;TESCREAL bundle: Eugenics and the promise of utopia through artificial general intelligence.&amp;rdquo;
-&lt;em&gt;First Monday&lt;/em&gt;,
-29(4),
-2024,
-&lt;a href=&#34;https://doi.org/10.5210/fm.v29i4.13636&#34;&gt;10.5210/fm.v29i4.13636&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

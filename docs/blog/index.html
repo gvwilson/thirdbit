@@ -120,6 +120,96 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/05/29/queue-formation/">
+      Queue Formation
+    </a>
+  </h2>
+  <p><time datetime="2026-05-27" class="post-date">2026-05-27</time></p>
+  <p><em>See the <a href="../2026/05/28/basic-queueing-theory/">first post in this series</a> for the basics of queueing theory.</em></p>
+<p>We can combine arrivals (Poisson at rate $\lambda$) with a server (exponential service at rate $\mu$) into a complete queue.  The system is stable because $\rho = \lambda/\mu &lt; 1$, which means that on average, the server handles more work than arrives.</p>
+<p>Our first question is, how long is the queue? The surprising answer is that even when the server has plenty of spare capacity, customers wait.  The mean number of customers in the system (both waiting and being served) is:</p>
+<p>$$L = \frac{\rho}{1 - \rho}$$</p>
+<p>The table below gives some representative values:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$\rho$</th>
+<th style="text-align: center;">$L$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">0.11</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">4.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.9</td>
+<td style="text-align: center;">9.00</td>
+</tr>
+</tbody>
+</table>
+<p>When $\rho = 0.5$, half the server&rsquo;s capacity is idle, but there is on average one customer in the system at any moment.  That customer either had to wait for a previous customer, or is currently being served.  The queue is <em>never</em> consistently empty, even at moderate load.</p>
+<p>The formula also explains why simple queues are so sensitive to utilization: $L$ blows up as $\rho \to 1$. One way to think about this is that the denominator $(1 - \rho)$ is the spare capacity. As spare capacity vanishes, queue length increases.</p>
+<h2>Why Queues Form at All</h2>
+<p>With deterministic arrivals and service (every customer arrives exactly $1/\lambda$ apart and takes exactly $1/\mu$), a server with $\rho &lt; 1$ would never form a queue: each customer would depart before the next arrived. Randomness changes this. Sometimes three customers arrive close together before the server finishes even one, so the server falls briefly behind. While it recovers, customers wait.  These temporary pileups are unavoidable whenever inter-arrival or service times have any variance.</p>
+<p>The probability that exactly $n$ customers are in an M/M/1 system at steady state is:</p>
+<p>$$P(N = n) = (1 - \rho)\,\rho^n \qquad n = 0, 1, 2, \ldots$$</p>
+<p>This is a <em>geometric distribution</em> with success probability $1 - \rho$. The formula says the server is idle (i.e., n=0) with probability $1 - \rho$, which is consistent with the utilization result from the previous scenario. Each additional customer in the system is $\rho$ times less likely than the previous count.</p>
+<p>This formula $L = \rho/(1-\rho)$ is the foundation of the later M/M/1 nonlinearity scenario, which shows the practical consequences of the $(1-\rho)$ denominator. Every queue-length formula in queueing theory has a similar structure: a traffic factor $\rho$ divided by a spare-capacity factor $(1 - \rho)$, possibly multiplied by a variability correction.</p>
+<h2>Implementation</h2>
+<p>A <code>Customer</code> process increments a shared <code>in_system</code> counter on arrival and decrements it on departure.  A <code>Monitor</code> process samples <code>in_system[0]</code> every <code>SAMPLE_INTERVAL</code> time units.  The mean of the samples estimates $L$; the simulation sweeps $\rho$ from 0.1 to 0.9 to confirm the formula $L = \rho/(1-\rho)$.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Customer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">in_system</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>                  <span class="c1"># enter the system</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">SERVICE_RATE</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>                  <span class="c1"># depart</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Monitor</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Samples total customers in system at regular intervals.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_system</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="n">samples</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">SAMPLE_INTERVAL</span><span class="p">)</span>
+</code></pre></div>
+<p>The shared list <code>in_system</code> lets <code>Customer</code> and <code>Monitor</code> communicate without explicit message-passing: <code>Customer</code> modifies the count, <code>Monitor</code> reads it on a timer.</p>
+<h2>Understanding the Math</h2>
+<h3>Why is the queue length geometric?</h3>
+<p>The M/M/1 queue can be analyzed as a random walk on the non-negative integers.  When the server is busy, the queue grows by 1 with each arrival (with rate $\lambda$) and shrinks by 1 with each service completion (with rate $\mu$).  The ratio $\lambda/\mu = \rho$ is the probability that the queue grows rather than shrinks at the next event. Under steady state, the probability of being at level $n$ is proportional to $\rho^n$ — because reaching level $n$ requires $n$ consecutive &ldquo;up&rdquo; steps. Normalizing so the probabilities sum to 1 gives $(1-\rho)\rho^n$.</p>
+<h3>Deriving $L = \rho/(1-\rho)$ from the geometric distribution</h3>
+<p>Given $P(N = n) = (1 - \rho)\rho^n$, the mean is:</p>
+<p>$$L = E[N] = \sum_{n=0}^{\infty} n \cdot (1-\rho)\rho^n = (1-\rho) \sum_{n=0}^{\infty} n\rho^n$$</p>
+<p>A result from basic calculus is that the geometric series $\sum_{n=0}^{\infty} \rho^n = 1/(1-\rho)$.  Differentiating both sides with respect to $\rho$:</p>
+<p>$$\sum_{n=0}^{\infty} n\rho^{n-1} = \frac{1}{(1-\rho)^2}$$</p>
+<p>Multiply both sides by $\rho$:</p>
+<p>$$\sum_{n=0}^{\infty} n\rho^n = \frac{\rho}{(1-\rho)^2}$$</p>
+<p>Substituting back:</p>
+<p>$$L = (1-\rho) \cdot \frac{\rho}{(1-\rho)^2} = \frac{\rho}{1-\rho}$$</p>
+<h3>Checking the formula at the boundaries</h3>
+<p>When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.</p>
+<p>When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.</p>
+<p>Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/05/27/building-a-city-not-a-car/">
       Building a City, Not a Car
     </a>
@@ -958,800 +1048,6 @@ by Increasing the Technical Debt and Maintenance Burden.&rdquo;
 arXiv:2510.10165,
 2025.</dd>
 </dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/20/glossary/">
-      SDGC Glossary
-    </a>
-  </h2>
-  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
-  <p>I will update this as new entries are added.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<h2>A</h2>
-<dl>
-<dt><span id="accounting_fraud">accounting fraud</span></dt>
-<dd>The manipulation of financial statements through aggressive use of
-permissible accounting choices like early revenue recognition,
-optimistic asset valuations, or buried liabilities to misrepresent
-a company&rsquo;s financial position.</dd>
-<dt><span id="algorithmic_amplification">algorithmic amplification</span></dt>
-<dd>The process by which platform recommendation systems
-systematically promote content that generates high engagement,
-regardless of its accuracy or harm.</dd>
-<dt><span id="algorithmic_hiring">algorithmic hiring</span></dt>
-<dd>The use of automated software systems to screen, rank, or select
-job candidates, typically trained on historical hiring data.</dd>
-<dt><span id="anchoring">anchoring</span></dt>
-<dd>The cognitive tendency to rely too heavily on the first piece of
-numerical information encountered when making estimates or
-decisions.  Even when people know that an initial number is
-arbitrary or irrelevant, it systematically pulls their judgments
-toward it.</dd>
-<dt><span id="at_will_employment">at-will employment</span></dt>
-<dd>An employment doctrine, dominant in the United States, under which
-either party may terminate the employment relationship at any
-time, for any reason not prohibited by law, without notice or
-cause.  Most wealthy countries impose statutory notice periods,
-severance requirements, or just-cause protections that
-significantly limit at-will termination.</dd>
-<dt><span id="availability_heuristic">availability heuristic</span></dt>
-<dd>The mental shortcut of estimating how likely or common something is
-by how easily examples of it come to mind.  Vivid or recent events
-are overweighted relative to more common but less memorable ones.</dd>
-</dl>
-<h2>B</h2>
-<dl>
-<dt><span id="backfire_effect">backfire effect</span></dt>
-<dd>The phenomenon in which presenting people with evidence that
-contradicts a strongly held belief causes them to hold that belief
-more firmly rather than updating it.</dd>
-<dt><span id="basel_convention">Basel Convention</span></dt>
-<dd>The 1989 international treaty restricting the transboundary
-movement of hazardous waste, particularly from wealthy to
-developing nations.</dd>
-<dt><span id="bertillonage">bertillonage</span></dt>
-<dd>The system of criminal identification developed by Alphonse
-Bertillon in the 1880s, based on recording eleven precise body
-measurements.  Widely adopted by police forces in Europe and the
-colonial world, it was displaced by fingerprinting around 1900.</dd>
-<dt><span id="biometrics">biometrics</span></dt>
-<dd>The measurement and statistical analysis of unique physical or
-behavioral characteristics to identify or verify an individual&rsquo;s
-identity.</dd>
-<dt><span id="blood_libel">blood libel</span></dt>
-<dd>The accusation that Jews murdered Christian children to use their
-blood in Passover rituals.</dd>
-<dt><span id="boryokudan">boryokudan</span></dt>
-<dd>The Japanese government&rsquo;s official designation for organized crime
-groups, meaning &ldquo;violence group,&rdquo; used in anti-organized crime
-legislation since 1992 as an alternative to the self-identifying
-term yakuza.</dd>
-<dt><span id="bounded_rationality">bounded rationality</span></dt>
-<dd>Herbert Simon&rsquo;s term for the observation that human
-decision-making is rational only within the limits of available
-information, cognitive capacity, and time.  People do not
-optimize; they search for solutions that are good enough and stop,
-a process Simon called satisficing.</dd>
-<dt><span id="brand_protection">brand protection</span></dt>
-<dd>The enforcement of exclusive commercial identity through legal
-mechanisms such as trademarks and trade dress, used to prevent
-competitors from trading on an established name.</dd>
-</dl>
-<h2>C</h2>
-<dl>
-<dt><span id="civil_disobedience">civil disobedience</span></dt>
-<dd>The deliberate, nonviolent refusal to comply with laws or
-government demands as a form of political protest, aimed at
-changing the law rather than evading it.</dd>
-<dt><span id="codetermination">codetermination</span></dt>
-<dd>A labor relations system in which workers hold formal
-representation rights on corporate governing boards, as in the
-German Mitbestimmung model.</dd>
-<dt><span id="cognitive_bias">cognitive bias</span></dt>
-<dd>A systematic pattern of deviation from rational judgment in which
-people reach conclusions through processes that are predictably
-and consistently skewed.</dd>
-<dt><span id="cognitive_pollution">cognitive pollution</span></dt>
-<dd>The systematic degradation of the shared information environment
-through the spread of misleading, manipulative, or low-quality
-content at scale.</dd>
-<dt><span id="collective_bargaining">collective bargaining</span></dt>
-<dd>The process by which workers negotiate wages, hours, and working
-conditions as a group through their union rather than as
-individuals.</dd>
-<dt><span id="commons">commons</span></dt>
-<dd>Resources held in common by a community rather than owned
-privately, subject to collective governance rather than market
-allocation.</dd>
-<dt><span id="conspicuous_consumption">conspicuous consumption</span></dt>
-<dd>Thorstein Veblen&rsquo;s term for spending on goods and services
-primarily to signal social status rather than for their practical
-use or pleasure.  The signal only works if the expenditure is
-visible and sufficiently costly to exclude lower-status
-competitors.</dd>
-<dt><span id="conspicuous_leisure">conspicuous leisure</span></dt>
-<dd>Thorstein Veblen&rsquo;s term for the visible display of not working as
-a signal of social rank.  In contexts where most people must
-labor, idleness signals that one can afford to abstain; in modern
-professional contexts, the signal has inverted to highly visible
-overwork and constant availability.</dd>
-<dt><span id="consumer_cooperative">consumer cooperative</span></dt>
-<dd>A cooperative owned by its customers rather than its workers, in
-which members pay a joining fee or purchase membership shares and
-receive a dividend proportional to their purchases, with
-governance following a one-member-one-vote principle.</dd>
-<dt><span id="content_moderation">content moderation</span></dt>
-<dd>The practice of reviewing and enforcing community standards on
-user-generated content on digital platforms, including decisions
-about removal, restriction, and amplification.</dd>
-<dt><span id="control_fraud">control fraud</span></dt>
-<dd>A form of financial fraud in which the executives of an
-institution use the institution itself as a vehicle for personal
-enrichment at the expense of depositors, investors, or clients.</dd>
-<dt><span id="cooperative">cooperative</span></dt>
-<dd>A firm owned and governed by its members in which profits are
-distributed in proportion to participation rather than capital
-invested, and governance follows a one-member-one-vote principle
-rather than a one-share-one-vote principle.</dd>
-<dt><span id="copyleft">copyleft</span></dt>
-<dd>A licensing approach that requires derivative works to be
-distributed under the same open terms as the original, preventing
-proprietary appropriation of open-source contributions.</dd>
-<dt><span id="credit_union">credit union</span></dt>
-<dd>A member-owned financial cooperative that accepts deposits, makes
-loans, and returns surplus to members rather than distributing
-profits to outside shareholders.</dd>
-<dt><span id="crop_lien">crop lien</span></dt>
-<dd>A credit arrangement in which farmers borrowed against their
-future harvest, typically from merchants who charged high interest
-and kept borrowers in perpetual debt.</dd>
-</dl>
-<h2>D</h2>
-<dl>
-<dt><span id="dark_triad">dark triad</span></dt>
-<dd>A cluster of three overlapping personality traits—psychopathy,
-narcissism, and Machiavellianism—that researchers treat together
-because they tend to co-occur and share a common pattern of
-callous self-interest, manipulation, and disregard for others.</dd>
-<dt><span id="decriminalization">decriminalization</span></dt>
-<dd>The removal of criminal penalties for a behavior, typically while
-other civil or regulatory restrictions remain in place.</dd>
-<dt><span id="delaware_flip">Delaware flip</span></dt>
-<dd>The process by which a non-US startup reincorporates by creating a
-Delaware holding company above the existing domestic entity and
-transferring intellectual property to it, typically required by
-American venture capital investors as a condition of investment.</dd>
-<dt><span id="deplatforming">deplatforming</span></dt>
-<dd>The removal of an individual or group from a digital platform as a
-content moderation enforcement action.</dd>
-<dt><span id="diffuse_decision_making">diffuse decision-making</span></dt>
-<dd>The distribution of accountability across many individuals in an
-organization such that no single person can be held responsible
-for harmful outcomes.</dd>
-<dt><span id="disposition_effect">disposition effect</span></dt>
-<dd>The tendency of investors to sell assets that have increased in
-value while holding on to assets that have declined, the opposite
-of what a rational strategy would recommend.  It follows from loss
-aversion: selling a losing position requires acknowledging a loss,
-which is more painful than an equivalent gain is pleasurable.</dd>
-<dt><span id="divestment">divestment</span></dt>
-<dd>The disposal of financial assets in a company or sector as a form
-of political pressure, imposing reputational and economic costs on
-targeted firms or governments.</dd>
-<dt><span id="donor_advised_fund">donor-advised fund</span></dt>
-<dd>A financial vehicle in which a donor contributes assets, receives
-an immediate tax deduction, and retains the ability to direct
-grants to charitable recipients at any pace over time, while the
-contributed assets remain under the donor&rsquo;s effective control.</dd>
-<dt><span id="downline">downline</span></dt>
-<dd>In multi-level marketing, the network of distributors recruited by
-a participant and by those distributors&rsquo; own recruits, whose sales
-generate commission income for everyone above them in the chain.</dd>
-<dt><span id="dual_class_shares">dual-class shares</span></dt>
-<dd>A corporate share structure in which two or more classes of stock
-carry different voting rights, typically giving founders or
-insiders shares with ten or more votes each while public investors
-receive shares with one vote, allowing the company to raise
-capital without ceding effective control.</dd>
-<dt><span id="due_process">due process</span></dt>
-<dd>The legal requirement that government or institutional action
-affecting rights must follow fair procedures and provide a
-meaningful opportunity for challenge.</dd>
-</dl>
-<h2>E</h2>
-<dl>
-<dt><span id="e_waste">electronic waste</span></dt>
-<dd>Discarded electronic devices containing toxic materials such as
-lead, mercury, and cadmium, much of which is exported for
-processing in developing countries under hazardous conditions.</dd>
-<dt><span id="enclosure_acts">Enclosure Acts</span></dt>
-<dd>Parliamentary legislation in Britain from the seventeenth through
-nineteenth centuries that converted common agricultural land to
-private ownership.</dd>
-<dt><span id="enclosure_movement">Enclosure movement</span></dt>
-<dd>The historical process by which common agricultural lands in
-Britain were converted into private property, displacing rural
-communities that had depended on shared access.</dd>
-<dt><span id="engrams">engrams</span></dt>
-<dd>In Scientology, traumatic memories believed to be stored in the
-reactive mind and to impair mental and physical function; the
-target of the auditing process, which aims to discharge them
-through conscious recall.</dd>
-<dt><span id="enshittification">enshittification</span></dt>
-<dd>The process by which platform businesses progressively degrade the
-quality of their service as they shift value extraction from users
-to advertisers and away from both to shareholders.</dd>
-<dt><span id="equity_compensation">equity compensation</span></dt>
-<dd>Payment in the form of stock or stock options rather than cash,
-used extensively in the tech industry to align worker incentives
-with company value while deferring cash costs.</dd>
-<dt><span id="excommunication">excommunication</span></dt>
-<dd>Formal exclusion from membership in a religious community and its
-sacraments, historically used by the Catholic Church as a
-disciplinary and political tool against individuals.</dd>
-</dl>
-<h2>F</h2>
-<dl>
-<dt><span id="face_turn">face turn</span></dt>
-<dd>In professional wrestling, a character&rsquo;s transition from villain
-to hero, typically marked by a moment that reveals underlying
-decency and produces crowd approval where there was previously
-hostility.</dd>
-<dt><span id="fair_game">Fair Game</span></dt>
-<dd>A Scientology policy, first articulated in 1965, stating that
-members who leave the organization and publicly criticize it may
-be subjected to any action by other members without organizational
-discipline. It was officially rescinded in 1968 but documented as
-continuing in practice under different names.</dd>
-<dt><span id="flexner_report">Flexner Report</span></dt>
-<dd>The 1910 report that restructured American medical education
-around elite university-based schools, simultaneously
-professionalizing medicine and closing institutions that had
-trained women and Black physicians.</dd>
-<dt><span id="framework_convention_tobacco_control">Framework Convention on Tobacco Control</span></dt>
-<dd>The 2003 World Health Organization treaty on tobacco regulation,
-the first international public health treaty negotiated under WHO
-auspices, committing signatory countries to measures including
-advertising restrictions, health warnings, and plain packaging.</dd>
-<dt><span id="frand">FRAND</span></dt>
-<dd>Fair, Reasonable, and Non-Discriminatory: the licensing commitment
-a patent holder makes when their technology is incorporated into a
-formal technical standard.  The commitment is intended to prevent
-the patent holder from using a standards-essential patent as a
-chokepoint to extract monopoly rents from everyone implementing
-the standard.  What counts as &ldquo;reasonable&rdquo; is routinely contested
-in litigation.</dd>
-<dt><span id="front_running">front-running</span></dt>
-<dd>The practice of executing trades based on advance knowledge of
-pending client orders before those orders are filled, exploiting
-information asymmetry in financial markets.</dd>
-</dl>
-<h2>G</h2>
-<dl>
-<dt><span id="general_partnership">general partnership</span></dt>
-<dd>A business structure in which two or more people share ownership,
-management, and unlimited personal liability for the firm&rsquo;s debts
-and legal obligations.</dd>
-<dt><span id="gpl">GNU Public License</span> (GPL)</dt>
-<dd>A free software license that grants users the freedom to use,
-study, modify, and distribute software, with the key requirement
-that any distributed modifications or derivative works must also
-be released under the same terms.</dd>
-<dt><span id="greater_fool_theory">greater fool theory</span></dt>
-<dd>The idea that an overpriced asset can still be a rational purchase
-if the buyer believes they can sell it to someone else at an even
-higher price before the market corrects. A bubble collapses when
-no greater fool can be found.</dd>
-</dl>
-<h2>H</h2>
-<dl>
-<dt><span id="harm_principle">harm principle</span></dt>
-<dd>John Stuart Mill&rsquo;s principle, articulated in <em>On Liberty</em> (1859),
-that the only legitimate basis for restricting individual liberty
-is to prevent harm to others.</dd>
-<dt><span id="harm_reduction">harm reduction</span></dt>
-<dd>A public health approach that aims to reduce the negative
-consequences of drug use without requiring abstinence, through
-measures such as needle exchanges, naloxone distribution, and
-supervised consumption sites.</dd>
-<dt><span id="heel">heel</span></dt>
-<dd>In professional wrestling, a character designated to play the
-villain, whose role is to behave in ways the audience finds
-objectionable so that sympathy and approval flow toward the
-opposing character.</dd>
-<dt><span id="heuristics">heuristics</span></dt>
-<dd>Mental shortcuts or rules of thumb that people use to make
-decisions quickly under uncertainty.  Heuristics often work well
-but produce systematic, predictable errors in specific
-circumstances, which behavioral economists call cognitive biases.</dd>
-<dt><span id="hicklin_test">Hicklin test</span></dt>
-<dd>The 1868 British legal standard defining obscenity as material
-tending to deprave and corrupt those whose minds were open to
-immoral influences, superseded in the US by the Miller test.</dd>
-<dt><span id="horizon_problem">horizon problem</span></dt>
-<dd>In cooperative economics, the tendency of member-owners to
-underinvest in long-term assets because their claim on the
-cooperative ends when their membership ends, giving them a shorter
-time horizon than the firm&rsquo;s productive life.</dd>
-<dt><span id="hyperbolic_discounting">hyperbolic discounting</span></dt>
-<dd>The tendency to discount rewards in the near future much more
-steeply than rewards in the more distant future, producing
-time-inconsistent preferences.</dd>
-</dl>
-<h2>I</h2>
-<dl>
-<dt><span id="impression_management">impression management</span></dt>
-<dd>The ongoing effort by individuals to control how they are
-perceived by others. In large organizational hierarchies, where
-decision-makers have limited direct observation of a candidate&rsquo;s
-actual work, impression management skills become a primary
-determinant of career advancement, independently of underlying
-performance.</dd>
-<dt><span id="information_asymmetry">information asymmetry</span></dt>
-<dd>A condition in which one party to a transaction has significantly
-more or better information than the other, enabling exploitation
-of that advantage.</dd>
-<dt><span id="interdict">interdict</span></dt>
-<dd>A Catholic Church sanction that suspends religious services in a
-territory or for a community, historically used as collective
-punishment to pressure secular rulers.</dd>
-<dt><span id="interoperability">interoperability</span></dt>
-<dd>The ability of systems from different vendors or platforms to
-exchange information and work together without requiring special
-adaptation by the user.  Interoperability mandates are legal
-requirements that a platform accept connections from competing
-services on non-discriminatory terms.</dd>
-<dt><span id="investor_state_dispute_settlement">investor-state dispute settlement</span> (ISDS)</dt>
-<dd>A mechanism in trade and investment treaties allowing foreign
-investors to bring arbitration claims against governments in
-private tribunals, bypassing domestic courts, when government
-actions are alleged to have damaged their investments.</dd>
-<dt><span id="invisible_labor">invisible labor</span></dt>
-<dd>Work that is essential to the functioning of an organization or
-household but goes unrecognized, uncompensated, and uncounted
-because it is performed by people with less power (typically
-women, caregivers, and low-status workers).  Examples include
-emotional labor, domestic work, and the administrative
-coordination tasks that fall to junior employees or support staff
-rather than the people who take credit for outcomes.</dd>
-</dl>
-<h2>J</h2>
-<dl>
-<dt><span id="joint_stock_company">joint-stock company</span></dt>
-<dd>A firm whose ownership is divided into transferable shares held by
-multiple investors, each of whom bears risk only in proportion to
-their investment; the organizational predecessor of the modern
-publicly traded corporation.</dd>
-</dl>
-<h2>K</h2>
-<dl>
-<dt><span id="kayfabe">kayfabe</span></dt>
-<dd>The collective maintenance, by performers and audience alike, of
-the fiction that professional wrestling matches are genuine
-athletic contests; by extension, any shared pretense that all
-parties know to be false but sustain because the fiction serves a
-social or commercial function.</dd>
-<dt><span id="keiretsu">keiretsu</span></dt>
-<dd>A Japanese network of interlocked companies that hold shares in
-one another, maintain long-term supply and trading relationships,
-and are often anchored around a central bank, insulating member
-firms from hostile takeovers and short-term market pressure.</dd>
-</dl>
-<h2>L</h2>
-<dl>
-<dt><span id="legibility">legibility</span></dt>
-<dd>The degree to which a state or institution can observe, measure,
-and administer a population or resource through standardized
-categories.</dd>
-<dt><span id="legitimacy">legitimacy</span></dt>
-<dd>The quality of being recognized as having rightful authority,
-distinct from power exercised by force or coercion alone.</dd>
-<dt><span id="limited_liability_corporation">limited liability corporation</span></dt>
-<dd>A firm in which shareholders cannot be held personally responsible
-for the company&rsquo;s debts or legal obligations beyond the amount
-they have invested, separating the financial risk of the owners
-from that of the enterprise.</dd>
-<dt><span id="limited_partnership">limited partnership</span></dt>
-<dd>A partnership structure with two classes of partners: limited
-partners, who risk only the capital they have contributed and take
-no part in management, and at least one general partner, who
-retains full personal liability and operational control.</dd>
-<dt><span id="long_firm">long firm</span></dt>
-<dd>A fraud in which a business establishes credibility through
-legitimate trading before ordering large quantities of goods on
-credit and disappearing with them.</dd>
-<dt><span id="longtermism">longtermism</span></dt>
-<dd>The belief that the most important thing people can do is to
-ensure that the long-run future of civilization goes well, on the
-grounds that a future containing trillions of people vastly
-outweighs present-day welfare in moral calculations.  Longtermism
-is used to justify present harm in the name of speculative
-futures, and that its practitioners disproportionately assume that
-they themselves should be making those decisions.</dd>
-<dt><span id="loss_aversion">loss aversion</span></dt>
-<dd>The finding from prospect theory that losses produce roughly twice
-the psychological impact of equivalent gains.</dd>
-</dl>
-<h2>M</h2>
-<dl>
-<dt><span id="miller_test">Miller test</span></dt>
-<dd>The 1973 US Supreme Court three-part test for obscenity, requiring
-that material be evaluated by community standards, appeal to
-prurient interest, and lack serious literary, artistic, political,
-or scientific value.</dd>
-<dt><span id="mitbestimmung">Mitbestimmung</span></dt>
-<dd>The German system of codetermination, in which workers in large
-firms hold legally mandated representation on corporate
-supervisory boards with formal authority over management.</dd>
-<dt><span id="mittelstand">Mittelstand</span></dt>
-<dd>The layer of medium-sized, often family-owned manufacturing and
-engineering firms that form the backbone of the German economy,
-characterized by long time horizons, specialist expertise, strong
-regional roots, and formal worker representation under the
-codetermination system.</dd>
-<dt><span id="montreal_protocol">Montreal Protocol</span></dt>
-<dd>The 1987 international treaty requiring signatory countries to
-phase out the production and use of ozone-depleting substances,
-including chlorofluorocarbons (CFCs).  It is notable for including
-differentiated timelines for developing and developed countries, a
-technology transfer fund, and trade sanctions against
-non-signatories.</dd>
-<dt><span id="moral_disengagement">moral disengagement</span></dt>
-<dd>The psychological mechanisms by which people disengage their moral
-standards to engage in or tolerate harmful behavior, including
-displacement and diffusion of responsibility, dehumanization of
-victims, and advantageous comparison with worse acts.</dd>
-<dt><span id="moral_licensing">moral licensing</span></dt>
-<dd>The psychological phenomenon in which past virtuous behavior
-reduces the felt need for future virtuous behavior, sometimes
-leading to more harmful subsequent choices.</dd>
-<dt><span id="moral_panic">moral panic</span></dt>
-<dd>A disproportionate social reaction to a perceived threat,
-typically focused on a specific group or behavior, amplified by
-media coverage and political entrepreneurs.</dd>
-<dt><span id="motivated_reasoning">motivated reasoning</span></dt>
-<dd>The cognitive tendency to evaluate evidence in ways that support
-conclusions already preferred, rather than following evidence to
-its logical conclusion.</dd>
-</dl>
-<h2>N</h2>
-<dl>
-<dt><span id="narrative_economics">narrative economics</span></dt>
-<dd>The study of how popular stories and narratives spread through
-populations and drive economic behavior, including investment
-manias and market crashes.</dd>
-<dt><span id="neoreaction">neoreaction</span></dt>
-<dd>A political movement, also called the Dark Enlightenment, arguing
-that Enlightenment values such as democracy, equality, and human
-rights have made societies weaker and more chaotic.  The movement
-is distinct from classical fascism in its rejection of nationalism
-and its preference for corporate over state power, though critics
-note this distinction matters less to those governed by the
-result.</dd>
-<dt><span id="network_effects">network effects</span></dt>
-<dd>The phenomenon in which a product or service becomes more valuable
-to each user as more people use it, creating strong advantages for
-established platforms and barriers to entry for competitors.</dd>
-<dt><span id="normalization_of_deviance">normalization of deviance</span></dt>
-<dd>The process by which organizations gradually come to accept risk
-thresholds that would initially have been unacceptable, through
-repeated exposure to near-misses that did not immediately produce
-catastrophe.</dd>
-<dt><span id="nudge">nudge</span></dt>
-<dd>A change in how choices are presented, such as a default setting
-or the order of options, that predictably influences behavior
-without restricting options or changing financial incentives.
-Nudges exploit the same cognitive tendencies that produce bias,
-and may serve the choice designer&rsquo;s interests rather than the
-chooser&rsquo;s.</dd>
-</dl>
-<h2>O</h2>
-<dl>
-<dt><span id="obscenity_law">obscenity law</span></dt>
-<dd>The body of law governing the prohibition of material deemed
-indecent or harmful to public morals, whose legal standards have
-shifted substantially across time and jurisdiction.</dd>
-</dl>
-<h2>P</h2>
-<dl>
-<dt><span id="paradox_of_tolerance">paradox of tolerance</span></dt>
-<dd>The argument that unlimited tolerance must eventually lead to the
-disappearance of tolerance: a society that extends tolerance to
-movements committed to destroying tolerance will itself be
-destroyed.</dd>
-<dt><span id="parkinsons_law">Parkinson&rsquo;s Law</span></dt>
-<dd>The observation that work expands to fill the time available.</dd>
-<dt><span id="partnership">partnership</span></dt>
-<dd>A business structure in which two or more people share ownership
-and, in a general partnership, unlimited personal liability; a
-foundational organizational form for professional services firms,
-law firms, and investment funds.</dd>
-<dt><span id="passion_principle">passion principle</span></dt>
-<dd>The cultural norm in certain fields that workers should pursue
-their work as a vocation rather than merely a job, used to justify
-poor conditions, low pay, and long hours.</dd>
-<dt><span id="patent_assertion_entities">patent assertion entities</span></dt>
-<dd>Companies that acquire patents not to produce goods but to extract
-licensing fees or litigation settlements from operating
-businesses; commonly called patent trolls.</dd>
-<dt><span id="payola">payola</span></dt>
-<dd>The practice of record labels paying radio stations or disc
-jockeys to play their songs without disclosing the payment to
-listeners.</dd>
-<dt><span id="penny_press">penny press</span></dt>
-<dd>The mass-market newspapers of the 1830s that lowered cover prices
-and relied on advertising revenue rather than subscriptions,
-establishing the commercial model that now dominates media. See
-also &ldquo;yellow press&rdquo;.</dd>
-<dt><span id="peonage">peonage</span></dt>
-<dd>A system of debt bondage in which workers are legally required to
-continue working until a debt to an employer is repaid,
-effectively a form of coerced labor.</dd>
-<dt><span id="philanthrocapitalism">philanthrocapitalism</span></dt>
-<dd>The use of private charitable foundations and large-scale
-philanthropic giving by wealthy individuals to shape public
-policy, research priorities, and social institutions, without
-democratic accountability or electoral legitimacy.</dd>
-<dt><span id="pollution_haven">pollution haven</span></dt>
-<dd>A jurisdiction with weak environmental regulations that attracts
-investment in polluting industries relocating from places with
-stricter standards.</dd>
-<dt><span id="ponzi_scheme">Ponzi scheme</span></dt>
-<dd>A fraudulent investment scheme that pays returns to earlier
-investors using funds from later investors rather than from actual
-profits, collapsing when new investment stops.</dd>
-<dt><span id="positional_goods">positional goods</span></dt>
-<dd>Toods whose value depends on how few other people have them.
-Unlike material goods, which can be democratized as production
-scales, positional goods lose their value if everyone has access
-to them, producing self-defeating competition in which each round
-of gains returns participants to the same relative position.</dd>
-<dt><span id="precarious_workers">precarious workers</span></dt>
-<dd>Workers in contingent, part-time, contract, or gig arrangements
-who lack the employment security, benefits, and legal protections
-associated with standard employment.</dd>
-<dt><span id="predatory_pricing">predatory pricing</span></dt>
-<dd>Setting prices below cost to drive competitors out of a market,
-with the intention of raising prices once competitive pressure is
-eliminated.</dd>
-<dt><span id="predictive_policing">predictive policing</span></dt>
-<dd>The use of algorithmic tools to forecast where crimes will occur
-or who is likely to offend, criticized for encoding and amplifying
-existing racial and socioeconomic biases.</dd>
-<dt><span id="propaganda_model">propaganda model</span></dt>
-<dd>The observation that mass media systematically filters news to
-serve elite interests through ownership structure, advertising
-dependence, and other institutional pressures.</dd>
-<dt><span id="prospect_theory">prospect theory</span></dt>
-<dd>A model of how people actually evaluate risky outcomes.  Key
-findings are that people evaluate outcomes relative to a reference
-point rather than in absolute terms, and that losses loom roughly
-twice as large as equivalent gains (a phenomenon called loss
-aversion).</dd>
-<dt><span id="psychopathy_checklist">Psychopathy Checklist</span></dt>
-<dd>A clinical assessment instrument for measuring psychopathic traits
-in individuals.  The checklist evaluates characteristics including
-callousness, grandiosity, manipulation, lack of remorse, and
-failure to accept responsibility. The Framework is also used to
-show that corporate legal structure produces psychopathic behavior
-at the organizational level.</dd>
-<dt><span id="public_benefit_corporation">public benefit corporation</span></dt>
-<dd>A corporate form that legally requires directors to consider the
-interests of employees, communities, and the environment alongside
-shareholder returns, providing some protection against purely
-financial acquisition pressure; available in several Canadian
-provinces and US states.</dd>
-<dt><span id="publication_bias">publication bias</span></dt>
-<dd>The tendency for academic journals and researchers to publish
-positive or statistically significant findings while null or
-negative results go unreported, distorting the scientific record.</dd>
-<dt><span id="putting_out_system">putting-out system</span></dt>
-<dd>A pre-industrial manufacturing arrangement in which merchants
-supplied raw materials to workers in their homes and collected
-finished goods, a precursor to the factory system.</dd>
-</dl>
-<h2>Q</h2>
-<h2>R</h2>
-<dl>
-<dt><span id="racial_formation">racial formation</span></dt>
-<dd>The process by which racial categories are created, transformed,
-and destroyed through political, economic, and social forces
-rather than biology.</dd>
-<dt><span id="redlining">redlining</span></dt>
-<dd>The systematic denial of mortgages and insurance to residents of
-non-white neighborhoods in the US by government agencies and
-private lenders from the 1930s onward. It was formally outlawed in
-the US in 1968 but its effects persist in wealth and credit gaps.</dd>
-<dt><span id="regulatory_capture">regulatory capture</span></dt>
-<dd>The process by which a regulatory agency comes to serve the
-interests of the industry it is supposed to regulate rather than
-the public interest it was created to protect.</dd>
-<dt><span id="regulatory_compact">regulatory compact</span></dt>
-<dd>An implicit or explicit agreement between a regulated monopoly and
-a government regulator, in which the monopoly accepts rate and
-service regulation in exchange for protection from competition.</dd>
-<dt><span id="revolving_door">revolving door</span></dt>
-<dd>The movement of individuals between roles in regulatory agencies
-and the industries those agencies oversee.</dd>
-</dl>
-<h2>S</h2>
-<dl>
-<dt><span id="satisficing">satisficing</span></dt>
-<dd>The strategy of searching through available options until a
-good-enough solution is found, rather than evaluating all
-possibilities to find the optimal one.  Satisficing reflects
-bounded rationality: people do not have the time, information, or
-cognitive capacity to optimize.</dd>
-<dt><span id="scrip">scrip</span></dt>
-<dd>Company-issued currency or vouchers that could only be spent at
-company-owned stores, historically used by employers to keep
-workers&rsquo; wages circulating within the company economy.</dd>
-<dt><span id="selection_bias">selection bias</span></dt>
-<dd>A statistical error that occurs when the sample used in a study is
-not representative of the population it is meant to reflect,
-leading to skewed or misleading conclusions.</dd>
-<dt><span id="selectorate">selectorate</span></dt>
-<dd>In selectorate theory, the full set of people whose nominal
-support a leader depends on to hold power, from which the winning
-coalition is drawn.  The selectorate is large enough to give the
-leader alternatives if individual coalition members defect, but
-most members receive only public goods rather than private
-benefits.</dd>
-<dt><span id="selectorate_theory">selectorate theory</span></dt>
-<dd>A framework explaining political and organizational behavior in
-terms of the size of the winning coalition a leader must satisfy
-to remain in power.  Leaders with small winning coalitions can
-maintain power by distributing private benefits to a few key
-supporters; those with large winning coalitions must provide
-broader public goods.</dd>
-<dt><span id="sharecropping">sharecropping</span></dt>
-<dd>A system in which tenant farmers gave a portion of their crop as
-rent to a landowner, often perpetuating poverty and dependency
-through tied credit arrangements.</dd>
-<dt><span id="sideloading">sideloading</span></dt>
-<dd>Installing software on a device from sources other than the
-platform operator&rsquo;s official app store, bypassing the operator&rsquo;s
-review and commission systems.</dd>
-<dt><span id="slotting_fees">slotting fees</span></dt>
-<dd>Payments made by consumer goods manufacturers to retailers for
-guaranteed shelf placement, functioning as a barrier to entry that
-favors established brands with resources to pay.</dd>
-<dt><span id="social_legibility">social legibility</span></dt>
-<dd>The degree to which an individual&rsquo;s characteristics, credentials,
-or identity are visible and interpretable within the
-categorization systems used by institutions making decisions about
-them.</dd>
-<dt><span id="sodomy_laws">sodomy laws</span></dt>
-<dd>Laws criminalizing certain sexual acts, historically applied
-primarily to same-sex relations; declared unconstitutional in the
-United States by the Supreme Court in 2003.</dd>
-<dt><span id="sole_proprietorship">sole proprietorship</span></dt>
-<dd>The simplest business structure, in which a single individual owns
-and operates a firm with no legal separation between personal and
-business assets, meaning the owner bears unlimited personal
-liability for the firm&rsquo;s debts and obligations.</dd>
-<dt><span id="speculative_bubble">speculative bubble</span></dt>
-<dd>A rapid, self-reinforcing rise in the price of an asset driven by
-expectations of further price increases rather than underlying
-value, followed by an equally rapid collapse when those
-expectations reverse.</dd>
-<dt><span id="stand_your_ground">stand your ground</span></dt>
-<dd>Laws that remove the traditional legal duty to retreat before
-using lethal force in self-defense, applicable wherever a person
-has a legal right to be.</dd>
-<dt><span id="standards_body">standards body</span></dt>
-<dd>An organization that develops, publishes, and maintains technical
-standards through consensus processes among industry participants,
-governments, and other stakeholders.</dd>
-<dt><span id="standards_capture">standards capture</span></dt>
-<dd>The process by which a dominant firm shapes a technical standard
-to its own advantage, either by controlling a standards body, by
-implementing proprietary extensions that become de facto
-requirements, or by refusing to implement open standards that
-would reduce switching costs.</dd>
-<dt><span id="structural_lock_in">structural lock-in</span></dt>
-<dd>The condition in which technical, contractual, or network
-dependencies make switching away from a platform or system
-prohibitively costly, regardless of dissatisfaction with it.</dd>
-<dt><span id="suppressive_person">suppressive person</span></dt>
-<dd>In Scientology, the designation applied to individuals who
-publicly criticize the organization or leave it in ways deemed
-harmful to its interests; those so designated may be cut off from
-contact with current members, including family members who remain
-in the organization.</dd>
-<dt><span id="surveillance_economy">surveillance economy</span></dt>
-<dd>The business model in which user behavior data is systematically
-collected, analyzed, and monetized through targeted advertising
-and data brokering.</dd>
-<dt><span id="switching_costs">switching costs</span></dt>
-<dd>The financial, practical, or social costs incurred when changing
-from one product, service, or platform to another, which
-incumbents exploit to retain users.</dd>
-</dl>
-<h2>T</h2>
-<dl>
-<dt><span id="tax_haven">tax haven</span></dt>
-<dd>A jurisdiction that imposes low or zero taxes on foreign income,
-profits, or wealth, attracting capital and corporate registrations
-that have little or no genuine economic activity there.</dd>
-<dt><span id="tescreal">TESCREAL</span></dt>
-<dd>An acronym for Transhumanism, Extropianism, Singularitarianism,
-Cosmism, Rationalism, Effective Altruism, and Longtermism.  These
-movements are not identical, but they share a belief that a small
-group of enlightened individuals can and should steer humanity&rsquo;s
-long-run trajectory, which tends to position democratic
-institutions as obstacles rather than safeguards.</dd>
-<dt><span id="tithe">tithe</span></dt>
-<dd>A mandatory contribution of one-tenth of income or produce,
-historically collected by the Catholic Church as a form of
-taxation with legal enforcement in many countries.</dd>
-<dt><span id="tontine">tontine</span></dt>
-<dd>A historical financial arrangement in which subscribers contribute
-to a shared fund and receive income from it; as each subscriber
-dies, the remaining subscribers&rsquo; shares increase until the last
-survivor inherits the whole. Banned in most jurisdictions because
-the structure creates incentives to hasten the deaths of other
-participants.</dd>
-<dt><span id="tort_liability_protection">tort liability protection</span></dt>
-<dd>Tort liability is legal responsibility for harm you cause someone
-outside of a contract; tort liability protection (also called
-liability shield or immunity) is when a law specifically exempts
-you from being sued for such harms.</dd>
-<dt><span id="transfer_pricing">transfer pricing</span></dt>
-<dd>The setting of prices for transactions between subsidiaries of the
-same multinational corporation, which can be manipulated to shift
-profits to low-tax jurisdictions by under- or overcharging for
-goods, services, or intellectual property licenses.</dd>
-</dl>
-<h2>U</h2>
-<dl>
-<dt><span id="union_avoidance">union avoidance</span></dt>
-<dd>A formal management discipline focused on preventing workers from
-forming or joining unions, employing specialized consultants to
-structure workplaces, communications, and compensation to reduce
-organizing incentives.</dd>
-</dl>
-<h2>V</h2>
-<dl>
-<dt><span id="vertical_integration">vertical integration</span></dt>
-<dd>A business strategy in which a company controls multiple stages of
-its supply chain, from production through distribution and retail,
-reducing dependence on external parties and raising barriers to
-competitors.</dd>
-</dl>
-<h2>W</h2>
-<dl>
-<dt><span id="waqf">waqf</span></dt>
-<dd>An Islamic charitable endowment in which property is dedicated in
-perpetuity to a specified purpose and cannot be sold or inherited;
-historically used to fund mosques, hospitals, schools, and public
-infrastructure across the Middle East, Central Asia, and North
-Africa.</dd>
-<dt><span id="winning_coalition">winning coalition</span></dt>
-<dd>In selectorate theory, the minimum subset of supporters a leader
-must keep satisfied to remain in power.  The smaller the winning
-coalition, the more each member must be rewarded with private
-benefits rather than broad public goods, creating strong
-incentives for corruption and cronyism.</dd>
-<dt><span id="workplace_politics">workplace politics</span></dt>
-<dd>The process by which individuals and groups within an organization
-attempt to influence decisions in their favor when there is no
-shared agreement on goals or priorities.  Workplace politics is
-not exceptional behavior by bad actors; it is the normal mechanism
-by which organizations resolve disagreement.</dd>
-</dl>
-<h2>X</h2>
-<h2>Y</h2>
-<dl>
-<dt><span id="yellow_press">yellow press</span></dt>
-<dd>Late nineteenth and early twentieth century sensationalist
-newspapers known for emotionally manipulative coverage that
-prioritized circulation over accuracy, named after the Yellow Kid
-comic strip.</dd>
-</dl>
-<h2>Z</h2>
 </article>
 
 
