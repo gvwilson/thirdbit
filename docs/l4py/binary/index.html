@@ -31,7 +31,6 @@
 <li><a href="../db/">A Database</a></li>
 <li><a href="../build/">Building Projects</a></li>
 <li><a class="active" href="../binary/">Binary Data</a></li>
-<li><a href="../proof/">Proofs</a></li>
 <li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
@@ -44,13 +43,14 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
 </div>
 </nav>
 <main id="main-content">
 <h1>Binary Data</h1>
-<h2>Outline</h2>
+<div class="callout">
 <ul>
 <li>Programs usually store integers as fixed-width binary values rather than decimal strings</li>
 <li>Binary packing converts heterogeneous values into a compact byte sequence
@@ -58,6 +58,10 @@
 <li>A format descriptor tells the unpacker how to reconstruct each value from raw bytes</li>
 <li>Variable-length data like strings needs a fixed-width length header so the reader
     knows where each value ends</li>
+</ul>
+</div>
+<ul>
+<li>Networks and files speak bytes, not strings</li>
 </ul>
 <h2>Packable Values</h2>
 <div data-inc="code.lean" data-mark="types"><span aria-label="Source: binary/code.lean" class="inc-path" role="img" tabindex="0" title="binary/code.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- A value that can be packed into binary form. -/</span>
@@ -530,7 +534,7 @@ against <code>(pack someValues).size</code> for a mixed list.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../proof">Proofs</a> <span aria-hidden="true">⇒</span>
+<a href="../advanced">Type Classes</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
