@@ -32,6 +32,8 @@
 <li><a href="../build/">Building Projects</a></li>
 <li><a href="../binary/">Binary Data</a></li>
 <li><a class="active" href="../advanced/">Type Classes</a></li>
+<li><a href="../tools/">Tools</a></li>
+<li><a href="../des/">Discrete Event Simulation</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -297,6 +299,282 @@
 </ul>
 </li>
 </ul>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Missing String Instance</h3>
+<div data-inc="ex_bug_tc_missing_instance.lean"><span aria-label="Source: advanced/ex_bug_tc_missing_instance.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_bug_tc_missing_instance.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Call showAll on a list of strings, but String has no Describable instance.</span>
+<span class="c1">-- Add the missing instance so the guards pass.</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"yes"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s2">"no"</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"the number {n}"</span>
+
+<span class="c1">-- BUG: no instance for String, so showAll ["a", "b"] fails</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="o">)</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="n">true</span><span class="o">,</span><span class="w"> </span><span class="n">false</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"yes, no"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[(</span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">),</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"the number 1, the number 2"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">showAll</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"a, b"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>showAll ["a", "b"]</code> fails because there is no <code>Describable String</code> instance</li>
+<li>Add an instance that returns the string itself: <code>describe s := s</code></li>
+<li>Like Python's <code>__str__</code> for built-in types</li>
+</ul>
+</details>
+<h3>Fix: Wrong Method Return Type</h3>
+<div data-inc="ex_bug_tc_wrong_method.lean"><span aria-label="Source: advanced/ex_bug_tc_wrong_method.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_bug_tc_wrong_method.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- The Describable instance for Nat has the wrong method signature.</span>
+<span class="c1">-- describe should return String, but this one returns Nat. Fix it.</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="c1">-- BUG: describe returns Nat instead of String</span>
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">n</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"0"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"42"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The class declares <code>describe : α → String</code> but the instance returns <code>Nat</code></li>
+<li>The return type must match the class declaration</li>
+<li>Use <code>s!"{n}"</code> to convert the <code>Nat</code> to a <code>String</code></li>
+</ul>
+</details>
+<h3>Fix: Missing Type Class Constraint</h3>
+<div data-inc="ex_bug_tc_missing_constraint.lean"><span aria-label="Source: advanced/ex_bug_tc_missing_constraint.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_bug_tc_missing_constraint.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- report requires both Describable and Weighable constraints, but the</span>
+<span class="c1">-- function signature only lists Describable. Add the missing constraint.</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span>
+
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Banana</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"apple"</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"banana"</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">120</span>
+
+<span class="c1">-- BUG: [Weighable α] constraint is missing</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="o">[</span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="o">]</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">s!</span><span class="s2">"{Describable.describe x} weighs {Weighable.weight x}g"</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"apple weighs 180g"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"banana weighs 120g"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>report</code> uses <code>Weighable.weight</code> but the signature only lists <code>[Describable α]</code></li>
+<li>The compiler can't find the <code>Weighable</code> instance because you didn't ask for it</li>
+<li>Add <code>[Weighable α]</code> as a second constraint in the square brackets</li>
+</ul>
+</details>
+<h3>Fix: Missing Inherited Method</h3>
+<div data-inc="ex_bug_tc_extend_missing.lean"><span aria-label="Source: advanced/ex_bug_tc_extend_missing.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_bug_tc_extend_missing.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Verbose extends Describable, so an instance must provide both methods.</span>
+<span class="c1">-- This instance only provides verboseDescribe. Add the missing method.</span>
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Verbose</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">extends</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="c1">-- BUG: missing the inherited `describe` method</span>
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Verbose</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">verboseDescribe</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">s!</span><span class="s2">"negative: {n}"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"zero"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">s!</span><span class="s2">"positive: {n}"</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Describable</span><span class="bp">.</span><span class="n">describe</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"42"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Verbose</span><span class="bp">.</span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"positive: 42"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Verbose</span><span class="bp">.</span><span class="n">verboseDescribe</span><span class="w"> </span><span class="o">(</span><span class="bp">-</span><span class="mi">3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"negative: -3"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Verbose</code> extends <code>Describable</code>, so the instance must provide <code>describe</code> AND <code>verboseDescribe</code></li>
+<li>The compiler error says which method is missing</li>
+<li>Add <code>describe n := s!"{n}"</code> to the instance body</li>
+</ul>
+</details>
+<h3>Fix: <code>deriving</code> Needs Parent Instances</h3>
+<div data-inc="ex_bug_tc_deriving_fail.lean"><span aria-label="Source: advanced/ex_bug_tc_deriving_fail.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_bug_tc_deriving_fail.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- trying to derive Repr on a type that uses a field without a Repr instance.</span>
+<span class="c1">-- Repr can't be derived automatically here. Fix the error.</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Toy</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">car</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">doll</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="c1">-- BUG: MyBox can't derive Repr because Toy doesn't derive Repr</span>
+<span class="c1">-- The error chain is: MyBox → needs Repr → Toy doesn't have it → fail</span>
+<span class="kn">structure</span><span class="w"> </span><span class="n">MyBox</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">toy</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Toy</span>
+<span class="w">  </span><span class="n">label</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">({</span><span class="w"> </span><span class="n">toy</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Toy</span><span class="bp">.</span><span class="n">car</span><span class="o">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"red"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">MyBox</span><span class="w"> </span><span class="o">})</span><span class="bp">.</span><span class="n">label</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"red"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>MyBox</code> tries to derive <code>Repr</code>, but its field <code>toy : Toy</code> needs <code>Repr</code> too</li>
+<li><code>deriving</code> chains: if a type contains another type, both must derive the class</li>
+<li>Add <code>deriving Repr</code> to the <code>Toy</code> definition as well</li>
+</ul>
+</details>
+<h3>Write: A <code>Summarizable</code> Class</h3>
+<div data-inc="ex_tc_summarizable.lean"><span aria-label="Source: advanced/ex_tc_summarizable.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_tc_summarizable.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a Summarizable type class with a `summary` method that returns</span>
+<span class="c1">-- a one-line summary of a value. Then write an instance for String that</span>
+<span class="c1">-- returns the first 10 characters followed by "..." if the string is longer.</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Summarizable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">summary</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="c1">-- TODO: write an instance for String</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Summarizable</span><span class="bp">.</span><span class="n">summary</span><span class="w"> </span><span class="s2">"hello"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"hello"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Summarizable</span><span class="bp">.</span><span class="n">summary</span><span class="w"> </span><span class="s2">"hello world this is long"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"hello worl..."</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Summarizable</span><span class="bp">.</span><span class="n">summary</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">""</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Define <code>instance : Summarizable String where …</code></li>
+<li>If the string is 10 chars or shorter, return it as-is</li>
+<li>Otherwise return <code>s.extract 0 10 ++ "..."</code> — use <code>String.extract</code> to slice</li>
+</ul>
+</details>
+<h3>Write: A <code>Doubleable</code> Class</h3>
+<div data-inc="ex_tc_doubleable.lean"><span aria-label="Source: advanced/ex_tc_doubleable.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_tc_doubleable.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a Doubleable type class with a `twice` method that returns</span>
+<span class="c1">-- the doubled value. Then write an instance for Nat.</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Doubleable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">twice</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">α</span>
+
+<span class="c1">-- TODO: write an instance for Nat</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Doubleable</span><span class="bp">.</span><span class="n">twice</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Doubleable</span><span class="bp">.</span><span class="n">twice</span><span class="w"> </span><span class="o">(</span><span class="mi">21</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">42</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Doubleable</span><span class="bp">.</span><span class="n">twice</span><span class="w"> </span><span class="o">(</span><span class="mi">100</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">200</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Define <code>instance : Doubleable Nat where …</code></li>
+<li>The <code>twice</code> method should multiply by <code>2</code>: <code>twice n := n * 2</code></li>
+<li>Simple arithmetic: this is the "hello world" of type class instances</li>
+</ul>
+</details>
+<h3>Write: A Function with Two Constraints</h3>
+<div data-inc="ex_tc_two_constraints.lean"><span aria-label="Source: advanced/ex_tc_two_constraints.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_tc_two_constraints.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a function `describeWeight` that has BOTH Describable and Weighable</span>
+<span class="c1">-- constraints and returns a string like "an apple weighs 180g".</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span>
+
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Banana</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Describable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"an apple"</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="s2">"a banana"</span>
+
+<span class="kn">instance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Weighable</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">120</span>
+
+<span class="c1">-- TODO: write describeWeight with both constraints</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describeWeight</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Fruit</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="s2">""</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">describeWeight</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Apple</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"an apple weighs 180g"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">describeWeight</span><span class="w"> </span><span class="n">Fruit</span><span class="bp">.</span><span class="n">Banana</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"a banana weighs 120g"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Change the signature to <code>def describeWeight [Describable α] [Weighable α] (x : α) : String</code></li>
+<li>Use <code>Describable.describe x</code> for the name and <code>Weighable.weight x</code> for the weight</li>
+<li>Format with <code>s!"{...} weighs {...}g"</code></li>
+</ul>
+</details>
+<h3>Write: Extend a Class</h3>
+<div data-inc="ex_tc_extend_class.lean"><span aria-label="Source: advanced/ex_tc_extend_class.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_tc_extend_class.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Extend the Measurable class with a Comparable class that adds</span>
+<span class="c1">-- a `biggerThan` method. Write an instance for Nat.</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Measurable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">size</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Nat</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Comparable</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">extends</span><span class="w"> </span><span class="n">Measurable</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">biggerThan</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Bool</span>
+
+<span class="c1">-- TODO: write an instance of Comparable for Nat</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Measurable</span><span class="bp">.</span><span class="n">size</span><span class="w"> </span><span class="o">(</span><span class="mi">42</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">42</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Comparable</span><span class="bp">.</span><span class="n">biggerThan</span><span class="w"> </span><span class="o">(</span><span class="mi">10</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="mi">5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">true</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Comparable</span><span class="bp">.</span><span class="n">biggerThan</span><span class="w"> </span><span class="o">(</span><span class="mi">3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="mi">7</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">false</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Write <code>instance : Comparable Nat where …</code></li>
+<li><code>size n := n</code> — the size of a Nat is itself</li>
+<li><code>biggerThan a b := a &gt; b</code> — use the built-in <code>&gt;</code> operator</li>
+<li>Both methods must be provided; <code>Comparable</code> inherits <code>size</code> from <code>Measurable</code></li>
+</ul>
+</details>
+<h3>Write: A Manual Display Instance</h3>
+<div data-inc="ex_tc_manual_repr.lean"><span aria-label="Source: advanced/ex_tc_manual_repr.lean" class="inc-path" role="img" tabindex="0" title="advanced/ex_tc_manual_repr.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Instead of deriving Repr, write a manual Display instance for the</span>
+<span class="c1">-- TrafficLight type. The `display` method should return the colour name.</span>
+
+<span class="kn">class</span><span class="w"> </span><span class="n">Display</span><span class="w"> </span><span class="o">(</span><span class="n">α</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Type</span><span class="o">)</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">display</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span>
+
+<span class="kn">inductive</span><span class="w"> </span><span class="n">TrafficLight</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Red</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Yellow</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">Green</span>
+
+<span class="c1">-- TODO: write a manual instance of Display for TrafficLight</span>
+<span class="c1">-- (do NOT use deriving)</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Display</span><span class="bp">.</span><span class="n">display</span><span class="w"> </span><span class="n">TrafficLight</span><span class="bp">.</span><span class="n">Red</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"red"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Display</span><span class="bp">.</span><span class="n">display</span><span class="w"> </span><span class="n">TrafficLight</span><span class="bp">.</span><span class="n">Yellow</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"yellow"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">Display</span><span class="bp">.</span><span class="n">display</span><span class="w"> </span><span class="n">TrafficLight</span><span class="bp">.</span><span class="n">Green</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"green"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Write <code>instance : Display TrafficLight where …</code></li>
+<li>Use pattern matching on the three constructors</li>
+<li><code>| .Red =&gt; "red"</code>, <code>| .Yellow =&gt; "yellow"</code>, <code>| .Green =&gt; "green"</code></li>
+<li>This is what <code>deriving Repr</code> does automatically — you're doing it by hand</li>
+</ul>
+</details>
+</div>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
@@ -309,7 +587,7 @@
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+<a href="../tools">Tools</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

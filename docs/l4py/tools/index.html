@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tools</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
+<li><a class="active" href="../tools/">Tools</a></li>
+<li><a href="../des/">Discrete Event Simulation</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../proof/">Proofs</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Tools</h1>
+<div class="callout">
+<ul>
+<li>Draw on OS entropy with <code>IO.getRandomBytes</code> for non-deterministic sampling</li>
+<li>Parse and construct JSON with <code>Lean.Json</code> from the built-in Lean meta library</li>
+<li>Fetch remote data over plain HTTP with <code>Std.Internal.Http</code> and <code>Std.Internal.Async.TCP</code></li>
+<li>Read configuration from environment variables with <code>IO.getEnv</code></li>
+</ul>
+</div>
+<ul>
+<li>The lessons so far have built tools from scratch: functions, key-value stores, binary packers</li>
+<li>Most real programs use existing libraries for common tasks</li>
+<li>Lean's standard library and meta library cover randomness, structured data, and process I/O</li>
+</ul>
+<h2>True Randomness</h2>
+<div data-inc="random.lean" data-mark="random"><span aria-label="Source: tools/random.lean" class="inc-path" role="img" tabindex="0" title="tools/random.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Read n bytes of OS entropy and combine them into a single Nat</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">randomBytes</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">USize</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getRandomBytes</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">bytes</span><span class="bp">.</span><span class="n">toList</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">b</span><span class="bp">.</span><span class="n">toNat</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c1">-- Return a Nat sampled uniformly from [lo, hi] (both inclusive)</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">randomInRange</span><span class="w"> </span><span class="o">(</span><span class="n">lo</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">randomBytes</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="c1">-- 4 bytes = 32 bits of entropy</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="o">(</span><span class="n">hi</span><span class="w"> </span><span class="bp">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>IO.getRandomBytes</code> reads from the operating system's entropy pool<ul>
+<li>E.g., on Linux this is <code>/dev/urandom</code></li>
+<li>The result is different on every call:
+    unlike the <a class="gl-ref" href="../glossary/#rng">random number generator</a> (RNG) in <a href="../des/">the DES lesson</a> there is no seed</li>
+<li>Which means it is <em>deliberately</em> not reproducible</li>
+</ul>
+</li>
+<li><code>randomBytes</code> folds the byte list into a single <code>Nat</code>, treating the bytes as a base-256 number<ul>
+<li>4 bytes give 32 bits of range: 0 to 4,294,967,295</li>
+</ul>
+</li>
+<li><code>randomInRange</code> maps that range to [lo, hi] with modulo arithmetic<ul>
+<li>The divisor is <code>hi - lo + 1</code> (not <code>hi - lo</code>) so <code>hi</code> is reachable</li>
+<li>Like Python's <code>random.randint(lo, hi)</code> — both bounds are inclusive</li>
+</ul>
+</li>
+<li>True randomness is appropriate when the result must be unpredictable<ul>
+<li>Use a seeded RNG when reproducibility matters</li>
+</ul>
+</li>
+</ul>
+<div data-inc="random.lean" data-mark="tests"><span aria-label="Source: tools/random.lean" class="inc-path" role="img" tabindex="0" title="tools/random.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Pure helper exposed for testing: maps a raw value to the range [lo, hi]</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="o">(</span><span class="n">lo</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="o">(</span><span class="n">hi</span><span class="w"> </span><span class="bp">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span>
+
+<span class="c1">-- raw = 0 always maps to lo</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">1</span>
+<span class="c1">-- raw = hi - lo always maps to hi (the top is reachable)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">5</span>
+<span class="c1">-- result is always at most hi</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">999</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">9</span>
+<span class="c1">-- result is always at least lo</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">≥</span><span class="w"> </span><span class="mi">3</span>
+</code></pre></div>
+</div>
+<div data-inc="random.lean" data-mark="main"><span aria-label="Source: tools/random.lean" class="inc-path" role="img" tabindex="0" title="tools/random.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">roll</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">randomInRange</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"dice roll: {roll}"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">randomInRange</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"random colour: {(["</span><span class="n">red</span><span class="s2">", "</span><span class="n">green</span><span class="s2">", "</span><span class="n">blue</span><span class="s2">"])[pick]!}"</span>
+<span class="w">  </span><span class="c1">-- sample a few values to show the range</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">mapM</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">randomInRange</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">99</span><span class="o">)</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"five samples in [10, 99]: {samples}"</span>
+</code></pre></div>
+</div>
+<div data-inc="random.out"><span aria-label="Source: tools/random.out" class="inc-path" role="img" tabindex="0" title="tools/random.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>dice roll: 1
+random colour: blue
+five samples in [10, 99]: [96, 93, 40, 56, 71]
+</code></pre></div>
+</div>
+<ul>
+<li>The dice roll and colour change every run</li>
+<li>the <code>.out</code> file shows one particular execution</li>
+</ul>
+<h2>Building and Parsing JSON</h2>
+<div data-inc="json.lean" data-mark="json-build"><span aria-label="Source: tools/json.lean" class="inc-path" role="img" tabindex="0" title="tools/json.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Construct a JSON object with named fields</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">makePerson</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">age</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"name"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">name</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"age"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="n">age</span><span class="o">)]</span>
+
+<span class="c1">-- Construct a JSON array of numbers</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">makeScores</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Json</span><span class="bp">.</span><span class="n">arr</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">JsonNumber</span><span class="bp">.</span><span class="n">fromNat</span><span class="o">))</span><span class="bp">.</span><span class="n">toArray</span>
+</code></pre></div>
+</div>
+<div data-inc="json.lean" data-mark="json-parse"><span aria-label="Source: tools/json.lean" class="inc-path" role="img" tabindex="0" title="tools/json.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Extract a String field; return none if absent or the wrong type</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getStr</span><span class="w"> </span><span class="o">(</span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">j</span><span class="bp">.</span><span class="n">getObjValAs?</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">s</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="c1">-- Extract a Nat field; return none if absent or the wrong type</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getNat</span><span class="w"> </span><span class="o">(</span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">j</span><span class="bp">.</span><span class="n">getObjValAs?</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">n</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>import Lean</code> makes <code>Lean.Json</code> available; <code>open Lean</code> drops the <code>Lean.</code> prefix</li>
+<li><code>Json.mkObj</code> takes a list of <code>(String, Json)</code> pairs and returns a JSON object<ul>
+<li>The key order in the output may differ from the input order</li>
+</ul>
+</li>
+<li><code>Json.arr</code> takes an <code>Array Json</code> and returns a JSON array<ul>
+<li><code>JsonNumber.fromNat</code> converts a <code>Nat</code> to the <code>JsonNumber</code> type that <code>Json.num</code> expects</li>
+</ul>
+</li>
+<li><code>getObjValAs? α key</code> extracts a field as type <code>α</code> using the <code>FromJson</code> type class<ul>
+<li>Returns <code>Except.ok value</code> on success and <code>Except.error message</code> on failure</li>
+<li><code>getStr</code> and <code>getNat</code> wrap this in <code>Option</code> for convenience</li>
+</ul>
+</li>
+<li>Like Python's <code>json.loads</code> and <code>json.dumps</code> but with types checked at extraction time</li>
+</ul>
+<div data-inc="json.lean" data-mark="tests"><span aria-label="Source: tools/json.lean" class="inc-path" role="img" tabindex="0" title="tools/json.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- build: fields are accessible after construction</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Ada"</span><span class="w"> </span><span class="mi">36</span>
+<span class="w">  </span><span class="n">getStr</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"Ada"</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">getNat</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="s2">"age"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="mi">36</span>
+
+<span class="c1">-- build: missing field returns none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">getNat</span><span class="w"> </span><span class="o">(</span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Euler"</span><span class="w"> </span><span class="mi">76</span><span class="o">)</span><span class="w"> </span><span class="s2">"score"</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+
+<span class="c1">-- array: length matches the source list</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">makeScores</span><span class="w"> </span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">]</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">arr</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">vs</span><span class="bp">.</span><span class="n">size</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">           </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="c1">-- parse: round-trip through a JSON string</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">parse</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Grace</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">age</span><span class="se">\"</span><span class="s2">: 107}"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">v</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">getStr</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"Grace"</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="n">getNat</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="s2">"age"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="mi">107</span>
+
+<span class="c1">-- parse: malformed input signals an error</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="bp">!</span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">parse</span><span class="w"> </span><span class="s2">"not json"</span><span class="o">)</span><span class="bp">.</span><span class="n">isOk</span>
+</code></pre></div>
+</div>
+<div data-inc="json.lean" data-mark="main"><span aria-label="Source: tools/json.lean" class="inc-path" role="img" tabindex="0" title="tools/json.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1">-- Build and print</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Lean"</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"person: {p}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"scores: {makeScores [85, 92, 78]}"</span>
+<span class="w">  </span><span class="c1">-- Parse a JSON string and extract fields</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">parse</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Turing</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">age</span><span class="se">\"</span><span class="s2">: 41}"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"parse error: {e}"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">v</span><span class="w">    </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">getStr</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="s2">"name"</span><span class="o">)</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="s2">"?"</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">age</span><span class="w">  </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">getNat</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="s2">"age"</span><span class="o">)</span><span class="bp">.</span><span class="n">getD</span><span class="w">  </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"parsed: {name}, age {age}"</span>
+</code></pre></div>
+</div>
+<div data-inc="json.out"><span aria-label="Source: tools/json.out" class="inc-path" role="img" tabindex="0" title="tools/json.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>person: {"name": "Lean", "age": 4}
+scores: [85, 92, 78]
+parsed: Turing, age 41
+</code></pre></div>
+</div>
+<h2>Fetching Data with HTTP</h2>
+<div data-inc="http.lean" data-mark="http"><span aria-label="Source: tools/http.lean" class="inc-path" role="img" tabindex="0" title="tools/http.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Fetch the body of a plain-HTTP URL using Lean's native HTTP library.</span>
+<span class="c1">-- Returns none if the URL is malformed, DNS lookup fails,</span>
+<span class="c1">-- or the TCP connection is refused.  HTTPS is not supported.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">fetchUrl</span><span class="w"> </span><span class="o">(</span><span class="n">url</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">try</span>
+<span class="w">    </span><span class="c1">-- parse the URL and extract host and port</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">uri</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">URI</span><span class="bp">.</span><span class="n">parse?</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">uri</span><span class="bp">.</span><span class="n">authority</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">toString</span><span class="w"> </span><span class="n">auth</span><span class="bp">.</span><span class="n">host</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt16</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">auth</span><span class="bp">.</span><span class="n">port</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">value</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">p</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">URI</span><span class="bp">.</span><span class="n">Scheme</span><span class="bp">.</span><span class="n">defaultPort</span><span class="w"> </span><span class="n">uri</span><span class="bp">.</span><span class="n">scheme</span>
+<span class="w">    </span><span class="c1">-- resolve hostname to one or more IP addresses</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">addrs</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="o">(</span><span class="n">DNS</span><span class="bp">.</span><span class="n">getAddrInfo</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="s2">"http"</span><span class="o">)</span><span class="bp">.</span><span class="n">block</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">addrs</span><span class="o">[</span><span class="mi">0</span><span class="o">]?</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">sockAddr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">SocketAddress</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">v4</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="bp">.</span><span class="n">v4</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">a</span><span class="o">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">}</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">v6</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="bp">.</span><span class="n">v6</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">a</span><span class="o">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="c1">-- build the request target (path + query string)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">pathStr</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">toString</span><span class="w"> </span><span class="n">uri</span><span class="bp">.</span><span class="n">path</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">toString</span><span class="w"> </span><span class="n">uri</span><span class="bp">.</span><span class="n">query</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">p</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"/"</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">q</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">RequestTarget</span><span class="bp">.</span><span class="n">originForm!</span><span class="w"> </span><span class="n">pathStr</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">reqHead</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">Request</span><span class="bp">.</span><span class="n">get</span><span class="w"> </span><span class="n">target</span>
+<span class="w">      </span><span class="bp">|&gt;.</span><span class="n">header!</span><span class="w"> </span><span class="s2">"Host"</span><span class="w">       </span><span class="n">host</span>
+<span class="w">      </span><span class="bp">|&gt;.</span><span class="n">header!</span><span class="w"> </span><span class="s2">"Connection"</span><span class="w"> </span><span class="s2">"close"</span><span class="o">)</span><span class="bp">.</span><span class="n">line</span>
+<span class="w">    </span><span class="c1">-- connect, send the request, and read the full response</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">TCP</span><span class="bp">.</span><span class="n">Socket</span><span class="bp">.</span><span class="n">Client</span><span class="bp">.</span><span class="n">mk</span>
+<span class="w">    </span><span class="o">(</span><span class="n">client</span><span class="bp">.</span><span class="n">connect</span><span class="w"> </span><span class="n">sockAddr</span><span class="o">)</span><span class="bp">.</span><span class="n">block</span>
+<span class="w">    </span><span class="o">(</span><span class="n">client</span><span class="bp">.</span><span class="n">send</span><span class="w"> </span><span class="o">(</span><span class="n">Encode</span><span class="bp">.</span><span class="n">encode</span><span class="w"> </span><span class="o">(</span><span class="n">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="bp">.</span><span class="n">v11</span><span class="o">)</span><span class="w"> </span><span class="bp">.</span><span class="n">empty</span><span class="w"> </span><span class="n">reqHead</span><span class="o">)</span><span class="bp">.</span><span class="n">toByteArray</span><span class="o">)</span><span class="bp">.</span><span class="n">block</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ByteArray</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="bp">.</span><span class="n">empty</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">false</span>
+<span class="w">    </span><span class="n">while</span><span class="w"> </span><span class="bp">!</span><span class="n">done</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="o">(</span><span class="n">client</span><span class="bp">.</span><span class="n">recv?</span><span class="w"> </span><span class="mi">4096</span><span class="o">)</span><span class="bp">.</span><span class="n">block</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">       </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">true</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="n">chunk</span>
+<span class="w">    </span><span class="o">(</span><span class="n">client</span><span class="bp">.</span><span class="n">shutdown</span><span class="o">)</span><span class="bp">.</span><span class="n">block</span>
+<span class="w">    </span><span class="c1">-- strip response headers; body follows the first blank line</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="bp">.</span><span class="n">fromUTF8?</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">getD</span><span class="w"> </span><span class="s2">""</span>
+<span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">response</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="err">\</span><span class="s2">r</span><span class="se">\n</span><span class="err">\</span><span class="s2">r</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">"</span><span class="err">\</span><span class="s2">r</span><span class="se">\n</span><span class="err">\</span><span class="s2">r</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="n">rest</span><span class="o">)</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w">        </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="n">catch</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>import Std.Internal.Http.Data.URI</code> parses URLs; <code>import Std.Internal.Async.TCP</code> and <code>DNS</code> handle transport</li>
+<li><code>URI.parse? url</code> returns <code>Option URI</code>; <code>.authority</code> holds the host and port<ul>
+<li><code>URI.Scheme.defaultPort</code> supplies port 80 for HTTP when the URL omits one</li>
+</ul>
+</li>
+<li><code>DNS.getAddrInfo host "http"</code> resolves a hostname to IP addresses (returns <code>Async (Array IPAddr)</code>)<ul>
+<li><code>.block</code> runs an <code>Async</code> computation synchronously and returns the result</li>
+</ul>
+</li>
+<li><code>Request.get target |&gt;.header! key val</code> builds an HTTP/1.1 request using a fluent builder<ul>
+<li><code>.line</code> extracts the finished <code>Request.Head</code>; <code>Encode.encode</code> serializes it to bytes</li>
+</ul>
+</li>
+<li><code>client.recv? 4096</code> reads up to 4096 bytes; <code>none</code> signals end-of-stream</li>
+<li>Returning <code>Option String</code> lets callers handle failure with <code>match</code> rather than exceptions</li>
+<li>Like Python's <code>requests.get(url).text</code> but with explicit DNS, TCP, and encoding steps</li>
+<li>HTTPS is not supported; use a plain <code>http://</code> URL</li>
+</ul>
+<div data-inc="http.lean" data-mark="main"><span aria-label="Source: tools/http.lean" class="inc-path" role="img" tabindex="0" title="tools/http.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">(</span><span class="n">args</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">args</span><span class="bp">.</span><span class="n">headD</span><span class="w"> </span><span class="s2">"http://httpbin.org/get"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"fetching: {url}"</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">fetchUrl</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"request failed"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"status: ok ({body.length} bytes)"</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">parse</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"JSON parse error: {e}"</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">v</span><span class="w">    </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">obj</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">val</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">m</span><span class="bp">.</span><span class="n">toList</span><span class="w"> </span><span class="k">do</span>
+<span class="w">          </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  {k}: {val}"</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"body: {body}"</span>
+</code></pre></div>
+</div>
+<div data-inc="http.out"><span aria-label="Source: tools/http.out" class="inc-path" role="img" tabindex="0" title="tools/http.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>fetching: http://httpbin.org/get
+status: ok (199 bytes)
+  args: {}
+  headers: {"X-Amzn-Trace-Id": "Root=1-6a199ea5-6764aa4b4ed01b5409c9bc65",
+ "Host": "httpbin.org"}
+  origin: "142.188.27.125"
+  url: "http://httpbin.org/get"
+</code></pre></div>
+</div>
+<ul>
+<li>Pass a different URL as the first argument: <code>lake env lean --run tools/http.lean http://...</code></li>
+</ul>
+<h2>Environment Variables</h2>
+<div data-inc="env.lean" data-mark="env"><span aria-label="Source: tools/env.lean" class="inc-path" role="img" tabindex="0" title="tools/env.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Read an environment variable, falling back to a default when unset</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getEnvOr</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="o">(</span><span class="bp">←</span><span class="w"> </span><span class="n">IO</span><span class="bp">.</span><span class="n">getEnv</span><span class="w"> </span><span class="n">key</span><span class="o">)</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">getD</span><span class="w"> </span><span class="n">default</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>IO.getEnv key</code> returns <code>IO (Option String)</code> — <code>none</code> when the variable is not set<ul>
+<li>Like Python's <code>os.environ.get(key)</code> — both return <code>None</code> for absent variables</li>
+</ul>
+</li>
+<li><code>getEnvOr</code> unwraps the <code>Option</code> with <code>|&gt;.getD default</code>, a pipeline version of <code>getD</code><ul>
+<li><code>(← IO.getEnv key) |&gt;.getD default</code> reads as "get env key, then default-unwrap it"</li>
+</ul>
+</li>
+</ul>
+<div data-inc="env.lean" data-mark="env-parse"><span aria-label="Source: tools/env.lean" class="inc-path" role="img" tabindex="0" title="tools/env.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Parse one "KEY=VALUE" line; skip blank lines and # comments</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">trimAscii</span><span class="bp">.</span><span class="n">toString</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">t</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="bp">||</span><span class="w"> </span><span class="n">t</span><span class="bp">.</span><span class="n">startsWith</span><span class="w"> </span><span class="s2">"#"</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">t</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"="</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="bp">_</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">k</span><span class="bp">.</span><span class="n">trimAscii</span><span class="bp">.</span><span class="n">toString</span>
+<span class="w">      </span><span class="c1">-- rejoin with "=" in case the value itself contains "="</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">"="</span><span class="w"> </span><span class="n">rest</span><span class="o">)</span><span class="bp">.</span><span class="n">trimAscii</span><span class="bp">.</span><span class="n">toString</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">val</span><span class="o">)</span>
+
+<span class="c1">-- Parse a .env-style file into a list of (key, value) pairs</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parseEnvFile</span><span class="w"> </span><span class="o">(</span><span class="n">text</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">text</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">filterMap</span><span class="w"> </span><span class="n">parseLine</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parseLine</code> handles the three cases: blank/comment → <code>none</code>, valid <code>KEY=VALUE</code> → <code>some</code><ul>
+<li>Splitting on <code>"="</code> and rejoining the tail with <code>String.intercalate</code> preserves <code>=</code> in values</li>
+</ul>
+</li>
+<li><code>parseEnvFile</code> chains <code>splitOn "\n"</code> and <code>filterMap</code> to process every line in one pass</li>
+<li>Like Python's <code>dotenv.dotenv_values(path)</code> but as a pure function on a string</li>
+</ul>
+<div data-inc="env.lean" data-mark="tests"><span aria-label="Source: tools/env.lean" class="inc-path" role="img" tabindex="0" title="tools/env.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- blank lines and comments are skipped</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">""</span><span class="w">        </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"# note"</span><span class="w">  </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+
+<span class="c1">-- a simple KEY=VALUE line is parsed correctly</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"HOST=localhost"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"HOST"</span><span class="o">,</span><span class="w"> </span><span class="s2">"localhost"</span><span class="o">)</span>
+
+<span class="c1">-- values may contain "=" (only the first "=" is the separator)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"URL=http://x.com/a=b"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"URL"</span><span class="o">,</span><span class="w"> </span><span class="s2">"http://x.com/a=b"</span><span class="o">)</span>
+
+<span class="c1">-- a multi-line file with blanks and a comment</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="n">parseEnvFile</span><span class="w"> </span><span class="s2">"HOST=localhost</span><span class="se">\n</span><span class="s2">PORT=5432</span><span class="se">\n</span><span class="s2"># comment</span><span class="se">\n\n</span><span class="s2">USER=admin"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"HOST"</span><span class="o">,</span><span class="w"> </span><span class="s2">"localhost"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"PORT"</span><span class="o">,</span><span class="w"> </span><span class="s2">"5432"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"USER"</span><span class="o">,</span><span class="w"> </span><span class="s2">"admin"</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<div data-inc="env.lean" data-mark="main"><span aria-label="Source: tools/env.lean" class="inc-path" role="img" tabindex="0" title="tools/env.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1">-- Read individual environment variables</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">getEnvOr</span><span class="w"> </span><span class="s2">"HOME"</span><span class="w"> </span><span class="s2">"(not set)"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">getEnvOr</span><span class="w"> </span><span class="s2">"USER"</span><span class="w"> </span><span class="s2">"(not set)"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"HOME: {home}"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"USER: {user}"</span>
+<span class="w">  </span><span class="c1">-- Parse a .env-style config embedded as a string</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"DB_HOST=localhost</span><span class="se">\n</span><span class="s2">DB_PORT=5432</span><span class="se">\n</span><span class="s2"># database name</span><span class="se">\n</span><span class="s2">DB_NAME=myapp"</span>
+<span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"parsed config:"</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">parseEnvFile</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"  {k} = {v}"</span>
+</code></pre></div>
+</div>
+<div data-inc="env.out"><span aria-label="Source: tools/env.out" class="inc-path" role="img" tabindex="0" title="tools/env.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>HOME: /Users/gvwilson
+USER: gvwilson
+parsed config:
+  DB_HOST = localhost
+  DB_PORT = 5432
+  DB_NAME = myapp
+</code></pre></div>
+</div>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Fix: Range Missing Its Top Value</h3>
+<div data-inc="ex_bug_tools_range.lean"><span aria-label="Source: tools/ex_bug_tools_range.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_bug_tools_range.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- mapToRange maps raw entropy to [lo, hi]; fix the modulus expression</span>
+<span class="c1">-- BUG: divides by (hi - lo) instead of (hi - lo + 1), so hi is never reachable</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="o">(</span><span class="n">lo</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">lo</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="o">(</span><span class="n">hi</span><span class="w"> </span><span class="bp">-</span><span class="w"> </span><span class="n">lo</span><span class="o">)</span>
+
+<span class="c1">-- when raw == hi - lo the result should be hi (the top of the range)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">5</span>
+
+<span class="c1">-- the result should always be at most hi</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">999</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">6</span>
+
+<span class="c1">-- the result should always be at least lo</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">mapToRange</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">≥</span><span class="w"> </span><span class="mi">3</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>raw % (hi - lo)</code> produces values in <code>[0, hi - lo - 1]</code>, so the offset lands in <code>[lo, hi - 1]</code></li>
+<li>Change the divisor to <code>hi - lo + 1</code> so the full range <code>[0, hi - lo]</code> is possible</li>
+<li>With <code>raw = hi - lo</code> as a test case, <code>(hi - lo) % (hi - lo + 1) == hi - lo</code>, giving <code>lo + (hi - lo) = hi</code></li>
+</ul>
+</details>
+<h3>Fix: Wrong JSON Key Name</h3>
+<div data-inc="ex_bug_tools_json.lean"><span aria-label="Source: tools/ex_bug_tools_json.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_bug_tools_json.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lean</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lean</span>
+
+<span class="c1">-- getStr looks up the wrong key; fix the lookup</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">makePerson</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">age</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"name"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">name</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"age"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="n">age</span><span class="o">)]</span>
+
+<span class="c1">-- BUG: looks up "Name" (capital N) instead of "name"</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getStr</span><span class="w"> </span><span class="o">(</span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">j</span><span class="bp">.</span><span class="n">getObjValAs?</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="s2">"Name"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">s</span><span class="w">  </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="c1">-- extracting the name field should return the value passed to makePerson</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getStr</span><span class="w"> </span><span class="o">(</span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Euler"</span><span class="w"> </span><span class="mi">76</span><span class="o">)</span><span class="w">  </span><span class="s2">"name"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"Euler"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getStr</span><span class="w"> </span><span class="o">(</span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Noether"</span><span class="w"> </span><span class="mi">53</span><span class="o">)</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"Noether"</span>
+
+<span class="c1">-- extracting a missing key should return none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">getStr</span><span class="w"> </span><span class="o">(</span><span class="n">makePerson</span><span class="w"> </span><span class="s2">"Gauss"</span><span class="w"> </span><span class="mi">77</span><span class="o">)</span><span class="w"> </span><span class="s2">"email"</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>The function looks up <code>"Name"</code> (capital N) but JSON keys are case-sensitive</li>
+<li><code>makePerson</code> stores the field as <code>"name"</code> (lower case)</li>
+<li>Change the literal <code>"Name"</code> to the <code>key</code> parameter that is passed in</li>
+</ul>
+</details>
+<h3>Write: Pick From a List</h3>
+<div data-inc="ex_tools_pick.lean"><span aria-label="Source: tools/ex_tools_pick.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_tools_pick.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a pure function that picks one element from a non-empty list by index</span>
+<span class="c1">-- pick xs i returns xs[i % xs.length] so any Nat index is valid</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">none</span><span class="w">  </span><span class="c1">-- TODO</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c"</span><span class="o">]</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"a"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c"</span><span class="o">]</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"c"</span>
+<span class="c1">-- index wraps around: 3 % 3 == 0</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="s2">"c"</span><span class="o">]</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"a"</span>
+<span class="c1">-- empty list returns none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">pick</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Return <code>none</code> for an empty list: <code>if xs.isEmpty then none</code></li>
+<li>Otherwise use <code>xs[i % xs.length]!</code> to wrap the index around</li>
+<li><code>List.get?</code> is an alternative but requires a <code>Fin</code>; the <code>!</code> accessor with modulo is simpler</li>
+</ul>
+</details>
+<h3>Write: List JSON Object Keys</h3>
+<div data-inc="ex_tools_json_keys.lean"><span aria-label="Source: tools/ex_tools_json_keys.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_tools_json_keys.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lean</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lean</span>
+
+<span class="c1">-- Write a function that returns all keys in a JSON object as a list of strings</span>
+<span class="c1">-- Return an empty list for non-object JSON values</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">jsonKeys</span><span class="w"> </span><span class="o">(</span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span><span class="w">  </span><span class="c1">-- TODO</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonKeys</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">2</span><span class="o">)])</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonKeys</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[])</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+<span class="c1">-- non-object returns empty list</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonKeys</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">)</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonKeys</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">arr</span><span class="w"> </span><span class="bp">#</span><span class="o">[])</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Json</code> has a constructor <code>Json.obj m</code> where <code>m</code> is a <code>Std.TreeMap.Raw String Json compare</code></li>
+<li>Call <code>m.toList</code> to get a <code>List (String × Json)</code>, then <code>.map Prod.fst</code> to extract just the keys</li>
+<li>Match on <code>| Json.obj m =&gt; ...</code> and return <code>[]</code> for all other constructors</li>
+</ul>
+</details>
+<h3>Fix: Unchecked JSON Parse Error</h3>
+<div data-inc="ex_bug_tools_parse_error.lean"><span aria-label="Source: tools/ex_bug_tools_parse_error.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_bug_tools_parse_error.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lean</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lean</span>
+
+<span class="c1">-- getPerson tries to parse a JSON string, but it doesn't check whether</span>
+<span class="c1">-- parsing succeeded before calling getStr. Fix the error handling.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">getPerson</span><span class="w"> </span><span class="o">(</span><span class="n">jsonStr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- BUG: Json.parse can fail, but the error is not checked</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">parse</span><span class="w"> </span><span class="n">jsonStr</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">v</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">null</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">json</span><span class="bp">.</span><span class="n">getObjValAs?</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">ok</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">name</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">getPerson</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Ada</span><span class="se">\"</span><span class="s2">}"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"Ada"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">getPerson</span><span class="w"> </span><span class="s2">"not json at all"</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">getPerson</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">age</span><span class="se">\"</span><span class="s2">: 42}"</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>Json.parse</code> returns <code>Except error json</code> — the error case is lost</li>
+<li>Replace <code>let json : Json := …</code> with <code>match Json.parse jsonStr with</code></li>
+<li>Return <code>none</code> in the <code>| .error _ =&gt;</code> case before trying to extract fields</li>
+</ul>
+</details>
+<h3>Fix: URL Without Scheme</h3>
+<div data-inc="ex_bug_tools_http_header.lean"><span aria-label="Source: tools/ex_bug_tools_http_header.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_bug_tools_http_header.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- match code assumes the URL has a scheme; it doesn't handle the case</span>
+<span class="c1">-- where scheme is missing. Fix the edge case.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">extractHost</span><span class="w"> </span><span class="o">(</span><span class="n">url</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- BUG: does not handle case where "://" is missing</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">url</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"://"</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">hostPart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">"://"</span><span class="w"> </span><span class="n">rest</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">hostPart</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"/"</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">host</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">host</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">extractHost</span><span class="w"> </span><span class="s2">"http://example.com/path"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"example.com"</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">extractHost</span><span class="w"> </span><span class="s2">"https://github.com/user/repo"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="s2">"github.com"</span>
+<span class="c1">-- The string "just-a-string" has no scheme; should return none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">extractHost</span><span class="w"> </span><span class="s2">"just-a-string"</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="o">(</span><span class="n">extractHost</span><span class="w"> </span><span class="s2">""</span><span class="o">)</span><span class="bp">.</span><span class="n">isNone</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>splitOn "://"</code> on <code>"just-a-string"</code> returns <code>["just-a-string"]</code> — a one-element list</li>
+<li>The match arms assume at least two parts: <code>scheme :: rest</code></li>
+<li>Add a guard: <code>if parts.length &lt; 2 then none</code> before destructuring</li>
+</ul>
+</details>
+<h3>Fix: Untrimmed Env Keys and Values</h3>
+<div data-inc="ex_bug_tools_env_trim.lean"><span aria-label="Source: tools/ex_bug_tools_env_trim.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_bug_tools_env_trim.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- parseEnvFile doesn't trim whitespace from keys or values. A line like</span>
+<span class="c1">-- "  HOST = localhost  " should parse correctly. Fix the trimming.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="c1">-- BUG: no trimming, so "  HOST = localhost  " fails</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="bp">||</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">startsWith</span><span class="w"> </span><span class="s2">"#"</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"="</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="bp">_</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">String</span><span class="bp">.</span><span class="n">intercalate</span><span class="w"> </span><span class="s2">"="</span><span class="w"> </span><span class="n">rest</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="bp">.</span><span class="n">isEmpty</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">val</span><span class="o">)</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parseEnvFile</span><span class="w"> </span><span class="o">(</span><span class="n">text</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">text</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">filterMap</span><span class="w"> </span><span class="n">parseLine</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"HOST=localhost"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"HOST"</span><span class="o">,</span><span class="w"> </span><span class="s2">"localhost"</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"  HOST = localhost  "</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="s2">"HOST"</span><span class="o">,</span><span class="w"> </span><span class="s2">"localhost"</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseLine</span><span class="w"> </span><span class="s2">"# comment"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="n">parseEnvFile</span><span class="w"> </span><span class="s2">"  KEY = value  </span><span class="se">\n\n</span><span class="s2"># note</span><span class="se">\n</span><span class="s2">PORT=8080"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"KEY"</span><span class="o">,</span><span class="w"> </span><span class="s2">"value"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"PORT"</span><span class="o">,</span><span class="w"> </span><span class="s2">"8080"</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>"  HOST = localhost  "</code> has whitespace around both key and value</li>
+<li>Call <code>.trimAscii</code> (or <code>.trim</code>) on <code>k</code> before the key check</li>
+<li>Also trim <code>val</code> before returning the pair</li>
+<li>The existing <code>parseLine</code> in the lesson already does this — compare with <code>env.lean</code></li>
+</ul>
+</details>
+<h3>Write: Password Generator</h3>
+<div data-inc="ex_tools_password.lean"><span aria-label="Source: tools/ex_tools_password.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_tools_password.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a pure function that generates a random-looking password of a</span>
+<span class="c1">-- given length by picking characters from an alphabet using an index.</span>
+<span class="c1">-- Use a simple seed-based approach (no IO needed for this exercise).</span>
+
+<span class="c1">-- Pick the character at the given index from the alphabet, wrapping around.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">pickChar</span><span class="w"> </span><span class="o">(</span><span class="n">alphabet</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Char</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">alphabet</span><span class="bp">.</span><span class="n">toList</span><span class="o">[</span><span class="n">index</span><span class="w"> </span><span class="bp">%</span><span class="w"> </span><span class="n">alphabet</span><span class="bp">.</span><span class="n">length</span><span class="o">]!</span>
+
+<span class="c1">-- Generate a password by using the seed to pick one character at a time.</span>
+<span class="c1">-- Advance the seed with each pick using a simple LCG.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">generatePassword</span><span class="w"> </span><span class="o">(</span><span class="n">length</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">seed</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">alphabet</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">""</span><span class="o">,</span><span class="w"> </span><span class="n">seed</span><span class="o">)</span><span class="w">  </span><span class="c1">-- TODO</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">pw</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">generatePassword</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">12345</span>
+<span class="w">  </span><span class="n">pw</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">8</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">pw1</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">generatePassword</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">42</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">pw2</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">generatePassword</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">99</span>
+<span class="w">  </span><span class="n">pw1</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="n">pw2</span><span class="w">  </span><span class="c1">-- different seeds produce different passwords</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">pw</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">generatePassword</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="n">pw</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">""</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Use a simple LCG: <code>seed' = (1664525 * seed + 1013904223) % 4294967296</code></li>
+<li>Pick one character using <code>pickChar alphabet seed</code>, then advance the seed</li>
+<li>Recurse or use <code>List.range length</code> with a <code>foldl</code> accumulator</li>
+<li><code>foldl</code> pattern: start with <code>("", seed)</code>, for each step pick a char and update both</li>
+</ul>
+</details>
+<h3>Write: JSON Deep Get</h3>
+<div data-inc="ex_tools_json_deep.lean"><span aria-label="Source: tools/ex_tools_json_deep.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_tools_json_deep.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="n">Lean</span>
+<span class="kn">open</span><span class="w"> </span><span class="n">Lean</span>
+
+<span class="c1">-- Write a function that navigates into a nested JSON object given a list</span>
+<span class="c1">-- of key names. Return none if any key is missing or the value is not an object.</span>
+<span class="c1">-- ["a", "b"] means: get "a", then get "b" from that object.</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">jsonDeepGet</span><span class="w"> </span><span class="o">(</span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Json</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">keys</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">none</span><span class="w">  </span><span class="c1">-- TODO</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"found"</span><span class="o">)])]</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">jsonDeepGet</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="n">s</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"found"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonDeepGet</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[])</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">jsonDeepGet</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">str</span><span class="w"> </span><span class="s2">"hello"</span><span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">none</span>
+
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">mkObj</span><span class="w"> </span><span class="o">[(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="o">)])]</span>
+<span class="w">  </span><span class="n">jsonDeepGet</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">Json</span><span class="bp">.</span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>If <code>keys</code> is empty, return <code>some j</code> (the current value)</li>
+<li>Otherwise, match <code>keys</code> as <code>k :: rest</code>: check if <code>j</code> is <code>Json.obj m</code></li>
+<li>Use <code>m.toList.find? (·.1 == k)</code> to look up the next key</li>
+<li>Then recurse with <code>rest</code> on the found value, or return <code>none</code> if the key is missing</li>
+</ul>
+</details>
+<h3>Write: URL Query Parser</h3>
+<div data-inc="ex_tools_url_query.lean"><span aria-label="Source: tools/ex_tools_url_query.lean" class="inc-path" role="img" tabindex="0" title="tools/ex_tools_url_query.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Write a pure function that parses the query string portion of a URL</span>
+<span class="c1">-- into a list of (key, value) pairs. The query string is the part after "?".</span>
+<span class="c1">-- e.g., "?name=Ada&amp;lang=lean" → [("name", "Ada"), ("lang", "lean")]</span>
+<span class="c1">-- Handle missing values: "?flag" should produce [("flag", "")].</span>
+<span class="c1">-- Return an empty list if there is no query string.</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="o">(</span><span class="n">url</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="o">[]</span><span class="w">  </span><span class="c1">-- TODO</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="s2">"http://example.com?name=Ada&amp;lang=lean"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"name"</span><span class="o">,</span><span class="w"> </span><span class="s2">"Ada"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"lang"</span><span class="o">,</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">)]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="s2">"http://example.com/?key=val"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"key"</span><span class="o">,</span><span class="w"> </span><span class="s2">"val"</span><span class="o">)]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="s2">"http://example.com?flag"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"flag"</span><span class="o">,</span><span class="w"> </span><span class="s2">""</span><span class="o">)]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[]</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">parseQuery</span><span class="w"> </span><span class="s2">"http://example.com?a=1&amp;b=2&amp;c=3"</span><span class="w"> </span><span class="bp">==</span>
+<span class="w">  </span><span class="o">[(</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"1"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"b"</span><span class="o">,</span><span class="w"> </span><span class="s2">"2"</span><span class="o">),</span><span class="w"> </span><span class="o">(</span><span class="s2">"c"</span><span class="o">,</span><span class="w"> </span><span class="s2">"3"</span><span class="o">)]</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li>Find <code>"?"</code> in the URL: <code>url.splitOn "?"</code></li>
+<li>If there are fewer than 2 parts, return <code>[]</code> (no query string)</li>
+<li>Split the query part on <code>"&amp;"</code>, then split each pair on <code>"="</code></li>
+<li>For a pair without <code>"="</code> (like <code>"flag"</code>), use <code>""</code> as the value</li>
+<li>Use <code>filterMap</code> to handle malformed pairs</li>
+</ul>
+</details>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../advanced">Type Classes</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../des">Discrete Event Simulation</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
