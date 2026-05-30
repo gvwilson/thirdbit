@@ -83,39 +83,70 @@
 
 <article class="post">
   <h2 class="post-title">
-    <a href="../2026/05/28/basic-queueing-theory/">
-      Basic Ideas in Queueing Theory
+    <a href="../2026/05/30/littles-law/">
+      Little's Law
     </a>
   </h2>
-  <p><time datetime="2026-05-27" class="post-date">2026-05-27</time></p>
-  <h2>Arrivals, Servers, and Utilization</h2>
-<p>Three concepts underpin every queueing model. The first is <em>Poisson arrivals</em>: when customers arrive independently at a constant average rate $\lambda$, gaps between consecutive arrivals follow an <em>exponential</em> distribution with mean $1/\lambda$, and the count of arrivals in any window of width $t$ follows a Poisson distribution with mean $\lambda t$. These two descriptions are equivalent: if one holds, the other must too.</p>
-<p>The second key idea is that the exponential distribution is <em>memoryless</em>. Knowing you have already waited $s$ units gives no information about when the next arrival will come. This property makes the math simple, but means that the exponential distribution isn&rsquo;t a good fit for scenarios where events happen in bursts. Some of the later tutorials will explore models that handle this.</p>
-<p>The final concept is <em>server utilization</em>. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.</p>
-<p>The code below uses <a href="https://asimpy.readthedocs.io/">asimpy</a> to model a simple job queue. The technical term for this kind of system is an <a href="https://en.wikipedia.org/wiki/M/M/1_queue">M/M/1 queue</a>: memoryless (Poisson) arrivals, memoryless service times, and one server.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArrivalSource</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates arrivals at a Poisson rate.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">gaps</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span> <span class="o">=</span> <span class="n">gaps</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">gap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
-</code></pre></div>
-<p><code>random.expovariate(rate)</code> samples from an exponential distribution with the given rate. The gaps between consecutive arrivals follow $\text{Exp}(\lambda)$, which is precisely the defining property of a Poisson process.</p>
+  <p><time datetime="2026-05-30" class="post-date">2026-05-30</time></p>
+  <p>Little&rsquo;s Law states that in a stable system, L = λW, where:</p>
+<ul>
+<li>L = mean number of customers in the system</li>
+<li>λ = mean arrival rate</li>
+<li>W = mean time a customer spends in the system</li>
+</ul>
+<p>The law holds regardless of arrival or service distributions, number of
+servers, or scheduling discipline.</p>
+<h2>Why It Is Surprising</h2>
+<p>Little&rsquo;s Law holds without any assumptions about the distribution of arrival rates or service times. It does not matter whether arrivals are Poisson, deterministic, or correlated, whether service times are exponential, constant, or heavy-tailed, whether there is one server or a hundred, or what scheduling discipline is used (FIFO, LIFO, random, or priority). As long as the system is stable and stationary, $L = \lambda W$. This universality is remarkable because almost every other formula in queueing theory <em>does</em> depend on distributional assumptions.</p>
+<h2>Practical Use</h2>
+<p>Because $L = \lambda W$ is universal, it can be used to measure hard-to-observe quantities from easy-to-observe ones. For example, the mean number of requests in a web server ($L$) and the observed request rate ($\lambda$) immediately give the mean response time ($W = L/\lambda$) without needing to instrument individual request latencies.</p>
+<h2>Proof Sketch</h2>
+<p>Consider a flow diagram where time runs horizontally and each customer traces a horizontal line from arrival to departure. The area under all lines equals both:</p>
+<ul>
+<li>$\sum_i W_i$ (sum of individual sojourn times), and</li>
+<li>$\int_0^T L(t)\,dt$ (integral of instantaneous queue length).</li>
+</ul>
+<p>Dividing both sides by $T$ and taking $T \to \infty$:</p>
+<p>$$\bar{L} = \lambda \bar{W}$$</p>
+<p>The argument is purely combinatorial: no probability is needed.</p>
 <h2>Understanding the Math</h2>
-<h3>Why inter-arrival gaps are exponential</h3>
-<p>Divide $[0, t]$ into $n$ tiny slices of width $\Delta = t/n$. The probability of an arrival in each slice is $\approx \lambda\Delta$; slices are independent. The probability of no arrival across all $n$ slices is $(1 - \lambda t/n)^n \to e^{-\lambda t}$ as $n \to \infty$. This is $P(X &gt; t)$ for the exponential distribution.</p>
-<h3>Why mean equals standard deviation for the exponential</h3>
-<p>If $E[X] = 1/\lambda$, then $E[X^2] = 2/\lambda^2$, so $\text{Var}(X) = 2/\lambda^2 - 1/\lambda^2 = 1/\lambda^2$ and $\text{SD}(X) = 1/\lambda = E[X]$. Equal mean and standard deviation means roughly one-third of gaps are longer than the mean.</p>
-<h3>Why the busy fraction equals $\rho$</h3>
-<p>Over a long run $T$, about $N \approx \lambda T$ customers are served, each occupying the server for mean $1/\mu$. Total service time $\approx N/\mu = \lambda T/\mu = \rho T$. Dividing by $T$ gives busy fraction $= \rho$.</p>
-<h3>Why $\rho = 1$ is unstable</h3>
-<p>At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is <em>null recurrent</em>: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.</p>
+<h3>The area argument made concrete</h3>
+<p>Draw a horizontal time axis from $t = 0$ to $t = T$. Each customer gets a horizontal bar starting at their arrival time and ending at their departure time. The length of their bar is exactly their sojourn time $W_i$ — the total time they spend in the system. At any moment $t$, the number of bars that cross that vertical slice is exactly $L(t)$, the instantaneous number of customers in the system.</p>
+<p>Now compute the total area under all the bars in two different ways. First, add up the lengths of all the bars: total area $= \sum_i W_i$. Second, integrate the height of the stack over time: total area $= \int_0^T L(t)\,dt$. These are the same area, so $\sum_i W_i = \int_0^T L(t)\,dt$.</p>
+<p>Divide both sides by $T$. The right side becomes the time-average $\bar{L}$. The left side becomes $(n/T) \cdot \bar{W}$, where $n$ is the total number of customers and $\bar{W}$ is their mean sojourn time. As $T \to \infty$, $n/T \to \lambda$ (the long-run arrival rate). That gives $\bar{L} = \lambda \bar{W}$, which is Little&rsquo;s Law.</p>
+<h3>No distribution required</h3>
+<p>The argument above uses only geometry. There is no probability distribution, no exponential assumption, no Poisson process. The shape of each bar (i.e., how long each customer takes) can be anything. This is why the law applies to M/M/1, M/D/1, M/M/3, and every other configuration equally.</p>
+<h3>Using it in practice</h3>
+<p>Suppose you run a web service. Your monitoring dashboard shows $\lambda = 500$ requests per second and your server logs show a mean response time of $W = 20$ milliseconds. Little&rsquo;s Law immediately tells you that the mean number of active requests in the system is $L = \lambda W = 500 \times 0.02 = 10$ requests. Alternatively, if you observe $L$ and $\lambda$ but not individual response times, you get $W = L/\lambda$ without any per-request timing instrumentation.</p>
+<h3>Units check</h3>
+<p>$\lambda$ has units of customers per unit time; $W$ has units of time; so $L = \lambda W$ is dimensionless — a pure count of customers. Always verify units when applying Little&rsquo;s Law to a new problem: if your units do not cancel correctly, you have applied the law incorrectly.</p>
+<h3>Stability condition</h3>
+<p>Little&rsquo;s Law requires the system to reach steady state: over the long run, arrivals and departures must balance. If $\lambda &gt; \mu$ (the arrival rate exceeds the service rate), the queue grows without bound. $L = \infty$ and $W = \infty$; the law still holds, but it tells you the system is broken, not that it is well-behaved.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/05/30/how-to-not-be-wrong-about-ai/">
+      How to Not Be Wrong About AI
+    </a>
+  </h2>
+  <p><time datetime="2026-05-30" class="post-date">2026-05-30</time></p>
+  <p>My post <a href="../2026/05/20/twelve-ways-to-be-wrong/">Twelve Ways to Be Wrong About AI-Assisted Coding</a> seemed to hit a nerve,
+so I&rsquo;ve put together material for a workshop on <a href="../notwrong/">How to Not Be Wrong About AI</a>.
+As its blurb says:</p>
+<blockquote>
+<p>This tutorial is a short introduction to research methods you can
+use to figure out whether AI-based programming tools are helping
+your team or not. Even if you don&rsquo;t do such studies yourself, we
+hope that understanding how they work will help you decide which
+claims about them to trust.</p>
+</blockquote>
+<p>It includes <a href="../notwrong/bibliography/">a partially-annotated bibliography</a>
+and <a href="../notwrong/further/">further reading</a>;
+my thanks to everyone who contributed entries.
+If you&rsquo;re interested in taking part in the first run,
+please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 </article>
 
 <article class="post">
@@ -124,7 +155,7 @@
       Queue Formation
     </a>
   </h2>
-  <p><time datetime="2026-05-27" class="post-date">2026-05-27</time></p>
+  <p><time datetime="2026-05-29" class="post-date">2026-05-29</time></p>
   <p><em>See the <a href="../2026/05/28/basic-queueing-theory/">first post in this series</a> for the basics of queueing theory.</em></p>
 <p>We can combine arrivals (Poisson at rate $\lambda$) with a server (exponential service at rate $\mu$) into a complete queue.  The system is stable because $\rho = \lambda/\mu &lt; 1$, which means that on average, the server handles more work than arrives.</p>
 <p>Our first question is, how long is the queue? The surprising answer is that even when the server has plenty of spare capacity, customers wait.  The mean number of customers in the system (both waiting and being served) is:</p>
@@ -205,6 +236,43 @@
 <p>When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.</p>
 <p>When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.</p>
 <p>Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/05/28/basic-queueing-theory/">
+      Basic Ideas in Queueing Theory
+    </a>
+  </h2>
+  <p><time datetime="2026-05-28" class="post-date">2026-05-28</time></p>
+  <h2>Arrivals, Servers, and Utilization</h2>
+<p>Three concepts underpin every queueing model. The first is <em>Poisson arrivals</em>: when customers arrive independently at a constant average rate $\lambda$, gaps between consecutive arrivals follow an <em>exponential</em> distribution with mean $1/\lambda$, and the count of arrivals in any window of width $t$ follows a Poisson distribution with mean $\lambda t$. These two descriptions are equivalent: if one holds, the other must too.</p>
+<p>The second key idea is that the exponential distribution is <em>memoryless</em>. Knowing you have already waited $s$ units gives no information about when the next arrival will come. This property makes the math simple, but means that the exponential distribution isn&rsquo;t a good fit for scenarios where events happen in bursts. Some of the later tutorials will explore models that handle this.</p>
+<p>The final concept is <em>server utilization</em>. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.</p>
+<p>The code below uses <a href="https://asimpy.readthedocs.io/">asimpy</a> to model a simple job queue. The technical term for this kind of system is an <a href="https://en.wikipedia.org/wiki/M/M/1_queue">M/M/1 queue</a>: memoryless (Poisson) arrivals, memoryless service times, and one server.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArrivalSource</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates arrivals at a Poisson rate.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">gaps</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span> <span class="o">=</span> <span class="n">gaps</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">gap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
+</code></pre></div>
+<p><code>random.expovariate(rate)</code> samples from an exponential distribution with the given rate. The gaps between consecutive arrivals follow $\text{Exp}(\lambda)$, which is precisely the defining property of a Poisson process.</p>
+<h2>Understanding the Math</h2>
+<h3>Why inter-arrival gaps are exponential</h3>
+<p>Divide $[0, t]$ into $n$ tiny slices of width $\Delta = t/n$. The probability of an arrival in each slice is $\approx \lambda\Delta$; slices are independent. The probability of no arrival across all $n$ slices is $(1 - \lambda t/n)^n \to e^{-\lambda t}$ as $n \to \infty$. This is $P(X &gt; t)$ for the exponential distribution.</p>
+<h3>Why mean equals standard deviation for the exponential</h3>
+<p>If $E[X] = 1/\lambda$, then $E[X^2] = 2/\lambda^2$, so $\text{Var}(X) = 2/\lambda^2 - 1/\lambda^2 = 1/\lambda^2$ and $\text{SD}(X) = 1/\lambda = E[X]$. Equal mean and standard deviation means roughly one-third of gaps are longer than the mean.</p>
+<h3>Why the busy fraction equals $\rho$</h3>
+<p>Over a long run $T$, about $N \approx \lambda T$ customers are served, each occupying the server for mean $1/\mu$. Total service time $\approx N/\mu = \lambda T/\mu = \rho T$. Dividing by $T$ gives busy fraction $= \rho$.</p>
+<h3>Why $\rho = 1$ is unstable</h3>
+<p>At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is <em>null recurrent</em>: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
 </article>
 
@@ -616,437 +684,6 @@ Viking,
 Harper &amp; Row,
 1988,
 <a href="https://isbnsearch.org/isbn/9780062509338">9780062509338</a>.</dd>
-</dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/20/standards/">
-      Setting the Standard
-    </a>
-  </h2>
-  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
-  <p>In May 1886,
-American railroads completed the largest coordinated industrial operation the country had seen.
-Over two days,
-work crews across the South pulled up thousands of miles of track
-and relaid it three inches closer together,
-converting the region&rsquo;s idiosyncratic gauge to match the rest of the country.
-The process was planned, organized, and executed in less time than most tech companies take
-to schedule a product launch.</p>
-<p>The southern railroads had resisted this change for decades
-because the incompatibility was not an accident.
-Different gauges meant that northern rolling stock could not run on southern track,
-so freight crossing a gauge boundary had to be unloaded, transferred, and reloaded.
-Every cargo shipment lost time and money at the border,
-and that money went to the carriers who controlled the boundary.
-The technical choice was a market weapon.</p>
-<p>A technical standard is an agreement about how things connect.
-The value of having a standard usually far exceeds
-the value of any particular outcome in the format war that precedes it,
-which is exactly why control of the format is worth fighting for.</p>
-<p>Thomas Edison understood this in the 1880s,
-when he and George Westinghouse fought over whether the United States would run on direct or alternating current.
-Edison had bet on DC infrastructure and stood to lose if AC won,
-so he electrocuted animals at exhibitions
-and lobbied for AC to be used in the first electric chair,
-hoping to fix the association of alternating current with execution in the public mind.
-None of this changed the underlying physics, though;
-AC transmits over longer distances at lower cost,
-and Westinghouse won.</p>
-<p>A century later,
-Microsoft repeatedly used standards capture as a business strategy.
-The company would adopt an open standard like HTML, Java, or Kerberos,
-and then add proprietary extensions that were convenient but tied developers to Microsoft&rsquo;s version.
-Once enough code was written against the extensions,
-interoperability with non-Microsoft systems degraded.
-The strategy had a name inside the company: embrace, extend, extinguish.
-(The &ldquo;extinguish&rdquo; referred to both the open standard and Microsoft&rsquo;s competitors.)</p>
-<p>Google&rsquo;s Accelerated Mobile Pages, launched in 2015,
-was presented as an open standard for fast-loading mobile web pages.
-To receive preferential treatment in Google&rsquo;s mobile search results,
-however,
-pages had to be hosted on Google&rsquo;s own servers and delivered through Google&rsquo;s infrastructure.
-Publishers who adopted AMP handed Google control over their content delivery
-in exchange for a favorable page rank.
-Google eventually backed away from the hosting requirement,
-but only under regulatory pressure.</p>
-<p>Apple took a different approach.
-Rather than capturing an open standard, it simply refused to implement one.
-RCS is a modern successor to SMS that supports end-to-end encryption,
-read receipts,
-high-resolution media,
-and group chat.
-For years after Android phones had adopted it,
-Apple kept cross-platform messaging on unencrypted SMS,
-so messages between iPhones and Android phones appeared as green bubbles.
-Internal documents revealed in US antitrust litigation showed Apple executives explicitly acknowledging
-that adopting RCS would reduce the social cost of switching from iPhone to Android,
-particularly for teenagers for whom the green-bubble distinction had become a social marker.
-The EU&rsquo;s Digital Markets Act eventually compelled Apple to support RCS in 2024.</p>
-<p>When a technology becomes embedded in a formal standard,
-the patent holder typically commits to license it on FRAND terms:
-fair, reasonable, and non-discriminatory.
-This sounds reassuring,
-but the word &ldquo;reasonable&rdquo; has funded decades of litigation.
-Qualcomm&rsquo;s licensing practices for mobile baseband patents
-(the technology that connects a phone to a cellular network)
-were subject to antitrust proceedings simultaneously in the United States, Europe, South Korea, China,
-and Taiwan in the late 2010s.
-The core allegation was consistent across jurisdictions:
-Qualcomm was using its position as the patent holder
-o charge fees that bore no relationship to any recognizable interpretation of &ldquo;reasonable.&rdquo;
-The legal outcomes varied by country;
-Qualcomm remained profitable throughout.</p>
-<div class="callout">
-<p>During the browser wars of the late 1990s,
-Microsoft bundled Internet Explorer with Windows,
-deliberately undercutting Netscape&rsquo;s business model.
-IE&rsquo;s market dominance then allowed Microsoft to implement proprietary HTML extensions
-that worked only in its browser.
-What finally broke this cycle was not antitrust action—which produced a consent decree
-and little structural change—but the arrival of Firefox and then Chrome,
-backed by organizations with different incentives.</p>
-</div>
-<p>If you are a developer building a product,
-every choice between an open standard and a proprietary API is
-a bet on the future behavior of the platform that owns the API.
-History suggests the bet is a bad one.
-From Instagram&rsquo;s third-party API and Twitter/X&rsquo;s developer API
-to Google Reader and Firebase&rsquo;s original pricing structure,
-platforms have repeatedly changed terms after developers are so invested that they can&rsquo;t walk away.
-Each time,
-the platform points to its terms of service,
-which always reserves the right to change.</p>
-<p>The structural remedy for this is  interoperability mandates:
-legal requirements that platforms accept connections from competing services
-on terms that do not depend on the platform&rsquo;s goodwill.
-Phone number portability,
-which required carriers to let customers keep their numbers when switching providers,
-eliminated one of the most effective lock-in mechanisms in telecoms.
-Messaging interoperability requirements in the EU&rsquo;s Digital Markets Act
-are attempting to do the same thing for social platforms.
-Whether they succeed depends on implementation details that are actively contested,
-and on enforcement that companies have historically resisted every way they can.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<dl>
-<dt><span id="Russell2014">Russell2014</span></dt>
-<dd>Andrew L. Russell:
-<em>Open Standards and the Digital Age: History, Ideology and Networks</em>.
-Cambridge University Press,
-2014,
-<a href="https://isbnsearch.org/isbn/9781107612044">9781107612044</a>.</dd>
-<dt><span id="Shapiro1999">Shapiro1999</span></dt>
-<dd>Carl Shapiro and Hal R. Varian:
-<em>Information Rules: A Strategic Guide to the Network Economy</em>.
-Harvard Business School Press,
-1999,
-<a href="https://isbnsearch.org/isbn/9780875848631">9780875848631</a>.</dd>
-<dt><span id="Wu2010">Wu2010</span></dt>
-<dd>Tim Wu:
-<em>The Master Switch: The Rise and Fall of Information Empires</em>.
-Knopf,
-2011,
-<a href="https://isbnsearch.org/isbn/9780307390998">9780307390998</a>.</dd>
-</dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/20/twelve-ways-to-be-wrong/">
-      Twelve Ways to Be Wrong About AI-Assisted Coding
-    </a>
-  </h2>
-  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
-  <p>Suppose your manager asks you next week to demonstrate that
-the AI coding tools your company signed up for
-are worth the subscription cost.
-Would you measure lines of code generated, or tickets closed?
-Or would you send out a survey asking whether developers feel more productive?
-Each of those approaches is flawed in a different way;
-the sections below explain why.</p>
-<blockquote>
-<p>Note: this post is about how people are assessing AI,
-not at LLM-assisted coding itself;
-with a little rewording,
-these criticisms could be applied to a lot of the claims that have been made
-about agile development, test-driven development, and other practices.
-If I&rsquo;ve learned anything in the last twenty years,
-it&rsquo;s that software engineering would be a lot further ahead today
-if we had been willing to let our peers in the human sciences
-teach us how to study these kinds of things properly.</p>
-<p>Also, if you&rsquo;d like a one-day introduction to the research methods you should use
-to avoid making these errors, please <a href="mailto:gvwilson@third-bit.com">reach out</a>.
-I&rsquo;m not qualified to teach it, but I know people who are,
-and I could probably talk them into doing it…</p>
-</blockquote>
-<h2>Counting Lines of Code Generated</h2>
-<p>Proxy metrics stand in for concepts that are hard to measure directly,
-and lines of code is one of the oldest.
-LLMs generate more code, but not necessarily better outcomes:
-a team that sees a 40% increase in lines of code per developer
-after adopting LLM tools has measured verbosity, not productivity.
-Deleting 2000 lines of tangled logic and replacing it with 200 clean ones
-is an improvement that looks like a loss on this metric [Sadowski2019].
-More code also means more to read, maintain, and debug,
-and AI&rsquo;s contribution to that future burden does not appear in the line count.</p>
-<h2>Timing Artificial Tasks</h2>
-<p>A widely cited study found that
-developers who used GitHub Copilot completed a task 55% faster than those who did not [Peng2023].
-The task was implementing an HTTP server in JavaScript from scratch, in ninety minutes;
-the developers had no other obligations that day.
-Real software development involves navigating a large codebase you did not write,
-understanding a requirement described ambiguously in a ticket,
-coordinating with colleagues,
-and attending meetings.
-Speed on a greenfield toy task does not predict speed on any of that.
-A randomized controlled trial with experienced open-source developers
-found the opposite of what participants themselves predicted:
-giving them access to AI tools increased task completion time by 19% [Becker2025].</p>
-<h2>Before/After With No Control Group</h2>
-<p>You start using LLMs in January;
-by June, pull requests are shipping faster, so the tools must be working, right?
-But between January and June you hired twelve engineers,
-refactored the CI pipeline,
-and switched your cloud provider.
-Without a group that did not adopt the tools,
-you cannot separate the effect of LLMs
-from any of the other changes that happened at the same time.
-Internal validity requires a credible counterfactual,
-i.e., some way of knowing what would have happened otherwise.</p>
-<h2>Asking Developers If They Feel More Productive</h2>
-<p>Survey results like
-&ldquo;87% of developers report feeling more productive with AI tools&rdquo;
-are regularly cited as evidence that the tools work [Liang2024],
-but three things make self-report systematically misleading:</p>
-<ul>
-<li>
-<p>The Hawthorne effect means people work differently
-    when they know they are being observed and evaluated;</p>
-</li>
-<li>
-<p>The novelty effect means new tools feel faster because they are novel,
-    and that feeling typically fades within weeks; and</p>
-</li>
-<li>
-<p>Social desirability bias means respondents tend to say
-    what they believe the survey wants to hear,
-    especially when management chose the tool.</p>
-</li>
-</ul>
-<h2>Counting Commits, Pull Requests, and Tickets</h2>
-<p>In 2023,
-McKinsey proposed measuring individual developer productivity
-using counts of commits, pull requests, code reviews, and similar activities [McKinsey2023].
-Goodhart&rsquo;s Law states that when a measure becomes a target,
-it ceases to be a good measure [Goodhart1984].
-When developers know their commit count is tracked, they make more, smaller commits;
-when ticket counts are tracked, tickets get split.
-The numbers improve while the underlying work does not [Beck2023].
-Activity is not output; output is not value.</p>
-<h2>Measuring Only the Easy Half</h2>
-<p>LLMs make code generation faster, and that half is easy to measure.
-The other half is harder:
-time spent reviewing LLM-generated code for correctness,
-time lost debugging confidently wrong suggestions,
-security vulnerabilities introduced by plausible-looking but insecure code,
-and technical debt from suggestions that solved the immediate problem
-while ignoring the surrounding design.
-A study of GitHub Copilot&rsquo;s code found
-that a substantial fraction of generated code contained security vulnerabilities,
-and that developers under time pressure accepted insecure suggestions at higher rates [Pearce2022].
-A 2025 evaluation of five major LLMs found that
-none produced web application code meeting industry security standards [Dora2025].
-A large-scale analysis of over 300,000 AI-authored commits found that
-more than 15% introduce at least one quality issue,
-and nearly a quarter of those issues persist in the codebase long-term [Liu2026].
-Measuring only the inputs that go up while ignoring the costs that also rise is not measurement;
-it is marketing.</p>
-<h2>Treating Adoption Rate as a Success Metric</h2>
-<p>&ldquo;We have achieved 90% AI tool adoption across engineering&rdquo;
-is a procurement outcome,
-not a productivity outcome.
-Adoption measures whether the tool is installed and opened;
-it says nothing about whether suggestions are useful,
-whether developers accept them thoughtlessly,
-or whether the accepted suggestions are correct.
-High adoption combined with low suggestion quality
-produces a workforce spending time managing a tool rather than benefiting from one.
-A study of IBM&rsquo;s enterprise AI coding assistant found that
-while the tool often provided net productivity increases,
-those gains were not experienced uniformly across its user base [Weisz2025].
-But adoption is easier to measure than benefit,
-which is exactly why it gets reported instead.</p>
-<h2>Comparing Volunteers to Non-Volunteers</h2>
-<p>Studies that compare developers who chose to use LLMs against those who did not
-are comparing two different populations,
-not two conditions.
-Early adopters differ from late adopters and non-adopters
-in ways that directly predict productivity:
-they are more motivated to experiment,
-more comfortable with new tooling,
-and more likely to already be high performers.
-Selection bias means any observed difference between the groups
-may be a property of the person rather than the tool.
-This is the most common design flaw in industry AI productivity reports,
-because it is the cheapest study to run.
-A two-year longitudinal study of Copilot use at a large IT organization found that
-developers who used the tool were consistently more active than non-users
-even before it was introduced [Stray2026].</p>
-<h2>Measuring the Individual Instead of the System</h2>
-<p>Individual coding speed is the easiest thing to measure, so it gets measured.
-But if AI tools help developers write code 30% faster
-and the team&rsquo;s time from ticket to production does not change,
-the bottleneck was not writing code.
-More code generated also means more code to review:
-if AI increases code volume without increasing review capacity,
-cycle time may worsen [Forsgren2021].
-An empirical study of professional developers found that while AI tools boosted output for
-less-experienced contributors, senior developers experienced a 19% decline in their own
-productivity as they absorbed a 6.5% increase in code review load from AI-generated code [Xu2025].
-Optimizing one stage of a pipeline while ignoring the others is a systems-thinking failure
-dressed as a productivity study.</p>
-<h2>Measuring During the Novelty Period</h2>
-<p>A four-week study that finds a productivity boost has found a four-week productivity boost.
-The novelty effect is real:
-developers are more engaged with new tools during the initial period,
-which inflates observed performance relative to the long-run baseline.
-Effects that actually matter emerge over months, not weeks,
-including skill atrophy for tasks now delegated to the AI,
-accumulation of technical debt from wrong suggestions,
-or changes in how teams collaborate.
-A study designed to detect a short-term benefit,
-has not told you anything about what happens after the study ends.
-An analysis of 807 open-source repositories adopting Cursor found exactly this pattern:
-adoption produced a large but transient increase in development velocity alongside
-a substantial and persistent increase in code complexity and static analysis warnings [He2026].</p>
-<h2>Treating Suggestion Acceptance Rate as a Quality Signal</h2>
-<p>LLM coding assistants commonly report what fraction of their suggestions developers accept,
-and higher acceptance rates are presented as evidence that the tool is useful.
-Acceptance measures whether the generated code looked plausible enough
-for a developer to press Tab;
-it does not measure whether the code was correct, secure, or maintainable.
-Developers under time pressure accept more suggestions, including insecure ones [Pearce2022],
-so a tight deadline makes acceptance rate rise for exactly the wrong reasons.
-An enterprise study of 400 developers found a 33% average acceptance rate
-alongside high developer satisfaction,
-but tracked no measure of the correctness or security of accepted code [Bakal2025].
-A metric that rewards looking good enough is not a metric that rewards being good.</p>
-<h2>Comparing AI to Nothing</h2>
-<p>Studies that compare AI-assisted developers to a control group using nothing
-have chosen a baseline that does not exist in practice.
-Developers without LLM assistants use documentation, colleagues,
-and the time they would otherwise spend thinking through the problem themselves.
-The relevant question is whether LLM tools outperform the alternatives developers already have,
-and that comparison is rarely made [Peng2023].
-Choosing a weak baseline makes any tool look good; it does not make the tool useful.</p>
-<blockquote>
-<p>I am profoundly grateful to everyone who has taken the time over the years
-to explain this stuff to me.
-Any errors or over-simplifications in what I&rsquo;ve written are entirely my fault.</p>
-</blockquote>
-<h2>Bibliography</h2>
-<dl>
-<dt>Bakal2025</dt>
-<dd>Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy Levin:
-&ldquo;Experience with GitHub Copilot for Developer Productivity at Zoominfo.&rdquo;
-arXiv:2501.13282,
-2025.</dd>
-<dt>Becker2025</dt>
-<dd>Joel Becker, Nate Rush, Elizabeth Barnes, and David Rein:
-&ldquo;Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.&rdquo;
-arXiv:2507.09089,
-2025.</dd>
-<dt>Beck2023</dt>
-<dd>Kent Beck:
-&ldquo;Measuring Developer Productivity: Real-World Examples.&rdquo;
-Medium,
-2023.
-<a href="https://tidyfirst.substack.com/p/measuring-developer-productivity">https://tidyfirst.substack.com/p/measuring-developer-productivity</a></dd>
-<dt>Dora2025</dt>
-<dd>Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and Sandeep Kumar Shukla:
-&ldquo;The Hidden Risks of LLM-Generated Web Application Code:
-A Security-Centric Evaluation of Code Generation Capabilities in Large Language Models.&rdquo;
-arXiv:2504.20612,
-2025.</dd>
-<dt>Flournoy2025</dt>
-<dd>John C. Flournoy, Carol S. Lee, Maggie Wu, and Catherine M. Hicks:
-&ldquo;No Silver Bullets: Why Understanding Software Cycle Time is Messy, Not Magic.&rdquo;
-arXiv:2503.05040,
-2025.</dd>
-<dt>Forsgren2021</dt>
-<dd>Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler:
-&ldquo;The SPACE of Developer Productivity.&rdquo;
-<em>ACM Queue</em>,
-19(1), 2021.</dd>
-<dt>Goodhart1984</dt>
-<dd>Charles Goodhart:
-&ldquo;Problems of Monetary Management: The U.K. Experience.&rdquo;
-In Anthony Courakis (ed.),
-<em>Inflation, Depression, and Economic Policy in the West</em>,
-Rowman and Littlefield,
-1984.</dd>
-<dt>He2026</dt>
-<dd>Hao He, Courtney Miller, Shyam Agarwal, Christian Kästner, and Bogdan Vasilescu:
-&ldquo;Speed at the Cost of Quality: How Cursor AI Increases Short-Term Velocity and Long-Term Complexity in Open-Source Projects.&rdquo;
-<em>Proc. MSR &lsquo;26</em>,
-2026.</dd>
-<dt>Hicks2025</dt>
-<dd>Catherine M. Hicks, Carol Lee, and Kristen Foster-Marks:
-&ldquo;The New Developer: AI Skill Threat, Identity Change &amp; Developer Thriving in the Transition to AI-Assisted Software Development.&rdquo;
-<a href="https://osf.io/preprints/psyarxiv/2gej5_v2">https://osf.io/preprints/psyarxiv/2gej5_v2</a>,
-2025,
-https://doi.org/10.31234/osf.io/2gej5_v2.</dd>
-<dt>Liang2024</dt>
-<dd>Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
-&ldquo;A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges.&rdquo;
-<em>Proc. ICSE 2024</em>,
-2024.</dd>
-<dt>Liu2026</dt>
-<dd>Yue Liu, Ratnadira Widyasari, Yanjie Zhao, Ivana Clairine Irsan, Junkai Chen,
-and David Lo:
-&ldquo;Debt Behind the AI Boom: A Large-Scale Empirical Study of AI-Generated Code in the Wild.&rdquo;
-arXiv:2603.28592,
-2026.</dd>
-<dt>McKinsey2023</dt>
-<dd>Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
-&ldquo;Yes, You Can Measure Software Developer Productivity.&rdquo;
-McKinsey &amp; Company,
-2023.
-<a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity</a></dd>
-<dt>Pearce2022</dt>
-<dd>Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri:
-&ldquo;Asleep at the Keyboard? Assessing the Security of GitHub Copilot&rsquo;s Code Contributions.&rdquo;
-<em>Proc. IEEE S&amp;P 2022</em>,
-2022,
-doi:10.1109/SP46214.2022.9833571.</dd>
-<dt>Peng2023</dt>
-<dd>Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer:
-&ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot.&rdquo;
-arXiv:2302.06590,
-2023.</dd>
-<dt>Sadowski2019</dt>
-<dd>Caitlin Sadowski and Thomas Zimmermann (eds.):
-<em>Rethinking Productivity in Software Engineering</em>.
-Apress,
-2019,
-978-1484242209.</dd>
-<dt>Stray2026</dt>
-<dd>Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen Wivestad, Astri Barbala, and Nils Brede Moe:
-&ldquo;Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study.&rdquo;
-<em>Proc. HICSS-59</em>,
-2026.</dd>
-<dt>Weisz2025</dt>
-<dd>Justin D. Weisz, Shraddha Kumar, Michael Muller, Karen-Ellen Browne, Arielle Goldberg, Ellice Heintze, and Shagun Bajpai:
-&ldquo;Examining the Use and Impact of an AI Code Assistant on Developer Productivity and Experience in the Enterprise.&rdquo;
-<em>Proc. CHI&lsquo;25</em>,
-2025.</dd>
-<dt>Xu2025</dt>
-<dd>Feiyang Xu, Poonacha K. Medappa, Murat M. Tunc, Martijn Vroegindeweij, and Jan C. Fransoo:
-&ldquo;AI-Assisted Programming Decreases the Productivity of Experienced Developers
-by Increasing the Technical Debt and Maintenance Burden.&rdquo;
-arXiv:2510.10165,
-2025.</dd>
 </dl>
 </article>
 

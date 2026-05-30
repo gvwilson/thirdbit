@@ -1,6 +1,6 @@
 ---
 title: "Basic Ideas in Queueing Theory"
-date: 2026-05-27
+date: 2026-05-28
 katex: true
 ---
 
