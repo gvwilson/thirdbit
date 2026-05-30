@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Regular Expressions</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Unbreak</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../oopy/">Object-Oriented Python</a></li>
+<li><a class="active" href="../regexp/">Regular Expressions</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../css/">CSS</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../htmx/">HTMX</a></li>
+<li><a href="../alpine/">Alpine.js</a></li>
+<li><a href="../fastapi/">FastAPI</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/unbreak">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Regular Expressions</h1>
+<h2 id="regexp-phone">Validate phone numbers in a contact list</h2>
+<p>This function is supposed to accept only strings that are phone numbers and
+reject everything else. Call it with <code>"call 555-867-5309 now"</code> and with
+<code>"555-867-53090000"</code>. Do both results match your expectations?</p>
+<div data-inc="phone.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/phone.py" class="inc-path" role="img" tabindex="0" title="regexp/phone.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\d</span><span class="si">{3}</span><span class="s2">-\d</span><span class="si">{3}</span><span class="s2">-\d</span><span class="si">{4}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_valid_phone</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"555-867-5309"</span><span class="p">,</span>
+        <span class="s2">"call 555-867-5309 now"</span><span class="p">,</span>
+        <span class="s2">"555-867-53090000"</span><span class="p">,</span>
+        <span class="s2">"not a number"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Valid'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid_phone</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'Invalid'</span><span class="si">:</span><span class="s2">8s</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">t</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>re.search</code> instead of <code>re.fullmatch</code>. <code>re.search</code> finds the
+pattern <em>anywhere</em> in the string, so a sentence that contains a phone number
+passes the check even though it is not a phone number, and a string of extra
+digits such as <code>"555-867-53090000"</code> also passes because the pattern matches
+the first ten digits and ignores the rest.</p>
+<p>Shows: the difference between <code>re.search</code> (match anywhere), <code>re.match</code>
+(match at the start), and <code>re.fullmatch</code> (match the entire string), and
+why validation functions almost always need <code>re.fullmatch</code>.</p>
+<p>To find it: print <code>re.search(PATTERN, "call 555-867-5309 now").span()</code>.
+The span <code>(9, 21)</code> shows the match starts at character nine, not character
+zero, confirming that the match is embedded inside the string rather than
+being the whole string. Replace <code>re.search</code> with <code>re.fullmatch</code> so that only
+strings that are <em>entirely</em> a phone number pass.</p>
+</details>
+<h2 id="regexp-access">Detect timestamps in log entries</h2>
+<p>This function is supposed to return <code>True</code> for any log line that contains a
+date. Call it with <code>"ERROR on 2024-01-15: disk full"</code>. Does it return the
+result you expect?</p>
+<div data-inc="access.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/access.py" class="inc-path" role="img" tabindex="0" title="regexp/access.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\d</span><span class="si">{4}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contains_date</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"2024-01-15: server started"</span><span class="p">,</span>
+        <span class="s2">"ERROR on 2024-01-15: disk full"</span><span class="p">,</span>
+        <span class="s2">"no date in this line"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">"has date"</span> <span class="k">if</span> <span class="n">contains_date</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"no date "</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">line</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>re.match</code> instead of <code>re.search</code>. <code>re.match</code> only checks
+whether the pattern appears at the <em>start</em> of the string, so a date that
+appears after other text is never found.</p>
+<p>Shows: <code>re.match</code> is not a whole-string check; it is an anchored-at-the-start
+check. The complement to <code>re.match</code> for finding a pattern anywhere is
+<code>re.search</code>.</p>
+<p>To find it: call <code>re.match(PATTERN, "ERROR on 2024-01-15: disk full")</code> and
+print the result. It returns <code>None</code> because <code>"ERROR"</code> does not match
+<code>\d{4}-\d{2}-\d{2}</code>. Replace <code>re.match</code> with <code>re.search</code> to check anywhere
+in the string.</p>
+</details>
+<h2 id="regexp-comments">Count action items in source code</h2>
+<p>Run this script and compare the count it prints to the number of action items
+you can see in the source string. Do the counts agree?</p>
+<div data-inc="comments.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/comments.py" class="inc-path" role="img" tabindex="0" title="regexp/comments.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"# TODO:"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_todos</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"x = 1  # TODO: replace with config value</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"y = 2  # todo: remove this line</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"z = 3  # Todo: clean up before release</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">find_todos</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="si">}</span><span class="s2"> TODO comment(s), expected 3"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the pattern <code># TODO:</code> is case-sensitive, so <code># todo:</code> and
+<code># Todo:</code> are not matched, and the function reports one instead of three.</p>
+<p>Shows: Python's <code>re</code> module is case-sensitive by default, and the same word
+spelled with different capitalisation is treated as a different pattern.</p>
+<p>To find it: call <code>re.findall(r"# TODO:", "# todo: example")</code> and observe
+that it returns an empty list. Add <code>re.IGNORECASE</code> as a second argument to
+<code>re.findall</code> to make the match case-insensitive.</p>
+</details>
+<h2 id="regexp-headings">Find headings in a document</h2>
+<p>Run this script and count the Markdown headings in the document string by
+hand. Does the function find all of them?</p>
+<div data-inc="headings.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/headings.py" class="inc-path" role="img" tabindex="0" title="regexp/headings.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"^#{1,3} .+"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_headings</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="s2">"# Introduction</span><span class="se">\n</span><span class="s2">## Background</span><span class="se">\n</span><span class="s2">### Methods</span><span class="se">\n</span><span class="s2">Paragraph text.</span><span class="se">\n</span><span class="s2">## Results"</span>
+    <span class="n">headings</span> <span class="o">=</span> <span class="n">find_headings</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">headings</span><span class="p">)</span><span class="si">}</span><span class="s2"> heading(s): </span><span class="si">{</span><span class="n">headings</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected 4 headings"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>^</code> without <code>re.MULTILINE</code> matches only the very start of the
+entire string, not the start of each line. The first heading <code>"# Introduction"</code>
+is found because it appears at position zero; all subsequent headings are
+missed because they begin after a newline character, not at the string's start.</p>
+<p>Shows: in Python's <code>re</code> module, <code>^</code> and <code>$</code> match the start and end of the
+<em>string</em> by default. Pass <code>re.MULTILINE</code> to make them match the start and end
+of each <em>line</em> instead.</p>
+<p>To find it: print <code>bool(re.search(r"^## Background", doc))</code> — it returns
+<code>False</code>. Then print <code>bool(re.search(r"^## Background", doc, re.MULTILINE))</code>
+— it returns <code>True</code>. Add <code>re.MULTILINE</code> to the <code>re.findall</code> call to fix the
+function.</p>
+</details>
+<h2 id="regexp-logentry">Find error messages in a log file</h2>
+<p>Run this script on the sample log string. The exception message spans more
+than one line. Does the function find it?</p>
+<div data-inc="logentry.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/logentry.py" class="inc-path" role="img" tabindex="0" title="regexp/logentry.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"EXCEPTION: (.+) END"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_exceptions</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="s2">"EXCEPTION: ValueError</span><span class="se">\n</span><span class="s2">  line 42 in process</span><span class="se">\n</span><span class="s2">  line 10 in main</span><span class="se">\n</span><span class="s2"> END"</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">find_exceptions</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> exception(s), expected 1"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Matches: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the <code>.</code> metacharacter does not match newline characters by
+default, so the pattern never bridges the line break between <code>"ValueError"</code>
+and <code>"END"</code>.</p>
+<p>Shows: <code>.</code> matches any character <em>except</em> a newline unless <code>re.DOTALL</code> is
+passed. This is the source of many silent failures when patterns are applied
+to multi-line strings.</p>
+<p>To find it: print <code>re.search(r".", "\n")</code> — it returns <code>None</code>, confirming
+that <code>.</code> does not match <code>\n</code>. Pass <code>re.DOTALL</code> as a third argument to
+<code>re.findall</code> to make <code>.</code> match newlines and let the pattern span lines.</p>
+</details>
+<h2 id="regexp-columns">Recognize column names in a CSV header</h2>
+<p>Run this script and compare the list it prints to the column names in the
+header string. Which columns are missing from the output?</p>
+<div data-inc="columns.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/columns.py" class="inc-path" role="img" tabindex="0" title="regexp/columns.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">COLUMN_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"name|email|phone"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_columns</span><span class="p">(</span><span class="n">header</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span> <span class="k">if</span> <span class="n">COLUMN_RE</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">"Name,Email,Phone,Address"</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">find_columns</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Recognized columns: </span><span class="si">{</span><span class="n">found</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: ['Name', 'Email', 'Phone']"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>re.compile</code> is called without <code>re.IGNORECASE</code>, so the
+compiled pattern only matches lowercase letters. The header uses title-case
+column names (<code>"Name"</code>, <code>"Email"</code>, <code>"Phone"</code>), none of which match the
+all-lowercase pattern.</p>
+<p>Shows: flags must be supplied at compile time when using <code>re.compile</code>; they
+cannot be added later. A compiled pattern without a flag behaves differently
+from one compiled with it.</p>
+<p>To find it: call <code>COLUMN_RE.search("Name")</code> and observe it returns <code>None</code>.
+Then call <code>re.search(r"name", "Name", re.IGNORECASE)</code> and observe it returns
+a match. Pass <code>re.IGNORECASE</code> as a second argument to <code>re.compile</code> to fix
+the pattern.</p>
+</details>
+<h2 id="regexp-prices">Extract prices from a web page</h2>
+<p>Run this script and count the <code>&lt;amount&gt;</code> tags in the HTML string by hand.
+Does the function return the same number of prices?</p>
+<div data-inc="prices.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/prices.py" class="inc-path" role="img" tabindex="0" title="regexp/prices.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"&lt;amount&gt;(.*)&lt;/amount&gt;"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_amounts</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="s2">"&lt;amount&gt;9.99&lt;/amount&gt;&lt;tax&gt;1.00&lt;/tax&gt;&lt;amount&gt;14.99&lt;/amount&gt;"</span>
+    <span class="n">amounts</span> <span class="o">=</span> <span class="n">extract_amounts</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Amounts: </span><span class="si">{</span><span class="n">amounts</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected 2 amounts, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>.*</code> is <em>greedy</em>: it matches as many characters as possible.
+The pattern <code>&lt;amount&gt;(.*)&lt;/amount&gt;</code> starts at the first <code>&lt;amount&gt;</code> and
+expands <code>.*</code> until it reaches the <em>last</em> <code>&lt;/amount&gt;</code>, capturing everything in
+between — including the middle tag and the tax field — as a single match.</p>
+<p>Shows: greedy quantifiers extend as far right as possible; lazy quantifiers
+(<code>.*?</code>) extend only as far as necessary. Greedy behaviour is the default and
+is often wrong when the surrounding delimiters appear more than once.</p>
+<p>To find it: print the single item returned by <code>extract_amounts</code> and observe
+that it contains the entire middle of the string. Replace <code>.*</code> with <code>.*?</code> to
+make the quantifier lazy, so each <code>&lt;amount&gt;</code> tag matches only up to its own
+<code>&lt;/amount&gt;</code>.</p>
+</details>
+<h2 id="regexp-attrs">Filter empty attributes from an HTML element</h2>
+<p>Run this script and inspect the list it returns. Should an empty <code>id</code>
+attribute be included in that list?</p>
+<div data-inc="attrs.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/attrs.py" class="inc-path" role="img" tabindex="0" title="regexp/attrs.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'id="(\w*)"'</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_ids</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="s1">'&lt;div id="main"&gt;&lt;p id=""&gt;text&lt;/p&gt;&lt;span id="footer"&gt;&lt;/span&gt;'</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">find_ids</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"IDs: </span><span class="si">{</span><span class="n">ids</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected only non-empty IDs: ['main', 'footer']"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>\w*</code>, which matches <em>zero or more</em> word characters. An empty
+<code>id=""</code> attribute satisfies <code>\w*</code> (with zero characters), so the empty string
+<code>""</code> is captured and appears in the results.</p>
+<p>Shows: <code>*</code> and <code>+</code> are easy to confuse. Use <code>\w+</code> when the match must contain
+at least one character and <code>\w*</code> only when an empty match is acceptable.</p>
+<p>To find it: test <code>bool(re.search(r"\w*", ""))</code> — it returns <code>True</code>, confirming
+that <code>\w*</code> accepts an empty string. Replace <code>\w*</code> with <code>\w+</code> in the pattern to
+require at least one word character inside the attribute value.</p>
+</details>
+<h2 id="regexp-postal">Validate postal codes in an address database</h2>
+<p>Run this script and check which strings it identifies as ZIP codes. Examine
+the input and the output side by side.</p>
+<div data-inc="postal.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/postal.py" class="inc-path" role="img" tabindex="0" title="regexp/postal.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\b\d</span><span class="si">{4}</span><span class="s2">\b"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_zipcodes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">"Ship to 90210 or 02134; apartment number is 4201"</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">find_zipcodes</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ZIP codes found: </span><span class="si">{</span><span class="n">found</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: ['90210', '02134']"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>\d{4}</code>, which matches exactly four digits, but US ZIP codes
+contain five. None of the valid ZIP codes in the input are found, and the
+four-digit apartment number <code>4201</code> is matched instead.</p>
+<p>Shows: off-by-one errors appear in <code>{n}</code> quantifiers as well as in loop
+indices. Always verify the exact length required by the format you are
+matching.</p>
+<p>To find it: evaluate <code>bool(re.search(r"\d{4}", "90210"))</code> — it returns
+<code>True</code>, but only because <code>\d{4}</code> matches the first four digits of the five-
+digit ZIP code, not all five. Change <code>{4}</code> to <code>{5}</code> so the pattern requires
+exactly five digits.</p>
+</details>
+<h2 id="regexp-network">Filter server addresses from a configuration</h2>
+<p>This function is supposed to accept only valid IP address strings. Call it
+with <code>"192X168X1X1"</code>. Does it reject that input?</p>
+<div data-inc="network.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/network.py" class="inc-path" role="img" tabindex="0" title="regexp/network.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_ip_address</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"192.168.1.1"</span><span class="p">,</span>
+        <span class="s2">"192X168X1X1"</span><span class="p">,</span>
+        <span class="s2">"10.0.0.256"</span><span class="p">,</span>
+        <span class="s2">"not-an-ip"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Valid'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_ip_address</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'Invalid'</span><span class="si">:</span><span class="s2">8s</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">c</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the dots separating the octets are not escaped. In a regular
+expression, <code>.</code> matches any character, so <code>\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}</code>
+accepts any single character between the digit groups — including <code>X</code>.</p>
+<p>Shows: literal characters that are also regex metacharacters (<code>. * + ? [ ] { }
+( ) ^ $ | \</code>) must be escaped with a backslash to match themselves.</p>
+<p>To find it: test <code>bool(re.fullmatch(r".", "X"))</code> — it returns <code>True</code>, showing
+that an unescaped dot accepts <code>"X"</code>. Replace each <code>.</code> in the pattern with <code>\.</code>
+so only a literal period is accepted between the digit groups.</p>
+</details>
+<h2 id="regexp-htmlstrip">Remove markup from user submissions</h2>
+<p>Run this script and look at what <code>strip_tags</code> returns. Does the HTML it
+receives end up as plain text?</p>
+<div data-inc="htmlstrip.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/htmlstrip.py" class="inc-path" role="img" tabindex="0" title="regexp/htmlstrip.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"&lt;[&lt;&gt;]+&gt;"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">strip_tags</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="s2">"&lt;b&gt;Hello&lt;/b&gt;, &lt;i&gt;world&lt;/i&gt;!"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">strip_tags</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: 'Hello, world!'"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is the character class <code>[&lt;&gt;]</code>, which matches only the characters <code>&lt;</code>
+and <code>&gt;</code>. Because normal HTML tags contain letters, not angle brackets, the
+pattern <code>&lt;[&lt;&gt;]+&gt;</code> never matches any real tag, and nothing is removed.</p>
+<p>Shows: inside a character class, <code>^</code> at the very start <em>negates</em> the class.
+<code>[&lt;&gt;]</code> means "either <code>&lt;</code> or <code>&gt;</code>", while <code>[^&lt;&gt;]</code> means "any character that
+is <em>not</em> <code>&lt;</code> or <code>&gt;</code>".</p>
+<p>To find it: test <code>bool(re.search(r"&lt;[&lt;&gt;]+&gt;", "&lt;b&gt;"))</code> — it returns <code>False</code>,
+because the character <code>b</code> is not in <code>[&lt;&gt;]</code>. Change <code>[&lt;&gt;]</code> to <code>[^&lt;&gt;]</code> so the
+pattern matches any sequence of non-bracket characters between the two angle
+brackets.</p>
+</details>
+<h2 id="regexp-schemes">Classify links by protocol</h2>
+<p>Run this script and check the scheme reported for the HTTPS URL. Does the
+label match the URL?</p>
+<div data-inc="schemes.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/schemes.py" class="inc-path" role="img" tabindex="0" title="regexp/schemes.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"http|https"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_scheme</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">m</span> <span class="k">else</span> <span class="kc">None</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"http://example.com/page"</span><span class="p">,</span>
+        <span class="s2">"https://secure.example.com/login"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"scheme=</span><span class="si">{</span><span class="n">get_scheme</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="si">!r}</span><span class="s2">  url=</span><span class="si">{</span><span class="n">url</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>"http"</code> appears before <code>"https"</code> in the alternation. Regular
+expression alternation is ordered: the engine tries each alternative from left
+to right and stops at the first match. Because <code>"http"</code> is a prefix of
+<code>"https"</code>, it matches the first four characters of any HTTPS URL and the
+engine never tries the longer alternative.</p>
+<p>Shows: when one alternative is a prefix of another, put the longer one first.
+<code>r"https|http"</code> or the equivalent shorthand <code>r"https?"</code> both work correctly.</p>
+<p>To find it: evaluate <code>re.match(r"http|https", "https://example.com").group(0)</code>
+— it returns <code>"http"</code>, not <code>"https"</code>. Swap the order to <code>r"https|http"</code> or
+rewrite the pattern as <code>r"https?"</code>.</p>
+</details>
+<h2 id="regexp-wordcount">Count a word in a paragraph</h2>
+<p>Run this script and count the standalone occurrences of <code>"log"</code> in the text
+by hand. Does the function return the same number?</p>
+<div data-inc="wordcount.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/wordcount.py" class="inc-path" role="img" tabindex="0" title="regexp/wordcount.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"log"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_word</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">"Check the log file before login; the dialog shows the catalog entry"</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count_word</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">PATTERN</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Count of 'log': </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: 1 (only the standalone word 'log')"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the pattern has no word boundaries, so <code>"log"</code> matches inside
+<code>"login"</code>, <code>"dialog"</code>, and <code>"catalog"</code> as well as the standalone word, giving
+a count of four instead of one.</p>
+<p>Shows: <code>\b</code> is a zero-width assertion that matches the position between a word
+character and a non-word character. Use <code>r"\blog\b"</code> to match the whole word
+only.</p>
+<p>To find it: print <code>re.findall(r"log", text)</code> and examine the list — you will
+see four items. Then print <code>re.findall(r"\blog\b", text)</code> and see only one.
+Add <code>\b</code> before and after the word in the pattern.</p>
+</details>
+<h2 id="regexp-roster">Reformat names in a mailing list</h2>
+<p>Run this script and check whether the output names are in "First Last" order.
+Are they?</p>
+<div data-inc="roster.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/roster.py" class="inc-path" role="img" tabindex="0" title="regexp/roster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(\w+),\s*(\w+)"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reformat_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1 \2"</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Smith, Alice"</span><span class="p">,</span> <span class="s2">"Jones, Bob"</span><span class="p">,</span> <span class="s2">"Garcia, Carmen"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">reformat_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the replacement string <code>r"\1 \2"</code> keeps the groups in their
+original order. Group 1 captures the last name (everything before the comma)
+and group 2 captures the first name, so <code>r"\1 \2"</code> produces "Last First"
+rather than "First Last".</p>
+<p>Shows: groups are numbered left to right by opening parenthesis. Drawing a
+quick table of which group captures which field before writing the replacement
+string prevents this error.</p>
+<p>To find it: add a <code>print</code> statement inside <code>reformat_name</code> to show
+<code>re.search(PATTERN, name).groups()</code> for the first input — it returns
+<code>('Smith', 'Alice')</code>, confirming that group 1 is the last name. Change the
+replacement to <code>r"\2 \1"</code> to put the first name before the last name.</p>
+</details>
+<h2 id="regexp-redact">Redact sensitive fields in a report</h2>
+<p>Run this script and inspect the <code>repr()</code> of the result. Are the sensitive
+labels preserved in the output as expected?</p>
+<div data-inc="redact.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/redact.py" class="inc-path" role="img" tabindex="0" title="regexp/redact.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(SSN|DOB):\s*\S+"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">redact</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="s2">"</span><span class="se">\1</span><span class="s2">: [redacted]"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">"Patient SSN: 123-45-6789, DOB: 1990-01-01"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">redact</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: 'Patient SSN: [redacted], DOB: [redacted]'"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the replacement string <code>"\1: [redacted]"</code> is a regular Python
+string, not a raw string. Python's string parser converts <code>\1</code> to the SOH
+control character (the byte with value 1) before <code>re.sub</code> ever sees it. The
+<code>re</code> module then interprets that byte as a backreference, but the result is a
+garbled character instead of the matched label.</p>
+<p>Shows: replacement strings for <code>re.sub</code> that contain backreferences must be
+raw strings (prefix <code>r</code>) so Python does not interpret the backslash before
+<code>re.sub</code> processes it.</p>
+<p>To find it: print <code>repr("\1")</code> — it shows <code>'\x01'</code>, confirming the string
+contains a control character, not a backslash followed by <code>1</code>. Change the
+replacement to <code>r"\1: [redacted]"</code> to pass the literal two-character sequence
+<code>\1</code> to <code>re.sub</code>.</p>
+</details>
+<h2 id="regexp-settings">List settings from a configuration string</h2>
+<p>Run this script and look at the values it finds. What is missing from each
+item in the list?</p>
+<div data-inc="settings.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/settings.py" class="inc-path" role="img" tabindex="0" title="regexp/settings.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\w+=(\w+)"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">list_values</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="s2">"host=localhost port=8080 debug=true"</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">list_values</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found: </span><span class="si">{</span><span class="n">values</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: ['host=localhost', 'port=8080', 'debug=true']"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that a capturing group <code>(\w+)</code> is present in the pattern. When
+<code>re.findall</code> finds a pattern that contains one or more groups, it returns the
+<em>group contents</em> rather than the full match strings. Here every item in the
+result is just the value portion, with the key and the <code>=</code> sign missing.</p>
+<p>Shows: <code>re.findall</code> has two modes — when there are no groups it returns a list
+of full match strings; when there is at least one group it returns a list of
+the group contents (or a list of tuples when there are multiple groups).</p>
+<p>To find it: evaluate <code>re.findall(r"\w+=(\w+)", "a=1 b=2")</code> — it returns
+<code>['1', '2']</code>, not <code>['a=1', 'b=2']</code>. Remove the parentheses from the pattern
+to get full matches, or capture both key and value in separate groups and
+handle the tuples in the calling code.</p>
+</details>
+<h2 id="regexp-years">Pull dates from a report</h2>
+<p>Run this script and examine what it prints. Are the values in the list complete
+dates, or something shorter?</p>
+<div data-inc="years.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/years.py" class="inc-path" role="img" tabindex="0" title="regexp/years.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(\d</span><span class="si">{4}</span><span class="s2">)-\d</span><span class="si">{2}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_dates</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">"Events scheduled for 2024-01-15 and 2024-03-22."</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">find_dates</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dates: </span><span class="si">{</span><span class="n">dates</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: ['2024-01-15', '2024-03-22']"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a capturing group around the year portion of the pattern. Because
+the group exists, <code>re.findall</code> returns only what the group captured — the
+four-digit year — rather than the full date string that matched.</p>
+<p>Shows: even a single capturing group changes what <code>re.findall</code> returns. Use a
+non-capturing group <code>(?:...)</code> when grouping is needed for structure but the
+full match is what you want to collect.</p>
+<p>To find it: compare <code>re.findall(r"(\d{4})-\d{2}-\d{2}", text)</code> with
+<code>re.findall(r"\d{4}-\d{2}-\d{2}", text)</code> using the same input. The first
+returns years; the second returns full dates. Either remove the parentheses or
+replace them with <code>(?:...)</code> to restore the full-match behaviour.</p>
+</details>
+<h2 id="regexp-strength">Check password strength</h2>
+<p>Run this script. Which passwords does it mark as strong? Are any of those
+passwords actually weak by the stated rules?</p>
+<div data-inc="strength.py" data-scrub="\s*# BUG.*"><span aria-label="Source: regexp/strength.py" class="inc-path" role="img" tabindex="0" title="regexp/strength.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(?=.*\d)[A-Za-z\d]{8,}"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_strong</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">passwords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Password1"</span><span class="p">,</span> <span class="s2">"password1"</span><span class="p">,</span> <span class="s2">"PASSWORD1"</span><span class="p">,</span> <span class="s2">"12345678"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">pw</span> <span class="ow">in</span> <span class="n">passwords</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Strong'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_strong</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'Weak'</span><span class="si">:</span><span class="s2">8s</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pw</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the pattern checks for at least one digit using
+<code>(?=.*\d)</code> but never checks for an uppercase letter. The intended rule
+requires <em>both</em> a digit and an uppercase letter, so <code>"password1"</code> (no
+uppercase) and <code>"12345678"</code> (no letter) both pass incorrectly.</p>
+<p>Shows: a lookahead <code>(?=...)</code> is a zero-width assertion — it checks a condition
+without consuming characters. Each independent requirement needs its own
+lookahead; a single lookahead can only verify one condition at a time.</p>
+<p>To find it: evaluate <code>bool(re.fullmatch(PATTERN, "password1"))</code> — it returns
+<code>True</code> even though <code>"password1"</code> contains no uppercase letter. Add a second
+lookahead <code>(?=.*[A-Z])</code> immediately after the first to enforce both
+requirements: <code>r"(?=.*\d)(?=.*[A-Z])[A-Za-z\d]{8,}"</code>.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../oopy/">Object-Oriented Python</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreak</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../diot/">Data, I/O, and Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

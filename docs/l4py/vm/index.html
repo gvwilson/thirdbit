@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Virtual Machine</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
+<li><a href="../tools/">Tools</a></li>
+<li><a href="../des/">Discrete Event Simulation</a></li>
+<li><a class="active" href="../vm/">A Virtual Machine</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../proof/">Proofs</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>A Virtual Machine</h1>
+<div class="callout">
+<ul>
+<li>Every computer has a processor with a particular instruction set, some registers, and memory</li>
+<li>Instructions are just numbers but can be written as human-readable assembly code</li>
+<li>Each instruction packs an op code and up to two operands into a single word using bitwise shifts</li>
+<li>A processor usually executes instructions in order but can jump to another address
+    based on a conditional test</li>
+<li>An assembler translates text mnemonics into packed instruction words and resolves label addresses</li>
+</ul>
+</div>
+<p>Our virtual machine (VM) simulates a small computer with three parts:</p>
+<ol>
+<li>
+<p>An instruction pointer (IP) that holds the address of the next instruction to execute,
+    initialized to 0 at startup.</p>
+</li>
+<li>
+<p>Four general-purpose registers R0–R3 that instructions read and write directly.
+    All arithmetic goes through registers; there are no memory-to-memory operations.</p>
+</li>
+<li>
+<p>256 words of RAM that holds both the program and its data.
+    Addresses are one byte wide, which is why 256 words is a natural size.</p>
+</li>
+</ol>
+<h2>Architecture Constants</h2>
+<div data-inc="architecture.lean" data-mark="constants"><span aria-label="Source: vm/architecture.lean" class="inc-path" role="img" tabindex="0" title="vm/architecture.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Number of general-purpose registers. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">NUM_REG</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">4</span>
+
+<span class="sd">/-- Number of addressable words in RAM. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">RAM_LEN</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">256</span>
+
+<span class="sd">/-- Mask to select one byte from a packed instruction word. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_MASK</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">xFF</span>
+
+<span class="sd">/-- Number of bits to shift when packing or unpacking instruction bytes. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_SHIFT</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">8</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>NUM_REG</code> and <code>RAM_LEN</code> are <code>Nat</code> because they are used as array sizes</li>
+<li><code>OP_MASK</code> and <code>OP_SHIFT</code> are <code>UInt32</code> because they are used in bitwise operations on instruction words</li>
+<li>Collecting all of a system's defining constants in one file makes them easy to find
+    and guarantees that every module uses the same values</li>
+</ul>
+<div data-inc="architecture.lean" data-mark="opcodes"><span aria-label="Source: vm/architecture.lean" class="inc-path" role="img" tabindex="0" title="vm/architecture.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">OP_HLT</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x1</span><span class="w">  </span><span class="c1">-- halt the program</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_LDC</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x2</span><span class="w">  </span><span class="c1">-- load a constant value into a register</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_LDR</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x3</span><span class="w">  </span><span class="c1">-- load from the RAM address held in a register</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_CPY</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x4</span><span class="w">  </span><span class="c1">-- copy one register's value into another</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_STR</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x5</span><span class="w">  </span><span class="c1">-- store a register value into RAM at address in register</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_ADD</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x6</span><span class="w">  </span><span class="c1">-- add two registers, writing result to first</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_SUB</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x7</span><span class="w">  </span><span class="c1">-- subtract second register from first</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_BEQ</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x8</span><span class="w">  </span><span class="c1">-- branch to address if register equals zero</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_BNE</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">x9</span><span class="w">  </span><span class="c1">-- branch to address if register is not zero</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_PRR</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">xA</span><span class="w">  </span><span class="c1">-- append register value to output</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OP_PRM</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="n">xB</span><span class="w">  </span><span class="c1">-- append RAM value at address in register to output</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each instruction fits in one byte, so op codes run from <code>0x1</code> to <code>0xB</code></li>
+<li>Operand formats: <code>--</code> means no operands, <code>r-</code> means one register, <code>rr</code> means two registers,
+    <code>rv</code> means a register and a literal value</li>
+</ul>
+<h2>VM State</h2>
+<div data-inc="machine.lean" data-mark="state"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- The complete state of the virtual machine at one moment in time. -/</span>
+<span class="kn">structure</span><span class="w"> </span><span class="n">VMState</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">ip</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w">           </span><span class="c1">-- address of the next instruction to fetch</span>
+<span class="w">  </span><span class="n">reg</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">UInt32</span><span class="w">  </span><span class="c1">-- NUM_REG general-purpose registers</span>
+<span class="w">  </span><span class="n">ram</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">UInt32</span><span class="w">  </span><span class="c1">-- RAM_LEN words of addressable memory</span>
+<span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w">   </span><span class="c1">-- lines produced by prr and prm instructions</span>
+<span class="w">  </span><span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>ip</code> is a <code>Nat</code> because it indexes into <code>ram</code></li>
+<li><code>reg</code> and <code>ram</code> are <code>Array UInt32</code><ul>
+<li>Fixed-width unsigned integers match real hardware</li>
+</ul>
+</li>
+<li><code>output</code> collects lines printed by <code>prr</code> and <code>prm</code>,
+     keeping the VM pure so its behavior can be checked with <code>#guard</code> without any <code>IO</code></li>
+</ul>
+<div data-inc="machine.lean" data-mark="init"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Create a fresh VM state with the given program loaded starting at address 0.</span>
+<span class="sd">    Returns none if the program is longer than RAM_LEN words. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">init</span><span class="w"> </span><span class="o">(</span><span class="n">program</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">UInt32</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">VMState</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">program</span><span class="bp">.</span><span class="n">size</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="n">RAM_LEN</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">ram</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">Array</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="n">RAM_LEN</span><span class="o">)</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">program</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Array</span><span class="bp">.</span><span class="n">mkArray</span><span class="w"> </span><span class="n">NUM_REG</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="n">ram</span><span class="o">,</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Array.range RAM_LEN</code> produces <code>#[0, 1, …, 255]</code><ul>
+<li>Mapping over it fills RAM with program words followed by zeros</li>
+</ul>
+</li>
+<li><code>program.getD i 0</code> returns <code>program[i]</code> if in bounds, otherwise the default <code>0</code></li>
+</ul>
+<h2>Fetching Instructions</h2>
+<ul>
+<li>Each instruction is packed into one 32-bit word<ul>
+<li>The op code occupies bits 7–0</li>
+<li>The first operand occupies bits 15–8</li>
+<li>The second operand occupies bits 23–16</li>
+</ul>
+</li>
+</ul>
+<div data-inc="machine.lean" data-mark="fetch"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Read the instruction at the current IP, advance IP by one, and return</span>
+<span class="sd">    the decoded (op, arg0, arg1) triple together with the updated state.</span>
+<span class="sd">    Instructions are packed as three bytes: op in bits 7-0, arg0 in 15-8,</span>
+<span class="sd">    arg1 in 23-16. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">fetch</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">VMState</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="n">UInt32</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">UInt32</span><span class="o">)</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">VMState</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">instr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">ram</span><span class="o">[</span><span class="n">s</span><span class="bp">.</span><span class="n">ip</span><span class="o">]!</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">op</span><span class="w">    </span><span class="o">:=</span><span class="w"> </span><span class="n">instr</span><span class="w"> </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="n">OP_MASK</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">arg0</span><span class="w">  </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">instr</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">OP_SHIFT</span><span class="o">)</span><span class="w"> </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="n">OP_MASK</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">arg1</span><span class="w">  </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">instr</span><span class="w"> </span><span class="bp">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">OP_SHIFT</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span><span class="o">))</span><span class="w"> </span><span class="bp">&amp;&amp;&amp;</span><span class="w"> </span><span class="n">OP_MASK</span>
+<span class="w">  </span><span class="o">((</span><span class="n">op</span><span class="o">,</span><span class="w"> </span><span class="n">arg0</span><span class="o">,</span><span class="w"> </span><span class="n">arg1</span><span class="o">),</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">ip</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">})</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>&amp;&amp;&amp;</code> masks off all bits above the lowest byte, isolating one field</li>
+<li><code>&gt;&gt;&gt;</code> shifts the word right so the target byte becomes the low byte</li>
+<li>Unpacking is the reverse of the packing done by the assembler's <code>combine</code> function</li>
+<li>Two operands are always decoded regardless of whether the instruction uses them,
+    matching how most real hardware works</li>
+</ul>
+<h2>Executing Instructions</h2>
+<div data-inc="machine.lean" data-mark="step"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Execute one instruction and return the updated state,</span>
+<span class="sd">    or none if the instruction was hlt. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">step</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">VMState</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">VMState</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="o">((</span><span class="n">op</span><span class="o">,</span><span class="w"> </span><span class="n">arg0</span><span class="o">,</span><span class="w"> </span><span class="n">arg1</span><span class="o">),</span><span class="w"> </span><span class="n">s'</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">fetch</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">arg0</span><span class="bp">.</span><span class="n">toNat</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">arg1</span><span class="bp">.</span><span class="n">toNat</span>
+<span class="w">  </span><span class="c1">-- mccole: hlt</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_HLT</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="c1">-- mccole: /hlt</span>
+<span class="w">  </span><span class="c1">-- mccole: ldc</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_LDC</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">-- mccole: /ldc</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_LDR</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">ram</span><span class="o">[</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!</span><span class="bp">.</span><span class="n">toNat</span><span class="o">]!)</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_CPY</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">-- mccole: str</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_STR</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ram</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">ram</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!</span><span class="bp">.</span><span class="n">toNat</span><span class="o">)</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">-- mccole: /str</span>
+<span class="w">  </span><span class="c1">-- mccole: add</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_ADD</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!)</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">-- mccole: /add</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_SUB</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">-</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!)</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">-- mccole: beq</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_BEQ</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s'</span>
+<span class="w">  </span><span class="c1">-- mccole: /beq</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_BNE</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s'</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_PRR</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">output</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[</span><span class="n">s!</span><span class="s2">"{s'.reg[i0]!}"</span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_PRM</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">output</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="o">[</span><span class="n">s!</span><span class="s2">"{s'.ram[s'.reg[i0]!.toNat]!}"</span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">panic!</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Unknown op {op}"</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>s.fetch</code> returns the decoded triple and the state with IP already advanced</li>
+<li><code>arg0.toNat</code> converts to <code>Nat</code> for use as an array index</li>
+<li>Returning <code>Option VMState</code> (rather than using <code>IO</code>) keeps <code>step</code> pure and testable</li>
+</ul>
+<h2>Example: Store Register Value in RAM</h2>
+<ul>
+<li><code>str</code> stores register <code>arg0</code> into the RAM address held in register <code>arg1</code></li>
+</ul>
+<div data-inc="machine.lean" data-mark="str"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_STR</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ram</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">ram</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!</span><span class="bp">.</span><span class="n">toNat</span><span class="o">)</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+</div>
+<h2>Example: Add Two Registers</h2>
+<ul>
+<li><code>add</code> writes the sum of two registers back into the first</li>
+</ul>
+<div data-inc="machine.lean" data-mark="add"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_ADD</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="bp">.</span><span class="n">set!</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="o">(</span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i1</span><span class="o">]!)</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+</div>
+<h2>Example: Jump If</h2>
+<ul>
+<li><code>beq</code> jumps to a literal address if a register's value is zero</li>
+<li>This is how loops end</li>
+</ul>
+<div data-inc="machine.lean" data-mark="beq"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">OP_BEQ</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">s'</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="n">i0</span><span class="o">]!</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s'</span>
+</code></pre></div>
+</div>
+<h2>Running a Program</h2>
+<div data-inc="machine.lean" data-mark="run"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Run the VM for up to `fuel` steps, returning the final state.</span>
+<span class="sd">    Halts early when a hlt instruction is encountered.</span>
+<span class="sd">    The fuel parameter prevents non-termination in tests and proofs. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">(</span><span class="n">fuel</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">VMState</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">VMState</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">fuel</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">step</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">    </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s'</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">s'</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Structural recursion on <code>fuel</code> guarantees termination, which Lean requires for <code>#guard</code></li>
+<li><code>fuel = 0</code> is the out-of-fuel case<ul>
+<li>Returning <code>s</code> rather than panicking
+ lets tests distinguish "halted normally" from "ran out of steps" by inspecting the IP</li>
+</ul>
+</li>
+<li><code>partial def</code> would also work for a non-terminating VM, but <code>#guard</code> cannot reduce it</li>
+</ul>
+<div data-inc="machine.lean" data-mark="guards"><span aria-label="Source: vm/machine.lean" class="inc-path" role="img" tabindex="0" title="vm/machine.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A hlt-only program leaves all registers at zero.</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">init</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">run</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">s</span><span class="o">)</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="mi">0</span><span class="o">]!</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c1">-- ldc R0 42 ; hlt  →  R0 == 42</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">init</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x2A0002</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">run</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">s</span><span class="o">)</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="mi">0</span><span class="o">]!</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">42</span>
+
+<span class="c1">-- ldc R0 3 ; ldc R1 4 ; add R0 R1 ; hlt  →  R0 == 7</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">init</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x030002</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x040102</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x010006</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">run</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">s</span><span class="o">)</span><span class="bp">.</span><span class="n">reg</span><span class="o">[</span><span class="mi">0</span><span class="o">]!</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">7</span>
+</code></pre></div>
+</div>
+<h2>Assembly Code</h2>
+<ul>
+<li>Writing hexadecimal instruction words by hand is error-prone</li>
+<li>An assembler translates a readable text format into packed instruction words</li>
+<li>Each mnemonic maps to an op code and a format string that controls how operands are parsed:</li>
+</ul>
+<div data-inc="assembler.lean" data-mark="ops"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Op code and operand format for one instruction.</span>
+<span class="sd">    Format codes: "--" no operands, "r-" one register,</span>
+<span class="sd">    "rr" two registers, "rv" register and value. -/</span>
+<span class="kn">structure</span><span class="w"> </span><span class="n">OpInfo</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span>
+<span class="w">  </span><span class="n">fmt</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">String</span>
+
+<span class="sd">/-- The complete instruction set, indexed by mnemonic. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">OPS</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">OpInfo</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"hlt"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_HLT</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"--"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"ldc"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_LDC</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rv"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"ldr"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_LDR</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"cpy"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_CPY</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"str"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_STR</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"add"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_ADD</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"sub"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_SUB</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"beq"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_BEQ</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rv"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"bne"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_BNE</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"rv"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"prr"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_PRR</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"r-"</span><span class="w"> </span><span class="o">}),</span>
+<span class="w">  </span><span class="o">(</span><span class="s2">"prm"</span><span class="o">,</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">OP_PRM</span><span class="o">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"r-"</span><span class="w"> </span><span class="o">}),</span>
+<span class="o">]</span>
+</code></pre></div>
+</div>
+<h3>Parsing Helpers</h3>
+<div data-inc="assembler.lean" data-mark="helpers"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Parse "R0".."R3" into a register index, or return none. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parseReg</span><span class="w"> </span><span class="o">(</span><span class="n">token</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">token</span><span class="bp">.</span><span class="n">startsWith</span><span class="w"> </span><span class="s2">"R"</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="o">(</span><span class="n">token</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span><span class="bp">.</span><span class="n">toNat?</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="n">NUM_REG</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">n</span><span class="bp">.</span><span class="n">toUInt32</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="n">none</span>
+
+<span class="sd">/-- Parse a decimal literal or @label reference into a value, or return none. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">parseVal</span><span class="w"> </span><span class="o">(</span><span class="n">token</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">labels</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="o">))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">token</span><span class="bp">.</span><span class="n">startsWith</span><span class="w"> </span><span class="s2">"@"</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">lbl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">token</span><span class="bp">.</span><span class="n">drop</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="o">(</span><span class="n">labels</span><span class="bp">.</span><span class="n">find?</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">lbl</span><span class="o">)</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="bp">.</span><span class="n">toUInt32</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">token</span><span class="bp">.</span><span class="n">toNat?</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="bp">·.</span><span class="n">toUInt32</span><span class="o">)</span>
+
+<span class="sd">/-- Pack a list of values into one word by shifting each new value in from the left.</span>
+<span class="sd">    Mirrors Python's _combine: each successive call shifts the accumulator up by</span>
+<span class="sd">    OP_SHIFT bits and ORs in the next argument. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">combine</span><span class="w"> </span><span class="o">(</span><span class="n">args</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">UInt32</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="n">args</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">acc</span><span class="w"> </span><span class="bp">&lt;&lt;&lt;</span><span class="w"> </span><span class="n">OP_SHIFT</span><span class="o">)</span><span class="w"> </span><span class="bp">|||</span><span class="w"> </span><span class="n">a</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parseReg</code> strips the leading <code>R</code> and checks that the index is within <code>NUM_REG</code></li>
+<li><code>parseVal</code> recognises <code>@label</code> references by the leading <code>@</code><ul>
+<li>Otherwise it parses a decimal integer</li>
+</ul>
+</li>
+<li><code>combine</code> shifts each value eight bits left and ORs in the next<ul>
+<li>The first argument in the list ends up in the highest byte</li>
+</ul>
+</li>
+</ul>
+<h3>Finding Labels</h3>
+<div data-inc="assembler.lean" data-mark="labels"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Scan cleaned source lines and record the address of each label.</span>
+<span class="sd">    Labels end with ":" and do not occupy any instruction slot. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">findLabels</span><span class="w"> </span><span class="o">(</span><span class="n">lines</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="o">(</span><span class="n">labels</span><span class="o">,</span><span class="w"> </span><span class="n">loc</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">line</span><span class="bp">.</span><span class="n">endsWith</span><span class="w"> </span><span class="s2">":"</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="o">((</span><span class="n">line</span><span class="bp">.</span><span class="n">dropRight</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">|&gt;.</span><span class="n">trim</span><span class="o">,</span><span class="w"> </span><span class="n">loc</span><span class="o">)</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">labels</span><span class="o">,</span><span class="w"> </span><span class="n">loc</span><span class="o">)</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="o">(</span><span class="n">labels</span><span class="o">,</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span><span class="o">)</span>
+<span class="w">  </span><span class="o">(</span><span class="n">lines</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="o">([],</span><span class="w"> </span><span class="mi">0</span><span class="o">))</span><span class="bp">.</span><span class="m">1</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Labels end with <code>:</code> and are not emitted as instruction words</li>
+<li><code>loc</code> counts only non-label lines, giving each label the address of the next real instruction</li>
+<li>The result is a <code>List (String × Nat)</code> used by <code>parseVal</code> to resolve <code>@label</code> operands</li>
+</ul>
+<h3>Compiling One Line</h3>
+<div data-inc="assembler.lean" data-mark="compile"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Compile one instruction line into a packed word.</span>
+<span class="sd">    Returns none if the mnemonic is unknown or operands are malformed. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">compileLine</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">labels</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">Nat</span><span class="o">))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">UInt32</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">line</span><span class="bp">.</span><span class="n">splitOn</span><span class="w"> </span><span class="s2">" "</span><span class="o">)</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="s2">""</span><span class="o">)</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">mnem</span><span class="w"> </span><span class="bp">::</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">OPS</span><span class="bp">.</span><span class="n">find?</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="o">,</span><span class="w"> </span><span class="bp">_</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">mnem</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">           </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="bp">_</span><span class="o">,</span><span class="w"> </span><span class="n">info</span><span class="o">)</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">      </span><span class="k">match</span><span class="w"> </span><span class="n">info</span><span class="bp">.</span><span class="n">fmt</span><span class="w"> </span><span class="k">with</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="s2">"--"</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">combine</span><span class="w"> </span><span class="o">[</span><span class="n">info</span><span class="bp">.</span><span class="n">code</span><span class="o">])</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="s2">"r-"</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="k">with</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">r</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">parseReg</span><span class="w"> </span><span class="n">r</span><span class="o">)</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">combine</span><span class="w"> </span><span class="o">[</span><span class="n">r0</span><span class="o">,</span><span class="w"> </span><span class="n">info</span><span class="bp">.</span><span class="n">code</span><span class="o">]</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="s2">"rr"</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="k">with</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">r0s</span><span class="o">,</span><span class="w"> </span><span class="n">r1s</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">          </span><span class="k">match</span><span class="w"> </span><span class="n">parseReg</span><span class="w"> </span><span class="n">r0s</span><span class="o">,</span><span class="w"> </span><span class="n">parseReg</span><span class="w"> </span><span class="n">r1s</span><span class="w"> </span><span class="k">with</span>
+<span class="w">          </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">r0</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">combine</span><span class="w"> </span><span class="o">[</span><span class="n">r1</span><span class="o">,</span><span class="w"> </span><span class="n">r0</span><span class="o">,</span><span class="w"> </span><span class="n">info</span><span class="bp">.</span><span class="n">code</span><span class="o">])</span>
+<span class="w">          </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">       </span><span class="bp">_</span><span class="w">       </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="s2">"rv"</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="k">with</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="o">[</span><span class="n">r0s</span><span class="o">,</span><span class="w"> </span><span class="n">vs</span><span class="o">]</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">          </span><span class="k">match</span><span class="w"> </span><span class="n">parseReg</span><span class="w"> </span><span class="n">r0s</span><span class="o">,</span><span class="w"> </span><span class="n">parseVal</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="k">with</span>
+<span class="w">          </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">r0</span><span class="o">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="n">combine</span><span class="w"> </span><span class="o">[</span><span class="n">v</span><span class="o">,</span><span class="w"> </span><span class="n">r0</span><span class="o">,</span><span class="w"> </span><span class="n">info</span><span class="bp">.</span><span class="n">code</span><span class="o">])</span>
+<span class="w">          </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="o">,</span><span class="w">       </span><span class="bp">_</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">        </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="w">      </span><span class="bp">|</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">none</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Pattern-matching on <code>info.fmt</code> selects the right operand count and order</li>
+<li><code>"rr"</code> passes <code>[r1, r0, code]</code> to <code>combine</code> so <code>r1</code> lands in the high byte<ul>
+<li>Matches how <code>fetch</code> extracts <code>arg1</code> from bits 23–16</li>
+</ul>
+</li>
+<li>Returning <code>none</code> on any malformed token propagates cleanly through <code>assemble</code> via the <code>Option</code> monad</li>
+</ul>
+<h3>Assembling a Program</h3>
+<div data-inc="assembler.lean" data-mark="assemble"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/-- Assemble a list of source lines into an array of instruction words.</span>
+<span class="sd">    Strips blank lines and comments (lines beginning with #), resolves</span>
+<span class="sd">    labels, and compiles each remaining line. Returns none if any line</span>
+<span class="sd">    fails to compile. -/</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="o">(</span><span class="n">lines</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="o">(</span><span class="n">Array</span><span class="w"> </span><span class="n">UInt32</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">    </span><span class="n">lines</span>
+<span class="w">    </span><span class="bp">|&gt;.</span><span class="n">map</span><span class="w"> </span><span class="n">String</span><span class="bp">.</span><span class="n">trim</span>
+<span class="w">    </span><span class="bp">|&gt;.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">!=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="bp">&amp;&amp;</span><span class="w"> </span><span class="bp">!</span><span class="n">l</span><span class="bp">.</span><span class="n">startsWith</span><span class="w"> </span><span class="s2">"#"</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">findLabels</span><span class="w"> </span><span class="n">lines</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">instrs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">lines</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="bp">!</span><span class="n">l</span><span class="bp">.</span><span class="n">endsWith</span><span class="w"> </span><span class="s2">":"</span><span class="o">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">words</span><span class="w">  </span><span class="bp">←</span><span class="w"> </span><span class="n">instrs</span><span class="bp">.</span><span class="n">mapM</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">compileLine</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">labels</span><span class="o">)</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">words</span><span class="bp">.</span><span class="n">toArray</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>do</code> notation for <code>Option</code> lets <code>←</code> short-circuit on the first <code>none</code></li>
+<li><code>List.mapM</code> sequences <code>compileLine</code> over every instruction line,
+    collecting results into <code>Option (List UInt32)</code></li>
+<li><code>words.toArray</code> converts the result to an <code>Array</code> matching <code>VMState.ram</code>'s type</li>
+</ul>
+<div data-inc="assembler.lean" data-mark="asm-guards"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Single hlt instruction encodes to op code 1 in the low byte.</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="o">[</span><span class="s2">"hlt"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span>
+
+<span class="c1">-- ldc R0 42: code=2, reg=0, val=0x2A → (0x2A &lt;&lt; 16) | (0 &lt;&lt; 8) | 2</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="o">[</span><span class="s2">"ldc R0 42"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hlt"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x2A0002</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span>
+
+<span class="c1">-- Comments and blank lines are stripped before compilation.</span>
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="o">[</span><span class="s2">"# load then stop"</span><span class="o">,</span><span class="w"> </span><span class="s2">""</span><span class="o">,</span><span class="w"> </span><span class="s2">"ldc R0 1"</span><span class="o">,</span><span class="w"> </span><span class="s2">"hlt"</span><span class="o">]</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">0</span><span class="n">x010002</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="n">x000001</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<h2>End-to-End Example</h2>
+<ul>
+<li>This program counts from 0 to 2, printing each value:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">ldc</span><span class="w"> </span><span class="n">R0</span><span class="w"> </span><span class="mi">0</span><span class="w">      </span><span class="c1">-- R0 = loop index</span>
+<span class="n">ldc</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="mi">3</span><span class="w">      </span><span class="c1">-- R1 = loop limit</span>
+<span class="nl">loop</span><span class="p">:</span>
+<span class="n">prr</span><span class="w"> </span><span class="n">R0</span><span class="w">        </span><span class="c1">-- print index</span>
+<span class="n">ldc</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="mi">1</span><span class="w">      </span><span class="c1">-- R2 = 1 (needed because add is register-to-register)</span>
+<span class="k">add</span><span class="w"> </span><span class="n">R0</span><span class="w"> </span><span class="n">R2</span><span class="w">     </span><span class="c1">-- R0 += 1</span>
+<span class="n">cpy</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="n">R1</span><span class="w">     </span><span class="c1">-- R2 = limit (sub overwrites its first operand)</span>
+<span class="n">sub</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="n">R0</span><span class="w">     </span><span class="c1">-- R2 = limit - index</span>
+<span class="n">bne</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="nv">@loop</span><span class="w">  </span><span class="c1">-- repeat while R2 != 0</span>
+<span class="n">hlt</span>
+</code></pre></div>
+<ul>
+<li>The assembler resolves <code>@loop</code> to address 2<ul>
+<li>The address of <code>prr R0</code> after labels are removed</li>
+</ul>
+</li>
+<li><code>run 100</code> provides enough fuel for nine iterations of the inner logic:</li>
+</ul>
+<div data-inc="assembler.lean" data-mark="integration"><span aria-label="Source: vm/assembler.lean" class="inc-path" role="img" tabindex="0" title="vm/assembler.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Assemble and run the count-up program: print 0, 1, 2 then halt.</span>
+<span class="bp">#</span><span class="n">guard</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="s2">"ldc R0 0"</span><span class="o">,</span><span class="w">     </span><span class="c1">-- R0 = loop index, starting at 0</span>
+<span class="w">    </span><span class="s2">"ldc R1 3"</span><span class="o">,</span><span class="w">     </span><span class="c1">-- R1 = loop limit</span>
+<span class="w">    </span><span class="s2">"loop:"</span><span class="o">,</span>
+<span class="w">    </span><span class="s2">"prr R0"</span><span class="o">,</span><span class="w">       </span><span class="c1">-- print current index</span>
+<span class="w">    </span><span class="s2">"ldc R2 1"</span><span class="o">,</span><span class="w">     </span><span class="c1">-- R2 = 1  (register-to-register add requires a register)</span>
+<span class="w">    </span><span class="s2">"add R0 R2"</span><span class="o">,</span><span class="w">    </span><span class="c1">-- R0 += 1</span>
+<span class="w">    </span><span class="s2">"cpy R2 R1"</span><span class="o">,</span><span class="w">    </span><span class="c1">-- R2 = R1 (copy limit; sub destroys its first operand)</span>
+<span class="w">    </span><span class="s2">"sub R2 R0"</span><span class="o">,</span><span class="w">    </span><span class="c1">-- R2 = limit - index</span>
+<span class="w">    </span><span class="s2">"bne R2 @loop"</span><span class="o">,</span><span class="w"> </span><span class="c1">-- loop while R2 != 0</span>
+<span class="w">    </span><span class="s2">"hlt"</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">      </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">prog</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">VMState</span><span class="bp">.</span><span class="n">init</span><span class="w"> </span><span class="n">prog</span><span class="w"> </span><span class="k">with</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">none</span><span class="w">   </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">false</span>
+<span class="w">    </span><span class="bp">|</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="o">(</span><span class="n">run</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="n">s</span><span class="o">)</span><span class="bp">.</span><span class="n">output</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="o">[</span><span class="s2">"0"</span><span class="o">,</span><span class="w"> </span><span class="s2">"1"</span><span class="o">,</span><span class="w"> </span><span class="s2">"2"</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<div class="exercise">
+<h2>Exercises</h2>
+<h3>Trace by Hand (10 min)</h3>
+<p>Write out the values of R0, R1, and R2 after each instruction in the first two
+iterations of the count-up loop above.  At which step does <code>bne</code> decide not to jump?</p>
+<h3>Swap Two Registers (20 min)</h3>
+<p>Write an assembly program that swaps the values of R1 and R2 without changing R0 or R3.
+You will need a temporary register.  Encode the program as a <code>#guard</code> that checks the
+final register state.</p>
+<h3>Increment and Decrement (20 min)</h3>
+<p>Add <code>OP_INC</code> and <code>OP_DEC</code> constants to <code>architecture.lean</code> with codes <code>0xC</code> and <code>0xD</code>.
+Add matching branches to <code>VMState.step</code> in <code>machine.lean</code> (format <code>"r-"</code>, one register).
+Add entries to <code>OPS</code> in <code>assembler.lean</code>.  Rewrite the count-up example using <code>inc</code>
+instead of <code>ldc R2 1; add R0 R2</code>.</p>
+<h3>Disassembler (30 min)</h3>
+<p>Write a function <code>disassemble (prog : Array UInt32) : List String</code> that turns each
+packed word back into a mnemonic string such as <code>"ldc R0 42"</code>.
+Since labels are not stored in the machine code, generate synthetic names <code>L000</code>, <code>L001</code>,
+… for any address that appears as the target of a <code>beq</code> or <code>bne</code> instruction.</p>
+<h3>Store and Load an Array (30 min)</h3>
+<p>Write an assembly program (as a Lean string list) that stores the values 0–3 into
+consecutive memory locations starting at address 20, then reads them back and prints each one.
+Verify with a <code>#guard</code> that <code>output == ["0", "1", "2", "3"]</code>.</p>
+<h3>Call and Return (45 min)</h3>
+<p>Add a stack pointer register SP initialized to address 255.
+Add <code>psh</code> (push: write <code>reg[arg0]</code> to <code>ram[SP]</code> then decrement SP) and
+<code>pop</code> (increment SP then read <code>ram[SP]</code> into <code>reg[arg0]</code>).
+Using these instructions, write a subroutine that doubles the value in R0,
+called twice with different inputs, and verify with <code>#guard</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../des">Discrete Event Simulation</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

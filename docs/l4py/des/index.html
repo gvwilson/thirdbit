@@ -34,6 +34,7 @@
 <li><a href="../advanced/">Type Classes</a></li>
 <li><a href="../tools/">Tools</a></li>
 <li><a class="active" href="../des/">Discrete Event Simulation</a></li>
+<li><a href="../vm/">A Virtual Machine</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -373,8 +374,8 @@
 <span class="w">      </span><span class="n">numProducers</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">sP</span><span class="bp">.</span><span class="n">toNat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span>
 <span class="w">      </span><span class="n">numConsumers</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">sC</span><span class="bp">.</span><span class="n">toNat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span>
 <span class="w">      </span><span class="n">capacity</span><span class="w">     </span><span class="o">:=</span><span class="w"> </span><span class="n">sN</span><span class="bp">.</span><span class="n">toNat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span>
-<span class="w">      </span><span class="n">lambdaP</span><span class="w">      </span><span class="o">:=</span><span class="w"> </span><span class="n">sLp</span><span class="bp">.</span><span class="n">toFloat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mf">1.0</span><span class="o">,</span>
-<span class="w">      </span><span class="n">lambdaC</span><span class="w">      </span><span class="o">:=</span><span class="w"> </span><span class="n">sLc</span><span class="bp">.</span><span class="n">toFloat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mf">1.0</span><span class="o">,</span>
+<span class="w">      </span><span class="n">lambdaP</span><span class="w">      </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">parseFloat?</span><span class="w"> </span><span class="n">sLp</span><span class="o">)</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mf">1.0</span><span class="o">,</span>
+<span class="w">      </span><span class="n">lambdaC</span><span class="w">      </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="n">parseFloat?</span><span class="w"> </span><span class="n">sLc</span><span class="o">)</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mf">1.0</span><span class="o">,</span>
 <span class="w">      </span><span class="n">seed</span><span class="w">         </span><span class="o">:=</span><span class="w"> </span><span class="n">sSeed</span><span class="bp">.</span><span class="n">toNat?</span><span class="bp">.</span><span class="n">getD</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="w">    </span><span class="n">printResults</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">(</span><span class="n">runSim</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">numEvents</span><span class="o">)</span><span class="w"> </span><span class="n">numEvents</span>
@@ -1383,7 +1384,7 @@ simulation time  : 1342.125916
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+<a href="../vm">A Virtual Machine</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
