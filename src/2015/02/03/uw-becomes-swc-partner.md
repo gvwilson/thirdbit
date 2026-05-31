@@ -1,6 +1,7 @@
 ---
 title: "University of Washington Becomes Software Carpentry Partner"
 date: 2015-02-03
+category: research software education
 original: swc
 ---
 <p>

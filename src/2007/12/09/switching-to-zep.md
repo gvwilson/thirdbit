@@ -1,6 +1,7 @@
 ---
 title: "Switching to Zep"
 date: 2007-12-09
+category: writing research software
 ---
 My rant for <a href="http://cise.aip.org/"><em>Computing in Science and Engineering</em></a> is finished; I've rewritten a key paragraph of the grant proposal that's due on Friday (though it's going to take most of tomorrow to re-synch the rest), and most of the changes "requested" by the publisher of my next children's book have been made (though I'm left wondering where the story has gone—I mean, if the villain isn't allowed to call his monster dogs "stupid, lazy, brutes" because someone's feelings might be hurt by the word "stupid", it's no wonder kids would rather play videogames). I should dig into the pile of CSC301 re-mark requests lurking next to my lunch, but instead I have cranked up some early Zepplin while I search for a general "what's new and cool in CS research" blog. No luck so far, but I have found this:
 <ul>

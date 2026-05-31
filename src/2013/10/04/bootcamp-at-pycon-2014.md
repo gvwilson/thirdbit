@@ -1,6 +1,7 @@
 ---
 title: "Our Biggest Bootcamp Ever at PyCon 2014"
 date: 2013-10-04
+category: community software education
 original: swc
 ---
 <p>

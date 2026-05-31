@@ -1,6 +1,7 @@
 ---
 title: "Structured Online Laboratory Notebooks"
 date: 2007-01-18
+category: software research writing
 ---
 I spent some time last week with a group of medical imaging researchers who manage their work with Excel.  They explained that it's almost ideal for their needs, since they can use cells to organize their experimental results, diagrams, code snippets, and whatever else they like in whatever free-form manner best suits the problem at hand.  Unlike a web browser, Excel can do simple calculations and re-draw their charts; unlike a database, they can merge cells to create irregular structures if that's what the problem calls for.
 

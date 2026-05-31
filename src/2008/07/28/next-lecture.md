@@ -1,6 +1,7 @@
 ---
 title: "Next Lecture?"
 date: 2008-07-28
+category: software education
 ---
 The Software Carpentry course currently contains the following lectures:
 <ol>

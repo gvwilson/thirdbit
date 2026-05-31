@@ -1,5 +1,6 @@
 ---
 date: 2012-06-25
+category: education
 original: swc
 title: If You Want to Teach, Isn't It Only Fair to Learn a Few Things First?
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2011-03-16
+category: software education research
 original: swc
 title: Graph Layout, Models vs. Views, and Computational Thinking
 ---

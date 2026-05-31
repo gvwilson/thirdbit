@@ -1,6 +1,7 @@
 ---
 title: "Wanted: A Workable Lesson Competition"
 date: 2017-12-30
+category: software education community
 ---
 
 I have sometimes quipped that we'll know our work is done

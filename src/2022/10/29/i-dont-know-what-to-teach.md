@@ -1,6 +1,7 @@
 ---
 title: "I Don't Know What to Teach"
 date: 2022-10-29
+category: education software research
 ---
 
 I've been working with biologists and bioinformaticians for a year now,

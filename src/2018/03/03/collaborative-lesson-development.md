@@ -1,6 +1,7 @@
 ---
 title: "Collaborative Lesson Development"
 date: 2018-03-03
+category: education research community
 ---
 
 William Gibson once said that our children would find it quaint that

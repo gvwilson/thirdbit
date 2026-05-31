@@ -1,6 +1,7 @@
 ---
 title: "Open Instructor Training"
 date: 2016-11-19
+category: education software research
 original: swc
 ---
 

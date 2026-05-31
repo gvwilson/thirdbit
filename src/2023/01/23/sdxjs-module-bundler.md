@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 17: Module Bundler"
 date: 2023-01-23
+category: software
 ---
 
 JavaScript was designed in a hurry to make web pages interactive.
@@ -61,7 +62,7 @@ while it is now more than 20 years old,
 it taught me things I'd never known enough to even wonder about.
 
 <figure id="module-bundler-bundling" class="center">
-  <img src="@root/sdxjs/module-bundler/bundling.svg" alt="Bundling modules" class="centered">
+  <img src="@root/sdxjs/bundler/bundling.svg" alt="Bundling modules" class="centered">
   <figcaption>Figure 17.1: Combining multiple modules into one.</figcaption>
 </figure>
 
@@ -70,4 +71,4 @@ it taught me things I'd never known enough to even wonder about.
 [annotated_turing]: http://www.theannotatedturing.com/
 [linkers_loaders]: https://www.elsevier.com/books/linkers-and-loaders/levine/978-0-08-051031-6
 [sdxjs]: @root/sdxjs/
-[sdxjs_bundler]: @root/sdxjs/module-bundler/
+[sdxjs_bundler]: @root/sdxjs/bundler/

@@ -1,6 +1,7 @@
 ---
 title: "Comes Round Again"
 date: 2021-12-31
+category: writing software research
 ---
 
 Another year over; what have I learned?

@@ -1,6 +1,7 @@
 ---
 title: "Browsercast Revisited"
 date: 2024-10-12
+category: software
 ---
 
 Shakespeare wrote sonnets;

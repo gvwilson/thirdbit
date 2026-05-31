@@ -1,6 +1,7 @@
 ---
 title: "DrProject Internals: Setting the Stage"
 date: 2006-10-23
+category: writing
 ---
 Over the past 18 months, students here at the <a href="http://www.cs.toronto.edu">University of Toronto</a> have modified and enhanced an open source system called <a href="http://trac.edgewall.com">Trac</a> to create DrProject, a classroom-friendly software project management portal that addresses the unique needs of undergraduate programming teams.  With Version 1.2 of DrProject just a few days away, I thought it would be a good time to describe its current architecture, and how it got to be the way it is.
 

@@ -1,6 +1,7 @@
 ---
 title: "Hey! I Wasn't Done Yet!"
 date: 2023-01-07
+category: software
 ---
 
 <figure class="center">

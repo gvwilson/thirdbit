@@ -1,6 +1,7 @@
 ---
 title: Searching for Closure
 date: 2025-09-12
+category: research writing society
 ---
 
 For every beginning there must be an ending,

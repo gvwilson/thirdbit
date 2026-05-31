@@ -1,5 +1,6 @@
 ---
 date: 2010-07-15
+category: software education
 original: swc
 title: Survey Results
 ---

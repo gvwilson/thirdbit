@@ -1,5 +1,6 @@
 ---
 date: 2018-12-06
+category: software research education
 title: "Analyze That! Very Preliminary Results"
 ---
 

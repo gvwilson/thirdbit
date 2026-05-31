@@ -1,6 +1,7 @@
 ---
 title: "How to Write a Technical Book"
 date: 2022-06-19
+category: writing software
 ---
 
 I have written three technical books

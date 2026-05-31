@@ -1,6 +1,7 @@
 ---
 title: "Dead Last"
 date: 2021-01-26
+category: software education research
 ---
 
 > M-A Storey, T Zimmermann, C Bird, J Czerwonka, B Murphy, and E Kalliamvakou:

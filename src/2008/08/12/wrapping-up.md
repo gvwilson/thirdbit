@@ -1,6 +1,7 @@
 ---
 title: "Wrapping Up"
 date: 2008-08-12
+category: community software education
 ---
 The summer is coming to an end, so students are posting screencasts:
 <ul>

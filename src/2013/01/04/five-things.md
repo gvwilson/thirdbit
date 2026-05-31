@@ -1,6 +1,7 @@
 ---
 title: "Five Things"
 date: 2013-01-04
+category: software
 ---
 <p>Inspired (as always) by <a href="http://www.geekymomblog.com/2013/01/04/friday-five/">Geeky Mom</a>, here are:</p>
 <p><em>Five things I'm thankful for this week:</em></p>

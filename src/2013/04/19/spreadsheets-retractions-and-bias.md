@@ -1,6 +1,7 @@
 ---
 title: Spreadsheets, Retractions, and Bias
 date: 2013-04-19
+category: writing society
 original: swc
 ---
 <p>Just in case there's any misunderstanding:</p>

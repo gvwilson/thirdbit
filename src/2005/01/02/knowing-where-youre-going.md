@@ -1,6 +1,7 @@
 ---
 title: "Knowing Where You're Going"
 date: 2005-01-02
+category: software community
 ---
 One of the hardest things in any project is to figure out exactly
 what you're trying to accomplish.  This template is intended to help

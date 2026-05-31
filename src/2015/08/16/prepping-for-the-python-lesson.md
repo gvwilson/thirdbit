@@ -1,6 +1,7 @@
 ---
 title: "Prepping for the Python Lesson"
 date: 2015-08-16
+category: education software research
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Remembrance"
 date: 2019-12-06
+category: personal
 ---
 
 Thirty years on,

@@ -1,6 +1,7 @@
 ---
 title: "Count 'Em"
 date: 2007-12-16
+category: software writing personal
 ---
 The solstice is approaching, so it's time to count 'em. Do you remember how it felt the first time you:
 <ul>

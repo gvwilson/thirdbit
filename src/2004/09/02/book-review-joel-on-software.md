@@ -1,6 +1,7 @@
 ---
 title: "Book Review: Joel on Software"
 date: 2004-09-02
+category: software writing education
 ---
 Joel Spolsky: Joel on Software.  APress, 2004, 1590593898, 362
 pages.

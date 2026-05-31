@@ -1,6 +1,7 @@
 ---
 title: "An Unexpected Result"
 date: 2008-03-28
+category: software education community
 ---
 This term, the students in my third-year software engineering course have been working in teams to build a shared to-do list plugin for <a href="http://www.facebook.com">Facebook</a>.  Each of the six teams has worked independently (well, as independently as students ever work) for the first three exercises.  For the fourth, each team conducted a review of every other team's code to decide which one they would continue with for the final exercise.  They <em>had</em> to switch: teams were not allowed to continue with their own code.
 

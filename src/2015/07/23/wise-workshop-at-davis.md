@@ -1,6 +1,7 @@
 ---
 title: "WiSE Workshop at UC Davis Aug 17-18"
 date: 2015-07-23
+category: education software research
 original: swc
 ---
 <p>

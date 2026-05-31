@@ -1,6 +1,7 @@
 ---
 title: "Ten Simple Rules for Digital Data Storage"
 date: 2015-10-23
+category: software education research
 original: swc
 ---
 <p>

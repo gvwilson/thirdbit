@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 18: A Database"
 date: 2024-04-18
+category: software education writing
 ---
 
 <blockquote>

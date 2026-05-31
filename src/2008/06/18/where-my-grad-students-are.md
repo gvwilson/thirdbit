@@ -1,6 +1,7 @@
 ---
 title: "Where My Grad Students Are"
 date: 2008-06-18
+category: education research software
 ---
 I've been blogging about undergrad projects pretty regularly, but not about the progress my graduate students have been making.  In brief:
 <ul>

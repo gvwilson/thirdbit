@@ -1,6 +1,7 @@
 ---
 title: Discrete Events
 date: 2025-12-30
+category: software education writing
 ---
 
 My work log tells me I've spent 54 hours since mid-November

@@ -1,6 +1,7 @@
 ---
 title: "How to Teach Programming (And Other Things)"
 date: 2017-05-31
+category: education software community
 ---
 
 > A new edition of this book is now available at <http://teachtogether.tech>.

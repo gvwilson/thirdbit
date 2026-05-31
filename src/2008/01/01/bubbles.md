@@ -1,6 +1,7 @@
 ---
 title: "Bubbles"
 date: 2008-01-01
+category: writing software education
 ---
 I should be writing a lecture on ethics and professional responsibility for CSC301, or catching up on book reviews, or plowing through some of the 80+ papers that have piled up on my desk. But it's New Year's Day, and my family is napping, so what better time to dream about what I'd do if I had some spare cycles? Why not spend some time doodling and musing about the video game I'd write if I was young and reckless and could stand to listen to the thumpa-thumpa noise kids call "music" these days.
 

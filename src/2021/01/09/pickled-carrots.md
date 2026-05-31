@@ -1,6 +1,7 @@
 ---
 title: "Pickled Carrots"
 date: 2021-01-09
+category: writing
 ---
 
 By popular request,

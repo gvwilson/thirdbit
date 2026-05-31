@@ -1,6 +1,7 @@
 ---
 title: "Research-Based Course Design"
 date: 2015-06-21
+category: education research software
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 13: Module Loader"
 date: 2023-01-17
+category: software education writing
 ---
 
 The [previous chapter][sdxjs_interpolator] showed how to use `eval` to load code dynamically.
@@ -23,13 +24,13 @@ which contains a lot of other useful information as well.
 <div class="row">
   <div class="col-6">
     <figure id="module-loader-iife-a" class="center">
-      <img src="@root/sdxjs/module-loader/iife-a.svg" alt="Implementing modules with IIFEs (part 1)" class="centered">
+      <img src="@root/sdxjs/loader/iife-a.svg" alt="Implementing modules with IIFEs (part 1)" class="centered">
       <figcaption>Figure 13.2: Using IIFEs to encapsulate modules and get their exports (part 1).</figcaption>
     </figure>
   </div>
   <div class="col-6">
     <figure id="module-loader-iife-b" class="center">
-      <img src="@root/sdxjs/module-loader/iife-b.svg" alt="Implementing modules with IIFEs (part 2)" class="centered">
+      <img src="@root/sdxjs/loader/iife-b.svg" alt="Implementing modules with IIFEs (part 2)" class="centered">
       <figcaption>Figure 13.3: Using IIFEs to encapsulate modules and get their exports (part 2).</figcaption>
     </figure>
   </div>
@@ -39,5 +40,5 @@ which contains a lot of other useful information as well.
 
 [node_patterns]: https://www.packtpub.com/product/nodejs-design-patterns-third-edition/9781839214110
 [sdxjs]: @root/sdxjs/
-[sdxjs_interpolator]: @root/sdxjs/file-interpolator/
-[sdxjs_loader]: @root/sdxjs/module-loader/
+[sdxjs_interpolator]: @root/sdxjs/interp/
+[sdxjs_loader]: @root/sdxjs/loader/

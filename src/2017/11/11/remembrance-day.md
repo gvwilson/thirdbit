@@ -1,6 +1,7 @@
 ---
 title: "Remembrance Day"
 date: 2017-11-11
+category: personal
 ---
 
 Today is November 11th.

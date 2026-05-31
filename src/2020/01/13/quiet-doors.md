@@ -1,6 +1,7 @@
 ---
 title: "The Doors Are Quiet Now"
 date: 2020-01-13
+category: software community personal
 ---
 
 The cupboard doors in my mum's kitchen always rattled when I opened them.

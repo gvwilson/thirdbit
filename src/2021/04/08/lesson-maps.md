@@ -1,6 +1,7 @@
 ---
 title: "Lesson Maps"
 date: 2021-04-08
+category: software education
 ---
 
 One of the silver linings of unemployment is that

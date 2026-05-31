@@ -1,5 +1,6 @@
 ---
 date: 2011-09-22
+category: software
 original: swc
 title: Plus Ca Change…
 ---

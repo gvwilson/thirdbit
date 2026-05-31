@@ -1,6 +1,7 @@
 ---
 title: "Happy Birthday, Maddie"
 date: 2023-03-31
+category: personal software
 ---
 
 Our daughter turned 16 today.

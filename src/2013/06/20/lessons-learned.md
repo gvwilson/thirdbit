@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry: Lessons Learned"
 date: 2013-06-20
+category: education software research
 original: swc
 ---
 <p>With contributions from:</p>

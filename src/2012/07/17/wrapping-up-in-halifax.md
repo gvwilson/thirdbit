@@ -1,5 +1,6 @@
 ---
 date: 2012-07-17
+category: education
 original: swc
 title: Wrapping Up in Halifax
 ---

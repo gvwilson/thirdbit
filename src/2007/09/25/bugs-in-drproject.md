@@ -1,6 +1,7 @@
 ---
 title: "Bugs in DrProject"
 date: 2007-09-25
+category: software
 ---
 DrProject 2.0 has been in use for almost a month now, and we've tripped over some ugly bugs.  The worst one isn't our fault: we've discovered that Firefox sometimes sends two identical HTTP requests to the server when a link or button is clicked once, so that two identical transactions are launched just milliseconds apart.  We're going to deal with it (for now) by simply ignoring the database exception thrown by the second transaction, but apparently <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=316731#c6">we're</a> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=370868#c1">not</a> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=384364">the</a> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=61363">first</a> to trip over this.  (Thanks to <a href="http://cs.senecac.on.ca/~david.humphrey/">David Humphrey</a> for the pointers.) Shawn K. tells me the same thing has been seen in IE; how do other people cope with it?
 

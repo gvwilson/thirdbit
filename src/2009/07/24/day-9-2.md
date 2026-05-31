@@ -1,5 +1,6 @@
 ---
 date: 2009-07-24
+category: software education
 original: swc
 title: Day 9
 ---

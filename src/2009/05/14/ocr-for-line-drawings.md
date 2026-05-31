@@ -1,6 +1,7 @@
 ---
 title: "OCR for Line Drawings?"
 date: 2009-05-14
+category: software writing
 ---
 MIT Press has kindly given me permission to put my first book, <a href="http://mitpress.mit.edu/catalog/item/default.asp?ttype=2&amp;tid=8185"><em>Practical Parallel Programming</em></a>, up on the web.   Many of the specifics are out of date, but I think (at least, I hope) much of the discussion is still useful.
 

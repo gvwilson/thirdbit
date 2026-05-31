@@ -1,5 +1,6 @@
 ---
 date: 2010-12-21
+category: community
 original: swc
 title: Compute Canada's 'Strategic' Plan Isn't
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Career Planning"
 date: 2023-10-30
+category: software
 ---
 
 Now that [performance reviews][reviews] are in,

@@ -1,6 +1,7 @@
 ---
 title: "The Discussion Book"
 date: 2016-09-10
+category: education community writing
 original: swc
 ---
 

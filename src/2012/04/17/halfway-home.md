@@ -1,5 +1,6 @@
 ---
 date: 2012-04-17
+category: education
 original: swc
 title: Halfway Home
 ---

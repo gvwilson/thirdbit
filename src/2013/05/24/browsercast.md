@@ -1,6 +1,7 @@
 ---
 title: Browsercast
 date: 2013-05-24
+category: software writing
 original: swc
 ---
 <p>

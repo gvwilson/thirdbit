@@ -1,6 +1,7 @@
 ---
 title: "Why Open Access?"
 date: 2013-08-25
+category: education software research
 ---
 <p>
   Mark Guzdial's group at Georgia Tech does world-class work on how to teach programming:

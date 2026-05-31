@@ -1,5 +1,6 @@
 ---
 date: 2012-05-15
+category: education writing
 original: swc
 title: Fooling the Internet
 ---

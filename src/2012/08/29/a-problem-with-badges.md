@@ -1,5 +1,6 @@
 ---
 date: 2012-08-29
+category: education software
 original: swc
 title: A Problem With Badges
 ---

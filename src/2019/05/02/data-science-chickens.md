@@ -1,5 +1,6 @@
 ---
 date: 2019-05-02
+category: research software community
 title: "Sexing Data Science Chickens"
 ---
 

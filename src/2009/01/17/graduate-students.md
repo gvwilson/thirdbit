@@ -1,6 +1,7 @@
 ---
 title: "Graduate Students"
 date: 2009-01-17
+category: education research software
 ---
 Along with students doing course-sized consulting projects, I have a metric passle of graduate students who are starting to converge on thesis topics:
 <ul>

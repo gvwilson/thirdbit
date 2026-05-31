@@ -1,6 +1,7 @@
 ---
 title: "How I Explain Code"
 date: 2024-09-06
+category: software
 ---
 
 I recently built a very small static site generator because…

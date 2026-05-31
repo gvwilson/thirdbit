@@ -1,6 +1,7 @@
 ---
 title: Using the IPython Notebook as a Teaching Tool
 date: 2013-03-24
+category: software education writing
 original: swc
 ---
 <p>I had a fruitful discussion with Jon Pipitone today about using the IPython Notebook for teaching. Long story short, there are several possible approaches, but we can see problems with each. To set the stage, here are the two "pure" models most widely used for teaching programming today:</p>

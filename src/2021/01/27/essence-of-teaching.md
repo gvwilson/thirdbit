@@ -1,6 +1,7 @@
 ---
 title: "The Essence of Teaching"
 date: 2021-01-27
+category: education writing software
 ---
 
 David Rozenshtein's *[The Essence of SQL](https://www.worldcat.org/title/essence-of-sql-a-guide-to-learning-the-most-sql-in-the-least-amount-of-time/oclc/1024095343)*

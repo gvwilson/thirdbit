@@ -1,6 +1,7 @@
 ---
 title: "Numerical JavaScript"
 date: 2017-05-22
+category: software writing
 ---
 
 I have a terrible record when it comes to making predictions,

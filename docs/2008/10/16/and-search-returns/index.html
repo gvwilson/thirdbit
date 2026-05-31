@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -62,6 +61,14 @@
 <p>Should it be a set of URLs?  I need those eventually if I&rsquo;m building a web page to display the results, but that feels like mixing two levels—my instinct is that I should be returning &ldquo;things&rdquo; that are then converted to URLs.  (For example, if I&rsquo;m running a command-line admin tool on the desktop, I probably don&rsquo;t want URLs coming out of my search function…)</p>
 <p>What about returning a set of pairs, where each pair is [type-of-thing, thing-id], e.g., [&ldquo;wiki&rdquo;, &ldquo;Authors&rdquo;] or [&ldquo;ticket&rdquo;, 127]?  That feels wrong because it will force all the client code (e.g., the stuff that creates URLs for HTML pages, and the command-line admin tool) to do a type-switch in order to fetch and process the actual items.</p>
 <p>OK, so what about defining an abstract base class called &lsquo;SearchResult&rsquo;, then require each component of DrProject to subclass it, so that we have &lsquo;TicketSearchResult&rsquo;, &lsquo;WikiSearchResult&rsquo;, and so on?  These classes could provide &lsquo;getItem()&rsquo; methods to fetch the content that matches, &lsquo;toUrl(baseUrl)&rsquo; methods to create links, and so on.  That feels like a better fit than either of the previous ideas, but I&rsquo;m still dissatisfied.  Is there a cleaner way to do this that I just don&rsquo;t know about?  If so, I&rsquo;d welcome a pointer…</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

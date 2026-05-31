@@ -1,6 +1,7 @@
 ---
 title: "Selling Hope"
 date: 2015-05-02
+category: research
 ---
 <p>
   Last summer,

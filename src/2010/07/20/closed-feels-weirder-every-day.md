@@ -1,6 +1,7 @@
 ---
 title: "Closed Feels Weirder Every Day"
 date: 2010-07-20
+category: software education community
 ---
 By now, most readers of this blog will have heard about Google's <a href="http://appinventor.googlelabs.com/about/">App Inventor</a> for Android, a building-blocks programming system based on MIT's <a href="http://education.mit.edu/drupal/openblocks">OpenBlocks</a> that's intended to let gazillions of people who aren't programmers build the apps they want themselves. What most people probably don't know is that <a href="http://groups.google.com/group/appinventor/browse_thread/thread/a30a2b4dbc1b4708/e3d03544c3ed579a?lnk=gst&amp;q=license&amp;pli=1">App Inventor is closed source</a>: according to Google's Sharon Perl, Google's modifications to OpenBlocks "…are not currently available as open source."
 

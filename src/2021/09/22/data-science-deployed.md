@@ -1,6 +1,7 @@
 ---
 title: "Data Science Deployed"
 date: 2021-09-22
+category: research
 ---
 
 The good folks at Data Science Deployed gave me a chance this morning to talk about what I think the real challenges in data science are:

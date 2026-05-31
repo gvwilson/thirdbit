@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 19: Virtual Machine"
 date: 2023-01-25
+category: software writing
 ---
 
 To explain how languages like JavaScript actually work,
@@ -35,7 +36,7 @@ Bob Nystrom's [*Crafting Interpreters*][crafting] is free to read online
 and one of the most beautifully crafted books on computing I've ever seen.
 
 <figure id="virtual-machine-architecture" class="center">
-  <img src="@root/sdxjs/virtual-machine/architecture.svg" alt="Virtual machine architecture" class="centered">
+  <img src="@root/sdxjs/vm/architecture.svg" alt="Virtual machine architecture" class="centered">
   <figcaption>Figure 19.1: Architecture of the virtual machine.</figcaption>
 </figure>
 
@@ -44,5 +45,5 @@ and one of the most beautifully crafted books on computing I've ever seen.
 [crafting]: https://craftinginterpreters.com/
 [hmr]: https://tomorrowcorporation.com/humanresourcemachine
 [sdxjs]: @root/sdxjs/
-[sdxjs_vm]: @root/sdxjs/virtual-machine/
+[sdxjs_vm]: @root/sdxjs/vm/
 [spoons]: https://en.wikipedia.org/wiki/Spoon_theory

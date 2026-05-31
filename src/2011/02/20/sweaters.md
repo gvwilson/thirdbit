@@ -1,6 +1,7 @@
 ---
 title: "Sweaters"
 date: 2011-02-20
+category: personal
 ---
 I've only owned one store-bought sweater in my life; all the rest have been made for me, mostly by my mum. Her arthritis won't let her knit any more, but I took pictures today of the ten I still have. They smell like Scotland, and Toronto in winter, and like home–always, like home.
 

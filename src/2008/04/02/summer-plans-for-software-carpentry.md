@@ -1,6 +1,7 @@
 ---
 title: "Summer Plans for Software Carpentry"
 date: 2008-04-02
+category: software education
 ---
 The Software Carpentry site is still getting a lot of traffic, despite my neglect:
 

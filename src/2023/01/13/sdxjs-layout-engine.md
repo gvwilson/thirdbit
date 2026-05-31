@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 11: Layout Engine"
 date: 2023-01-13
+category: software writing
 ---
 
 You might be reading this as an HTML page,
@@ -20,7 +21,7 @@ and I've learned a lot from [its chapter on page layout][browser_layout]
 that I hope will make the Python version of this chapter clearer.
 
 <figure id="layout-engine-layout" class="center">
-  <img src="@root/sdxjs/layout-engine/layout.svg" alt="Laying out rows and columns" class="centered">
+  <img src="@root/sdxjs/layout/layout.svg" alt="Laying out rows and columns" class="centered">
   <figcaption>Figure 11.3: Laying out rows and columns of fixed-size blocks.</figcaption>
 </figure>
 
@@ -29,4 +30,4 @@ that I hope will make the Python version of this chapter clearer.
 [browser]: https://browser.engineering/
 [browser_layout]: https://browser.engineering/layout.html
 [sdxjs]: @root/sdxjs/
-[sdxjs_layout]: @root/sdxjs/layout-engine/
+[sdxjs_layout]: @root/sdxjs/layout/

@@ -1,5 +1,6 @@
 ---
 date: 2009-08-23
+category: software education
 original: swc
 title: The Delight Is In The Details, Too
 ---

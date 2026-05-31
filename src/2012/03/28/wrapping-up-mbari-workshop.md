@@ -1,5 +1,6 @@
 ---
 date: 2012-03-28
+category: education
 original: swc
 title: Wrapping Up MBARI Workshop
 ---

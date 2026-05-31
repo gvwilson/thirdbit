@@ -1,6 +1,7 @@
 ---
 title: Time Spent on Hardening
 date: 2025-09-18
+category: software research writing
 ---
 
 I recently received mail from someone working on a software-based approach to fault tolerance.
@@ -83,4 +84,4 @@ we still don't know fairly basic things about software development.
 this post made the #8 spot on Hacker News.
 It must have been a slow day…
 
-![Hacker News](@/files/2025/hacker-news-hardening.png)
+![Hacker News](@root/files/2025/hacker-news-hardening.png)

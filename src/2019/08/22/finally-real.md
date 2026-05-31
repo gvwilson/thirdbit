@@ -1,6 +1,7 @@
 ---
 title: "Finally Real"
 date: 2019-08-22
+category: education research software
 ---
 
 For the last twenty years I've kept a list of books and projects that I didn't think I would ever get around to doing.

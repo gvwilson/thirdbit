@@ -1,5 +1,6 @@
 ---
 date: 2009-11-24
+category: education software
 original: swc
 title: Tutorials Start This Week
 ---

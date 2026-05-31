@@ -1,5 +1,6 @@
 ---
 date: 2011-09-05
+category: research software education
 original: swc
 title: Where is the Puck Going to Be?
 ---

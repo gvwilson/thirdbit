@@ -1,6 +1,7 @@
 ---
 title: "Dev Ed Book Club"
 date: 2022-06-20
+category: education writing
 ---
 
 Flattered and grateful that the Dev Ed Book Club has chosen

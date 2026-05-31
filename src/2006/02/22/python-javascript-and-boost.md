@@ -1,6 +1,7 @@
 ---
 title: "Python, JavaScript, and Boost"
 date: 2006-02-22
+category: software
 ---
 <p>A few days ago, Brendan Eich wrote a <a href="http://weblogs.mozillazine.org/roadmap/archives/2006/02/js_and_python_news.html">thoughtful
 post</a> on incorporating a few ideas from Python into JS 2.0

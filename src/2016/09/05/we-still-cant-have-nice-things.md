@@ -1,6 +1,7 @@
 ---
 title: "We Still Can't Have Nice Things Together"
 date: 2016-09-05
+category: software education writing
 original: swc
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Wanted: A Notation for 'Why'"
 date: 2020-07-30
+category: software personal
 ---
 
 We've been working on the next version of TidyBlocks,

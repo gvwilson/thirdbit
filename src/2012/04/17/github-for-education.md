@@ -1,5 +1,6 @@
 ---
 date: 2012-04-17
+category: software education community
 original: swc
 title: GitHub for Education
 ---

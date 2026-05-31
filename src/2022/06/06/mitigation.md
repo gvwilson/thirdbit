@@ -1,6 +1,7 @@
 ---
 title: "Mitigation"
 date: 2022-06-06
+category: community software
 ---
 
 Here's a conventional view of roles within a small-to-medium tech company:

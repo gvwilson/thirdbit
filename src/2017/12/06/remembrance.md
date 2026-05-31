@@ -1,6 +1,7 @@
 ---
 title: "Remembrance"
 date: 2017-12-06
+category: software
 ---
 <p>
   <img src="@root/files/dec-6.png" alt="The 14" class="centered">

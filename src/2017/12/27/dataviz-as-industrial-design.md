@@ -1,6 +1,7 @@
 ---
 title: "Data Visualization as Industrial Design"
 date: 2017-12-27
+category: software writing
 ---
 
 I've had some interesting discussions by email since posting my article about

@@ -1,6 +1,7 @@
 ---
 title: "Organize!"
 date: 2018-05-11
+category: education software
 ---
 
 I want a cartoon like this,

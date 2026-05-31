@@ -1,6 +1,7 @@
 ---
 title: Getting Credit
 date: 2012-10-22
+category: software research community
 original: swc
 ---
 

@@ -1,5 +1,6 @@
 ---
 date: 2009-07-16
+category: software education research
 original: swc
 title: Day 3
 ---

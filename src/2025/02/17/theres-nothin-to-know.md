@@ -1,6 +1,7 @@
 ---
 title: There's Nothin' to Know
 date: 2025-02-17
+category: software
 ---
 
 There's nothin' to know.

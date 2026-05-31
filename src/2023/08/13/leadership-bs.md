@@ -1,6 +1,7 @@
 ---
 title: "The BS in 'Leadership BS'"
 date: 2023-08-13
+category: education writing software
 ---
 
 Jeffrey Pfeffer's 2015 book [*Leadership BS*][book] makes a lot of good points

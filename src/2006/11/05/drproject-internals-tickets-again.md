@@ -1,6 +1,7 @@
 ---
 title: "DrProject Internals: Tickets Again"
 date: 2006-11-05
+category: software community
 ---
 So that's tickets taken care of, right?  If only…  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how DrProject evolved from <a href="http://trac.edgewall.org">Trac</a>.
 

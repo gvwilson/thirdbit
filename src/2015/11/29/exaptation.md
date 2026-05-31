@@ -1,6 +1,7 @@
 ---
 title: "Exaptation and the Future of Software Engineering"
 date: 2015-11-29
+category: software research
 ---
 <p>
   Back in the 1980s,

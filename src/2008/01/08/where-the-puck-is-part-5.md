@@ -1,6 +1,7 @@
 ---
 title: "Where the Puck Is, Part 5"
 date: 2008-01-08
+category: software writing
 ---
 Imagine a world in which bookstores <a href="http://blog.marsdd.com/2008/01/08/todays-pick-espresso-book-machine/">printed books on demand</a>, then and there.  Sure, they'd keep a couple of copies of each volume on their shelves for readers to browse, but there'd be no trucks, no warehouses, no remainders… What kind of software is it going to need?  What's the interface going to look like?  Will people choose chapters out of something like <a href="http://safari.oreilly.com/">Safari</a> to create one-of-a-kind collections (just as everyone now has their own CDs, rather than having to put up with the sucky track 3 on the B side of an otherwise great album)?
 

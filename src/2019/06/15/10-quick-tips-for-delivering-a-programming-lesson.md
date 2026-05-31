@@ -1,5 +1,6 @@
 ---
 date: 2019-06-15
+category: education software research
 title: "Ten Quick Tips for Delivering a Programming Lesson"
 ---
 

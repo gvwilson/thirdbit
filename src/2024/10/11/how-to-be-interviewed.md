@@ -1,6 +1,7 @@
 ---
 title: "How to Be Interviewed"
 date: 2024-10-11
+category: education
 ---
 
 Earlier this week

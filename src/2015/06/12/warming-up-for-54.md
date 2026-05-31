@@ -1,6 +1,7 @@
 ---
 title: "Warming Up for Version 5.4"
 date: 2015-06-12
+category: software education
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Trying to Find a Form"
 date: 2016-04-08
+category: education software
 ---
 <p>
   I have been thinking (again) about what to teach in a full-length course

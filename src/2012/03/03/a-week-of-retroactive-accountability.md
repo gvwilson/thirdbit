@@ -1,6 +1,7 @@
 ---
 title: "A Week of Retroactive Accountability"
 date: 2012-03-03
+category: software research personal
 ---
 <p>I don't like tidying up the house when my wife and daughter are away. I don't mind <em>cleaning</em>, especially the kitchen and bathroom, but picking up toys and shelving books and generally putting things where they officially belong makes the house feel colder. It erases the evidence that other people live here, that "my" life is part of "our" life now. I haven't gone so far as to strew some of their clothes around the living room, the way a cat would rub its scent onto the leg of the couch, but it's only been a few days…</p>
 <p>I was thinking about this–about the comfort we get from the evidence of others–as I was walking home last night. One of the buildings near Mozilla's office is being demolished; as I watched the machines tear at at the old bricks, I wondered how the tenants of the other buildings must feel. Some of them (the tenants, I mean) might have been there thirty years or more–it's that kind of neighborhood. As they watch the last traces of long-gone friends and rivals erased to make room for new stories with new characters, do they feel the same way I do when I look around the kitchen and see no evidence that anyone ever sat at the table drawing a dinosaur for daddy? Or knit on the couch while Jamie Oliver made something with far too much mustard in it?</p>

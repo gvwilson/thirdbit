@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 4: Unit Testing"
 date: 2023-01-04
+category: software writing
 ---
 
 The first draft of [*Software Design by Example*][sdxjs] didn't have either
@@ -46,7 +47,7 @@ without going mad…
 > Terms defined: absolute error, actual result (of test), assertion, caching, defensive programming, design pattern, dynamic loading, error (in a test), exception handler, expected result (of test), exploratory programming, fail (a test), fixture, global variable, introspection, lifecycle, pass (a test), relative error, side effect, Singleton pattern, test runner, test subject, throw (exception), unit test.
 
 <figure id="unit-test-lifecycle" class="center">
-  <img src="@root/sdxjs/unit-test/lifecycle.svg" alt="Unit testing lifecycle" class="centered">
+  <img src="@root/sdxjs/test/lifecycle.svg" alt="Unit testing lifecycle" class="centered">
   <figcaption>Figure 4.3: Lifecycle of dynamically-discovered unit tests.</figcaption>
 </figure>
 
@@ -57,5 +58,5 @@ without going mad…
 [knives_out]: https://www.imdb.com/title/tt8946378/
 [memento]: https://www.imdb.com/title/tt0209144/
 [sdxjs]: @root/sdxjs/
-[sdxjs_systems_programming]: @root/sdxjs/systems-programming/
-[sdxjs_unit_test]: @root/sdxjs/unit-test/
+[sdxjs_systems_programming]: @root/sdxjs/sysprog/
+[sdxjs_unit_test]: @root/sdxjs/test/

@@ -1,6 +1,7 @@
 ---
 title: "Complexity vs. Subtlety"
 date: 2016-03-05
+category: software education research
 original: swc
 ---
 I gave a lightning talk on Software Carpentry for the [OICR](http://oicr.on.ca/) yesterday,

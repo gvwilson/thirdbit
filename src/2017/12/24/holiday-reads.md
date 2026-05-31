@@ -1,6 +1,7 @@
 ---
 title: "Holiday Reads"
 date: 2017-12-23
+category: writing
 ---
 
 - *[Three Parts Dead](https://www.amazon.com/Three-Parts-Dead-Craft-Sequence/dp/0765333112/)*

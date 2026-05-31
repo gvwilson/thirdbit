@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 3: Finding Duplicate Files"
 date: 2024-04-03
+category: software
 ---
 
 The [first chapter][sdxpy_oop] of [*Software Design by Example*][sdxpy] looks inward

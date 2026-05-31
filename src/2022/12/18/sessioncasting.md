@@ -1,6 +1,7 @@
 ---
 title: "Sessioncasting"
 date: 2022-12-18
+category: education software
 ---
 
 > INTRODUCTION: [This trend], which everyone knows about,

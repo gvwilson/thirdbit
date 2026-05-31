@@ -1,5 +1,6 @@
 ---
 date: 2018-07-17
+category: software education writing
 title: "Link Rot"
 ---
 

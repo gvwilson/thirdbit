@@ -1,6 +1,7 @@
 ---
 title: "Alternatives to DrProject"
 date: 2008-04-11
+category: software education community
 ---
 We're hoping to release a new version of DrProject next week, and persuade some <a href="http://trac.edgewall.org">Trac</a> users to upgrade.  (Multiple projects!  Mailing lists!  Role-based access control!  Scripting interface!)  This is therefore a good time to take a fresh look at what other systems offer:
 

@@ -1,6 +1,7 @@
 ---
 title: "Plot This"
 date: 2015-02-09
+category: education software community
 original: swc
 ---
 <p>

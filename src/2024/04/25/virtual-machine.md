@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 25: A Virtual Machine"
 date: 2024-04-25
+category: software education writing
 ---
 
 In the end, you return to the beginning.
@@ -19,7 +20,7 @@ there is always Nystrom's excellent [*Crafting Interpreters*][crafting_interpret
 
 > Terms defined: Application Binary Interface, assembler, assembly code, bytecode, conditional jump, disassembler, instruction pointer, instruction set, label (of address in memory), op code, register (in hardware), virtual machine, word (of memory).
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [crafting_interpreters]: https://craftinginterpreters.com/

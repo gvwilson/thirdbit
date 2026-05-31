@@ -1,6 +1,7 @@
 ---
 title: "First Figure Out What You Want to Change"
 date: 2008-01-28
+category: software society research
 ---
 I resubmitted a major grant application last Friday (or re-resubmitted—there was some back and forth too painful and boring to go into here).  After celebrating my birthday in quiet but satisfying ways (yes, being woken at 5:30 am by a baby <em>can</em> be fun), I had a little time to think about what it is I'm actually trying to do in this job.  Figuring out how modern collaboration technologies ought to be incorporated into software project portals is part of it; so is figuring out how to improve the skills and productivity of scientific software developers.  But here are a couple of other things I'd like to have an impact on:
 <ul>

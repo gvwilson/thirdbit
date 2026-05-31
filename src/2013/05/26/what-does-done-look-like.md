@@ -1,6 +1,7 @@
 ---
 title: What Does Done Look Like?
 date: 2013-05-26
+category: education software research
 original: swc
 ---
 <p>

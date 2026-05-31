@@ -1,6 +1,7 @@
 ---
 title: "Meanwhile…"
 date: 2009-10-17
+category: education software community
 ---
 <ul>
   <li>The cross-country capstone projects are going well—most recently, one of the students has asked why students who can't go five minutes without tweeting or updating their Facebook status fall silent when asked to communicate with one another in a course. It's puzzling; comments on the post would be very welcome.</li>

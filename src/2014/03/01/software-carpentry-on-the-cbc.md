@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry on the CBC"
 date: 2014-03-01
+category: software education
 original: swc
 ---
 <p>

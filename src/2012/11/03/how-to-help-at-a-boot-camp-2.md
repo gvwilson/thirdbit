@@ -1,6 +1,7 @@
 ---
 title: How to Help at a Bootcamp
 date: 2012-11-03
+category: software education
 original: swc
 ---
 

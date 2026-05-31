@@ -1,5 +1,6 @@
 ---
 date: 2012-09-02
+category: education software personal
 original: swc
 title: Lifted by the Audience
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2019-01-24
+category: software
 title: "The Principle of Least Precision"
 ---
 

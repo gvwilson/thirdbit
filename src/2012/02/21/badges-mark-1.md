@@ -1,5 +1,6 @@
 ---
 date: 2012-02-21
+category: community
 original: swc
 title: Badges (Mark 1)
 ---

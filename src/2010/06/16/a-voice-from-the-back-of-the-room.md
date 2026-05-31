@@ -1,5 +1,6 @@
 ---
 date: 2010-06-16
+category: education software society
 original: swc
 title: A Voice from the Back of the Room
 ---

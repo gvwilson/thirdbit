@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -130,6 +129,14 @@
 <p>Each of these has sub-directories whose names correspond to the wiki page&rsquo;s name or the ticket&rsquo;s number; the attached files are put into these directories.  Thus, the attachment <code>attach.txt</code> for ticket #222 would be located at <code>/drp/attachments/ticket/222/attach.txt</code>, while the attachment <code>attach.txt</code> for the wiki page <code>MyWiki</code> would be located at <code>/drp/attachments/wiki/MyWiki/attach.txt</code>.</p>
 <p>Attachments aren&rsquo;t versioned (there&rsquo;s that word again): if a user attaches a fresh screenshot to a ticket that has the same name as the old screenshot, the old screenshot is lost.  What&rsquo;s worse, attachments aren&rsquo;t segregated by project, either: if someone attaches a file called <code>pic.png</code> to ticket #22 in the project <code>Venus</code>, it will overwrite the file with the same name that&rsquo;s attached to ticket #22 in the <code>Mars</code> project.</p>
 <p>We&rsquo;re going to fix this as soon as we can find the time.  What we should really do, though, is store attachments as <a href="http://en.wikipedia.org/wiki/BLOB">BLOB</a>s (Binary Large OBjects) in database we&rsquo;re using to store the tickets themselves, or backtrack even further and put everything under version control.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../community/">community</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

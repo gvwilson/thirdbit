@@ -1,6 +1,7 @@
 ---
 title: "Stuff That Actually Matters"
 date: 2016-11-13
+category: software community writing
 ---
 
 <p>

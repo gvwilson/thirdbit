@@ -1,5 +1,6 @@
 ---
 date: 2010-04-04
+category: education software research
 original: swc
 title: Feedback and Boundaries
 ---

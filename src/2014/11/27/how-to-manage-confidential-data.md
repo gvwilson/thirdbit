@@ -1,6 +1,7 @@
 ---
 title: "How to Manage Confidential Data"
 date: 2014-11-27
+category: software education research
 original: swc
 ---
 <p>

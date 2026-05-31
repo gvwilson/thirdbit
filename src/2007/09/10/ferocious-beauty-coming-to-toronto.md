@@ -1,6 +1,7 @@
 ---
 title: "'Ferocious Beauty' Coming to Toronto"
 date: 2007-09-10
+category: research
 ---
 "Ferocious Beauty" is a multimedia dance piece which explores genetic research and its impact on society.  (Yes, I know, it sounds a little odd, but friends who have seen it have said it's great.)  The announcement is below; see these <a href="http://www.cs.toronto.edu/~gvwilson/ferocious-beauty-1.pdf">two</a> <a href="http://www.cs.toronto.edu/~gvwilson/ferocious-beauty-2.pdf">posters</a> for more details.
 

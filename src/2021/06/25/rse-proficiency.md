@@ -1,6 +1,7 @@
 ---
 title: "A Proficiency Test for Research Software Engineers"
 date: 2021-06-25
+category: software education writing
 ---
 
 Back in 2014,

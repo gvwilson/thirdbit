@@ -1,5 +1,6 @@
 ---
 date: 2012-02-21
+category: software education
 original: swc
 title: Assessment Redux
 ---

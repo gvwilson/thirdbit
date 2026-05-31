@@ -1,6 +1,7 @@
 ---
 title: "Something I Don't Know How to Fix"
 date: 2009-05-01
+category: research community
 ---
 Take a couple of minutes and read these two recent posts by David Crow:
 <ol>

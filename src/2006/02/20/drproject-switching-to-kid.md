@@ -1,6 +1,7 @@
 ---
 title: "DrProject: Switching to Kid"
 date: 2006-02-20
+category: software
 ---
 Chris Lenz, Jason Montojo, and I began work on refactoring DrProject in early January.  One of the first decisions we made was to replace the <a href="http://www.clearsilver.net/">Clearsilver</a> templating framework with <a href="http://kid.lesscode.org">Kid</a>, an XML-based alternative. Now that the work is done, we've learned a few things about Kid that others might find useful.
 

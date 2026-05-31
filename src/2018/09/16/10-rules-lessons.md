@@ -1,5 +1,6 @@
 ---
 date: 2018-09-16
+category: education software
 title: "Ten Simple Rules for Creating an Effective Lesson"
 ---
 

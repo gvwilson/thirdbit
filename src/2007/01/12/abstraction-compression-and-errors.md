@@ -1,6 +1,7 @@
 ---
 title: "Abstraction, Compression, and Errors"
 date: 2007-01-12
+category: software writing
 ---
 <p><a href="http://kanushu.uwaterloo.ca/~tveldhui/">Todd Veldhuizen</a>'s paper <a href="http://endoprogramming.livejournal.com/1257.html"><em>Software Libraries and the Limits of Reuse: Entropy, Kolmogorov Complexity, and Zipf's Law</em></a> keeps triggering insights. One is that high-level programming abstractions are essentially a compression mechanism: instead of writing a few dozen lines of C each time we want to invoke a function via a pointer embedded in a struct, for example, we derive one class from another.  Similarly, if we want to construct one list by iterating over the elements of another, transforming each independently, we use a list comprehension instead of a loop, a conditional, and an assignment.</p>
 

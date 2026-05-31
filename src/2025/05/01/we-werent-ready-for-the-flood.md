@@ -1,6 +1,7 @@
 ---
 title: We Weren't Ready for the Flood
 date: 2025-05-01
+category: software research education
 ---
 
 In the end I decided not to go to [ICSE 2025][icse2025] in Ottawa.

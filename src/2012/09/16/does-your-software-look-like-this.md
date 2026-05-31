@@ -1,6 +1,7 @@
 ---
 title: "Does Your Software Look Like This?"
 date: 2012-09-16
+category: education software
 ---
 I have a Mac. It has a power adapter:
 

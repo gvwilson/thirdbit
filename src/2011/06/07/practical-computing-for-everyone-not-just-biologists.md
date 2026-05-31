@@ -1,5 +1,6 @@
 ---
 date: 2011-06-07
+category: software education writing
 original: swc
 title: Practical Computing for Everyone (not just biologists)
 ---

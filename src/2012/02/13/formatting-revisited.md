@@ -1,5 +1,6 @@
 ---
 date: 2012-02-13
+category: software education writing
 original: swc
 title: Formatting Revisited
 ---

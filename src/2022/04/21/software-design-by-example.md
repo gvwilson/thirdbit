@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example"
 date: 2022-04-21
+category: software writing
 ---
 
 I have moved my book-in-progress on software design from https://stjs.tech/

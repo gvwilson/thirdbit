@@ -1,6 +1,7 @@
 ---
 title: Charlie Brown
 date: 2025-01-15
+category: writing software
 ---
 
 Everyone knows the story:

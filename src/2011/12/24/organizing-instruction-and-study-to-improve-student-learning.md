@@ -1,5 +1,6 @@
 ---
 date: 2011-12-24
+category: education research software
 original: swc
 title: Organizing Instruction and Study to Improve Student Learning
 ---

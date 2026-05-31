@@ -1,6 +1,7 @@
 ---
 title: "Step 3: Your Daily Routine"
 date: 2006-09-04
+category: software community education
 ---
 OK, your project is up and running: you know what you're supposed to be building, and you have a schedule for producing it.  Now what? "Code 'til your fingers bleed" is a lousy strategy for individual work; it's almost certain to fail on team projects.  Instead, you should invest a little time in getting your day-to-day operations right.
 

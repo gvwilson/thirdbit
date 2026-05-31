@@ -1,5 +1,6 @@
 ---
 date: 2012-10-05
+category: software education
 original: swc
 title: Convergent Evolution
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2011-06-20
+category: education software research
 original: swc
 title: Doing the Math
 ---

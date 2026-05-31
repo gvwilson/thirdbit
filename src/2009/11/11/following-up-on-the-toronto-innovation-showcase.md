@@ -1,6 +1,7 @@
 ---
 title: "Following Up on the Toronto Innovation Showcase"
 date: 2009-11-11
+category: education community
 ---
 My Government 2.0 class didn't meet this Monday, partly because I was on jury duty, and partly to give students a chance to catch up after last week's two-day showcase at City Hall. Two things I've been watching to fill the void are:
 <ol>

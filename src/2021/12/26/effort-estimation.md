@@ -1,6 +1,7 @@
 ---
 title: "Effort Estimation"
 date: 2021-12-26
+category: software education community
 ---
 
 A month ago I [wrote](@root/2021/11/23/not-what-i-set-out-to-do/) about

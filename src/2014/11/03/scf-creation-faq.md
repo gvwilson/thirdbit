@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry Foundation: FAQ"
 date: 2014-11-03
+category: software education community
 original: swc
 ---
 <p>

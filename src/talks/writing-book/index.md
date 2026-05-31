@@ -13,8 +13,8 @@ date: "2024-10-18"
 -   I've made mistakes so you don't have to
 
 <div class="center">
-  <img src="https://third-bit.com/sdxpy/sdxpy-cover.png" alt="Software Design by Example in Python" width="15%">
-  <img src="https://third-bit.com/sdxjs/sdxjs-cover.png" alt="Software Design by Example in JavaScript" width="15%">
+  <img src="https://third-bit.com/sdxpy/_static/sdxpy-cover.png" alt="Software Design by Example in Python" width="15%">
+  <img src="https://third-bit.com/sdxjs/_static/sdxjs-cover.png" alt="Software Design by Example in JavaScript" width="15%">
   <img src="https://third-bit.com/files/bib/t3.jpg" alt="Teaching Tech Together cover" width="15%">
   <img src="https://third-bit.com/files/bib/py-rse.png" alt="Research Software Engineering with Python cover" width="15%">
   <img src="https://third-bit.com/files/bib/js4ds.jpg" alt="JavaScript for Data Science cover" width="15%">

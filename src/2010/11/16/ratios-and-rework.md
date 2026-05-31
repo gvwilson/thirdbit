@@ -1,5 +1,6 @@
 ---
 date: 2010-11-16
+category: education software writing
 original: swc
 title: Ratios and Rework
 ---

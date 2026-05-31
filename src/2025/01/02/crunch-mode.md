@@ -1,6 +1,7 @@
 ---
 title: Crunch Mode
 date: 2025-01-02
+category: education software writing
 ---
 
 I'm supervising some undergraduate students at the University of Toronto this semester.

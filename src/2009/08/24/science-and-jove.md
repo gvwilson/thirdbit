@@ -1,5 +1,6 @@
 ---
 date: 2009-08-24
+category: research software writing
 original: swc
 title: Science and JoVE
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 14: Page Layout"
 date: 2024-04-14
+category: software writing education
 ---
 
 As I said [a week ago][post_interp],

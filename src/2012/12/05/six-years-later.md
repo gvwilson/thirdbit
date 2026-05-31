@@ -1,6 +1,7 @@
 ---
 title: Six Years Later
 date: 2012-12-05
+category: research software education
 original: swc
 ---
 <p>I'm giving a short talk next week at an ICERM workshop on <a href="http://icerm.brown.edu/tw12-5-rcem">Reproducibility in Computational and Experimental Mathematics</a>, which has prompted me to look back at a talk I gave six years ago at SciPy'06. The slides from that talk are included below; I'm now trying to decide whether I'm pleased or depressed by how little has changed.</p>

@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -66,6 +65,14 @@
 </ul>
 <p>The purpose of testing is not to get all tests to pass. The purpose of testing is <em>to tell you what state your software is in</em>, and your goal should always be to gather as much useful information as you can (as economically as you can, but that&rsquo;s a topic for another post).  If you don&rsquo;t have any automated tests, then all you really know about the software comes from the interactive testing you&rsquo;ve done since you last made a change. No other knowledge is reliable, not even the things you tried out 30 seconds before you made those changes.</p>
 <p>If you do have automated tests, and some of them are failing, but you know why, that&rsquo;s OK (temporarily). Right now, for example, I know we&rsquo;re not creating a link object to connect A and B, because we decided we would do that implicitly rather than explicitly in this one special case, and I haven&rsquo;t implemented that code yet, so test #1234 is failing <em>as expected</em>, and that shouldn&rsquo;t stop me from checking in the code that makes test #5678 pass.  I shouldn&rsquo;t let very many failing tests pile up, but leaving them in the failing state to remind me (and the rest of the team) that some things aren&rsquo;t working yet is a lot better than taking them out just to get a green light.  The latter reduces how much I know about my program; the former may not be good for morale (&ldquo;Jeez, we still have <em>that</em> to do, don&rsquo;t we?&rdquo;), but it&rsquo;s more honest, and more useful.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

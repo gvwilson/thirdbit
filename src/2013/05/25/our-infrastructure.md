@@ -1,6 +1,7 @@
 ---
 title: Our Infrastructure
 date: 2013-05-25
+category: software education
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "All the Other Santas"
 date: 2017-12-23
+category: software
 ---
 
 <div class="row">

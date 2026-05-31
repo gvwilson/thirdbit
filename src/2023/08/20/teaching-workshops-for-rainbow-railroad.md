@@ -1,6 +1,7 @@
 ---
 title: "Teaching Workshops for Rainbow Railroad"
 date: 2023-08-20
+category: education software community
 ---
 
 <div class="row">

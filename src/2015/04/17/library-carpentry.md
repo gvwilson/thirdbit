@@ -1,6 +1,7 @@
 ---
 title: "Library Carpentry"
 date: 2015-04-17
+category: software research community
 original: swc
 ---
 <p>

@@ -1,5 +1,6 @@
 ---
 date: 2012-02-22
+category: writing education
 original: swc
 title: What Deep Thoughts Look Like
 ---

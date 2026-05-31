@@ -1,6 +1,7 @@
 ---
 title: "Gini Coefficients"
 date: 2019-12-23
+category: software education community
 ---
 
 A [Gini coefficient](https://en.wikipedia.org/wiki/Gini_coefficient)

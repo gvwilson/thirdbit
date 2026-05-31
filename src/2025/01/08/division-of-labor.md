@@ -1,6 +1,7 @@
 ---
 title: Division of Labor
 date: 2025-01-08
+category: software community writing
 ---
 
 All right, you've [formed a team][forming-teams]:

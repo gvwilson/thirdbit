@@ -1,5 +1,6 @@
 ---
 date: 2012-06-26
+category: research
 original: swc
 title: Pessimism and Doom
 ---

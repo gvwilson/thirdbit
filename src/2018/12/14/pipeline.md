@@ -1,5 +1,6 @@
 ---
 date: 2018-12-14
+category: software education research
 title: "No Straight Pipeline"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Workshop for Women in Science and Engineering: April 14-15 at LBL"
 date: 2014-01-28
+category: education software research
 original: swc
 ---
 <p>

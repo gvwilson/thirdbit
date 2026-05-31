@@ -1,6 +1,7 @@
 ---
 title: "A Fresh Crop of Summer Interns"
 date: 2009-05-07
+category: software community
 ---
 As one term ends, so another begins, and we're very excited to have another good team of summer interns this year:
 <ul>

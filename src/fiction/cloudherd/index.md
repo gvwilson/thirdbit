@@ -1,8 +1,8 @@
-—
+---
 title: "The Cloudherd and the Tiger's Boy"
 template: page
 fiction: true
-—
+---
 
 <ol id="toc"></ol>
 
@@ -4332,7 +4332,22 @@ Without waiting for answer
 Alva turned and ambled away through the salal bushes,
 leaving Noxy open-mouthed behind her.
 
-FIXME: back to Stale and encounter with soldiers
+She took the long way back to Stale,
+trying to make sense of what had just happened.
+By the time she reached the gate she had given up.
+If Alva wanted to sneak past Kulbinder and the sentries to pay her a visit,
+she would leave her window open.
+She would also make sure she had her mother's big kitchen knife under her pillow.
+
+Private Kechen and the other soldier were still standing at the gate,
+nodding to people as they passed through in both directions.
+The man smiled and said hello,
+apparently oblivious to the way that elders shushed their grandchildren.
+She suddenly wondered what they would do about the bath house.
+Would her mother set up a roster of some sort?
+Would Sergeant Dorbu and his troops simply not bathe until they left?
+Or would the cloudherds be the ones reduced to wiping themselves down with steaming rags
+the way they did on long voyages?
 
 The sky had turned dull gray.
 Only a slightly brighter patch showed where the morning sun was hiding.
@@ -4402,9 +4417,12 @@ placing each foot carefully before putting her weight on it.
 Another step, another…
 
 Holding her breath, she peeked around the corner.
-She had just a heartbeat to take in the lantern sitting by itself on the floor
-before a stern voice snapped, "Halt!" behind her.
+There on the rough stone floor lay an open knapsack holding a rolled-up blanket
+and a small sack of onions and potatoes.
+The hand-sized dayglass lantern beside it lit the scene with warm yellow light.
 
+She had just a heartbeat to take in the scene
+before a stern voice snapped, "Halt!" behind her.
 Noxy jumped and whirled around. 
 Private Thokmay was standing in the intersection with his sword in his hand
 and a scowl on his face.
@@ -4593,8 +4611,187 @@ Noxy almost laughed.
 Sure, let's, um, just forget."
 
 Private Thokmay looked at the brambles.
-"I bet they're going to scratch," he sighed.
+"I bet they're going to scratch," he sighed,
+then grabbed a handful,
+pulled them aside,
+and gestured.
+"After you."
 
-FIXME: Alva visits Noxy in a dream.
+That was when Kulbinder burst through the bush.
+"Your Highness!
+Are you all right?"
+
+Noxy yelped,
+stumbled back,
+tripped,
+and fell awkwardly.
+"Wait!" Private Thokmay said as the tiger advanced,
+his tail whipping from side to side and his eyes on Noxy.
+"It's all right.
+I'm all right."
+
+Noxy scrambled to her feet.
+"Your Highness?" she said incredulously.
+
+Thokmay sighed.
+"I don't suppose you'd believe that was a joke, would you?"
+
+"My apologies, honored."
+The tiger's rumble echoed in the tunnel.
+He blinked slowly,
+his tail going still.
+"I was worried about you.
+And the sergeant is wondering where you are."
+
+"I'm all right,"
+Thokmay repeated,
+a trace of exasperation in his voice.
+He looked at Noxy.
+"And yes, I'm afraid I am a highness.
+Any chance you could keep that to yourself until I have a chance to explain?"
+
+Noxy crossed her arms.
+"The knapsack—you *are* planning to run away, aren't you?"
+
+The young soldier sighed.
+"I prefer to think of it as 'go home'.
+Please, just give me a chance to explain, all right?"
+He glanced at Kulbinder,
+then back at Noxy.
+"I'll come find you as soon as I can, I promise.
+And if you want to tell the reeve or the *tralpa*—"
+
+"We talked about this," Kulbinder growled.
+
+"Yes, well, things have changed, haven't they?"
+Thokmay sighed again.
+"Come on.
+Let's go see how much trouble I'm in for disappearing."
+
+Four hours picking seeds out of thimbleberries
+left Noxy with stinging red stains up to her knuckles.
+Her only consolation was that
+she wasn't hauling bucket after bucket out of Stale's communal latrines
+to dump in the mouldering pit two hundred strides from the gate.
+From her perch on the wall,
+she watched Thokmay trudge back and forth,
+a padded wooden yoke over his shoulders
+with a bucket hanging from each end.
+Everyone gave him a wide berth, even Kulbinder.
+
+She lay in bed that night and stared at the ceiling,
+counting her breaths to track the time
+and glancing at her half-open window every few minutes.
+Midnight had come and gone when she finally gave up.
+If the troll was going to pay her a visit,
+she could wake her up.
+She rolled over and closed her eyes,
+one hand on the hilt of the knife under her pillow.
+
+*She stood beside her father's tree,
+barefoot,
+wearing only the light cotton shift she slept in.
+She vaguely knew that she ought to be cold, but she didn't feel it.*
+
+*She looked down at the knife in her hand.
+Why did she have that?
+At the thought,
+the knife was gone.
+It didn't vanish—it had just never been there.*
+
+*"Hello, dear."
+Alva was sitting on her haunches a comfortable couple of strides away.
+"I hope the rest of your day was nice and quiet."*
+
+*"Not really," Noxy replied.
+She looked around.
+The trees nearest her were clearly drawn,
+but the ones further away seemed murky,
+as though a lazy artist had just painted a few dark strokes to suggest their presence.
+"Where are we?"*
+
+*The old troll smiled,
+revealing a mouthful of strong, yellowing teeth.
+"We're in the forest, dear."*
+
+*"No, I mean where are we really?"
+Noxy ran a hand over a nearby branch.
+It certainly felt real,
+but she was in bed, wasn't she?
+And this was just a dream?*
+
+*"We're in the forest," Alva repeated.
+"These are its thoughts and memories.
+I spend most of my time here now.
+Some day soon it will be my home."
+She looked around, her face fond and sad at the same time.
+"I will miss the real thing, of course, but it's nice and quiet here.
+I think I'll enjoy that."*
+
+*"That's what I wanted to talk to you about," the troll went on.
+"When I'm gone, the forest will need someone to speak for it.
+It has chosen bears and beavers and trolls and all sorts in the past.
+This time, it wants you to do it."*
+
+*"Me?" Noxy shook her head.
+"Why me?"*
+
+*The troll shrugged.
+"I have no idea.
+Its thoughts are so much bigger than ours,
+and it only thinks quickly when it has to.
+But something has happened, or is about to happen,
+and the forest is worried."
+She paused.
+"I've never felt it be worried before.
+I've walked as far back through its memories as I can go,
+hundreds and hundreds of years,
+and the only other time it felt like this
+was when the Pilots were fighting each other."*
+
+*Noxy shivered.
+"That doesn't sound good."
+A thought struck her.
+"Is this why you and Signurd were fighting?"*
+
+*Alva sighed.
+"Yes.
+He thinks humans are a pestilence.
+'Undeserving' is the word he uses.
+He knows what being the forest's voice would cost,
+but he still wants to do it."*
+
+*Noxy shivered again.
+"What __does__ it cost?"*
+
+*The troll looked at her sympathetically.
+"Everything."*
+
+*Noxy rubbed her arm
+where writing that no human being had ever read
+ran from her elbow to her wrist.
+"Like magic?"*
+
+*The troll nodded.
+"Like magic."*
+
+"Noxy? Noxy, wake up."
+She swam back to waking and looked up at her mother's worried face.
+
+"Wuzza?" she mumbled.
+Her tongue felt like a rubbery piece of tofu.
+
+"Sweetling, are you all right?"
+Indy put her hand on her daughter's forehead for a moment.
+"You were shouting.
+And your sheets—they're soaked."
+
+"I had a dream," Noxy mumbled,
+except she knew she hadn't.
+She rubbed her forearm.
+
+"Come on," her mother said.
+"You can sleep with me tonight.
+We'll sort this out in the morning."
 
 </section>

@@ -1,5 +1,6 @@
 ---
 date: 2011-11-08
+category: software research personal
 original: swc
 title: The Best vs. the Good
 ---

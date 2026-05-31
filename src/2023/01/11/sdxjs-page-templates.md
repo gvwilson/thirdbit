@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 9: Page Templates"
 date: 2023-01-11
+category: software writing
 ---
 
 Some day I'll blog about the tools I built to create [*Software Design by Example*][sdxjs],
@@ -41,7 +42,7 @@ hopefully,
 this chapter will help readers get it right if it's ever their turn.
 
 <figure id="page-templates-options" class="center">
-  <img src="@root/sdxjs/page-templates/options.svg" alt="Three options for page templates" class="centered">
+  <img src="@root/sdxjs/templater/options.svg" alt="Three options for page templates" class="centered">
   <figcaption>Figure 9.1: Three different ways to implement page templating.</figcaption>
 </figure>
 
@@ -76,4 +77,4 @@ to avoid the import conflict.
 [ibis_framework]: https://ibis-project.org/
 [ivy]: https://www.dmulholl.com/docs/ivy/dev/
 [sdxjs]: @root/sdxjs/
-[sdxjs_templates]: @root/sdxjs/page-templates/
+[sdxjs_templates]: @root/sdxjs/templater/

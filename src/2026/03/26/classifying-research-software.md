@@ -1,6 +1,7 @@
 ---
 title: "Classifying Research Software"
 date: 2026-03-26
+category: software research writing
 ---
 
 With apologies to [Borges](https://en.wikipedia.org/wiki/Celestial_Emporium_of_Benevolent_Knowledge),

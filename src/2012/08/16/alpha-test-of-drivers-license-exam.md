@@ -1,5 +1,6 @@
 ---
 date: 2012-08-16
+category: software community
 original: swc
 title: Alpha Test of Driver's License Exam
 ---

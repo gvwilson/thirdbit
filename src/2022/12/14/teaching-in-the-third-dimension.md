@@ -1,6 +1,7 @@
 ---
 title: "Teaching in the Third Dimension"
 date: 2022-12-14
+category: software education writing
 ---
 
 I've been blogging recently about teaching tools I want,

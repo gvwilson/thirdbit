@@ -1,6 +1,7 @@
 ---
 title: Grades
 date: 2025-01-10
+category: software education community
 ---
 
 Many organizations make the mistake of focusing on outputs rather than on outcomes

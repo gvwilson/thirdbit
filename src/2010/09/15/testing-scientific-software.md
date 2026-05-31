@@ -1,5 +1,6 @@
 ---
 date: 2010-09-15
+category: software education research
 original: swc
 title: Testing Scientific Software
 ---

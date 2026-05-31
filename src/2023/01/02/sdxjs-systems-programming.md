@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 2: Systems Programming"
 date: 2023-01-02
+category: software education
 ---
 
 The biggest difference between JavaScript and most other programming languages
@@ -39,8 +40,8 @@ this theme is going to come up in program after program.
 > Terms defined: anonymous function, asynchronous, Boolean, callback function, cognitive load, command-line argument, console, current working directory, destructuring assignment, edge case, filename extension, filesystem, filter, globbing, idiomatic, log message, path (in filesystem), protocol, scope, single-threaded, string interpolation.
 
 <figure id="systems-programming-callbacks" class="center">
-  <img src="@root/sdxjs/systems-programming/callbacks.svg" alt="Running callbacks" class="centered">
+  <img src="@root/sdxjs/sysprog/callbacks.svg" alt="Running callbacks" class="centered">
   <figcaption>Figure 2.2: How JavaScript runs callback functions.</figcaption>
 </figure>
 
-[sdxjs_systems_programming]: @root/sdxjs/systems-programming/
+[sdxjs_systems_programming]: @root/sdxjs/sysprog/

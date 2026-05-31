@@ -1,5 +1,6 @@
 ---
 date: 2009-12-27
+category: software
 original: swc
 title: Dudley and Butte on Software Skills
 ---

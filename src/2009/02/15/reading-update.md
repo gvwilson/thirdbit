@@ -1,6 +1,7 @@
 ---
 title: "Reading Update"
 date: 2009-02-15
+category: software writing education
 ---
 Back in December, I blogged the books I was planning to read in January and February.  Here are the quick summaries:
 <ul>

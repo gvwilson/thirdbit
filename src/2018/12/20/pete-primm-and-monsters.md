@@ -1,5 +1,6 @@
 ---
 date: 2018-12-20
+category: education software writing
 title: "PETE, PRIMM, and Monsters"
 ---
 

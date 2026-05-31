@@ -1,6 +1,7 @@
 ---
 title: "The Least Assholish Person"
 date: 2022-09-24
+category: education
 ---
 
 @ellesystem tweeted:

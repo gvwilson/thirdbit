@@ -1,5 +1,6 @@
 ---
 date: 2011-01-26
+category: software education community
 original: swc
 title: Software Carpentry Sprint in July
 ---

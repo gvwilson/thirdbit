@@ -1,6 +1,7 @@
 ---
 title: "Synchronous Online Active Classes"
 date: 2019-12-13
+category: education software research
 ---
 
 I have run RStudio's instructor training class three times in the last three weeks,

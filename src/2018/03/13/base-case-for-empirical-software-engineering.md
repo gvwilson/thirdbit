@@ -1,6 +1,7 @@
 ---
 title: "A Base Case for Empirical Software Engineering Research"
 date: 2018-03-13
+category: software research
 ---
 
 I've been

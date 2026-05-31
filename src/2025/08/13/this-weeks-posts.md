@@ -1,6 +1,7 @@
 ---
 title: This Week's Posts
 date: 2025-08-13
+category: software community education
 ---
 
 (Including one from two weeks ago.)

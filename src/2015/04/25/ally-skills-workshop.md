@@ -1,6 +1,7 @@
 ---
 title: "Ada Initiative's Ally Skills Workshop"
 date: 2015-04-25
+category: software education community
 original: swc
 ---
 <p>

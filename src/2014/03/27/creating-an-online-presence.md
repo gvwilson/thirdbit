@@ -1,6 +1,7 @@
 ---
 title: "Building a Minimal Online Presence"
 date: 2014-03-27
+category: software writing
 original: swc
 ---
 <p>

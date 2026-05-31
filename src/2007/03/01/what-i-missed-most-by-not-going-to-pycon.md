@@ -1,6 +1,7 @@
 ---
 title: "What I Missed Most by Not Going to PyCon"
 date: 2007-03-01
+category: software community
 ---
 The <a href="http://www.laptop.org/">One Laptop Per Child</a> program is creating a $100 laptop suitable for use by young people in developing countries.  It has enough weight behind it that it's pretty much guaranteed to produce <em>something</em> (though we can argue about whether laptops are more important than immunization, and whether they'll go to the really poor, or to the burgeoning middle classes).
 

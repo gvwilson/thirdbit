@@ -1,6 +1,7 @@
 ---
 title: "Cartagena"
 date: 2009-12-09
+category: software education
 ---
 A student was in my office looking for a little AI project today.  After a bit of discussion, she's going to try to write some agents for <em>Cartagena</em>, one of my favorite little games for 2-4 players.  If you haven't run into it, here are the rules we use:
 

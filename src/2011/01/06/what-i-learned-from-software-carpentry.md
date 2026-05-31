@@ -1,5 +1,6 @@
 ---
 date: 2011-01-06
+category: software education community
 original: swc
 title: What I Learned From Software Carpentry
 ---

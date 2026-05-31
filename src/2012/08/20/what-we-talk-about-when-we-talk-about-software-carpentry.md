@@ -1,5 +1,6 @@
 ---
 date: 2012-08-20
+category: software education
 original: swc
 title: What We Talk About When We Talk About Software Carpentry
 ---

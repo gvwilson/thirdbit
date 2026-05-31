@@ -1,5 +1,6 @@
 ---
 date: 2012-07-10
+category: education
 original: swc
 title: Wrapping Up in Boston
 ---

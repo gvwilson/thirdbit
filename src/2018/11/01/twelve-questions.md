@@ -1,5 +1,6 @@
 ---
 date: 2018-11-01
+category: software education community
 title: "Twelve Questions"
 ---
 

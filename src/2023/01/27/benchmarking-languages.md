@@ -1,6 +1,7 @@
 ---
 title: "Benchmarking Languages"
 date: 2023-01-27
+category: software
 ---
 
 Back in the 1980s, R.W. Hockney introduced two measures for quantifying the performance of pipelined machines.
@@ -60,9 +61,9 @@ please let me know how it goes.
 [rust]: https://www.rust-lang.org/
 [scala]: https://scala-lang.org/
 [sdxjs]: @root/sdxjs/
-[sdxjs_backup]: @root/sdxjs/file-backup/
-[sdxjs_build]: @root/sdxjs/build-manager/
-[sdxjs_style]: @root/sdxjs/style-checker/
+[sdxjs_backup]: @root/sdxjs/backup/
+[sdxjs_build]: @root/sdxjs/build/
+[sdxjs_style]: @root/sdxjs/style/
 [sdxjs_test]: @root/sdxjs/unit-test/
 [ted]: https://github.com/cesquivias/ted
 [zig]: https://ziglang.org/

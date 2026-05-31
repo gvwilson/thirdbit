@@ -1,6 +1,7 @@
 ---
 title: "Lessons as Lab Protocols"
 date: 2016-01-03
+category: software education
 original: swc
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "You're Never Too Old for Space Camp"
 date: 2010-12-27
+category: research personal writing
 ---
 I can't remember how I stumbled across <a href="http://buythissatellite.org">BuyThisSatellite.org</a>, but I'm glad I did. I've been a science fiction fan for (literally) as long as I can remember, and while I doubt I'll ever make orbit myself, there's something gosh-darned cool about actually buying a chunk of an actual orbiting satellite. Their web site says it best:
 <ul>

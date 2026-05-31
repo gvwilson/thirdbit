@@ -1,6 +1,7 @@
 ---
 title: "Strategies for Change"
 date: 2021-02-22
+category: software education research
 ---
 
 I've written before

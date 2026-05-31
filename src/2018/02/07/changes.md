@@ -1,6 +1,7 @@
 ---
 title: "Changes"
 date: 2018-02-07
+category: software
 ---
 
 <figure class="center">

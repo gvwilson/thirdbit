@@ -1,5 +1,6 @@
 ---
 date: 2010-10-30
+category: software research
 original: swc
 title: Dubois on Maintaining Correctness
 ---

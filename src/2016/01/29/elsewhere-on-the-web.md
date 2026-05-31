@@ -1,6 +1,7 @@
 ---
 title: "Elsewhere on the Web"
 date: 2016-01-29
+category: education software research
 original: swc
 ---
 

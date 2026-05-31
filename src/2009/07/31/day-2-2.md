@@ -1,5 +1,6 @@
 ---
 date: 2009-07-31
+category: education research software
 original: swc
 title: Day[-2]
 ---

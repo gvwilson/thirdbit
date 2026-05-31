@@ -1,6 +1,7 @@
 ---
 title: "Code Coverage in Lernanta"
 date: 2011-08-22
+category: software
 ---
 Percentage of statements covered by tests as a function of module size. Yes, I know, statement coverage isn't a good way to assess the quality of testing, but it's easy to do, and gives an idea of the hill we have to climb. #feelsgoodtobedoingopensourceagain
 

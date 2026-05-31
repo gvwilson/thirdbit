@@ -1,5 +1,6 @@
 ---
 date: 2018-08-07
+category: education research software
 title: Three Terms
 ---
 

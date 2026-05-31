@@ -1,6 +1,7 @@
 ---
 title: "Another Week of Progress"
 date: 2008-06-13
+category: software education writing
 ---
 Our students all seem to be making progress:
 <ul>

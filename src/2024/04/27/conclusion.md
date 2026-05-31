@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 27: Conclusion"
 date: 2024-04-27
+category: software
 ---
 
 [Consider the bicycle][sdxpy_finale]:

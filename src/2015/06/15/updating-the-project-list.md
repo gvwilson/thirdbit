@@ -1,6 +1,7 @@
 ---
 title: "Updating the Project List"
 date: 2015-06-15
+category: software
 original: swc
 ---
 <p>

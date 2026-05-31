@@ -1,6 +1,7 @@
 ---
 title: "Provenance Revisited"
 date: 2023-02-26
+category: software
 ---
 
 I've been thinking recently about how best to help the data scientists I work with,

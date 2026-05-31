@@ -1,6 +1,7 @@
 ---
 title: "The Week in Review"
 date: 2009-05-01
+category: education research software
 ---
 Things I did this week that I was supposed to:
 <ol>

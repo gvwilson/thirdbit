@@ -1,6 +1,7 @@
 ---
 title: "Please Help If You Can"
 date: 2023-12-05
+category: community
 ---
 
 Rainbow Railroad is a global non-profit organization

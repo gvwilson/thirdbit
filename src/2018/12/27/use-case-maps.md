@@ -1,5 +1,6 @@
 ---
 date: 2018-12-27
+category: software education writing
 title: "Use Case Maps Revisited"
 ---
 

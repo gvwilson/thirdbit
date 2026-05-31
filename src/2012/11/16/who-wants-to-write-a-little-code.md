@@ -1,6 +1,7 @@
 ---
 title: Who Wants To Write a Little Code?
 date: 2012-11-16
+category: software education writing
 original: swc
 ---
 

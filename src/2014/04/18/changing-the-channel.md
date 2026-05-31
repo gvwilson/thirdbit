@@ -1,6 +1,7 @@
 ---
 title: "Changing the Channel"
 date: 2014-04-18
+category: education research software
 original: swc
 ---
 <p>

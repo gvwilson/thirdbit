@@ -1,6 +1,7 @@
 ---
 title: "I'm Probably Wrong Again"
 date: 2017-11-01
+category: software education research
 ---
 
 A couple of years ago,

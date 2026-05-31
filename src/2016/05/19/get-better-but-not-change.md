@@ -1,6 +1,7 @@
 ---
 title: "Get Better But Not Change"
 date: 2016-05-19
+category: writing
 ---
 <blockquote>
   <em>

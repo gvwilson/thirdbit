@@ -1,6 +1,7 @@
 ---
 title: "ITiCSE'06 Readings"
 date: 2006-08-14
+category: education software research
 ---
 As I've said before, one of the nice perks of working for a university is free access to journals and conference proceedings. (And as I've also said before, I think the fact that these aren't free to everyone is one of the main causes of the gulf between academia and real-world practitioners.)  Here's a few highlights from the Eleventh Annual Conference on <a href="http://www.iticse06.cs.unibo.it/">Innovation and Technology in Computer Science Education</a>, held in Bologna earlier this year:
 <ul>

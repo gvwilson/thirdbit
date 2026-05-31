@@ -1,5 +1,6 @@
 ---
 date: 2012-09-30
+category: education
 original: swc
 title: Oslo and Columbia
 ---

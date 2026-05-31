@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 1: Introduction"
 date: 2024-04-01
+category: education software writing
 ---
 
 In the early 2000s,

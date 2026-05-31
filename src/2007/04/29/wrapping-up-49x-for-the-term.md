@@ -1,6 +1,7 @@
 ---
 title: "Wrapping Up 49X for the Term"
 date: 2007-04-29
+category: software research community
 ---
 Another term, another great bunch of 49X projects:
 <ul>

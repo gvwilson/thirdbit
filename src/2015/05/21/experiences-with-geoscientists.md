@@ -1,6 +1,7 @@
 ---
 title: "Experiences with Geoscientists"
 date: 2015-05-21
+category: education software
 original: swc
 ---
 <p>

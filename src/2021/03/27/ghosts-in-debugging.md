@@ -1,6 +1,7 @@
 ---
 title: "The Ghosts in the Debugging"
 date: 2021-03-27
+category: writing software
 ---
 
 A couple of days ago I tweeted:

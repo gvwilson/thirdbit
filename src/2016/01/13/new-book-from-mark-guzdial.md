@@ -1,6 +1,7 @@
 ---
 title: "A New Book from Mark Guzdial"
 date: 2016-01-13
+category: education writing research
 original: swc
 ---
 

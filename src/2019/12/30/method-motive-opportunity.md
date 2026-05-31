@@ -1,6 +1,7 @@
 ---
 title: "Method, Motive, and Opportunity"
 date: 2019-12-30
+category: education personal society
 ---
 
 > TL;DR: I propose [a two-day workshop](#proposal)

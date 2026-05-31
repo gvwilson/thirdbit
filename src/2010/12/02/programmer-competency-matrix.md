@@ -1,5 +1,6 @@
 ---
 date: 2010-12-02
+category: software research education
 original: swc
 title: Programmer Competency Matrix
 ---

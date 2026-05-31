@@ -1,6 +1,7 @@
 ---
 title: "Interim Steering Committee Meeting: Dec 16, 2014"
 date: 2015-01-30
+category: community software education
 original: swc
 ---
 <p>Software Carpentry Foundation Interim Board Meeting: Dec 16, 2014</p>

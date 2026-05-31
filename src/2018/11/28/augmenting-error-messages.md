@@ -1,5 +1,6 @@
 ---
 date: 2018-11-28
+category: software research community
 title: "Augmenting Error Messages"
 ---
 

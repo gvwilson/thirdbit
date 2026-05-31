@@ -1,6 +1,7 @@
 ---
 title: "Two Roads, and a Third"
 date: 2024-12-08
+category: software community
 ---
 
 I caught up with some former colleagues this week,

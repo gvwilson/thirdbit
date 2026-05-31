@@ -1,6 +1,7 @@
 ---
 title: "Hard Problems"
 date: 2022-08-10
+category: research software
 ---
 
 I don't know how many hard problems there are in computer science,

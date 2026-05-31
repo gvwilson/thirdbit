@@ -1,5 +1,6 @@
 ---
 date: 2018-12-19
+category: education
 title: "Fourteen Percent and a Change of Direction"
 ---
 

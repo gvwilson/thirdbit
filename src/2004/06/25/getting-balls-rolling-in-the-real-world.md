@@ -1,6 +1,7 @@
 ---
 title: "Getting Balls Rolling in the Real World"
 date: 2004-06-25
+category: writing software
 ---
 <p>Many books describe how to get a project rolling.  Unfortunately, none of their descriptions match anything I've ever seen in the real world.  For example, Rosenberg and Scott's <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201432897">Use Case Driven Object Modeling with UML</a> tells readers to write use cases (actor X does Y to achieve result Z), then extract system features from them. At the other end of the spectrum, Extreme Programming advocates pretty much the same approach; all that differs is how much you do in one go.</p>
 

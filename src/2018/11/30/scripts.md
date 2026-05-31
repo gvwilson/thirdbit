@@ -1,5 +1,6 @@
 ---
 date: 2018-11-30
+category: software
 title: "Scripts"
 ---
 

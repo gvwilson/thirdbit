@@ -1,6 +1,7 @@
 ---
 title: Two Self-Assessments
 date: 2012-10-26
+category: education
 original: swc
 ---
 

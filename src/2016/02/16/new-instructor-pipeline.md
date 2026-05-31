@@ -1,6 +1,7 @@
 ---
 title: "Our New Instructor Pipeline"
 date: 2016-02-16
+category: education software
 original: swc
 ---
 Last fall,

@@ -1,6 +1,7 @@
 ---
 title: "And Speaking of Community…"
 date: 2008-01-12
+category: software education community
 ---
 As a follow-up to my previous post, I'd like to say "thank you" to all the people who proposed projects for my software consulting course this term.  I'm sorry we weren't able to find students to work on all of them, but I'm very excited by the ones we're running:
 <table class="centered">

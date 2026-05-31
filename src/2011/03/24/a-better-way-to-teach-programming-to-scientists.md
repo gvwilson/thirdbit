@@ -1,5 +1,6 @@
 ---
 date: 2011-03-24
+category: education research software
 original: swc
 title: A Better Way to Teach Programming to Scientists
 ---

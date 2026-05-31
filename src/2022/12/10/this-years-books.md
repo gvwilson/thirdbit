@@ -1,6 +1,7 @@
 ---
 title: "This Year's Books"
 date: 2022-12-10
+category: community writing
 ---
 
 In no particular order,

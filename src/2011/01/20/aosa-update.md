@@ -1,6 +1,7 @@
 ---
 title: "AOSA Update"
 date: 2011-01-20
+category: community
 ---
 <em>The Architecture of Open Source Applications</em> is in its final stretch (I hope). We've got most or all of what we need from:
 <ul>

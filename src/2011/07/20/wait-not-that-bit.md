@@ -1,6 +1,7 @@
 ---
 title: "Wait, Not That Bit!"
 date: 2011-07-20
+category: software
 ---
 We all do it.  We start fixing something over here, in this file, then notice something unrelated ten lines above in a different method that should be cleaned up as well, so we make that little change, but then we have to change the three calls to that method, and while changing one of them we see an opportunity to combine two methods, and so when it's time to check in, our commit message is a bullet-point list of unrelated changes.  Yes, the right thing to do is to make notes for ourselves about those other changes, then defer work on them until we've finished the first change, but few of us are that disciplined 100% of the time.
 

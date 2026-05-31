@@ -1,6 +1,7 @@
 ---
 title: "Splitting Scheme"
 date: 2009-08-24
+category: software
 ---
 From <a href="http://lambda-the-ultimate.org/node/3582">Lambda the Ultimate</a>:
 <blockquote>According to a <a href="http://scheme-reports.org/2009/position-statement.html">draft statement</a>, Scheme is to be split into a small and a large language, the small being designed for educators and "50-page purists", the large for "programmers, implementors".</blockquote>

@@ -1,6 +1,7 @@
 ---
 title: Simulating Multiple Stages
 date: 2025-11-23
+category: software
 ---
 
 After [yesterday's refactoring][refactoring],

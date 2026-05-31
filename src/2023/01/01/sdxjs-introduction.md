@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 1: Introduction"
 date: 2023-01-01
+category: education software writing
 ---
 
 In the early 2000s,
@@ -78,7 +79,7 @@ you can file issues in [in the book's GitHub repository][book_repo].
 I hope you find the material useful,
 and I'm happy to answer questions [by email][contact].
 
-<img src="@root/sdxjs/sdxjs-cover.png" alt="Cover of 'Software Design by Example'" width="40%" class="centered">
+<img src="@root/sdxjs/_static/sdxjs-600.jpg" alt="Cover of 'Software Design by Example'" width="40%" class="centered">
 
 > I am grateful to the creators of [diagrams.net][diagrams_net],
 > [Emacs][emacs],

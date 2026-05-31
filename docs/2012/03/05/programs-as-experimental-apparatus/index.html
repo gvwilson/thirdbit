@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -252,6 +251,14 @@ The result isn't surprising: if our upsize-downsize algorithm didn't lose any in
 <p>If we do the same thing for the whole data set, we get another image.</p>
 <p>A moment's thought produces a hypothesis: since we have three color channels (red, green, and blue), it's possible that the rescaling algorithm is introducing a systematic bias by perturbing each channel by one as it sizes up or down. Looking at the curves for differences up to 15, that bias seems to be responsible for most of the overall difference. If we really want to measure the differences between images, we're going to have to find a way to eliminate this.</p>
 <p>I'm not going to go into how we might do that now. What I want to point out is that <em>this is not a new problem</em>. Think about the telescope that took the picture we started with. Glass lenses are subject to <a href="http://en.wikipedia.org/wiki/Chromatic_aberration">chromatic aberration</a>; telescope designers must either reshape lenses to minimize it, combine layers of different kinds of glass to correct for it, or tell the astronomer to compensate mathematically somehow. Equally, we can implement a different resizing algorithm to remove this systematic bias, or correct for it. The important thing is to think of a program as a piece of experimental apparatus, and treat it accordingly. <em>That</em> is part of what we want to teach in this course.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../research/">research</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

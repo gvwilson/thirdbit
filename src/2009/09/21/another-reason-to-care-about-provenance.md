@@ -1,5 +1,6 @@
 ---
 date: 2009-09-21
+category: software research writing
 original: swc
 title: Another Reason to Care About Provenance
 ---

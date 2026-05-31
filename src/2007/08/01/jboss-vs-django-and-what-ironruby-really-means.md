@@ -1,6 +1,7 @@
 ---
 title: "JBoss vs. Django and What IronRuby Really Means"
 date: 2007-08-01
+category: software community writing
 ---
 Over at <a href="http://www.crankycoder.com">crankycoder.com</a>, Victor Ng has posted a <a href="http://www.crankycoder.com/?p=32">comparison</a> of <a href="http://labs.jboss.com/">JBoss</a> and <a href="http://www.djangoproject.com/">Django</a> that can be summed up in one phrase: 21 lines vs. 3. Meanwhile, <a href="http://www.martinfowler.com">Martin Fowler</a> posted some ruminations on what the <a href="http://www.iunknown.com/2007/07/a-first-look-at.html">IronRuby</a> project (<a href="http://www.microsoft.com">Microsoft</a> putting <a href="http://www.ruby-lang.org/en/">Ruby</a> on top of .NET) means, a chunk of which is worth quoting:
 <blockquote>Microsoft doesn't like to acknowledge this in public, but there is a real concern that <a href="http://www.martinfowler.com/bliki/AlphaGeek.html">AlphaGeek</a>s are <a href="http://www.hanselman.com/blog/IsMicrosoftLosingTheAlphaGeeks.aspx">moving away</a> from the Microsoft platform. There's a growing sense that Microsoft's vision is armies of Morts in command-and-control organizations. There often seems to be outright discouragement of tools to enable talented enterprise developers, or of agile development processes.

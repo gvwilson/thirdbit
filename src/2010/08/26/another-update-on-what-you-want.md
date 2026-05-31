@@ -1,5 +1,6 @@
 ---
 date: 2010-08-26
+category: software education
 original: swc
 title: Another Update on What You Want
 ---

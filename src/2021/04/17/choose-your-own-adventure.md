@@ -1,6 +1,7 @@
 ---
 title: "Choose Your Own Adventure"
 date: 2021-04-17
+category: software education writing
 ---
 
 [Julia Evans](https://jvns.ca/) recently posted a description of the

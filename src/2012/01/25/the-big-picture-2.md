@@ -1,5 +1,6 @@
 ---
 date: 2012-01-25
+category: software education
 original: swc
 title: The Big Picture
 ---

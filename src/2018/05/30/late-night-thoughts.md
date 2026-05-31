@@ -1,5 +1,6 @@
 ---
 date: 2018-05-30
+category: software
 title: "Late Night Thoughts"
 ---
 

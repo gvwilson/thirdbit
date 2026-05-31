@@ -1,6 +1,7 @@
 ---
 title: "Does Continuous Publication Require Continuous Attention?"
 date: 2014-04-05
+category: software research writing
 original: swc
 ---
 <p>

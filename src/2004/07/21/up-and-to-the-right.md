@@ -1,6 +1,7 @@
 ---
 title: "Up and to the Right"
 date: 2004-07-21
+category: software education
 ---
 <p>I spent a twenty minutes this morning throwing together a couple of <a href="http://www.python.org">Python</a> scripts to measure Helium's progress over time.  The first script checks Helium out of CVS for each day since the project started, and counts the number of lines of source and test code.  The second script takes that data and produces this simple graph.</p>
 

@@ -1,6 +1,7 @@
 ---
 title: "Sunday Nights"
 date: 2020-05-24
+category: personal
 ---
 
 I left home when I was seventeen.

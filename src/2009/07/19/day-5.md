@@ -1,5 +1,6 @@
 ---
 date: 2009-07-19
+category: education software
 original: swc
 title: Day 5
 ---

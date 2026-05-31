@@ -1,5 +1,6 @@
 ---
 date: 2012-05-12
+category: software education writing
 original: swc
 title: Feedback from Michigan State
 ---

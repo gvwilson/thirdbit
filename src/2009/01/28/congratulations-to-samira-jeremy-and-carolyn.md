@@ -1,6 +1,7 @@
 ---
 title: "Congratulations to Samira, Jeremy, and Carolyn"
 date: 2009-01-28
+category: software research writing
 ---
 I just handed in paperwork to say that Samira Ashtiani Abdi, Jeremy Handcock, and Carolyn MacLeod have completed their Master of Science degrees in Computer Science, and that Samira and Carolyn should be admitted to the PhD.  (Jeremy's going to go be a ski bum instead.)  Congratulations to all three—I'm proud to have worked with them.
 

@@ -1,6 +1,7 @@
 ---
 title: Code of Conduct
 date: 2012-12-21
+category: software education community
 original: swc
 ---
 <p>

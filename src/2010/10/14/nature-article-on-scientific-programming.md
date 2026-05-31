@@ -1,5 +1,6 @@
 ---
 date: 2010-10-14
+category: research software writing
 original: swc
 title: Nature Article on Scientific Programming
 ---

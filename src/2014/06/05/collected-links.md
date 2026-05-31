@@ -1,6 +1,7 @@
 ---
 title: "Collected Links"
 date: 2014-06-05
+category: software education writing
 original: swc
 ---
 <p>

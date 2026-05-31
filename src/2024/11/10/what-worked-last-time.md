@@ -1,6 +1,7 @@
 ---
 title: "What Worked Last Time?"
 date: 2024-11-10
+category: software community writing
 ---
 
 *I'm going to ask a favor, but I need to tell a story first.*
@@ -56,4 +57,4 @@ thank you in advance for pointers to others.
 [email]: mailto:gvwilson@third-bit.com
 [grantee-safety]: https://www.fordfoundation.org/work/learning/learning-reflections/keeping-those-on-the-front-lines-of-change-safe-five-years-of-the-ford-foundation-grantee-safety-program/
 [ms]: https://www.oreilly.com/library/view/making-software/9780596808310/
-[sdgc]: @root/ideas/sdgc/
+[sdgc]: @root/sdgc/

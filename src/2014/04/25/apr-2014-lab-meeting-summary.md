@@ -1,6 +1,7 @@
 ---
 title: "April 2014 Lab Meeting"
 date: 2014-04-25
+category: education software community
 original: swc
 ---
 <p>

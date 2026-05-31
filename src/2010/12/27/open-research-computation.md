@@ -1,5 +1,6 @@
 ---
 date: 2010-12-27
+category: research software education
 original: swc
 title: Open Research Computation
 ---

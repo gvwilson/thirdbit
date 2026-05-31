@@ -1,6 +1,7 @@
 ---
 title: "Instructor Training Statistics"
 date: 2013-08-23
+category: education software research
 original: swc
 ---
 <p>

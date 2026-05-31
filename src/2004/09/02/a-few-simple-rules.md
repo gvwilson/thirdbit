@@ -1,6 +1,7 @@
 ---
 title: "A Few Simple Rules"
 date: 2004-09-02
+category: software community education
 ---
 <p>We held the post-mortem
 for Helium this

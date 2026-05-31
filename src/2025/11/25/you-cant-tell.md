@@ -1,6 +1,7 @@
 ---
 title: You Can't Tell
 date: 2025-11-25
+category: software community
 ---
 
 [Yesterday's post][analyzing] checked our prediction

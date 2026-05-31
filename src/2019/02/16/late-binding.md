@@ -1,5 +1,6 @@
 ---
 date: 2019-02-16
+category: software writing education
 title: "Late Binding"
 ---
 

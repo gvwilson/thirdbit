@@ -1,5 +1,6 @@
 ---
 date: 2010-07-08
+category: software research community
 original: swc
 title: "Interview: SciNet's Daniel Gruner"
 ---

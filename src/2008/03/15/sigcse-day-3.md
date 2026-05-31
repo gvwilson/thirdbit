@@ -1,6 +1,7 @@
 ---
 title: "SIGCSE Day 3"
 date: 2008-03-15
+category: software writing education
 ---
 0540: Awake. The city is still outside my window.
 

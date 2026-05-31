@@ -1,6 +1,7 @@
 ---
 title: "Books You May Enjoy"
 date: 2015-01-02
+category: software writing
 ---
 <p>
   I didn't read (or re-read) much in 2014,

@@ -1,6 +1,7 @@
 ---
 title: "DrProject Internals: Tickets"
 date: 2006-11-01
+category: software personal
 ---
 At long last tickets… I still slip sometimes and refer to ticketing systems as "bug trackers", but they're much more than that. If version control is a project's memory of where it has been, ticketing is the to-do list telling it where it's going.  New feature ideas, open questions, requirements—I haven't found a limit yet to what a ticketing system can be used to remember.
 

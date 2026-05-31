@@ -1,5 +1,6 @@
 ---
 date: 2009-07-28
+category: software education
 original: swc
 title: Day 11 and Day 12
 ---

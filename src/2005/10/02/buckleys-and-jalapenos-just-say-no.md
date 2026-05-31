@@ -1,6 +1,7 @@
 ---
 title: "Buckley's and Jalapenos: Just Say No"
 date: 2005-10-02
+category: education software research
 ---
 <p>A few observations after three weeks of class:</p>
 

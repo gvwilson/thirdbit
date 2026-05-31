@@ -1,6 +1,7 @@
 ---
 title: "Coding for Librarians"
 date: 2015-05-22
+category: software education
 original: swc
 ---
 <p>

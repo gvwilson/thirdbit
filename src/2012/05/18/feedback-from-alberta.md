@@ -1,5 +1,6 @@
 ---
 date: 2012-05-18
+category: education
 original: swc
 title: Feedback from Alberta
 ---

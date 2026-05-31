@@ -1,6 +1,7 @@
 ---
 title: "Teaching For Loops"
 date: 2015-12-10
+category: education software community
 original: swc
 ---
 

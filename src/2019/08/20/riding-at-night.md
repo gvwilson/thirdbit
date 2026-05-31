@@ -1,6 +1,7 @@
 ---
 title: "Riding at Night"
 date: 2019-08-20
+category: personal
 ---
 
 There is something magical about riding a bicycle down an empty street on a warm summer evening.

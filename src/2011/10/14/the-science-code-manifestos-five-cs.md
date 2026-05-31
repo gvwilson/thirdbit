@@ -1,5 +1,6 @@
 ---
 date: 2011-10-14
+category: software education research
 original: swc
 title: The Science Code Manifesto's Five C's
 ---

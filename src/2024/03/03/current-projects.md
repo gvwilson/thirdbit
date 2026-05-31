@@ -1,6 +1,7 @@
 ---
 title: "Current Projects"
 date: 2024-03-03
+category: software education writing
 ---
 
 A week ago I posted [my last to-don't list][to-dont];

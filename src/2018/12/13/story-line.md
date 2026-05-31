@@ -1,5 +1,6 @@
 ---
 date: 2018-12-13
+category: education software research
 title: "A Story Line Game for Teaching"
 ---
 

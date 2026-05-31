@@ -1,6 +1,7 @@
 ---
 title: "Designing a New Novice Python Lesson"
 date: 2016-04-10
+category: education software community
 original: swc
 ---
 

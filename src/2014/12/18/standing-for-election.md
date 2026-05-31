@@ -1,6 +1,7 @@
 ---
 title: "Standing for Election"
 date: 2014-12-18
+category: education community software
 original: swc
 ---
 <p>

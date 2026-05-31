@@ -1,6 +1,7 @@
 ---
 title: "Change Strategies"
 date: 2017-10-21
+category: education software research
 ---
 
 <p>

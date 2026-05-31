@@ -1,5 +1,6 @@
 ---
 date: 2012-09-04
+category: software education research
 original: swc
 title: Not Really Disjoint
 ---

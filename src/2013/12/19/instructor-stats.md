@@ -1,6 +1,7 @@
 ---
 title: "So How Is Instructor Training Going?"
 date: 2013-12-19
+category: education
 original: swc
 ---
 <p>

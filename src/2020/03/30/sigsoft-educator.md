@@ -1,6 +1,7 @@
 ---
 title: "SIGSOFT Influential Educator Award"
 date: 2020-03-30
+category: community software
 ---
 
 I received an unexpected email message yesterday:

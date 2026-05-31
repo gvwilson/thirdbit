@@ -1,6 +1,7 @@
 ---
 title: "Top Up vs. Bottom Down"
 date: 2009-09-24
+category: software
 ---
 Ever heard of <a href="http://blog.marsdd.com/2009/09/22/masdar-city-at-mars-the-business-of-zero-carbon/">Masdar City</a>?  I hadn't 'til this:
 <blockquote>Consider this: Abu Dhabi ranks first in per capita carbon dioxide and green house gas emissions, with a footprint nearly five times the world average. Its economy is based on oil. Yet, its vision is to become the world leader in renewable energy and sustainable technologies - a breathtaking and audacious goal.</blockquote>

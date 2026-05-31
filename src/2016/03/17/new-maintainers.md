@@ -1,6 +1,7 @@
 ---
 title: "New Maintainers"
 date: 2016-03-17
+category: education community
 original: swc
 ---
 We are pleased to announce that Harriet Dashnow

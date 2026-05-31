@@ -1,5 +1,6 @@
 ---
 date: 2012-04-01
+category: software education community
 original: swc
 title: Sending Email Back in Time
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Ten More Instructors"
 date: 2015-03-02
+category: education community
 original: swc
 ---
 <p>

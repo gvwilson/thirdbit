@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 16: Documentation Generator"
 date: 2023-01-20
+category: software
 ---
 
 Many programmers believe they're more likely to write documentation and keep it up to date
@@ -12,7 +13,7 @@ builds on discussion in earlier chapters of [turning code into a data structure]
 to extract Markdown from comments and turn it into HTML.
 
 <figure id="doc-generator-mapping" class="center">
-  <img src="@root/sdxjs/doc-generator/mapping.svg" alt="Mapping comments to documentation" class="centered">
+  <img src="@root/sdxjs/docgen/mapping.svg" alt="Mapping comments to documentation" class="centered">
   <figcaption>Figure 16.2: How comments in code map to documentation in HTML.</figcaption>
 </figure>
 
@@ -59,6 +60,6 @@ when I see companies putting some real resources behind tools to help teach them
 [explain_code]: @root/2022/12/28/ways-to-explain-code/
 [memory_diagram]: @root/2022/12/04/i-want-a-memory-diagram-generator/
 [sdxjs]: @root/sdxjs/
-[sdxjs_checker]: @root/sdxjs/style-checker/
-[sdxjs_doc]: @root/sdxjs/doc-generator/
+[sdxjs_checker]: @root/sdxjs/style/
+[sdxjs_doc]: @root/sdxjs/docgen/
 [tools_exist]: @root/2023/01/14/do-these-tools-exist/

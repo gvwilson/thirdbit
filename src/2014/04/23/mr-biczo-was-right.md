@@ -1,6 +1,7 @@
 ---
 title: "Mr. Biczo Was Right"
 date: 2014-04-23
+category: software education research
 original: swc
 ---
 <p>

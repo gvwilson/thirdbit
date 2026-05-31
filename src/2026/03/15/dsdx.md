@@ -1,6 +1,7 @@
 ---
 title: "Distributed Systems Design by Example"
 date: 2026-03-15
+category: software writing
 ---
 
 I started work on [*Distributed Systems Design by Example*][dsdx] exactly 212 days ago.

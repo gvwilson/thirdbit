@@ -1,6 +1,7 @@
 ---
 title: "New Book Project"
 date: 2009-09-10
+category: writing software
 ---
 By the time the Seven Years War with France ended in 1763, Britain had lost 1512 sailors in action—and almost 100,000 to scurvy. What makes this ironic, as well as tragic, is that a Scottish surgeon named James Lind had shown twenty years earlier that a little lemon or lime juice every day was enough to prevent or cure the dreaded ailment. Lind discovered this in what may have been the first controlled clinical trial in history: he divided 12 sailors with scurvy into six pairs, and gave each a different treatment. Those treated with sea water, sulfuric acid, garlic, and vinegar worsened; those who received cider got slightly better, and those given lemons and limes improved dramatically.
 

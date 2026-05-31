@@ -1,5 +1,6 @@
 ---
 date: 2011-07-10
+category: software education community
 original: swc
 title: Stanford Course Went Well
 ---

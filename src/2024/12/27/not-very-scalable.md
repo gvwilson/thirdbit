@@ -1,6 +1,7 @@
 ---
 title: "Not Very Scalable"
 date: 2024-12-27
+category: software education
 ---
 
 I have been teaching some informal lessons to colleagues based on

@@ -1,5 +1,6 @@
 ---
 date: 2010-09-09
+category: education research
 original: swc
 title: And For My Next Trick…
 ---

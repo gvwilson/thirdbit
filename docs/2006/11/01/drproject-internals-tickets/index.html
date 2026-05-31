@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -102,6 +101,14 @@ or surpassing human play?</pre>
 <p>[1] <a href="http://trac.edgewall.org">Trac</a>&rsquo;s tickets have, among other fields, enumerations for priority, severity, component, and version.  In practice, everyone seems to fold &ldquo;priority&rdquo; and &ldquo;severity&rdquo; together in their heads: issues are either urgent, important, or ignorable.  &ldquo;Component&rdquo; is also problematic—many issues tie into many components, while others (such as questions) don&rsquo;t have anything to do with components at all—so we dropped it entirely.  (Users can tag tickets with keywords to identify components if they want to.)  Finally, student projects aren&rsquo;t big enough, or long-lived enough, to need version labels; once again, if a project does, it can use tags.</p>
 <p>[2] Saying that &ldquo;dates are stored as dates&rdquo; glosses over a medium-sized annoyance.  As <a href="http://www.crankycoder.com">Victor Ng</a> pointed out, Python&rsquo;s database interface libraries will return any of several different data types to represent a moment in time, ranging from a <code>datetime.datetime</code> from the standard library to something as exotic as <a href="http://www.egenix.com">eGenix</a>&rsquo;s <code>mxDateTime</code>, depending on which database and database interface you&rsquo;re using.</p>
 <p>[3] The same thing applies to user IDs.  Once a user is in the system, her ID can never safely be deleted, since that would result in dangling references. Instead, DrProject stores a Boolean &ldquo;enabled&rdquo; flag in each account record; disabled accounts cannot be logged into, mail is not forwarded to them, etc.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../personal/">personal</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

@@ -1,6 +1,7 @@
 ---
 title: "But Not For Me"
 date: 2007-10-22
+category: writing
 ---
 I used to play a little jazz, and was fond of a Gershwin tune called "But Not For Me":
 <blockquote><font class="txt_1">  They're writing songs of love, but not for me,

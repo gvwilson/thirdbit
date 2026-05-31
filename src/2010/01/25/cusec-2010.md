@@ -1,6 +1,7 @@
 ---
 title: "CUSEC 2010"
 date: 2010-01-25
+category: software education research
 ---
 If it's Monday, I must be catching up… I spoke at <a href="http://2010.cusec.net/">CUSEC 2010</a> last week to about 250 students and others about evidence-based software engineering. The talk is an update of the one I gave at <a href="http://www.amiando.com/stackoverflowdevdays-toronto-can.html">DevDays</a> last October; it's basically a pitch for an upcoming O'Reilly collection on the subject, and the slides are up on <a href="http://www.slideshare.net/gvwilson/bits-of-evidence-2338367">SlideShare</a>. You can find Joey de Villa's detailed notes on the CUSEC keynotes on his blog:
 <ul>

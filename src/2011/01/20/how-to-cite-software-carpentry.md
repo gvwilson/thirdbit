@@ -1,5 +1,6 @@
 ---
 date: 2011-01-20
+category: software education research
 original: swc
 title: How to Cite Software Carpentry
 ---

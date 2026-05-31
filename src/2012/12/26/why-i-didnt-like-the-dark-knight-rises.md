@@ -1,6 +1,7 @@
 ---
 title: "Why I Didn't Like 'The Dark Knight Rises'"
 date: 2012-12-26
+category: education society
 ---
 <p>Looking back on 2012, <em>The Dark Knight Rises</em> was probably my least favorite film. The visuals were OK, I guess, but Christian Bale somehow managed to make the Batman both wooden and whiny. All that was just disappointing; what made the movie positively unlikeable was its politics:</p>
 <blockquote>There's a storm coming, Mr. Wayne. You and your friends better batten down the hatches, because when it hits, you're all gonna wonder how you ever thought you could live so large and leave so little for the rest of us.

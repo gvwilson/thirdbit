@@ -1,5 +1,6 @@
 ---
 date: 2010-08-12
+category: software research community
 original: swc
 title: Interview with Cameron Neylon
 ---

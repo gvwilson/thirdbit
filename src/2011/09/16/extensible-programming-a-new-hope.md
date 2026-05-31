@@ -1,6 +1,7 @@
 ---
 title: "Extensible Programming: A New Hope"
 date: 2011-09-16
+category: software
 ---
 Back in 2004, I wrote an article for <a href="http://queue.acm.org"><cite>ACM Queue</cite></a> titled "<a href="http://queue.acm.org/detail.cfm?id=1039534">Extensible Programming for the 21st Century</a>". In it, I argued that it was time for programming languages to break free from their textual shackles–that we should separate models (the program's content) from views and controllers (how that content is displayed), just as we have with CAD systems, word processors, and other tools that work with rich, highly-structured content. Before I look at some recent signs of progress, let me back up and explain both the problem and why I think model-view separation is the solution. What I want is a programming "language" that can be extended in a wide variety of ways. That's pretty conventional–every modern language lets people define new functions, create new types, overload operators, etc.–but I think that's much too limited. I want to be able to embed a table in a program as a first-class object, so that instead of:
 <pre>if x:

@@ -1,6 +1,7 @@
 ---
 title: "RailsConf: Plus Ca Change…"
 date: 2007-05-19
+category: software research
 ---
 RailsConf 2007 (a gathering of and for Ruby On Rails developers) is happening right now in Portland.  Next-generation web frameworks, Web 2.0, blah blah blah—all very exciting, but the gender ratio among speakers is 71 to 5 (6.5% female), and from the photos, all but one of the speakers is white.  Looks like more people need to read <a href="http://strange.corante.com/archives/2006/09/04/the_twelve_or_so_step_program_for_conference_speakers_and_organisers.php">Suw Charman's excellent article</a> from last fall…
 

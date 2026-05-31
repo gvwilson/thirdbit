@@ -1,6 +1,7 @@
 ---
 title: "Expressing Temporal 'Type' Information in Programs"
 date: 2006-11-11
+category: software education
 ---
 Several students were in my office this week explaining how their programs work.  In each case, much of the information was temporal: "this happens, then that, then this other thing".  Sequence diagrams and the like were designed to capture this, but I don't know any programming language that allows programmers to specify constraints of this kind on their variables.
 

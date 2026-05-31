@@ -1,6 +1,7 @@
 ---
 title: "Mocked by a Bar Chart"
 date: 2008-12-31
+category: software
 ---
 Jon Pipitone sent the following in response to this morning's post customer disservice post:
 

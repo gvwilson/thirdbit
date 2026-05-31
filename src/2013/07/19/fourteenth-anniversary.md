@@ -1,6 +1,7 @@
 ---
 title: "The Fourteenth Anniversary"
 date: 2013-07-19
+category: software education research
 original: swc
 ---
 <p>

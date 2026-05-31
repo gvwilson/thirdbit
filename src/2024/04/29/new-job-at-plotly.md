@@ -1,6 +1,7 @@
 ---
 title: "A New Job at Plotly"
 date: 2024-04-29
+category: community
 ---
 
 Today is my first day as an engineering manager on the libraries team at [Plotly][plotly].

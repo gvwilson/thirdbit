@@ -1,5 +1,6 @@
 ---
 date: 2019-04-10
+category: software education
 title: "What Docs and When"
 ---
 

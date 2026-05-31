@@ -1,6 +1,7 @@
 ---
 title: "Offering a New Order"
 date: 2013-08-12
+category: writing
 ---
 <blockquote>
 Every movement that seeks to change society faces two great tasks.

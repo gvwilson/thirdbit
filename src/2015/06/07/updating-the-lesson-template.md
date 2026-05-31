@@ -1,6 +1,7 @@
 ---
 title: "Updating the Lesson Template"
 date: 2015-06-07
+category: education research community
 original: swc
 ---
 <p>

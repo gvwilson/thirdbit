@@ -1,6 +1,7 @@
 ---
 title: "Educational Engineering"
 date: 2015-12-15
+category: education software research
 original: swc
 ---
 <p>

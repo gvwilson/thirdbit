@@ -1,6 +1,7 @@
 ---
 title: "Summary of May 2014 Lab Meeting"
 date: 2014-05-24
+category: community
 original: swc
 ---
 <p>

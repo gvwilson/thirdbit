@@ -1,6 +1,7 @@
 ---
 title: Planning for the Break
 date: 2013-05-24
+category: education
 original: swc
 ---
 <p>

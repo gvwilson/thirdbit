@@ -1,5 +1,6 @@
 ---
 date: 2018-12-26
+category: research software
 title: "Poor Thinking"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: The Year That Was
 date: 2025-12-19
+category: education personal
 ---
 
 Another year, another "where did the time go?" post…

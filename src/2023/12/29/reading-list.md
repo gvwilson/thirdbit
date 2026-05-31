@@ -1,6 +1,7 @@
 ---
 title: "Reading List"
 date: 2023-12-29
+category: writing software society
 ---
 
 I've explained [elsewhere][ultracrepidarian]

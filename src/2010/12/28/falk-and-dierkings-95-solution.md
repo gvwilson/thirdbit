@@ -1,6 +1,7 @@
 ---
 title: "Falk and Dierking's 95% Solution"
 date: 2010-12-28
+category: software education research
 ---
 The most interesting thing I read over the holiday was Falk and Dierking's article "The 95 Percent Solution" in the Nov-Dec 2010 issue of <a href="http://www.amsci.org"><em>American Scientist</em></a>. (The article is behind a paywall at its source, but Google turned up <a href="http://caise.insci.org/uploads/docs/FalkandDierking95perc.pdf">this</a> cached PDF copy.) The key stat is at the end of the first page:
 <blockquote>Elementary-school-aged U.S. children perform as well as or better than most children in the world, but the performance of older U.S. children has been mediocre at best. Interestingly, however, for more than 20 years, U.S. adults have consistently outperformed their international counterparts on science literary measures…</blockquote>

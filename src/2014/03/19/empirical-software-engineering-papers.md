@@ -1,6 +1,7 @@
 ---
 title: "Empirical Software Engineering Papers"
 date: 2014-03-19
+category: software writing education
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: No Satisfaction
 date: 2025-07-18
+category: education research software
 ---
 
 I don't actually get much satisfaction from saying "I told you so"

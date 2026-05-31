@@ -1,6 +1,7 @@
 ---
 title: "So, Greg, What Are You Up To These Days?"
 date: 2012-01-14
+category: education software community
 ---
 I'm glad you asked:
 <ul>

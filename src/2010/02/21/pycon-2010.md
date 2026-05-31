@@ -1,6 +1,7 @@
 ---
 title: "PyCon 2010"
 date: 2010-02-21
+category: education software research
 ---
 It's a sunny Sunday morning in Atlanta, and I'm on my way home. I came down Thursday to:
 <ol>

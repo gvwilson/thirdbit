@@ -1,6 +1,7 @@
 ---
 title: "Research Software Design by Example"
 date: 2023-12-10
+category: software research education
 ---
 
 I'm thinking about running a 12-week course online next year,

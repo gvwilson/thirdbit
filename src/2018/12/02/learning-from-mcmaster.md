@@ -1,5 +1,6 @@
 ---
 date: 2018-12-02
+category: education software
 title: "Learning from McMaster"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Morning Routine"
 date: 2008-04-09
+category: writing education
 ---
 <ol>
   <li>Log in to my desktop Windows box.</li>

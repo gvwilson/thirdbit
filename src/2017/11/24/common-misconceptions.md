@@ -1,6 +1,7 @@
 ---
 title: "Common Misconceptions"
 date: 2017-11-24
+category: education research writing
 ---
 
 <a href="https://www.amazon.com/Common-Misconceptions-Mathematics-Strategies-Correct/dp/0761858857/"><img src="@root/files/2017/11/ojose.jpg" width="200px" alt="Ojose: Common Misconceptions in Mathematics" class="centered"></a>

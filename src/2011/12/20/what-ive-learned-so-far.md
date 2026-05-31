@@ -1,5 +1,6 @@
 ---
 date: 2011-12-20
+category: education software
 original: swc
 title: What I've Learned So Far
 ---

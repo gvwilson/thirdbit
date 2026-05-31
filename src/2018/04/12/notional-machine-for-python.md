@@ -1,6 +1,7 @@
 ---
 title: "Is This a Notional Machine for Python?"
 date: 2018-04-12
+category: software research writing
 ---
 
 [Mark Guzdial](http://computinged.wordpress.com) was kind enough

@@ -1,6 +1,7 @@
 ---
 title: Time Management
 date: 2025-01-03
+category: education personal
 ---
 
 My [previous post][crunch-mode] explained why people are most productive

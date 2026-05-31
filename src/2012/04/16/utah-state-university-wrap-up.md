@@ -1,5 +1,6 @@
 ---
 date: 2012-04-16
+category: education
 original: swc
 title: Utah State University Wrap-Up
 ---

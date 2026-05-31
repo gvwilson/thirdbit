@@ -1,6 +1,7 @@
 ---
 title: "Welcome Aboard"
 date: 2014-12-23
+category: education community
 original: swc
 ---
 <p>

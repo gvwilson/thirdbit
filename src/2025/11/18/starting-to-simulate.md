@@ -1,6 +1,7 @@
 ---
 title: Starting to Simulate
 date: 2025-11-18
+category: software education
 ---
 
 Inspired in part by [the software development simulator][hendrickson-sim]

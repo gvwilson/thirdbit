@@ -1,5 +1,6 @@
 ---
 date: 2019-02-05
+category: software
 title: "Libraries Tell It Like It Is"
 ---
 

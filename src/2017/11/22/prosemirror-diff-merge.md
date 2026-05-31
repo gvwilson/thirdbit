@@ -1,6 +1,7 @@
 ---
 title: "Diff and Merge for ProseMirror"
 date: 2017-11-22
+category: software writing
 ---
 
 [ProseMirror][prosemirror] is one of the most interesting projects I've come across this year.

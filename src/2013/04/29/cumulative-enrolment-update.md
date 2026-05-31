@@ -1,6 +1,7 @@
 ---
 title: An Update on Cumulative Enrolment
 date: 2013-04-29
+category: community
 original: swc
 ---
 <p>It's been a busy few months, and the next three promise to be busier still.  Somewhere in there we helped our two thousandth learner, and if everything goes well, we'll reach 2500 by mid-summer.</p>

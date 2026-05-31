@@ -1,5 +1,6 @@
 ---
 date: 2010-09-23
+category: software education
 original: swc
 title: Software Carpentry at UCSF
 ---

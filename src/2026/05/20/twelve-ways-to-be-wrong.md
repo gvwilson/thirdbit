@@ -1,6 +1,7 @@
 ---
 title: "Twelve Ways to Be Wrong About AI-Assisted Coding"
 date: 2026-05-20
+category: software
 ---
 
 Suppose your manager asks you next week to demonstrate that

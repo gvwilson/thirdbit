@@ -1,6 +1,7 @@
 ---
 title: Some of the Things We've Learned About Teaching Git
 date: 2012-12-11
+category: education software
 original: swc
 ---
 <p>We've tried teaching Git six or seven times now; here's what some of the instructors have learned.</p>

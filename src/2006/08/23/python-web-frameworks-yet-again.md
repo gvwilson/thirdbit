@@ -1,6 +1,7 @@
 ---
 title: "Python Web Frameworks (Yet Again)"
 date: 2006-08-23
+category: software research writing
 ---
 In response to comments and emails over the last few days saying, "I don't know why you are so obsessed with having just one Python web framework—different people have different needs, competition spurs everyone to do better, and anyway, the technical issues aren't settled enough yet to pick a winner," I'd like to say, "Bah." My argument comes down to this:
 

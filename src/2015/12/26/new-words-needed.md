@@ -1,6 +1,7 @@
 ---
 title: "New Words Needed"
 date: 2015-12-26
+category: software research writing
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "What We've Learned"
 date: 2010-03-02
+category: software education writing
 ---
 My talk at <a href="http://us.pycon.org/2010">PyCon 2010</a> was titled "What We've Learned From Building Basie (and lots of other software using student labor over the course of eight years)".  The <a href="http://www.slideshare.net/gvwilson/what-weve-learned-from-building-basie-3241279">slides</a> are up on Slideshare, and there's <a href="http://blip.tv/file/3260995">video</a> of the talk itself on blip.tv, but I thought readers of this blog might be interested in a summary.
 

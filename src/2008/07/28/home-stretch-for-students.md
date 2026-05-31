@@ -1,6 +1,7 @@
 ---
 title: "Home Stretch for Students"
 date: 2008-07-28
+category: software education
 ---
 Coming down to the wire…
 <ul>

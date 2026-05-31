@@ -1,5 +1,6 @@
 ---
 date: 2011-01-16
+category: education
 original: swc
 title: Demographics (part one)
 ---

@@ -22,7 +22,7 @@ and he had taken his uncle's ideas about unconscious desire and applied them to 
 His insight was that you do not need to argue with people about whether they want something.
 You can create the conditions under which they will want it.
 
-The [behavioral economics post](@root/2026/05/14/behavioral-economics/) explained how
+An earlier post explained that
 people make decisions differently than the rational-actor model predicts.
 This post makes a related point:
 before you can ask how people choose,
@@ -58,8 +58,7 @@ Your preferences at the end of an evening's scrolling are partly an artifact
 of what the algorithm chose to show you.
 Recommendation systems are also preference-construction systems.
 
-This is distinct from the nudging
-described in the [behavioral economics post](@root/2026/05/14/behavioral-economics/).
+This is distinct from the nudging describedin a previous post.
 A nudge changes how a choice is presented without altering the options.
 What we're describing here is shaping what you want before you arrive at a choice.
 In India, skin-lightening products generate annual revenues in the billions of dollars,

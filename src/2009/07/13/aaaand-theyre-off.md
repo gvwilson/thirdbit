@@ -1,5 +1,6 @@
 ---
 date: 2009-07-13
+category: education software
 original: swc
 title: Aaaand They're Off!
 ---

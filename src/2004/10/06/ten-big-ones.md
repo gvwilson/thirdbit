@@ -1,6 +1,7 @@
 ---
 title: "Ten Big Ones"
 date: 2004-10-06
+category: writing
 ---
 I've written more than fifty book review columns for <a href="http://www.ddj.com">Doctor Dobb's Journal</a> since 1997, covering more than two hundred books.  Here are ten I think every serious software developer should read:
 

@@ -1,6 +1,7 @@
 ---
 title: "The Undergraduate Software Project Guide"
 date: 2018-04-01
+category: software education research
 ---
 
 Back in 2007, I tried to condense everything I had learned from

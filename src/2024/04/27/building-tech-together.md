@@ -1,6 +1,7 @@
 ---
 title: "Building Tech Together"
 date: 2024-04-27
+category: education software research
 ---
 
 I supervised almost 200 senior undergraduates' projects at the University of Toronto

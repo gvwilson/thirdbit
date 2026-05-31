@@ -1,6 +1,7 @@
 ---
 title: "A Better Learning Platform"
 date: 2020-08-08
+category: education software community
 ---
 
 There is a story (probably apocryphal) that shortly after the Soviet Union collapsed,

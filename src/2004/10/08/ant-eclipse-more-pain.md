@@ -1,6 +1,7 @@
 ---
 title: "Ant + Eclipse = More Pain"
 date: 2004-10-08
+category: software
 ---
 <p>
 The biggest problem with classpaths is that there is no standard way of defining them.  Classpaths can be set through environment variables (which have an OS-specific syntax), command-line arguments to the VM, system properties (which can be set through the command-line or a properties file), and even by arbitrary code running within a JVM.

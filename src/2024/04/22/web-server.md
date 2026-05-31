@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 22: Serving Web Pages"
 date: 2024-04-22
+category: software education writing
 ---
 
 Having shown learners how to [transfer files][sdxpy_ftp] over TCP,

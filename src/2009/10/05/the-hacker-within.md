@@ -1,5 +1,6 @@
 ---
 date: 2009-10-05
+category: education software research
 original: swc
 title: The Hacker Within
 ---

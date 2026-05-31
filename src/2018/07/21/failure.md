@@ -1,5 +1,6 @@
 ---
 date: 2018-07-21
+category: software research
 title: Weak Failure, Strong Failure, and Butter Tarts
 ---
 

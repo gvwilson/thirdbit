@@ -1,5 +1,6 @@
 ---
 date: 2018-10-31
+category: writing research community
 title: "Credit and Respect"
 ---
 

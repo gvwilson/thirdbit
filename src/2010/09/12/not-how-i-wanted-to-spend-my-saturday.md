@@ -1,6 +1,7 @@
 ---
 title: "It Shouldn't Hurt This Much"
 date: 2010-09-12
+category: software education
 ---
 <ol>
   <li>One of my students says good things about Spyder, a Python environment with MATLAB-like features. OK, I'd like to give it a try.</li>

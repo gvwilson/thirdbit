@@ -1,6 +1,7 @@
 ---
 title: "Revised List of Project Students"
 date: 2006-08-20
+category: software education
 ---
 I've updated my roster of project students (appears below the divide): 116 students, of whom 28 have done two projects. I still need to update my map, though, and I don't have birthplaces for the following people:
 <ul>

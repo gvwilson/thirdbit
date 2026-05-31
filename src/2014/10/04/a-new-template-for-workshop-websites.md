@@ -1,6 +1,7 @@
 ---
 title: "A New Template for Workshop Websites"
 date: 2014-10-04
+category: software education
 original: swc
 ---
 <p>

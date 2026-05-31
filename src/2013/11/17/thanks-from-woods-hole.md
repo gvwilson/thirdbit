@@ -1,6 +1,7 @@
 ---
 title: "Thanks from Woods Hole"
 date: 2013-11-17
+category: education software society
 original: swc
 ---
 <p>

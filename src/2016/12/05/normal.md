@@ -1,6 +1,7 @@
 ---
 title: "Normal"
 date: 2016-12-05
+category: software
 ---
 
 <p>

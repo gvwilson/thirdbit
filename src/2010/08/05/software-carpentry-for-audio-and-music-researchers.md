@@ -1,5 +1,6 @@
 ---
 date: 2010-08-05
+category: education research software
 original: swc
 title: Software Carpentry for Audio and Music Researchers
 ---

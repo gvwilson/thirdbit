@@ -1,6 +1,7 @@
 ---
 title: "Who Are We?"
 date: 2014-12-15
+category: software education research
 original: swc
 ---
 <p>

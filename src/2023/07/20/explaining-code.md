@@ -1,6 +1,7 @@
 ---
 title: "Explaining Code"
 date: 2023-07-20
+category: software writing
 ---
 
 I've been trying to avoid and ignore the current hype around AI,
@@ -115,5 +116,5 @@ Thus, the description provided does give a correct and detailed account
 of the `firstMatch` function's behavior.
 
 [sdxjs]: @root/sdxjs/
-[sdxjs-7]: @root/sdxjs/pattern-matching/
+[sdxjs-7]: @root/sdxjs/glob/
 [udell]: https://blog.jonudell.net/

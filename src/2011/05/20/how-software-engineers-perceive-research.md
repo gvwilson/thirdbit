@@ -1,6 +1,7 @@
 ---
 title: "How Do Actual Software Engineers Perceive Software Engineering Research?"
 date: 2011-05-20
+category: software research education
 ---
 <table class="centered">
 <tbody>

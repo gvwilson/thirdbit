@@ -1,6 +1,7 @@
 ---
 title: "Textbooks (Alone) Are Not Enough"
 date: 2021-08-24
+category: research writing
 ---
 
 Yesterday I tweeted:

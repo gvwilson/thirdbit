@@ -1,5 +1,6 @@
 ---
 date: 2012-03-05
+category: education
 original: swc
 title: Happy People
 ---

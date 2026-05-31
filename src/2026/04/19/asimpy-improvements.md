@@ -1,6 +1,7 @@
 ---
 title: "asimpy Improvements"
 date: 2026-04-19
+category: software
 ---
 
 Following up on [yesterday's post about benchmarking][benchmark],

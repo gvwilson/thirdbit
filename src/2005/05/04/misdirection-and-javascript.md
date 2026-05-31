@@ -1,6 +1,7 @@
 ---
 title: "Misdirection and Javascript"
 date: 2005-05-04
+category: software education personal
 ---
 <p>When I was twelve, I spent $3.95 on a book that promised to teach
 me how to do magic tricks that would astound my friends.  I didn't

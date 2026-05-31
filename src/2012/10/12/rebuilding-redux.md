@@ -1,5 +1,6 @@
 ---
 date: 2012-10-12
+category: software education
 original: swc
 title: Rebuilding Redux
 ---

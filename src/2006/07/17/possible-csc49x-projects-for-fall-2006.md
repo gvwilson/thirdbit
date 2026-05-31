@@ -1,6 +1,7 @@
 ---
 title: "Possible CSC49X Projects for Fall 2006"
 date: 2006-07-17
+category: software education research
 ---
 All very tentative, but here are some of the options:
 <ul>

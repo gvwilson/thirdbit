@@ -1,6 +1,7 @@
 ---
 title: "Dressed in Hand-Me-Down Clothes"
 date: 2023-04-10
+category: software education writing
 ---
 
 I've been updating the Python version of [*Software Design by Example*][sdxjs],

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 15: Code Generator"
 date: 2023-01-19
+category: software
 ---
 
 [Chapter 14][sdxjs_checker] turned source code into a data structure
@@ -42,5 +43,5 @@ I still believe that [beautiful is possible][bicycle].
 [glamorous]: https://gtoolkit.com/
 [scheme]: https://en.wikipedia.org/wiki/Scheme_(programming_language)
 [sdxjs]: @root/sdxjs/
-[sdxjs_checker]: @root/sdxjs/style-checker/
-[sdxjs_generator]: @root/sdxjs/code-generator/
+[sdxjs_checker]: @root/sdxjs/style/
+[sdxjs_generator]: @root/sdxjs/codegen/

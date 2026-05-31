@@ -1,6 +1,7 @@
 ---
 title: "An Amsterdam Kind of Life"
 date: 2023-01-17
+category: software
 ---
 
 Several conversations have brushed up against each other in interesting ways recently.

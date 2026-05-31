@@ -1,5 +1,6 @@
 ---
 date: 2018-10-26
+category: writing software
 title: "Formatting Functions"
 ---
 

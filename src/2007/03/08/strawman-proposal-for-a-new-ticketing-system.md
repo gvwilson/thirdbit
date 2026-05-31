@@ -1,6 +1,7 @@
 ---
 title: "Strawman Proposal for a New Ticketing System"
 date: 2007-03-08
+category: education software
 ---
 DrProject has been in use in half a dozen courses at two universities for over six months.  We're mostly pleased with it, but it's clear that the ticketing system needs a major overhaul.  Most class projects need nothing more than a shared to-do list, but some (like DrProject and OLM) need the priorities, due dates, and so on that real ticketing systems provide.
 

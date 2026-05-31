@@ -1,5 +1,6 @@
 ---
 date: 2010-03-26
+category: education writing software
 original: swc
 title: Instructional Design
 ---

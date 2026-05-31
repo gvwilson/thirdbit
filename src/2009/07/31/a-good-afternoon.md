@@ -1,5 +1,6 @@
 ---
 date: 2009-07-31
+category: software education research
 original: swc
 title: A Good Afternoon
 ---

@@ -1,6 +1,7 @@
 ---
 title: "PowerPoint + Visio, but in Javascript?"
 date: 2011-12-16
+category: software community
 ---
 I've been complaining for a couple of years now about not being able to use HTML + Javascript as a replacement for PowerPoint. Yes, it's easy to put images and text beside one another in <a href="http://meyerweb.com/eric/tools/s5/">S5</a> or one of its many descendents, but I want to be able to draw on top of my text, just like I do on a whiteboard.
 

@@ -1,6 +1,7 @@
 ---
 title: "Greatest Hits"
 date: 2009-11-24
+category: software community research
 ---
 The list of contributors to the upcoming O'Reilly book on evidence-based software engineering seems to have settled down—we're very grateful to everyone listed below for agreeing to take part, and hope that the book will be available in the summer of 2010.
 <ul>

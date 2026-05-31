@@ -1,6 +1,7 @@
 ---
 title: "What I'm Reading These Days"
 date: 2008-05-14
+category: research software education
 ---
 A couple of students have asked, so here's my reading list:
 <ul>

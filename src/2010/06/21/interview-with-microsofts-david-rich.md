@@ -1,5 +1,6 @@
 ---
 date: 2010-06-21
+category: software education research
 original: swc
 title: Interview with Microsoft's David Rich
 ---

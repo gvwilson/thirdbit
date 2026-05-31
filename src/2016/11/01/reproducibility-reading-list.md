@@ -1,6 +1,7 @@
 ---
 title: "A Reproducibility Reading List"
 date: 2016-11-01
+category: research writing
 original: swc
 ---
 

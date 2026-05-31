@@ -1,5 +1,6 @@
 ---
 date: 2012-01-04
+category: education software community
 original: swc
 title: Settings Our Sights a Little Bit Lower
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Welcome Our First New Instructors of 2015"
 date: 2015-01-24
+category: education community
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Sarah Mei on Software Engineering Research"
 date: 2014-11-10
+category: software research
 ---
 <p>
   Sarah Mei tweeted this

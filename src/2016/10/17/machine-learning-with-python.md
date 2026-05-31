@@ -1,6 +1,7 @@
 ---
 title: "Machine Learning with Python"
 date: 2016-10-17
+category: software research community
 original: swc
 ---
 

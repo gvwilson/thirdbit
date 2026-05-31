@@ -1,6 +1,7 @@
 ---
 title: "Why Software Matters"
 date: 2014-10-28
+category: community software research
 original: swc
 ---
 <p>

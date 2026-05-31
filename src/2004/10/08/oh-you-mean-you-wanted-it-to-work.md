@@ -1,6 +1,7 @@
 ---
 title: "Oh, You Mean You Wanted It to *Work*…"
 date: 2004-10-08
+category: software education
 ---
 <p>Finally back on track building a simple Hibernate example to give future generations of students…or am I?  In case you haven't been following along, I had my project laid out as follows:</p>
 

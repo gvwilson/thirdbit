@@ -1,6 +1,7 @@
 ---
 title: "Scientific Groupware Revisited"
 date: 2014-07-05
+category: research software community
 original: swc
 ---
 <p>

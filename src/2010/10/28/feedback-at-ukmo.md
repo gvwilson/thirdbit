@@ -1,5 +1,6 @@
 ---
 date: 2010-10-28
+category: education software
 original: swc
 title: Feedback at UKMO
 ---

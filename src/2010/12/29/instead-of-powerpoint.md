@@ -1,6 +1,7 @@
 ---
 title: "Instead of PowerPoint"
 date: 2010-12-29
+category: software education
 ---
 After cursing PowerPoint for eight solid months while building screencasts for Software Carpentry, I think I have figured out what I want instead.  Here's a top-down view of a PowerPoint slide (drawn, ironically, with OmniGraffle):
 

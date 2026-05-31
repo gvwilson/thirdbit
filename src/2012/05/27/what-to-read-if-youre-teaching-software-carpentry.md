@@ -1,5 +1,6 @@
 ---
 date: 2012-05-27
+category: education research software
 original: swc
 title: What to Read If You're Teaching Software Carpentry
 ---

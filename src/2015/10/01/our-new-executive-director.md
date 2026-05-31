@@ -1,6 +1,7 @@
 ---
 title: "Please Welcome Our New Executive Director"
 date: 2015-10-01
+category: research software education
 original: swc
 ---
 <p>

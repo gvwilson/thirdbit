@@ -1,6 +1,7 @@
 ---
 title: "Running Partners"
 date: 2011-10-11
+category: software
 ---
 I spoke last week with a woman in her mid-twenties who is working at her first start-up, and would like one day to start a company of her own. I asked her why: why start your own company when there are so many good ones out there to join? Her answer was that she likes starting things–always has. "Yes, but why?" I asked, several more times. Is it that you like being in charge? Is it the echo-of-creation thrill that comes from making something out of nothing, or the social cachet that is attached these days to being a founder? I said then that knowing why you enjoy certain things is as important to your life and career as knowing why people buy your product is to your business. If Steve Jobs was right, and the only way to do great work is to love what you do, then shouldn't your number one priority be figuring out what you actually love?
 

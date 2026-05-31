@@ -1,6 +1,7 @@
 ---
 title: "Country Codes of the World"
 date: 2007-10-17
+category: software
 ---
 <a href="http://www.bytelevel.com/map/ccTLD.html">Neat map</a>:
 

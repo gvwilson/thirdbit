@@ -1,6 +1,7 @@
 ---
 title: "Checking What We Teach"
 date: 2015-08-14
+category: software education writing
 original: swc
 ---
 <p>

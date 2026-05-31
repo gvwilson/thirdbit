@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -62,6 +61,14 @@
 <p>Prior to 1.0, &ldquo;someday&rdquo; was represented by putting <code>null</code> in the ticket&rsquo;s <code>milestone</code> column.  The two problems with that were (a) we needed special code to translate <code>null</code> to <code>"someday"</code> for display, and (b) it messed up sorting. To fix both, we modified the setup script to create a milestone called <code>"someday"</code> for each project upon creation.</p>
 <p>Which of course brought up a new problem of its own: what date should be associated with &ldquo;someday&rdquo;? SQL doesn&rsquo;t have a standard way to represent &ldquo;a date that is greater than all actual dates&rdquo; (i.e., a ceiling for the type <code>DATE</code>).  We&rsquo;ve settled on <a href="http://www.gsp.com/2038/">January 19, AD 2038</a>, which is the largest legal date in Unix, but we&rsquo;re not happy with it—when we put this in classrooms this fall, we &lsquo;&rsquo;know&rsquo;&rsquo; that some students are going to look at it and (quite reasonably) think it&rsquo;s a bug.</p>
 <p>So, what should we do?  Eliminate &ldquo;someday&rdquo; entirely?  Go back to using <code>null</code> (and just eat the maintenance cost of more convoluted sorting and translation code)?  Do something else (suggestions welcome)?</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../education/">education</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

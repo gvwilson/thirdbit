@@ -1,6 +1,7 @@
 ---
 title: "DrProject Internals: Security Part 1"
 date: 2006-10-27
+category: software writing
 ---
 Last time around, I described the architecture of a very simple wiki system that stored pages, along with their histories and meta-data, in a database, and let users view and edit those pages over the web.  In an ideal world, the next step would be to add either a work ticketing system, or an interface to version control.
 

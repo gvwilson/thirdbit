@@ -1,5 +1,6 @@
 ---
 date: 2011-09-01
+category: software education
 original: swc
 title: Renting Cycles Has Never Been Easier
 ---

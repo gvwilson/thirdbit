@@ -1,6 +1,7 @@
 ---
 title: "As We Head Into the Holiday Weekend…"
 date: 2008-06-27
+category: software writing
 ---
 <ul>
   <li>Dan Servos has the <a href="http://hackerdan.com/moodle/first-visual/">first visuals</a> from his grade stats plugin for Moodle.</li>

@@ -1,6 +1,7 @@
 ---
 title: "Terms"
 date: 2019-12-20
+category: education research software
 ---
 
 Back in 1975, Fred Brooks wrote:

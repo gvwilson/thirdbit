@@ -1,5 +1,6 @@
 ---
 date: 2010-07-20
+category: software education research
 original: swc
 title: A Note on Tools
 ---

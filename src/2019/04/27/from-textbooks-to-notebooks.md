@@ -1,5 +1,6 @@
 ---
 date: 2019-04-27
+category: software education research
 title: "From Textbooks to Notebooks and Back"
 ---
 

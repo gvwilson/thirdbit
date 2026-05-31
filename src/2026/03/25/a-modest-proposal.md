@@ -1,6 +1,7 @@
 ---
 title: "A Modest Proposal"
 date: 2026-03-25
+category: writing software research
 ---
 
 Everyone in academia is trying to figure out what to do about AI.

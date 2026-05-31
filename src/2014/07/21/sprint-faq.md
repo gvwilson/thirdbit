@@ -1,6 +1,7 @@
 ---
 title: "Summer Sprint FAQ"
 date: 2014-07-21
+category: research community
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Welcome Maneesha and Katarzyna"
 date: 2015-07-20
+category: education software community
 original: swc
 ---
 <p>

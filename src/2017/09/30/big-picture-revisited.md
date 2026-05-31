@@ -1,6 +1,7 @@
 ---
 title: "The Big Picture Revisited"
 date: 2017-09-30
+category: software
 ---
 
 It's been seven years since I first tried to draw this diagram;

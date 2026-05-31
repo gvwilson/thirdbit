@@ -1,6 +1,7 @@
 ---
 title: "April 2015 Lab Meeting"
 date: 2015-04-03
+category: community
 original: swc
 ---
 <p>

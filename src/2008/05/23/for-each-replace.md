@@ -1,6 +1,7 @@
 ---
 title: "For Each, Replace"
 date: 2008-05-23
+category: software education research
 ---
 My greatest weakness as a programmer (other than impatience) is how little I know about relational databases. I know how it happened—I spent my twenties working in high-performance scientific computing, before very large scientific databases became common, and there was always somebody else to worry about that side of things for the projects I was on in my thirties—but it trips me up with ever-increasing frequency.
 

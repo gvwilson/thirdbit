@@ -1,6 +1,7 @@
 ---
 title: "Our First Election"
 date: 2014-12-03
+category: community software education
 original: swc
 ---
 <p>

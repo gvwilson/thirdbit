@@ -1,6 +1,7 @@
 ---
 title: "Slides for Two Talks Online"
 date: 2016-09-10
+category: software education
 ---
 <p>
   I've posted HTML slides for two upcoming talks,

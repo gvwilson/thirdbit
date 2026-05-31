@@ -1,5 +1,6 @@
 ---
 date: 2012-04-18
+category: software research education
 original: swc
 title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 ---

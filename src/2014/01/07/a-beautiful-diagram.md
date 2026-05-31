@@ -1,6 +1,7 @@
 ---
 title: "We Need More of These"
 date: 2014-01-07
+category: software education writing
 original: swc
 ---
 <p>

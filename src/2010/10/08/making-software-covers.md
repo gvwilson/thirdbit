@@ -1,6 +1,7 @@
 ---
 title: "'Making Software' Covers"
 date: 2010-10-08
+category: software
 ---
 
 <img src="@root/files/2010/10/msfront.jpg" alt="Making Software front cover" width="525" height="690" class="centered">

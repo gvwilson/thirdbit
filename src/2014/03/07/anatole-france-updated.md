@@ -1,6 +1,7 @@
 ---
 title: "Anatole France, Updated"
 date: 2014-03-07
+category: software
 original: swc
 ---
 <figure class="center">

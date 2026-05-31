@@ -1,6 +1,7 @@
 ---
 title: "Workshops in March at Lawrence Berkeley Lab"
 date: 2015-02-02
+category: education research software
 original: swc
 ---
 <p>

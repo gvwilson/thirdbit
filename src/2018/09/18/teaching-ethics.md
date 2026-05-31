@@ -1,5 +1,6 @@
 ---
 date: 2018-09-18
+category: education writing software
 title: "Teaching Ethics"
 ---
 

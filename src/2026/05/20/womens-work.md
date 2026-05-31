@@ -84,7 +84,7 @@ stories about why the division made sense in their particular case.
 The myths varied but the pattern was constant:
 women interpreted inequitable arrangements as choices,
 and blamed themselves when the choices felt unsustainable.
-This is the same mechanism by which the "passion principle" (discussed [earlier](@/labor/)) operates:
+This is the same mechanism by which the "passion principle" operates:
 exploitation is most durable when those experiencing it explain it to themselves as freedom.
 
 The historian Silvia Federici argued that the witch trials of the sixteenth and seventeenth centuries,

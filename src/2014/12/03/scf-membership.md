@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry Foundation: Organizational Membership"
 date: 2014-12-03
+category: community software education
 original: swc
 ---
 <p>

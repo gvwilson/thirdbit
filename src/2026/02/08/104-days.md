@@ -1,6 +1,7 @@
 ---
 title: "104 Days"
 date: 2026-02-08
+category: education writing software
 ---
 
 It has been 104 days since I was laid off.

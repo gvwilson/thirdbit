@@ -1,5 +1,6 @@
 ---
 date: 2009-07-26
+category: education writing software
 original: swc
 title: Martin Fenner on SciBarCamp
 ---

@@ -1,6 +1,7 @@
 ---
 title: "DemoCamp 21 Lineup"
 date: 2009-07-21
+category: education community
 ---
 <a href="http://democamp.com/2009/07/21/dct21-the-schedule/">DemoCamp Toronto 21</a> is being held on Tuesday, July 28, 2009 from 6:00 PM - 8:30 PM in the Velma Roger Theatre at 333 Bloor St E. (Thanks to Mike Lee, Bonnie Schnurr, and everyone else at Rogers for the space.)
 

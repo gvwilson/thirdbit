@@ -1,5 +1,6 @@
 ---
 date: 2012-09-26
+category: software education research
 original: swc
 title: Computational Thinking and Ice Floating in Bathtubs
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Cognitive Pollution"
 date: 2026-03-08
+category: software education writing
 ---
 
 A couple of weeks ago,
@@ -71,5 +72,5 @@ I'm very glad that I took the time to learn a bit about evidence-based pedagogy
 before telling other people how they should teach.
 I therefore think that before we make recommendations about what anyone ought to do about AI,
 we ought to find out what has and hasn't worked elsewhere.
-I've been thinking about this [for a long time](@root/ideas/sdgc/),
+I've been thinking about this [for a long time](@root/sdgc/),
 but I still don't know how to make it happen.

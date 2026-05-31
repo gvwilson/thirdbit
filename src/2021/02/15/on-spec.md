@@ -1,6 +1,7 @@
 ---
 title: "On Spec"
 date: 2021-02-15
+category: writing
 ---
 
 The story I [mentioned a few weeks ago](@root/2021/01/06/and-should-i-fall-behind/)

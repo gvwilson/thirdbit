@@ -1,6 +1,7 @@
 ---
 title: "Australian Wildlife"
 date: 2020-10-17
+category: software
 ---
 
 I inherited these from my father; I hope you enjoy them as much as I do.

@@ -1,0 +1,7 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+{{node.html}}
+{% set category_name = node.category_key %}
+{% include "category.jinja" %}
+{% endblock %}

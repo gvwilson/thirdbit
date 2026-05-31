@@ -1,6 +1,7 @@
 ---
 title: "For Some Value of 'Just'"
 date: 2016-04-09
+category: education software personal
 ---
 <p>
   One of the cardinal rules of Software Carpentry is

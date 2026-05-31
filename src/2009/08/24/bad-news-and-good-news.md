@@ -1,5 +1,6 @@
 ---
 date: 2009-08-24
+category: research
 original: swc
 title: Bad News and Good News
 ---

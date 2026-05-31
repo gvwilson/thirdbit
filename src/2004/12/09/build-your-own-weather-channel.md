@@ -1,6 +1,7 @@
 ---
 title: "Build Your Own Weather Channel"
 date: 2004-12-09
+category: software research personal
 ---
 <p>Theoretical computer scientists spend a lot of time thinking about whether computations are feasible or not.  Personally, I'm much more interested in how seemingly innocuous bits of technology can suddenly make entire classes of problems feasible, where before they could only be solved with heroic effort.</p>
 

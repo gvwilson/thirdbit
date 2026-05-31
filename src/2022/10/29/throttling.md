@@ -1,6 +1,7 @@
 ---
 title: "Throttling"
 date: 2022-10-29
+category: software
 ---
 
 I used to belong to an online group that had a rule:

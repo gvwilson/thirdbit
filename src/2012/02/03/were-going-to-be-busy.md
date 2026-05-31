@@ -1,5 +1,6 @@
 ---
 date: 2012-02-03
+category: education
 original: swc
 title: We're Going to Be Busy
 ---

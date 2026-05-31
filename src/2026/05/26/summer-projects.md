@@ -1,6 +1,7 @@
 ---
 title: "Summer Projects"
 date: 2026-05-26
+category: software education writing
 ---
 
 1.  Teach my [Organizational Change](@root/change/) workshop in Manchester in July.

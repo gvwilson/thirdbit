@@ -1,6 +1,7 @@
 ---
 title: "Today Was a Good Day"
 date: 2011-08-21
+category: software
 ---
 <p>Sadie and I went out to Table 17 for our anniversary last night while Dee babysat Madeleine. The food was delicious, and afterward, we walked home along Queen Street, stopping off at Film Buff for ice cream (Sadie) and key lime soda (me). I woke up around 5:30 (damn that internal alarm clock), worked on Lernanta for half an hour, then went downstairs and started sorting out the basement (which has been on my to-do list since Christmas).</p>
 <p>Sadie and Maddie woke up around 8:00; we left the house a bit before 9:00 to get cranberry rolls, almond croissants, coffee, and lemonade (for Maddie) at Voulez Vous, then headed downtown so that I could collect the last of my stuff from the Scimatic office on Spadina. Once the car was loaded we walked up to Kensington Market to pick up some groceries; the high point for Maddie was roaring up and down the purple accessibility ramp at The Fairies Pyjamas.</p>

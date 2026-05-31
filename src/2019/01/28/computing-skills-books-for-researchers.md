@@ -1,5 +1,6 @@
 ---
 date: 2019-01-28
+category: software education research
 title: "Computing Skills Books for Researchers"
 ---
 

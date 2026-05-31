@@ -1,5 +1,6 @@
 ---
 date: 2012-03-09
+category: writing
 original: swc
 title: What's the Model, Kenneth?
 ---

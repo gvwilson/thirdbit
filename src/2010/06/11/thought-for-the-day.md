@@ -1,5 +1,6 @@
 ---
 date: 2010-06-11
+category: education software
 original: swc
 title: Thought for the Day
 ---

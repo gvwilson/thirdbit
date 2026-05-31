@@ -1,6 +1,7 @@
 ---
 title: "Explanation-Oriented Programming"
 date: 2017-12-27
+category: software education writing
 ---
 
 I'm trying to write a small program in a language I don't yet know well.

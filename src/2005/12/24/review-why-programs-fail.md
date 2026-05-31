@@ -1,6 +1,7 @@
 ---
 title: "Review: Why Programs Fail"
 date: 2005-12-24
+category: software research community
 ---
 2005 was an excellent year for books.  Not only were there a lot of good ones, some covered topics that hadn't been covered before (at least, not well or recently). Fogel's Producing Open Source Software, Doar's Practical Development Environments, Feathers' Working Effectively with Legacy Code, Thompson and Chase's Software Vulnerability Guide…
 

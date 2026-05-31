@@ -1,5 +1,6 @@
 ---
 date: 2010-04-08
+category: education software research
 original: swc
 title: Software Carpentry for Economists in Mannheim This Autumn
 ---

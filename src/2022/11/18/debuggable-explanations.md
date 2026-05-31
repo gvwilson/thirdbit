@@ -1,6 +1,7 @@
 ---
 title: "Debuggable Explanations"
 date: 2022-11-18
+category: software writing
 ---
 
 Jon Udell has written [a short post](https://blog.jonudell.net/2022/11/17/debuggable-explanations/)

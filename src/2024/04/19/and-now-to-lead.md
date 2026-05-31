@@ -1,6 +1,7 @@
 ---
 title: "And Now to Lead"
 date: 2024-04-19
+category: software education research
 ---
 
 As a companion to [yesterday's post about a new stack][new-stack],

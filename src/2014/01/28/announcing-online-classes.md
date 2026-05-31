@@ -1,6 +1,7 @@
 ---
 title: "Teaching Online (Sort Of) in 2014"
 date: 2014-01-28
+category: education software
 original: swc
 ---
 <p>

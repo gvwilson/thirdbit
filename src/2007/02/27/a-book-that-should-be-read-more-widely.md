@@ -1,6 +1,7 @@
 ---
 title: "A Book That Should Be Read More Widely"
 date: 2007-02-27
+category: research software writing
 ---
 Here are two facts:
 <ol>

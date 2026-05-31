@@ -1,6 +1,7 @@
 ---
 title: "Our Introduction to Git Has Been Published"
 date: 2016-01-21
+category: software research writing
 original: swc
 ---
 

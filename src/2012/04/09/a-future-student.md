@@ -1,5 +1,6 @@
 ---
 date: 2012-04-09
+category: education
 original: swc
 title: A Future Student
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2010-04-08
+category: education software community
 original: swc
 title: Platforms
 ---

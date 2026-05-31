@@ -1,6 +1,7 @@
 ---
 title: "Hi Greg, It's Your Conscience Speaking"
 date: 2020-08-07
+category: education research writing
 ---
 
 *Hey Greg.*

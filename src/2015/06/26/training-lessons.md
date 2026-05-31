@@ -1,6 +1,7 @@
 ---
 title: "Training Lessons"
 date: 2015-06-26
+category: education software research
 original: swc
 ---
 <p>

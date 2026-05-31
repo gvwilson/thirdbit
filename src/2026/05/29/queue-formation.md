@@ -1,6 +1,7 @@
 ---
 title: "Queue Formation"
 date: 2026-05-29
+category: software
 katex: true
 ---
 

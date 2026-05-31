@@ -1,6 +1,7 @@
 ---
 title: "Code and Data for the Social Sciences"
 date: 2013-09-26
+category: software research
 original: swc
 ---
 <p>

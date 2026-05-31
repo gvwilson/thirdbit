@@ -1,6 +1,7 @@
 ---
 title: "Congratulations to Jason and Jon"
 date: 2010-04-22
+category: education research
 ---
 Congratulations to <a href="http://www.cs.utoronto.ca/~jmontojo/">Jason Montojo</a> and <a href="http://skoolr.blogspot.com/">Jon Pipitone</a>, who have just completed their Master's degrees in Computer Science at the University of Toronto. Jon was one of my very first CSC49X students in September 2002, and Jason was in the second batch in January 2003. I'm proud to have worked with them, and wish them all the best.
 

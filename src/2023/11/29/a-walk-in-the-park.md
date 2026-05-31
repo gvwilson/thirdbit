@@ -1,6 +1,7 @@
 ---
 title: "A Walk in the Park"
 date: 2023-11-29
+category: personal
 ---
 
 The cover image is from a walk I took with my wife several years ago.

@@ -1,5 +1,6 @@
 ---
 date: 2011-03-11
+category: software education community
 original: swc
 title: Musing About Reorganization
 ---

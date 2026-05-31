@@ -1,6 +1,7 @@
 ---
 title: Excel Isn't Intrinsically Evil
 date: 2012-10-22
+category: research software
 original: swc
 ---
 

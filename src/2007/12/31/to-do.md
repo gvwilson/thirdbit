@@ -1,6 +1,7 @@
 ---
 title: "To Do"
 date: 2007-12-31
+category: education software research
 ---
 There's a light dust of overnight snow on the streets this morning.  Maddie's upstairs playing "Climb On Mummy" while Sadie reads a magazine; seems like a good time to figure out my to-do list for 2008.
 <ol>

@@ -1,6 +1,7 @@
 ---
 title: "Watching Static and Dynamic Analysis Go Mainstream"
 date: 2006-07-03
+category: software
 ---
 Last week, I asked whether <a href="http://www.cdf.utoronto.ca/~csc407h/summer/e02/index.html">design by contract</a> could please be the next thing in programming to go mainstream, so that we could manage version updates more sensibly.  I don't actually think there's much chance of it happening, but one of the emails I received about it made me realize that two other things I care about have already passed the tipping point: static and dynamic code analysis.
 

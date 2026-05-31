@@ -1,6 +1,7 @@
 ---
 title: "Introducing Citation Files"
 date: 2013-09-02
+category: writing research software
 original: swc
 ---
 <p>

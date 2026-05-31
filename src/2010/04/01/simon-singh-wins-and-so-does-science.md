@@ -1,5 +1,6 @@
 ---
 date: 2010-04-01
+category: research software society
 original: swc
 title: Simon Singh Wins (and So Does Science)
 ---

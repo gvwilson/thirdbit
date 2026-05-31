@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 18: Package Manager"
 date: 2023-01-24
+category: software education
 ---
 
 Inspired by the [Comprehensive TeX Archive Network][ctan],
@@ -30,7 +31,7 @@ If you'd like to have a look and let me know if it works,
 please [reach out][email].
 
 <figure id="package-manager-allowable" class="center">
-  <img src="@root/sdxjs/package-manager/allowable.svg" alt="Allowable versions" class="centered">
+  <img src="@root/sdxjs/packman/allowable.svg" alt="Allowable versions" class="centered">
   <figcaption>Figure 18.1: Finding allowable combinations of package versions.</figcaption>
 </figure>
 
@@ -40,7 +41,7 @@ please [reach out][email].
 [ctan]: https://www.ctan.org/
 [email]: mailto:gvwilson@third-bit.com
 [sdxjs]: @root/sdxjs/
-[sdxjs_packman]: @root/sdxjs/package-manager/
+[sdxjs_packman]: @root/sdxjs/packman/
 [smt_solver]: https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
 [z3]: https://z3prover.github.io/papers/programmingz3.html
 [z3_tutorial]: https://microsoft.github.io/z3guide/programming/Z3%20JavaScript%20Examples

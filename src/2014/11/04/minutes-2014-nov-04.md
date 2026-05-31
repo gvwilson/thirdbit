@@ -1,6 +1,7 @@
 ---
 title: "Interim Board Meeting: Nov 4, 2014"
 date: 2014-11-04
+category: community software education
 original: swc
 ---
 <p>Software Carpentry Foundation Interim Board Meeting: Nov 4, 2014</p>

@@ -1,6 +1,7 @@
 ---
 title: "How I Teach Today"
 date: 2019-11-25
+category: education community
 ---
 
 I teach a training class for [RStudio instructors][rstudio-instructors] once a month or so,

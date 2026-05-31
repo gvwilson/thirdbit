@@ -1,6 +1,7 @@
 ---
 title: "Lost in Space"
 date: 2014-10-27
+category: software writing
 original: swc
 ---
 <p>

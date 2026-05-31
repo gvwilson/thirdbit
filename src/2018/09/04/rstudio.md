@@ -1,5 +1,6 @@
 ---
 date: 2018-09-04
+category: software education personal
 title: "Joining RStudio"
 ---
 

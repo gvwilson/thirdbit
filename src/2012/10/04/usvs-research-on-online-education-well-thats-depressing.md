@@ -1,6 +1,7 @@
 ---
 title: "USV's 'Research' on Online Education: Well, That's Depressing"
 date: 2012-10-04
+category: education research software
 ---
 <p>Union Square Ventures (a venture capital outfit) posted their "research" into online education yesterday (<a href="http://www.usv.com/2012/10/researching-online-education.php">blog post</a> , <a href="https://docs.google.com/document/d/1DOlGP3mvRYVWZVynKTvhARQrB-S6EN22bVYG6ggIEtg/preview">links page</a>). I put quotes around the word "research" because as far as I can see, only one item (a report from Stanford's Ed School) is actually research: the rest is articles from the popular press, opinion pieces from various bloggers, and a handful of TED talks. It appears USV doesn't know there are people who actually study this stuff carefully, rather than just have opinions about it. *sigh*</p>
 <p>(Of course, it doesn't help that a lot of the real research is hidden behind paywalls, and only available in practice to academics who are then, funnily enough, invisible to the people who make policy and fund new ventures. Double *sigh*)</p>

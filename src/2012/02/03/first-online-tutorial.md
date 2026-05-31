@@ -1,5 +1,6 @@
 ---
 date: 2012-02-03
+category: education software research
 original: swc
 title: First Online Tutorial
 ---

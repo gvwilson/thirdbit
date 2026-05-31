@@ -1,6 +1,7 @@
 ---
 title: "Taking Notes"
 date: 2009-12-27
+category: education software research
 ---
 The last two times I've taught a regular classroom course on software engineering, I've had students make up the lecture notes and assignments. Instead of creating PowerPoint slides and posting them on the web, I've lectured with chalk and a blackboard. In each lecture, a group of 3-4 students have been responsible for turning what I say into a wiki page, which then counts toward the 5% "writing requirement" of their course grade. I've done the same thing with assignment: after the whole class spends classroom time discussing what should and shouldn't be in scope, a team of students writes it up and posts it for comment and clarification.
 

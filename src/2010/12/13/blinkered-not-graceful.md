@@ -1,6 +1,7 @@
 ---
 title: "Blinkered, Not Graceful"
 date: 2010-12-13
+category: software education
 ---
 I wasn't particularly hopeful when I first heard about <a href="http://gracelang.org/">Grace</a>, a new programming language being developed for teaching purposes. Having followed their blog for a while now, I'm positively underwhelmed:
 <ol>

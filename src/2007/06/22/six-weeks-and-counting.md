@@ -1,6 +1,7 @@
 ---
 title: "Six Weeks and Counting"
 date: 2007-06-22
+category: software education community
 ---
 Today is the end of week 6 for our summer students. In three weeks' time, on July 13, we'll be deciding which of the things they've been building are going into the end-of-summer releases of their projects, and which are going to be pushed back until December. So far, things are looking pretty good:
 <ul>

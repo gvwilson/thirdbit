@@ -1,6 +1,7 @@
 ---
 title: "Wrong Is Useful: Lessons as Packages"
 date: 2015-02-27
+category: software education research
 original: swc
 ---
 <blockquote>

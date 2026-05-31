@@ -1,5 +1,6 @@
 ---
 date: 2010-05-04
+category: education software community
 original: swc
 title: "Day 1: Shuffling Sticky Notes Around"
 ---

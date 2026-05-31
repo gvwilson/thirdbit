@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 8: Parsing Expressions"
 date: 2023-01-10
+category: software writing
 ---
 
 While [Chapter 7][sdxjs_regex] explained how to build a simple regular expression matcher,
@@ -39,12 +40,12 @@ and I think I'd learn a lot from seeing how someone who thinks in those ways
 translates these ideas into working code.
 
 <figure id="regex-parser-mechanics" class="center">
-  <img src="@root/sdxjs/regex-parser/mechanics.svg" alt="Mechanics of combining tokens" class="centered">
+  <img src="@root/sdxjs/parser/mechanics.svg" alt="Mechanics of combining tokens" class="centered">
   <figcaption>Figure 8.2: Mechanics of combining tokens while parsing regular expressions.</figcaption>
 </figure>
 
 > Terms defined: finite state machine, literal, parser, precedence, token, Turing Machine, well formed, YAML.
 
-[sdxjs_parsing]: https://third-bit.com/sdxjs/regex-parser/
-[sdxjs_regex]: https://third-bit.com/sdxjs/pattern-matching/
+[sdxjs_parsing]: @root/sdxjs/parser/
+[sdxjs_regex]: @root/sdxjs/glob/
 [to_dont]: https://third-bit.com/2022/12/28/six-for-the-to-dont-list/

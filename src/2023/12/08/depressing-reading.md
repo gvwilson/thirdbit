@@ -1,6 +1,7 @@
 ---
 title: "Depressing Reading"
 date: 2023-12-08
+category: software research community
 ---
 
 The "National Research Software Strategy 2023" whitepaper ([en][rs-en], [fr][rs-fr])

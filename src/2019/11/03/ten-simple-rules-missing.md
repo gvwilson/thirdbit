@@ -1,6 +1,7 @@
 ---
 title: "Ten Simple Rules That Are Missing"
 date: 2019-11-03
+category: education research writing
 ---
 
 I'm a big fan of PLOS's [Ten Simple Rules](https://collections.plos.org/ten-simple-rules)

@@ -1,6 +1,7 @@
 ---
 title: "Slither.io, the Two Sigmas, and Customer Support"
 date: 2020-07-19
+category: education software writing
 ---
 
 I had another good conversation with [Mike Hoye](http://exple.tive.org/blarg/) this morning,

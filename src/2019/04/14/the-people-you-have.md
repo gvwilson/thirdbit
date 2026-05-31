@@ -1,5 +1,6 @@
 ---
 date: 2019-04-14
+category: community personal writing
 title: "The People You Have"
 ---
 

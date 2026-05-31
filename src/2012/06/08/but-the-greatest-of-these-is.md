@@ -1,5 +1,6 @@
 ---
 date: 2012-06-08
+category: software research
 original: swc
 title: But the Greatest of These Is…
 ---

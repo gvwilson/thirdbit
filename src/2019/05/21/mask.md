@@ -1,5 +1,6 @@
 ---
 date: 2019-05-20
+category: software
 title: "Simon Charlie Made This"
 ---
 

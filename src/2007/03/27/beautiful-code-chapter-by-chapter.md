@@ -1,6 +1,7 @@
 ---
 title: "Beautiful Code: Chapter by Chapter"
 date: 2007-03-27
+category: software research writing
 ---
 <a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a> now has a cover, and I can share the chapter summaries (below the cut). I'm very excited—hope to have hardcopy in a month or so.
 

@@ -1,6 +1,7 @@
 ---
 title: "A Meme I'd Like To Crush"
 date: 2007-12-15
+category: software
 ---
 Over on O'Reilly Radar, Nat Torkington recently <a href="http://radar.oreilly.com/archives/2007/12/amazon_simpledb.html">posted</a>:
 <blockquote>According to a blog post by (update: a friend of) one of the developers, <a href="http://www.satine.org/archives/2007/12/13/amazon-simpledb/">Amazon's SimpleDB is built on Erlang</a>.  Cool!  Another datapoint for the trend we see towards parallel-capable languages like Erlang and Haskell.</blockquote>

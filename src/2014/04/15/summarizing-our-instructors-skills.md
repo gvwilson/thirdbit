@@ -1,6 +1,7 @@
 ---
 title: "Summarizing Our Instructors' Skills"
 date: 2014-04-15
+category: education
 original: swc
 ---
 <p>

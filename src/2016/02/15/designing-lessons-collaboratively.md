@@ -1,6 +1,7 @@
 ---
 title: "Designing Lessons Collaboratively"
 date: 2016-02-15
+category: software education writing
 original: swc
 ---
 A few days ago,

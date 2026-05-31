@@ -1,6 +1,7 @@
 ---
 title: "IQ and Personality Tests"
 date: 2021-09-13
+category: software community personal
 ---
 
 Not long ago I interviewed for a community manager position with Canonical.

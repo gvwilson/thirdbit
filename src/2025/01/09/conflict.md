@@ -1,6 +1,7 @@
 ---
 title: Managing Conflict
 date: 2025-01-09
+category: education personal
 ---
 
 You just missed an important deadline, and people are unhappy.

@@ -1,6 +1,7 @@
 ---
 title: "Adventures in Publishing"
 date: 2023-09-13
+category: writing software community
 ---
 
 Years ago,

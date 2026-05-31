@@ -1,5 +1,6 @@
 ---
 date: 2018-12-30
+category: education writing software
 title: "Harper: Lesson Discovery and Aggregation"
 ---
 

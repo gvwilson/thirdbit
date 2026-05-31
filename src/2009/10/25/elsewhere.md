@@ -1,6 +1,7 @@
 ---
 title: "Elsewhere"
 date: 2009-10-25
+category: education software research
 ---
 <strong>Software Carpentry</strong>
 <ol>

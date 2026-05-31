@@ -1,6 +1,7 @@
 ---
 title: "Congratulations to Data Carpentry"
 date: 2014-11-24
+category: software research education
 original: swc
 ---
 <p>

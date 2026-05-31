@@ -1,6 +1,7 @@
 ---
 title: "They're All Small Devices Now"
 date: 2010-10-18
+category: software research writing
 ---
 <p>I noticed a book on the shelves at <a href="http://www.scimatic.com">Scimatic</a> last week called <a href="http://www.amazon.com/Small-Memory-Software-Patterns-systems/dp/0201596075"><cite>Small Memory Software: Patterns for systems with limited memory</cite></a>, by Noble and Weir.  It took me a couple of minutes to realize why it seemed familiar: I reviewed it for <a href="http://www.ddj.com"><cite>Doctor Dobb's Journal</cite></a> when it first came out.  The topics are what you'd expect from the title–memory limits, adaptive compression, copy-on-write, and so on.</p>
 

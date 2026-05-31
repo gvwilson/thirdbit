@@ -1,6 +1,7 @@
 ---
 title: "How We Got Here, and Where We're Going"
 date: 2011-05-26
+category: software education writing
 ---
 I got my first programming job in the summer of 1982, rewriting an RSA encryption library in C for Prof. <a href="http://research.cs.queensu.ca/~akl/">Selim Akl</a> at <a href="http://www.queensu.ca">Queen's University</a>.  One of the older students eventually took pity on me and gave me a copy of Kernighan and Plauger's <a href="http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/"><cite>Software Tools</cite></a>.  My first reaction was, "Fortran?  What's that got to do with anything?".  But then I got past the first few pages and realized that this was exactly what I'd been looking for.  Except for Wirth's <a href="http://www.amazon.com/Algorithms-Structures-Prentice-Hall-Automatic-Computation/dp/0130224189/"><cite>Algorithms + Data Structures = Programs</cite></a>, most of the other programming books I could find talked about the specifics of particular languages or systems, rather than about how to design programs or what good designs looked like.  The few that did raise their sights only got as far as programming style, but with an English teacher for a father, I'd already internalized good variable names and Goldilocks modules ("not too big, not too small").
 

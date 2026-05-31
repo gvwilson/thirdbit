@@ -1,5 +1,6 @@
 ---
 date: 2012-05-20
+category: education software
 original: swc
 title: What's Wrong With All This?
 ---

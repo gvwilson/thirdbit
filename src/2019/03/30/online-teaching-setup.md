@@ -1,5 +1,6 @@
 ---
 date: 2019-03-30
+category: education software
 title: "Online Teaching Setup"
 ---
 

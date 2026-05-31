@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry at the AAAS"
 date: 2005-09-21
+category: education software research
 ---
 I just received word that I'll be running a workshop on the aims, benefits, and curriculum of the Software Carpentry course at the <a href="http://www.aaas.org/meetings/Annual_Meeting/">Annual Meeting</a> of the <a href="http://www.aaas.org">American Association for the Advancement of Science</a> in St Louis on Friday, February 17.  The AAAS AM is the biggest gathering of scientists in the world; I'm pretty excited.
 

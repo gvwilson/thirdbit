@@ -1,6 +1,7 @@
 ---
 title: "Python Software Foundation Board Nomination"
 date: 2024-07-01
+category: community software education
 ---
 
 *Update: congratulations to Tania Allard, KwonHan Bae, and Cristián Maureira-Fredes on being elected to the PSF Board.*

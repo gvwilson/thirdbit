@@ -1,6 +1,7 @@
 ---
 title: "Inessential Weirdness in Software Carpentry"
 date: 2014-08-11
+category: community software education
 original: swc
 ---
 <p>

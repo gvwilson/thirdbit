@@ -1,6 +1,7 @@
 ---
 title: "IM Groups"
 date: 2007-06-16
+category: personal
 ---
 Prompted by one of Michelle Levesque's posts, I have organized my instant messaging contacts into more rational groups:
 <ul>

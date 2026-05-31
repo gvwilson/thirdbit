@@ -1,5 +1,6 @@
 ---
 date: 2011-04-18
+category: software research society
 original: swc
 title: Holding Up a Mirror
 ---

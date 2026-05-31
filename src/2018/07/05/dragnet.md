@@ -1,5 +1,6 @@
 ---
 date: 2018-07-05
+category: software education
 title: "Isaac Ezer's Dragnet"
 ---
 

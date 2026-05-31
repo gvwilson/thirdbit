@@ -1,5 +1,6 @@
 ---
 date: 2009-03-30
+category: education software writing
 original: swc
 title: User Stories
 ---

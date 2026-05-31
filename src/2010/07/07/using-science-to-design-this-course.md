@@ -1,5 +1,6 @@
 ---
 date: 2010-07-07
+category: education research personal
 original: swc
 title: Using Science to Design This Course
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Programming as Theory Building"
 date: 2016-10-23
+category: software research
 original: swc
 ---
 

@@ -1,5 +1,6 @@
 ---
 date: 2010-02-28
+category: software research writing
 original: swc
 title: Panton Principles
 ---

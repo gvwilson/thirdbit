@@ -1,5 +1,6 @@
 ---
 date: 2009-07-21
+category: software education research
 original: swc
 title: "Day 6: Theory and Practice"
 ---

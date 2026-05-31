@@ -1,5 +1,6 @@
 ---
 date: 2010-10-04
+category: education research
 original: swc
 title: Aaaand We're Off!
 ---

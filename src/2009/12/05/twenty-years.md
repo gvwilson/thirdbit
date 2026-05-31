@@ -1,6 +1,7 @@
 ---
 title: "Twenty Years"
 date: 2009-12-05
+category: personal
 ---
 Twenty years on, most Canadians instantly recognize the name of their murderer. I'd rather remember <a href="http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_massacre">theirs</a>:
 <table class="centered">

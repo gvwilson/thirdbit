@@ -1,6 +1,7 @@
 ---
 title: "Still Trying"
 date: 2022-11-18
+category: personal
 ---
 
 Years ago,

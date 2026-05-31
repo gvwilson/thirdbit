@@ -1,6 +1,7 @@
 ---
 title: "Nine Weeks Off"
 date: 2021-04-17
+category: software writing research
 ---
 
 I'm starting a new job on Monday;

@@ -1,5 +1,6 @@
 ---
 date: 2009-06-01
+category: software research education
 original: swc
 title: Big Code vs. Science 2.0
 ---

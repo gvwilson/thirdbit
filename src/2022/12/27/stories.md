@@ -1,6 +1,7 @@
 ---
 title: "Stories"
 date: 2022-12-27
+category: writing software
 ---
 
 I'm going to spend the next month or two wrapping up the Python version of [*Software Design by Example*][sdxjs]. Once it's done, I want to stop writing technical books and start writing fiction again. I don't expect many people will read them—I've only sold one short in the last ten years—but stories have given me so much pleasure over the years that I'd like to give some back. And yes, having collected over a hundred rejections since I sold *Bottle of Light* in 2008, I'd like to prove to myself that I can actually do this.
@@ -15,7 +16,7 @@ I have thirteen pieces in various states, plus ideas for a double dozen more. Fi
 
 - *Eimen in Medef* started with a simple idea: what if most people in your village were empaths who could sense the emotions of others, but you couldn't? It's a metaphor for being deaf or blind, but it's also about growing up as a socially awkward outsider. I wrote the start and end of this before setting it aside; it might be a good one to pick up again. 5/10.
 
-- I wrote the first 30,000 words of [*The Voyage of the Unshadowed Land*][voyage] in a month and then ran out of steam. Written in the style of a popular history (complete with spurious footnotes) it tells the story of the first un-magical circumnavigation of Cherne. I got lost in my own details, but am also completely unsatisfied with the villains' back story. If I could get past both of those, I think this one would be fun. 5/10.
+- I wrote the first 30,000 words of *The Voyage of the Unshadowed Land* in a month and then ran out of steam. Written in the style of a popular history (complete with spurious footnotes) it tells the story of the first un-magical circumnavigation of Cherne. I got lost in my own details, but am also completely unsatisfied with the villains' back story. If I could get past both of those, I think this one would be fun. 5/10.
 
 The second batch of unfinished works are all aimed at young readers:
 

@@ -1,6 +1,7 @@
 ---
 title: "Come a Long Way, Got a Long Way to Go"
 date: 2016-02-07
+category: education research software
 original: swc
 ---
 

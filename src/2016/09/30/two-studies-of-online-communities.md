@@ -1,6 +1,7 @@
 ---
 title: "Two Studies of Online Communities"
 date: 2016-09-30
+category: software education research
 original: swc
 ---
 

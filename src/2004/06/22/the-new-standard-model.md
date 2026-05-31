@@ -1,6 +1,7 @@
 ---
 title: "The New Standard Model"
 date: 2004-06-22
+category: software writing
 ---
 The
 <a href="http://particleadventure.org/particleadventure/frameless/standard_model.html">Standard Model</a>

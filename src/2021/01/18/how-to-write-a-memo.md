@@ -1,6 +1,7 @@
 ---
 title: "How to Write a Memo"
 date: 2021-01-18
+category: software community writing
 ---
 
 One of the most popular talks I give is on [how to run a meeting](https://www.youtube.com/watch?v=5f3-q9SzkeE).

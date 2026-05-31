@@ -1,6 +1,7 @@
 ---
 title: "Time to Freshen It Up"
 date: 2008-12-31
+category: software education
 ---
 I tell the students in my software engineering classes that the absolute value of code coverage in testing isn't as important as the trend: if you're testing a smaller percentage of your software as time goes by, you're headed for trouble. The same is true of site stats: I don't care much about the absolute number of visitors, but if the curve is down and to the right, it's time to give the site a polish, or retire it.
 

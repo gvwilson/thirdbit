@@ -1,6 +1,7 @@
 ---
 title: "Teaching Librarians at Harvard"
 date: 2013-09-02
+category: education
 original: swc
 ---
 <p>

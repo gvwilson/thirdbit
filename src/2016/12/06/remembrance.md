@@ -1,6 +1,7 @@
 ---
 title: "Remembrance"
 date: 2016-12-06
+category: personal
 ---
 <p>
   Twenty-seven years on,

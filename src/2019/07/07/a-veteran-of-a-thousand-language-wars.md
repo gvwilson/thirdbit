@@ -1,5 +1,6 @@
 ---
 date: 2019-07-07
+category: research software education
 title: "A Veteran of a Thousand Language Wars"
 ---
 

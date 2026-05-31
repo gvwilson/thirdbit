@@ -1,6 +1,7 @@
 ---
 title: "Two Steps Up, One Step Back"
 date: 2010-02-01
+category: software education community
 ---
 This term's <a href="http://ucosp.wordpress.com">UCOSP</a> projects all seem to be going well so far: most teams are writing and committing code, and several teams have adopted code review as a standard practice. I'm really hoping that at least a few UCOSP students will make a bid for places in the <a href="http://velocity.uwaterloo.ca/bootcamp">VeloCity entrepreneur bootcamp</a> this summer—it'd be great to see them take their ideas to the next level.
 

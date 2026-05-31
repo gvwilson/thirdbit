@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -72,6 +71,14 @@
 <p>Next time: tickets.</p>
 <hr />
 <p>[1] Well, almost. DrProject&rsquo;s wiki does allow users to completely erase all record of a page from the database.  If a malicious or clumsy user does this, the only way to recover the page is from the last system backup.  We may get around this in future by associating an &ldquo;existence&rdquo; flag with each page to signal whether it should be treated as being there or not, but this is a pretty minor concern.[2] <a href="http://trac.edgewall.com">Trac</a> was actually a little smarter than this, but only a little. <a href="http://trac.edgewall.com">Trac</a> managed authorization by storing raw (user, capability) pairs, such as <code>(ghopper, WIKI_EDIT)</code>. Both fields were strings; to determine a user&rsquo;s actual capabilities, <a href="http://trac.edgewall.com">Trac</a> recursively expanded the &ldquo;raw&rdquo; capabilities by looking for them in the <code>USER</code> column.  For example, if <code>ghopper</code> had the capability <code>ADMIN</code>, and the &ldquo;user&rdquo; <code>ADMIN</code> had the capabilities <code>WIKI_EDIT</code> and <code>WIKI_DELETE</code>, then <code>ghopper</code> was given those capabilities as well. DrProject&rsquo;s strict two-level separation of users from roles, and roles from capabilities, has been a lot easier to administer, test, and debug.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../writing/">writing</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

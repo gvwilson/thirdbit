@@ -1,5 +1,6 @@
 ---
 date: 2011-03-30
+category: education software research
 original: swc
 title: Practical Computing for Scientists at Stanford
 ---

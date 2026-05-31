@@ -1,6 +1,7 @@
 ---
 title: Looking for Work
 date: 2025-11-21
+category: education software research
 ---
 
 I was laid off by Plotly a few weeks ago,

@@ -1,6 +1,7 @@
 ---
 title: "Essential Equipment"
 date: 2004-09-20
+category: software community
 ---
 <p>In an earlier posting, I listed the programming tools I use.  As part of setting up at the Blueprint Organization (who have kindly given me desk space for the next few months), I've realized that a complete working environment needs more than just software.</p>
 

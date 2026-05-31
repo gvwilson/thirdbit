@@ -1,5 +1,6 @@
 ---
 date: 2012-01-23
+category: education software research
 original: swc
 title: Revising the Curriculum
 ---

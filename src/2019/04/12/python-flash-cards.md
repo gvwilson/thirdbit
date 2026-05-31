@@ -1,5 +1,6 @@
 ---
 date: 2019-04-12
+category: software education
 title: "Python Flash Cards"
 ---
 

@@ -1,5 +1,6 @@
 ---
 date: 2011-02-25
+category: education software
 original: swc
 title: We Got a Mention in Comm. ACM
 ---

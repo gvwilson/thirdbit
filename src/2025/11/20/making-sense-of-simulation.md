@@ -1,6 +1,7 @@
 ---
 title: Making Sense of Simulation
 date: 2025-11-20
+category: software
 ---
 
 I ended [yesterday's post][developer-pool] by saying that

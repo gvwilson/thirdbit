@@ -1,5 +1,6 @@
 ---
 date: 2010-12-27
+category: software writing
 original: swc
 title: Elimination
 ---

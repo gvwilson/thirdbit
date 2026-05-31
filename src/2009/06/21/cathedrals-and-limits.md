@@ -1,6 +1,7 @@
 ---
 title: "Cathedrals and Limits"
 date: 2009-06-21
+category: software personal writing
 ---
 Two books that I've read and enjoyed recently:
 <ol>

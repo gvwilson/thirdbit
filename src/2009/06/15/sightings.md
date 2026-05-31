@@ -1,5 +1,6 @@
 ---
 date: 2009-06-15
+category: education software
 original: swc
 title: Sightings
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Our Experiences Switching to Python"
 date: 2009-08-25
+category: software education writing
 ---
 In response to a question about what it's been like switching to Python as a first-year programming language, <a href="http://www.cs.utoronto.ca/~pgries">Paul Gries</a> wrote the following.  It might be of interest to other instructors who are thinking of changing over.
 

@@ -1,6 +1,7 @@
 ---
 title: "An Update on Our Sprint Plans"
 date: 2014-06-15
+category: software research community
 original: swc
 ---
 <p>

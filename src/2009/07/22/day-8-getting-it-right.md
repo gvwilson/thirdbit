@@ -1,5 +1,6 @@
 ---
 date: 2009-07-22
+category: software education
 original: swc
 title: "Day 8: Getting It Right"
 ---

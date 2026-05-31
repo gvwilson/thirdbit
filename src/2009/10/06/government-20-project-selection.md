@@ -1,6 +1,7 @@
 ---
 title: "Government 2.0 Project Selection"
 date: 2009-10-06
+category: software education community
 ---
 It's taken a little longer than planned, but what doesn't? Here are the projects the students in our Government 2.0 consulting course have chosen to work on this term:
 <ul>

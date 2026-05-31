@@ -1,5 +1,6 @@
 ---
 date: 2011-12-30
+category: software writing
 original: swc
 title: Fork, Merge, and Share
 ---

@@ -1,6 +1,7 @@
 ---
 title: "The Best Electoral Offer Yet"
 date: 2007-09-13
+category: software community personal
 ---
 If you're wondering why electoral reform matters, take a look at the Green Party's proposals, and ponder the fact that despite getting several percent of the popular vote, they have little or no chance of winning any seats (and hence of affecting policy, or growing in size).  I don't agree with lowering the voting age, and I don't think there'd be much of a software industry left if people actually banned unpaid overtime, but other than that, this is the most sensible election platform I've seen in years.  (And for those who still think the Greens are pie-in-the-sky treehuggers, read #9 carefully: no new nuclear or coal power, but only if consumers can reduce consumption by 20%.)
 <ol>

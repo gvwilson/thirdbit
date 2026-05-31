@@ -1,6 +1,7 @@
 ---
 title: "Seventy Years After"
 date: 2012-04-03
+category: writing research
 ---
 On April 1, 1942, <a href="http://orwelldiaries.wordpress.com/2012/04/01/1-4-42/">George Orwell wrote</a>:
 <blockquote>Connolly wanted yesterday to quote a passage from <em>Homage to Catalonia </em>in his broadcast. I opened the book and came on these sentences:

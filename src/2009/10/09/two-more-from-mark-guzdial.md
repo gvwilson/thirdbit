@@ -1,6 +1,7 @@
 ---
 title: "Two More From Mark Guzdial"
 date: 2009-10-09
+category: research education
 ---
 <a href="http://computinged.wordpress.com/2009/10/08/what-are-the-priorities-of-computer-science/">What are the priorities of computer science?</a> The question is motivated by discussion of "ICT4D" (Information and Communications Technologies for the Developing world). Quoting Guzdial, "…we focus on the <em>solutions</em> to the problems in computer science, where ICT4D is about the <em>problems</em>.  As a computing educator, I hear repeatedly from teachers, 'Computer science is problem-solving on computers!'  Yet, as Beki points out, we organize our discipline and our findings on characteristics of the solution, not the problem."
 

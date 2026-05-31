@@ -1,6 +1,7 @@
 ---
 title: "So Far Behind"
 date: 2008-10-10
+category: software education writing
 ---
 I'd like to start this lengthy set of reviews by apologizing to the authors and editors who've been waiting so patiently for me to tell the world about their work.  Buying a house, getting married, selling a house, and taking on a new batch of graduate students is an explanation, but it's not an excuse.
 

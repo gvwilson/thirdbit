@@ -1,6 +1,7 @@
 ---
 title: "I Hope They Would Have Liked It"
 date: 2021-07-22
+category: personal
 ---
 
 My mum would have been 94 today, and my sister would have been 57.

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 5: Parsing Text"
 date: 2024-04-05
+category: software education writing
 ---
 
 [Chapter 5: Parsing Text][sdxpy_parse] shows how to write a parser
@@ -33,7 +34,7 @@ and then I will start work at [Plotly][plotly] on April 29.
 
 [plotly]: https://plotly.com/
 [rsdx]: https://gvwilson.github.io/rsdx/
-[sdxjs_parse]: @root/sdxjs/regex-parser/
+[sdxjs_parse]: @root/sdxjs/parser/
 [sdxpy]: @root/sdxpy/
 [sdxpy_glob]: @root/sdxpy/glob/
 [sdxpy_parse]: @root/sdxpy/parse/

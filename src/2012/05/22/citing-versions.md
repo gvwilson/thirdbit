@@ -1,5 +1,6 @@
 ---
 date: 2012-05-22
+category: software education research
 original: swc
 title: Citing Versions
 ---

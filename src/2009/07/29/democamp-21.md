@@ -1,6 +1,7 @@
 ---
 title: "DemoCamp 21"
 date: 2009-07-29
+category: software community society
 ---
 <a href="http://democamp.com/2009/07/21/dct21-the-schedule/">Toronto's 21st DemoCamp</a> was held last night in the Rogers Theatre.  I enjoyed it: it was good to see friends, and great to see what's going on in Toronto's tech community. Here's my rundown:
 <ul>

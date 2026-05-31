@@ -1,6 +1,7 @@
 ---
 title: "Wrapping Up Round 7 (and a Reminder About Instructor Training)"
 date: 2014-02-09
+category: education software community
 original: swc
 ---
 <p>

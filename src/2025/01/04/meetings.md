@@ -1,6 +1,7 @@
 ---
 title: Meetings
 date: 2025-01-04
+category: community software
 ---
 
 The [previous post][time-management] explained how to be productive individually,

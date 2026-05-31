@@ -1,6 +1,7 @@
 ---
 title: "Building a Book (Part 2)"
 date: 2021-03-10
+category: software writing
 ---
 
 As a follow-up to [last month's post about building a book](@root/2021/02/10/building-a-book/),

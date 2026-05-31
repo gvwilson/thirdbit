@@ -1,6 +1,7 @@
 ---
 title: "Software Design in Python Glossary"
 date: 2022-12-01
+category: software education
 ---
 
 Your lesson plan will give me a vague idea of what you're planning to teach;

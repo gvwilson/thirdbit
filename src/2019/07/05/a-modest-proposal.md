@@ -1,5 +1,6 @@
 ---
 date: 2019-07-05
+category: education research writing
 title: "A Modest Proposal"
 ---
 

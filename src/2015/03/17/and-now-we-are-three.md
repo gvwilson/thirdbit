@@ -1,6 +1,7 @@
 ---
 title: "And Now We Are Three"
 date: 2015-03-17
+category: software education research
 original: swc
 ---
 <p>

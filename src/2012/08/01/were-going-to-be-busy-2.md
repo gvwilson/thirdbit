@@ -1,5 +1,6 @@
 ---
 date: 2012-08-01
+category: software
 original: swc
 title: We're Going to Be Busy
 ---

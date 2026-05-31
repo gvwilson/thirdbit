@@ -1,5 +1,6 @@
 ---
 date: 2011-12-31
+category: software education community
 original: swc
 title: Some Responses to Some Comments
 ---

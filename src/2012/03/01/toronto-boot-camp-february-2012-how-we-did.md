@@ -1,5 +1,6 @@
 ---
 date: 2012-03-01
+category: education
 original: swc
 title: "Toronto Bootcamp February 2012: How We Did"
 ---

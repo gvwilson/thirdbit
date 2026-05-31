@@ -1,5 +1,6 @@
 ---
 date: 2012-08-14
+category: education software community
 original: swc
 title: A Question and Answer Matrix for Software Carpentry
 ---

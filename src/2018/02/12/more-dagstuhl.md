@@ -1,6 +1,7 @@
 ---
 title: "More Dagstuhl"
 date: 2018-02-12
+category: software research education
 ---
 
 Following up on [my previous post](@root/2018/02/10/my-dagstuhl/)

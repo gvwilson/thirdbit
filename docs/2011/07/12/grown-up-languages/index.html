@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -63,6 +62,14 @@
 <p>What I really want to talk about is languages like Coffeescript, and why I won&rsquo;t use them.  If I write a program in C, Java, Python, or Javascript, it is translated into instructions for some kind of machine (either real hardware, in the case of C, or a virtual machine in the case of the other three).  When that program runs, the debugger can match up the source code of the program and the instructions that are being executed, so that when I say, &ldquo;Go to the next line,&rdquo; the debugger can do what I ask.  These debuggers are WYSIWYG: the code I wrote (i.e., the code that&rsquo;s in my mind) and the operations and data that I&rsquo;m debugging, line up neatly.</p>
 <p>But if I write a program in Coffeescript, it isn&rsquo;t executed directly.  Instead, it is translated into Javascript, and then <em>that</em> is what&rsquo;s run.  If I want to debug that Javascript, I can, but <em>I didn&rsquo;t write it</em>: a computer program did.  Yes, the bits and pieces of that Javascript correspond to my Coffeescript, but the match is not obvious, and may not even be one-to-one.  It&rsquo;s as if I wrote a contract in English in terms of Ontario law, then had to defend it in court in French under Quebec law.  Without near-expert understanding of how the one translates to the other, it&rsquo;s hard or impossible for people to reverse engineer what the debugger is showing them and figure out which bits of the code they actually wrote needs to change.</p>
 <p>I first ran into this problem in the 1980s, when the C++ compiler I was working with translated my object-oriented programs into a tangle of strangely-named C functions for me to compile and run.  After a while, I figured out that if the error was in XX_@<em>YY</em>@@_ZZ, I should look for a method called XX.YY taking a parameter of type ZZ, but the C that implemented overloaded operators was ugly enough that I never really wrapped my head around it.  Debuggers eventually appeared that could handle C++ &ldquo;in source&rdquo;, and I&rsquo;m sure that if Coffeescript proves popular, a native debugger for it will appear as well.  &lsquo;Til then, as much as I prefer its syntax to Javascript&rsquo;s, I will (regretfully) turn away…</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

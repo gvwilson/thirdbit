@@ -1,5 +1,6 @@
 ---
 date: 2012-07-05
+category: education software
 original: swc
 title: Independent Assessment of the Past Six Months
 ---

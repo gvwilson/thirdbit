@@ -1,5 +1,6 @@
 ---
 date: 2011-03-22
+category: research software education
 original: swc
 title: I'd Settle for 0.1%
 ---

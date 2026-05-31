@@ -1,6 +1,7 @@
 ---
 title: "England: the Three of Us, and Four Generations"
 date: 2007-06-12
+category: software
 ---
 <img alt="The Three of Us" src="@root/files/2007/06/three.jpg" class="centered">
 

@@ -1,5 +1,6 @@
 ---
 date: 2024-02-14
+category: software
 title: "A Pair of Interviews"
 ---
 

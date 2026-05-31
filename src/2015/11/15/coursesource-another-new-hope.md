@@ -1,6 +1,7 @@
 ---
 title: "CourseSource: A(nother) New Hope"
 date: 2015-11-15
+category: education research writing
 original: swc
 ---
 <p>

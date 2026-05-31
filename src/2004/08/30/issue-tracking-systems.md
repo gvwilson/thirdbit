@@ -1,6 +1,7 @@
 ---
 title: "Issue Tracking Systems"
 date: 2004-08-30
+category: software
 ---
 One of the students who's going to be working on Hippo this fall sent a message to the group asking for everyone's MSN IDs, so that the team could set up group chats.  That got me thinking about how many different ways there are to communicate electronically these days, and about how to use them to manage a small, part-time software development team.
 

@@ -1,6 +1,7 @@
 ---
 title: "The Senior Professor's Handbook"
 date: 2018-03-26
+category: writing research software
 ---
 
 Short version: I'd really like someone who understands sociology and political science

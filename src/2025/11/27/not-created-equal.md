@@ -1,6 +1,7 @@
 ---
 title: Not Created Equal
 date: 2025-11-27
+category: software community
 ---
 
 [Yesterday's post][malice] pointed out that

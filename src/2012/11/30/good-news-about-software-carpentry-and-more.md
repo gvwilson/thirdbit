@@ -1,6 +1,7 @@
 ---
 title: Good News About Software Carpentry (and More)
 date: 2012-11-30
+category: education software research
 original: swc
 ---
 <p>We're pleased to announce that <a href="http://www.mozilla.org/">Mozilla</a> and Software Carpentry will be continuing and expanding our work to empower scientists with computer science and webmaking skills. We have been working with the <a href="http://www.sloan.org/">Sloan Foundation</a> to teach scientists the concepts, tools and techniques they need to use computers and the web to accelerate their research. In 2013-14, the program will offer an expanded set of workshops, online tutorials, and a new peer-to-peer mentoring program.</p>

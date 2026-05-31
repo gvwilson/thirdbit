@@ -1,6 +1,7 @@
 ---
 title: "No Support for Hate"
 date: 2019-08-04
+category: software society
 ---
 
 Twitter, Cloudflare, Shopify, and Amazon won't care if they lose my business:

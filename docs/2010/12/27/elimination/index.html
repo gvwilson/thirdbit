@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -102,6 +101,14 @@ birds = []
   birds.append(b)</pre>
 <p>I think the second is less fragile–modifying structures as I'm looping over them always gives me the shivers–but either will do the job.</p>
 <p>But now comes the hard case. What happens if birds can eat each other? If bird <em>i</em> eats bird <em>j</em>, for <em>i&lt;j</em>, it's no different from bird <em>j</em> dying. But if bird <em>j</em> eats bird <em>i</em>, we have a problem, because bird <em>i</em> is already in the list of survivors. Do we search for it and delete it (in which case, the stuttering solution above is definitely <em>not</em> the one we want, because the indexing logic becomes even more fragile)? Or… or what? Set a "but actually dead" flag in the bird's record in the temporary list, and not move it back into the bird list after all in the second loop? What would <em>you</em> do, and why?</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../writing/">writing</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

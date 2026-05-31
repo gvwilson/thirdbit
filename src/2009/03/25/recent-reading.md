@@ -1,6 +1,7 @@
 ---
 title: "Recent Reading"
 date: 2009-03-25
+category: software research writing
 ---
 Another bunch of papers and books:
 <ul>

@@ -1,6 +1,7 @@
 ---
 title: Air Time
 date: 2025-01-05
+category: community
 ---
 
 One problem with [meetings][meetings] is that

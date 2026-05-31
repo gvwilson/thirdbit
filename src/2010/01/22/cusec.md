@@ -1,6 +1,7 @@
 ---
 title: "CUSEC"
 date: 2010-01-22
+category: education
 ---
 My talk at CUSEC starts in 15 minutes; to calm my nerves, I'm catching up on my blog :-). Here are where students are from:
 <table class="centered">

@@ -1,5 +1,6 @@
 ---
 date: 2012-09-20
+category: software education
 original: swc
 title: Why This Stuff Is Hard To Teach
 ---

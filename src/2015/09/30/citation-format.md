@@ -1,6 +1,7 @@
 ---
 title: "Citation Format"
 date: 2015-09-30
+category: software education writing
 original: swc
 ---
 <p>

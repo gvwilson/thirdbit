@@ -1,6 +1,7 @@
 ---
 title: If I Retired
 date: 2025-09-04
+category: education writing software
 ---
 
 If I retired tomorrow,

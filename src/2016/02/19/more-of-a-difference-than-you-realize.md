@@ -1,6 +1,7 @@
 ---
 title: "More of a Difference Than You Realize"
 date: 2016-02-19
+category: education software writing
 original: swc
 ---
 We received this after an online instructor training workshop earlier this week,

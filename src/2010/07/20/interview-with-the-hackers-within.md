@@ -1,5 +1,6 @@
 ---
 date: 2010-07-20
+category: software research community
 original: swc
 title: Interview with The Hackers Within
 ---

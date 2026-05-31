@@ -1,6 +1,7 @@
 ---
 title: "SciPy'06: First Morning"
 date: 2006-08-17
+category: software
 ---
 <strong>Guido van Rossum's Keynote</strong>
 <ul>

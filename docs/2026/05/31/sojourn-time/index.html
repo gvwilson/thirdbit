@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Sojourn Time</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Sojourn Time</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/05/31/ai-research-questions/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-05-31" class="post-date">2026-05-31</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>How long does a customer actually spend in the system?
+The previous scenario measured $L$, the mean number of customers in the system at any moment. This scenario measures $W$, the mean time a single customer spends from arrival to departure. This is called the <em>sojourn time</em>, <em>residence time</em>, or <em>response time</em>, and has two components:</p>
+<ul>
+<li>$W_q$: time spent waiting in the queue because the server is busy.</li>
+<li>$W_s$: time spent in service while the server is working on this customer.</li>
+</ul>
+<p>$$W = W_q + W_s$$</p>
+<h2>The Surprising Finding</h2>
+<p>For an M/M/1 queue, the mean sojourn time is:</p>
+<p>$$W = \frac{1}{\mu(1 - \rho)}$$</p>
+<p>This blows up as $\rho \to 1$, just like $L$. But the split between waiting and service shifts dramatically as load increases.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$\rho$</th>
+<th style="text-align: center;">$W_q$ (wait)</th>
+<th style="text-align: center;">$W_s$ (service)</th>
+<th style="text-align: center;">$W$ (total)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">0.11</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.11</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">2.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.9</td>
+<td style="text-align: center;">9.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">10.00</td>
+</tr>
+</tbody>
+</table>
+<p>The mean service time $W_s = 1/\mu = 1.0$ is constant: the server always takes the same average time to serve one customer. All the extra delay at high load is pure waiting: $W_q = \rho/(\mu(1-\rho))$ grows without bound while $W_s$ stays fixed. At $\rho = 0.9$, 90% of a customer&rsquo;s time is spent waiting for the server to become free.</p>
+<p>This formula is closely connected to Little&rsquo;s Law:</p>
+<p>$$L = \lambda W$$</p>
+<p>Plugging in $W = 1/(\mu(1-\rho))$ and $\lambda = \rho\mu$:</p>
+<p>$$L = \rho\mu \cdot \frac{1}{\mu(1-\rho)} = \frac{\rho}{1-\rho}$$</p>
+<h2>Understanding the Math</h2>
+<h3>Why $W_s = 1/\mu$ regardless of $\rho$</h3>
+<p>Service time is drawn from an exponential distribution with rate $\mu$, so its mean is $1/\mu$. This is a property of the distribution, not of the queue. No matter how busy the server is, once it starts serving you it takes on average $1/\mu$ time.</p>
+<h3>Deriving $W_q$</h3>
+<p>Since $W = W_q + W_s$ and $W_s = 1/\mu$:</p>
+<p>$$W_q = W - W_s = \frac{1}{\mu(1-\rho)} - \frac{1}{\mu}
+      = \frac{1}{\mu}\left(\frac{1}{1-\rho} - 1\right)
+      = \frac{1}{\mu} \cdot \frac{\rho}{1-\rho}
+      = \frac{\rho}{\mu(1-\rho)}$$</p>
+<p>Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.</p>
+<h3>Units check</h3>
+<p>$\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little&rsquo;s Law to a real problem.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

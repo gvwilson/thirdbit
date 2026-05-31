@@ -1,5 +1,6 @@
 ---
 date: 2018-12-08
+category: software writing education
 title: "The Third Wall"
 ---
 

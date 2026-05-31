@@ -1,6 +1,7 @@
 ---
 title: "Planning Our Summer Sprint"
 date: 2014-06-09
+category: community software research
 original: swc
 ---
 <p>

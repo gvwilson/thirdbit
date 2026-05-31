@@ -1,6 +1,7 @@
 ---
 title: "Why Python?"
 date: 2005-01-05
+category: education software personal
 ---
 <p>A couple of students have ask why we're using <a href="http://www.python.org">Python</a> instead of <a href="http://www.perl.org">Perl</a> in this term's projects.  After all, <a href="http://www.perl.org">Perl</a> is more popular—there are more books about it, and a lot more libraries for it as well.</p>
 

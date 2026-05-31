@@ -1,5 +1,6 @@
 ---
 date: 2009-04-23
+category: education software research
 original: swc
 title: What Supervisors Need To Know
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Instructor Training Completion Times"
 date: 2016-07-05
+category: education
 original: swc
 ---
 <p>

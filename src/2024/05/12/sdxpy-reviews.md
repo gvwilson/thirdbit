@@ -1,6 +1,7 @@
 ---
 title: "Reviews Are Coming In"
 date: 2024-05-12
+category: education software community
 ---
 
 Reviews of the Python version of [*Software Design by Example*][sdxpy] have been coming in:

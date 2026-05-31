@@ -1,6 +1,7 @@
 ---
 title: "Navigating Source"
 date: 2005-05-15
+category: education software
 ---
 One of the minor items on my to-do list is to replace the <a href="http://projects.edgewall.com/trac">default Trac graphics</a> on the Argon web site with ones that include some reference to the <a href="http://www.utoronto.ca">University of Toronto</a> and our hippo mascot.  Having spent half an hour on Friday talking to a colleague about how we teach students how to write code, but not how to read it, I thought I'd describe how I figured out what files I'd need to change, and where to find them.
 

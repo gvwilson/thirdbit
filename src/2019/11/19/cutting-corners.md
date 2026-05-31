@@ -1,6 +1,7 @@
 ---
 title: "Cutting Corners"
 date: 2019-11-19
+category: software education community
 ---
 
 *I wrote this guide ten years ago when I was supervising undergraduate

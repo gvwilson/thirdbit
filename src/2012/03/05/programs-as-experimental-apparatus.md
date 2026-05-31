@@ -1,5 +1,6 @@
 ---
 date: 2012-03-05
+category: software research
 original: swc
 title: Programs as Experimental Apparatus
 ---

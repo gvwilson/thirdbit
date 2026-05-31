@@ -1,6 +1,7 @@
 ---
 title: "Summer Indulgences"
 date: 2008-05-04
+category: software
 ---
 <table class="centered">
 <tr>

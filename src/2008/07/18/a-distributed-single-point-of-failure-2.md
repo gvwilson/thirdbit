@@ -1,6 +1,7 @@
 ---
 title: "A Distributed Single Point of Failure"
 date: 2008-07-18
+category: software
 ---
 And this week:
 <ul>

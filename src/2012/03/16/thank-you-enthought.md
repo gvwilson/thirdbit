@@ -1,5 +1,6 @@
 ---
 date: 2012-03-16
+category: software education research
 original: swc
 title: Thank You, Enthought
 ---

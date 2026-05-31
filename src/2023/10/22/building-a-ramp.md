@@ -1,6 +1,7 @@
 ---
 title: "Building a Ramp"
 date: 2023-10-22
+category: software
 ---
 
 I've written, co-written, or edited [15 books][bib] over 32 years,

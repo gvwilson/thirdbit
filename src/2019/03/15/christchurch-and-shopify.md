@@ -1,5 +1,6 @@
 ---
 date: 2019-03-15
+category: software
 title: "Christchurch and Shopify"
 ---
 

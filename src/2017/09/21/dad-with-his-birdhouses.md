@@ -1,6 +1,7 @@
 ---
 title: "Dad With His Birdhouses"
 date: 2017-09-21
+category: software
 ---
 
 Tomorrow is the second anniversary of my father's death.

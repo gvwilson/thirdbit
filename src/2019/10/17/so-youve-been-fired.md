@@ -1,6 +1,7 @@
 ---
 title: "So You've Been Fired"
 date: 2019-10-17
+category: software
 ---
 
 1.  Insist on a record of all conversations.

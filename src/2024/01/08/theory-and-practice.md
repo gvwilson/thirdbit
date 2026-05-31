@@ -1,6 +1,7 @@
 ---
 title: "Theory and Practice"
 date: 2024-01-08
+category: software
 ---
 
 <table>

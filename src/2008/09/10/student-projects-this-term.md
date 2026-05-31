@@ -1,6 +1,7 @@
 ---
 title: "Student Projects This Term"
 date: 2008-09-10
+category: software education research
 ---
 The students in my CSC491 capstone course picked their projects today—here are the students (S) and mentors (M) for the term:
 <ul>

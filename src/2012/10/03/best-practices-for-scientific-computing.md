@@ -1,5 +1,6 @@
 ---
 date: 2012-10-03
+category: research software education
 original: swc
 title: Best Practices for Scientific Computing
 ---

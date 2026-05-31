@@ -1,6 +1,7 @@
 ---
 title: "File Under 'Really Not Getting It'"
 date: 2008-05-16
+category: research education community
 ---
 The New York Times ran <a href="http://www.nytimes.com/2008/05/15/fashion/15WORK.html">a piece today</a> on the under-representation of women in the sciences—in the Fashion and Style section, of course, because hey, women don't read the business pages, do they? *sigh*
 

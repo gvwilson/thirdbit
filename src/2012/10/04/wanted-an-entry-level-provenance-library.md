@@ -1,5 +1,6 @@
 ---
 date: 2012-10-04
+category: education software
 original: swc
 title: "Wanted: An Entry-Level Provenance Library"
 ---

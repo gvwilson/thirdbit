@@ -1,6 +1,7 @@
 ---
 title: "What the World Needs Now Is Diffs, Diffs, Diffs"
 date: 2006-04-20
+category: software community
 ---
 I first heard the term "grand challenge" used in the 1980s to describe the kinds of big projects that would give an entire generation of scientists a focus for their work—something on the scale of putting a person on the moon, or sequencing the human genome.  The phrase has since been applied to many other things, most recently DARPA's <a href="http://www.darpa.mil/grandchallenge/">autonomous vehicle</a> program.
 

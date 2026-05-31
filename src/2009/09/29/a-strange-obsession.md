@@ -1,5 +1,6 @@
 ---
 date: 2009-09-29
+category: software research
 original: swc
 title: A Strange Obsession
 ---

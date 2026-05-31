@@ -1,6 +1,7 @@
 ---
 title: "Why 'Do Not Track' Matters"
 date: 2012-02-29
+category: software
 ---
 Step 1: install the <a href="https://addons.mozilla.org/en-US/firefox/addon/collusion/">Collusion</a> plugin for Firefox.
 

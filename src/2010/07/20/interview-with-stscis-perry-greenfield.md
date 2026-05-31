@@ -1,5 +1,6 @@
 ---
 date: 2010-07-20
+category: research community
 original: swc
 title: Interview with STSci's Perry Greenfield
 ---

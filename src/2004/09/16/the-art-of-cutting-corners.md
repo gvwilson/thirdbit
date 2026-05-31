@@ -1,6 +1,7 @@
 ---
 title: "The Art of Cutting Corners"
 date: 2004-09-16
+category: education community software
 ---
 <p>According to one of my students, I tell the same jokes, the same way, every time I lecture.  I apparently make them sound fresh each time, though, so I guess that's OK.</p>
 

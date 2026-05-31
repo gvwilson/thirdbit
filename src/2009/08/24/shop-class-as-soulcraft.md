@@ -1,6 +1,7 @@
 ---
 title: "Shop Class as Soulcraft"
 date: 2009-08-24
+category: education
 ---
 I just finished reading Crawford's <a href="http://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/1594202230"><em>Shop Class as Soulcraft: An Inquiry into the Value of Work</em></a>. It's a rare thing: deeply reactionary, yet (mostly) well argued. Here's its central complaint:
 <blockquote>We in the West have arranged our institutions to prevent the concentration of political power… But we have failed utterly to prevent the concentration of economic power, or take account of how such concentration damages the conditions under which full human flourishing becomes possible… Too often, the defenders of free markets forget that what we really want is free men.</blockquote>

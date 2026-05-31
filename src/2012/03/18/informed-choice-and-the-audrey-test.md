@@ -1,6 +1,7 @@
 ---
 title: "Informed Choice and the Audrey Test"
 date: 2012-03-18
+category: education software writing
 ---
 <p>As I wrote a few days ago, I asked <a href="http://hackeducation.com/">Audrey Watters</a> to put together a "Joel test" to assess how much someone technical knew about education. She has now posted <a href="http://www.hackeducation.com/2012/03/17/what-every-techie-should-know-about-education/">her response</a>; if I were grading it, I'd say, "Exceeds expectations," because what she has done is explain why a simple 12-point yes-or-no test wouldn't be enough:</p>
 

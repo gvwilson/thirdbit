@@ -1,5 +1,6 @@
 ---
 date: 2011-09-20
+category: software education research
 original: swc
 title: I'm Not Normally Lost for Words
 ---

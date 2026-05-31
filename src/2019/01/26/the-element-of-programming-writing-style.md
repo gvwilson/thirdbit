@@ -1,5 +1,6 @@
 ---
 date: 2019-01-26
+category: software writing
 title: "The Elements of Programming Writing Style"
 ---
 

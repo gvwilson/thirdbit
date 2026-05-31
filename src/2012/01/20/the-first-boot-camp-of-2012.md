@@ -1,5 +1,6 @@
 ---
 date: 2012-01-20
+category: software education research
 original: swc
 title: The First Bootcamp of 2012
 ---

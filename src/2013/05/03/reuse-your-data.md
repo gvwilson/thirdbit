@@ -1,6 +1,7 @@
 ---
 title: Make It Easier to (Re)use Your Data
 date: 2013-05-03
+category: software research education
 original: swc
 ---
 <p>Software Carpentry has focused on computing for most of its 14 years (primarily because that's what I'm most familiar with) but it's increasingly clear that we need to tackle other parts of the research cycle. One is the new ideas clustered around publication, discovery and metrics, which I'll discuss in a future post.  The other is data management; we only touch on the topic right now, but it's as important to most scientists as crunching numbers, and how best to do it is changing rapidly.  Luckily, a few of our friends have written a guide for the perplexed:</p>

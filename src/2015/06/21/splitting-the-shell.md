@@ -1,6 +1,7 @@
 ---
 title: "Splitting the Shell Window"
 date: 2015-06-21
+category: education software
 original: swc
 ---
 <p>

@@ -1,5 +1,6 @@
 ---
 date: 2024-01-23
+category: software writing
 title: "The Votes Are In"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Midsummer Resolution"
 date: 2008-07-01
+category: education research software
 ---
 I've resolved to say "no" to at least one good idea each week. It's going to be hard—the world is full of fun things that need to be done, and I'd like to do 'em all—but I won't have any right to whine about there not being enough hours in the day if I don't start cutting stuff.
 

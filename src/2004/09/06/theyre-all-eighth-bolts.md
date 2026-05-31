@@ -1,6 +1,7 @@
 ---
 title: "They're All Eighth Bolts"
 date: 2004-09-06
+category: software society
 ---
 <p>Years ago, I was putting together a pine futon frame I'd purchased from Ikea.  It was a pretty simple thing—just four uprights and some crosspieces.  The whole thing was held together by eight bolts hidden in pre-drilled recesses.</p>
 

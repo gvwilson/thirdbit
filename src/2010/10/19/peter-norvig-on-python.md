@@ -1,6 +1,7 @@
 ---
 title: "Peter Norvig on Python"
 date: 2010-10-19
+category: software education writing
 ---
 Peter Norvig, the author of one of the standard textbooks on AI, and now at Google, has <a href="http://news.ycombinator.com/item?id=1803815">this to say</a> about Python:
 

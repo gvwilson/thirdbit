@@ -1,6 +1,7 @@
 ---
 title: "GSoC Projects for 2014"
 date: 2014-04-22
+category: software education community
 original: swc
 ---
 

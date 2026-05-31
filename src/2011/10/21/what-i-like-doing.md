@@ -1,6 +1,7 @@
 ---
 title: "What I Like Doing"
 date: 2011-10-21
+category: writing education
 ---
 I was talking with a friend Wednesday evening, grumbling a bit about how short life is and how many things I'll never get to. He asked me, "Well, what <em>do</em> you like doing?" It's a good question for a rainy Friday, so here's my list (and the reasons I'm not actually doing the ones I'm not doing):
 <ol>

@@ -1,6 +1,7 @@
 ---
 title: "The Penalty For Dishonesty Is Often Borne By Others"
 date: 2009-04-23
+category: writing software society
 ---
 <strong>Angel</strong>: People who don't care about anything will never understand the people who do.
 

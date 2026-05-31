@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -64,7 +63,7 @@ Each package typically has a name and one or more version(s);
 each version may have a list of dependencies,
 and the package may specify a version or range of acceptable versions for each dependency.</p>
 <p>Finding a consistent set of versions to install is an intrinsically hard problem.
-<a href="../../../../sdxjs/package-manager/">Chapter 18</a> of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+<a href="../../../../sdxjs/packman/">Chapter 18</a> of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
 therefore explores how to search for something legal.
 Almost every real package manager uses some sort of <a href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories">SMT solver</a> to do this,
 but I decided not to use one in this chapter because their documentation is mostly impenetrable.
@@ -75,20 +74,28 @@ but as soon as you need to go deeper,
 <p>I think that&rsquo;s a shame:
 solvers are tremendously powerful tools,
 and deserve to be much more widely used.
-The working draft of the Python version of this book re-solves the problem from <a href="../../../../sdxjs/package-manager/">this chapter</a> using <a href="https://z3prover.github.io/papers/programmingz3.html">Z3</a>,
+The working draft of the Python version of this book re-solves the problem from <a href="../../../../sdxjs/packman/">this chapter</a> using <a href="https://z3prover.github.io/papers/programmingz3.html">Z3</a>,
 and goes on to show how it can be used to generate test data as well
 using an example borrowed from <a href="https://andreas-zeller.info/">Andreas Zeller&rsquo;s</a> excellent lecture
 on <a href="https://www.fuzzingbook.org/html/AcademicPrototyping.html">academic prototyping</a>.
 If you&rsquo;d like to have a look and let me know if it works,
 please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 <figure id="package-manager-allowable" class="center">
-  <img src="../../../../sdxjs/package-manager/allowable.svg" alt="Allowable versions" class="centered">
+  <img src="../../../../sdxjs/packman/allowable.svg" alt="Allowable versions" class="centered">
   <figcaption>Figure 18.1: Finding allowable combinations of package versions.</figcaption>
 </figure>
 
 <blockquote>
 <p>Terms defined: backward-compatible, combinatorial explosion, heuristic, manifest, patch, prune, SAT solver, scoring function, seed, semantic versioning.</p>
 </blockquote><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../education/">education</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

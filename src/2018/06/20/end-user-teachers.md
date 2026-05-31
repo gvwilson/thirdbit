@@ -1,6 +1,7 @@
 ---
 title: "End-User Teachers"
 date: 2018-06-20
+category: research software education
 ---
 
 I've been thinking about

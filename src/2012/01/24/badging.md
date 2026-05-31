@@ -1,5 +1,6 @@
 ---
 date: 2012-01-24
+category: education software community
 original: swc
 title: Badging
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2012-10-01
+category: software education writing
 original: swc
 title: What Would You Like in an Instructor's Guide?
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2012-04-28
+category: writing
 original: swc
 title: Stop Me If You've Heard This One
 ---

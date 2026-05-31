@@ -1,5 +1,6 @@
 ---
 date: 2012-10-10
+category: research software community
 original: swc
 title: Dark Matter, Public Health, and Scientific Computing
 ---

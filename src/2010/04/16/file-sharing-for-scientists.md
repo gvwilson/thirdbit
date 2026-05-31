@@ -1,5 +1,6 @@
 ---
 date: 2010-04-16
+category: software research
 original: swc
 title: File Sharing for Scientists
 ---

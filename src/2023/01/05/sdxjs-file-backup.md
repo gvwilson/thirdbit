@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 5: File Backup"
 date: 2023-01-05
+category: software writing
 ---
 
 The chapter explaining [how hash-based version control systems work][sdxjs_backup]
@@ -36,7 +37,7 @@ in the same way that comparing the implementation of undo/redo in Emacs and Vim
 can show just how large the space of possible designs actually is.
 
 <figure id="file-backup-storage" class="center">
-  <img src="@root/sdxjs/file-backup/storage.svg" alt="Backup file storage" class="centered">
+  <img src="@root/sdxjs/backup/storage.svg" alt="Backup file storage" class="centered">
   <figcaption>Figure 5.3: Organization of backup file storage.</figcaption>
 </figure>
 
@@ -48,5 +49,5 @@ can show just how large the space of possible designs actually is.
 [gitlet]: http://gitlet.maryrosecook.com/
 [not_on_the_shelves]: @root/ideas/not-on-the-shelves/
 [sdxjs_debugger]: @root/sdxjs/debugger/
-[sdxjs_backup]: @root/sdxjs/file-backup/
-[sdxjs_layout]: @root/sdxjs/layout-engine/
+[sdxjs_backup]: @root/sdxjs/backup/
+[sdxjs_layout]: @root/sdxjs/layout/

@@ -1,6 +1,7 @@
 ---
 title: "Teaching Tips"
 date: 2015-03-15
+category: education software society
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Politics for Current Physicsts"
 date: 2014-11-05
+category: research software education
 ---
 <p>
   Richard Muller's

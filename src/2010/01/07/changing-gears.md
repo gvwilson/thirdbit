@@ -1,6 +1,7 @@
 ---
 title: "Changing Gears"
 date: 2010-01-07
+category: education software
 ---
 As some of you already know, my contract with the University of Toronto runs out this spring, and I have decided not to seek renewal. I've learned a lot in this job, and had a chance to work with some great people, but it's time for new challenges.
 

@@ -1,6 +1,7 @@
 ---
 title: "In Praise of PowerPoint (sort of)"
 date: 2010-09-03
+category: software education
 ---
 If all goes well, I'll post the first eight episodes of the <a href="https://software-carpentry.org/">Software Carpentry</a> lecture on the Unix shell later today.  That will make this the most productive week I've had in the four months I've been working on the project full-time.  I've learned a lot, which I'll distill into a post some time soon, but right now, I'd like to ask you all a favor.
 

@@ -1,5 +1,6 @@
 ---
 date: 2012-07-30
+category: education software community
 original: swc
 title: Record and Playback
 ---

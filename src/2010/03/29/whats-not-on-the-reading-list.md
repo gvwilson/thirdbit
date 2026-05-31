@@ -1,5 +1,6 @@
 ---
 date: 2010-03-29
+category: software education writing
 original: swc
 title: What's Not on the Reading List
 ---

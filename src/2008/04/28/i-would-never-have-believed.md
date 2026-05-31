@@ -1,6 +1,7 @@
 ---
 title: "'I Would Never Have Believed…'"
 date: 2008-04-28
+category: research software education
 ---
 It was a beautiful day yesterday in Toronto—warm and sunny, just perfect for strolling around the neighborhood and looking for a new home. And for stopping in at the baby goods store a couple of blocks from our current house to pick up a new pair of shoes for Maddie (pink, in case you were wondering—not outrageously so, but definitely pink).
 

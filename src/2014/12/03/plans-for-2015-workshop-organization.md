@@ -1,6 +1,7 @@
 ---
 title: "Plans for 2015: Workshop Organization"
 date: 2014-12-03
+category: education community software
 original: swc
 ---
 <p>

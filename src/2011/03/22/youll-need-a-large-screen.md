@@ -1,5 +1,6 @@
 ---
 date: 2011-03-22
+category: education
 original: swc
 title: You'll Need a Large Screen
 ---

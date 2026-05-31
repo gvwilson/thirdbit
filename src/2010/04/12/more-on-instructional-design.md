@@ -1,5 +1,6 @@
 ---
 date: 2010-04-12
+category: education research software
 original: swc
 title: More on Instructional Design
 ---

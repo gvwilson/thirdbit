@@ -1,5 +1,6 @@
 ---
 date: 2011-12-20
+category: software research community
 original: swc
 title: It Just Keeps On Hurting
 ---

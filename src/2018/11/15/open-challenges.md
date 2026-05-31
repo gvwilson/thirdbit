@@ -1,5 +1,6 @@
 ---
 date: 2018-11-15
+category: software
 title: "The Real Open Challenges"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Running Bootcamps
 date: 2013-06-07
+category: software education research
 original: swc
 ---
 <p>

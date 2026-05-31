@@ -1,6 +1,7 @@
 ---
 title: "A Less Frequent World"
 date: 2009-10-13
+category: writing society
 ---
 I've been invited to give a talk at Michigan State University, and have a standing invitation to visit the University of Wisconsin in Madison. Twelve months ago, I would have booked a couple of flights and been done with it, but I'm trying to go a year without flying—when I calculated my carbon load in the spring, I discovered that it accounted for 85% of my impact. The best plan I've been able to come up with looks like this:
 

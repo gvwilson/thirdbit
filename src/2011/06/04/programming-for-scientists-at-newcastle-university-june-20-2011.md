@@ -1,5 +1,6 @@
 ---
 date: 2011-06-04
+category: software education research
 original: swc
 title: "Programming for Scientists at Newcastle University: June 20, 2011"
 ---

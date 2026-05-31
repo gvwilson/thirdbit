@@ -1,6 +1,7 @@
 ---
 title: "So How'd I Do?"
 date: 2010-12-22
+category: education software community
 ---
 Back in November 9 I laid out my goals for the remainder of the year. Let's see how I did:
 <ol>

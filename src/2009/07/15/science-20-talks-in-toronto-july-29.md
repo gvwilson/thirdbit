@@ -1,6 +1,7 @@
 ---
 title: "Science 2.0 talks in Toronto July 29"
 date: 2009-07-15
+category: software research writing
 ---
 A decade ago, people like Jon Udell were imagining how the web could radically change the way science is done. Today, those visions are becoming a reality, and on July 29, you can join us for an afternoon of talks about what's happening and how it could touch your life. Full details are at http://softwarecarpentry.wordpress.com/guests/—the event is free, but you must register in advance (as there is limited seating). Our speakers will include:
 <ul>

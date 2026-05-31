@@ -1,6 +1,7 @@
 ---
 title: "The Other One Per Cent"
 date: 2014-01-24
+category: software research education
 ---
 <p>
   Over the past year,

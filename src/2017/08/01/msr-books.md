@@ -1,6 +1,7 @@
 ---
 title: "MSR Books"
 date: 2017-08-01
+category: research software education
 ---
 
 Back in 2010,

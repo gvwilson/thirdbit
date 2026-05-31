@@ -1,5 +1,6 @@
 ---
 date: 2009-10-06
+category: education software community
 original: swc
 title: Comments on Course Reorganization
 ---

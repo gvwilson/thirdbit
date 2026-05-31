@@ -1,6 +1,7 @@
 ---
 title: "A New Metric"
 date: 2024-02-21
+category: software
 ---
 Back in the 1980s,
 Roger Hockney invented two measures for computer performance.

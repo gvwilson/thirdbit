@@ -1,6 +1,7 @@
 ---
 title: Observability
 date: 2025-11-30
+category: software
 ---
 
 So far we've been collecting whatever data we want

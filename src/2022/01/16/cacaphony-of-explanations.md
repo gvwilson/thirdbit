@@ -1,6 +1,7 @@
 ---
 title: "A Cacaphony of Explanations"
 date: 2022-01-16
+category: personal software education
 ---
 
 I'm programming for a living for the first time in ten years.

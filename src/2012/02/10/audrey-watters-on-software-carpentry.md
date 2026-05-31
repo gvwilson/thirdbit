@@ -1,5 +1,6 @@
 ---
 date: 2012-02-10
+category: education software
 original: swc
 title: Audrey Watters on Software Carpentry
 ---

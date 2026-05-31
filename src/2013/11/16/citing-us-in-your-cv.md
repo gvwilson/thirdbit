@@ -1,6 +1,7 @@
 ---
 title: "Citing Us In Your CV"
 date: 2013-11-16
+category: education software community
 original: swc
 ---
 <p>

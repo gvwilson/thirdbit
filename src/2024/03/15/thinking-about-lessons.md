@@ -1,6 +1,7 @@
 ---
 title: "Thinking About Lessons"
 date: 2024-03-15
+category: education writing
 ---
 
 I'm helping a group of programmers put a book together,

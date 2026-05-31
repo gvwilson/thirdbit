@@ -1,6 +1,7 @@
 ---
 title: "Polymorphism"
 date: 2009-12-23
+category: software
 ---
 Yesterday, I asked if anyone was building something like <a href="http://www.fossil-scm.org/">Fossil</a> using a NoSQL database.  In response, someone named Pete (who didn't leave a real email address) asked, "Why NoSQL? This is a perfect application for an SQL database."  Respectfully, I disagree, but my reason will take a little explaining.
 

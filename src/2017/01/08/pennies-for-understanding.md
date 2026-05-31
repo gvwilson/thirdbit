@@ -1,6 +1,7 @@
 ---
 title: "Pennies for Understanding"
 date: 2017-01-08
+category: software research
 ---
 
 <p>

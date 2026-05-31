@@ -1,6 +1,7 @@
 ---
 title: "Blackberries"
 date: 2023-01-25
+category: personal
 ---
 
 When I was young,

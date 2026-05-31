@@ -1,6 +1,7 @@
 ---
 title: Refactoring the Simulation
 date: 2025-11-22
+category: software research
 ---
 
 After [yesterday's experiments with rework][rework]

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 4: Matching Patterns"
 date: 2024-04-04
+category: software writing education
 ---
 
 As I wrote [last year][sdxjs_pattern_matching],
@@ -51,7 +52,7 @@ which isn't bad for a one-hour lesson.
 [kernighan]: https://www.cs.princeton.edu/~bwk/
 [null_object]: https://en.wikipedia.org/wiki/Null_object_pattern
 [open_closed]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
-[sdxjs_regex]: @root/sdxjs/pattern-matching/
+[sdxjs_regex]: @root/sdxjs/glob/
 [sdxjs_pattern_matching]: @root/2023/01/09/sdxjs-pattern-matching/
 [sdxpy]: @root/sdxpy/
 [sdxpy_glob]: @root/sdxpy/glob/

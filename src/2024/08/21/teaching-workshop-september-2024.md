@@ -1,6 +1,7 @@
 ---
 title: "Teaching Workshop in September 2024"
 date: 2024-08-21
+category: education software writing
 ---
 
 I am planning to run a [Teaching Tech Together workshop][t3-ad] online in September 2024.

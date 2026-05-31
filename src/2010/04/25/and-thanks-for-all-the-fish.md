@@ -1,6 +1,7 @@
 ---
 title: "…And Thanks For All The Fish"
 date: 2010-04-25
+category: software education personal
 ---
 A month ago, I gave myself a mixed performance review for my time at U of T. Turns out a few people think I deserve better: enough to scare the bejesus out of me last night when they all yelled, "Surprise!" It was one of the nicest things anyone has ever done for me, and I'm grateful to everyone for making the end of my time at the university a memory I'll treasure for the rest of my life. So without further ado, here are the pink hippo cake:
 

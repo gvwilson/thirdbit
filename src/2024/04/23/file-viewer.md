@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 23: A File Viewer"
 date: 2024-04-23
+category: software education community
 ---
 
 I was running out of steam by the time I reached the end of
@@ -25,7 +26,7 @@ in order to set up the next chapter on implementing undo and redo.
 
 > Terms defined: buffer (of text), delayed construction, enumeration, factory method, log file, synthetic data, viewport.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-600.jpg" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [lorgat]: https://wasimlorgat.com/

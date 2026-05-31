@@ -1,6 +1,7 @@
 ---
 title: "Did I Pass?"
 date: 2010-03-22
+category: education software research
 ---
 It's that time again: students in my CSC302 software engineering class are doing peer assessments next week, and soon after that I'll have to assign grades to them and the UCOSP students. It's got me thinking about what grade <em>I</em> deserve for my time at <a href="http://www.cs.utoronto.ca">U of T</a>.
 <ul>

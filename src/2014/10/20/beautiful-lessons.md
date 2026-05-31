@@ -1,6 +1,7 @@
 ---
 title: "Beautiful Lessons"
 date: 2014-10-20
+category: software education writing
 ---
 <p>
   On May 17, 2006, I sent the following email

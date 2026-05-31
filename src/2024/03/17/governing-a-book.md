@@ -1,6 +1,7 @@
 ---
 title: "Governing a Book"
 date: 2024-03-17
+category: community writing
 ---
 
 As [I said a couple of days ago][lesson-types],

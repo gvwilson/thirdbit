@@ -1,6 +1,7 @@
 ---
 title: "Eroded Away"
 date: 2015-06-13
+category: education software personal
 ---
 <p>
   Little by little, the subversive features of the computer were eroded away.

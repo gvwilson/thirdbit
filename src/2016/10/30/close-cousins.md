@@ -1,6 +1,7 @@
 ---
 title: "Close Cousins"
 date: 2016-10-30
+category: software education community
 original: swc
 ---
 

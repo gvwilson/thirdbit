@@ -1,6 +1,7 @@
 ---
 title: "Mentioned in the Paris Review"
 date: 2014-09-16
+category: writing software
 ---
 <p>
   Blake Winton pointed me at <a href="http://www.theparisreview.org/blog/2014/09/05/the-beauty-of-code/">this article</a>

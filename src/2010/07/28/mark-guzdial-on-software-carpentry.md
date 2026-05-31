@@ -1,5 +1,6 @@
 ---
 date: 2010-07-28
+category: software education research
 original: swc
 title: Mark Guzdial on Software Carpentry
 ---

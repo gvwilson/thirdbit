@@ -1,5 +1,6 @@
 ---
 date: 2009-12-18
+category: research software education
 original: swc
 title: Double Standards
 ---

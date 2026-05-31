@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -99,6 +98,14 @@ print "Processing time: %d, Rendering time: %d" % (process_time, timing.milli())
 <p>which results in: <em>Processing time: 0, Rendering time: 1759</em></p>
 <p>This performance is almost shockingly poor.  The problem appears to be a side-effect of guaranteeing the template is well-formed XML: when you remove the <code>XML(…)</code> fragment from the template, and just display<code> x</code>, the rendering time drops to 129 milliseconds.</p>
 <p>There has recently been some talk on the Kid mailing list calling for an option to disable the &ldquo;well-formed XML&rdquo; check when embedding XML into a template.  Hopefully for DrProject, this change gets pushed into Kid very soon. In the meantime, if you have experienced similar performance issues with Kid and have found a workaround, please email me.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

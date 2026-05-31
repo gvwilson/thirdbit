@@ -1,5 +1,6 @@
 ---
 date: 2009-09-22
+category: education software research
 original: swc
 title: Grant Proposal
 ---

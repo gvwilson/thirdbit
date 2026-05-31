@@ -1,6 +1,7 @@
 ---
 title: Edinburgh Winter Talk
 date: 2025-01-11
+category: software education
 ---
 
 A recording of the talk [Yanina Bellini Saibene][yanina] and I gave

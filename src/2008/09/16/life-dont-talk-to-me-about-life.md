@@ -1,6 +1,7 @@
 ---
 title: "Life? Don't Talk to Me About Life…"
 date: 2008-09-16
+category: software
 ---
 From Jon Pipitone, unprompted, very early this morning:
 

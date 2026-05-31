@@ -1,5 +1,6 @@
 ---
 date: 2012-02-27
+category: software education
 original: swc
 title: Badges (Finalized)
 ---

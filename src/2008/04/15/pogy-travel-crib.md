@@ -1,6 +1,7 @@
 ---
 title: "Pogy Travel Crib"
 date: 2008-04-15
+category: software
 ---
 Madeleine is now a year, two weeks, and one day old. Still only has two teeth, but love gnawing on bananas (and occasionally fingers); walkin' up a storm, and we're the proud owners of two hand-painted… um… paintings.
 

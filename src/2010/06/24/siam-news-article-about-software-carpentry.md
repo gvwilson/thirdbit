@@ -1,5 +1,6 @@
 ---
 date: 2010-06-24
+category: education software writing
 original: swc
 title: SIAM News Article About Software Carpentry
 ---

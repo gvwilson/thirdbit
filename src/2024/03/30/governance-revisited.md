@@ -1,6 +1,7 @@
 ---
 title: "Governance Revisited"
 date: 2024-03-30
+category: software community writing
 ---
 
 *Following up on [this post][governing-a-book],

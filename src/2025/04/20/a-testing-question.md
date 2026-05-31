@@ -1,6 +1,7 @@
 ---
 title: A Testing Question
 date: 2025-04-20
+category: software education writing
 ---
 
 I have been thinking some more about how to teach testing to scientists who are learning how to program,

@@ -1,6 +1,7 @@
 ---
 title: "Knitting"
 date: 2020-01-05
+category: software personal
 ---
 
 I woke up sick on Friday morning and spend that day and most of Saturday feeling sorry for myself.

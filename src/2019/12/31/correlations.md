@@ -1,6 +1,7 @@
 ---
 title: "Correlations"
 date: 2019-12-31
+category: software writing
 ---
 
 A [previous post](@root/2019/12/23/gini-coefficients/)

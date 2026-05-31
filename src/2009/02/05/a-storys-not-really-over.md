@@ -1,6 +1,7 @@
 ---
 title: "A Story's Not Really Over…"
 date: 2009-02-05
+category: writing
 ---
 …as long as it's still being read:
 

@@ -1,6 +1,7 @@
 ---
 title: "Teaching Programming to the Blind"
 date: 2016-09-23
+category: education software
 original: swc
 ---
 

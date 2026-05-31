@@ -1,6 +1,7 @@
 ---
 title: "Accessible to All?"
 date: 2011-11-18
+category: education personal community
 ---
 Back in the late 1990s, I volunteered for a while with the <a href="http://www.cnib.ca">CNIB</a> helping a young woman finish off her high school diploma. (She was already in college, but they wouldn't let her graduate until she'd officially completed Grade 12.) The first course I helped her with was Family Studies, and I remember very clearly how I felt when Question 1 on the final exam began with the words, "Examine the graph in Figure 1…" This course was officially rated "Accessible to the Visually Impaired" by the Ministry of Education, but clearly, somebody hadn't actually tested the materials. As an answer to the question, she had me write, "I can't—I'm blind," but it still took four months of phone calls and letters to get someone to mark that exam out of 75 instead of out of 100.
 

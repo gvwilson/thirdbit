@@ -1,6 +1,7 @@
 ---
 title: "Data Carpentry Receives Grant from the Moore Foundation"
 date: 2015-08-13
+category: software research community
 original: swc
 ---
 <p>

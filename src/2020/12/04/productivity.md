@@ -1,6 +1,7 @@
 ---
 title: "Productivity and Collective Action"
 date: 2020-12-04
+category: community writing
 ---
 
 If COVID-19 has taught us anything,

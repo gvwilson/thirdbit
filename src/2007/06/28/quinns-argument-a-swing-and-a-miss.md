@@ -1,6 +1,7 @@
 ---
 title: "Quinn's Argument: A Swing and a Miss"
 date: 2007-06-28
+category: software
 ---
 [Posted on behalf of Tony Balkissoon.]
 

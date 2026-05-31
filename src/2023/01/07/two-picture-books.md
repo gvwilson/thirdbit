@@ -1,6 +1,7 @@
 ---
 title: "Two Picture Books"
 date: 2023-01-07
+category: writing
 ---
 
 As part of cleaning up this site I have reposted two picture books that I helped with:

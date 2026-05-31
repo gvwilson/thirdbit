@@ -1,6 +1,7 @@
 ---
 title: "Instructor Training Stats"
 date: 2014-11-22
+category: education software community
 original: swc
 ---
 The Software Carpentry Foundation's board asked me for some stats on instructor training,

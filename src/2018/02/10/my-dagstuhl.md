@@ -1,6 +1,7 @@
 ---
 title: "My Dagstuhl"
 date: 2018-02-10
+category: education software research
 ---
 
 Another week,

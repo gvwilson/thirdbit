@@ -1,6 +1,7 @@
 ---
 title: "The Other Examples"
 date: 2024-01-03
+category: research software writing
 ---
 
 I'm not going to write another book in the *Software Design by Example* series,

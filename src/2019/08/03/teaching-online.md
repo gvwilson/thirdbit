@@ -1,6 +1,7 @@
 ---
 title: "Teaching Online"
 date: 2019-08-03
+category: education software
 ---
 
 > I think that our grandchildren will probably regard the distinction we make

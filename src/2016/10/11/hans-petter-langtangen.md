@@ -1,6 +1,7 @@
 ---
 title: "In Memoriam: Hans Petter Langtangen"
 date: 2016-10-11
+category: software research education
 original: swc
 ---
 

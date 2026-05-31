@@ -1,6 +1,7 @@
 ---
 title: "Tooling a Book"
 date: 2023-07-16
+category: software writing
 ---
 
 Shortly after I announced [the beta release of *Software Design by Example (Python edition)*][announce-beta]

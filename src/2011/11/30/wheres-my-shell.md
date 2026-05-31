@@ -1,6 +1,7 @@
 ---
 title: "Where's My Shell?"
 date: 2011-11-30
+category: software personal writing
 ---
 My first programming language was PL/1. (Look it up if you need to, kid.) My second was Pascal, and then in the summer of 1982 I was introduced to two more: C, and the Unix shell. I realized that C was a programming language right away, mostly because that's what people said it was.  It took me longer to realize that the shell was also a programming language; I still remember the first time the sys admin responsible for our VAX 11/780 wrote a 'for' loop on the command line to try my program for each of several input files.
 

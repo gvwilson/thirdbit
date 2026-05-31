@@ -1,6 +1,7 @@
 ---
 title: "A Data Programming CS1 Course at the University of Washington"
 date: 2016-01-03
+category: education software research
 original: swc
 ---
 

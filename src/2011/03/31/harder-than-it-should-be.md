@@ -1,5 +1,6 @@
 ---
 date: 2011-03-31
+category: research software education
 original: swc
 title: Harder Than It Should Be
 ---

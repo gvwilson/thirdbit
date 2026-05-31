@@ -1,6 +1,7 @@
 ---
 title: "Ten Simple Rules for Digital Data Storage"
 date: 2016-10-20
+category: research software community
 original: swc
 ---
 

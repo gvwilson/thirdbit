@@ -1,5 +1,6 @@
 ---
 date: 2011-11-14
+category: software education
 original: swc
 title: Surviving the Tsunami
 ---

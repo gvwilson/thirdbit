@@ -1,6 +1,7 @@
 ---
 title: "Routinely Unique"
 date: 2015-06-14
+category: research software society
 original: swc
 ---
 <p>

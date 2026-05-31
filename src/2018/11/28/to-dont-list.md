@@ -1,5 +1,6 @@
 ---
 date: 2018-11-28
+category: software research writing
 title: "My To-Don't List"
 ---
 

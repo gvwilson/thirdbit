@@ -1,5 +1,6 @@
 ---
 date: 2019-07-05
+category: software research
 title: "Patterns in Git"
 ---
 

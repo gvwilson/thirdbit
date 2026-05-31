@@ -1,6 +1,7 @@
 ---
 title: "Closing Time"
 date: 2023-05-02
+category: software
 ---
 
 <div class="center">

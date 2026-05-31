@@ -1,5 +1,6 @@
 ---
 date: 2010-06-12
+category: software research
 original: swc
 title: The Cowichan Problems
 ---

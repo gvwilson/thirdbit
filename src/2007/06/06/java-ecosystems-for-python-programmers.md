@@ -1,6 +1,7 @@
 ---
 title: "Java Ecosystems for Python Programmers"
 date: 2007-06-06
+category: software education writing
 ---
 (Posted on behalf of Miles Thibault, a former CSC49X student now working in London, England.)
 

@@ -1,6 +1,7 @@
 ---
 title: "A Counterpoint to Collaborative Lesson Design"
 date: 2016-02-16
+category: research writing education
 original: swc
 ---
 Discussion of our proposed lesson on

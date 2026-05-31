@@ -1,6 +1,7 @@
 ---
 title: "Upgrading Their Plots"
 date: 2009-09-07
+category: writing
 ---
 Everyone who writes does so for their own reasons. I got into it because I got tired of coming to the end of an article or story and thinking, "I could do better than that." (OK, to be honest, my friends got tired of me saying that and told me to put up or shut up.) I don't write much any more, but I still have that reaction.
 

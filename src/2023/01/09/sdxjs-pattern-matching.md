@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 7: Pattern Matching"
 date: 2023-01-09
+category: software education writing
 ---
 
 Every piece of technical writing I've ever done has been shaped by the work of
@@ -53,7 +54,7 @@ Until then,
 the best we can do is try to meet the standard that Kernighan set for us forty years ago.
 
 <figure id="pattern-matching-greedy-failure" class="center">
-  <img src="@root/sdxjs/pattern-matching/greedy-failure.svg" alt="Overly-greedy matching fails" class="centered">
+  <img src="@root/sdxjs/glob/greedy-failure.svg" alt="Overly-greedy matching fails" class="centered">
   <figcaption>Figure 7.4: Why overly greedy matching doesn't work.</figcaption>
 </figure>
 

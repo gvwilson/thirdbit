@@ -1,5 +1,6 @@
 ---
 date: 2019-03-10
+category: software education writing
 title: "The Tool I Want"
 ---
 

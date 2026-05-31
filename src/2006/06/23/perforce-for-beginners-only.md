@@ -1,6 +1,7 @@
 ---
 title: "Perforce: For beginners only…"
 date: 2006-06-23
+category: software community
 ---
 Perforce certainly has a stellar reputation amongst software
 developers; Perforce for real projects, and your choice of open source

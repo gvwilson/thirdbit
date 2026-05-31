@@ -1,6 +1,7 @@
 ---
 title: "Using Jekyll for Lessons"
 date: 2015-06-24
+category: software education writing
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "So What Should I Say At PyCon?"
 date: 2010-02-15
+category: software education community
 ---
 I'm speaking at <a href="http://us.pycon.org/2010/about/">PyCon</a> on Saturday. The blurb I sent in says:
 <blockquote><strong><em>What We've Learned From Building Basie</em></strong>

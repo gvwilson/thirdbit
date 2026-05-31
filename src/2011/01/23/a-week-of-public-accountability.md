@@ -1,6 +1,7 @@
 ---
 title: "A Week of Public Accountability"
 date: 2011-01-23
+category: education software community
 ---
 I'm three weeks into 2011, and two weeks behind on everything. Where <em>does</em> the time go?
 <ol>

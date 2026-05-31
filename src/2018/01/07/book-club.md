@@ -1,6 +1,7 @@
 ---
 title: "Book Club"
 date: 2018-01-07
+category: education research writing
 ---
 
 I started as a programmer,

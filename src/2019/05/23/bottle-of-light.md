@@ -1,5 +1,6 @@
 ---
 date: 2019-05-23
+category: writing education
 title: "Bottle of Light"
 ---
 

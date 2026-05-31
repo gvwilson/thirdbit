@@ -1,6 +1,7 @@
 ---
 title: "Software Design in Python: Status Update"
 date: 2023-07-06
+category: software
 ---
 
 The Python version of [*Software Design by Example*][sdxjs] is getting closer.

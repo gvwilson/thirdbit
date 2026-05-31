@@ -1,6 +1,7 @@
 ---
 title: "Direct Reports and Self-Directed Learning"
 date: 2011-12-01
+category: education software community
 ---
 Imagine you've just been hired for a creative, thinking-intensive job, and then you discover that your boss has 19 other people reporting to her as well. How do you think that's going to go? Conventional wisdom is that most most people are only able to manage half a dozen others effectively[^1] – that's why sports teams are always about that size[^2].
 

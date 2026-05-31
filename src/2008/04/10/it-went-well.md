@@ -1,6 +1,7 @@
 ---
 title: "It Went Well"
 date: 2008-04-10
+category: education
 ---
 Yesterday's consulting course showcase went well: lots of visitors, lots of noise, lots of fun.  David Wolever was there to take pictures…
 

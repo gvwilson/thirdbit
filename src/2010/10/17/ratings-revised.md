@@ -1,5 +1,6 @@
 ---
 date: 2010-10-17
+category: software
 original: swc
 title: Ratings Revised
 ---

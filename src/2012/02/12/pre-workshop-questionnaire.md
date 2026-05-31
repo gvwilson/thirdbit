@@ -1,5 +1,6 @@
 ---
 date: 2012-02-12
+category: software education
 original: swc
 title: Pre-Workshop Questionnaire
 ---

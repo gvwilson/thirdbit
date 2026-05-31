@@ -1,6 +1,7 @@
 ---
 title: "Teaching in the Large"
 date: 2015-10-09
+category: software education
 ---
 <p>
   Acccording to

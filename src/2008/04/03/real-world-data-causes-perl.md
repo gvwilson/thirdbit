@@ -1,6 +1,7 @@
 ---
 title: "Real World Data Causes Perl"
 date: 2008-04-03
+category: software education writing
 ---
 The title was <a href="http://weblog.latte.ca/">Blake Winton</a>'s reaction to my re-telling of <a href="http://web.simmons.edu/~menzin/">Margaret Menzin</a>'s story from this year's "It Seemed Like a Good Idea at the Time" session at <a href="http://www.cs.duke.edu/sigcse08/">SIGCSE</a>.  She asked her students to write a program that would sort names in library order (i.e., "Gregory V. Wilson" would be sorted under "W"). Turns out the rules are, well, real-world-ish:
 <ul>

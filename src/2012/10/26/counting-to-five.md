@@ -1,6 +1,7 @@
 ---
 title: Counting to Five (or, A Plan for Online Tutorials and What's Wrong With It)
 date: 2012-10-26
+category: education software personal
 original: swc
 ---
 

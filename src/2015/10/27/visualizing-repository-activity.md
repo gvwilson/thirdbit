@@ -1,6 +1,7 @@
 ---
 title: "Visualizing Repository Activity"
 date: 2015-10-27
+category: software education community
 original: swc
 ---
 <p>

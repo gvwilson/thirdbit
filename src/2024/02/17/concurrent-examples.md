@@ -1,5 +1,6 @@
 ---
 date: 2024-02-17
+category: software education
 title: "Concurrent Examples"
 ---
 

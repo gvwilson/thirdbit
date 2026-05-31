@@ -1,5 +1,6 @@
 ---
 date: 2012-09-12
+category: software education
 original: swc
 title: Patterns Wanted
 ---

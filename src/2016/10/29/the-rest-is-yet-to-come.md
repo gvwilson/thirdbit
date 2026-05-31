@@ -1,6 +1,7 @@
 ---
 title: "The Rest Is Yet To Come"
 date: 2016-10-29
+category: education writing software
 original: swc
 ---
 

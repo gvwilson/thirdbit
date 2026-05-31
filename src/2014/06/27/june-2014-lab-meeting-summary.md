@@ -1,6 +1,7 @@
 ---
 title: "Summary of June 2014 Lab Meeting"
 date: 2014-06-27
+category: software community
 original: swc
 ---
 <p>

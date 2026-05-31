@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example in Python 26: A Debugger"
 date: 2024-04-26
+category: software education writing
 ---
 
 As [I wrote two weeks ago][file_archiver],
@@ -29,7 +30,7 @@ I'm glad they enjoyed the book.*
 
 > Terms defined: breakpoint, clear (a breakpoint), conditional breakpoint, debugger, disassemble, reverse lookup, watchpoint.
 
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="@root/sdxpy/_static/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [file_archiver]: @root/2024/04/10/file-archiver/

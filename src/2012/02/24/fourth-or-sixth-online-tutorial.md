@@ -1,5 +1,6 @@
 ---
 date: 2012-02-24
+category: education software research
 original: swc
 title: Fourth (or Sixth) Online Tutorial
 ---

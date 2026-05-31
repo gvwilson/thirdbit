@@ -1,6 +1,7 @@
 ---
 title: "A Wish List"
 date: 2024-10-20
+category: personal software community
 ---
 
 Earlier this year I wrote [my last to-don't list][to-dont].

@@ -1,6 +1,7 @@
 ---
 title: June 2013 Lab Meeting
 date: 2013-06-13
+category: education software community
 original: swc
 ---
 <p>

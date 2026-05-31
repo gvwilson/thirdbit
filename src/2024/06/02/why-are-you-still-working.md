@@ -1,6 +1,7 @@
 ---
 title: "Why Are You Still Working?"
 date: 2024-06-02
+category: software education community
 ---
 
 Someone asked me yesterday how [my new job at Plotly][plotly-job] was going.

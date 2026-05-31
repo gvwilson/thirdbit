@@ -1,6 +1,7 @@
 ---
 title: More Detailed Feeback from Melbourne
 date: 2013-05-03
+category: software education research
 original: swc
 ---
 <p>The hosts of our February bootcamp at the AMOS conference in Melbourne have collected some more detailed feedback from participants.  I'm pleased that two thirds thought the content was just right, and even more pleased that 83% thought version control "must be taught".</p>

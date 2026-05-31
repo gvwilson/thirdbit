@@ -1,6 +1,7 @@
 ---
 title: "Volume Two"
 date: 2024-05-11
+category: software education writing
 ---
 
 I don't think there will ever be a second volume of [*Software Design by Example in Python*][sdxpy],

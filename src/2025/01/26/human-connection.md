@@ -1,6 +1,7 @@
 ---
 title: Human Connection
 date: 2025-01-26
+category: education software writing
 ---
 
 I was an enthusiastic proponent of MOOCs (self-paced online video courses) when they first appeared.

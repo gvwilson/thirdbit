@@ -1,5 +1,6 @@
 ---
 date: 2011-02-22
+category: software education community
 original: swc
 title: What Better Looks Like
 ---

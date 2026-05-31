@@ -1,6 +1,7 @@
 ---
 title: "Three Weeks In"
 date: 2008-06-01
+category: software community writing
 ---
 Our summer interns are three weeks in, and making great progress:
 <ul>

@@ -1,6 +1,7 @@
 ---
 title: "What 'Community' Actually Means"
 date: 2008-01-12
+category: software community
 ---
 As I was coming out of the library today, I saw a guy in a white van scrape against a car parked on a side street while trying to make a tight corner. The guy in the van didn't stop, but a passer-by went into the library, wrote down the van's license plate number and his own phone number, and taped it to the car that had been scraped.  That got me thinking about the word "community". It's bandied around a fair bit in our field (as in, "open source community"); here's what I think it actually means.
 At least week's code sprint, we decided to replace the navigation bar on the left side of DrProject with pull-down menus.  It looks more modern, it'll keep the print view in sync with the web view, and did I mention that it looks more modern? We decided to use <a href="http://dojotoolkit.org/">Dojo</a>, in part because it has better accessibility support than its major competitor, <a href="http://script.aculo.us/">Scriptaculous</a>. Jeff Balogh spent two and a half days ramping up and prototyping; he continued with the conversion after flying back to Florida for school.

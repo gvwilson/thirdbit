@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example: Conclusion"
 date: 2023-01-27
+category: software
 ---
 
 We've come a long way since the start of this series of posts.
@@ -50,13 +51,13 @@ Until then:
   </p>
 </div>
 
-<a href="@root/sdxjs/"><img src="@root/sdxjs/sdxjs-cover.png" alt="Cover of 'Software Design by Example'" width="40%" class="centered"></a>
+<a href="@root/sdxjs/"><img src="@root/sdxjs/_static/sdxjs-cover.png" alt="Cover of 'Software Design by Example'" width="40%" class="centered"></a>
 
 [bicycle]: @root/2017/12/17/consider-the-bicycle/
 [bib]: @root/bib/
 [sdxjs_introduction_post]: @root/2023/01/01/sdxjs-introduction/
-[sdxjs_version_control]: @root/sdxjs/file-backup/
-[sdxjs_unit_test]: @root/sdxjs/unit-test/
-[sdxjs_style_checker]: @root/sdxjs/style-checker/
-[sdxjs_module_bundler]: @root/sdxjs/module-bundler/
+[sdxjs_version_control]: @root/sdxjs/backup/
+[sdxjs_unit_test]: @root/sdxjs/test/
+[sdxjs_style_checker]: @root/sdxjs/style/
+[sdxjs_module_bundler]: @root/sdxjs/bundler/
 [sdxjs_debugger]: @root/sdxjs/debugger/

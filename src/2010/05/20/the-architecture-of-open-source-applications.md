@@ -1,6 +1,7 @@
 ---
 title: "The Architecture of Open Source Applications"
 date: 2010-05-20
+category: writing software community
 ---
 I'm very pleased to announce that I've just signed a contract with <a href="http://pragprog.com">Pragmatic</a> to edit a book on the architecture of open source applications.  Our goal is to describe the architectures of some moderately complicated pieces of software, both because they're interesting in their own right, and to show readers how experienced software designers see the world.  Contributors will explain:
 <ul>

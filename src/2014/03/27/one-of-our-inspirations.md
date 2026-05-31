@@ -1,6 +1,7 @@
 ---
 title: "One of Our Inspirations"
 date: 2014-03-27
+category: software education writing
 original: swc
 ---
 <p>

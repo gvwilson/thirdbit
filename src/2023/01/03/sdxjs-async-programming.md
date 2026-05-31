@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 3: Asynchronous Programming"
 date: 2023-01-03
+category: software education writing
 ---
 
 As I said in [the previous post][systems_programming_post],
@@ -27,13 +28,13 @@ but I think it would be a great [summative_assessment].
 > Terms defined: call stack, character encoding, class, constructor, event loop, exception, fluent interface, method, method chaining, non-blocking execution, promise, promisification, protocol, UTF-8.
 
 <figure id="async-programming-resolve" class="center">
-  <img src="@root/sdxjs/async-programming/resolve.svg" alt="How promises resolve" class="centered">
+  <img src="@root/sdxjs/async/resolve.svg" alt="How promises resolve" class="centered">
   <figcaption>Figure 3.3: Order of operations when a promise resolves.</figcaption>
 </figure>
 
 [huffine_promises]: https://levelup.gitconnected.com/understand-javascript-promises-by-building-a-promise-from-scratch-84c0fd855720
 [python_notional_machine]: https://third-bit.com/2018/04/12/notional-machine-for-python/
 [r_notional_machine]: https://third-bit.com/2019/07/15/notional-machine-for-r/
-[sdxjs_async_programming]: @root/sdxjs/async-programming/
+[sdxjs_async_programming]: @root/sdxjs/async/
 [summative_assessment]: https://teachtogether.tech/en/index.html#s:models-formative-assessment
 [systems_programming_post]: @root/2023/01/02/sdxjs-systems-programming/

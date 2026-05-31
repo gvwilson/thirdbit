@@ -1,6 +1,7 @@
 ---
 title: "Maybe I Actually Am An Engineer"
 date: 2015-12-28
+category: research software
 ---
 <p>
   The following exchange (lightly edited) took place on Twitter

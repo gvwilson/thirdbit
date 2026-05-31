@@ -1,6 +1,7 @@
 ---
 title: "Really Scary"
 date: 2007-11-23
+category: writing
 ---
 I just finished William Langewiesche's <a href="http://www.amazon.com/Atomic-Bazaar-Rise-Nuclear-Poor/dp/0374106789"><cite>The Atomic Bazaar: The Rise of the Nuclear Poor</cite></a>, which may be the scariest 192 pages I've ever read. Langewiesche's subject is nuclear proliferation, and in particular the way that The Bomb has become the weapon of choice for countries like North Korea, Pakistan, and probably soon Iran because it's actually a lot cheaper than things like modern fighter aircraft. Langewiesche (whose writing style is reminiscent of John McPhee) isn't particularly worried about terrorists stealing bombs, or about suitcase nukes: the first could go wrong (for the terrorists) in too many ways, and the second requires a lot of technical infrastructure that would be relatively easy to detect. What's really frightening is his chronicle of how Western countries turned a blind eye to Pakistan's nuclear program, and to its sale of know-how and material to pretty much anyone who wanted it. Anyone with a nuclear power plant, a few hundred million dollars, and three or four years, can now produce enough enriched uranium to construct a device in the ten- to twenty-kiloton range. Nothing stands in their way except international treaties, export controls, and the fear that their neighbors will arm up as well—i.e., nothing substantive stands in their way.
 

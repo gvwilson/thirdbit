@@ -1,6 +1,7 @@
 ---
 title: "Goodbye, Terry"
 date: 2015-03-12
+category: personal
 ---
 <p><img src="@root/files/2015/03/terry-pratchett.jpg" alt="Terry Pratchett" class="centered"></p>
 <p>

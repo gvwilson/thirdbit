@@ -1,5 +1,6 @@
 ---
 date: 2010-06-18
+category: software education research
 original: swc
 title: People You Don't Want On Your Team
 ---

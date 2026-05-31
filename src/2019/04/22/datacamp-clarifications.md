@@ -1,5 +1,6 @@
 ---
 date: 2019-04-22
+category: writing software
 title: "DataCamp Clarifications"
 ---
 

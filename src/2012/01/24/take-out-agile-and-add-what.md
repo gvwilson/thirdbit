@@ -1,5 +1,6 @@
 ---
 date: 2012-01-24
+category: education
 original: swc
 title: Take Out Agile, and Add…What?
 ---

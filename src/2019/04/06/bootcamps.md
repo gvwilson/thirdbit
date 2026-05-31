@@ -1,5 +1,6 @@
 ---
 date: 2019-04-06
+category: education software research
 title: "Bootcamps"
 ---
 

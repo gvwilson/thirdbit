@@ -1,6 +1,7 @@
 ---
 title: "What I Missed Most by Not Going to SIGCSE"
 date: 2007-03-12
+category: software education writing
 ---
 I wasn't able to go to <a href="http://www.cs.potsdam.edu/sigcse07/">SIGCSE</a> this year, but I browed the papers on the weekend.  There was lots of good stuff; here are my favorites out of the more than 200 pieces of work presented:
 <ul>

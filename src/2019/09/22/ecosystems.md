@@ -1,6 +1,7 @@
 ---
 title: "Ecosystems"
 date: 2019-09-22
+category: research personal
 ---
 
 My daughter was asked to pick an ecosystem and write a paragraph about it,

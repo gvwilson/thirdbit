@@ -1,5 +1,6 @@
 ---
 date: 2010-07-18
+category: research software writing
 original: swc
 title: An Interview with Hans Petter Langtangen
 ---

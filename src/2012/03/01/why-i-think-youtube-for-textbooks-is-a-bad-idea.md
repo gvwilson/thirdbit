@@ -1,6 +1,7 @@
 ---
 title: "Why I Think 'YouTube for Textbooks' is a Bad Idea"
 date: 2012-03-01
+category: education writing software
 ---
 The Internet has given everyone [1] who wants to say something a way to say it. It, and digital media more generally, have also revolutionized music, and now video: "sample, splice, and remix" are redefining them as profoundly as <a href="http://www.amazon.com/Imperfect-Art-Reflections-Portable-Stanford/dp/0195063287/">the phonograph did a century ago</a>.
 

@@ -1,6 +1,7 @@
 ---
 title: "Welcome Our New Instructors"
 date: 2013-07-19
+category: education software community
 original: swc
 ---
 <p>We're very pleased to welcome a dozen new instructors to the Software Carpentry team:</p>

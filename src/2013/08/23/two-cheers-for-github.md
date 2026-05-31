@@ -1,6 +1,7 @@
 ---
 title: "Two Cheers for GitHub"
 date: 2013-08-23
+category: software research writing
 original: swc
 ---
 <p>

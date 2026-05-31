@@ -1,6 +1,7 @@
 ---
 title: "Background Knowledge"
 date: 2024-04-22
+category: education software writing
 ---
 
 I would like to teach people how to use Git hooks in [this tutorial][sys-tutorial].

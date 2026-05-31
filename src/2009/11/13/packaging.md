@@ -1,5 +1,6 @@
 ---
 date: 2009-11-13
+category: software education writing
 original: swc
 title: Packaging
 ---

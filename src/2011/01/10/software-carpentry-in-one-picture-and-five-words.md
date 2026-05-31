@@ -1,5 +1,6 @@
 ---
 date: 2011-01-10
+category: software education
 original: swc
 title: Software Carpentry in One Picture and Five Words
 ---

@@ -1,6 +1,7 @@
 ---
 title: Some Testing Answers
 date: 2025-05-19
+category: software writing research
 ---
 
 A month ago I [asked for advice][testing-question] on testing a little piece of Python

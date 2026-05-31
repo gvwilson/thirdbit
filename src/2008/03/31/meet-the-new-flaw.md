@@ -1,6 +1,7 @@
 ---
 title: "Meet the New Flaw"
 date: 2008-03-31
+category: research software education
 ---
 I was pretty excited when I heard that Microsoft was getting into scientific computing.  As the world's biggest desktop software company, I figured they might understand that scientific computing and high-performance computing are <em>not</em> automatically the same thing, and that reliability and reproducibility are more important than peak performance.  Turns out I was wrong: the workshop I attended last September was dominated by discussion of topics like GPU programming and computational grids that are still bleeding-edge computer science, rather than the nuts and bolts that would actually help most scientists be productive day-to-day, Microsoft's new <a href="http://labs.microsofthpc.net/">HPC++ Computational Finance lab</a>'s site has a lot on speed but nothing on correctness, <a href="http://blog.jonudell.net/2008/03/27/cluster-computing-with-large-data-for-the-classroom/">et cetera</a>.
 

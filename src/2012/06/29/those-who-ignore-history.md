@@ -1,6 +1,7 @@
 ---
 title: "That Seems Simple to Me"
 date: 2012-06-29
+category: software
 ---
 <strong>1997</strong>
 

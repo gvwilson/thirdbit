@@ -1,6 +1,7 @@
 ---
 title: "Doomed to Repeat It"
 date: 2007-10-02
+category: education software research
 ---
 <em>Those who cannot learn from history are doomed to repeat it. (Santayana)</em>
 

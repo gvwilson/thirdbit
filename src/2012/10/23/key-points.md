@@ -1,6 +1,7 @@
 ---
 title: Key Points
 date: 2012-10-23
+category: education software
 original: swc
 ---
 

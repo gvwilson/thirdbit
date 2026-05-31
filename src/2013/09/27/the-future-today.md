@@ -1,6 +1,7 @@
 ---
 title: "The Future: Today"
 date: 2013-09-27
+category: software research education
 original: swc
 ---
 <p>

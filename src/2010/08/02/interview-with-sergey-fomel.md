@@ -1,5 +1,6 @@
 ---
 date: 2010-08-02
+category: research community
 original: swc
 title: Interview with Sergey Fomel
 ---

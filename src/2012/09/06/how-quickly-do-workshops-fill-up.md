@@ -1,5 +1,6 @@
 ---
 date: 2012-09-06
+category: education
 original: swc
 title: How Quickly Do Workshops Fill Up?
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2009-08-02
+category: software education
 original: swc
 title: Next Steps
 ---

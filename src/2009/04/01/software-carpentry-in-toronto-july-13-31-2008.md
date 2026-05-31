@@ -1,5 +1,6 @@
 ---
 date: 2009-04-01
+category: education software research
 original: swc
 title: Software Carpentry in Toronto July 13-31 2009
 ---

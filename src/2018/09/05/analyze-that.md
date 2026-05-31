@@ -1,5 +1,6 @@
 ---
 date: 2018-09-05
+category: software research education
 title: "Analyze That!"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Workshop Benefits"
 date: 2018-02-13
+category: education software research
 ---
 
 Last September, Feldon et al wrote a paper titled "[Null effects of boot camps and short-format training for PhD students in life sciences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5604013/)" that seemed to say that short workshops and bootcamps don't actually improve skills, scholarly productivity, or socialization into the academic community.  Word et al wrote a response on the Software Carpentry blog, and organized a webinar by [Prof. Rochelle Tractenberg](https://neurology.georgetown.edu/faculty/tractenberg), a [video of which is now online](https://zoom.us/recording/play/Sp5W2NPNpocursYxtPis295i3lha9_FHDHVhS9odyJQH5EYPak4dnEPbUePLArb0).

@@ -1,6 +1,7 @@
 ---
 title: "Still"
 date: 2013-09-05
+category: writing
 ---
 <p>
   I am pleased to announce that my YA novelette <cite>Still</cite>

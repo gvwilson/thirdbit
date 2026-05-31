@@ -1,6 +1,7 @@
 ---
 title: "Unfinished Projects"
 date: 2024-11-24
+category: software education community
 ---
 
 Things I haven't finished:
@@ -31,7 +32,6 @@ What I should be working on:
 1.  Re-doing the slides for [*SDXPY*][sdxpy] and recording a 30-minute video for each chapter
 1.  Trying to get [*Beneath Coriandel*][coriandel], [*The Bookster's Apprentice*][bookster], and [*Still*][still] published
 1.  Finishing *Iffy*, *All the Other Santas*, or the sequel to *Maddy Roo*
-1.  Trying (again) to write [*Sex and Drugs and Guns and Code*][sdgc]
 
 What I've learned about myself:
 
@@ -55,7 +55,6 @@ What I've learned about myself:
 [roc-book]: https://github.com/roc-lang/book-of-examples
 [rsdx]: https://gvwilson.github.io/rsdx/
 [santas]: @root/fiction/santas/
-[sdgc]: @root/ideas/sdgc/
 [sdxpy]: @root/sdxpy/
 [snailz]: https://gvwilson.github.io/snailz/
 [sql-tutorial]: https://third-bit.com/sql/

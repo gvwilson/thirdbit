@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 6: Data Tables"
 date: 2023-01-06
+category: software writing education
 ---
 
 [Chapter 6][sdxjs_data_table] of [*Software Design by Example*][sdxjs] was a bit nostalgic for me.
@@ -33,7 +34,7 @@ but I think it worked out pretty well,
 and it motivated discussion of the difference between interface and implementation rather neatly.
 
 <figure id="data-table-storage-order" class="centered">
-  <img src="@root/sdxjs/data-table//storage-order.svg" alt="Row-major vs. column-major storage order" class="centered">
+  <img src="@root/sdxjs/table/storage-order.svg" alt="Row-major vs. column-major storage order" class="centered">
   <figcaption>Figure 6.2: Row-major storage vs. column-major storage for data tables.</figcaption>
 </figure>
 
@@ -41,5 +42,5 @@ and it motivated discussion of the difference between interface and implementati
 
 [efficient]: https://www.goodreads.com/book/show/128599.Writing_Efficient_Programs
 [sdxjs]: @root/sdxjs/
-[sdxjs_data_table]: @root/sdxjs/data-table/
+[sdxjs_data_table]: @root/sdxjs/table/
 [vignette]: @root/2022/08/14/ese-vignette/

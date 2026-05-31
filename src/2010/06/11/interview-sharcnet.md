@@ -1,5 +1,6 @@
 ---
 date: 2010-06-11
+category: research software community
 original: swc
 title: "Interview: SHARCNET's Hugh Couchman"
 ---

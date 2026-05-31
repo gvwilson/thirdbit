@@ -1,6 +1,7 @@
 ---
 title: Where We Are (More or Less)
 date: 2013-05-24
+category: software
 original: swc
 ---
 <p>

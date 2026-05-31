@@ -1,6 +1,7 @@
 ---
 title: "Further Analysis of Instructor Training Data"
 date: 2016-05-31
+category: education community research
 original: swc
 ---
 Following Erin Becker's analysis of our instructor training data,

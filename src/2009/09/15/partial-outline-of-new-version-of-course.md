@@ -1,5 +1,6 @@
 ---
 date: 2009-09-15
+category: software education
 original: swc
 title: Partial Outline of New Version of Course
 ---

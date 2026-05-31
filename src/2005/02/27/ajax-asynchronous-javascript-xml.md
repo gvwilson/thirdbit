@@ -1,6 +1,7 @@
 ---
 title: "AJAX: Asynchronous Javascript + XML"
 date: 2005-02-27
+category: software
 ---
 <p>An <a href="http://www.adaptivepath.com/publications/essays/archives/000385.php">interesting overview</a> from Jesse Garrett about the new wave of web applications, which are based on:</p>
 

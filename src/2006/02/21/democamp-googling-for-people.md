@@ -1,6 +1,7 @@
 ---
 title: "DemoCamp: Googling for People"
 date: 2006-02-21
+category: software
 ---
 People talk a lot about on-line communities, but there are things that only the in-person kind can accomplish.  Take last night's DemoCamp 3, for example.  Ninety-plus people crowded into <a href="http://www.tucows.com">TUCOW</a>'s offices in Toronto to watch half a dozen demos projected against a white-painted brick wall with a nail in it.  The most important part for me, though, came afterward.Sean Dawson and I led off with DrProject, and were followed by:
 <ul>

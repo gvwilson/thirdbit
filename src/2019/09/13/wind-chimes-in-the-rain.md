@@ -1,6 +1,7 @@
 ---
 title: "Wind Chimes in the Rain"
 date: 2019-09-13
+category: personal education
 ---
 
 I woke up this morning to the sound of wind chimes in the rain.

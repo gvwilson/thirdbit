@@ -1,5 +1,6 @@
 ---
 date: 2018-07-05
+category: software education
 title: Performance Curves, Curriculum Design, and Trust Revisited
 ---
 

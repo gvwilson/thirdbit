@@ -1,6 +1,7 @@
 ---
 title: "Why Web Literacy?"
 date: 2013-01-21
+category: software education community
 ---
 <p>Last week, Mark Surman (director of the Mozilla Foundation) posted an article titled, "<a href="http://commonspace.wordpress.com/2013/01/16/explaining-why/">I need help explaining 'why?'</a>" In it, he roughed out a five liner to explain why Mozilla cares so much about web literacy:</p>
 <blockquote>

@@ -1,5 +1,6 @@
 ---
 date: 2018-11-05
+category: software
 title: "Abstraction and Comprehension Continued"
 ---
 

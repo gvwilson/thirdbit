@@ -1,6 +1,7 @@
 ---
 title: "Continuous Installation Checking"
 date: 2016-03-19
+category: software education
 ---
 <p>
   This one started with me

@@ -1,6 +1,7 @@
 ---
 title: "PyCon 2014 Videos"
 date: 2014-04-27
+category: software education research
 original: swc
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Seeing Like a Student"
 date: 2023-11-22
+category: software education community
 ---
 
 Earlier this month I posted that

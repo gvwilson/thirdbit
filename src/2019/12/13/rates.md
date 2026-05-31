@@ -1,6 +1,7 @@
 ---
 title: "Rates"
 date: 2019-12-13
+category: education research personal
 ---
 
 I talk a lot about lesson design and delivery,

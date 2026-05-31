@@ -1,6 +1,7 @@
 ---
 title: "Accessibility Improvements"
 date: 2026-03-24
+category: software community
 ---
 
 I've made some improvements to the accessibility of

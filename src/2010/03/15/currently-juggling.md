@@ -1,6 +1,7 @@
 ---
 title: "Currently Juggling"
 date: 2010-03-15
+category: education software
 ---
 I keep telling my students not to over-commit themselves.  It's a shame I don't take my own advice :-).  Here's what I've currently got on the go:
 

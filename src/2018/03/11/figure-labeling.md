@@ -1,6 +1,7 @@
 ---
 title: "Wanted: A Tool for Figure Labeling Exercises"
 date: 2018-03-11
+category: software
 ---
 
 I'd like to be able to do the following:

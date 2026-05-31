@@ -1,6 +1,7 @@
 ---
 title: "Learning Curves"
 date: 2019-04-17
+category: education software
 ---
 
 I keeping thinking about the idea of a [learning curve](@root/2018/07/05/curves/),

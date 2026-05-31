@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -91,6 +90,14 @@ SUMMARIZE=summarize</pre>
 SUMMARIZE-sum7</pre>
 <p>Notice that neither of these is called <code>settings.mk</code>. The first time we check out on a machine, we manually copy either <code>settings-linux.mk</code> or <code>settings-macosx.mk</code> to create <code>settings.mk</code>. The <code>include</code> in the main Makefile then finds what it's looking for, and everything runs. If someone changes the settings for a particular platform, our next version control update will get the new platform-specific file, and we'll have to re-copy it to install it.</p>
 <p>That manual copying step is why I'm not a fan of this second approach. There <em>are</em> ways to have the copying done automatically, but they all basically come down to including a conditional in the main Makefile, and if we're going to do that, we might as well use that for setting the parameter values anyway. However, some configuration file formats don't support conditionals, so the "include if available and fail if not" trick is still worth knowing.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../education/">education</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

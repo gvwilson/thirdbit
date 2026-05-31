@@ -1,6 +1,7 @@
 ---
 title: "The Joel Test"
 date: 2004-08-28
+category: software education community
 ---
 <p>So, how good is your software team?  Joel Spolsky (who runs a
 company called <a href="http://www.fogcreek.com">Fog Creek</a>, and

@@ -1,6 +1,7 @@
 ---
 title: Oxford Wrap-Up (with charts!)
 date: 2012-11-01
+category: software education
 original: swc
 ---
 

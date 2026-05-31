@@ -1,6 +1,7 @@
 ---
 title: "From 0 to 1 to 10"
 date: 2014-01-15
+category: education software
 original: swc
 ---
 <p>

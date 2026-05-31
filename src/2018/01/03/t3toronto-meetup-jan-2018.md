@@ -1,6 +1,7 @@
 ---
 title: "Teaching Tech Together Toronto: January 2018 Meetup"
 date: 2018-01-03
+category: education software
 ---
 
 The January 2018 meetup for people in the Toronto area who are interested in teaching tech

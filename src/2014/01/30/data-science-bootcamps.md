@@ -1,6 +1,7 @@
 ---
 title: "Workshops at the Data Science Centers"
 date: 2014-01-30
+category: software education research
 original: swc
 ---
 <p>

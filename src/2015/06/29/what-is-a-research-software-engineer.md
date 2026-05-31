@@ -1,6 +1,7 @@
 ---
 title: "What is a Research Software Engineer?"
 date: 2015-06-29
+category: software education research
 original: swc
 ---
 <p>

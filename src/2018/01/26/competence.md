@@ -1,6 +1,7 @@
 ---
 title: "Assessing Competence"
 date: 2018-01-26
+category: education
 ---
 
 A friend who is running workshops to teach coding skills to people getting into tech

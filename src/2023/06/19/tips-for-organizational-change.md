@@ -1,6 +1,7 @@
 ---
 title: "Eleven Tips for Organizational Change"
 date: 2023-06-19
+category: research education community
 ---
 
 2023 is the twenty-fifth anniversary of the first Software Carpentry workshop

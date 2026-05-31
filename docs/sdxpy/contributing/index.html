@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contributing</title>
+<meta content="Software Design by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">sdxpy</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../oop/">Objects and Classes</a></li>
+<li><a href="../dup/">Finding Duplicate Files</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../parse/">Parsing Text</a></li>
+<li><a href="../test/">Running Tests</a></li>
+<li><a href="../interp/">An Interpreter</a></li>
+<li><a href="../func/">Functions and Closures</a></li>
+<li><a href="../protocols/">Protocols</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../check/">An HTML Validator</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../lint/">A Code Linter</a></li>
+<li><a href="../layout/">Page Layout</a></li>
+<li><a href="../perf/">Performance Profiling</a></li>
+<li><a href="../persist/">Object Persistence</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">A Build Manager</a></li>
+<li><a href="../pack/">A Package Manager</a></li>
+<li><a href="../ftp/">Transferring Files</a></li>
+<li><a href="../http/">Serving Web Pages</a></li>
+<li><a href="../viewer/">A File Viewer</a></li>
+<li><a href="../undo/">Undo and Redo</a></li>
+<li><a href="../vm/">A Virtual Machine</a></li>
+<li><a href="../debugger/">A Debugger</a></li>
+<li><a href="../observe/">Observers</a></li>
+<li><a href="../docgen/">Generating Documentation</a></li>
+<li><a href="../cache/">A File Cache</a></li>
+<li><a href="../concur/">Concurrency</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a class="active" href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../syllabus/">Syllabus</a></li>
+<li><a href="../bonus/">Bonus Material</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/sdxpy">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Contributing</h1>
+<p>Contributions are very welcome;
+please contact us by email or by filing an issue on this site.
+All contributors must abide by our Code of Conduct.</p>
+<h2>FAQ</h2>
+<dl>
+<dt>What sort of feedback would be useful?</dt>
+<dd>
+<p>Everything is welcome, but what would help most is:</p>
+<ol>
+<li>Fixes for mistakes in the code, the descriptions, or the formatting.
+    All of the examples run and all of the tests pass,
+but that doesn't guarantee they're correct.</li>
+<li>Reports of continuity errors,
+    e.g.,
+places where a concept is used before it is explained.</li>
+<li>Suggestions for new diagrams, or for ways to improve existing ones.</li>
+<li>New or clearer summary points for each chapter's syllabus.</li>
+<li>More or better exercises.
+    "This is too hard" or "this is unclear" helps as well.</li>
+</ol>
+</dd>
+<dt>Why don't the examples connect with each other?</dt>
+<dt>For example, why don't they build toward a complete minimal IDE?</dt>
+<dd>
+<p>It was tempting, but attempts to do this in the past have not gone well.
+First, it makes maintenance much more difficult
+because a change in an early chapter may have knock-on effects on several subsequent chapters.
+Second, it constrains what is taught and in what order:
+if the examples are independent of each other,
+instructors can pick and choose the pieces that are most relevant to their audience and goals.</p>
+</dd>
+<dt>Can I contribute a chapter?</dt>
+<dd>
+<p>Absolutely, and if enough people do that we will publish a second volume.
+Some things I'd particularly like to see are:</p>
+<ul>
+<li>An object-relational mapper to show people how tools like <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> work.</li>
+<li>A discrete event simulator to show people how tools like <a href="https://simpy.readthedocs.io/">SimPy</a> work
+    and to explore co-operative concurrency using generators.</li>
+<li>An issue-tracking system, mostly to show how workflow management and authentication work.</li>
+<li>Another build system that uses publish/subscribe instead of the top-down approach of <a class="xref" href="../build/">Chapter 19</a>.</li>
+<li>A fuzz tester that uses some of the ideas from [Zeller2023].</li>
+<li>A package installer to complement the package manager of <a class="xref" href="../pack/">Chapter 20</a>.</li>
+<li>A file compression tool like <code>zip</code>.</li>
+<li>A database that uses B-trees instead of a log for storage.</li>
+</ul>
+</dd>
+<dt>Do you need any programming assistance?</dt>
+<dd>
+<p>Yes—please see the <a href="https://github.com/gvwilson/sdxpy/issues">issue tracker</a>.</p>
+</dd>
+<dt>Why did you build your own production pipeline instead of using</dt>
+<dt><a href="https://www.gitbook.com/">GitBook</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://jupyterbook.org/">Jupyter Book</a>,</dt>
+<dt>or some other existing tool?</dt>
+<dd>
+<p>I've written or edited books with those tools and others like them,
+and found them more frustrating than helpful.
+For example,
+the code samples in this book often show one or two methods from a class
+rather than the whole class;
+there is no easy way to do this with tools built on computational notebooks.
+That said,
+I'm sure other people will find this book's tooling frustrating,
+and suggestions for improving it are welcome.</p>
+</dd>
+<dt>Why is this book free to read online?</dt>
+<dd>
+<p>Because I would rather be able to fix errata
+than have people torrenting out-of-date pirated PDFs.</p>
+</dd>
+<dt>Why are the royalties going to charity?</dt>
+<dd>
+<p>The <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a> and places like it
+have always been short of money and resources,
+and the COVID-19 pandemic only made matters worse.
+They do more good on the average Tuesday than most of us do in a year
+(or a lifetime);
+I'm glad to be able to help however I can.</p>
+</dd>
+</dl>
+<h2>Formatting</h2>
+<p>This material uses <a href="https://github.com/gvwilson/mccole/">mccole</a>.
+Please run <code>make</code> in the root directory to get a list of available commands.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
+</div>
+<div class="col-6 center">
+<a href="../">sdxpy</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../bibliography/">Bibliography</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

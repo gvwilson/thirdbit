@@ -1,6 +1,7 @@
 ---
 title: "Software Carpentry continues to grow"
 date: 2006-11-02
+category: software education community
 ---
 Traffic on the Software Carpentry site was up again in October, after a dip in September:
 

@@ -1,6 +1,7 @@
 ---
 title: "A Letter from John von Neumann"
 date: 2014-03-14
+category: software writing
 original: swc
 ---
 <p>

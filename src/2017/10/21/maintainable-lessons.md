@@ -1,6 +1,7 @@
 ---
 title: "Making Maintainable Lessons"
 date: 2017-10-21
+category: software education community
 ---
 
 Good courses take a lot of effort to build, but building them is only half the

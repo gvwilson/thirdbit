@@ -1,5 +1,6 @@
 ---
 date: 2024-02-03
+category: education
 title: "First Draft of SQL Tutorial"
 ---
 

@@ -1,5 +1,6 @@
 ---
 date: 2019-06-16
+category: writing software
 title: "Chunks versus Functions"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Slide-Drive is Live"
 date: 2012-08-16
+category: software education community
 ---
 I had the privilege this summer of working with <a href="http://slidedrive.wordpress.com/">Jeremy Banks</a>, a <a href="http://code.google.com/soc/">Google Summer of Code</a> student whose project, <a href="https://github.com/dseif/slide-drive">Slide-Drive</a>, explored what a web-native presentation tool might be. Jeremy's work, which is a continuation of David Seifried's (described in <a href="https://software-carpentry.org/2012/02/slide-drive/">these</a> <a href="https://software-carpentry.org/2012/02/formatting-revisited/">posts</a>), tries to solve a double-barrelled problem:
 <ol>

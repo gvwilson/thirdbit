@@ -1,6 +1,7 @@
 ---
 title: "Git, Graphs, and Software Engineering"
 date: 2017-09-30
+category: software research education
 ---
 
 A couple of years ago,

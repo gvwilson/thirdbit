@@ -1,5 +1,6 @@
 ---
 date: 2011-07-01
+category: software education research
 original: swc
 title: Mentioned in Nature Methods
 ---

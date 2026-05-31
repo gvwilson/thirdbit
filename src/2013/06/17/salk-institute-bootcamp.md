@@ -1,6 +1,7 @@
 ---
 title: Salk Institute Feedback
 date: 2013-06-17
+category: education writing
 original: swc
 ---
 <p>

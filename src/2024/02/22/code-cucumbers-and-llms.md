@@ -1,6 +1,7 @@
 ---
 title: "Code, Cucumbers, and LLMs"
 date: 2024-02-22
+category: software education
 ---
 
 Once upon a time I was standing in a hotel lobby waiting to check out

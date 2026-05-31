@@ -1,6 +1,7 @@
 ---
 title: "Maintaining Correctness"
 date: 2005-12-11
+category: research community writing
 ---
 I'm re-thinking the lectures in the Software Carpentry course based on feedback from this term's students.  I'm going to merge the three lectures on different development processes into one, and use the space that frees up to talk in more detail about programming style and software design—assuming, of course, I can think of something to say that isn't banal.
 

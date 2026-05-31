@@ -1,6 +1,7 @@
 ---
 title: "Screenshots of DrProject 1.0"
 date: 2006-07-15
+category: software
 ---
 <a href="http://smokinn.tengun.net/wordpress/">Guillaume Theoret</a> took some screenshots of DrProject on Friday; it's looking pretty spiffy, if I do say so myself.  David Scannell found one late-breaking bug on Thursday, and was too busy helping <a href="http://www.ece.queensu.ca/hpages/faculty/dean/dean.html">Tom Dean</a> with the install at <a href="http://www.queensu.ca">Queen's University</a> to finish testing it on Friday, so the 1.0 Final release has been delayed until Monday.  We're <em>so</em> close… ;-)
 

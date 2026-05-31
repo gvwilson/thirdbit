@@ -1,6 +1,7 @@
 ---
 title: "In Search of Balls and Sticks"
 date: 2024-04-07
+category: software education community
 ---
 
 This is not a molecule of acetone:

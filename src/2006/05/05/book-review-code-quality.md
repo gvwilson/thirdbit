@@ -1,6 +1,7 @@
 ---
 title: "Book Review: Code Quality"
 date: 2006-05-05
+category: software writing education
 ---
 When Diomidis Spinellis's first book, Code Reading, came out in 2003, I said that it didn't matter whether you were still in high school, or had been programming for 30 years—it would teach you things you really needed to know.  Well, guess what?  The second one is even better.
 

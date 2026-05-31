@@ -1,6 +1,7 @@
 ---
 title: "Research in Action Showcase on March 24, 2009"
 date: 2009-03-15
+category: software research
 ---
 The <a href="http://www.cs.toronto.edu">Department of Computer Science</a> is holding its <a href="http://web.cs.toronto.edu/dcs/index.php?section=191/">Research in Action</a> showcase on March 24, 2009.  Presentations are listed below, with full descriptions <a href="http://web.cs.toronto.edu/dcs/index.php?section=219">here</a>.  Look forward to seeing lots of you there!
 <ul>

@@ -1,6 +1,7 @@
 ---
 title: "One-Day Workshops"
 date: 2018-06-14
+category: education software community
 ---
 
 Over the past year,

@@ -1,5 +1,6 @@
 ---
 date: 2012-03-09
+category: education
 original: swc
 title: Our Indiana U Workshop Went Well
 ---

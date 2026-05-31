@@ -1,6 +1,7 @@
 ---
 title: "Lovecraft and the Tea Party"
 date: 2011-09-09
+category: education research
 ---
 <blockquote>The sciences, each straining in its own direction, have hitherto harmed us little; but some day the piecing together of dissociated knowledge will open up such terrifying vistas of reality, and of our frightful position therein, that we shall either go mad from the revelation or flee from the light into the peace and safety of a new dark age.
 &ndash; HP Lovecraft, <em>The Call of Cthulhu</em></blockquote>

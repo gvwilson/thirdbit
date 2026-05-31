@@ -1,5 +1,6 @@
 ---
 date: 2009-08-01
+category: education
 original: swc
 title: Post-Mortem
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Small Scale Real-World Requirements"
 date: 2006-11-05
+category: software writing
 ---
 Over the past couple of weeks, I've had some interesting conversations with local small software companies about their development process—in particular, about how they collect and manage requirements.  It isn't anything like it is in the textbooks, and I think I may have figured out why.
 

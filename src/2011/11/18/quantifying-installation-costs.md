@@ -1,5 +1,6 @@
 ---
 date: 2011-11-18
+category: software
 original: swc
 title: Quantifying Installation Costs
 ---

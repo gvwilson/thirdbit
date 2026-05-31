@@ -1,6 +1,7 @@
 ---
 title: "IBM, Python, and the Blues"
 date: 2004-10-20
+category: software
 ---
 <p>I gave a talk about Python at IBM's Toronto lab yesterday.  It seemed to go pretty well—Paul Buck, who'd invited me out there, said that his group in IBM sees LAMP (Linux, Apache, MySQL, and Perl/Python/PHP) as being as big a threat to Java as .NET, so they want to learn more about all of 'em.</p>
 

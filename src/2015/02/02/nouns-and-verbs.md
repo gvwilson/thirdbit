@@ -1,6 +1,7 @@
 ---
 title: "Nouns and Verbs"
 date: 2015-02-02
+category: software education community
 original: swc
 ---
 <p>

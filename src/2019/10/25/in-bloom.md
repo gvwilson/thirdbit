@@ -1,6 +1,7 @@
 ---
 title: "In Bloom"
 date: 2019-10-25
+category: personal
 ---
 
 My father kept these four plants on the window sill for years.

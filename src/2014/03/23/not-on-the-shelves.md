@@ -1,6 +1,7 @@
 ---
 title: "Not on the Shelves"
 date: 2014-03-23
+category: software education writing
 original: swc
 ---
 

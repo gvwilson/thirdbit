@@ -1,5 +1,6 @@
 ---
 date: 2018-07-15
+category: education personal writing
 title: Teaching Tech Together
 ---
 

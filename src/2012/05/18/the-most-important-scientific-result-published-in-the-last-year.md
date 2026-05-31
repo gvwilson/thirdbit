@@ -1,5 +1,6 @@
 ---
 date: 2012-05-18
+category: research writing software
 original: swc
 title: The Most Important Scientific Result Published in the Last Year
 ---

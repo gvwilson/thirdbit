@@ -1,5 +1,6 @@
 ---
 date: 2010-01-24
+category: research
 original: swc
 title: It Seems That Everyone Cares
 ---

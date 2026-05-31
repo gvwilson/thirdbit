@@ -1,5 +1,6 @@
 ---
 date: 2012-09-16
+category: software education
 original: swc
 title: Systematic Curriculum Design
 ---

@@ -1,5 +1,6 @@
 ---
 date: 2009-07-22
+category: education software writing
 original: swc
 title: "Day 7: Lots More Objects"
 ---

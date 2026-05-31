@@ -1,5 +1,6 @@
 ---
 date: 2012-02-15
+category: software
 original: swc
 title: And Speaking of New…
 ---

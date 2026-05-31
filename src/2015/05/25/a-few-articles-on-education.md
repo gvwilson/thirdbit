@@ -1,6 +1,7 @@
 ---
 title: "A Few Articles on Education"
 date: 2015-05-25
+category: software education research
 original: swc
 ---
 <p>

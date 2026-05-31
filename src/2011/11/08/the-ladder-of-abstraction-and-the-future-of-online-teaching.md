@@ -1,5 +1,6 @@
 ---
 date: 2011-11-08
+category: education writing software
 original: swc
 title: The Ladder of Abstraction and the Future of Online Teaching
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Why We're Not Switching to Git"
 date: 2008-07-05
+category: software research education
 ---
 I got the following a couple of days ago from a colleague in the US:
 

@@ -1,6 +1,7 @@
 ---
 title: "Just Another Saturday"
 date: 2008-07-19
+category: software
 ---
 Maddie on her way to the show:
 

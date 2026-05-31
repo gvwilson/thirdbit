@@ -1,5 +1,6 @@
 ---
 date: 2009-07-29
+category: software education research
 original: swc
 title: Every Day Is a Big Day…
 ---

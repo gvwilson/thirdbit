@@ -1,6 +1,7 @@
 ---
 title: "Shuttleworth Foundation Fellowship Application"
 date: 2014-10-27
+category: software education community
 ---
 <p>
   I just submitted an application for a <a href="https://www.shuttleworthfoundation.org/">Shuttleworth Foundation</a> fellowship,

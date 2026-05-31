@@ -1,5 +1,6 @@
 ---
 date: 2012-03-14
+category: education software community
 original: swc
 title: Where Next for the Next-Gen Course (and Software Carpentry)?
 ---

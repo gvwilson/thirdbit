@@ -1,5 +1,6 @@
 ---
 date: 2010-06-29
+category: software education
 original: swc
 title: The Violas of Programming
 ---

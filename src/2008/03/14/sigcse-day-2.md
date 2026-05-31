@@ -1,6 +1,7 @@
 ---
 title: "SIGCSE Day 2"
 date: 2008-03-14
+category: software education
 ---
 0410: *whimper*
 

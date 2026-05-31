@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 12: File Interpolator"
 date: 2023-01-16
+category: software research
 ---
 
 Many of the examples in [*Software Design by Example*][sdxjs]
@@ -24,11 +25,11 @@ so that readers would be comfortable when their ideas did what they were suppose
 but still shouldn't be put into production.
 
 <figure id="file-interpolator-conceptual" class="center">
-  <img src="@root/sdxjs/file-interpolator/conceptual.svg" alt="Using file inclusions" class="centered">
+  <img src="@root/sdxjs/interp/conceptual.svg" alt="Using file inclusions" class="centered">
   <figcaption>Figure 12.1: Including fragments of code to create runnable programs.</figcaption>
 </figure>
 
 > Terms defined: header file, literate programming, loader, sandbox, search path, shell variable.
 
 [sdxjs]: @root/sdxjs/
-[sdxjs_interpolator]: @root/sdxjs/file-interpolator/
+[sdxjs_interpolator]: @root/sdxjs/interp/

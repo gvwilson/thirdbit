@@ -1,5 +1,6 @@
 ---
 date: 2019-01-06
+category: software education research
 title: "Not on the Shelves (2019 Edition)"
 ---
 

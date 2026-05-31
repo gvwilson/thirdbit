@@ -1,6 +1,7 @@
 ---
 title: "My Literature Problems"
 date: 2015-12-06
+category: software research writing
 ---
 <p>
   <strong>Problem #1</strong>

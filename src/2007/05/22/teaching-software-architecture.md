@@ -1,6 +1,7 @@
 ---
 title: "Teaching Software Architecture"
 date: 2007-05-22
+category: education software writing
 ---
 <a href="http://www.cs.toronto.edu">Our department</a> has had a fourth-year course called "CSC407: Software Architecture" for several years. I taught it for the first time last summer, and had a lot of trouble figuring out what to put in front of students. Design patterns and basic queueing theory were no-brainers, but everything beyond that—everything that people point to when they say "software architecture"—seemed too ethereal for students. Take <a href="http://www.win.tue.nl/~mchaudro/sa2004/Kruchten4+1.pdf">Kruchten's 4+1</a> views, for example: it's a very useful way to think about software systems, but if you've never had to find your way around a really large application, the motivation and ideas are bound to seem a little abstract.
 

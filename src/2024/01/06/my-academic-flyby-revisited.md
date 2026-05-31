@@ -1,6 +1,7 @@
 ---
 title: "My Academic Flyby Revisited"
 date: 2024-01-06
+category: education research community
 ---
 
 I had a very enjoyable cup of coffee yesterday

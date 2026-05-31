@@ -1,6 +1,7 @@
 ---
 title: "Coffee and Tea"
 date: 2023-02-21
+category: community
 ---
 
 "I have a theory," he said, setting his espresso on the table.

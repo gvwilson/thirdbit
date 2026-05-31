@@ -1,6 +1,7 @@
 ---
 title: "Feedback on the Python Book"
 date: 2009-11-26
+category: software writing
 ---
 71 people have answered our questionnaire about <a href="http://www.pragprog.com/titles/gwpy/practical-programming"><em>Practical Programming</em></a>. Here's some of what they told us; I'll summarize the questions about use of online programming resources and what we could do differently next time in a subsequent post.
 

@@ -1,5 +1,6 @@
 ---
 date: 2009-08-21
+category: software research education
 original: swc
 title: The Big Picture
 ---

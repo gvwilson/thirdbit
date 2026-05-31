@@ -1,5 +1,6 @@
 ---
 date: 2011-09-02
+category: education research software
 original: swc
 title: Teaching Security to Scientists
 ---

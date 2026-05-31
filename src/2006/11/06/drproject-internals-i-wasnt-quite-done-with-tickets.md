@@ -1,6 +1,7 @@
 ---
 title: "DrProject Internals: I Wasn't Quite Done With Tickets"
 date: 2006-11-06
+category: software
 ---
 OK, we're not quite done with tickets yet—at least, not with the issues that tickets raise.
 

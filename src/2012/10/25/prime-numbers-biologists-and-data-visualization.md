@@ -1,6 +1,7 @@
 ---
 title: Prime Numbers, Biologists, and Data Visualization
 date: 2012-10-25
+category: software education writing
 original: swc
 ---
 

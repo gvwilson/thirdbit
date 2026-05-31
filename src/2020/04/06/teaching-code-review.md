@@ -1,6 +1,7 @@
 ---
 title: "Teaching Code Review"
 date: 2020-04-06
+category: education software research
 ---
 
 I have taught code review a few times to computer science students (but not yet to data scientists).

@@ -1,5 +1,6 @@
 ---
 date: 2010-05-02
+category: software education research
 original: swc
 title: T Minus One
 ---

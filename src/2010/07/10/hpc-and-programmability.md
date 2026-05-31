@@ -1,5 +1,6 @@
 ---
 date: 2010-07-10
+category: software writing
 original: swc
 title: HPC and Programmability
 ---

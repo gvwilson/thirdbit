@@ -1,6 +1,7 @@
 ---
 title: "Splitting the Repository"
 date: 2014-09-29
+category: education software community
 original: swc
 ---
 <p>

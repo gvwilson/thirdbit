@@ -1,6 +1,7 @@
 ---
 title: Labwork to Leadership
 date: 2025-10-08
+category: research community software
 ---
 
 Jen Heemstra's

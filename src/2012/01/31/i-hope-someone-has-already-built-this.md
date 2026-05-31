@@ -1,6 +1,7 @@
 ---
 title: "I Hope Someone Has Already Built This"
 date: 2012-01-31
+category: software education research
 ---
 Over the next few months, I want to experiment with at least four new learning formats for Software Carpentry. The baseline is what we have now: each topic is covered in 6-10 lessons, each of which has its own page. Most of those pages have a voice-over-slideshow video lasting 5 to 10 minutes and the slides themselves as PNG images in parallel with a transcript of the voiceover; the exceptions are the lessons on spreadsheets, databases, and debugging, which are actual screencasts of the appropriate tools in action. Only a handful of topics have exercises, and the only way to give feedback is to comment on the page.
 

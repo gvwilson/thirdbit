@@ -1,5 +1,6 @@
 ---
 date: 2010-06-04
+category: education software research
 original: swc
 title: Concept Map
 ---

@@ -1,6 +1,7 @@
 ---
 title: "The Stupid, It Still Burns"
 date: 2010-09-18
+category: writing software
 ---
 Top three "non-fiction" books on Amazon.com right now:
 <ol>

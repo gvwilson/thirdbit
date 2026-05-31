@@ -1,6 +1,7 @@
 ---
 title: "Circular Imports"
 date: 2020-10-12
+category: software
 ---
 
 I am struggling to find a readable explanation of how circular imports are handled

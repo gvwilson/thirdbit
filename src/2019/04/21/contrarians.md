@@ -1,5 +1,6 @@
 ---
 date: 2019-04-21
+category: personal writing
 title: "Contrarians"
 ---
 

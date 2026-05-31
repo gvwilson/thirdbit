@@ -1,6 +1,7 @@
 ---
 title: "University College London Becomes Software Carpentry Affiliate"
 date: 2015-01-22
+category: software education community
 original: swc
 ---
 <p>

@@ -1,6 +1,7 @@
 ---
 title: "Exercises for Teaching Programming"
 date: 2017-10-16
+category: education software
 ---
 
 Every mechanic has her favorite screwdrivers, and every good teacher has

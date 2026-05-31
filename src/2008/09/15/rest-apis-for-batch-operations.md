@@ -1,6 +1,7 @@
 ---
 title: "REST APIs for Batch Operations"
 date: 2008-09-15
+category: software
 ---
 I have a question about the "right" way to design a REST API, and am hoping someone out there on the Interweb will point me in the right direction.  The short version of the question is, "How should batch operations be structured?"  The long version goes something like this:
 

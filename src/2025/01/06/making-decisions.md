@@ -1,6 +1,7 @@
 ---
 title: Making Decisions
 date: 2025-01-06
+category: community software research
 ---
 
 The first release of GitHub's [Minimum Viable Governance][github-mvg] guidelines

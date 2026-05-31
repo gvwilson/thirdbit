@@ -1,6 +1,7 @@
 ---
 title: "Meetings, Interruptions, and Power"
 date: 2023-12-11
+category: software education community
 ---
 
 A couple of weeks ago I [wrote][seeing] about Frank,

@@ -1,5 +1,6 @@
 ---
 date: 2010-06-16
+category: software education
 original: swc
 title: Is Live Coding Worth It?
 ---

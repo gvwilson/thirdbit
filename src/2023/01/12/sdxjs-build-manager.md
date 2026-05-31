@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 10: Build Manager"
 date: 2023-01-12
+category: software writing
 ---
 
 Make was the first programming support tool I ever learned how to use,
@@ -28,11 +29,11 @@ It's on the list for the Python version;
 I'll let you know in a few months whether my energy levels picked up or not.
 
 <figure id="build-manager-template-method" class="center">
-  <img src="@root/sdxjs/build-manager/template-method.svg" alt="Template Method pattern" class="centered">
+  <img src="@root/sdxjs/build/template-method.svg" alt="Template Method pattern" class="centered">
   <figcaption>Figure 10.3: The Template Method pattern in action.</figcaption>
 </figure>
 
 > Terms defined: automatic variable, build manager, build recipe, build rule, build target, compiled language, cycle (in a graph), dependency, directed acyclic graph, driver, interpreted language, link (a program), pattern rule, runnable documentation, stale (in build), Template Method pattern, topological order.
 
-[sdxjs]: @root/sdxjs/build-manager/
-[sdxjs_build]: @root/sdxjs/build-manager/
+[sdxjs]: @root/sdxjs/build/
+[sdxjs_build]: @root/sdxjs/build/

@@ -1,6 +1,7 @@
 ---
 title: "Software Design by Example 14: Style Checker"
 date: 2023-01-18
+category: software writing
 ---
 
 Programmers argue endlessly about the best way to format their programs,
@@ -26,7 +27,7 @@ If anyone feels motivated to give this a try,
 please [give me a shout][email].
 
 <figure id="style-checker-walk-tree" class="center">
-  <img src="@root/sdxjs/style-checker/walk-tree.svg" alt="Walking a tree" class="centered">
+  <img src="@root/sdxjs/style/walk-tree.svg" alt="Walking a tree" class="centered">
   <figcaption>Figure 14.2: Walking a tree to perform an operation at each node.</figcaption>
 </figure>
 
@@ -49,4 +50,4 @@ I'm going to have to think hard about this for the Python edition.
 
 [email]: mailto:gvwilson@third-bit.com
 [sdxjs]: @root/sdxjs/
-[sdxjs_checker]: @root/sdxjs/style-checker/
+[sdxjs_checker]: @root/sdxjs/style/

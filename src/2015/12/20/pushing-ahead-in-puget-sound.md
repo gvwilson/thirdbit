@@ -1,6 +1,7 @@
 ---
 title: "Pushing Ahead in Puget Sound"
 date: 2015-12-20
+category: education writing community
 original: swc
 ---
 <p>

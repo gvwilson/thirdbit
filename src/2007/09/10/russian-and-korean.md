@@ -1,6 +1,7 @@
 ---
 title: "Russian and Korean"
 date: 2007-09-10
+category: software writing society
 ---
 O'Reilly has now sold the rights for both Russian and Korean translations of <a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a>. W00t!
 

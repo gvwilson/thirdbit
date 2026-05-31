@@ -1,5 +1,6 @@
 ---
 date: 2012-04-01
+category: education research software
 original: swc
 title: What to Teach Researchers About the Web
 ---

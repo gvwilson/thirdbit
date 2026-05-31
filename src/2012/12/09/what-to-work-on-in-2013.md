@@ -1,6 +1,7 @@
 ---
 title: What To Work On In 2013
 date: 2012-12-09
+category: software
 original: swc
 ---
 <p>Votes are in and tallied: here's what you'd like us to work on in 2013.</p>

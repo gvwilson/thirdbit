@@ -1,6 +1,7 @@
 ---
 title: "Ten Simple Rules for Being a Good Research Partner"
 date: 2017-06-19
+category: research education community
 ---
 
 <p>Half a century ago, C.P. Snow decried the gulf between the two

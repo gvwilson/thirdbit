@@ -1,5 +1,6 @@
 ---
 date: 2010-06-11
+category: community
 original: swc
 title: "Interview: David Jackson at the UK Met Office"
 ---

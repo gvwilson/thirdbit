@@ -1,6 +1,7 @@
 ---
 title: "Data Science for Software Development"
 date: 2017-11-20
+category: software research education
 ---
 
 <p>Many software developers are learning data science to analyze their

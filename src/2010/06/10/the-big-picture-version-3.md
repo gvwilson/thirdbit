@@ -1,5 +1,6 @@
 ---
 date: 2010-06-10
+category: research society
 original: swc
 title: The Big Picture (version 3)
 ---

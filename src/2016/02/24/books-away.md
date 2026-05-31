@@ -1,6 +1,7 @@
 ---
 title: "Books Away"
 date: 2016-02-24
+category: personal writing
 ---
 <p>
   Earlier this week my mother gave away the last of my father's books:

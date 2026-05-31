@@ -1,6 +1,7 @@
 ---
 title: "What I Would Change in Lox for Teaching"
 date: 2022-02-01
+category: software education writing
 ---
 
 I spent a couple of weeks last year noodling around with Lox,

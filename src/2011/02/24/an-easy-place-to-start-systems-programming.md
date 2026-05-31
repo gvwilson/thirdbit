@@ -1,5 +1,6 @@
 ---
 date: 2011-02-24
+category: software writing
 original: swc
 title: "An Easy Place to Start: Systems Programming"
 ---

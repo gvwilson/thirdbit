@@ -1,6 +1,7 @@
 ---
 title: "Thanks to RStudio"
 date: 2015-01-13
+category: education software community
 original: swc
 ---
 <p>

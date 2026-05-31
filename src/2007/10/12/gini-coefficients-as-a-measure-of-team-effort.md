@@ -1,6 +1,7 @@
 ---
 title: "Gini Coefficients as a Measure of Team Effort"
 date: 2007-10-12
+category: software community society
 ---
 The <a href="http://en.wikipedia.org/wiki/Gini_coefficient"><em>Gini coefficient</em></a> is a widely-used measure of inequality in which 0 corresponds to perfect equality (e.g., everyone is equally wealthy), while 1 corresponds to perfect inequality (e.g., one person owns everything, nobody else has anything).  I calculated the Gini coefficient for each team in my CSC301 class based on the number of lines of Java code each team member contributed to what was in version control at the deadline.
 

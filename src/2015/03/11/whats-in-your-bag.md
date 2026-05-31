@@ -1,6 +1,7 @@
 ---
 title: "What's In Your Bag?"
 date: 2015-03-11
+category: education
 original: swc
 ---
 <p>

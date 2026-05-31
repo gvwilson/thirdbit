@@ -1,6 +1,7 @@
 ---
 title: "Well, That Was Weird"
 date: 2012-01-26
+category: software
 ---
 It's amazing what you can learn when you don't have cable TV:
 <ul>

@@ -1,6 +1,7 @@
 ---
 title: "Soup, Then Prayers"
 date: 2023-02-13
+category: writing research society
 ---
 
 I just finished reading a book on ethics for people who work in tech,

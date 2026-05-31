@@ -1,5 +1,6 @@
 ---
 date: 2010-08-05
+category: software education
 original: swc
 title: An Answer That Most Students Won't Understand
 ---

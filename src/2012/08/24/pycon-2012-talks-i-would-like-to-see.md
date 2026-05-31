@@ -1,6 +1,7 @@
 ---
 title: "PyCon 2013 Talks I Would Like To See"
 date: 2012-08-24
+category: software education
 ---
 I don't know if I'll make it to <a href="https://us.pycon.org/2013/">PyCon 2013</a> or not (lots of other traveling for Software Carpentry == too much time away from family already), but here are some talks that would draw me in:
 <ol>

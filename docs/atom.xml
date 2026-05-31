@@ -3,12 +3,111 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-05-30T00:00:00Z</updated>
+ <updated>2026-05-31T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Sojourn Time</title>
+   <link href="https://third-bit.com/2026/05/31/sojourn-time/"/>
+   <updated>2026-05-31T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/05/31/sojourn-time/</id>
+   <content type="html">&lt;p&gt;How long does a customer actually spend in the system?
+The previous scenario measured $L$, the mean number of customers in the system at any moment. This scenario measures $W$, the mean time a single customer spends from arrival to departure. This is called the &lt;em&gt;sojourn time&lt;/em&gt;, &lt;em&gt;residence time&lt;/em&gt;, or &lt;em&gt;response time&lt;/em&gt;, and has two components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$W_q$: time spent waiting in the queue because the server is busy.&lt;/li&gt;
+&lt;li&gt;$W_s$: time spent in service while the server is working on this customer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$W = W_q + W_s$$&lt;/p&gt;
+&lt;h2&gt;The Surprising Finding&lt;/h2&gt;
+&lt;p&gt;For an M/M/1 queue, the mean sojourn time is:&lt;/p&gt;
+&lt;p&gt;$$W = \frac{1}{\mu(1 - \rho)}$$&lt;/p&gt;
+&lt;p&gt;This blows up as $\rho \to 1$, just like $L$. But the split between waiting and service shifts dramatically as load increases.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$\rho$&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$W_q$ (wait)&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$W_s$ (service)&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;$W$ (total)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.1&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.11&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.00&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.5&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.00&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.00&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;2.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;0.9&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;9.00&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;1.00&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;10.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The mean service time $W_s = 1/\mu = 1.0$ is constant: the server always takes the same average time to serve one customer. All the extra delay at high load is pure waiting: $W_q = \rho/(\mu(1-\rho))$ grows without bound while $W_s$ stays fixed. At $\rho = 0.9$, 90% of a customer&amp;rsquo;s time is spent waiting for the server to become free.&lt;/p&gt;
+&lt;p&gt;This formula is closely connected to Little&amp;rsquo;s Law:&lt;/p&gt;
+&lt;p&gt;$$L = \lambda W$$&lt;/p&gt;
+&lt;p&gt;Plugging in $W = 1/(\mu(1-\rho))$ and $\lambda = \rho\mu$:&lt;/p&gt;
+&lt;p&gt;$$L = \rho\mu \cdot \frac{1}{\mu(1-\rho)} = \frac{\rho}{1-\rho}$$&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Why $W_s = 1/\mu$ regardless of $\rho$&lt;/h3&gt;
+&lt;p&gt;Service time is drawn from an exponential distribution with rate $\mu$, so its mean is $1/\mu$. This is a property of the distribution, not of the queue. No matter how busy the server is, once it starts serving you it takes on average $1/\mu$ time.&lt;/p&gt;
+&lt;h3&gt;Deriving $W_q$&lt;/h3&gt;
+&lt;p&gt;Since $W = W_q + W_s$ and $W_s = 1/\mu$:&lt;/p&gt;
+&lt;p&gt;$$W_q = W - W_s = \frac{1}{\mu(1-\rho)} - \frac{1}{\mu}
+      = \frac{1}{\mu}\left(\frac{1}{1-\rho} - 1\right)
+      = \frac{1}{\mu} \cdot \frac{\rho}{1-\rho}
+      = \frac{\rho}{\mu(1-\rho)}$$&lt;/p&gt;
+&lt;p&gt;Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.&lt;/p&gt;
+&lt;h3&gt;Units check&lt;/h3&gt;
+&lt;p&gt;$\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little&amp;rsquo;s Law to a real problem.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Three Research Questions About AI</title>
+   <link href="https://third-bit.com/2026/05/31/ai-research-questions/"/>
+   <updated>2026-05-31T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/05/31/ai-research-questions/</id>
+   <content type="html">&lt;p&gt;&lt;a href=&#34;https://empirical-software.engineering/&#34;&gt;Sebastian Baltes&lt;/a&gt; recently asked,
+&amp;ldquo;In your view, what don&amp;rsquo;t we know about software development with agentic AI tools (but should)?
+To me, &amp;lsquo;know&amp;rsquo; means proper empirical evidence.
+Not &amp;lsquo;some random dude wrote a blog post about it&amp;rsquo;.&amp;rdquo;
+Here are my answers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;What heuristics developers use to evaluate claims about AI,
+    i.e., how do they decide which claims are believable and which aren&amp;rsquo;t.
+    (Note that I&amp;rsquo;m not asking which claims they believe, but rather how they decide.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How much of the discussion in Sadowski &amp;amp; Zimmermann (eds)
+    &lt;a href=&#34;https://isbnsearch.org/isbn/9781484242209&#34;&gt;Rethinking Productivity in Software Engineering&lt;/a&gt; (2019)
+    has proven to be relevant/useful since the AI tidal wave hit?
+    I.e., were researchers thinking about the right things seven years ago?
+    (I hope that will give us an idea of how much of what&amp;rsquo;s being said now
+    is likely to prove useful in hindsight a few years in the future.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Which of the tools requested in &lt;a href=&#34;https://cabird.github.io/AI_where_it_matters/&#34;&gt;What Developers &lt;em&gt;Actually&lt;/em&gt; Want From AI&lt;/a&gt;
+    would we be able to evaluate if they magically appeared tomorrow?
+    I.e., for which ones would we be able to say,
+    &amp;ldquo;Here&amp;rsquo;s what impact it actually has on the development process&amp;rdquo;
+    with some degree of reliability?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content>
+ </entry>
  
  <entry>
    <title>Little&#39;s Law</title>
@@ -505,7 +604,7 @@ stories about why the division made sense in their particular case.
 The myths varied but the pattern was constant:
 women interpreted inequitable arrangements as choices,
 and blamed themselves when the choices felt unsustainable.
-This is the same mechanism by which the &amp;ldquo;passion principle&amp;rdquo; (discussed &lt;a href=&#34;@/labor/&#34;&gt;earlier&lt;/a&gt;) operates:
+This is the same mechanism by which the &amp;ldquo;passion principle&amp;rdquo; operates:
 exploitation is most durable when those experiencing it explain it to themselves as freedom.&lt;/p&gt;
 &lt;p&gt;The historian Silvia Federici argued that the witch trials of the sixteenth and seventeenth centuries,
 during which tens of thousands of women were murdered,
@@ -2884,307 +2983,6 @@ Harvard University Press,
 &lt;em&gt;The Expanding Circle: Ethics and Sociobiology&lt;/em&gt;.
 Farrar, Straus and Giroux,
 1981.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>The Creation of Money</title>
-   <link href="https://third-bit.com/2026/05/17/creating-money/"/>
-   <updated>2026-05-17T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/17/creating-money/</id>
-   <content type="html">&lt;p&gt;In the 1660s,
-London merchants who needed somewhere safe to store their gold and silver
-began using the vaults of goldsmiths,
-who already had the locks and the reputation.
-The goldsmith would issue a paper receipt;
-merchants quickly discovered that it was easier to pay each other with receipts
-than to cart metal through the streets.
-The receipts circulated as currency.&lt;/p&gt;
-&lt;p&gt;The goldsmiths making these transactions noticed that
-at any given time,
-only a fraction of depositors came to claim their metal.
-The rest left it in the vault, trusting the paper.
-A goldsmith willing to issue &lt;em&gt;more&lt;/em&gt; receipts than he actually had gold in the vault
-could lend out the extras and collect interest,
-as long as depositors never all came at once.
-This is the origin of fractional reserve banking,
-a name that makes it sound more principled than it is.&lt;/p&gt;
-&lt;p&gt;This matters for understanding the modern financial system
-because the same basic mechanism is still operating,
-at much larger scale,
-with slightly more oversight,
-in digital form.
-The story is also the origin of the periodic bank run:
-when depositors suspect the receipts exceed the gold,
-everyone tries to claim their metal at once,
-which confirms the suspicion,
-which guarantees the collapse.
-In September 2007,
-people queued outside branches of Northern Rock, a British mortgage lender,
-for three days—the first run on a British bank in 150 years.
-The queues were orderly and very British,
-but the mechanism was identical to panics that had destroyed banks in Amsterdam in 1763,
-in the United States repeatedly between 1873 and 1907,
-and in Argentina in 2001.&lt;/p&gt;
-&lt;p&gt;In 2014,
-the Bank of England published a paper with the dry title
-&amp;ldquo;Money Creation in the Modern Economy.&amp;rdquo;
-Its core claim was not subtle:
-when a commercial bank makes a loan,
-it does not lend out money that was previously deposited.
-It creates the deposit simultaneously with the loan.
-The loan and the deposit appear on the bank&amp;rsquo;s books at the same moment.
-Money that did not previously exist comes into existence through the act of lending.&lt;/p&gt;
-&lt;p&gt;This is just as ridiculous as it sounds, but very useful.
-When you repay a loan,
-the deposit disappears from your account and the corresponding debt disappears from the bank&amp;rsquo;s books.
-Money is destroyed.
-The money supply—the total amount of deposits in the economy—expands when banks are lending
-and contracts when loans are being repaid or written off.&lt;/p&gt;
-&lt;p&gt;The 2008 financial crisis makes more sense through this lens.
-When house prices fell, mortgage-backed securities lost value.
-Banks had to recognize losses on assets they held.
-To maintain their required capital ratios,
-they had to stop making new loans and call in existing ones.
-This made the money supply contract,
-which meant less money available for businesses to borrow,
-workers to spend,
-and consumers to use to repay their debts.
-The financial crisis became an economic crisis not through some mysterious contagion
-but through the straightforward mechanism of money destruction.
-Governments and central banks responded with quantitative easing:
-central banks created new money by purchasing assets from banks,
-replacing the money that bad loans were destroying.
-This is why central banks can &amp;ldquo;create money&amp;rdquo; without necessarily causing inflation
-when the money supply is contracting—they are filling a hole.&lt;/p&gt;
-&lt;p&gt;The anthropologist David Graeber spent years studying debt across cultures and centuries.
-In &lt;em&gt;Debt: The First 5,000 Years&lt;/em&gt;,
-he showed that the story economists tell about money—that barter came first,
-that money was invented to make barter easier,
-and that credit developed on top of money—has
-almost no support in the historical or anthropological record.
-The fish-for-axes economy that appears in introductory economics textbooks
-has never actually existed anywhere.
-What appears in the record instead are systems of mutual obligation and accounting:
-I owe you,
-you owe me,
-the village keeps track.
-Credit relationships,
-Graeber argued,
-are older than markets and older than money.
-Money emerged not to simplify barter but to settle and record debts.&lt;/p&gt;
-&lt;p&gt;Graeber&amp;rsquo;s insight matters here because it reframes what a bank actually is.
-A bank is not a warehouse that stores your money and lends it out.
-It is an institution with the power to create new obligations—to say &amp;ldquo;I owe you this&amp;rdquo;
-in a form that the recipient can treat as equivalent to goods or labor.
-That power is not derived from having gold in a vault.
-It is derived from legal recognition,
-regulatory framework,
-and the collective social agreement
-that a bank&amp;rsquo;s promises are worth treating as money.&lt;/p&gt;
-&lt;p&gt;Who gets to issue these promises,
-and under what constraints,
-are political questions.
-Andrew Jackson ran his 1832 presidential campaign substantially on the question
-of whether a private institution (the Second Bank of the United States) should have the power
-to create the country&amp;rsquo;s money.
-He won,
-and the financial panics that followed
-eventually produced the Federal Reserve Act of 1913,
-which as passed in the aftermath of the 1907 panic
-to give the money-creation system a lender of last resort.&lt;/p&gt;
-&lt;p&gt;Contemporary fintech companies are participating in this long argument
-without usually acknowledging it.
-Klarna, Afterpay, and Affirm extend credit to consumers at the point of purchase.
-In doing this they are creating money,
-but they are doing it without the deposit insurance,
-capital requirements,
-or regulatory oversight that apply to licensed banks.
-PayPal holds tens of billions of dollars in customer balances that do not carry deposit insurance,
-and Stripe extends credit to merchants.
-These companies are, in each case, capturing the profit of money creation
-while avoiding the obligations that historically came with it—the same maneuver
-that London goldsmiths discovered in the 1660s.&lt;/p&gt;
-&lt;p&gt;Cryptocurrency takes this further.
-Bitcoin and its successors are explicit attempts to create parallel monetary systems outside state control,
-with the money-creation mechanism determined by algorithm rather than central bank policy.
-The technical design is genuinely novel.
-The social question it raises is not:
-who gets to create money and who bears the losses when it goes wrong.
-If the past is any guide,
-the answer to the latter question is, &amp;ldquo;Not the bankers.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Chang2012&#34;&gt;Chang2012&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Ha-Joon Chang:
-&lt;em&gt;23 Things They Don&amp;rsquo;t Tell You About Capitalism&lt;/em&gt;.
-Bloomsbury,
-2012,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781608193387&#34;&gt;9781608193387&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Graeber2011&#34;&gt;Graeber2011&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;David Graeber:
-&lt;em&gt;Debt: The First 5,000 Years&lt;/em&gt;.
-Melville House,
-2011,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781933633862&#34;&gt;9781933633862&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Kindleberger2005&#34;&gt;Kindleberger2005&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Charles P. Kindleberger and Robert Aliber:
-&lt;em&gt;Manias, Panics, and Crashes: A History of Financial Crises&lt;/em&gt;
-(5th ed.).
-Wiley,
-2005,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780471467144&#34;&gt;9780471467144&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;McLeay2014&#34;&gt;McLeay2014&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Michael McLeay, Amar Radia, and Ryland Thomas:
-&amp;ldquo;Money Creation in the Modern Economy.&amp;rdquo;
-&lt;em&gt;Bank of England Quarterly Bulletin&lt;/em&gt;,
-2014 Q1,
-&lt;a href=&#34;https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy&#34;&gt;https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>In a Crisis</title>
-   <link href="https://third-bit.com/2026/05/17/in-a-crisis/"/>
-   <updated>2026-05-17T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/17/in-a-crisis/</id>
-   <content type="html">&lt;p&gt;On the morning of December 6, 1917,
-a French munitions ship collided with a Norwegian vessel in Halifax Harbour, Nova Scotia.
-The resulting explosion killed nearly two thousand people and flattened the north end of the city.
-It was the largest human-made explosion before the nuclear age.&lt;/p&gt;
-&lt;p&gt;Within hours,
-survivors were pulling strangers from rubble,
-improvising hospitals in churches and railway stations,
-and sharing food with people they had never met.
-The next day a blizzard arrived.
-Residents of Truro, two hours away by train,
-loaded relief supplies and medical teams before anyone had formally organized them.
-People came from across eastern Canada and the northeastern United States,
-not because anyone had issued orders,
-but because other people needed help.&lt;/p&gt;
-&lt;p&gt;This is not the story most people expect.
-The version of human nature embedded in popular culture
-and reproduced in disaster media coverage
-is that when things fall apart, so do people.
-Civilization is a thin crust over barbarity:
-scratch the surface and you get looting, assault, and the strong preying on the weak.
-This story is wrong in almost every particular,
-but it keeps being told because it serves purposes that have nothing to do with accuracy.&lt;/p&gt;
-&lt;p&gt;The sociologist E.L. Quarantelli spent decades studying disasters
-and came to a conclusion that surprised many people:
-panic and antisocial behavior are the exception, not the rule.
-Communities typically show increases in prosocial behavior:
-strangers help each other,
-crime rates generally fall,
-and people who were barely acquaintances briefly become something like a community.&lt;/p&gt;
-&lt;p&gt;Rebecca Solnit documented this pattern across a century of catastrophes.
-Her case studies,
-including the 1906 San Francisco earthquake,
-the 1917 Halifax explosion,
-the 1985 Mexico City earthquake,
-the September 11 attacks in New York,
-and Hurricane Katrina in New Orleans,
-illustrate Qurantelli&amp;rsquo;s findings.
-Disastsers reveal a capacity for mutual aid
-that is usually suppressed by the atomization of modern consumer society.
-When the disaster removes the usual structures,
-something else emerges in their place.&lt;/p&gt;
-&lt;p&gt;The 2011 Tōhoku earthquake and tsunami in Japan offered a particularly clear example.
-International journalists, primed by narratives of disaster chaos,
-arrived to find orderly queues at relief stations,
-neighbors sharing food,
-and almost no reports of looting.
-The response was widely attributed to cultural exceptionalism,
-but Japan was not exceptional.
-The media&amp;rsquo;s &amp;ldquo;Mad Max&amp;rdquo; narrative was just wrong.&lt;/p&gt;
-&lt;p&gt;Hurricane Katrina in 2005 produced the most extensively documented divergence
-between media narrative and documented reality in modern history.
-In the days after the storm major news organizations reported roving gangs in the Superdome,
-mass rape,
-a baby with its throat cut,
-and snipers firing at rescue helicopters.
-The Governor of Louisiana reported that hooligans were murdering and raping.
-The New Orleans police chief described shooting looters on sight.
-Federal officials cited the breakdown of civil order as a reason to delay humanitarian response.&lt;/p&gt;
-&lt;p&gt;Kathleen Tierney, Christine Bevc, and Erica Kuligowski
-systematically reviewed the media coverage and the subsequent investigations in 2006.
-Their findings were stark:
-the reported gang violence in the Superdome did not happen,
-the murder rate in the city did not spike,
-most of the &amp;ldquo;looting&amp;rdquo; was people taking food and water to survive.
-The sniper attacks on helicopters were fabricated,
-as was the story about the baby.&lt;/p&gt;
-&lt;p&gt;But these lies had consequences.
-Hospitals delayed evacuating critically ill patients while waiting for military escorts
-that would protect them from the violence that was not occurring.
-Trucks carrying food and water were turned back from routes that were deemed dangerous
-when in fact they weren&amp;rsquo;t.
-A group of survivors trying to walk across the Crescent City Connection bridge to reach Gretna,
-where they had been told buses were waiting,
-were turned back at gunpoint by police from Gretna
-who said they were keeping their community safe.
-The fiction of social breakdown caused deaths that the storm itself had not.&lt;/p&gt;
-&lt;p&gt;The 2010 earthquake in Haiti produced a version of the same story.
-International media coverage focused obsessively on looting and gang violence,
-and security was framed as the precondition for humanitarian response.
-Researchers who studied the actual distribution of behavior found the same pattern as in every other disaster:
-most people were helping each other,
-and the image of Haitian social collapse
-reflected the assumptions of reporters and officials
-more than the behavior of Haitian people.&lt;/p&gt;
-&lt;p&gt;Solnit has a name for what happened in New Orleans:
-elite panic.
-Ordinary people in a disaster tend to behave with remarkable generosity and calm,
-but authorities and elites tend to panic—not about the disaster, but about the public.
-They fear that the masses will revert to savagery,
-so they militarize relief operations and shoot people for taking food.
-Since they believe that the social order that keeps them on top is only held together by the threat of force,
-then a disaster that removes their ability to enforce their rules looks like the end of civilization.
-The evidence that people mostly cooperate without being told to threatens this worldview,
-which is perhaps one reason it has so little effect on official disaster planning.&lt;/p&gt;
-&lt;p&gt;The gap between what happens in disasters and what gets reported
-is also explained by what counts as news.
-Editors make decisions about what to show based on what will attract attention,
-and dramatic conflict attracts more attention than organized mutual aid.
-The result is systematic selection bias in disaster coverage—not fabrication per se,
-but a consistent filtering that makes antisocial behavior visible and prosocial behavior invisible.&lt;/p&gt;
-&lt;p&gt;There is also the structure of official sources.
-Reporters under deadline, in chaotic conditions,
-rely heavily on officials for information.
-Officials,
-for reasons Solnit&amp;rsquo;s elite panic theory helps explain,
-tend to describe situations as more dangerous than they are.
-The governor who says &amp;ldquo;there are hooligans murdering people&amp;rdquo; gets quoted.
-The disaster sociologist who reports normal altruistic behavior is less quotable.&lt;/p&gt;
-&lt;p&gt;The disaster myth has one other important consequence.
-If the media consistently describes human nature as more violent and more selfish than it actually is,
-people are pre-conditioned to believe that cooperation is unlikely,
-which makes them less likely to cooperate.
-Just as advertising can manufacture demand,
-biased reporting can manufacture mistrust,
-and in doing so,
-hurt us all.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Quarantelli1998&#34;&gt;Quarantelli1998&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;E.L. Quarantelli (ed.):
-&lt;em&gt;What Is a Disaster?: A Dozen Perspectives on the Question&lt;/em&gt;.
-Routledge,
-1998,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780415178990&#34;&gt;9780415178990&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Solnit2009&#34;&gt;Solnit2009&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Rebecca Solnit:
-&lt;em&gt;A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster&lt;/em&gt;.
-Viking,
-2009,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780670021079&#34;&gt;9780670021079&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Tierney2006&#34;&gt;Tierney2006&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Kathleen Tierney, Christine Bevc, and Erica Kuligowski:
-&amp;ldquo;Metaphors Matter: Disaster Myths, Media Frames, and Their Consequences in Hurricane Katrina.&amp;rdquo;
-&lt;em&gt;The Annals of the American Academy of Political and Social Science&lt;/em&gt;,
-604,
-2006,
-&lt;a href=&#34;https://doi.org/10.1177/0002716205285589&#34;&gt;10.1177/0002716205285589&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

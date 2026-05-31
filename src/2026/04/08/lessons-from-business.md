@@ -1,6 +1,7 @@
 ---
 title: "Lessons from Business"
 date: 2026-04-08
+category: education research community
 ---
 
 For-profit businesses weren't the focus of the workshop I [planned to create][disasters],

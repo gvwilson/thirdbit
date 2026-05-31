@@ -1,6 +1,7 @@
 ---
 title: "Post-Mortem on This Term's Projects"
 date: 2006-04-08
+category: software education community
 ---
 We held an impromptu post-mortem on some of this term's CSC49X projects on Thursday.  The course is a *lot* more productive than it used to be, thanks in no small measure to feedback from students about what works and what doesn't.  Here are the highlights from three of this round's teams.
 

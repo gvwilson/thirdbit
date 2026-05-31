@@ -1,6 +1,7 @@
 ---
 title: "Beautiful Code"
 date: 2007-03-10
+category: software writing education
 ---
 Well, the feline has apparently been debagged: in his keynote at <a href="http://www.cs.potsdam.edu/sigcse07/index.shtml">SIGCSE 2007</a> on Friday, <a href="http://www.cs.potsdam.edu/sigcse07/Speakers.shtml#booch">Grady Booch</a> mentioned the book that <a href="http://www.oreillynet.com/pub/au/36">Andy Oram</a> and I are putting together for <a href="http://www.oreilly.com">O'Reilly</a>. It's called <cite>Beautiful Code: Leading Programmers Explain How They Think</cite>, and contains essays by more than thirty great software developers on, well, beautiful code.  It isn't on <a href="http://www.oreilly.com">O'Reilly</a>'s public site yet, but it's already listed on <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Explain/dp/0596510047">Amazon</a>. The contents are:
 <ol>

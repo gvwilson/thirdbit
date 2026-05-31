@@ -1,6 +1,7 @@
 ---
 title: "Biological Computing User Stories"
 date: 2013-07-17
+category: software education community
 original: swc
 ---
 <p>

@@ -1,5 +1,6 @@
 ---
 date: 2012-01-29
+category: education software
 original: swc
 title: Terminology
 ---

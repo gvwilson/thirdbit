@@ -1,6 +1,7 @@
 ---
 title: "A New Version of 'Lessons Learned'"
 date: 2016-01-28
+category: education software research
 original: swc
 ---
 

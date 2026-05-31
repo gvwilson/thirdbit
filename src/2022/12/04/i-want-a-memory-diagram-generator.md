@@ -1,6 +1,7 @@
 ---
 title: "I Want a Memory Diagram Generator"
 date: 2022-12-04
+category: software writing
 ---
 
 Following up on last week's grumble about

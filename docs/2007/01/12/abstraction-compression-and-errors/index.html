@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../../../../about/">about</a>
     <a href="../../../../blog/">blog</a>
-    <a href="../../../../selected/">selected</a>
-    <a href="../../../../talks/">talks</a>
+<a href="../../../../talks/">talks</a>
     <a href="../../../../packages/">packages</a>
     <a href="../../../../bib/">bibliography</a>
     <a href="../../../../fiction/">fiction</a>
@@ -63,6 +62,14 @@
 <p>But here's the thing.  Suppose you represent an image with three bytes per pixel (red, green, and blue).  The worst thing a one-bit error can do is mess up one color channel at one point in the image (e.g., turn low green to high green). If you compress the image, though, then a one-bit error will almost certainly have a much greater effect: it can change the number of pixels of a particular color (if you're using run-length encoding), or affect every other pixel "after" a certain point (if you're using a more sophisticated adaptive encoding scheme).</p>
 
 <p>I think the same is true of programs. If you mess up a function in a C program, you've messed up one function.  Mess up a method in a class near the root of your inheritance hierarchy, and you've affected dozens of things; mess up a metaclass, or a generic that you're using in a bunch of different places, and the effects spread even more widely.  I'm therefore wondering (after a particularly nasty debugging session) whether there's some fundamental tradeoff at work: eventually, the cost of each error in the high-level program outweighs the time saved by using the abstractions involved.  Equivalently, the redundancy in lower-level programs might actually be a good thing, for the same reasons that redundancy is good in other evolved and engineered artefacts: it limits the damage that can result from something going wrong at any particular point.</p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>, <a href="../../../../writing/">writing</a>
+  </div>
+</div>
+
 
     </main>
     <footer>

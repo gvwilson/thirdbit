@@ -1,5 +1,6 @@
 ---
 date: 2018-08-12
+category: software community
 title: The Real Challenge
 ---
 

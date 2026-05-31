@@ -1,5 +1,6 @@
 ---
 date: 2012-03-14
+category: education software
 original: swc
 title: How We're Doing
 ---

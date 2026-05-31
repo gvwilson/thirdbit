@@ -1,6 +1,7 @@
 ---
 title: "Aaaand They're Off!"
 date: 2008-05-12
+category: software writing
 ---
 Our summer interns started this morning—we got Summer of Code, we got NSERC USRA, we got ITCDF, we got you name it, a lab and a half's worth.  I gave the least coherent welcoming speech of my life (bad cold, little sleep), our trusty sys admin Alan helped 'em get their accounts set up, and whoosh, off they went.
 

@@ -1,6 +1,7 @@
 ---
 title: "Two Books"
 date: 2021-05-17
+category: software education community
 ---
 
 <div class="row">

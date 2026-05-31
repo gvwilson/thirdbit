@@ -1,6 +1,7 @@
 ---
 title: "IP Communism"
 date: 2014-11-18
+category: research education community
 ---
 <p>
   Back in August,

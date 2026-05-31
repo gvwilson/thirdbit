@@ -1,6 +1,7 @@
 ---
 title: "Miscellaneous Projects"
 date: 2015-11-15
+category: software education society
 original: swc
 ---
 This post is a bit of a

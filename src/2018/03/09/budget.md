@@ -1,6 +1,7 @@
 ---
 title: "Budgets"
 date: 2018-03-09
+category: education community software
 ---
 
 Parkinson's First Law is that work expands to fill the time available,

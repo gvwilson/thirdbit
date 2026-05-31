@@ -1,6 +1,7 @@
 ---
 title: "Questions, Answers, and Lessons"
 date: 2016-04-24
+category: education research software
 original: swc
 ---
 <p>

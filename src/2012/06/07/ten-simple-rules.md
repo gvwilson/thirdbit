@@ -1,5 +1,6 @@
 ---
 date: 2012-06-07
+category: research writing
 original: swc
 title: Ten Simple Rules
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Educational Bibliography"
 date: 2018-01-13
+category: education software
 ---
 
 <p>

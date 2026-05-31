@@ -1,6 +1,7 @@
 ---
 title: "How to Improve Instructor Training"
 date: 2014-05-02
+category: education software
 original: swc
 ---
 <p>

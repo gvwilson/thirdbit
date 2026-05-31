@@ -1,6 +1,7 @@
 ---
 title: "Entry-Level Code Review Procedures?"
 date: 2008-12-18
+category: software education
 ---
 Since September, half a dozen students at four universities have been rebuilding DrProject (our lightweight classroom-friendly replacement for <a href="http://trac.edgewall.org">Trac</a>) on top of <a href="http://www.djangoproject.com">Django</a> (a <a href="http://www.rubyonrails.org/">Rails</a>-like web programming framework written in <a href="http://www.python.org">Python</a>).  What's made this project different—and IMHO better—is the use of code reviews.  <a href="http://latte.ca">Blake Winton</a>, a local Python hacker, reviewed every single commit that came into the SVN repository in the first couple of weeks of the project.  Thanks to his example, the students started reviewing each other's work as well (Jeff Balogh, a two-time Google Summer of Code veteran who's starting a full-time job with Mozilla in January, being the most prominent culprit).
 

@@ -1,6 +1,7 @@
 ---
 title: Resilience Advice
 date: 2025-03-12
+category: research software education
 ---
 
 I wish we didn't have to talk about this,

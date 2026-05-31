@@ -1,5 +1,6 @@
 ---
 date: 2010-07-31
+category: research education software
 original: swc
 title: Interview with Davor Cubranic
 ---

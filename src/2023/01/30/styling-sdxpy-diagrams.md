@@ -1,6 +1,7 @@
 ---
 title: "Styling Diagrams for Software Design by Example"
 date: 2023-01-29
+category: software writing
 ---
 
 I use [draw.io][draw_io] to create diagrams for my books.

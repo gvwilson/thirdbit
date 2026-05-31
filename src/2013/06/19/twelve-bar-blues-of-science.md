@@ -1,6 +1,7 @@
 ---
 title: The Twelve Bar Blues of Open Science
 date: 2013-06-19
+category: research software
 original: swc
 ---
 <p>

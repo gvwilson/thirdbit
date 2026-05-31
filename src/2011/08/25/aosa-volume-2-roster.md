@@ -1,6 +1,7 @@
 ---
 title: "AOSA Volume 2 Roster"
 date: 2011-08-25
+category: software writing
 ---
 Volume 2 is going to be <a href="http://aosabook.org">another <em>great</em> book</a>:
 <ol>

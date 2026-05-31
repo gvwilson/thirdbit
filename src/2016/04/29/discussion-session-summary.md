@@ -1,6 +1,7 @@
 ---
 title: "Summarizing Our Lesson Discussion Sessions"
 date: 2016-04-29
+category: education software community
 original: swc
 ---
 

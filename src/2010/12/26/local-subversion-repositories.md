@@ -1,5 +1,6 @@
 ---
 date: 2010-12-26
+category: education software
 original: swc
 title: Local Subversion Repositories
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Correlations"
 date: 2016-02-08
+category: education
 original: swc
 ---
 

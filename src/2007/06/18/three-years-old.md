@@ -1,6 +1,7 @@
 ---
 title: "Three Years Old"
 date: 2007-06-18
+category: software community
 ---
 Today marks the third anniversary of this blog.  As I near my thousandth post, I figured I'd bore you all with a look back.
 <h2>DrProject</h2>

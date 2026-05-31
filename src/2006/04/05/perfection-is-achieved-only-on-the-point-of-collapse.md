@@ -1,6 +1,7 @@
 ---
 title: "Perfection Is Achieved Only on the Point of Collapse"
 date: 2006-04-05
+category: software
 ---
 <p><a href="http://www.artima.com/forums/flat.jsp?forum=106&amp;thread=155123">This posting</a>, from Guido van Rossum, is a great example of language design in action: person A proposes feature X, person B says, "No, we can do that with Y, and a whole lot more besides," and eventually a lightbult comes on.</p>
 

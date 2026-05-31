@@ -1,5 +1,6 @@
 ---
 date: 2012-04-14
+category: research software writing
 original: swc
 title: We're Neutral (but Not Really)
 ---

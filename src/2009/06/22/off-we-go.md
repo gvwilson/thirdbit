@@ -1,6 +1,7 @@
 ---
 title: "Off We Go…"
 date: 2009-06-22
+category: software
 ---
 …with Grandma looking on proudly:
 

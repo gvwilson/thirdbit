@@ -1,6 +1,7 @@
 ---
 title: "An Online Peer Instruction Tool"
 date: 2014-02-09
+category: education software research
 original: swc
 ---
 <p>

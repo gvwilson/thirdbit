@@ -1,5 +1,6 @@
 ---
 date: 2010-03-30
+category: education software
 original: swc
 title: Formats
 ---

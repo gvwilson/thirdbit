@@ -1,6 +1,7 @@
 ---
 title: "A Magic USB Drive"
 date: 2021-06-19
+category: software writing
 ---
 
 I dreamed again last night about a magic USB drive.

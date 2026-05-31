@@ -1,6 +1,7 @@
 ---
 title: "Terrified Sheep"
 date: 2016-09-27
+category: research education software
 ---
 
 In a [recent article in *Aeon*](https://aeon.co/ideas/without-tenure-academics-are-becoming-terrified-sheep),

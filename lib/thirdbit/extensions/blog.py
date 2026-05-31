@@ -18,6 +18,12 @@ def collect_files():
     ark.site.config["_posts"] = posts
     ark.site.config["_years"] = list(sorted(years))
 
+    categories = {}
+    for post in posts:
+        for tag in post.meta.get("category", "").split():
+            categories.setdefault(tag, []).append(post)
+    ark.site.config["_categories"] = categories
+
     for i, post in enumerate(posts):
         post["date"] = post.meta["date"]
         if i > 0:

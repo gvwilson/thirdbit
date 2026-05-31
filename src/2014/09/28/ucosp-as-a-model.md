@@ -1,6 +1,7 @@
 ---
 title: "UCOSP as a Model"
 date: 2014-09-28
+category: education software
 original: swc
 ---
 <p>

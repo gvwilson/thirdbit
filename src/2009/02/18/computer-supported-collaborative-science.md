@@ -1,6 +1,7 @@
 ---
 title: "Computer Supported Collaborative Science"
 date: 2009-02-18
+category: research software writing
 ---
 I've used the term "CSCS" a few times now; time to start groping toward a definition.  "Computer supported collaborative science" (CSCS) is a specialization of computer supported collaborative work, which is the study of "how collaborative activities and their coordination can be supported by means of computer systems". Insert the word "scientific", and you have CSCS.  More specifically, CSCS includes science 2.0, open notebook science, reproducible research, workflow &amp; provenance, and other things modern computing technology can do to help scientists find and share information.
 

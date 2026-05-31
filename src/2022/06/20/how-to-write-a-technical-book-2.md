@@ -1,6 +1,7 @@
 ---
 title: "How to Write a Technical Book (Part 2)"
 date: 2022-06-20
+category: writing software community
 ---
 
 Following up on

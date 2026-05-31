@@ -1,6 +1,7 @@
 ---
 title: "An Uncertain Thing"
 date: 2010-10-28
+category: writing personal
 ---
 I am pleased to announce that Volume 1 of my father's book <a href="http://www.lulu.com/product/paperback/an-uncertain-thing-volume-i/13383902"><em>An Uncertain Thing: A History of Childhood in the Western World</em></a> is now available, and that Volumes 2 and 3 should appear shortly. Many thanks to <a href="http://weblog.latte.ca/amy">Amy Brown</a> for all her editorial work.
 

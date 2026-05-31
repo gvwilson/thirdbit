@@ -1,6 +1,7 @@
 ---
 title: Novelty, Efficiency, and Trust
 date: 2013-01-28
+category: software research education
 original: swc
 ---
 

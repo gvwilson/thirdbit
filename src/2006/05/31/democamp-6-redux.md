@@ -1,6 +1,7 @@
 ---
 title: "DemoCamp 6 redux"
 date: 2006-05-31
+category: personal research
 ---
 Last night's DemoCamp 6 was a little bumpier than usual: the organizer, <a href="http://davidcrow.ca/">David Crow</a>, was unwell, so <a href="http://www.radiantcore.com/">Joey</a> and <a href="http://www.radiantcore.com/">Jay</a> stepped in as MCs, and then the A/V system went <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL</a> on us.  Nevertheless, the demos were very entertaining:
 <ul>

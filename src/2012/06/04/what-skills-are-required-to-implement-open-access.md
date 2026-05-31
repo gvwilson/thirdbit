@@ -1,5 +1,6 @@
 ---
 date: 2012-06-04
+category: research education writing
 original: swc
 title: What Skills Are Required to Implement Open Access?
 ---

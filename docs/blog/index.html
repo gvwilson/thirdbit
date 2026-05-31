@@ -27,8 +27,7 @@
   <div class="nav-right">
     <a href="../about/">about</a>
     <a href="../blog/">blog</a>
-    <a href="../selected/">selected</a>
-    <a href="../talks/">talks</a>
+<a href="../talks/">talks</a>
     <a href="../packages/">packages</a>
     <a href="../bib/">bibliography</a>
     <a href="../fiction/">fiction</a>
@@ -38,6 +37,23 @@
       
 <h1>Blog</h1>
 
+
+<table class="centered">
+  <tbody>
+    <tr>
+      <td><a href="../anecdote/">anecdote</td>
+      <td><a href="../community/">community</td>
+      <td><a href="../education/">education</td>
+      <td><a href="../favorite/">favorite</td>
+      <td><a href="../personal/">personal</td>
+      <td><a href="../research/">research</td>
+      <td><a href="../sdgc/">sdgc</td>
+      <td><a href="../society/">society</td>
+      <td><a href="../software/">software</td>
+      <td><a href="../writing/">writing</td>
+    </tr>
+  </tbody>
+</table>
 
 <table class="centered">
   <tbody>
@@ -80,6 +96,109 @@
   </tbody>
 </table>
 
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/05/31/sojourn-time/">
+      Sojourn Time
+    </a>
+  </h2>
+  <p><time datetime="2026-05-31" class="post-date">2026-05-31</time></p>
+  <p>How long does a customer actually spend in the system?
+The previous scenario measured $L$, the mean number of customers in the system at any moment. This scenario measures $W$, the mean time a single customer spends from arrival to departure. This is called the <em>sojourn time</em>, <em>residence time</em>, or <em>response time</em>, and has two components:</p>
+<ul>
+<li>$W_q$: time spent waiting in the queue because the server is busy.</li>
+<li>$W_s$: time spent in service while the server is working on this customer.</li>
+</ul>
+<p>$$W = W_q + W_s$$</p>
+<h2>The Surprising Finding</h2>
+<p>For an M/M/1 queue, the mean sojourn time is:</p>
+<p>$$W = \frac{1}{\mu(1 - \rho)}$$</p>
+<p>This blows up as $\rho \to 1$, just like $L$. But the split between waiting and service shifts dramatically as load increases.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$\rho$</th>
+<th style="text-align: center;">$W_q$ (wait)</th>
+<th style="text-align: center;">$W_s$ (service)</th>
+<th style="text-align: center;">$W$ (total)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">0.11</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.11</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">2.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">0.9</td>
+<td style="text-align: center;">9.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">10.00</td>
+</tr>
+</tbody>
+</table>
+<p>The mean service time $W_s = 1/\mu = 1.0$ is constant: the server always takes the same average time to serve one customer. All the extra delay at high load is pure waiting: $W_q = \rho/(\mu(1-\rho))$ grows without bound while $W_s$ stays fixed. At $\rho = 0.9$, 90% of a customer&rsquo;s time is spent waiting for the server to become free.</p>
+<p>This formula is closely connected to Little&rsquo;s Law:</p>
+<p>$$L = \lambda W$$</p>
+<p>Plugging in $W = 1/(\mu(1-\rho))$ and $\lambda = \rho\mu$:</p>
+<p>$$L = \rho\mu \cdot \frac{1}{\mu(1-\rho)} = \frac{\rho}{1-\rho}$$</p>
+<h2>Understanding the Math</h2>
+<h3>Why $W_s = 1/\mu$ regardless of $\rho$</h3>
+<p>Service time is drawn from an exponential distribution with rate $\mu$, so its mean is $1/\mu$. This is a property of the distribution, not of the queue. No matter how busy the server is, once it starts serving you it takes on average $1/\mu$ time.</p>
+<h3>Deriving $W_q$</h3>
+<p>Since $W = W_q + W_s$ and $W_s = 1/\mu$:</p>
+<p>$$W_q = W - W_s = \frac{1}{\mu(1-\rho)} - \frac{1}{\mu}
+      = \frac{1}{\mu}\left(\frac{1}{1-\rho} - 1\right)
+      = \frac{1}{\mu} \cdot \frac{\rho}{1-\rho}
+      = \frac{\rho}{\mu(1-\rho)}$$</p>
+<p>Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.</p>
+<h3>Units check</h3>
+<p>$\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little&rsquo;s Law to a real problem.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/05/31/ai-research-questions/">
+      Three Research Questions About AI
+    </a>
+  </h2>
+  <p><time datetime="2026-05-31" class="post-date">2026-05-31</time></p>
+  <p><a href="https://empirical-software.engineering/">Sebastian Baltes</a> recently asked,
+&ldquo;In your view, what don&rsquo;t we know about software development with agentic AI tools (but should)?
+To me, &lsquo;know&rsquo; means proper empirical evidence.
+Not &lsquo;some random dude wrote a blog post about it&rsquo;.&rdquo;
+Here are my answers:</p>
+<ol>
+<li>
+<p>What heuristics developers use to evaluate claims about AI,
+    i.e., how do they decide which claims are believable and which aren&rsquo;t.
+    (Note that I&rsquo;m not asking which claims they believe, but rather how they decide.)</p>
+</li>
+<li>
+<p>How much of the discussion in Sadowski &amp; Zimmermann (eds)
+    <a href="https://isbnsearch.org/isbn/9781484242209">Rethinking Productivity in Software Engineering</a> (2019)
+    has proven to be relevant/useful since the AI tidal wave hit?
+    I.e., were researchers thinking about the right things seven years ago?
+    (I hope that will give us an idea of how much of what&rsquo;s being said now
+    is likely to prove useful in hindsight a few years in the future.)</p>
+</li>
+<li>
+<p>Which of the tools requested in <a href="https://cabird.github.io/AI_where_it_matters/">What Developers <em>Actually</em> Want From AI</a>
+    would we be able to evaluate if they magically appeared tomorrow?
+    I.e., for which ones would we be able to say,
+    &ldquo;Here&rsquo;s what impact it actually has on the development process&rdquo;
+    with some degree of reliability?</p>
+</li>
+</ol>
+</article>
 
 <article class="post">
   <h2 class="post-title">
@@ -344,347 +463,6 @@ than it does with putting tires on a family car.</p>
     I need to push myself on this.</p>
 </li>
 </ol>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/21/enshittification/">
-      Enshittification
-    </a>
-  </h2>
-  <p><time datetime="2026-05-21" class="post-date">2026-05-21</time></p>
-  <p>In 2005, a Dutch startup called Booking.com offered hotels a deal:
-list your rooms on our platform for a 12% commission,
-and we will send you customers you would not otherwise reach.
-Hotels signed up;
-travelers followed, because the inventory was there,
-and by the early 2010s,
-Booking.com was the dominant hotel search platform across Europe and much of Asia.</p>
-<p>Then the commissions started climbing.
-By 2019, many hotels were paying 25-30% per booking,
-plus additional fees for &ldquo;preferred placement&rdquo; near the top of search results.
-Hotels that declined to pay for placement found themselves buried behind those that did.
-The traveler experience degraded too:
-search results increasingly reflected who had paid for prominence,
-not which hotel best matched the search.</p>
-<p>Hotels understood what had happened,
-but they were locked in.
-Their repeat customers now booked through Booking.com rather than directly,
-because that was where travelers looked.
-A hotel that left the platform did not take its customers with it—those
-relationships belonged to the platform.
-Leaving meant losing access to a market the platform now controlled.</p>
-<p>Cory Doctorow named this pattern enshittification.
-A platform enters a market by offering a service below cost to build a user base.
-Once users are locked in,
-it begins subsidizing business customers,
-using the captive user base as leverage.
-Once business customers are also locked in,
-it harvests both by
-degrading service quality,
-raising prices,
-and extracting the maximum value from a market it now controls.
-The platform can do this because the switching costs that lock users in
-also protect it from competitive consequences.</p>
-<p>Enshittification depends on two things:
-network effects and structural lock-in.
-Neither is specific to digital platforms.
-The record club Columbia House ran the same play in a different era.
-Launched in the 1950s in the United States and Canada
-and later extended to the United Kingdom, Australia, and Brazil,
-it offered new members twelve records or cassettes for a penny.
-The first transaction was a real deal.
-The extraction came later:
-members committed to purchasing eight more titles at &ldquo;regular club prices,&rdquo;
-which were two to three times the retail price of the same albums in a shop.
-If a member forgot to decline the monthly selection,
-it arrived automatically and the cost appeared on their bill.
-The penny offer built the membership;
-the commitment structure extracted the value.
-Columbia House recruited around sixteen million members in the United States alone
-before the model collapsed when digital music eliminated the inventory advantage.</p>
-<div class="callout">
-<p>In 1986, a corporation better known for making women&rsquo;s underwear
-acquired JanSport and, over the following decades,
-bought nearly every backpack brand with a reputation for durability.
-Controlling more than half the US backpack market,
-it had no competitive pressure to maintain quality.
-Fabric thickness dropped, cheaper zippers replaced better ones, and stitching density fell.
-The products looked identical on the shelf;
-customers discovered what they had actually bought when the stitching pulled apart at the stress points.</p>
-<p>JanSport continued to advertise a lifetime warranty,
-and the suggestion &ldquo;just use the warranty&rdquo; sounds entirely reasonable.
-In practice, using it required paying $12 to $25 in return shipping,
-waiting three to six weeks,
-and arguing that a failure qualified as a &ldquo;defect in materials and workmanship&rdquo;
-rather than &ldquo;normal wear and tear.&rdquo;
-(The warranty language was not incidental;
-it was written to exclude precisely the kind of failure
-that was now designed into the product.)
-One customer,
-when told their zipper failure was wear and tear,
-got quotes of $50 to $100 from local tailors,
-then bought a used bag at a thrift store for four dollars rather than a new one.</p>
-</div>
-<p>Grab, the ride-hailing and delivery platform dominant across eight countries in Southeast Asia,
-followed the same trajectory at scale.
-It entered markets including Malaysia, Indonesia, Vietnam, Thailand, and the Philippines
-with driver incentives and passenger subsidies
-that made rides cheaper than local alternatives.
-It acquired Uber&rsquo;s Southeast Asian operations in 2018,
-eliminating its main competitor outright.
-With competition gone,
-driver commissions rose and passenger fees increased.
-The platform began requiring restaurants and drivers to pay for placement
-in its food-delivery and services listings.
-The pattern was identical to Booking.com&rsquo;s,
-conducted in markets where regulatory capacity to respond was considerably thinner.</p>
-<p>Investor dynamics accelerate enshittification.
-Platforms in their subsidy phase operate at significant losses,
-funded by venture capital in expectation of eventual monopoly returns.
-Once the platform achieves dominance,
-those investors demand extraction.
-Losses during the subsidy phase are booked as investment;
-extraction during the harvest phase is booked as profit.
-The users who benefited from below-cost service in year one
-fund those returns in year ten.</p>
-<p>Antitrust enforcement has provided limited relief.
-Because acquisitions of potential competitors are evaluated on
-whether they raised consumer prices immediately—not
-whether they reduced competition structurally—dominant platforms can acquire dozens of rivals
-before those rivals threaten their market share.
-The result is that enshittification faces no real competitive check:
-alternatives are acquired or driven out during the subsidy phase.</p>
-<p>Two structural interventions <em>have</em> produced results.
-The European Union&rsquo;s Digital Markets Act,
-which took effect in 2024,
-requires platforms designated as &ldquo;gatekeepers&rdquo;
-(those with market capitalizations above €75 billion
-or monthly user bases above 45 million in Europe)
-to allow interoperability with competing services,
-to refrain from self-preferencing their own products in search results,
-and to allow users to uninstall pre-installed software.
-Fines for non-compliance reach 20% of global revenue.
-The act is the first regulatory framework
-designed specifically around the leverage that platform dominance creates,
-rather than around the consumer prices those platforms charge.</p>
-<p>India&rsquo;s Unified Payments Interface uses a different model:
-intervene before dominance rather than after.
-Instead of regulating private platforms that have already achieved lock-in,
-India built public payment infrastructure
-that any platform can connect to on equal terms.
-Google Pay, PhonePe, and Paytm compete on the same rails;
-none owns the customer relationship—that belongs to the user&rsquo;s bank account.
-No single platform can raise fees on the underlying infrastructure
-because the infrastructure is public.
-Brazil&rsquo;s Pix system follows similar principles,
-as do comparable approaches adopted by central banks in Ghana and Sri Lanka.
-The question today is not whether enshittification can be stopped,
-but why regulators in Canada, the US, and elsewhere choose not to stop it.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<dl>
-<dt><span id="Doctorow2022">Doctorow2022</span></dt>
-<dd>Cory Doctorow and Rebecca Giblin:
-<em>Chokepoint Capitalism: How Big Tech and Big Content Captured Creative Labor Markets and How We&rsquo;ll Win Them Back</em>.
-Beacon Press,
-2022,
-<a href="https://isbnsearch.org/isbn/9780807007068">9780807007068</a>.</dd>
-<dt><span id="Doctorow2025">Doctorow2025</span></dt>
-<dd>Cory Doctorow:
-<em>Enshittification: Why Everything Suddenly Got Worse and What to Do About It</em>.
-Farrar, Straus and Giroux,
-2025,
-<a href="https://isbnsearch.org/isbn/9780374619329">9780374619329</a>.</dd>
-<dt><span id="Sapp2026">Sapp2026</span></dt>
-<dd>Keyana Sapp:
-&ldquo;Your Backpack Got Worse On Purpose.&rdquo;
-<em>Worse on Purpose</em>,
-March 23, 2026,
-<a href="https://www.worseonpurpose.com/p/your-backpack-got-worse-on-purpose">https://www.worseonpurpose.com/p/your-backpack-got-worse-on-purpose</a>.</dd>
-<dt><span id="Shapiro1999">Shapiro1999</span></dt>
-<dd>Carl Shapiro and Hal R. Varian:
-<em>Information Rules: A Strategic Guide to the Network Economy</em>.
-Harvard Business School Press,
-1999,
-<a href="https://isbnsearch.org/isbn/9780875848631">9780875848631</a>.</dd>
-</dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/20/womens-work/">
-      Women's Work
-    </a>
-  </h2>
-  <p><time datetime="2026-05-20" class="post-date">2026-05-20</time></p>
-  <p>On October 24, 1975,
-ninety percent of Icelandic women refused to work at paid jobs,
-in the home,
-or anywhere else.
-They called it a &ldquo;day off&rdquo;,
-though what they demonstrated was how much labor had been invisible.
-Schools closed,
-factories shut down,
-flights were cancelled,
-and men brought their children to work because there was no one else to care for them.
-The economy of Iceland effectively stopped.
-The women named what had been unnamed:
-everything they did without wages was work,
-and its absence was catastrophic.</p>
-<p>The standard way economists measure an economy is through gross domestic product.
-GDP counts what is bought and sold,
-but not what is done without money changing hands.
-A woman who cooks dinner for her family contributes nothing to GDP,
-but if she hires someone to cook dinner
-and goes out to work herself,
-GDP goes up twice:
-once for her wages and once for the cook&rsquo;s.
-The economic system counts the second arrangement as more productive.
-This is not an oversight.
-Marilyn Waring,
-a New Zealand politician and economist,
-spent years documenting the specific decisions embedded in the UN System of National Accounts
-that made domestic and care labor invisible.
-Her 1988 book showed that these decisions were choices
-made by people who had never performed most of the work in question.</p>
-<p>The consequences of that invisibility are far-reaching.
-Women have fewer pension entitlements because pension systems are built on formal wage labor.
-They have less access to credit because banks valued declared income,
-not the labor of raising children or caring for elderly parents.
-When Waring raised these issues in the New Zealand parliament,
-she was told that economics was a technical matter and not a feminist one.
-She pointed out that someone had already decided that
-preparing food counted as productive activity only if someone received a wage for it.
-If that is not a political decision,
-it is hard to know what is.</p>
-<p>In Japan,
-the term <em>sengyo shufu</em>—&ldquo;full-time housewife&rdquo;—became widespread only in the postwar period,
-when rapid industrialization in the 1950s and 1960s created male industrial jobs
-and pushed women into domestic roles.
-The image of the <em>sengyo shufu</em> as a traditional Japanese institution
-is largely the invention of corporations and government policy
-from a period of perhaps thirty years.
-Before industrialization,
-Japanese women had worked extensively in agriculture,
-small business,
-and textile production.
-The &ldquo;tradition&rdquo; was assembled recently under identifiable political and economic pressure.</p>
-<p>The sociologist Arlie Hochschild spent years tracking what happened
-when both partners in a household entered paid employment,
-which most households in wealthy countries had done by the 1980s.
-She found that women in dual-income couples
-were coming home and working a second shift of domestic labor
-while their partners rested.
-Over the course of a year,
-the average woman in her study worked roughly a full additional month compared to her partner.
-Hochschild called this the second shift,
-and the pattern was consistent across Europe,
-Australia,
-South Korea,
-and Latin America:
-when women entered paid work,
-they tended to add paid hours on top of unpaid hours
-rather than trading one for the other.</p>
-<p>Hochschild also found that
-the women she interviewed had largely rationalized the inequality
-by developing what she called &ldquo;family myths&rdquo;:
-stories about why the division made sense in their particular case.
-The myths varied but the pattern was constant:
-women interpreted inequitable arrangements as choices,
-and blamed themselves when the choices felt unsustainable.
-This is the same mechanism by which the &ldquo;passion principle&rdquo; (discussed <a href="@/labor/">earlier</a>) operates:
-exploitation is most durable when those experiencing it explain it to themselves as freedom.</p>
-<p>The historian Silvia Federici argued that the witch trials of the sixteenth and seventeenth centuries,
-during which tens of thousands of women were murdered,
-were primarily a way to discipline female labor.
-The women most often accused were those who lived outside household structures,
-like widows, healers, and midwives.
-The trials coincided with the enclosure of common land
-and the creation of a landless wage-labor force.
-Federici showed that enclosing women&rsquo;s reproductive and domestic labor inside the household,
-unpaid and culturally devalued,
-was an economic project as much as a cultural one;
-it produced a class of workers whose labor was essential and whose compensation was called love.</p>
-<p>Today,
-the global economy depends on nursing, childcare, eldercare, and domestic service,
-which are all systematically undervalued because they are feminized.
-The workers are underpaid not because care work is unskilled
-but because the labor market for care work is structured differently
-from the labor market for work that men predominantly perform.
-In India,
-the national health system relies heavily on informal women&rsquo;s health workers,
-the ASHAs,
-who are classified as volunteers rather than employees
-and receive &ldquo;incentive payments&rdquo; rather than wages.
-This is not an oversight;
-it is a legal and administrative decision with direct economic consequences
-for nearly a million women.
-The ASHAs have organized and struck repeatedly for employee status and wage protections.
-The government has consistently refused.</p>
-<p>Platform labor has reproduced the same structure with new interfaces.
-Apps coordinating domestic cleaning,
-childcare,
-elder companionship,
-and household maintenance present themselves as markets
-connecting independent contractors with clients.
-What they actually do is take informal,
-feminized labor that was already undervalued
-and formalize it while keeping the wages and protections of the informal economy.
-The worker bears the risk,
-and the platform takes the margin;
-the work is performed overwhelmingly by women
-(often migrant women)
-working for rates that reflect the historical devaluation of care.</p>
-<p>Invisible labor is endemic to tech companies.
-Research has shown again and again that
-women perform more of the relational maintenance that holds teams together,
-such mentoring junior colleagues and managing interpersonal conflict,
-without receiving credit for it in performance reviews or promotion decisions.
-A study of a large software company found that women spent significantly more time
-on what the researchers called &ldquo;non-promotable tasks&rdquo;
-that benefited the organization
-but was invisible to the criteria used to evaluate careers.
-When it was pointed out that women were doing more of this work,
-the response from management was to encourage everyone to do less of it,
-which predictably meant that women continued to do it
-and men continued not to.</p>
-<p>Five years after the 1975 strike in Iceland,
-Iceland elected its first female president,
-Vigdís Finnbogadóttir,
-who went on to serve four terms.
-The organizing that preceded the strike built the political infrastructure
-that made the election possible.
-Fifty years on,
-though,
-the gap between men&rsquo;s and women&rsquo;s wages in Iceland has not closed,
-and women still perform more unpaid domestic labor.</p>
-<p><em><a href="../sdgc/">see the whole series</a> · <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a></em></p>
-<dl>
-<dt><span id="Federici2004">Federici2004</span></dt>
-<dd>Silvia Federici:
-<em>Caliban and the Witch: Women, the Body and Primitive Accumulation</em>.
-Autonomedia,
-2004,
-<a href="https://isbnsearch.org/isbn/9781570270598">9781570270598</a>.</dd>
-<dt><span id="Folbre2001">Folbre2001</span></dt>
-<dd>Nancy Folbre:
-<em>The Invisible Heart: Economics and Family Values</em>.
-The New Press,
-2001,
-<a href="https://isbnsearch.org/isbn/9781565846555">9781565846555</a>.</dd>
-<dt><span id="HochschildMachung1989">HochschildMachung1989</span></dt>
-<dd>Arlie Hochschild and Anne Machung:
-<em>The Second Shift: Working Families and the Revolution at Home</em>.
-Viking,
-1989,
-<a href="https://isbnsearch.org/isbn/9780142002926">9780142002926</a>.</dd>
-<dt><span id="Waring1988">Waring1988</span></dt>
-<dd>Marilyn Waring:
-<em>If Women Counted: A New Feminist Economics</em>.
-Harper &amp; Row,
-1988,
-<a href="https://isbnsearch.org/isbn/9780062509338">9780062509338</a>.</dd>
-</dl>
 </article>
 
 
