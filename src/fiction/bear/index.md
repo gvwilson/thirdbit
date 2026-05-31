@@ -1,8 +1,8 @@
-—
+---
 title: "The Princess and the Bear"
 template: page
 fiction: true
-—
+---
 
 <ol id="toc"></ol>
 
@@ -641,7 +641,7 @@ arms folded.
 "Ah… Delicious. My compliments on your blend."
 The troll stood,
 adjusted the glasses perched on his snub nose,
-and dropped a few coppers on the table.
+and dropped a few winkles on the table.
 "I will *definitely* return."
 Ignoring the tea blender's muttered curse,
 he sauntered out into the waning afternoon light.
@@ -1476,545 +1476,684 @@ and was asleep by his third breath.
 
 ## Chapter 4: A Visit to the Market
 
-The prince woke at dawn, still in his clothes, and groaned. He'd had
-a restless night—when Edward the Dog's memories hadn't been burbling
-in his head like a bad bean casserole, Captain Jigme's calm smile
-had mocked him. Loghan's relations with its neighbor had been shaped
-by half a dozen royal marriages, almost as many border wars, and the
-ever-present headache of the Blight. Sergeant Gyalpa was right:
-choosing a rebel who had almost toppled the throne as consul was a
-deliberate insult, but why? Why now? And why Apple Bridge? Not for
-the first time, he wished someone who actually knew what they were
-doing was there to help him figure out what to do.
+The prince woke at dawn, still in his clothes, and groaned.
+He'd had a restless night—when
+Edward the Dog's memories hadn't been burbling in his head like undercooked beans,
+Consul Jigme's smile had mocked him.
+Loghan's relations with Chaghan had been shaped by half a dozen royal marriages,
+almost as many border wars,
+and both kingdoms' need to contain the Blight.
+Sergeant Gyalpa was right:
+choosing a rebel who had tried to topple the throne as consul was a deliberate insult,
+but why?
+Why now?
+And why Apple Bridge?
+Not for the first time,
+he wished it was someone else's problem,
+or that magicians could read minds in real life
+the way they could in stories.
 
 He spent five minutes brushing the taste of dinner off his teeth
-before settling back at his desk. Almost immediately, someone knocked
-on the door to his suite. "Enter," he said loudly.
+before settling back at his desk.
+Almost immediately,
+someone knocked on his door.
+"Enter," he said loudly.
 
-Sergeant Inambu closed the door behind her and saluted. "Your
-Highness," she said, eyes downcast.
+Sergeant Inambu closed the door behind her and saluted.
+"Your Highness," she said, eyes downcast.
 
-"Sergeant." Prince Thokmay gestured at stool next to his desk. "Thank
-you for coming so quickly last night. Any further thoughts on why
-Edward keeps bothering us?"
+"Sergeant."
+Prince Thokmay gestured at stool next to his desk.
+"Thank you for coming so quickly last night.
+Any further thoughts on why Edward keeps bothering us?"
 
-"No, Your Highness," she said, still standing. She looked thin, the
-prince thought, but she always had. "Most only I know along ghosts is
-putting them to rest. Best be to ask along His Majesty's in the
-capital, see by any there can make advice."
+"No, honored," she said, still standing.
+She looked drawn,
+the prince thought,
+but she always had.
+"Most only I know along ghosts is putting them to rest.
+Best be to ask along His Majesty's in the capital,
+see by any there can make advice."
 
-"Of course—it's in today's letter. Now, Sergeant Gyalpa tells me
-you went further into the Blight than planned?"
+"Of course—it's in today's letter.
+Now,
+Sergeant Gyalpa tells me you went further into the Blight than planned?"
 
-The garrison's magician nodded. "Yes, Your Highness. We found tracks
-along by where the trees are all done to glass. Half a dozen horses,
-I'd count, well shod, and them drawing a cart. I figured I'd best go
-on to see by where the led."
+The garrison's magician nodded.
+"Yes, honored.
+We found tracks along by where the trees are all done to glass.
+Half a dozen horses,
+I'd count, well shod,
+and them drawing a cart.
+I figured I'd best go on to see by where the led."
 
 "Could it have been a patrol from Chaghan?"
 
-Sergeant Inambu hesitated. "Not much likely, Your Highness," she said
-after a moment. "If they were going to come along this far, they
-would have done with more trouble of themselves."
+Sergeant Inambu hesitated a moment.
+"Not much likely, Your Highness," she said.
+"If they were going to come along this far,
+they would have done make more trouble of themselves.
+And they would have had to come by along deeper than us.
+That would be months for their days."
 
-"I suppose so." He scribbled a note. "I'll have the guards in the Dog
-Market keep an eye out for anyone selling souvenirs for the next few
-days. What about the nest? Was it still burning?"
+"I suppose so." He scribbled a note.
+"I'll have the guards in the Dog Market keep an eye out for anyone selling souvenirs
+for the next few days.
+What about the nest?
+Was it still burning?"
 
-"Yes, Your Highness, although we saw something less of smoke than we
-did time gone."
+"Yes, honored,
+although we saw something less of smoke than we did time gone."
 
-"Hm. Maybe whatever was in those eggs is finally done." The nest in
-question had appeared one night on a farm on the edge of the Blight.
-In it, the farmer and her wife had found four mottled eggs the size of
-pumpkins. If they had obeyed the law and called in soldiers, they
-might still be alive. Instead, afraid that their land might be judged
-Blighted, they had taken a hammer to one of the eggs. The explosion
-had woken the neighbors, and the choking smoke had made the southern
-road into Apple Bridge impassable for months.
+"Hm. Maybe whatever was in those eggs is finally done."
+The nest in question had appeared one night on a farm on the edge of the Blight.
+In it,
+the farmer and her wife had found four mottled eggs the size of pumpkins.
+If they had obeyed the law and called in soldiers,
+they would probably have survived.
+Instead,
+afraid that their land might be judged Blighted,
+they had taken a hammer to one of the eggs.
+The explosion had woken the neighbors,
+and the choking smoke had made the southern road into Apple Bridge impassable for months.
 
-That had been ten years ago. The fire was still burning.
+That had been ten years ago.
+The fire was still burning.
 
-"Was there anything else?" the prince asked. When Sergeant Inambu
-shook her head, he made another note. "All right, put it in the log."
+"Was there anything else?" the prince asked.
+When Sergeant Inambu shook her head,
+he made another note.
+"All right, I'll put it in the log."
 
-"Yes, Your Highness. Will that be all?"
+"Yes, honored. Will that be all?"
 
-"Almost. Our guest last night—Prince Shidargu." He paused a moment,
-searching for words. "He's up to something. I don't know what, not
-yet, but he's here for a reason, and I want to know what it is.
+"Almost. Our guest last night—the new consul, Jigme."
+He paused a moment, searching for words.
+"He's up to something.
+I don't know what, not yet,
+but he's here for a reason,
+and I want to know what it is.
 Anything you can do to help find out?"
 
-The sergeant hesitated a moment before replying. "Could try to listen
-in from away, Your Highness, but I'd need be told who he'd most
-soonest kiss to make that one work. And…" She shrugged slightly.
+The sergeant hesitated a moment before replying.
+"Could try to listen in from away, honored,
+but I'd need be told who he'd most soonest kiss to make that one work.
+And…"
+She shrugged slightly.
 "Don't have in me but to make that do once or twice more."
 
-The prince nodded. "Then let's save that one for 'in case'." Every
-time a magician bent the universe out of shape, they had to give up
-some part of themselves to pay for it. Whether it was going blind to
-call a storm, or being unable to sleep under the same roof twice in
-exchange for healing a sick child, there was always a price.
+The prince nodded.
+"Then let's save that one for 'in case'."
+Every time a magician bent the universe out of shape,
+they had to give up some part of themselves to pay for it.
+Whether it was going blind in one eye to call a storm,
+or being unable to sleep under the same roof twice
+in exchange for healing a sick child,
+they always paid a price for power.
+That was,
+as Learned Mope was fond of pointing out,
+the biggest difference between kings and magicians,
+and why the former ruled the world instead of the latter.
 
-"Thank you, Your Highness," Sergeant Inambu said. She hadn't looked
-directly at him the whole time she had been in the room. He suspected
-that she never would, not unless she was willing to let some magic she
-had worked long ago fail. But that wasn't the sort of thing you asked
-a magician, not even if you were a prince, so he just returned her
-salute and turned back to the papers on his desk.
+"Thank you, honored," Sergeant Inambu said.
+She hadn't looked directly at him the whole time she had been in the room.
+He suspected that she never would,
+not unless she was willing to let some magic she had worked long ago fail.
+But that wasn't the sort of thing you asked a magician,
+not even if you were a prince,
+so he just returned her salute and turned back to the papers on his desk.
 
-Meanwhile, a few corridors away, Noxy was wiping cold water off her
-face. *They could have told me that 'first thing' meant six o'clock
-in the morning,* she grumbled to herself. Dolly hadn't actually
-apologized for waking Noxy up so early—you probably weren't supposed
-to apologize for doing what royalty asked you to—but she had looked
-sympathetic as Noxy braided her hair and pulled on the dark pants and
-warm patterned sweater the troll had brought. The house staff were
-apparently still trying to repair her coat where the flying branch had
-torn it. She suspected it would look better than new by the time she
-saw it again.
+Meanwhile,
+a few corridors away,
+Noxy was wiping cold water off her face.
+*They could have told me that 'first thing' meant six o'clock in the morning,*
+she grumbled to herself.
+Dolly hadn't actually apologized for waking Noxy up
+so early—you probably weren't supposed to apologize for doing what royalty asked you to—but
+she had looked sympathetic as Noxy braided her hair
+and pulled on the dark pants and warm patterned sweater the troll had brought.
+The house staff were apparently still trying to repair the tear in her coat.
+She suspected it would look better than new by the time she saw it again.
 
-"You have your boots on!" Princess Ogmin exclaimed when Noxy reached
-the courtyard.
+"You have your boots on!"
+Princess Ogmin exclaimed when Noxy reached the courtyard.
 
-Noxy couldn't help but smile. "Yes I do. And I have a hole in my
-stomach. Shall we go and get some breakfast?"
+Noxy couldn't help but smile.
+"Yes I do.
+And I have a hole in my stomach.
+Shall we go and get some breakfast?"
 
 Princess Ogmin took Noxy's arm and chattered happily as she half-led,
-half-dragged the cloudherd through the waking streets. Shopkeepers
-were opening their shutters and sweeping their stoops. They smiled
-and bowed their heads as the princess passed by, but more than once
-Noxy saw their smiles turn to scowls as they caught sight of Dolly.
+half-dragged the cloudherd through the waking streets.
+Shopkeepers were opening their shutters and sweeping their stoops.
+They smiled and bowed their heads as the princess passed by,
+but more than once Noxy saw their smiles turn to scowls
+as they caught sight of Dolly.
 
-The troll didn't seem to notice their looks. *Or maybe she just
-doesn't let it show,* Noxy thought. When the princess darted off to
-coo over a tray of wooden prayer bells, Noxy slowed down and fell in
-step beside the troll. "She's quite a handful," Noxy said.
+The troll didn't seem to notice their looks.
+*Or maybe she just doesn't let it show,* Noxy thought.
+When the princess darted off to coo over a tray of wooden prayer bells,
+Noxy slowed down and fell in step beside the troll.
+"She's quite a handful," Noxy said.
 
-"Oh, you get used to it," Dolly replied, smiling. "Reminds me of my
-husband sometimes."
+"Oh, you get used to it," Dolly replied, smiling.
+"Reminds me of my husband sometimes."
 
 "Is he here in Apple Bridge?"
 
-Dolly's smile slipped. "No, he passed away years ago. He wasn't
-Gifted, but he was as sweet as a ripe apple." Her smile turned
-wistful. "Having a husband and a little one to look after was plenty
-of training for Her Highness."
+Dolly's smile slipped.
+"No, he passed away years ago.
+He wasn't Gifted, but he was as sweet as a ripe apple."
+Her smile turned wistful.
+"Having a husband and a little one to look after was plenty of training
+for taking care of Her Highness."
 
-Feeling awkward at Dolly's tone, Noxy gestured at the princess. "Is
-she always this happy?"
+Feeling awkward at Dolly's tone, Noxy gestured at the princess.
+"Is she always this happy?"
 
-"Oh no, not at all. When His Highness is away, she frets something
-terrible. And the first few weeks we were here, oh, I couldn't get her
-out of the house, especially if there was any kind of commotion." The
-troll shook her head. "She does well these days when she
-concentrates, but everything goes to pieces in her head if people
-start shouting."
+"Oh no, not at all.
+She frets something terrible When His Highness is away.
+And the first few weeks we were here, oh,
+couldn't get her out of the house,
+especially if there was any kind of commotion."
+The troll shook her head.
+"She does well these days when she concentrates,
+but everything goes to pieces in her head if people start shouting."
 
-The princess had lost interest in the prayer bells and moved on to a
-shop selling brightly-dyed scarves from Ini Bantang, each one twice as
-long as she was tall. The shopkeeper was trying to show her how to
-wrap one around her arms and body. The frown of concentration on her
-face was almost painful to see.
+The princess had lost interest in the prayer bells
+and moved on to a shop selling brightly-dyed scarves from Ini Bantang,
+each one twice as long as she was tall.
+The shopkeeper was trying to show her how to wrap one around her arms and body.
+The frown of concentration on her face was almost painful to see.
 
-"And…" Noxy hesitated. "Has she always been…?"
+"And…" Noxy hesitated.
+"Has she always been…?"
 
-"Simple?" Dolly supplied gently. "Yes. It took a while for people to
-realize it, and when they did, well…" The troll shrugged. "Animals
-are used to having ungifted kin, but it's hard for humans. The king
-especially—she was his first-born, and parents always love their
-first something fierce."
+"Simple?" Dolly supplied gently.
+"Yes.
+It took a while for people to realize it,
+and when they did, well…"
+The troll shrugged.
+"Animals are used to having ungifted kin, but it's hard for humans.
+The king especially—she was his first-born,
+and parents always love their first something fierce."
 
-They eventually disentangled the princess and continued on to the
-market square. Farmers were setting out baskets of apples and onions,
-a Hett tinsmith was stoking the coals in his tiny portable forge, a
-pair of kite makers were squabbling over which of their wares to hang
-up, and a tailor was showing a new bolt of cloth to the portrait
-painter beside her. Noxy felt a sudden pang of homesickness—it was
-Yellowsday, which meant it would be market day back home in Stale
-too. It wouldn't be nearly as large—why, the whole village would
-practically fit inside the Dog Market—but it would have the same
-feeling about it, the same sense that if you turned the right corner
-or looked in the bottom of the right basket, you might find anything.
+They eventually disentangled the princess and continued on to the market square.
+Farmers were setting out baskets of apples and onions,
+a Brent tinsmith was stoking the coals in his tiny portable forge
+while a pair of kite makers squabbled over which of their wares to hang up,
+and a tailor was showing a new bolt of cloth to the portrait painter beside her.
+Noxy felt a sudden pang of homesickness—it was Yellowsday,
+which meant it would be market day back home in Stale too.
+It wouldn't be nearly as large—the whole village would fit inside the Dog Market—but
+it would have the same feeling about it,
+the same sense that if you turned the right corner
+or looked in the bottom of the right basket,
+you might find anything.
 
-"Beaver tails!" Princess Ogmin squealed, yanking Noxy's arm. The smell
-of the crispy sugar-coated pancakes crept into Noxy's nostrils like an
-old cat climbing into a warm bed, making her stomach rumble.
+"Beaver tails!" Princess Ogmin squealed, yanking Noxy's arm.
+The smell of the crispy sugar-coated pancakes
+crept into Noxy's nostrils like an old cat climbing into a warm bed,
+making her stomach rumble.
 
-The baker bowed to the princess, then bowed again when she introduced
-Noxy as "my friend who can fly". Making a fist, he stuck two long
-skewers between his fingers and then speared a beaver tail and
-dribbled some cinnamon on it. "More please!" Princess Ogmin said,
-clapping her hands. The baker shook on more, only stopping when Dolly
-said, "It's supposed to be a bit of cinnamon with breakfast, Your
-Highness, not a bit of breakfast with cinnamon."
+The baker bowed to the princess,
+then bowed again when she introduced Noxy as "my friend who can fly".
+Making a fist,
+he stuck two long skewers between his fingers,
+speared a beaver tail,
+and dribbled some cinnamon on it.
+"More, please!" Princess Ogmin said,
+clapping her hands.
+The baker shook on more,
+only stopping when Dolly said,
+"It's supposed to be a bit of cinnamon with breakfast, honored,
+not a bit of breakfast with cinnamon."
 
-He handed the skewered beaver tail to the princess, then quickly made
-up two more for Noxy and Dolly. The trio stood beside his stall,
-eating their way around the skewers so that they wouldn't get the
-sticky glaze on their hands. As they did so, a woman stepped out of a
-shop opposite them and began to take apart the shutters on its
-windows.
+He handed the skewered beaver tail to the princess,
+then made up two more for Noxy and Dolly.
+The trio stood beside his stall,
+eating their way around the skewers
+so that they wouldn't get the sticky glaze on their hands.
+As they did so,
+a woman stepped out of a shop opposite them
+and began to take apart the shutters on its windows.
 
-"What' 'e doing?" Princess Ogmin asked around a mouthful of beaver
-tail.
+"What' 'e doing?"
+Princess Ogmin asked around a mouthful of beaver tail.
 
-The baker grinned. "Ah, she's got ambitions, she has, Your Highness."
+The baker grinned.
+"Ah, she's got ambitions, she has, Your Highness."
 
-The princess swallowed. "Is that dangerous?" she asked anxiously.
+The princess swallowed.
+"Is that dangerous?" she asked anxiously.
 
-The baker laughed. "Can be, Your Highness, can be, but I don't think
-you need to worry along this one. Jokhang! Her Highness is wondering
-what you're about!"
+The baker laughed.
+"Can be, Your Highness, can be, but I don't think you need to worry along this one.
+Jokhang!
+Her Highness is wondering what you're about!"
 
-The woman stopped banging. "I'm putting in a proper glass window, Your
-Highness, if you please," she said. "So folks will be able to see such
-as I've got along by they go past my door. It has to be good for
-business, I reckon."
+The woman stopped banging.
+"I'm putting in a proper glass window, honored, if you please," she said.
+"So folks will be able to see such as I've got along by they go past my door.
+It has to be good for business, I reckon."
 
-Noxy had seen glass windows in shops in the capital. She thought they
-were beautiful, but Aft had sniffed and said that any merchant who
-trusted something that breakable to keep out thieves wouldn't be in
-business for long.
+Noxy had seen glass windows in shops in the capital.
+She thought they were beautiful,
+but Aft had sniffed and said that
+any merchant who trusted something that breakable to keep out thieves
+wouldn't have anything worth stealing for long.
 
-Princess Ogmin frowned. "I don't understand," she whispered.
+Princess Ogmin frowned.
+"I don't understand," she whispered.
 
-"Don't worry, dear," the troll said, patting her arm. "We'll come
-back in a few days and you'll see. Now, do you want some tea?"
+"Don't worry, dear," the troll said, patting her arm.
+"We'll come back in a few days and you'll see.
+Now, do you want some tea?"
 
-They spent the next half hour wandering. Noxy wasn't surprised that
-everyone seemed to know the princess. What did surprise her was the
-scowls and glares directed at Dolly whenever the princess wasn't
-looking. Trolls hadn't come into Stale at all until two years
-ago, when the prince and Ulfmaerr had struck a bargain with the local
-tribe. Since then they'd been regulars at the weekly market, trading
-their strength and whatever they'd gleaned from the forest for
-anything sweet or spicy. After seeing Gifted walking about freely in
-the capital, and meeting Dolly and Mope, she had expected—she wasn't
-quite sure what, but not this.
+They spent the next half hour wandering.
+Noxy wasn't surprised that everyone seemed to know the princess.
+What did surprise her was the scowls directed at Dolly
+whenever the princess wasn't looking.
+Trolls hadn't come into Stale at all until two years ago,
+when she and Alva had struck ther bargain.
+Since then a few of the local troop been regulars on Yellowsday,
+trading their strength and whatever they'd gleaned from the forest
+for anything sweet or spicy.
+After seeing Gifted walking about freely in the capital,
+and meeting Dolly and Mope,
+she had expected—she wasn't quite sure what, but not this.
 
-Casting about for something to say, Noxy asked, "Why do they call it
-the Dog Market?"
+Casting about for something to say, Noxy asked,
+"Why do they call it the Dog Market?"
 
-"Edward the Dog," Dolly said. She pointed to the wide stone steps at
-the far side of the market that led down to the river docks. A gray
-stone pillar stood beside them, on top of which was a life-sized
-statue of a something that Noxy guessed must be a dog.
+"Edward the Dog," Dolly said.
+She pointed to the wide stone steps at the far side of the market
+that led down to the river docks.
+A gray stone pillar stood beside them,
+on top of which was a life-sized statue of a something that Noxy guessed must be a dog.
 
-"He was the richest animal in the world," Dolly sighed. "When the dogs
-started dying, Edward bought all the medicine he could, but nothing
-worked. In the end, when he was sick, he had the rest set aside to
-build a school for the Gifted in the capital, the one that Mope went
-to. Then he came back here and waited for the end."
+"He was the richest animal in the world," Dolly sighed.
+"When the dogs started dying,
+Edward bought all the medicine he could, but nothing worked.
+In the end, when he was sick,
+he had the rest set aside to build a school for the Gifted in the capital,
+the one that Mope went to.
+Then he came back here and waited for the end."
 
 "That's really sad," Noxy said.
 
-Dolly nodded. "Some Gifted say there are still wolves up north, in
-Anuvatik, but I've never met anyone who has actually seen one. They're
-supposed to be beautiful."
+Dolly nodded.
+"Some Gifted say there are still wolves up north, in Anuvatik,
+but I've never met anyone who has actually seen one.
+They're supposed to be beautiful."
 
-"My grandmother remembers dogs from when she was little," Noxy
-said. "She showed me a picture of one once. I thought they looked kind
-of like skinny bears." She shivered suddenly despite the warmth of the
-sun. "It must have been horrible."
+"My grandmother remembers dogs from when she was little,"
+Noxy said.
+"She showed me a picture of one once.
+I thought they looked kind of like skinny bears."
+She shivered suddenly despite the warmth of the sun."
 
-"It's part of why His Highness and the soldiers patrol the Blight the
-way they do," Dolly said. "No-one knows what else the Pilots might
-have left behind."
+"It's part of why His Highness and the soldiers patrol the Blight the way they do,"
+Dolly said.
+"No-one knows what else the Pilots might have left behind."
 
 Noxy's eyes widened. "Left behind?"
 
-"Oh yes," Dolly nodded. "The dog plague came out of the Blight. Some
-smugglers brought it back in a jar from somewhere near Fast Lake. It
-didn't do anything to *them*, of course—it only killed dogs." She
-glanced at the princess to make sure she wasn't listening, then added,
-"That's part of why they're so worried about smugglers. If there's
-anything else like that—anything that might kill people instead of
-just animals—well, they'd rather be the ones to find it, wouldn't
-they?"
+"Oh yes," Dolly nodded.
+"The dog plague came out of the Blight.
+Some idiot brought it back in a jar from somewhere near Fast Lake.
+It didn't do anything to *them*, of course—it only killed dogs."
+She glanced at the princess to make sure she wasn't listening,
+then added,
+"That's part of why they're so worried about smugglers.
+If there's anything like that that might kill *people*,
+well,
+they'd rather be the ones to find it, wouldn't they?"
 
-As Noxy was digesting that, an angry voice near the market gate was
-answered by another. As others joined in, two men materialized out of
-the crowd. "Your Highness?" the first said. "Your Highness, I think
-it's time to go."
+As Noxy was digesting that,
+an angry voice near the market gate was answered by another.
+As others joined in,
+two men materialized out of the crowd.
+"Honored?" the first said.
+"Honored, I think it's time to go."
 
-Noxy blinked. It was Rinpa, the soldier who'd been with the prince
-yesterday. And the other man, the one keeping an eye on the crowd
-while Rinpa gently took the wicker windmill that the princess had been
-playing with out of her hands and gave it back to the stallkeeper, was
-Manpa. Both wore sleeveless leather vests and baggy gray trousers
-instead of their uniform jackets.
+Noxy blinked.
+It was Private Rinpa,
+the soldier who'd been with the prince yesterday.
+And the other man,
+the one keeping an eye on the crowd while Rinpa gently took
+a toy wicker windmill out of the princess's hand
+and gave it back to the stallkeeper,
+was his twin brother Manpa.
+Both wore sleeveless leather vests and baggy gray trousers instead of their uniform jackets.
 
 "Did I do something wrong?" Princess Ogmin asked plaintively.
 
-"No, no, no," Rinpa soothed. "It's just—how would you like to go
-down to the river and see the barges? Would you like that?"
+"No, no, no," Rinpa soothed.
+"It's just—how would you like to go down to the river and see the barges?
+Would you like that?"
 
-She glanced at Dolly, who nodded. "All right." She brightened.
+She glanced at Dolly, who nodded. "All right."
+She brightened.
 "They sell beaver tails there too!"
 
-As Rinpa steered the princess and Dolly toward the river steps and
-their guardian pillar, Noxy fell in beside Manpa. "What's going on?"
-she asked quietly.
+As Private Rinpa steered the princess and Dolly toward the river steps,
+Noxy fell in beside Private Manpa.
+"What's going on?"
+she asked.
 
-The soldier shook his head. "Somebody strung some farmer up along a
-lamp post last night. He's all right," he added hastily. "They
-didn't hang him or all, they just went along by roping him 'round and
-gagging him." His mouth twitched. "Without by leaving any clothes on
-him, folks say."
+The soldier shook his head.
+"Somebody strung some farmer up along a lamp post last night.
+He's all right," he added hastily.
+"They didn't hang him or all,
+they just went along by roping him 'round and gagging him."
+His mouth twitched.
+"Without by leaving any clothes on him."
 
-Noxy snorted. "Does that sort of thing happen a lot around here?"
+Noxy snorted.
+"Does that sort of thing happen a lot around here?"
 
-Manpa made a face. "Been come along three or four times, these last
-few months. Folk say it's smugglers settling scores, but this one
-swears he's nought to do along by that. Says whoever it was stole his
-horse, too, and now he's got to haul a wagon load of bricks back out
-along his own place by himself. We'd best away Her Highness before
-there's too much shouting, is all."
+Private Manpa made a face.
+"Been come along three or four times, these last few months.
+Folk say it's smugglers settling scores,
+but this one swears he's nought to do along by that.
+Says whoever it was stole his horse, too,
+and now he's got to haul a wagon load of bricks back out along his own place by himself.
+We'd best away Her Highness before there's too much shouting, is all."
 
-The soldiers stayed on either side of the princess as they walked to
-the river stairs. Princess Ogmin clapped her hands at the sight of a
-square-nosed river barge casting off to start the long journey down
-the Trout to the ocean. The boxes of dried apples, crates of apple
-jelly in heavy glass jars, and barrels of apple cider lashed down on
-its deck weighed it down so far that its gunwales were only a handspan
-above the water. Two men at its bow called, "Heyyup… hey!" to each
-other as they pushed the barge away from the dock with long iron-shod
-bamboo poles. A third man sat on a crate at the center of the barge
-with a steaming cup of tea in one hand and a heavy ax laid across his
-lap.
+The soldiers stayed close to the princess as they walked to the river stairs.
+Princess Ogmin clapped her hands at the sight of a square-nosed river barge casting off
+to start the long journey down the Trout to the ocean.
+The boxes of dried apples,
+crates of apple jelly in heavy glass jars,
+and barrels of apple cider lashed down on its deck
+weighed it down so far that its gunwales were only a handspan above the water.
+Two men at its bow called, "Heyyup… hey!" to each other
+as they pushed the barge away from the dock with long iron-shod bamboo poles.
+A third man sat on a crate at the center of the barge
+with a steaming cup of tea in one hand
+and a heavy ax laid across his lap.
 
 "Is that in case they get caught on a snag?" Noxy asked Dolly,
 pointing.
 
-The troll glanced at the princess, who was tugging on Rinpa's vest and
-pointing to where a fish had just splashed in the water. "Officially,"
-she replied in an undertone. "But there are thieves on the river.
-Most would think twice before trying to take a barge, but not all of
-them. And sometimes *things* come floating down out of the Blight."
+The troll glanced at the princess,
+who was tugging on Private Rinpa's vest
+and pointing to where a fish had just splashed in the water.
+"Officially," she replied in an undertone.
+"But there are thieves on the river.
+Most would think twice before trying to take a barge,
+but not all of them.
+And sometimes *things* come floating down out of the Blight."
 
-Princess Ogmin busied herself tossing pebbles into the river. Noxy
-threw a few as well, but then felt a twinge in the back of her mind.
-Cloak was awake, and thirsty, and wondering where she was. *Soon*,
-she mind-spoke soothingly.
+Princess Ogmin busied herself tossing pebbles into the river.
+Noxy threw a few as well, but then felt a twinge in the back of her mind.
+Cloak was awake, and thirsty, and wondering where she was.
+*Soon*, she mind-spoke soothingly.
 
-When the princess finally declared that she was bored, Rinpa jogged up
-the stairs, then waved for the others to join him. The shouting in
-the market had died down, the stallkeepers having lost interest in the
-aggrieved farmer's outrage as people showed up with money to spend.
+When the princess finally declared that she was bored,
+Private Rinpa jogged up the stairs,
+then waved for the others to join him.
+The shouting in the market had died down,
+the stallkeepers having lost interest in the aggrieved farmer's outrage
+as people showed up with money to spend.
 
-The princess stopped at the kite makers' stall, which was now
-festooned with brightly-painted fabric diamonds. Next to it, a stout
-woman with a stern look on her face was grilling leeks and red
-peppers. When the smell made Noxy's stomach rumble again, Dolly
-smiled and reached for the small leather purse that hung from her
-belt.
+The princess stopped at the kite makers' stall,
+which was now festooned with brightly-painted fabric diamonds.
+Next to it,
+a stout woman with a stern look on her face was grilling leeks and red peppers.
+When the smell made Noxy's stomach rumble again,
+Dolly smiled and reached for the small leather purse that hung from her belt.
 
-"Please, let me," Noxy said, reaching for her own. "How much is it for
-three skewers?"
+"Please, let me," Noxy said, reaching for her own.
+"How much is it for three skewers?"
 
 "They're two winkles apiece," the woman replied without looking up.
 
-"Two winkles?" Dolly exclaimed. "For leeks and peppers? Why, that's
-robbery!"
+"Two winkles?" Dolly exclaimed.
+"For leeks and peppers? Why, that's robbery!"
 
-The woman looked up and frowned. "Four for you," she said curtly.
+The woman looked up and frowned.
+"Four for you," she said curtly.
 
-Noxy gasped. "Come on," she said loudly, taking Dolly's arm. "I can
-smell *proper* cooking up ahead."
+Noxy gasped. "Come on," she said loudly, taking Dolly's arm.
+"I can smell *proper* cooking up ahead."
 
-"Probably better than what I can smell," the leek seller said, just
-loudly enough to be overhead. Noxy whirled around, angry words ready
-to spill out of her mouth, but the woman had turned to speak to a
-neighbor.
+"Probably better than what I can smell," the leek seller said,
+just loudly enough to be overhead.
+Noxy whirled around,
+angry words ready in her mouth,
+but the woman had turned to speak to a neighbor.
 
-As they walked into the market, Noxy said, "How can she say something
-like that? Dolly, I'm really sorry."
+As they walked into the market, Noxy said,
+"How can she say something like that?
+Dolly, I'm really sorry."
 
 "It's just how people are around here," the troll replied mildly.
+"At least we're not in Garheim."
 
-"But…but she said it right *to* you!" Noxy suddenly realized that
-her hands were clenched into fists. She spun around to go back and
-give the cook a piece of her mind and walked straight into Prince
-Thokmay.
+"But…but she said it right *to* you!"
+Noxy suddenly realized that her hands were clenched into fists.
+She spun around to go back and give the cook a piece of her mind
+and walked straight into Prince Thokmay.
 
-"Oh!" she exclaimed. Their faces were almost touching for a moment.
-For some reason she found herself blushing. "I'm sorry, I didn't—"
+"Oh!" she exclaimed.
+Their faces were almost touching for a moment.
+For some reason she found herself blushing.
+"I'm sorry, I didn't—"
 
-"It's quite all right," the prince said, just as flustered. He stepped
-back to make some space. The two soldiers behind him kept their eyes
-on the crowd. "How have you been enjoying the market?"
+"It's quite all right," the prince said, just as flustered.
+He stepped back to make some space.
+The two soldiers behind him were careful to keep their eyes on the crowd.
+"How have you been enjoying the market?"
 
-"It was fine until a moment ago. But that woman was just *really* rude
-to Dolly!"
+"It was fine until a moment ago.
+But that woman was just *really* rude to Dolly!"
 
-The prince glanced over at the leek seller, who was eyeing them
-sidelong. His jaw set. "Was she, now?"
+The prince glanced over at the leek seller, who was eyeing them sidelong.
+His jaw set. "Was she, now?"
 
-"Your Highness, please, just—" Dolly started, but Prince Thokmay had
-already spun on his heel and gone back to the leek seller's stall.
-Noxy couldn't hear what he said, but she could see the anger and
-reluctant deference on the cook's face.
+"Your Highness, please, just—" Dolly started,
+but Prince Thokmay had already spun on his heel and gone back to the leek seller's stall.
+Noxy couldn't hear what he said,
+but she could see the anger and reluctant deference on the cook's face.
 
-Dolly sighed. "I wish he hadn't done that. It just makes things
-worse."
+Dolly sighed.
+"I wish he hadn't done that. It just makes things worse."
 
 "But she was *rude*!" Noxy burst out.
 
-The troll shrugged. "She didn't throw anything at me. Or get her
-neighbors to." She sighed again. "I just hope my son doesn't find
-out. He gets so—ssh, he's coming back."
+The troll shrugged.
+"She didn't throw anything at me.
+Or get her neighbors to.
+She sighed again.
+"I just hope my son doesn't find out.
+He gets so—ssh, he's coming back."
 
-The prince's jaw was still clenched as he rejoined them. "I'm very
-sorry about that," he said to Dolly, bowing slightly. "You shouldn't
-have to—"
+The prince's jaw was still clenched as he rejoined them.
+"I'm very sorry about that," he said to Dolly, bowing slightly.
+"You shouldn't have to—"
 
-Something suddenly roared a couple of aisles away. Someone shrieked
-in reply. The prince's eyes widened. "That's Ogmin!" He sprinted
-toward the sound with his two bodyguards on his heels and Noxy and
-Dolly behind them.
+Something suddenly roared a couple of aisles away.
+Someone shrieked in reply.
+The prince's eyes widened.
+"That's Ogmin!"
+He sprinted toward the sound with his bodyguards on his heels
+and Noxy and Dolly behind them.
 
-The princess was standing in front of a dozen barrels of pressed
-apples with her hands over her mouth. An enormous brown bear was
-grumbling to herself in front of her, while the skinniest man Noxy had
-ever seen made patting motions in the air with his hands at Manpa and
-Rinpa, who had drawn their swords. "It's all right, it's all right,
-she's fine, she's fine," the skinny man fretted. Noxy wasn't sure
-whether he was talking about the princess or the bear.
+The princess was standing in front of a dozen barrels of pressed apples
+with her hands over her mouth.
+An enormous brown bear was grumbling in front of her,
+while a nervous man Noxy made patting motions in the air with his hands
+at Manpa and Rinpa, who had drawn their swords.
+"It's all right, it's all right, she's fine, she's fine," he babbled.
+Noxy wasn't sure whether he was talking about the princess or the bear.
 
-"Ogmin, what's wrong?" He put his arm around her shoulder and kissed
-her cheek. "What's wrong, big sister?"
+"Ogmin, what's wrong?"
+Prince Thokmay put his arm around her shoulder and kissed her cheek.
+"What's wrong, big sister?"
 
-"I'm sorry," she squeaked. "I'm sorry, I'm sorry, I'm sorry." Tears
-rolled down her frightened face.
+"I'm sorry," she squeaked.
+"I'm sorry, I'm sorry, I'm sorry."
+Tears rolled down her frightened face.
 
-"It's all right, Your Highness," the skinny man said. "Isn't it, Rust?
+"It's all right, Your Highness," the man said.
+"Isn't it, Rust?
 Everybody's all right, aren't they?"
 
 "She stepped on my paw," the bear muttered.
 
-"Yes yes yes, but it was an accident, wasn't it?" The skinny man wrung
-his hands. "Oh, I'm sorry, Your Highness. Rust didn't mean to startle
-you, did you, Rust?"
+"Yes yes yes, but it was an accident, wasn't it?"
+The man wrung his hands.
+"Oh, I'm sorry, Your Highness.
+Rust didn't *mean* to startle you, did you, Rust?"
 
-The bear didn't answer. "*Did* you, Rust?" the man repeated more
-sharply.
+The bear didn't answer.
+"*Did* you, Rust?" the man repeated more sharply.
 
 "…my paw…" the bear muttered again.
 
-Prince Thokmay sighed and waved his free hand at Manpa and Rinpa and
-his bodyguards to sheathe their swords. "Are you all right?" he asked
-his sister gently.
+Prince Thokmay sighed and waved his free hand at the soldiers  to sheathe their swords.
+"Are you all right?" he asked his sister gently.
 
-"I'm sorry," she repeated. "I didn't mean to."
+"I'm sorry," she repeated.
+"I didn't mean to."
 
-"It's all right. You didn't hurt her. Did she?" The prince looked
-meaningfully at the bear, who was looking at Dolly, who had gone to
-stand beside the princess, who had buried her fingers in the troll's
-pelt.
+"It's all right. You didn't hurt her. Did she?"
+The prince looked meaningfully at the bear,
+who was looking at Dolly,
+who had gone to stand beside the princess,
+who had buried her fingers in the troll's pelt.
 
-"Hrrm," the bear rumbled deep in her throat. "No, Your Highness. Not
-hurt. She just caught my toe along under her shoe."
+"Hrrm," the bear rumbled deep in her throat.
+"No, honored.
+I'm not hurt.
+She just caught my toe along under her shoe."
 
-"And you're sorry you startled the princess, aren't you?" the skinny
-man coaxed her. "Aren't you, Rust?"
+"And you're sorry you startled the princess, aren't you?"
+the man coaxed her.
+"Aren't you, Rust?"
 
-The bear snuffled, then nodded her head heavily. "Yes. I'm sorry I
-startled Her Highness. Won't do it again."
+The bear snuffled, then nodded her head heavily.
+"Yes. Sorry I startled Her Highness.
+Won't do it again."
 
-"Well then that's all right, isn't it?" the skinny man said,
-relieved. "Everyone's all right, no harm done."
+"Well then that's all right, isn't it?" the man said, relieved.
+"Everyone's all right, no harm done."
 
-"No harm done," the prince agreed. He studied the skinny man, whose
-gray coat and crushed hat made him look like an underfed rat. "I don't
-believe I've seen you here before."
+"No harm done," the prince agreed.
+He studied the man,
+whose gray coat and crushed hat made him look like an underfed rat.
+"I don't believe I've seen you here before."
 
-The skinny man shook his head vigorously. "No, Your Highness, no, you
-probably haven't, I'd be surprised if you had. Muddh's the name,
-Muddh, that's me. But everyone knows Rust, isn't that right, Rust?
-Rust has been coming here practically forever. Never been trouble to
-anyone, have you, Rust?" The bear snorted.
+The skinny man shook his head vigorously.
+"No, Your Highness, no, you probably haven't, I'd be surprised if you had.
+Mukh's the name, Mukh, that's me.
+But everyone knows Rust, isn't that right, Rust?
+Rust has been coming here practically forever.
+Never been trouble to anyone, have you, Rust?"
+The bear snorted but didn't reply.
 
 "You've come to trade?" the prince asked.
 
-"Oh yes, Your Highness. Bobbles and bangles, ribbons and bows, that
-sort of thing. Here, like this." He dodged around the bear and pulled
-a spool of dark blue ribbon patterned with gold roses from the
-ramshackle wagon behind her.
+"Oh yes, Your Highness.
+Bobbles and bangles, ribbons and bows, that sort of thing.
+Here, like this."
+He dodged around the bear
+and pulled a spool of dark blue ribbon patterned with gold roses
+from the ramshackle wagon behind her.
 
 "Oh, that's like my nice shoes!" the princess exclaimed.
 
-"Is it? Truly?" As quick as a bee, Muddh pulled a short knife out
-of his belt and cut an arm's length of ribbon from the spool. "Well
-then, here you go," he said, holding it out to her.
+"Is it? Truly?"
+As quick as a bee,
+Mukh pulled a short knife out of his belt and cut an arm's length of ribbon from the spool.
+"Well then, here you go," he said, holding it out to her.
 
-Dolly interrupted before the princess could reply. "Now, Your
-Highness, remember what we talked about?"
+Dolly interrupted before the princess could reply.
+"Now, Your Highness, remember what we talked about?"
 
-"Um…" Princess Ogmin frowned, then brightened. "Can you please tell
-me how much it costs?" she asked the trader.
+"Um…" Princess Ogmin frowned, then brightened.
+"Can you please tell me how much it costs?" she asked the trader.
 
-"Oh, nothing, nothing at all," he gushed. "It'll do good along my
-business, having royalty for customers, Your Highness. You'd be doing
-me a certain courtesy, you would. Why, by tomorrow I'm sure everyone
-will be talking about us!"
+"Oh, nothing, nothing at all," he gushed.
+"It'll do good along my business, having royalty for customers, Your Highness.
+You'd be doing me a certain courtesy, you would.
+Why, by tomorrow I'm sure everyone will be talking about how nice your ribbon is
+and lining up to get some of their own!"
 
-Noxy couldn't help but snort. The people around them had stopped for a
-moment when the bear roared, but now they were bustling about their
-business again as if they saw royalty every day—which by now, she
-reflected, they probably did. She doubted anyone would take much
-notice of where the princess bought her ribbon.
+Noxy couldn't help but snort.
+The people around them had stopped for a moment when the bear roared,
+but now they were bustling about their business again
+as if they saw royalty every day—which by now,
+she reflected,
+they probably did.
+She doubted anyone would take much notice of where the princess bought her ribbon.
 
-But Dolly was still frowning, and the prince as well. Muddh's
-nervous grin widened even further. "But I'll tell you what. I'll tell
-you what. I'll take, um, what do we want for the ribbon, Rust?"
+But Dolly was still frowning, and the prince as well.
+Mukh's nervous grin widened even further.
+"But I'll tell you what.
+I'll tell you what.
+I'll take, um, what do we want for the ribbon, Rust?"
 
-"Twenty-two winkles an arm for the blue," the bear rumbled without
-hesitation.
+"Twenty-two winkles an arm for the blue,"
+the bear rumbled without hesitation.
 
-"Twenty winkles an arm," Muddh said. "And if you buy a whole arm,
-I'll give you this ring to go with it!" With a flourish, Muddh held
-up a small wooden ring. "It's a lucky ring," he added in a
-conspiratorial tone, winking at the princess. "Here, give me your
-hand." He slid the ring gently onto the princess's finger. "If you wear
-it for a whole week without once taking it off, and then make a wish
-and throw it down the deepest well you can find, guess what will
-happen?"
+"Twenty winkles an arm," Mukh said.
+"And if you buy a whole arm, I'll give you this ring to go with it!"
+With a flourish,
+Mukh held up a small wooden ring with a golden rose painted on it.
+"It's a lucky ring," he added in a conspiratorial tone,
+winking at the princess.
+"Here, give me your hand."
+He slid the ring gently onto her finger.
+"If you wear it for a whole week without once taking it off,
+and then make a wish and throw it down the deepest well you can find,
+guess what will happen?"
 
 "I'll get my wish?" the princess gasped.
 
-"You might," the trader agreed, nodding vigorously. "You just
-might. Now, what was the ribbon again? Eighteen winkles for an arm's
-length, is that what we agreed?"
+"You might," the trader agreed, nodding vigorously.
+"You just might.
+Now, what was the ribbon again?
+Eighteen winkles for an arm's length, is that what we agreed?"
 
-Noxy and the prince rolled their eyes at each other. Muddh chattered
-to the princess non-stop as he tucked the palmful of carved wooden
-shells she offered him into his pocket and then wound the ribbon
-around his finger to make a tight little spool.
+Noxy and the prince rolled their eyes at each other.
+Mukh chattered to the princess non-stop
+as he tucked the palmful of carved wooden shells she offered him into his pocket
+and then wound the ribbon around his finger to make a tight little spool.
 
 *Hungry!* Cloak mind-spoke to Noxy.
 
-She cleared her throat. "I really should go back and check on my
-cloud," she told the prince.
+She cleared her throat.
+"I really should go back and check on my cloud," she told the prince.
 
-He nodded. "I think that would be a good idea. Ogmin? I bet the
-cook has made biscuits…"
+He nodded.
+"I think that would be a good idea.
+Ogmin? I bet the cook has made biscuits…"
 
-As they walked toward the market gate, the prince muttered to Rinpa,
+As they walked toward the market gate, the prince muttered to Private Rinpa,
 "Have you ever seen him before?"
 
-"Don't think so, Your Highness," the soldier replied. "But Rust's been
-coming along by for years, though. Always brings a person with her to
-count out shells, tie things up, that sort of thing." The soldier
-cleared his throat. "Usually not too bright. The person, I mean. The
-bear's definitely in charge."
+"Don't think so, Your Highness," the soldier replied.
+"But Rust's been coming along by for years.
+Always brings a person with her to count out shells, tie things up, that sort of thing."
+The soldier cleared his throat.
+"Usually not too bright.
+The person, I mean.
+The bear's definitely in charge."
 
-"And people here are all right with that?" he asked, glancing
-meaningfully at Dolly.
+"And people here are all right with that?"
+he asked,
+glancing meaningfully at Dolly.
 
-Rinpa shrugged. "I guess all right depends on who you're talking to.
-Back-mouthing a fully-grown bear's a heavy bit different than
-back-mouthing such as a troll or a pig or all."
+Private Rinpa shrugged.
+"I guess all right depends on who you're talking to.
+Back-mouthing a fully-grown bear's a heavy bit different
+than back-mouthing such as the honored's nurse."
+
+"I suppose it is,"
+Prince Thokmay agreed.
 
 </section>
 <section markdown="1">
@@ -2616,17 +2755,17 @@ crowd to wring his hands in front of the sergeant. "They meant no
 harm, sir, I'm sure, it was just a misunderstanding."
 
 "Who meant no harm?" Sergeant Gyalpa uncrossed his arms and glowered
-at Muddh.
+at Mukh.
 
 "Them, sir. They were just along to fill their bucket, is all."
-Muddh pointed at the pair of raccoons who had followed at his heels.
+Mukh pointed at the pair of raccoons who had followed at his heels.
 "Only *some* of these people thought, well, you know by how some are
 here with the Gifted, sir, they thought, well…"
 
 Prince Thokmay interrupted before the sergeant could reply. "They
 thought what?"
 
-Muddh wrung his hands, nervous under the glares of the townspeople
+Mukh wrung his hands, nervous under the glares of the townspeople
 behind him on his back. "They just thought… Well, Your Highness,
 they thought by maybe such as these should, well, they should find by
 elsewhere to get their water."
@@ -2690,7 +2829,7 @@ whipped around. "That's fire watch—along south side. You two!" He
 pointed at the two nearest soldiers. "Double time along to Hog
 Street, find out—"
 
-"No! Listen!" Muddh wrung his hands, fear written almost comically
+"No! Listen!" Mukh wrung his hands, fear written almost comically
 on his face. "Everyone, listen! It's the tornado! It's coming for
 us!"
 
@@ -3051,7 +3190,7 @@ raccoon in his arms and a now-familiar skinny figure in tow.
 "Quickly, man!" the troll barked as a stone clattered off the wall
 over his head.
 
-As the narrow gate swung open, Mope pushed Muddh through. Soldiers
+As the narrow gate swung open, Mope pushed Mukh through. Soldiers
 pulled the gate shut and re-locked it behind the troll. The raccoon
 in his arms leaped to the ground and darted over to his companion to
 rub noses.
@@ -3059,7 +3198,7 @@ rub noses.
 "Oh, thank you, Your Highness, thank you, I don't know what would have
 happened to us, I was so worried," the skinny trader babbled.
 
-"Stop." The prince raised his hand to cut Muddh off. "Take a breath.
+"Stop." The prince raised his hand to cut Mukh off. "Take a breath.
 Tell me what happened."
 
 The story came out in fits and interruptions. Everyone had been
@@ -3098,7 +3237,7 @@ to finish our conversation later," he said to Noxy.
 The raccoons conferred briefly. "Yes, m'lady," the larger one said.
 "We'd be most grateful."
 
-"And what about you?" the prince asked Muddh.
+"And what about you?" the prince asked Mukh.
 
 The trader shook his head. "I'll be along right, Your Highness. Just
 wait along a bit for the crowd to lose interest, then I ought to be
@@ -3107,7 +3246,7 @@ getting back to Rust. She'll worry, me being away so long."
 "She'd be welcome to stay here as well if she's worried about her
 safety—or yours."
 
-Muddh shook his head again. "She'll be all right, Your Highness.
+Mukh shook his head again. "She'll be all right, Your Highness.
 Folk don't mess along with a bear as easy as they do with a raccoon."
 
 *The garrison house was still that night when a quiet voice only
@@ -3363,7 +3502,7 @@ was huge, it was, almost as big along as the wagon."
 helplessly. "I don't know his name, but I been see him often
 enough. Skinny as a rake, he is."
 
-"That's Muddh!" Noxy exclaimed. "He was in the market! He gave the
+"That's Mukh!" Noxy exclaimed. "He was in the market! He gave the
 princess some ribbon—"
 
 "—and a ring," the prince finished. He thumped a fist on the
@@ -3661,7 +3800,7 @@ on mean-looking horses, while twice that number with spears and swords
 were on foot beside them.
 
 The prince reined in his horse next to Sergeant Gyalpa, about a
-hundred yards away from the smugglers. "Is that your man Muddh, Your
+hundred yards away from the smugglers. "Is that your man Mukh, Your
 Highness?" the sergeant asked, pointing to the skinny figure atop the
 only one of the smugglers' horses that looked like it had eaten a
 decent meal in the last month.
@@ -3699,7 +3838,7 @@ featherless ducks like this lot."
 "Yes, sergeant." The prince cleared his throat. "Shall we?"
 
 The soldiers spread out as they rode forward. They were still about
-fifty yards away from the smugglers when Muddh raised his
+fifty yards away from the smugglers when Mukh raised his
 arm. "Hello, hello!" he called. "So glad you could come."
 
 "I am Thokmay Loghan-o Prince," the prince said loudly, hoping that his
@@ -3707,18 +3846,18 @@ voice wouldn't crack, and that he would be brave if battle came. "I am
 looking for my sister, the Princess Ogmin. We fear she has been
 abducted."
 
-The man on the ground beside Muddh was wagging a finger slowly at the
-soldiers. He frowned and tugged at Muddh's pantleg and said something
+The man on the ground beside Mukh was wagging a finger slowly at the
+soldiers. He frowned and tugged at Mukh's pantleg and said something
 that the prince couldn't hear.
 
-Muddh straightened up and frowned in turn. "Where are the rest of
+Mukh straightened up and frowned in turn. "Where are the rest of
 your troops?" he asked. "It's such a nice day, I hope they're not
 cooped up washing dishes." A few of his men laughed.
 
 "Never mind the dishes," the prince demanded. "Do you know what has
 become of Her Highness?"
 
-"Oh, yes, the princess," Muddh called back. "About this tall?" He put
+"Oh, yes, the princess," Mukh called back. "About this tall?" He put
 his hand up around his chin, palm flat. "Long hair?"
 
 "What have you done with her?" the prince demanded.
@@ -3729,7 +3868,7 @@ picked something up off the stump.
 
 "Looks like… braids, Your Highness," Manpa said, squinting again.
 
-"Yes, they're braids," Muddh said, as though he'd been able to hear
+"Yes, they're braids," Mukh said, as though he'd been able to hear
 the soldier even though there were fifty yards between them. "Show
 them what else you have, Harry."
 
@@ -3742,7 +3881,7 @@ Sergeant Gyalpa swore under his breath. "We've been tricked, Your
 Highness," he said. "They must've known we'd use magic to find the
 princess."
 
-"Yes, well, it only seemed reasonable," Muddh called. This time the
+"Yes, well, it only seemed reasonable," Mukh called. This time the
 prince was sure that the smuggler had heard them. "I thought of
 pulling out her fingernails too, in case you tried to use clippings
 instead of hair, but I was sure you'd keep too a neat a house for
@@ -3759,7 +3898,7 @@ at his men. "Do we?"
 
 "What do you want?" Sergeant Gyalpa asked loudly.
 
-The smile dropped from Muddh's thin face. He spurred his horse
+The smile dropped from Mukh's thin face. He spurred his horse
 forward a few paces. Prince Thokmay noticed that he was holding his
 mount's reins in his right hand, and something else in his lap with
 his left. "I want you and your troops to leave Apple Bridge," he
@@ -3778,13 +3917,13 @@ The prince nodded. "Why should we leave Apple Bridge?" he said in a
 normal tone of voice. "If you don't have my sister, what reason would
 we have?"
 
-"You might do it just to be friendly," Muddh said, then snickered.
+"You might do it just to be friendly," Mukh said, then snickered.
 
 The prince shook his head. "I'm sorry, but I don't think I want to
 have a friend like you. Even if I did, I couldn't oblige you. Apple
 Bridge is part of Loghan."
 
-"Not for long," Muddh said lightly. He picked up a small bag that was
+"Not for long," Mukh said lightly. He picked up a small bag that was
 hanging from his saddle horn. "Not for very long at all."
 
 "It's magic!" one of the apprentices shouted. "I can feel it!"
@@ -3792,7 +3931,7 @@ hanging from his saddle horn. "Not for very long at all."
 "Loghan!" Sergeant Gyalpa bellowed. He dug his heels into his horse.
 The soldiers around him shouted, "Loghan and the dawn!" and charged.
 
-Muddh paused for just a moment, watching them come at him with a
+Mukh paused for just a moment, watching them come at him with a
 satisfied look on his face. Then he undid the string that held the bag
 closed and shook it out. A terrible roaring sound filled the prince's
 ears as a tornado came whirling out of the bag.
@@ -3982,7 +4121,7 @@ terrified."
 ## Chapter 11: Attacked
 
 The tornado roared into the sky, doubling in size and then doubling
-and doubling again as it poured out of Muddh's bag. "At them!"
+and doubling again as it poured out of Mukh's bag. "At them!"
 Sergeant Gyalpa shouted to the soldiers. "Get in close, or it'll swat
 you like ladybugs!"
 
@@ -3999,7 +4138,7 @@ heels into his own mount and followed him.
 
 The next few seconds were mad confusion. The soldiers had to ride
 around the front rank of smugglers to avoid their spears. As they did
-so, Muddh held up the copper hoop he'd been holding in his lap and
+so, Mukh held up the copper hoop he'd been holding in his lap and
 shouted commands at the tornado. It twisted and danced across the
 ground, then lashed out like a man kicking a ball.
 
@@ -4012,7 +4151,7 @@ in his saddle, and swung his sword.
 
 An instant later Prince Thokmay saw Manpa and another soldier cut left,
 then right, then left again to get in close to the knot of
-smugglers. Muddh didn't hesitate. The tornado snatched up the two
+smugglers. Mukh didn't hesitate. The tornado snatched up the two
 soldiers and a smuggler as well and tossed them through the air. They
 tumbled like dice.
 
@@ -4059,20 +4198,20 @@ and heaved like a living thing.
 
 "Guard my back!" the sergeant ordered the prince. He spun his horse
 around and charged at the smugglers. Most of the spearmen were
-struggling to get to their feet. As the horsemen around Muddh tried
+struggling to get to their feet. As the horsemen around Mukh tried
 to get their panicky mounts under control, Sergeant Gyalpa charged
 through them and swung his sword.
 
 The prince saw the sergeant's blade connect with the copper hoop that
-Muddh was still struggling to hold high. There was a flash like
-lightning. Muddh and the sergeant both cried out. The hoop flew
+Mukh was still struggling to hold high. There was a flash like
+lightning. Mukh and the sergeant both cried out. The hoop flew
 through the air. When it hit the ground, the earth splashed like
 water. The copper hoop sunk out of sight like a stone thrown into a
 murky pond.
 
-The tornado roared in triumph as it felt Muddh's hold over it
+The tornado roared in triumph as it felt Mukh's hold over it
 break. It pounced on the smugglers like a cat pouncing on a crippled
-bird, throwing them this way and that. Prince Thokmay saw Muddh leap
+bird, throwing them this way and that. Prince Thokmay saw Mukh leap
 from his horse an instant before the tornado snatched it up. The
 smuggler scrambled over to the old tree stump and pulled a man-tall
 mirror off the wagon that was still somehow parked there. He propped
@@ -4105,7 +4244,7 @@ himself up behind him. "*Now* we can run," he said. He smacked the
 horse on the rump. The animal didn't need any encouragement. It
 galloped heavily away.
 
-Behind them, the tornado picked up Muddh's magic mirror and smashed
+Behind them, the tornado picked up Mukh's magic mirror and smashed
 it to the ground once again, then whirled off toward Apple Bridge.
 
 </section>
@@ -4254,7 +4393,7 @@ as a dark shadow across its chest.
 "Big angry song," Noxy whispered to herself. She grabbed Mope by the
 arm. "Come on! We have to get to the garrison house before it hits!"
 
-They didn't make it. Freed of Muddh's magical control, free at last
+They didn't make it. Freed of Mukh's magical control, free at last
 from any kind of control at all, the tornado swept down on Apple
 Bridge like an angry bull. Noxy heard a crash that went on and on as
 the tornado tore shingles off of the roofs of houses and threw them
@@ -4479,7 +4618,7 @@ few trees grew near the small stream that ran along the its bottom.
 down." He passed the canteen back to the prince, who tucked it into a
 saddle bag.
 
-"Do you think Muddh put the tornado back in its bag?" the prince
+"Do you think Mukh put the tornado back in its bag?" the prince
 asked.
 
 Sergeant Gyalpa snorted. "Not without that thing he was waving around,
@@ -4827,7 +4966,7 @@ voice cracked again.
 
 The sergeant shook his head. "I don't know, Your Highness. Direction
 doesn't mean a lot in here." He looked up at the starless sky. "I just
-wonder what's going to be waiting for us when we get out. Muddh must
+wonder what's going to be waiting for us when we get out. Mukh must
 know he can't hold Apple Bridge for long, not even with a dozen
 tornadoes. He must be planning something, but what?"
 
@@ -4904,7 +5043,7 @@ Without thinking she took a step forward. "Ouch!" she whimpered as she
 banged her shin against one of the old dressers standing next to the
 wall. She lost her balance stumbled down onto one knee.
 
-Just as she did so, the mirror went *bloop* again. Muddh toppled out
+Just as she did so, the mirror went *bloop* again. Mukh toppled out
 into the room and collapsed in a heap on the floor, a small leather
 backpack clutched in one hand.
 
@@ -4926,10 +5065,10 @@ stitched around the sole, and looked like it had just been
 polished. *I can guess where you came from,* she thought.
 
 Sergeant Inambu's cot creaked as the smuggler sat down on it. Noxy's
-mind raced. Dolly would be back any moment. If she found Muddh, the
+mind raced. Dolly would be back any moment. If she found Mukh, the
 smuggler would have to—
 
-The door creaked open. "Ah, finally!" Muddh said. Noxy heard him get
+The door creaked open. "Ah, finally!" Mukh said. Noxy heard him get
 to his feet. "I was just wondering if I should go down to the kitchen
 and see about some dinner."
 
@@ -4938,7 +5077,7 @@ could hear the weariness in her voice. "Do you have any idea what that
 monster of yours has done to this town?"
 
 "Oh, they needed an excuse for a good clean-up anyway, didn't they?"
-Noxy saw Muddh's mismatched boots again. He stopped a few feet in
+Noxy saw Mukh's mismatched boots again. He stopped a few feet in
 front of Sergeant Inambu. "I'm more worried about what it did to
 *you*," he said, doing his best to sound concerned.
 
@@ -4955,16 +5094,16 @@ this. Not this. Not for them."
 have been nothing left of this town but mud by the time it was done."
 
 "But girl, there's not even going to be mud left by the time we're
-done. You know that!" Muddh sounded amused.
+done. You know that!" Mukh sounded amused.
 
 Sergeant Inambu was silent. "And I'm afraid that's the bad news I'm
 here to give you," the smuggler continued. "I'm not going to be able
 to finish this on my own. I'm going to need your help."
 
-Sergeant Inambu snorted. "Mine? Look at me, Muddh—look at me. Here,
+Sergeant Inambu snorted. "Mine? Look at me, Mukh—look at me. Here,
 would you like one as a souvenir?"
 
-"Shh, shh," Muddh said soothingly, even as he stepped back. "Don't do
+"Shh, shh," Mukh said soothingly, even as he stepped back. "Don't do
 that. Don't pull at them. Just leave them alone. We'll be done soon,
 done for good, and then you can just magic yourself up a whole new set
 of teeth." He stepped forward again. Noxy heard a rustling sound as he
@@ -4975,7 +5114,7 @@ hugged the sergeant.
 
 "What happened, anyway?" Sergeant Inambu asked.
 
-"Turns out the Blight didn't like us much," Muddh replied. "And after
+"Turns out the Blight didn't like us much," Mukh replied. "And after
 all we're going to do for it—shows you what kind of gratitude you
 can expect from dirt and rocks, eh?" He sighed. "The bad news is that
 Old Musclebrain managed to knock the spirit trap out of my hands. I'm
@@ -4988,7 +5127,7 @@ asked hollowly, as if she already knew the answer, but still had some
 hope that she was wrong.
 
 "I mean you're going to have to break the spells on the dam yourself,"
-Muddh said. "No, listen, listen to me," he added urgently, answering
+Mukh said. "No, listen, listen to me," he added urgently, answering
 some look that Noxy couldn't see. "Just listen. You can do it, I know
 you can. It doesn't matter how much it takes out of you, not this
 time. Once we can get to the lake and back out again without turning
@@ -5003,7 +5142,7 @@ different spells that have to be cast. The guards would stop me before
 I was halfway through the first one."
 
 "Well, if that braying little donkey of a prince had taken the whole
-troop with him, that wouldn't be a problem," Muddh snarled. "Can you
+troop with him, that wouldn't be a problem," Mukh snarled. "Can you
 order them away? Can you, I don't know, can you send them to look for
 what's-her-name, the girl?"
 
@@ -5014,9 +5153,9 @@ Noxy saw the sergeant's feet walk over to the cot, and heard it creak
 as she sat down. "I'm just so tired…"
 
 Noxy held her breath, then sloowwwwly slid forward so that she could
-peek under the sheet and see what was happening in the room. Muddh
+peek under the sheet and see what was happening in the room. Mukh
 was fishing around in his pack. Sergeant Inambu was looking at her
-reflection in the mirror he had come through. Finally Muddh said,
+reflection in the mirror he had come through. Finally Mukh said,
 "Aha!" He pulled a small black cloth bag out of his pack, loosened
 the drawstring, and pulled out a clear glass marble.
 
@@ -5026,7 +5165,7 @@ left for another trip?" he asked.
 
 "I don't know," the sergeant said dully.
 
-"Hmph." Muddh up-ended the bag and shook it out onto the desk. He
+"Hmph." Mukh up-ended the bag and shook it out onto the desk. He
 picked up one of the pebbles that rattled onto the desk, sniffed at
 it, then licked it as if it were a piece of candy. "Nope," he said. He
 picked up another. "Definitely not. Ah, here we are." He showed
@@ -5038,7 +5177,7 @@ chores?"
 girl she had once been, back before the Blight took her home away from
 her. "I wish—I wish I could remember."
 
-"I'll do the remembering for both of us," Muddh promised. "For as
+"I'll do the remembering for both of us," Mukh promised. "For as
 long as I have to. But that won't be much longer, will it?"
 
 Sergeant Inambu blinked and heaved a deep sigh. "What are you doing?"
@@ -5065,7 +5204,7 @@ over," he said. "And I promise, it'll be over soon."
 
 He straightened up, shouldered his pack, and tossed the marble and
 pebble underhanded into the mirror. Instead of bouncing off, they made
-a slight *gloop*. Once again ripples spread across the mirror. Muddh
+a slight *gloop*. Once again ripples spread across the mirror. Mukh
 stepped into them and disappeared.
 
 Sergeant Inambu waited a few seconds, then stood up, crossed over to
@@ -5090,7 +5229,7 @@ you're going to hurt a lot of people. A *lot* of people. And my cloud,
 too."
 
 Sergeant Inambu smiled faintly. "And all I care about is what's under
-Fast Lake. Muddh's shown me things, things I never knew were
+Fast Lake. Mukh's shown me things, things I never knew were
 possible. He found a spirit trap, just a hoop of copper with some
 wires on it. Do you know what it did? It let the person a spell was
 *for* pay for it, instead of the person casting it. Just think what
@@ -5528,7 +5667,7 @@ his eyes again. He gently laid the doll back by the blankets.
 He sat down cross-legged and laid some biscuits out on his
 leg. "You're acting more like a nurse than a kidnapper," he observed
 as he spooned some apple sauce onto the biscuits. "From what we saw of
-your friend Muddh, I would have expected you to be…rougher."
+your friend Mukh, I would have expected you to be…rougher."
 
 A rumble came from deep in the bear's throat. For a moment Prince
 Thokmay was reminded of the sound that Kulbinder made when he smelled
@@ -5547,7 +5686,7 @@ good exchange."
 "You needed the princess," the prince repeated. "Why didn't you need
 me?"
 
-The bear snorted. "How would I have gotten you?" she asked. "Muddh's
+The bear snorted. "How would I have gotten you?" she asked. "Mukh's
 magic was good enough to get the princess out in the middle of the
 night, but it wouldn't have worked on an adult."
 
@@ -5818,7 +5957,7 @@ the mirror. I think he's her brother."
 moment as he worked it out. "Why would they want to destroy the dam?"
 
 "I think they want to drain some of the magic out of Fast Lake so that
-Muddh can get to it," Noxy explained. "There's magic there that works
+Mukh can get to it," Noxy explained. "There's magic there that works
 in reverse, kind of. It takes strength from the people it works on,
 instead of from the magician casting the spell."
 
@@ -5830,7 +5969,7 @@ the people it worked on, whether they wanted it or not. But it always
 took more than the magic was worth. They used it on themselves until
 they'd used each other up."
 
-"Well, Muddh has one, whatever it is," Noxy said. "And now Sergeant
+"Well, Mukh has one, whatever it is," Noxy said. "And now Sergeant
 Inambu's sent the soldiers out of town. Mope, she's could be at the dam
 right now! She might already have started!"
 
@@ -5881,7 +6020,7 @@ pool, but then she saw movement. A moment later she could make out
 people and horses. It was the smugglers.
 
 One of them looked up as the cloud's shadow fell across his face. Noxy
-had just enough time to recognize Muddh before the skinny man
+had just enough time to recognize Mukh before the skinny man
 shouted. The smuggler next to him twisted around in his saddle and
 aimed his bow at Cloak. Noxy jerked her head back. The arrow went
 *sfffft!* through the air.
@@ -5908,10 +6047,10 @@ them, but most dropped their swords or bows and raised their hands.
 
 "Yahoo!" Noxy shouted. "That's the—no, wait, over there! Over there!
 He's getting away!" She pointed frantically at the road, trying to get
-Cloak to go lower so that she could tell the soldiers that Muddh was
+Cloak to go lower so that she could tell the soldiers that Mukh was
 escaping. The smuggler had abandoned his horse, and was running down
 the road toward the Blight. Every second step carried him twenty yards
-or more. Noxy urged Cloak on, but Muddh and his one magic boot soon
+or more. Noxy urged Cloak on, but Mukh and his one magic boot soon
 outdistanced the cloud.
 
 Noxy finally gave up, and turned the cloud back to where the soldiers
@@ -6127,7 +6266,7 @@ coming!"
 It took the prince a moment to figure out what he was seeing. At first
 he thought it was a bird, but then he realized it was a man, skipping
 or hopping twenty yards at a time. Another moment, and he saw that it
-was Muddh.
+was Mukh.
 
 "What's *he* doing here?" Rust snarled.
 
@@ -6135,32 +6274,32 @@ was Muddh.
 giddy. "He *is* your business partner."
 
 Another dozen lopsided steps brought the skinny smuggler to the little
-island. "Well hello!" Muddh said jauntily. His jacket was torn and
+island. "Well hello!" Mukh said jauntily. His jacket was torn and
 muddied, and he had dark circles under his eyes. He held up a lock of
 Princess Ogmin's hair. "Glad to see it still works."
 
 "What do you want?" Rust growled. "We had a deal."
 
-"Oh yes, yes, a deal," Muddh nodded vigorously. He looked
+"Oh yes, yes, a deal," Mukh nodded vigorously. He looked
 around. "You also had a raft, didn't you? Whatever happened to it?"
 
 "What happened to the dam?" Prince Thokmay broke in. "We saw the
 wave…"
 
-"Oh, the dam, the dam," Muddh said with a wave of his hand. "The dam
+"Oh, the dam, the dam," Mukh said with a wave of his hand. "The dam
 is still there, I dare say. The river would be a *lot* more lively
 right now if Inambu had managed to bring it down. It's a shame—we
 worked a long time for this."
 
 "Inambu?" the prince said blankly. "Sergeant Inambu?"
 
-"Oh, yes, *Sergeant* Inambu," Muddh agreed. He sighed. "I don't
+"Oh, yes, *Sergeant* Inambu," Mukh agreed. He sighed. "I don't
 suppose she could have survived. She got that from our mother, you
 know. She never learned how to give up either."
 
 "Enough!" Rust snarled. "What do you want?"
 
-Muddh blinked. "Why, the princess, of course," he said. He shrugged
+Mukh blinked. "Why, the princess, of course," he said. He shrugged
 off his shoulder pack and pulled out a loop of cord. "I imagine half
 of Loghan is going to be looking for me shortly. I'll need a hostage
 to see myself safely away to Chaghan." He paused. "Or maybe Barra
@@ -6172,21 +6311,21 @@ one of these, but as it is…" He shrugged.
 
 "The princess is mine!" Rust growled. "We had a bargain!"
 
-"Yes, yes, a bargain," Muddh agreed absently. "But things have
+"Yes, yes, a bargain," Mukh agreed absently. "But things have
 changed. Anyway, you'll still have the prince. He'd be far too much
 trouble for me to carry—far too likely to try to be a hero. Biting
 off his head will do you as much good as biting off hers."
 
 "She's *mine!*" the bear roared.
 
-Suddenly Muddh had a knife in his hand, a knife whose blade flickered
-like the tongue of a snake. "Now, dear," Muddh said kindly, "We've
+Suddenly Mukh had a knife in his hand, a knife whose blade flickered
+like the tongue of a snake. "Now, dear," Mukh said kindly, "We've
 worked *so* well together. Please don't spoil it now." He tossed the
 loop of cord to Prince Thokmay. "Tie her up," he directed.
 
 Much to his own surprise, the prince laughed. "No," he said flatly.
 
-"Tch, tch," Muddh clucked, keeping his eyes on Rust. "If you don't, I
+"Tch, tch," Mukh clucked, keeping his eyes on Rust. "If you don't, I
 will, and I'll be *much* less gentle than you."
 
 "Thokmay?" Princes Ogmin quavered. "What does he want?"
@@ -6194,28 +6333,28 @@ will, and I'll be *much* less gentle than you."
 Prince Thokmay picked up the coil of rope and flung it back at the
 smuggler. "I said no," he repeated.
 
-Muddh shrugged. "I'm sorry," he said lightly to Rust. "It looks like
+Mukh shrugged. "I'm sorry," he said lightly to Rust. "It looks like
 you won't be left with a hostage after all." As quick as a snake, he
 twisted and lunged at the prince with the magic knife.
 
 Prince Thokmay cried out and stepped back as the knife's blade whipped
 out. It grazed his shoulder, and instantly his whole arm went numb
-with cold. "Stand aside, boy," Muddh hissed. "Stand aside, or—"
+with cold. "Stand aside, boy," Mukh hissed. "Stand aside, or—"
 
 The prince and princess never got to hear the rest of the smuggler's
-threat. With a huge roar, Rust charged at Muddh. The smuggler spun
+threat. With a huge roar, Rust charged at Mukh. The smuggler spun
 and stabbed with the magic knife again, but Rust's weight carried her
-forward even as it bit into her. Muddh shrieked as they fell backward
+forward even as it bit into her. Mukh shrieked as they fell backward
 into the dark Blight water.
 
 "No!" he screamed. He struggled toward the shore. She roared again and
 knocked him sideways with a tremendous blow. Even as she did so, the
 Blight water bunched up around them, forming hundreds of dark strands
-that bound them like a net and pulled them down. Muddh screamed again
+that bound them like a net and pulled them down. Mukh screamed again
 as the river pulled him under. Rust roared, straining to break free.
 
 Prince Thokmay ran forward and grabbed the coil of rope he had thrown
-back at Muddh. "Take it!" he shouted, throwing one end at Rust. The
+back at Mukh. "Take it!" he shouted, throwing one end at Rust. The
 bear lunged at it and caught it in her teeth. The prince dug in his
 heels and pulled as hard as he could.
 
