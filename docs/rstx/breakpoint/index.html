@@ -60,6 +60,7 @@
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
@@ -170,7 +171,14 @@ produces the characteristic V-shape.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="breakpoint.py" data-mark="mean_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="breakpoint.py" data-mark="mean_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Residuals from a mean-only fit.</span>
+
+<span class="sd">    Subtracts the sample mean from each observation.  Residuals sum to zero</span>
+<span class="sd">    by construction.  Use this model when the series is expected to be</span>
+<span class="sd">    stationary around a constant mean before and after the break.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div data-inc="breakpoint.py" data-mark="cusum"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cusum</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
@@ -217,7 +225,18 @@ produces the characteristic V-shape.</dd>
 </ul>
 </li>
 </ul>
-<div data-inc="breakpoint.py" data-mark="trend_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="breakpoint.py" data-mark="trend_residuals"><span aria-label="Source: breakpoint/breakpoint.py" class="inc-path" role="img" tabindex="0" title="breakpoint/breakpoint.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">residuals_trend</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Residuals from a linear-trend fit.</span>
+
+<span class="sd">    Fits y_t = a + b*t using np.polyfit, then returns e_t = y_t - (a + b*t).</span>
+<span class="sd">    Removes any linear drift so the CUSUM responds only to departures from</span>
+<span class="sd">    the fitted trend, such as a sudden mean shift.</span>
+<span class="sd">    Use this model when the series is expected to have a linear trend in</span>
+<span class="sd">    addition to a possible break.</span>
+<span class="sd">    """</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="forma-multiple-choice" data-lang="en">

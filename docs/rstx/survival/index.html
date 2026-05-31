@@ -60,6 +60,7 @@
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
@@ -140,7 +141,10 @@
 <li>For an Exponential distribution, the mean of uncensored times estimates $\mu$, giving:</li>
 </ul>
 <p>$$\hat{\lambda}_{\text{naive}} = \frac{1}{\bar{t}_{\text{uncensored}}}$$</p>
-<div data-inc="survival.py" data-mark="naive-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="naive-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Estimate lambda using only uncensored observations."""</span>
+    <span class="n">uncensored</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="k">if</span> <span class="n">o</span><span class="p">]</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">uncensored</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">uncensored</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="forma-multiple-choice" data-lang="en">
@@ -192,7 +196,10 @@ If we compute the naive rate using only uncensored patients, which of these is t
 <li>A censored patient contributes time up to the point they were last observed: this is called
     person-time and captures the information that the patient was alive throughout that period.</li>
 </ul>
-<div data-inc="survival.py" data-mark="corrected-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="corrected-rate"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""MLE of lambda for exponential under censoring: d / sum(t)."""</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2>The Empirical Survival Curve</h2>
@@ -204,14 +211,67 @@ If we compute the naive rate using only uncensored patients, which of these is t
 </li>
 <li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event</li>
 </ul>
-<div data-inc="survival.py" data-mark="empirical-curve"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="empirical-curve"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">empirical_survival</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Empirical survival: fraction of uncensored events occurring after each time point."""</span>
+    <span class="n">event_times</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="k">if</span> <span class="n">o</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">event_times</span><span class="p">)</span>
+    <span class="n">fractions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">event_times</span><span class="p">,</span> <span class="n">fractions</span>
 </code></pre></div>
 </div>
 <ul>
 <li>Overlay the exponential curves $e^{-\hat{\lambda}_{\text{naive}} t}$ and $e^{-\hat{\lambda} t}$
     to see which fits the empirical curve more closely</li>
 </ul>
-<div data-inc="survival.py" data-mark="plot"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="survival.py" data-mark="plot"><span aria-label="Source: survival/survival.py" class="inc-path" role="img" tabindex="0" title="survival/survival.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_survival</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">,</span> <span class="n">lam_naive</span><span class="p">,</span> <span class="n">lam_corrected</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a chart with the empirical survival curve and two exponential fits.</span>
+
+<span class="sd">    The empirical curve shows the fraction of uncensored events that occurred</span>
+<span class="sd">    after each event time.  The naive and corrected exponential curves are</span>
+<span class="sd">    overlaid for comparison.</span>
+<span class="sd">    """</span>
+    <span class="n">event_times</span><span class="p">,</span> <span class="n">fractions</span> <span class="o">=</span> <span class="n">empirical_survival</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
+    <span class="n">emp_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">event_times</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">:</span> <span class="n">fractions</span><span class="p">})</span>
+    <span class="n">emp_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">emp_df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="s2">"step-after"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"t:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Time (days)"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"S:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Survival fraction"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Build smooth exponential curves over [0, T_MAX_DAYS].</span>
+    <span class="n">t_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T_MAX_DAYS</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="n">exp_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">"t"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">t_vals</span><span class="p">]),</span>
+            <span class="s2">"S"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam_naive</span> <span class="o">*</span> <span class="n">t_vals</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam_corrected</span> <span class="o">*</span> <span class="n">t_vals</span><span class="p">)]</span>
+            <span class="p">),</span>
+            <span class="s2">"model"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"naive"</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_vals</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"corrected"</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_vals</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">exp_lines</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">exp_df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">strokeDash</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="s2">"t:Q"</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="s2">"S:Q"</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
+                <span class="s2">"model:N"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span>
+                    <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">"naive"</span><span class="p">,</span> <span class="s2">"corrected"</span><span class="p">],</span>
+                    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">"firebrick"</span><span class="p">,</span> <span class="s2">"darkorange"</span><span class="p">],</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">emp_line</span><span class="p">,</span> <span class="n">exp_lines</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Empirical survival curve with exponential fits"</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <figure id="f:survival-exp">

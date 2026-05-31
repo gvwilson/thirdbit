@@ -60,6 +60,7 @@
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
@@ -126,7 +127,26 @@ but the labelling depends on cell density, not overall counts.</dd>
 </li>
 <li>Count the number of sites in each cell; the result is a 2D integer array of shape <code>(grid_size, grid_size)</code></li>
 </ul>
-<div data-inc="archcluster.py" data-mark="grid"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="grid"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_grid</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">region_min</span><span class="p">,</span> <span class="n">region_max</span><span class="p">,</span> <span class="n">grid_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Count sites per grid cell.</span>
+
+<span class="sd">    Each coordinate is mapped to a cell index by floor division:</span>
+<span class="sd">        cell = int((value - region_min) / cell_width)</span>
+<span class="sd">    clipped to [0, grid_size - 1] so that sites exactly on the upper boundary</span>
+<span class="sd">    fall in the last cell rather than out of bounds.</span>
+
+<span class="sd">    Returns a 2D integer array of shape (grid_size, grid_size) where entry</span>
+<span class="sd">    [row, col] counts sites whose northing maps to row and easting to col.</span>
+<span class="sd">    """</span>
+    <span class="n">cell_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">region_max</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">grid_size</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">grid_size</span><span class="p">,</span> <span class="n">grid_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">easting</span><span class="p">,</span> <span class="n">northing</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">easting</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">cell_width</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">northing</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">cell_width</span><span class="p">)</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">grid_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">grid_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">grid</span>
 </code></pre></div>
 </div>
 <h2>Identifying Concentration Cells</h2>
@@ -141,7 +161,9 @@ but the labelling depends on cell density, not overall counts.</dd>
 </li>
 <li>The Boolean mask of hot cells is straightforward:</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="hot-cells"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="hot-cells"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">find_hot_cells</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Boolean mask: True where count &gt;= threshold."""</span>
+    <span class="k">return</span> <span class="n">grid</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
 </code></pre></div>
 </div>
 <ul>
@@ -178,7 +200,43 @@ not split them.</dd>
 <li>The same iterative DFS used in the <code>porous</code> lesson labels connected components</li>
 <li>Here it assigns cluster IDs instead of testing for top-to-bottom percolation</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="dfs"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="dfs"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">find_clusters</span><span class="p">(</span><span class="n">hot</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""DFS connected components with 8-connectivity.</span>
+
+<span class="sd">    Visits every True cell in the boolean mask exactly once, assigning</span>
+<span class="sd">    consecutive integer labels starting at 0.  Cells where hot is False</span>
+<span class="sd">    receive label -1.</span>
+
+<span class="sd">    8-connectivity means each cell has up to 8 neighbors (4 cardinal + 4</span>
+<span class="sd">    diagonal), so clusters that touch only at corners are still merged.</span>
+
+<span class="sd">    Returns an integer label array of the same shape as hot.</span>
+<span class="sd">    """</span>
+    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">hot</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">cluster_id</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">start_r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrows</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">start_c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">hot</span><span class="p">[</span><span class="n">start_r</span><span class="p">,</span> <span class="n">start_c</span><span class="p">]</span> <span class="ow">or</span> <span class="n">labels</span><span class="p">[</span><span class="n">start_r</span><span class="p">,</span> <span class="n">start_c</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># Start a new cluster from this unlabelled hot cell.</span>
+            <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start_r</span><span class="p">,</span> <span class="n">start_c</span><span class="p">)]</span>
+            <span class="n">labels</span><span class="p">[</span><span class="n">start_r</span><span class="p">,</span> <span class="n">start_c</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_id</span>
+            <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+                <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">dr</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="n">nr</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">dr</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">dc</span>
+                        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">nr</span> <span class="o">&lt;</span> <span class="n">nrows</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">nc</span> <span class="o">&lt;</span> <span class="n">ncols</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">hot</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span> <span class="ow">and</span> <span class="n">labels</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                                <span class="n">labels</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_id</span>
+                                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">))</span>
+            <span class="n">cluster_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">labels</span>
 </code></pre></div>
 </div>
 <ul>
@@ -224,7 +282,24 @@ end up in background cells and are labelled as noise.</dd>
 <li>The site receives the cluster label of its cell</li>
 <li>Sites in background cells receive -1 (noise)</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="assign"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="assign"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assign_labels</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">cell_labels</span><span class="p">,</span> <span class="n">region_min</span><span class="p">,</span> <span class="n">region_max</span><span class="p">,</span> <span class="n">grid_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Map each site coordinate to its cluster label.</span>
+
+<span class="sd">    Applies the same floor-division formula used in build_grid to find which</span>
+<span class="sd">    cell each site belongs to, then returns the label for that cell.  Sites</span>
+<span class="sd">    whose cell is not hot receive label -1 (noise).</span>
+
+<span class="sd">    Returns a 1D integer array of length len(coords).</span>
+<span class="sd">    """</span>
+    <span class="n">cell_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">region_max</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">grid_size</span>
+    <span class="n">site_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">easting</span><span class="p">,</span> <span class="n">northing</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">easting</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">cell_width</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">northing</span> <span class="o">-</span> <span class="n">region_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">cell_width</span><span class="p">)</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">grid_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">grid_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">site_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell_labels</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">site_labels</span>
 </code></pre></div>
 </div>
 <ul>
@@ -256,7 +331,18 @@ to cluster centroids.</dd>
 <li>The centroid of a cluster is the mean easting and mean northing of all sites assigned to that cluster</li>
 <li>Centroids summarize each cluster's geographic location and can be compared with known landscape features</li>
 </ul>
-<div data-inc="archcluster.py" data-mark="centroids"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="archcluster.py" data-mark="centroids"><span aria-label="Source: archcluster/archcluster.py" class="inc-path" role="img" tabindex="0" title="archcluster/archcluster.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cluster_centroids</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Mean x/y per cluster, excluding noise (label -1).</span>
+
+<span class="sd">    Returns a dict mapping each non-negative cluster label to a (easting,</span>
+<span class="sd">    northing) tuple.</span>
+<span class="sd">    """</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">unique_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">unique_labels</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="n">lbl</span>
+        <span class="n">centroids</span><span class="p">[</span><span class="n">lbl</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">coords</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">centroids</span>
 </code></pre></div>
 </div>
 <ul>

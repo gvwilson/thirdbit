@@ -146,7 +146,19 @@ to manage the deque,
 but our simulation focuses on the algorithmic pattern rather than low-level synchronization.</p>
 <p>A worker executes tasks from its local deque and steals when idle.
 We start by setting up its members:</p>
-<div data-inc="worker.py" data-mark="deque"><span aria-label="Source: worksteal/worker.py" class="inc-path" role="img" tabindex="0" title="worksteal/worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="worker.py" data-mark="worker"><span aria-label="Source: worksteal/worker.py" class="inc-path" role="img" tabindex="0" title="worksteal/worker.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Worker that executes tasks with work-stealing."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">:</span> <span class="s2">"WorkStealingScheduler"</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_id</span> <span class="o">=</span> <span class="n">worker_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deque</span> <span class="o">=</span> <span class="n">WorkerDeque</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span><span class="p">:</span> <span class="n">Task</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks_executed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks_stolen</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div>
 </div>
 <p>and then define its behavior:</p>
@@ -351,7 +363,17 @@ we can create a task generator:</p>
 </code></pre></div>
 </div>
 <p>The final step is to write a scheduler that creates these workers:</p>
-<div data-inc="scheduler_with_spawning.py" data-mark="gen"><span aria-label="Source: worksteal/scheduler_with_spawning.py" class="inc-path" role="img" tabindex="0" title="worksteal/scheduler_with_spawning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+<div data-inc="scheduler_with_spawning.py" data-mark="scheduler"><span aria-label="Source: worksteal/scheduler_with_spawning.py" class="inc-path" role="img" tabindex="0" title="worksteal/scheduler_with_spawning.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SchedulerWithSpawning</span><span class="p">(</span><span class="n">WorkStealingScheduler</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Scheduler using workers that can spawn tasks."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
+        <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">worker_cls</span><span class="p">:</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">WorkerWithSpawning</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">worker_cls</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Our simulation looks similar to our first one:</p>
