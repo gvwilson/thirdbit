@@ -1930,7 +1930,8 @@ As they walked into the market, Noxy said,
 Dolly, I'm really sorry."
 
 "It's just how people are around here," the troll replied mildly.
-"At least we're not in Garheim."
+"Bortja's the worst of them,
+but at least we're not in Garheim."
 
 "But…but she said it right *to* you!"
 Noxy suddenly realized that her hands were clenched into fists.
@@ -2160,163 +2161,193 @@ Prince Thokmay agreed.
 
 ## Chapter 5: Flight
 
-Princess Ogmin wanted to stop on the way back to the garrison house to
-see if her favorite seamstress would sew her new ribbon onto her dress
-right then and there. When Noxy said that she really had to get back
-to see how her cloud was doing, the princess immediately asked if she
-could go for a ride, because it wasn't fair that Prince Thokmay had
-flown and she hadn't. Noxy looked at the prince, who nodded.
+Princess Ogmin wanted to stop on the way back to the garrison house
+to see if her favorite seamstress would sew her new ribbon onto her dress
+right then and there.
+When Noxy said that she really had to get back to see how her cloud was doing,
+the princess immediately asked if she could go for a ride,
+because it wasn't fair that Prince Thokmay had flown and she hadn't.
+Noxy looked at the prince, who nodded.
 
-"Of course," she said. The princess squealed with delight and began
-to pull her down the street, urging her to go faster so they could
-start right away.
+"Of course," Noxy said.
+The princess squealed with delight and began to pull her down the street,
+urging her to go faster so they could start right away.
 
-Noxy was careful to lay her hands on Cloak before mind-speaking to
-him—the last thing she wanted was for Aft to find out about her
-ability before she figured out how to tell her mother and grandmother.
+Noxy laid lay her hands on Cloak and quieted her mind.
 *Hungry?* she asked.
 
-*Yes hungry said hungry long time hungry* the cloud answered
-petulantly. He began to bunch himself together.
+*Yes hungry said hungry long time hungry* the cloud answered petulantly.
+He began to bunch himself together.
 
-*Wait!* Noxy formed a picture in her mind of the prince and princess
-sitting beside her. *Good? Or hurt?*
+*Wait!*
+Noxy formed a picture in her mind of the prince and princess sitting beside her
+on his back.
+*Good? Or hurt?*
 
 *Good?* the cloud replied hesitantly.
 
 *Can fly?*
 
-*Yes can fly!* the cloud protested. *Can fly always!*
+*Yes can fly!* the cloud protested.
+*Can fly always!*
 
-Noxy smiled. "He's healing well," she said aloud. "But I should take
-him up just to see. We can go up together after lunch if he's
-better," she added quickly as the princess began to pout. "Besides,
-he needs to eat." It was true—Cloak was as dry as cotton wool. No
-matter how sore he was, he needed to find a pond somewhere and get
-some sunshine.
+Noxy smiled.
+"He's healing well," she said aloud.
+"But I should take him up just to see.
+We can go up together after lunch if he's better," she added quickly
+as the princess began to pout.
+"Besides, he needs to eat."
+It was true—Cloak was as dry as cotton wool.
+No matter how sore he was,
+he needed to find a pond somewhere and get some sunshine.
 
-Back in her room, it only took her a couple of minutes to swap her
-borrowed finery for her flying clothes. Her trousers and jacket had
-been washed overnight, and were slightly scratchy in a way that made
-her suddenly homesick. She wrapped her scarf around her neck—she
-wouldn't be going high enough to need anything more—pulled on her
-gloves, and trotted down the stairs and back across the courtyard to
-the makeshift cloud pen. She didn't realize that she was humming
-happily the whole time.
+It only took her a couple of minutes to swap her borrowed finery for her mended flying clothes.
+Her trousers and jacket had been washed overnight,
+and were slightly scratchy in a way that made her suddenly homesick.
+As she had expected,
+the mend in the sleeve was almost invisible.
+
+She wrapped her scarf around her neck—she
+wouldn't be going high enough to need anything more—pulled
+on her gloves,
+and trotted down the stairs and back across the courtyard to the makeshift cloud pen.
+She didn't realize that she was humming happily the whole time.
 
 Cloak pulled himself together until he was dense enough to stand on.
-Noxy clambered up his side like a baby troll climbing onto its
-mother. *Ouch!* the cloud complained.
+Noxy clambered up his side like a baby troll climbing onto its mother.
+*Ouch!* the cloud complained.
 
-*Sorry,* she mind-spoke. The patch that the branch had torn through
-the day before was dark gray, and had the consistency of a thick
-stew. She pushed her arm into it gently. *Hurts?*
+*Sorry,* she mind-spoke.
+The patch that the branch had torn through was dark gray
+and had the consistency of a thick stew.
+She pushed her arm into it gently.
+*Hurts?*
 
-*Hurts,* the cloud replied. Noxy pulled out her arm and stroked him.
+*Hurts,* the cloud replied.
+Noxy pulled out her arm and stroked him.
 The quick scramble up the cloud's side had made her shoulder hurt too.
-All of a sudden she didn't want to be this close to the ground any
-more.
+All of a sudden she didn't want to be this close to the ground any more.
 
-*Up!* she ordered Cloak, and, "I won't be long," she called to the
-prince and princess and the soldiers and servants standing with them.
-
-The hungry cloud didn't need to be told twice. He rose with a lurch,
-making Noxy whoop. The walls of the garrison house sank below them.
+*Up!* she ordered Cloak.
+The hungry cloud didn't need to be told twice.
+He rose with a lurch, making Noxy whoop.
+The walls of the garrison house sank below them.
 Suddenly she was above the roof—above all of Apple Bridge's roofs.
-The clock tower seemed to stare at her jealously, its green dial a
-blind staring eye, before it dropped away as well and she was up in
-the sky, up in *her* world, up where she belonged.
+The clock tower seemed to stare at her jealously,
+its green dial a blind eye,
+before it dropped away as well and she was up in the sky,
+up in *her* world where she belonged.
 
-*Good?* she mind-asked Cloak, pushing her hands as deep as they would
-go into him and scrunching them up. She mind-heard the cloud's purr
-of satisfaction as she scratched around the patch torn by the branch.
+*Good?* she mind-asked Cloak,
+pushing her hands as deep as they would go into him and scrunching them up.
+She mind-heard the cloud's purr as she scratched around the patch torn by the branch.
 
-The world looked so big beneath her, stretching on and on until it
-blurred and hazed with distance. Apple Bridge was so small by
-comparison. Streets that had seemed so wide as she walked them were
-narrow tracks between blocks of slate and tile. Even the market was a
-child's toy, stalls and wagons and bales of cloth scattered like the
-pieces of a forgotten game.
+The world looked so big beneath her,
+stretching on and on until it blurred and hazed with distance.
+As big as Apple Bridge was
+it was still small by comparison.
+Streets that had seemed wide as she walked them were narrow tracks between blocks of slate and tile.
+Even the market was a child's toy,
+stalls and wagons and bales of cloth scattered like the pieces of a forgotten game.
 
-The river sparkled sharply on the far side of the market. *There,*
-Noxy ordered. Cloak turned slowly, stretching his edges to catch the
-breeze, and drifted toward it.
+The river sparkled sharply on the far side of the market.
+*There,* Noxy ordered.
+Cloak turned slowly,
+stretching his edges to catch the breeze,
+and drifted toward it.
 
-Noxy shaded her eyes with her hand. Half a dozen barges laden with
-crates and bales were floating downstream. One flew the yellow and
-gray flag of Loghan to show that it was carrying goods to pay taxes.
-It and the ones behind it were all piled high like the one she and the
-princess had seen setting out that morning.
+Noxy shaded her eyes with her hand.
+Half a dozen barges laden with crates and bales were floating downstream.
+One flew the yellow and gray flag of Loghan to show that it was carrying goods to pay taxes.
+It and the ones behind it were all piled high
+like the one she and the princess had seen setting out that morning.
 
-All except the one trailing behind. Noxy frowned. She couldn't see
-anyone on the rear barge at all. Had it come loose? *Go closer,* she
-mind-spoke to Cloak.
+All except the one trailing behind.
+Noxy frowned.
+She couldn't see anyone on the rear barge at all.
+Had it come loose?
+*Go closer,* she mind-spoke to Cloak.
 
-*Later,* the cloud replied sleepily. She could feel him drifting into
-a contented half-slumber as he soaked up the fresh air and sunshine
-that clouds fed on.
+*Later,* the cloud replied sleepily.
+She could feel him drifting into a contented half-slumber
+as he soaked up the fresh air and sunshine that clouds fed on.
 
-*Please?* She pictured herself scratching his itchy spots again and
-sent it his way. It was another thing she could do that other
-cloudherds couldn't—another thing she had decided to keep secret.
-Cloak grumbled as if he was an old cirrus rather than a frisky young
-cumulus, but pulled in his edges and turned to angle across the wind.
+*Please?*
+She pictured herself scratching his itchy spots again
+and sent the image his way.
+It was another thing she could do that other cloudherds couldn't—another thing
+she had decided to keep secret.
+Cloak grumbled as if he was an old cirrus rather than a frisky young cumulus,
+but pulled in his edges and turned to angle across the wind.
 
-As they approached the barge, two small gray figures scampered across
-its deck. One stood on its hind legs and began turning a wheel with
-its paws, while the other leaned against a rudder post to nudge the
-barge back into the middle of the river where the current was
-strongest.
+As they approached the barge,
+two small gray figures scampered across its deck.
+One stood on its hind legs and began turning a wheel with its paws,
+while the other leaned against a rudder post
+to nudge the barge back into the middle of the river
+where the current was strongest.
 
-Noxy blinked. Raccoons? She didn't know that raccoons could sail a
-barge. But then she shook her head, annoyed with herself. That
-sounded like something the leek seller in the market that morning
-might have said. Of course Gifted raccoons could sail a barge if they
-wanted to. Why, they were probably very good at it, and even if they
-weren't, it was none of her business.
+Noxy blinked.
+Raccoons?
+She didn't know that raccoons could sail a barge.
+But then she shook her head, annoyed with herself.
+That sounded like something the leek seller in the market that morning might have said.
+Of course Gifted raccoons could sail a barge if they wanted to.
+Why, they were probably very good at it,
+and even if they weren't,
+it was none of her business.
 
-She shaded her eyes again to look north toward the Blight. Its border
-was clear from this height: in the space of half a gallop, the rich
-green of Loghan's farms and forests was replaced by the brown and gray
-of barren soil and dead trees. Patches of white lay scattered through
-the wasteland, salt or snow or something worse, and a few lonely
-tumbledown buildings marked where farms had been swallowed up years
-ago.
+She shaded her eyes again to look north toward the Blight.
+Its border was clear from this height:
+in the space of half a gallop,
+the rich green of Loghan's farms and forests was replaced by
+the brown and gray of barren soil and dead trees.
+Patches of white lay scattered through the wasteland,
+salt or snow or something worse.
 
-She shivered. The mountains she had grown up in were bare, but not
-barren, not like this. She wondered what it would be like to grow up
-with that on your doorstep, creeping closer year after year, and
-shivered again.
+A few lonely tumbledown buildings marked where
+farms had been swallowed up over the years
+by the Blight's slow growth.
+She shivered.
+The mountains she had grown up in were bare,
+but not barren,
+not like this.
+She wondered what it would be like to grow up with that on your doorstep,
+creeping closer year after year.
 
-Still, Cloak was doing well—better than she had feared while tossing
-and turning in bed after the previous night's dinner. She should
-probably give him one more day to rest, but he would certainly be able
-to take the princess up tomorrow. *Let's go back,* she mind-spoke,
-patting him. She caught herself humming as he turned around. She'd
-give Cloak a little rest, and then bring the princess up.
+But it was a sunny day,
+and Cloak was doing better than she had feared
+while tossing and turning in bed after the previous night's dinner.
+She should probably give him one more day to rest,
+but he would certainly be able to take the princess up tomorrow.
+And the prince too, if he wanted.
+She hoped he would.
+The last time they had been on cloudback together
+they had huddled together under a thin blanket to stay warm.
+She wondered if he thought about that night as often as she did…
 
-And the prince too, if he wanted. She hoped he would. The last time
-they had been on cloudback together they had huddled together under a
-thin blanket to stay warm. She wondered if he thought about that
-night as often as she did…
+*Let's go back,* she mind-spoke, patting her cloud.
 
-*At the same moment, a few gallops downriver from Apple Bridge, a
-flat-bottomed skiff slid up to the raccoons' barge. A rough-looking
-man stepped onto the barge and pried open the side of an oversized
-crate. The horse that had been hidden inside stepped uncertainly into
-the light. The man tossed a small bag of shells at the raccoons
-contemptuously and slipped a halter over the horse's muzzle. She
-tossed her head, but stilled when the man smacked her sharply. When
-he twitched on her reins, she followed him meekly onto the skiff and
-back into servitude.*
+*At the same moment,
+a few gallops downriver from Apple Bridge,
+a flat-bottomed skiff slid up to the raccoons' barge.
+A rough-looking man stepped onto the barge and pried open the side of an oversized crate.
+The horse that had been hidden inside stepped uncertainly into the light.
+The man tossed a small bag of shells at the raccoons contemptuously
+and slipped a halter over the horse's muzzle.
+She tossed her head,
+but stilled when the man smacked her sharply.
+When he twitched on her reins,
+she followed him meekly onto the skiff and back into servitude.*
 
-Noxy heard the shouting before she saw the mob outside the garrison's
-gate. *Hold,* she mind-spoke to Cloak. Forty or fifty people were
-bunched together in the street, pumping the air with their fists and
-stomping their feet.
+Noxy heard the shouting before she saw the mob outside the garrison's gate.
+*Hold,* she mind-spoke to Cloak.
+Forty or fifty people with black bandannas tied over their hair
+were bunched together in the street.
 
-Master Bortja stood on a crate in front of them. "What do we want?"
-he bellowed.
+The leek seller, Bortja,
+stood on a crate in front of them.
+"What do we want?" she bellowed.
 
 "A charter!" the crowd roared.
 
@@ -2324,114 +2355,138 @@ he bellowed.
 
 "Now!"
 
-Soldiers stood in pairs by the gates. More were forming ranks inside.
-She could see Sergeant Gyalpa grabbing arms and pushing people in the
-right direction when they didn't move quickly enough to satisfy him.
-The prince was there too. Catching sight of the cloud, he waved her
-away. She didn't need to be told twice—whatever was happening, she
-wanted to be well clear of it.
+Soldiers stood in pairs by the gates.
+More were forming ranks inside.
+She could see Sergeant Gyalpa grabbing arms and pushing people in the right direction
+when they didn't move quickly enough to satisfy him.
+The prince was there too.
+Catching sight of the cloud,
+he waved her away.
+She didn't need to be told twice—whatever was happening,
+she wanted Cloud to be well clear of it.
 
-Below her, the prince lowered his arm. "All good?" he asked,
-returning Rinpa's salute as the soldier halted in front of him.
+Below her, the prince lowered his arm.
+"All good?" he asked,
+returning Private Rinpa's salute as the soldier halted in front of him.
 
-"Yes, Your Highness," Rinpa replied, slightly breathless. "The troll
-is minding her, and Manpa's stayed up as well."
+"Yes, honored," Rinpa replied, slightly breathless.
+"The troll is minding her, and Manpa's stayed up along by them as well."
 
 "Good. Sergeant Gyalpa, are you ready? Sergeant Inambu? Good.
-Remember, no one does anything until we find out what this is all
-about. Now, open the gate!"
+Remember, no one does anything until I've had a chance to talk to them.
+Now, open the gate!"
 
-Sergeant Gyalpa blew three long blasts on his whistle. Two soldiers
-grunted as they lifted the iron bar that held the gate shut. Two
-others began cranking a windlass. With a rattle, the gate began to
-rise.
+Sergeant Gyalpa blew three long blasts on his whistle.
+Two soldiers grunted as they lifted the iron bar that held the gate shut.
+Two others began cranking a windlass.
+With a rattle and a prolonged squeak, the gate swung open.
 
-The crowd outside fell silent. Master Bortja stepped down from his
-crate to stand with his hands clasped behind his back. "In ranks!"
-the prince ordered, his voice cracking. He strode forward, one hand
-resting on the hilt of his sword and the other swinging at his side.
-*Don't look back,* he told himself. *Don't look back. They're right
-behind you.*
+The crowd outside fell silent.
+Bortja stepped down from her crate to stand with her hands clasped in front of her.
+"In ranks!" the prince ordered,
+his voice cracking.
+He strode forward,
+one hand resting on the hilt of his sword.
+*Don't look back,* he told himself.
+*Don't look back. They're right behind you.*
 
-He counted twelve paces in his head once he was through the gate, just
-as Sergeant Gyalpa had suggested, then halted and raise his arm. He
-only closed his eyes in relief for a heartbeat when Sergeant Gyalpa
-shouted, "Troop… halt!" behind him. Thirty boots hit the pavement
-with a synchronized thud.
+He counted twelve paces in his head once he was through the gate,
+just as Sergeant Gyalpa had suggested,
+then halted and raise his arm.
+He definitely *didn't* whoosh with relief relief
+when Sergeant Gyalpa shouted, "Troop… halt!" behind him.
+Thirty boots hit the pavement with a synchronized thud.
 
-Master Bortja straightened and bowed. "Your Highness," he said in a
-loud, clear voice.
+Bortja straightened and bowed.
+"Your Highness," she said in a loud, clear voice.
 
-The prince inclined his head. "Master Bortja." He hesitated 'What is
-the meaning of this?' and 'Be about your business immediately!' and
-'Could you not have written a letter?' all flashed through his mind,
+The prince inclined his head.
+"Honored Bortja."
+He hesitated.
+'What is the meaning of this?',
+'Be about your business immediately!',
+and 'Could you not have written a letter?'
+all flashed through his mind,
 but that was what his father, his brother, and Mope would have said.
 Instead, he let his hesitation stretch.
 
-It was clearly not what Master Bortja had expected. As the silence
-grew uncomfortable, then awkward, he cleared his throat. "Thank you
-for coming to speak with us, Your Highness." He gestured at the
-crowd. "With all of us. Though I assure you, your soldiers are
-unnecessary."
+It was clearly not what Bortja had expected.
+As the silence grew uncomfortable,
+then awkward,
+she cleared her throat.
+"Thank you for coming along by to speak with us, Your Highness."
+She gestured at the crowd.
+"With all of us.
+I promise, the soldiers aren't all by necessary."
 
-"As was your shouting," the prince replied sharply.
+"Neither was your shouting," the prince replied sharply.
 
-Master Bortja spread his hands. "Sometimes there is no other way to
-be heard. Pargyu!"
+Bortja spread her hands.
+"Sometimes there's by no other way to be heard.
+Pargyu!"
 
-A burly man stepped forward. A couple of bystanders clapped him on
-the shoulder.
+A burly man stepped forward.
+A couple of bystanders clapped him on the shoulder.
 
-When Master Bortja nodded to him, the man bowed awkwardly to the
-prince. "M'name's Pargyu," he said, deferential and belligerent at
-the same time. "I'm a bricksmith. Been doing along by that all my
-life, never been cause by trouble. Then last night some troll comes
-along by my room and drags me out from bed and, and strips me for
-naked and ties me up like a hog for market and, and…"
+When Bortja nodded to him,
+the man bowed awkwardly to the prince.
+"M'name's Pargyu," he said,
+deferential and belligerent at the same time.
+"I'm a bricksmith.
+Been doing along by that all my life, never been cause by trouble.
+Then last night some troll comes along by my room and drags me out from bed
+and, and strips me for naked and ties me up like a hog for market and, and…"
 
-"…and hangs him from a lamp post down by the market," Master Bortja
-finished. "But that's not all, is it?"
+"…and hangs him from a lamp post down by the market," Bortja finished.
+"But that's not all, is it?"
 
-"No sir," the bricksmith said. "Not along by half it isn't. Beast
-stole my horse too!"
+"No sir," the bricksmith said.
+"Not along by half it isn't.
+Beast stole my horse too!"
 
-The crowd murmured. The prince cocked his head to one side. "So
-you'd like to report a theft?"
+The crowd murmured.
+The prince cocked his head to one side.
+"So you'd like to report a theft?"
 
-"No! I mean, yes!" the bricksmith spluttered. "And, and, and I want
-a word by that troll of yours! It's along time he learned a lesson
-about what he can't do by people!"
+"No! I mean, yes!" the bricksmith spluttered.
+"And, and, and I want a word by that troll of yours!
+It's along time he learned a lesson about what he can't do by people!"
 
-"Rightly said!" "Full truth!" The crowd wasn't murmuring any more.
+"Rightly said!" "Full truth!"
+The crowd wasn't murmuring any more.
 
-The prince looked at their angry faces, his heart pounding. *Never
-let them see your fear,* Kulbinder had told him. *Only prey are
-afraid.*
+The prince looked at their angry faces, his heart pounding.
+*Never let them see your fear,* Kulbinder had told him.
+*Only prey are afraid.*
 
-"Very well," he said. "If you'd like to go with Sergeant Gyalpa, I'm
-sure Mope would be happy to clear this up. Would you like a cup of
-tea while you're speaking with him? I would offer one to your friends
-as well, but I think the kitchen staff would require more warning for
-that."
+"Very well," he said.
+"If you'd like to go with Sergeant Gyalpa,
+I'm sure Mope would be happy to clear this up.
+Would you like a cup of tea while you're speaking with him?
+I would offer one to your friends as well,
+but I think the kitchen staff would require more warning for that."
 
-"I don't want by tea!" the bricksmith squawked. "I want my horse
-back! And I want that animal of yours out *here* where we can *all*
-have a word by him!"
+"I don't want by tea!" the bricksmith squawked.
+"I want my horse back!
+And I want that animal of yours out *here* where we can *all* have a word by him!"
 
-"You will mind how you speak by His Highness!" Sergeant Gyalpa
-barked. "Or it won't be his troll you'll be by to talk with, and it
-won't be the kitchen you'll be along by to sit!"
+"You will mind how you speak by His Highness!" Sergeant Gyalpa barked.
+"Or it won't be his troll you'll be by to talk with,
+and it won't be the kitchen you'll be along by to sit!"
 
-Master Bortja smacked his thigh with his hand. "You see?" he said to
-the crowd. "You see who they favor? Beasts over men! Well I say,
-men over beasts!"
+Bortja smacked her thigh with her hand.
+"You see?" she said to the crowd.
+"You see who they favor? Beasts over people! Well I say, people over beasts!"
 
-"Men over beasts!" someone shouted from the back of the crowd. "Men
-over beasts!" Others took up the cry. People began clapping and
-stomping their feet in time. "Men over beasts!"
+"People over beasts!" someone shouted from the back of the crowd.
+"People over beasts!"
+Others took up the cry.
+People began clapping and stomping their feet in time.
+"People over beasts!"
 
-Two long steps took Master Bortja back to his crate. "What do we
-want?" he bellowed as he straightened on top of it.
+Two quick steps took Bortja back to her crate.
+"What do we want?"
+she bellowed as she straightened on top of it.
 
 "A charter!" the crowd roared.
 
@@ -2439,285 +2494,342 @@ want?" he bellowed as he straightened on top of it.
 
 "Now!"
 
-Sergeant Gyalpa looked at Prince Thokmay. "Sir, I think—"
+Sergeant Gyalpa looked at Prince Thokmay.
+"Sir, I think—"
 
-The prince raised a hand. "No. We're not going to use the soldiers
-on them." Then he glanced at his hand. Was that rain?
+The prince raised a hand.
+"No. We're not going to use the soldiers on them."
+Then he glanced at his hand.
+Was that rain?
 
-Another drop pinged off his helmet. He looked up at the cloud
-circling above them, then looked back at the sergeant and grinned.
+Another drop pinged off his helmet.
+He looked up at the cloud circling above them,
+then looked back at the sergeant and grinned.
 "We're not going to need to."
 
-It only took a dozen heartbeats for those first scattered drops to
-turn into a shower. Another dozen and they were a downpour. The
-prince bit his lip to stop himself from laughing as the shouts of
-"Charter!" and "Now!" turned into exclamations and curses. Cold water
-was dripping down the back of his neck, but he didn't care, not when
-the crowd broke up, people running for doorways or toward the market
-to shelter under stall awnings.
+It only took a dozen heartbeats for the first scattered drops to turn into a shower.
+Another dozen and they were a downpour.
+The prince bit his lip to stop himself from laughing
+as the shouts of "Charter!" and "Now!" turned into exclamations and curses.
+Cold water was dripping down the back of his neck,
+but he didn't care,
+not when the crowd broke up,
+people running for doorways or toward the market to shelter under stall awnings.
 
-His humor vanished instantly when he saw the fury on Master Bortja's
-face. The merchant stepped off his crate, his hands bunched into
-fists at his sides, and spat on the cobblestones before turning and
-striding away.
+His humor vanished instantly when he saw the fury on Bortja's face.
+The leek seller  stepped off her crate,
+her hands bunched into fists at her sides,
+and spat on the cobblestones before turning and striding away.
 
-"Sir, I—" Sergeant Gyalpa started indignantly.
+"Honored, I—" Sergeant Gyalpa started indignantly.
 
-The prince raised his hand again. "Let him go," he said, suddenly
-weary. "I'm sure we'll see him again soon."
+The prince raised his hand again.
+"Let her go," he said, suddenly weary.
+"I'm sure we'll see her again soon."
 
-</section>
-<section markdown="1">
-
-## Chapter 6: Remembrance
-
-Noxy circled Apple Bridge one more time to give Cloud a final,
-satisfying drizzle. *Home now,* she mind-spoke to the cloud, forming
-a picture of the garrison house's rear courtyard. He was fluffy now
-that he'd rained, and she had already had to remind him once not to
-thin out so much that she fell right through him.
+Noxy circled Apple Bridge one more time to give Cloud a final satisfying drizzle.
+*Home now,* she mind-spoke to the cloud,
+forming a picture of the garrison house's rear courtyard.
+He was fluffy now that he'd rained,
+and she had already had to remind him once
+not to thin out so much that she fell right through him.
 
 *Not home,* the cloud replied muzzily. *Home far.*
 
-Noxy felt a sudden pang. *Yes,* she replied, *Home far. Stay here
-now. Home soon.* She hoped that was true. Raining on the mob had
-been exactly the kind of trouble Aft had warned her not to go
-looking for, which was half the reason she had done it. But thinking
-about what Aft would say when she found out made her think about
-Stale, and about how long it would be until she saw her mother and
-grandmother again.
+Noxy felt a sudden pang.
+*Yes,* she replied, *Home far. Stay here now. Home soon.*
+She hoped that was true.
+Raining on the mob had been exactly the kind of trouble Aft had warned her not to go looking for,
+which was half the reason she had done it.
+But thinking about what Aft would say when she found out made her think about Stale,
+and about how long it would be until she saw her mother and grandmother again.
 
-But Prince Thokmay was waiting when she landed, which almost made up
-for it. Sergeant Gyalpa was there too, scowling while the prince
-struggled to hold in a grin. She didn't bother to try to hide hers as
-she slid down Cloak's flank and gave him one final pat.
+But Prince Thokmay was waiting when she landed,
+which almost made up for it.
+Sergeant Gyalpa was there too,
+scowling while the prince grinned.
+She didn't bother to try to hide her own grin
+as she slid down Cloak's flank and gave him one final pat.
 
-"Mission accomplished, sir!" she said loudly, saluting sloppily.
-The prince snorted, turning it into a cough as Sergeant Gyalpa glared
-at her.
+"Mission accomplished, honored!" she said loudly,
+saluting sloppily.
+The prince snorted,
+turning it into a cough as Sergeant Gyalpa glared at her.
 
-"That was near by a mess of you, m'lady, begging your pardon for
-speaking along so freely," he began. "My men had the all of it to
-hand, and if anyone had been hurt—"
+"That was near by a mess of you, honored,
+begging your pardon for speaking along so freely,"the sergeant began.
+"My men had the all of it to hand, and if anyone had been hurt—"
 
 "Oh, please." Noxy rolled her eyes. "It was just rain."
 
-"If anyone had been *hurt*," the sergeant continued implacably, "It
-would have been exactly what Master Bortja did want, especially along
-after this morning's news."
+"If anyone had been *hurt*," the sergeant continued implacably,
+"It would have been exactly what Bortja did want,
+especially along after this morning's news."
 
 "What do you mean?" Noxy asked, glancing at the prince.
 
-His not-quite-a-grin slipped and fell. "The farmer from yesterday,"
-he said. "They found him this morning in a blackberry bush halfway
-back to his farm. It looks like the tornado got him after all."
+His not-quite-a-grin slipped and fell.
+"The farmer from yesterday," he said.
+"They found him this morning in a blackberry bush halfway back to his farm.
+It looks like the tornado got him after all."
 
-"Oh. Oh, Thokmay, I'm so sorry." Her elation and belligerence
-vanished. How could she have forgotten that someone was missing?
-When it happened in the mountains, the whole village turned out to
-search, and kept searching until there was no point looking any more.
+"Oh. Oh, Thokmay, I'm so sorry."
+Her elation and belligerence vanished.
+How could she have forgotten that someone was missing?
+When it happened in the mountains,
+the whole village turned out to search,
+and kept searching until there was no point looking any more.
 "Are his children…?"
 
-
-"They've been told," Sergeant Gyalpa said gruffly. "His Highness has
-already promised the kingdom will mind to them along 'til they're
-grown."
+"They've been told," Sergeant Gyalpa said gruffly.
+"His Highness has already promised the kingdom will mind to them
+along 'til they're grown."
 
 "I'm so sorry," she repeated. *I'm sorry…*
 
 *Hurt?* Cloak mind-asked.
 
-*Not hurt,* she lied, thinking of the two wide-eyed little boys, and
-of how she had felt when her mother told her that her own father
-wouldn't ever be coming home… She wiped her eyes with her sleeve,
-feeling angry with herself. Why was she crying? She didn't even know
-their names.
+*Not hurt,* she lied,
+thinking of the two wide-eyed little boys,
+and of how she had felt when her mother told her that
+her own father wouldn't ever be coming home.
+She wiped her eyes with her sleeve,
+feeling angry with herself.
+Why was she crying?
+She didn't even know their names.
 
-The prince cleared his throat uncomfortably. "Um, Sergeant? Could
-you…?"
+The prince cleared his throat.
+"Um, Sergeant? Could you give us a moment?"
 
-"Of course, Your Highness." Sergeant Gyalpa saluted, turned on his
-heel, and marched off to yell at a pair of soldiers for scraping a
-crate they were carrying against a wall, now it would have to be
-repainted, in fact, that sounded like an excellent way for them to
-spend tomorrow.
+"Of course, honored."
+Sergeant Gyalpa saluted,
+turned on his heel,
+and marched off to yell at a pair of soldiers for scraping a crate they were carrying against a wall,
+now it would have to be repainted,
+in fact,
+that sounded like an excellent way for them to spend the afternoon.
 
-Prince Thokmay didn't really notice him leave as he pulled a yellow
-handkerchief from his sleeve and held it out to Noxy. "Here. I, um,
-I'm pretty sure it's clean."
+Prince Thokmay didn't really notice him leave
+as he pulled a yellow handkerchief from his sleeve and held it out to Noxy.
+"Here. I, um, I'm pretty sure it's clean."
 
-"Thanks." Noxy wiped her eyes. "Are these part of the uniform?"
+"Thanks." Noxy wiped her eyes.
+"Are these part of the uniform?"
 
-The prince's mouth quirked. "Hardly. It's for when Ogmin gets a
-runny nose. She has her own, but she's always losing them. No,
-please, keep it," the prince added hastily as Noxy tried to return
-it. "The staff will wash it."
+The prince's mouth quirked.
+"Hardly. It's for when Ogmin gets a runny nose.
+She has her own, but she's always losing them.
+No, please, keep it," the prince added hastily
+as Noxy tried to return it.
+"The staff will wash it."
 
-Noxy nodded. "Thanks," she repeated, then smacked her forehead with
-her hand. "The princess—I'm sorry, I can't take her flying this
-afternoon. Cloak's healing pretty quickly, but raining on everyone
-like that has knocked him out. I don't think he should—"
+Noxy nodded.
+"Thanks," she repeated, then sighed.
+"The princess—I'm sorry,
+I can't take her flying this afternoon.
+Cloak's healing pretty quickly,
+but raining on everyone like that has knocked him out.
+We can go up tomorrow if she'd like."
 
-"Don't worry," the prince said soothingly, patting the air with his
-hands. "She's probably already forgotten about it. Besides, she has
-to get dressed for the service. For the farmer who was killed
-yesterday." His face grew serious. "I do too. I'm supposed to say
-something."
+"Don't worry about it," the prince said soothingly.
+"She won't mind waiting a day.
+Besides, she has to get dressed for the service.
+For the farmer who was killed yesterday."
+His face grew serious.
+"I do too. I'm supposed to say something."
 
 "What will you say?" Noxy asked after a moment.
 
 The prince shook his head. "I don't know."
 
-Two hundred years ago, when Apple Bridge was just a handful of houses
-around an open field where a weekly market was held, its inhabitants
-had laid down slabs of stone to make a diamond twenty strides from end
-to end. Every Purplesday, after the market closed, they gathered
-there to thank the land for its bounty. Infants were brought to be
-named and introduced to their neighbors. When they were grown, they
-would come with someone they loved to tie their wrists together and
-say their vows. And when they died, those who had known them would
-gather to tell their stories one last time.
+Two hundred years ago,
+when Apple Bridge was just a handful of houses
+around an open field where a weekly market was held,
+its inhabitants had laid down slabs of stone
+to make a lozenge twenty strides from end to end.
+Every Purplesday,
+after the market closed,
+they gathered there to thank the land for its bounty.
+Infants were brought to be named and introduced to their neighbors.
+When they were grown,
+they would come with someone they loved
+to tie their wrists together and say their vows.
+And when they died,
+those who had known them would gather to tell their stories one last time.
 
-As Apple Bridge grew, so too did its witness hall. A roof was built
-to keep the rain off the weddings. Walls were put up, then the whole
-hall was torn down so that a bigger hall could be built with a raised
-brick floor and a room on one side where babies could fall asleep
-after they'd been named, or while their parents were being wed.
-Another witness hall was built beside the market, a larger one with
-Bantangui tapestries and squares of dayglass in its windows, but the
-Old Hall remained the town's heart.
+As Apple Bridge grew,
+its inhabitants built a witness hall beside the stone lozenge
+to keep the rain off the weddings.
+Walls were put up,
+then the whole hall was torn down
+so that a bigger hall could be built
+with a raised brick floor and a room on one side
+where babies could fall asleep after they'd been named,
+or while their parents were being wed.
+Another witness hall was built beside the market,
+a larger one with Bantangui tapestries and dayglass lanterns hanging from its ceiling,
+but the Old Hall remained the town's heart.
 
-If the farmer had died a normal death—old age or a plague or a fall
-while pruning an apple tree—his family and his neighbors and his
-friends wouldn't have brought him into Apple Bridge at all. They
-would have laid out a diamond with a few stones somewhere he loved and
-told his stories there. *But that isn't how he died,* the prince
-thought bleakly as he walked the half gallop from the garrison house
-to the Old Hall with his sister beside him. A handful of soldiers and
-household staff followed behind them in uniforms so clean they almost
-shone. *He died because I still haven't found who's behind that
-tornado.*
+If the farmer had died a normal death—old age
+or a plague or a fall while pruning an apple tree—his
+family and his neighbors and his friends wouldn't have brought him into Apple Bridge at all.
+They would have laid out a diamond with a few stones somewhere he loved and
+told his stories there.
+*But that isn't how he died,*
+the prince thought bleakly as he walked the half gallop
+from the garrison house to the Old Hall
+with his sister beside him.
+A handful of soldiers and household staff followed behind them
+in uniforms so clean they almost shone.
+*He died because I still haven't found who's behind that tornado.*
 
-Almost two hundred people crowded into the hall. The older bridgers,
-and the people who had come in from surrounding farms, wore long
-forest-green cloaks with slits cut in the sides for their arms. A few
-of the townspeople did as well, but others were dressed in black and
-gray with dark cloth collars around their necks. The prince bowed to
-the elderly balance standing next to the farmer's coffin, who inclined
-her head in return. He might be a prince outside, but in this place,
-he was just another traveller.
+Almost two hundred people crowded into the hall.
+The older bridgers,
+and the people who had come in from surrounding farms,
+wore long forest-green cloaks with slits cut in the sides for their arms.
+A few of the townspeople did as well,
+but others were dressed in black and gray with dark cloth collars around their necks.
+The prince bowed to the elderly Balance standing next to the farmer's coffin,
+who inclined her head in return.
+He might be a prince outside,
+but in this place,
+he was just another traveller from dawn to dusk.
 
-The balance took a step back and turned her hands palms up. Whispered
-voices stilled and cloth rustled as those gathered followed her lead.
-"Soil becomes grain," she said, her voice clear and strong. "And
-grain becomes flesh, and flesh becomes soil again. So too does this
-world fashion new spirits from old. Thus it has been, thus it is,
-thus it ever will be."
+The Balance took a step back and turned her hands palms up.
+Whispered voices stilled and cloth rustled as those gathered followed her lead.
+"Soil becomes grain," she said, her voice clear and strong.
+"And grain becomes flesh, and flesh becomes soil again.
+So too does this world fashion new spirits from old.
+Thus it has been, thus it is, thus it ever will be."
 
 "Thus it ever will be," the crowd responded.
 
-She lowered her hands. "Our friend was a good man and a bad one,
-honest and dishonest, fair and unfair, as are we all. Today, we will
-tell his stories, so that the world may truly know who returns to it.
+She lowered her hands.
+"Our friend was a good man and a bad one, honest and dishonest,
+fair and unfair, as are we all.
+Today, we will tell his stories,
+so that the world may truly know who returns to it.
 Who shall begin?"
 
-After a moment's hesitation, the younger of two boys the prince had
-seen the day before stepped forward, his grief-stricken mother's hand
-on his shoulder. "Daddy used to give me piggy-backs," he said.
-"Every time I asked, even when it wasn't bedtime." He spun around and
-buried his face in his mother's cloak, weeping.
+After a moment's hesitation,
+the younger of the two boys the prince had seen the day before stepped forward,
+his grief-stricken mother's hand on his shoulder.
+"Daddy used to give me piggy-backs," he said.
+"Every time I asked, even when it wasn't bedtime."
+He spun around and buried his face in his mother's cloak, weeping.
 
-"One time…" The older boy stopped, overcome. The gathering waited
-silently. They knew how hard some stories were to tell. "One time,
-I, I wanted to help him along by fixing the chicken coop, so I cut the
-strings on the poles he brought along back from town so I could stack
-them for him, but I didn't know…" He swallowed. "I didn't know he
-meant by to use that string to tie the poles along together. He was
-really mad on me, and told me he would have to take my kite down to
-pieces to get more string, but he didn't. He walked all the way along
-into town again and, and he got by some string for the coop and some
-more for along my kite and took me along back to fly it."
+"One time…" His older brother stopped, overcome.
+The gathering waited silently.
+They knew how hard some stories were to tell.
+"One time I,
+I wanted to help him along by fixing the chicken coop,
+so I cut the strings on the poles he brought along back from town
+so I could stack them for him,
+but I didn't know…"
+He swallowed.
+"I didn't know he meant by to use that string to tie the poles along together.
+He was really mad on me,
+and told me he would have to take my kite down to pieces to get more string,
+but he didn't.
+He walked all the way along into town again and,
+and he got by some string for the coop and some more for along my kite
+and took me along back to fly it."
 
-One by one, those who had known him best came forward, each with their
-story. He still had one man's saw, a year after he borrowed it, and
-had ducked every request for its return. He had helped the old couple
-who lived next to them burn back some brambles that had come creeping
-out of Blighted land—the scratches on his arms and legs had taken
-weeks to heal, but he had never complained. He argued with people
-sometimes for no good reason, and loved to sit on the fence post
-nearest the road with a cup of tea or an apple, just to make
-conversation with whoever passed by. He was honest and dishonest,
-fair and unfair, just like everyone else, and every story stuffed a
-little more anger into Prince Thokmay's heart.
+One by one,
+those who had known him best came forward,
+each with their story.
+He still had one man's saw,
+a year after he borrowed it,
+and had ducked every request for its return.
+He had helped the old couple who lived next to them
+burn back some brambles that had come creeping out of Blighted land.
+The scratches on his arms and legs had taken weeks to heal,
+but he had never complained.
+He argued with people sometimes for no good reason,
+and loved to sit on the fence post nearest the road with a cup of tea or an apple,
+just to make conversation with whoever passed by.
+He was honest and dishonest,
+fair and unfair,
+just like everyone else,
+and every story stuffed a little more anger into Prince Thokmay's heart.
 
-Finally it was his turn to speak. "I never met him," the prince said,
-his voice cracking. "But I know this. When the tornado took him, he
-was riding toward it—toward his home and his family, when he could
-have stayed in town. I promise, I will do no less." He bowed to the
-farmer's family as if to royalty and squeezed his sister's hand. "I
-promise," he repeated in a whisper.
+Finally it was his turn to speak.
+"I never met him," he said.
+"But I know this.
+When the tornado took him, he was riding toward it—toward his home and his family,
+when he could have ridden away.
+I promise, I will do no less."
+He bowed to the farmer's family as if to royalty and squeezed his sister's hand.
+"I promise," he repeated.
 
-He kept his head bowed as those gathered began to sing, not wanting
-anyone to see his tears. He missed Sergeant Dorbu and Kulbinder and
-his friends in the capital more than he could ever let his sister or
-anyone else see.
+He kept his head bowed as those gathered began to sing,
+not wanting anyone to see his tears.
+He missed Sergeant Dorbu and Kulbinder and his friends in the capital
+more than he could ever let his sister or anyone else see.
 
-But then something brushed softly against his mind as softly as a
-whisper, a lonely ache that was somehow comforting at the same time,
-as familiar as it was strange. His breath caught. "Noxy?" he
-whispered incredulously.
+But then someone took his hand in theirs and squeezed it.
+His glanced at Noxy,
+who gave him an uncertain smile,
+and returned the squeeze.
 
-Noxy hadn't gone to the service. The prince told her she would be
-welcome, but she shook her head. "I should stay with Cloak," she
-said. "And my shoulder's bothering me again."
+Half an hour later,
+not knowing where else to go,
+Noxy found herself sitting with Mope and Dolly
+in a comfortable little kitchen down the hall from the apartment the two trolls shared.
+"We take most of our meals here,"
+Dolly explained as she poured the tea.
+"And Her Highness likes to help me bake cakes.
+She has quite a sweet tooth.
+Here you go."
 
-The prince nodded. "I understand. See you at dinner tonight?
-Something quiet," he added hastily. "Just family."
+"Thanks," Noxy said,
+putting the tea on the table to cool.
 
-Half an hour later she found herself sitting with Mope and Dolly in a
-comfortable little kitchen down the hall from the apartment the two
-trolls shared. "We take most of our meals here," Dolly explained as
-she poured the tea. "And Her Highness likes to help me bake cakes.
-She has quite a sweet tooth. Here you go."
+Dolly set down a tray of cured apple slices
+and sprinkled a spoonful of sugar onto them,
+then nudged her son.
+"Put that away," she scolded gently.
+"We have a guest."
 
-"Thanks," Noxy said, putting the tea on the table to cool.
+"Sorry, mother."
+Mope tucked a scrap of ribbon into his book to mark his place
+and set it aside to pick up his own cup of tea.
 
-Dolly set down a tray of cured apple slices and sprinkled a spoonful
-of sugar onto them, then nudged her son. "Put that away," she scolded
-gently. "We have a guest."
+They chatted for a while about nothing in particular,
+as people often do on quiet afternoons when everyone else is busy.
+When Noxy yawned for the third time,
+Dolly shooed her back to her own room.
+"Nap when you can," she advised.
+"You're sure to run short of sleep some day to make up for it."
 
-"Sorry, mother." Mope tucked a scrap of ribbon into his book to mark
-his place and set it aside to pick up his own cup of tea.
+Noxy took off her overclothes and curled up on the bed.
+The wool blanket was lighter than the one at home,
+and didn't smell of goof,
+but had the same comforting scratchy feel.
+She closed her eyes and let her mind drift.
+Her weariness felt like a fat cold cat curled up beside her,
+or like one of the slow-moving old clouds that Stale children learned mind-speaking with.
 
-They chatted for a while about nothing in particular, as people often
-do on quiet afternoons when everyone else is busy doing something
-else. When Noxy yawned for the third time, Dolly shooed her back to
-her own room. "Nap when you can," she advised. "You're sure to run
-short of sleep some day to make up for it."
+Thinking about Stale made her think about Cloak.
+She reached out with her mind.
+*All good?* she asked.
 
-Noxy took off her overclothes and curled up on the bed. The wool
-blanket was lighter than the one at home, and didn't smell of goat,
-but had the same comforting scratchy feel. She closed her eyes and
-let her mind drift. Her weariness felt like a fat cold cat curled up
-beside her, or like one of the slow-moving old clouds that Stale
-children learned mind-speaking with.
+*Mm?* the cloud replied muzzily.
+Noxy smiled.
+Clouds never really slept,
+not like people or animals,
+but nothing and nobody was better at drowsing.
 
-Thinking about Stale made her think about Cloak. She reached out
-with her mind. *All good?* she asked.
+On impulse she tried reaching further.
+It wasn't really reaching, she thought.
+It was more like trying to be so still that she became perfectly clear,
+as if she were a little mountain pool waiting for raindrops to make ripples on her surface.
 
-*Mm?* the cloud replied muzzily. Noxy smiled. Clouds never really
-slept, not like people or animals, but nothing and nobody was better
-at drowsing.
-
-On impulse she tried reaching further. It wasn't really reaching, she
-thought. It was more like trying to be so still that she became
-perfectly clear, as if she were a little mountain pool waiting for
-raindrops to make ripples on her surface.
-
-Her breathing slowed. She couldn't mind-hear any other clouds, but
-there was *something*, something that felt lonely and tired and gray,
-just like she did. As her eyelids grew heavier, the last thing she
-thought she heard was the prince whispering, "Noxy?"
+Her breathing slowed.
+She couldn't mind-hear any other clouds,
+but there was *something*,
+something that felt old and so, so tired.
+She had just a moment to feel it notice her before she drifted off.
 
 </section>
 <section markdown="1">
