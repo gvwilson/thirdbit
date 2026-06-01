@@ -4876,20 +4876,89 @@ Noxy stopped herself from rubbing her forearm.
 The prince nodded.
 "I know it sounds like something out of a fairy tale,
 but yes.
-Everyone who might sit on the throne some day does it.
+Everyone in the race for the throne some day does it.
 We all learn a trade and get to see what life would be like
 if we didn't have to spend all our time thinking about politics."
 
 "So how'd you wind up with him?"
 Noxy asked,
-nodding toward Kulbinder.
+seating herself and nodding toward Kulbinder.
 The tiger had curled up beside Thokmay and closed his eyes,
 but she doubted very much that he was actually sleeping.
 
 Thokmay scratched Kulbinder's ears.
 "He showed up one day saying he needed someone to open doors and write letters.
 I knew one of my father's ministers had probably sent him,
-but being a Gifted's hands in the world counts as a trade."
+but being a Gifted's hands in the world counts as a trade,
+and I couldn't say no without making people suspicious."
+Kulbinder rumbled as the prince worked his fingers into the fur
+on the back of the tiger's neck.
+
+Noxy hugged her knees.
+"And Sergeant Dorbu?
+You don't really seem like the rebel type."
+
+He raised his eyebrows.
+"What type is that?"
+
+She flushed.
+"Well, I mean, it's your own family…"
+
+"Shudarga is family too,"
+he said,
+turning his gaze on the horizon again.
+"She's my father's something something cousin.
+She could have joined the race for the throne,
+but she wanted to be a scholar instead,
+a real one.
+She went to Coriandel to study for a while,
+and Ossisswe,
+and when she came back…"
+He shrugged.
+
+"But that doesn't explain—"
+
+"We were in the wrong place at the wrong time,"
+the tiger rumbled without opening his eyes.
+"In my experience that's how most things happen with humans."
+
+"Are you saying that nothing unexpected ever happens to a cat?"
+Thokmay asked.
+
+"Things don't happen to cats," the tiger replied.
+"*We* happen to *things*."
+
+Thokmay gave Noxy the same kind of look
+she had seen Granna Fee give her mother
+when Grappa Gas had one of his bright ideas.
+"Anyway,"
+the prince went on,
+"Nobody thought anything about it
+when Shudarga started giving lectures about
+people in other places didn't have to rent laws in order to use them.
+It was like someone talking about,
+I don't know,
+architecture in Thind or the history of the Parliament of Whales or something.
+But then people started showing up in crowds to hear her,
+and writing pamphlets,
+and…"
+
+He shrugged.
+"I think she was as surprised as anyone when the fighting started.
+I was already in uniform by then,
+and there were a couple of times when I thought we might be ordered
+to break up some meetings,
+but then winter came and everthing seemed to settle down.
+I didn't know…"
+
+He paused,
+and Noxy realized with a shock that he was trying to hold back tears.
+"I didn't know Sergeant Dorbu and some of the other soldiers
+were still talking about it all the time.
+I could have tried to run away if I'd known, or—"
+
+"*We* could have tried," the tiger interrupted.
+"But if wishes were fishes, we'd all have kippers for breakfast."
 
 FIXME: lots to fill in here
 
