@@ -57,3 +57,7 @@ Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.
 ### Units check
 
 $\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little's Law to a real problem.
+
+*This article was originally written for [marimo.io][original].*
+
+[original]: https://marimo.io/for-learners

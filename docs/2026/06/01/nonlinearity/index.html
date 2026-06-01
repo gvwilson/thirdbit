@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
     <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
     
-<title>The Third Bit: Sojourn Time</title>
+<title>The Third Bit: Queue Nonlinearity</title>
 
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
@@ -35,86 +35,69 @@
 </nav>
     <main id="main-content">
       
-<h1>Sojourn Time</h1>
+<h1>Queue Nonlinearity</h1>
 
 
 <div class="row">
   <div class="col-2 left">
     
-      <a href="../../../../2026/05/31/ai-research-questions/">
+      <a href="../../../../2026/05/31/sojourn-time/">
         &lArr; <span class="pagination-text">previous</span>
       </a>
     
   </div>
   <div class="col-8 center">
-    Posted <time datetime="2026-05-31" class="post-date">2026-05-31</time>
+    Posted <time datetime="2026-06-01" class="post-date">2026-06-01</time>
   </div>
   <div class="col-2 right">
     
-      <a href="../../../../2026/06/01/nonlinearity/">
-        <span class="pagination-text">next</span> &rArr;
-      </a>
-    
   </div>
 </div>
-<!-- content --><p>How long does a customer actually spend in the system?
-The previous scenario measured $L$, the mean number of customers in the system at any moment. This scenario measures $W$, the mean time a single customer spends from arrival to departure. This is called the <em>sojourn time</em>, <em>residence time</em>, or <em>response time</em>, and has two components:</p>
-<ul>
-<li>$W_q$: time spent waiting in the queue because the server is busy.</li>
-<li>$W_s$: time spent in service while the server is working on this customer.</li>
-</ul>
-<p>$$W = W_q + W_s$$</p>
-<h2>The Surprising Finding</h2>
-<p>For an M/M/1 queue, the mean sojourn time is:</p>
-<p>$$W = \frac{1}{\mu(1 - \rho)}$$</p>
-<p>This blows up as $\rho \to 1$, just like $L$. But the split between waiting and service shifts dramatically as load increases.</p>
+<!-- content --><p>A single server handles jobs that arrive randomly and take a random amount of time to process. If both inter-arrival times and service times follow exponential distributions, this is called an <em>M/M/1 queue</em>, and is the simplest model in queueing theory.</p>
+<p>Managers often treat utilization linearly: &ldquo;90% busy is only a little worse than 80% busy.&rdquo; The M/M/1 formula shows this intuition is badly wrong. The mean number of jobs in the system (waiting and being served) is:</p>
+<p>$$L = \frac{\rho}{1 - \rho}$$</p>
+<p>where $\rho = \lambda / \mu$ is the utilization ratio (arrival rate divided by service rate). The mean time a job spends in the system follows from Little&rsquo;s Law $L = \lambda W$:</p>
+<p>$$W = \frac{1}{\mu - \lambda} = \frac{1}{\mu(1 - \rho)}$$</p>
+<p>The denominator $(1 - \rho)$ causes both $L$ and $W$ to blow up as $\rho \to 1$.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">$\rho$</th>
-<th style="text-align: center;">$W_q$ (wait)</th>
-<th style="text-align: center;">$W_s$ (service)</th>
-<th style="text-align: center;">$W$ (total)</th>
+<th style="text-align: right;">$\rho$</th>
+<th style="text-align: right;">$L = \rho/(1-\rho)$</th>
+<th style="text-align: right;">Marginal $\Delta L$ per 0.1 step</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">0.1</td>
-<td style="text-align: center;">0.11</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.11</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">—</td>
 </tr>
 <tr>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">2.00</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">+0.50</td>
 </tr>
 <tr>
-<td style="text-align: center;">0.9</td>
-<td style="text-align: center;">9.00</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">10.00</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">2.33</td>
+<td style="text-align: right;">+0.83</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">+1.67</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">+5.00</td>
 </tr>
 </tbody>
 </table>
-<p>The mean service time $W_s = 1/\mu = 1.0$ is constant: the server always takes the same average time to serve one customer. All the extra delay at high load is pure waiting: $W_q = \rho/(\mu(1-\rho))$ grows without bound while $W_s$ stays fixed. At $\rho = 0.9$, 90% of a customer&rsquo;s time is spent waiting for the server to become free.</p>
-<p>This formula is closely connected to Little&rsquo;s Law:</p>
-<p>$$L = \lambda W$$</p>
-<p>Plugging in $W = 1/(\mu(1-\rho))$ and $\lambda = \rho\mu$:</p>
-<p>$$L = \rho\mu \cdot \frac{1}{\mu(1-\rho)} = \frac{\rho}{1-\rho}$$</p>
-<h2>Understanding the Math</h2>
-<h3>Why $W_s = 1/\mu$ regardless of $\rho$</h3>
-<p>Service time is drawn from an exponential distribution with rate $\mu$, so its mean is $1/\mu$. This is a property of the distribution, not of the queue. No matter how busy the server is, once it starts serving you it takes on average $1/\mu$ time.</p>
-<h3>Deriving $W_q$</h3>
-<p>Since $W = W_q + W_s$ and $W_s = 1/\mu$:</p>
-<p>$$W_q = W - W_s = \frac{1}{\mu(1-\rho)} - \frac{1}{\mu}
-      = \frac{1}{\mu}\left(\frac{1}{1-\rho} - 1\right)
-      = \frac{1}{\mu} \cdot \frac{\rho}{1-\rho}
-      = \frac{\rho}{\mu(1-\rho)}$$</p>
-<p>Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.</p>
-<h3>Units check</h3>
-<p>$\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little&rsquo;s Law to a real problem.</p>
+<p>Each equal step in $\rho$ produces a larger jump in queue length than the previous step. Going from 80% to 90% utilization adds more queue length than going from 0% to 80% combined. This happens because the queue is stabilized by the gaps in service capacity. When $\rho = 0.9$, only 10% of capacity is slack. Any random burst of arrivals takes far longer to drain than when $\rho = 0.5$ and 50% of capacity is slack. The system spends most of its time recovering from bursts rather than idling.</p>
+<h2>Key Takeaway</h2>
+<p>For any system approximated by an M/M/1 queue, <strong>never target utilization above 80–85%</strong> if low latency matters. The last few percent of throughput come at an enormous cost in queue length and wait time.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
 
 <div class="row post-categories">
