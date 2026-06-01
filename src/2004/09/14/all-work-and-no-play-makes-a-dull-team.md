@@ -1,7 +1,7 @@
 ---
 title: "All Work and No Play Makes a Dull Team"
 date: 2004-09-14
-category: software community
+category: education
 ---
 <p>In the summer of Hippo, we managed to completely drain half a dozen whiteboard markers.  Meetings alone wouldn't have accomplished this: it was the combined use through both meetings and random silly drawings that used them up.  Now that the summer is over, I wish that it was possible to chart the time that the whiteboard markers spent between work and play, on the progress graph.</p>
 

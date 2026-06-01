@@ -12,6 +12,10 @@ site:
 serve:
 	ark serve
 
+## categories: show categories
+categories:
+	@echo "anecdote community education favorite personal research sdgc society software writing"
+
 ## count: count words in book
 .PHONY: count
 ifeq (${book},)

@@ -1,7 +1,7 @@
 ---
 title: "Why I Teach"
 date: 2004-12-30
-category: education software research
+category: education personal
 ---
 <p>
   Every term, a few students ask me why I teach when the university

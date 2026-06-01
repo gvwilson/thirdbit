@@ -1,7 +1,7 @@
 ---
 title: "Subversion Grief and Usability Testing"
 date: 2004-09-13
-category: software education writing
+category: software
 ---
 <p>I sat down yesterday morning to work through the first half of the warmup exercise we've given the Hippo students.  My goal was to have <a href="http://www.hibernate.org">Hibernate</a> persisting my book loan records by the end of the day.</p>
 

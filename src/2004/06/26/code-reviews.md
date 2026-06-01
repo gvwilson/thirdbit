@@ -1,7 +1,7 @@
 ---
 title: "Code Reviews"
 date: 2004-06-26
-category: software community
+category: software education
 ---
 <p>People talk about code reviews far more often than they do them, despite the fact that everyone (reviewers and coders alike) seems to get a lot out of them.  We've been talking about implementing code reviews in my real job for almost four years, but have never actually gotten around to doing it.</p>
 

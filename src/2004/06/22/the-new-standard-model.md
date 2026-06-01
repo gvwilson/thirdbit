@@ -12,16 +12,17 @@ image, hoping to create a new standard to supplant today's.
 
 For the developers of my generation, the Standard Model of
 programming took shape in the early 1980s.  It consisted of:
+
 <ul>
   <li>C (which has mutated [<a href="#1">1</a>] into C++);</li>
   <li>a character-oriented editor like Vi or Emacs;</li>
   <li>Make for automating the complexities of rebuilding code;</li>
-  <li>the standard [<a href="#2">2</a>] Unix command-line tools like
-<code>cat</code> and <code>grep</code>;</li>
+  <li>the standard [<a href="#2">2</a>] Unix command-line tools like <code>cat</code> and <code>grep</code>;</li>
   <li>CVS for version control;</li>
   <li>character streams as a data exchange format; and</li>
   <li>"power tools" like Yacc and Awk for more complex tasks.</li>
 </ul>
+
 By the late 1980s, Microsoft had developed an alternative.  It was
 also based on C, but presented developers with an IDE instead of a
 character-oriented editor, and gave users uncomposable GUIs instead of
@@ -36,6 +37,7 @@ instead.  The result has been a New Standard Model—a morally
 respectable replacement for the venerable Unix toolset.  As evidenced
 by a slew of recent books [<a href="#3">3</a>], this environment consists
 of:
+
 <ul>
   <li>Java</li>
   <li><a href="http://www.eclipse.org">Eclipse</a> and its many plugins</li>
@@ -47,6 +49,7 @@ of:
   <li>a web presence for everything (e.g. a project dashboard, a searchable mailing list archive, and so on
 ).</li>
 </ul>
+
 One of the most interesting things about the New Standard Model is
 how much of it is open source.  Java itself is the glaring exception,
 but good implementations are freely available and (unusually for free

@@ -1,7 +1,7 @@
 ---
 title: "Greg's Best of 2004"
 date: 2004-12-10
-category: software
+category: software education
 ---
 As some of you may know, I'm rather fond of reading.  With
 Christmas coming up, I thought I'd share my favorite books of 2004.

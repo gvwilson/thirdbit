@@ -1,7 +1,7 @@
 ---
 title: "Bottom Up and Top Down Meet"
 date: 2004-06-26
-category: software community
+category: software education
 ---
 Among other Helium tasks, I've working on has been some rough screenshots of what our web interface might end up looking like. What I've found interesting about the very high-level design process, is that I kept needing to go lower and lower in order to make the design steps easier. And all of a sudden found myself hitting where those doing the low-level design (and working their way higher) were sitting.
 
