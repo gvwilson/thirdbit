@@ -4795,3 +4795,100 @@ She rubbed her forearm.
 We'll sort this out in the morning."
 
 </section>
+<section markdown="1">
+
+## Chapter 6
+
+Bluesday dawned chill and gray.
+A herd of wild cirrus clouds was passing overhead,
+each one large enough to fill the valley below Stale
+but too thin to support the weight of a leaf.
+Noxy tried mind-talking to them,
+but felt no more than she would mind-talking to the wind.
+
+"So he's just Thokmay now?"
+her mother asked
+when Noxy said she wanted to give Thokmay a chance
+to see what flying was like *without* going swimming as well.
+Before she could answer,
+Indy added,
+"Are you going to take Sensy and Rash?"
+
+"I think they're going to take Big Blue out," Noxy said.
+"But the tiger is going to come with us.
+Me and *Private* Thokmay, I mean.
+He insisted."
+
+"Mm hm."
+Her mother's nose was already back in the village's ledger.
+She had risen with the sun,
+boiled an egg,
+and eaten it and the last of the previous night's potato bread
+while frowning at the neatly-written numbers,
+trying to figure out how much it would cost to replenish
+the stores the soldiers were using.
+
+Noxy glanced up at the sky as she made her way to the guest house.
+Thokmay was waiting for her with Kulbinder at his side.
+"Sergeant Dorbu wants me back to do drills in an hour,"
+he said by way of greeting.
+"Will that be enough time?"
+
+"Sure.
+Come on."
+He fell into step beside her
+with the tiger padding silently behind them.
+She nodded to the few people they passed on their way to the gate.
+The square was almost empty,
+and the air had the oppressive weight that preceded a storm.
+
+Big Blue was already halfway down the valley
+by the time she, Thokmay, and Kulbinder were on Pillow.
+Normally she would have been annoyed that Sensy and Rash hadn't waited,
+if only to say good morning,
+but for the first time she was actually glad that they wanted to be a twosome.
+She waited impatiently for the prince and the tiger to climb on board,
+then steered Pillow out through the mouth of the cloud pen.
+
+"So," she said.
+"You were lying about growing up in an orphanage."
+
+Thokmay blinked.
+"Really?
+That's what you want to talk about?"
+
+Noxy spread her hands.
+"We have to start somewhere."
+
+"Fair enough."
+Thokmay was sitting cross-legged,
+his back straight and his eyes on the horizon.
+"I did spend time in an orphanage,
+halfway down the Trout toward Apple Bridge.
+The abbot knew who I was,
+and the doctress as well,
+but as far as everyone else was concerned,
+I was just another kid whose parents had died of the scribbles."
+
+Noxy stopped herself from rubbing her forearm.
+"And it was what, a chance to see how the common folk live?"
+
+The prince nodded.
+"I know it sounds like something out of a fairy tale,
+but yes.
+Everyone who might sit on the throne some day does it.
+We all learn a trade and get to see what life would be like
+if we didn't have to spend all our time thinking about politics."
+
+"So how'd you wind up with him?"
+Noxy asked,
+nodding toward Kulbinder.
+The tiger had curled up beside Thokmay and closed his eyes,
+but she doubted very much that he was actually sleeping.
+
+Thokmay scratched Kulbinder's ears.
+"He showed up one day saying he needed someone to open doors and write letters.
+I knew one of my father's ministers had probably sent him,
+but being a Gifted's hands in the world counts as a trade."
+
+</section>
