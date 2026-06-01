@@ -4891,4 +4891,63 @@ Thokmay scratched Kulbinder's ears.
 I knew one of my father's ministers had probably sent him,
 but being a Gifted's hands in the world counts as a trade."
 
+FIXME: lots to fill in here
+
+*Crack!*
+She shrieked with surprise as a bolt of lightning split the sky,
+then stomped her foot,
+angry at herself,
+the rain,
+and the world in general.
+
+*Crack!*
+Another bolt of lightning left a dazzling scar on the night.
+That one had been close, she realized uneasily—too close.
+The lightnings must be nipping at the clouds that had fallen behind their herd.
+She was glad that she wasn't airborne.
+She had only ever been on one night flight,
+when Granna Fee took her up on her nameday when she turned ten to show her a passing star.
+She couldn't imagine being up there with—
+
+*CRACK!*
+Noxy shrieked as the third bolt of lightning struck the weather duck
+spinning madly next to the fortress gate and shattered its wooden pole.
+Splinters flew in all directions to clatter off roofs and cobblestones.
+
+One smoking scrap bounced off a chimney and clattered through a window
+whose shutter had been left untied.
+As Noxy blinked to clear the after-dazzle of the lightning strike from her eyes,
+the sheets of dried moss that the wood had landed in began to smolder.
+
+A door banged open.
+"Saints!" Aft hurried over to Noxy.
+"Are you all right?
+What in the name of all that rots are you doing out in this?"
+
+"*Amma* wanted me to fill the kettle," Noxy said stupidly.
+She shook her head.
+"It—the lightning hit it. The weather duck."
+
+"I can see the lightning hit it," Aft said testily.
+He gave her a quick once-over.
+"Come on, let's get you back to—wait."
+He sniffed.
+"What's burning?"
+
+Noxy grabbed his arm and pointed.
+"There! Upstairs!"
+A bright lick of flame was suddenly dancing in a window.
+Another joined it as the familiar herby smell of burning moss caught in Noxy's nostrils.
+
+"Get your mother!" Aft ordered,
+then cupped his hands around his mouth.
+"Fire!  Fire!  Fire!"
+
+The village was lucky.
+That's what everyone told themselves half an hour later.
+They were lucky that the rain had made everything so wet,
+that there had been so little of the autumn moss left to burn,
+that Aft had spotted the fire so quickly.
+And they were lucky the soldiers had been there to fill and pass buckets.
+
 </section>
