@@ -1,7 +1,7 @@
 ---
 title: "Jolt Awards 2005"
 date: 2005-03-17
-category: software education research
+category: writing
 ---
 <p> Every year, CMP Media (owners of DDJ, Software Development, and
 many other fine magazines) hand out Jolt awards in various categories.

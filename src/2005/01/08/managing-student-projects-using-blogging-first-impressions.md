@@ -1,7 +1,7 @@
 ---
 title: "Managing Student Projects Using Blogging: First Impressions"
 date: 2005-01-08
-category: education research writing
+category: education
 ---
 If you already know what blogs are, and how they work, you can skip <a href="#1">down</a> in this posting.  If not, read on…
 

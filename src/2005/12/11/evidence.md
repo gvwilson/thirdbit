@@ -1,7 +1,7 @@
 ---
 title: "Evidence"
 date: 2005-12-11
-category: software research
+category: software
 ---
 Every time I complain about Python's muddled response to Ruby on Rails, someone pushes back by saying, "What does it matter?"  This screenshot, taken from the "what we provide" page of a web hosting company, might serve as an answer:
 

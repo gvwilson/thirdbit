@@ -1,7 +1,7 @@
 ---
 title: "Dr Requirements"
 date: 2005-05-06
-category: research software education
+category: software education
 ---
 We're about to kick off another summer of work on Hippo, our baby-<a href="http://www.sf.net">SourceForge</a> for student use.  I'm pretty excited: five good students will be working on it full-time, on five brand new machines (thanks to a donation from <a href="http://www.jonahgroup.com">the Jonah Group</a>), starting from a freshly-refactored version of <a href="http://projects.edgwall.com/trac">Trac</a> that includes <a href="http://www.cmlenz.net">Christopher Lenz</a>'s new component architecture.
 

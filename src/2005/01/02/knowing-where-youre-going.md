@@ -1,7 +1,7 @@
 ---
 title: "Knowing Where You're Going"
 date: 2005-01-02
-category: software community
+category: software
 ---
 One of the hardest things in any project is to figure out exactly
 what you're trying to accomplish.  This template is intended to help
@@ -9,8 +9,7 @@ software development teams do that by forcing them to state what
 problem they're trying to solve, who it affects, and why their
 solution is a good one.  It is taken from:
 
-<blockquote>Gary Pollice, Liz Augustine, Chris Lowe, and Jas Madhur: <a href="http://www.amazon.com/exec/obidos/ASIN/0321199502">Software
-Development for Small Teams: A RUP-Centric Approach</a>.
+<blockquote>Gary Pollice, Liz Augustine, Chris Lowe, and Jas Madhur: <a href="http://www.amazon.com/exec/obidos/ASIN/0321199502">Software Development for Small Teams: A RUP-Centric Approach</a>.
 Addison-Wesley, 2003, 0321199502.</blockquote>
 
 The bits on the left, on gray, are boilerplate; the bits on the

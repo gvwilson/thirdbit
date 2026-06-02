@@ -1,7 +1,7 @@
 ---
 title: "Canadian Undergraduate Software Engineering Conference"
 date: 2005-01-16
-category: education personal software
+category: education software
 ---
 I spent Saturday at <a href="http://2005.cusec.ca">CUSEC 2005</a>, where I met some interesting people, gave a couple of talks [1, 2], and marveled once again at how well <a href="http://www.carleton.ca">Carleton University</a> has managed to reproduce the neo-brutalist architecture I remember from my 1988 trip to Moscow.
 

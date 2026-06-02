@@ -1,7 +1,7 @@
 ---
 title: "Google's Summer of Code"
 date: 2005-06-01
-category: software education community
+category: community
 ---
 A few years ago, I organized a project called Software Carpentry.  Its aim was to build a new generation of easy-to-use open source software engineering tools.  For a variety of reasons, it completely failed to meet its objectives (although it did give a boost to <a href="http://www.scons.org">SCons</a> and <a href="http://roundup.sourceforge.net">Roundup</a>).
 

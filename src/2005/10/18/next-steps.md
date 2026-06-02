@@ -1,7 +1,7 @@
 ---
 title: "Next Steps"
 date: 2005-10-18
-category: personal software education writing
+category: personal
 ---
 <p>I'm now officially back on the job market—I've enjoyed my year of
 gainful unemployment, but for a bunch of reasons, it's time to line up

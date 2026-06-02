@@ -1,7 +1,7 @@
 ---
 title: "A Typical Developer's Typical Day (not humor)"
 date: 2005-11-24
-category: software research community
+category: software community
 ---
 Jon Erickson, the editor-in-chief of <em><a href="http://www.ddj.com">Doctor Dobb's Journal</a></em>, asked me to write a couple of paragraphs about a typical developer's typical day.  As usual, I went a little overboard; unusually, I veered toward the bright side.
 

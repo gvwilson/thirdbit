@@ -1,7 +1,7 @@
 ---
 title: "Fasten Your Seatbelts"
 date: 2005-03-25
-category: education writing
+category: education
 ---
 From <a href="http://weblog.infoworld.com/udell/2005/03/25.html#a1202">Jon Udell's weblog</a>:
 

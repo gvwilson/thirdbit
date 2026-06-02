@@ -1,7 +1,7 @@
 ---
 title: "Reading the Fine Print"
 date: 2005-03-13
-category: software writing society
+category: software
 ---
 <p><a href="http://www.sauria.com">Ted Leung</a>'s always-excellent blog had
 <a href="http://www.sauria.com/blog/2005/03/13#1244">this article</a> today about AOL changing the <a href="http://www.aim.com/tos/tos.adp">terms of service for AOL Instant Messenger</a>.  Quoting Ted quoting AOL:</p>
