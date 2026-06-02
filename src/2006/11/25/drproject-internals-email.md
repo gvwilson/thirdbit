@@ -1,7 +1,7 @@
 ---
 title: "DrProject Internals: Email"
 date: 2006-11-25
-category: software
+category: software students
 ---
 And now, DrProject's email. This was the first completely new subsystem we added after we forked; running <a href="http://www.gnu.org/software/mailman/index.html">Mailman</a> in parallel with <a href="http://trac.edgewall.org">Trac</a> worked well enough while we were bootstrapping, but the fact that neither system knew about the other made both a pain to use.  We couldn't, for example, run a single search query that would hit both a project's wiki <em>and</em> its mailing list archive; we also had to do a little dance to keep project and mailing list memberships in sync, and we never even tried to modify Mailman so that wiki-syntax shortcuts to tickets and pages in mail messages would be turned into links automatically.
 

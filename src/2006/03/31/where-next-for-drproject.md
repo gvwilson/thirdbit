@@ -1,7 +1,7 @@
 ---
 title: "Where Next for DrProject?"
 date: 2006-03-31
-category: education community writing
+category: students
 ---
 It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:gvwilson@third-bit.com?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
 <ol>

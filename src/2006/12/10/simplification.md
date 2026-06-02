@@ -1,7 +1,7 @@
 ---
 title: "Simplification"
 date: 2006-12-10
-category: education
+category: students software
 ---
 We held a post mortem on this term's projects Friday before going out to dinner. I took away three major points:
 

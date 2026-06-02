@@ -1,7 +1,7 @@
 ---
 title: "CSC49X Projects Winter 2007"
 date: 2006-11-08
-category: software education community
+category: students
 ---
 Week 9: time to start thinking about next term's projects.  Here's what's on the table:
 <ul>

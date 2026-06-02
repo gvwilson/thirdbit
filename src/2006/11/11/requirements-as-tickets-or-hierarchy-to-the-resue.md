@@ -1,7 +1,7 @@
 ---
 title: "Requirements as Tickets (or, Hierarchy to the Rescue)"
 date: 2006-11-11
-category: software
+category: students
 ---
 Several of the small companies we've spoken to recently have asked whether it would make sense to use an issue tracker to manage requirements.  It's superficially sensible: if you can create tickets for feature requests, why not create them for the needs that drive those features?
 

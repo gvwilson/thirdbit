@@ -1,7 +1,7 @@
 ---
 title: "Naive SQL(ite) Question"
 date: 2006-08-07
-category: software education writing
+category: software writing
 ---
 The best thing about writing <cite>Data Crunching</cite> wasn't that it let me work out some ideas for material that's now in the Software Carpentry course (although that was nice).  The best part was that it forced me to finally learn a little SQL.  For reasons I've now forgotten, I developed a dislike for databases when I was an undergrad.  As a result, I was one of the few developers I knew who couldn't do anything more than "select * from table".
 

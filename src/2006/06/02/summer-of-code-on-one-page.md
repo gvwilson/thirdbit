@@ -1,7 +1,7 @@
 ---
 title: "Summer of Code on One Page"
 date: 2006-06-02
-category: software community personal
+category: software community
 ---
 This year's Summer of Code recipients were announced last week.  I wanted to browse the list off-line, but doing it on the SoC site would have meant clicking through 102 separate pages (one per sponsoring organization).  No problem: Python's urllib lets me download pages as easily as I'd read files, and with minidom, I can parse them, and pull out the information I want.
 

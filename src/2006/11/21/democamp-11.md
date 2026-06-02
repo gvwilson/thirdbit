@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 11"
 date: 2006-11-21
-category: software
+category: community software
 ---
 A handful of early bloggers are calling DemoCamp 11 a "failure".  I'm not sure why: I thought it had more interesting content than 9 and 10.  The lead-off, <a href="http://autossl.com/joomla/">AutoSSL</a>, was an interesting idea (auto-provision of SSL certificates to small devices in the home, like security cameras); there was too much slideware, and some technical problems, but I think we should start being more open-minded about the former, and they handled the latter with aplomb.
 

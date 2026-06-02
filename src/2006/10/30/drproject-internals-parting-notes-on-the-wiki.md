@@ -1,7 +1,7 @@
 ---
 title: "DrProject Internals: Parting Notes on the Wiki"
 date: 2006-10-30
-category: software
+category: students
 ---
 I promised in the last article to move on to DrProject's ticketing system, but there are still a couple of issues around its wiki that need further description.  The first is how wiki text is transformed into HTML; the second is why this is harder to do in batch mode than you'd think.
 

@@ -1,7 +1,7 @@
 ---
 title: "An Explosion of Diversity"
 date: 2006-08-04
-category: software
+category: society
 ---
 Years ago, I heard <a href="http://www.simonyi.ox.ac.uk/dawkins/WorldOfDawkins-archive/index.shtml">Richard Dawkins</a> give a talk on the evolution of evolvability. His thesis was that every once in a while, Nature invents something that allows creatures to evolve in new ways. His example was segmented bodies: as soon as you have multiple segments, they can specialize to do different things. Another (more contentious) example is the theory that the <a href="http://en.wikipedia.org/wiki/Cambrian_explosion">Cambrian Explosion</a> is <a href="http://www.amazon.com/gp/product/0738206075">the result of creatures evolving eyes</a>. Before that happened, nothing needed hard body parts, because predation was too inefficient to be a major selective force. Once creatures could hunt one another, though, shells and bones became the iPods and Diamarti shades of the shallow ocean. The "explosion" is therefore an illusion; diversity was already present—it was just too squishy to leave a fossil record.
 

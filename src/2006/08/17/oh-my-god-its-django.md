@@ -1,7 +1,7 @@
 ---
 title: "Oh My God It's Django!"
 date: 2006-08-17
-category: software research education
+category: software
 ---
 <strong>Guido just pronounced: Django is <em>the</em> web framework</strong>
 <ul>

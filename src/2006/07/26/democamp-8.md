@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 8"
 date: 2006-07-26
-category: software education community
+category: software community
 ---
 They do seem to be coming thick and fast, don't they?  Last night's DemoCamp was held at No Regrets once again; turnout was down a little from the previous one, but I blame that on it being cottage season.  Presentations were:
 <ul>

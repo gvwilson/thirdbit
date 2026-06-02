@@ -1,9 +1,9 @@
 ---
 title: "Entry-Level Requirements Engineering Revisited"
 date: 2006-02-15
-category: software community
+category: software students
 ---
-Try googling for <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+engineering%22">"open source" "requirements engineering"</a> or <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+management">"open source" "requirements management"</a>.  Lots of links, but nothing that leads to a mature (or even adolescent) open source requirements engineering tool that would help me keep track of:
+Try searching for <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+engineering%22">"open source" "requirements engineering"</a> or <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+management">"open source" "requirements management"</a>.  Lots of links, but nothing that leads to a mature (or even adolescent) open source requirements engineering tool that would help me keep track of:
 <ol>
   <li>what I'm supposed to be building;</li>
   <li>where that requirement came from (i.e., who I have to talk to if I want to change it, or to get more information);</li>

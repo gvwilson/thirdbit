@@ -1,7 +1,7 @@
 ---
 title: "Next… Design by Contract?  (Please)"
 date: 2006-06-27
-category: community writing
+category: software
 ---
 I was pleasantly surprised a few years ago when programmers (particularly open source programmers) actually started writing unit tests.  <a href="http://www.extremeprogramming.org">XP</a> is usually given the lion's share of the credit, but I think that <a href="http://www.junit.org">JUnit</a> was the real reason: it was just enough structure to get people in, and had a perfect balance between simplicity and extensibility.
 

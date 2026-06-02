@@ -4957,8 +4957,121 @@ and Noxy realized with a shock that he was trying to hold back tears.
 were still talking about it all the time.
 I could have tried to run away if I'd known, or—"
 
-"*We* could have tried," the tiger interrupted.
+"*We* could have tried," the tiger interrupted,
+shifting his weight to lean against the prince.
 "But if wishes were fishes, we'd all have kippers for breakfast."
+
+"What is 'kippers'?" Noxy asked to fill the quiet that followed.
+
+The tiger opened one yellow eye.
+"The best thing humans ever invented."
+
+Noxy squinted as a break in the clouds above them
+let a stray beam of sunlight bounce off the mountaintops ahead.
+The ridges and streams below her were as familiar as the narrow streets of Stale.
+Big Blue was still ahead of them,
+having slowed to a walking pace.
+They could catch up,
+but the thought of interrupting Sensy and Rash felt mean.
+*Left,* she mind-spoke to Pillow impulsively.
+*Left and up.*
+
+Her passengers didn't seem to notice the cloud's gentle change of course.
+"When Scholar Yangyal ran away, I thought we could go with him,"
+Prince Thokmay said distantly,
+as if talking about the price of buttons.
+"Now I don't know what we should do.
+Kulbinder would be all right,
+but Private Kechen is…"
+He shrugged.
+
+"What if there was somewhere for you to hide while Kulbinder got help?"
+Noxy asked.
+
+Kulbinder opened both eyes at that.
+"You sound like someone with a plan."
+
+"Maybe," Noxy nodded,
+then pointed.
+
+The tiger rose smoothly to his feet.
+The prince stood a little more awkwardly.
+Together,
+they looked down at the clear blue lake beneath them.
+A little stone bothy stood on an island not much bigger than it was
+just a few strides from the shore.
+
+"Whose is that?" Prince Thokmay asked.
+
+"It was my father's," Noxy said.
+"Come on, let's have a look."
+
+Pillow had visited the nameless little lake many times,
+so all Noxy had to mind-say was *down*.
+The cloud bunched herself together as she settled on the water.
+A family of ducks honked and fled at her approach,
+and Noxy saw mountain perch and a burbot as long as her arm swim away.
+
+She slid off Pillow's back and waited for the prince and the tiger to follow.
+The bothy was even smaller than she remembered—just big enough
+for a cot and a little stone fireplace
+and a table that wasn't much more than a shelf.
+Its door was still held shut with a stout piece of red string.
+The last time she had been here,
+her mother had asked her if she wanted to tie the knot,
+but she had said no.
+
+Kulbinder and Thokmay watched her untie the knot and open the door.
+"Go ahead," she said,
+stepping aside so they could see.
+
+The tiger's whiskers twitched.
+"No one has been here for quite some time."
+
+"Four years,"
+Noxy said.
+"Almost, anyway.
+Here."
+
+She slipped off her jacket and pulled up her sleeve
+to show the indecipherable lettering that ran from her wrist up past her elbow.
+"I got sick," she explained.
+"A whole bunch of people did.
+He saved us, but…"
+She took a deep breath.
+
+"But the spell cost him more than he could afford,"
+the prince finished.
+It was a statement, not a question.
+
+Noxy nodded.
+"He wasn't really a magician.
+He just picked up a few things in Garheim before he met my *amma*.
+He asked the *tralpa* for help,
+but he was no use,
+so he made the best bargain he could.
+He couldn't eat or drink afterward,
+not without undoing it."
+
+She looked past them at the trees that crowded right up to the edge of the lake.
+Twisted pines with their doubled trunks,
+firs heavy with fresh green growth,
+patches of moss as dense as Grappa Gas's beard,
+and all around them,
+the sound of birds and small animals.
+She wondered if Alva or Signurd or any of their kin were watching them,
+or if they had watched over her father during his last few days.
+
+"So…is his ghost here?"
+Thokmay asked hesitantly.
+
+"What? No!"
+Noxy gestured at the bothy.
+"I just thought you could hide here for as long as it takes Kulbinder
+to go and get help.
+The only way in is by cloud,
+so as long as you don't light a fire and don't upset the forest,
+nobody will know you're here."
 
 FIXME: lots to fill in here
 

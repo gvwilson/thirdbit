@@ -1,7 +1,7 @@
 ---
 title: "Monad and Greasemonkey"
 date: 2006-03-05
-category: software writing
+category: software
 ---
 You don't often get to glimpse the future, and when you do, you usually don't realize what you've seen until it's too late to take advantage of it.  Take the World Wide Web, for example: I saw a demo of an early version of the Mosaic browser in 1993, and thought, "Eh." A few years later, Jon Udell explained blogs to me, and I had the same reaction.  And Java?  I still have a copy of an email in which I patiently explained to a friend why it would never make any headway against C++.
 

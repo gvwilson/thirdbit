@@ -1,7 +1,7 @@
 ---
 title: "DrProject Internals: Testing"
 date: 2006-11-19
-category: software
+category: students
 ---
 In two of the earlier postings in this series, I said that you can't add security to a system after it has been built: instead, you have to design it in, right from the start.  The same is true of testing: if you don't think about how you're going to test your application while you're designing it, the odds are very good that you'll build something that can't (or cannot easily) be tested.
 

@@ -1,7 +1,7 @@
 ---
 title: "Movie-Plot Threat Contest"
 date: 2006-04-04
-category: software
+category: society
 ---
 <p>Bruce Schneier is running a <a href="http://www.schneier.com/blog/archives/2006/04/announcing_movi.html">movie-plot thread contest</a>.  No, this is not a late April Fool's Day joke; yes, you should enter.  Possibilities that have <a href="http://cockeyed.com/citizen/terror/plans/terrorwatch.html">already been covered</a> include:</p>
 
