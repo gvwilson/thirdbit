@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
     <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
     
-<title>The Third Bit: Queue Nonlinearity</title>
+<title>The Third Bit: Pooled vs. Separate Queues</title>
 
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
@@ -35,73 +35,40 @@
 </nav>
     <main id="main-content">
       
-<h1>Queue Nonlinearity</h1>
+<h1>Pooled vs. Separate Queues</h1>
 
 
 <div class="row">
   <div class="col-2 left">
     
-      <a href="../../../../2026/05/31/sojourn-time/">
+      <a href="../../../../2026/06/01/nonlinearity/">
         &lArr; <span class="pagination-text">previous</span>
       </a>
     
   </div>
   <div class="col-8 center">
-    Posted <time datetime="2026-06-01" class="post-date">2026-06-01</time>
+    Posted <time datetime="2026-06-02" class="post-date">2026-06-02</time>
   </div>
   <div class="col-2 right">
     
-      <a href="../../../../2026/06/02/pooled-vs-separate/">
-        <span class="pagination-text">next</span> &rArr;
-      </a>
-    
   </div>
 </div>
-<!-- content --><p>A single server handles jobs that arrive randomly and take a random amount of time to process. If both inter-arrival times and service times follow exponential distributions, this is called an <em>M/M/1 queue</em>, and is the simplest model in queueing theory.</p>
-<p>Managers often treat utilization linearly: &ldquo;90% busy is only a little worse than 80% busy.&rdquo; The M/M/1 formula shows this intuition is badly wrong. The mean number of jobs in the system (waiting and being served) is:</p>
-<p>$$L = \frac{\rho}{1 - \rho}$$</p>
-<p>where $\rho = \lambda / \mu$ is the utilization ratio (arrival rate divided by service rate). The mean time a job spends in the system follows from Little&rsquo;s Law $L = \lambda W$:</p>
-<p>$$W = \frac{1}{\mu - \lambda} = \frac{1}{\mu(1 - \rho)}$$</p>
-<p>The denominator $(1 - \rho)$ causes both $L$ and $W$ to blow up as $\rho \to 1$.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">$\rho$</th>
-<th style="text-align: right;">$L = \rho/(1-\rho)$</th>
-<th style="text-align: right;">Marginal $\Delta L$ per 0.1 step</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">—</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.60</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">+0.50</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">2.33</td>
-<td style="text-align: right;">+0.83</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">+1.67</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.90</td>
-<td style="text-align: right;">9.00</td>
-<td style="text-align: right;">+5.00</td>
-</tr>
-</tbody>
-</table>
-<p>Each equal step in $\rho$ produces a larger jump in queue length than the previous step. Going from 80% to 90% utilization adds more queue length than going from 0% to 80% combined. This happens because the queue is stabilized by the gaps in service capacity. When $\rho = 0.9$, only 10% of capacity is slack. Any random burst of arrivals takes far longer to drain than when $\rho = 0.5$ and 50% of capacity is slack. The system spends most of its time recovering from bursts rather than idling.</p>
-<h2>Key Takeaway</h2>
-<p>For any system approximated by an M/M/1 queue, <strong>never target utilization above 80–85%</strong> if low latency matters. The last few percent of throughput come at an enormous cost in queue length and wait time.</p>
+<!-- content --><p>A facility has two identical servers. Customers arrive as a Poisson process and each needs one server for an exponentially distributed service time. Which queueing discipline should the facility use?</p>
+<ul>
+<li>Separate queues: each server has its own dedicated line; customers randomly pick a line on arrival and cannot switch.</li>
+<li>Pooled queue: a single shared line feeds whichever server becomes free first.</li>
+</ul>
+<p>It turns out that pooling the queues is always better, even though both systems have identical total arrival rate, identical per-server service rate, and identical utilization $\rho$. The pooled system consistently produces shorter mean wait times, often by a factor of two or more at moderate utilization. The reason is that separate queues waste servers&rsquo; idle time. In separate queues, one server may be idle while customers wait in the other line. Pooling eliminates this mismatch: a free server always serves the next waiting customer.</p>
+<blockquote>
+<p>Despite being provably worse, separate queues feel fairer because customers can see their progress. Single lines eliminate the anxiety of watching the other queue move faster, but historically customers resisted them until airlines and banks demonstrated the improvement empirically in the 1960s–70s.</p>
+</blockquote>
+<h2>Understanding the Math</h2>
+<h3>Why pooling always wins</h3>
+<p>Two separate M/M/1 queues each running at utilization $\rho$ have mean sojourn time $W_{\text{sep}} = 1/(\mu(1-\rho))$. A pooled M/M/2 queue with the same total arrival rate has strictly lower mean sojourn time for every value of $0 &lt; \rho &lt; 1$. The proof uses the <a href="https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula">Erlang-C formula</a>, but the intuition is simpler: pooling converts two independent random processes into one, and the combined queue can exploit any idle capacity instantly. At $\rho = 0.8$, separate queues give roughly twice the mean wait of a pooled queue.</p>
+<h3>Connection to variance reduction</h3>
+<p>Think of the service delivered in a time window by two separate servers as two independent random variables $X_1$ and $X_2$. Their average $(X_1 + X_2)/2$ has variance $\sigma^2/2$, which is half the variance of either component alone. Pooling achieves something similar: by combining demand into one stream served by both servers, the system smooths out random fluctuations. The pooled queue is, in effect, averaging over both servers&rsquo; idle periods instead of locking each idle period to a single lane.</p>
+<h3>Rule of thumb</h3>
+<p>At $\rho = 0.8$, separate queues produce roughly double the mean wait of a pooled queue. This factor grows as $\rho$ increases, because the $(1-\rho)$ term in the denominator amplifies any wasted capacity. The lesson: whenever you can route demand flexibly to a shared resource, do it.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
 
 <div class="row post-categories">

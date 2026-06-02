@@ -1,7 +1,7 @@
 ---
 title: "Guards! Guards!"
 date: 2004-09-13
-category: software
+category: software education students
 ---
 <p>I'm a big fan of <a href="http://www.terrypratchetbooks.com">Terry Pratchet</a>.  How can you <em>not</em> be a fan of someone who dedicates a book to "the Palace Guard, the City Guard, or the Patrol… Whatever the name, their purpose…is identical: to rush into the room, attack the hero one at a time, and be slaughtered…"</p>
 

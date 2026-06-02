@@ -99,6 +99,32 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/06/02/pooled-vs-separate/">
+      Pooled vs. Separate Queues
+    </a>
+  </h2>
+  <p><time datetime="2026-06-02" class="post-date">2026-06-02</time></p>
+  <p>A facility has two identical servers. Customers arrive as a Poisson process and each needs one server for an exponentially distributed service time. Which queueing discipline should the facility use?</p>
+<ul>
+<li>Separate queues: each server has its own dedicated line; customers randomly pick a line on arrival and cannot switch.</li>
+<li>Pooled queue: a single shared line feeds whichever server becomes free first.</li>
+</ul>
+<p>It turns out that pooling the queues is always better, even though both systems have identical total arrival rate, identical per-server service rate, and identical utilization $\rho$. The pooled system consistently produces shorter mean wait times, often by a factor of two or more at moderate utilization. The reason is that separate queues waste servers&rsquo; idle time. In separate queues, one server may be idle while customers wait in the other line. Pooling eliminates this mismatch: a free server always serves the next waiting customer.</p>
+<blockquote>
+<p>Despite being provably worse, separate queues feel fairer because customers can see their progress. Single lines eliminate the anxiety of watching the other queue move faster, but historically customers resisted them until airlines and banks demonstrated the improvement empirically in the 1960s–70s.</p>
+</blockquote>
+<h2>Understanding the Math</h2>
+<h3>Why pooling always wins</h3>
+<p>Two separate M/M/1 queues each running at utilization $\rho$ have mean sojourn time $W_{\text{sep}} = 1/(\mu(1-\rho))$. A pooled M/M/2 queue with the same total arrival rate has strictly lower mean sojourn time for every value of $0 &lt; \rho &lt; 1$. The proof uses the <a href="https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula">Erlang-C formula</a>, but the intuition is simpler: pooling converts two independent random processes into one, and the combined queue can exploit any idle capacity instantly. At $\rho = 0.8$, separate queues give roughly twice the mean wait of a pooled queue.</p>
+<h3>Connection to variance reduction</h3>
+<p>Think of the service delivered in a time window by two separate servers as two independent random variables $X_1$ and $X_2$. Their average $(X_1 + X_2)/2$ has variance $\sigma^2/2$, which is half the variance of either component alone. Pooling achieves something similar: by combining demand into one stream served by both servers, the system smooths out random fluctuations. The pooled queue is, in effect, averaging over both servers&rsquo; idle periods instead of locking each idle period to a single lane.</p>
+<h3>Rule of thumb</h3>
+<p>At $\rho = 0.8$, separate queues produce roughly double the mean wait of a pooled queue. This factor grows as $\rho$ increases, because the $(1-\rho)$ term in the denominator amplifies any wasted capacity. The lesson: whenever you can route demand flexibly to a shared resource, do it.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/06/01/nonlinearity/">
       Queue Nonlinearity
     </a>
@@ -449,22 +475,6 @@ please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 <h3>Why $\rho = 1$ is unstable</h3>
 <p>At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is <em>null recurrent</em>: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/27/building-a-city-not-a-car/">
-      Building a City, Not a Car
-    </a>
-  </h2>
-  <p><time datetime="2026-05-27" class="post-date">2026-05-27</time></p>
-  <p>A lot of companies that build software don&rsquo;t build products: they build cities.
-A product is something you create to sell to other people;
-a city is somewhere you live.
-If you&rsquo;re working on the systems that keeps big companies and government agencies running,
-what you&rsquo;re doing has a lot more in common with building a new subway line
-in a crowded residential district
-than it does with putting tires on a family car.</p>
 </article>
 
 

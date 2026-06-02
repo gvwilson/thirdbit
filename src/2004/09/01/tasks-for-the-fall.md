@@ -1,7 +1,7 @@
 ---
 title: "Tasks for the Fall"
 date: 2004-09-01
-category: education
+category: education students
 ---
 <p>We've finalized the list of things we want to accomplish between now and December, in order to be ready for beta use in the Winter term:</p>
 

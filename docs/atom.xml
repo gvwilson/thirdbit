@@ -3,12 +3,36 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-06-01T00:00:00Z</updated>
+ <updated>2026-06-02T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Pooled vs. Separate Queues</title>
+   <link href="https://third-bit.com/2026/06/02/pooled-vs-separate/"/>
+   <updated>2026-06-02T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/02/pooled-vs-separate/</id>
+   <content type="html">&lt;p&gt;A facility has two identical servers. Customers arrive as a Poisson process and each needs one server for an exponentially distributed service time. Which queueing discipline should the facility use?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Separate queues: each server has its own dedicated line; customers randomly pick a line on arrival and cannot switch.&lt;/li&gt;
+&lt;li&gt;Pooled queue: a single shared line feeds whichever server becomes free first.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It turns out that pooling the queues is always better, even though both systems have identical total arrival rate, identical per-server service rate, and identical utilization $\rho$. The pooled system consistently produces shorter mean wait times, often by a factor of two or more at moderate utilization. The reason is that separate queues waste servers&amp;rsquo; idle time. In separate queues, one server may be idle while customers wait in the other line. Pooling eliminates this mismatch: a free server always serves the next waiting customer.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Despite being provably worse, separate queues feel fairer because customers can see their progress. Single lines eliminate the anxiety of watching the other queue move faster, but historically customers resisted them until airlines and banks demonstrated the improvement empirically in the 1960s–70s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Why pooling always wins&lt;/h3&gt;
+&lt;p&gt;Two separate M/M/1 queues each running at utilization $\rho$ have mean sojourn time $W_{\text{sep}} = 1/(\mu(1-\rho))$. A pooled M/M/2 queue with the same total arrival rate has strictly lower mean sojourn time for every value of $0 &amp;lt; \rho &amp;lt; 1$. The proof uses the &lt;a href=&#34;https://en.wikipedia.org/wiki/Erlang_(unit)#Erlang_C_formula&#34;&gt;Erlang-C formula&lt;/a&gt;, but the intuition is simpler: pooling converts two independent random processes into one, and the combined queue can exploit any idle capacity instantly. At $\rho = 0.8$, separate queues give roughly twice the mean wait of a pooled queue.&lt;/p&gt;
+&lt;h3&gt;Connection to variance reduction&lt;/h3&gt;
+&lt;p&gt;Think of the service delivered in a time window by two separate servers as two independent random variables $X_1$ and $X_2$. Their average $(X_1 + X_2)/2$ has variance $\sigma^2/2$, which is half the variance of either component alone. Pooling achieves something similar: by combining demand into one stream served by both servers, the system smooths out random fluctuations. The pooled queue is, in effect, averaging over both servers&amp;rsquo; idle periods instead of locking each idle period to a single lane.&lt;/p&gt;
+&lt;h3&gt;Rule of thumb&lt;/h3&gt;
+&lt;p&gt;At $\rho = 0.8$, separate queues produce roughly double the mean wait of a pooled queue. This factor grows as $\rho$ increases, because the $(1-\rho)$ term in the denominator amplifies any wasted capacity. The lesson: whenever you can route demand flexibly to a shared resource, do it.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Queue Nonlinearity</title>
@@ -2711,146 +2735,6 @@ Princeton University Press,
 Cambridge University Press,
 2015,
 &lt;a href=&#34;https://isbnsearch.org/isbn/9781107569782&#34;&gt;9781107569782&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Bullshit Jobs and Parkinson&#39;s Law</title>
-   <link href="https://third-bit.com/2026/05/17/parkinsons-and-bullshit/"/>
-   <updated>2026-05-17T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/17/parkinsons-and-bullshit/</id>
-   <content type="html">&lt;p&gt;In 1930,
-as the Great Depression settled in to stay,
-John Maynard Keynes wrote an essay called &amp;ldquo;Economic Possibilities for Our Grandchildren&amp;rdquo;.
-He predicted that by 2030
-the technical problems of production would be solved,
-and that the standard of living in wealthy countries would have risen so dramatically
-that people would work no more than fifteen hours per week.
-Humanity&amp;rsquo;s ancient struggle with scarcity would be essentially over;
-the challenge would be figuring out what to do with all the leisure.&lt;/p&gt;
-&lt;p&gt;Keynes&amp;rsquo; reasoning was straightforward.
-Productive capacity had been growing for 150 years,
-and if it continued growing at a similar rate,
-there would soon be more than enough to go around with minimal effort.
-He turned out to be right about production and wrong about work:
-we produce vastly more per person than in 1930,
-but work roughly as many hours.
-The question is, &amp;ldquo;Why?&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The answer is that productivity gains were not distributed as leisure;
-they were captured as profit.
-The share of national income going to wages in most affluent countries has fallen since the 1970s,
-while the share going to profits, dividends, and capital gains has risen.
-When a factory installs machines that allow one worker to produce what three produced before,
-the two workers who are no longer needed aren&amp;rsquo;t given paid time off—they are fired
-(or &amp;ldquo;let go&amp;rdquo;, if you prefer the euphemism).
-The worker who remains works the same hours as before,
-for roughly the same wage;
-the gains all accrue to the factory owner.&lt;/p&gt;
-&lt;p&gt;The second answer involves &amp;ldquo;conspicuous busyness&amp;rdquo;,
-a counterpart to Veblen&amp;rsquo;s conspicuous consumption.
-Human beings are primarily motivated by relative position, not absolute wealth.
-If everyone gets more leisure,
-no one&amp;rsquo;s status improves compared to anyone else&amp;rsquo;s.
-But if you work longer hours than your colleagues,
-you signal commitment, importance, and indispensability.
-In many professional environments,
-especially in the United States and East Asia,
-extreme hours have become a status marker.&lt;/p&gt;
-&lt;p&gt;The third answer was given a name in 1955 by C. Northcote Parkinson,
-a British historian writing satirically about how
-the Royal Navy&amp;rsquo;s administrative overheads had expanded
-as its fighting fleet shrunk.
-Parkinson&amp;rsquo;s Law states that
-work expands to fill the time available for its completion.
-Organizations don&amp;rsquo;t need actual work to justify hiring more administrators;
-the administrators find or generate the work.
-Parkinson was being funny,
-but he was also describing a real phenomenon
-that has been documented in organizations from colonial government ministries
-to modern corporate compliance departments.&lt;/p&gt;
-&lt;p&gt;The anthropologist David Graeber spent years collecting accounts from people
-who described their own jobs as largely or entirely pointless.
-His 2018 book &lt;em&gt;Bullshit Jobs&lt;/em&gt; offered both a taxonomy and an explanation.
-Graeber&amp;rsquo;s taxonomy identifies five types:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Flunkies,
-    who exist to make their superiors feel important
-    (e.g., the receptionist whose main function is to signal that the executive is important enough
-    to have a receptionist);&lt;/li&gt;
-&lt;li&gt;Goons,
-    who exist to defend their organization against the equivalent goons of competing organizations
-    (including lobbyists, corporate lawyers, much of the advertising industry);&lt;/li&gt;
-&lt;li&gt;Duct tapers,
-    who fix problems that could be solved permanently but aren&amp;rsquo;t,
-    because fixing them would eliminate someone&amp;rsquo;s job or require an organizational change
-    no one is willing to make;&lt;/li&gt;
-&lt;li&gt;Box tickers,
-    who perform or administer paperwork that allows an organization to claim it is doing something
-    it is not actually doing; and&lt;/li&gt;
-&lt;li&gt;Taskmasters,
-    who assign and manage work that does not need to be assigned or managed.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These people aren&amp;rsquo;t lazy—most of the ones Graeber interviewed worked hard
-and were genuinely distressed about the pointlessness of their work.
-His point is that the growth of these roles has been driven by
-our social need to keep white-collar workers busy,
-in &amp;ldquo;respectable&amp;rdquo; white-collar jobs.&lt;/p&gt;
-&lt;p&gt;The tech industry has been doing a speed-run through this.
-Agile coaches,
-scrum masters,
-developer advocates,
-and platform engineers whose platforms help other engineers manage their platforms
-have proliferated faster than the number of people writing code.
-Engineers who &lt;em&gt;do&lt;/em&gt; write code frequently report that a significant fraction of their time
-is consumed by meetings, status updates, documentation for internal audiences,
-and other activities that Graeber&amp;rsquo;s taxonomy would classify as box-ticking.&lt;/p&gt;
-&lt;p&gt;ON the other hand,
-framing it this way is yet another example of engineers centering themselves
-and dismissing everyone else&amp;rsquo;s work as secondary.
-In 2009,
-Google ran an internal study called Project Oxygen
-to settle the question of whether managers actually mattered.
-The engineers running the study expected to confirm that management was overhead
-and that flat teams of smart people would outperform hierarchically organized ones.
-Instead they found the opposite:
-the teams with the best managers performed significantly better.
-When Google experimented with removing management layers,
-engineers asked for their managers back:
-not because they wanted to be supervised,
-but because they needed someone to run interference with other teams,
-to help them think through career decisions,
-and to give them feedback that a technical peer couldn&amp;rsquo;t.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Garvin2013&#34;&gt;Garvin2013&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;David A. Garvin:
-&amp;ldquo;How Google Sold Its Engineers on Management.&amp;rdquo;
-&lt;em&gt;Harvard Business Review&lt;/em&gt;,
-December 2013,
-&lt;a href=&#34;https://hbr.org/2013/12/how-google-sold-its-engineers-on-management&#34;&gt;https://hbr.org/2013/12/how-google-sold-its-engineers-on-management&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Graeber2018&#34;&gt;Graeber2018&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;David Graeber:
-&lt;em&gt;Bullshit Jobs: A Theory&lt;/em&gt;.
-Simon &amp;amp; Schuster,
-2018,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781501143335&#34;&gt;9781501143335&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Keynes1930&#34;&gt;Keynes1930&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;John Maynard Keynes:
-&amp;ldquo;Economic Possibilities for Our Grandchildren.&amp;rdquo;
-In &lt;em&gt;Essays in Persuasion&lt;/em&gt;.
-Macmillan,
-1931.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Sandel2020&#34;&gt;Sandel2020&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Michael J. Sandel:
-&lt;em&gt;The Tyranny of Merit: What&amp;rsquo;s Become of the Common Good?&lt;/em&gt;.
-Farrar, Straus and Giroux,
-2020,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780374289980&#34;&gt;9780374289980&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Veblen1899&#34;&gt;Veblen1899&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Thorstein Veblen:
-&lt;em&gt;The Theory of the Leisure Class&lt;/em&gt;.
-Macmillan,
-1899.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

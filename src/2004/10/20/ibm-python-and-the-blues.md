@@ -1,7 +1,7 @@
 ---
 title: "IBM, Python, and the Blues"
 date: 2004-10-20
-category: society software
+category: society
 ---
 I gave a talk about Python at IBM's Toronto lab yesterday.  It seemed
 to go pretty well—Paul Buck, who'd invited me out there, said that his

@@ -1,12 +1,9 @@
 ---
 title: "A Few Simple Rules"
 date: 2004-09-02
-category: education
+category: students
 ---
-<p>We held the post-mortem
-for Helium this
-morning.  Lots of things went wrong, but many more went right—it was
-a fun, productive summer.</p>
+<p>We held the post-mortem for Helium this morning.  Lots of things went wrong, but many more went right—it was a fun, productive summer.</p>
 
 <p>Lots of things contributed to the fun, but much of the productivity
 can be attributed to one thing: everyone learned to use modern tools,

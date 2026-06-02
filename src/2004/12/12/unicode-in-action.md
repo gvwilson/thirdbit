@@ -1,7 +1,7 @@
 ---
 title: "Unicode in Action"
 date: 2004-12-12
-category: software
+category: students
 ---
 <p>From Pat Smith and Jeffrey Jia, who've been working on the Psiphon project:</p>
 

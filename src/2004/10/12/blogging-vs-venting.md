@@ -1,7 +1,7 @@
 ---
 title: "Blogging vs. Venting"
 date: 2004-10-12
-category: education
+category: education software
 ---
 Christian, Steve, and Anthony, from the <a href="http://www.hibernate.org">Hibernate</a> development team, have <a href="http://forum.hibernate.org/viewtopic.php?t=935189">commented</a> on my postings about the trouble I'm having getting things to work.  I'm not sure what 'seem swoon by "academic woe"' means, and I think that trying to get <a href="http://www.hibernate.org">Hibernate</a> into the undergrad curriculum will do more to help it grow than writing patches, but I take their point: less venting would be more productive.
 
