@@ -451,11 +451,6 @@ The prince waited another heartbeat for her to go on.
 When she didn't, he nodded.
 "All right," he promised. "It'lls stay our secret."
 
-</section>
-<section markdown="1">
-
-## Chapter 2: Apple Bridge
-
 The sun was sitting on the horizon like a fat yellow hen
 by the time Apple Bridge came into view.
 The town was twenty times the size of Stale,
@@ -479,7 +474,7 @@ as the town's famous Dog's Market began to close for the night.
 A three-story figure eight stood guard a few blocks away.
 
 "That's the garrison house," the prince said, pointing.
-"My sister and I live upstairs in the north wing.
+"My sister and I live upstairs in the bow wing.
 The judge stays there too when she's in town.
 The sergeants and stewards have the ground floor.
 The rest is storerooms and stables and the soldiers' quarters."
@@ -555,7 +550,7 @@ I sent along out some riders, but he's not on the road."
 
 The prince frowned,
 trying to guess what the sergeant would think was the right thing to do.
-"They may have gone down the south road instead of straight home," he ventured.
+"They may have gone down the stern road instead of straight home," he ventured.
 "Send another couple of riders to look—it would be best
 if they didn't get home to find that they no longer have one."
 
@@ -802,7 +797,7 @@ He wondered if his brother thought about that as often as he did.
 </section>
 <section markdown="1">
 
-## Chapter 3: Familiar Faces
+## Chapter 2: Familiar Faces
 
 *He could have told me that his sister's nurse was going to watch,*
 Noxy thought,
@@ -1474,7 +1469,7 @@ and was asleep by his third breath.
 </section>
 <section markdown="1">
 
-## Chapter 4: A Visit to the Market
+## Chapter 3: The Dog Market
 
 The prince woke at dawn, still in his clothes, and groaned.
 He'd had a restless night—when
@@ -1555,7 +1550,7 @@ Instead,
 afraid that their land might be judged Blighted,
 they had taken a hammer to one of the eggs.
 The explosion had woken the neighbors,
-and the choking smoke had made the southern road into Apple Bridge impassable for months.
+and the choking smoke had made the sternward road into Apple Bridge impassable for months.
 
 That had been ten years ago.
 The fire was still burning.
@@ -1783,7 +1778,7 @@ Then he came back here and waited for the end."
 "That's really sad," Noxy said.
 
 Dolly nodded.
-"Some Gifted say there are still wolves up north, in Anuvatik,
+"Some Gifted say there are still wolves up bowwards, in Anuvatik,
 but I've never met anyone who has actually seen one.
 They're supposed to be beautiful."
 
@@ -2159,7 +2154,7 @@ Prince Thokmay agreed.
 </section>
 <section markdown="1">
 
-## Chapter 5: Flight
+## Chapter 4: Flight
 
 Princess Ogmin wanted to stop on the way back to the garrison house
 to see if her favorite seamstress would sew her new ribbon onto her dress
@@ -2297,7 +2292,7 @@ Why, they were probably very good at it,
 and even if they weren't,
 it was none of her business.
 
-She shaded her eyes again to look north toward the Blight.
+She shaded her eyes again to look bowwards toward the Blight.
 Its border was clear from this height:
 in the space of half a gallop,
 the rich green of Loghan's farms and forests was replaced by
@@ -2349,7 +2344,7 @@ The leek seller, Bortja,
 stood on a crate in front of them.
 "What do we want?" she bellowed.
 
-"A charter!" the crowd roared.
+"Beasts out!" the crowd roared.
 
 "When do we want it?"
 
@@ -2488,7 +2483,7 @@ Two quick steps took Bortja back to her crate.
 "What do we want?"
 she bellowed as she straightened on top of it.
 
-"A charter!" the crowd roared.
+"Beasts out!" the crowd roared.
 
 "When do we want it?"
 
@@ -2510,7 +2505,7 @@ then looked back at the sergeant and grinned.
 It only took a dozen heartbeats for the first scattered drops to turn into a shower.
 Another dozen and they were a downpour.
 The prince bit his lip to stop himself from laughing
-as the shouts of "Charter!" and "Now!" turned into exclamations and curses.
+as the shouts of "Beasts out!" and "Now!" turned into exclamations and curses.
 Cold water was dripping down the back of his neck,
 but he didn't care,
 not when the crowd broke up,
@@ -2834,56 +2829,69 @@ She had just a moment to feel it notice her before she drifted off.
 </section>
 <section markdown="1">
 
-## Chapter 7: The Tornado Returns
+## Chapter 5: The Tornado Returns
 
-The farmer's wife invited the prince and princess to join the family
-for a meal after the remembrance. To her obvious relief, the prince
-declined. "It's a time for those who knew him best," he said with yet
-another bow. "But with your permission, I'll ask the staff to send
-some treats for the children. Please—" He raised a hand to
-forestall her protest. "I would be grateful if you would accept. For
-them."
+The farmer invited the prince and princess
+to join her family for a meal after the remembrance.
+To her obvious relief,
+the prince declined.
+"It's a time for those who knew him best,"
+he said with yet another bow.
+"But with your permission,
+I'll ask the staff to send some treats for the children.
+Please—"
+He raised a hand to forestall her protest.
+"I would be grateful if you would accept.
+For them."
 
-The staff and soldiers behind him talked quietly amongst themselves as
-they walked back to the garrison house. The princess held Prince
-Thokmay's hand, but he hardly noticed how uncharacteristically quiet
-she was. He was thinking about what had happened—had that really
-been Noxy? Had she been trying to mind-speak with him? Was that even
-possible?
+The staff and soldiers talked quietly behind him
+as they walked back to the garrison house.
+Princess Ogmin held her brother's hand,
+but he hardly noticed how uncharacteristically quiet she was.
+A few pieces of candy seemed completely inadequate,
+but he didn't know what else to do.
+Arrange apprenticeships for them?
+Or schooling?
+He didn't know if they would want either,
+and he couldn't ask—the answer was sure to be 'yes'.
 
-He was so deep in his own thoughts that he jumped when Sergeant Gyalpa
-said, "Hold!" and stepped in front of him. They had just turned a
-corner, and nearly run into a knot of angry people gathered around a
-water pump. The crowd fell silent as they realized they were being
-watched, and by whom.
+He was so deep in his own thoughts
+that he jumped when Sergeant Gyalpa said, "Hold!"
+and stepped in front of him.
+They had just turned a corner,
+and nearly run into a knot of angry people gathered around a water pump.
+The crowd fell silent as they realized they were being watched, and by whom.
 
-"What's going on here?" Sergeant Gyalpa asked, pretending not to see
-one of the men in the crowd dropping a stone he had been about to
-throw and kicking it behind him.
+"What's going on here?" Sergeant Gyalpa demanded,
+pretending not to see one of the men in the crowd
+drop a stone he had been about to throw.
 
-"Oh, thank the Pilots! Excuse me. Excuse me, please." A skinny
-figure with a servile hunch to his shoulders scurried through the
-crowd to wring his hands in front of the sergeant. "They meant no
-harm, sir, I'm sure, it was just a misunderstanding."
+"Oh, thank the saints! Excuse me. Excuse me, please."
+A skinny figure with a servile hunch to his shoulders
+scurried through the crowd to wring his hands in front of the sergeant.
+"They meant no harm, honored, I'm sure, it was just a misunderstanding."
 
-"Who meant no harm?" Sergeant Gyalpa uncrossed his arms and glowered
-at Mukh.
+"Who meant no harm?"
+Sergeant Gyalpa uncrossed his arms and glowered at Mukh.
 
-"Them, sir. They were just along to fill their bucket, is all."
+"Them, honored. They were just along to fill their bucket, is all."
 Mukh pointed at the pair of raccoons who had followed at his heels.
-"Only *some* of these people thought, well, you know by how some are
-here with the Gifted, sir, they thought, well…"
+"Only *some* of these people thought,
+well,
+you know how some here are along with the Gifted, honored."
 
-Prince Thokmay interrupted before the sergeant could reply. "They
-thought what?"
+Prince Thokmay interrupted before the sergeant could reply.
+"And how is that, exactly?"
 
-Mukh wrung his hands, nervous under the glares of the townspeople
-behind him on his back. "They just thought… Well, Your Highness,
-they thought by maybe such as these should, well, they should find by
-elsewhere to get their water."
+Mukh wrung his hands,
+nervous under the glares of the townspeople.
+"They just thought…
+Well, honored, they thought by maybe such as these should, well,
+they should find by elsewhere to get their water."
 
-The prince nodded. "I see." His voice cracked slightly, but he
-ignored it. *This* was something he could do something about.
+The prince nodded.
+"I see."
+ *This* was something he could do something about.
 "Sergeant?"
 
 "Yes sir?"
@@ -2892,183 +2900,214 @@ ignored it. *This* was something he could do something about.
 
 Sergeant Gyalpa nodded. "It does, sir."
 
-"Good. Now, who's here for water, and who's just along to watch?
-Come on, don't be shy. You!" The prince pointed at a heavy-set man
-with a water jar hanging from a sling over his shoulder. "Were you
-here to fill that?"
+"Good.
+Now, who's here for water, and who's just along to watch?
+Come on, don't be shy. You!"
+The prince pointed at a heavy-set man
+with a water jar hanging from a sling over his shoulder.
+"Were you here to fill that?"
 
-The man swallowed, his anger having turned to worry. "Um, yes? Your
-Highness?"
+The man swallowed, his anger having turned to worry.
+"Um, yes? Honored?"
 
-"Good. Why don't you come with us and refill it at the stable? After
-all," he added as people started to murmur. "It's the same water,
-from the same pipes, isn't it? And the rest you." He raised his
-voice. "If you've brought a jar or a pot or a bucket, raise your
-hand."
+"Good.
+Why don't you come with us and refill it at the stable?
+After all," he added as people started to murmur,
+"It's the same water, from the same pipes, isn't it?
+And the rest you."
+He raised his voice.
+"If you've brought a jar or a pot or a bucket, raise your hand."
 
-A few hands went up. "You," the prince said, pointing at a woman.
+A few hands went up.
+"You," the prince said, pointing at a woman.
 "That's empty, isn't it? And yours too, good lady?"
 
-Sergeant Gyalpa cleared his throat. "Um, Your Highness, I don't think
-this is a good—"
+Sergeant Gyalpa cleared his throat.
+"Um, Your Highness, I don't think this is a good—"
 
-"And you!" Prince Thokmay ignored the sergeant and pointed at another
-man who was edging toward the back of the crowd. "Please, don't be
-shy. I'm sure there's plenty for everyone. Sergeant! Make sure
-nobody loses their way. Now come along, everyone, let's get those
-buckets filled."
+"And you!"
+Prince Thokmay ignored the sergeant
+and pointed at another man who was edging toward the back of the crowd.
+"Please, don't be shy.
+I'm sure there's plenty for everyone.
+Sergeant!
+Make sure nobody loses their way.
+Now come along, everyone, let's get those buckets filled."
 
-"Your Highness, what are you doing?" Sergeant Gyalpa asked in a low,
-urgent voice as the townspeople began milling about, asking each other
-what was happening and where were they going and was the prince
-actually going to make them get their water from a stable?
+"Honored, what are you doing?"
+Sergeant Gyalpa asked in a low voice as the townspeople began milling about,
+asking each other what was happening
+and where were they going
+and was the prince actually going to make them get their water from a stable?
 
-"I'm fixing this," the prince said curtly, savoring the fury burning
-in his chest.
+"I'm fixing this," the prince said curtly,
+savoring the fury burning in his chest.
 
-The sergeant blew air through his mustache. "Yes, sir, but, well, I
-don't think you actually *can*, sir. I mean, I'm not an expert along
-by the law and all, but I don't think you can tell folk where along to
-get their water, if you follow me."
+The sergeant blew air through his mustache.
+"Yes, honored, but, well, I don't think you actually *can*, honored.
+I mean, I'm not an expert along by the law and all,
+but I don't think you can tell folk where along to get their water,
+if you follow me.
 
-"No? Well then tell me, sergeant, please, what *can* I do?" He waved
-at the crowd. "Can I make sure that all of Loghan's citizens are
-treated equally, human or not? Can I do that?"
+"No? Well then tell me, sergeant, please, what *can* I do?"
+He waved at the crowd.
+"Can I make sure that all of Loghan's citizens are treated equally, human or not?
+Can I do that?"
 
-Whatever answer the sergeant might have given was interrupted by the
-deep voice of a gong ringing in the distance. Sergeant Gyalpa's head
-whipped around. "That's fire watch—along south side. You two!" He
-pointed at the two nearest soldiers. "Double time along to Hog
-Street, find out—"
+Whatever answer the sergeant might have given
+was interrupted by the deep voice of a gong ringing in the distance.
+Sergeant Gyalpa's head whipped around.
+"That's fire watch—along sternward. You two!
+He pointed at the two nearest soldiers.
+"Double time along to Hog Street, find out—"
 
-"No! Listen!" Mukh wrung his hands, fear written almost comically
-on his face. "Everyone, listen! It's the tornado! It's coming for
-us!"
+"No! Listen!"
+Mukh wrung his hands,
+fear written almost comically on his face.
+"Everyone, listen! It's the tornado! It's come back!"
 
-The crowd held its breath just long enough to hear the roaring in the
-distance. A second gong joined the first, then a third. "Pilots save
-us!" someone cried. As if it was a signal, the scene dissolved into
-chaos. People scattered, dropping their jars and bottles and elbowing
-aside anyone who got in their way.
+The crowd held its breath just long enough to hear the roaring in the distance.
+A second gong joined the first, then a third.
+"Saints save us!" someone cried.
+As if it was a signal,
+the scene dissolved into chaos.
+People scattered,
+elbowing aside anyone who got in their way.
 
-"Form up! Form up!" Sergeant Gyalpa bellowed. "You lot, get the
-princess back to the garrison house *now*! You too, Your Highness, we
-have to get you along by somewhere safe."
+"Form up! Form up!" Sergeant Gyalpa bellowed.
+"You lot, get the princess back to the garrison house *now*!
+You too, honored, we have to get you along by somewhere safe."
 
-"No." The prince shook off his arm. "Take care of the princess. I'm
-going to find out what's going on. You two—with me!"
+"No." The prince shook off his arm.
+"Take care of the princess.
+I'm going to find out what's going on.
+Manpa! Jinpa! With me!"
 
-Without waiting for an answer, he shouldered through the fleeing
-people and pounded on the nearest door. "Excuse me," he said, pushing
-past the frightened woman who opened it, "I need to borrow your roof."
+Without waiting to see if they would follow,
+he shouldered through the fleeing people and pounded on the nearest door.
+"Excuse me," he said,
+pushing past the frightened woman who opened it,
+"I need to borrow your roof."
 
-The prince pounded up the stairs with the two soldiers on his heels.
-The upper floor of the house was one large room. Partially-mended
-tapestries hung on all four walls, each with a small work table in
-front of it. A second, smaller flight of stairs led up to an attic
-bedroom with a shuttered skylight. Two big steps took the prince from
-the floor to a wicker chair to the dresser beneath the skylight.
-Ignoring the, "Sir, wait, please!" behind him, he undid the latch and
-pulled himself up onto the roof.
+The prince pounded up the stairs with the twin soldiers on his heels.
+The upper floor of the house was one large room.
+Partially-mended tapestries hung on all four walls,
+each with a small work table in front of it.
+A second, smaller flight of stairs led to an attic bedroom
+with a shuttered skylight.
+Two big steps took the prince from the floor to a wicker chair
+to the dresser beneath the skylight.
+Ignoring the,
+"Honored, wait, please!" behind him,
+he undid the latch and pulled himself up onto the roof.
 
-A loose tile slid away and rattled down the roof into the gutter as he
-got to his feet, wiping his hands unconsciously on his uniform jacket.
-Bird droppings, a few twigs, and a windblown piece of rain-faded
-ribbon decorated the roof. He ignored them all as he shaded his eyes
-with his hand and looked south.
+A loose shingle slid down into the gutter as he got to his feet.
+Bird droppings, a few twigs, and a windblown piece of rain-faded ribbon decorated the roof.
+He ignored them all as he shaded his eyes with his hand and looked sternward.
 
-The tornado was a dark twisting column three times the height of the
-clock tower. It was still about two gallops outside Apple Bridge, but
-even as he watched he could it see it coming closer, tearing a furrow
-of ruins through the beanfields and flower beds that the townspeople
-tended so carefully on their days off.
+The tornado was a dark twisting column three times the height of the clock tower.
+It was still about two gallops outside Apple Bridge,
+but even as he watched he could it see it coming closer,
+tearing a furrow of ruin through the beanfields and flower beds
+that the townspeople tended so carefully.
 
-The tornado yanked a fence into the air and tore it to pieces. A shed
-followed, and then the tornado doubled back to pick up the scattered
-fence posts and fling them in all directions.
+The tornado yanked a fence into the air and tore it to pieces.
+A shed followed,
+and then the tornado doubled back to pick up the scattered fence posts
+and fling them in all directions.
 
-"Sir! Sir, what's it doing?" The two soldiers had pulled themselves
-up onto the roof.
+"Honored! Honored, what's it doing?"
+The two soldiers had pulled themselves up onto the roof.
 
-"I don't know!" He and Mope had scoured the garrison house's small
-library for anything they could find about tornadoes. Everything they
-read agreed that they were short-tempered, but there was nothing about
-them holding grudges. Somebody had to be directing it…
+"I don't know!"
+He and Mope had scoured the garrison house's small library
+for anything they could find about tornadoes.
+Everything they read agreed that they were short-tempered,
+but there was nothing about them attacking the same place over and over.
 
-The prince scanned the rooftops. There! Was that someone hiding
-behind a chimney? He reached for the soldier nearest him, but then a
-crow fluttered into the air and winged away.
+"It's almost like it's along by looking for something,"
+Private Minpa said.
+The furious dark spin of air was moving back and forth
+like an angry old man trying to find a rat in his kitchen.
 
-"It's like it's looking for something," the soldier said, pointing at
-the tornado.
+"Or someone," the prince replied grimly.
 
-"Or someone," the prince replied grimly. The furious dark spin of air
-was moving back and forth like an angry old man trying to find a rat
-in his kitchen.
+Suddenly a horse and rider burst out of a stand of trees and raced toward the road.
+Roaring,
+the tornado gave chase,
+flinging branches and clumps of grass and a wheelbarrow into the air behind it.
 
-Suddenly a horse and rider burst out of a stand of trees and raced
-toward the road. Roaring, the tornado gave chase, flinging branches
-and clumps of grass and a wheelbarrow into the air behind it.
+"Go! Go!" the prince and the soldiers shouted,
+urging the rider on.
+His horse's hooves threw up clods of fresh earth,
+and then they were on the road,
+galloping toward town.
 
-"Come on! Come on!" the prince and the soldiers shouted, urging the
-rider on. His horse's hooves threw up clods of fresh earth, and then
-he was on the road, picking up speed as he headed toward town.
+"Look out!"
+The rider couldn't possibly have heard the shouts from the rooftop,
+but some instinct made him swerve left just as the tornado reached for him.
 
-"Look out!" The rider couldn't possibly have heard the shouts from
-the rooftop, but some instinct made him swerve left just as the
-tornado reached for him.
+"Honored?" called a voice from inside the house.
 
-"Your Highness?" called a voice from inside the house.
+"We're up here!" the prince yelled back
+without taking his eyes off the chase in front of him.
+"Come on, come *on*," he muttered.
 
-"We're up here!" the prince yelled back without taking his eyes off
-the chase in front of him. "Come on, come *on*," he muttered.
+Sergeant Inambu stuck her head up through the skylight.
+A moment later she clambered up onto the roof and saluted.
+"Honored.
+Sergeant Gyalpa sent along a runner, sir.
+Said you might be along by needing help."
 
-Sergeant Inambu stuck her head up through the skylight. A moment later
-she clambered up onto the roof and saluted. "Sir. Sergeant Gyalpa
-sent along a runner, sir. Said you might be along by needing help."
+"Thank you, sergeant. Can you make horses fly?"
+The rider was just a gallop out of town,
+close enough for the prince to imagine the hope and terror he must be feeling.
 
-"Thank you, sergeant. Can you make horses fly?" The rider was back on
-the road, just a gallop away from town, close enough for the prince to
-see his beard and his bare arms, close enough for him to imagine the
-terror he must be feeling.
+"No, honored, but if the tornado comes by closer,
+I might be along by giving it a turn.
+If that's needed, honored."
 
-"No sir, but if the tornado comes by closer, I might be along by
-giving it a turn. If that's needed, sir."
+The prince glanced at her, then looked again in shock.
+The garrison magician looked like she hadn't slept in days,
+and was so exhausted that she was trembling.
+"Sergeant, are you all right?"
 
-The prince glanced at her, then looked again in shock. The garrison
-magician looked like she hadn't slept in days, and was so exhausted
-that she was trembling. "Sergeant, are you all right?"
+"Right enough, honored. And better than him."
 
-"Right enough, sir. And better than him."
+"Rot and ruin…" one of the soldiers whispered.
+The horse had run the best race it could,
+but on this day—its last day—its best wasn't good enough.
+With a roar of victory,
+the tornado swept across the road.
+The rider's mouth opened in a scream no one could hear
+as he and his horse were flung into the air,
+tumbling and falling to lie side by side in a field of green spring clover.
 
-"Rot and ruin…" one of the soldiers whispered. The horse had run
-the best race it could, but on this day—its last day—its best
-wasn't good enough. With a final roar of victory, the tornado swept
-across the road. The rider's mouth opened in a scream no one could
-hear as he and his horse flew into the air, then fell to lie side by
-side in a field of green spring clover.
+The tornado paused, whirling in place.
+The prince could almost feel it studying the town, thinking,
+*I could*.
 
-The tornado paused, whirling in place. The prince could almost feel
-it studying the town, thinking, *I could*.
+"Sergeant…" the prince said quietly.
+"Whatever you're going to do…"
 
-"Sergeant…" the prince said quietly. "Whatever you're going to
-do…"
-
-But then, as inexplicably as it had appeared, the tornado began to
-move away. It picked up speed as it went, lifting its tail so that it
-spun freely in the air as it headed back toward the Blight, back
-toward whatever or wherever it called home, leaving a furrow of
-destruction in its wake.
+But then, as inexplicably as it had appeared,
+the tornado began to move away.
+It picked up speed as it went,
+lifting its tail so that it spun freely in the air
+as it headed back toward the Blight,
+leaving a furrow of destruction in its wake.
 
 The prince suddenly realized that the alarm gongs were still ringing.
-"Go find Sergeant Gyalpa," he told the nearest soldier. "Get those
-gongs muffled, and let people know the danger has passed."
+"Go find Sergeant Gyalpa," he told Private Jinpa.
+"Get those gongs muffled, and let people know the danger has passed."
 
 "Has it, sir?" the soldier asked.
 
-"No," the prince said wearily. "But it's what they'll want to hear.
-And you—get a squad together, and a wagon. We shouldn't leave him
-there. Or the horse, either."
+"No," the prince said wearily.
+"But it's what they'll want to hear.
+And you, Minpa—get a squad together, and a wagon.
+We shouldn't leave him there.
+Or his horse, either."
 
 Noxy's head hurt when she woke from her nap. It wasn't a sharp pain
 in one spot, but more like someone was trying to squeeze her brain
@@ -4821,7 +4860,7 @@ broke. "Manpa showed me how to make a splint."
 
 The sergeant nodded, swallowing another pained grunt. "We'll cut your
 tent poles in thirds," he said. "And then we'll follow this stream. I
-think that way is east—the Trout's off there somewhere. If we can
+think that way is starboard—the Trout's off there somewhere. If we can
 make it that far, we can get a raft to take us back up to Apple
 Bridge."
 
