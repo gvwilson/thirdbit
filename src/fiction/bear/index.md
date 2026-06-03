@@ -3434,7 +3434,7 @@ The trader shook his head.
 "I'll be along right, Your Highness.
 Just wait along a bit for the crowd to lose interest,
 then I ought to be getting back to Rust.
-I'll be all right if I'm along by her,
+I'll be all right along by her,
 but she'll worry, me being away so long."
 
 "She would be welcome to stay here as well,"
@@ -3444,10 +3444,105 @@ Mukh shook his head again.
 "She'll be all right, Your Highness.
 Folk don't mess along with a bear as easy as they do with a raccoon."
 
+*!!!*
+Noxy straightened at the mind-touch, her eyes widening.
+*Herd coming!*
+
+"Excuse me," she said,
+ignoring the prince's shouted, "Wait! What's happening?" as she sprinted away.
+
+She was breathless by the time she reached the top floor,
+but it didn't matter.
+There,
+near the horizon,
+she saw a trio of familiar gray-white smudges.
+Aft and the others had returned.
+
+She took the stairs two at a time,
+yelling, "Sorry!" each time she dodged around the garrison servants.
+The prince and the soldier twins were standing where she'd left them,
+though Mukh and the raccoons were gone.
+"They're back," she panted,
+bending over and putting her hands on her knees.
+"Aft.
+The clouds."
+She waved in what might have been their general direction.
+
+Thokmay scowled.
+"Wonderful.
+No, no, I'm glad they're all right.
+They *are* all right, aren't they?
+No, of course you wouldn't know."
+He pointed at Private Minpa.
+"Go and let Sergeant Gyalpa know.
+Tell him I'll ask if they can help survey the damage.
+And you."
+He moved his finger to Private Jinpa.
+"Find some horses."
+
+The soldiers trotted away.
+The prince sighed.
+"I suppose this means you'll be leaving soon?"
+
+"What?"
+Noxy blinked.
+She hadn't even thought about that.
+"Um, I suppose."
+
+"Oh."
+Something flickered across Thokmay's face.
+"Well, I suppose it'll be back to letters for us, then."
+
+"I suppose," Noxy echoed.
+They looked at each other,
+awkward and silent,
+until the twins returned.
+The prince gave her a small formal bow,
+then mounted and rode off,
+leaving her alone in the bustle of the courtyard.
+
+Private Jinpa had thought to grab a banner as he was fetching the horses.
+The prince made a mental note to thank him for that
+as they galloped out of town.
+A few minutes later,
+in a field of freshly-sprouted onions,
+the lead cloud settled on the ground.
+
+"Your Highness," Aft said,
+sliding down its side.
+
+"It's good to see you're all right,"
+the prince replied.
+"We've had quite a couple of days here."
+
+Aft nodded, his face grim.
+"Saw it heading for the Blight,
+and then all the mess on the way in.
+Sorry for what's happened.
+How's Noxy?"
+
+"She's fine.
+She and my sister are—"
+The prince halted mid-sentence
+as Aft's passenger slid awkwardly down the side of the cloud
+and brushed her hands on her coat.
+
+"Your Highness,"
+Scholar Shudarga said,
+clasping her hands in front of her and giving him a deep, formal bow.
+
+For a moment the words wouldn't come,
+but then they burst out of him like startled birds.
+"What in the saints' names are *you* doing here?"
+
+"I'm here to surrender," she said calmly.
+
 </section>
 <section markdown="1">
 
-## Chapter 6: That Night
+## Chapter 6: Arrival and Departure
+
+FIXME: Aft brings Shudarga to Apple Bridge
 
 *The garrison house was still that night when a quiet voice only
 Princess Ogmin could hear told her to get dressed. She was
