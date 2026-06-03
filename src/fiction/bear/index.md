@@ -2803,7 +2803,8 @@ and didn't smell of goof,
 but had the same comforting scratchy feel.
 She closed her eyes and let her mind drift.
 Her weariness felt like a fat cold cat curled up beside her,
-or like one of the slow-moving old clouds that Stale children learned mind-speaking with.
+or like one of the slow-moving old clouds
+that Stale children learned mind-speaking with.
 
 Thinking about Stale made her think about Cloak.
 She reached out with her mind.
@@ -3109,296 +3110,344 @@ And you, Minpa—get a squad together, and a wagon.
 We shouldn't leave him there.
 Or his horse, either."
 
-Noxy's head hurt when she woke from her nap. It wasn't a sharp pain
-in one spot, but more like someone was trying to squeeze her brain
-into a jar half a size too small. She swallowed a mouthful of water
-from the little jug on the table beside her bed, then grimaced. The
-slice of lemon that was supposed to freshen it had been sitting in the
-water so long that all she could taste was the rind.
+Noxy's head hurt when she woke from her nap.
+It wasn't a sharp pain in one spot,
+but more like someone was trying to squeeze her brain
+into a jar half a size too small.
+She swallowed a mouthful of water from the little jug on the table beside her bed,
+then grimaced.
+The slice of lemon that was supposed to freshen it
+had been sitting in the water so long that
+all she could taste was the rind.
 
-It took her twice as long as usual to tie her bootlaces, and when she
-stood up, she had to put a hand on the wall to steady herself. Was
-she coming down with a fever? Her forehead didn't feel clammy, or her
-cheeks, but—
+It took her twice as long as usual to tie her bootlaces,
+and when she stood up,
+she had to put a hand on the wall to steady herself.
+Was she coming down with a fever?
+Her forehead didn't feel clammy,
+or her cheeks, but—
 
-"Uh oh," she said stupidly, looking at the blotch of red on her hand.
-Her nose was bleeding. That hadn't happened in two years, not since
-that day in Stale when she'd reached out with her mind to call the
-clouds.
+The memory of touching something old and tired just before she fell asleep
+came rushing back.
+Suddenly afraid,
+she reached out.
+*Cloak? Are you all right?*
 
-That's when she remembered hearing the prince whisper her name just
-before she fell asleep. But that must have been a dream. Cloudherds
-were forever talking about how convenient it would be if they could
-mind-speak with each other instead of just with clouds, but it was
-just talk. Nobody have ever *done* it.
+*Want herd,* the cloud replied grumpily.
+*Want to go home.*
+Noxy whooshed with relief.
 
-But nobody had ever mind-talked with a cloud a dozen gallops away
-either, much less a whole heard of them all at once. Not until she
-had.
+A small square of cloth, neatly folded,
+lay beside the wash basin on the stand beneath her window.
+She dipped the end in her water jug and used it
+to wipe the sleep off her face.
+The lemon in the water made her scrapes and scratches sting a little,
+but that was good—it helped clear her head.
+By the time she was ready to sneak down the hall to the privy,
+she almost felt like herself again.
 
-A small square of cloth, neatly folded, lay beside the wash basin on
-the stand beneath her window. She dipped the end in her water jug and
-used it to dig the clots and scabs out of her nose. The lemon in the
-water made it sting a little, but that was good—it helped clear her
-head. By the time she was ready to sneak down the hall and dump the
-jug in the privy, she almost felt like herself again.
+She needn't have bothered sneaking.
+"Excuse me, m'lady," one of the maids said,
+dodging around her with a load of blankets in her arms.
+A steward hurried along behind her with an even taller pile of blankets.
+Further down the hall someone wanted to know
+where the cotter pins for the cots were,
+there was supposed to be a whole bag of cotter pins in the cupboard,
+while someone else needed someone, anyone,
+to go and roust that lazy-bones boy and get him upstairs with a broom *right now*
+and do something about the dust mice in this room before they took up arms,
+and gracious,
+could someone please get the window unstuck and get some air in?
 
-She needn't have worried about sneaking. "Excuse me, m'lady," one of
-the maids said, dodging around her with a load of blankets in her
-arms. A steward hurried along behind her with an even taller pile of
-blankets. Further down the hall someone wanted to know where the
-cotter pins for the cots were, there was supposed to be a whole bag of
-them, while someone else needed someone, anyone, to go and roust that
-lazy-bones boy and get him upstairs with a broom *right now* and do
-something about the dust mice in this room before they took up arms,
-and gracious, could someone please get the window unstuck and get some
-air in?
+"Whoops! Sorry."
+Noxy steadied her water jug.
 
-"Whoops! Sorry." Noxy steadied her water jug.
-
-"That's all right, m'lady" the maid said, distractedly brushing at a
-few drops that had splashed onto her sleeve. "Everything all right?"
+"That's all right, m'lady" the maid said,
+brushing at a few drops that had splashed onto her sleeve.
+"Everything all right?"
 
 "I'm fine," Noxy said. "What's going on?"
 
-The woman shook her head. "It's the tornado again. It came right up
-to the edge of town, people are saying. Tore up the ground something
-awful, and there's a man been killed. His Highness has ordered us to
-set up a few rooms as a hospital, just in case—" But Noxy was
-already gone, pelting down the corridor with the water jug sloshing
-forgotten in her hand.
+The woman shook her head.
+"It's the tornado again.
+It came right up to the edge of town, people are saying.
+Tore up the ground something awful,
+and there's a man been killed.
+His Highness has ordered us to set up a few rooms as a hospital, just in case—"
+But Noxy was already gone,
+pelting down the corridor with the water jug sloshing in her hand.
 
-She nearly collided with a couple of soldiers carrying a stretcher at
-the bottom of the stairs. Sergeant Inambu lay on it, her eyes open but
-her face so drawn that Noxy gasped.
+She nearly collided with a couple of soldiers carrying a stretcher
+at the bottom of the stairs.
+Sergeant Inambu lay on it,
+her eyes open but her face so drawn that Noxy gasped.
 
-"'Scuse us, m'lady," the soldier in front said without breaking
-stride. Noxy pressed herself against the wall to let them past.
+"'Scuse us, m'lady," the soldier in front said without breaking stride.
+Noxy pressed herself against the wall to let them past.
 
-*???* Cloak's wordless question popped into her mind like a raindrop
-into a still pond. His agitation made her pulse race.
+*???* Cloak's wordless question popped into her mind
+like a raindrop into a still pond.
+His agitation made her pulse race.
 
-*It's all right,* she mind-spoke back, suddenly guilty that her first
-thought had been Prince Thokmay and not her cloud. *I'm coming.*
+*It's all right,* she mind-spoke back,
+suddenly guilty that her first thought had been Prince Thokmay and not her cloud.
+*I'm coming.*
 
-She waited for a gap in the bustle to dart across the entrance hall to
-Dolly and Princess Ogmin. The princess was sitting on a delicate
-chair that might have been at home in a drawing room in the royal
-palace, but looked lost and lonely against the hewn stone of the
-garrison house's walls. Dolly was doing her best to calm her, but the
-princess kept repeating, "What's happening? Where's Lor? I want to go
-*home*!"
+She waited for a gap in the bustle,
+then darted across the entrance hall to Dolly and Princess Ogmin.
+The princess was sitting on a delicate chair
+that might have been at home in a drawing room in the royal palace,
+but looked lost and lonely against the hewn stone of the garrison house's walls.
+Dolly was doing her best to calm her,
+but the princess kept repeating,
+"What's happening? Where's Thokmay? I want to go *home*!"
 
-"What *is* happening?" Noxy asked breathlessly. "Someone said the
-tornado attacked again?"
+"What *is* happening?" Noxy asked breathlessly.
+"Someone said the tornado attacked again?"
 
-Dolly quickly filled her in. "I didn't see it," she finished. "His
-Highness didn't think I should be at the service. But people are
-scared, m'lady. There's already another of Master Bortja's mobs at
-the gate saying the prince ought to do something, though Pilots only
-know what they think he can do."
+Dolly quickly filled her in.
+"I didn't see it," she finished.
+"His Highness didn't think I should be at the service.
+But people are scared, m'lady.
+You mark my words,
+there'll be another of Bortja's mobs at the gate soon saying the prince ought to do something,
+though the saints only know what she thinks he can do."
 
 Noxy nodded, then did a half-squat and took the princess's hand.
-"Hey," she said. "Hey, I'm sorry we didn't get to go for our cloud
-ride today. How about we do it tomorrow? Would you like to do that?"
+"Hey," she said.
+"Hey, I'm sorry we didn't get to go for our cloud ride today.
+How about we do it tomorrow?
+Would you like to do that?"
 
-The princess shook her head and sniffled miserably. "I don't want to.
-I want to go *home*!"
+The princess shook her head and sniffled miserably.
+"I don't want to. I want to go *home*!"
 
-Dolly caught Noxy's eye and shook her head slightly. Noxy
-straightened up, feeling helpless and angry. "All right. But you can
-change your mind. I'm going to go have a look at him now. Um, see
-you later."
+Dolly caught Noxy's eye and shook her head slightly.
+Noxy straightened up, feeling helpless and angry.
+"All right.
+But you can change your mind.
+I'm going to go have a look at him now.
+Um, see you later."
 
-The brightness outdoors made her eyes squint. Half a dozen soldiers
-and staff were unpacking boxes of dayglass, more than she had ever
-seen in one place before, and laying out the pieces so that they could
-soak up the afternoon sun. Others were trundling two-wheeled barrel
-carts over to the garrison's pump for filling. *In case of fire,* she
-realized. And the dayglass would be for extra sentry lanterns, or in
-case people had to work through the night. The garrison was preparing
-for a battle, or a siege.
+The brightness outdoors made her eyes squint.
+Half a dozen soldiers and staff were unpacking boxes of dayglass,
+more than she had ever seen in one place before,
+and laying out the pieces so that they could soak up the afternoon sun.
+Others were trundling two-wheeled barrel carts over to the garrison's pump for filling.
+*In case of fire,* she realized.
+And the dayglass would be for extra sentry lanterns,
+or in case people had to work through the night.
+The garrison was preparing for a siege.
 
-A crowd had gathered outside the main gate once again, but they
-weren't chanting the way they had that morning. Instead, their voices
-and faces were more frightened than angry. This attack had been right
-at the city's gates. What did it want? Where would the next one be?
-And what was the garrison doing about it? What was the *prince* doing
-about it?
+A crowd had gathered outside the main gate once again,
+but they weren't chanting the way they had that morning.
+Instead, their voices and faces were more frightened than angry.
+This attack had been right at the city's gates.
+What did it want?
+Where would the next one be?
+And what was the garrison doing about it?
+What was the *prince* doing about it?
 
-When Noxy caught sight of him, the prince was arguing with Sergeant
-Gyalpa. Manpa and Rinpa stood next to him, eyes on the crowd and the
-rooftops like sailors watching for signs of a storm.
+When Noxy caught sight of him,
+the prince was arguing with Sergeant Gyalpa.
+Privaets Manpa and Rinpa stood next to him,
+eyes on the crowd and the rooftops like sailors watching for signs of a storm.
 
-The prince stopped mid-sentence when he saw Noxy. "We'll discuss this
-later," he told Sergeant Gyalpa curtly.
+The prince stopped mid-sentence when he saw Noxy.
+"We'll discuss this later," he told Sergeant Gyalpa curtly.
 
-"Yes sir." The sergeant saluted stiffly, his mustache bristling like
-an angry cat's tail, and marched away without so much as a nod to
-Noxy.
+"Yes, honored." The sergeant saluted stiffly,
+his mustache bristling like an angry cat's tail,
+and marched away without so much as a nod to Noxy.
 
-"And you two—give us some space, please." His bodyguards exchanged
-glances, then stepped back a couple of paces.
+"And you two—give us some space, please."
+His bodyguards exchanged glances, then stepped back a couple of paces.
 
 "What was that all about?" Noxy asked.
 
-The prince shook his head. "Nothing. I take it you've heard about
-the attack?"
+The prince shook his head.
+"Nothing. I take it you've heard about the attack?"
 
-Noxy nodded. "They said someone was killed again."
+Noxy nodded.
+"They said someone was killed."
 
-"A smuggler. One of the town guard recognized him right away. He was
-caught last year scavenging in the Blight, but escaped."
+"A smuggler.
+One of the town guard recognized him right away.
+Or what was left of him,"
+he added bleakly.
+"He was caught scavenging in the Blight last year, but escaped."
 
 "I'm sorry," Noxy said, feeling inadequate.
 
-The prince's mouth twisted. "Me too. He probably fell out with
-whoever is behind this, and I would very much like to have had a
-chance to talk to him."
+The prince's mouth twisted.
+"Me too.
+He probably fell out with whoever is behind this,
+and I would very much like to have had a chance to talk to him."
 
-Noxy hesitated. How did you ask someone if they had heard you in
-their mind? More importantly, what if you asked and they hadn't?
-What if she'd been dreaming?
+"Behind this?
+You think someone is controlling it?"
 
-As she opened her mouth, not knowing what she was going to say, the
-prince cut her off. "But right now I suppose you want to check on
-your cloud?" he asked loudly, glancing significantly at Manpa and
-Rinpa and then back at her.
+Prince Thokmay shook his head.
+"I don't know.
+I don't know *anything*."
 
-"Um, yes, I should. Oh, um…" Without waiting for a reply, the
-prince had slipped his arm through hers and set off toward the back
-parade square where the makeshift cloud pen stood, pulling her along
-with him.
-
-"Talk more later," he said quietly so that only she could hear. He
-squeezed her trapped arm with his for emphasis. She squeezed back to
-signal that she understood, then pulled her arm out of his as
-gracefully as she could. She wasn't sure what she was more flustered
-by: the realization that he actually had mind-heard her, or the fact
-that they'd practically been holding hands for a couple of heartbeats.
-
-They hadn't gone more than twenty strides before they heard shouts
-coming from up ahead. "Now what?" the prince asked, exasperated.
+As Noxy opened her mouth,
+not knowing what she was going to say,
+they heard shouts overheard.
+"Now what?" the prince asked, exasperated.
 
 The shouts were followed by the rattle and crash of loose tiles
-falling from the roof and shattering on the cobblestones. Startled,
-Noxy jumped back and looked up just in time to see a hairy figure
-bound across the garrison house roof. "Mope!" the prince shouted,
-taking his arm from Noxy's to cup his hands around his mouth. "Mope,
-what are you doing?"
+falling from the roof and shattering on the cobblestones.
+Startled, Noxy jumped back and looked up just in time to see
+a hairy figure bound across the garrison house roof.
+"Mope!" the prince shouted,
+cupping his hands around his mouth.
+"Mope, what are you doing?"
 
 The troll grabbed hold of a drain and half-slid, half-clambered down,
-keeping one arm close to his chest the whole time. "Your Highness,"
-Mope wheezed as he reached the group. "Please, take him." He handed
-the small furry bundle he'd been cradling to the prince.
+keeping one arm close to his chest the whole time.
+"Honored," Mope wheezed as he reached the group.
+"Please, take him."
+He handed the small furry bundle he'd been cradling to the prince.
 
-It was a raccoon. As the prince took him, he opened his eyes. "Your
-Highness," he mumbled, struggling for a moment and then lying limp
-again.
+It was a raccoon.
+As the prince took him, he opened his eyes.
+"Your Highness," he mumbled,
+struggling for a moment and then lying limp again.
 
 "What—?" the prince asked.
 
-Mope shooked his head. "They've gone mad, Your Highness. The Charter
-mob, Master Bortja and all. They're saying the tornado is the
-Gifted's fault, that Apple Bridge won't be safe 'til they're all sent
-out. They nearly caught this poor lad, and if they had…" He shook
-his head and turned back toward the drain pipe.
+Mope shooked his head.
+"They've gone mad, honored.
+Bortja and her lot.
+They're saying the tornado is the Gifted's fault,
+that Apple Bridge won't be safe 'til we're all sent out.
+They nearly caught this poor lad, and if they had…"
+He shook his head and turned back toward the drain pipe.
 
 "Wait!" Noxy caught hold of his arm. "You're bleeding!"
 
-The troll looked down at the matted fur on his shoulder. "Oh. Yes, I
-suppose I am. I'll see to it when I return, I promise. I have to go
-fetch his partner."
+The troll looked down at the matted fur on his shoulder.
+"Oh. Yes, I suppose I am.
+I'll see to it when I return, I promise.
+I have to go fetch his partner."
 
-It only took the troll a moment to climb back to the roof. Even
-before he reached it, the prince was shouting for someone to come and
-look after the exhausted raccoon. A soldier that Noxy vaguely
-remembered seeing hurried over, did a double take when he realized
-what the prince needed, then picked up the raccoon gingerly, as if he
-was a stranger's baby.
+It only took the troll a moment to climb back to the roof.
+Even before he reached it,
+the prince was shouting for someone to come and look after the exhausted raccoon.
+A soldier that Noxy vaguely remembered seeing hurried over,
+did a double take when he realized what the prince needed,
+then picked up the raccoon gingerly,
+as if holding a stranger's baby.
 
-"That poor thing," Noxy said. "I hope he's going to be all right."
+"That poor thing," Noxy said.
+"I hope he's going to be all right."
 
-"Oh, he'll be along by fine," the soldier reassured her. "Just out of
-breath, is all. No broken bones. Isn't that right?"
+"Oh, he'll be along by fine," the soldier reassured her.
+"Just out of breath, is all.
+No broken bones.
+Isn't that right?"
 
-The raccoon nodded. "Quite. I'd be all right on my own feet now, if
-you don't mind?" The soldier set him down gently. The raccoon licked
-his paw and began combing tangles out of his fur.
+The raccoon nodded.
+"Quite. I'd be all right on my own feet now, if you don't mind?"
+The soldier set him down gently.
+The raccoon licked his paw and began combing tangles out of his fur.
 
 The prince squatted down to bring his head to the raccoon's level.
 "Did you see who was chasing you?"
 
-The raccoon shook his head. "I'm sorry, Your Highness, I was too busy
-running to pay much attention."
+The raccoon shook his head.
+"I'm sorry, Your Highness,
+I was too busy running to pay much attention."
 
-The prince's next question was interrupted by a shout from the nearby
-gate. "Your Highness! Over here!"
+The prince's next question was interrupted by a shout from the nearby gate.
+"Your Highness! Over here!"
 
-Mope had returned, but instead of traveling by rooftop he had come
-through one of the alleys behind the garrison house with the second
-raccoon in his arms and a now-familiar skinny figure in tow.
-"Quickly, man!" the troll barked as a stone clattered off the wall
-over his head.
+Mope had returned,
+but instead of traveling by rooftop
+he had come through one of the alleys behind the garrison house
+with the second raccoon in his arms
+and a now-familiar figure in tow.
+"Quickly, man!" the troll barked as a stone clattered off the wall over his head.
 
-As the narrow gate swung open, Mope pushed Mukh through. Soldiers
-pulled the gate shut and re-locked it behind the troll. The raccoon
-in his arms leaped to the ground and darted over to his companion to
-rub noses.
+As the narrow gate swung open, Mope pushed Mukh through.
+Soldiers pulled the gate shut and re-locked it behind the troll.
+The raccoon in his arms leaped to the ground and darted over to his companion to rub noses.
 
-"Oh, thank you, Your Highness, thank you, I don't know what would have
-happened to us, I was so worried," the skinny trader babbled.
+"Oh, thank you, Your Highness, thank you,
+I don't know what would have happened to us, I was so worried,"
+the skinny trader babbled.
 
-"Stop." The prince raised his hand to cut Mukh off. "Take a breath.
+"Stop." The prince raised his hand to cut Mukh off.
+"Take a breath.
 Tell me what happened."
 
-The story came out in fits and interruptions. Everyone had been
-running every which way when the tornado attacked, his friends had
-very nearly been trampled, so they'd ducked into an alley, well, more
-like a lane, it turned out, because there were people there, and some
-of them had been at the pump, and they hadn't liked the idea of
-getting their water from the stable, not that he was criticizing the
-prince of course, that was a very regal thing to have done, the sort
-of thing that people would remember, and it would certainly have
-taught them a lesson, except, well, there they all were, and there
-were the raccoons, and someone started shouting, and someone else
-started throwing rocks, so they ran, but that just brought the crowd
-after them, and if the good troll hadn't seen them, well, they were
-scared, the people, not the raccoons, though of course they were
-scared too. They were scared, and scared people always looked for
-something to take out their fear on.
+The story came out in fits and interruptions.
+Everyone had been running every which way when the tornado attacked,
+his friends had very nearly been trampled,
+so they'd ducked into an alley, well, more like a lane, it turned out,
+because there were people there,
+and some of them had been at the pump,
+and they hadn't liked the idea of getting their water from the stable,
+not that he was criticizing the prince of course,
+that was a very regal thing to have done,
+the sort of thing that people would remember,
+and it would certainly have taught them a lesson,
+except, well, there they all were,
+and there were the raccoons,
+and someone started shouting,
+and someone else started throwing rocks, so they ran,
+but that just brought the crowd after them,
+and if the good troll hadn't seen them,
+well, they were scared, the people, not the raccoons,
+though of course they were scared too.
+They were scared,
+and scared people always looked for something to take out their fear on.
 
 "The worst of it is, Your Highness, the absolute worst of it is,
-everyone knows the Gifted can't do magic, so how they thought a couple
-of raccoons were making that tornado dance their tune is a mystery to
-me." The trader bobbed his head. "A complete mystery."
+everyone knows the Gifted can't do magic,
+so how they thought a couple of raccoons were making that tornado dance their tune
+is a mystery to me."
+The trader bobbed his head.
+"A complete mystery."
 
-The prince clapped Mope on his unbloodied shoulder. "Well done," he
-said quietly.
+The prince clapped Mope on his unbloodied shoulder.
+"Well done," he said quietly.
 
-The troll nodded. "Thank you, Your Highness. But I'm afraid this is
-a long way from over."
+The troll nodded.
+"Thank you, Your Highness.
+But I'm afraid this is a long way from over."
 
-"I dare say you're right," the prince sighed. "I'm afraid we'll have
-to finish our conversation later," he said to Noxy.
+"I dare say you're right," the prince sighed.
 
-"Of course." She squatted down the way she had seen the prince do.
-"Do you need somewhere to stay tonight? Until things calm down?"
+Noxy squatted down the way she had seen the prince do.
+"Do you need somewhere to stay tonight?
+Until things calm down?"
 
-The raccoons conferred briefly. "Yes, m'lady," the larger one said.
+The raccoons conferred briefly.
+"Yes, m'lady," the larger one said.
 "We'd be most grateful."
 
 "And what about you?" the prince asked Mukh.
 
-The trader shook his head. "I'll be along right, Your Highness. Just
-wait along a bit for the crowd to lose interest, then I ought to be
-getting back to Rust. She'll worry, me being away so long."
+The trader shook his head.
+"I'll be along right, Your Highness.
+Just wait along a bit for the crowd to lose interest,
+then I ought to be getting back to Rust.
+I'll be all right if I'm along by her,
+but she'll worry, me being away so long."
 
-"She'd be welcome to stay here as well if she's worried about her
-safety—or yours."
+"She would be welcome to stay here as well,"
+the prince offered.
 
-Mukh shook his head again. "She'll be all right, Your Highness.
+Mukh shook his head again.
+"She'll be all right, Your Highness.
 Folk don't mess along with a bear as easy as they do with a raccoon."
+
+</section>
+<section markdown="1">
+
+## Chapter 6: That Night
 
 *The garrison house was still that night when a quiet voice only
 Princess Ogmin could hear told her to get dressed. She was
