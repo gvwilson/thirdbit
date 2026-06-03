@@ -5030,17 +5030,86 @@ The tiger's whiskers twitched.
 
 "Four years,"
 Noxy said.
-"Almost, anyway.
-Here."
+"Four years at midsummer."
 
-She slipped off her jacket and pulled up her sleeve
-to show the indecipherable lettering that ran from her wrist up past her elbow.
+*Noxy lay in bed, shivering under three blankets.
+There were so many words inside her,
+and all they wanted—no, needed—to get out,
+except she didn't know how to say them.
+She had tried everything:
+nursery rhymes and the little bit of Bantangui she had learned from the pack traders
+and even just screaming,
+but nothing helped.*
+
+*Some people thought the plague had somehow escaped the Blight,
+like the Death of Dogs a hundred years before.
+Others blamed the Bantangui,
+or said it must have been waiting in some cavernous underhell
+for some idiot of a mushroom miner to stumble over.
+It didn't matter.
+Two of Stale's elders had already died,
+their whole bodies covered with indecipherable lettering
+that spread relentlessly as their fevers climbed and climbed.
+People had tried to be careful,
+but Stale was a small place,
+and now it was Noxy's turn.*
+
+*Ulfmaerr and Indy took shifts beside their daughter,
+just as they would on cloudback.
+Grappa Gas and Granna Fee and others left food and kettles of tea on their doorstep.
+They asked the same question every time: how is she?
+They got the same answer: worse.*
+
+*That particular night was much worse.
+Ulfmaerr could hear his daughter joints cracking like knuckles
+as the fever tightened her muscles.
+He took his wife's hand.
+"I have to," he said gently.*
+
+*When she was Noxy's age,
+Indy had vaguely assumed that she would eventually marry Aft.
+He was strong and good looking and the right age,
+and none of the girls she had kissed would ever stand up to her.
+Then she had met Ulfmaerr on her first (and only) trip to the sea,
+and she had realized that there were many different kinds of strength,
+and his was the one she needed.
+He never did anything quickly,
+which sometimes drove her to distraction.
+But when he had made up his mind,
+he was no more likely to turn aside
+than an avalanche was to stop falling.*
+
+*"I'll make the best bargain I can," he promised gently,
+squeezing her hand.
+Indy nodded.
+The last time he had used the little bit of magic he knew,
+he had healed a leg so badly broken it would have had to come off.
+The price had been the sea:
+he could never again sleep where he it could be heard.
+Whoever or whatever magicians bargained with,
+their daughter's life was sure to cost more.*
+
+*"You spoke to Yangyal?" she asked.*
+
+*Ulfmaerr snorted.
+"It was like trying to talk to a frightened goof.
+He must have been wearing six different charms.
+I'm pretty sure one of them was a dried-up raccoon turd on a string."
+He leaned forward,
+kissed his wife,
+and then rubbed his nose against hers the way the Anuat did.
+She forced a smile and started to push him away,
+then pulled him close for a fierce hug.
+What they said to each other then was and always will be theirs alone.*
+
+Noxy slipped off her coat and pulled up her sleeve
+to show the writing that ran from her wrist up past her elbow.
 "I got sick," she explained.
 "A whole bunch of people did.
-He saved us, but…"
+He saved me, but…"
 She took a deep breath.
 
-"But the spell cost him more than he could afford,"
+"But the spell cost him too much,"
 the prince finished.
 It was a statement, not a question.
 
@@ -5048,7 +5117,7 @@ Noxy nodded.
 "He wasn't really a magician.
 He just picked up a few things in Garheim before he met my *amma*.
 He asked the *tralpa* for help,
-but he was no use,
+but *he* was no use,
 so he made the best bargain he could.
 He couldn't eat or drink afterward,
 not without undoing it."
@@ -5065,13 +5134,42 @@ or if they had watched over her father during his last few days.
 "So…is his ghost here?"
 Thokmay asked hesitantly.
 
-"What? No!"
+"What? No! We gave him a proper memorial.
+His tree is up in the grove."
 Noxy gestured at the bothy.
 "I just thought you could hide here for as long as it takes Kulbinder
 to go and get help.
 The only way in is by cloud,
-so as long as you don't light a fire and don't upset the forest,
+so as long as you don't upset the forest,
 nobody will know you're here."
+
+"That means no fires,"
+she continued briskly,
+suddenly needing to immerse herself in details.
+"And no cutting branches.
+If you need wood,
+take what you find and say thank you.
+Berries and mushrooms are all right,
+but nothing's in fruit yet and you probably don't know which mushrooms are safe,
+so you'll probably have to bring food.
+What? What's wrong?"
+
+Thokmay was looking at her with an expression she couldn't decipher.
+She gestured at the bothy.
+"Do you have a better plan?"
+
+He shook his head slowly.
+"No.
+I'm just wondering why you're helping us."
+
+"I'm not.
+I'm helping Stale."
+She jerked her sleeve down and slipped her arms back into her coat.
+"The sooner you're gone, the sooner things can get back to normal.
+And if I help you,
+maybe the king won't be angry about, about everything.
+So like I said,
+do you have a better plan?"
 
 FIXME: lots to fill in here
 
