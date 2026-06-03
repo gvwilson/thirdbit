@@ -1,7 +1,7 @@
 ---
 title: "Jon Udell has the Best Job in the World"
 date: 2007-09-12
-category: research writing software
+category: reading software
 ---
 Just look at the evidence:
 <ul>

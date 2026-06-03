@@ -1,7 +1,7 @@
 ---
 title: "Today"
 date: 2007-06-28
-category: writing software education
+category: personal
 ---
 Today I:
 <ul>

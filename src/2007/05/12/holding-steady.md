@@ -1,7 +1,7 @@
 ---
 title: "Holding Steady"
 date: 2007-05-12
-category: software education writing
+category: software education personal
 ---
 Web site stats are fascinating (with a small 'f', anyway).  Traffic to the Software Carpentry site was relatively stable in April, and looks to be on track for another good month in May:
 

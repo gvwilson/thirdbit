@@ -1,7 +1,7 @@
 ---
 title: "Integrating IM into DrProject"
 date: 2007-04-29
-category: education software community
+category: students
 ---
 We'd like to try to integrate instant messaging into a software project management portal like DrProject, so that users who prefer IM to email will find DrP more appealing (i.e., use it of their own free will), and (more importantly) so that their conversations won't evaporate, but instead will stick around and be searchable.  Here are a few random thoughts:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Short Stories Are a Form of Their Own"
 date: 2007-09-01
-category: education writing software
+category: education reading software
 ---
 Note: this review is now <a href="http://www.ddj.com/architect/201803936">online</a> at <a href="http://www.ddj.com"><em>Doctor Dobb's Journal</em></a>.
 

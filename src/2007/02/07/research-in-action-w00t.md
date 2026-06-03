@@ -1,7 +1,7 @@
 ---
 title: "Research in Action: W00t!"
 date: 2007-02-07
-category: software education research
+category: software education community research
 ---
 The Computer Science department held its first showcase for local industry last Thursday.  The room was packed, and there were lots of good conversations around and between the demos, which included:
 <ul>

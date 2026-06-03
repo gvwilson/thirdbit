@@ -1,7 +1,7 @@
 ---
 title: "Back Yard Beautiful"
 date: 2007-08-31
-category: software
+category: personal
 ---
 Just in time for the fall, we have a spiffy new back yard.
 

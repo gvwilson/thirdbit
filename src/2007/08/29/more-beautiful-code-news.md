@@ -1,7 +1,7 @@
 ---
 title: "More Beautiful Code News"
 date: 2007-08-29
-category: software research writing
+category: software writing
 ---
 A lot happened while I was on holiday:
 <ul>

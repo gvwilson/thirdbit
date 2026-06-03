@@ -1,7 +1,7 @@
 ---
 title: "Guidance on Undergraduate Software Projects"
 date: 2007-04-23
-category: education software research
+category: reading students
 ---
 As announced previously, <a href="http://www.cs.toronto.edu">U of T</a> is bringing in two new software engineering courses starting in 2007-08.  Team projects will play a large part in both, so I'm looking for student-friendly guides to project management.  I know of three books and one online resource that focus specifically on this topic:
 <ol>

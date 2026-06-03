@@ -1,7 +1,7 @@
 ---
 title: "Summer of DrProject"
 date: 2007-04-17
-category: community software education
+category: students
 ---
 As noted previously, we have quite a team working for us this summer, four of whom are full-time on DrProject.  Two of the students (Jeff Balogh and David Cooper) will be rebuilding the ticketing system, but we still have to figure out what Alex Krizhevsky and David Wolever should do.  Options include:
 <ol>

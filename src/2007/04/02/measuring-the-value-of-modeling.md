@@ -1,7 +1,7 @@
 ---
 title: "Measuring the Value of Modeling"
 date: 2007-04-02
-category: software research community
+category: research software
 ---
 Here's a thought experiment (inspired in part by Michael Ernst's <a href="http://pag.csail.mit.edu/~mernst/pubs/groupthink-2006.pdf">groupthink exercise</a> at MIT):
 <ol>

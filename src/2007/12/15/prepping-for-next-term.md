@@ -1,7 +1,7 @@
 ---
 title: "Prepping for Next Term"
 date: 2007-12-15
-category: education software writing
+category: education software
 ---
 I'm teaching two courses next term: CSC301 (Intro to Software Engineering) and a combination of CSC490 (undergraduate capstone project) and CSC2125 (graduate "topics in software engineering").  I'm hoping to do a better job with the former than I did this term, so I've started working on lectures. So far, the topics include:
 <ul>

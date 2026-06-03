@@ -1,7 +1,7 @@
 ---
 title: "To Do for Fall 2007"
 date: 2007-07-28
-category: education software research
+category: education software students personal
 ---
 Must… get… organized:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Arrrgghh whimper (or, PySqlite, Matplotlib, and paths)"
 date: 2007-05-17
-category: software community
+category: software students
 ---
 Muhammad Ali and Adam Foster prototyped a dashboard display for DrProject as a term project this winter. It collects information on the number of tickets in various states, and the number of check-ins, then uses <a href="http://matplotlib.sourceforge.net/">Matplotlib</a> to construct time-series charts. It's pretty cool, so Ali agreed to spend a week integrating into DrProject for deployment.
 

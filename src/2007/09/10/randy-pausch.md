@@ -1,7 +1,7 @@
 ---
 title: "Randy Pausch"
 date: 2007-09-10
-category: software research personal
+category: society community
 ---
 Prof. Randy Pausch, of Carnegie-Mellon University, has been <a href="http://www.cs.cmu.edu/~pausch/news/index.html">diagnosed with terminal cancer</a>. He's going to give a talk (probably his last) on Tuesday, Sept 18, at 4:30 pm, titled "Really Achieving Your Childhood Dreams".  It will be webcast (details to follow).  Blurb is below; hope you'll be able to tune in.
 

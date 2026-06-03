@@ -1,7 +1,7 @@
 ---
 title: "Madeleine, Sadie, and Greg"
 date: 2007-07-27
-category: software
+category: personal
 ---
 <img alt="Topsy Turvy" src="@root/files/2007/07/topsy_turvy.jpg" class="centered">
 

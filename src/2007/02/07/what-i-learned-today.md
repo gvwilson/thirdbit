@@ -1,7 +1,7 @@
 ---
 title: "What I Learned Today"
 date: 2007-02-07
-category: education research community
+category: software research community
 ---
 I discovered two things today.  The first was that most grad students don't know about the ACM Distinguished Dissertation awards, which have been handed out every year since 1978 for the best Ph.D. theses in Computer Science.  I think everyone who's about to <em>write</em> a thesis ought to read at least one of these; they're great models to follow, and you might even learn something.
 

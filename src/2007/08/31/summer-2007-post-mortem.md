@@ -1,7 +1,7 @@
 ---
 title: "Summer 2007 Post Mortem"
 date: 2007-08-31
-category: software education community
+category: students
 ---
 We held the post-mortem for the summer's projects yesterday.  It went well—the summer, I mean, not just the post-mortem.  Here are the main points:
 <table class="centered">

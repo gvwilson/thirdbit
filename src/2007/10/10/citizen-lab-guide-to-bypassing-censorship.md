@@ -1,7 +1,7 @@
 ---
 title: "Citizen Lab Guide to Bypassing Censorship"
 date: 2007-10-10
-category: software writing society
+category: software society
 ---
 From <a href="http://deibert.citizenlab.org/">Ron Deibert</a> at the <a href="http://www.citizenlab.org">Citizen Lab</a>:
 

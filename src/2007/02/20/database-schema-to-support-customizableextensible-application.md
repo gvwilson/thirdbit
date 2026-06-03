@@ -1,7 +1,7 @@
 ---
 title: "Database Schema to Support Customizable/Extensible Application"
 date: 2007-02-20
-category: software education
+category: students
 ---
 We want to redesign the ticketing system of DrProject so that different sites can customize it to meet their needs.  Students in undergrad courses just need an ordered to-do list; companies need all the fields we currently have (with a few more values for some of the enumerations), and one or two more as well.
 

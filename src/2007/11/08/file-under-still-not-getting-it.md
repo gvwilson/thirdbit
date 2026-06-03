@@ -1,7 +1,7 @@
 ---
 title: "File Under 'Still Not Getting It'"
 date: 2007-11-08
-category: software research society
+category: society
 ---
 <p>
   String theorist and self-described
