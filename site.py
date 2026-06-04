@@ -149,6 +149,12 @@ prior_entries = [
         "description": "An introduction to Lean for Python programmers (pre-alpha).",
         "beta": True,
     },
+    {
+        "title": "Gleam for Python Programmers",
+        "url": "@root/gl4py",
+        "description": "An example-based introduction to Gleam for Python programmers (pre-alpha).",
+        "beta": True,
+    },
 ]
 
 unused_entries = [
