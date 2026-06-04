@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Functions, Pattern Matching, Lists, and Pipelines</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a class="active" href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Functions, Pattern Matching, Lists, and Pipelines</h1>
+<div class="callout">
+<ul>
+<li>Gleam has no <code>for</code> or <code>while</code> loops: use recursion instead.</li>
+<li>Tail recursion with an accumulator prevents stack overflow for large inputs.</li>
+<li>The <code>|&gt;</code> pipeline operator threads a value through a sequence of transformations.</li>
+</ul>
+</div>
+<h2>Defining Functions</h2>
+<ul>
+<li>A Gleam function is introduced with <code>fn</code>,
+    followed by a name, parameter list, optional return type, and a body</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Parameter types are written <code>name: Type</code></li>
+<li>The return type after <code>-&gt;</code> is optional but recommended</li>
+<li>The body is a block of expressions, the last of which is the function's result</li>
+<li><code>pub fn</code> exports the function; plain <code>fn</code> keeps it private to the module</li>
+<li>Functions can call themselves recursively and can be passed as values</li>
+</ul>
+<h2>Pattern Matching</h2>
+<ul>
+<li>Gleam's <code>case</code> expression is the primary tool for working with structured data</li>
+<li>It can match on custom types, lists, tuples, integers, and strings</li>
+<li>And can match several values simultaneously</li>
+</ul>
+<div data-inc="src/pattern_match.gleam" data-mark="triangle"><span aria-label="Source: functions/src/pattern_match.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/pattern_match.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">Triangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Equilateral</span>
+<span class="w">  </span><span class="n">Isosceles</span>
+<span class="w">  </span><span class="n">Scalene</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">classify_triangle</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Triangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Equilateral</span>
+<span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Isosceles</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Isosceles</span>
+<span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Isosceles</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Scalene</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>type Triangle { Equilateral Isosceles Scalene }</code> defines the three possible results</li>
+<li><code>case a, b, c { ... }</code> matches on three values at once<ul>
+<li>This is more concise than three nested <code>if</code> statements</li>
+</ul>
+</li>
+<li><code>x, y, z if x == y &amp;&amp; y == z -&gt; Equilateral</code> is a <a class="gl-ref" href="../glossary/#guarded_arm">guarded arm</a><ul>
+<li>The pattern <code>x, y, z</code> binds the three values to names</li>
+<li>The <code>if</code> condition must also be true for the arm to match</li>
+<li>Without guards this would require a <code>case</code> inside a <code>case</code></li>
+</ul>
+</li>
+<li>The arms are tried in order, with the first match winning</li>
+<li>The compiler verifies that the arms cover all possibilities</li>
+</ul>
+<div data-inc="src/palindrome.gleam" data-mark="palindrome"><span aria-label="Source: functions/src/palindrome.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/palindrome.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">to_graphemes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="n">chars</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>string.to_graphemes</code> splits a string into a list of characters<ul>
+<li><a class="gl-ref" href="../glossary/#grapheme">Graphemes</a>, not bytes, so emoji and accented letters work</li>
+</ul>
+</li>
+<li><code>list.reverse</code> returns a new list without modifying the original</li>
+<li><code>==</code> compares lists element by element</li>
+</ul>
+<h2>Recursion Instead of Loops</h2>
+<ul>
+<li>Gleam has no <code>for</code> or <code>while</code> loops</li>
+<li>Repetition is expressed through recursion</li>
+</ul>
+<div data-inc="src/recursion.gleam" data-mark="length_fn"><span aria-label="Source: functions/src/recursion.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/recursion.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">lst</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>case lst { [] -&gt; 0 [_, ..rest] -&gt; 1 + length(rest) }</code> is the
+    standard recursive structure on lists<ul>
+<li><code>[]</code> matches the empty list, so the <a class="gl-ref" href="../glossary/#base_case">base case</a> returns 0</li>
+<li><code>[_, ..rest]</code> matches a non-empty list:
+     <code>_</code> discards the head, <code>rest</code> binds the tail</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#type_parameter">type parameter</a> <code>a</code> means <code>length</code> works on any list
+    regardless of the elements' type</li>
+<li>This version grows the call stack with each recursive call<ul>
+<li>That's a problem for large lists</li>
+</ul>
+</li>
+</ul>
+<h2>Tail Recursion</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#tail_recursion">Tail recursion</a> eliminates stack growth
+    by accumulating the result in a parameter instead of on the call stack</li>
+</ul>
+<div data-inc="src/recursion.gleam" data-mark="factorial_fn"><span aria-label="Source: functions/src/recursion.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/recursion.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">factorial_tail</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">factorial_tail</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">acc</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">factorial_tail</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>factorial</code> is the public entry point:
+    it calls the worker with an initial accumulator of 1</li>
+<li><code>factorial_tail</code> is the tail-recursive worker<ul>
+<li>When <code>n</code> is 0, return the accumulated result</li>
+<li>Otherwise, multiply <code>acc</code> by <code>n</code> and recurse with <code>n - 1</code></li>
+<li>The recursive call is the last operation; nothing waits for it to return</li>
+</ul>
+</li>
+<li>The Gleam compiler (and the BEAM VM) optimise tail calls so they do not grow the stack</li>
+</ul>
+<div data-inc="src/recursion.gleam" data-mark="take_fn"><span aria-label="Source: functions/src/recursion.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/recursion.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">take</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">[],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">take</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/recursion.out"><span aria-label="Source: functions/out/recursion.out" class="inc-path" role="img" tabindex="0" title="functions/out/recursion.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>length nums = 5
+length [] = 0
+factorial(5) = 120
+factorial(0) = 1
+take 3 = [1, 2, 3]
+take 10 = [1, 2, 3, 4, 5]
+</code></pre></div>
+</div>
+<ul>
+<li>Matching on two values simultaneously: <code>case lst, n { ... }</code></li>
+<li>Three base cases: <code>n = 0</code> (done), empty list (done), otherwise take one element and recurse</li>
+<li>The result is built by <a class="gl-ref" href="../glossary/#prepend">prepending</a> <code>[x, ..take(rest, n - 1)]</code></li>
+</ul>
+<h2>Lists and Higher-Order Functions</h2>
+<ul>
+<li>Gleam's <code>List</code> type is a singly-linked list</li>
+<li>The standard library provides <code>list.map</code>, <code>list.filter</code>, and <code>list.fold</code>
+    that cover most iteration needs</li>
+<li><code>list.map(lst, f)</code> applies <code>f</code> to every element and returns a new list<ul>
+<li>Like Python's <code>[f(x) for x in lst]</code></li>
+</ul>
+</li>
+<li><code>list.filter(lst, pred)</code> keeps elements where <code>pred</code> returns <code>True</code><ul>
+<li>Like Python's <code>[x for x in lst if pred(x)]</code></li>
+</ul>
+</li>
+<li><code>list.fold(lst, init, f)</code> combines elements left to right using <code>f</code><ul>
+<li><code>list.fold([1,2,3], 0, fn(acc, x) { acc + x })</code> gives <code>6</code></li>
+<li>Like Python's <code>functools.reduce(f, lst, init)</code></li>
+</ul>
+</li>
+<li>Anonymous functions use <code>fn(args) { body }</code>:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span>
+<span class="c1">// =&gt; [2, 4, 6]</span>
+</code></pre></div>
+<h2>The Pipeline Operator</h2>
+<ul>
+<li>The <code>|&gt;</code> operator passes the result of one expression as the first argument of the next</li>
+<li>Lets you write a sequence of transformations left to right<ul>
+<li>Easier to read than nested calls</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/pipeline.gleam" data-mark="pipeline"><span aria-label="Source: functions/src/pipeline.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/pipeline.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"pipeline result is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/pipeline.out"><span aria-label="Source: functions/out/pipeline.out" class="inc-path" role="img" tabindex="0" title="functions/out/pipeline.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>pipeline result is 80
+</code></pre></div>
+</div>
+<ul>
+<li><code>[1, 2, 3, 4, 5] |&gt; list.map(fn(x) { x * 2 })</code> doubles every element<ul>
+<li><code>|&gt;</code> passes the list as the first argument to <code>list.map</code></li>
+<li><code>fn(x) { x * 2 }</code> is an anonymous function</li>
+</ul>
+</li>
+<li><code>|&gt; list.filter(fn(x) { x &gt; 10 })</code> keeps only values greater than 10</li>
+<li><code>|&gt; list.fold(0, fn(acc, x) { acc + x })</code> sums the remaining values</li>
+<li>The whole pipeline reads left to right: double, filter, sum<ul>
+<li>Much cleaner than Python equivalent</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">lst</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<h2>Check Understanding</h2>
+<details>
+<summary>What does "exhaustive" mean for a case expression?</summary>
+<p>An exhaustive match covers every possible value of the type being matched.
+If you write a <code>case</code> on a <code>Triangle</code> but only handle <code>Equilateral</code> and
+<code>Isosceles</code>, the compiler reports an error because <code>Scalene</code> is not
+covered.
+This prevents a common class of bug where a new variant is added to a type
+and existing match expressions silently fall through to a catch-all.</p>
+</details>
+<details>
+<summary>When should you use <code>list.fold</code> instead of <code>list.map</code> or <code>list.filter</code>?</summary>
+<p>Use <code>list.fold</code> when you need to combine all elements of a list into a single value,
+like a sum or a product.
+<code>list.map</code> transforms each element independently;
+<code>list.filter</code> selects a subset of elements.
+Many operations that would use a <code>for</code> loop in Python can be expressed
+with one of these three functions in Gleam.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Recursive sum (5 minutes)</h3>
+<p>Write <code>sum(lst: List(Int)) -&gt; Int</code> using tail recursion with an accumulator.
+Verify that <code>sum([1, 2, 3, 4, 5])</code> returns <code>15</code> and <code>sum([])</code> returns <code>0</code>.</p>
+</div>
+<div class="exercise">
+<h3>Palindrome checker (10 minutes)</h3>
+<p>Write <code>is_palindrome(s: String) -&gt; Bool</code> using <code>string.to_graphemes</code> and <code>list.reverse</code>.
+Test it with <code>"racecar"</code>, <code>"gleam"</code>, and at least one string with a non-ASCII character.</p>
+</div>
+<div class="exercise">
+<h3>Pipeline challenge (10 minutes)</h3>
+<p>Use a single pipeline to take the list <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>,
+keep only odd numbers, square each one, and sum the results.
+The answer should be <code>165</code>.</p>
+</div>
+<div class="exercise">
+<h3>Triangle classifier (10 minutes)</h3>
+<p>Extend the <code>classify_triangle</code> function to also return a label for right triangles.
+A triangle with sides <code>a</code>, <code>b</code>, <code>c</code> (where <code>c</code> is the longest side)
+is a right triangle if <code>a*a + b*b == c*c</code>.
+Determine the correct arm ordering so that an equilateral triangle is never labelled as right.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../basics">Getting Started, Types, and Values</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../errors">Results, Options, and Error Handling</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dataframes in Gleam</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a class="active" href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Dataframes in Gleam</h1>
+<div class="callout">
+<ul>
+<li>A dataframe is a table of named, typed columns
+    that all share the same number of rows.</li>
+<li>Column-oriented storage makes operations on a single column fast,
+    while row-oriented access requires zipping all columns together.</li>
+<li>A custom type with variants for each supported element type
+    (<code>IntCol</code>, <code>StrCol</code>) lets the compiler enforce type safety at access time.</li>
+<li><code>make</code> validates that all columns have the same length at construction time,
+    so downstream functions can assume a consistent shape.</li>
+<li>Row filtering uses a Boolean mask derived from one column
+    applied uniformly to every column in the dataframe.</li>
+</ul>
+</div>
+<h2>What Is a Dataframe?</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#dataframe">dataframe</a> is the core abstraction in <a href="https://pandas.pydata.org">pandas</a>, <a href="https://pola.rs">Polars</a>, and <a href="https://www.r-project.org">R</a>:
+    a rectangular table where every column has a name and a uniform type</li>
+<li>Python programmers reach for <code>pandas.DataFrame</code>;
+    this lesson builds a minimal version in Gleam to show how dataframes work</li>
+<li>The key design choices:<ul>
+<li>Store columns, not rows:
+    a <code>Dict(String, Column)</code> where each column holds all its values in a list</li>
+<li>Record the row count once in the dataframe record,
+    rather than recomputing <code>list.length</code> on every operation</li>
+<li>Validate shape at construction time so all other functions can trust it</li>
+</ul>
+</li>
+</ul>
+<h2>Column Types</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="column_type"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">IntCol</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span>
+<span class="w">    </span><span class="n">StrCol</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>IntCol(List(Int))</code> and <code>StrCol(List(String))</code> are the two supported types</li>
+<li>Adding a <code>FloatCol</code> or <code>BoolCol</code> variant later means adding one case to every
+    function that pattern-matches on <code>Column</code></li>
+<li>The compiler will flag every <code>case</code> that fails to handle the new variant,
+    turning a potential runtime bug into a compile error</li>
+</ul>
+<h2>Building a Dataframe</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="dataframe_type"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Dataframe</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Dataframe</span><span class="p">(</span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Column</span><span class="p">),</span><span class="w"> </span><span class="n">nrows</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="src/dataframe_demo.gleam" data-mark="make_fn"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">make</span><span class="p">(</span><span class="n">pairs</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(#(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Column</span><span class="p">)))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">pairs</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">(</span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="n">nrows</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<span class="w">        </span><span class="p">[#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">),</span><span class="w"> </span><span class="p">..]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">col_length</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">p</span>
+<span class="w">                </span><span class="n">col_length</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="n">n</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Ok</span><span class="p">(#(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                    </span><span class="n">Error</span><span class="p">(</span><span class="s">"column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"' has wrong length"</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                    </span><span class="n">Ok</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">(</span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">pairs</span><span class="p">),</span><span class="w"> </span><span class="n">nrows</span><span class="p">:</span><span class="w"> </span><span class="n">n</span><span class="p">))</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>make</code> takes a list of <code>(name, column)</code> pairs and returns a <code>Result</code></li>
+<li>The first pair establishes the expected row count <code>n</code></li>
+<li><code>list.find</code> checks whether any column has the wrong length:
+    <code>Ok(#(name, _))</code> means a bad column was found; <code>Error(_)</code> means all are fine</li>
+<li><code>dict.from_list</code> converts the validated pairs into the column dictionary</li>
+<li>Returning <code>Result</code> here means callers must handle the bad-shape case
+    rather than discovering it later as a silent bug</li>
+</ul>
+<h2>Accessing Columns</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="accessor_fns"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">nrows</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">df</span><span class="p">.</span><span class="n">nrows</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">ncols</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">dict</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="k">df</span><span class="p">.</span><span class="n">cols</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_col</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">df</span><span class="p">.</span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"no column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"'"</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">StrCol</span><span class="p">(</span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"' is not integer"</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">IntCol</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">str_col</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">df</span><span class="p">.</span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"no column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"'"</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">IntCol</span><span class="p">(</span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"' is not string"</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">StrCol</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>int_col</code> returns <code>Error</code> for two distinct reasons:
+    the column does not exist, or it exists but holds strings<ul>
+<li>More generally, something other than integers</li>
+</ul>
+</li>
+<li>Pattern matching on <code>StrCol(_)</code> before <code>IntCol(xs)</code> catches the type mismatch</li>
+<li><code>nrows</code> and <code>ncols</code> are O(1):
+    row count is stored directly, and <code>dict.size</code> is a constant-time operation</li>
+</ul>
+<h2>Selecting a Subset of Columns</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="select_fn"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">names</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="n">Ok</span><span class="p">([]),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc_result</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">acc_result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc_result</span>
+<span class="w">            </span><span class="n">Ok</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">df</span><span class="p">.</span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"no column '"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"'"</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">Ok</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">([#(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Dataframe</span><span class="p">(</span>
+<span class="w">            </span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">pairs</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">nrows</span><span class="p">:</span><span class="w"> </span><span class="k">df</span><span class="p">.</span><span class="n">nrows</span><span class="p">,</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>select</code> folds over the requested names and builds a new pair list,
+    short-circuiting on the first missing name</li>
+<li>The accumulator starts as <code>Ok([])</code> and stays <code>Error(msg)</code> once one name fails</li>
+<li><code>list.reverse</code> is needed because the fold prepends to the accumulator,
+    reversing the order of the names</li>
+<li>The resulting dataframe keeps the same <code>nrows</code> as the original</li>
+</ul>
+<h2>Aggregation and Filtering</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="col_sum_fn"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">col_sum</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">int_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="src/dataframe_demo.gleam" data-mark="filter_fn"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">filter_rows</span><span class="p">(</span>
+<span class="w">    </span><span class="n">df</span><span class="p">:</span><span class="w"> </span><span class="n">Dataframe</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pred</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">int_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">))</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">pred</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">new_cols</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="k">dict</span><span class="p">.</span><span class="n">to_list</span><span class="p">(</span><span class="k">df</span><span class="p">.</span><span class="n">cols</span><span class="p">)</span>
+<span class="w">        </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pair</span>
+<span class="w">            </span><span class="p">#(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">keep_by_mask</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">))</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">new_nrows</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}))</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">Dataframe</span><span class="p">(</span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="n">new_cols</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="p">:</span><span class="w"> </span><span class="n">new_nrows</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">keep_by_mask</span><span class="p">(</span><span class="n">col</span><span class="p">:</span><span class="w"> </span><span class="n">Column</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Bool</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">IntCol</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">IntCol</span><span class="p">(</span><span class="n">keep_where</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">))</span>
+<span class="w">        </span><span class="n">StrCol</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">StrCol</span><span class="p">(</span><span class="n">keep_where</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">keep_where</span><span class="p">(</span><span class="n">values</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">mask</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Bool</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">([],</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">pair</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">#(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">]</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>col_sum</code> uses <code>result.map</code> to apply <code>list.fold</code> inside the <code>Ok</code> branch
+    without unwrapping manually</li>
+<li><code>filter_rows</code> builds a Boolean mask by applying the predicate to the named column,
+    then passes that mask to every column through <code>keep_by_mask</code></li>
+<li><code>keep_where</code> zips values with the mask and keeps only the <code>True</code> entries,
+    using <code>list.reverse</code> to restore the original order</li>
+<li>Every column is filtered by the same mask, so rows stay aligned</li>
+<li>This is the same pattern as the shuffle phase of <a href="../mapreduce/">MapReduce</a>:
+    group by a key (the mask value), keep only one group</li>
+</ul>
+<h2>Running the Example</h2>
+<div data-inc="src/dataframe_demo.gleam" data-mark="main_example"><span aria-label="Source: dataframe/src/dataframe_demo.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/src/dataframe_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">#(</span><span class="s">"name"</span><span class="p">,</span><span class="w"> </span><span class="n">StrCol</span><span class="p">([</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="s">"Carol"</span><span class="p">])),</span>
+<span class="w">        </span><span class="p">#(</span><span class="s">"age"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">])),</span>
+<span class="w">        </span><span class="p">#(</span><span class="s">"score"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">88</span><span class="p">,</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">])),</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">make</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"error: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"nrows="</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">nrows</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"ncols="</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ncols</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"total score="</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">col_sum</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"score"</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">filter_rows</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"age"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"filter error: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Ok</span><span class="p">(</span><span class="n">seniors</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">                        </span><span class="s">"age &gt;= 30: "</span>
+<span class="w">                        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">nrows</span><span class="p">(</span><span class="n">seniors</span><span class="p">))</span>
+<span class="w">                        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" rows"</span><span class="p">,</span>
+<span class="w">                    </span><span class="p">)</span>
+<span class="w">                    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">                        </span><span class="s">"names: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">str_col</span><span class="p">(</span><span class="n">seniors</span><span class="p">,</span><span class="w"> </span><span class="s">"name"</span><span class="p">)),</span>
+<span class="w">                    </span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">        </span><span class="s">"bad lengths: "</span>
+<span class="w">        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">make</span><span class="p">([</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])),</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"y"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">])),</span>
+<span class="w">        </span><span class="p">])),</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The output shows that <code>age &gt;= 30</code> keeps Alice and Carol but not Bob</li>
+<li><code>str_col</code> confirms that the name column was filtered by the same mask as <code>age</code></li>
+<li>The final <code>make</code> call returns <code>Error</code> for mismatched column lengths</li>
+</ul>
+<p>FIXME: explain how to filter rows that are strings - is a separate function needed?</p>
+<p>FIXME: can dataframe operations be chained with <code>|&gt;</code> ?</p>
+<h2>Testing</h2>
+<div data-inc="test/dataframe_test.gleam" data-mark="tests"><span aria-label="Source: dataframe/test/dataframe_test.gleam" class="inc-path" role="img" tabindex="0" title="dataframe/test/dataframe_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">make_valid_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">make</span><span class="p">([#(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])),</span><span class="w"> </span><span class="p">#(</span><span class="s">"y"</span><span class="p">,</span><span class="w"> </span><span class="n">StrCol</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">]))])</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">make_length_mismatch_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">make</span><span class="p">([#(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])),</span><span class="w"> </span><span class="p">#(</span><span class="s">"y"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]))])</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">make_empty_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">make</span><span class="p">([])</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">nrows_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">make</span><span class="p">([#(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">nrows</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">ncols_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">make</span><span class="p">([#(</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">])),</span><span class="w"> </span><span class="p">#(</span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="n">StrCol</span><span class="p">([</span><span class="s">"x"</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">ncols</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_col_exists_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">make</span><span class="p">([#(</span><span class="s">"n"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">int_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"n"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_col_missing_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">make</span><span class="p">([#(</span><span class="s">"n"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">int_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"z"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Nil</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">col_sum_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">make</span><span class="p">([#(</span><span class="s">"v"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">col_sum</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"v"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">select_keeps_named_cols_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">make</span><span class="p">([</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">])),</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="n">StrCol</span><span class="p">([</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="s">"y"</span><span class="p">])),</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"c"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">])),</span>
+<span class="w">        </span><span class="p">])</span>
+<span class="w">        </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">ncols</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">select_missing_col_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">make</span><span class="p">([#(</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">1</span><span class="p">]))])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"z"</span><span class="p">])</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Nil</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">filter_rows_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">make</span><span class="p">([</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"name"</span><span class="p">,</span><span class="w"> </span><span class="n">StrCol</span><span class="p">([</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="s">"Carol"</span><span class="p">])),</span>
+<span class="w">            </span><span class="p">#(</span><span class="s">"age"</span><span class="p">,</span><span class="w"> </span><span class="n">IntCol</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">])),</span>
+<span class="w">        </span><span class="p">])</span>
+<span class="w">        </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">filter_rows</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="s">"age"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span><span class="p">()</span>
+<span class="w">    </span><span class="n">nrows</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">str_col</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span><span class="w"> </span><span class="s">"name"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Carol"</span><span class="p">]))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>make_valid_test</code> and <code>make_length_mismatch_test</code> cover the two construction paths</li>
+<li><code>filter_rows_test</code> checks both the row count and the string column values,
+    catching bugs where the mask is applied to only one column</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does <code>make</code> store <code>nrows</code> in the <code>Dataframe</code> record
+rather than computing it from a column each time it is needed?</summary>
+<p>Accessing the length of a list is O(n) in Gleam because lists are singly-linked:
+every call to <code>list.length</code> walks the whole list.
+Storing the row count once avoids this cost for every subsequent <code>nrows</code> call
+and for operations like <code>filter_rows</code> that need the count
+after building the new column dictionary.
+The trade-off is that <code>nrows</code> must be updated correctly in every function
+that changes the shape of the dataframe.</p>
+</details>
+<details>
+<summary>What happens if you call <code>filter_rows</code> with a column name that holds strings?</summary>
+<p><code>filter_rows</code> calls <code>int_col(df, name)</code> first.
+<code>int_col</code> pattern-matches on the column variant:
+if the named column is <code>StrCol(_)</code>, it returns <code>Error("column '...' is not integer")</code>.
+<code>filter_rows</code> uses <code>result.try</code>, so it propagates that error immediately
+without ever applying the predicate or building a mask.
+The caller gets an <code>Error</code> and no filtering is performed.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Float column (15 minutes)</h3>
+<p>Add <code>FloatCol(List(Float))</code> to the <code>Column</code> type.
+Add <code>float_col(df, name) -&gt; Result(List(Float), String)</code>
+and <code>col_mean(df, name) -&gt; Result(Float, String)</code> that computes the column mean.
+Update <code>make</code>, <code>keep_by_mask</code>, and any other functions that pattern-match on <code>Column</code>.
+Write at least three tests.</p>
+</div>
+<div class="exercise">
+<h3>Group by (20 minutes)</h3>
+<p>Write <code>group_by(df: Dataframe, name: String) -&gt; Result(Dict(String, Dataframe), String)</code>
+that partitions rows by the distinct string values in the named column.
+Each key in the result is one distinct string value;
+the associated dataframe contains only the rows where that column has that value.
+Use <code>filter_rows</code> internally.
+Test with at least two distinct groups.</p>
+</div>
+<div class="exercise">
+<h3>Add column (10 minutes)</h3>
+<p>Write <code>add_col(df: Dataframe, name: String, col: Column) -&gt; Result(Dataframe, String)</code>
+that returns a new dataframe with the given column appended.
+Return <code>Error</code> if the column length does not match <code>nrows(df)</code>
+or if a column with that name already exists.
+Write three tests: one success, one length mismatch, one duplicate name.</p>
+</div>
+<div class="exercise">
+<h3>Row at index (15 minutes)</h3>
+<p>Write <code>row(df: Dataframe, idx: Int) -&gt; Result(Dict(String, String), String)</code>
+that returns all column values for a given row index as a dict mapping column name
+to its string representation (use <code>int.to_string</code> for integer columns).
+Return <code>Error</code> if <code>idx</code> is negative or out of range.
+Test with a valid index, a negative index, and an index equal to <code>nrows</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../workers">Supervised Worker Pool</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../machine">State Machines</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

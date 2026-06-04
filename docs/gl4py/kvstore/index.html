@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Log-Structured Key-Value Store</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a class="active" href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Log-Structured Key-Value Store</h1>
+<div class="callout">
+<ul>
+<li>An append-only log records every <code>Set</code> and <code>Delete</code> operation as an immutable entry.</li>
+<li>Looking up the current value of a key requires scanning the log for the most recent entry.</li>
+<li>A <code>Delete</code> entry acts as a tombstone,
+    invalidating all earlier entries for the same key.</li>
+<li>Compaction folds the log into a <code>Dict</code> to produce a minimal
+    equivalent log with no shadowed entries.</li>
+</ul>
+</div>
+<h2>The Log-Structured Idea</h2>
+<ul>
+<li>Most databases that need high write throughput use an append-only design<ul>
+<li>Instead of updating a value in place,
+    every change is written as a new record at the end of a file</li>
+</ul>
+</li>
+<li>Reads scan the log to find the most recent write for a given key<ul>
+<li>Start with the most recent entry and work backward to find a match</li>
+</ul>
+</li>
+<li>Old records are periodically <a class="gl-ref" href="../glossary/#compaction">compacted</a> to save storage</li>
+</ul>
+<h2>The Entry Type</h2>
+<ul>
+<li>Every operation on the store is one of two things:</li>
+</ul>
+<div data-inc="src/log_demo.gleam" data-mark="entry_type"><span aria-label="Source: kvstore/src/log_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/log_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Set</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Delete</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Set(key, value)</code> stores a value under a key</li>
+<li><code>Delete(key)</code> removes a key</li>
+<li>Both variants carry <code>String</code> fields with labels
+    so they can be accessed by name (<code>entry.key</code>) as well as by pattern matching</li>
+<li>The entire store state is <code>List(Entry)</code></li>
+<li>This is an <a class="gl-ref" href="../glossary/#event_log">event log</a><ul>
+<li>The log is never modified, only extended</li>
+</ul>
+</li>
+<li>Functions that query the store take the log as an argument</li>
+</ul>
+<h2>Reading from the Log</h2>
+<ul>
+<li>To look up a key, scan from the beginning and return the first matching entry:<ul>
+<li>Start at the beginning because new entries are prepended</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/log_demo.gleam" data-mark="get_fn"><span aria-label="Source: kvstore/src/log_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/log_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">),</span><span class="w"> </span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">get_scan</span><span class="p">(</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">get_scan</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">),</span><span class="w"> </span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">None</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="p">..]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Some</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="p">..]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">None</span>
+<span class="w">    </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">get_scan</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>get</code> is a thin wrapper; <code>get_scan</code> does the recursion</li>
+<li><code>[Set(k, v), ..rest] if k == key -&gt; Some(v)</code>:
+    the  guard checks the key, and if it matches, returns the value immediately</li>
+<li><code>[Delete(k), ..rest] if k == key -&gt; None</code>:
+    the key was deleted, so <code>None</code> is correct even if earlier entries set it</li>
+<li>
+<p><code>[_, ..rest] -&gt; get_scan(rest, key)</code>:
+    skip this entry and keep scanning</p>
+</li>
+<li>
+<p>The return type is <code>Option(String)</code></p>
+<ul>
+<li><code>None</code> means the key is not in the store (either never set or deleted)</li>
+</ul>
+</li>
+<li>This is O(n) per read in the worst case<ul>
+<li>That is acceptable for a demo</li>
+<li>In production, maintain an in-memory index so reads are O(1) — see the next section</li>
+</ul>
+</li>
+</ul>
+<h2>Indexed Lookup</h2>
+<ul>
+<li>Scanning the log on every read is O(n)</li>
+<li>Building a <code>Dict</code> index makes each lookup O(1):</li>
+</ul>
+<div data-inc="src/log_demo.gleam" data-mark="index_fns"><span aria-label="Source: kvstore/src/log_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/log_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">build_index</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">log</span><span class="p">),</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get_indexed</span><span class="p">(</span>
+<span class="w">  </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">),</span>
+<span class="w">  </span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Some</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">None</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>build_index</code> folds the reversed log (oldest-first) into a <code>Dict(String, String)</code>,
+    keeping only the most recent value for each live key</li>
+<li><code>get_indexed</code> wraps <code>dict.get</code>: O(1) per call</li>
+<li>Build the index once when the log is loaded;
+    rebuild it after any write</li>
+</ul>
+<h2>Listing Live Keys</h2>
+<p>The <code>keys</code> function returns all keys that currently have a value:</p>
+<div data-inc="src/log_demo.gleam" data-mark="keys_fn"><span aria-label="Source: kvstore/src/log_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/log_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">keys</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">log</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">keys</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The fold threads a <code>Dict(String, Bool)</code> through the log</li>
+<li><code>Set</code> inserts the key; <code>Delete</code> removes it</li>
+<li><code>dict.keys</code> extracts the surviving keys</li>
+<li>This is O(n) in the log length and O(k) in the number of live keys</li>
+</ul>
+<h2>Compaction</h2>
+<ul>
+<li>A long-running store accumulates many <a class="gl-ref" href="../glossary/#shadowed_entry">shadowed entries</a></li>
+<li>Compaction replaces the full log with a minimal equivalent one:</li>
+</ul>
+<div data-inc="src/log_demo.gleam" data-mark="compact_fn"><span aria-label="Source: kvstore/src/log_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/log_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">compact</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">live_dict</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">log</span><span class="p">),</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">live_dict</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">item</span><span class="w">  </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The log is reversed so that the most recent entry for each key comes first when folding</li>
+<li><code>dict.insert</code> for a <code>Set</code> records the latest value<ul>
+<li>If the key was already seen (i.e., there was a later entry) it is overwritten</li>
+<li>Which is fine because we want the latest value</li>
+</ul>
+</li>
+<li><code>dict.delete</code> for a <code>Delete</code> removes the key</li>
+<li>After the fold, the dict contains only the live key-value pairs</li>
+<li><code>dict.to_list</code> converts it back to <code>(k, v)</code> pairs wrapped in <code>Set</code></li>
+<li>After compaction, <code>Delete</code> entries disappear<ul>
+<li>They have already been applied by removing the key from the dict</li>
+</ul>
+</li>
+</ul>
+<h2>Serialisation</h2>
+<ul>
+<li>To persist the log across restarts, each entry is written as a text line:</li>
+</ul>
+<div data-inc="src/persist_demo.gleam" data-mark="persist_fn"><span aria-label="Source: kvstore/src/persist_demo.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/src/persist_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">compact_to_lines</span><span class="p">(</span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">log</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"SET|"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"|"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">v</span>
+<span class="w">      </span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"DEL|"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">k</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">parse_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s">"|"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">[</span><span class="s">"SET"</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">      </span><span class="p">[</span><span class="s">"DEL"</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">      </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Set</span><span class="p">(</span><span class="s">"error"</span><span class="p">,</span><span class="w"> </span><span class="s">"bad line"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>"SET|key|value"</code> encodes a <code>Set</code> entry; <code>|</code> separates the fields</li>
+<li><code>"DEL|key"</code> encodes a <code>Delete</code> entry</li>
+<li><code>parse_lines</code> reverses the process using <code>string.split(line, "|")</code>
+    and pattern matching on the resulting list</li>
+<li>In production code, writing to a file uses <code>simplifile.write_bits</code> or <code>simplifile.append</code></li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/kvstore_test.gleam" data-mark="tests"><span aria-label="Source: kvstore/test/kvstore_test.gleam" class="inc-path" role="img" tabindex="0" title="kvstore/test/kvstore_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">set_and_get_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Set</span><span class="p">(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">get</span><span class="p">(</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="s">"x"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Some</span><span class="p">(</span><span class="s">"1"</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">overwrite_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// newest entry is prepended; Set("x","2") is the most recent write</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Set</span><span class="p">(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">get</span><span class="p">(</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="s">"x"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Some</span><span class="p">(</span><span class="s">"2"</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">delete_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Delete is prepended after Set, so it is the most recent entry</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Delete</span><span class="p">(</span><span class="s">"x"</span><span class="p">),</span><span class="w"> </span><span class="n">Set</span><span class="p">(</span><span class="s">"x"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">get</span><span class="p">(</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="s">"x"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">None</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>All tests use an in-memory <code>List(Entry)</code>; no file I/O needed</li>
+<li>Each log is newest-first: the most recently written entry is at the front of the list</li>
+<li><code>overwrite_test</code> verifies that the entry at the front of the list wins</li>
+<li><code>delete_test</code> confirms that a <code>Delete</code> at the front returns <code>None</code>
+    even though an earlier <code>Set</code> exists later in the list</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>A log contains ten entries, all setting key <code>"x"</code> to different values.
+After calling <code>compact</code>, how many entries does the result contain for <code>"x"</code>, and why?</summary>
+<p>One entry.
+<code>compact</code> folds the reversed log into a <code>Dict</code>, so each key appears at most once.
+The fold processes entries from oldest to newest;
+<code>dict.insert</code> overwrites on each call, so the newest value wins.
+All earlier entries for <code>"x"</code> are shadowed and discarded.</p>
+</details>
+<details>
+<summary>The log <code>[Delete("x"), Set("x", "1")]</code> is newest-first.
+What does <code>get(log, "x")</code> return?
+What would it return if the list were reversed to <code>[Set("x", "1"), Delete("x")]</code>,
+and what real-world operation sequence does each order represent?</summary>
+<p>For <code>[Delete("x"), Set("x", "1")]</code>, <code>get</code> returns <code>None</code>:
+<code>get_scan</code> matches <code>Delete("x")</code> at the head and stops immediately.
+This represents: key <code>"x"</code> was set first, then deleted.</p>
+<p>For <code>[Set("x", "1"), Delete("x")]</code>, <code>get</code> returns <code>Some("1")</code>:
+<code>get_scan</code> matches <code>Set("x", "1")</code> at the head and stops.
+This represents: key <code>"x"</code> was deleted first, then set again.</p>
+<p>The ordering of the list encodes the direction of time.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Round-trip serialisation (15 minutes)</h3>
+<p>Implement <code>to_lines(log: List(Entry)) -&gt; List(String)</code> and
+<code>from_lines(lines: List(String)) -&gt; List(Entry)</code>.
+Write tests confirming that <code>log |&gt; to_lines |&gt; from_lines</code> equals the
+original log for a mix of <code>Set</code> and <code>Delete</code> entries.</p>
+</div>
+<div class="exercise">
+<h3>Indexed get (15 minutes)</h3>
+<p>Add a function that builds a <code>Dict(String, String)</code> index from the log
+and uses it for O(1) lookups.
+Compare the interface to the scan-based <code>get</code>:
+both return <code>Option(String)</code>, so callers do not need to change.</p>
+</div>
+<div class="exercise">
+<h3>Write-ahead log (20 minutes)</h3>
+<p>Extend the demo to write each new <code>Entry</code> to a text file using <code>simplifile</code>.
+Add a <code>load(path: String) -&gt; Result(List(Entry), String)</code> function
+that reads and parses the file on startup.
+Write a test that writes a few entries, loads them back, and confirms the result.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../binary">Binary Data Packer</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../eventual">Eventually Consistent Key-Value Store</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

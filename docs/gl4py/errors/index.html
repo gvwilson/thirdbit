@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Results, Options, and Error Handling</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a class="active" href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Results, Options, and Error Handling</h1>
+<div class="callout">
+<ul>
+<li>Gleam has no exceptions: errors are ordinary values returned by functions.</li>
+<li>The <code>Result</code> type carries either a success value (<code>Ok</code>) or a failure reason (<code>Error</code>).<ul>
+<li>Functions that return <code>Result</code> force callers to acknowledge failure at compile time.</li>
+</ul>
+</li>
+<li>The <code>Option</code> type represents a value that may or may not be present.</li>
+<li>The <code>use</code> expression eliminates deeply nested <code>case</code> blocks
+     when chaining multiple fallible operations.</li>
+</ul>
+</div>
+<h2>Errors as Values</h2>
+<ul>
+<li>Python raises an exception when something goes wrong
+    and expects callers to catch it with <code>try</code>/<code>except</code></li>
+<li>But nothing in the type signature tells you whether a function might raise
+    or what kind of exception to expect</li>
+<li>In Gleam, a function that might fail returns a <a class="gl-ref" href="../glossary/#result_type">Result</a>,
+     and the type signature makes that explicit</li>
+<li><code>Result(a, e)</code> is a type with two variants:<ul>
+<li><code>Ok(value)</code> carries a successful result</li>
+<li><code>Error(reason)</code> carries a failure description</li>
+</ul>
+</li>
+<li>The type of <code>reason</code> is up to you<ul>
+<li>It can be a <code>String</code>, a custom error type, or anything else</li>
+</ul>
+</li>
+<li>A caller cannot use the value inside <code>Ok</code> without handling the <code>Error</code> case<ul>
+<li>The compiler enforces this</li>
+</ul>
+</li>
+</ul>
+<h2>Parsing and Dividing Safely</h2>
+<div data-inc="src/result_demo.gleam" data-mark="parse_fn"><span aria-label="Source: errors/src/result_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/result_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"not an integer: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>int.parse(s)</code> from the standard library returns <code>Result(Int, Nil)</code><ul>
+<li>It returns <code>Ok(n)</code> if the string is a valid integer</li>
+<li>It returns <code>Error(Nil)</code> if not; the error carries no information</li>
+</ul>
+</li>
+<li>The function wraps the result to provide a <code>String</code> error message instead</li>
+<li>Compare to Python's <code>int(s)</code><ul>
+<li>Raises <code>ValueError</code> on bad input</li>
+<li>But no way to know this from the function's type</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/result_demo.gleam" data-mark="divide_fn"><span aria-label="Source: errors/src/result_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/result_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"division by zero"</span><span class="p">)</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/result_demo.out"><span aria-label="Source: errors/out/result_demo.out" class="inc-path" role="img" tabindex="0" title="errors/out/result_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(42)
+Error("not an integer: not a number")
+Ok(5)
+Error("division by zero")
+</code></pre></div>
+</div>
+<ul>
+<li><code>safe_divide</code> returns <code>Error("division by zero")</code>
+    instead of crashing with a <code>ZeroDivisionError</code></li>
+<li>The <code>case b { 0 -&gt; … _ -&gt; … }</code> pattern is idiomatic for this kind of guard</li>
+<li>Any caller that uses <code>safe_divide</code> must handle both <code>Ok</code> and <code>Error</code></li>
+</ul>
+<h2>Transforming Results</h2>
+<ul>
+<li>Often want to apply a function to the value inside <code>Ok</code> without unwrapping it manually</li>
+<li><code>result.map</code> does exactly that.</li>
+</ul>
+<div data-inc="src/map_demo.gleam" data-mark="map_usage"><span aria-label="Source: errors/src/map_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/map_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ok_int</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">error_str</span><span class="p">(</span><span class="s">"oops"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/map_demo.out"><span aria-label="Source: errors/out/map_demo.out" class="inc-path" role="img" tabindex="0" title="errors/out/map_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(43)
+Error("oops")
+</code></pre></div>
+</div>
+<ul>
+<li><code>result.map(r, f)</code> applies <code>f</code> to the value inside <code>Ok(v)</code> and returns <code>Ok(f(v))</code><ul>
+<li>If <code>r</code> is <code>Error(e)</code>, <code>result.map</code> returns <code>Error(e)</code> unchanged</li>
+</ul>
+</li>
+<li>This avoids a <code>case</code> expression when you only care about the success path</li>
+</ul>
+<h2>The Option Type</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#option_type"><code>Option(a)</code></a> is a type with two variants<ul>
+<li><code>Some(value)</code> wraps a present value</li>
+<li><code>None</code> represents absence</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/option_demo.gleam" data-mark="option_case"><span aria-label="Source: errors/src/option_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/option_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">option_inspect</span><span class="p">(</span><span class="n">opt</span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"got "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">None</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"nothing"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Option(Int)</code> is exactly like Python's <code>Optional[int]</code></li>
+<li><code>case opt { Some(n) -&gt; ... None -&gt; ... }</code> is the standard way to unwrap it</li>
+<li>The compiler will not let you use <code>n</code> outside the <code>Some</code> arm</li>
+</ul>
+<div data-inc="src/option_demo.gleam" data-mark="first_pos"><span aria-label="Source: errors/src/option_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/option_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">first_positive</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">None</span>
+<span class="w">    </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">_rest</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Some</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">first_positive</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/option_demo.out"><span aria-label="Source: errors/out/option_demo.out" class="inc-path" role="img" tabindex="0" title="errors/out/option_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"got 42"
+"nothing"
+Some(99)
+None
+Some(3)
+None
+</code></pre></div>
+</div>
+<ul>
+<li><code>[x, .._rest] if x &gt; 0</code> combines a list pattern with a guard<ul>
+<li>If the head <code>x</code> is positive, return <code>Some(x)</code> immediately</li>
+<li>Otherwise, recurse on the tail</li>
+</ul>
+</li>
+<li>An empty list or an all-negative list reaches <code>[] -&gt; None</code></li>
+<li>This is equivalent to Python's <code>next((x for x in lst if x &gt; 0), None)</code>
+    but the return type makes the "might be absent" case explicit</li>
+</ul>
+<h2>Chaining with <code>use</code></h2>
+<ul>
+<li>When you have several operations that each return <code>Result</code>,
+    nesting <code>case</code> expressions becomes unpleasant quickly</li>
+<li><code>use</code> is <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a> that flattens this nesting</li>
+</ul>
+<div data-inc="src/use_demo.gleam" data-mark="use_success"><span aria-label="Source: errors/src/use_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/use_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"20"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>use x &lt;- result.try(parse_int("10"))</code> is equivalent to:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Ok</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">...</span><span class="n">rest</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="p">...</span>
+<span class="w">  </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Reading top to bottom: parse 10, parse 20, divide their sum by 3, double the result</li>
+<li>Each <code>use</code> line binds a name from the <code>Ok</code> value
+    or <a class="gl-ref" href="../glossary/#short_circuit">short-circuits</a> with the <code>Error</code></li>
+<li>The final expression <code>Ok(z * 2)</code> is the result of the whole block</li>
+</ul>
+<div data-inc="src/use_demo.gleam" data-mark="use_fail"><span aria-label="Source: errors/src/use_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/use_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"bad"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">fail</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/use_demo.out"><span aria-label="Source: errors/out/use_demo.out" class="inc-path" role="img" tabindex="0" title="errors/out/use_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(20)
+Error("not an integer: bad")
+</code></pre></div>
+</div>
+<ul>
+<li><code>parse_int("bad")</code> returns <code>Error("not an integer: bad")</code></li>
+<li>The <code>use</code> expression short-circuits at that point<ul>
+<li><code>safe_divide</code> is never called</li>
+<li>The whole block evaluates to <code>Error("not an integer: bad")</code></li>
+</ul>
+</li>
+<li>Analogous to Python's <code>try</code>/<code>except</code>,
+    but the short-circuiting is explicit in the types
+    rather than hidden in the runtime</li>
+</ul>
+<h2>Guidelines for Handling Errors</h2>
+<ul>
+<li>Return <code>Result</code> whenever a function might fail for an externally visible reason
+     (bad input, missing file, network error)</li>
+<li>Return <code>Option</code> when absence is the only failure mode</li>
+<li>Use <code>let assert Ok(x) = ...</code> only when failure truly cannot happen
+    (like initialising a known-good constant at startup)<ul>
+<li>It <a class="gl-ref" href="../glossary/#panic">panics</a> on <code>Error</code></li>
+</ul>
+</li>
+<li>Use <code>result.map</code> and <code>result.try</code> for short transformations</li>
+<li>Use <code>use</code> for chains of three or more fallible operations</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>When should you use Option instead of Result?</summary>
+<ul>
+<li>
+<p>Use <code>Option</code> when there is no useful error information to convey:
+    a dictionary lookup either finds the key or it does not,
+    and there is no meaningful "reason it failed".</p>
+</li>
+<li>
+<p>Use <code>Result</code> when you want to distinguish failure modes:
+    parsing an integer from a string can fail because the string is empty,
+    because it contains non-digit characters, or because it overflows.
+    A <code>Result</code> lets you report which failure occurred.</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>How does the <code>use</code> expression compare to Python's <code>try</code>/<code>except</code>?</summary>
+<p>In Python,
+<code>try</code>/<code>except</code> catches exceptions that are raised anywhere in the block,
+regardless of whether the function signature mentions them.
+Gleam's <code>use</code> only short-circuits when a function explicitly returns an <code>Error</code> variant.
+This means you always know from the type whether a function can fail,
+and the <code>use</code> block's short-circuiting is visible in the code structure.
+The practical difference is that Python's exceptions are invisible in type signatures,
+while Gleam's <code>Result</code> values are not.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Safe division (5 minutes)</h3>
+<p>Write <code>safe_divide(a: Int, b: Int) -&gt; Result(Int, String)</code>
+that returns <code>Error("division by zero")</code> when <code>b</code> is 0
+and <code>Ok(a / b)</code> otherwise.</p>
+</div>
+<div class="exercise">
+<h3>Mapping over results (5 minutes)</h3>
+<p>Write a function that takes a <code>List(String)</code> and returns a <code>List(Int)</code>
+containing only the elements that parse successfully as integers.
+Use <code>int.parse</code>, <code>list.filter_map</code>, or a combination of <code>list.map</code> and <code>list.filter</code>.</p>
+</div>
+<div class="exercise">
+<h3>Chaining with use (15 minutes)</h3>
+<p>Write three functions that each return <code>Result(Int, String)</code>:
+<code>parse_age(s: String)</code>,
+<code>validate_age(n: Int)</code> (returns <code>Error</code> if <code>n &lt; 0</code> or <code>n &gt; 150</code>),
+and <code>to_birth_year(age: Int)</code> that subtracts from the current year.
+Chain them with <code>use</code> so that (for example)
+<code>"26"</code> produces <code>Ok(2000)</code> and <code>"-5"</code> produces an error at the validation step.</p>
+</div>
+<div class="exercise">
+<h3>First matching element (10 minutes)</h3>
+<p>Write <code>find(lst: List(a), pred: fn(a) -&gt; Bool) -&gt; Option(a)</code>
+that returns <code>Some(x)</code> for the first element where <code>pred(x)</code> is <code>True</code>,
+or <code>None</code> if no element matches.
+Write it using recursion with a <code>case</code> expression.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../functions">Functions, Pattern Matching, Lists, and Pipelines</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../modules">Modules, Imports, and Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Introduction</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a class="active" href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Introduction</h1>
+<div class="callout">
+<ul>
+<li>Gleam is a statically-typed, purely functional language that runs on the
+    Erlang VM and can also compile to JavaScript.</li>
+<li>This tutorial is written for Python programmers who want to understand
+    functional programming through practical applications, not theory.</li>
+</ul>
+</div>
+<h2>Why Gleam?</h2>
+<p>Every programmer eventually runs into a project where threads behave strangely,
+a server falls over at three in the morning,
+or refactoring breaks something in a module nobody touched.
+Gleam addresses all three problems with two design decisions:
+make illegal states impossible to represent,
+and run everything on a runtime built for failure.</p>
+<ul>
+<li>Gleam compiles to <a class="gl-ref" href="../glossary/#erlang">Erlang</a> <a class="gl-ref" href="../glossary/#bytecode">bytecode</a>
+    and runs on the <a class="gl-ref" href="../glossary/#beam_vm">BEAM virtual machine</a><ul>
+<li>The BEAM was designed in the 1980s for telephone switches
+    that had to run without interruption for years at a time</li>
+<li>BEAM applications have handled billions of users on small clusters</li>
+</ul>
+</li>
+<li>Gleam also compiles to JavaScript<ul>
+<li>The same source code can target both servers and browsers</li>
+<li>The <a class="gl-ref" href="../glossary/#lustre">Lustre</a> package uses this to build browser applications in Gleam</li>
+</ul>
+</li>
+<li>Gleam is <a class="gl-ref" href="../glossary/#statically_typed">statically typed</a><ul>
+<li>The compiler checks types before the program runs</li>
+<li>A function that claims to return an <code>Int</code> cannot secretly return <code>Nil</code></li>
+<li>Refactoring is faster because the compiler tells you exactly what broke</li>
+</ul>
+</li>
+</ul>
+<h2>Who This Tutorial Is For</h2>
+<p>This tutorial assumes you are comfortable with Python:
+you can write functions,
+work with lists and dictionaries,
+and read a stack trace.
+It does not assume any experience with:</p>
+<ul>
+<li>Erlang, Elixir, or the BEAM VM</li>
+<li>Strongly-typed languages like Rust, Haskell, or TypeScript</li>
+<li>Functional programming concepts like immutability or algebraic data types</li>
+</ul>
+<p>If you have written some JavaScript or another scripting language
+and can follow Python examples,
+you will be fine.
+The explanations throughout these lessons compare Gleam's approach to Python equivalents,
+so you have a concrete anchor for each new idea.</p>
+<h2>The BEAM in Thirty Seconds</h2>
+<ul>
+<li>Up until 2025,
+    Python ran code in a single process
+    with a <a class="gl-ref" href="../glossary/#gil">Global Interpreter Lock</a> (GIL) that prevented true parallelism</li>
+<li>BEAM takes the opposite approach<ul>
+<li>It runs thousands or millions of <a class="gl-ref" href="../glossary/#lightweight_process">lightweight processes</a> concurrently</li>
+<li>Each has its own memory</li>
+<li>There is no shared state between processes</li>
+</ul>
+</li>
+<li>If a process crashes, it cannot corrupt another process's memory<ul>
+<li>A <a class="gl-ref" href="../glossary/#supervisor">supervisor</a> can restart the failed process
+     and keep the rest of the system running</li>
+</ul>
+</li>
+<li>Erlang has worked this way since 1986</li>
+<li>Gleam brings a modern type system to the same runtime</li>
+</ul>
+<h2>Setting Up</h2>
+<ul>
+<li><a href="https://www.erlang.org/downloads">Erlang/OTP</a>: the runtime Gleam compiles to<ul>
+<li>This tutorial was built on v29.0.1</li>
+</ul>
+</li>
+<li><a href="https://gleam.run/getting-started/installing/">Gleam</a>: the compiler and build tool<ul>
+<li>This tutorial was built on v1.16.0</li>
+</ul>
+</li>
+<li>Once both are installed, create and run your first project:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>gleam<span class="w"> </span>new<span class="w"> </span>hello_gleam
+<span class="nb">cd</span><span class="w"> </span>hello_gleam
+gleam<span class="w"> </span>run
+</code></pre></div>
+<ul>
+<li>You should see <code>Hello from hello_gleam!</code>.</li>
+<li><code>gleam new</code> creates this layout</li>
+</ul>
+<div data-inc="hello_gleam.txt"><span aria-label="Source: intro/hello_gleam.txt" class="inc-path" role="img" tabindex="0" title="intro/hello_gleam.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>hello_gleam/                    # project root directory
+├── README.md                   # project description
+├── gleam.toml                  # project name, version, and dependencies
+├── src                         # all project source code is under 'src'
+│   └── hello_gleam.gleam       # entry point
+└── test                        # all project test code is under 'test'
+    └── hello_gleam_test.gleam  # tests using 'gleeunit'
+</code></pre></div>
+</div>
+<ul>
+<li><code>gleam run</code> adds:<ul>
+<li><code>manifest.toml</code>: requirements and pinned package versions</li>
+<li><code>build/</code>: build artefacts (do not commit to version control)</li>
+</ul>
+</li>
+</ul>
+<h2>Lesson Structure</h2>
+<ul>
+<li>A short introduction explaining what the lesson builds and why</li>
+<li>Code is shown first, then explained with bullet points</li>
+<li>Self-test questions follow in expandable boxes</li>
+<li>Exercises are at the end</li>
+</ul>
+<h2>A Few Differences Between Gleam and Python Syntax</h2>
+<ul>
+<li>No colons at the end of function or type definitions</li>
+<li>Blocks use <code>{</code> and <code>}</code> instead of indentation</li>
+<li>Comments use <code>//</code> instead of <code>#</code></li>
+<li>String concatenation uses <code>&lt;&gt;</code> instead of <code>+</code></li>
+<li>Floating-point arithmetic uses <code>+.</code>, <code>-.</code>, <code>*.</code>, <code>/.</code> to distinguish from integer arithmetic</li>
+<li>No <code>return</code> statement: the last expression in a function is its value</li>
+<li>Type annotations are optional in most places; the compiler infers them</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What does "statically typed" mean in practice?</summary>
+<p>In a statically typed language,
+the type of every expression is known at compile time before the program runs.
+The compiler rejects programs where you add an integer to a string,
+pass the wrong number of arguments to a function,
+or forget to handle an error.
+Python determines types at runtime,
+so these mistakes surface as exceptions during execution.
+Gleam determines types at compile time,
+so many mistakes never make it into a running program.
+The trade-off is that you <em>must</em> think about types explicitly as you are writing code.</p>
+</details>
+<details>
+<summary>What are the key features of the BEAM runtime?</summary>
+<p>The BEAM runs many lightweight processes concurrently on all available CPU cores,
+with no shared memory between them.
+A crash in one BEAM process cannot corrupt any other process's state.
+This isolation is why BEAM-based systems can use supervisors
+that restart failed components automatically,
+without restarting the entire application.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../basics">Getting Started, Types, and Values</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

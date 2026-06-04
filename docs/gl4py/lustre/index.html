@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lustre Frontend Counter and Form</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a class="active" href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Lustre Frontend Counter and Form</h1>
+<div class="callout">
+<ul>
+<li>Lustre compiles Gleam to JavaScript and runs the Elm architecture in the browser.</li>
+<li>The model is a plain record;
+    <code>update</code> is a pure function that returns a new model;
+    <code>view</code> is a pure function that returns a virtual DOM tree.</li>
+<li>The runtime owns the event loop:
+    it calls <code>update</code> when a message arrives and <code>view</code> to render the result.</li>
+<li>There is no <code>setState</code>, no hooks, and no mutation:
+    all state lives in the model and all logic lives in <code>update</code>.</li>
+<li>The HTML DSL uses Gleam functions (<code>html.div</code>, <code>html.button</code>)
+    rather than a template language.</li>
+</ul>
+</div>
+<h2>The Elm Architecture</h2>
+<ul>
+<li><a href="https://hexdocs.pm/lustre/">Lustre</a> brings the <a href="https://elm-lang.org">Elm</a> architecture to Gleam with three parts:<ul>
+<li>Model: the application state, a plain record</li>
+<li>Update: a pure function <code>(Model, Msg) -&gt; Model</code> that handles every user action</li>
+<li>View: a pure function <code>Model -&gt; Element(Msg)</code> that produces
+     a <a class="gl-ref" href="../glossary/#virtual_dom">virtual DOM tree</a></li>
+</ul>
+</li>
+<li>The Lustre runtime renders the view, listens for events,
+    converts them to <code>Msg</code> values, calls <code>update</code>, re-renders, and repeats</li>
+<li>The application code never touches the DOM directly</li>
+</ul>
+<h2>Types</h2>
+<div data-inc="src/counter_demo.gleam" data-mark="model_msg_type"><span aria-label="Source: lustre/src/counter_demo.gleam" class="inc-path" role="img" tabindex="0" title="lustre/src/counter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Model</span><span class="p">(</span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Increment</span>
+<span class="w">  </span><span class="n">Decrement</span>
+<span class="w">  </span><span class="n">Reset</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Model(count: Int)</code> is the entire application state</li>
+<li><code>Msg</code> lists every action the user can take: <code>Increment</code>, <code>Decrement</code>, <code>Reset</code></li>
+<li>Adding a new feature means adding a variant to <code>Msg</code> and a branch to <code>update</code><ul>
+<li>The compiler flags every case that is not handled</li>
+</ul>
+</li>
+</ul>
+<h2>Update</h2>
+<div data-inc="src/counter_demo.gleam" data-mark="update_fn"><span aria-label="Source: lustre/src/counter_demo.gleam" class="inc-path" role="img" tabindex="0" title="lustre/src/counter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="n">Model</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="n">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Increment</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Model</span><span class="p">(</span><span class="k">model</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Decrement</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Model</span><span class="p">(</span><span class="k">model</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Reset</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Model</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each branch returns a new <code>Model</code> with the count changed</li>
+<li>No mutation: <code>Model(model.count + 1)</code> creates a new record</li>
+</ul>
+<h2>View</h2>
+<ul>
+<li>In a browser application, <code>view</code> returns Lustre's <code>Element(Msg)</code> type:</li>
+</ul>
+<div data-inc="snippets/browser.gleam" data-mark="html_view_fn"><span aria-label="Source: lustre/snippets/browser.gleam" class="inc-path" role="img" tabindex="0" title="lustre/snippets/browser.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">view</span><span class="p">(</span><span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="n">Model</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Element</span><span class="p">(</span><span class="n">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">html</span><span class="p">.</span><span class="n">div</span><span class="p">([],</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="k">html</span><span class="p">.</span><span class="n">p</span><span class="p">([],</span><span class="w"> </span><span class="p">[</span><span class="k">html</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="k">model</span><span class="p">.</span><span class="n">count</span><span class="p">))]),</span>
+<span class="w">    </span><span class="k">html</span><span class="p">.</span><span class="n">button</span><span class="p">([</span><span class="k">event</span><span class="p">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">Increment</span><span class="p">)],</span><span class="w"> </span><span class="p">[</span><span class="k">html</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="s">"+"</span><span class="p">)]),</span>
+<span class="w">    </span><span class="k">html</span><span class="p">.</span><span class="n">button</span><span class="p">([</span><span class="k">event</span><span class="p">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">Decrement</span><span class="p">)],</span><span class="w"> </span><span class="p">[</span><span class="k">html</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="s">"-"</span><span class="p">)]),</span>
+<span class="w">    </span><span class="k">html</span><span class="p">.</span><span class="n">button</span><span class="p">([</span><span class="k">event</span><span class="p">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">Reset</span><span class="p">)],</span><span class="w">     </span><span class="p">[</span><span class="k">html</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="s">"reset"</span><span class="p">)]),</span>
+<span class="w">  </span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>html.div(attrs, children)</code> mirrors <code>&lt;div&gt;...&lt;/div&gt;</code></li>
+<li><code>event.on_click(Increment)</code> attaches a click listener that sends <code>Increment</code> to <code>update</code></li>
+<li><code>html.text</code> renders a string as a text node</li>
+<li>The return type <code>Element(Msg)</code> guarantees that
+     every event this tree can fire is a valid <code>Msg</code></li>
+</ul>
+<h2>Console Demo</h2>
+<div data-inc="src/counter_demo.gleam" data-mark="console_demo"><span aria-label="Source: lustre/src/counter_demo.gleam" class="inc-path" role="img" tabindex="0" title="lustre/src/counter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">init</span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">Increment</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">Increment</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">Decrement</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">view</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The demo runs without a browser to confirm the model-update-view logic in isolation</li>
+<li><code>init()</code> creates a <code>Model(count: 0)</code></li>
+<li>After two increments and one decrement, <code>model.count</code> is <code>1</code></li>
+<li><code>view(model)</code> returns <code>"Count: +1 (click + or - to change)"</code></li>
+</ul>
+<h2>Running in the Browser</h2>
+<ul>
+<li>To run in the browser:<ol>
+<li>Add <code>lustre</code> to <code>gleam.toml</code> dependencies</li>
+<li>Set <code>target = "javascript"</code> in <code>gleam.toml</code></li>
+<li>Replace the console <code>view</code> with an HTML <code>view</code> returning <code>Element(Msg)</code></li>
+<li>Call <code>lustre.simple(init, update, view)</code> in <code>main</code></li>
+</ol>
+</li>
+</ul>
+<div data-inc="snippets/browser.gleam" data-mark="main_fn"><span aria-label="Source: lustre/snippets/browser.gleam" class="inc-path" role="img" tabindex="0" title="lustre/snippets/browser.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">lustre</span><span class="p">.</span><span class="n">simple</span><span class="p">(</span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="n">update</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="k">assert</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">lustre</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">"#app"</span><span class="p">,</span><span class="w"> </span><span class="n">Nil</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>"#app"</code> is the CSS selector for the DOM element Lustre <a class="gl-ref" href="../glossary/#mount">mounts</a> into</li>
+</ul>
+<h2>Handling Forms</h2>
+<ul>
+<li>A more complex model adds an input field and a list of items:</li>
+</ul>
+<div data-inc="snippets/browser.gleam" data-mark="form_types"><span aria-label="Source: lustre/snippets/browser.gleam" class="inc-path" role="img" tabindex="0" title="lustre/snippets/browser.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Model</span><span class="p">(</span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">items</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">type</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Increment</span>
+<span class="w">  </span><span class="n">Decrement</span>
+<span class="w">  </span><span class="n">Reset</span>
+<span class="w">  </span><span class="n">InputChanged</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AddItem</span>
+<span class="w">  </span><span class="n">RemoveItem</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>InputChanged(String)</code> fires on every keystroke<ul>
+<li><code>update</code> stores the new string in <code>model.input</code></li>
+</ul>
+</li>
+<li><code>AddItem</code> moves <code>model.input</code> into <code>model.items</code> and clears the input</li>
+<li>The <code>view</code> renders an <code>&lt;input&gt;</code> with <code>event.on_input(InputChanged)</code>
+    and an <code>Add</code> button with <code>event.on_click(AddItem)</code></li>
+<li>This pattern extends to any form<ul>
+<li>Bind each field to a <code>Msg</code> variant</li>
+<li>Store it in the model</li>
+<li>Submit on a button click</li>
+</ul>
+</li>
+</ul>
+<h2>Connecting to an API</h2>
+<ul>
+<li>Lustre effects run IO outside the pure <code>update</code> function:</li>
+</ul>
+<div data-inc="snippets/effects.gleam" data-mark="fetch_todos_fn"><span aria-label="Source: lustre/snippets/effects.gleam" class="inc-path" role="img" tabindex="0" title="lustre/snippets/effects.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">fetch_todos</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">effect</span><span class="p">.</span><span class="n">Effect</span><span class="p">(</span><span class="n">Msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">effect</span><span class="p">.</span><span class="n">from</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">dispatch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// make HTTP request, then:</span>
+<span class="w">    </span><span class="n">dispatch</span><span class="p">(</span><span class="n">TodosLoaded</span><span class="p">(</span><span class="n">todos</span><span class="p">))</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>effect.from</code> wraps an IO action;
+    the <code>dispatch</code> callback sends a <code>Msg</code> back when the action completes</li>
+<li><code>update</code> returns <code>#(Model, Effect(Msg))</code> when effects are used</li>
+<li>The runtime runs the effect after rendering</li>
+<li>This keeps the model and update function pure:
+    side effects are explicitly separated</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/lustre_test.gleam" data-mark="tests"><span aria-label="Source: lustre/test/lustre_test.gleam" class="inc-path" role="img" tabindex="0" title="lustre/test/lustre_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">increment_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">init</span><span class="p">()</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">m</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decrement_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">init</span><span class="p">()</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">Decrement</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">m</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">reset_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">init</span><span class="p">(),</span><span class="w"> </span><span class="n">Increment</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">Increment</span><span class="p">)</span>
+<span class="w">  </span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">Reset</span><span class="p">).</span><span class="n">count</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The <code>update</code> function is pure, so testing it requires no browser</li>
+<li><code>increment_test</code> chains two increments and checks <code>model.count</code></li>
+<li><code>decrement_test</code> confirms decrement goes negative</li>
+<li><code>reset_test</code> confirms <code>Reset</code> always returns count to 0</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>How is this different from React?</summary>
+<p>React manages state with hooks (<code>useState</code>, <code>useReducer</code>) inside components.
+State updates trigger re-renders,
+but the order of updates and renders can be surprising
+when multiple state changes happen at once.</p>
+<p>Lustre has one model for the whole application.
+Every event produces exactly one call to <code>update</code>,
+which returns one new model.
+The runtime renders once after each update.
+There are no hooks, no component-local state, and no effect order surprises.
+The tradeoff is that Lustre applications require more up-front type design
+(the <code>Msg</code> type must cover every event),
+but the result is easier to test and reason about.</p>
+</details>
+<details>
+<summary>Why does <code>view</code> return <code>Element(Msg)</code> rather than a raw HTML string?</summary>
+<p>A typed virtual DOM catches errors the browser would silently ignore.
+If <code>view</code> could produce any HTML string, you could accidentally fire an event
+that is not a valid <code>Msg</code>, and <code>update</code> would have no case for it.
+By parameterising <code>Element</code> on the message type,
+the compiler verifies that every event handler in the view
+produces a value that <code>update</code> knows how to handle.
+This makes adding a new button a type-checked operation,
+not a runtime surprise.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Reset button in view (10 minutes)</h3>
+<p>Add a <code>Reset</code> button to the HTML view.
+The button should call <code>event.on_click(Reset)</code> and display <code>"reset"</code>.
+Test by calling <code>update(model, Reset)</code> and confirming the count is 0.</p>
+</div>
+<div class="exercise">
+<h3>Disable add button (15 minutes)</h3>
+<p>Add <code>InputChanged(String)</code> and <code>AddItem</code> to <code>Msg</code>.
+In <code>view</code>, disable the Add button (using <code>attribute.disabled(True)</code>) when <code>model.input == ""</code>.
+Write update tests confirming that <code>InputChanged</code> stores the value
+and <code>AddItem</code> appends to the list and clears the input.</p>
+</div>
+<div class="exercise">
+<h3>Colour by sign (10 minutes)</h3>
+<p>In <code>view</code>, give the count paragraph a CSS class based on its sign:
+<code>"positive"</code> for <code>&gt; 0</code>, <code>"negative"</code> for <code>&lt; 0</code>, <code>"zero"</code> for <code>== 0</code>.
+Use <code>attribute.class(...)</code>.
+No runtime changes are needed;
+write a test that the correct class string is produced for each sign.</p>
+</div>
+<div class="exercise">
+<h3>Fetch on load (25 minutes)</h3>
+<p>Add <code>TodosLoaded(List(String))</code> to <code>Msg</code> and a <code>todos: List(String)</code> field to <code>Model</code>.
+Write a <code>fetch_todos()</code> effect using <code>lustre/effect.from</code> and <code>gleam_httpc</code>
+that calls <code>GET /todos</code> and dispatches <code>TodosLoaded</code>.
+Dispatch the effect from <code>init</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../api">To-Do List Web API</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../client">HTTP API Client with JSON Decoding</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

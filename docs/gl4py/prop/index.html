@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property-Based Testing</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a class="active" href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Property-Based Testing</h1>
+<div class="callout">
+<ul>
+<li>Unit tests check specific examples;
+    property-based tests check universal statements
+    that must hold for any generated input.</li>
+<li>A generator is a function from a seed to a value and a new seed,
+    enabling reproducible pseudo-random generation.</li>
+<li>Composing generators with <code>list_of</code> and other combinators builds generators
+    for complex types from simple ones.</li>
+<li><code>check</code> runs a property against many generated values
+    and returns the first counterexample it finds.</li>
+<li>Shrinking reduces a failing input to the smallest version
+    that still triggers the failure; this lesson explains the concept
+    without implementing it.</li>
+</ul>
+</div>
+<h2>Why Properties?</h2>
+<ul>
+<li>A test like <code>word_count(["the", "the"]) |&gt; should.equal(dict.from_list([#("the", 2)]))</code>
+    checks one input</li>
+<li>A property like "for all word lists, the total count equals the list length"
+    checks an infinite family of inputs</li>
+<li><a class="gl-ref" href="../glossary/#property_based_testing">Property-based testing</a> was popularized by Haskell's QuickCheck;
+    today every major language has a property testing library</li>
+<li>Properties catch bugs that no one thought to add as an example:
+    the sorting code that fails for lists of length 1,
+    the encoder that drops the last byte when the input length is a multiple of 8</li>
+<li>This lesson builds a minimal property tester from scratch
+    to expose the mechanics; real projects would use an established library</li>
+</ul>
+<h2>Seeds and the Generator Type</h2>
+<div data-inc="src/prop_demo.gleam" data-mark="types"><span aria-label="Source: prop/src/prop_demo.gleam" class="inc-path" role="img" tabindex="0" title="prop/src/prop_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// A seed for the pseudo-random number generator.</span>
+<span class="c1">// Any integer is a valid seed.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Seed</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Seed</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// A generator produces a value and a new seed.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="k">fn</span><span class="p">(</span><span class="n">Seed</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="src/prop_demo.gleam" data-mark="seed_fn"><span aria-label="Source: prop/src/prop_demo.gleam" class="inc-path" role="img" tabindex="0" title="prop/src/prop_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// Advance the seed using a linear congruential generator.</span>
+<span class="c1">// Multiplier and increment are from Numerical Recipes.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span><span class="w"> </span><span class="n">Seed</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">seed</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1_664_525</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1_013_904_223</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">next_n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">raw</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">raw</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">#(</span><span class="n">next_n</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="n">next_n</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>A <code>Seed</code> wraps a single integer;
+    any integer is a valid starting seed</li>
+<li><code>next</code> advances the seed using a <a class="gl-ref" href="../glossary/#lcg">linear congruential generator</a> (LCG):
+    multiply and add, then take the absolute value to stay positive</li>
+<li>Because Gleam runs on the BEAM and Erlang uses arbitrary-precision integers,
+    there is no overflow; the numbers just grow until <code>abs</code> brings them back</li>
+<li><code>Gen(a)</code> is a type alias for a function that takes a seed
+    and returns a generated value paired with the next seed</li>
+<li>The seed-threading style means generators are pure and reproducible:
+    the same seed always produces the same sequence</li>
+</ul>
+<h2>Basic Generators</h2>
+<div data-inc="src/prop_demo.gleam" data-mark="generators"><span aria-label="Source: prop/src/prop_demo.gleam" class="inc-path" role="img" tabindex="0" title="prop/src/prop_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="n">lo</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">raw</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">range</span>
+<span class="w">        </span><span class="p">#(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">list_of</span><span class="p">(</span><span class="n">gen</span><span class="p">:</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_list_of</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">do_list_of</span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen</span><span class="p">:</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+<span class="w">    </span><span class="n">remaining</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">seed</span><span class="p">:</span><span class="w"> </span><span class="n">Seed</span><span class="p">,</span>
+<span class="w">    </span><span class="n">acc</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">Seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">acc</span><span class="p">),</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="w">            </span><span class="n">do_list_of</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>int_between(lo, hi)</code> calls <code>next</code> to get a raw integer,
+    then maps it into the range <code>[lo, hi]</code> using <code>%</code></li>
+<li><code>list_of(gen, count)</code> calls <code>gen</code> exactly <code>count</code> times,
+    threading the seed forward on each call,
+    and collects the values into a list</li>
+<li><code>do_list_of</code> is the tail-recursive worker:
+    it prepends values to <code>acc</code> and reverses at the end,
+    keeping each step O(1)</li>
+<li>Composing generators is the normal way to build generators for complex types:
+    <code>list_of(int_between(-100, 100), 10)</code> is a <a class="gl-ref" href="../glossary/#generator">generator</a>
+    for ten-element lists of integers</li>
+</ul>
+<h2>The Check Function</h2>
+<div data-inc="src/prop_demo.gleam" data-mark="check_fn"><span aria-label="Source: prop/src/prop_demo.gleam" class="inc-path" role="img" tabindex="0" title="prop/src/prop_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// Run a property against `trials` generated values starting from `seed`.</span>
+<span class="c1">// Returns Ok(Nil) if all trials pass, or Error(failing_value) on the first failure.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">check</span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen</span><span class="p">:</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+<span class="w">    </span><span class="n">prop</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="p">,</span>
+<span class="w">    </span><span class="n">trials</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">seed</span><span class="p">:</span><span class="w"> </span><span class="n">Seed</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Nil</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">do_check</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">prop</span><span class="p">,</span><span class="w"> </span><span class="n">trials</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">do_check</span><span class="p">(</span>
+<span class="w">    </span><span class="n">gen</span><span class="p">:</span><span class="w"> </span><span class="n">Gen</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+<span class="w">    </span><span class="n">prop</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="p">,</span>
+<span class="w">    </span><span class="n">remaining</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="n">seed</span><span class="p">:</span><span class="w"> </span><span class="n">Seed</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Nil</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Nil</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">prop</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">do_check</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="n">prop</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">next_seed</span><span class="p">)</span>
+<span class="w">                </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>check</code> runs the property against <code>trials</code> generated values</li>
+<li><code>do_check</code> is the recursive worker:
+    generate a value, test the property, recurse if it passes, return <code>Error(val)</code> if it fails</li>
+<li>Returning <code>Error(val)</code> rather than just <code>Error(Nil)</code> lets the caller
+    see the specific counterexample that broke the property</li>
+<li>A real property testing library would also <a class="gl-ref" href="../glossary/#shrinking">shrink</a> the counterexample:
+    repeatedly simplify <code>val</code> until no simpler version still fails,
+    giving a minimal, readable test case</li>
+</ul>
+<h2>Running the Example</h2>
+<div data-inc="src/prop_demo.gleam" data-mark="main_example"><span aria-label="Source: prop/src/prop_demo.gleam" class="inc-path" role="img" tabindex="0" title="prop/src/prop_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">int_gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">list_gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">list_of</span><span class="p">(</span><span class="n">int_between</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">reverse_twice</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">check</span><span class="p">(</span><span class="n">list_gen</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"reverse twice: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">reverse_twice</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">sort_idempotent</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">check</span><span class="p">(</span>
+<span class="w">        </span><span class="n">list_gen</span><span class="p">,</span>
+<span class="w">        </span><span class="k">fn</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">sorted</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">compare</span><span class="p">)</span>
+<span class="w">            </span><span class="k">list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">sorted</span><span class="p">,</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">compare</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">sorted</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">        </span><span class="n">seed</span><span class="p">,</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"sort idempotent: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">sort_idempotent</span><span class="p">))</span>
+
+<span class="w">    </span><span class="c1">// This property is false: not every integer is non-negative.</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">always_positive</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">check</span><span class="p">(</span><span class="n">int_gen</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">        </span><span class="s">"all non-negative (should fail): "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">always_positive</span><span class="p">),</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>reverse_twice</code> passes because <code>list.reverse(list.reverse(xs)) == xs</code> for every list</li>
+<li><code>sort_idempotent</code> passes because sorting an already-sorted list is a no-op</li>
+<li><code>always_positive</code> fails immediately:
+    the generator produces both positive and negative integers,
+    so the first negative value that appears is the counterexample</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/prop_test.gleam" data-mark="tests"><span aria-label="Source: prop/test/prop_test.gleam" class="inc-path" role="img" tabindex="0" title="prop/test/prop_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">next_changes_seed_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">Seed</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s2</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">not_equal</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_between_in_range_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">Seed</span><span class="p">(</span><span class="mi">99</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">int_between_deterministic_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">Seed</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">Seed</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">list_of_length_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">list_of</span><span class="p">(</span><span class="n">int_between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">Seed</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">reverse_twice_is_identity_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">list_of</span><span class="p">(</span><span class="n">int_between</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Nil</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">sort_idempotent_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">list_of</span><span class="p">(</span><span class="n">int_between</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check</span><span class="p">(</span>
+<span class="w">        </span><span class="n">gen</span><span class="p">,</span>
+<span class="w">        </span><span class="k">fn</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">sorted</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">compare</span><span class="p">)</span>
+<span class="w">            </span><span class="k">list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">sorted</span><span class="p">,</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">compare</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">sorted</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Seed</span><span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Nil</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">check_finds_counterexample_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Claiming every integer in [0..10] is &gt; 5 is false.</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">check_passes_when_true_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">int_between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">Seed</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Nil</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>next_changes_seed_test</code> confirms that the generator advances:
+    applying <code>next</code> twice gives two different seeds</li>
+<li><code>int_between_in_range_test</code> confirms the range constraint holds for one seed</li>
+<li><code>int_between_deterministic_test</code> confirms that the same seed always produces
+    the same value, which is the reproducibility guarantee</li>
+<li><code>check_finds_counterexample_test</code> verifies that <code>check</code> returns <code>Error</code>
+    for a property that is demonstrably false</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does <code>check</code> return <code>Error(val)</code> where <code>val</code> is the failing input,
+rather than just <code>Error("property failed")</code>?</summary>
+<p>Knowing which value triggered the failure is the whole point of property testing.
+A bare error message tells you the test failed;
+the failing value tells you what to investigate.
+In a real library, you would then pass that value to a shrinker
+to find the minimal failing case.
+Returning <code>Error(val)</code> also keeps the return type polymorphic in <code>a</code>,
+meaning <code>check</code> works for any generator without needing a separate error type.</p>
+</details>
+<details>
+<summary>The <code>int_between(0, 10)</code> generator uses <code>raw % range</code> to stay in bounds.
+What goes wrong if <code>lo &gt; hi</code>?</summary>
+<p><code>range = hi - lo + 1</code> becomes zero or negative.
+Division by zero in Erlang raises a <code>badarith</code> exception,
+crashing the process.
+A production generator would validate that <code>lo &lt;= hi</code> and return <code>Error</code>
+or <code>panic</code> with a useful message.
+For this lesson, the contract is that <code>lo &lt;= hi</code>;
+violating it is a programming error, not a runtime event to handle.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>String generator (15 minutes)</h3>
+<p>Write <code>string_of(chars: List(String), len: Int) -&gt; Gen(String)</code>
+that generates a string of exactly <code>len</code> characters chosen randomly from <code>chars</code>.
+Use <code>list_of</code> and <code>int_between(0, list.length(chars) - 1)</code> as the character picker.
+Write a property test confirming that every generated string has the right length.</p>
+</div>
+<div class="exercise">
+<h3>Roundtrip property (15 minutes)</h3>
+<p>Using <code>int_between</code>, write a property test for the <code>encode</code>/<code>decode</code> roundtrip
+from the <a href="../binary/">binary</a> lesson:
+for any integer in the range that the packer supports,
+<code>decode(encode(n)) == n</code>.
+Run 500 trials.</p>
+</div>
+<div class="exercise">
+<h3>Shrinking (20 minutes)</h3>
+<p>Add a <code>shrink_int(n: Int) -&gt; List(Int)</code> function that returns a list of smaller
+candidate values to try: <code>[0, n / 2, n - 1]</code>
+(filtered to remove duplicates and values equal to <code>n</code>).
+Modify <code>do_check</code> to call <code>shrink_int</code> on the first failing value
+and keep shrinking as long as smaller values also fail,
+returning the smallest failing value found.
+Test that a property like <code>n &lt; 3</code> produces a counterexample of exactly <code>3</code>.</p>
+</div>
+<div class="exercise">
+<h3>Pair generator (10 minutes)</h3>
+<p>Write <code>pair_of(gen_a: Gen(a), gen_b: Gen(b)) -&gt; Gen(#(a, b))</code>
+that generates a pair by running both generators in sequence,
+threading the seed through.
+Use it to write a property test confirming that <code>dict.merge(a, b)</code>
+always contains at least as many keys as <code>dict.size(a)</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../machine">State Machines</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../stream">Stream Processing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

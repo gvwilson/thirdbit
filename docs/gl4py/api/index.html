@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>To-Do List Web API</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a class="active" href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>To-Do List Web API</h1>
+<div class="callout">
+<ul>
+<li>A three-tier web service separates HTTP handling,
+    business logic,
+    and state management into independent layers.</li>
+<li>The state tier is an OTP actor handling typed messages
+    and is the single source of truth.</li>
+<li>The logic tier is pure functions over <code>List(Todo)</code>,
+    which is easy to test without a running server.</li>
+<li>The HTTP tier routes requests, calls the actor, and encodes responses as JSON.</li>
+<li><code>gleam/json</code> encodes structured data;
+    <code>gleam/dynamic</code> decodes untyped JSON bodies.</li>
+<li>Use a database to ensure that data survive restarts.</li>
+<li>Running migrations at startup keeps the schema versioned and reproducible.</li>
+<li>Never interpolate user input into SQL strings.</li>
+</ul>
+</div>
+<h2>The Three-Tier Structure</h2>
+<ul>
+<li>Web applications benefit from clear separation between layers:<ul>
+<li>State tier: holds mutable data; the only place writes happen</li>
+<li>Logic tier: pure functions that transform data</li>
+<li>HTTP tier: parses requests, calls logic, formats responses</li>
+</ul>
+</li>
+<li>In Gleam on the BEAM, the state tier is an <a class="gl-ref" href="../glossary/#otp">OTP</a> <a class="gl-ref" href="../glossary/#actor">actor</a></li>
+<li>The logic tier is ordinary functions with no imports from <code>gleam_otp</code> or <code>wisp</code></li>
+<li>The HTTP tier uses <a href="https://hexdocs.pm/wisp/">Wisp</a> for routing and <a href="https://hexdocs.pm/mist/">Mist</a> as the underlying HTTP server</li>
+</ul>
+<h2>Types</h2>
+<div data-inc="src/todo_server.gleam" data-mark="todo_types"><span aria-label="Source: api/src/todo_server.gleam" class="inc-path" role="img" tabindex="0" title="api/src/todo_server.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Todo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Todo</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">:</span><span class="w"> </span><span class="n">Bool</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">GetAll</span>
+<span class="w">  </span><span class="n">Add</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">MarkDone</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Remove</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Todo</code> is the domain record: an integer ID, a title string, and a completion flag</li>
+<li><code>Msg</code> is the actor's message type: typed commands sent to the state tier</li>
+<li><code>GetAll</code> carries no data; the caller receives a reply on a <code>Subject</code></li>
+<li><code>Add(String)</code> carries the new title</li>
+<li><code>MarkDone(Int)</code> and <code>Remove(Int)</code> carry the target ID</li>
+</ul>
+<h2>Logic Tier</h2>
+<ul>
+<li>Use pure functions for the logic layer:</li>
+</ul>
+<div data-inc="src/todo_server.gleam" data-mark="logic_fns"><span aria-label="Source: api/src/todo_server.gleam" class="inc-path" role="img" tabindex="0" title="api/src/todo_server.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add</span><span class="p">(</span>
+<span class="w">  </span><span class="n">todos</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">),</span>
+<span class="w">  </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="n">Todo</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">todos</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">False</span><span class="p">)</span>
+<span class="w">  </span><span class="p">#(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">todos</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get_all</span><span class="p">(</span><span class="n">todos</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">todos</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">mark_done</span><span class="p">(</span>
+<span class="w">  </span><span class="n">todos</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">),</span>
+<span class="w">  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">t</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span><span class="k">t</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">t</span><span class="p">.</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)</span>
+<span class="w">      </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">t</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">todos</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">),</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">t</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>add</code> returns both the new item and the new list<ul>
+<li>The caller can return the item to the client in the HTTP response</li>
+</ul>
+</li>
+<li><code>mark_done</code> maps over the list and rebuilds the matching record with <code>done: True</code></li>
+<li><code>remove</code> filters out the matching record</li>
+<li>None of these functions touch IO or the actor;
+    they can be tested with plain gleeunit</li>
+</ul>
+<h2>JSON Encoding</h2>
+<div data-inc="src/todo_server.gleam" data-mark="encode_fn"><span aria-label="Source: api/src/todo_server.gleam" class="inc-path" role="img" tabindex="0" title="api/src/todo_server.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">encode_todos</span><span class="p">(</span><span class="n">todos</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">json</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">json</span><span class="p">.</span><span class="n">object</span><span class="p">([</span>
+<span class="w">      </span><span class="p">#(</span><span class="s">"id"</span><span class="p">,</span><span class="w"> </span><span class="k">json</span><span class="p">.</span><span class="n">int</span><span class="p">(</span><span class="k">t</span><span class="p">.</span><span class="n">id</span><span class="p">)),</span>
+<span class="w">      </span><span class="p">#(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="k">json</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="k">t</span><span class="p">.</span><span class="n">title</span><span class="p">)),</span>
+<span class="w">      </span><span class="p">#(</span><span class="s">"done"</span><span class="p">,</span><span class="w"> </span><span class="k">json</span><span class="p">.</span><span class="n">bool</span><span class="p">(</span><span class="k">t</span><span class="p">.</span><span class="n">done</span><span class="p">)),</span>
+<span class="w">    </span><span class="p">])</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">json</span><span class="p">.</span><span class="n">to_string</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>json.array(list)</code> encodes a list of JSON values as a JSON array</li>
+<li><code>json.object([#(key, value), ...])</code> encodes a record as a JSON object</li>
+<li><code>json.int</code>, <code>json.string</code>, <code>json.bool</code> wrap Gleam values</li>
+<li><code>json.to_string</code> serializes the entire structure to a <code>String</code></li>
+</ul>
+<p>The resulting JSON looks like:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"learn Gleam"</span><span class="p">,</span><span class="nt">"done"</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"build API"</span><span class="p">,</span><span class="nt">"done"</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2>HTTP Routes</h2>
+<ul>
+<li>In a full Wisp application the router dispatches on method and path:</li>
+</ul>
+<div data-inc="snippets/router.gleam" data-mark="router_fn"><span aria-label="Source: api/snippets/router.gleam" class="inc-path" role="img" tabindex="0" title="api/snippets/router.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">router</span><span class="p">(</span><span class="n">req</span><span class="p">:</span><span class="w"> </span><span class="n">Request</span><span class="p">,</span><span class="w"> </span><span class="n">todos_subject</span><span class="p">:</span><span class="w"> </span><span class="n">Subject</span><span class="p">(</span><span class="n">Msg</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">wisp</span><span class="p">.</span><span class="n">path_segments</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="s">"todos"</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="k">req</span><span class="p">.</span><span class="n">method</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Get</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">handle_get_all</span><span class="p">(</span><span class="n">todos_subject</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Post</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">handle_post</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">todos_subject</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">wisp</span><span class="p">.</span><span class="n">method_not_allowed</span><span class="p">([</span><span class="n">Get</span><span class="p">,</span><span class="w"> </span><span class="n">Post</span><span class="p">])</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">[</span><span class="s">"todos"</span><span class="p">,</span><span class="w"> </span><span class="n">id_str</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="k">req</span><span class="p">.</span><span class="n">method</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Delete</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">handle_delete</span><span class="p">(</span><span class="n">id_str</span><span class="p">,</span><span class="w"> </span><span class="n">todos_subject</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Patch</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">handle_patch</span><span class="p">(</span><span class="n">id_str</span><span class="p">,</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">todos_subject</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">wisp</span><span class="p">.</span><span class="n">method_not_allowed</span><span class="p">([</span><span class="n">Delete</span><span class="p">,</span><span class="w"> </span><span class="n">Patch</span><span class="p">])</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">wisp</span><span class="p">.</span><span class="n">not_found</span><span class="p">()</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>wisp.path_segments</code> splits the URL path into a list of strings</li>
+<li>Pattern matching on the list handles both fixed paths (<code>"todos"</code>)
+    and paths with parameters (<code>"todos", id_str</code>)</li>
+<li><code>wisp.method_not_allowed</code> returns a <a class="gl-ref" href="../glossary/#http_405">405 response</a>
+    with the <code>Allow</code> header set</li>
+</ul>
+<h2>JSON Decoding</h2>
+<ul>
+<li>Parsing the <code>POST</code> body requires decoding an untyped JSON value:</li>
+</ul>
+<div data-inc="snippets/router.gleam" data-mark="decode_body_fn"><span aria-label="Source: api/snippets/router.gleam" class="inc-path" role="img" tabindex="0" title="api/snippets/router.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">decode_add_body</span><span class="p">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">Dynamic</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">dynamic</span><span class="p">.</span><span class="n">DecodeError</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">dynamic</span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">string</span><span class="p">)(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dynamic.field("title", dynamic.string)</code> extracts the <code>"title"</code> field
+    and asserts it is a string</li>
+<li>The return type <code>Result(String, List(DecodeError))</code>
+    forces the caller to handle missing or wrongly-typed fields</li>
+<li>Composing field decoders with <code>dynamic.decode2</code> or <code>dynamic.decode3</code>
+    handles records with multiple fields</li>
+</ul>
+<h2>Adding a Database</h2>
+<ul>
+<li>The actor's <code>List(Todo)</code> disappears when the process restarts</li>
+<li>Replacing it with <a href="https://www.sqlite.org/">SQLite</a> or some other database makes data survive restarts
+    and supports indexed queries that would be expensive over an in-memory list</li>
+<li>The HTTP routes and JSON encoding do not change; only the storage layer changes</li>
+<li>Open the database at startup and pass the connection to the actor:</li>
+</ul>
+<div data-inc="snippets/db.gleam" data-mark="insert_todo_fn"><span aria-label="Source: api/snippets/db.gleam" class="inc-path" role="img" tabindex="0" title="api/snippets/db.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">insert_todo</span><span class="p">(</span><span class="n">conn</span><span class="p">:</span><span class="w"> </span><span class="n">Connection</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Todo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"INSERT INTO todos (title, done) VALUES (?, ?)"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="k">sqlight</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="n">title</span><span class="p">),</span><span class="w"> </span><span class="k">sqlight</span><span class="p">.</span><span class="n">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">sqlight</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">row_decoder</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">([</span><span class="k">todo</span><span class="p">,</span><span class="w"> </span><span class="p">..])</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="k">todo</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">([])</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"insert returned no rows"</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="k">sqlight</span><span class="p">.</span><span class="n">error_to_string</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>sqlight.text(title)</code> and <code>sqlight.int(0)</code> wrap parameters as SQL values</li>
+<li><code>?</code> placeholders are replaced in order</li>
+<li>Never interpolate user input directly into SQL strings<ul>
+<li>Doing so enables <a class="gl-ref" href="../glossary/#sql_injection">SQL injection attacks</a></li>
+</ul>
+</li>
+</ul>
+<h2>Row Decoder</h2>
+<ul>
+<li>Each result row arrives as <code>Dynamic</code></li>
+<li>A decoder extracts columns by index:</li>
+</ul>
+<div data-inc="snippets/db.gleam" data-mark="row_decoder_fn"><span aria-label="Source: api/snippets/db.gleam" class="inc-path" role="img" tabindex="0" title="api/snippets/db.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">row_decoder</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">Decoder</span><span class="p">(</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">dynamic</span><span class="p">.</span><span class="n">decode3</span><span class="p">(</span>
+<span class="w">    </span><span class="k">fn</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="k">dynamic</span><span class="p">.</span><span class="n">element</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">int</span><span class="p">),</span>
+<span class="w">    </span><span class="k">dynamic</span><span class="p">.</span><span class="n">element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">string</span><span class="p">),</span>
+<span class="w">    </span><span class="k">dynamic</span><span class="p">.</span><span class="n">element</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">dynamic</span><span class="p">.</span><span class="n">int</span><span class="p">),</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dynamic.element(0, dynamic.int)</code> reads column 0 as an integer</li>
+<li><code>done == 1</code> converts SQLite's integer <code>0</code>/<code>1</code> to <code>Bool</code></li>
+<li><code>dynamic.decode3</code> assembles the three columns using the constructor</li>
+</ul>
+<h2>Migrations</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#database_migration">migration</a> is a SQL script that changes the schema
+    without losing data</li>
+<li>Running all migrations at startup ensures the database is always in the expected state:</li>
+</ul>
+<div data-inc="snippets/db.gleam" data-mark="migrations_fn"><span aria-label="Source: api/snippets/db.gleam" class="inc-path" role="img" tabindex="0" title="api/snippets/db.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">run_migrations</span><span class="p">(</span><span class="n">conn</span><span class="p">:</span><span class="w"> </span><span class="n">Connection</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">Nil</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">migrations</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">"CREATE TABLE IF NOT EXISTS todos (</span>
+<span class="s">       id INTEGER PRIMARY KEY AUTOINCREMENT,</span>
+<span class="s">       title TEXT NOT NULL,</span>
+<span class="s">       done INTEGER NOT NULL DEFAULT 0</span>
+<span class="s">     )"</span><span class="p">,</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">try_each</span><span class="p">(</span><span class="n">migrations</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">sqlight</span><span class="p">.</span><span class="n">exec</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">conn</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map_error</span><span class="p">(</span><span class="k">sqlight</span><span class="p">.</span><span class="n">error_to_string</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>CREATE TABLE IF NOT EXISTS</code> makes the migration <a class="gl-ref" href="../glossary/#idempotent">idempotent</a><ul>
+<li>So it is safe to run against an existing database</li>
+</ul>
+</li>
+<li>New schema changes are always appended as new entries<ul>
+<li>Existing migrations are never modified</li>
+</ul>
+</li>
+<li>Opening <code>:memory:</code> in tests gives a fresh database per test with no cleanup required</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/api_test.gleam" data-mark="tests"><span aria-label="Source: api/test/api_test.gleam" class="inc-path" role="img" tabindex="0" title="api/test/api_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_creates_item_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">todos</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">add</span><span class="p">([],</span><span class="w"> </span><span class="s">"learn Gleam"</span><span class="p">)</span>
+<span class="w">  </span><span class="k">item</span><span class="p">.</span><span class="n">title</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="s">"learn Gleam"</span><span class="p">)</span>
+<span class="w">  </span><span class="k">item</span><span class="p">.</span><span class="n">done</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">todos</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">mark_done_updates_flag_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">todos</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">add</span><span class="p">([],</span><span class="w"> </span><span class="s">"task"</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mark_done</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">first</span><span class="p">(</span><span class="n">updated</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Todo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"task"</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">remove_deletes_item_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">todos</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">add</span><span class="p">([],</span><span class="w"> </span><span class="s">"task"</span><span class="p">)</span>
+<span class="w">  </span><span class="n">remove</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>All tests exercise the logic tier directly<ul>
+<li>no HTTP or actor setup needed</li>
+</ul>
+</li>
+<li><code>add_creates_item_test</code> checks that the returned item has the right title
+    and that <code>done</code> starts as <code>False</code></li>
+<li><code>mark_done_updates_flag_test</code> confirms that only the targeted item changes</li>
+<li><code>remove_deletes_item_test</code> confirms the list shrinks by one</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is SQL injection and why do parameterised queries prevent it?</summary>
+<p>SQL injection occurs when user-supplied input is concatenated directly into a SQL string.
+A title like <code>"'; DROP TABLE todos; --"</code> would execute a <code>DROP TABLE</code> statement if interpolated naively.
+Parameterised queries send the query and the parameters separately.
+The database driver handles escaping,
+so user input is never interpreted as SQL syntax.
+Always use <code>?</code> placeholders:
+never build SQL strings by interpolating user input.</p>
+</details>
+<details>
+<summary>Why use an OTP actor for state rather than a global variable?</summary>
+<p>Gleam has no global mutable variables,
+so all state must live somewhere explicit.
+An OTP actor is a process that owns its state:
+only the actor reads or writes it, so there is no need for locks.
+Other processes send messages and receive replies;
+the actor serializes concurrent requests automatically.
+If the actor crashes,
+the supervisor restarts it,
+so no other process is affected.
+This "share nothing" model is why BEAM applications can run for years.</p>
+</details>
+<details>
+<summary>The logic tier has no imports from <code>wisp</code> or <code>gleam_otp</code>.
+Why does that matter for testing?</summary>
+<p>Because the logic functions are pure:
+they take data in and return result with no side effects and no external dependencies.
+Tests can call <code>add</code>, <code>mark_done</code>, and <code>remove</code> directly with plain <code>List(Todo)</code> values,
+without starting a server, an actor, or a network socket.
+Keeping business logic in a layer that has no framework dependencies is
+what makes unit testing fast and reliable.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Mark done route (15 minutes)</h3>
+<p>Add <code>PATCH /todos/:id</code> that marks an item as done.
+Update <code>Msg</code> with <code>MarkDone(Int)</code>, add a logic function, and add a Wisp handler.
+Write a test that posts an item and then patches it.</p>
+</div>
+<div class="exercise">
+<h3>Input validation (10 minutes)</h3>
+<p>Reject a <code>POST</code> with an empty title (<code>""</code>) and return <code>400 Bad Request</code>.
+Add this check in the HTTP tier (after decoding), not in the logic tier.
+Write a test confirming the 400 response.</p>
+</div>
+<div class="exercise">
+<h3>Priority field (20 minutes)</h3>
+<p>Add <code>type Priority { High  Medium  Low }</code> and a <code>priority</code> field to <code>Todo</code>.
+Update encoding (use <code>json.string(priority_to_string(p))</code>)
+and decoding (parse the string back to a variant),
+and add tests.</p>
+</div>
+<div class="exercise">
+<h3>Filter by status (10 minutes)</h3>
+<p>Add <code>GET /todos?done=true</code> that returns only completed items.
+Use <code>wisp.get_query</code> to read the query parameter and filter the list in the logic tier.
+Write tests for both <code>?done=true</code> and <code>?done=false</code>.</p>
+</div>
+<div class="exercise">
+<h3>SQLite persistence (20 minutes)</h3>
+<p>Replace the actor's <code>List(Todo)</code> with a <code>sqlight.Connection</code>.
+Update <code>Add</code>, <code>MarkDone</code>, and <code>Remove</code> to run parameterised queries.
+Use <code>sqlight.open(":memory:")</code> in tests so each test starts with a fresh database.
+Confirm that the same HTTP-tier tests still pass without modification.</p>
+</div>
+<div class="exercise">
+<h3>Transactional batch insert (20 minutes)</h3>
+<p>Write <code>insert_many(conn: Connection, titles: List(String)) -&gt; Result(List(Todo), String)</code>.
+Wrap all inserts in a transaction: <code>BEGIN</code>, insert each, <code>COMMIT</code>.
+If any insert fails, <code>ROLLBACK</code> and return an <code>Error</code>.
+Write a test that confirms a failed batch leaves no partial data.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../vm">Virtual Machine</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../lustre">Lustre Frontend Counter and Form</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supervised Worker Pool</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a class="active" href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Supervised Worker Pool</h1>
+<div class="callout">
+<ul>
+<li>A worker pool distributes jobs across multiple workers;
+    the pool tracks which workers are alive and which have crashed.</li>
+<li>The "let it crash" philosophy: workers do not defend against bad input;
+    they crash, and a supervisor restarts them.</li>
+<li>This demo models crash and restart as state transitions
+    rather than actual OTP processes, to focus on the logic.</li>
+<li>On the BEAM, <code>gleam_otp/supervisor</code> manages the restart cycle automatically;
+    <code>one_for_one</code> restarts only the crashed child.</li>
+<li>Process isolation means a crashed worker cannot corrupt the state
+    of other workers or the dispatcher.</li>
+</ul>
+</div>
+<h2>The Worker Pool Pattern</h2>
+<ul>
+<li>A worker pool is a fixed set of processes, each waiting for a job</li>
+<li>A dispatcher sends jobs to workers in round-robin order (or some other strategy)</li>
+<li>If a worker crashes, a supervisor restarts it; the other workers continue</li>
+<li>This pattern appears in web servers, database connection pools, image processors,
+    and anything with a bounded set of concurrent tasks</li>
+</ul>
+<h2>Types</h2>
+<div data-inc="src/pool_demo.gleam" data-mark="pool_type"><span aria-label="Source: workers/src/pool_demo.gleam" class="inc-path" role="img" tabindex="0" title="workers/src/pool_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Process</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Worker</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Worker</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">alive</span><span class="p">:</span><span class="w"> </span><span class="n">Bool</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Pool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Pool</span><span class="p">(</span><span class="n">workers</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Worker</span><span class="p">),</span><span class="w"> </span><span class="n">results</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Job</code> wraps a single integer to process (a stand-in for real work)</li>
+<li><code>Worker</code> has an ID and an <code>alive</code> flag</li>
+<li><code>Pool</code> holds the worker list and the results collected so far</li>
+<li>In a real OTP application, <code>Worker</code> would be an actor process,
+    and <code>alive</code> would be replaced by monitoring the process with <code>process.monitor</code></li>
+</ul>
+<h2>Dispatching Jobs</h2>
+<div data-inc="src/pool_demo.gleam" data-mark="dispatch_fn"><span aria-label="Source: workers/src/pool_demo.gleam" class="inc-path" role="img" tabindex="0" title="workers/src/pool_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">dispatch_jobs</span><span class="p">(</span><span class="n">workers</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Worker</span><span class="p">),</span><span class="w"> </span><span class="n">jobs</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Job</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Pool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Pool</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span><span class="w"> </span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="n">job</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Process</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">worker_idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">results</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">workers</span><span class="p">)</span>
+<span class="w">        </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span>
+<span class="w">          </span><span class="s">"worker "</span>
+<span class="w">          </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">worker_idx</span><span class="p">)</span>
+<span class="w">          </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" processing "</span>
+<span class="w">          </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">n</span><span class="p">),</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="n">Pool</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="k">pool</span><span class="p">.</span><span class="n">results</span><span class="p">])</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>list.length(pool.results) % list.length(pool.workers)</code>
+    distributes jobs evenly across workers by index</li>
+<li>The result is <code>n * 2</code> (a trivial transformation representing work)</li>
+<li>A real dispatcher would call the worker actor with <code>process.send</code>
+    and collect replies on a <code>Subject</code></li>
+</ul>
+<h2>Crash and Restart</h2>
+<div data-inc="src/pool_demo.gleam" data-mark="crash_restart_fn"><span aria-label="Source: workers/src/pool_demo.gleam" class="inc-path" role="img" tabindex="0" title="workers/src/pool_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">crash_worker</span><span class="p">(</span><span class="n">pool</span><span class="p">:</span><span class="w"> </span><span class="n">Pool</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Pool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">new_workers</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Worker</span><span class="p">(</span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">False</span><span class="p">)</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">w</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="n">Pool</span><span class="p">(</span><span class="n">new_workers</span><span class="p">,</span><span class="w"> </span><span class="k">pool</span><span class="p">.</span><span class="n">results</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">restart_worker</span><span class="p">(</span><span class="n">pool</span><span class="p">:</span><span class="w"> </span><span class="n">Pool</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Pool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">new_workers</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="p">!</span><span class="k">w</span><span class="p">.</span><span class="n">alive</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"worker "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" restarted"</span><span class="p">)</span>
+<span class="w">          </span><span class="n">Worker</span><span class="p">(</span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">w</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="n">Pool</span><span class="p">(</span><span class="n">new_workers</span><span class="p">,</span><span class="w"> </span><span class="k">pool</span><span class="p">.</span><span class="n">results</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>crash_worker</code> simulates a crash by setting <code>alive: False</code></li>
+<li><code>restart_worker</code> sets <code>alive: True</code> again and logs the restart</li>
+<li>In a real OTP supervisor, <code>crash_worker</code> would be <code>process.exit(pid, abnormal)</code>
+    and <code>restart_worker</code> would be the supervisor's automatic response</li>
+</ul>
+<h2>The "Let It Crash" Philosophy</h2>
+<ul>
+<li>In traditional programming, every function defends against bad input:</li>
+</ul>
+<div data-inc="snippets/let_it_crash.py" data-mark="python_defense"><span aria-label="Source: workers/snippets/let_it_crash.py" class="inc-path" role="img" tabindex="0" title="workers/snippets/let_it_crash.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"negative input"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>
+</div>
+<ul>
+<li>In BEAM Erlang and Gleam, the idiom is to let the process crash
+    and rely on the supervisor to restart it:</li>
+</ul>
+<div data-inc="snippets/let_it_crash.gleam" data-mark="gleam_crash"><span aria-label="Source: workers/snippets/let_it_crash.gleam" class="inc-path" role="img" tabindex="0" title="workers/snippets/let_it_crash.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">process</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="k">assert</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">// panics on negative input</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>BEAM processes are isolated: a crash does not affect other processes</li>
+<li>The supervisor detects the crash via a process monitor and calls the start function again</li>
+<li>The worker starts fresh with clean state; the total downtime per worker is microseconds</li>
+<li>In Python, a crashed thread can leave shared data in a corrupt state</li>
+<li>On the BEAM, a crashed process leaves nothing behind:
+    its memory is freed and its mailbox is discarded</li>
+</ul>
+<h2>OTP Supervisors in Practice</h2>
+<div data-inc="snippets/otp_supervisor.gleam" data-mark="supervisor_example"><span aria-label="Source: workers/snippets/otp_supervisor.gleam" class="inc-path" role="img" tabindex="0" title="workers/snippets/otp_supervisor.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">start_worker</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">actor</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">Nil</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">job</span><span class="p">,</span><span class="w"> </span><span class="n">_state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Process</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="k">assert</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">// crashes on negative</span>
+<span class="w">        </span><span class="k">actor</span><span class="p">.</span><span class="n">Continue</span><span class="p">(</span><span class="n">Nil</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">supervisor</span><span class="p">.</span><span class="n">worker</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">start_worker</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="k">supervisor</span><span class="p">.</span><span class="n">start_link</span><span class="p">(</span><span class="k">supervisor</span><span class="p">.</span><span class="n">OneForOne</span><span class="p">,</span><span class="w"> </span><span class="n">children</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>supervisor.OneForOne</code> restarts only the crashed child</li>
+<li><code>supervisor.OneForAll</code> restarts all children when any one crashes
+    (useful when workers share state)</li>
+<li><code>supervisor.RestForOne</code> restarts the crashed child and all children defined after it</li>
+</ul>
+<h2>Broadcasting to Subscribers</h2>
+<ul>
+<li>A worker pool handles jobs in isolation,
+    but some actors must deliver results to multiple listeners simultaneously</li>
+<li>The pattern: the actor holds a list of <code>Subject</code> values, one per subscriber;
+    on each event it sends to all of them</li>
+</ul>
+<div data-inc="snippets/broadcast.gleam" data-mark="broadcast_types"><span aria-label="Source: workers/snippets/broadcast.gleam" class="inc-path" role="img" tabindex="0" title="workers/snippets/broadcast.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Subscribe</span><span class="p">(</span><span class="k">process</span><span class="p">.</span><span class="n">Subject</span><span class="p">(</span><span class="n">String</span><span class="p">))</span>
+<span class="w">  </span><span class="n">Broadcast</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="snippets/broadcast.gleam" data-mark="broadcast_handle"><span aria-label="Source: workers/snippets/broadcast.gleam" class="inc-path" role="img" tabindex="0" title="workers/snippets/broadcast.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span>
+<span class="w">  </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="n">Msg</span><span class="p">,</span>
+<span class="w">  </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">process</span><span class="p">.</span><span class="n">Subject</span><span class="p">(</span><span class="n">String</span><span class="p">)),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">actor</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="k">process</span><span class="p">.</span><span class="n">Subject</span><span class="p">(</span><span class="n">String</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Subscribe</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">actor</span><span class="p">.</span><span class="n">Continue</span><span class="p">([</span><span class="n">sub</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">state</span><span class="p">])</span>
+<span class="w">    </span><span class="n">Broadcast</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">list</span><span class="p">.</span><span class="n">each</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">process</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">      </span><span class="k">actor</span><span class="p">.</span><span class="n">Continue</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>process.send</code> is non-blocking;
+    the actor delivers to each subscriber's mailbox and moves on
+    without waiting for acknowledgement</li>
+<li>The BEAM scheduler ensures fairness between processes without explicit <code>yield</code> calls</li>
+<li>Subscribers that crash are removed from the list via process monitoring:
+    <code>process.monitor</code> sends a <code>Down</code> message when a monitored process exits</li>
+</ul>
+<h2>Capping Stateful History</h2>
+<ul>
+<li>Actors that accumulate history (message logs, event queues) must bound their state
+    or memory grows without limit</li>
+<li>A simple cap: prepend to the list, then trim if over the limit:</li>
+</ul>
+<div data-inc="src/pool_demo.gleam" data-mark="append_capped_fn"><span aria-label="Source: workers/src/pool_demo.gleam" class="inc-path" role="img" tabindex="0" title="workers/src/pool_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">append_capped</span><span class="p">(</span><span class="n">history</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">item</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">limit</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">history</span><span class="p">]</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">updated</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="n">updated</span><span class="p">,</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span>
+<span class="w">    </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">updated</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>list.take(updated, limit)</code> keeps only the most recent <code>limit</code> entries</li>
+<li>Apply the same pattern to any actor state that grows monotonically:
+    log buffers, recent-event queues, audit trails</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/workers_test.gleam" data-mark="tests"><span aria-label="Source: workers/test/workers_test.gleam" class="inc-path" role="img" tabindex="0" title="workers/test/workers_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">dispatch_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">workers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Worker</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">),</span><span class="w"> </span><span class="n">Worker</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dispatch_jobs</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">Process</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="k">pool</span><span class="p">.</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">compare</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">crash_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">workers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Worker</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">),</span><span class="w"> </span><span class="n">Worker</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Pool</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">crashed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">crash_worker</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="k">crashed</span><span class="p">.</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">alive</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">restart_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">workers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Worker</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">),</span><span class="w"> </span><span class="n">Worker</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">False</span><span class="p">)]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Pool</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">restarted</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">restart_worker</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="k">restarted</span><span class="p">.</span><span class="n">workers</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">w</span><span class="p">.</span><span class="n">alive</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dispatch_test</code> confirms jobs are processed and results doubled</li>
+<li><code>crash_test</code> verifies that <code>crash_worker</code> sets the target worker's <code>alive</code> flag to <code>False</code></li>
+<li><code>restart_test</code> verifies that <code>restart_worker</code> sets it back to <code>True</code></li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>How does the BEAM handle thousands of concurrent connections?</summary>
+<p>Each connection becomes a BEAM process.
+BEAM processes are lightweight:
+the default stack is only a few hundred bytes,
+and millions can coexist on a single machine.
+The scheduler runs processes in round-robin on each CPU core;
+no explicit thread management is needed.
+If one connection's process crashes (for example, due to a malformed message),
+only that connection is affected; all others continue.
+This is why Erlang other BEAM-based are popular for chat servers,
+phone systems,
+and other high-connection workloads.</p>
+</details>
+<details>
+<summary>Why is <code>one_for_all</code> a separate strategy?</summary>
+<p>Consider a pool where all workers share access to a database connection.
+If one worker crashes, the connection might be in an indeterminate state
+that would cause the other workers to also fail.
+<code>one_for_all</code> restarts all children when any one crashes,
+ensuring they all start fresh together.
+<code>one_for_one</code> is correct when workers are fully independent,
+which is the common case for stateless request handlers.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>One-for-all strategy (10 minutes)</h3>
+<p>Explain what would change if <code>dispatch_jobs</code> were replaced
+by an OTP supervisor using <code>OneForAll</code> instead of <code>OneForOne</code>.
+Which scenario would benefit from <code>OneForAll</code>?
+Add a second test that simulates crashing one worker and assert the
+pool remains operational.</p>
+</div>
+<div class="exercise">
+<h3>Least-busy dispatcher (20 minutes)</h3>
+<p>Track each worker's current job count in <code>Worker</code>.
+Change <code>dispatch_jobs</code> to assign each job to the worker with the
+fewest active jobs rather than round-robin.
+Write a test confirming that an uneven job distribution assigns the
+second job to the idle worker.</p>
+</div>
+<div class="exercise">
+<h3>Restart counter (15 minutes)</h3>
+<p>Add a <code>restart_count: Int</code> field to <code>Worker</code>.
+Increment it in <code>restart_worker</code>.
+Write a function <code>over_limit(pool: Pool, limit: Int) -&gt; List(Int)</code>
+that returns the IDs of workers whose restart count exceeds <code>limit</code>.
+Add tests.</p>
+</div>
+<div class="exercise">
+<h3>Skip crashed workers (10 minutes)</h3>
+<p>Modify <code>dispatch_jobs</code> to skip workers with <code>alive: False</code>.
+Write a test where one of three workers is crashed and confirm jobs are
+distributed only to the two alive workers.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../client">HTTP API Client with JSON Decoding</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../dataframe">Dataframes</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

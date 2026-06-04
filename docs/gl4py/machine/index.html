@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>State Machines</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a class="active" href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>State Machines</h1>
+<div class="callout">
+<ul>
+<li>A finite state machine models a system as a fixed set of states
+    and a function that maps (state, event) pairs to the next state.</li>
+<li>Representing states and events as custom types lets the compiler check
+    that every case is handled.</li>
+<li>The transition function returns <code>Result(State, String)</code> to reject invalid
+    event sequences at runtime.</li>
+<li>A recursive <code>run</code> function applies a list of events one at a time,
+    stopping on the first error.</li>
+</ul>
+</div>
+<h2>Why State Machines?</h2>
+<ul>
+<li>Every time a browser sends an HTTP request,
+    the server processes it through a fixed sequence of steps:<ul>
+<li>Read the incoming bytes</li>
+<li>Match the URL to a handler</li>
+<li>Run that handler</li>
+<li>Write a response back</li>
+</ul>
+</li>
+<li>An experienced developer holds this picture in their head;
+    a <a class="gl-ref" href="../glossary/#finite_state_machine">finite state machine</a> puts it in the code</li>
+<li>The core idea:<ul>
+<li>a fixed set of states the system can be in</li>
+<li>a fixed set of events that can arrive</li>
+<li>a transition function that says "if I am in state S and event E arrives,
+    move to state N"</li>
+</ul>
+</li>
+<li>Any event that has no entry in the table for the current state is invalid,
+    which is how the machine enforces legal behavior</li>
+<li>State machines appear everywhere:
+    <a class="gl-ref" href="../glossary/#tcp">TCP</a> connection handling,
+    UI workflow steps,
+    and characters in video games</li>
+</ul>
+<h2>The States and Events</h2>
+<ul>
+<li>An HTTP request lifecycle has six states:</li>
+</ul>
+<div data-inc="src/machine_demo.gleam" data-mark="types"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Idle</span>
+<span class="w">    </span><span class="n">Reading</span>
+<span class="w">    </span><span class="n">Routing</span>
+<span class="w">    </span><span class="n">Handling</span>
+<span class="w">    </span><span class="n">Sending</span>
+<span class="w">    </span><span class="n">Done</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Event</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Connect</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Match</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">    </span><span class="n">NoMatch</span>
+<span class="w">    </span><span class="n">Response</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Sent</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Idle</code> waits for a new connection</li>
+<li><code>Reading</code> receives incoming bytes from the network</li>
+<li><code>Routing</code> matches the request path to a registered handler</li>
+<li><code>Handling</code> runs the application code for that handler</li>
+<li><code>Sending</code> writes the response bytes back to the client</li>
+<li><code>Done</code> signals that the response was delivered</li>
+<li>The events that drive those transitions:<ul>
+<li><code>Connect</code>: a new TCP connection arrives</li>
+<li><code>Data(String)</code>: the request line (method and path) has been read</li>
+<li><code>Match(String)</code>: a route handler was found for the path</li>
+<li><code>NoMatch</code>: no handler matched (the server will return 404)</li>
+<li><code>Response(Int)</code>: the handler finished with an HTTP status code</li>
+<li><code>Sent</code>: all response bytes were flushed to the network</li>
+</ul>
+</li>
+<li>Carrying data inside event variants (<code>Data</code>, <code>Match</code>, <code>Response</code>)
+    lets callers attach context even if the transition function ignores it
+    for the purpose of deciding which state comes next</li>
+</ul>
+<h2>The Transition Function</h2>
+<div data-inc="src/machine_demo.gleam" data-mark="step_fn"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">Event</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="n">Error</span><span class="p">(</span>
+<span class="w">                </span><span class="s">"cannot handle "</span>
+<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" in state "</span>
+<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>case state, event</code> matches on both values simultaneously
+    without wrapping them in a tuple</li>
+<li>Each valid pair maps to <code>Ok(next_state)</code>; everything else maps to
+    an <code>Error</code> carrying a message</li>
+<li><code>string.inspect</code> renders the state and event without a custom formatter</li>
+<li>Only six transitions are valid; the <code>_, _</code> arm rejects all other combinations</li>
+<li>This is the complete rule table of the machine,
+    written as a single pattern match</li>
+</ul>
+<h2>Running a Sequence of Events</h2>
+<div data-inc="src/machine_demo.gleam" data-mark="run_fn"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Event</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="w">        </span><span class="p">[</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Ok</span><span class="p">(</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>run</code> applies a list of events to a starting state,
+    returning the final state or the first error</li>
+<li>Base case: no events remain, so the current state is the result</li>
+<li>Recursive case: apply <code>step</code> to the first event;
+    if it fails, return the error immediately;
+    otherwise recurse with the new state and the remaining events</li>
+<li>Once a bad event arrives, no further events are processed</li>
+</ul>
+<h2>The Happy Path and the 404 Path</h2>
+<div data-inc="src/machine_demo.gleam" data-mark="main_example"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">happy_path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="n">Connect</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Sent</span><span class="p">,</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Happy path: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">happy_path</span><span class="p">)))</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">not_found</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Not found: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">not_found</span><span class="p">)))</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Bad event: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">bad</span><span class="p">)))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The happy path moves through all six states:
+    <code>Idle → Reading → Routing → Handling → Sending → Done</code></li>
+<li>The <a class="gl-ref" href="../glossary/#http_404">404</a> path skips <code>Handling</code> entirely:
+    <code>NoMatch</code> transitions directly from <code>Routing</code> to <code>Sending</code>,
+    because there is no handler to run</li>
+<li>Both paths end at <code>Ok(Done)</code></li>
+<li>The bad path tries <code>Sent</code> while still in <code>Reading</code>,
+    which is nonsense, and gets an <code>Error</code> explaining exactly what went wrong</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/machine_test.gleam" data-mark="tests"><span aria-label="Source: machine/test/machine_test.gleam" class="inc-path" role="img" tabindex="0" title="machine/test/machine_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">idle_connect_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">reading_data_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">routing_match_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">routing_not_found_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">handling_response_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">sending_sent_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">invalid_transition_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">happy_path_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="n">Connect</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Sent</span><span class="p">,</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">not_found_path_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">stops_on_error_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each single-step test calls <code>step</code> directly with one state and one event</li>
+<li><code>should.equal(Ok(Reading))</code> verifies the exact next state</li>
+<li><code>should.be_error()</code> checks that an invalid transition is rejected
+    without caring about the error message text</li>
+<li>The <code>run</code> tests verify complete event sequences,
+    which is closer to how the machine is actually used in production</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does <code>step</code> return <code>Result(State, String)</code> rather than just <code>State</code>?</summary>
+<p>A real server can receive malformed or out-of-order events:
+a client might drop the connection mid-request,
+or a bug might deliver the wrong event at the wrong time.
+Returning <code>Result</code> forces the caller to decide what to do when an invalid event arrives.
+If <code>step</code> returned a bare <code>State</code>, the only options would be to panic,
+silently stay in the current state, or add a sentinel state like <code>Crashed</code>.
+<code>Result</code> keeps the transition function pure
+and lets the caller handle the failure in whatever way makes sense for its context.</p>
+</details>
+<details>
+<summary>What happens to events after an invalid transition in the list passed to <code>run</code>?</summary>
+<p>They are never processed.
+<code>run</code> stops immediately and returns the <code>Error</code> from <code>step</code>.
+This is the short-circuit behavior in the recursive case:
+when <code>step</code> returns <code>Error(msg)</code>, the function returns <code>Error(msg)</code>
+without recursing further.
+The final valid state reached just before the error is also lost;
+a caller that needs to recover it would have to change <code>run</code>
+to return both the last valid state and the error message.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Trace transitions (10 minutes)</h3>
+<p>Write <code>trace(initial: State, events: List(Event)) -&gt; List(String)</code>
+that returns one human-readable string per successful transition,
+formatted as <code>"Idle --Connect--&gt; Reading"</code>.
+Stop without adding an entry when an invalid event is encountered.</p>
+</div>
+<div class="exercise">
+<h3>Reset event (15 minutes)</h3>
+<p>Add <code>Reset</code> to <code>Event</code>.
+<code>step</code> should accept <code>Reset</code> from any state and return <code>Ok(Idle)</code>.
+Write at least three tests:
+one that resets from <code>Handling</code>,
+one from <code>Sending</code>,
+and one confirming that <code>run</code> handles a reset in the middle of a longer event list
+and that the events following the reset proceed correctly from <code>Idle</code>.</p>
+</div>
+<div class="exercise">
+<h3>Valid events (15 minutes)</h3>
+<p>Write <code>valid_events(state: State) -&gt; List(Event)</code> that returns every event
+that produces <code>Ok</code> from the given state.
+Do not call <code>step</code> inside the function; enumerate the transitions directly.
+Write one test per state confirming that every event in the returned list
+really does produce <code>Ok</code> from that state,
+and that <code>valid_events(Idle)</code> does not include <code>Sent</code> or <code>Response(0)</code>.</p>
+</div>
+<div class="exercise">
+<h3>HTTP keepalive (20 minutes)</h3>
+<p>In HTTP/1.1, a connection can serve multiple requests without reconnecting.
+Modify <code>step</code> so that <code>Done + Data(_) -&gt; Ok(Routing)</code>,
+skipping <code>Reading</code> since the TCP connection is already open.
+Write two tests:
+one showing a two-request keepalive sequence that ends at <code>Done</code> after both requests,
+and one confirming that <code>Done + Connect</code> still returns <code>Error</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../dataframe">Dataframes</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../prop">Property-Based Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

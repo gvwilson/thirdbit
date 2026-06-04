@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vector Clocks and Eventual Consistency</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a class="active" href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Vector Clocks and Eventual Consistency</h1>
+<div class="callout">
+<ul>
+<li>The CAP theorem says a distributed system subject to network partitions
+    must choose between consistency and availability.</li>
+<li>Vector clocks track causal history:
+    each node's counter records how many events that node has seen.</li>
+<li>Merging two clocks takes the element-wise maximum,
+    producing a clock that reflects everything both nodes have seen.</li>
+<li>One clock dominates another if every counter is at least as large.</li>
+<li>When neither clock dominates the other,
+    the writes are concurrent and a conflict resolution policy is needed.</li>
+</ul>
+</div>
+<h2>The CAP Theorem</h2>
+<ul>
+<li>When a network partition splits a distributed system
+    into two groups that cannot communicate,
+    it must make a choice between:<ul>
+<li>Consistency: every node sees the same data,
+    even if that means refusing some requests until connectivity is restored</li>
+<li>Availability:
+    every node continues to respond,
+    even if that means different nodes return different values</li>
+</ul>
+</li>
+<li>Most distributed databases choose availability
+    and provide <a class="gl-ref" href="../glossary/#eventual_consistency">eventual consistency</a><ul>
+<li>Replicas diverge during a partition and converge when they reconnect</li>
+</ul>
+</li>
+<li>This lesson models the convergence mechanism: <a class="gl-ref" href="../glossary/#vector_clock">vector clocks</a></li>
+</ul>
+<h2>Vector Clocks</h2>
+<ul>
+<li>A vector clock is a map from node IDs to event counts</li>
+<li>When node <code>n</code> performs an operation, it increments its own counter</li>
+<li>When two nodes synchronize, they merge their clocks by taking the element-wise maximum</li>
+<li>The representation is a <code>Dict(String, Int)</code>:</li>
+</ul>
+<div data-inc="src/clock_demo.gleam" data-mark="merge_fn"><span aria-label="Source: eventual/src/clock_demo.gleam" class="inc-path" role="img" tabindex="0" title="eventual/src/clock_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">merge_clocks</span><span class="p">(</span>
+<span class="w">  </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">),</span>
+<span class="w">  </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">combine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">va</span><span class="p">,</span><span class="w"> </span><span class="n">vb</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="n">va</span><span class="p">,</span><span class="w"> </span><span class="n">vb</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>dict.combine</code> merges two dicts<ul>
+<li>For keys present in both, the merge function is applied</li>
+<li>Keys present in only one dict pass through unchanged</li>
+</ul>
+</li>
+<li><code>int.max(va, vb)</code> keeps the larger counter for each shared key</li>
+</ul>
+<h2>Dominance</h2>
+<ul>
+<li>Clock <code>a</code> dominates clock <code>b</code> if <code>a</code> has seen everything <code>b</code> has seen and possibly more:</li>
+</ul>
+<div data-inc="src/clock_demo.gleam" data-mark="dominates_fn"><span aria-label="Source: eventual/src/clock_demo.gleam" class="inc-path" role="img" tabindex="0" title="eventual/src/clock_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">dominates</span><span class="p">(</span>
+<span class="w">  </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">),</span>
+<span class="w">  </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a_entries</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">all</span><span class="p">(</span><span class="n">a_entries</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">count_a</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">count_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">unwrap</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">count_a</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">count_b</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>For every node in <code>a</code>, <code>a</code>'s counter must be <code>&gt;=</code> <code>b</code>'s counter</li>
+<li><code>result.unwrap(dict.get(b, node), 0)</code> treats a missing counter as zero<ul>
+<li>If <code>b</code> has not recorded any events from that node, <code>a</code>'s value is automatically <code>&gt;=</code></li>
+</ul>
+</li>
+<li><code>dominates(a, b)</code> means <code>a</code> happened after <code>b</code> (causally)</li>
+<li>If both <code>dominates(a, b)</code> and <code>dominates(b, a)</code> are false, the writes are concurrent</li>
+</ul>
+<h2>Simulating Two Replicas</h2>
+<ul>
+<li>Replica A has only seen events from node <code>n1</code>:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>{"n1": 1}
+</code></pre></div>
+<ul>
+<li>Replica B has seen more events from <code>n1</code> and also events from <code>n2</code>:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>{"n1": 2, "n2": 1}
+</code></pre></div>
+<ul>
+<li><code>dominates(a, b)</code> is false: <code>a</code>'s <code>n1</code> counter (1) is less than <code>b</code>'s (2)</li>
+<li>After merging, the combined clock is:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>{"n1": 2, "n2": 1}
+</code></pre></div>
+<ul>
+<li>The merged clock dominates both originals</li>
+<li>This is the mathematical property that guarantees eventual convergence<ul>
+<li>Any two replicas that exchange clocks and merge will reach the same state</li>
+</ul>
+</li>
+</ul>
+<h2>Versioned Values</h2>
+<ul>
+<li>To track which version of a value is current, pair the value with its clock:</li>
+</ul>
+<div data-inc="src/clock_demo.gleam" data-mark="versioned_type"><span aria-label="Source: eventual/src/clock_demo.gleam" class="inc-path" role="img" tabindex="0" title="eventual/src/clock_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Versioned</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">clock</span><span class="p">:</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="src/clock_demo.gleam" data-mark="resolve_fn"><span aria-label="Source: eventual/src/clock_demo.gleam" class="inc-path" role="img" tabindex="0" title="eventual/src/clock_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">resolve</span><span class="p">(</span>
+<span class="w">  </span><span class="n">local</span><span class="p">:</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
+<span class="w">  </span><span class="n">remote</span><span class="p">:</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">merged_clock</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">merge_clocks</span><span class="p">(</span><span class="k">local</span><span class="p">.</span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="k">remote</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">dominates</span><span class="p">(</span><span class="k">local</span><span class="p">.</span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="k">remote</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="k">local</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">merged_clock</span><span class="p">)</span>
+<span class="w">    </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">dominates</span><span class="p">(</span><span class="k">remote</span><span class="p">.</span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="k">local</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="k">remote</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">merged_clock</span><span class="p">)</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="k">local</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="k">remote</span><span class="p">.</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">order</span><span class="p">.</span><span class="n">Lt</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">order</span><span class="p">.</span><span class="n">Eq</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="k">local</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">merged_clock</span><span class="p">)</span>
+<span class="w">            </span><span class="k">order</span><span class="p">.</span><span class="n">Gt</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Versioned</span><span class="p">(</span><span class="k">remote</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">merged_clock</span><span class="p">)</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Versioned(v)</code> is a generic type: any <code>v</code> can be versioned</li>
+<li><code>resolve</code> picks the newer value when one clock dominates the other</li>
+<li>For concurrent writes, it falls back to a deterministic tie-break<ul>
+<li>Here: <code>string.compare</code> picks the lexicographically smaller value</li>
+</ul>
+</li>
+<li>The merged clock always advances: no information is lost</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/eventual_test.gleam" data-mark="tests"><span aria-label="Source: eventual/test/eventual_test.gleam" class="inc-path" role="img" tabindex="0" title="eventual/test/eventual_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">merge_takes_max_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">merged</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">merge_clocks</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="s">"n1"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="s">"n2"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">dominates_true_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)])</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">dominates_false_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)])</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">concurrent_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)])</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">merged_dominates_both_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)])</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">merged</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">merge_clocks</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>merge_takes_max_test</code> checks that the merged clock holds the maximum counter per node</li>
+<li><code>dominates_true_test</code> and <code>dominates_false_test</code> cover both directions of the relation</li>
+<li><code>concurrent_test</code> confirms that neither clock dominates when counters have crossed</li>
+<li><code>merged_dominates_both_test</code> verifies the convergence guarantee</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is a grow-only counter (G-counter)?</summary>
+<p>A G-counter is the simplest CRDT (conflict-free replicated data type).
+Each node maintains a count of how many times it has incremented.
+The global count is the sum of all nodes' counts.
+To merge two G-counters, take the element-wise maximum (the same as <code>merge_clocks</code>).
+The result is always <code>&gt;=</code> either input, so merges can never decrease the count.
+This is exactly what vector clocks represent: a G-counter per node ID.</p>
+</details>
+<details>
+<summary>Node <code>n1</code> has clocks <code>{"n1": 2, "n2": 1}</code> and <code>{"n1": 1, "n2": 3}</code>.
+Does either clock dominate the other, and what does the merged clock look like?</summary>
+<p>Neither dominates the other.
+For the first clock to dominate the second, every counter must be <code>&gt;=</code>.
+The <code>n1</code> counter satisfies that (2 &gt;= 1), but the <code>n2</code> counter does not (1 &lt; 3).
+These are concurrent writes.</p>
+<p>The merged clock is <code>{"n1": 2, "n2": 3}</code>: element-wise maximum.
+The merged clock dominates both originals.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>G-counter (15 minutes)</h3>
+<p>Implement a grow-only counter as a type alias for <code>Dict(String, Int)</code>.
+Write <code>increment(counter, node_id)</code> that adds 1 to the given node's
+count, <code>merge_counters(a, b)</code> using <code>merge_clocks</code>, and
+<code>total(counter)</code> that returns the sum of all counts.
+Simulate two replicas each incrementing independently; merge and assert
+the total is the sum of both.</p>
+</div>
+<div class="exercise">
+<h3>Versioned store (20 minutes)</h3>
+<p>Implement <code>type Versioned(v) { Versioned(value: v, clock: Dict(String, Int)) }</code>.
+Write <code>resolve(local: Versioned(a), remote: Versioned(a)) -&gt; Versioned(a)</code>
+that returns the dominant version or, for concurrent writes, the
+version with the lexicographically smaller value.
+Write three tests: local dominates, remote dominates, concurrent.</p>
+</div>
+<div class="exercise">
+<h3>Increment clock (10 minutes)</h3>
+<p>Write <code>increment(clock: Dict(String, Int), node: String) -&gt; Dict(String, Int)</code>
+that bumps the counter for <code>node</code> by 1.
+Add tests confirming that incrementing a node not yet in the clock
+starts it at 1 and that incrementing an existing node adds 1 to its
+current value.</p>
+</div>
+<div class="exercise">
+<h3>Concurrent write count (10 minutes)</h3>
+<p>Write <code>count_concurrent(versions: List(Versioned(String))) -&gt; Int</code> that
+counts how many pairs of versions in the list are concurrent (neither
+dominates the other).
+Test with a list where all versions are from the same causal history
+(count = 0) and one where all are concurrent (count = n*(n-1)/2).</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../kvstore">Log-Structured Key-Value Store</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../vm">Virtual Machine</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

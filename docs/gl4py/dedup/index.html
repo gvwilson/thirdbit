@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>File Deduplicator</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a class="active" href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>File Deduplicator</h1>
+<div class="callout">
+<ul>
+<li>Files with identical content have identical cryptographic hashes.</li>
+<li><code>gleam/dict</code> provides an efficient key-value store.</li>
+<li><code>dict.get</code> returns a <code>Result</code> to force explicit handling of the missing-key case.</li>
+<li>Extending a data representation is straightforward when the types are explicit.</li>
+</ul>
+</div>
+<h2>The Problem</h2>
+<ul>
+<li>Disk space fills up with copies of the same file scattered across directories</li>
+<li>A file deduplicator scans a set of paths,
+    groups them by content,
+    and reports which groups contain more than one copy</li>
+<li>Standard approach is to <a class="gl-ref" href="../glossary/#hash">hash</a> each file's contents<ul>
+<li>Two files with the same hash almost certainly have the same bytes</li>
+</ul>
+</li>
+<li>In production, a cryptographic hash like SHA-256 is computed from the file's bytes;
+    in this example, <code>hash_content</code> returns the content string directly
+    to keep the code self-contained</li>
+</ul>
+<h2>Grouping Files by Hash</h2>
+<ul>
+<li>A <code>Dict(String, List(String))</code> maps each hash to the list of file paths that share it</li>
+<li>Build this dictionary one file at a time:</li>
+</ul>
+<div data-inc="src/group_demo.gleam" data-mark="group_fn"><span aria-label="Source: dedup/src/group_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/group_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">group_by_hash</span><span class="p">(</span>
+<span class="w">  </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(#(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">file</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">hash_content</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">unwrap</span><span class="p">([])</span>
+<span class="w">    </span><span class="k">dict</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">existing</span><span class="p">])</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>list.fold</code> iterates over <code>files</code>, threading the accumulator <code>acc</code> through each step</li>
+<li>Each file is a <code>#(path, content)</code> pair; <code>hash_content(content)</code> produces the lookup key</li>
+<li><code>dict.get(acc, hash)</code> returns <code>Ok(existing_list)</code> if the hash is already present
+     or <code>Error(Nil)</code> if it is not</li>
+<li><code>result.unwrap([])</code> is used via <code>|&gt;</code> to provide an empty list as the default<ul>
+<li><code>dict.get</code> returns <code>Result(v, Nil)</code>, so <code>result.unwrap</code> extracts the value or returns the default</li>
+</ul>
+</li>
+<li><code>dict.insert(acc, hash, [path, ..existing])</code> prepends the new path
+    and stores the updated list</li>
+<li>Each call to <code>list.fold</code> produces a new dictionary<ul>
+<li>Gleam data structures are immutable, so the original <code>acc</code> is never mutated</li>
+</ul>
+</li>
+</ul>
+<h2>Finding Duplicates</h2>
+<p>Once the files are grouped, finding duplicates is a filter:</p>
+<div data-inc="src/group_demo.gleam" data-mark="find_fn"><span aria-label="Source: dedup/src/group_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/group_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">find_duplicates</span><span class="p">(</span>
+<span class="w">  </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(#(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">files</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">group_by_hash</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">values</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>group_by_hash</code> returns the dict of all groups</li>
+<li><code>dict.values</code> extracts just the lists (dropping the hash keys)</li>
+<li><code>list.filter</code> keeps only groups where <code>list.length(paths) &gt; 1</code></li>
+<li>To limit the result to the top ten groups by size, add <code>|&gt; list.take(10)</code> at the end</li>
+</ul>
+<h2>Reporting</h2>
+<ul>
+<li>Convert the structural result into a human-readable string:</li>
+</ul>
+<div data-inc="src/group_demo.gleam" data-mark="report_fn"><span aria-label="Source: dedup/src/group_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/group_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">report_duplicates</span><span class="p">(</span><span class="n">groups</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"no duplicates found"</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span>
+<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" duplicate group(s) found"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The empty-list case is explicit<ul>
+<li>Returning a special string is clearer than returning <code>""</code>
+ and letting the caller decide what it means</li>
+</ul>
+</li>
+</ul>
+<h2>Tracking File Size</h2>
+<ul>
+<li>Knowing that duplicates exist is useful</li>
+<li>Knowing how much space they waste is more useful</li>
+<li>Add a <code>size</code> field to the record type to capture this:</li>
+</ul>
+<div data-inc="src/size_demo.gleam" data-mark="fileinfo"><span aria-label="Source: dedup/src/size_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/size_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">FileInfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">FileInfo</span><span class="p">(</span><span class="n">path</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The extended function returns both the duplicate groups and the total wasted bytes:</li>
+</ul>
+<div data-inc="src/size_demo.gleam" data-mark="size_fn"><span aria-label="Source: dedup/src/size_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/size_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">find_duplicates_with_size</span><span class="p">(</span>
+<span class="w">  </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">FileInfo</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">#(</span><span class="n">List</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)),</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">grouped</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="n">hash</span><span class="p">)</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(#(</span><span class="n">existing_paths</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="k">file</span><span class="p">.</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">existing_paths</span><span class="p">]</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="k">file</span><span class="p">.</span><span class="n">path</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">dict</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="p">#(</span><span class="n">paths</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="n">size</span><span class="p">))</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">dup_groups</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="n">grouped</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">values</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">paths</span><span class="p">,</span><span class="w"> </span><span class="n">_size</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">      </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">dup_paths</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">dup_groups</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">paths</span><span class="p">,</span><span class="w"> </span><span class="n">_size</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">    </span><span class="n">paths</span>
+<span class="w">  </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">savings</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="n">dup_groups</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">paths</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">copies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">copies</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">  </span><span class="p">#(</span><span class="n">dup_paths</span><span class="p">,</span><span class="w"> </span><span class="n">savings</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The grouped dict now stores <code>#(paths, size)</code> tuples instead of plain lists</li>
+<li>The <code>dup_groups</code> filter still checks <code>list.length(paths) &gt; 1</code></li>
+<li><code>savings</code> folds over the duplicate groups:
+     for each group with <code>n</code> copies, <code>(n - 1) * size</code> bytes are redundant</li>
+<li>The return type <code>#(List(List(String)), Int)</code> is a tuple<ul>
+<li>A named record type would be clearer for a function with more fields to return</li>
+</ul>
+</li>
+</ul>
+<h2>Walking the Filesystem</h2>
+<ul>
+<li>The demos above use hand-crafted lists; a real deduplicator reads actual files</li>
+<li>Two additions are needed: reading command-line arguments and walking a directory tree</li>
+<li>The <code>argv</code> package provides <code>argv.load().arguments</code>, a <code>List(String)</code> of the arguments
+    passed after <code>--</code> when running <code>gleam run -- /path/to/dir</code>:</li>
+</ul>
+<div data-inc="src/walk_demo.gleam" data-mark="args_fn"><span aria-label="Source: dedup/src/walk_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/walk_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">get_root</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">argv</span><span class="p">.</span><span class="n">load</span><span class="p">().</span><span class="n">arguments</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="p">..]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">path</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">simplifile</span><span class="p">.</span><span class="n">current_directory</span><span class="p">()</span>
+<span class="w">      </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">unwrap</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>simplifile.read_directory</code> lists the names (not full paths) of entries in one directory</li>
+<li><code>filepath.join</code> builds the full path; <code>simplifile.file_info</code> returns metadata including <code>size</code></li>
+<li><code>simplifile.file_info_type</code> distinguishes regular files from directories and other entries:</li>
+</ul>
+<div data-inc="src/walk_demo.gleam" data-mark="walk_fn"><span aria-label="Source: dedup/src/walk_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/walk_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/// Recursively collect all regular files under `root`.</span>
+<span class="sd">/// Returns a list of #(path, size) pairs.</span>
+<span class="sd">/// Entries that cannot be read are silently skipped.</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">collect_files</span><span class="p">(</span><span class="n">root</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(#(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">simplifile</span><span class="p">.</span><span class="n">read_directory</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">names</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">list</span><span class="p">.</span><span class="n">flat_map</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">filepath</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="k">simplifile</span><span class="p">.</span><span class="n">file_info</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">          </span><span class="n">Ok</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="k">simplifile</span><span class="p">.</span><span class="n">file_info_type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">simplifile</span><span class="p">.</span><span class="n">File</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[#(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">info</span><span class="p">.</span><span class="n">size</span><span class="p">)]</span>
+<span class="w">              </span><span class="k">simplifile</span><span class="p">.</span><span class="n">Directory</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">collect_files</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="w">              </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>list.flat_map</code> is used instead of <code>list.map</code> because each entry may expand to zero or more results<ul>
+<li>An unreadable entry returns <code>[]</code>, a file returns a one-element list, and a directory recurses</li>
+</ul>
+</li>
+<li>Reading the file content and using it as a hash key is only practical for small files;
+    in production, replace <code>hash_file</code> with a call to a crypto library:</li>
+</ul>
+<div data-inc="src/walk_demo.gleam" data-mark="hash_fn"><span aria-label="Source: dedup/src/walk_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/walk_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="sd">/// In production, use a crypto library (e.g. gleam_crypto) to compute</span>
+<span class="sd">/// SHA-256 of the file's bytes. Here we read the file and use its</span>
+<span class="sd">/// content directly so the example needs no extra dependencies.</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">hash_file</span><span class="p">(</span><span class="n">path</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">simplifile</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map_error</span><span class="p">(</span><span class="k">simplifile</span><span class="p">.</span><span class="n">describe_error</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The <code>run</code> function ties everything together: walk, hash, group, and report:</li>
+</ul>
+<div data-inc="src/walk_demo.gleam" data-mark="run_fn"><span aria-label="Source: dedup/src/walk_demo.gleam" class="inc-path" role="img" tabindex="0" title="dedup/src/walk_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="n">collect_files</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">flat_map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entry</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">hash_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[#(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">)]</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="n">savings</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">find_duplicates_with_size</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"no duplicates found"</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">groups</span><span class="p">))</span>
+<span class="w">      </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" duplicate group(s); "</span>
+<span class="w">      </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">savings</span><span class="p">)</span>
+<span class="w">      </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" bytes could be freed"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2>Testing</h2>
+<div data-inc="test/dedup_test.gleam" data-mark="examples"><span aria-label="Source: dedup/test/dedup_test.gleam" class="inc-path" role="img" tabindex="0" title="dedup/test/dedup_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">no_duplicates_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/a.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"aaa"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/b.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"bbb"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/c.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"ccc"</span><span class="p">),</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="n">find_duplicates</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">([])</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">one_group_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/a.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"abc"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/b.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"def"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/c.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"abc"</span><span class="p">),</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">find_duplicates</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">three_copies_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/a.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"xyz"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/b.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"xyz"</span><span class="p">),</span>
+<span class="w">    </span><span class="p">#(</span><span class="s">"/c.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"xyz"</span><span class="p">),</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">find_duplicates</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">groups</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">first</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>no_duplicates_test</code> confirms the base case</li>
+<li><code>one_group_test</code> checks that two files with the same hash form one group</li>
+<li><code>three_copies_test</code> digs into the group to verify it contains three paths</li>
+<li>Tests do not care about ordering within a group<ul>
+<li>If ordering matters (e.g., for deterministic output),
+     use <code>list.sort(result, string.compare)</code> before asserting</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does <code>dict.get</code> return <code>Result</code> instead of a default value?</summary>
+<p><code>dict.get</code> could return <code>Nil</code> or an empty list when a key is missing,
+but that would silently hide bugs:
+a function that returns <code>[]</code> when the key is absent
+looks exactly like a function that found an empty list.
+Returning <code>Result(List(String), Nil)</code> forces the caller to decide what to do.
+In this code the right default is <code>[]</code>,
+so <code>|&gt; result.unwrap([])</code> makes that choice explicit rather than hiding it.</p>
+</details>
+<details>
+<summary>Why does <code>group_by_hash</code> prepend the new path with <code>[path, ..existing]</code>
+instead of appending it with <code>list.append(existing, [path])</code>?</summary>
+<p>Prepending with <code>[path, ..existing]</code> is O(1) in Gleam because lists are linked lists:
+it creates a new node pointing to the existing list without copying it.
+Appending with <code>list.append</code> is O(n) because it must traverse the entire existing list
+to attach the new element at the end.
+Since the order of paths within a duplicate group does not affect correctness,
+prepending is the right choice here.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Most-duplicated file (10 minutes)</h3>
+<p>Given the result of <code>find_duplicates</code>,
+write a function <code>most_duplicated</code> that returns the group with the most copies.
+Its return type should be <code>Result(List(String), Nil)</code>:
+<code>Ok(group)</code> when at least one duplicate group exists,
+and <code>Error(Nil)</code> when there are no duplicates.
+Write two tests:
+one for an empty input and one for a list with multiple groups of different sizes.</p>
+</div>
+<div class="exercise">
+<h3>Size savings (15 minutes)</h3>
+<p>The <code>find_duplicates_with_size</code> function shows how to track wasted space alongside duplicate groups.
+If a file with hash H appears n times and each copy is s bytes,
+then n - 1 of those copies are redundant, wasting (n - 1) * s bytes.</p>
+<p>Using <code>FileInfo</code> (path, hash, size),
+write <code>find_duplicates_with_size</code> and return <code>#(List(List(String)), Int)</code> as shown in the size demo.
+Write tests confirming the savings calculation is correct for two groups of different sizes.</p>
+</div>
+<div class="exercise">
+<h3>Skip unreadable files (10 minutes)</h3>
+<p>Change the input to <code>List(#(String, Result(String, String)))</code>
+ where the <code>Result</code> represents either a valid hash or a read error.
+Filter out <code>Error</code> entries before grouping.
+Write a test confirming that a file with an <code>Error</code> hash is excluded from the results.</p>
+</div>
+<div class="exercise">
+<h3>First-block optimisation (20 minutes)</h3>
+<p>Real deduplicators avoid hashing large files in full when a quick check can rule out duplicates.
+The trick is to hash only the first block (e.g., the first 4 KB) of each file to get a <code>prefix_hash</code>,
+then compute the <code>full_hash</code> only for files that share a <code>prefix_hash</code>.
+Files that differ in their first block cannot be identical,
+so skipping their full hash saves time.</p>
+<p>Simulate this by giving each file two hashes in a record:
+<code>prefix_hash</code> (hash of a short prefix) and <code>full_hash</code> (hash of the entire content).
+Group by <code>prefix_hash</code> first; only form full-hash groups for files
+whose <code>prefix_hash</code> groups have size &gt; 1.
+Return only true duplicates (i.e., files that share the same <code>full_hash</code>).</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../glob">Glob Pattern Matcher</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../binary">Binary Data Packer</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

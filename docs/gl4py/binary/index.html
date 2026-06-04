@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Binary Data Packer</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a class="active" href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Binary Data Packer</h1>
+<div class="callout">
+<ul>
+<li><code>BitArray</code> represents sequences of bits and bytes</li>
+<li><code>&lt;&lt;n:32-big, rest:bits&gt;&gt;</code> in a pattern destructures a <code>BitArray</code>
+    into a 32-bit big-endian integer and the remaining bytes</li>
+<li>A format descriptor type (<code>Fmt</code>) mirrors the value type (<code>Value</code>)
+    but carries no data, separating schema from content</li>
+<li>Encoding and decoding recurse over paired lists of formats and values</li>
+<li><code>Result(List(Value), String)</code> propagates decode errors cleanly</li>
+</ul>
+</div>
+<h2>The Value and Format Types</h2>
+<ul>
+<li>Text representations like JSON are easy to read but wasteful<ul>
+<li>The integer <code>1000000</code> takes seven bytes as ASCII
+    but only four bytes as a 32-bit integer</li>
+<li>And good luck representing a movie as characters</li>
+</ul>
+</li>
+<li>Two types work together:</li>
+</ul>
+<div data-inc="src/pack_demo.gleam" data-mark="value_types"><span aria-label="Source: binary/src/pack_demo.gleam" class="inc-path" role="img" tabindex="0" title="binary/src/pack_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">VInt</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">VStr</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Fmt</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">FInt</span>
+<span class="w">  </span><span class="n">FStr</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Value</code> represents a single value that can be packed:
+    either an integer or a string</li>
+<li><code>Fmt</code> is the <a class="gl-ref" href="../glossary/#schema">schema</a> descriptor:
+    it says what kind of value to expect at each position</li>
+<li><code>FInt</code> and <code>FStr</code> carry no payload: they are pure tags</li>
+<li>Keeping them separate means
+    the same format list can pack different value lists without mixing concerns</li>
+<li>The closest equivalent in Python is the <code>struct</code> format string <code>"&gt;I7s"</code><ul>
+<li>But that is an untyped string with no compiler help</li>
+<li>Here the types enforce that every <code>FInt</code> in the format list
+    lines up with a <code>VInt</code> in the value list</li>
+</ul>
+</li>
+</ul>
+<h2>Packing Values</h2>
+<ul>
+<li><code>pack</code> encodes a list of values guided by a format list:</li>
+</ul>
+<div data-inc="src/pack_demo.gleam" data-mark="pack_fn"><span aria-label="Source: binary/src/pack_demo.gleam" class="inc-path" role="img" tabindex="0" title="binary/src/pack_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">pack</span><span class="p">(</span><span class="n">formats</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Fmt</span><span class="p">),</span><span class="w"> </span><span class="n">values</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Value</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">BitArray</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[],</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">&lt;&lt;&gt;&gt;</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FInt</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">frest</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">VInt</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">vrest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="p">&lt;&lt;</span><span class="n">n</span><span class="p">:</span><span class="mi">32</span><span class="o">-</span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">pack</span><span class="p">(</span><span class="n">frest</span><span class="p">,</span><span class="w"> </span><span class="n">vrest</span><span class="p">):</span><span class="n">bits</span><span class="p">&gt;&gt;</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FStr</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">frest</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">VStr</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">vrest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">string_to_bytes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">bit_array</span><span class="p">.</span><span class="n">byte_size</span><span class="p">(</span><span class="n">bytes</span><span class="p">)</span>
+<span class="w">      </span><span class="p">&lt;&lt;</span><span class="n">len</span><span class="p">:</span><span class="mi">32</span><span class="o">-</span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">:</span><span class="n">bits</span><span class="p">,</span><span class="w"> </span><span class="n">pack</span><span class="p">(</span><span class="n">frest</span><span class="p">,</span><span class="w"> </span><span class="n">vrest</span><span class="p">):</span><span class="n">bits</span><span class="p">&gt;&gt;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">&lt;&lt;&gt;&gt;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>&lt;&lt;&gt;&gt;</code> is an empty <code>BitArray</code></li>
+<li><code>&lt;&lt;n:32-big, pack(frest, vrest):bits&gt;&gt;</code> concatenates
+    a 32-bit <a class="gl-ref" href="../glossary/#big_endian">big-endian</a> integer with the recursive result<ul>
+<li><code>:bits</code> splices a <code>BitArray</code> into a larger one</li>
+</ul>
+</li>
+<li>For strings, <code>string_to_bytes</code> converts the <code>String</code> to UTF-8 bytes<ul>
+<li><code>bit_array.byte_size</code> measures it</li>
+<li>Then the length is written as a 32-bit prefix before the bytes</li>
+</ul>
+</li>
+<li>The final <code>_, _ -&gt; &lt;&lt;&gt;&gt;</code> handles mismatched lists<ul>
+<li>In production code this would return a <code>Result</code></li>
+</ul>
+</li>
+<li>The <code>BitArray</code> literal syntax mirrors pattern-matching syntax</li>
+<li>The same annotations (<code>32-big</code>, <code>utf8</code>, <code>bits</code>) appear on both sides</li>
+<li>This symmetry makes encoding and decoding code look parallel</li>
+</ul>
+<h2>Unpacking Values</h2>
+<ul>
+<li>Decoding reverses the process by consuming bytes
+     guided by the same format list:</li>
+</ul>
+<div data-inc="src/pack_demo.gleam" data-mark="unpack_fn"><span aria-label="Source: binary/src/pack_demo.gleam" class="inc-path" role="img" tabindex="0" title="binary/src/pack_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">unpack_loop</span><span class="p">(</span>
+<span class="w">  </span><span class="n">formats</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Fmt</span><span class="p">),</span>
+<span class="w">  </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">BitArray</span><span class="p">,</span>
+<span class="w">  </span><span class="n">acc</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Value</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">Value</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FInt</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">frest</span><span class="p">],</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="n">n</span><span class="p">:</span><span class="mi">32</span><span class="o">-</span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">:</span><span class="n">bits</span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="n">unpack_loop</span><span class="p">(</span><span class="n">frest</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">VInt</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FStr</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">frest</span><span class="p">],</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="n">len</span><span class="p">:</span><span class="mi">32</span><span class="o">-</span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">str_data</span><span class="p">:</span><span class="n">bytes</span><span class="o">-</span><span class="n">size</span><span class="p">(</span><span class="n">len</span><span class="p">),</span><span class="w"> </span><span class="n">rest</span><span class="p">:</span><span class="n">bits</span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">str_data</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">bytes_to_string</span>
+<span class="w">      </span><span class="n">unpack_loop</span><span class="p">(</span><span class="n">frest</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">VStr</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"unexpected end of data"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>&lt;&lt;n:32-big, rest:bits&gt;&gt;</code> binds the first four bytes as an integer
+    and <code>rest</code> as the remaining bytes</li>
+<li><code>&lt;&lt;len:32-big, str_data:bytes-size(len), rest:bits&gt;&gt;</code> reads the length prefix,
+    then reads exactly <code>len</code> bytes into <code>str_data</code></li>
+<li><code>bit_array.to_string(str_data)</code> converts those bytes back to a <code>String</code>
+    and returns <code>Ok(s)</code> or <code>Error(Nil)</code> if the bytes are not valid UTF-8</li>
+<li>Values are accumulated in reverse and reversed at the end</li>
+<li><code>Error("unexpected end of data")</code> fires when the pattern match fails,
+    meaning the <code>BitArray</code> ran out of bytes before the format list did</li>
+<li>The <code>bytes-size(len)</code> annotation is the key to variable-length fields<ul>
+<li>It reads exactly <code>len</code> bytes, where <code>len</code> was bound by the preceding <code>len:32-big</code></li>
+</ul>
+</li>
+</ul>
+<h2>Handling Corrupt Data</h2>
+<ul>
+<li>Decoding real-world data requires dealing with truncation and corruption</li>
+</ul>
+<div data-inc="src/unpack_demo.gleam" data-mark="corrupt_demo"><span aria-label="Source: binary/src/unpack_demo.gleam" class="inc-path" role="img" tabindex="0" title="binary/src/unpack_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">FStr</span><span class="p">,</span><span class="w"> </span><span class="n">FInt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">VStr</span><span class="p">(</span><span class="s">"Ada"</span><span class="p">),</span><span class="w"> </span><span class="n">VInt</span><span class="p">(</span><span class="mi">30</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">packed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"packed byte size: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="k">bit_array</span><span class="p">.</span><span class="n">byte_size</span><span class="p">(</span><span class="n">packed</span><span class="p">)))</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">unpacked</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">unpack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">packed</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">unpacked</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">corrupted</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="n">packed</span><span class="p">:</span><span class="n">bits</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">&gt;&gt;</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">unpack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">corrupted</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">failed</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>&lt;&lt;packed:bits, 255&gt;&gt;</code> appends an extra byte to simulate
+     a corrupted or over-long message</li>
+<li><code>unpack</code> is called with the same format list and the corrupted data</li>
+<li>Because the format list is exhausted first (all values decoded),
+    the extra byte is silently ignored<ul>
+<li><code>Ok(list.reverse(acc))</code> fires when the format list is empty,
+    regardless of remaining bytes</li>
+</ul>
+</li>
+<li>To reject trailing bytes, change the base case to
+    <code>[], &lt;&lt;&gt;&gt; -&gt; Ok(list.reverse(acc))</code> and
+    <code>[], _ -&gt; Error("trailing bytes")</code></li>
+<li>The debug output shows that the round-trip succeeds<ul>
+<li>I.e., the extra byte does not corrupt the result</li>
+</ul>
+</li>
+</ul>
+<h2>BitArray Literal Syntax Reference</h2>
+<p>These annotations appear identically in construction (<code>&lt;&lt;n:32-big&gt;&gt;</code>)
+and in pattern matching (<code>&lt;&lt;n:32-big, rest:bits&gt;&gt;</code>).</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Annotation</th>
+<th scope="col">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>n:8</code></td>
+<td>8-bit unsigned integer</td>
+</tr>
+<tr>
+<td><code>n:16-big</code></td>
+<td>16-bit big-endian integer</td>
+</tr>
+<tr>
+<td><code>n:32-big</code></td>
+<td>32-bit big-endian integer</td>
+</tr>
+<tr>
+<td><code>n:64-big</code></td>
+<td>64-bit big-endian integer</td>
+</tr>
+<tr>
+<td><code>s:utf8</code></td>
+<td>UTF-8 encoded string</td>
+</tr>
+<tr>
+<td><code>data:bytes</code></td>
+<td>a <code>BitArray</code> as raw bytes</td>
+</tr>
+<tr>
+<td><code>data:bits</code></td>
+<td>a <code>BitArray</code> as raw bits</td>
+</tr>
+<tr>
+<td><code>data:bytes-size(len)</code></td>
+<td>exactly <code>len</code> bytes (len must be bound earlier)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout">
+<p>Python's <code>struct.pack("&gt;I", 42)</code> and <code>struct.unpack("&gt;I", data)</code> do the same job
+ but the format string is parsed at runtime.
+A typo in <code>"&gt;II"</code> (two integers) is a runtime error, not a compile error.</p>
+<p>Gleam checks the <code>BitArray</code> annotations at compile time.
+The format descriptor list (<code>List(Fmt)</code>) is also statically typed:
+<code>[FInt, FStr, FInt]</code> will only accept <code>[VInt(...), VStr(...), VInt(...)]</code>.
+A mismatched list falls through to the <code>_, _ -&gt; &lt;&lt;&gt;&gt;</code> fallback,
+which could be made into a <code>Result</code> error.</p>
+<p>The tradeoff is that Python's <code>struct</code> handles dozens of format characters
+(floats, signed integers, padding) out of the box.
+Gleam's <code>BitArray</code> handles arbitrary bit widths and endianness natively,
+but floating-point packing requires either bit manipulation or an extra library.</p>
+</div>
+<h2>Testing</h2>
+<div data-inc="test/binary_test.gleam" data-mark="examples"><span aria-label="Source: binary/test/binary_test.gleam" class="inc-path" role="img" tabindex="0" title="binary/test/binary_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">roundtrip_int_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">FInt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">VInt</span><span class="p">(</span><span class="mi">42</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">pack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">unpack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="n">VInt</span><span class="p">(</span><span class="mi">42</span><span class="p">)]))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">roundtrip_string_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">FStr</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">VStr</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">pack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">unpack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="n">VStr</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">)]))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">roundtrip_mixed_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">FInt</span><span class="p">,</span><span class="w"> </span><span class="n">FStr</span><span class="p">,</span><span class="w"> </span><span class="n">FInt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">VInt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">VStr</span><span class="p">(</span><span class="s">"hello"</span><span class="p">),</span><span class="w"> </span><span class="n">VInt</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="w">  </span><span class="n">pack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="n">unpack</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each test packs a value and immediately unpacks it,
+    checking that the decoded list equals the original</li>
+<li><code>truncated_data_test</code> passes only one byte for an integer field<ul>
+<li>The pattern <code>&lt;&lt;n:32-big, rest:bits&gt;&gt;</code> cannot match,
+    so <code>Error("unexpected end of data")</code> is returned</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is big-endian and why does it matter?</summary>
+<p>Big-endian stores the most significant byte first.
+The number 1 as a 32-bit big-endian integer is <code>00 00 00 01</code>.
+Little-endian (used by x86 processors) reverses this: <code>01 00 00 00</code>.
+Network protocols  like TCP/IP use big-endian,
+sometimes called "network byte order".
+When two systems with different native endianness communicate,
+using an explicit annotation (<code>32-big</code> or <code>32-little</code>)
+ensures both sides agree on the byte order.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Name and age record (15 minutes)</h3>
+<p>Pack a record containing a name (<code>String</code>) and an age (<code>Int</code>).
+Unpack it and confirm with <code>should.equal</code>.
+Then intentionally truncate the packed bytes to one fewer byte
+and confirm <code>unpack</code> returns an <code>Error</code>.</p>
+</div>
+<div class="exercise">
+<h3>Reject trailing bytes (10 minutes)</h3>
+<p>Modify <code>unpack_loop</code> so that leftover bytes after all format fields have been consumed
+produce <code>Error("trailing bytes")</code>.
+Add a test that packs <code>[VInt(1)]</code> and then appends an extra byte,
+confirming the error is returned.</p>
+</div>
+<div class="exercise">
+<h3>Add a float type (20 minutes)</h3>
+<p>Add <code>VFloat(Float)</code> to <code>Value</code> and <code>FFloat</code> to <code>Fmt</code>.
+Gleam floats are 64-bit IEEE 754.
+The annotation for a 64-bit float in a <code>BitArray</code> is <code>f:float</code>.
+Update <code>pack</code> and <code>unpack_loop</code> to handle the new variant and write two tests.</p>
+</div>
+<div class="exercise">
+<h3>Nested record (20 minutes)</h3>
+<p>Design a format that packs a list of records,
+where the list itself is length-prefixed.
+Add <code>FList(List(Fmt))</code> to <code>Fmt</code> and handle it in <code>pack</code> and <code>unpack_loop</code>.
+A packed list starts with a 32-bit count
+followed by that many repetitions of the inner format.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../dedup">File Deduplicator</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../kvstore">Log-Structured Key-Value Store</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

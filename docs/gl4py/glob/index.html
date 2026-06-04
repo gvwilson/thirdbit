@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glob Pattern Matcher</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a class="active" href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Glob Pattern Matcher</h1>
+<div class="callout">
+<ul>
+<li>Shell-style glob patterns like <code>*.gleam</code> and <code>data?.csv</code>
+    can be represented as lists of typed elements.</li>
+<li>We can parse the usual string representation to create such lists.</li>
+<li>Recursive pattern matching consumes one element at a time.</li>
+<li>The <code>Wildcard</code> case requires backtracking:
+    try skipping the wildcard, and if that fails,
+    consume one input character and try again.</li>
+<li>Use <code>gleeunit</code>  to write unit tests for Gleam.</li>
+</ul>
+</div>
+<h2>The Problem</h2>
+<ul>
+<li>Command-line shells use patterns like <code>*.gleam</code>, <code>data?.csv</code>, and <code>report_2024*</code>
+    to match groups of filenames<ul>
+<li>These patterns are called <a class="gl-ref" href="../glossary/#glob">globs</a> (short for "global")</li>
+</ul>
+</li>
+<li>
+<p>Three rules cover everything a basic glob matcher needs:</p>
+</li>
+<li>
+<p><code>*</code> matches any sequence of characters, including the empty sequence</p>
+</li>
+<li><code>?</code> matches any single character</li>
+<li>
+<p>Everything else matches exactly itself</p>
+</li>
+<li>
+<p>Writing a glob matcher uses custom types, recursion, and pattern matching
+    in a single small program</p>
+</li>
+</ul>
+<h2>Representing Pattern Elements</h2>
+<ul>
+<li>First design decision is how to represent a parsed pattern</li>
+<li>A <code>String</code> would lose the structure:
+    we could not easily tell a literal asterisk from a wildcard metacharacter.</li>
+<li>A custom type makes each case explicit:</li>
+</ul>
+<div data-inc="src/match_demo.gleam" data-mark="elem_type"><span aria-label="Source: glob/src/match_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/match_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Elem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Literal</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AnyChar</span>
+<span class="w">  </span><span class="n">Wildcard</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Literal(String)</code> holds a single character that must match exactly</li>
+<li><code>AnyChar</code> matches any one character and holds no data</li>
+<li><code>Wildcard</code> matches zero or more characters and holds no data</li>
+<li>Adding a new rule (e.g., character classes) means adding a new variant,
+    and the compiler will flag every <code>case</code> that does not handle it</li>
+<li><code>List(Elem)</code> is the natural representation for a whole pattern<ul>
+<li><code>[Wildcard,  Literal(".gl")]</code> represents <code>*.gl</code></li>
+</ul>
+</li>
+<li>Get matching to work, then build a parser to turn strings into these lists</li>
+</ul>
+<h2>Matching a Pattern Against Text</h2>
+<ul>
+<li>Matching consumes elements and characters in parallel:</li>
+</ul>
+<div data-inc="src/match_demo.gleam" data-mark="match_fn"><span aria-label="Source: glob/src/match_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/match_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">match_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Elem</span><span class="p">),</span><span class="w"> </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">string_to_chars</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Elem</span><span class="p">),</span><span class="w"> </span><span class="n">chars</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[],</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">True</span>
+<span class="w">    </span><span class="p">[],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Literal</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">pat_rest</span><span class="p">],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">drop_prefix</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">to_graphemes</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="n">chars</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pat_rest</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">[</span><span class="n">AnyChar</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">pat_rest</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">char_rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pat_rest</span><span class="p">,</span><span class="w"> </span><span class="n">char_rest</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Wildcard</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">pat_rest</span><span class="p">],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pat_rest</span><span class="p">,</span><span class="w"> </span><span class="n">chars</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">True</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">            </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">char_rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">char_rest</span><span class="p">)</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>match_pattern</code> converts the input string to a list of graphemes
+     and delegates to <code>match_pattern_chars</code></li>
+<li><code>match_pattern_chars</code> <a class="gl-ref" href="../glossary/#dispatch">dispatches</a> on the pair <code>(pattern, chars)</code>:<ul>
+<li>Both empty: success</li>
+<li>Pattern empty but input remains: failure (we required more)</li>
+<li><code>Literal(c)</code> with a matching character: advance both and recurse</li>
+<li><code>AnyChar</code> with any character: advance both and recurse</li>
+<li><code>Wildcard</code>: the two-branch case described below</li>
+<li>Anything else (literal mismatch, empty input when pattern not empty): failure</li>
+</ul>
+</li>
+</ul>
+<h2>Handling Wildcards</h2>
+<ul>
+<li>The <code>Wildcard</code> branch is the most interesting one</li>
+<li>A wildcard can match zero characters (the pattern continues from the same position)
+    or one or more characters (the input advances by one)</li>
+<li>The code tries the zero-match option first:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">[</span><span class="n">Wildcard</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">pat_rest</span><span class="p">],</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pat_rest</span><span class="p">,</span><span class="w"> </span><span class="n">chars</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">True</span>
+<span class="w">    </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">        </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">char_rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">match_pattern_chars</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">char_rest</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Try <code>match_pattern_chars(prest, chars)</code>:
+    does the rest of the pattern match the current input
+    without consuming anything for the wildcard?</li>
+<li>If yes, return <code>True</code></li>
+<li>If no and input is exhausted, return <code>False</code></li>
+<li>
+<p>If no and input remains,
+    consume one character and retry with the same pattern</p>
+<ul>
+<li>The wildcard is still active</li>
+</ul>
+</li>
+<li>
+<p>This is <a class="gl-ref" href="../glossary/#depth_first_backtracking">depth-first backtracking</a></p>
+</li>
+<li>For most practical inputs it is fast enough<ul>
+<li>Pathological patterns like <code>*a*a*a*a*a*b</code> against a long string of <code>a</code>s can be slow,
+    but that is a known trade-off in backtracking matchers</li>
+</ul>
+</li>
+</ul>
+<h2>Parsing Patterns</h2>
+<ul>
+<li><code>src/match_demo.gleam</code> constructs pattern lists by hand</li>
+<li>For real use we need a function that turns <code>"*.gleam"</code> into <code>[Wildcard, Literal(".gleam")]</code></li>
+</ul>
+<div data-inc="src/parse_demo.gleam" data-mark="parse_fn"><span aria-label="Source: glob/src/parse_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/parse_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">parse_pattern</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Elem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">to_graphemes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="w">  </span><span class="n">parse_chars</span><span class="p">(</span><span class="n">chars</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">parse_chars</span><span class="p">(</span><span class="n">chars</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span><span class="w"> </span><span class="n">acc</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Elem</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Elem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="s">"*"</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">parse_chars</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Wildcard</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">    </span><span class="p">[</span><span class="s">"?"</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">parse_chars</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">AnyChar</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">literal</span><span class="p">,</span><span class="w"> </span><span class="n">remaining</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">take_literal</span><span class="p">(</span><span class="n">chars</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">      </span><span class="n">parse_chars</span><span class="p">(</span><span class="n">remaining</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Literal</span><span class="p">(</span><span class="n">literal</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">acc</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parse_pattern</code> converts the string to graphemes and calls the recursive <code>parse_chars</code><ul>
+<li>This pattern of "entry point function calls recursive function" is used a <em>lot</em></li>
+</ul>
+</li>
+<li><code>parse_chars</code> accumulates elements in reverse and reverses at the end</li>
+<li><code>"*"</code> becomes <code>Wildcard</code>, <code>"?"</code> becomes <code>AnyChar</code></li>
+<li>Consecutive non-special characters are collected into a single <code>Literal</code> by <code>take_literal</code><ul>
+<li>Prevents <code>Literal("h")</code>, <code>Literal("e")</code>, <code>Literal("l")</code>, <code>Literal("l")</code>, <code>Literal("o")</code></li>
+</ul>
+</li>
+<li>Notice that <code>Literal</code> holds a <code>String</code>, not a <code>UtfCodepoint</code><ul>
+<li>This lets one <code>Literal</code> represent a multi-character run,
+    which is more efficient and easier to read in debug output</li>
+</ul>
+</li>
+</ul>
+<h2>Running the Examples</h2>
+<div data-inc="parse_demo.sh"><span aria-label="Source: glob/parse_demo.sh" class="inc-path" role="img" tabindex="0" title="glob/parse_demo.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>gleam<span class="w"> </span>run<span class="w"> </span>--module<span class="w"> </span>match_demo
+</code></pre></div>
+</div>
+<div data-inc="out/parse_demo.out"><span aria-label="Source: glob/out/parse_demo.out" class="inc-path" role="img" tabindex="0" title="glob/out/parse_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[Wildcard, Literal(".gleam")]
+[Literal("data"), AnyChar, Literal(".csv")]
+[Literal("hello")]
+</code></pre></div>
+</div>
+<ul>
+<li>The first three test <code>*.gleam</code> against:<ul>
+<li><code>hello.gleam</code> (match)</li>
+<li><code>hello.rs</code> (no match)</li>
+<li><code>.gleam</code> (match, because <code>*</code> can match zero characters)</li>
+</ul>
+</li>
+<li>The last three test <code>d?t</code> against:<ul>
+<li><code>dot</code> (match)</li>
+<li><code>dat</code> (match)</li>
+<li><code>dog</code> (no match, the <code>t</code> is missing)</li>
+</ul>
+</li>
+</ul>
+<h2>Writing Tests</h2>
+<ul>
+<li>Create <code>test/glob_test.gleam</code>:</li>
+</ul>
+<div data-inc="test/glob_test.gleam" data-mark="examples"><span aria-label="Source: glob/test/glob_test.gleam" class="inc-path" role="img" tabindex="0" title="glob/test/glob_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">literal_match_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">match_pattern</span><span class="p">([</span><span class="n">Literal</span><span class="p">(</span><span class="s">"a"</span><span class="p">)],</span><span class="w"> </span><span class="s">"a"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">anychar_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">match_pattern</span><span class="p">([</span><span class="n">AnyChar</span><span class="p">],</span><span class="w"> </span><span class="s">"x"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">wildcard_many_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">match_pattern</span><span class="p">([</span><span class="n">Wildcard</span><span class="p">,</span><span class="w"> </span><span class="n">Literal</span><span class="p">(</span><span class="s">".gleam"</span><span class="p">)],</span><span class="w"> </span><span class="s">"mymodule.gleam"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each test covers exactly one behavior</li>
+<li>Test names end in <code>_test</code> so gleeunit discovers them automatically</li>
+<li><code>should.be_true()</code> and <code>should.be_false()</code> are clearer than <code>should.equal(True)</code> for Boolean results</li>
+<li>Run with <code>gleam test</code></li>
+</ul>
+<h2>Filtering a List of Files</h2>
+<p>Combining the parser and matcher gives a useful utility:</p>
+<div data-inc="src/filter_demo.gleam" data-mark="filter_fn"><span aria-label="Source: glob/src/filter_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/filter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">filter_files</span><span class="p">(</span>
+<span class="w">  </span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">  </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">elems</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parse_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">match_pattern</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>match_pattern(elems, _)</code> is a <a class="gl-ref" href="../glossary/#partial_application">partial application</a>:
+    it creates a one-argument function that tests a single filename</li>
+<li><code>list.filter</code> applies it to every element</li>
+<li><code>parse_pattern</code> runs once, while <code>List(Elem)</code> is reused for every file</li>
+<li>This is an example of using a function value as data<ul>
+<li><code>list.filter</code> expects <code>fn(String) -&gt; Bool</code></li>
+<li>Partial application produces exactly that without writing a named helper function</li>
+</ul>
+</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does wildcard try zero characters first?</summary>
+<p>If the wildcard tried consuming a character first,
+a pattern like <code>*x</code> against <code>"x"</code> would fail:
+the wildcard would consume <code>x</code>,
+leaving nothing for the literal <code>x</code> to match.
+Trying zero first means a wildcard only uses up characters
+when the rest of the pattern cannot match without them.</p>
+</details>
+<details>
+<summary>Why does <code>parse_chars</code> prepend to <code>acc</code> and call <code>list.reverse</code> at the end rather than appending each element?</summary>
+<p>Gleam lists are singly-linked, so prepending (<code>[elem, ..acc]</code>) is O(1):
+it just creates a new node pointing at the existing list.
+Appending to the end, by contrast, requires walking the whole list to find the last node,
+making each append O(n) and the full parse O(n²).
+Building the list in reverse with prepend and reversing once at the end keeps the total work O(n).</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Parse integration (15 minutes)</h3>
+<p>Wire <code>parse_pattern</code> to <code>filter_files</code>
+so the function accepts a <code>String</code> pattern rather than a <code>List(Elem)</code>.
+Write gleeunit tests for <code>filter_files</code> that cover:
+-   an empty file list
+-   a pattern that matches no files
+-   a pattern that matches all files
+-   a mixed result</p>
+</div>
+<div class="exercise">
+<h3>Character sets (20 minutes)</h3>
+<p>Add a <code>CharSet(List(String))</code> variant to <code>Elem</code>.
+A <code>CharSet</code> matches any single character that appears in its list,
+so <code>CharSet(["a", "e", "i", "o", "u"])</code> matches any vowel.
+Update <code>match_pattern_chars</code> to handle the new variant.
+Write at least four tests.</p>
+</div>
+<div class="exercise">
+<h3>Negated character sets (15 minutes)</h3>
+<p>Add <code>NegCharSet(List(String))</code> that matches any character <em>not</em> in the list.
+Update the matcher and write tests confirming that
+it does not match characters in the list
+but does match characters outside it.</p>
+</div>
+<div class="exercise">
+<h3>Anchor to start and end (10 minutes)</h3>
+<p>Shell globs implicitly match anywhere unless anchored.
+Add <code>Start</code> and <code>End</code> variants that require the match to begin at the first character
+and end at the last character respectively.
+Update <code>match_pattern</code> (not just <code>match_pattern_chars</code>) to interpret them.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../mapreduce">MapReduce</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../dedup">File Deduplicator</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

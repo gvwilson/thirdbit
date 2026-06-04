@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glossary</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a class="active" href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Glossary</h1>
+<h2>A</h2>
+<dl>
+<dt><span id="actor">actor</span></dt>
+<dd>A lightweight, isolated unit of computation that encapsulates
+state and behavior, communicating with other actors solely through
+message passing.</dd>
+</dl>
+<h2>B</h2>
+<dl>
+<dt><span id="base_case">base case</span></dt>
+<dd>The branch of a recursive function that returns a result directly
+without making another recursive call, stopping the recursion.</dd>
+<dt><span id="beam_vm">BEAM virtual machine</span></dt>
+<dd>The Erlang runtime environment, originally designed for telephone
+switches, that runs millions of lightweight processes with no
+shared memory and built-in fault isolation.</dd>
+<dt><span id="big_endian">big endian</span></dt>
+<dd>A byte ordering convention in which the most significant byte of a
+multi-byte value is stored at the lowest memory address.</dd>
+<dt><span id="bytecode">bytecode</span></dt>
+<dd>A compact, platform-independent representation of a program that a
+virtual machine interprets rather than executing directly as
+native machine code.</dd>
+</dl>
+<h2>C</h2>
+<dl>
+<dt><span id="circular_import">circular import</span></dt>
+<dd>A situation in which module A imports module B and module B
+imports module A (directly or transitively).</dd>
+<dt><span id="compaction">compaction</span></dt>
+<dd>The process of replacing a full append-only log with a minimal
+equivalent log that contains at most one entry per live key and
+no tombstone entries for deleted keys.</dd>
+<dt><span id="custom_type">custom type</span></dt>
+<dd>A user-defined type that packages one or more named variants into
+a single type, allowing the compiler to verify that every variant
+is handled in case expressions.</dd>
+</dl>
+<h2>D</h2>
+<dl>
+<dt><span id="database_migration">database migration</span></dt>
+<dd>A SQL script that modifies the database schema in a versioned,
+reproducible way.
+Migrations are applied in order at startup so the schema is always
+consistent with the application code.</dd>
+<dt><span id="dataframe">dataframe</span></dt>
+<dd>A table of named, typed columns that all share the same number of rows,
+used as the primary data structure in data analysis libraries such as
+pandas and Polars.
+Column-oriented storage makes operations on a single column fast.</dd>
+<dt><span id="depth_first_backtracking">depth-first backtracking</span></dt>
+<dd>A search strategy that explores one path as deeply as possible,
+then backs up to try alternatives when it fails.</dd>
+<dt><span id="destructuring">destructuring</span></dt>
+<dd>A syntax that unpacks a tuple or record into individual named
+bindings in a single expression.</dd>
+<dt><span id="dispatch">dispatch</span></dt>
+<dd>The selection of a specific code path based on the structure or
+value of arguments, typically via pattern matching on a tuple of
+inputs.</dd>
+<dt><span id="dsl">domain-specific language</span> (DSL)</dt>
+<dd>A small, specialized language or API designed for one class of tasks.
+Gleam's <code>gleam/dynamic/decode</code> provides a DSL for decoding untyped data
+into typed Gleam values.</dd>
+</dl>
+<h2>E</h2>
+<dl>
+<dt><span id="erlang">Erlang</span></dt>
+<dd>A programming language and runtime created in the 1980s at
+Ericsson for building fault-tolerant, distributed, real-time
+systems.</dd>
+<dt><span id="event_log">event log</span></dt>
+<dd>A sequence of immutable records describing every change made to a
+system, where new events are appended rather than existing records
+updated in place.</dd>
+<dt><span id="eventual_consistency">eventual consistency</span></dt>
+<dd>A replication model in which replicas are allowed to diverge during
+a network partition but guaranteed to converge to the same state
+once all nodes can communicate again.</dd>
+</dl>
+<h2>F</h2>
+<dl>
+<dt><span id="fetch_decode_execute">fetch-decode-execute cycle</span></dt>
+<dd>The fundamental loop of a CPU or virtual machine: fetch the next
+instruction from memory, decode its fields to determine the
+operation and operands, execute the operation, and repeat.</dd>
+<dt><span id="finite_state_machine">finite state machine</span></dt>
+<dd>A computational model consisting of a fixed set of states,
+a set of events, and a transition function that maps each
+(state, event) pair to either a new state or an error.
+State machines enforce which sequences of events are legal,
+making implicit behavior explicit and testable.</dd>
+</dl>
+<h2>G</h2>
+<dl>
+<dt><span id="generator">generator</span></dt>
+<dd>In property-based testing, a function that takes a seed and returns
+a randomly generated value of a given type paired with a new seed,
+allowing reproducible sequences of test inputs.</dd>
+<dt><span id="glob">glob</span></dt>
+<dd>A shell-style pattern that uses wildcards such as <code>*</code> (any
+sequence of characters) and <code>?</code> (any single character) to match
+filenames or strings.</dd>
+<dt><span id="gil">Global Interpreter Lock</span> (GIL)</dt>
+<dd>A mutex in CPython that prevents more than one thread from
+executing Python bytecode at a time, limiting true parallelism on
+multi-core hardware.</dd>
+<dt><span id="grapheme">grapheme</span></dt>
+<dd>A user-perceived character in text which may be composed of
+multiple Unicode code points.</dd>
+<dt><span id="guarded_arm">guarded arm</span></dt>
+<dd>A branch in a <code>case</code> expression that includes an <code>if</code> condition
+after the pattern, so the arm only matches when both the pattern
+and the condition are true.</dd>
+</dl>
+<h2>H</h2>
+<dl>
+<dt><span id="hash">hash</span></dt>
+<dd>A fixed-size value computed from data by a hash function, used to
+map keys to positions in a hash table for fast lookup.</dd>
+<dt><span id="http_404">HTTP 404</span></dt>
+<dd>The HTTP status code returned when the server cannot find the requested
+resource, indicating that the URL does not exist on that server.</dd>
+<dt><span id="http_405">HTTP 405</span></dt>
+<dd>The HTTP status code returned when the server understands the request URL
+but does not support the HTTP method used (for example, <code>DELETE</code> on a
+read-only endpoint).</dd>
+</dl>
+<h2>I</h2>
+<dl>
+<dt><span id="idempotent">idempotent</span></dt>
+<dd>A property of an operation such that applying it multiple times produces
+the same result as applying it once.
+Idempotent database migrations (using <code>IF NOT EXISTS</code>) are safe to run
+against an existing database.</dd>
+<dt><span id="immutable">immutable</span></dt>
+<dd>A property of a binding in which the value assigned to a name
+cannot be changed after it is created.</dd>
+<dt><span id="inverted_index">inverted index</span></dt>
+<dd>A data structure that maps each term to the list of documents (or
+locations) that contain it, enabling fast full-text search.</dd>
+</dl>
+<h2>L</h2>
+<dl>
+<dt><span id="lightweight_process">lightweight process</span></dt>
+<dd>A unit of concurrent execution managed by the BEAM runtime that
+has its own isolated memory and message mailbox, but is far
+cheaper to create and schedule than an operating-system thread.</dd>
+<dt><span id="lcg">linear congruential generator</span> (LCG)</dt>
+<dd>A simple pseudo-random number generator that produces the next value by
+multiplying the current seed by a constant, adding an offset, and taking
+the result modulo a large prime or power of two.</dd>
+<dt><span id="lustre">Lustre</span></dt>
+<dd>A Gleam package for building browser user interfaces.</dd>
+</dl>
+<h2>M</h2>
+<dl>
+<dt><span id="mount">mount</span></dt>
+<dd>To attach a Lustre application to a DOM element so that the runtime
+controls that portion of the page, replacing its contents with the
+rendered virtual DOM tree.</dd>
+</dl>
+<h2>N</h2>
+<dl>
+<dt><span id="named_variant">named variant</span></dt>
+<dd>One of the labeled constructors that make up a custom type,
+optionally carrying typed fields.</dd>
+</dl>
+<h2>O</h2>
+<dl>
+<dt><span id="opaque_type">opaque type</span></dt>
+<dd>One whose representation is hidden from other modules, so they can
+only interact with it through the functions the module provides.</dd>
+<dt><span id="opcode">opcode</span></dt>
+<dd>The numeric code that identifies which instruction to execute in a
+machine instruction word; the remaining bits hold operands.</dd>
+<dt><span id="option_type">Option type</span></dt>
+<dd>A built-in Gleam type with two variants used to represent optional
+values without null pointers.</dd>
+<dt><span id="otp">OTP</span> (Open Telecom Platform)</dt>
+<dd>A set of libraries and design principles for building fault-tolerant
+Erlang and Gleam applications, including actors, supervisors, and the
+<code>gen_server</code> behaviour.</dd>
+</dl>
+<h2>P</h2>
+<dl>
+<dt><span id="panic">panic</span></dt>
+<dd>An unrecoverable runtime error that immediately terminates the
+current process.</dd>
+<dt><span id="partial_application">partial application</span></dt>
+<dd>Creating a new function by fixing some of the arguments of an
+existing function, leaving the remaining arguments to be supplied
+later.</dd>
+<dt><span id="prepend">prepend</span></dt>
+<dd>To add an element to the front of a list, producing a new list
+with that element as the head.</dd>
+<dt><span id="property_based_testing">property-based testing</span></dt>
+<dd>A testing approach in which a framework generates many random inputs
+and checks that a universal statement (a property) holds for each one,
+rather than checking specific hand-written examples.</dd>
+</dl>
+<h2>R</h2>
+<dl>
+<dt><span id="result_type">Result type</span></dt>
+<dd>A built-in Gleam type used to represent computations that may
+fail, forcing callers to handle both success and failure cases at
+compile time.</dd>
+</dl>
+<h2>S</h2>
+<dl>
+<dt><span id="schema">schema</span></dt>
+<dd>A formal description of the structure and types of data in a
+record or message.</dd>
+<dt><span id="shadowed_entry">shadowed entry</span></dt>
+<dd>A log entry that is superseded by a more recent entry for the same
+key, making the earlier entry irrelevant and eligible for removal
+during compaction.</dd>
+<dt><span id="short_circuit">short-circuit</span></dt>
+<dd>An evaluation strategy that stops as soon as a definite outcome is
+known, skipping remaining steps.</dd>
+<dt><span id="shrinking">shrinking</span></dt>
+<dd>A step in property-based testing where a framework automatically
+simplifies a failing input to the smallest version that still causes
+the property to fail, making the counterexample easier to diagnose.</dd>
+<dt><span id="sql_injection">SQL injection</span></dt>
+<dd>A security vulnerability in which an attacker inserts SQL code into a
+query by including it in user input that is interpolated directly into a
+SQL string rather than passed as a parameterised value.</dd>
+<dt><span id="statically_typed">statically typed</span></dt>
+<dd>A property of a programming language in which the type of every
+expression is checked at compile time rather than discovered at
+runtime.</dd>
+<dt><span id="supervisor">supervisor</span></dt>
+<dd>A process whose job is to monitor child processes and restart them
+according to a defined strategy when they crash.</dd>
+<dt><span id="syntactic_sugar">syntactic sugar</span></dt>
+<dd>A shorthand syntax that makes code easier to read or write that
+can always be rewritten in a more verbose but equivalent form.</dd>
+</dl>
+<h2>T</h2>
+<dl>
+<dt><span id="tail_recursion">tail recursion</span></dt>
+<dd>A form of recursion in which the recursive call is the last
+operation in the function, allowing the runtime to reuse the
+current stack frame instead of growing the call stack.</dd>
+<dt><span id="tcp">TCP</span> (Transmission Control Protocol)</dt>
+<dd>A network protocol that provides reliable, ordered, connection-oriented
+byte streams between two processes.
+HTTP, database connections, and most application-layer protocols run on top of TCP.</dd>
+<dt><span id="tuple">tuple</span></dt>
+<dd>A fixed-length, ordered collection of values that may have
+different types, written with a <code>#</code> prefix in Gleam.</dd>
+<dt><span id="type_parameter">type parameter</span></dt>
+<dd>A placeholder in a type definition that stands for any concrete
+type, allowing functions and data structures to work generically
+across element types.</dd>
+</dl>
+<h2>V</h2>
+<dl>
+<dt><span id="vector_clock">vector clock</span></dt>
+<dd>A map from node identifiers to event counts used to track causal
+ordering in a distributed system; merging two vector clocks takes
+the element-wise maximum of each node's counter.</dd>
+<dt><span id="virtual_dom">virtual DOM</span></dt>
+<dd>A tree of plain data values that describes the desired state of a user
+interface.
+The Lustre runtime compares successive trees and applies the minimum
+number of changes to the real browser DOM.</dd>
+</dl>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../bibliography">Bibliography</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>

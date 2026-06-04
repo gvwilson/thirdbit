@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Getting Started, Types, and Values</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Getting Started, Types, and Values</h1>
+<div class="callout">
+<ul>
+<li>"Let" bindings are immutable:
+    once you bind a name to a value, that binding cannot change.</li>
+<li>Custom types describe the shape of your data
+    and let the compiler verify that you have handled every case.</li>
+<li>Records group named fields into a single value, like a Python dataclass.</li>
+<li>Tuples hold a fixed number of values of different types.</li>
+</ul>
+</div>
+<h2>Hello, World</h2>
+<ul>
+<li>Every Gleam project starts with <code>gleam new</code><ul>
+<li>Creates a project directory with a source file, a test file, and a <code>gleam.toml</code></li>
+</ul>
+</li>
+</ul>
+<div data-inc="gleam.toml"><span aria-label="Source: basics/gleam.toml" class="inc-path" role="img" tabindex="0" title="basics/gleam.toml">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"basics"</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.0.0"</span>
+<span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"erlang"</span>
+
+<span class="k">[dependencies]</span>
+<span class="n">gleam_stdlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;= 0.34.0 and &lt; 2.0.0"</span>
+
+<span class="k">[dev-dependencies]</span>
+<span class="n">gleeunit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;= 1.0.0 and &lt; 2.0.0"</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Use <code>gleam run</code> to compile and execute the default entry point</li>
+</ul>
+<div data-inc="src/hello.gleam"><span aria-label="Source: basics/src/hello.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/hello.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">import</span><span class="w"> </span><span class="n">gleam</span><span class="o">/</span><span class="n">io</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Gleam"</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello from "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"!"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/hello.out"><span aria-label="Source: basics/out/hello.out" class="inc-path" role="img" tabindex="0" title="basics/out/hello.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello from Gleam!
+</code></pre></div>
+</div>
+<ul>
+<li><code>import gleam/io</code> makes the <code>io</code> module available</li>
+<li><code>pub fn main()</code> is the entry point<ul>
+<li><code>pub</code> (public) makes it visible outside the module</li>
+<li><code>fn</code> is short for "function"</li>
+</ul>
+</li>
+<li><code>let name = "Gleam"</code> creates an <a class="gl-ref" href="../glossary/#immutable">immutable</a> binding<ul>
+<li>All bindings are final: reassigning a name is a compile error</li>
+</ul>
+</li>
+<li><code>&lt;&gt;</code> concatenates strings<ul>
+<li>Gleam does not overload <code>+</code> to add strings</li>
+</ul>
+</li>
+<li><code>io.println</code> prints a line with a newline<ul>
+<li><code>io.debug</code> prints any value using its debug representation</li>
+</ul>
+</li>
+</ul>
+<h2>Arithmetic</h2>
+<div data-inc="src/arithmetic.gleam" data-mark="arithmetic"><span aria-label="Source: basics/src/arithmetic.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/arithmetic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">sum</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">float_div</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_float</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">float_div</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/arithmetic.out"><span aria-label="Source: basics/out/arithmetic.out" class="inc-path" role="img" tabindex="0" title="basics/out/arithmetic.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>4
+42
+3.3333333333333335
+</code></pre></div>
+</div>
+<ul>
+<li><code>2 + 2</code> is integer arithmetic<ul>
+<li>The result is <code>Int</code>, not <code>Float</code></li>
+</ul>
+</li>
+<li>Gleam separates integer and floating-point operators:
+    <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> for <code>Int</code>; <code>+.</code>, <code>-.</code>, <code>*.</code>, <code>/.</code> for <code>Float</code><ul>
+<li><code>int.to_float</code> converts before you can mix them</li>
+</ul>
+</li>
+<li>Yes, this seems pedantic, but it's consistent</li>
+</ul>
+<h2>Built-in Types</h2>
+<ul>
+<li>Gleam's primitive types map directly to Python equivalents</li>
+<li>But the type system prevents you from mixing them</li>
+<li><code>Int</code>: arbitrary-precision integer, like Python's <code>int</code></li>
+<li><code>Float</code>: 64-bit floating-point, like Python's <code>float</code></li>
+<li><code>String</code>: UTF-8 text, like Python's <code>str</code></li>
+<li><code>Bool</code>: <code>True</code> or <code>False</code>, like Python's <code>bool</code></li>
+<li><code>Nil</code>: the unit value, similar to Python's <code>None</code> but much rarer</li>
+</ul>
+<h2>Custom Types</h2>
+<ul>
+<li>Most important building block in Gleam is the <a class="gl-ref" href="../glossary/#custom_type">custom type</a></li>
+<li>packages one or more <a class="gl-ref" href="../glossary/#named_variant">named variants</a> into a single type</li>
+</ul>
+<div data-inc="src/types.gleam" data-mark="type_defs"><span aria-label="Source: basics/src/types.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Red</span>
+<span class="w">  </span><span class="n">Green</span>
+<span class="w">  </span><span class="n">Blue</span>
+<span class="p">}</span>
+
+<span class="k">type</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Circle</span><span class="p">(</span><span class="n">Float</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Rectangle</span><span class="p">(</span><span class="n">Float</span><span class="p">,</span><span class="w"> </span><span class="n">Float</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>type Color { Red Green Blue }</code> defines a type with three variants<ul>
+<li>Like a Python <code>Enum</code>, but integrated into the type system</li>
+<li><code>Red</code>, <code>Green</code>, <code>Blue</code> are constructors, not strings</li>
+</ul>
+</li>
+<li><code>type Shape { Circle(Float) Rectangle(Float, Float) }</code> defines variants that carry data<ul>
+<li><code>Circle(Float)</code> is like a Python dataclass with one float field</li>
+<li><code>Rectangle(Float, Float)</code> has two float fields</li>
+<li>The compiler knows exactly which fields each variant carries</li>
+</ul>
+</li>
+<li>There is no inheritance: custom types are closed and complete</li>
+<li>Now a function that uses the type:</li>
+</ul>
+<div data-inc="src/types.gleam" data-mark="area_fn"><span aria-label="Source: basics/src/types.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">area</span><span class="p">(</span><span class="n">shape</span><span class="p">:</span><span class="w"> </span><span class="n">Shape</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mf">3.14159</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">r</span>
+<span class="w">    </span><span class="n">Rectangle</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">h</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/types.out"><span aria-label="Source: basics/out/types.out" class="inc-path" role="img" tabindex="0" title="basics/out/types.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>red is Red
+circle is Circle(3.0)
+rectangle is Rectangle(4.0, 5.0)
+circle area is 28.274309999999996
+rectangle area is 20.0
+</code></pre></div>
+</div>
+<ul>
+<li><code>case shape { ... }</code> matches on the value of <code>shape</code></li>
+<li>Each arm extracts fields, e.g., <code>Circle(r)</code> binds the radius to <code>r</code></li>
+<li>The compiler verifies that every variant is handled<ul>
+<li>Remove the <code>Rectangle</code> arm and the compiler reports an error</li>
+<li>Python's <code>if isinstance</code> chains have no such guarantee</li>
+</ul>
+</li>
+<li>The last expression in each arm is the arm's value: no <code>return</code> needed</li>
+<li><code>3.14159 *. r *. r</code> uses <code>*.</code> because <code>r</code> is a <code>Float</code><ul>
+<li>Yes, we will get π from a library the next time</li>
+</ul>
+</li>
+</ul>
+<h2>Records with Named Fields</h2>
+<ul>
+<li>When a variant carries several fields, naming them makes the code clearer</li>
+</ul>
+<div data-inc="src/icecream.gleam" data-mark="icecream_type"><span aria-label="Source: basics/src/icecream.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/icecream.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">type</span><span class="w"> </span><span class="n">Flavor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Chocolate</span>
+<span class="w">  </span><span class="n">Vanilla</span>
+<span class="w">  </span><span class="n">Strawberry</span>
+<span class="p">}</span>
+
+<span class="k">type</span><span class="w"> </span><span class="n">Container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Cone</span>
+<span class="w">  </span><span class="n">Cup</span>
+<span class="p">}</span>
+
+<span class="k">type</span><span class="w"> </span><span class="n">IceCream</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">IceCream</span><span class="p">(</span><span class="n">flavor</span><span class="p">:</span><span class="w"> </span><span class="n">Flavor</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="p">:</span><span class="w"> </span><span class="n">Container</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>IceCream(flavor: Flavor, container: Container)</code> defines a variant with named fields<ul>
+<li><code>flavor: Flavor</code> means the field named <code>flavor</code> holds a <code>Flavor</code> value</li>
+<li>Access fields with dot notation: <code>item.flavor</code>, <code>item.container</code></li>
+</ul>
+</li>
+<li><code>Flavor</code> and <code>Container</code> are separate custom types defined above <code>IceCream</code><ul>
+<li>This is like a Python dataclass whose field types are enums</li>
+</ul>
+</li>
+<li>Creating a value with named fields: <code>IceCream(flavor: Chocolate, container: Cone)</code><ul>
+<li>You can also write <code>IceCream(Chocolate, Cone)</code> when the order is unambiguous</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/icecream.gleam" data-mark="display_fn"><span aria-label="Source: basics/src/icecream.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/icecream.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">display</span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="w"> </span><span class="n">IceCream</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">flavor_string</span><span class="p">(</span><span class="k">item</span><span class="p">.</span><span class="n">flavor</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" in a "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">container_string</span><span class="p">(</span><span class="k">item</span><span class="p">.</span><span class="n">container</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/icecream.out"><span aria-label="Source: basics/out/icecream.out" class="inc-path" role="img" tabindex="0" title="basics/out/icecream.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>chocolate cone is Chocolate in a cone
+vanilla cone is Vanilla in a cup
+strawberry cone is Strawberry in a cone
+</code></pre></div>
+</div>
+<ul>
+<li><code>item.flavor</code> and <code>item.container</code> access named fields using dot notation</li>
+<li><code>flavor_string</code> and <code>container_string</code> are private helper functions (no <code>pub</code>)</li>
+<li>The <code>&lt;&gt;</code> operator chains string concatenation left to right</li>
+</ul>
+<h2>Tuples</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#tuple">tuple</a> groups a fixed number of values of potentially different types</li>
+<li>Gleam writes tuples with a <code>#</code> prefix: <code>#(1, "hello", True)</code></li>
+</ul>
+<div data-inc="src/tuples.gleam" data-mark="tuple_create"><span aria-label="Source: basics/src/tuples.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/tuples.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">#(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>#(1, "hello", True)</code> creates a tuple of type <code>#(Int, String, Bool)</code></li>
+<li>The type is inferred: you do not need to write it explicitly</li>
+<li>As in Python,
+    tuples are useful for returning multiple values from a function</li>
+</ul>
+<div data-inc="src/tuples.gleam" data-mark="tuple_destruct"><span aria-label="Source: basics/src/tuples.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/tuples.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"a from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"b from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"c from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/tuples.out"><span aria-label="Source: basics/out/tuples.out" class="inc-path" role="img" tabindex="0" title="basics/out/tuples.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>#(1, "hello", True)
+a from tuple is 1
+b from tuple is "hello"
+c from tuple is True
+</code></pre></div>
+</div>
+<ul>
+<li><code>let #(a, b, c) = t</code> <a class="gl-ref" href="../glossary/#destructuring">destructs</a> the tuple into three bindings<ul>
+<li><code>a</code> is <code>1</code>, <code>b</code> is <code>"hello"</code>, <code>c</code> is <code>True</code></li>
+<li>Like Python's <code>a, b, c = t</code> but the <code>#</code> makes clear a tuple is expected</li>
+</ul>
+</li>
+<li>Gleam does not have indexed access like <code>t[0]</code><ul>
+<li>Destructuring is the idiomatic way to extract tuple fields</li>
+</ul>
+</li>
+</ul>
+<h2>Type Inference</h2>
+<ul>
+<li>Gleam almost never requires you to write type annotations</li>
+<li>The compiler infers the type of every expression from context<ul>
+<li><code>let x = 42</code> infers <code>x: Int</code></li>
+<li><code>let s = "hello"</code> infers <code>s: String</code></li>
+<li><code>fn area(shape: Shape) -&gt; Float</code> carries explicit annotations,
+     but they are optional for local bindings</li>
+</ul>
+</li>
+<li>You can always add annotations for documentation:<ul>
+<li>The compiler checks annotations against the inferred type
+    and reports a mismatch as an error</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">let</span><span class="w"> </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+<span class="k">let</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Gleam"</span>
+</code></pre></div>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is the difference between <code>+</code> in Python and Gleam?</summary>
+<p>Python uses a single <code>+</code> for both integers and floats and silently coerces between them,
+and uses <code>+</code> to concatenate strings as well.
+Gleam requires you to be explicit:
+<code>+</code> for integers, <code>+.</code> for floats, and <code>&lt;&gt;</code> for strings.
+This makes mixed-type arithmetic a compile error rather than a runtime surprise.
+The practical consequence is that you must call <code>int.to_float</code> before combining an integer with a float.</p>
+</details>
+<details>
+<summary>What happens if you forget to handle a variant in a case expression?</summary>
+<p>The compiler produces an error before the program runs.
+Every <code>case</code> expression in Gleam must be exhaustive,
+i.e., it must handle every variant of the type being matched.
+This is one of the most practical benefits of the type system:
+you cannot accidentally omit a case and discover the gap in production.
+Python has no equivalent guarantee:
+a missing <code>elif</code> or <code>isinstance</code> branch fails silently until the code runs.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Hello with arithmetic (5 minutes)</h3>
+<p>Create a new Gleam project.
+In <code>main</code>,
+bind your name to a variable and print a greeting that includes it.
+Also print the result of <code>10 * 10 - 1</code> and the result of dividing <code>22.0</code> by <code>7.0</code>.</p>
+</div>
+<div class="exercise">
+<h3>Echo</h3>
+<p>Look up what <code>echo</code> does in Gleam,
+then convert one of the examples in this lesson to use it instead of <code>io.println</code>.
+How much do you miss Python's <code>print</code> function?</p>
+</div>
+<div class="exercise">
+<h3>Ice cream order (10 minutes)</h3>
+<p>Using the <code>IceCream</code> type from <code>icecream_demo.gleam</code>, write
+<code>describe(item: IceCream) -&gt; String</code> that returns a sentence like
+<code>"Chocolate ice cream in a cone"</code>.
+Create three orders and print their descriptions.</p>
+</div>
+<div class="exercise">
+<h3>Shape functions (10 minutes)</h3>
+<p>Write <code>perimeter(shape: Shape) -&gt; Float</code> that returns <code>2 * pi * r</code> for a circle
+and <code>2 * (w + h)</code> for a rectangle.
+Also write <code>describe(shape: Shape) -&gt; String</code>
+that returns a human-readable description like <code>"circle with radius 3.0"</code>.</p>
+</div>
+<div class="exercise">
+<h3>Tuple swap (5 minutes)</h3>
+<p>Write <code>swap(pair: #(a, b)) -&gt; #(b, a)</code> that returns a new tuple with the two elements reversed.
+Gleam will infer the generic types <code>a</code> and <code>b</code> automatically.
+Test it with <code>#(1, "one")</code> and <code>#(True, 42)</code>.</p>
+</div>
+<div class="exercise">
+<h3>Public vs. private types (5 minutes)</h3>
+<p>In <code>src/types.gleam</code>, the <code>Color</code> type is declared <code>pub type Color</code>.
+Remove the <code>pub</code> keyword so it reads <code>type Color</code>,
+then run <code>gleam run --module types</code>.
+What warning does the compiler produce, and why?</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../functions">Functions, Pattern Matching, Lists, and Pipelines</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

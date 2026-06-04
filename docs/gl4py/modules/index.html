@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modules, Imports, and Testing</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a class="active" href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Modules, Imports, and Testing</h1>
+<div class="callout">
+<ul>
+<li>Gleam modules map one-to-one to source files:
+    the file path determines the module name</li>
+<li>Opaque types expose a type name without revealing its internal representation</li>
+<li>The <code>gleeunit</code> test framework runs tests from files in the <code>test/</code> directory</li>
+</ul>
+</div>
+<h2>Modules and Files</h2>
+<ul>
+<li>Every Gleam source file is a module</li>
+<li>The module name comes from the file path relative to <code>src/</code><ul>
+<li><code>src/myapp/utils.gleam</code> becomes the module <code>myapp/utils</code></li>
+</ul>
+</li>
+<li><code>import myapp/utils</code> makes the module's <code>func</code> available as <code>utils.func</code></li>
+<li><code>import myapp/utils.{my_fn}</code> imports <code>my_fn</code> unqualified so you can call it without a prefix</li>
+<li>Standard library modules follow the same convention:
+    <code>import gleam/list</code>, <code>import gleam/dict</code>, <code>import gleam/string</code><ul>
+<li><a class="gl-ref" href="../glossary/#circular_import">Circular imports</a> are not allowed</li>
+</ul>
+</li>
+</ul>
+<h2>This Lesson</h2>
+<ul>
+<li><code>src/modules/types.gleam</code> contains shared type definitions</li>
+<li><code>src/modules/logic.gleam</code> contains pure functions over those types</li>
+<li><code>src/modules.gleam</code> is the entry point that wires them together</li>
+</ul>
+<h2>Public and Private Definitions</h2>
+<ul>
+<li>Every function and type in Gleam is private by default</li>
+<li>Adding <code>pub</code> makes it accessible from other modules</li>
+</ul>
+<div data-inc="src/modules/types.gleam" data-mark="status_todo"><span aria-label="Source: modules/src/modules/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Active</span>
+<span class="w">  </span><span class="n">Done</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Todo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>pub type Status</code> exports the type and its constructors (<code>Active</code>, <code>Done</code>)<ul>
+<li>Other modules can create <code>Active</code> or <code>Done</code> values</li>
+</ul>
+</li>
+<li><code>pub type Todo</code> exports the record type and its constructor<ul>
+<li>Other modules can write <code>Todo(title: "...", status: Active)</code></li>
+</ul>
+</li>
+<li>Omit <code>pub</code> and the type is invisible outside the file</li>
+</ul>
+<div data-inc="src/modules/types.gleam" data-mark="display_status"><span aria-label="Source: modules/src/modules/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">display_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Active</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"[ ]"</span>
+<span class="w">    </span><span class="n">Done</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"[x]"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Use private functions for implementation details that callers should not depend on directly<ul>
+<li>E.g., have a public entry point and a private function to do the recursion</li>
+</ul>
+</li>
+</ul>
+<h2>Opaque Types</h2>
+<ul>
+<li>An <a class="gl-ref" href="../glossary/#opaque_type">opaque type</a> makes the type name public
+    but hides its constructors</li>
+<li>Other modules can hold a value of the type but cannot create or inspect it directly<ul>
+<li>They must use the functions the module provides</li>
+</ul>
+</li>
+</ul>
+<div data-inc="src/modules/counter.gleam" data-mark="counter_type"><span aria-label="Source: modules/src/modules/counter.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/counter.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">opaque</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decrement</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">c</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Counter</code> is visible to other modules</li>
+<li><code>Counter(42)</code> is not: only <code>new()</code> can create a <code>Counter</code></li>
+<li>Common use: collections that enforce invariants<ul>
+<li>Sorted lists, non-empty lists, validated email addresses, etc.</li>
+</ul>
+</li>
+</ul>
+<h2>Organising by Layer</h2>
+<ul>
+<li>The <code>logic</code> module contains pure functions that take and return plain data:</li>
+</ul>
+<div data-inc="src/modules/logic.gleam" data-mark="add_task"><span aria-label="Source: modules/src/modules/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_task</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">),</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">[</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="k">types</span><span class="p">.</span><span class="n">Active</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">tasks</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>add_task</code> has no side effects: list in, list out<ul>
+<li>Easy to test: call it, inspect the result</li>
+</ul>
+</li>
+<li>It uses <code>types.Todo</code> and <code>types.Active</code> because <code>modules/types</code> is imported at the top of the file</li>
+<li>Prepending with <code>[new_item, ..existing]</code> is idiomatic: it runs in constant time</li>
+</ul>
+<div data-inc="src/modules/logic.gleam" data-mark="render"><span aria-label="Source: modules/src/modules/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">render</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">tasks</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">index_map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">". "</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">types</span><span class="p">.</span><span class="n">display_status</span><span class="p">(</span><span class="k">task</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
+<span class="w">    </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">task</span><span class="p">.</span><span class="n">title</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"\n"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>render</code> is also pure: <code>List(Todo)</code> in, <code>String</code> out</li>
+<li><code>list.index_map(fn(i, task) { ... })</code> maps with a zero-based index<ul>
+<li>Like Python's <code>enumerate</code></li>
+</ul>
+</li>
+<li><code>string.join("\n")</code> concatenates lines with a newline separator</li>
+<li>Returning a <code>String</code> instead of printing keeps this function in the logic layer<ul>
+<li>The caller decides how to display it</li>
+</ul>
+</li>
+<li>The three-layer structure:<ul>
+<li><code>types.gleam</code>: data definitions only, no logic</li>
+<li><code>logic.gleam</code>: pure functions over the types, no IO imports</li>
+<li>Entry point: calls logic functions and handles side effects</li>
+</ul>
+</li>
+</ul>
+<h2>Testing with gleeunit</h2>
+<ul>
+<li>Gleam's test runner is <code>gleeunit</code></li>
+<li>Tests live in <code>test/</code> in files named <code>*_test.gleam</code></li>
+</ul>
+<div data-inc="test/modules_test.gleam" data-mark="test_examples"><span aria-label="Source: modules/test/modules_test.gleam" class="inc-path" role="img" tabindex="0" title="modules/test/modules_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_task_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">logic</span><span class="p">.</span><span class="n">add_task</span><span class="p">([],</span><span class="w"> </span><span class="s">"write tests"</span><span class="p">)</span>
+<span class="w">  </span><span class="n">result</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">([</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">(</span><span class="s">"write tests"</span><span class="p">,</span><span class="w"> </span><span class="k">types</span><span class="p">.</span><span class="n">Active</span><span class="p">)])</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">render_single_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">(</span><span class="s">"learn Gleam"</span><span class="p">,</span><span class="w"> </span><span class="k">types</span><span class="p">.</span><span class="n">Active</span><span class="p">)]</span>
+<span class="w">  </span><span class="k">logic</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="s">"1. [ ] learn Gleam"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Every function ending in <code>_test</code> runs automatically</li>
+<li><code>should.equal(expected)</code> asserts the piped value equals <code>expected</code></li>
+<li><code>should.be_ok</code> and <code>should.be_error</code> check <code>Result</code> values</li>
+<li><code>gleam test</code> runs all tests, <code>gleam test --module foo_test</code> runs one file</li>
+</ul>
+<h2>Type Aliases</h2>
+<ul>
+<li><code>type MyAlias = SomeOtherType</code> creates a readable name for an existing type.</li>
+</ul>
+<div data-inc="src/modules/aliases.gleam" data-mark="type_aliases"><span aria-label="Source: modules/src/modules/aliases.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/aliases.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">FileMap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">Hash</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Filename</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Filename</code> and <code>String</code> are identical to the compiler; one is just more descriptive</li>
+<li>Unlike opaque types, aliases do not hide constructors</li>
+<li>Use them to make function signatures communicate intent:
+    <code>fn group(files: List(#(Filename, Hash))) -&gt; FileMap</code> is clearer than
+    <code>fn group(files: List(#(String, String))) -&gt; dict.Dict(String, List(String))</code></li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why separate logic from IO?</summary>
+<p>Pure functions are straightforward to test:
+give them known inputs and check the outputs.
+Functions that print to the screen, read files, or make network requests
+require more setup to test reliably.
+By keeping logic in a module that imports no IO modules,
+you can test all the interesting behaviour with simple tests that do not touch the filesystem or terminal.
+This pattern is sometimes called "functional core, imperative shell".</p>
+</details>
+<details>
+<summary>What makes a good unit test?</summary>
+<p>A good unit test is fast, isolated, and specific, and repeatable.
+Fast: it should complete in milliseconds, with no network or disk access.
+Isolated: it depends only on the function under test and its inputs.
+Specific: when it fails, the failure message tells you exactly what went wrong.
+Repeatable: it gives the same result every time
+(which means it doesn't depend on the current time, a random number, or anything similar).
+Pure functions in the logic layer are natural candidates because
+they satisfy all three criteria automatically.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Opaque counter (10 minutes)</h3>
+<p>Define <code>pub opaque type Counter</code> with <code>new()</code>, <code>increment()</code>, <code>decrement()</code>, and <code>value()</code>.
+Add a guard in <code>decrement</code> so the counter never goes below zero.
+Write three gleeunit tests covering each operation.</p>
+</div>
+<div class="exercise">
+<h3>Logic layer tests (10 minutes)</h3>
+<p>Write one unit test for each of <code>add_task</code>, <code>mark_done</code>, and <code>render</code>.
+Each test must check a specific outcome.</p>
+</div>
+<div class="exercise">
+<h3>Type alias clarity (5 minutes)</h3>
+<p>Add <code>type Title = String</code> and <code>type TaskIndex = Int</code> to <code>types.gleam</code>.
+Update the signatures in <code>logic.gleam</code> to use them.
+Confirm <code>gleam build</code> still succeeds.</p>
+</div>
+<div class="exercise">
+<h3>Opaque stack (15 minutes)</h3>
+<p>Define <code>pub opaque type Stack(a)</code> in a new file <code>src/modules/stack.gleam</code>.
+Implement <code>new() -&gt; Stack(a)</code>, <code>push(Stack(a), a) -&gt; Stack(a)</code>,
+<code>pop(Stack(a)) -&gt; Result(#(a, Stack(a)), Nil)</code>, and <code>size(Stack(a)) -&gt; Int</code>.
+<code>pop</code> should return <code>Error(Nil)</code> on an empty stack.
+Write three gleeunit tests: one for <code>push</code>/<code>pop</code> round-trip,
+one for popping an empty stack, and one for <code>size</code> after several pushes.</p>
+</div>
+<div class="exercise">
+<h3>Filter active tasks (10 minutes)</h3>
+<p>Add a <code>filter_active(tasks: List(types.Todo)) -&gt; List(types.Todo)</code> function
+to <code>logic.gleam</code> that returns only tasks whose status is <code>Active</code>.
+Write a gleeunit test that creates a list with both <code>Active</code> and <code>Done</code> tasks
+and confirms only the active ones are returned.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../errors">Results, Options, and Error Handling</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../mapreduce">MapReduce</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

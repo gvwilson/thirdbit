@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Streaming CSV Processing</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a class="active" href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Streaming CSV Processing</h1>
+<div class="callout">
+<ul>
+<li>Loading an entire CSV file into memory before processing wastes resources
+    and fails on files larger than available RAM.</li>
+<li>A streaming fold processes one row at a time,
+    accumulating a result without ever storing the full dataset.</li>
+<li>When reading in fixed-size chunks, a row may be split across two chunks;
+    a carry-forward buffer holds the incomplete tail until the next chunk arrives.</li>
+<li>The chunk-based fold and the line-based fold produce identical results,
+    which makes the simpler version easy to test first.</li>
+</ul>
+</div>
+<h2>Why Stream?</h2>
+<ul>
+<li>A 4 GB web log file contains roughly 40 million rows</li>
+<li>Reading it all into memory before computing the total request count
+    uses 4 GB of RAM and takes longer to start than computing the answer</li>
+<li>The fix is to process each row as it arrives and keep only a running total:
+    never store what you do not need</li>
+<li>This lesson builds that pattern in two steps:
+    a simple line-by-line fold, then a chunk-based fold that simulates
+    reading from a file system one block at a time</li>
+<li>The same fold function works for both, confirming that the chunk logic
+    adds no new bugs</li>
+</ul>
+<h2>Parsing One Row</h2>
+<div data-inc="src/stream_demo.gleam" data-mark="parse_fn"><span aria-label="Source: stream/src/stream_demo.gleam" class="inc-path" role="img" tabindex="0" title="stream/src/stream_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// Parse one CSV row, rejecting blank lines.</span>
+<span class="c1">// Returns the fields as a list of strings; does not handle quoted commas.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">parse_row</span><span class="p">(</span><span class="n">line</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">""</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"empty row"</span><span class="p">)</span>
+<span class="w">        </span><span class="n">trimmed</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">trimmed</span><span class="p">,</span><span class="w"> </span><span class="s">","</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>string.trim</code> removes leading and trailing whitespace before the empty check</li>
+<li>A blank line or a line containing only spaces returns <code>Error</code>,
+    which the fold will skip</li>
+<li>A non-empty line is split on commas with <code>string.split</code>,
+    producing a list of field strings</li>
+<li>This version does not handle quoted fields that contain commas;
+    supporting those would require a state machine similar to the one
+    in the <a href="../machine/">State Machines</a> lesson</li>
+</ul>
+<h2>Folding Over Rows</h2>
+<div data-inc="src/stream_demo.gleam" data-mark="fold_fn"><span aria-label="Source: stream/src/stream_demo.gleam" class="inc-path" role="img" tabindex="0" title="stream/src/stream_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// Fold over every non-blank row in a CSV string, line by line.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_rows</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">    </span><span class="n">init</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="w">    </span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">"\n"</span><span class="p">),</span><span class="w"> </span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">parse_row</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">            </span><span class="n">Ok</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1">// Like fold_rows but skips the first line (the header row).</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_with_header</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">    </span><span class="n">init</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="w">    </span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">init</span>
+<span class="w">        </span><span class="p">[</span><span class="n">_</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">init</span>
+<span class="w">        </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">data_lines</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">data_lines</span><span class="p">,</span><span class="w"> </span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">parse_row</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">                    </span><span class="n">Ok</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>fold_rows</code> splits the entire text on newlines and folds over the resulting list</li>
+<li>For each line, <code>parse_row</code> either returns <code>Error</code> (skip) or <code>Ok(fields)</code> (call <code>f</code>)</li>
+<li><code>fold_with_header</code> handles the common case where the first line is a header:
+    it pattern-matches on the line list and drops the first element before folding</li>
+<li>The fold accumulator <code>b</code> is completely generic:
+    it could be a count, a sum, a list, or any other value the caller chooses</li>
+</ul>
+<h2>Chunk-Based Reading</h2>
+<div data-inc="src/stream_demo.gleam" data-mark="chunk_fn"><span aria-label="Source: stream/src/stream_demo.gleam" class="inc-path" role="img" tabindex="0" title="stream/src/stream_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">// Split text into chunks of at most chunk_size characters,</span>
+<span class="c1">// simulating reading a file in fixed-size blocks.</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">to_chunks</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">chunk_size</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s">""</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">text</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">chunk_size</span><span class="p">)</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">drop_start</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">chunk_size</span><span class="p">)</span>
+<span class="w">            </span><span class="p">[</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">to_chunks</span><span class="p">(</span><span class="n">tail</span><span class="p">)]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Fold over CSV rows using chunk-based reading.</span>
+<span class="c1">// Incomplete rows at chunk boundaries are carried forward in a buffer.</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_csv</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">    </span><span class="n">init</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="w">    </span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">do_fold_csv</span><span class="p">(</span><span class="n">to_chunks</span><span class="p">(</span><span class="n">text</span><span class="p">),</span><span class="w"> </span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">do_fold_csv</span><span class="p">(</span>
+<span class="w">    </span><span class="n">chunks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
+<span class="w">    </span><span class="n">buffer</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">    </span><span class="n">acc</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="w">    </span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">            </span><span class="c1">// Flush any remaining buffered content as the final row.</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">parse_row</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">                </span><span class="n">Ok</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">[</span><span class="n">chunk</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">chunk</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="w">            </span><span class="c1">// All lines except the last are complete rows.</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">leftover</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">last</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Ok</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">s</span>
+<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">""</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">let</span><span class="w"> </span><span class="n">new_acc</span><span class="w"> </span><span class="p">=</span>
+<span class="w">                </span><span class="k">list</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="n">complete</span><span class="p">,</span><span class="w"> </span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="n">parse_row</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">a</span>
+<span class="w">                        </span><span class="n">Ok</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="n">do_fold_csv</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span><span class="w"> </span><span class="n">leftover</span><span class="p">,</span><span class="w"> </span><span class="n">new_acc</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>to_chunks</code> splits the text into pieces of at most <code>chunk_size</code> characters,
+    simulating the fixed-size reads that a real file system API performs</li>
+<li><code>fold_csv</code> feeds those chunks to <code>do_fold_csv</code> with an empty buffer</li>
+<li>On each chunk, the buffer from the previous iteration is prepended to form <code>combined</code></li>
+<li><code>string.split(combined, "\n")</code> separates complete rows from the trailing fragment:
+    all lines except the last ended with a newline and are complete;
+    the last line is carried forward as the new buffer</li>
+<li>When all chunks are consumed, the final buffer is flushed as the last row
+    (unless it is blank)</li>
+<li>The two-character constant <code>chunk_size = 32</code> makes the buffer behavior
+    visible even with short test inputs</li>
+</ul>
+<h2>Running the Example</h2>
+<div data-inc="src/stream_demo.gleam" data-mark="main_example"><span aria-label="Source: stream/src/stream_demo.gleam" class="inc-path" role="img" tabindex="0" title="stream/src/stream_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="s">"name,age,score\nAlice,30,88\nBob,25,92\nCarol,35,79\n"</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">row_count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fold_with_header</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"data rows: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">row_count</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">total_score</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">fold_with_header</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">score_str</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">score_str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span>
+<span class="w">                        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"total score: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">total_score</span><span class="p">))</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">chunk_count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fold_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"chunk fold row count: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">chunk_count</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>fold_with_header</code> counts three data rows and sums the scores to 259</li>
+<li><code>fold_csv</code> counts four rows because it does not skip the header;
+    the caller decides whether the first row is a header</li>
+<li>Changing <code>chunk_size</code> to 8 or 4 would produce the same counts,
+    confirming that chunk boundaries do not affect the result</li>
+</ul>
+<h2>Testing</h2>
+<div data-inc="test/stream_test.gleam" data-mark="tests"><span aria-label="Source: stream/test/stream_test.gleam" class="inc-path" role="img" tabindex="0" title="stream/test/stream_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">parse_row_basic_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">parse_row</span><span class="p">(</span><span class="s">"a,b,c"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">]))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">parse_row_single_field_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">parse_row</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">([</span><span class="s">"hello"</span><span class="p">]))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">parse_row_empty_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">parse_row</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">parse_row_whitespace_only_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">parse_row</span><span class="p">(</span><span class="s">"   "</span><span class="p">)</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_rows_counts_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Alice,30\nBob,25\nCarol,35"</span>
+<span class="w">    </span><span class="n">fold_rows</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_rows_skips_blank_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Alice,30\n\nBob,25"</span>
+<span class="w">    </span><span class="n">fold_rows</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_with_header_skips_first_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"name,age\nAlice,30\nBob,25"</span>
+<span class="w">    </span><span class="n">fold_with_header</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_with_header_sum_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"name,score\nAlice,10\nBob,20\nCarol,30"</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="p">=</span>
+<span class="w">        </span><span class="n">fold_with_header</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">n_str</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">n_str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span>
+<span class="w">                        </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">acc</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fold_csv_same_as_fold_rows_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"a,1\nb,2\nc,3"</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">by_line</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fold_rows</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">by_chunk</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fold_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="n">by_line</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">by_chunk</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parse_row_*</code> tests cover both success and the two forms of empty input</li>
+<li><code>fold_rows_skips_blank_test</code> confirms that the blank line between the two
+    data rows is silently skipped</li>
+<li><code>fold_csv_same_as_fold_rows_test</code> is the key correctness check:
+    both approaches must agree on the row count for the same input</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why does <code>do_fold_csv</code> carry the last line of each chunk
+forward as the buffer rather than processing it immediately?</summary>
+<p>A chunk boundary can fall in the middle of a row.
+For example, if chunk 1 ends with <code>"Ali"</code> and chunk 2 starts with <code>"ce,30\n"</code>,
+the row for Alice is split across the two chunks.
+<code>string.split(combined, "\n")</code> separates complete rows (those followed by <code>\n</code>)
+from the tail that has no newline yet.
+Carrying that tail forward and prepending it to the next chunk
+reconstructs the full row before passing it to <code>parse_row</code>.
+Processing the tail immediately would either drop Alice's row
+or produce a partial parse with only <code>"Ali"</code> as the first field.</p>
+</details>
+<details>
+<summary>What does <code>fold_with_header</code> produce for a string that contains
+only a header line and no data rows?</summary>
+<p><code>string.split(text, "\n")</code> produces a one-element list <code>[header_line]</code>.
+The pattern <code>[_]</code> matches — one element — and the function returns <code>init</code>
+without calling <code>f</code> at all.
+This is correct: a CSV file with only a header has zero data rows,
+so the accumulator should be unchanged.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Running average (15 minutes)</h3>
+<p>Write <code>running_average(text: String, col_idx: Int) -&gt; Float</code>
+that computes the average of the numeric values in a given column index
+across all data rows.
+Use <code>fold_rows</code> and accumulate a <code>#(Int, Int)</code> pair of <code>(sum, count)</code>,
+then divide at the end.
+Return <code>0.0</code> for an empty or all-unparseable column.</p>
+</div>
+<div class="exercise">
+<h3>Skip-on-error policy (15 minutes)</h3>
+<p>Modify <code>fold_rows</code> into <code>fold_rows_strict</code> that stops and returns <code>Error(row_number)</code>
+on the first malformed row rather than skipping it.
+The row number is 1-indexed.
+Write two tests: one where no rows are malformed (should return <code>Ok(final_acc)</code>),
+and one where the second row is blank (should return <code>Error(2)</code>).</p>
+</div>
+<div class="exercise">
+<h3>CSV writer (10 minutes)</h3>
+<p>Write <code>write_csv(rows: List(List(String))) -&gt; String</code>
+that joins each inner list on <code>","</code> and each row on <code>"\n"</code>,
+adding a trailing newline.
+Write three tests: empty input, one row, multiple rows.
+Confirm that <code>fold_rows(write_csv(rows), 0, fn(acc, _) { acc + 1 }) == list.length(rows)</code>.</p>
+</div>
+<div class="exercise">
+<h3>Quoted fields (20 minutes)</h3>
+<p>A quoted CSV field is surrounded by <code>"..."</code> and may contain commas.
+For example, <code>Alice,"30,5",engineer</code> has three fields.
+Write <code>parse_row_quoted(line: String) -&gt; Result(List(String), String)</code> that handles this.
+A minimal approach: split on <code>","</code> tokens that are outside any open <code>"</code> pair.
+Write at least four tests covering fields with and without quotes.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../prop">Property-Based Testing</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

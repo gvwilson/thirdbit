@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Virtual Machine</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a class="active" href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Virtual Machine</h1>
+<div class="callout">
+<ul>
+<li>A simple computer can be modelled as a record holding an instruction pointer,
+     a register file, and a block of memory.</li>
+<li>Each instruction is a custom type variant.</li>
+<li>An assembler encodes variants into integers and an executor decodes and runs them.</li>
+<li>The <a class="gl-ref" href="../glossary/#fetch_decode_execute">fetch-decode-execute cycle</a> is
+     a tail-recursive function over an immutable <code>Machine</code> record.</li>
+<li>Separating the assembler (pure encoding) from the executor (pure simulation)
+     makes each part independently testable.</li>
+</ul>
+</div>
+<h2>Why Build a VM?</h2>
+<ul>
+<li>A virtual machine is a program that runs other programs</li>
+<li>Understanding one reveals how real CPUs work:
+    fetch an instruction, decode its parts, execute the operation, repeat</li>
+<li>This lesson builds a minimal VM with four registers,
+    a flat integer memory, and five instructions</li>
+<li>The VM connects several ideas covered earlier:<ul>
+<li>Custom types and pattern matching (the instruction type)</li>
+<li>Recursion over immutable data (the execute loop)</li>
+<li>Bit manipulation (packing operands into integers)</li>
+<li>Separating pure logic from side effects (no IO inside <code>execute</code>)</li>
+</ul>
+</li>
+</ul>
+<h2>Types</h2>
+<ul>
+<li>Two types capture the machine state and the instruction set:</li>
+</ul>
+<div data-inc="src/vm_demo.gleam" data-mark="op_machine_type"><span aria-label="Source: vm/src/vm_demo.gleam" class="inc-path" role="img" tabindex="0" title="vm/src/vm_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Op</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Halt</span>
+<span class="w">  </span><span class="n">Load</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Add</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Jump</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">JumpIfZero</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Machine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Machine</span><span class="p">(</span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">),</span><span class="w"> </span><span class="n">ram</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Op</code> lists every instruction; each variant carries its operands<ul>
+<li><code>Load(reg, val)</code> puts a literal value into a register</li>
+<li><code>Add(dst, a, b)</code> stores <code>regs[a] + regs[b]</code> into <code>regs[dst]</code></li>
+<li><code>Jump(addr)</code> sets the instruction pointer to <code>addr</code></li>
+<li><code>JumpIfZero(reg, addr)</code> jumps only if <code>regs[reg] == 0</code></li>
+<li><code>Halt</code> stops the machine</li>
+</ul>
+</li>
+<li><code>Machine</code> holds the full CPU state:<ul>
+<li><code>ip</code> is the instruction pointer (index into <code>ram</code>)</li>
+<li><code>regs</code> is the register file, a <code>List(Int)</code> of length <code>num_regs</code></li>
+<li><code>ram</code> is the program encoded as a <code>List(Int)</code></li>
+</ul>
+</li>
+<li><code>num_regs = 4</code> is a named constant<ul>
+<li>Using a name rather than a bare <code>4</code> makes the intent clear</li>
+<li>It appears in both the initialization and the tests without duplication</li>
+</ul>
+</li>
+</ul>
+<h2>Assembler</h2>
+<ul>
+<li>The assembler converts a list of <code>Op</code> values to a list of integers:</li>
+</ul>
+<div data-inc="src/vm_demo.gleam" data-mark="assemble_fn"><span aria-label="Source: vm/src/vm_demo.gleam" class="inc-path" role="img" tabindex="0" title="vm/src/vm_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">ops</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Op</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">ops</span><span class="p">,</span><span class="w"> </span><span class="n">encode</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">op</span><span class="p">:</span><span class="w"> </span><span class="n">Op</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Halt</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">Load</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">val</span>
+<span class="w">    </span><span class="n">Add</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dst</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="w">    </span><span class="n">Jump</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">addr</span>
+<span class="w">    </span><span class="n">JumpIfZero</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">reg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">field_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">addr</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Each instruction is packed into a single 24-bit integer<ul>
+<li>Bits 23-16: <a class="gl-ref" href="../glossary/#opcode">opcode</a> (0 = Halt, 1 = Load, 2 = Add, 3 = Jump, 4 = JumpIfZero)</li>
+<li>Bits 15-8: first operand</li>
+<li>Bits 7-0: second operand</li>
+</ul>
+</li>
+<li><code>Load(0, 10)</code> encodes as <code>1 * field_size * field_size + 0 * field_size + 10 = 65546</code></li>
+<li><code>field_size = 256</code> is a named constant representing one byte per instruction field;
+    using it instead of bare <code>256</code> makes the encoding scheme explicit</li>
+</ul>
+<h2>Executor</h2>
+<ul>
+<li>The executor is a single recursive function:</li>
+</ul>
+<div data-inc="src/vm_demo.gleam" data-mark="execute_fn"><span aria-label="Source: vm/src/vm_demo.gleam" class="inc-path" role="img" tabindex="0" title="vm/src/vm_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">machine</span><span class="p">:</span><span class="w"> </span><span class="n">Machine</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Machine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">list_at</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">machine</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">let</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Halt</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">machine</span>
+<span class="w">        </span><span class="n">Load</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">let</span><span class="w"> </span><span class="n">new_regs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">set_reg</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="w">          </span><span class="n">execute</span><span class="p">(</span><span class="n">Machine</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">ip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_regs</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">Add</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">let</span><span class="w"> </span><span class="n">va</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">get_reg</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<span class="w">          </span><span class="k">let</span><span class="w"> </span><span class="n">vb</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">get_reg</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">          </span><span class="k">let</span><span class="w"> </span><span class="n">new_regs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">set_reg</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">va</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vb</span><span class="p">)</span>
+<span class="w">          </span><span class="n">execute</span><span class="p">(</span><span class="n">Machine</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">ip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">new_regs</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">Jump</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">          </span><span class="n">execute</span><span class="p">(</span><span class="n">Machine</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">))</span>
+<span class="w">        </span><span class="n">JumpIfZero</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">get_reg</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">reg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">Machine</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">))</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">Machine</span><span class="p">(</span><span class="k">machine</span><span class="p">.</span><span class="n">ip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="k">machine</span><span class="p">.</span><span class="n">ram</span><span class="p">))</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>list_at(machine.ram, machine.ip)</code> fetches the current instruction</li>
+<li><code>Error(_)</code> fires when the IP runs off the end: the machine halts</li>
+<li><code>Halt</code> stops execution cleanly and returns the current machine</li>
+<li>Each other instruction builds a new <code>Machine</code> with updated state and recurses</li>
+<li><code>JumpIfZero</code> branches:
+     if the register is zero, set IP to <code>addr</code>, otherwise advance by one</li>
+<li>This is tail recursion again:
+     every path either returns the machine or calls <code>execute</code> as the last action<ul>
+<li>The Gleam compiler optimizes this to a loop,
+    so even a long-running program will not overflow the call stack</li>
+</ul>
+</li>
+</ul>
+<h2>Running the Example</h2>
+<div data-inc="src/vm_demo.gleam" data-mark="run_example"><span aria-label="Source: vm/src/vm_demo.gleam" class="inc-path" role="img" tabindex="0" title="vm/src/vm_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="n">Load</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Load</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Halt</span><span class="p">,</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Machine</span><span class="p">(</span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">:</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num_regs</span><span class="p">),</span><span class="w"> </span><span class="n">ram</span><span class="p">:</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">program</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">regs</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>Load(0, 10)</code> puts 10 in register 0; <code>Load(1, 20)</code> puts 20 in register 1</li>
+<li><code>Add(2, 0, 1)</code> stores <code>regs[0] + regs[1]</code> in register 2</li>
+<li><code>Halt</code> stops execution; final register state is <code>[10, 20, 30, 0]</code></li>
+</ul>
+<p>The disassembler converts the encoded program back to readable text:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nb">load</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="mi">10</span>
+<span class="nb">load</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="mi">20</span>
+<span class="n">add</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="n">r1</span>
+<span class="n">halt</span>
+</code></pre></div>
+<h2>Testing</h2>
+<div data-inc="test/vm_test.gleam" data-mark="tests"><span aria-label="Source: vm/test/vm_test.gleam" class="inc-path" role="img" tabindex="0" title="vm/test/vm_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_program_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Load</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">Load</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Halt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Machine</span><span class="p">(</span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">:</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">ram</span><span class="p">:</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">program</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+<span class="w">  </span><span class="n">at</span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">halt_at_start_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Halt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Machine</span><span class="p">(</span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">:</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">ram</span><span class="p">:</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">program</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+<span class="w">  </span><span class="k">result</span><span class="p">.</span><span class="n">ip</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">jump_if_zero_skips_when_nonzero_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Load 1 into r0, then JumpIfZero r0 addr=0 should NOT jump</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Load</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">JumpIfZero</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">Load</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">),</span><span class="w"> </span><span class="n">Halt</span><span class="p">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Machine</span><span class="p">(</span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">:</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">ram</span><span class="p">:</span><span class="w"> </span><span class="n">assemble</span><span class="p">(</span><span class="n">program</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+<span class="w">  </span><span class="n">at</span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>add_program_test</code> assembles and runs a simple addition program,
+    then checks that register 2 holds the sum</li>
+<li><code>halt_at_start_test</code> confirms that <code>Halt</code> at IP 0 leaves the machine at IP 0</li>
+<li><code>jump_if_zero_skips_when_nonzero_test</code> checks that <code>JumpIfZero</code> does not branch
+    when the register is non-zero, allowing the next instruction to execute</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>Why encode instructions as integers?</summary>
+<p>A real CPU stores programs as bytes in memory.
+Using a <code>List(Int)</code> here mimics that:
+the program and data live in the same address space,
+and the instruction pointer is just an index.
+This makes it straightforward to write self-modifying programs
+(though doing so is a well-known source of bugs).
+An alternative is to keep the <code>List(Op)</code> as the program representation,
+which is simpler but means the program and data are separate.
+This is less realistic but easier to reason about.</p>
+</details>
+<details>
+<summary>The <code>execute</code> function calls itself on every non-<code>Halt</code> instruction.
+Why does Gleam not run out of stack space for a long program?</summary>
+<p>Because every recursive call to <code>execute</code> is a tail call:
+<code>execute</code> is the last thing each branch does, with no further computation pending.
+The Gleam compiler replaces tail calls with a jump back to the top of the function,
+reusing the same stack frame.
+This is equivalent to a <code>while</code> loop and uses O(1) stack space
+regardless of how many instructions the program runs.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Sum 1 to 5 (20 minutes)</h3>
+<p>Write a program in <code>List(Op)</code> that computes <code>1 + 2 + 3 + 4 + 5 = 15</code>
+using a loop and <code>JumpIfZero</code>.
+Use register 0 as the counter (start at 5, decrement each iteration)
+and register 1 as the accumulator.
+Halt when the counter reaches zero.
+Run it with <code>execute</code> and assert <code>regs[1] == 15</code>.</p>
+</div>
+<div class="exercise">
+<h3>Disassembler (15 minutes)</h3>
+<p>Write <code>disassemble(words: List(Int)) -&gt; List(String)</code> that converts
+encoded words to strings like <code>"load r0 10"</code> and <code>"add r2 r0 r1"</code>.
+Add one test per instruction type.</p>
+</div>
+<div class="exercise">
+<h3>Multiply instruction (15 minutes)</h3>
+<p>Add <code>Mul(dst, a, b)</code> to <code>Op</code>.
+Choose an unused opcode (e.g. 5).
+Update <code>encode</code>, <code>decode</code>, <code>execute</code>, and (if you wrote it) the disassembler.
+Write a test that loads 6 and 7 into registers, multiplies them,
+and asserts the result is 42.</p>
+</div>
+<div class="exercise">
+<h3>Step limit (10 minutes)</h3>
+<p>Add a <code>max_steps: Int</code> field to <code>Machine</code>.
+Decrement it on each instruction; when it reaches zero, halt.
+Change the return type to <code>Result(Machine, String)</code>.
+Write a test that confirms a looping program returns an error after the
+step limit is reached.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../eventual">Eventually Consistent Key-Value Store</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../api">To-Do List Web API</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

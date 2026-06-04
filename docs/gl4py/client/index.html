@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTTP API Client with JSON Decoding</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a class="active" href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>HTTP API Client with JSON Decoding</h1>
+<div class="callout">
+<ul>
+<li><code>gleam/dynamic/decode</code> provides composable decoders that convert
+    untyped external data into typed Gleam values.</li>
+<li>A <code>decode.Decoder(t)</code> is built with <code>decode.field</code> and the <code>use</code> syntax;
+    decoders compose by nesting.</li>
+<li>Separating the fetch step from the decode step keeps each part independently testable.</li>
+<li><code>json.parse(string, decoder)</code> parses a JSON string and runs the decoder in one call.</li>
+<li>Network errors, non-200 responses, and decode failures are all <code>Result</code> errors;
+    the caller handles them uniformly.</li>
+</ul>
+</div>
+<h2>The Problem</h2>
+<ul>
+<li>External APIs return JSON: untyped text with no compile-time guarantees</li>
+<li>To work with the data in a type-safe way, you need to decode it into your own types</li>
+<li><code>gleam/dynamic/decode</code> provides a decoder <a class="gl-ref" href="../glossary/#dsl">domain-specific language</a> (DSL)<ul>
+<li>Small functions that each handle one piece of a JSON structure</li>
+</ul>
+</li>
+<li>Composing them produces a decoder for the whole record,
+    and the compiler checks the composition</li>
+</ul>
+<h2>The Issue Type</h2>
+<div data-inc="src/decode_demo.gleam" data-mark="issue_type"><span aria-label="Source: client/src/decode_demo.gleam" class="inc-path" role="img" tabindex="0" title="client/src/decode_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Issue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Issue</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>A GitHub issue has many fields; this decoder extracts only three</li>
+<li>The type definition says exactly what the application cares about</li>
+<li>Fields not listed are silently ignored by the decoder</li>
+</ul>
+<h2>Writing a Decoder</h2>
+<div data-inc="src/decode_demo.gleam" data-mark="decoder_fn"><span aria-label="Source: client/src/decode_demo.gleam" class="inc-path" role="img" tabindex="0" title="client/src/decode_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">issue_decoder</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">Decoder</span><span class="p">(</span><span class="n">Issue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"number"</span><span class="p">,</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">int</span><span class="p">)</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">string</span><span class="p">)</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"state"</span><span class="p">,</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">string</span><span class="p">)</span>
+<span class="w">  </span><span class="k">decode</span><span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="n">Issue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>issue_decoder()</code> returns a <code>decode.Decoder(Issue)</code></li>
+<li><code>decode.field("number", decode.int)</code> reads the <code>"number"</code> key
+    and decodes it as an integer<ul>
+<li><code>decode.int</code> and <code>decode.string</code> are built-in decoders</li>
+</ul>
+</li>
+<li>The <code>use</code> bindings run in sequence<ul>
+<li>If any field is missing or has the wrong type the whole decoder returns an error</li>
+</ul>
+</li>
+<li><code>decode.success(Issue(...))</code> assembles the value only when all fields decoded successfully</li>
+</ul>
+<h2>Decoding a JSON String</h2>
+<div data-inc="src/decode_demo.gleam" data-mark="decode_fn"><span aria-label="Source: client/src/decode_demo.gleam" class="inc-path" role="img" tabindex="0" title="client/src/decode_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decode_issues</span><span class="p">(</span><span class="n">json_str</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">Issue</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">json</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">issue_decoder</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"decode failed: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>decode.list(issue_decoder())</code> wraps the single-item decoder
+    to handle a JSON array</li>
+<li><code>json.parse</code> parses the string and runs the decoder</li>
+<li><code>string.inspect</code> converts the decode error to a human-readable string
+    for display or logging</li>
+</ul>
+<h2>Making HTTP Requests</h2>
+<ul>
+<li>In a real application, <code>gleam_httpc</code> fetches the data:</li>
+</ul>
+<div data-inc="snippets/httpc_demo.gleam" data-mark="fetch_issues_fn"><span aria-label="Source: client/snippets/httpc_demo.gleam" class="inc-path" role="img" tabindex="0" title="client/snippets/httpc_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">fetch_issues</span><span class="p">(</span>
+<span class="w">  </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="w">  </span><span class="n">repo</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="n">Issue</span><span class="p">),</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"https://api.github.com/repos/"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"/"</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">"/issues"</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">httpc</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">"network error: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">httpc</span><span class="p">.</span><span class="n">error_to_string</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="k">response</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mi">200</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">decode_issues</span><span class="p">(</span><span class="k">response</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
+<span class="w">        </span><span class="n">status</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">          </span><span class="n">Error</span><span class="p">(</span><span class="s">"unexpected status: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Network errors produce <code>Error</code> immediately</li>
+<li>Non-200 status codes produce <code>Error</code> with the status</li>
+<li>Only a 200 response is decoded; the logic is layered explicitly</li>
+</ul>
+<h2>Testing the Decoder</h2>
+<div data-inc="test/client_test.gleam" data-mark="tests"><span aria-label="Source: client/test/client_test.gleam" class="inc-path" role="img" tabindex="0" title="client/test/client_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decode_one_issue_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"{\"number\":1,\"title\":\"fix bug\",\"state\":\"open\"}"</span>
+<span class="w">  </span><span class="k">json</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">issue_decoder</span><span class="p">())</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Issue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"fix bug"</span><span class="p">,</span><span class="w"> </span><span class="s">"open"</span><span class="p">)))</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decode_list_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"[{\"number\":1,\"title\":\"a\",\"state\":\"open\"}]"</span>
+<span class="w">  </span><span class="k">json</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="k">decode</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">issue_decoder</span><span class="p">()))</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_ok</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">length</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">missing_field_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"{\"number\":1,\"title\":\"a\"}"</span>
+<span class="w">  </span><span class="k">json</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">issue_decoder</span><span class="p">())</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">wrong_type_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">json_str</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="s">"{\"number\":\"not an int\",\"title\":\"a\",\"state\":\"open\"}"</span>
+<span class="w">  </span><span class="k">json</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span><span class="w"> </span><span class="n">issue_decoder</span><span class="p">())</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The decoder can be tested with a hard-coded JSON string: no network needed</li>
+<li><code>decode_one_issue_test</code> confirms the happy path</li>
+<li><code>missing_field_test</code> confirms that a missing <code>"state"</code> field returns an error</li>
+<li><code>wrong_type_test</code> confirms that a non-integer <code>"number"</code> returns an error</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What is a <code>Dynamic</code> value?</summary>
+<p>Gleam is statically typed: every value has a known type at compile time.
+But JSON is dynamically typed:
+the structure of a JSON blob is not known until you parse it at runtime.
+<code>decode.Decoder(t)</code> is a description of how to extract a <code>t</code> from untyped data;
+it is not a function you call directly.
+<code>json.parse(string, decoder)</code> feeds the parsed JSON into the decoder
+and returns <code>Ok(value)</code> or <code>Error(dynamic.DecodeErrors)</code>.
+Once the decoder succeeds,
+the value is fully typed and the compiler enforces it.
+This is similar to <code>json.loads</code> in Python,
+but with the parsing and type-checking fused into one step.</p>
+</details>
+<details>
+<summary>Why test the decoder with a hard-coded JSON string instead of making a real HTTP request?</summary>
+<p>Testing against a live network introduces failures that have nothing to do with your code:
+the server might be down, rate-limit you, or return different data each time.
+A hard-coded string makes the test deterministic and fast.
+The decode step and the fetch step are deliberately separated so each can be tested alone.
+Once you are confident the decoder is correct, integration tests can cover the network layer;
+but unit tests should never depend on external services.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Labels field (15 minutes)</h3>
+<p>Add a <code>labels: List(String)</code> field to <code>Issue</code>.
+The GitHub API returns it as an array of objects with a <code>"name"</code> field.
+Write a decoder for the label object, then compose it with <code>decode.list</code>
+and add it to <code>issue_decoder</code>.
+Update the tests.</p>
+</div>
+<div class="exercise">
+<h3>Filter open issues (10 minutes)</h3>
+<p>Write <code>open_issues(issues: List(Issue)) -&gt; List(Issue)</code> that only returns
+issues where <code>state == "open"</code>.
+Add tests with a mix of open and closed issues.</p>
+</div>
+<div class="exercise">
+<h3>Retry on 5xx (15 minutes)</h3>
+<p>Modify <code>fetch_issues</code> to retry once if the response status is &gt;= 500.
+The function signature does not change.
+Write a test using a hard-coded response that simulates a 500 followed by a 200.</p>
+</div>
+<div class="exercise">
+<h3>Repository decoder (20 minutes)</h3>
+<p>Write <code>type Repo { Repo(name: String, stars: Int, language: String) }</code>
+and a decoder for <code>GET /repos/:owner/:repo</code>.
+The GitHub API uses <code>"stargazers_count"</code> for stars and <code>"language"</code>
+for the primary language.
+Use <code>decode.field</code> for each field,
+following the same <code>use</code> pattern as <code>issue_decoder</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../lustre">Lustre Frontend Counter and Form</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../workers">Supervised Worker Pool</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
