@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Late Merge</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Late Merge</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/02/pooled-vs-separate/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-03" class="post-date">2026-06-03</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>A two-lane road narrows to one lane at a construction zone. Drivers face a choice:</p>
+<ul>
+<li>Early (courtesy) merge: upon seeing the &ldquo;Lane Ends Ahead&rdquo; sign, drivers immediately move from the closing lane into the open lane.</li>
+<li>Late (zipper) merge: drivers use both lanes all the way to the merge point, then alternate — one car from each lane in turn, like a zipper.</li>
+</ul>
+<p>It turns out that late merging produces higher throughput and shorter queues than early merging, even though it feels less polite. Early merging creates a single long queue that wastes the closing lane&rsquo;s capacity. Late merging fully utilises both lanes up to the bottleneck, then processes cars at the same rate with a zipper pattern. This result is not merely theoretical: the Minnesota Department of Transportation, the German ADAC, and the UK Highway Code all recommend late merging in slow-moving traffic precisely because it is provably more efficient.</p>
+<p>The primary benefit of late merging is higher throughput: more cars complete the merge per unit time. Mean sojourn time for individual cars may actually be slightly longer under late merge, because the larger total buffer admits more cars into the system, increasing average queue occupancy. By Little&rsquo;s Law $L = \lambda W$, if $\lambda$ grows faster than $L$ falls, $W$ rises. This is not a disadvantage: it means more drivers successfully pass through rather than being turned away.</p>
+<h2>Why Early Merging Hurts</h2>
+<p>With early merging:</p>
+<ul>
+<li>All $N$ cars queue in one lane of capacity $K$.</li>
+<li>When the single queue is full ($K$ cars), arriving cars are turned away (blocking), reducing throughput.</li>
+<li>The merge point processes at rate $\mu$ regardless, but there are fewer cars available to process (the second lane is empty and wasted).</li>
+</ul>
+<p>With late merging:</p>
+<ul>
+<li>Cars distribute across two lanes, each of capacity $K$ (total $2K$).</li>
+<li>The merge point receives supply from both lanes, reducing starvation.</li>
+<li>Blocking occurs only when <em>both</em> lanes are simultaneously full, a rarer event.</li>
+</ul>
+<p>The key metric is the <em>blocking probability</em>: the fraction of arriving cars turned away because the pre-merge buffer is full. Let $\rho = \lambda/\mu$ be the utilisation of the merge bottleneck. For a finite-buffer M/M/1/K queue the blocking probability is:</p>
+<p>$$P_{\text{block}} = \frac{(1-\rho)\rho^K}{1 - \rho^{K+1}}$$</p>
+<p>Early merge has buffer $K$; late merge effectively has buffer $2K$ (spread across two lanes). Since $P_{\text{block}}$ decreases exponentially in $K$, doubling the available buffer dramatically reduces blocking.</p>
+<h2>Understanding the Math</h2>
+<h3>The finite-buffer formula</h3>
+<p>For a queue with random arrivals, exponential service, a single server, and a buffer that holds at most $K$ cars (the M/M/1/K model), the blocking probability is:</p>
+<p>$$P_{\text{block}} = \frac{(1-\rho)\,\rho^K}{1 - \rho^{K+1}}$$</p>
+<p>As usual, $\rho = \lambda/\mu$ is the utilization. Notice that the numerator contains $\rho^K$. Because $\rho &lt; 1$, increasing $K$ by 1 multiplies the numerator by $\rho &lt; 1$, shrinking $P_{\text{block}}$ faster than linearly. Each extra slot in the buffer is more valuable than a simple linear reduction would suggest.</p>
+<h3>Early vs. late merge in terms of $K$</h3>
+<p>Early merging creates a single queue with buffer $K$: one lane&rsquo;s worth of space. Late merging uses both lanes up to the merge point, creating an effective buffer of $2K$ cars total. Plugging $2K$ into the formula instead of $K$ replaces $\rho^K$ with $\rho^{2K} = (\rho^K)^2$. Since $\rho^K &lt; 1$, squaring it makes it much smaller. This is the why doubling the buffer dramatically reduces blocking.</p>
+<h3>Intuition about two lanes</h3>
+<p>Here is another way to see it. Under late merge, both lanes must be simultaneously full for a car to be blocked. Suppose each individual lane is full with probability $p$. If the two lanes are roughly independent, the probability both are full at once is approximately $p^2$. For example, if $p = 0.3$, then $p^2 = 0.09$ — blocking drops from 30% to 9%. Two lanes are dramatically more forgiving than one.</p>
+<h3>Connection to throughput</h3>
+<p>Throughput is the rate at which cars successfully pass through the merge: $\text{throughput} = \lambda \cdot (1 - P_{\text{block}})$. Every blocked car is a car that does not get through. Reducing $P_{\text{block}}$ by doubling $K$ therefore raises throughput nearly proportionally. Late merge does not speed up the bottleneck (the merge point still processes cars at rate $\mu$) but it ensures the bottleneck is never starved of cars to process, maximizing the number of drivers who make it through.</p>
+<h3>The broader lesson</h3>
+<p>The key insight is that the <em>structure</em> of a waiting space matters, not just its total size. Two separate lanes of capacity $K$ each are far better than one lane of capacity $2K$ because blocking requires both lanes to fill simultaneously. This logic generalises widely: in computer networks, having multiple independent paths reduces the chance a single congested link stalls all traffic; in hospitals, pooling patients across several triage nurses reduces the chance one idle nurse sits beside an overwhelmed colleague. Wherever there is a finite buffer feeding a shared bottleneck, the late-merge principle applies: spread the waiting space across parallel channels and blocking probability falls dramatically.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

@@ -3,12 +3,56 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-06-02T00:00:00Z</updated>
+ <updated>2026-06-03T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Late Merge</title>
+   <link href="https://third-bit.com/2026/06/03/late-merge/"/>
+   <updated>2026-06-03T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/03/late-merge/</id>
+   <content type="html">&lt;p&gt;A two-lane road narrows to one lane at a construction zone. Drivers face a choice:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Early (courtesy) merge: upon seeing the &amp;ldquo;Lane Ends Ahead&amp;rdquo; sign, drivers immediately move from the closing lane into the open lane.&lt;/li&gt;
+&lt;li&gt;Late (zipper) merge: drivers use both lanes all the way to the merge point, then alternate — one car from each lane in turn, like a zipper.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It turns out that late merging produces higher throughput and shorter queues than early merging, even though it feels less polite. Early merging creates a single long queue that wastes the closing lane&amp;rsquo;s capacity. Late merging fully utilises both lanes up to the bottleneck, then processes cars at the same rate with a zipper pattern. This result is not merely theoretical: the Minnesota Department of Transportation, the German ADAC, and the UK Highway Code all recommend late merging in slow-moving traffic precisely because it is provably more efficient.&lt;/p&gt;
+&lt;p&gt;The primary benefit of late merging is higher throughput: more cars complete the merge per unit time. Mean sojourn time for individual cars may actually be slightly longer under late merge, because the larger total buffer admits more cars into the system, increasing average queue occupancy. By Little&amp;rsquo;s Law $L = \lambda W$, if $\lambda$ grows faster than $L$ falls, $W$ rises. This is not a disadvantage: it means more drivers successfully pass through rather than being turned away.&lt;/p&gt;
+&lt;h2&gt;Why Early Merging Hurts&lt;/h2&gt;
+&lt;p&gt;With early merging:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All $N$ cars queue in one lane of capacity $K$.&lt;/li&gt;
+&lt;li&gt;When the single queue is full ($K$ cars), arriving cars are turned away (blocking), reducing throughput.&lt;/li&gt;
+&lt;li&gt;The merge point processes at rate $\mu$ regardless, but there are fewer cars available to process (the second lane is empty and wasted).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With late merging:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cars distribute across two lanes, each of capacity $K$ (total $2K$).&lt;/li&gt;
+&lt;li&gt;The merge point receives supply from both lanes, reducing starvation.&lt;/li&gt;
+&lt;li&gt;Blocking occurs only when &lt;em&gt;both&lt;/em&gt; lanes are simultaneously full, a rarer event.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The key metric is the &lt;em&gt;blocking probability&lt;/em&gt;: the fraction of arriving cars turned away because the pre-merge buffer is full. Let $\rho = \lambda/\mu$ be the utilisation of the merge bottleneck. For a finite-buffer M/M/1/K queue the blocking probability is:&lt;/p&gt;
+&lt;p&gt;$$P_{\text{block}} = \frac{(1-\rho)\rho^K}{1 - \rho^{K+1}}$$&lt;/p&gt;
+&lt;p&gt;Early merge has buffer $K$; late merge effectively has buffer $2K$ (spread across two lanes). Since $P_{\text{block}}$ decreases exponentially in $K$, doubling the available buffer dramatically reduces blocking.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;The finite-buffer formula&lt;/h3&gt;
+&lt;p&gt;For a queue with random arrivals, exponential service, a single server, and a buffer that holds at most $K$ cars (the M/M/1/K model), the blocking probability is:&lt;/p&gt;
+&lt;p&gt;$$P_{\text{block}} = \frac{(1-\rho)\,\rho^K}{1 - \rho^{K+1}}$$&lt;/p&gt;
+&lt;p&gt;As usual, $\rho = \lambda/\mu$ is the utilization. Notice that the numerator contains $\rho^K$. Because $\rho &amp;lt; 1$, increasing $K$ by 1 multiplies the numerator by $\rho &amp;lt; 1$, shrinking $P_{\text{block}}$ faster than linearly. Each extra slot in the buffer is more valuable than a simple linear reduction would suggest.&lt;/p&gt;
+&lt;h3&gt;Early vs. late merge in terms of $K$&lt;/h3&gt;
+&lt;p&gt;Early merging creates a single queue with buffer $K$: one lane&amp;rsquo;s worth of space. Late merging uses both lanes up to the merge point, creating an effective buffer of $2K$ cars total. Plugging $2K$ into the formula instead of $K$ replaces $\rho^K$ with $\rho^{2K} = (\rho^K)^2$. Since $\rho^K &amp;lt; 1$, squaring it makes it much smaller. This is the why doubling the buffer dramatically reduces blocking.&lt;/p&gt;
+&lt;h3&gt;Intuition about two lanes&lt;/h3&gt;
+&lt;p&gt;Here is another way to see it. Under late merge, both lanes must be simultaneously full for a car to be blocked. Suppose each individual lane is full with probability $p$. If the two lanes are roughly independent, the probability both are full at once is approximately $p^2$. For example, if $p = 0.3$, then $p^2 = 0.09$ — blocking drops from 30% to 9%. Two lanes are dramatically more forgiving than one.&lt;/p&gt;
+&lt;h3&gt;Connection to throughput&lt;/h3&gt;
+&lt;p&gt;Throughput is the rate at which cars successfully pass through the merge: $\text{throughput} = \lambda \cdot (1 - P_{\text{block}})$. Every blocked car is a car that does not get through. Reducing $P_{\text{block}}$ by doubling $K$ therefore raises throughput nearly proportionally. Late merge does not speed up the bottleneck (the merge point still processes cars at rate $\mu$) but it ensures the bottleneck is never starved of cars to process, maximizing the number of drivers who make it through.&lt;/p&gt;
+&lt;h3&gt;The broader lesson&lt;/h3&gt;
+&lt;p&gt;The key insight is that the &lt;em&gt;structure&lt;/em&gt; of a waiting space matters, not just its total size. Two separate lanes of capacity $K$ each are far better than one lane of capacity $2K$ because blocking requires both lanes to fill simultaneously. This logic generalises widely: in computer networks, having multiple independent paths reduces the chance a single congested link stalls all traffic; in hospitals, pooling patients across several triage nurses reduces the chance one idle nurse sits beside an overwhelmed colleague. Wherever there is a finite buffer feeding a shared bottleneck, the late-merge principle applies: spread the waiting space across parallel channels and blocking probability falls dramatically.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Pooled vs. Separate Queues</title>
@@ -2547,194 +2591,6 @@ NYU Press,
 Routledge,
 2015,
 &lt;a href=&#34;https://isbnsearch.org/isbn/9780415520317&#34;&gt;9780415520317&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Not So Selfish After All</title>
-   <link href="https://third-bit.com/2026/05/17/not-so-selfish-after-all/"/>
-   <updated>2026-05-17T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/17/not-so-selfish-after-all/</id>
-   <content type="html">&lt;p&gt;Imagine you are given ten dollars to split with a stranger.
-You can offer them any amount you like.
-If they accept, you both keep your shares,
-but if they reject the offer,
-neither of you gets anything.
-A purely self-interested stranger, according to classical economics,
-should accept any positive offer—even one dollar—because one dollar is better than nothing.&lt;/p&gt;
-&lt;p&gt;When researchers ran this experiment across dozens of countries,
-they found that offers below thirty percent of the total were rejected roughly half the time:
-people would rather walk away with nothing
-than accept an outcome they perceived as unfair.
-In some communities, rejection rates were even higher.&lt;/p&gt;
-&lt;p&gt;This experiment, called the ultimatum game,
-has been run so many times and reproduced so reliably
-that its basic finding is no longer seriously contested.
-People care about fairness,
-punish violations of it at cost to themselves,
-and do so even with strangers they will never see again.
-This directly contradicts the assumptions that underlie most of modern economics,
-much conservative political thought,
-and a substantial proportion of technology design.&lt;/p&gt;
-&lt;p&gt;The idea that human beings are fundamentally self-interested did not emerge from evidence.
-It emerged from political argument,
-was later dressed in mathematical formalism,
-and eventually achieved the status of dogma.
-Thomas Hobbes, writing in 1651,
-described the natural condition of humanity as &amp;ldquo;a war of all against all.&amp;rdquo;
-Life without government, he argued, was &amp;ldquo;solitary, poor, nasty, brutish, and short.&amp;rdquo;
-Hobbes wasn&amp;rsquo;t reporting on anthropology—he was making a political case for sovereign authority.
-If humans are naturally predatory,
-then the powerful state he wanted is the only alternative to chaos.&lt;/p&gt;
-&lt;p&gt;Two centuries later,
-Herbert Spencer read Charles Darwin&amp;rsquo;s account of natural selection
-and announced that it confirmed what Hobbes had suspected.
-&amp;ldquo;Survival of the fittest&amp;rdquo; is Spencer&amp;rsquo;s phrase, not Darwin&amp;rsquo;s.
-Darwin described differential reproductive success;
-Spencer described a cosmic competition for dominance
-in which helping the weak was a biological error.
-Social Darwinism,
-as this cluster of ideas became known,
-provided intellectual cover for opposing labor rights and public health measures,
-and for fighting almost any intervention that might protect people from market outcomes.
-After all,
-if the weak lost,
-it was because Nature &lt;em&gt;intended&lt;/em&gt; them to lose.&lt;/p&gt;
-&lt;p&gt;By the mid-twentieth century,
-economists had turned these self-serving rationalizations into mathematics.
-&lt;em&gt;Homo economicus&lt;/em&gt; was a rational agent who consistently and accurately maximized his own utility.
-He did not care about fairness or make mistakes;
-he also didn&amp;rsquo;t care about other people&amp;rsquo;s welfare unless it affected his own.
-(And yes, I&amp;rsquo;m using the male pronoun deliberately.)
-The behavioral economics research described in an earlier post explains how this is fiction,
-but the model is not just wrong about how people think,
-but about what they want.&lt;/p&gt;
-&lt;p&gt;The ultimatum game is one of dozens of experiments
-that have been used to study human social preferences across cultures.
-Public goods games ask participants to contribute to a shared fund that pays out to everyone,
-including those who contribute nothing.
-Standard economic theory predicts that rational individuals will free-ride
-(i.e., contribute nothing while collecting their share of others&amp;rsquo; contributions)
-until the fund collapses.
-In practice, initial contribution rates are typically between forty and sixty percent,
-and when participants can identify and punish free-riders,
-contribution rates rise and stay high.&lt;/p&gt;
-&lt;p&gt;People punish free-riders even when punishment costs them something.
-What&amp;rsquo;s more,
-they do it in one-shot interactions where there is no future reputation at stake.
-Samuel Bowles and Herbert Gintis spent years synthesizing this evidence,
-arguing that humans evolved not just as individuals competing for resources
-but as groups competing against other groups.
-Cooperation within groups enforced by altruistic punishment of defectors was
-a successful evolutionary strategy.
-The capacity for that cooperation,
-and the emotional responses that sustain it like fairness, shame, and indignation,
-are as deeply embedded in human nature as any appetite for self-interest.&lt;/p&gt;
-&lt;p&gt;None of this means humans are angels.
-Self-interested behavior is real.
-But so is cooperation, fairness, and punishment of norm violation.
-The question is which tendencies a given institutional design tends to elicit.&lt;/p&gt;
-&lt;p&gt;In 1968, the ecologist Garrett Hardin published an essay
-in which he described a common pasture open to all herders.
-Each one, acting rationally in their own interest,
-would add animals to the pasture until it was destroyed.
-The gains from each additional animal went to the individual herder,
-but the costs of the degraded pasture were borne by all.
-Self-interest would, inevitably, exhaust the commons.
-The only solutions Hardin could see were privatization or state regulation.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;The Tragedy of the Commons&amp;rdquo; became one of the most cited papers in academic history.
-It appeared in economics, political science, environmental policy, and law.
-Its intellectual framework shaped fisheries policy, water rights law,
-and debates about global climate governance.&lt;/p&gt;
-&lt;p&gt;There was just one problem:
-Hardin hadn&amp;rsquo;t studied any actual commons.
-He had described an &lt;em&gt;unmanaged&lt;/em&gt; commons with no rules, no governance, and no community.
-The historically managed commons of medieval England,
-the Alpine meadows of Switzerland,
-the forest communities of Japan,
-and the irrigation systems of Valencia and Bali all had elaborate rules developed over generations,
-mechanisms for monitoring compliance,
-graduated sanctions for violations,
-and processes for resolving disputes.
-They had been managing shared resources sustainably, in some cases, for centuries.
-The real tragedy in Hardin&amp;rsquo;s work was his ignorance of how the real world actually worked.&lt;/p&gt;
-&lt;p&gt;In contrast,
-the political scientist Elinor Ostrom spent her career studying actual systems.
-The picture that emerged was not a tragedy,
-but a sophisticated diversity of institutions,
-each one adapted to local conditions,
-and each one solving the collective action problem
-that Hardin had assumed was unsolvable without markets or states.&lt;/p&gt;
-&lt;p&gt;Ostrom identified eight design principles that successful self-governing commons tend to share:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Members have clearly defined rights to the resource.&lt;/li&gt;
-&lt;li&gt;Rules are adapted to local conditions rather than imposed from outside.&lt;/li&gt;
-&lt;li&gt;People affected by the rules have meaningful input into changing them.&lt;/li&gt;
-&lt;li&gt;A system exists for monitoring both the resource and the behavior of users.&lt;/li&gt;
-&lt;li&gt;Sanctions are graduated—minor violations draw minor consequences.&lt;/li&gt;
-&lt;li&gt;Conflicts can be resolved quickly and cheaply.&lt;/li&gt;
-&lt;li&gt;External authorities recognize the community&amp;rsquo;s right to self-organize.&lt;/li&gt;
-&lt;li&gt;Larger systems are built from nested smaller ones.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;In 2009, Ostrom was awarded the Nobel Prize in Economics for her work.
-The prize committee cited her demonstration that
-&amp;ldquo;economic analysis can shed light on most forms of social organization.&amp;rdquo;
-What her work actually demonstrated was narrower and more radical than that:
-that communities could govern shared resources sustainably
-without either privatizing them or handing them to the state,
-and that the dominant theoretical model had failed to predict this
-because it had assumed the wrong things about human nature.&lt;/p&gt;
-&lt;p&gt;If the evidence against &lt;em&gt;homo economicus&lt;/em&gt; is this extensive,
-why does the model retain such a hold on policy and institutional design?
-Part of the answer is that the model is self-fulfilling in a useful way.
-If you design a system that assumes people will free-ride,
-you build in monitoring, penalties, and enforcement mechanisms.
-Those mechanisms signal distrust,
-which tends to erode the social norms that sustained voluntary cooperation.
-People who might have contributed voluntarily
-now respond to being treated as suspects.
-The system that assumed selfishness produces the selfishness it expected.
-In contrast,
-Ostrom&amp;rsquo;s communities worked partly because the institutions expressed trust:
-users had a voice in the rules,
-sanctions were proportionate rather than punitive,
-and the system treated people as members of a community rather than as threats to be managed.&lt;/p&gt;
-&lt;p&gt;Technology platforms have largely chosen the other path.
-Terms of service are written for adversaries.
-Moderation systems treat all users as potential bad actors.
-Engagement optimization assumes that appetites can be exploited.
-These choices reflect a theory of human nature,
-and that theory has consequences—not just for the products built on it,
-but for the kind of behavior those products elicit and reward.&lt;/p&gt;
-&lt;p&gt;Ostrom&amp;rsquo;s lesson is not that humans always cooperate.
-It is that cooperation is a realistic outcome
-&lt;em&gt;if&lt;/em&gt; systems are designed to support it,
-and that assuming the worst tends to prevent the better from occurring.
-The tragedy of the commons was not inevitable.
-It was what happened when community governance was absent.
-Building that governance, it turns out, is something humans are rather good at,
-so long as institutions give them room to try.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Bowles2011&#34;&gt;Bowles2011&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Samuel Bowles and Herbert Gintis:
-&lt;em&gt;A Cooperative Species: Human Reciprocity and Its Evolution&lt;/em&gt;.
-Princeton University Press,
-2011,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780691151250&#34;&gt;9780691151250&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Hardin1968&#34;&gt;Hardin1968&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Garrett Hardin:
-&amp;ldquo;The Tragedy of the Commons.&amp;rdquo;
-&lt;em&gt;Science&lt;/em&gt;,
-162(3859),
-1968,
-&lt;a href=&#34;https://doi.org/10.1126/science.162.3859.1243&#34;&gt;10.1126/science.162.3859.1243&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Ostrom2015&#34;&gt;Ostrom2015&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Elinor Ostrom:
-&lt;em&gt;Governing the Commons: The Evolution of Institutions for Collective Action&lt;/em&gt;.
-Cambridge University Press,
-2015,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781107569782&#34;&gt;9781107569782&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

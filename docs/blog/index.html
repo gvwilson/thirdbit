@@ -99,6 +99,52 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/06/03/late-merge/">
+      Late Merge
+    </a>
+  </h2>
+  <p><time datetime="2026-06-03" class="post-date">2026-06-03</time></p>
+  <p>A two-lane road narrows to one lane at a construction zone. Drivers face a choice:</p>
+<ul>
+<li>Early (courtesy) merge: upon seeing the &ldquo;Lane Ends Ahead&rdquo; sign, drivers immediately move from the closing lane into the open lane.</li>
+<li>Late (zipper) merge: drivers use both lanes all the way to the merge point, then alternate — one car from each lane in turn, like a zipper.</li>
+</ul>
+<p>It turns out that late merging produces higher throughput and shorter queues than early merging, even though it feels less polite. Early merging creates a single long queue that wastes the closing lane&rsquo;s capacity. Late merging fully utilises both lanes up to the bottleneck, then processes cars at the same rate with a zipper pattern. This result is not merely theoretical: the Minnesota Department of Transportation, the German ADAC, and the UK Highway Code all recommend late merging in slow-moving traffic precisely because it is provably more efficient.</p>
+<p>The primary benefit of late merging is higher throughput: more cars complete the merge per unit time. Mean sojourn time for individual cars may actually be slightly longer under late merge, because the larger total buffer admits more cars into the system, increasing average queue occupancy. By Little&rsquo;s Law $L = \lambda W$, if $\lambda$ grows faster than $L$ falls, $W$ rises. This is not a disadvantage: it means more drivers successfully pass through rather than being turned away.</p>
+<h2>Why Early Merging Hurts</h2>
+<p>With early merging:</p>
+<ul>
+<li>All $N$ cars queue in one lane of capacity $K$.</li>
+<li>When the single queue is full ($K$ cars), arriving cars are turned away (blocking), reducing throughput.</li>
+<li>The merge point processes at rate $\mu$ regardless, but there are fewer cars available to process (the second lane is empty and wasted).</li>
+</ul>
+<p>With late merging:</p>
+<ul>
+<li>Cars distribute across two lanes, each of capacity $K$ (total $2K$).</li>
+<li>The merge point receives supply from both lanes, reducing starvation.</li>
+<li>Blocking occurs only when <em>both</em> lanes are simultaneously full, a rarer event.</li>
+</ul>
+<p>The key metric is the <em>blocking probability</em>: the fraction of arriving cars turned away because the pre-merge buffer is full. Let $\rho = \lambda/\mu$ be the utilisation of the merge bottleneck. For a finite-buffer M/M/1/K queue the blocking probability is:</p>
+<p>$$P_{\text{block}} = \frac{(1-\rho)\rho^K}{1 - \rho^{K+1}}$$</p>
+<p>Early merge has buffer $K$; late merge effectively has buffer $2K$ (spread across two lanes). Since $P_{\text{block}}$ decreases exponentially in $K$, doubling the available buffer dramatically reduces blocking.</p>
+<h2>Understanding the Math</h2>
+<h3>The finite-buffer formula</h3>
+<p>For a queue with random arrivals, exponential service, a single server, and a buffer that holds at most $K$ cars (the M/M/1/K model), the blocking probability is:</p>
+<p>$$P_{\text{block}} = \frac{(1-\rho)\,\rho^K}{1 - \rho^{K+1}}$$</p>
+<p>As usual, $\rho = \lambda/\mu$ is the utilization. Notice that the numerator contains $\rho^K$. Because $\rho &lt; 1$, increasing $K$ by 1 multiplies the numerator by $\rho &lt; 1$, shrinking $P_{\text{block}}$ faster than linearly. Each extra slot in the buffer is more valuable than a simple linear reduction would suggest.</p>
+<h3>Early vs. late merge in terms of $K$</h3>
+<p>Early merging creates a single queue with buffer $K$: one lane&rsquo;s worth of space. Late merging uses both lanes up to the merge point, creating an effective buffer of $2K$ cars total. Plugging $2K$ into the formula instead of $K$ replaces $\rho^K$ with $\rho^{2K} = (\rho^K)^2$. Since $\rho^K &lt; 1$, squaring it makes it much smaller. This is the why doubling the buffer dramatically reduces blocking.</p>
+<h3>Intuition about two lanes</h3>
+<p>Here is another way to see it. Under late merge, both lanes must be simultaneously full for a car to be blocked. Suppose each individual lane is full with probability $p$. If the two lanes are roughly independent, the probability both are full at once is approximately $p^2$. For example, if $p = 0.3$, then $p^2 = 0.09$ — blocking drops from 30% to 9%. Two lanes are dramatically more forgiving than one.</p>
+<h3>Connection to throughput</h3>
+<p>Throughput is the rate at which cars successfully pass through the merge: $\text{throughput} = \lambda \cdot (1 - P_{\text{block}})$. Every blocked car is a car that does not get through. Reducing $P_{\text{block}}$ by doubling $K$ therefore raises throughput nearly proportionally. Late merge does not speed up the bottleneck (the merge point still processes cars at rate $\mu$) but it ensures the bottleneck is never starved of cars to process, maximizing the number of drivers who make it through.</p>
+<h3>The broader lesson</h3>
+<p>The key insight is that the <em>structure</em> of a waiting space matters, not just its total size. Two separate lanes of capacity $K$ each are far better than one lane of capacity $2K$ because blocking requires both lanes to fill simultaneously. This logic generalises widely: in computer networks, having multiple independent paths reduces the chance a single congested link stalls all traffic; in hospitals, pooling patients across several triage nurses reduces the chance one idle nurse sits beside an overwhelmed colleague. Wherever there is a finite buffer feeding a shared bottleneck, the late-merge principle applies: spread the waiting space across parallel channels and blocking probability falls dramatically.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/06/02/pooled-vs-separate/">
       Pooled vs. Separate Queues
     </a>
@@ -437,43 +483,6 @@ please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 <p>When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.</p>
 <p>When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.</p>
 <p>Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.</p>
-<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/28/basic-queueing-theory/">
-      Basic Ideas in Queueing Theory
-    </a>
-  </h2>
-  <p><time datetime="2026-05-28" class="post-date">2026-05-28</time></p>
-  <h2>Arrivals, Servers, and Utilization</h2>
-<p>Three concepts underpin every queueing model. The first is <em>Poisson arrivals</em>: when customers arrive independently at a constant average rate $\lambda$, gaps between consecutive arrivals follow an <em>exponential</em> distribution with mean $1/\lambda$, and the count of arrivals in any window of width $t$ follows a Poisson distribution with mean $\lambda t$. These two descriptions are equivalent: if one holds, the other must too.</p>
-<p>The second key idea is that the exponential distribution is <em>memoryless</em>. Knowing you have already waited $s$ units gives no information about when the next arrival will come. This property makes the math simple, but means that the exponential distribution isn&rsquo;t a good fit for scenarios where events happen in bursts. Some of the later tutorials will explore models that handle this.</p>
-<p>The final concept is <em>server utilization</em>. A server completing work at rate $\mu$ has utilization $\rho = \lambda/\mu$, which is the long-run fraction of time it is busy. The system is stable only when $\rho &lt; 1$. When $\rho \geq 1$, arrivals outpace service and the queue grows without bound. Even at exact balance ($\rho = 1$), randomness creates bursts that accumulate faster than the server recovers, so the expected queue length is infinite.</p>
-<p>The code below uses <a href="https://asimpy.readthedocs.io/">asimpy</a> to model a simple job queue. The technical term for this kind of system is an <a href="https://en.wikipedia.org/wiki/M/M/1_queue">M/M/1 queue</a>: memoryless (Poisson) arrivals, memoryless service times, and one server.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArrivalSource</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates arrivals at a Poisson rate.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">gaps</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span> <span class="o">=</span> <span class="n">gaps</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">gap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gap</span><span class="p">)</span>
-</code></pre></div>
-<p><code>random.expovariate(rate)</code> samples from an exponential distribution with the given rate. The gaps between consecutive arrivals follow $\text{Exp}(\lambda)$, which is precisely the defining property of a Poisson process.</p>
-<h2>Understanding the Math</h2>
-<h3>Why inter-arrival gaps are exponential</h3>
-<p>Divide $[0, t]$ into $n$ tiny slices of width $\Delta = t/n$. The probability of an arrival in each slice is $\approx \lambda\Delta$; slices are independent. The probability of no arrival across all $n$ slices is $(1 - \lambda t/n)^n \to e^{-\lambda t}$ as $n \to \infty$. This is $P(X &gt; t)$ for the exponential distribution.</p>
-<h3>Why mean equals standard deviation for the exponential</h3>
-<p>If $E[X] = 1/\lambda$, then $E[X^2] = 2/\lambda^2$, so $\text{Var}(X) = 2/\lambda^2 - 1/\lambda^2 = 1/\lambda^2$ and $\text{SD}(X) = 1/\lambda = E[X]$. Equal mean and standard deviation means roughly one-third of gaps are longer than the mean.</p>
-<h3>Why the busy fraction equals $\rho$</h3>
-<p>Over a long run $T$, about $N \approx \lambda T$ customers are served, each occupying the server for mean $1/\mu$. Total service time $\approx N/\mu = \lambda T/\mu = \rho T$. Dividing by $T$ gives busy fraction $= \rho$.</p>
-<h3>Why $\rho = 1$ is unstable</h3>
-<p>At exact balance, the queue length after each service completion performs a symmetric random walk on the non-negative integers. This random walk is <em>null recurrent</em>: it returns to zero but with infinite expected return time, so the mean queue length is infinite even when arrivals and service are perfectly matched on average.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
 </article>
 
