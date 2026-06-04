@@ -11,6 +11,72 @@
  </author>
  
  <entry>
+   <title>The Inspector&#39;s Paradox</title>
+   <link href="https://third-bit.com/2026/06/04/inspectors-paradox/"/>
+   <updated>2026-06-03T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/04/inspectors-paradox/</id>
+   <content type="html">&lt;p&gt;Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:&lt;/p&gt;
+&lt;p&gt;$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$&lt;/p&gt;
+&lt;p&gt;where $\sigma^2 = \text{Var}[\text{headway}]$. The second term is always non-negative, so higher variance always means longer expected waits, even when the mean headway is unchanged.&lt;/p&gt;
+&lt;h3&gt;Three Bus Schedules with Mean Headway $\mu = 10$&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Schedule&lt;/th&gt;
+&lt;th&gt;$\sigma^2$&lt;/th&gt;
+&lt;th&gt;Predicted wait&lt;/th&gt;
+&lt;th&gt;Naive wait&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Regular&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;5.0&lt;/td&gt;
+&lt;td&gt;5.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Exponential&lt;/td&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;10.0&lt;/td&gt;
+&lt;td&gt;5.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Clustered&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;td&gt;8.2&lt;/td&gt;
+&lt;td&gt;5.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For exponentially distributed headways, $\sigma^2 = \mu^2$, so:&lt;/p&gt;
+&lt;p&gt;$$E[\text{wait}] = \frac{\mu}{2} + \frac{\mu^2}{2\mu} = \mu$$&lt;/p&gt;
+&lt;p&gt;A passenger waits on average for an &lt;em&gt;entire&lt;/em&gt; mean headway — twice the naive expectation.&lt;/p&gt;
+&lt;h2&gt;Why This Happens: Length-Biased Sampling&lt;/h2&gt;
+&lt;p&gt;A passenger arriving at a random time is more likely to land inside a &lt;em&gt;long&lt;/em&gt; gap than a short one, because long gaps occupy more time on the clock. This is called &lt;em&gt;length-biased sampling&lt;/em&gt;. The interval containing your arrival is not a random headway: it is drawn from the length-biased distribution with density:&lt;/p&gt;
+&lt;p&gt;$$f^*(h) = \frac{h \cdot f(h)}{\mu}$$&lt;/p&gt;
+&lt;p&gt;The mean of this biased distribution is $\mu + \sigma^2/\mu$, and you arrive uniformly within it, giving expected wait $(\mu + \sigma^2/\mu)/2$.&lt;/p&gt;
+&lt;p&gt;The same phenomenon explains why the average class size experienced by a student exceeds the average class size reported by the university (large classes have more students to report them).&lt;/p&gt;
+&lt;h2&gt;Why &amp;ldquo;Inspector&amp;rsquo;s Paradox&amp;rdquo;?&lt;/h2&gt;
+&lt;p&gt;The name comes from quality control, where an inspector arrives at a random time to sample a production process and systematically encounters longer-than-average intervals. The paradox is that a random observer is more likely to land inside a long gap than a short one, so their experienced mean interval exceeds the true mean interval. It feels paradoxical because you&amp;rsquo;d expect a random arrival to see the average gap, but length-biased sampling guarantees they see worse-than-average gaps whenever there&amp;rsquo;s any variance at all.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Length-biased sampling&lt;/h3&gt;
+&lt;p&gt;Suppose buses run on an irregular schedule where gaps between buses are either 2 minutes or 18 minutes, each with probability 1/2. The mean gap is $\mu = (2 + 18)/2 = 10$ minutes. Now ask: if you arrive at a completely random moment, which gap are you most likely to land inside?&lt;/p&gt;
+&lt;p&gt;A 2-minute gap occupies only 2 minutes on the clock, but an 18-minute gap occupies 18. Out of every 20 minutes of clock time on average, 2 minutes belong to a short gap and 18 to a long one. So a random arrival lands in a short gap with probability $2/(2+18) = 1/10$ and in a long gap with probability $18/20 = 9/10$. The expected gap length you experience is:&lt;/p&gt;
+&lt;p&gt;$$E[\text{gap experienced}] = \frac{1}{10} \cdot 2 + \frac{9}{10} \cdot 18 = 0.2 + 16.2 = 16.4 \text{ minutes}$$&lt;/p&gt;
+&lt;p&gt;That is far above the mean gap of 10 minutes. You are disproportionately likely to land inside a long gap simply because it takes up more time.&lt;/p&gt;
+&lt;h3&gt;The wait formula&lt;/h3&gt;
+&lt;p&gt;Once you are inside a gap, you arrive uniformly within it, so on average you land in the middle. Your expected wait is half the gap length you experience. The full formula is:&lt;/p&gt;
+&lt;p&gt;$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$&lt;/p&gt;
+&lt;p&gt;Here $\mu$ is the mean gap and $\sigma^2 = \text{Var}[\text{gap}]$ is the variance of gap lengths. The first term, $\mu/2$, is what you would get if every gap were exactly $\mu$ (deterministic buses — arrive in the middle every time). The second term, $\sigma^2/(2\mu)$, is the extra waiting from length-biased sampling. It is always non-negative, so irregular buses always make you wait longer than regular buses with the same mean headway.&lt;/p&gt;
+&lt;h3&gt;Why variance matters&lt;/h3&gt;
+&lt;p&gt;The variance $\sigma^2$ measures how spread out the gap sizes are. A perfectly regular bus schedule has $\sigma^2 = 0$ and gives the naive answer $\mu/2$. An exponentially distributed schedule has $\sigma^2 = \mu^2$, which doubles the expected wait to $\mu$. More irregular buses, higher penalty.&lt;/p&gt;
+&lt;h3&gt;Connecting to expected values&lt;/h3&gt;
+&lt;p&gt;The formula arises from a standard result: the expected length of the gap containing a random arrival is $\mu + \sigma^2/\mu$. You can think of this as the mean gap plus a correction term proportional to the variance divided by the mean. Dividing by 2 (uniform arrival within the gap) gives the wait formula above.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Late Merge</title>
    <link href="https://third-bit.com/2026/06/03/late-merge/"/>
    <updated>2026-06-03T00:00:00Z</updated>
@@ -2490,107 +2556,6 @@ Routledge,
 Random House,
 2020,
 &lt;a href=&#34;https://isbnsearch.org/isbn/9780593230251&#34;&gt;9780593230251&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>The Representation Feedback Loop</title>
-   <link href="https://third-bit.com/2026/05/18/representation/"/>
-   <updated>2026-05-18T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/18/representation/</id>
-   <content type="html">&lt;p&gt;In 1967,
-at the height of the civil rights movement,
-Nichelle Nichols played Lieutenant Uhura on &lt;em&gt;Star Trek&lt;/em&gt;.
-She decided to quit after the first season,
-but Dr. Martin Luther King Jr. persuaded her to stay.
-He told her she was not playing a role but representing a future.&lt;/p&gt;
-&lt;p&gt;Whoopi Goldberg,
-having grown up without ever seeing a Black woman on television who was not playing a servant,
-ran through her house shouting when she first saw Nichols on screen.
-Mae Jemison,
-the first Black American woman to travel to space,
-has said that watching Uhura was formative for her sense of what was possible.
-These stories and millions of others show that representation is not just symbolic:
-it changed what futures became thinkable.&lt;/p&gt;
-&lt;p&gt;The communications researcher George Gerbner spent decades tracking what he called cultivation theory:
-the finding that heavy television viewers come to see the world as resembling what they watch,
-regardless of whether the content reflects reality.
-Well into the 1980s,
-TV showed the world as mostly white,
-mostly male,
-and organized around particular kinds of families and work.
-People who watched more of it overestimated how common those demographics and arrangements were.
-The content was not neutral—it trained viewers in a particular picture of what was normal.&lt;/p&gt;
-&lt;p&gt;Research has shown that men outnumber women roughly three to one in speaking roles in family-rated films,
-and that the gap is even larger among characters in science and technology careers.
-The consequences are clear.
-If every doctor, lawyer, and CEO you ever see looks a particular way,
-then looking like them becomes part of your picture of what belonging in those roles requires.
-This is not a matter of being naïve or impressionable;
-it is just how our minds work.&lt;/p&gt;
-&lt;p&gt;Bollywood is a useful case study.
-India is home to one of the world&amp;rsquo;s largest and most globally distributed film industries,
-and its casting has historically favored lighter-skinned actors in leading roles.
-As a (partial) result,
-India has a billion-dollar market for skin-lightening products.
-When the entire entertainment and advertising system treats lighter skin
-as a proxy for success, romance, and respectability,
-the effect extends well beyond cosmetics sales:
-it shapes how people are perceived in job interviews,
-in medical consultations,
-and in courtrooms.&lt;/p&gt;
-&lt;p&gt;Breaking the cycle requires intervening somewhere in it,
-which is precisely where resistance concentrates.
-The NFL&amp;rsquo;s Rooney Rule,
-introduced in 2003,
-required teams to interview at least one minority candidate for head coaching positions.
-The argument against it was that it was condescending—that qualified candidates should be hired on merit,
-not to satisfy a quota.
-The argument for it was that the existing process was already not meritocratic:
-the informal networks through which coaching positions were filled
-were built from relationships among people who looked the same,
-so identical qualifications led to different outcomes depending on whose network you were in.
-The Rooney Rule did not guarantee hiring,
-but even that minimal intervention increased
-the number of minority head coaches appointed in the years following its introduction.&lt;/p&gt;
-&lt;p&gt;Algorithmic recommendation systems reproduce the same dynamic at scale.
-YouTube&amp;rsquo;s algorithm surfaces content similar to what previously earned engagement,
-which means creators from underrepresented groups face higher barriers to discovery
-than their more visible counterparts.
-The algorithm is not making a judgment about quality:
-it is applying a preference filter built from historical patterns,
-and those patterns reflect who had access to platforms and production tools before the algorithm existed.&lt;/p&gt;
-&lt;p&gt;Recruiting practices in the tech industry built around &amp;ldquo;culture fit&amp;rdquo;
-reproduce demographically uniform teams,
-and uniform teams built products that reflect their own assumptions about who users were.
-Studies of computing history have found that
-the shift from majority-female to majority-male programming communities in the early 1980s
-coincided with the marketing of home computers as toys for boys,
-which shaped who arrived at university having already programmed,
-which shaped who fit the culture of computer science departments.
-The representation of programmers as male generated the conditions that made programmers mostly male.&lt;/p&gt;
-&lt;p&gt;This framing is what makes the cycle self-perpetuating.
-If you believe that whoever is currently represented in any field
-is there because they were the most qualified,
-then any change in the composition looks like a lowering of standards rather than a correction of a filter.
-The response to evidence of the filter is to explain that the filter must be working correctly,
-because look at the results.
-The loop closes there unless something breaks it open.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Gray2009&#34;&gt;Gray2009&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Mary L. Gray:
-&lt;em&gt;Out in the Country: Youth, Media, and Queer Visibility in Rural America&lt;/em&gt;.
-NYU Press,
-2009,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780814731932&#34;&gt;9780814731932&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;OmiWinant2015&#34;&gt;OmiWinant2015&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Michael Omi and Howard Winant:
-&lt;em&gt;Racial Formation in the United States&lt;/em&gt;
-(3rd ed.).
-Routledge,
-2015,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780415520317&#34;&gt;9780415520317&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

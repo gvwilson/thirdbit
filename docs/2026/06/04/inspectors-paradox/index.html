@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: The Inspector's Paradox</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>The Inspector's Paradox</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/03/late-merge/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-03" class="post-date">2026-06-03</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
+<p>where $\sigma^2 = \text{Var}[\text{headway}]$. The second term is always non-negative, so higher variance always means longer expected waits, even when the mean headway is unchanged.</p>
+<h3>Three Bus Schedules with Mean Headway $\mu = 10$</h3>
+<table>
+<thead>
+<tr>
+<th>Schedule</th>
+<th>$\sigma^2$</th>
+<th>Predicted wait</th>
+<th>Naive wait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regular</td>
+<td>0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td>100</td>
+<td>10.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Clustered</td>
+<td>64</td>
+<td>8.2</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+<p>For exponentially distributed headways, $\sigma^2 = \mu^2$, so:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\mu^2}{2\mu} = \mu$$</p>
+<p>A passenger waits on average for an <em>entire</em> mean headway — twice the naive expectation.</p>
+<h2>Why This Happens: Length-Biased Sampling</h2>
+<p>A passenger arriving at a random time is more likely to land inside a <em>long</em> gap than a short one, because long gaps occupy more time on the clock. This is called <em>length-biased sampling</em>. The interval containing your arrival is not a random headway: it is drawn from the length-biased distribution with density:</p>
+<p>$$f^*(h) = \frac{h \cdot f(h)}{\mu}$$</p>
+<p>The mean of this biased distribution is $\mu + \sigma^2/\mu$, and you arrive uniformly within it, giving expected wait $(\mu + \sigma^2/\mu)/2$.</p>
+<p>The same phenomenon explains why the average class size experienced by a student exceeds the average class size reported by the university (large classes have more students to report them).</p>
+<h2>Why &ldquo;Inspector&rsquo;s Paradox&rdquo;?</h2>
+<p>The name comes from quality control, where an inspector arrives at a random time to sample a production process and systematically encounters longer-than-average intervals. The paradox is that a random observer is more likely to land inside a long gap than a short one, so their experienced mean interval exceeds the true mean interval. It feels paradoxical because you&rsquo;d expect a random arrival to see the average gap, but length-biased sampling guarantees they see worse-than-average gaps whenever there&rsquo;s any variance at all.</p>
+<h2>Understanding the Math</h2>
+<h3>Length-biased sampling</h3>
+<p>Suppose buses run on an irregular schedule where gaps between buses are either 2 minutes or 18 minutes, each with probability 1/2. The mean gap is $\mu = (2 + 18)/2 = 10$ minutes. Now ask: if you arrive at a completely random moment, which gap are you most likely to land inside?</p>
+<p>A 2-minute gap occupies only 2 minutes on the clock, but an 18-minute gap occupies 18. Out of every 20 minutes of clock time on average, 2 minutes belong to a short gap and 18 to a long one. So a random arrival lands in a short gap with probability $2/(2+18) = 1/10$ and in a long gap with probability $18/20 = 9/10$. The expected gap length you experience is:</p>
+<p>$$E[\text{gap experienced}] = \frac{1}{10} \cdot 2 + \frac{9}{10} \cdot 18 = 0.2 + 16.2 = 16.4 \text{ minutes}$$</p>
+<p>That is far above the mean gap of 10 minutes. You are disproportionately likely to land inside a long gap simply because it takes up more time.</p>
+<h3>The wait formula</h3>
+<p>Once you are inside a gap, you arrive uniformly within it, so on average you land in the middle. Your expected wait is half the gap length you experience. The full formula is:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
+<p>Here $\mu$ is the mean gap and $\sigma^2 = \text{Var}[\text{gap}]$ is the variance of gap lengths. The first term, $\mu/2$, is what you would get if every gap were exactly $\mu$ (deterministic buses — arrive in the middle every time). The second term, $\sigma^2/(2\mu)$, is the extra waiting from length-biased sampling. It is always non-negative, so irregular buses always make you wait longer than regular buses with the same mean headway.</p>
+<h3>Why variance matters</h3>
+<p>The variance $\sigma^2$ measures how spread out the gap sizes are. A perfectly regular bus schedule has $\sigma^2 = 0$ and gives the naive answer $\mu/2$. An exponentially distributed schedule has $\sigma^2 = \mu^2$, which doubles the expected wait to $\mu$. More irregular buses, higher penalty.</p>
+<h3>Connecting to expected values</h3>
+<p>The formula arises from a standard result: the expected length of the gap containing a random arrival is $\mu + \sigma^2/\mu$. You can think of this as the mean gap plus a correction term proportional to the variance divided by the mean. Dividing by 2 (uniform arrival within the gap) gives the wait formula above.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

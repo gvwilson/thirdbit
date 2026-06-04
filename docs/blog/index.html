@@ -99,6 +99,74 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/06/04/inspectors-paradox/">
+      The Inspector's Paradox
+    </a>
+  </h2>
+  <p><time datetime="2026-06-03" class="post-date">2026-06-03</time></p>
+  <p>Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
+<p>where $\sigma^2 = \text{Var}[\text{headway}]$. The second term is always non-negative, so higher variance always means longer expected waits, even when the mean headway is unchanged.</p>
+<h3>Three Bus Schedules with Mean Headway $\mu = 10$</h3>
+<table>
+<thead>
+<tr>
+<th>Schedule</th>
+<th>$\sigma^2$</th>
+<th>Predicted wait</th>
+<th>Naive wait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regular</td>
+<td>0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td>100</td>
+<td>10.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Clustered</td>
+<td>64</td>
+<td>8.2</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+<p>For exponentially distributed headways, $\sigma^2 = \mu^2$, so:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\mu^2}{2\mu} = \mu$$</p>
+<p>A passenger waits on average for an <em>entire</em> mean headway — twice the naive expectation.</p>
+<h2>Why This Happens: Length-Biased Sampling</h2>
+<p>A passenger arriving at a random time is more likely to land inside a <em>long</em> gap than a short one, because long gaps occupy more time on the clock. This is called <em>length-biased sampling</em>. The interval containing your arrival is not a random headway: it is drawn from the length-biased distribution with density:</p>
+<p>$$f^*(h) = \frac{h \cdot f(h)}{\mu}$$</p>
+<p>The mean of this biased distribution is $\mu + \sigma^2/\mu$, and you arrive uniformly within it, giving expected wait $(\mu + \sigma^2/\mu)/2$.</p>
+<p>The same phenomenon explains why the average class size experienced by a student exceeds the average class size reported by the university (large classes have more students to report them).</p>
+<h2>Why &ldquo;Inspector&rsquo;s Paradox&rdquo;?</h2>
+<p>The name comes from quality control, where an inspector arrives at a random time to sample a production process and systematically encounters longer-than-average intervals. The paradox is that a random observer is more likely to land inside a long gap than a short one, so their experienced mean interval exceeds the true mean interval. It feels paradoxical because you&rsquo;d expect a random arrival to see the average gap, but length-biased sampling guarantees they see worse-than-average gaps whenever there&rsquo;s any variance at all.</p>
+<h2>Understanding the Math</h2>
+<h3>Length-biased sampling</h3>
+<p>Suppose buses run on an irregular schedule where gaps between buses are either 2 minutes or 18 minutes, each with probability 1/2. The mean gap is $\mu = (2 + 18)/2 = 10$ minutes. Now ask: if you arrive at a completely random moment, which gap are you most likely to land inside?</p>
+<p>A 2-minute gap occupies only 2 minutes on the clock, but an 18-minute gap occupies 18. Out of every 20 minutes of clock time on average, 2 minutes belong to a short gap and 18 to a long one. So a random arrival lands in a short gap with probability $2/(2+18) = 1/10$ and in a long gap with probability $18/20 = 9/10$. The expected gap length you experience is:</p>
+<p>$$E[\text{gap experienced}] = \frac{1}{10} \cdot 2 + \frac{9}{10} \cdot 18 = 0.2 + 16.2 = 16.4 \text{ minutes}$$</p>
+<p>That is far above the mean gap of 10 minutes. You are disproportionately likely to land inside a long gap simply because it takes up more time.</p>
+<h3>The wait formula</h3>
+<p>Once you are inside a gap, you arrive uniformly within it, so on average you land in the middle. Your expected wait is half the gap length you experience. The full formula is:</p>
+<p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
+<p>Here $\mu$ is the mean gap and $\sigma^2 = \text{Var}[\text{gap}]$ is the variance of gap lengths. The first term, $\mu/2$, is what you would get if every gap were exactly $\mu$ (deterministic buses — arrive in the middle every time). The second term, $\sigma^2/(2\mu)$, is the extra waiting from length-biased sampling. It is always non-negative, so irregular buses always make you wait longer than regular buses with the same mean headway.</p>
+<h3>Why variance matters</h3>
+<p>The variance $\sigma^2$ measures how spread out the gap sizes are. A perfectly regular bus schedule has $\sigma^2 = 0$ and gives the naive answer $\mu/2$. An exponentially distributed schedule has $\sigma^2 = \mu^2$, which doubles the expected wait to $\mu$. More irregular buses, higher penalty.</p>
+<h3>Connecting to expected values</h3>
+<p>The formula arises from a standard result: the expected length of the gap containing a random arrival is $\mu + \sigma^2/\mu$. You can think of this as the mean gap plus a correction term proportional to the variance divided by the mean. Dividing by 2 (uniform arrival within the gap) gives the wait formula above.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/06/03/late-merge/">
       Late Merge
     </a>
@@ -394,96 +462,6 @@ and <a href="../notwrong/further/">further reading</a>;
 my thanks to everyone who contributed entries.
 If you&rsquo;re interested in taking part in the first run,
 please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/29/queue-formation/">
-      Queue Formation
-    </a>
-  </h2>
-  <p><time datetime="2026-05-29" class="post-date">2026-05-29</time></p>
-  <p><em>See the <a href="../2026/05/28/basic-queueing-theory/">first post in this series</a> for the basics of queueing theory.</em></p>
-<p>We can combine arrivals (Poisson at rate $\lambda$) with a server (exponential service at rate $\mu$) into a complete queue.  The system is stable because $\rho = \lambda/\mu &lt; 1$, which means that on average, the server handles more work than arrives.</p>
-<p>Our first question is, how long is the queue? The surprising answer is that even when the server has plenty of spare capacity, customers wait.  The mean number of customers in the system (both waiting and being served) is:</p>
-<p>$$L = \frac{\rho}{1 - \rho}$$</p>
-<p>The table below gives some representative values:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">$\rho$</th>
-<th style="text-align: center;">$L$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">0.1</td>
-<td style="text-align: center;">0.11</td>
-</tr>
-<tr>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">1.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">4.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">0.9</td>
-<td style="text-align: center;">9.00</td>
-</tr>
-</tbody>
-</table>
-<p>When $\rho = 0.5$, half the server&rsquo;s capacity is idle, but there is on average one customer in the system at any moment.  That customer either had to wait for a previous customer, or is currently being served.  The queue is <em>never</em> consistently empty, even at moderate load.</p>
-<p>The formula also explains why simple queues are so sensitive to utilization: $L$ blows up as $\rho \to 1$. One way to think about this is that the denominator $(1 - \rho)$ is the spare capacity. As spare capacity vanishes, queue length increases.</p>
-<h2>Why Queues Form at All</h2>
-<p>With deterministic arrivals and service (every customer arrives exactly $1/\lambda$ apart and takes exactly $1/\mu$), a server with $\rho &lt; 1$ would never form a queue: each customer would depart before the next arrived. Randomness changes this. Sometimes three customers arrive close together before the server finishes even one, so the server falls briefly behind. While it recovers, customers wait.  These temporary pileups are unavoidable whenever inter-arrival or service times have any variance.</p>
-<p>The probability that exactly $n$ customers are in an M/M/1 system at steady state is:</p>
-<p>$$P(N = n) = (1 - \rho)\,\rho^n \qquad n = 0, 1, 2, \ldots$$</p>
-<p>This is a <em>geometric distribution</em> with success probability $1 - \rho$. The formula says the server is idle (i.e., n=0) with probability $1 - \rho$, which is consistent with the utilization result from the previous scenario. Each additional customer in the system is $\rho$ times less likely than the previous count.</p>
-<p>This formula $L = \rho/(1-\rho)$ is the foundation of the later M/M/1 nonlinearity scenario, which shows the practical consequences of the $(1-\rho)$ denominator. Every queue-length formula in queueing theory has a similar structure: a traffic factor $\rho$ divided by a spare-capacity factor $(1 - \rho)$, possibly multiplied by a variability correction.</p>
-<h2>Implementation</h2>
-<p>A <code>Customer</code> process increments a shared <code>in_system</code> counter on arrival and decrements it on departure.  A <code>Monitor</code> process samples <code>in_system[0]</code> every <code>SAMPLE_INTERVAL</code> time units.  The mean of the samples estimates $L$; the simulation sweeps $\rho$ from 0.1 to 0.9 to confirm the formula $L = \rho/(1-\rho)$.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Customer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">in_system</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>                  <span class="c1"># enter the system</span>
-        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">SERVICE_RATE</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>                  <span class="c1"># depart</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Monitor</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Samples total customers in system at regular intervals.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_system</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">in_system</span> <span class="o">=</span> <span class="n">in_system</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="n">samples</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_system</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">SAMPLE_INTERVAL</span><span class="p">)</span>
-</code></pre></div>
-<p>The shared list <code>in_system</code> lets <code>Customer</code> and <code>Monitor</code> communicate without explicit message-passing: <code>Customer</code> modifies the count, <code>Monitor</code> reads it on a timer.</p>
-<h2>Understanding the Math</h2>
-<h3>Why is the queue length geometric?</h3>
-<p>The M/M/1 queue can be analyzed as a random walk on the non-negative integers.  When the server is busy, the queue grows by 1 with each arrival (with rate $\lambda$) and shrinks by 1 with each service completion (with rate $\mu$).  The ratio $\lambda/\mu = \rho$ is the probability that the queue grows rather than shrinks at the next event. Under steady state, the probability of being at level $n$ is proportional to $\rho^n$ — because reaching level $n$ requires $n$ consecutive &ldquo;up&rdquo; steps. Normalizing so the probabilities sum to 1 gives $(1-\rho)\rho^n$.</p>
-<h3>Deriving $L = \rho/(1-\rho)$ from the geometric distribution</h3>
-<p>Given $P(N = n) = (1 - \rho)\rho^n$, the mean is:</p>
-<p>$$L = E[N] = \sum_{n=0}^{\infty} n \cdot (1-\rho)\rho^n = (1-\rho) \sum_{n=0}^{\infty} n\rho^n$$</p>
-<p>A result from basic calculus is that the geometric series $\sum_{n=0}^{\infty} \rho^n = 1/(1-\rho)$.  Differentiating both sides with respect to $\rho$:</p>
-<p>$$\sum_{n=0}^{\infty} n\rho^{n-1} = \frac{1}{(1-\rho)^2}$$</p>
-<p>Multiply both sides by $\rho$:</p>
-<p>$$\sum_{n=0}^{\infty} n\rho^n = \frac{\rho}{(1-\rho)^2}$$</p>
-<p>Substituting back:</p>
-<p>$$L = (1-\rho) \cdot \frac{\rho}{(1-\rho)^2} = \frac{\rho}{1-\rho}$$</p>
-<h3>Checking the formula at the boundaries</h3>
-<p>When $\rho \to 0$: there are almost no arrivals, so $L \to 0$, i.e., the server is nearly always idle.</p>
-<p>When $\rho \to 1$: the spare capacity is $(1-\rho) \to 0$, so $L \to \infty$, i.e., the queue grows without bound.</p>
-<p>Both limits match physical intuition.  Note that the formula is exact (not an approximation) for an M/M/1 queues in steady state.</p>
-<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
 </article>
 
 
