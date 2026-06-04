@@ -5171,7 +5171,105 @@ maybe the king won't be angry about, about everything.
 So like I said,
 do you have a better plan?"
 
-FIXME: lots to fill in here
+The prince and Kulbinder talked quietly about what, when, and how
+as they flew back to Stale.
+Noxy didn't mind being left out of the conversion:
+it was the first time she had visited the bothy in years,
+and all she wanted to do right then was look at the mountains
+and let the wind ruffle her hair just like her father used to.
+
+Which is why she jumped, startled, when someone shouted her name.
+She twisted around.
+Big Blue had come up behind her while her mind was wandering.
+Rash and Sensy waved,
+Rash with a big grin on his face
+and Sensy with a nervous smile.
+*At least they're not holding hands,* she thought grumpily,
+before realizing that they were doing exactly that.
+
+The polite thing would have been to slow down so that they could catch up.
+Instead,
+Noxy pressed her hand into Pillow's back.
+*Faster,* she ordered.
+*Fast as you can.*
+"Hold on," she said over her shoulder.
+
+"To what?" the prince asked,
+catching himself with one hand when Pillow surged forward.
+
+Cloud races were as much a part of mountain life as shearing goofs
+or dancing at the midsummer fancy.
+Young cloudherds argued endlessly about tactics and strategy,
+traded tips on how to squeeze a little more speed out of their mounts,
+and felt obliged to have strong opinions about cows
+(slow to start, but famous for their stamina)
+versus bulls
+(better sprinters, but prone to getting over-excited and fighting with each other).
+One thing they all agreed on,
+though,
+was that racing was a sport for young clouds
+as much as for young herders.
+
+Nobody had told Pillow that.
+The old cow could sense Big Blue behind her,
+and had been in enough races and on enough desperate rescue flights in her time
+to know that when a human said "fast", they meant *fast*.
+For his part,
+Big Blue had been Stale's senior bull for years.
+He might be too old for the annual trip into the mountains to collect the herd,
+but that didn't mean he was ready yet to be beaten.
+
+Rash whooped as Big Blue answered Pillow's challenge.
+He rose to one knee,
+both hands pressed on the cloud's back,
+and pointed toward home.
+Noxy didn't need to be able to hear him
+to know that he was urging the bull on.
+*Faster!* she told Pillow.
+*Win win win!*
+
+A flock of irvings burst into the air,
+startled by the clouds rushing overhead.
+She only half-noticed Thokmay point at some goats scrambing up a steep slope,
+sending loose rock bouncing down toward the forest.
+
+Big Blue was slowly closing the gap between them.
+*Closer!* ordered,
+picturing the cloud scraping against mountainside
+to get around the last bend in the valley.
+Pillow bunched herself tight on her port side
+and rose a few strides to catch the wind.
+For a moment they flew sideways,
+the rock face close enough for Noxy to touch.
+
+She looked back to see Big Blue bump into the rock.
+Rash fell forward.
+Sensy landed on top of him.
+This time it was Noxy's turn to whoop.
+
+She was still smiling a few minutes later
+when she, Thokmay, and Kulbinder stepped onto the mounting platform.
+*Good girl,* she mind-spoke,
+patting Pillow affectionately.
+The cloud's response was wordless but warm.
+She was already relaxing and turning misty at the edges,
+tired from her sprint.
+
+Noxy put her hands on her hips and grinned as Big Blue slowed and halted beside her.
+"Yeah, but you had a head start,"
+Rash said,
+stepping onto the platform and turning to offer Sensy a hand.
+
+"I can do it," she said,
+taking his hand despite her words.
+Noxy pretend not to notice that she didn't let go.
+
+"So," Noxy said after a moment.
+"Thimbleberries?"
+They groaned,
+but followed her up the stairs.
+
+FIXME: here
 
 *Crack!*
 She shrieked with surprise as a bolt of lightning split the sky,
