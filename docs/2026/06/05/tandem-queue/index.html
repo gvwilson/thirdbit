@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Tandem Queue Blocking</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Tandem Queue Blocking</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/04/inspectors-paradox/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-05" class="post-date">2026-06-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2026/06/05/convoy-effect/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda &lt; \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).</p>
+<p>Even though both stages have identical mean throughput and the system is underloaded, Stage 2 sits idle for a substantial fraction of time when the buffer between them is small. The idle fraction only vanishes as the buffer size $K \to \infty$.</p>
+<p>High service-time variance at Stage 1 produces bursts of output—many jobs finish close together—followed by droughts. With a small buffer, the burst overflows (blocking Stage 1) and the drought starves Stage 2. Both effects reduce system throughput below what we would intuitively expect.</p>
+<h2>Analysis</h2>
+<p>For a two-stage tandem queue with a finite buffer of capacity $K$, the blocking probability at Stage 1 and the starvation probability at Stage 2 depend on the full service-time distributions, not just their means. The Kingman approximation gives the mean wait in a single G/G/1 queue as:</p>
+<p>$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$</p>
+<p>where $c_a^2$ and $c_s^2$ are the squared coefficients of variation of inter-arrival and service times respectively. For a hyperexponential service distribution with $c_s^2 \gg 1$, waiting times are far higher than the M/M/1 formula predicts.</p>
+<p>In a tandem network, this extra variability propagates: the departure process of Stage 1 (which is the arrival process for Stage 2) has higher variance than Poisson when Stage 1 has high service variance. This is <em>Departure Process Variability Propagation</em> and is a key driver of manufacturing and supply-chain <a href="https://en.wikipedia.org/wiki/Bullwhip_effect">bullwhip effects</a>.</p>
+<h2>Buffer as a Variability Absorber</h2>
+<p>The buffer acts as a shock absorber. Each unit of additional buffer capacity $K$ reduces the starvation probability at Stage 2 by absorbing burst output from Stage 1. The marginal benefit decreases as $K$ grows, leading to a classic diminishing-returns relationship. Practitioners use this to size work-in-progress inventory (WIP) buffers in manufacturing cells.</p>
+<h2>Understanding the Math</h2>
+<h3>Coefficient of variation</h3>
+<p>The coefficient of variation (CV) of a random variable $X$ with mean $\mu$ and standard deviation $\sigma$ is defined as $c = \sigma / \mu$. It measures spread relative to the mean. A CV of 0 means the variable is deterministic: every value equals $\mu$. A CV of 1 means the spread equals the mean (the exponential distribution has CV exactly 1). A CV greater than 1 means the distribution is bursty: occasional very large values dominate, even if most values are small. The squared CV $c^2 = \sigma^2/\mu^2$ appears frequently in queueing formulas.</p>
+<h3>Why high CV at Stage 1 creates bursts and droughts</h3>
+<p>With a hyperexponential service distribution ($c_s^2 \gg 1$), Stage 1 sometimes completes several jobs in rapid succession (a burst) and sometimes spends a very long time on a single job (a drought). During a burst, jobs pile up in the buffer between stages. During a drought, Stage 2 exhausts the buffer and has to wait for Stage 1 to finish. This wastes capacity even though the system is underloaded on average.</p>
+<h3>The buffer as a shock absorber</h3>
+<p>A buffer of capacity $K$ can hold at most $K$ jobs between the two stages. It absorbs burst output from Stage 1 and releases it steadily to Stage 2. With a small buffer, a burst overflows (blocking Stage 1) or a drought empties the buffer (starving Stage 2). As $K$ grows, both effects weaken and Stage 2 idle time falls. However, the marginal benefit of each extra unit of buffer decreases. Real factories choose $K$ to balance the cost of holding inventory against the cost of machine starvation.</p>
+<h3>Kingman&rsquo;s approximation</h3>
+<p>For a single-stage queue with general service and arrival distributions, the approximate mean waiting time is:</p>
+<p>$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$</p>
+<p>Here $c_a^2$ is the squared CV of inter-arrival times and $c_s^2$ is the squared CV of service times. Notice that the formula separates the utilization effect (the $\rho/(1-\rho)$ term) from the variability effect (the $(c_a^2 + c_s^2)/2$ term). When Stage 1 has $c_s^2 \gg 1$, wait time is far higher than the basic M/M/1 formula predicts, even at the same mean throughput. The mean alone does not tell you enough.</p>
+<h3>Supply-chain connection</h3>
+<p>In manufacturing, Stage 1 corresponds to a supplier and Stage 2 to a production line. High variability at the supplier forces the factory to hold large work-in-progress (WIP) buffers, tying up capital and floor space. The <a href="https://en.wikipedia.org/wiki/Toyota_Production_System">Toyota Production System</a> explicitly targets CV reduction as the primary tool for shrinking necessary WIP by making every process more deterministic through standardized work and small batch sizes. The math here explains exactly why: lower $c_s^2$ directly reduces $W_q$ and the required buffer size $K$.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

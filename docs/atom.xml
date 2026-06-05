@@ -11,6 +11,120 @@
  </author>
  
  <entry>
+   <title>Priority Starvation</title>
+   <link href="https://third-bit.com/2026/06/05/priority-starvation/"/>
+   <updated>2026-06-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/05/priority-starvation/</id>
+   <content type="html">&lt;p&gt;A single server processes two job classes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;High-priority jobs (class H) arrive frequently and are served quickly.&lt;/li&gt;
+&lt;li&gt;Low-priority jobs (class L) arrive rarely and take longer to serve.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The server always picks the highest-priority job available. Total server utilization $\rho = \rho_H + \rho_L &amp;lt; 1$, so the server has spare capacity on average. Yet low-priority jobs can wait far longer than the utilization level suggests they should.&lt;/p&gt;
+&lt;h3&gt;Static Priority: Starvation at Moderate Load&lt;/h3&gt;
+&lt;p&gt;With a static priority queue, high-priority jobs &lt;em&gt;never&lt;/em&gt; yield to low-priority ones. Even when $\rho_H &amp;lt; 1$, high-priority bursts can lock out low-priority jobs for extended periods. The mean wait for low-priority jobs under a static non-preemptive priority queue is:&lt;/p&gt;
+&lt;p&gt;$$W_L = \frac{\overline{s}_L}{1-\rho_H} \cdot \frac{1}{1-\rho_H-\rho_L}$$&lt;/p&gt;
+&lt;p&gt;This diverges as $\rho_H \to 1$ independently of $\rho_L$. As $\rho_H$ approaches 100%, low-priority jobs wait arbitrarily long, even if only a few low-priority jobs ever arrive.&lt;/p&gt;
+&lt;h3&gt;Aging: Solving Starvation Creates Oscillation&lt;/h3&gt;
+&lt;p&gt;The standard remedy for starvation is &lt;em&gt;priority aging&lt;/em&gt;: a waiting job&amp;rsquo;s priority improves over time until it eventually beats even high-priority arrivals. This guarantees finite wait for all jobs.&lt;/p&gt;
+&lt;p&gt;However, aging introduces a new pathology. When aged low-priority jobs finally burst through, they occupy the server and leave a backlog of high-priority jobs waiting. The high-priority queue then drains, and the cycle repeats — producing oscillating bursts rather than smooth, uniform service.&lt;/p&gt;
+&lt;h3&gt;What aging does&lt;/h3&gt;
+&lt;p&gt;Aging assigns each waiting L job a maximum patience time $T_{\max}$. After waiting $T_{\max}$, the job is promoted to high priority. This caps the worst-case wait: no L job can wait longer than $T_{\max}$ plus one service time.&lt;/p&gt;
+&lt;h2&gt;Practical Implications&lt;/h2&gt;
+&lt;p&gt;Priority queues appear throughout computing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS scheduling: interactive processes (high priority) vs. batch jobs (low priority). Linux uses dynamic priority aging (nice values + sleep bonuses) to avoid starvation.&lt;/li&gt;
+&lt;li&gt;Network QoS: real-time traffic (VoIP, video) vs. bulk data. Traffic shaping with Deficit Round Robin (DRR) or Weighted Fair Queuing (WFQ) guarantees bandwidth shares without starvation.&lt;/li&gt;
+&lt;li&gt;Database query planning: short OLTP queries vs. long OLAP queries. Resource groups and query timeouts implement a form of aging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Mean wait for two-priority queues&lt;/h3&gt;
+&lt;p&gt;Let $\lambda_i$, $\mu_i$, and $\rho_i = \lambda_i / \mu_i$ be the arrival rate, service rate, and utilization of class $i \in {H, L}$. For a non-preemptive priority queue:&lt;/p&gt;
+&lt;p&gt;$$W_H = \frac{R_0}{1 - \rho_H}$$&lt;/p&gt;
+&lt;p&gt;$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$&lt;/p&gt;
+&lt;p&gt;where $R_0 = \tfrac{1}{2}(\lambda_H \overline{s_H^2} + \lambda_L \overline{s_L^2})$ is the mean residual work seen by an arriving customer. The ratio $W_L / W_H = 1/(1 - \rho_H)$ grows without bound as $\rho_H \to 1$.&lt;/p&gt;
+&lt;h3&gt;Why &amp;ldquo;on average&amp;rdquo; is not enough&lt;/h3&gt;
+&lt;p&gt;Even when $\rho &amp;lt; 1$, randomness creates bursts of H arrivals. During a burst, the server is continuously occupied by H jobs, and L jobs must wait in the background. The mean wait for low-priority jobs is:&lt;/p&gt;
+&lt;p&gt;$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$&lt;/p&gt;
+&lt;p&gt;The critical factor is $(1 - \rho_H)$ in the denominator. As $\rho_H \to 1$, this factor approaches zero and $W_L \to \infty$ — even if $\rho_L$ stays small and the total load $\rho$ is comfortably below 1.&lt;/p&gt;
+&lt;h3&gt;The trade-off&lt;/h3&gt;
+&lt;p&gt;Without aging, $W_L$ can be infinite when $\rho_H$ is large. With aging, $W_L \leq T_{\max} + 1/\mu_L$, but during promotion events the effective $\rho_H$ spikes temporarily, increasing $W_H$. Choosing $T_{\max}$ is a design decision: a small $T_{\max}$ protects L jobs but forces more promotions and penalizes H jobs more often; a large $T_{\max}$ is kinder to H jobs but allows L jobs to wait longer. There is no setting that simultaneously minimizes both — the trade-off is fundamental.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Braess&#39;s Paradox</title>
+   <link href="https://third-bit.com/2026/06/05/braess-paradox/"/>
+   <updated>2026-06-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/05/braess-paradox/</id>
+   <content type="html">&lt;p&gt;A city has two routes from source $S$ to destination $T$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Top route $S \to A \to T$: link $SA$ is congestion-dependent; link $AT$ has a fixed travel time.&lt;/li&gt;
+&lt;li&gt;Bottom route $S \to B \to T$: link $SB$ has a fixed travel time; link $BT$ is congestion-dependent.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The network is symmetric. A city planner proposes adding a new shortcut link $A \to B$ with near-zero travel time, creating a third route $S \to A \to B \to T$. To her surprise, adding the shortcut makes everyone&amp;rsquo;s travel time longer at the selfish-routing Nash equilibrium.&lt;/p&gt;
+&lt;h3&gt;Without the shortcut&lt;/h3&gt;
+&lt;p&gt;Both routes are symmetric. In equilibrium, traffic splits evenly. If $N/2$ drivers use each route and the congested links have delay $\alpha \cdot n$ (where $n$ is the number of cars):&lt;/p&gt;
+&lt;p&gt;$$t_{\text{top}} = \frac{N}{2}\alpha + c = t_{\text{bottom}}$$&lt;/p&gt;
+&lt;h3&gt;With the shortcut $A \to B$&lt;/h3&gt;
+&lt;p&gt;Each driver thinks, &amp;ldquo;Link $AB$ is free; I can use $SA$, slip across to $B$, then take $BT$ instead of the slow constant link $AT$.&amp;rdquo; All $N$ drivers make this choice. The Nash equilibrium has everyone on $S \to A \to B \to T$:&lt;/p&gt;
+&lt;p&gt;$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$&lt;/p&gt;
+&lt;p&gt;Since $2N\alpha &amp;gt; \frac{N}{2}\alpha + c$ for typical parameters, travel times &lt;em&gt;increase&lt;/em&gt; after the road is added. This is the paradox: individually rational decisions produce a collectively worse outcome. The ratio of Nash equilibrium cost to the socially optimal cost is called the &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Price_of_anarchy&#34;&gt;price of anarchy&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Braess%27s_paradox&#34;&gt;Braess&amp;rsquo;s paradox&lt;/a&gt; is not theoretical. Seoul, Stuttgart, and New York all observed traffic &lt;em&gt;improvements&lt;/em&gt; after closing roads. Conversely, new roads in highly congested networks have sometimes worsened average travel times.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Nash equilibrium&lt;/h3&gt;
+&lt;p&gt;A Nash equilibrium is a situation where every player has chosen a strategy and no single player can improve their own outcome by switching to a different strategy so long as everyone else stays put. Think of it as a stable fixed point: if you woke up one morning in a Nash equilibrium, you would have no reason to change what you are doing. Crucially, a Nash equilibrium need not be the best possible outcome for everyone collectively.&lt;/p&gt;
+&lt;h3&gt;The paradox, step by step&lt;/h3&gt;
+&lt;p&gt;Label the number of cars $N$ and suppose the congested links have delay $\alpha \cdot n$ where $n$ is the number of cars currently using that link. Without the shortcut, traffic splits evenly: $N/2$ cars use each route. Each driver&amp;rsquo;s travel time is $(N/2)\alpha + c$, where $c$ is the fixed delay on the non-congested link. Neither route is faster than the other, so no driver wants to switch — that is Nash equilibrium.&lt;/p&gt;
+&lt;p&gt;Now add the shortcut $A \to B$ with near-zero travel time $\varepsilon$. A single driver considering a switch reasons: &amp;ldquo;Link $AB$ is essentially free. If I take $SA$, cross to $B$, and take $BT$, I avoid the fixed cost $c$.&amp;rdquo; If that driver is the only one to switch, it looks cheaper. But every driver makes the same calculation simultaneously. At the new equilibrium, all $N$ drivers pile onto $SA$ and $BT$:&lt;/p&gt;
+&lt;p&gt;$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$&lt;/p&gt;
+&lt;p&gt;Since $2N\alpha &amp;gt; (N/2)\alpha + c$ for typical parameters, everyone is worse off than before the shortcut was built.&lt;/p&gt;
+&lt;h3&gt;The price of anarchy&lt;/h3&gt;
+&lt;p&gt;The social optimum would split traffic evenly at cost $(N/2)\alpha + c$, but selfish routing delivers $2N\alpha + \varepsilon$. The price of anarchy exceeds 1, meaning individual rationality destroys collective welfare.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/Prisoner&#39;s_dilemma&#34;&gt;Prisoner&amp;rsquo;s Dilemma&lt;/a&gt; is the best-known example of this tension. Two suspects each choose independently to cooperate or defect. Defecting is a dominant strategy: it is better for you regardless of what the other person does. Yet if both defect, both get a worse outcome than if both had cooperated. Braess&amp;rsquo;s paradox is the same logic scaled to $N$ drivers.&lt;/p&gt;
+&lt;h3&gt;The logit model&lt;/h3&gt;
+&lt;p&gt;The simulation uses a probabilistic choice rule: the probability a driver picks route $r$ is proportional to $\exp(-\beta \cdot t_r)$, where $t_r$ is the expected travel time on route $r$ and $\beta$ is a sensitivity parameter. When $\beta$ is large, drivers strongly prefer the fastest route and the outcome approaches the pure Nash equilibrium. When $\beta$ is small, drivers choose nearly randomly and the paradox weakens. The parameter $\beta$ captures how responsive real drivers are to time differences.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Rush Hour Displacement</title>
+   <link href="https://third-bit.com/2026/06/05/rush-hour/"/>
+   <updated>2026-06-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/05/rush-hour/</id>
+   <content type="html">&lt;p&gt;$N$ commuters all want to leave for work at the same preferred time. The road has a fixed capacity: up to $C$ commuters per time slot travel quickly, but when more than $C$ try to leave in the same slot, everyone in that slot experiences extra delay proportional to the overload.&lt;/p&gt;
+&lt;p&gt;Each day, commuters observe yesterday&amp;rsquo;s travel times and shift their departure by one slot toward a less congested option with some probability. Much to their disappointment, the rush hour never disappears. Instead it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;flattens slightly (spreading across more slots), but&lt;/li&gt;
+&lt;li&gt;shifts its peak position over successive days, and&lt;/li&gt;
+&lt;li&gt;reaches a new quasi-equilibrium that may be no less congested than the original, just at a different time.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The intuition is that any slot that becomes less congested immediately attracts new commuters from adjacent overloaded slots, refilling it. Individual optimization is self-defeating in aggregate.&lt;/p&gt;
+&lt;p&gt;The simulation in this tutorial shows emergent dynamics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The arrival distribution begins concentrated at the preferred slot.&lt;/li&gt;
+&lt;li&gt;Commuters shift away from congested slots, spreading the peak.&lt;/li&gt;
+&lt;li&gt;The spreading creates new local peaks at adjacent slots, which then attract their own shifters.&lt;/li&gt;
+&lt;li&gt;Over many days the distribution oscillates or drifts without converging to zero congestion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;The Vickrey Bottleneck Model&lt;/h2&gt;
+&lt;p&gt;The classic model (Vickrey 1969) treats the road as a bottleneck with flow rate $s$ vehicles per unit time. At equilibrium, every commuter faces the same &lt;em&gt;generalized cost&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;$$c = \alpha \cdot d + \beta \cdot \max(0,\, t^&lt;em&gt; - t_{\text{arr}}) + \gamma \cdot \max(0,\, t_{\text{arr}} - t^&lt;/em&gt;)$$&lt;/p&gt;
+&lt;p&gt;where $d$ is queuing delay, $t^*$ is the desired arrival time, and $\beta, \gamma$ are schedule-delay costs for early and late arrival respectively. Vickrey showed that at &lt;a href=&#34;https://en.wikipedia.org/wiki/Nash_equilibrium&#34;&gt;Nash equilibrium&lt;/a&gt; a departure queue forms with length that rises and then falls as commuters spread across time to equalize cost, but total system delay is unchanged.&lt;/p&gt;
+&lt;p&gt;This model underlies modern road-pricing schemes: a time-varying toll that exactly offsets the schedule-delay cost eliminates queuing entirely while preserving the total commuting burden. In essence, the toll revenue replaces the wasted queuing time.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;What is a congestion game?&lt;/h3&gt;
+&lt;p&gt;Each commuter (the &amp;ldquo;player&amp;rdquo;) independently chooses a departure time slot. The delay experienced in any given slot depends on how many other commuters choose the same slot: if the slot is over capacity $C$, delay grows with the number of extra commuters. No central authority coordinates choices. This structure, where each player&amp;rsquo;s cost depends on the collective choices of all players, is called a &lt;em&gt;congestion game&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Nash equilibrium in this context&lt;/h3&gt;
+&lt;p&gt;A Nash equilibrium is a distribution of departure times such that no individual commuter can reduce their own delay by unilaterally switching to a different slot. At equilibrium, every occupied slot has the same congestion-adjusted cost. If slot 15 were cheaper than slot 14, commuters from slot 14 would shift to slot 15 until the costs equalized. The equilibrium is therefore defined by: all slots with commuters in them have equal cost, and all empty slots have cost no lower than the occupied ones.&lt;/p&gt;
+&lt;h3&gt;Why Nash equilibrium is not the social optimum&lt;/h3&gt;
+&lt;p&gt;The social optimum minimizes total delay summed over all commuters. The Nash equilibrium minimizes each person&amp;rsquo;s individual delay given everyone else&amp;rsquo;s choices. These are generally different objectives. At Nash equilibrium, a commuter choosing a crowded slot ignores the extra delay they impose on every other commuter already in that slot. They feel only their own delay; the cost they impose on others is a negative externality that they do not internalize.&lt;/p&gt;
+&lt;h3&gt;Why the peak shifts but does not vanish&lt;/h3&gt;
+&lt;p&gt;Suppose slot 15 is heavily congested. Some commuters shift to slot 14, relieving slot 15. But now slot 14 is more congested, so its commuters shift to slot 13. The congestion wave ripples outward in both directions. Meanwhile, commuters who shifted away from slot 15 now observe it as less congested and some drift back. The system never reaches zero congestion: it perpetually redistributes congestion across nearby slots in a slow drift. The Nash equilibrium exists in theory, but the day-by-day best-response dynamics cycle around it rather than converging to it, particularly when commuters respond noisily to yesterday&amp;rsquo;s conditions.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>The Convoy Effect</title>
    <link href="https://third-bit.com/2026/06/05/convoy-effect/"/>
    <updated>2026-06-05T00:00:00Z</updated>
@@ -44,6 +158,37 @@
 &lt;p&gt;The mean time a job spends waiting (not counting its own service time) in a FIFO single-server queue is:&lt;/p&gt;
 &lt;p&gt;$$W_q = \frac{\lambda \cdot E[S^2]}{2(1 - \rho)}$$&lt;/p&gt;
 &lt;p&gt;Here $\lambda$ is the arrival rate, $E[S^2]$ is the second moment of service time, and $\rho = \lambda \cdot E[S]$ is the server utilization. Both $\lambda$ and $E[S^2]$ appear in the numerator, so more variance means more waiting even at the same $\rho$. The $(1-\rho)$ denominator is the familiar blow-up term from M/M/1.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Tandem Queue Blocking</title>
+   <link href="https://third-bit.com/2026/06/05/tandem-queue/"/>
+   <updated>2026-06-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/05/tandem-queue/</id>
+   <content type="html">&lt;p&gt;Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda &amp;lt; \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).&lt;/p&gt;
+&lt;p&gt;Even though both stages have identical mean throughput and the system is underloaded, Stage 2 sits idle for a substantial fraction of time when the buffer between them is small. The idle fraction only vanishes as the buffer size $K \to \infty$.&lt;/p&gt;
+&lt;p&gt;High service-time variance at Stage 1 produces bursts of output—many jobs finish close together—followed by droughts. With a small buffer, the burst overflows (blocking Stage 1) and the drought starves Stage 2. Both effects reduce system throughput below what we would intuitively expect.&lt;/p&gt;
+&lt;h2&gt;Analysis&lt;/h2&gt;
+&lt;p&gt;For a two-stage tandem queue with a finite buffer of capacity $K$, the blocking probability at Stage 1 and the starvation probability at Stage 2 depend on the full service-time distributions, not just their means. The Kingman approximation gives the mean wait in a single G/G/1 queue as:&lt;/p&gt;
+&lt;p&gt;$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$&lt;/p&gt;
+&lt;p&gt;where $c_a^2$ and $c_s^2$ are the squared coefficients of variation of inter-arrival and service times respectively. For a hyperexponential service distribution with $c_s^2 \gg 1$, waiting times are far higher than the M/M/1 formula predicts.&lt;/p&gt;
+&lt;p&gt;In a tandem network, this extra variability propagates: the departure process of Stage 1 (which is the arrival process for Stage 2) has higher variance than Poisson when Stage 1 has high service variance. This is &lt;em&gt;Departure Process Variability Propagation&lt;/em&gt; and is a key driver of manufacturing and supply-chain &lt;a href=&#34;https://en.wikipedia.org/wiki/Bullwhip_effect&#34;&gt;bullwhip effects&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Buffer as a Variability Absorber&lt;/h2&gt;
+&lt;p&gt;The buffer acts as a shock absorber. Each unit of additional buffer capacity $K$ reduces the starvation probability at Stage 2 by absorbing burst output from Stage 1. The marginal benefit decreases as $K$ grows, leading to a classic diminishing-returns relationship. Practitioners use this to size work-in-progress inventory (WIP) buffers in manufacturing cells.&lt;/p&gt;
+&lt;h2&gt;Understanding the Math&lt;/h2&gt;
+&lt;h3&gt;Coefficient of variation&lt;/h3&gt;
+&lt;p&gt;The coefficient of variation (CV) of a random variable $X$ with mean $\mu$ and standard deviation $\sigma$ is defined as $c = \sigma / \mu$. It measures spread relative to the mean. A CV of 0 means the variable is deterministic: every value equals $\mu$. A CV of 1 means the spread equals the mean (the exponential distribution has CV exactly 1). A CV greater than 1 means the distribution is bursty: occasional very large values dominate, even if most values are small. The squared CV $c^2 = \sigma^2/\mu^2$ appears frequently in queueing formulas.&lt;/p&gt;
+&lt;h3&gt;Why high CV at Stage 1 creates bursts and droughts&lt;/h3&gt;
+&lt;p&gt;With a hyperexponential service distribution ($c_s^2 \gg 1$), Stage 1 sometimes completes several jobs in rapid succession (a burst) and sometimes spends a very long time on a single job (a drought). During a burst, jobs pile up in the buffer between stages. During a drought, Stage 2 exhausts the buffer and has to wait for Stage 1 to finish. This wastes capacity even though the system is underloaded on average.&lt;/p&gt;
+&lt;h3&gt;The buffer as a shock absorber&lt;/h3&gt;
+&lt;p&gt;A buffer of capacity $K$ can hold at most $K$ jobs between the two stages. It absorbs burst output from Stage 1 and releases it steadily to Stage 2. With a small buffer, a burst overflows (blocking Stage 1) or a drought empties the buffer (starving Stage 2). As $K$ grows, both effects weaken and Stage 2 idle time falls. However, the marginal benefit of each extra unit of buffer decreases. Real factories choose $K$ to balance the cost of holding inventory against the cost of machine starvation.&lt;/p&gt;
+&lt;h3&gt;Kingman&amp;rsquo;s approximation&lt;/h3&gt;
+&lt;p&gt;For a single-stage queue with general service and arrival distributions, the approximate mean waiting time is:&lt;/p&gt;
+&lt;p&gt;$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$&lt;/p&gt;
+&lt;p&gt;Here $c_a^2$ is the squared CV of inter-arrival times and $c_s^2$ is the squared CV of service times. Notice that the formula separates the utilization effect (the $\rho/(1-\rho)$ term) from the variability effect (the $(c_a^2 + c_s^2)/2$ term). When Stage 1 has $c_s^2 \gg 1$, wait time is far higher than the basic M/M/1 formula predicts, even at the same mean throughput. The mean alone does not tell you enough.&lt;/p&gt;
+&lt;h3&gt;Supply-chain connection&lt;/h3&gt;
+&lt;p&gt;In manufacturing, Stage 1 corresponds to a supplier and Stage 2 to a production line. High variability at the supplier forces the factory to hold large work-in-progress (WIP) buffers, tying up capital and floor space. The &lt;a href=&#34;https://en.wikipedia.org/wiki/Toyota_Production_System&#34;&gt;Toyota Production System&lt;/a&gt; explicitly targets CV reduction as the primary tool for shrinking necessary WIP by making every process more deterministic through standardized work and small batch sizes. The math here explains exactly why: lower $c_s^2$ directly reduces $W_q$ and the required buffer size $K$.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
  </entry>
  
@@ -1051,1419 +1196,6 @@ Harvard Business School Press,
 Knopf,
 2011,
 &lt;a href=&#34;https://isbnsearch.org/isbn/9780307390998&#34;&gt;9780307390998&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Twelve Ways to Be Wrong About AI-Assisted Coding</title>
-   <link href="https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/"/>
-   <updated>2026-05-20T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/</id>
-   <content type="html">&lt;p&gt;Suppose your manager asks you next week to demonstrate that
-the AI coding tools your company signed up for
-are worth the subscription cost.
-Would you measure lines of code generated, or tickets closed?
-Or would you send out a survey asking whether developers feel more productive?
-Each of those approaches is flawed in a different way;
-the sections below explain why.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Note: this post is about how people are assessing AI,
-not at LLM-assisted coding itself;
-with a little rewording,
-these criticisms could be applied to a lot of the claims that have been made
-about agile development, test-driven development, and other practices.
-If I&amp;rsquo;ve learned anything in the last twenty years,
-it&amp;rsquo;s that software engineering would be a lot further ahead today
-if we had been willing to let our peers in the human sciences
-teach us how to study these kinds of things properly.&lt;/p&gt;
-&lt;p&gt;Also, if you&amp;rsquo;d like a one-day introduction to the research methods you should use
-to avoid making these errors, please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;reach out&lt;/a&gt;.
-I&amp;rsquo;m not qualified to teach it, but I know people who are,
-and I could probably talk them into doing it…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;Counting Lines of Code Generated&lt;/h2&gt;
-&lt;p&gt;Proxy metrics stand in for concepts that are hard to measure directly,
-and lines of code is one of the oldest.
-LLMs generate more code, but not necessarily better outcomes:
-a team that sees a 40% increase in lines of code per developer
-after adopting LLM tools has measured verbosity, not productivity.
-Deleting 2000 lines of tangled logic and replacing it with 200 clean ones
-is an improvement that looks like a loss on this metric [Sadowski2019].
-More code also means more to read, maintain, and debug,
-and AI&amp;rsquo;s contribution to that future burden does not appear in the line count.&lt;/p&gt;
-&lt;h2&gt;Timing Artificial Tasks&lt;/h2&gt;
-&lt;p&gt;A widely cited study found that
-developers who used GitHub Copilot completed a task 55% faster than those who did not [Peng2023].
-The task was implementing an HTTP server in JavaScript from scratch, in ninety minutes;
-the developers had no other obligations that day.
-Real software development involves navigating a large codebase you did not write,
-understanding a requirement described ambiguously in a ticket,
-coordinating with colleagues,
-and attending meetings.
-Speed on a greenfield toy task does not predict speed on any of that.
-A randomized controlled trial with experienced open-source developers
-found the opposite of what participants themselves predicted:
-giving them access to AI tools increased task completion time by 19% [Becker2025].&lt;/p&gt;
-&lt;h2&gt;Before/After With No Control Group&lt;/h2&gt;
-&lt;p&gt;You start using LLMs in January;
-by June, pull requests are shipping faster, so the tools must be working, right?
-But between January and June you hired twelve engineers,
-refactored the CI pipeline,
-and switched your cloud provider.
-Without a group that did not adopt the tools,
-you cannot separate the effect of LLMs
-from any of the other changes that happened at the same time.
-Internal validity requires a credible counterfactual,
-i.e., some way of knowing what would have happened otherwise.&lt;/p&gt;
-&lt;h2&gt;Asking Developers If They Feel More Productive&lt;/h2&gt;
-&lt;p&gt;Survey results like
-&amp;ldquo;87% of developers report feeling more productive with AI tools&amp;rdquo;
-are regularly cited as evidence that the tools work [Liang2024],
-but three things make self-report systematically misleading:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The Hawthorne effect means people work differently
-    when they know they are being observed and evaluated;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The novelty effect means new tools feel faster because they are novel,
-    and that feeling typically fades within weeks; and&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Social desirability bias means respondents tend to say
-    what they believe the survey wants to hear,
-    especially when management chose the tool.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Counting Commits, Pull Requests, and Tickets&lt;/h2&gt;
-&lt;p&gt;In 2023,
-McKinsey proposed measuring individual developer productivity
-using counts of commits, pull requests, code reviews, and similar activities [McKinsey2023].
-Goodhart&amp;rsquo;s Law states that when a measure becomes a target,
-it ceases to be a good measure [Goodhart1984].
-When developers know their commit count is tracked, they make more, smaller commits;
-when ticket counts are tracked, tickets get split.
-The numbers improve while the underlying work does not [Beck2023].
-Activity is not output; output is not value.&lt;/p&gt;
-&lt;h2&gt;Measuring Only the Easy Half&lt;/h2&gt;
-&lt;p&gt;LLMs make code generation faster, and that half is easy to measure.
-The other half is harder:
-time spent reviewing LLM-generated code for correctness,
-time lost debugging confidently wrong suggestions,
-security vulnerabilities introduced by plausible-looking but insecure code,
-and technical debt from suggestions that solved the immediate problem
-while ignoring the surrounding design.
-A study of GitHub Copilot&amp;rsquo;s code found
-that a substantial fraction of generated code contained security vulnerabilities,
-and that developers under time pressure accepted insecure suggestions at higher rates [Pearce2022].
-A 2025 evaluation of five major LLMs found that
-none produced web application code meeting industry security standards [Dora2025].
-A large-scale analysis of over 300,000 AI-authored commits found that
-more than 15% introduce at least one quality issue,
-and nearly a quarter of those issues persist in the codebase long-term [Liu2026].
-Measuring only the inputs that go up while ignoring the costs that also rise is not measurement;
-it is marketing.&lt;/p&gt;
-&lt;h2&gt;Treating Adoption Rate as a Success Metric&lt;/h2&gt;
-&lt;p&gt;&amp;ldquo;We have achieved 90% AI tool adoption across engineering&amp;rdquo;
-is a procurement outcome,
-not a productivity outcome.
-Adoption measures whether the tool is installed and opened;
-it says nothing about whether suggestions are useful,
-whether developers accept them thoughtlessly,
-or whether the accepted suggestions are correct.
-High adoption combined with low suggestion quality
-produces a workforce spending time managing a tool rather than benefiting from one.
-A study of IBM&amp;rsquo;s enterprise AI coding assistant found that
-while the tool often provided net productivity increases,
-those gains were not experienced uniformly across its user base [Weisz2025].
-But adoption is easier to measure than benefit,
-which is exactly why it gets reported instead.&lt;/p&gt;
-&lt;h2&gt;Comparing Volunteers to Non-Volunteers&lt;/h2&gt;
-&lt;p&gt;Studies that compare developers who chose to use LLMs against those who did not
-are comparing two different populations,
-not two conditions.
-Early adopters differ from late adopters and non-adopters
-in ways that directly predict productivity:
-they are more motivated to experiment,
-more comfortable with new tooling,
-and more likely to already be high performers.
-Selection bias means any observed difference between the groups
-may be a property of the person rather than the tool.
-This is the most common design flaw in industry AI productivity reports,
-because it is the cheapest study to run.
-A two-year longitudinal study of Copilot use at a large IT organization found that
-developers who used the tool were consistently more active than non-users
-even before it was introduced [Stray2026].&lt;/p&gt;
-&lt;h2&gt;Measuring the Individual Instead of the System&lt;/h2&gt;
-&lt;p&gt;Individual coding speed is the easiest thing to measure, so it gets measured.
-But if AI tools help developers write code 30% faster
-and the team&amp;rsquo;s time from ticket to production does not change,
-the bottleneck was not writing code.
-More code generated also means more code to review:
-if AI increases code volume without increasing review capacity,
-cycle time may worsen [Forsgren2021].
-An empirical study of professional developers found that while AI tools boosted output for
-less-experienced contributors, senior developers experienced a 19% decline in their own
-productivity as they absorbed a 6.5% increase in code review load from AI-generated code [Xu2025].
-Optimizing one stage of a pipeline while ignoring the others is a systems-thinking failure
-dressed as a productivity study.&lt;/p&gt;
-&lt;h2&gt;Measuring During the Novelty Period&lt;/h2&gt;
-&lt;p&gt;A four-week study that finds a productivity boost has found a four-week productivity boost.
-The novelty effect is real:
-developers are more engaged with new tools during the initial period,
-which inflates observed performance relative to the long-run baseline.
-Effects that actually matter emerge over months, not weeks,
-including skill atrophy for tasks now delegated to the AI,
-accumulation of technical debt from wrong suggestions,
-or changes in how teams collaborate.
-A study designed to detect a short-term benefit,
-has not told you anything about what happens after the study ends.
-An analysis of 807 open-source repositories adopting Cursor found exactly this pattern:
-adoption produced a large but transient increase in development velocity alongside
-a substantial and persistent increase in code complexity and static analysis warnings [He2026].&lt;/p&gt;
-&lt;h2&gt;Treating Suggestion Acceptance Rate as a Quality Signal&lt;/h2&gt;
-&lt;p&gt;LLM coding assistants commonly report what fraction of their suggestions developers accept,
-and higher acceptance rates are presented as evidence that the tool is useful.
-Acceptance measures whether the generated code looked plausible enough
-for a developer to press Tab;
-it does not measure whether the code was correct, secure, or maintainable.
-Developers under time pressure accept more suggestions, including insecure ones [Pearce2022],
-so a tight deadline makes acceptance rate rise for exactly the wrong reasons.
-An enterprise study of 400 developers found a 33% average acceptance rate
-alongside high developer satisfaction,
-but tracked no measure of the correctness or security of accepted code [Bakal2025].
-A metric that rewards looking good enough is not a metric that rewards being good.&lt;/p&gt;
-&lt;h2&gt;Comparing AI to Nothing&lt;/h2&gt;
-&lt;p&gt;Studies that compare AI-assisted developers to a control group using nothing
-have chosen a baseline that does not exist in practice.
-Developers without LLM assistants use documentation, colleagues,
-and the time they would otherwise spend thinking through the problem themselves.
-The relevant question is whether LLM tools outperform the alternatives developers already have,
-and that comparison is rarely made [Peng2023].
-Choosing a weak baseline makes any tool look good; it does not make the tool useful.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I am profoundly grateful to everyone who has taken the time over the years
-to explain this stuff to me.
-Any errors or over-simplifications in what I&amp;rsquo;ve written are entirely my fault.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;Bibliography&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;Bakal2025&lt;/dt&gt;
-&lt;dd&gt;Gal Bakal, Ali Dasdan, Yaniv Katz, Michael Kaufman, and Guy Levin:
-&amp;ldquo;Experience with GitHub Copilot for Developer Productivity at Zoominfo.&amp;rdquo;
-arXiv:2501.13282,
-2025.&lt;/dd&gt;
-&lt;dt&gt;Becker2025&lt;/dt&gt;
-&lt;dd&gt;Joel Becker, Nate Rush, Elizabeth Barnes, and David Rein:
-&amp;ldquo;Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.&amp;rdquo;
-arXiv:2507.09089,
-2025.&lt;/dd&gt;
-&lt;dt&gt;Beck2023&lt;/dt&gt;
-&lt;dd&gt;Kent Beck:
-&amp;ldquo;Measuring Developer Productivity: Real-World Examples.&amp;rdquo;
-Medium,
-2023.
-&lt;a href=&#34;https://tidyfirst.substack.com/p/measuring-developer-productivity&#34;&gt;https://tidyfirst.substack.com/p/measuring-developer-productivity&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Dora2025&lt;/dt&gt;
-&lt;dd&gt;Swaroop Dora, Deven Lunkad, Naziya Aslam, S. Venkatesan, and Sandeep Kumar Shukla:
-&amp;ldquo;The Hidden Risks of LLM-Generated Web Application Code:
-A Security-Centric Evaluation of Code Generation Capabilities in Large Language Models.&amp;rdquo;
-arXiv:2504.20612,
-2025.&lt;/dd&gt;
-&lt;dt&gt;Flournoy2025&lt;/dt&gt;
-&lt;dd&gt;John C. Flournoy, Carol S. Lee, Maggie Wu, and Catherine M. Hicks:
-&amp;ldquo;No Silver Bullets: Why Understanding Software Cycle Time is Messy, Not Magic.&amp;rdquo;
-arXiv:2503.05040,
-2025.&lt;/dd&gt;
-&lt;dt&gt;Forsgren2021&lt;/dt&gt;
-&lt;dd&gt;Nicole Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler:
-&amp;ldquo;The SPACE of Developer Productivity.&amp;rdquo;
-&lt;em&gt;ACM Queue&lt;/em&gt;,
-19(1), 2021.&lt;/dd&gt;
-&lt;dt&gt;Goodhart1984&lt;/dt&gt;
-&lt;dd&gt;Charles Goodhart:
-&amp;ldquo;Problems of Monetary Management: The U.K. Experience.&amp;rdquo;
-In Anthony Courakis (ed.),
-&lt;em&gt;Inflation, Depression, and Economic Policy in the West&lt;/em&gt;,
-Rowman and Littlefield,
-1984.&lt;/dd&gt;
-&lt;dt&gt;He2026&lt;/dt&gt;
-&lt;dd&gt;Hao He, Courtney Miller, Shyam Agarwal, Christian Kästner, and Bogdan Vasilescu:
-&amp;ldquo;Speed at the Cost of Quality: How Cursor AI Increases Short-Term Velocity and Long-Term Complexity in Open-Source Projects.&amp;rdquo;
-&lt;em&gt;Proc. MSR &amp;lsquo;26&lt;/em&gt;,
-2026.&lt;/dd&gt;
-&lt;dt&gt;Hicks2025&lt;/dt&gt;
-&lt;dd&gt;Catherine M. Hicks, Carol Lee, and Kristen Foster-Marks:
-&amp;ldquo;The New Developer: AI Skill Threat, Identity Change &amp;amp; Developer Thriving in the Transition to AI-Assisted Software Development.&amp;rdquo;
-&lt;a href=&#34;https://osf.io/preprints/psyarxiv/2gej5_v2&#34;&gt;https://osf.io/preprints/psyarxiv/2gej5_v2&lt;/a&gt;,
-2025,
-https://doi.org/10.31234/osf.io/2gej5_v2.&lt;/dd&gt;
-&lt;dt&gt;Liang2024&lt;/dt&gt;
-&lt;dd&gt;Jenny T. Liang, Chenyang Yang, and Brad A. Myers:
-&amp;ldquo;A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges.&amp;rdquo;
-&lt;em&gt;Proc. ICSE 2024&lt;/em&gt;,
-2024.&lt;/dd&gt;
-&lt;dt&gt;Liu2026&lt;/dt&gt;
-&lt;dd&gt;Yue Liu, Ratnadira Widyasari, Yanjie Zhao, Ivana Clairine Irsan, Junkai Chen,
-and David Lo:
-&amp;ldquo;Debt Behind the AI Boom: A Large-Scale Empirical Study of AI-Generated Code in the Wild.&amp;rdquo;
-arXiv:2603.28592,
-2026.&lt;/dd&gt;
-&lt;dt&gt;McKinsey2023&lt;/dt&gt;
-&lt;dd&gt;Nora Elsayed, Tarek Elhounsri, and Sven Blumberg:
-&amp;ldquo;Yes, You Can Measure Software Developer Productivity.&amp;rdquo;
-McKinsey &amp;amp; Company,
-2023.
-&lt;a href=&#34;https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity&#34;&gt;https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Pearce2022&lt;/dt&gt;
-&lt;dd&gt;Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri:
-&amp;ldquo;Asleep at the Keyboard? Assessing the Security of GitHub Copilot&amp;rsquo;s Code Contributions.&amp;rdquo;
-&lt;em&gt;Proc. IEEE S&amp;amp;P 2022&lt;/em&gt;,
-2022,
-doi:10.1109/SP46214.2022.9833571.&lt;/dd&gt;
-&lt;dt&gt;Peng2023&lt;/dt&gt;
-&lt;dd&gt;Sida Peng, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer:
-&amp;ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot.&amp;rdquo;
-arXiv:2302.06590,
-2023.&lt;/dd&gt;
-&lt;dt&gt;Sadowski2019&lt;/dt&gt;
-&lt;dd&gt;Caitlin Sadowski and Thomas Zimmermann (eds.):
-&lt;em&gt;Rethinking Productivity in Software Engineering&lt;/em&gt;.
-Apress,
-2019,
-978-1484242209.&lt;/dd&gt;
-&lt;dt&gt;Stray2026&lt;/dt&gt;
-&lt;dd&gt;Viktoria Stray, Elias Goldmann Brandtzæg, Viggo Tellefsen Wivestad, Astri Barbala, and Nils Brede Moe:
-&amp;ldquo;Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study.&amp;rdquo;
-&lt;em&gt;Proc. HICSS-59&lt;/em&gt;,
-2026.&lt;/dd&gt;
-&lt;dt&gt;Weisz2025&lt;/dt&gt;
-&lt;dd&gt;Justin D. Weisz, Shraddha Kumar, Michael Muller, Karen-Ellen Browne, Arielle Goldberg, Ellice Heintze, and Shagun Bajpai:
-&amp;ldquo;Examining the Use and Impact of an AI Code Assistant on Developer Productivity and Experience in the Enterprise.&amp;rdquo;
-&lt;em&gt;Proc. CHI&amp;lsquo;25&lt;/em&gt;,
-2025.&lt;/dd&gt;
-&lt;dt&gt;Xu2025&lt;/dt&gt;
-&lt;dd&gt;Feiyang Xu, Poonacha K. Medappa, Murat M. Tunc, Martijn Vroegindeweij, and Jan C. Fransoo:
-&amp;ldquo;AI-Assisted Programming Decreases the Productivity of Experienced Developers
-by Increasing the Technical Debt and Maintenance Burden.&amp;rdquo;
-arXiv:2510.10165,
-2025.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>SDGC Glossary</title>
-   <link href="https://third-bit.com/2026/05/20/glossary/"/>
-   <updated>2026-05-20T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/20/glossary/</id>
-   <content type="html">&lt;p&gt;I will update this as new entries are added.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;A&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;accounting_fraud&#34;&gt;accounting fraud&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The manipulation of financial statements through aggressive use of
-permissible accounting choices like early revenue recognition,
-optimistic asset valuations, or buried liabilities to misrepresent
-a company&amp;rsquo;s financial position.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;algorithmic_amplification&#34;&gt;algorithmic amplification&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which platform recommendation systems
-systematically promote content that generates high engagement,
-regardless of its accuracy or harm.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;algorithmic_hiring&#34;&gt;algorithmic hiring&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The use of automated software systems to screen, rank, or select
-job candidates, typically trained on historical hiring data.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;anchoring&#34;&gt;anchoring&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The cognitive tendency to rely too heavily on the first piece of
-numerical information encountered when making estimates or
-decisions.  Even when people know that an initial number is
-arbitrary or irrelevant, it systematically pulls their judgments
-toward it.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;at_will_employment&#34;&gt;at-will employment&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;An employment doctrine, dominant in the United States, under which
-either party may terminate the employment relationship at any
-time, for any reason not prohibited by law, without notice or
-cause.  Most wealthy countries impose statutory notice periods,
-severance requirements, or just-cause protections that
-significantly limit at-will termination.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;availability_heuristic&#34;&gt;availability heuristic&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The mental shortcut of estimating how likely or common something is
-by how easily examples of it come to mind.  Vivid or recent events
-are overweighted relative to more common but less memorable ones.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;B&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;backfire_effect&#34;&gt;backfire effect&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The phenomenon in which presenting people with evidence that
-contradicts a strongly held belief causes them to hold that belief
-more firmly rather than updating it.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;basel_convention&#34;&gt;Basel Convention&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 1989 international treaty restricting the transboundary
-movement of hazardous waste, particularly from wealthy to
-developing nations.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;bertillonage&#34;&gt;bertillonage&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The system of criminal identification developed by Alphonse
-Bertillon in the 1880s, based on recording eleven precise body
-measurements.  Widely adopted by police forces in Europe and the
-colonial world, it was displaced by fingerprinting around 1900.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;biometrics&#34;&gt;biometrics&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The measurement and statistical analysis of unique physical or
-behavioral characteristics to identify or verify an individual&amp;rsquo;s
-identity.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;blood_libel&#34;&gt;blood libel&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The accusation that Jews murdered Christian children to use their
-blood in Passover rituals.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;boryokudan&#34;&gt;boryokudan&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The Japanese government&amp;rsquo;s official designation for organized crime
-groups, meaning &amp;ldquo;violence group,&amp;rdquo; used in anti-organized crime
-legislation since 1992 as an alternative to the self-identifying
-term yakuza.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;bounded_rationality&#34;&gt;bounded rationality&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Herbert Simon&amp;rsquo;s term for the observation that human
-decision-making is rational only within the limits of available
-information, cognitive capacity, and time.  People do not
-optimize; they search for solutions that are good enough and stop,
-a process Simon called satisficing.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;brand_protection&#34;&gt;brand protection&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The enforcement of exclusive commercial identity through legal
-mechanisms such as trademarks and trade dress, used to prevent
-competitors from trading on an established name.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;C&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;civil_disobedience&#34;&gt;civil disobedience&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The deliberate, nonviolent refusal to comply with laws or
-government demands as a form of political protest, aimed at
-changing the law rather than evading it.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;codetermination&#34;&gt;codetermination&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A labor relations system in which workers hold formal
-representation rights on corporate governing boards, as in the
-German Mitbestimmung model.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;cognitive_bias&#34;&gt;cognitive bias&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A systematic pattern of deviation from rational judgment in which
-people reach conclusions through processes that are predictably
-and consistently skewed.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;cognitive_pollution&#34;&gt;cognitive pollution&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The systematic degradation of the shared information environment
-through the spread of misleading, manipulative, or low-quality
-content at scale.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;collective_bargaining&#34;&gt;collective bargaining&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which workers negotiate wages, hours, and working
-conditions as a group through their union rather than as
-individuals.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;commons&#34;&gt;commons&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Resources held in common by a community rather than owned
-privately, subject to collective governance rather than market
-allocation.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;conspicuous_consumption&#34;&gt;conspicuous consumption&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Thorstein Veblen&amp;rsquo;s term for spending on goods and services
-primarily to signal social status rather than for their practical
-use or pleasure.  The signal only works if the expenditure is
-visible and sufficiently costly to exclude lower-status
-competitors.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;conspicuous_leisure&#34;&gt;conspicuous leisure&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Thorstein Veblen&amp;rsquo;s term for the visible display of not working as
-a signal of social rank.  In contexts where most people must
-labor, idleness signals that one can afford to abstain; in modern
-professional contexts, the signal has inverted to highly visible
-overwork and constant availability.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;consumer_cooperative&#34;&gt;consumer cooperative&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A cooperative owned by its customers rather than its workers, in
-which members pay a joining fee or purchase membership shares and
-receive a dividend proportional to their purchases, with
-governance following a one-member-one-vote principle.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;content_moderation&#34;&gt;content moderation&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The practice of reviewing and enforcing community standards on
-user-generated content on digital platforms, including decisions
-about removal, restriction, and amplification.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;control_fraud&#34;&gt;control fraud&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A form of financial fraud in which the executives of an
-institution use the institution itself as a vehicle for personal
-enrichment at the expense of depositors, investors, or clients.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;cooperative&#34;&gt;cooperative&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A firm owned and governed by its members in which profits are
-distributed in proportion to participation rather than capital
-invested, and governance follows a one-member-one-vote principle
-rather than a one-share-one-vote principle.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;copyleft&#34;&gt;copyleft&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A licensing approach that requires derivative works to be
-distributed under the same open terms as the original, preventing
-proprietary appropriation of open-source contributions.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;credit_union&#34;&gt;credit union&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A member-owned financial cooperative that accepts deposits, makes
-loans, and returns surplus to members rather than distributing
-profits to outside shareholders.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;crop_lien&#34;&gt;crop lien&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A credit arrangement in which farmers borrowed against their
-future harvest, typically from merchants who charged high interest
-and kept borrowers in perpetual debt.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;D&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;dark_triad&#34;&gt;dark triad&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A cluster of three overlapping personality traits—psychopathy,
-narcissism, and Machiavellianism—that researchers treat together
-because they tend to co-occur and share a common pattern of
-callous self-interest, manipulation, and disregard for others.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;decriminalization&#34;&gt;decriminalization&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The removal of criminal penalties for a behavior, typically while
-other civil or regulatory restrictions remain in place.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;delaware_flip&#34;&gt;Delaware flip&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which a non-US startup reincorporates by creating a
-Delaware holding company above the existing domestic entity and
-transferring intellectual property to it, typically required by
-American venture capital investors as a condition of investment.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;deplatforming&#34;&gt;deplatforming&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The removal of an individual or group from a digital platform as a
-content moderation enforcement action.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;diffuse_decision_making&#34;&gt;diffuse decision-making&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The distribution of accountability across many individuals in an
-organization such that no single person can be held responsible
-for harmful outcomes.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;disposition_effect&#34;&gt;disposition effect&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The tendency of investors to sell assets that have increased in
-value while holding on to assets that have declined, the opposite
-of what a rational strategy would recommend.  It follows from loss
-aversion: selling a losing position requires acknowledging a loss,
-which is more painful than an equivalent gain is pleasurable.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;divestment&#34;&gt;divestment&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The disposal of financial assets in a company or sector as a form
-of political pressure, imposing reputational and economic costs on
-targeted firms or governments.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;donor_advised_fund&#34;&gt;donor-advised fund&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A financial vehicle in which a donor contributes assets, receives
-an immediate tax deduction, and retains the ability to direct
-grants to charitable recipients at any pace over time, while the
-contributed assets remain under the donor&amp;rsquo;s effective control.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;downline&#34;&gt;downline&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In multi-level marketing, the network of distributors recruited by
-a participant and by those distributors&amp;rsquo; own recruits, whose sales
-generate commission income for everyone above them in the chain.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;dual_class_shares&#34;&gt;dual-class shares&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A corporate share structure in which two or more classes of stock
-carry different voting rights, typically giving founders or
-insiders shares with ten or more votes each while public investors
-receive shares with one vote, allowing the company to raise
-capital without ceding effective control.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;due_process&#34;&gt;due process&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The legal requirement that government or institutional action
-affecting rights must follow fair procedures and provide a
-meaningful opportunity for challenge.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;E&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;e_waste&#34;&gt;electronic waste&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Discarded electronic devices containing toxic materials such as
-lead, mercury, and cadmium, much of which is exported for
-processing in developing countries under hazardous conditions.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;enclosure_acts&#34;&gt;Enclosure Acts&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Parliamentary legislation in Britain from the seventeenth through
-nineteenth centuries that converted common agricultural land to
-private ownership.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;enclosure_movement&#34;&gt;Enclosure movement&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The historical process by which common agricultural lands in
-Britain were converted into private property, displacing rural
-communities that had depended on shared access.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;engrams&#34;&gt;engrams&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In Scientology, traumatic memories believed to be stored in the
-reactive mind and to impair mental and physical function; the
-target of the auditing process, which aims to discharge them
-through conscious recall.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;enshittification&#34;&gt;enshittification&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which platform businesses progressively degrade the
-quality of their service as they shift value extraction from users
-to advertisers and away from both to shareholders.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;equity_compensation&#34;&gt;equity compensation&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Payment in the form of stock or stock options rather than cash,
-used extensively in the tech industry to align worker incentives
-with company value while deferring cash costs.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;excommunication&#34;&gt;excommunication&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Formal exclusion from membership in a religious community and its
-sacraments, historically used by the Catholic Church as a
-disciplinary and political tool against individuals.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;F&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;face_turn&#34;&gt;face turn&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In professional wrestling, a character&amp;rsquo;s transition from villain
-to hero, typically marked by a moment that reveals underlying
-decency and produces crowd approval where there was previously
-hostility.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;fair_game&#34;&gt;Fair Game&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A Scientology policy, first articulated in 1965, stating that
-members who leave the organization and publicly criticize it may
-be subjected to any action by other members without organizational
-discipline. It was officially rescinded in 1968 but documented as
-continuing in practice under different names.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;flexner_report&#34;&gt;Flexner Report&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 1910 report that restructured American medical education
-around elite university-based schools, simultaneously
-professionalizing medicine and closing institutions that had
-trained women and Black physicians.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;framework_convention_tobacco_control&#34;&gt;Framework Convention on Tobacco Control&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 2003 World Health Organization treaty on tobacco regulation,
-the first international public health treaty negotiated under WHO
-auspices, committing signatory countries to measures including
-advertising restrictions, health warnings, and plain packaging.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;frand&#34;&gt;FRAND&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Fair, Reasonable, and Non-Discriminatory: the licensing commitment
-a patent holder makes when their technology is incorporated into a
-formal technical standard.  The commitment is intended to prevent
-the patent holder from using a standards-essential patent as a
-chokepoint to extract monopoly rents from everyone implementing
-the standard.  What counts as &amp;ldquo;reasonable&amp;rdquo; is routinely contested
-in litigation.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;front_running&#34;&gt;front-running&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The practice of executing trades based on advance knowledge of
-pending client orders before those orders are filled, exploiting
-information asymmetry in financial markets.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;G&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;general_partnership&#34;&gt;general partnership&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A business structure in which two or more people share ownership,
-management, and unlimited personal liability for the firm&amp;rsquo;s debts
-and legal obligations.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;gpl&#34;&gt;GNU Public License&lt;/span&gt; (GPL)&lt;/dt&gt;
-&lt;dd&gt;A free software license that grants users the freedom to use,
-study, modify, and distribute software, with the key requirement
-that any distributed modifications or derivative works must also
-be released under the same terms.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;greater_fool_theory&#34;&gt;greater fool theory&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The idea that an overpriced asset can still be a rational purchase
-if the buyer believes they can sell it to someone else at an even
-higher price before the market corrects. A bubble collapses when
-no greater fool can be found.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;H&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;harm_principle&#34;&gt;harm principle&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;John Stuart Mill&amp;rsquo;s principle, articulated in &lt;em&gt;On Liberty&lt;/em&gt; (1859),
-that the only legitimate basis for restricting individual liberty
-is to prevent harm to others.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;harm_reduction&#34;&gt;harm reduction&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A public health approach that aims to reduce the negative
-consequences of drug use without requiring abstinence, through
-measures such as needle exchanges, naloxone distribution, and
-supervised consumption sites.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;heel&#34;&gt;heel&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In professional wrestling, a character designated to play the
-villain, whose role is to behave in ways the audience finds
-objectionable so that sympathy and approval flow toward the
-opposing character.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;heuristics&#34;&gt;heuristics&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Mental shortcuts or rules of thumb that people use to make
-decisions quickly under uncertainty.  Heuristics often work well
-but produce systematic, predictable errors in specific
-circumstances, which behavioral economists call cognitive biases.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;hicklin_test&#34;&gt;Hicklin test&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 1868 British legal standard defining obscenity as material
-tending to deprave and corrupt those whose minds were open to
-immoral influences, superseded in the US by the Miller test.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;horizon_problem&#34;&gt;horizon problem&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In cooperative economics, the tendency of member-owners to
-underinvest in long-term assets because their claim on the
-cooperative ends when their membership ends, giving them a shorter
-time horizon than the firm&amp;rsquo;s productive life.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;hyperbolic_discounting&#34;&gt;hyperbolic discounting&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The tendency to discount rewards in the near future much more
-steeply than rewards in the more distant future, producing
-time-inconsistent preferences.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;I&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;impression_management&#34;&gt;impression management&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The ongoing effort by individuals to control how they are
-perceived by others. In large organizational hierarchies, where
-decision-makers have limited direct observation of a candidate&amp;rsquo;s
-actual work, impression management skills become a primary
-determinant of career advancement, independently of underlying
-performance.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;information_asymmetry&#34;&gt;information asymmetry&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A condition in which one party to a transaction has significantly
-more or better information than the other, enabling exploitation
-of that advantage.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;interdict&#34;&gt;interdict&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A Catholic Church sanction that suspends religious services in a
-territory or for a community, historically used as collective
-punishment to pressure secular rulers.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;interoperability&#34;&gt;interoperability&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The ability of systems from different vendors or platforms to
-exchange information and work together without requiring special
-adaptation by the user.  Interoperability mandates are legal
-requirements that a platform accept connections from competing
-services on non-discriminatory terms.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;investor_state_dispute_settlement&#34;&gt;investor-state dispute settlement&lt;/span&gt; (ISDS)&lt;/dt&gt;
-&lt;dd&gt;A mechanism in trade and investment treaties allowing foreign
-investors to bring arbitration claims against governments in
-private tribunals, bypassing domestic courts, when government
-actions are alleged to have damaged their investments.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;invisible_labor&#34;&gt;invisible labor&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Work that is essential to the functioning of an organization or
-household but goes unrecognized, uncompensated, and uncounted
-because it is performed by people with less power (typically
-women, caregivers, and low-status workers).  Examples include
-emotional labor, domestic work, and the administrative
-coordination tasks that fall to junior employees or support staff
-rather than the people who take credit for outcomes.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;J&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;joint_stock_company&#34;&gt;joint-stock company&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A firm whose ownership is divided into transferable shares held by
-multiple investors, each of whom bears risk only in proportion to
-their investment; the organizational predecessor of the modern
-publicly traded corporation.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;K&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;kayfabe&#34;&gt;kayfabe&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The collective maintenance, by performers and audience alike, of
-the fiction that professional wrestling matches are genuine
-athletic contests; by extension, any shared pretense that all
-parties know to be false but sustain because the fiction serves a
-social or commercial function.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;keiretsu&#34;&gt;keiretsu&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A Japanese network of interlocked companies that hold shares in
-one another, maintain long-term supply and trading relationships,
-and are often anchored around a central bank, insulating member
-firms from hostile takeovers and short-term market pressure.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;L&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;legibility&#34;&gt;legibility&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The degree to which a state or institution can observe, measure,
-and administer a population or resource through standardized
-categories.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;legitimacy&#34;&gt;legitimacy&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The quality of being recognized as having rightful authority,
-distinct from power exercised by force or coercion alone.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;limited_liability_corporation&#34;&gt;limited liability corporation&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A firm in which shareholders cannot be held personally responsible
-for the company&amp;rsquo;s debts or legal obligations beyond the amount
-they have invested, separating the financial risk of the owners
-from that of the enterprise.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;limited_partnership&#34;&gt;limited partnership&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A partnership structure with two classes of partners: limited
-partners, who risk only the capital they have contributed and take
-no part in management, and at least one general partner, who
-retains full personal liability and operational control.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;long_firm&#34;&gt;long firm&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A fraud in which a business establishes credibility through
-legitimate trading before ordering large quantities of goods on
-credit and disappearing with them.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;longtermism&#34;&gt;longtermism&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The belief that the most important thing people can do is to
-ensure that the long-run future of civilization goes well, on the
-grounds that a future containing trillions of people vastly
-outweighs present-day welfare in moral calculations.  Longtermism
-is used to justify present harm in the name of speculative
-futures, and that its practitioners disproportionately assume that
-they themselves should be making those decisions.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;loss_aversion&#34;&gt;loss aversion&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The finding from prospect theory that losses produce roughly twice
-the psychological impact of equivalent gains.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;M&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;miller_test&#34;&gt;Miller test&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 1973 US Supreme Court three-part test for obscenity, requiring
-that material be evaluated by community standards, appeal to
-prurient interest, and lack serious literary, artistic, political,
-or scientific value.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;mitbestimmung&#34;&gt;Mitbestimmung&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The German system of codetermination, in which workers in large
-firms hold legally mandated representation on corporate
-supervisory boards with formal authority over management.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;mittelstand&#34;&gt;Mittelstand&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The layer of medium-sized, often family-owned manufacturing and
-engineering firms that form the backbone of the German economy,
-characterized by long time horizons, specialist expertise, strong
-regional roots, and formal worker representation under the
-codetermination system.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;montreal_protocol&#34;&gt;Montreal Protocol&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The 1987 international treaty requiring signatory countries to
-phase out the production and use of ozone-depleting substances,
-including chlorofluorocarbons (CFCs).  It is notable for including
-differentiated timelines for developing and developed countries, a
-technology transfer fund, and trade sanctions against
-non-signatories.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;moral_disengagement&#34;&gt;moral disengagement&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The psychological mechanisms by which people disengage their moral
-standards to engage in or tolerate harmful behavior, including
-displacement and diffusion of responsibility, dehumanization of
-victims, and advantageous comparison with worse acts.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;moral_licensing&#34;&gt;moral licensing&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The psychological phenomenon in which past virtuous behavior
-reduces the felt need for future virtuous behavior, sometimes
-leading to more harmful subsequent choices.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;moral_panic&#34;&gt;moral panic&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A disproportionate social reaction to a perceived threat,
-typically focused on a specific group or behavior, amplified by
-media coverage and political entrepreneurs.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;motivated_reasoning&#34;&gt;motivated reasoning&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The cognitive tendency to evaluate evidence in ways that support
-conclusions already preferred, rather than following evidence to
-its logical conclusion.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;N&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;narrative_economics&#34;&gt;narrative economics&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The study of how popular stories and narratives spread through
-populations and drive economic behavior, including investment
-manias and market crashes.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;neoreaction&#34;&gt;neoreaction&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A political movement, also called the Dark Enlightenment, arguing
-that Enlightenment values such as democracy, equality, and human
-rights have made societies weaker and more chaotic.  The movement
-is distinct from classical fascism in its rejection of nationalism
-and its preference for corporate over state power, though critics
-note this distinction matters less to those governed by the
-result.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;network_effects&#34;&gt;network effects&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The phenomenon in which a product or service becomes more valuable
-to each user as more people use it, creating strong advantages for
-established platforms and barriers to entry for competitors.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;normalization_of_deviance&#34;&gt;normalization of deviance&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which organizations gradually come to accept risk
-thresholds that would initially have been unacceptable, through
-repeated exposure to near-misses that did not immediately produce
-catastrophe.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;nudge&#34;&gt;nudge&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A change in how choices are presented, such as a default setting
-or the order of options, that predictably influences behavior
-without restricting options or changing financial incentives.
-Nudges exploit the same cognitive tendencies that produce bias,
-and may serve the choice designer&amp;rsquo;s interests rather than the
-chooser&amp;rsquo;s.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;O&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;obscenity_law&#34;&gt;obscenity law&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The body of law governing the prohibition of material deemed
-indecent or harmful to public morals, whose legal standards have
-shifted substantially across time and jurisdiction.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;P&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;paradox_of_tolerance&#34;&gt;paradox of tolerance&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The argument that unlimited tolerance must eventually lead to the
-disappearance of tolerance: a society that extends tolerance to
-movements committed to destroying tolerance will itself be
-destroyed.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;parkinsons_law&#34;&gt;Parkinson&amp;rsquo;s Law&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The observation that work expands to fill the time available.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;partnership&#34;&gt;partnership&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A business structure in which two or more people share ownership
-and, in a general partnership, unlimited personal liability; a
-foundational organizational form for professional services firms,
-law firms, and investment funds.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;passion_principle&#34;&gt;passion principle&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The cultural norm in certain fields that workers should pursue
-their work as a vocation rather than merely a job, used to justify
-poor conditions, low pay, and long hours.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;patent_assertion_entities&#34;&gt;patent assertion entities&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Companies that acquire patents not to produce goods but to extract
-licensing fees or litigation settlements from operating
-businesses; commonly called patent trolls.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;payola&#34;&gt;payola&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The practice of record labels paying radio stations or disc
-jockeys to play their songs without disclosing the payment to
-listeners.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;penny_press&#34;&gt;penny press&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The mass-market newspapers of the 1830s that lowered cover prices
-and relied on advertising revenue rather than subscriptions,
-establishing the commercial model that now dominates media. See
-also &amp;ldquo;yellow press&amp;rdquo;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;peonage&#34;&gt;peonage&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A system of debt bondage in which workers are legally required to
-continue working until a debt to an employer is repaid,
-effectively a form of coerced labor.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;philanthrocapitalism&#34;&gt;philanthrocapitalism&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The use of private charitable foundations and large-scale
-philanthropic giving by wealthy individuals to shape public
-policy, research priorities, and social institutions, without
-democratic accountability or electoral legitimacy.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;pollution_haven&#34;&gt;pollution haven&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A jurisdiction with weak environmental regulations that attracts
-investment in polluting industries relocating from places with
-stricter standards.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;ponzi_scheme&#34;&gt;Ponzi scheme&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A fraudulent investment scheme that pays returns to earlier
-investors using funds from later investors rather than from actual
-profits, collapsing when new investment stops.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;positional_goods&#34;&gt;positional goods&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Toods whose value depends on how few other people have them.
-Unlike material goods, which can be democratized as production
-scales, positional goods lose their value if everyone has access
-to them, producing self-defeating competition in which each round
-of gains returns participants to the same relative position.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;precarious_workers&#34;&gt;precarious workers&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Workers in contingent, part-time, contract, or gig arrangements
-who lack the employment security, benefits, and legal protections
-associated with standard employment.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;predatory_pricing&#34;&gt;predatory pricing&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Setting prices below cost to drive competitors out of a market,
-with the intention of raising prices once competitive pressure is
-eliminated.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;predictive_policing&#34;&gt;predictive policing&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The use of algorithmic tools to forecast where crimes will occur
-or who is likely to offend, criticized for encoding and amplifying
-existing racial and socioeconomic biases.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;propaganda_model&#34;&gt;propaganda model&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The observation that mass media systematically filters news to
-serve elite interests through ownership structure, advertising
-dependence, and other institutional pressures.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;prospect_theory&#34;&gt;prospect theory&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A model of how people actually evaluate risky outcomes.  Key
-findings are that people evaluate outcomes relative to a reference
-point rather than in absolute terms, and that losses loom roughly
-twice as large as equivalent gains (a phenomenon called loss
-aversion).&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;psychopathy_checklist&#34;&gt;Psychopathy Checklist&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A clinical assessment instrument for measuring psychopathic traits
-in individuals.  The checklist evaluates characteristics including
-callousness, grandiosity, manipulation, lack of remorse, and
-failure to accept responsibility. The Framework is also used to
-show that corporate legal structure produces psychopathic behavior
-at the organizational level.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;public_benefit_corporation&#34;&gt;public benefit corporation&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A corporate form that legally requires directors to consider the
-interests of employees, communities, and the environment alongside
-shareholder returns, providing some protection against purely
-financial acquisition pressure; available in several Canadian
-provinces and US states.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;publication_bias&#34;&gt;publication bias&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The tendency for academic journals and researchers to publish
-positive or statistically significant findings while null or
-negative results go unreported, distorting the scientific record.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;putting_out_system&#34;&gt;putting-out system&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A pre-industrial manufacturing arrangement in which merchants
-supplied raw materials to workers in their homes and collected
-finished goods, a precursor to the factory system.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;Q&lt;/h2&gt;
-&lt;h2&gt;R&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;racial_formation&#34;&gt;racial formation&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which racial categories are created, transformed,
-and destroyed through political, economic, and social forces
-rather than biology.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;redlining&#34;&gt;redlining&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The systematic denial of mortgages and insurance to residents of
-non-white neighborhoods in the US by government agencies and
-private lenders from the 1930s onward. It was formally outlawed in
-the US in 1968 but its effects persist in wealth and credit gaps.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;regulatory_capture&#34;&gt;regulatory capture&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which a regulatory agency comes to serve the
-interests of the industry it is supposed to regulate rather than
-the public interest it was created to protect.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;regulatory_compact&#34;&gt;regulatory compact&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;An implicit or explicit agreement between a regulated monopoly and
-a government regulator, in which the monopoly accepts rate and
-service regulation in exchange for protection from competition.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;revolving_door&#34;&gt;revolving door&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The movement of individuals between roles in regulatory agencies
-and the industries those agencies oversee.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;S&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;satisficing&#34;&gt;satisficing&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The strategy of searching through available options until a
-good-enough solution is found, rather than evaluating all
-possibilities to find the optimal one.  Satisficing reflects
-bounded rationality: people do not have the time, information, or
-cognitive capacity to optimize.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;scrip&#34;&gt;scrip&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Company-issued currency or vouchers that could only be spent at
-company-owned stores, historically used by employers to keep
-workers&amp;rsquo; wages circulating within the company economy.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;selection_bias&#34;&gt;selection bias&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A statistical error that occurs when the sample used in a study is
-not representative of the population it is meant to reflect,
-leading to skewed or misleading conclusions.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;selectorate&#34;&gt;selectorate&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In selectorate theory, the full set of people whose nominal
-support a leader depends on to hold power, from which the winning
-coalition is drawn.  The selectorate is large enough to give the
-leader alternatives if individual coalition members defect, but
-most members receive only public goods rather than private
-benefits.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;selectorate_theory&#34;&gt;selectorate theory&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A framework explaining political and organizational behavior in
-terms of the size of the winning coalition a leader must satisfy
-to remain in power.  Leaders with small winning coalitions can
-maintain power by distributing private benefits to a few key
-supporters; those with large winning coalitions must provide
-broader public goods.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;sharecropping&#34;&gt;sharecropping&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A system in which tenant farmers gave a portion of their crop as
-rent to a landowner, often perpetuating poverty and dependency
-through tied credit arrangements.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;sideloading&#34;&gt;sideloading&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Installing software on a device from sources other than the
-platform operator&amp;rsquo;s official app store, bypassing the operator&amp;rsquo;s
-review and commission systems.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;slotting_fees&#34;&gt;slotting fees&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Payments made by consumer goods manufacturers to retailers for
-guaranteed shelf placement, functioning as a barrier to entry that
-favors established brands with resources to pay.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;social_legibility&#34;&gt;social legibility&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The degree to which an individual&amp;rsquo;s characteristics, credentials,
-or identity are visible and interpretable within the
-categorization systems used by institutions making decisions about
-them.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;sodomy_laws&#34;&gt;sodomy laws&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Laws criminalizing certain sexual acts, historically applied
-primarily to same-sex relations; declared unconstitutional in the
-United States by the Supreme Court in 2003.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;sole_proprietorship&#34;&gt;sole proprietorship&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The simplest business structure, in which a single individual owns
-and operates a firm with no legal separation between personal and
-business assets, meaning the owner bears unlimited personal
-liability for the firm&amp;rsquo;s debts and obligations.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;speculative_bubble&#34;&gt;speculative bubble&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A rapid, self-reinforcing rise in the price of an asset driven by
-expectations of further price increases rather than underlying
-value, followed by an equally rapid collapse when those
-expectations reverse.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;stand_your_ground&#34;&gt;stand your ground&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Laws that remove the traditional legal duty to retreat before
-using lethal force in self-defense, applicable wherever a person
-has a legal right to be.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;standards_body&#34;&gt;standards body&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;An organization that develops, publishes, and maintains technical
-standards through consensus processes among industry participants,
-governments, and other stakeholders.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;standards_capture&#34;&gt;standards capture&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which a dominant firm shapes a technical standard
-to its own advantage, either by controlling a standards body, by
-implementing proprietary extensions that become de facto
-requirements, or by refusing to implement open standards that
-would reduce switching costs.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;structural_lock_in&#34;&gt;structural lock-in&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The condition in which technical, contractual, or network
-dependencies make switching away from a platform or system
-prohibitively costly, regardless of dissatisfaction with it.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;suppressive_person&#34;&gt;suppressive person&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In Scientology, the designation applied to individuals who
-publicly criticize the organization or leave it in ways deemed
-harmful to its interests; those so designated may be cut off from
-contact with current members, including family members who remain
-in the organization.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;surveillance_economy&#34;&gt;surveillance economy&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The business model in which user behavior data is systematically
-collected, analyzed, and monetized through targeted advertising
-and data brokering.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;switching_costs&#34;&gt;switching costs&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The financial, practical, or social costs incurred when changing
-from one product, service, or platform to another, which
-incumbents exploit to retain users.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;T&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;tax_haven&#34;&gt;tax haven&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A jurisdiction that imposes low or zero taxes on foreign income,
-profits, or wealth, attracting capital and corporate registrations
-that have little or no genuine economic activity there.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;tescreal&#34;&gt;TESCREAL&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;An acronym for Transhumanism, Extropianism, Singularitarianism,
-Cosmism, Rationalism, Effective Altruism, and Longtermism.  These
-movements are not identical, but they share a belief that a small
-group of enlightened individuals can and should steer humanity&amp;rsquo;s
-long-run trajectory, which tends to position democratic
-institutions as obstacles rather than safeguards.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;tithe&#34;&gt;tithe&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A mandatory contribution of one-tenth of income or produce,
-historically collected by the Catholic Church as a form of
-taxation with legal enforcement in many countries.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;tontine&#34;&gt;tontine&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A historical financial arrangement in which subscribers contribute
-to a shared fund and receive income from it; as each subscriber
-dies, the remaining subscribers&amp;rsquo; shares increase until the last
-survivor inherits the whole. Banned in most jurisdictions because
-the structure creates incentives to hasten the deaths of other
-participants.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;tort_liability_protection&#34;&gt;tort liability protection&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Tort liability is legal responsibility for harm you cause someone
-outside of a contract; tort liability protection (also called
-liability shield or immunity) is when a law specifically exempts
-you from being sued for such harms.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;transfer_pricing&#34;&gt;transfer pricing&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The setting of prices for transactions between subsidiaries of the
-same multinational corporation, which can be manipulated to shift
-profits to low-tax jurisdictions by under- or overcharging for
-goods, services, or intellectual property licenses.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;U&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;union_avoidance&#34;&gt;union avoidance&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A formal management discipline focused on preventing workers from
-forming or joining unions, employing specialized consultants to
-structure workplaces, communications, and compensation to reduce
-organizing incentives.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;V&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;vertical_integration&#34;&gt;vertical integration&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;A business strategy in which a company controls multiple stages of
-its supply chain, from production through distribution and retail,
-reducing dependence on external parties and raising barriers to
-competitors.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;W&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;waqf&#34;&gt;waqf&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;An Islamic charitable endowment in which property is dedicated in
-perpetuity to a specified purpose and cannot be sold or inherited;
-historically used to fund mosques, hospitals, schools, and public
-infrastructure across the Middle East, Central Asia, and North
-Africa.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;winning_coalition&#34;&gt;winning coalition&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;In selectorate theory, the minimum subset of supporters a leader
-must keep satisfied to remain in power.  The smaller the winning
-coalition, the more each member must be rewarded with private
-benefits rather than broad public goods, creating strong
-incentives for corruption and cronyism.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;workplace_politics&#34;&gt;workplace politics&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;The process by which individuals and groups within an organization
-attempt to influence decisions in their favor when there is no
-shared agreement on goals or priorities.  Workplace politics is
-not exceptional behavior by bad actors; it is the normal mechanism
-by which organizations resolve disagreement.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;X&lt;/h2&gt;
-&lt;h2&gt;Y&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;yellow_press&#34;&gt;yellow press&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Late nineteenth and early twentieth century sensationalist
-newspapers known for emotionally manipulative coverage that
-prioritized circulation over accuracy, named after the Yellow Kid
-comic strip.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2&gt;Z&lt;/h2&gt;</content>
- </entry>
- 
- <entry>
-   <title>Why Don&#39;t You Just…</title>
-   <link href="https://third-bit.com/2026/05/20/why-dont-you-just/"/>
-   <updated>2026-05-20T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/20/why-dont-you-just/</id>
-   <content type="html">&lt;p&gt;In 2013, the United Kingdom launched Universal Credit,
-a welfare reform ostensibly intended to simplify the benefits system
-by merging six separate payments into one.
-The new system was designed to be applied for online,
-but many claimants had no reliable internet access.
-Those who did often lacked fixed addresses,
-which the system required before it would register them.
-without registration they couldn&amp;rsquo;t receive payments;
-without payments they couldn&amp;rsquo;t maintain an address,
-and without an address they couldn&amp;rsquo;t register.&lt;/p&gt;
-&lt;p&gt;Government officials and advice workers,
-when presented with this loop,
-would sometimes suggest that claimants &amp;ldquo;just go to the library&amp;rdquo; to use a computer.
-They did not know—or had not thought through the fact—that
-some libraries require a membership card to use their computers,
-that membership cards require proof of address,
-and that the Universal Credit application times out and loses your work
-if you do not complete it in a single session.
-The word &amp;ldquo;just&amp;rdquo; was doing an enormous amount of lifting.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Just&amp;rdquo; does that in a lot of conversations.
-When someone with relative power is told about a problem they have not personally faced,
-a common response is to suggest an individual solution:
-&amp;ldquo;Why don&amp;rsquo;t you just move to a better neighborhood,
-just report the harassment to HR,
-just open a bank account,
-just apply for a scholarship.&amp;rdquo;
-The suggestion is not usually made in bad faith.
-It is made because the person offering it
-has, at some point in their life,
-moved, or reported, or opened, or applied,
-and found the process manageable.
-What they cannot see is what made it manageable for them
-and what makes it unmanageable for someone else.&lt;/p&gt;
-&lt;p&gt;Peggy McIntosh described this as an invisible knapsack:
-a set of advantages so routine to those who carry them
-that they are not experienced as advantages at all.
-You do not notice that your accent marks you as non-threatening,
-that your name gets you callbacks,
-that your neighborhood has a library,
-or that the official you need to speak to treats you as a legitimate claimant
-rather than a probable fraud.
-You don&amp;rsquo;t notice it because none of it has ever caused you a problem.
-The person offering the &amp;ldquo;just&amp;rdquo; solution
-is usually describing what they would do,
-which is not the same thing as what the other person can do.&lt;/p&gt;
-&lt;p&gt;The most obvious thing &amp;ldquo;just&amp;rdquo; conceals is cascading prerequisites.
-Many systems assume that the person using them
-already has a set of prior resources in place.
-FIXME: give an example other than Aadhaar&lt;/p&gt;
-&lt;p&gt;A second thing &amp;ldquo;just&amp;rdquo; hides is the cost of the transaction.
-Taking a day off work to stand in line costs money that people without savings cannot spare.
-Challenging a decision by a government agency or a platform company
-requires knowing how to challenge it,
-having the literacy and the time to fill in forms,
-and being willing to risk the relationship with the institution you depend on.
-The last point matters more than it might seem:
-if the institution denying you a benefit is the same institution
-you are hoping will pay your rent next month,
-asserting your rights has a price.&lt;/p&gt;
-&lt;p&gt;A third thing the word hides is cognitive load.
-Sendhil Mullainathan and Eldar Shafir spent years studying what poverty does to decision-making,
-and their conclusion was not what most people expect.
-Poverty makes people worse at decisions in the same way
-that keeping someone awake for twenty-four hours makes them worse at decisions:
-it depletes a finite resource.
-Managing an unpredictable income,
-keeping track of which bills are overdue,
-or calculating whether buying the cheaper item in bulk saves more than it costs to store
-consumes cognitive bandwidth
-that is then not available for navigating bureaucratic systems.
-The person telling someone to &amp;ldquo;just&amp;rdquo; do something
-is typically not paying this tax,
-so they have the mental capacity to think about the solution
-that the person being advised does not.&lt;/p&gt;
-&lt;p&gt;The invisible knapsack metaphor is useful,
-but there is a complementary image that captures something different:
-the invisible staircase.
-People who have always lived in buildings with functioning elevators
-do not think about stairs.
-When they suggest that someone in a wheelchair &amp;ldquo;just take the stairs,&amp;rdquo;
-they are not being cruel.
-They have simply never had to think about stairs,
-because stairs have never been an obstacle for them.&lt;/p&gt;
-&lt;p&gt;This is why the &amp;ldquo;why don&amp;rsquo;t you just&amp;rdquo; response so often lands badly.
-It is not merely that the solution is wrong;
-it&amp;rsquo;s that is reveals that the person offering it
-has never had to think about the problem.
-They are announcing their distance from it,
-and the person who has been living inside the problem knows,
-at once,
-that the advice is coming from outside.&lt;/p&gt;
-&lt;p&gt;South Africa&amp;rsquo;s apartheid pass laws required Black South Africans
-to carry a document showing they had permission to be in a given area.
-The document had to be produced on demand by any police officer.
-If a man had left his pass book at home, or lost it,
-the advice &amp;ldquo;just get a replacement&amp;rdquo; required
-traveling back to the township administrative office where
-the original had been issued—not the office nearest to where he was stopped.
-This meant taking time off work
-and navigating a bureaucracy that had been designed to make compliance difficult.&lt;/p&gt;
-&lt;p&gt;A further problem with the &amp;ldquo;just&amp;rdquo; response
-persists even when the individual solution actually works.
-If a person successfully navigates the broken system,
-the system sees this as proof that it is functioning correctly.
-Virginia Eubanks documented this pattern across multiple American welfare systems:
-people who managed to get the automated system to approve their application
-had often spent dozens of hours learning its quirks,
-calling hotlines,
-finding advocates,
-or simply applying repeatedly until an error cleared itself.
-None of that effort was visible to the system.
-The system recorded a successful outcome.
-The structural problem—that the system was failing the people it was supposed to serve—was
-continuously obscured by the individual successes of the most resourceful claimants.&lt;/p&gt;
-&lt;p&gt;The pattern is particularly vicious on tech platforms.
-Companies routinely advise users to &amp;ldquo;just report&amp;rdquo; harassment,
-&amp;ldquo;just use a VPN&amp;rdquo; to avoid surveillance,
-or &amp;ldquo;just switch platforms&amp;rdquo; when a service degrades.
-Each suggestion assumes that the user has time, technical literacy, and social capital
-that many do not have,
-and none of them fix the underlying system.
-They transfer the cost of a structural failure onto the person least able to bear it.&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Eubanks2018&#34;&gt;Eubanks2018&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Virginia Eubanks:
-&lt;em&gt;Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor&lt;/em&gt;.
-St. Martin&amp;rsquo;s Press,
-2018,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781250074317&#34;&gt;9781250074317&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;McIntosh1989&#34;&gt;McIntosh1989&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Peggy McIntosh:
-&amp;ldquo;White Privilege: Unpacking the Invisible Knapsack.&amp;rdquo;
-&lt;em&gt;Peace and Freedom&lt;/em&gt;,
-July/August 1989.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;MullainathanShafir2013&#34;&gt;MullainathanShafir2013&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Sendhil Mullainathan and Eldar Shafir:
-&lt;em&gt;Scarcity: Why Having Too Little Means So Much&lt;/em&gt;.
-Times Books/Henry Holt,
-2013,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780805092646&#34;&gt;9780805092646&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Who Are You?</title>
-   <link href="https://third-bit.com/2026/05/19/identity/"/>
-   <updated>2026-05-19T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/05/19/identity/</id>
-   <content type="html">&lt;p&gt;In 1879, a young police clerk in Paris named Alphonse Bertillon
-proposed a solution to a problem that had plagued law enforcement for decades:
-how do you know if the person in front of you is who they say they are?
-Before photographs were cheap to reproduce and before fingerprint databases existed,
-professional criminals could simply give a false name and walk free.
-Bertillon&amp;rsquo;s answer was anthropometry:
-measure the skull, the length of the forearm,
-and other bodily dimensions that, taken together,
-were statistically unlikely to be identical in any two people.
-The system spread across Europe, the United States, and colonies in Asia and Africa,
-and was the first large-scale attempt to use the body as a database.&lt;/p&gt;
-&lt;p&gt;Anthropometry had a fundamental weakness:
-measurements had to be taken correctly by trained operators.
-By 1900 fingerprinting was replacing it almost everywhere
-because fingerprints were more reliable and required less skill to record.
-But the desire of states and institutions to pin individuals permanently to a record
-did not die with the calipers.&lt;/p&gt;
-&lt;p&gt;The history of identity management is partly the history of states
-trying to solve what the political scientist James C. Scott calls the legibility problem.
-A state cannot tax, draft, or police people it cannot identify.
-Medieval English peasants might know themselves as &amp;ldquo;John the Miller&amp;rsquo;s son from the village by the ford&amp;rdquo;,
-but that description doesn&amp;rsquo;t survive a move to a city or a change of occupation.
-Surnames became standardized in Europe partly because governments needed them.
-The same logic produced house numbers in Paris and Vienna,
-censuses across the colonial world,
-and passports that began as occasional travel documents issued by monarchs
-and became, by the twentieth century, a requirement for crossing most international borders.&lt;/p&gt;
-&lt;p&gt;The problem is that the state&amp;rsquo;s desire for legibility doesn&amp;rsquo;t have a built-in limit.
-The state that registers births so it can provide schooling
-can use that register to conscript soldiers.
-The government that issues identity documents to allow people to vote
-can use those documents to deport people.
-Once a population register exists,
-every subsequent administration can use it for whatever purpose it finds useful.&lt;/p&gt;
-&lt;p&gt;Colonial governments exploited it systematically.
-The British introduced population registers, caste certificates,
-and tribal designations across India, Africa, and Southeast Asia
-that served double purposes:
-administration, taxation, and census on one hand,
-and on identifying potential troublemakers and restricting movement on the other.
-South Africa&amp;rsquo;s pass laws,
-introduced gradually from the eighteenth century and formalized under apartheid after 1948,
-required Black South Africans to carry a reference book at all times.
-The book recorded their employer,
-their designated &amp;ldquo;homeland,&amp;rdquo;
-and their permission to be in urban areas.
-Police could stop anyone and demand the book;
-failure to produce it meant arrest.
-The pass system was one of the most sophisticated identity management infrastructure projects in history,
-and it was designed entirely to restrict freedom of movement
-and force labor into mines and factories at wages set by the government.&lt;/p&gt;
-&lt;p&gt;Keith Breckenridge&amp;rsquo;s history of South African biometrics
-traces a direct line from the pass system
-to the world&amp;rsquo;s first large-scale biometric population register,
-introduced in South Africa in 1986.
-Fingerprints were added to the passbook 
-because fingerprints are harder to falsify than signatures
-and do not require literacy.
-A system designed to prevent forgery of internal passports became,
-almost automatically,
-one of the most comprehensive biometric databases in the world at the time.&lt;/p&gt;
-&lt;p&gt;Simone Browne&amp;rsquo;s analysis of the surveillance of Black people in the United States
-and elsewhere argues that modern surveillance practices such as facial recognition
-predictive policing, and airport pat-downs are not new inventions applied to race as an afterthought.
-They grew directly out of earlier practices designed to control enslaved and colonized people.
-The identification and tracking of freed people after the Civil War
-and the systematic photography of colonized people
-both influenced later uses of photography in criminology.
-The tools of identity management and the tools of racial control were never separate projects.&lt;/p&gt;
-&lt;p&gt;This creates a dilemma that does not have a clean solution.
-Democratic participation depends on being able to identify voters.
-Electoral systems need to verify that voters are eligible residents
-and prevent people from voting twice.
-This requires some form of voter registration,
-and voter registration requires identity documentation.
-In the United States,
-the history of voter registration is entangled with the history of voter suppression:
-poll taxes, literacy tests, grandfather clauses,
-and, since the 1990s, photo ID requirements that are nominally neutral
-but fall disproportionately on communities
-less likely to hold a driver&amp;rsquo;s license:
-the poor, the elderly, and people of color.
-The registration systems needed to enable political participation
-have been weaponized to prevent it.&lt;/p&gt;
-&lt;p&gt;But the dilemma goes deeper than that.
-Communities that have historically been targeted by state identity systems
-have rational reasons to distrust those systems.
-If the government has used population registers to intern Japanese-Americans
-to deport undocumented immigrants in mass raids,
-people are right to be suspicious of any new identity system.
-Even if today&amp;rsquo;s government only intends to use it for good,
-it cannot constrain promise the behavior of future governments.&lt;/p&gt;
-&lt;p&gt;This dilemma is now one of the biggest challenges facing democracy.
-The communities most harmed by identity management in the past
-have the best reasons to distrust registration systems,
-but that distrust keeps them from participating in the political processes
-that would let them constrain those systems.
-Fear of being rounded up is itself a tool of disenfranchisement.&lt;/p&gt;
-&lt;p&gt;India&amp;rsquo;s Aadhaar system, launched in 2009, has enrolled over 1.3 billion people
-in a biometric identity database based on fingerprints and iris scans
-linked to a twelve-digit number.
-Its designers argued that a universal, biometric identifier would eliminate
-fraud and exclusion in government benefit programs
-by making identity verification objective.
-The argument was partly correct:
-Aadhaar has reduced certain kinds of fraud
-and brought some previously excluded people into the formal economy.
-It has also created new forms of exclusion.
-People who cannot authenticate are cut off from food rations and pension payments,
-and the database itself represents a concentration of sensitive biometric information
-that, if breached, cannot be reset:
-you can change your password, but you cannot get new fingerprints.&lt;/p&gt;
-&lt;div class=&#34;callout&#34;&gt;
-&lt;p&gt;The European Union&amp;rsquo;s General Data Protection Regulation (GDPR),
-which came into force in 2018,
-treats biometric data as a special category requiring explicit consent
-and restricts its collection and processing.
-The regulation is imperfect and inconsistently enforced,
-but it exists because privacy advocates organized across member states
-over roughly two decades to demand it.
-It is the most significant constraint on commercial biometric data collection in the world.
-The tech industry&amp;rsquo;s response has been intrusive pop-ups
-designed to make users blame governments for safeguarding their privacy
-rater than companies for trying to collect information for resale.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;What abusive identity management has been constrained,
-those constraints have been the result of organized political activity.
-South Africa&amp;rsquo;s pass system was not abolished because its administrators became enlightened;
-it was abolished because the resistance movement grew strong enough to make it unsustainable.
-The constraints on Aadhaar came from litigants and activists who brought cases,
-and the Voting Rights Act of 1965 in the United States came from marchers,
-organizers,
-and a political coalition that made the status quo more costly than change.
-The center always wants more information.
-The question is always whether the people most likely to be harmed by that information
-have enough power to say no.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://third-bit.com/sdgc/&#34;&gt;see the whole series&lt;/a&gt; · &lt;a href=&#34;mailto:gvwilson@third-bit.com?subject=SDGC&#34;&gt;email me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;span id=&#34;Breckenridge2016&#34;&gt;Breckenridge2016&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Keith Breckenridge:
-&lt;em&gt;Biometric State: The Global Politics of Identification and Surveillance in South Africa, 1850 to the Present&lt;/em&gt;.
-Cambridge University Press,
-2016,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9781107434899&#34;&gt;9781107434899&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Browne2015&#34;&gt;Browne2015&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Simone Browne:
-&lt;em&gt;Dark Matters: On the Surveillance of Blackness&lt;/em&gt;.
-Duke University Press,
-2015,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780822359388&#34;&gt;9780822359388&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Cole2002&#34;&gt;Cole2002&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;Simon A. Cole:
-&lt;em&gt;Suspect Identities: A History of Fingerprinting and Criminal Identification&lt;/em&gt;.
-Harvard University Press,
-2002,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780674010024&#34;&gt;9780674010024&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Scott1998&#34;&gt;Scott1998&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;James C. Scott:
-&lt;em&gt;Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed&lt;/em&gt;.
-Yale University Press,
-1998,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780300078152&#34;&gt;9780300078152&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;span id=&#34;Torpey2000&#34;&gt;Torpey2000&lt;/span&gt;&lt;/dt&gt;
-&lt;dd&gt;John Torpey:
-&lt;em&gt;The Invention of the Passport: Surveillance, Citizenship and the State&lt;/em&gt;.
-Cambridge University Press,
-2000,
-&lt;a href=&#34;https://isbnsearch.org/isbn/9780521634939&#34;&gt;9780521634939&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
  </entry>
  

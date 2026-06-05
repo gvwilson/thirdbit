@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Priority Starvation</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Priority Starvation</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/05/braess-paradox/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-05" class="post-date">2026-06-05</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>A single server processes two job classes:</p>
+<ul>
+<li>High-priority jobs (class H) arrive frequently and are served quickly.</li>
+<li>Low-priority jobs (class L) arrive rarely and take longer to serve.</li>
+</ul>
+<p>The server always picks the highest-priority job available. Total server utilization $\rho = \rho_H + \rho_L &lt; 1$, so the server has spare capacity on average. Yet low-priority jobs can wait far longer than the utilization level suggests they should.</p>
+<h3>Static Priority: Starvation at Moderate Load</h3>
+<p>With a static priority queue, high-priority jobs <em>never</em> yield to low-priority ones. Even when $\rho_H &lt; 1$, high-priority bursts can lock out low-priority jobs for extended periods. The mean wait for low-priority jobs under a static non-preemptive priority queue is:</p>
+<p>$$W_L = \frac{\overline{s}_L}{1-\rho_H} \cdot \frac{1}{1-\rho_H-\rho_L}$$</p>
+<p>This diverges as $\rho_H \to 1$ independently of $\rho_L$. As $\rho_H$ approaches 100%, low-priority jobs wait arbitrarily long, even if only a few low-priority jobs ever arrive.</p>
+<h3>Aging: Solving Starvation Creates Oscillation</h3>
+<p>The standard remedy for starvation is <em>priority aging</em>: a waiting job&rsquo;s priority improves over time until it eventually beats even high-priority arrivals. This guarantees finite wait for all jobs.</p>
+<p>However, aging introduces a new pathology. When aged low-priority jobs finally burst through, they occupy the server and leave a backlog of high-priority jobs waiting. The high-priority queue then drains, and the cycle repeats — producing oscillating bursts rather than smooth, uniform service.</p>
+<h3>What aging does</h3>
+<p>Aging assigns each waiting L job a maximum patience time $T_{\max}$. After waiting $T_{\max}$, the job is promoted to high priority. This caps the worst-case wait: no L job can wait longer than $T_{\max}$ plus one service time.</p>
+<h2>Practical Implications</h2>
+<p>Priority queues appear throughout computing:</p>
+<ul>
+<li>OS scheduling: interactive processes (high priority) vs. batch jobs (low priority). Linux uses dynamic priority aging (nice values + sleep bonuses) to avoid starvation.</li>
+<li>Network QoS: real-time traffic (VoIP, video) vs. bulk data. Traffic shaping with Deficit Round Robin (DRR) or Weighted Fair Queuing (WFQ) guarantees bandwidth shares without starvation.</li>
+<li>Database query planning: short OLTP queries vs. long OLAP queries. Resource groups and query timeouts implement a form of aging.</li>
+</ul>
+<h2>Understanding the Math</h2>
+<h3>Mean wait for two-priority queues</h3>
+<p>Let $\lambda_i$, $\mu_i$, and $\rho_i = \lambda_i / \mu_i$ be the arrival rate, service rate, and utilization of class $i \in {H, L}$. For a non-preemptive priority queue:</p>
+<p>$$W_H = \frac{R_0}{1 - \rho_H}$$</p>
+<p>$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$</p>
+<p>where $R_0 = \tfrac{1}{2}(\lambda_H \overline{s_H^2} + \lambda_L \overline{s_L^2})$ is the mean residual work seen by an arriving customer. The ratio $W_L / W_H = 1/(1 - \rho_H)$ grows without bound as $\rho_H \to 1$.</p>
+<h3>Why &ldquo;on average&rdquo; is not enough</h3>
+<p>Even when $\rho &lt; 1$, randomness creates bursts of H arrivals. During a burst, the server is continuously occupied by H jobs, and L jobs must wait in the background. The mean wait for low-priority jobs is:</p>
+<p>$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$</p>
+<p>The critical factor is $(1 - \rho_H)$ in the denominator. As $\rho_H \to 1$, this factor approaches zero and $W_L \to \infty$ — even if $\rho_L$ stays small and the total load $\rho$ is comfortably below 1.</p>
+<h3>The trade-off</h3>
+<p>Without aging, $W_L$ can be infinite when $\rho_H$ is large. With aging, $W_L \leq T_{\max} + 1/\mu_L$, but during promotion events the effective $\rho_H$ spikes temporarily, increasing $W_H$. Choosing $T_{\max}$ is a design decision: a small $T_{\max}$ protects L jobs but forces more promotions and penalizes H jobs more often; a large $T_{\max}$ is kinder to H jobs but allows L jobs to wait longer. There is no setting that simultaneously minimizes both — the trade-off is fundamental.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

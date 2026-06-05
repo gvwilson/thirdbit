@@ -99,6 +99,126 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/06/05/priority-starvation/">
+      Priority Starvation
+    </a>
+  </h2>
+  <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
+  <p>A single server processes two job classes:</p>
+<ul>
+<li>High-priority jobs (class H) arrive frequently and are served quickly.</li>
+<li>Low-priority jobs (class L) arrive rarely and take longer to serve.</li>
+</ul>
+<p>The server always picks the highest-priority job available. Total server utilization $\rho = \rho_H + \rho_L &lt; 1$, so the server has spare capacity on average. Yet low-priority jobs can wait far longer than the utilization level suggests they should.</p>
+<h3>Static Priority: Starvation at Moderate Load</h3>
+<p>With a static priority queue, high-priority jobs <em>never</em> yield to low-priority ones. Even when $\rho_H &lt; 1$, high-priority bursts can lock out low-priority jobs for extended periods. The mean wait for low-priority jobs under a static non-preemptive priority queue is:</p>
+<p>$$W_L = \frac{\overline{s}_L}{1-\rho_H} \cdot \frac{1}{1-\rho_H-\rho_L}$$</p>
+<p>This diverges as $\rho_H \to 1$ independently of $\rho_L$. As $\rho_H$ approaches 100%, low-priority jobs wait arbitrarily long, even if only a few low-priority jobs ever arrive.</p>
+<h3>Aging: Solving Starvation Creates Oscillation</h3>
+<p>The standard remedy for starvation is <em>priority aging</em>: a waiting job&rsquo;s priority improves over time until it eventually beats even high-priority arrivals. This guarantees finite wait for all jobs.</p>
+<p>However, aging introduces a new pathology. When aged low-priority jobs finally burst through, they occupy the server and leave a backlog of high-priority jobs waiting. The high-priority queue then drains, and the cycle repeats — producing oscillating bursts rather than smooth, uniform service.</p>
+<h3>What aging does</h3>
+<p>Aging assigns each waiting L job a maximum patience time $T_{\max}$. After waiting $T_{\max}$, the job is promoted to high priority. This caps the worst-case wait: no L job can wait longer than $T_{\max}$ plus one service time.</p>
+<h2>Practical Implications</h2>
+<p>Priority queues appear throughout computing:</p>
+<ul>
+<li>OS scheduling: interactive processes (high priority) vs. batch jobs (low priority). Linux uses dynamic priority aging (nice values + sleep bonuses) to avoid starvation.</li>
+<li>Network QoS: real-time traffic (VoIP, video) vs. bulk data. Traffic shaping with Deficit Round Robin (DRR) or Weighted Fair Queuing (WFQ) guarantees bandwidth shares without starvation.</li>
+<li>Database query planning: short OLTP queries vs. long OLAP queries. Resource groups and query timeouts implement a form of aging.</li>
+</ul>
+<h2>Understanding the Math</h2>
+<h3>Mean wait for two-priority queues</h3>
+<p>Let $\lambda_i$, $\mu_i$, and $\rho_i = \lambda_i / \mu_i$ be the arrival rate, service rate, and utilization of class $i \in {H, L}$. For a non-preemptive priority queue:</p>
+<p>$$W_H = \frac{R_0}{1 - \rho_H}$$</p>
+<p>$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$</p>
+<p>where $R_0 = \tfrac{1}{2}(\lambda_H \overline{s_H^2} + \lambda_L \overline{s_L^2})$ is the mean residual work seen by an arriving customer. The ratio $W_L / W_H = 1/(1 - \rho_H)$ grows without bound as $\rho_H \to 1$.</p>
+<h3>Why &ldquo;on average&rdquo; is not enough</h3>
+<p>Even when $\rho &lt; 1$, randomness creates bursts of H arrivals. During a burst, the server is continuously occupied by H jobs, and L jobs must wait in the background. The mean wait for low-priority jobs is:</p>
+<p>$$W_L = \frac{R_0}{(1 - \rho_H)(1 - \rho_H - \rho_L)}$$</p>
+<p>The critical factor is $(1 - \rho_H)$ in the denominator. As $\rho_H \to 1$, this factor approaches zero and $W_L \to \infty$ — even if $\rho_L$ stays small and the total load $\rho$ is comfortably below 1.</p>
+<h3>The trade-off</h3>
+<p>Without aging, $W_L$ can be infinite when $\rho_H$ is large. With aging, $W_L \leq T_{\max} + 1/\mu_L$, but during promotion events the effective $\rho_H$ spikes temporarily, increasing $W_H$. Choosing $T_{\max}$ is a design decision: a small $T_{\max}$ protects L jobs but forces more promotions and penalizes H jobs more often; a large $T_{\max}$ is kinder to H jobs but allows L jobs to wait longer. There is no setting that simultaneously minimizes both — the trade-off is fundamental.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/06/05/braess-paradox/">
+      Braess's Paradox
+    </a>
+  </h2>
+  <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
+  <p>A city has two routes from source $S$ to destination $T$:</p>
+<ul>
+<li>Top route $S \to A \to T$: link $SA$ is congestion-dependent; link $AT$ has a fixed travel time.</li>
+<li>Bottom route $S \to B \to T$: link $SB$ has a fixed travel time; link $BT$ is congestion-dependent.</li>
+</ul>
+<p>The network is symmetric. A city planner proposes adding a new shortcut link $A \to B$ with near-zero travel time, creating a third route $S \to A \to B \to T$. To her surprise, adding the shortcut makes everyone&rsquo;s travel time longer at the selfish-routing Nash equilibrium.</p>
+<h3>Without the shortcut</h3>
+<p>Both routes are symmetric. In equilibrium, traffic splits evenly. If $N/2$ drivers use each route and the congested links have delay $\alpha \cdot n$ (where $n$ is the number of cars):</p>
+<p>$$t_{\text{top}} = \frac{N}{2}\alpha + c = t_{\text{bottom}}$$</p>
+<h3>With the shortcut $A \to B$</h3>
+<p>Each driver thinks, &ldquo;Link $AB$ is free; I can use $SA$, slip across to $B$, then take $BT$ instead of the slow constant link $AT$.&rdquo; All $N$ drivers make this choice. The Nash equilibrium has everyone on $S \to A \to B \to T$:</p>
+<p>$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$</p>
+<p>Since $2N\alpha &gt; \frac{N}{2}\alpha + c$ for typical parameters, travel times <em>increase</em> after the road is added. This is the paradox: individually rational decisions produce a collectively worse outcome. The ratio of Nash equilibrium cost to the socially optimal cost is called the <em><a href="https://en.wikipedia.org/wiki/Price_of_anarchy">price of anarchy</a></em>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Braess%27s_paradox">Braess&rsquo;s paradox</a> is not theoretical. Seoul, Stuttgart, and New York all observed traffic <em>improvements</em> after closing roads. Conversely, new roads in highly congested networks have sometimes worsened average travel times.</p>
+<h2>Understanding the Math</h2>
+<h3>Nash equilibrium</h3>
+<p>A Nash equilibrium is a situation where every player has chosen a strategy and no single player can improve their own outcome by switching to a different strategy so long as everyone else stays put. Think of it as a stable fixed point: if you woke up one morning in a Nash equilibrium, you would have no reason to change what you are doing. Crucially, a Nash equilibrium need not be the best possible outcome for everyone collectively.</p>
+<h3>The paradox, step by step</h3>
+<p>Label the number of cars $N$ and suppose the congested links have delay $\alpha \cdot n$ where $n$ is the number of cars currently using that link. Without the shortcut, traffic splits evenly: $N/2$ cars use each route. Each driver&rsquo;s travel time is $(N/2)\alpha + c$, where $c$ is the fixed delay on the non-congested link. Neither route is faster than the other, so no driver wants to switch — that is Nash equilibrium.</p>
+<p>Now add the shortcut $A \to B$ with near-zero travel time $\varepsilon$. A single driver considering a switch reasons: &ldquo;Link $AB$ is essentially free. If I take $SA$, cross to $B$, and take $BT$, I avoid the fixed cost $c$.&rdquo; If that driver is the only one to switch, it looks cheaper. But every driver makes the same calculation simultaneously. At the new equilibrium, all $N$ drivers pile onto $SA$ and $BT$:</p>
+<p>$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$</p>
+<p>Since $2N\alpha &gt; (N/2)\alpha + c$ for typical parameters, everyone is worse off than before the shortcut was built.</p>
+<h3>The price of anarchy</h3>
+<p>The social optimum would split traffic evenly at cost $(N/2)\alpha + c$, but selfish routing delivers $2N\alpha + \varepsilon$. The price of anarchy exceeds 1, meaning individual rationality destroys collective welfare.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Prisoner's_dilemma">Prisoner&rsquo;s Dilemma</a> is the best-known example of this tension. Two suspects each choose independently to cooperate or defect. Defecting is a dominant strategy: it is better for you regardless of what the other person does. Yet if both defect, both get a worse outcome than if both had cooperated. Braess&rsquo;s paradox is the same logic scaled to $N$ drivers.</p>
+<h3>The logit model</h3>
+<p>The simulation uses a probabilistic choice rule: the probability a driver picks route $r$ is proportional to $\exp(-\beta \cdot t_r)$, where $t_r$ is the expected travel time on route $r$ and $\beta$ is a sensitivity parameter. When $\beta$ is large, drivers strongly prefer the fastest route and the outcome approaches the pure Nash equilibrium. When $\beta$ is small, drivers choose nearly randomly and the paradox weakens. The parameter $\beta$ captures how responsive real drivers are to time differences.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/06/05/rush-hour/">
+      Rush Hour Displacement
+    </a>
+  </h2>
+  <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
+  <p>$N$ commuters all want to leave for work at the same preferred time. The road has a fixed capacity: up to $C$ commuters per time slot travel quickly, but when more than $C$ try to leave in the same slot, everyone in that slot experiences extra delay proportional to the overload.</p>
+<p>Each day, commuters observe yesterday&rsquo;s travel times and shift their departure by one slot toward a less congested option with some probability. Much to their disappointment, the rush hour never disappears. Instead it:</p>
+<ol>
+<li>flattens slightly (spreading across more slots), but</li>
+<li>shifts its peak position over successive days, and</li>
+<li>reaches a new quasi-equilibrium that may be no less congested than the original, just at a different time.</li>
+</ol>
+<p>The intuition is that any slot that becomes less congested immediately attracts new commuters from adjacent overloaded slots, refilling it. Individual optimization is self-defeating in aggregate.</p>
+<p>The simulation in this tutorial shows emergent dynamics:</p>
+<ul>
+<li>The arrival distribution begins concentrated at the preferred slot.</li>
+<li>Commuters shift away from congested slots, spreading the peak.</li>
+<li>The spreading creates new local peaks at adjacent slots, which then attract their own shifters.</li>
+<li>Over many days the distribution oscillates or drifts without converging to zero congestion.</li>
+</ul>
+<h2>The Vickrey Bottleneck Model</h2>
+<p>The classic model (Vickrey 1969) treats the road as a bottleneck with flow rate $s$ vehicles per unit time. At equilibrium, every commuter faces the same <em>generalized cost</em>:</p>
+<p>$$c = \alpha \cdot d + \beta \cdot \max(0,\, t^<em> - t_{\text{arr}}) + \gamma \cdot \max(0,\, t_{\text{arr}} - t^</em>)$$</p>
+<p>where $d$ is queuing delay, $t^*$ is the desired arrival time, and $\beta, \gamma$ are schedule-delay costs for early and late arrival respectively. Vickrey showed that at <a href="https://en.wikipedia.org/wiki/Nash_equilibrium">Nash equilibrium</a> a departure queue forms with length that rises and then falls as commuters spread across time to equalize cost, but total system delay is unchanged.</p>
+<p>This model underlies modern road-pricing schemes: a time-varying toll that exactly offsets the schedule-delay cost eliminates queuing entirely while preserving the total commuting burden. In essence, the toll revenue replaces the wasted queuing time.</p>
+<h2>Understanding the Math</h2>
+<h3>What is a congestion game?</h3>
+<p>Each commuter (the &ldquo;player&rdquo;) independently chooses a departure time slot. The delay experienced in any given slot depends on how many other commuters choose the same slot: if the slot is over capacity $C$, delay grows with the number of extra commuters. No central authority coordinates choices. This structure, where each player&rsquo;s cost depends on the collective choices of all players, is called a <em>congestion game</em>.</p>
+<h3>Nash equilibrium in this context</h3>
+<p>A Nash equilibrium is a distribution of departure times such that no individual commuter can reduce their own delay by unilaterally switching to a different slot. At equilibrium, every occupied slot has the same congestion-adjusted cost. If slot 15 were cheaper than slot 14, commuters from slot 14 would shift to slot 15 until the costs equalized. The equilibrium is therefore defined by: all slots with commuters in them have equal cost, and all empty slots have cost no lower than the occupied ones.</p>
+<h3>Why Nash equilibrium is not the social optimum</h3>
+<p>The social optimum minimizes total delay summed over all commuters. The Nash equilibrium minimizes each person&rsquo;s individual delay given everyone else&rsquo;s choices. These are generally different objectives. At Nash equilibrium, a commuter choosing a crowded slot ignores the extra delay they impose on every other commuter already in that slot. They feel only their own delay; the cost they impose on others is a negative externality that they do not internalize.</p>
+<h3>Why the peak shifts but does not vanish</h3>
+<p>Suppose slot 15 is heavily congested. Some commuters shift to slot 14, relieving slot 15. But now slot 14 is more congested, so its commuters shift to slot 13. The congestion wave ripples outward in both directions. Meanwhile, commuters who shifted away from slot 15 now observe it as less congested and some drift back. The system never reaches zero congestion: it perpetually redistributes congestion across nearby slots in a slow drift. The Nash equilibrium exists in theory, but the day-by-day best-response dynamics cycle around it rather than converging to it, particularly when commuters respond noisily to yesterday&rsquo;s conditions.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/06/05/convoy-effect/">
       The Convoy Effect
     </a>
@@ -133,6 +253,39 @@
 <p>The mean time a job spends waiting (not counting its own service time) in a FIFO single-server queue is:</p>
 <p>$$W_q = \frac{\lambda \cdot E[S^2]}{2(1 - \rho)}$$</p>
 <p>Here $\lambda$ is the arrival rate, $E[S^2]$ is the second moment of service time, and $\rho = \lambda \cdot E[S]$ is the server utilization. Both $\lambda$ and $E[S^2]$ appear in the numerator, so more variance means more waiting even at the same $\rho$. The $(1-\rho)$ denominator is the familiar blow-up term from M/M/1.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
+    <a href="../2026/06/05/tandem-queue/">
+      Tandem Queue Blocking
+    </a>
+  </h2>
+  <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
+  <p>Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda &lt; \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).</p>
+<p>Even though both stages have identical mean throughput and the system is underloaded, Stage 2 sits idle for a substantial fraction of time when the buffer between them is small. The idle fraction only vanishes as the buffer size $K \to \infty$.</p>
+<p>High service-time variance at Stage 1 produces bursts of output—many jobs finish close together—followed by droughts. With a small buffer, the burst overflows (blocking Stage 1) and the drought starves Stage 2. Both effects reduce system throughput below what we would intuitively expect.</p>
+<h2>Analysis</h2>
+<p>For a two-stage tandem queue with a finite buffer of capacity $K$, the blocking probability at Stage 1 and the starvation probability at Stage 2 depend on the full service-time distributions, not just their means. The Kingman approximation gives the mean wait in a single G/G/1 queue as:</p>
+<p>$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$</p>
+<p>where $c_a^2$ and $c_s^2$ are the squared coefficients of variation of inter-arrival and service times respectively. For a hyperexponential service distribution with $c_s^2 \gg 1$, waiting times are far higher than the M/M/1 formula predicts.</p>
+<p>In a tandem network, this extra variability propagates: the departure process of Stage 1 (which is the arrival process for Stage 2) has higher variance than Poisson when Stage 1 has high service variance. This is <em>Departure Process Variability Propagation</em> and is a key driver of manufacturing and supply-chain <a href="https://en.wikipedia.org/wiki/Bullwhip_effect">bullwhip effects</a>.</p>
+<h2>Buffer as a Variability Absorber</h2>
+<p>The buffer acts as a shock absorber. Each unit of additional buffer capacity $K$ reduces the starvation probability at Stage 2 by absorbing burst output from Stage 1. The marginal benefit decreases as $K$ grows, leading to a classic diminishing-returns relationship. Practitioners use this to size work-in-progress inventory (WIP) buffers in manufacturing cells.</p>
+<h2>Understanding the Math</h2>
+<h3>Coefficient of variation</h3>
+<p>The coefficient of variation (CV) of a random variable $X$ with mean $\mu$ and standard deviation $\sigma$ is defined as $c = \sigma / \mu$. It measures spread relative to the mean. A CV of 0 means the variable is deterministic: every value equals $\mu$. A CV of 1 means the spread equals the mean (the exponential distribution has CV exactly 1). A CV greater than 1 means the distribution is bursty: occasional very large values dominate, even if most values are small. The squared CV $c^2 = \sigma^2/\mu^2$ appears frequently in queueing formulas.</p>
+<h3>Why high CV at Stage 1 creates bursts and droughts</h3>
+<p>With a hyperexponential service distribution ($c_s^2 \gg 1$), Stage 1 sometimes completes several jobs in rapid succession (a burst) and sometimes spends a very long time on a single job (a drought). During a burst, jobs pile up in the buffer between stages. During a drought, Stage 2 exhausts the buffer and has to wait for Stage 1 to finish. This wastes capacity even though the system is underloaded on average.</p>
+<h3>The buffer as a shock absorber</h3>
+<p>A buffer of capacity $K$ can hold at most $K$ jobs between the two stages. It absorbs burst output from Stage 1 and releases it steadily to Stage 2. With a small buffer, a burst overflows (blocking Stage 1) or a drought empties the buffer (starving Stage 2). As $K$ grows, both effects weaken and Stage 2 idle time falls. However, the marginal benefit of each extra unit of buffer decreases. Real factories choose $K$ to balance the cost of holding inventory against the cost of machine starvation.</p>
+<h3>Kingman&rsquo;s approximation</h3>
+<p>For a single-stage queue with general service and arrival distributions, the approximate mean waiting time is:</p>
+<p>$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$</p>
+<p>Here $c_a^2$ is the squared CV of inter-arrival times and $c_s^2$ is the squared CV of service times. Notice that the formula separates the utilization effect (the $\rho/(1-\rho)$ term) from the variability effect (the $(c_a^2 + c_s^2)/2$ term). When Stage 1 has $c_s^2 \gg 1$, wait time is far higher than the basic M/M/1 formula predicts, even at the same mean throughput. The mean alone does not tell you enough.</p>
+<h3>Supply-chain connection</h3>
+<p>In manufacturing, Stage 1 corresponds to a supplier and Stage 2 to a production line. High variability at the supplier forces the factory to hold large work-in-progress (WIP) buffers, tying up capital and floor space. The <a href="https://en.wikipedia.org/wiki/Toyota_Production_System">Toyota Production System</a> explicitly targets CV reduction as the primary tool for shrinking necessary WIP by making every process more deterministic through standardized work and small batch sizes. The math here explains exactly why: lower $c_s^2$ directly reduces $W_q$ and the required buffer size $K$.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
 </article>
 
@@ -273,209 +426,6 @@
 <p>Think of the service delivered in a time window by two separate servers as two independent random variables $X_1$ and $X_2$. Their average $(X_1 + X_2)/2$ has variance $\sigma^2/2$, which is half the variance of either component alone. Pooling achieves something similar: by combining demand into one stream served by both servers, the system smooths out random fluctuations. The pooled queue is, in effect, averaging over both servers&rsquo; idle periods instead of locking each idle period to a single lane.</p>
 <h3>Rule of thumb</h3>
 <p>At $\rho = 0.8$, separate queues produce roughly double the mean wait of a pooled queue. This factor grows as $\rho$ increases, because the $(1-\rho)$ term in the denominator amplifies any wasted capacity. The lesson: whenever you can route demand flexibly to a shared resource, do it.</p>
-<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/06/01/nonlinearity/">
-      Queue Nonlinearity
-    </a>
-  </h2>
-  <p><time datetime="2026-06-01" class="post-date">2026-06-01</time></p>
-  <p>A single server handles jobs that arrive randomly and take a random amount of time to process. If both inter-arrival times and service times follow exponential distributions, this is called an <em>M/M/1 queue</em>, and is the simplest model in queueing theory.</p>
-<p>Managers often treat utilization linearly: &ldquo;90% busy is only a little worse than 80% busy.&rdquo; The M/M/1 formula shows this intuition is badly wrong. The mean number of jobs in the system (waiting and being served) is:</p>
-<p>$$L = \frac{\rho}{1 - \rho}$$</p>
-<p>where $\rho = \lambda / \mu$ is the utilization ratio (arrival rate divided by service rate). The mean time a job spends in the system follows from Little&rsquo;s Law $L = \lambda W$:</p>
-<p>$$W = \frac{1}{\mu - \lambda} = \frac{1}{\mu(1 - \rho)}$$</p>
-<p>The denominator $(1 - \rho)$ causes both $L$ and $W$ to blow up as $\rho \to 1$.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">$\rho$</th>
-<th style="text-align: right;">$L = \rho/(1-\rho)$</th>
-<th style="text-align: right;">Marginal $\Delta L$ per 0.1 step</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">—</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.60</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">+0.50</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">2.33</td>
-<td style="text-align: right;">+0.83</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">4.00</td>
-<td style="text-align: right;">+1.67</td>
-</tr>
-<tr>
-<td style="text-align: right;">0.90</td>
-<td style="text-align: right;">9.00</td>
-<td style="text-align: right;">+5.00</td>
-</tr>
-</tbody>
-</table>
-<p>Each equal step in $\rho$ produces a larger jump in queue length than the previous step. Going from 80% to 90% utilization adds more queue length than going from 0% to 80% combined. This happens because the queue is stabilized by the gaps in service capacity. When $\rho = 0.9$, only 10% of capacity is slack. Any random burst of arrivals takes far longer to drain than when $\rho = 0.5$ and 50% of capacity is slack. The system spends most of its time recovering from bursts rather than idling.</p>
-<h2>Key Takeaway</h2>
-<p>For any system approximated by an M/M/1 queue, <strong>never target utilization above 80–85%</strong> if low latency matters. The last few percent of throughput come at an enormous cost in queue length and wait time.</p>
-<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/31/sojourn-time/">
-      Sojourn Time
-    </a>
-  </h2>
-  <p><time datetime="2026-05-31" class="post-date">2026-05-31</time></p>
-  <p>How long does a customer actually spend in the system?
-The previous scenario measured $L$, the mean number of customers in the system at any moment. This scenario measures $W$, the mean time a single customer spends from arrival to departure. This is called the <em>sojourn time</em>, <em>residence time</em>, or <em>response time</em>, and has two components:</p>
-<ul>
-<li>$W_q$: time spent waiting in the queue because the server is busy.</li>
-<li>$W_s$: time spent in service while the server is working on this customer.</li>
-</ul>
-<p>$$W = W_q + W_s$$</p>
-<h2>The Surprising Finding</h2>
-<p>For an M/M/1 queue, the mean sojourn time is:</p>
-<p>$$W = \frac{1}{\mu(1 - \rho)}$$</p>
-<p>This blows up as $\rho \to 1$, just like $L$. But the split between waiting and service shifts dramatically as load increases.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">$\rho$</th>
-<th style="text-align: center;">$W_q$ (wait)</th>
-<th style="text-align: center;">$W_s$ (service)</th>
-<th style="text-align: center;">$W$ (total)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">0.1</td>
-<td style="text-align: center;">0.11</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.11</td>
-</tr>
-<tr>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">2.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">0.9</td>
-<td style="text-align: center;">9.00</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">10.00</td>
-</tr>
-</tbody>
-</table>
-<p>The mean service time $W_s = 1/\mu = 1.0$ is constant: the server always takes the same average time to serve one customer. All the extra delay at high load is pure waiting: $W_q = \rho/(\mu(1-\rho))$ grows without bound while $W_s$ stays fixed. At $\rho = 0.9$, 90% of a customer&rsquo;s time is spent waiting for the server to become free.</p>
-<p>This formula is closely connected to Little&rsquo;s Law:</p>
-<p>$$L = \lambda W$$</p>
-<p>Plugging in $W = 1/(\mu(1-\rho))$ and $\lambda = \rho\mu$:</p>
-<p>$$L = \rho\mu \cdot \frac{1}{\mu(1-\rho)} = \frac{\rho}{1-\rho}$$</p>
-<h2>Understanding the Math</h2>
-<h3>Why $W_s = 1/\mu$ regardless of $\rho$</h3>
-<p>Service time is drawn from an exponential distribution with rate $\mu$, so its mean is $1/\mu$. This is a property of the distribution, not of the queue. No matter how busy the server is, once it starts serving you it takes on average $1/\mu$ time.</p>
-<h3>Deriving $W_q$</h3>
-<p>Since $W = W_q + W_s$ and $W_s = 1/\mu$:</p>
-<p>$$W_q = W - W_s = \frac{1}{\mu(1-\rho)} - \frac{1}{\mu}
-      = \frac{1}{\mu}\left(\frac{1}{1-\rho} - 1\right)
-      = \frac{1}{\mu} \cdot \frac{\rho}{1-\rho}
-      = \frac{\rho}{\mu(1-\rho)}$$</p>
-<p>Note that $W_q = \rho \cdot W$: at high load, almost all of $W$ is waiting.</p>
-<h3>Units check</h3>
-<p>$\lambda$ has units of [customers/time]; $W$ has units of [time]; so $L = \lambda W$ has units of [customers/time $\times$ time] $=$ [customers]. This count of people is dimensionless, as it should be. Checking units this way is a quick sanity test whenever you apply Little&rsquo;s Law to a real problem.</p>
-<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/31/ai-research-questions/">
-      Three Research Questions About AI
-    </a>
-  </h2>
-  <p><time datetime="2026-05-31" class="post-date">2026-05-31</time></p>
-  <p><a href="https://empirical-software.engineering/">Sebastian Baltes</a> recently asked,
-&ldquo;In your view, what don&rsquo;t we know about software development with agentic AI tools (but should)?
-To me, &lsquo;know&rsquo; means proper empirical evidence.
-Not &lsquo;some random dude wrote a blog post about it&rsquo;.&rdquo;
-Here are my answers:</p>
-<ol>
-<li>
-<p>What heuristics developers use to evaluate claims about AI,
-    i.e., how do they decide which claims are believable and which aren&rsquo;t.
-    (Note that I&rsquo;m not asking which claims they believe, but rather how they decide.)</p>
-</li>
-<li>
-<p>How much of the discussion in Sadowski &amp; Zimmermann (eds)
-    <a href="https://isbnsearch.org/isbn/9781484242209">Rethinking Productivity in Software Engineering</a> (2019)
-    has proven to be relevant/useful since the AI tidal wave hit?
-    I.e., were researchers thinking about the right things seven years ago?
-    (I hope that will give us an idea of how much of what&rsquo;s being said now
-    is likely to prove useful in hindsight a few years in the future.)</p>
-</li>
-<li>
-<p>Which of the tools requested in <a href="https://cabird.github.io/AI_where_it_matters/">What Developers <em>Actually</em> Want From AI</a>
-    would we be able to evaluate if they magically appeared tomorrow?
-    I.e., for which ones would we be able to say,
-    &ldquo;Here&rsquo;s what impact it actually has on the development process&rdquo;
-    with some degree of reliability?</p>
-</li>
-</ol>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/30/littles-law/">
-      Little's Law
-    </a>
-  </h2>
-  <p><time datetime="2026-05-30" class="post-date">2026-05-30</time></p>
-  <p>Little&rsquo;s Law states that in a stable system, L = λW, where:</p>
-<ul>
-<li>L = mean number of customers in the system</li>
-<li>λ = mean arrival rate</li>
-<li>W = mean time a customer spends in the system</li>
-</ul>
-<p>The law holds regardless of arrival or service distributions, number of
-servers, or scheduling discipline.</p>
-<h2>Why It Is Surprising</h2>
-<p>Little&rsquo;s Law holds without any assumptions about the distribution of arrival rates or service times. It does not matter whether arrivals are Poisson, deterministic, or correlated, whether service times are exponential, constant, or heavy-tailed, whether there is one server or a hundred, or what scheduling discipline is used (FIFO, LIFO, random, or priority). As long as the system is stable and stationary, $L = \lambda W$. This universality is remarkable because almost every other formula in queueing theory <em>does</em> depend on distributional assumptions.</p>
-<h2>Practical Use</h2>
-<p>Because $L = \lambda W$ is universal, it can be used to measure hard-to-observe quantities from easy-to-observe ones. For example, the mean number of requests in a web server ($L$) and the observed request rate ($\lambda$) immediately give the mean response time ($W = L/\lambda$) without needing to instrument individual request latencies.</p>
-<h2>Proof Sketch</h2>
-<p>Consider a flow diagram where time runs horizontally and each customer traces a horizontal line from arrival to departure. The area under all lines equals both:</p>
-<ul>
-<li>$\sum_i W_i$ (sum of individual sojourn times), and</li>
-<li>$\int_0^T L(t)\,dt$ (integral of instantaneous queue length).</li>
-</ul>
-<p>Dividing both sides by $T$ and taking $T \to \infty$:</p>
-<p>$$\bar{L} = \lambda \bar{W}$$</p>
-<p>The argument is purely combinatorial: no probability is needed.</p>
-<h2>Understanding the Math</h2>
-<h3>The area argument made concrete</h3>
-<p>Draw a horizontal time axis from $t = 0$ to $t = T$. Each customer gets a horizontal bar starting at their arrival time and ending at their departure time. The length of their bar is exactly their sojourn time $W_i$ — the total time they spend in the system. At any moment $t$, the number of bars that cross that vertical slice is exactly $L(t)$, the instantaneous number of customers in the system.</p>
-<p>Now compute the total area under all the bars in two different ways. First, add up the lengths of all the bars: total area $= \sum_i W_i$. Second, integrate the height of the stack over time: total area $= \int_0^T L(t)\,dt$. These are the same area, so $\sum_i W_i = \int_0^T L(t)\,dt$.</p>
-<p>Divide both sides by $T$. The right side becomes the time-average $\bar{L}$. The left side becomes $(n/T) \cdot \bar{W}$, where $n$ is the total number of customers and $\bar{W}$ is their mean sojourn time. As $T \to \infty$, $n/T \to \lambda$ (the long-run arrival rate). That gives $\bar{L} = \lambda \bar{W}$, which is Little&rsquo;s Law.</p>
-<h3>No distribution required</h3>
-<p>The argument above uses only geometry. There is no probability distribution, no exponential assumption, no Poisson process. The shape of each bar (i.e., how long each customer takes) can be anything. This is why the law applies to M/M/1, M/D/1, M/M/3, and every other configuration equally.</p>
-<h3>Using it in practice</h3>
-<p>Suppose you run a web service. Your monitoring dashboard shows $\lambda = 500$ requests per second and your server logs show a mean response time of $W = 20$ milliseconds. Little&rsquo;s Law immediately tells you that the mean number of active requests in the system is $L = \lambda W = 500 \times 0.02 = 10$ requests. Alternatively, if you observe $L$ and $\lambda$ but not individual response times, you get $W = L/\lambda$ without any per-request timing instrumentation.</p>
-<h3>Units check</h3>
-<p>$\lambda$ has units of customers per unit time; $W$ has units of time; so $L = \lambda W$ is dimensionless — a pure count of customers. Always verify units when applying Little&rsquo;s Law to a new problem: if your units do not cancel correctly, you have applied the law incorrectly.</p>
-<h3>Stability condition</h3>
-<p>Little&rsquo;s Law requires the system to reach steady state: over the long run, arrivals and departures must balance. If $\lambda &gt; \mu$ (the arrival rate exceeds the service rate), the queue grows without bound. $L = \infty$ and $W = \infty$; the law still holds, but it tells you the system is broken, not that it is well-behaved.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
 </article>
 

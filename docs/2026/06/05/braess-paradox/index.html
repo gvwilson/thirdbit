@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Braess's Paradox</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Braess's Paradox</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/05/rush-hour/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-05" class="post-date">2026-06-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2026/06/05/priority-starvation/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A city has two routes from source $S$ to destination $T$:</p>
+<ul>
+<li>Top route $S \to A \to T$: link $SA$ is congestion-dependent; link $AT$ has a fixed travel time.</li>
+<li>Bottom route $S \to B \to T$: link $SB$ has a fixed travel time; link $BT$ is congestion-dependent.</li>
+</ul>
+<p>The network is symmetric. A city planner proposes adding a new shortcut link $A \to B$ with near-zero travel time, creating a third route $S \to A \to B \to T$. To her surprise, adding the shortcut makes everyone&rsquo;s travel time longer at the selfish-routing Nash equilibrium.</p>
+<h3>Without the shortcut</h3>
+<p>Both routes are symmetric. In equilibrium, traffic splits evenly. If $N/2$ drivers use each route and the congested links have delay $\alpha \cdot n$ (where $n$ is the number of cars):</p>
+<p>$$t_{\text{top}} = \frac{N}{2}\alpha + c = t_{\text{bottom}}$$</p>
+<h3>With the shortcut $A \to B$</h3>
+<p>Each driver thinks, &ldquo;Link $AB$ is free; I can use $SA$, slip across to $B$, then take $BT$ instead of the slow constant link $AT$.&rdquo; All $N$ drivers make this choice. The Nash equilibrium has everyone on $S \to A \to B \to T$:</p>
+<p>$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$</p>
+<p>Since $2N\alpha &gt; \frac{N}{2}\alpha + c$ for typical parameters, travel times <em>increase</em> after the road is added. This is the paradox: individually rational decisions produce a collectively worse outcome. The ratio of Nash equilibrium cost to the socially optimal cost is called the <em><a href="https://en.wikipedia.org/wiki/Price_of_anarchy">price of anarchy</a></em>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Braess%27s_paradox">Braess&rsquo;s paradox</a> is not theoretical. Seoul, Stuttgart, and New York all observed traffic <em>improvements</em> after closing roads. Conversely, new roads in highly congested networks have sometimes worsened average travel times.</p>
+<h2>Understanding the Math</h2>
+<h3>Nash equilibrium</h3>
+<p>A Nash equilibrium is a situation where every player has chosen a strategy and no single player can improve their own outcome by switching to a different strategy so long as everyone else stays put. Think of it as a stable fixed point: if you woke up one morning in a Nash equilibrium, you would have no reason to change what you are doing. Crucially, a Nash equilibrium need not be the best possible outcome for everyone collectively.</p>
+<h3>The paradox, step by step</h3>
+<p>Label the number of cars $N$ and suppose the congested links have delay $\alpha \cdot n$ where $n$ is the number of cars currently using that link. Without the shortcut, traffic splits evenly: $N/2$ cars use each route. Each driver&rsquo;s travel time is $(N/2)\alpha + c$, where $c$ is the fixed delay on the non-congested link. Neither route is faster than the other, so no driver wants to switch — that is Nash equilibrium.</p>
+<p>Now add the shortcut $A \to B$ with near-zero travel time $\varepsilon$. A single driver considering a switch reasons: &ldquo;Link $AB$ is essentially free. If I take $SA$, cross to $B$, and take $BT$, I avoid the fixed cost $c$.&rdquo; If that driver is the only one to switch, it looks cheaper. But every driver makes the same calculation simultaneously. At the new equilibrium, all $N$ drivers pile onto $SA$ and $BT$:</p>
+<p>$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$</p>
+<p>Since $2N\alpha &gt; (N/2)\alpha + c$ for typical parameters, everyone is worse off than before the shortcut was built.</p>
+<h3>The price of anarchy</h3>
+<p>The social optimum would split traffic evenly at cost $(N/2)\alpha + c$, but selfish routing delivers $2N\alpha + \varepsilon$. The price of anarchy exceeds 1, meaning individual rationality destroys collective welfare.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Prisoner's_dilemma">Prisoner&rsquo;s Dilemma</a> is the best-known example of this tension. Two suspects each choose independently to cooperate or defect. Defecting is a dominant strategy: it is better for you regardless of what the other person does. Yet if both defect, both get a worse outcome than if both had cooperated. Braess&rsquo;s paradox is the same logic scaled to $N$ drivers.</p>
+<h3>The logit model</h3>
+<p>The simulation uses a probabilistic choice rule: the probability a driver picks route $r$ is proportional to $\exp(-\beta \cdot t_r)$, where $t_r$ is the expected travel time on route $r$ and $\beta$ is a sensitivity parameter. When $\beta$ is large, drivers strongly prefer the fastest route and the outcome approaches the pure Nash equilibrium. When $\beta$ is small, drivers choose nearly randomly and the paradox weakens. The parameter $\beta$ captures how responsive real drivers are to time differences.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

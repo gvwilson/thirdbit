@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Rush Hour Displacement</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Rush Hour Displacement</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/05/convoy-effect/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-05" class="post-date">2026-06-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2026/06/05/braess-paradox/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>$N$ commuters all want to leave for work at the same preferred time. The road has a fixed capacity: up to $C$ commuters per time slot travel quickly, but when more than $C$ try to leave in the same slot, everyone in that slot experiences extra delay proportional to the overload.</p>
+<p>Each day, commuters observe yesterday&rsquo;s travel times and shift their departure by one slot toward a less congested option with some probability. Much to their disappointment, the rush hour never disappears. Instead it:</p>
+<ol>
+<li>flattens slightly (spreading across more slots), but</li>
+<li>shifts its peak position over successive days, and</li>
+<li>reaches a new quasi-equilibrium that may be no less congested than the original, just at a different time.</li>
+</ol>
+<p>The intuition is that any slot that becomes less congested immediately attracts new commuters from adjacent overloaded slots, refilling it. Individual optimization is self-defeating in aggregate.</p>
+<p>The simulation in this tutorial shows emergent dynamics:</p>
+<ul>
+<li>The arrival distribution begins concentrated at the preferred slot.</li>
+<li>Commuters shift away from congested slots, spreading the peak.</li>
+<li>The spreading creates new local peaks at adjacent slots, which then attract their own shifters.</li>
+<li>Over many days the distribution oscillates or drifts without converging to zero congestion.</li>
+</ul>
+<h2>The Vickrey Bottleneck Model</h2>
+<p>The classic model (Vickrey 1969) treats the road as a bottleneck with flow rate $s$ vehicles per unit time. At equilibrium, every commuter faces the same <em>generalized cost</em>:</p>
+<p>$$c = \alpha \cdot d + \beta \cdot \max(0,\, t^<em> - t_{\text{arr}}) + \gamma \cdot \max(0,\, t_{\text{arr}} - t^</em>)$$</p>
+<p>where $d$ is queuing delay, $t^*$ is the desired arrival time, and $\beta, \gamma$ are schedule-delay costs for early and late arrival respectively. Vickrey showed that at <a href="https://en.wikipedia.org/wiki/Nash_equilibrium">Nash equilibrium</a> a departure queue forms with length that rises and then falls as commuters spread across time to equalize cost, but total system delay is unchanged.</p>
+<p>This model underlies modern road-pricing schemes: a time-varying toll that exactly offsets the schedule-delay cost eliminates queuing entirely while preserving the total commuting burden. In essence, the toll revenue replaces the wasted queuing time.</p>
+<h2>Understanding the Math</h2>
+<h3>What is a congestion game?</h3>
+<p>Each commuter (the &ldquo;player&rdquo;) independently chooses a departure time slot. The delay experienced in any given slot depends on how many other commuters choose the same slot: if the slot is over capacity $C$, delay grows with the number of extra commuters. No central authority coordinates choices. This structure, where each player&rsquo;s cost depends on the collective choices of all players, is called a <em>congestion game</em>.</p>
+<h3>Nash equilibrium in this context</h3>
+<p>A Nash equilibrium is a distribution of departure times such that no individual commuter can reduce their own delay by unilaterally switching to a different slot. At equilibrium, every occupied slot has the same congestion-adjusted cost. If slot 15 were cheaper than slot 14, commuters from slot 14 would shift to slot 15 until the costs equalized. The equilibrium is therefore defined by: all slots with commuters in them have equal cost, and all empty slots have cost no lower than the occupied ones.</p>
+<h3>Why Nash equilibrium is not the social optimum</h3>
+<p>The social optimum minimizes total delay summed over all commuters. The Nash equilibrium minimizes each person&rsquo;s individual delay given everyone else&rsquo;s choices. These are generally different objectives. At Nash equilibrium, a commuter choosing a crowded slot ignores the extra delay they impose on every other commuter already in that slot. They feel only their own delay; the cost they impose on others is a negative externality that they do not internalize.</p>
+<h3>Why the peak shifts but does not vanish</h3>
+<p>Suppose slot 15 is heavily congested. Some commuters shift to slot 14, relieving slot 15. But now slot 14 is more congested, so its commuters shift to slot 13. The congestion wave ripples outward in both directions. Meanwhile, commuters who shifted away from slot 15 now observe it as less congested and some drift back. The system never reaches zero congestion: it perpetually redistributes congestion across nearby slots in a slow drift. The Nash equilibrium exists in theory, but the day-by-day best-response dynamics cycle around it rather than converging to it, particularly when commuters respond noisily to yesterday&rsquo;s conditions.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

@@ -6,8 +6,8 @@ katex: true
 ---
 A single server processes jobs that arrive randomly according to a Poisson process. Most jobs are quick (exponential service with small mean), but a rare few are very slow (exponential service with large mean). This *hyperexponential* service distribution has high variance. This post compares the performance of two scheduling disciplines in this situation:
 
-- FIFO (First In, First Out): jobs are served in the order they arrive.
-- SJF (Shortest Job First): the server always picks the shortest queued job next.
+-   FIFO (First In, First Out): jobs are served in the order they arrive.
+-   SJF (Shortest Job First): the server always picks the shortest queued job next.
 
 The surprising result is that SJF dramatically outperforms FIFO: not just for the small jobs that directly benefit from skipping ahead, but also for mean sojourn time across *all* jobs. The improvement is most visible at the tail (95th and 99th percentiles) because FIFO creates a *convoy effect*: one long job blocks many short jobs behind it, inflating everyone's wait.
 
