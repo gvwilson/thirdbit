@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: The Convoy Effect</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+<a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>The Convoy Effect</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/06/04/inspectors-paradox/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-06-05" class="post-date">2026-06-05</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>A single server processes jobs that arrive randomly according to a Poisson process. Most jobs are quick (exponential service with small mean), but a rare few are very slow (exponential service with large mean). This <em>hyperexponential</em> service distribution has high variance. This post compares the performance of two scheduling disciplines in this situation:</p>
+<ul>
+<li>FIFO (First In, First Out): jobs are served in the order they arrive.</li>
+<li>SJF (Shortest Job First): the server always picks the shortest queued job next.</li>
+</ul>
+<p>The surprising result is that SJF dramatically outperforms FIFO: not just for the small jobs that directly benefit from skipping ahead, but also for mean sojourn time across <em>all</em> jobs. The improvement is most visible at the tail (95th and 99th percentiles) because FIFO creates a <em>convoy effect</em>: one long job blocks many short jobs behind it, inflating everyone&rsquo;s wait.</p>
+<h3>The Convoy Metaphor</h3>
+<p>Picture a one-lane road with one slow truck and many fast cars. Every car behind the truck must drive at truck speed; no overtaking allowed. The truck is the long job; the cars are the short jobs stuck behind it in FIFO order. SJF is like a passing lane: fast cars jump ahead of the truck and reach their destination much sooner. The truck itself arrives at the same time either way, but the total delay experienced by all vehicles plummets.</p>
+<h3>Why FIFO Hurts with High Variance</h3>
+<p>In FIFO, the server&rsquo;s current job is chosen at arrival time, not at decision time. When a slow job begins service, every subsequent arrival must join the queue and wait. The expected excess work in service (the remaining time of the current job, seen by an arriving customer) under FIFO is:</p>
+<p>$$W_{\text{FIFO}} = \frac{\lambda \overline{s^2}}{2(1-\rho)} + \frac{1}{\mu}$$</p>
+<p>where $\overline{s^2}$ is the second moment of service time. High variance inflates $\overline{s^2}$ without changing $\rho$, directly worsening wait time.</p>
+<h3>SJF Minimises Mean Sojourn Time</h3>
+<p>For a single server with non-preemptive SJF and any service-time distribution, the mean sojourn time is given by the formula below (which is discussed in &ldquo;Understanding the Math&rdquo; at the end of this lesson):</p>
+<p>$$W_{\text{SJF}} = \frac{1}{\mu} + \frac{\lambda \overline{s^2}}{2(1-\rho)}$$</p>
+<p>SJF achieves this minimum because short jobs that would otherwise be blocked by a long job are promoted ahead, reducing the total waiting work in the system.</p>
+<h2>Practical Relevance</h2>
+<p>Operating system CPU schedulers use time-quanta and priority aging to approximate SJF without knowing job sizes in advance. Database query planners estimate query cost and reorder execution to minimize blocking. The phenomenon reappears as <em>head-of-line blocking</em> in HTTP/1.1 (one slow response stalls a connection), motivating HTTP/2 multiplexing and HTTP/3&rsquo;s QUIC stream independence.</p>
+<h2>Understanding the Math</h2>
+<h3>The second moment</h3>
+<p>For a random variable $S$ representing service time, the second moment is $E[S^2]$. Recall from your statistics course that variance is $\text{Var}(S) = E[S^2] - (E[S])^2$, which rearranges to:</p>
+<p>$$E[S^2] = \text{Var}(S) + (E[S])^2$$</p>
+<p>This means high variance inflates $E[S^2]$ even if the mean $E[S]$ stays fixed. Doubling the spread of service times can quadruple $E[S^2]$, even with the same average service time.</p>
+<h3>Why variance of service time hurts</h3>
+<p>Imagine a FIFO server handling jobs that are either 0.1 minutes or 10 minutes long, with 90% being short and 10% being long. The mean service time is $0.9 \times 0.1 + 0.1 \times 10 = 1.09$ minutes, so utilization $\rho = \lambda / \mu$ might be modest. But when a 10-minute job starts, every job arriving during those 10 minutes must join the queue and wait. The longer $E[S^2]$, the more average work sits ahead of each arriving job.</p>
+<h3>The Pollaczek–Khinchine formula</h3>
+<p>The mean time a job spends waiting (not counting its own service time) in a FIFO single-server queue is:</p>
+<p>$$W_q = \frac{\lambda \cdot E[S^2]}{2(1 - \rho)}$$</p>
+<p>Here $\lambda$ is the arrival rate, $E[S^2]$ is the second moment of service time, and $\rho = \lambda \cdot E[S]$ is the server utilization. Both $\lambda$ and $E[S^2]$ appear in the numerator, so more variance means more waiting even at the same $\rho$. The $(1-\rho)$ denominator is the familiar blow-up term from M/M/1.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../software/">software</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script>
+      renderMathInElement(document.body, {
+	  delimiters: [
+              { left: "$$", right: "$$", display: true  },
+              { left: "$",  right: "$",  display: false }
+	  ]
+      });
+    </script>
+    
+  </body>
+</html>

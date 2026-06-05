@@ -977,7 +977,7 @@ Grappa Gas set Big Blue down in front of the fortress gate
 where he had been contentedly whittling two hours before.
 The soldiers slid wearily off the cloud's back
 to stand among the spring-green ferns.
-The waiting villagers came forward to offer them blankets and hot tea.
+The waiting villagers came forward to offer them blankets and hot chai.
 
 "Get everyone up into the traders' hall," Iffy ordered crisply.
 "There's stew cooking,
@@ -1184,7 +1184,7 @@ And no, she didn't know what the tiger was planning to eat,
 but she would find out.
 
 "There you are," she said when she caught sight of her daughter.
-"Can you please go home and make some tea?
+"Can you please go home and make some chai?
 Use all the honey we have left,
 and tell whoever shows up that I'll be there as soon as I can."
 
@@ -1198,7 +1198,7 @@ the cinnamon bark and green cardamom pods already in the pot.
 It was an extravagance—the pack traders who brought such delicacies to the village
 wouldn't be back until the last of the snow had melted,
 which was at least another month away—but
-Granna Fee had always said that a sweet cup of tea was worth a thousand words.
+Granna Fee had always said that a sweet cup of chai was worth a thousand words.
 
 "Mind if I sit?"
 Grappa Gas asked,
@@ -1243,7 +1243,7 @@ he had predicted that she would be reeve before she was thirty.
 *Better start telling everyone that Noxy's going to beat that,*
 he thought.
 
-He slurped his tea,
+He slurped his chai,
 cradling the warm mug in his hands.
 "The sergeant said that they were posted on the border with Chaghan.
 There's been heavy snow this winter,
@@ -1270,8 +1270,8 @@ Indy glanced at Noxy.
 "That doesn't go out of this house," she ordered.
 Noxy nodded,
 turning to the stove as the kettle began to whistle.
-She poured the boiling water into the teapot,
-then set the tea on the table to steep.
+She poured the boiling water into the pot,
+then set the chai on the table to steep.
 
 "Was there anything else?" Indy asked.
 
@@ -1303,7 +1303,7 @@ Brush it off before you bring it in the house."
 
 Aft glowered at her and his father until Noxy returned.
 The stool creaked under his weight as he sat.
-Noxy poured tea as inconspicuously as she could
+Noxy poured chai as inconspicuously as she could
 while Aft ticked points off on his fingers.
 What would the village do if the king sent an army after the rebels?
 And by "if", he meant "when",
@@ -1330,7 +1330,7 @@ I can just hear what folk would say if we did that."
 "Enough, both of you.
 We have a stormload of trouble to fly through,
 and I will *not* have you two making it worse with your bickering."
-She stared into her tea as if hoping the dark brew might spell out some answers.
+She stared into her chai as if hoping the dark brew might spell out some answers.
 "I know it's a big thing," she went on quietly.
 "And I did think about turning them away,
 but Gas is right—they wouldn't even make it to Rancid.
@@ -1354,7 +1354,7 @@ Indy snapped.
 "I will *not* have that kind of talk about one of the Gifted."
 
 "Just saying," Aft muttered.
-He swallowed the last of his tea and stood.
+He swallowed the last of his chai and stood.
 "Just think about it, all right?"
 He glared at her a moment longer,
 then turned and left without saying goodbye.
@@ -1374,7 +1374,7 @@ when the other adults left to gather the village's herd.
 The double weight of becoming a father and not being up in his element
 had made him as fidgety as a young goof in springtime.
 
-Grappa Gas drained the last of his own tea.
+Grappa Gas drained the last of his own chai.
 "It's good," he told Noxy appreciatively.
 "Maybe wants more cinnamon next time, though."
 
@@ -1691,7 +1691,7 @@ he raised the book with both hands to show a page that was almost black with den
 
 "I'm sorry, Scholar-Candidate, but that's a bit difficult to read in this light,"
 Indy said.
-"Perhaps we could make some tea and—"
+"Perhaps we could make some chai and—"
 
 "As the king's voice in this place," the *tralpa* continued loudly,
 "I require you also to answer to an additional charge of derelection of duty,
@@ -2885,7 +2885,7 @@ to resume its journey down the mountain.*
 ## Chapter 4
 
 "Oh Noxy, brush your hair!"
-Indy set her tea down on the table and began to stand.
+Indy set her chai down on the table and began to stand.
 
 "I can do it," Noxy protested.
 She dragged the brush she and her mother shared through her hair another few times.
@@ -3741,7 +3741,7 @@ and he was the only 'herd on her,
 and people can't mind-talk to clouds if they're not on them—can they?"
 
 Her grandmother stopped abruptly and put her hand on Noxy's arm.
-"Why don't we go have a cup of tea?" she said quietly.
+"Why don't we go have a cup of chai?" she said quietly.
 "We can talk then."
 
 Ten minutes later they were sitting at the tiny table in Granna Fee's two-room house,
@@ -3752,7 +3752,7 @@ Noxy joked weakly.
 Granna Fee smiled.
 "Me too.
 But it'll take them a couple of days at least to soak up enough heat to work again."
-She spooned some tea into her chipped brown pot,
+She spooned some chai into her chipped brown pot,
 peered at it,
 and added another spoonful.
 "I asked your father if he could make another one,
@@ -3774,7 +3774,7 @@ she winked at Noxy and reached into her knitting basket to pull out a small jar 
 "Only when Gas comes over. That man…"
 She shook her head in mock despair.
 
-They sipped their tea and put their cups down in unison,
+They sipped their chai and put their cups down in unison,
 as they had countless times since Indy had become reeve
 and Noxy had started spending more time with her granna than with her mother.
 "So what *do* you think happened?" Noxy asked,
@@ -3828,7 +3828,7 @@ Granna Fee shrugged again.
 What if someone here can do magic,
 but doesn't realize it yet?"
 
-Noxy took another sip of tea.
+Noxy took another sip of chai.
 Her mouth suddenly felt dry.
 "Who?"
 
@@ -3984,7 +3984,7 @@ And for what it's worth—"
 But Indy was already walking away with Noxy hurrying after her.
 
 Noxy wasn't surprised to hear Grappa Gas take the sergeant's side
-over a cup of tea a few minutes later.
+over a cup of chai a few minutes later.
 She was equally unsurprised when Aft burst in and demanded that Indy do something.
 "Order them to leave, that's what!" he said,
 slapping the table with his hand.
@@ -3997,7 +3997,7 @@ you're only in charge as long as everyone believes you are."
 
 Aft glared at Grappa Gas but didn't respond.
 All of a sudden Noxy felt like a crayfish stuck in a trap.
-She stood up and set her undrunk tea on the table.
+She stood up and set her undrunk chai on the table.
 "I'm going to see if Granna Fee needs anything," she said.
 "I'll take care of the thimbleberries when I get back, I promise."
 
@@ -4007,10 +4007,10 @@ Her mother caught her hand and squeezed it as she went by.
 Granna Fee had already heard about the sentries.
 She didn't seem particularly bothered by them.
 "I've been through worse storms," she said,
-putting a fresh cup of tea in front of her granddaughter.
+putting a fresh cup of chai in front of her granddaughter.
 "This one will pass too."
 
-She blew on her own tea to cool it,
+She blew on her own chai to cool it,
 then looked over the mug at Noxy.
 "So is there anything else you'd like to talk about?"
 
@@ -4032,7 +4032,7 @@ She put her hands on the edge of the table and wobbled it.
 "I'm pretty sure I could fix this for you."
 
 "Mm hm."
-Granna Fee sipped her tea.
+Granna Fee sipped her chai.
 
 Noxy gave up.
 "It's the clouds.
@@ -4046,7 +4046,7 @@ Noxy goggled at her.
 "You thought?
 Why didn't you say anything!?"
 
-Her grandmother took another sip of tea.
+Her grandmother took another sip of chai.
 "I didn't think I should stick my nose into your business.
 Besides,
 it will probably stop once your body settles down.
@@ -5056,7 +5056,7 @@ and now it was Noxy's turn.*
 
 *Ulfmaerr and Indy took shifts beside their daughter,
 just as they would on cloudback.
-Grappa Gas and Granna Fee and others left food and kettles of tea on their doorstep.
+Grappa Gas and Granna Fee and others left food and pots of chai on their doorstep.
 They asked the same question every time: how is she?
 They got the same answer: worse.*
 

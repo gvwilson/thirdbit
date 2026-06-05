@@ -99,11 +99,50 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/06/05/convoy-effect/">
+      The Convoy Effect
+    </a>
+  </h2>
+  <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
+  <p>A single server processes jobs that arrive randomly according to a Poisson process. Most jobs are quick (exponential service with small mean), but a rare few are very slow (exponential service with large mean). This <em>hyperexponential</em> service distribution has high variance. This post compares the performance of two scheduling disciplines in this situation:</p>
+<ul>
+<li>FIFO (First In, First Out): jobs are served in the order they arrive.</li>
+<li>SJF (Shortest Job First): the server always picks the shortest queued job next.</li>
+</ul>
+<p>The surprising result is that SJF dramatically outperforms FIFO: not just for the small jobs that directly benefit from skipping ahead, but also for mean sojourn time across <em>all</em> jobs. The improvement is most visible at the tail (95th and 99th percentiles) because FIFO creates a <em>convoy effect</em>: one long job blocks many short jobs behind it, inflating everyone&rsquo;s wait.</p>
+<h3>The Convoy Metaphor</h3>
+<p>Picture a one-lane road with one slow truck and many fast cars. Every car behind the truck must drive at truck speed; no overtaking allowed. The truck is the long job; the cars are the short jobs stuck behind it in FIFO order. SJF is like a passing lane: fast cars jump ahead of the truck and reach their destination much sooner. The truck itself arrives at the same time either way, but the total delay experienced by all vehicles plummets.</p>
+<h3>Why FIFO Hurts with High Variance</h3>
+<p>In FIFO, the server&rsquo;s current job is chosen at arrival time, not at decision time. When a slow job begins service, every subsequent arrival must join the queue and wait. The expected excess work in service (the remaining time of the current job, seen by an arriving customer) under FIFO is:</p>
+<p>$$W_{\text{FIFO}} = \frac{\lambda \overline{s^2}}{2(1-\rho)} + \frac{1}{\mu}$$</p>
+<p>where $\overline{s^2}$ is the second moment of service time. High variance inflates $\overline{s^2}$ without changing $\rho$, directly worsening wait time.</p>
+<h3>SJF Minimises Mean Sojourn Time</h3>
+<p>For a single server with non-preemptive SJF and any service-time distribution, the mean sojourn time is given by the formula below (which is discussed in &ldquo;Understanding the Math&rdquo; at the end of this lesson):</p>
+<p>$$W_{\text{SJF}} = \frac{1}{\mu} + \frac{\lambda \overline{s^2}}{2(1-\rho)}$$</p>
+<p>SJF achieves this minimum because short jobs that would otherwise be blocked by a long job are promoted ahead, reducing the total waiting work in the system.</p>
+<h2>Practical Relevance</h2>
+<p>Operating system CPU schedulers use time-quanta and priority aging to approximate SJF without knowing job sizes in advance. Database query planners estimate query cost and reorder execution to minimize blocking. The phenomenon reappears as <em>head-of-line blocking</em> in HTTP/1.1 (one slow response stalls a connection), motivating HTTP/2 multiplexing and HTTP/3&rsquo;s QUIC stream independence.</p>
+<h2>Understanding the Math</h2>
+<h3>The second moment</h3>
+<p>For a random variable $S$ representing service time, the second moment is $E[S^2]$. Recall from your statistics course that variance is $\text{Var}(S) = E[S^2] - (E[S])^2$, which rearranges to:</p>
+<p>$$E[S^2] = \text{Var}(S) + (E[S])^2$$</p>
+<p>This means high variance inflates $E[S^2]$ even if the mean $E[S]$ stays fixed. Doubling the spread of service times can quadruple $E[S^2]$, even with the same average service time.</p>
+<h3>Why variance of service time hurts</h3>
+<p>Imagine a FIFO server handling jobs that are either 0.1 minutes or 10 minutes long, with 90% being short and 10% being long. The mean service time is $0.9 \times 0.1 + 0.1 \times 10 = 1.09$ minutes, so utilization $\rho = \lambda / \mu$ might be modest. But when a 10-minute job starts, every job arriving during those 10 minutes must join the queue and wait. The longer $E[S^2]$, the more average work sits ahead of each arriving job.</p>
+<h3>The Pollaczek–Khinchine formula</h3>
+<p>The mean time a job spends waiting (not counting its own service time) in a FIFO single-server queue is:</p>
+<p>$$W_q = \frac{\lambda \cdot E[S^2]}{2(1 - \rho)}$$</p>
+<p>Here $\lambda$ is the arrival rate, $E[S^2]$ is the second moment of service time, and $\rho = \lambda \cdot E[S]$ is the server utilization. Both $\lambda$ and $E[S^2]$ appear in the numerator, so more variance means more waiting even at the same $\rho$. The $(1-\rho)$ denominator is the familiar blow-up term from M/M/1.</p>
+<p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/06/04/inspectors-paradox/">
       The Inspector's Paradox
     </a>
   </h2>
-  <p><time datetime="2026-06-03" class="post-date">2026-06-03</time></p>
+  <p><time datetime="2026-06-04" class="post-date">2026-06-04</time></p>
   <p>Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:</p>
 <p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
 <p>where $\sigma^2 = \text{Var}[\text{headway}]$. The second term is always non-negative, so higher variance always means longer expected waits, even when the mean headway is unchanged.</p>
@@ -438,30 +477,6 @@ servers, or scheduling discipline.</p>
 <h3>Stability condition</h3>
 <p>Little&rsquo;s Law requires the system to reach steady state: over the long run, arrivals and departures must balance. If $\lambda &gt; \mu$ (the arrival rate exceeds the service rate), the queue grows without bound. $L = \infty$ and $W = \infty$; the law still holds, but it tells you the system is broken, not that it is well-behaved.</p>
 <p><em>This article was originally written for <a href="https://marimo.io/for-learners">marimo.io</a>.</em></p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/05/30/how-to-not-be-wrong-about-ai/">
-      How to Not Be Wrong About AI
-    </a>
-  </h2>
-  <p><time datetime="2026-05-30" class="post-date">2026-05-30</time></p>
-  <p>My post <a href="../2026/05/20/twelve-ways-to-be-wrong/">Twelve Ways to Be Wrong About AI-Assisted Coding</a> seemed to hit a nerve,
-so I&rsquo;ve put together material for a workshop on <a href="../notwrong/">How to Not Be Wrong About AI</a>.
-As its blurb says:</p>
-<blockquote>
-<p>This tutorial is a short introduction to research methods you can
-use to figure out whether AI-based programming tools are helping
-your team or not. Even if you don&rsquo;t do such studies yourself, we
-hope that understanding how they work will help you decide which
-claims about them to trust.</p>
-</blockquote>
-<p>It includes <a href="../notwrong/bibliography/">a partially-annotated bibliography</a>
-and <a href="../notwrong/further/">further reading</a>;
-my thanks to everyone who contributed entries.
-If you&rsquo;re interested in taking part in the first run,
-please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
 </article>
 
 

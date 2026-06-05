@@ -625,12 +625,12 @@ he repeated as the sergeant opened his mouth.
 his face as expressionless as ever.
 
 At that same moment, a few blocks away,
-a hairy, long-armed figure slurped the last of his tea
+a hairy, long-armed figure slurped the last of his chai
 in a small shop on the edge of the Dog's Market.
 He was the shop's only customer—a few people had stuck their heads in
 after he had taken a table,
 but all had decided to go elsewhere.
-The shop's tea blender glowered behind his counter,
+The shop's chai blender glowered behind his counter,
 arms folded.
 
 "Ah… Delicious. My compliments on your blend."
@@ -638,7 +638,7 @@ The troll stood,
 adjusted the glasses perched on his snub nose,
 and dropped a few winkles on the table.
 "I will *definitely* return."
-Ignoring the tea blender's muttered curse,
+Ignoring the chai blender's muttered curse,
 he sauntered out into the waning afternoon light.
 
 The market was closing up for the night.
@@ -1743,7 +1743,7 @@ Princess Ogmin frowned.
 
 "Don't worry, dear," the troll said, patting her arm.
 "We'll come back in a few days and you'll see.
-Now, do you want some tea?"
+Now, do you want some chai?"
 
 They spent the next half hour wandering.
 Noxy wasn't surprised that everyone seemed to know the princess.
@@ -1866,7 +1866,7 @@ weighed it down so far that its gunwales were only a handspan above the water.
 Two men at its bow called, "Heyyup… hey!" to each other
 as they pushed the barge away from the dock with long iron-shod bamboo poles.
 A third man sat on a crate at the center of the barge
-with a steaming cup of tea in one hand
+with a steaming cup of chai in one hand
 and a heavy ax laid across his lap.
 
 "Is that in case they get caught on a snag?" Noxy asked Dolly,
@@ -1980,7 +1980,7 @@ and Noxy and Dolly behind them.
 The princess was standing in front of a dozen barrels of pressed apples
 with her hands over her mouth.
 An enormous brown bear was grumbling in front of her,
-while a nervous man Noxy made patting motions in the air with his hands
+while a skinny man nervously made patting motions in the air with his hands
 at Manpa and Rinpa, who had drawn their swords.
 "It's all right, it's all right, she's fine, she's fine," he babbled.
 Noxy wasn't sure whether he was talking about the princess or the bear.
@@ -2457,11 +2457,11 @@ The prince looked at their angry faces, his heart pounding.
 "Very well," he said.
 "If you'd like to go with Sergeant Gyalpa,
 I'm sure Mope would be happy to clear this up.
-Would you like a cup of tea while you're speaking with him?
+Would you like a cup of chai while you're speaking with him?
 I would offer one to your friends as well,
 but I think the kitchen staff would require more warning for that."
 
-"I don't want by tea!" the bricksmith squawked.
+"I don't want by chai!" the bricksmith squawked.
 "I want my horse back!
 And I want that animal of yours out *here* where we can *all* have a word by him!"
 
@@ -2741,7 +2741,7 @@ burn back some brambles that had come creeping out of Blighted land.
 The scratches on his arms and legs had taken weeks to heal,
 but he had never complained.
 He argued with people sometimes for no good reason,
-and loved to sit on the fence post nearest the road with a cup of tea or an apple,
+and loved to sit on the fence post nearest the road with a cup of chai or an apple,
 just to make conversation with whoever passed by.
 He was honest and dishonest,
 fair and unfair,
@@ -2772,13 +2772,13 @@ not knowing where else to go,
 Noxy found herself sitting with Mope and Dolly
 in a comfortable little kitchen down the hall from the apartment the two trolls shared.
 "We take most of our meals here,"
-Dolly explained as she poured the tea.
+Dolly explained as she poured the chai.
 "And Her Highness likes to help me bake cakes.
 She has quite a sweet tooth.
 Here you go."
 
 "Thanks," Noxy said,
-putting the tea on the table to cool.
+putting the chai on the table to cool.
 
 Dolly set down a tray of cured apple slices
 and sprinkled a spoonful of sugar onto them,
@@ -2788,7 +2788,7 @@ then nudged her son.
 
 "Sorry, mother."
 Mope tucked a scrap of ribbon into his book to mark his place
-and set it aside to pick up his own cup of tea.
+and set it aside to pick up his own cup of chai.
 
 They chatted for a while about nothing in particular,
 as people often do on quiet afternoons when everyone else is busy.
@@ -3524,7 +3524,8 @@ How's Noxy?"
 "She's fine.
 She and my sister are—"
 The prince halted mid-sentence
-as Aft's passenger slid awkwardly down the side of the cloud
+as Aft's passenger slid awkwardly down the side of the cloud,
+set a pair of heavy cases on the ground,
 and brushed her hands on her coat.
 
 "Your Highness,"
@@ -3535,119 +3536,287 @@ For a moment the words wouldn't come,
 but then they burst out of him like startled birds.
 "What in the saints' names are *you* doing here?"
 
-"I'm here to surrender," she said calmly.
+"I'm here to surrender," she said calmly,
+then gestured at the cases beside her.
+"I don't suppose someone could help me with my books?"
 
 </section>
 <section markdown="1">
 
 ## Chapter 6: Arrival and Departure
 
-FIXME: Aft brings Shudarga to Apple Bridge
+Sergeant Gyalpa wanted to lock the scholar in a cell and throw away the key.
+Or wall it up,
+just to be sure.
+And yes,
+he *was* serious,
+he told Mope curtly.
+Between the tornado,
+Bortja whipping up mobs to go after the Gifted,
+and whatever Consul Jigme was up to,
+they had enough to keep his troop busy ten times over.
+This was Shudarga they were talking about.
+Her writing had brought Loghan to the brink of civil war.
+He'd rather deal with the tornado any day.
 
-*The garrison house was still that night when a quiet voice only
-Princess Ogmin could hear told her to get dressed. She was
-puzzled—it was dark outside, and Dolly was still snoring next
-door—but the princess was used to being puzzled. The itchy tingling
-under the little wooden ring on her right hand bothered her, but only
-a little.*
+Not just Loghan,
+Mope observed,
+instantly making the prince wish his tutor knew when *not* to be so meticulous about facts.
+There had been protests in Chaghan too,
+and in other nearby kingdoms.
+The idea that the law ought to be long to everyone appealed to a lot of people,
+and it was hard to argue that it would lead to chaos
+when Garheim and Thind and elsewhere seemed to manage just fine.
 
-*Quietly, because the voice told her that it was important to be
-quiet, she put on her clothes and opened her door as slowly and as
-quietly as she could. She wasn't surprised by the two raccoons
-waiting for her, their dark eyes reflecting light from the tiny
-dayglass lantern one carried in its paw.*
+"But that's not the point,"
+Prince Thokmay said wearily,
+raising his hand to forestall further argument.
+"At least, that's not the point I care about right now.
+The sergeant is right.
+We can't let her wander around stirring up trouble.
+And no,
+I don't think her arriving at the same time as Jigme is a coincidence.
+We'll put her in the royal suite on the top floor.
+No, no, listen to me."
+He waited for the sergeant to settle back in his chair,
+a glower on his face.
+"It has its own bath and a sitting room,
+and unless she can climb the walls like Mope,
+she won't be able to go anywhere."
 
-*The raccoons shepherded her down the corridor to the narrow staircase
-the staff used when they were emptying chamber pots or simply wanted
-to stay out of sight. One scampered ahead to sniff for trouble while
-the other stayed with her. She yawned. It was definitely past her
-bedtime. She should—and then the ring tingled and the "should"
-evaporated.*
+He sighed.
+"I'll write my father a letter
+and get one of the hawks to carry it.
+We should hear back in three or four days.
+Until then,
+let's just…let's just stop this pot from boiling over, all right?
+Dismissed."
 
-*"All clear," the lead raccoon hissed. Princess Ogmin descended one
-careful step at a time, brow furrowed in concentration. She didn't
-know why it was so important for her to be quiet, only that it was.*
+He rubbed his temples with his thumbs after they left,
+stopping when he realized that was what Sergeant Dorbu had done
+whenever a problem made his head ache.
+Shudarga's heavy rectangular traveling cases sat side by side
+on the floor of his office.
+He nudged one with his boot.
+He ought to wait for Sergeant Inambu to check them for spells,
+but she was still in the infirmary,
+and the scholar didn't seem like the type to set booby traps.
+
+"You're being stupid," he muttered to himself,
+going on one knee and undoing the knots that held the case shut.
+*You really are,* he thought,
+and then he lifted the lid.
+
+Two floors below and half an hour's aimless ambling away,
+Noxy sat on the Dog Market dock
+tossing chips of stone into the river.
+Aft was going to want her to go home,
+and it would make Cloak happy,
+and she missed the mountains,
+but—
+
+She threw the next chip extra hard,
+annoyed at her own petulance.
+She and Thokmay had been writing back and forth for two years.
+She had told him things she had never told anyone else,
+and while his letters had been more guarded,
+he had been funny and curious about her life.
+The little sketches of Loghan that he had sometimes included
+were carefully pinned to her bedroom wall.
+She didn't feel like gushing about him
+the way Sensy seemed to want to gush about Rash
+(at least, when she wasn't complaining about him being such a goof),
+but she didn't want to leave Apple Bridge just yet.
+
+She stood and brushed her hands on her trousers.
+As Granna Fee said,
+a cup of chai wouldn't solve the problem,
+but it wouldn't make it any worse.
+
+It didn't take her long to discover that her grandmother wasn't always right.
+She had noticed a small shop on the edge of the market
+with the glyph for "chai" painted above its grilled window.
+When she rapped her knuckles on the door drum
+a gruff male voice said, "Be welcome."
+She entered,
+dipped her head in a little bow,
+and seated herself on a worn wooden stood in front of an equally worn counter.
+
+"One cup simple, please," she said,
+fishing in her pocket for a winkle.
+
+The proprietor crossed his arms.
+"You're the cloud girl."
+It was an accusation, not a question.
+
+She put the winkle on the counter and nodded.
+"I'm Noxy."
+
+"Hmph."
+He made no move to take her shell.
+"They say you're pretty friendly with his high and mightyness
+and that pet of his.
+That true?"
+
+"Do you mean Learned Mope?" Noxy asked,
+forcing her hands to stay relaxed instead of bunching into fists.
+
+The chai maker scowled.
+"Don't mind as what he calls himself.
+He was along by here a couple of days back making trouble.
+If you're packed with him,
+I'm not sure I'm on with pouring for you."
+
+Noxy smiled her mother's "are you sure you want to have this discussion?" smile.
+"What kind of trouble was he making?"
+
+The scowl opposite her deepend.
+"It's along what Bortje says.
+They want to stay by where they belong,
+I'm fine with that.
+But coming in my place,
+well,
+there's folk as would go along by somewhere else
+instead of sitting beside a troll or a bear or what-not."
+
+"That sounds to me like those folk making you trouble,
+not Mope,"
+Noxy observed.
+She held his gaze a moment,
+then picked up her winkle, stood, and left.
+She was careful to close the door quietly instead of letting it slam.
+
+*The garrison house was still that night
+when a quiet voice only Princess Ogmin could hear told her to get dressed.
+She was puzzled—it was dark outside,
+and Dolly was still snoring next door—but
+the princess was used to being puzzled.
+The itchy tingling under the little wooden ring on her right hand bothered her,
+but only a little.*
+
+*Quietly,
+because the voice told her that it was important to be quiet,
+she put on her clothes and gingerly opened her door.
+She wasn't surprised by the two raccoons waiting for her,
+their dark eyes reflecting light from the tiny dayglass lantern one carried in its paw.*
+
+*The raccoons shepherded her down the corridor
+to the narrow staircase the staff used when they were emptying chamber pots
+or simply wanted to stay out of sight.
+One scampered ahead to sniff for trouble while the other stayed with her.
+Her vague worry at being awake in the middle of the night
+started to solidify.
+She should—and then the ring tingled and the "should" evaporated.*
+
+*"All clear," the lead raccoon hissed.
+Princess Ogmin descended one careful step at a time,
+brow furrowed in concentration.
+She didn't know why it was so important for her not to wake anyone,
+only that it was.*
 
 *The servants' quarters were two floors down, in the upper basement.
-One more flight brought them to the lower basement. The air was cool
-and damp. She shivered suddenly. The walls were lined with barrels
-of beer and rounds of cheese half as tall as she was. String sacks of
-yellow and purple onions hung from the ceiling, a rack of old hunting
-horns standing forgotten between them. A cat darted out of a corner,
-froze a moment to study her, then disappeared into the shadows again
-when the raccoons chittered at it.*
+One more flight brought them to the lower basement.
+The air was cool and damp.
+She shivered suddenly.
+The walls were lined with barrels of beer and rounds of cheese half as tall as she was.
+String sacks of yellow and purple onions hung from the ceiling,
+a rack of old hunting horns standing forgotten between them.
+A cat darted out of a corner,
+froze a moment to study her,
+then disappeared into the shadows again when the raccoons chittered at it.*
 
-*A blackened grate guarded an old fireplace in the far wall. It
-looked as though it hadn't been opened since before she was born, but
-when she pulled on it, it swung toward her with a rusty squeak. The
-first raccoon trotted into the darkness. When the princess hesitated,
-the second one said, "Go on, go ahead," raising his lantern a little
-higher to give her more light.*
+*A blackened grate guarded an old fireplace in the far wall.
+It looked as though it hadn't been opened since before she was born,
+but when she pulled on it,
+it swung toward her with a rusty squeak.
+The first raccoon trotted into the darkness.
+When the princess hesitated,
+the second one said, "Go on, go ahead,"
+raising his lantern a little higher to give her more light.*
 
-*She had to go on hands and knees. It scared her. So did the
-darkness—the little lantern behind her cast just enough light for
-her to see how small the passageway was. Her brother or Noxy would
-have wondered who made it and when. Was it a secret escape route from
-the time when the Ninety Kingdoms were constantly at war with each
-other? Or had some patient thief dug into the stone one painstaking
-chip and scrape at a time to loot the garrison house's stores? But
-she wasn't her brother, or Noxy, and all the ring let her think was
-"keep going, keep going".*
+*She had to go on hands and knees.
+It scared her.
+So did the darkness—the little lantern behind her cast just enough light
+for her to see how small the passageway was.
+Her brother or Noxy would have wondered who made it and when.
+Was it a secret escape route from a time when
+the Ninety Kingdoms were constantly at war with each other?
+Or had some patient thief dug into the stone one painstaking chip and scrape at a time
+to loot the garrison house's stores?
+But she wasn't her brother, or Noxy,
+and all the ring let her think was "keep going, keep going".*
 
-*Finally she saw light ahead. She crawled toward it, scraping her
-hands on the rough stone, tears on her cheeks.*
+*Finally she saw light ahead.
+She crawled toward it,
+scraping her hands on the rough stone,
+tears on her cheeks.*
 
-*The tunnel dead-ended in the bottom of a well so shallow that when
-she stood up, her shoulders and head were out of it. The raccoons
-climbed her dress to get out, making her shriek. She clapped her hand
-over her mouth—she had to be quiet, it was so important to be quiet,
-the ring was telling her how important it was and she needed to
-listen.*
+*The tunnel dead-ended in the bottom of a well so shallow that when she stood up,
+her shoulders and head were out of it.
+The raccoons climbed her dress to get out.
+She clapped her hand over her mouth to stop herself from shrieking—she had to be quiet,
+it was so important to be quiet,
+the ring was telling her how important it was and she needed to listen.*
 
-*"Well, come on," rumbled the mound of fur in front of her. "Out you
-get." The princess struggled for a moment, unable to find purchase
-for her feet, then braced her elbows and wriggled like an itchy snake
-until she could bend forward at the waist and drag herself the rest of
-the way out.*
+*"Well, come on," rumbled the mound of fur in front of her.
+"Out you get."
+The princess struggled for a moment,
+unable to find purchase for her feet,
+then braced her elbows and wriggled like an itchy snake
+until she could bend forward at the waist
+and drag herself the rest of the way out.*
 
-*She was in a warehouse. As she got to her feet and wiped dirt from
-her hands onto her skirt, a crow fluttered down from the rafters.
+*She was in a warehouse.
+As she got to her feet and wiped dirt from her hands onto her skirt,
+a crow fluttered down from the rafters.
 "All clear outside," it squawked.*
 
-*"Good." The skinny man who had been sitting on a cart beside the
-bear swallowed the last of the bread he had been gnawing on. "You've
-been a very good girl. Now, come here. Let's have a look at you."
+*"Good."
+The skinny man who had been sitting on a cart beside the bear
+swallowed the last of the bread he had been gnawing on.
+"You've been a very good girl.
+Now, come here.
+Let's have a look at you."
 The ring on the princess's finger tingled in time with his words.*
 
-*Eyes downcast, Princess Ogmin obeyed. The skinny man pushed his
-crushed hat back on his head and lifted her chin so that he could look
-into her eyes. "Excellent," he whispered.*
+*Eyes downcast, Princess Ogmin obeyed.
+The skinny man pushed his crushed hat back on his head
+and lifted her chin so that he could look into her eyes.
+"Excellent," he whispered.*
 
-*Something knocked softly against the back wall of the warehouse. A
-small gray head poked through the rear door. "We're ready when you
-are," the raccoon said.*
+*Something knocked softly against the back wall of the warehouse.
+A small gray head poked through the rear door.
+"We're ready when you are," the raccoon said.*
 
-*"Excellent," the skinny man repeated. "Now, why don't you sit along
-by here? Or better yet…" The skinny man frowned. "How by you take
-a lie down instead, hm?"*
+*"Excellent," the skinny man repeated.
+"Now, why don't you sit along by here? Or better yet…"
+The skinny man frowned.
+"How by you take a lie down instead, hm?"*
 
-*"Where are we going?" the princess asked, lying down in the back of
-the cart. Something told her she ought to be afraid, but every time
-the thought started to form, her ring drove it away. Even when the
-skinny man put a blanket over her and laid a few rolls of cloth across
-the cart so that she was completely hidden, the tingling dissolved the
-thought.*
+*"Where are we going?" the princess asked,
+lying down in the back of the cart.
+Something told her she ought to be afraid,
+but every time the thought started to form,
+her ring drove it away.
+Even when the skinny man put a blanket over her
+and laid a few rolls of cloth across the cart so that she was completely hidden,
+the tingling dissolved the thought.*
 
-*"Not far," the skinny man lied as he hitched the bear to the wagon.
-"Not half far. But it'll go along faster if you sleep."*
+*"Not far," the skinny man lied
+as he hitched the bear to the wagon.
+"Not half far.
+But it'll go along faster if you sleep."*
 
-*The princess closed her eyes. A moment later her breathing slowed.
-Humming to himself, the skinny man climbed swung himself up onto the
-seat of the wagon. The bear lumbered to her feet with a snort and set
-off, the crow circling overhead. The raccoons pushed the door closed
+*The princess closed her eyes.
+A moment later her breathing slowed.
+Humming to himself,
+the skinny man climbed swung himself up onto the seat of the wagon.
+The bear lumbered to her feet with a snort and set off,
+the crow circling overhead.
+The raccoons pushed the door closed
 and then raced each other down the street to catch up with the wagon,
-leaping into the back and trotting across the sleeping princess as if
-she was just another roll of cloth.*
+leaping into the back and trotting across the sleeping princess
+as if she was just another roll of cloth.*
 
 </section>
 <section markdown="1">

@@ -1,6 +1,6 @@
 ---
 title: "The Inspector's Paradox"
-date: 2026-06-03
+date: 2026-06-04
 category: software
 katex: true
 ---
