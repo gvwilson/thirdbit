@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Starting Cheaply</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">notwrong</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../productivity/">Defining Productivity</a></li>
+<li><a href="../wrong/">How to Be Wrong</a></li>
+<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
+<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
+<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
+<li><a href="../critical/">Reading Studies Critically</a></li>
+<li><a href="../running/">Running Studies in Your Organization</a></li>
+<li><a class="active" href="../cheaply/">Starting Cheap</a></li>
+<li><a href="../finale/">Conclusion: What to Do Next</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
+<ul class="dropdown-content" id="nav-slides">
+<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../further/">Further Reading</a></li>
+<li><a href="../stats/">Statistical Reference</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/notwrong">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Starting Cheaply</h1>
+<div class="callout">
+<ul>
+<li>Explain why small, fast, informal studies are better than no studies at all.</li>
+<li>Recruit participants for user research without a formal recruiting budget.</li>
+<li>Run a think-aloud session with minimal preparation.</li>
+<li>Apply the RITE method to iterate on a tool or process using a small participant pool.</li>
+<li>Present informal findings to skeptical stakeholders without overstating what the evidence supports.</li>
+</ul>
+</div>
+<p>In the early 2000s,
+Dennis Wixon's team at Microsoft was evaluating software products with the standard usability protocol:
+run all participants through the complete test,
+compile observations,
+write a report,
+wait for the next release cycle to fix anything.
+The problem was obvious once they looked for it.
+The second participant got stuck in the same place as the first.
+The third participant got stuck there too.
+By the time all eight participants had finished,
+six of them had encountered the same confusing label on the same menu
+and abandoned the task in the same way—
+while the team sat in the observation room watching it happen
+and carefully noting it down for the report they would write afterward.</p>
+<p>The team's response was blunt: fix the label between sessions [<a class="bib-ref" href="../bibliography/#Medlock2002">Medlock2002</a>].
+If participant one demonstrates a serious problem,
+address it before participant two arrives.
+The remaining participants can then find different problems
+instead of re-enacting the first one.
+This is the <a class="gl-ref" href="../glossary/#rite_method">Rapid Iterative Testing and Evaluation (RITE) method</a>,
+and it illustrates the argument of this appendix.
+The goal of research is to learn things that improve decisions.
+Elaborate protocols can get in the way of that goal
+just as surely as doing nothing.</p>
+<h2>What "Enough" Actually Means</h2>
+<ul>
+<li>The question is not "have we done enough research?" but "do we know enough to proceed?"<ul>
+<li>Erika Hall's formulation: research is the process of finding out what you don't know,
+    and the point is to reduce uncertainty enough to act wisely [<a class="bib-ref" href="../bibliography/#Hall2019">Hall2019</a>]</li>
+<li>Most organizational decisions about tools, processes, and team practices
+    are made with almost no evidence at all</li>
+<li>A small, informal study almost always produces better evidence than a meeting</li>
+</ul>
+</li>
+<li>The standard for "enough" depends on the decision you are trying to support<ul>
+<li>Deciding whether to run a larger study: five sessions may be sufficient</li>
+<li>Deciding whether to mandate a tool across five hundred developers: it is not</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#formative_evaluation">Formative evaluation</a>
+    differs from <a class="gl-ref" href="../glossary/#summative_evaluation">summative evaluation</a><ul>
+<li>Formative: you are studying something in order to improve it<ul>
+<li>Small samples, rapid iteration, qualitative focus</li>
+<li>The question is "what is wrong?" not "how often is it wrong?"</li>
+</ul>
+</li>
+<li>Summative: you are assessing whether something works well enough to deploy or recommend<ul>
+<li>Requires more participants, controlled conditions, and quantitative metrics</li>
+<li>See <a href="../quantitative/">the quantitative lesson</a></li>
+</ul>
+</li>
+<li>Most of what practitioners can realistically do without institutional support is formative</li>
+<li>Mislabeling formative evidence as summative is the fastest way to lose credibility
+    with the people who read the studies in this tutorial</li>
+</ul>
+</li>
+<li>The goal of this appendix is not to give you a shortcut to rigorous conclusions<ul>
+<li>It is to give you a way to be better informed than you were before,
+    at a cost your organization can actually afford</li>
+</ul>
+</li>
+</ul>
+<h2>Finding Participants Without a Budget</h2>
+<ul>
+<li>Most <a class="gl-ref" href="../glossary/#guerrilla_research">guerrilla research</a> uses whoever is available and willing<ul>
+<li>This is convenience sampling with all the limitations that implies
+    (see <a href="../qualitative/">earlier discussion</a>)</li>
+<li>That is acceptable for formative evaluation,
+    where you are looking for problems to fix rather than estimating proportions</li>
+</ul>
+</li>
+<li>Practical recruiting approaches:<ul>
+<li>Post in team or community Slack channels: "I need 45 minutes of your time to watch you do a code review"</li>
+<li>Ask colleagues in adjacent teams who are not on your immediate project</li>
+<li>Reach out to a handful of actual users of the tool or process you are studying</li>
+<li>Offer a small incentive if your organization allows it</li>
+</ul>
+</li>
+<li>Avoid:<ul>
+<li>People you manage or who manage you (power dynamics contaminate the data in both directions)</li>
+<li>Colleagues who already know your hypothesis (they will unconsciously try to confirm it)</li>
+<li>People with unusually high or unusually low expertise,
+    unless that is specifically your target population</li>
+</ul>
+</li>
+<li>Aim for people who fit your target profile, not for whoever responds first<ul>
+<li>Recruiting the wrong participants produces findings that are confidently wrong
+    rather than tentatively right</li>
+</ul>
+</li>
+<li>Five participants is typically enough to identify most problems in a specific workflow or interface
+     [<a class="bib-ref" href="../bibliography/#Nielsen1993">Nielsen1993</a>]<ul>
+<li>This is not a universal law: it applies specifically to formative usability testing of a focused task set</li>
+<li>It does not apply to claims about what "most developers" do, think, or prefer</li>
+<li>See the Misconceptions section below</li>
+</ul>
+</li>
+</ul>
+<h2>Running a Think-Aloud Session</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#think_aloud_protocol">think-aloud protocol</a> asks participants
+    to verbalize their thoughts as they work through tasks<ul>
+<li>"Please say out loud whatever you are thinking while you do this"</li>
+<li>This gives you access to reasoning that would otherwise be invisible:
+    what the participant expected to happen, why they chose a particular action,
+    when they realized something had gone wrong</li>
+</ul>
+</li>
+<li>Equipment required: a participant, a computer, and a way to take notes<ul>
+<li>A screen recorder is useful but optional</li>
+<li>You rarely need to transcribe a recording;
+    what matters is what you noted during or immediately after the session</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#task_based_testing">Task-based testing</a>
+    gives participants concrete, realistic goals rather than open-ended exploration<ul>
+<li>Open exploration ("just try the tool") produces impressions, not observations</li>
+<li>Concrete tasks produce observable behavior:
+    "Given this pull request, use the AI assistant to write a one-paragraph summary of the changes"</li>
+<li>Tasks should be realistic and neutral—not designed to make the tool look good or bad</li>
+<li>Three to five tasks in a session is usually sufficient</li>
+</ul>
+</li>
+<li>What to observe and record:<ul>
+<li>Where participants hesitate before acting</li>
+<li>Where they backtrack and try something different</li>
+<li>Where they state an expectation that turns out to be wrong</li>
+<li>Where they complete the task but via a longer or more indirect route than expected</li>
+<li>Where they give up, work around the tool, or ask for help</li>
+</ul>
+</li>
+<li>What not to do during the session:<ul>
+<li>Do not help participants when they get stuck, even when it is uncomfortable to watch</li>
+<li>Do not react to their mistakes or frustrations</li>
+<li>Do not explain what the tool was designed to do</li>
+<li>The point is to observe what happens without your intervention,
+    because you will not be there when real users encounter the same problems</li>
+</ul>
+</li>
+</ul>
+<div class="callout">
+<p>Participants will often look to you for reassurance that they are doing it correctly.
+They are not doing it correctly or incorrectly: they are showing you what actually happens.
+"You're doing great, just keep going" is a reasonable response to almost anything.</p>
+</div>
+<h2>The RITE Method</h2>
+<ul>
+<li>Standard usability evaluation runs all participants through the same protocol
+    and analyzes results afterward<ul>
+<li>This is appropriate when you need valid estimates:
+    "what fraction of users can complete this task without assistance?"</li>
+<li>It is wasteful when participants keep rediscovering the same problem</li>
+</ul>
+</li>
+<li>In the RITE method [<a class="bib-ref" href="../bibliography/#Medlock2002">Medlock2002</a>]:<ul>
+<li>Run the first session and take detailed notes</li>
+<li>Immediately after the session, identify the most severe problem you observed</li>
+<li>Fix that problem before the next session</li>
+<li>Or document it as a firm recommendation if you cannot change the tool</li>
+<li>Repeat until sessions stop producing new problems</li>
+</ul>
+</li>
+<li>This works because formative evaluation is not about estimating proportions<ul>
+<li>You are finding things to fix</li>
+<li>A session that reveals a new problem is more useful than a session
+    that confirms a problem you already know about</li>
+</ul>
+</li>
+<li>RITE is not appropriate when:<ul>
+<li>You need to compare two versions of a tool
+    (you are changing one version between sessions, so sessions are not comparable)</li>
+<li>You need a generalizable estimate of performance</li>
+<li>You need to report results in a form others will scrutinize for validity</li>
+</ul>
+</li>
+<li>A practical RITE cycle for a team evaluating an AI coding tool:<ul>
+<li>Session 1: watch a developer use the tool for a representative task; note what creates friction</li>
+<li>After session 1: identify the one change most likely to remove the most friction</li>
+<li>Make the change, or agree with the team that it will be made before the next session</li>
+<li>Session 2: confirm the change helped and identify the next problem</li>
+<li>Stop when sessions stop surfacing new observations</li>
+</ul>
+</li>
+</ul>
+<h2>Analyzing What You Found</h2>
+<ul>
+<li>Take notes during or immediately after each session, not the next day<ul>
+<li>Memory for specific behavioral moments degrades within hours,
+    especially the ones that seemed minor at the time and turned out to matter</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#affinity_mapping">Affinity mapping</a> is a simple analysis technique suitable for small studies:<ul>
+<li>Write each distinct observation on a separate sticky note</li>
+<li>Cluster observations that seem related to the same underlying problem</li>
+<li>Name each cluster with a sentence that makes a claim:
+    "Developers hesitate before accepting suggestions they have not read"
+    is a finding; "trust issues" is a filing category</li>
+</ul>
+</li>
+<li>Count how often each problem appeared across sessions<ul>
+<li>"Four of five participants had difficulty with X" is an honest finding</li>
+<li>"80% of developers have difficulty with X" is an overgeneralization from the same data</li>
+</ul>
+</li>
+<li>A two-page report is almost always more useful than a twenty-page one<ul>
+<li>Lead with the decision you are informing</li>
+<li>List findings in order of severity, not in order of how interesting you found them</li>
+<li>Include one representative observation—a specific thing you saw or heard—
+    for each finding</li>
+<li>End with recommended actions</li>
+</ul>
+</li>
+</ul>
+<h2>Presenting Findings to Skeptics</h2>
+<ul>
+<li>Some colleagues and managers will dismiss informal research as "not scientific"<ul>
+<li>They are not entirely wrong, and conceding this quickly is better than arguing the point</li>
+</ul>
+</li>
+<li>Lead with the decision, not the methods:<ul>
+<li>"Before we spend three months building this integration,
+    we watched five developers try to use a prototype for two afternoons.
+    Here is what we found."</li>
+<li>The frame is not "this is rigorous research";
+    it is "this is better information than we had before"</li>
+</ul>
+</li>
+<li>Acknowledge limitations before someone else points them out:<ul>
+<li>"This was five developers on one team—we do not know if the problems generalize"</li>
+<li>Volunteering the limitation is more credible than having it extracted</li>
+</ul>
+</li>
+<li>Present uncertainty as a reason to do more, not as a reason to dismiss what you have:<ul>
+<li>"We found three specific problems in five sessions.
+    A larger study could tell us how common they are across the full team.
+    This study tells us they exist."</li>
+</ul>
+</li>
+<li>The hardest skeptic to address is the one who uses methodological objections
+    as cover for not wanting to find out anything that might complicate a decision already made<ul>
+<li>That is a political problem, not a research problem,
+    and better evidence will not fix it</li>
+</ul>
+</li>
+</ul>
+<h2>What You Cannot Claim</h2>
+<ul>
+<li>Informal research with five participants cannot support claims about:<ul>
+<li>Proportions: "X% of developers have this problem"</li>
+<li>Causal effects: "using this tool causes developers to write more bugs"</li>
+<li>Comparisons: "developers using tool A are 30% faster than those using tool B"</li>
+</ul>
+</li>
+<li>It can support claims about:<ul>
+<li>The existence of specific problems: "we observed developers getting stuck at this step"</li>
+<li>Patterns within the observed sample: "in most sessions, participants..."</li>
+<li>Hypotheses worth investigating more rigorously:
+    "the confusion around X may warrant a controlled study before full rollout"</li>
+</ul>
+</li>
+<li>The limitation is not that small samples produce no information<ul>
+<li>It is that they produce adequate evidence for some questions
+    and inadequate evidence for others</li>
+<li>Formative research is the right tool for identifying what to fix,
+    not for proving that you have fixed it or for estimating the size of the effect</li>
+</ul>
+</li>
+</ul>
+<h2>Misconceptions</h2>
+<dl>
+<dt>Five participants is enough for any research question.</dt>
+<dd>Five participants is typically enough to identify most major problems
+in a focused usability study under formative conditions.
+It is not enough to make quantitative claims about any population.
+The five-participant guideline applies specifically to the question
+"what problems exist in this workflow?"—not to
+"how many developers are affected?" or "does this tool improve productivity?"</dd>
+<dt>Guerrilla research is just asking people what they think.</dt>
+<dd>Systematic observation, structured task design, consistent note-taking,
+and disciplined analysis are what separate research from anecdote.
+Asking a few colleagues over lunch whether they like the new tool
+is not a study; it is a poll of people who are motivated to be agreeable.
+The methods described in this appendix are informal, not undisciplined.</dd>
+<dt>If participants complete the task, there is no problem.</dt>
+<dd>Participants often complete tasks while confused, backtracking,
+and making incorrect assumptions that happen not to matter for that particular task.
+Task completion rate is not a proxy for user experience quality.
+What you learn from a think-aloud is not whether participants completed the task
+but what happened while they did.</dd>
+<dt>Informal findings should not be shared because they will embarrass you.</dt>
+<dd>Informal findings shared honestly, with limitations stated, are defensible.
+What attracts criticism is overclaiming.
+"We watched five people and observed this" is a reasonable contribution to a decision.
+"Our research proves this tool improves team productivity" is not,
+regardless of how formally the study is presented.</dd>
+<dt>You should tell participants what you are studying so they can help.</dt>
+<dd>Telling participants your hypothesis primes them to look for what you are already looking for,
+which makes it more likely they report what you expect rather than what is actually affecting them.
+Give participants tasks, not hypotheses.
+"Here is what we are interested in" is appropriate at the end of a session;
+it is not appropriate at the beginning.</dd>
+</dl>
+<h2>Check Understanding</h2>
+<details>
+<summary>A team wants to compare two AI coding assistants to decide which to adopt. They have five willing participants and half a day. Should they use the RITE method? Why or why not?</summary>
+<p>No. The RITE method is designed for formative evaluation of a single product,
+where you observe a problem and fix it before the next session.
+For a comparison between two products,
+you need each participant to use both tools under comparable conditions
+(a within-subjects design)
+or different participants to use each tool
+(a between-subjects design).
+Using RITE for a comparison would mean changing one of the tools between sessions,
+making those sessions incomparable.
+A more appropriate approach: have each participant complete equivalent tasks
+with both tools in counterbalanced order,
+take notes on where they struggle with each,
+and report what you observed without claiming statistical validity.</p>
+</details>
+<details>
+<summary>A developer ran a five-session think-aloud study and found that three of five participants got confused at the same step. She wants to write that "60% of developers will experience this problem." What is wrong with this claim, and how should she rewrite it?</summary>
+<p>The fraction 3/5 is mathematically 60%,
+but presenting it as a percentage implies a precision that a sample of five cannot support:
+the 95% confidence interval for a proportion estimated from five observations
+runs from approximately 15% to 95%.
+More fundamentally, "developers" implies generalizability to a population
+that a convenience sample of five does not represent.
+An honest rewrite: "In three of five sessions, participants had difficulty at this step."
+That is a weaker claim, but it is accurate—and it is still useful
+for deciding whether to redesign the step.</p>
+</details>
+<details>
+<summary>Why is a think-aloud protocol often more informative than asking participants what they found difficult after the session ends?</summary>
+<p>Post-task recall is unreliable in several ways.
+Participants forget specific moments of confusion,
+especially when they eventually succeeded:
+frustration that lasted three minutes feels minor in retrospect if the task was completed.
+Participants tend to summarize overall impressions rather than describe specific events,
+and they often rationalize behavior they engaged in without much deliberation.
+The think-aloud captures real-time reactions,
+including confusion that was later resolved
+and incorrect assumptions that happened not to cause failure—
+exactly the phenomena you need to understand if you want to reduce friction in the workflow.</p>
+</details>
+<details>
+<summary>A manager hears about your five-session study and asks: "How do you know this applies to all our developers?" What is the correct response?</summary>
+<p>Concede the limitation immediately:
+"We don't.
+Five sessions tells us these problems exist;
+it doesn't tell us how common they are across the full team."
+Then redirect to the decision:
+"What we know is that these are real problems we observed.
+A larger study would tell us how widespread they are.
+If that matters before we decide, we should plan one.
+If we're comfortable that these are worth fixing regardless of frequency,
+the next step is to fix them."
+Defending the generalizability of a five-person convenience sample is a losing argument.
+Framing the evidence accurately and asking what decision it supports
+is more productive.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Design a Think-Aloud Session (20 minutes)</h3>
+<p>Your team is considering switching from your current code review tool to a new one.
+Write a plan for a 45-minute think-aloud session:
+specify three tasks you would ask participants to complete,
+write a short recruitment message you would send to five colleagues in a different team,
+and design a simple note-taking template that would help you record hesitations,
+errors, and successful completions without overwhelming you during the session itself.
+Identify one element of your design that might bias your observations
+and describe how you would address it.</p>
+</div>
+<div class="exercise">
+<h3>Write the Findings (20 minutes)</h3>
+<p>You observed four developers using an AI coding assistant for code review tasks.
+One accepted every suggestion without reading it.
+One read each suggestion carefully and accepted about half.
+One switched to a different suggestion mode halfway through, after becoming frustrated with the default.
+One disabled the assistant after the second suggestion and completed the task manually.
+Write the findings section of a two-page report aimed at an engineering manager
+who is deciding whether to mandate the tool for the team.
+Include: what you observed, what the observations suggest,
+what you cannot conclude from four sessions,
+and what you would recommend as a next step.</p>
+</div>
+<div class="exercise">
+<h3>Respond to a Skeptic (15 minutes)</h3>
+<p>A colleague says:
+"This is too informal to be useful.
+If we're going to study whether this tool helps,
+we need to do it properly—a controlled experiment,
+random assignment, statistical analysis.
+Anything less is just anecdote."
+Write two paragraphs in response.
+The first should acknowledge the legitimate concern behind this position.
+The second should explain under what conditions informal evidence is more useful
+than waiting for the resources to conduct a formal study.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../running">Running Studies in Your Organization</a>
+</div>
+<div class="col-6 center">
+<a href="../">notwrong</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale">Conclusion: What to Do Next</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
