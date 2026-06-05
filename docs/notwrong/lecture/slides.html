@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How To Not Be Wrong About AI</title>
+<meta content="How to Not Be Wrong About AI" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<div class="shower list" tabindex="-1">
+<section class="slide">
+<div class="center">
+<h1>How To Not Be Wrong About AI</h1>
+<br/>
+<br/>
+<p>Greg Wilson</p>
+<p>June 2026</p>
+<p><a href="http://third-bit.com/notwrong/">http://third-bit.com/notwrong/</a></p>
+</div>
+</section>
+<section class="slide">
+<h2>What This Talk Is About</h2>
+<ul>
+<li>AI coding tools are everywhere, and so are claims about what they do</li>
+<li>In 2023, GitHub announced their tools made developers 55% faster</li>
+<li>That number appeared in every executive presentation for a year</li>
+<li>This workshop teaches you how to tell if you should believe it or not</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Why Media Coverage Fails You</h2>
+<ul>
+<li>Journalists rarely read past the abstract of research reports</li>
+<li>Abstracts rarely report limitations</li>
+<li>People rarely publish negative results</li>
+<li>Press releases are written to generate coverage, not accuracy</li>
+<li>Conflicts of interest are common<ul>
+<li>Most AI productivity studies are funded by the companies selling the tools</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Empirical Software Engineering</h2>
+<ul>
+<li><strong>Empirical software engineering</strong> (ESE) uses observation and experiment to study how software is built</li>
+<li>It draws on psychology, sociology, economics, and statistics
+    as well as computer science</li>
+<li>The field has existed since the 1960s</li>
+<li>Bad news: most studies don't address things practitioners actually care about [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>]</li>
+<li>Good news: "most" isn't "all"</li>
+</ul>
+</section>
+<section class="slide">
+<h2>The Question You Actually Need to Answer</h2>
+<ul>
+<li>"Is AI helping my team?" sounds simple</li>
+<li>But it requires answering:<ul>
+<li>Helping with what?</li>
+<li>Measured how?</li>
+<li>Compared to what?</li>
+</ul>
+</li>
+<li>These are not pedantic questions</li>
+<li>The answer you get depends entirely on how you <strong>operationalize</strong> them</li>
+</ul>
+</section>
+<section class="slide">
+<h2>For Example</h2>
+<ul>
+<li>Prechelt measured 73 professional developers solving the same programming task
+    and found completion times ranged from 0.6 to 63 hours (i.e., 105X) [<a class="bib-ref" href="../bibliography/#Prechelt2000">Prechelt2000</a>]</li>
+<li>After controlling for programming language the ratio shrank to 17X</li>
+<li>With a careful definition of "more productive" it shrank further to 5X</li>
+<li>The answer depends a lot on exactly what question is asked</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Claims, Studies, and Evidence</h2>
+<ul>
+<li>A <strong>claim</strong> is an assertion: "AI tools make programmers more productive"</li>
+<li>A <strong>study</strong> is a systematic attempt to test a claim</li>
+<li><strong>Evidence</strong> is what a study produces, and it varies in quality</li>
+<li>One study with a nice headline can change hiring practices and university curricula
+    before anyone checks whether it replicates</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Why "Productivity" Is Hard to Define</h2>
+<ul>
+<li>Manufacturing productivity means widgets per hour: both terms are measurable</li>
+<li>Software output is not homogeneous: a ten-line bugfix may be worth more than a thousand-line feature</li>
+<li>Much of software work is invisible: reading, reviewing, helping colleagues<ul>
+<li>A field study found developers only spend 25% of their day actually writing code [<a class="bib-ref" href="../bibliography/#Meyer2017">Meyer2017</a>]</li>
+</ul>
+</li>
+<li>[<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>] is an entire book devoted to "this is really hard"</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Construct Validity and Proxy Metrics</h2>
+<ul>
+<li><strong>Construct validity</strong> is the degree to which a measurement captures the concept it is meant to represent</li>
+<li>Lines of code written per day has low construct validity as a productivity measure<ul>
+<li>You can write more lines by making code worse</li>
+</ul>
+</li>
+<li>A <strong>proxy metric</strong> stands in for something harder to measure directly<ul>
+<li>Common proxies: lines of code, commit frequency, story points, pull requests merged</li>
+</ul>
+</li>
+<li><strong>Goodhart's Law</strong>: when a measure becomes a target, it ceases to be a good measure<ul>
+<li>Particularly when people feel their jobs are threatened…</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>What You Can and Cannot Measure</h2>
+<ul>
+<li>The DORA metrics have better construct validity than activity counts [<a class="bib-ref" href="../bibliography/#Forsgren2018">Forsgren2018</a>]<ul>
+<li>Deployment frequency, lead time, change failure rate, time to restore</li>
+</ul>
+</li>
+<li>They are tied to customer outcomes rather than developer busyness</li>
+<li>They still have blind spots: a team can score well while building the wrong product</li>
+</ul>
+</section>
+<section class="slide">
+<h2>The Big Three Mistakes</h2>
+<ul>
+<li>Counting lines of code generated<ul>
+<li>Measures verbosity, not value</li>
+</ul>
+</li>
+<li>Timing artificial tasks<ul>
+<li>A 90-minute greenfield task does not predict real work</li>
+</ul>
+</li>
+<li>Measuring only the easy half<ul>
+<li>AI makes code generation faster,
+    but doesn't count review time,
+    debugging confidently wrong suggestions,
+    and security vulnerabilities</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Bias and Baselines</h2>
+<ul>
+<li>Before/after with no control group<ul>
+<li>You cannot separate the AI effect from anything else that changed</li>
+</ul>
+</li>
+<li>Asking developers if they feel more productive<ul>
+<li>The <strong>novelty effect</strong> inflates self-reports for weeks</li>
+<li>Feeling productive is not the same as being productive</li>
+</ul>
+</li>
+<li>Comparing volunteers to non-volunteers<ul>
+<li>Early adopters are usually already higher performers</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Metrics That Mislead</h2>
+<ul>
+<li>Treating adoption rate as a success metric<ul>
+<li>It measures whether the tool is installed, not whether it helps</li>
+</ul>
+</li>
+<li>Treating suggestion acceptance rate as a quality signal<ul>
+<li>Developers under pressure accept more suggestions, including insecure ones [<a class="bib-ref" href="../bibliography/#Pearce2022">Pearce2022</a>]</li>
+</ul>
+</li>
+<li>Comparing AI to nothing<ul>
+<li>the relevant question is whether AI outperforms the alternatives developers already have</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Qualitative Methods: When and Why</h2>
+<ul>
+<li><strong>Qualitative methods</strong> are for when you do not yet know what to measure</li>
+<li>They answer "why" and "what is happening here" rathr than "how much"</li>
+<li>A survey of 410 developers about AI tools revealed
+    where AI actually helps and where it gets in the way [<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>]<ul>
+<li>Invisible to any study measuring only task completion times</li>
+</ul>
+</li>
+<li>The question determines the method, not preference or habit</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Designing Good Interviews and Surveys</h2>
+<ul>
+<li><strong>Semi-structured interviews</strong> have a guide but allow follow-up<ul>
+<li>Consistent enough to compare, flexible enough to surface surprises</li>
+</ul>
+</li>
+<li><strong>Open questions</strong> invite narrative; <strong>closed questions</strong> invite classification</li>
+<li>Avoid <strong>leading questions</strong>: "Don't you find it faster?" assumes the answer</li>
+<li>Pilot your survey with 3–5 people before distributing it</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Thematic Analysis</h2>
+<ul>
+<li><strong>Open coding</strong>: read through the data and tag segments with descriptive labels</li>
+<li>Use <strong>gerund coding</strong>: "avoiding AI for security tasks" rather than "AI distrust"<ul>
+<li>This preserves what participants are actually doing</li>
+</ul>
+</li>
+<li>A theme is a claim you could write as a sentence, not a bucket for related quotes</li>
+<li>Stop collecting data when new interviews stop introducing new codes [<a class="bib-ref" href="../bibliography/#Braun2019">Braun2019</a>]</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Controlled Experiments</h2>
+<ul>
+<li>A <strong>controlled experiment</strong> manipulates one variable and measures its effect while holding others constant</li>
+<li><strong>Randomization</strong> assigns participants to conditions randomly, distributing unknown <strong>confounders</strong> evenly<ul>
+<li>This is the mechanism that makes <strong>causal claims</strong> defensible</li>
+</ul>
+</li>
+<li><strong>Full blinding</strong> is rarely possible in software engineering:<ul>
+<li>you cannot hide from a developer that they are using TDD</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>p-Values: What They Are and Are Not</h2>
+<ul>
+<li>A p-value is the probability of observing data at least as extreme as yours
+    if nothing was actually happening</li>
+<li>It is not the probability that the null hypothesis is true</li>
+<li>It is not the probability that you will replicate</li>
+<li>p &lt; 0.05 is a convention from the 1920s, not a law of nature</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Effect Size Matters</h2>
+<ul>
+<li><strong>Statistical significance</strong> tells you whether an effect is likely to be real</li>
+<li><strong>Effect size</strong> tells you how large it is</li>
+<li>A study with thousands of participants can find statistically significant effects
+    that are  too small to matter in practice</li>
+<li>Always report effect size alongside p-values; one without the other is incomplete<ul>
+<li>Equally, if a study doesn't report both, it probably has other flaws as well</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Most SE Experiments Are Underpowered</h2>
+<ul>
+<li><strong>Statistical power</strong> is the probability of detecting an effect if one exists</li>
+<li>Studies with 20–30 participants can only detect very large effects [<a class="bib-ref" href="../bibliography/#Kampenes2007">Kampenes2007</a>]</li>
+<li>Most software engineering experiments fall far below this threshold</li>
+<li>The effects you do detect in underpowered studies are inflated
+    —   The <strong>winner's curse</strong> (reluctance to publish negative results)</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Observational Studies: Watching the World</h2>
+<ul>
+<li><strong>Observational studies</strong> measure the world as it is, without manipulating variables</li>
+<li>Advantages: real-world behavior, large datasets, no ethical concerns about withholding interventions</li>
+<li>Disadvantage: you cannot establish causation because confounding variables cannot be ruled out</li>
+<li>Mining software repositories (MSR) is the most common approach</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Looking Where the Light Is</h2>
+<ul>
+<li>GitHub data is not a representative sample of software development</li>
+<li>Inactive repositories, class assignments, personal experiments, and mirrors
+    all appear alongside production software</li>
+<li><strong>Survivorship bias</strong>: you only see projects that still exist</li>
+<li>Example: projects with more tests also tend to have more experienced developers
+    —   You cannot attribute lower defect rates to testing alone</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Reading Studies Critically</h2>
+<ul>
+<li>Start with the abstract: what claim is being made?</li>
+<li>Jump to the methods before reading the results<ul>
+<li>Given this design, what can this study actually establish?</li>
+</ul>
+</li>
+<li>Read the limitations section<ul>
+<li>What do the authors say they <em>cannot</em> conclude?</li>
+<li>If this feels flimsy, the rest of the paper probably is as well</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>HARKing and p-Hacking</h2>
+<ul>
+<li>HARKing (Hypothesizing After Results are Known):
+    writing a paper as if a pattern found during analysis was predicted in advance</li>
+<li>p-hacking: trying multiple analyses until you get p &lt; 0.05, then reporting only that analysis<ul>
+<li>With 20 independent tests at p &lt; 0.05, you expect one false positive by chance</li>
+</ul>
+</li>
+<li>Pre-registration commits hypotheses before data collection, making both problems visible</li>
+<li>And if authors haven't shared data, there's a good chance there's an error in their work [<a class="bib-ref" href="../bibliography/#Wicherts2011">Wicherts2011</a>]</li>
+</ul>
+</section>
+<section class="slide">
+<h2>A Checklist for Evaluating a Study</h2>
+<ul>
+<li>Conclusion validity:
+    Was the sample large enough?
+    Are effect sizes reported?</li>
+<li>Internal validity:
+    Was there a control group?
+    Was assignment random?
+    Could novelty or learning effects explain the result?</li>
+<li>Construct validity:
+    Does the measurement actually capture the claim?</li>
+<li>External validity:
+    Who are the subjects, and are they representative of the population the conclusions address?</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Running Studies in Your Organization</h2>
+<ul>
+<li>Most practitioners don't have the time or the skills to run a randomized controlled trial</li>
+<li>Practical alternatives:<ul>
+<li>Retrospective analysis of data you already have</li>
+<li>Anonymized internal surveys</li>
+<li>A/B testing (but <em>not</em> through volunteering)</li>
+</ul>
+</li>
+<li>Be honest about what design you actually have, not what you wish you had</li>
+<li>Get legal and HR involved before you collect individual-level data<ul>
+<li>Having it done by someone outside your org makes honest answers a bit more likely</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Goal-Question-Metric</h2>
+<ul>
+<li><strong>GQM</strong> provides a structured path from intent to measurement [<a class="bib-ref" href="../bibliography/#Basili1994">Basili1994</a>]</li>
+<li>Define the goal: what object, what property, from whose viewpoint, in what context?</li>
+<li>Generate the questions whose answers would tell you whether the goal was achieved</li>
+<li>Identify the specific, operationalized metric that answers each question<ul>
+<li>And challenge whether the metric actually measures what you care about</li>
+<li>Again, it helps to do this with someone outside your org</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Sharing Results Responsibly</h2>
+<ul>
+<li>Every study has limitations; state them before stakeholders ask</li>
+<li>Distinguish between "we found no effect" and "our study was not designed to detect an effect"</li>
+<li>Present uncertainty:
+    confidence intervals and effect sizes belong in results presented to management, not just in appendices</li>
+<li>A negative result reported honestly is more valuable than a positive result that cannot be replicated</li>
+</ul>
+</section>
+<section class="slide">
+<h2>So, What <em>Do</em> We Know?</h2>
+<ul>
+<li>Code is statistically more repetitive and predictable than natural language [<a class="bib-ref" href="../bibliography/#Hindle2016">Hindle2016</a>]<ul>
+<li>This is why language models work well for it</li>
+</ul>
+</li>
+<li>Nearly all studies are short-term, use narrow tasks, and rely on volunteers<ul>
+<li>External validity to professional development is largely assumed</li>
+</ul>
+</li>
+<li>Controlled experiments show AI tools can speed up specific, well-defined tasks for individual developers</li>
+<li>Effects on end-to-end delivery (defect rates, lead time) are much less clear</li>
+</ul>
+</section>
+<section class="slide">
+<h2>What to Do Next</h2>
+<ul>
+<li>Ask for evidence before adopting tools:
+    what study supports this claim, is it applicable to your context, and can you see the raw data?</li>
+<li>When an executive cites an AI productivity statistic, ask who funded the study,
+    what specific task was studied,
+    and whether there was a control group</li>
+<li>Document your organization's experience and share it<ul>
+<li>Your customers are more likely to trust you if you're honestly self-critical</li>
+<li>Your staff are more likely to trust you as well</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<div class="center">
+<h2>Thank You</h2>
+</div>
+<div class="row">
+<div class="col-4">
+<p><img src="../_static/gvwilson-gage-2019.png" width="80%"/></p>
+</div>
+<div class="col-8">
+<p><a href="http://third-bit.com">Greg Wilson</a></p>
+<p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+<p><a href="http://third-bit.com/notwrong/">http://third-bit.com/notwrong/</a></p>
+</div>
+</div>
+<div class="center">
+<p><em>start where you are · use what you have · help who you can</em></p>
+</div>
+</section>
+<div aria-live="polite" id="slide-counter"></div>
+</div>
+<script src="../_static/shower.js"></script>
+<script src="../_static/slides.js"></script>
+</body>
+</html>
