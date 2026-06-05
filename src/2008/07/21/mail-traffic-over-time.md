@@ -1,7 +1,7 @@
 ---
 title: "Mail Traffic Over Time"
 date: 2008-07-21
-category: software
+category: personal
 ---
 Twenty lines of Python, an Excel chart, and here we are:
 

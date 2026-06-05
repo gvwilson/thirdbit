@@ -1,7 +1,7 @@
 ---
 title: "I Honestly Didn't Think I'd Live to See the Day"
 date: 2008-11-05
-category: software society
+category: society
 ---
 <img src="@root/files/2008/11/mlk.jpg" alt="Dr. Martin Luther King, Jr." class="centered">
 

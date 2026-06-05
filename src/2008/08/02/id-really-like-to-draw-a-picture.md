@@ -1,7 +1,7 @@
 ---
 title: "I'd Really Like To Draw A Picture…"
 date: 2008-08-02
-category: software community
+category: software
 ---
 I'd like to draw a picture—I really would. It wouldn't exactly be an entity-relationship diagram, or a database schema, but it would combine elements of both, and it would help me explain the model underlying the app I'm currently working on to the whole team (myself included).  But I'm not going to bother, because experience has taught me that it will cost too much to maintain:
 <ol>

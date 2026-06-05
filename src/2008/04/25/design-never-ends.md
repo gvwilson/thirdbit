@@ -1,7 +1,7 @@
 ---
 title: "Design Never Ends"
 date: 2008-04-25
-category: education software
+category: students
 ---
 You're never done designing a useful system, because if it is actually useful, people are always coming up with new requirements for it.  For example, I've been using DrProject to manage my software engineering course this term: the class notes are all in the wiki (so that students can fix 'em up), I communicate with students through the DrP-managed mailing list, and so on.  But now I want to archive that material in the portal used by the departmental lecturers, so that future instructors can find it after the current portal is shut down. Moving the SVN repository over is trivial, and dumping and restoring the relevant portions of the database needs just a few lines of SQL…
 

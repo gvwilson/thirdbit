@@ -1,7 +1,7 @@
 ---
 title: "Code Sprint Day 2"
 date: 2008-01-05
-category: software community
+category: students
 ---
 10:00 am start; thirteen of us busying away.  We're opening as many bugs as we're closing (thanks to the testing team), but it still feels like progress.  Lebanese food for lunch; coffee all 'round, and our first engagement announcement (congrats, <a href="http://blog.codekills.net">David</a>!).  I'm reminded (again) just how much programming is a social activity: like knitting or sports, it's often just an excuse for people to hang out together.
 

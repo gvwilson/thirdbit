@@ -1,7 +1,7 @@
 ---
 title: "SIGCSE Day 1"
 date: 2008-03-13
-category: software writing
+category: software research education
 ---
 0800: Jeff at <a href="http://www.documart.com">Documart</a> tells me our 50 pre-prints will arrive at 1000—yay!
 

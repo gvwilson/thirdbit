@@ -1,7 +1,7 @@
 ---
 title: "Profs on Facebook"
 date: 2008-12-29
-category: education writing
+category: community
 ---
 Had an interesting discussion today about the pros and cons of profs becoming Facebook friends with their students. On the one hand, profs want to connect with students as individuals—it makes education more effective, as well as more fun. On the other hand, everyone is entitled to keep their private and professional lives separate, but social networking sites blur the boundaries between them to the point of nonexistence.
 

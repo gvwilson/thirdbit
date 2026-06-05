@@ -1,7 +1,7 @@
 ---
 title: "A Student-Oriented Software Development Process"
 date: 2008-03-06
-category: education software community
+category: students
 ---
 <a href="http://www.cs.toronto.edu/~sme">Steve Easterbrook</a> and I were talking last night about the problem of teaching real-world software engineering in a classroom setting, and during the conversation, I realized that the way students are required to work violates several of the requirements for success of both agile and sturdy development processes:
 <ol>

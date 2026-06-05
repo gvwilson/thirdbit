@@ -1,7 +1,7 @@
 ---
 title: "Yes, Our Students Are Still Busy"
 date: 2008-07-09
-category: writing software education
+category: students
 ---
 Week 9 of 15 (or 10, or 16, depending on which student we're talking about), and we're all staying busy:
 <ul>

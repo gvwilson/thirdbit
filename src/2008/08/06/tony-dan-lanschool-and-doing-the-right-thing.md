@@ -1,7 +1,7 @@
 ---
 title: "Tony, Dan, LanSchool, and Doing the Right Thing"
 date: 2008-08-06
-category: software education writing
+category: community
 ---
 Here's a story for you:
 

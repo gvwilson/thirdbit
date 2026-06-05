@@ -1,7 +1,7 @@
 ---
 title: "Science 2.0: the Future of Online Tools for Scientists"
 date: 2008-09-04
-category: software research writing
+category: swcarpentry
 ---
 A pub night and panel with Timo Hannay, Cameron Neylon, and Michael Nielsen, hosted by Nature Network Toronto
 

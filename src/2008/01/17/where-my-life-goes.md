@@ -1,7 +1,7 @@
 ---
 title: "Where My Life Goes"
 date: 2008-01-17
-category: software personal
+category: personal
 ---
 I'm supposed to spend 9-10 every morning getting my programming skills back up to par. Instead, I have become a mail relay.  Here's a count of messages sent on business matters (not including stuff I did for <a href="http://www.ddj.com"><em>DDJ</em></a> or <a href="http://beautifulcode.oreillynet.com/"><em>Beautiful Code</em></a>, or personal email) in the past couple of years:
 

@@ -1,7 +1,7 @@
 ---
 title: "But Dad…"
 date: 2008-07-03
-category: software
+category: personal
 ---
 …that just doesn't make sense!
 

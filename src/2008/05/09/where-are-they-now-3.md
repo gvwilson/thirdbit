@@ -1,7 +1,7 @@
 ---
 title: "Where Are They Now?"
 date: 2008-05-09
-category: software education research
+category: students
 ---
 I mailed my former undergraduate project students a few days ago to find out where they are now and what they're doing, and thought readers of this blog might be interested in their answers.
 <h2>Muhammad Ali</h2>

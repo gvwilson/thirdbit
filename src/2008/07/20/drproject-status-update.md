@@ -1,7 +1,7 @@
 ---
 title: "DrProject Status Update"
 date: 2008-07-20
-category: software
+category: students
 ---
 The DrProject site hosts two projects: <code>All</code>, which is for people interested in announcements and general news, and <code>DrProject</code> itself, which is for developers (and those wishing to file tickets against our code).  This message is going out to the list belonging to the former; if you'd like to join the latter, you can do so by following the <code>Preferences</code> link and requesting membership.  (There are about half a dozen messages per day.)
 

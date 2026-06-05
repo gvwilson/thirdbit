@@ -1,7 +1,7 @@
 ---
 title: "This Week in Greg"
 date: 2008-07-28
-category: software research education
+category: personal
 ---
 <ol>
   <li>Rewrite Professional Master's proposal: 0</li>

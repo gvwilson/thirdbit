@@ -1,7 +1,7 @@
 ---
 title: "Deleting Roles"
 date: 2008-06-10
-category: software writing
+category: students
 ---
 One of the ways DrProject improves on <a href="http://trac.edgewall.org">Trac</a> is role-based access control. A role is a set of capabilities, such as WIKI_VIEW or TICKET_EDIT, and users' relationships to projects are represented by triples of the form (user, project, role). It makes administration a lot easier, and once Qiyu Zhu's <a href="http://qzdrproject.wordpress.com/">web-based role editor</a> comes online, it'll be easier still.
 

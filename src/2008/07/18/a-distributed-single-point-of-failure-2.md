@@ -1,7 +1,7 @@
 ---
 title: "A Distributed Single Point of Failure"
 date: 2008-07-18
-category: software
+category: students
 ---
 And this week:
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "Navigating IRC Logs, Nested Forms, Et Cetera"
 date: 2008-06-23
-category: software writing
+category: students
 ---
 <ul>
   <li>Kosta Zabashta has posted a screenshot of a new interface for navigating IRC logs in DrProject. It displays a sidebar of the project's event log; clicking on an event takes you to the portion of the IRC log closest in time to the chosen event.  Feedback is, as always, welcome.</li>

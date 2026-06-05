@@ -1,7 +1,7 @@
 ---
 title: "Zis Is Cursed, Zat Is Cursed"
 date: 2008-04-18
-category: software education research
+category: personal
 ---
 Spring has definitely started in Toronto—it's 23 degrees outside (yes, Celsius), and the sky is that slightly dusty blue that I always associate with hot dogs, frisbees, and sunburn. It helps put this week's rejections in perspective:
 <ul>

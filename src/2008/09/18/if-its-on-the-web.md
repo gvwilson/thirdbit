@@ -1,7 +1,7 @@
 ---
 title: "If It's on the Web…"
 date: 2008-09-18
-category: software research
+category: writing software
 ---
 …it must be (almost) real: our <a href="http://www.amazon.com/Practical-Programming-Introduction-Computer-Science/dp/1934356271">introduction to Computer Science using Python</a> is now listed on Amazon.  Yay!
 

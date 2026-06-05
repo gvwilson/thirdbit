@@ -1,7 +1,7 @@
 ---
 title: "Feedback Time"
 date: 2008-06-11
-category: education
+category: students
 ---
 Daniel Servos is just about ready to put a text-based version of his Moodle stats plugin up for public comment—<a href="http://hackerdan.com/programing/gradereportstats/">screenshots are already available</a>. Your feedback would be greatly appreciated.  I'll be begging for feedback on other students' projects as well just as soon as they have pixels on the screen.
 

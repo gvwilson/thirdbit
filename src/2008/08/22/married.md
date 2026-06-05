@@ -1,7 +1,7 @@
 ---
 title: "Married"
 date: 2008-08-22
-category: software
+category: personal
 ---
 Pictures say it better than words ever could:
 

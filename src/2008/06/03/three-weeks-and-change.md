@@ -1,7 +1,7 @@
 ---
 title: "Three Weeks and Change"
 date: 2008-06-03
-category: software education
+category: students
 ---
 Everyone's making good progress:
 <ul>

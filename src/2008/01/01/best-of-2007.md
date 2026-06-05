@@ -1,7 +1,7 @@
 ---
 title: "Best of 2007"
 date: 2008-01-01
-category: research writing software
+category: reading
 ---
 Inspired by <a href="http://catenary.wordpress.com/2007/12/31/2007-recommendations-books/">Jorge's list</a> (but sadly, no <a href="http://catenary.wordpress.com/2007/12/31/2007-recommendations-games/">games</a>):
 

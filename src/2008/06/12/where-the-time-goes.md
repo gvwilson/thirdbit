@@ -1,7 +1,7 @@
 ---
 title: "Where the Time Goes"
 date: 2008-06-12
-category: writing education software
+category: personal
 ---
 OK, so what <em>am</em> I doing if I'm not coding?
 <ol>

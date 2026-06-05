@@ -1,7 +1,7 @@
 ---
 title: "Another Sample Proposal"
 date: 2008-06-15
-category: research education software
+category: swcarpentry
 ---
 People seem interested, so here's another proposal that just went in for internal review at the university.  If it gets through that, my collaborators and I will have two months in which to flesh it out to submit to NSERC.  Realistically, it'll be some time next year before we know if we've got the money.
 

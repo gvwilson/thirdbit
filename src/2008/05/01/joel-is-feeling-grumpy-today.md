@@ -1,7 +1,7 @@
 ---
 title: "Joel Is Feeling Grumpy Today"
 date: 2008-05-01
-category: software education
+category: software community
 ---
 A <a href="http://www.joelonsoftware.com/items/2008/05/01.html">grumpy but entertaining post</a> from Joel Spolsky, ostensibly about "architecture astronauts", that includes some choice quotes:
 <blockquote>…this so called synchronization problem is just not an actual problem, it's a fun programming exercise that you're doing because it's just hard enough to be interesting but not so hard that you can't figure it out.

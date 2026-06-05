@@ -1,7 +1,7 @@
 ---
 title: "A Rare Triple"
 date: 2008-04-12
-category: writing education personal
+category: reading
 ---
 I can't remember the last time I read three books in a row that <a href="http://www.librarything.com/catalog/gvwilson">I really liked</a>:
 <ul>

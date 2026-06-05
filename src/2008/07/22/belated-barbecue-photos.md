@@ -1,7 +1,7 @@
 ---
 title: "Belated Barbecue Photos"
 date: 2008-07-22
-category: education
+category: students
 ---
 We had our mid-summer student barbecue a couple of Fridays ago, and a good time was had by all.  The photos are courtesy of Qiyu Zhu:
 

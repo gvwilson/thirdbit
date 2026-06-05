@@ -1,7 +1,7 @@
 ---
 title: "Directions"
 date: 2008-06-09
-category: software education community
+category: personal
 ---
 I find myself less interested in reviewing technical books than I was a couple of years ago, and I think I have figured out why.  I used to write a lot of code: for my job, for books I was working on, for open source projects, and occasionally for non-profits or friends.  I enjoyed it, and was always looking for new ideas or technologies that would make my life easier and my apps sparkle.
 

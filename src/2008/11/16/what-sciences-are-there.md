@@ -1,7 +1,7 @@
 ---
 title: "What Sciences Are There?"
 date: 2008-11-16
-category: research
+category: swcarpentry research
 ---
 Over 1900 people have already responded to <a href="http://softwareresearch.ca/seg/SCS/scientific-computing-survey.html">our survey of how scientists use computers</a>, and it still has two weeks left to run. Our next task will be to analyze the data we've collected, which (among other things) means coding people's free-form descriptions of their specialties so that we can talk about physicists and chemists as opposed to "this one person who's doing N-brane quantum foam approximations to multiversal steady-state thingummies".
 

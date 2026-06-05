@@ -1,7 +1,7 @@
 ---
 title: "Fall Courses"
 date: 2008-07-24
-category: software education research
+category: students
 ---
 I am teaching two courses this fall, and would like you to help me decide what my students should work on.  The first course, "CSC301: Introduction to Software Engineering", is aimed at third-year students (juniors in American parlance), and covers agile software development processes, design patterns, and other introductory material.  Students work in four-person teams on a course-long project broken into four or five assignments; peer evaluation is part of their grade, and there's a written exam at the end. This past winter, the project was a to-do list plugin for <a href="http://www.facebook.com">Facebook</a>; thanks to some technical support from <a href="http://refreshpartners.com/">Refresh Partners</a>, all of the teams managed to build something usable.
 

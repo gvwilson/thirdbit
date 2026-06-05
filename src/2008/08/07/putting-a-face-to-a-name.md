@@ -1,7 +1,7 @@
 ---
 title: "Putting a Face to a Name"
 date: 2008-08-07
-category: software community writing
+category: reading community
 ---
 I had the pleasure yesterday of finally meeting Michael Feathers, author of <a href="http://www.amazon.com/Working-Effectively-Legacy-Robert-Martin/dp/0131177052">one of my favorite programming books</a>, and a contributor to <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047"><em>Beautiful Code</em></a>.  Along with a couple of other people, we talked for a bit about unwritten books, software design, and the fact that discussion about the latter seems to have stagnated.  A lot is still being written about how to put code together, but I can't remember the last time I heard someone say something on the subject that was genuinely new.
 

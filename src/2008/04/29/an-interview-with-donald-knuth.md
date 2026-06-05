@@ -1,7 +1,7 @@
 ---
 title: "An Interview with Donald Knuth"
 date: 2008-04-29
-category: software writing community
+category: software reading community
 ---
 Interesting <a href="http://www.informit.com/articles/article.aspx?p=1193856">interview</a> with Donald Knuth (highlights <a href="http://www.artima.com/forums/flat.jsp?forum=276&amp;thread=229705">here</a>):
 <blockquote>With the caveat that there's no reason anybody should care about the opinions of a computer scientist/mathematician like me regarding software development, let me just say that almost everything I've ever heard associated with the term "extreme programming" sounds like exactly the wrong way to go…with one exception. The exception is the idea of working in teams and reading each other's code. That idea is crucial, and it might even mask out all the terrible aspects of extreme programming that alarm me…</blockquote>
