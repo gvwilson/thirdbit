@@ -3202,7 +3202,7 @@ The young soldier patted the cloud gingerly.
 Noxy grinned wickedly and threw herself up onto his back. 
 "Come on!" she said when Thokmay hesitated. "He won't bite."
 
-"Noxious Aftertaste! What do you think you're doing?"
+"Probably Noxious! What do you think you're doing?"
 Noxy's heart leaped into her throat.
 There, at the top of the steps that led down to the platform,
 stood her mother and Sergeant Dorbu.
@@ -5269,7 +5269,119 @@ Noxy pretend not to notice that she didn't let go.
 They groaned,
 but followed her up the stairs.
 
-FIXME: here
+"So," Rash asked wickedly,
+"How was your ride?"
+
+Noxy glanced back just in time to see Sensy elbow him.
+"Fine," she said.
+"We went up the port spur a bit and I showed him the lake."
+
+"Is that all you showed him?"
+
+She stopped short.
+"If you have a question, Causes a Rash, go ahead and ask it."
+
+Rash's leer slipped.
+Sensy elbowed him again.
+"Come on," she said,
+"Let just go do our chores."
+
+Noxy glared at her friend a moment longer before saying,
+"It's all right.
+*Amma* told me to do them.
+I'll take care of it.
+I'm sure you two can find something else to do."
+She spun around and walked away,
+not looking back when Sensy called her name plaintively.
+
+Aft and Grappa Gas were standing in front of the tunnel
+with matching frowns on their faces.
+"It was going to happen sooner or later," Grappa Gas said as she approached.
+He caught her eye.
+"Finally caved in.
+I've been saying for years we should seal it off."
+
+Aft grunted.
+"Be hard to get at the drainage if we did that.
+We could put on a proper grate with a lock,
+give the key to the reeve."
+
+Grappa Gas scratched his beard.
+"Could do," he agreed.
+"Get some copperwood staves when the traders come through.
+Never bought a lock, though.
+No idea if they'd have one."
+
+His son shrugged.
+"Someone will have something."
+He looked at Noxy.
+"Let your *amma* know, will you?"
+
+"Sure," said said.
+"Do you know what caused it?"
+
+Aft sucked in his cheeks.
+"No idea,
+but I'll bet you a winkle our guests had something to do with it."
+
+Grappa Gas put his hands on his hips.
+"Now come on, you don't know that."
+
+Aft snorted.
+"That tunnel's been there longer than you, old man.
+Saints' own coincidence,
+it caving in when they show up."
+She left them bickering in her wake,
+their brief truce collapsing just as the tunnel had.
+
+The clouds thickened as the day wore on.
+By sunset,
+they were a dark, foreboding mass that stretched from horizon to horizon,
+and Stale's elders were tying shutters closed,
+laying canvas across vegetable beds,
+and making sure that nothing a strong wind could pick up was lying loose.
+A storm was coming,
+a big one,
+and anyone who had ever been on cloudback took storms very seriously.
+
+The soldiers did too.
+"Just tell us what you need,"
+Sergeant Dorbu said to Indy.
+His troops had all had lives before they became soldiers:
+farmers, coopers, yardsters, or brewers,
+they either knew what to do or knew how to follow orders.
+
+The only person who proved useless was, to no-one's surprise, the *tralpa*.
+"I am taking note," he declared,
+his breath heavy and his speech slightly slurred.
+"I am—notes.
+Don't think this will ex-ex-onerate you.
+Any of you."
+He wrapped himself in dignity as ragged as the cuffs of his coat and retreated indoors,
+banging the door behind him.
+
+Noxy, Rash, and Sensy worked side by side.
+A muttered, "Sorry," from Rash and a matching, "No worries," from Noxy
+were all the acknowledgment their earlier argument needed.
+They had fought before,
+and she was sure they would fight again.
+Right then,
+they had work to do,
+and if Aft and Grappa Gas could move trays of seedlings without arguing,
+they could get along too.
+
+"They've been through worse,"
+Granna Fee said when Noxy asked her about Pillow and Big Blue.
+"They'll hunker down and wait for it to pass, same as us."
+She tousled her granddaughter's hair as if that would hide her own worry.
+
+Noxy roasted cubes of potato and squash for dinner,
+dumped the last of the breakfast beans on them,
+and wolfed her half down in a dozen mouthfuls.
+The rest would have cooled by the time Indy came home,
+but she knew her mother wouldn't notice,
+or care if she did.
+After that, there was just waiting.
 
 *Crack!*
 She shrieked with surprise as a bolt of lightning split the sky,
