@@ -1822,7 +1822,7 @@ or both of them from an avalanche.*
 
 *But that night's dream wasn't one of those.
 She didn't swoop down at the last moment on a cloud moments ahead of a roaring wave of snow.
-She didn't do battle with an angry pack of lightnings
+She didn't do battle with an angry pack of squirrels
 armed only with her courage and a magic sword
 while Rash and Sensy and the rest of the village cheered her on.*
 
@@ -2050,7 +2050,7 @@ Grappa Gas demanded.
 "I went to tell everyone else what's been going on!"
 Aft looked from his father to his wife to Indy.
 "Got as far as the Three Sisters,
-but there was a pack of lightnings further up the pass storm so I turned around.
+but there was lightning further up the pass storm so I turned around.
 What's happened to the *tralpa*?"
 
 "He's gone to Duck Droppings to tell the king's men about Sergeant Dorbu and his men,"
@@ -2554,7 +2554,7 @@ Private Thokmay didn't seem to notice.
 "Sometimes, but they make jokes about each other too, so I don't mind."
 They walked the rest of the way back to the village in silence
 beneath branches that jostled each other in the rising wind.
-The storm that Aft had seen the lightnings knitting was on its way.
+The storm that Aft had seen was on its way.
 
 *Behind them,
 the tralpa's prized satchel hung precariously from a slender branch.
@@ -5381,19 +5381,52 @@ and wolfed her half down in a dozen mouthfuls.
 The rest would have cooled by the time Indy came home,
 but she knew her mother wouldn't notice,
 or care if she did.
-After that, there was just waiting.
+After that, there was just waiting for the storm to arrive.
+
+Noxy had never been to sea—she had never seen seen the ocean—but
+as the shutters started to rattle,
+she remembered her father's stories.
+There were no waves to crash on the shore,
+but there would be branches strewn across the forest paths tomorrow.
+There was no sea foam for the wind to toss about,
+but the last of the winter snow would be making horsetails off every peak.
+Children would sleep with their parents or grandparents,
+who would hum lullabies or tell them stories until they fell asleep,
+and then try to sleep themselves.
+
+The rain came,
+gently at first and then drumming on the roof,
+louder and louder.
+Aft was right to worry about the drainage,
+she thought,
+wishing her mother had beaten the rain home.
+She swept the pieces of the puzzle she had been doing by lamplight
+back into their box.
 
 *Crack!*
-She shrieked with surprise as a bolt of lightning split the sky,
+She jumped at the sharp sound of thunder somewhere nearby,
 then stomped her foot,
 angry at herself,
 the rain,
 and the world in general.
+It was just lightning.
+
+"This is stupid," she muttered.
+On impulse she flung on her coat and pulled her hat down firmly on her head.
+She'd be wet by the time she got to Granna Fee's,
+but at least she'd have someone to talk to.
+
+The wind outside wasn't as bad as she had feared,
+though the rain was worse.
+The dayglass lamp in her hand cast just enough light
+to make the wet cobblestones under her feet glisten.
+She held the collar of her coat tight with her other hand,
+hurrying around the corner toward the square.
 
 *Crack!*
 Another bolt of lightning left a dazzling scar on the night.
 That one had been close, she realized uneasily—too close.
-The lightnings must be nipping at the clouds that had fallen behind their herd.
+The lightning must be nipping at the clouds that had fallen behind their herd.
 She was glad that she wasn't airborne.
 She had only ever been on one night flight,
 when Granna Fee took her up on her nameday when she turned ten to show her a passing star.
@@ -5401,12 +5434,12 @@ She couldn't imagine being up there with—
 
 *CRACK!*
 Noxy shrieked as the third bolt of lightning struck the weather duck
-spinning madly next to the fortress gate and shattered its wooden pole.
-Splinters flew in all directions to clatter off roofs and cobblestones.
-
-One smoking scrap bounced off a chimney and clattered through a window
+next to the fortress gate and shattered its wooden pole.
+Splinters flew in all directions,
+clattering off roofs.
+One smoking scrap clattered through a storehouse window
 whose shutter had been left untied.
-As Noxy blinked to clear the after-dazzle of the lightning strike from her eyes,
+As Noxy blinked to clear the lightning's after-dazzle from her eyes,
 the sheets of dried moss that the wood had landed in began to smolder.
 
 A door banged open.
@@ -5414,13 +5447,13 @@ A door banged open.
 "Are you all right?
 What in the name of all that rots are you doing out in this?"
 
-"*Amma* wanted me to fill the kettle," Noxy said stupidly.
-She shook her head.
-"It—the lightning hit it. The weather duck."
+"I was going to Granna Fee's," Noxy said,
+raising her voice above the wind.
+"The lightning hit the weather duck."
 
-"I can see the lightning hit it," Aft said testily.
+"I can see that," Aft said testily.
 He gave her a quick once-over.
-"Come on, let's get you back to—wait."
+"Come on, let's get you—wait."
 He sniffed.
 "What's burning?"
 
@@ -5431,13 +5464,107 @@ Another joined it as the familiar herby smell of burning moss caught in Noxy's n
 
 "Get your mother!" Aft ordered,
 then cupped his hands around his mouth.
-"Fire!  Fire!  Fire!"
+"Fire! Fire! Fire!"
+
+Noxy ran,
+not to her grandmother's but to the trading hall.
+A lone, miserable soldier stood by the door.
+Later,
+she would wonder what he had done to be punished with sentry duty
+on a night like that.
+"Fire!" she yelled,
+pointing back the way she had come.
+"From the lightning!
+We need help!"
+
+The soldiers came out of the guest house like angry bees coming out of a hive.
+"Buckets," Sergeant Dorbu demand.
+"Where do we find buckets?
+And you lot!"
+He pointed at the nearest soldiers.
+"Knock on every door,
+tell them what's happened,
+and find the reeve."
+
+The wind was still getting stronger.
+A sheet of canvas fluttered by,
+the string holding it down proving weaker than the storm.
+Noxy heard the village goofs' frightened bleating but ignored it.
+As Grappa Gas was fond of saying,
+they were dumb enough to survive anything.
+
+Aft already had a trio of elders passing buckets
+by the time she and the soldiers reached the storehouse.
+Her heart sank.
+There were flames in every window of the second storey,
+and even as she watched,
+one set of shutters fell inward,
+its leather hinges consumed.
+
+"Where do you want us?" Sergeant Dorbu shouted.
+
+"Around the side!" Aft yelled back, pointing.
+"Noxy, show him!"
+
+It only took a minute for Aft and Sergeant Dorbu to bring order to the chaos.
+Line up!
+Space yourselves!
+Where are those damned buckets?
+Is that all they have?
+You two—back to the barracks,
+get some packs,
+we'll use those.
+No, you idiot, don't go inside!
+If the upstairs floor gives way, you'll—yes, whatever he says.
+
+Noxy barely noticed Thokmay among the other soldiers.
+She was too busy carrying empty buckets to the village pump,
+one in each hand,
+then staggering back to the line.
+She passed her mother at one point,
+who gave her daughter a breathless nod and a quick smile
+as she carried two sloshing buckets of her own.
 
 The village was lucky.
-That's what everyone told themselves half an hour later.
+That's what everyone told themselves when it was over.
 They were lucky that the rain had made everything so wet,
 that there had been so little of the autumn moss left to burn,
-that Aft had spotted the fire so quickly.
-And they were lucky the soldiers had been there to fill and pass buckets.
+that Noxy had spotted the fire so quickly.
+And yes, they were lucky the soldiers had been there to pass buckets.
+They'd have to pull down what was left of the storehouse,
+but none of the buildings around it had been taken.
+
+"We'll help with that,"
+Sergeant Dorbu told Indy.
+She had invited him and Aft for chai,
+but Aft had said he wanted to dry off and make sure Rind was all right.
+
+"Not in that order,"
+he had added gruffly before holding out his hand.
+Dorbu had clasped it and given it a single firm shake.
+
+"Thank you,"
+Indy said,
+blowing on her chai to cool it.
+"We're going to have quite a set of stories to tell everyone
+when they get back with the herd."
+
+"I'm sorry about that," the sergeant said quietly,
+nodding his thanks to Noxy as she set a cup in front of him.
+"But I'm glad we were here to be useful."
+
+The two adults talked about unimportant things after that
+as Noxy fought to keep her eyes open.
+The second time she yawned,
+Sergeant Dorbu smiled,
+drained his chai,
+and stood up,
+pressing his palm to his chest.
+"Thank you for your hospitality.
+I hope you both sleep well."
+
+Indy tied the door closed behind him and then smiled fondly at her daughter.
+"Come on, sweetling.
+Let's get to bed."
 
 </section>
