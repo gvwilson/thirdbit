@@ -1,7 +1,7 @@
 ---
 title: "Software Carpentry: First Meeting"
 date: 2005-09-14
-category: swcarpentry
+category: software-carpentry
 ---
 The Toronto edition of the Software Carpentry course met for the first time on Monday.  51 people crammed into a room with seating for 34 (and no air conditioning, on an unseasonably warm day): medical biophysicists, computer scientists, civil engineers, and even a couple of faculty members.
 

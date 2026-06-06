@@ -1,7 +1,7 @@
 ---
 title: "The Evolution of Morality"
 date: 2026-05-02
-category: sdgc ethics
+category: sdgc
 ---
 
 When I was young,

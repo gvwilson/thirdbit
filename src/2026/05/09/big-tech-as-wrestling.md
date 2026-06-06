@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Pro Wrestling"
 date: 2026-05-09
-category: sdgc ethics
+category: sdgc
 ---
 
 The French philosopher Roland Barthes wrote about wrestling in 1957.

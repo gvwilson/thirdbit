@@ -1,7 +1,7 @@
 ---
 title: "True North strong, free, and equal"
 date: 2005-06-29
-category: society
+category: personal
 ---
 Little by little, stumbling at each step, we prove that we <em>can</em> <a href="http://www.theglobeandmail.com/servlet/story/RTGAM.20050628.wssex0628/BNStory/Front/">live up to our ideals.</a> I'm proud to be a Canadian today.
 

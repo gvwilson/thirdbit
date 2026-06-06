@@ -1,7 +1,7 @@
 ---
 title: "Manufacturing Obedience"
 date: 2026-05-14
-category: sdgc ethics
+category: sdgc
 ---
 
 In 2016,

@@ -1,7 +1,7 @@
 ---
 title: "Big Tech as Payola"
 date: 2026-04-23
-category: sdgc ethics
+category: sdgc
 ---
 
 Supermarkets charge manufacturers slotting fees for shelf space,

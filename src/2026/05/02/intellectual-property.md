@@ -1,7 +1,7 @@
 ---
 title: "The Invention of Intellectual Property"
 date: 2026-05-02
-category: sdgc ethics
+category: sdgc
 ---
 
 Copyright, patent, and trademark are not natural rights:

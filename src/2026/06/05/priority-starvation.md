@@ -1,7 +1,7 @@
 ---
 title: "Priority Starvation"
 date: 2026-06-05
-category: programming research-methods
+category: programming simulation
 katex: true
 ---
 A single server processes two job classes:

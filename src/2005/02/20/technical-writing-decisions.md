@@ -1,7 +1,7 @@
 ---
 title: "Technical Writing Decisions"
 date: 2005-02-20
-category: swcarpentry
+category: software-carpentry
 ---
 The <a href="http://www.python.org/psf">Python Software
 Foundation</a> has given me a grant to open source my course on

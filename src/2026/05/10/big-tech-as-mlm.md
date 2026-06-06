@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Multi-Level Marketing"
 date: 2026-05-10
-category: sdgc ethics
+category: sdgc
 ---
 
 Jay Van Andel and Rich DeVos founded Amway in 1959

@@ -1,7 +1,7 @@
 ---
 title: "The Convoy Effect"
 date: 2026-06-05
-category: programming research-methods
+category: programming simulation
 katex: true
 ---
 A single server processes jobs that arrive randomly according to a Poisson process. Most jobs are quick (exponential service with small mean), but a rare few are very slow (exponential service with large mean). This *hyperexponential* service distribution has high variance. This post compares the performance of two scheduling disciplines in this situation:

@@ -1,7 +1,7 @@
 ---
 title: "Keeping Up With Everybody"
 date: 2026-05-12
-category: sdgc ethics
+category: sdgc
 ---
 
 In 2001, the Norwegian government made its tax records publicly searchable online,

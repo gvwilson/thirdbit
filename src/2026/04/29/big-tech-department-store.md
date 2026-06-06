@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Department Store"
 date: 2026-04-29
-category: sdgc ethics
+category: sdgc
 ---
 
 When Sears Roebuck introduced Kenmore appliances and Craftsman tools in the 1920s and 1930s,

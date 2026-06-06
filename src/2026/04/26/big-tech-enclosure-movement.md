@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Enclosure Movement"
 date: 2026-04-26
-category: sdgc ethics
+category: sdgc
 ---
 
 Email, RSS, the open hyperlink, and the early web were commons:

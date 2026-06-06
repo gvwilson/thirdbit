@@ -1,7 +1,7 @@
 ---
 title: "Not So Selfish After All"
 date: 2026-05-17
-category: sdgc ethics
+category: sdgc
 ---
 
 Imagine you are given ten dollars to split with a stranger.

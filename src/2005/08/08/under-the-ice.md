@@ -1,7 +1,7 @@
 ---
 title: "Under the Ice"
 date: 2005-08-08
-category: research
+category: noticed
 ---
 The <a href="http://www.antarctica.ac.uk/">British Antarctic Survey</a> has produced a map showing what the the southern end of the world looks like under the ice:
 

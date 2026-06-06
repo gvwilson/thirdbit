@@ -1,7 +1,7 @@
 ---
 title: "The Representation Feedback Loop"
 date: 2026-05-18
-category: sdgc diversity
+category: sdgc
 ---
 
 In 1967,

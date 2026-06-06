@@ -1,7 +1,7 @@
 ---
 title: "The Geography of Industrial Harm"
 date: 2026-04-28
-category: sdgc ethics
+category: sdgc
 ---
 
 Industries that produce toxic byproducts face a choice:

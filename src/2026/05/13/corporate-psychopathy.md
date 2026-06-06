@@ -1,7 +1,7 @@
 ---
 title: "The Corporation as Psychopath"
 date: 2026-05-13
-category: sdgc ethics
+category: sdgc
 ---
 
 In October 2011,

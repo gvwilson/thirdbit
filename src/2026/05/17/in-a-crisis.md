@@ -1,7 +1,7 @@
 ---
 title: "In a Crisis"
 date: 2026-05-17
-category: sdgc personal
+category: sdgc
 ---
 
 On the morning of December 6, 1917,

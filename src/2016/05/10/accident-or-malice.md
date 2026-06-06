@@ -1,7 +1,7 @@
 ---
 title: "Accident or Malice"
 date: 2016-05-10
-category: education ethics
+category: ethics
 ---
 <p>
   I'm involved in several hybrid online and in-person communities,

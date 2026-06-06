@@ -1,7 +1,7 @@
 ---
 title: "The Psychology of Building Harmful Things"
 date: 2026-05-05
-category: sdgc ethics
+category: sdgc
 ---
 
 In September and October 2021,

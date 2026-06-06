@@ -1,7 +1,7 @@
 ---
 title: "Software Taboos"
 date: 2026-04-25
-category: sdgc ethics
+category: sdgc
 ---
 
 Every professional culture places certain topics outside the scope of legitimate concern,

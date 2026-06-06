@@ -1,7 +1,7 @@
 ---
 title: "Open Source, Cold Shoulder"
 date: 2004-10-08
-category: community writing
+category: technical-writing
 ---
 I'm very pleased to announce that an article Michelle
 Levesque and I wrote about why so few women get involved in open source

@@ -1,7 +1,7 @@
 ---
 title: "Moral Panics and the Video Game Debate"
 date: 2026-05-05
-category: sdgc ethics
+category: sdgc
 ---
 
 In April 1999,

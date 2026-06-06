@@ -1,7 +1,7 @@
 ---
 title: "Fascism Plain and Simple"
 date: 2026-05-15
-category: sdgc politics
+category: sdgc
 ---
 
 In 1919,

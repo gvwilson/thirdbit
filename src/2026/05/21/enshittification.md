@@ -1,7 +1,7 @@
 ---
 title: "Enshittification"
 date: 2026-05-21
-category: sdgc ethics
+category: sdgc
 ---
 
 In 2005, a Dutch startup called Booking.com offered hotels a deal:

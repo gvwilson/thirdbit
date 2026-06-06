@@ -1,7 +1,7 @@
 ---
 title: "Cleaning up the Rivers"
 date: 2026-05-09
-category: sdgc politics
+category: sdgc
 ---
 
 In December 1952,

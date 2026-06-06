@@ -1,7 +1,7 @@
 ---
 title: "SDGC Glossary"
 date: 2026-05-20
-category: sdgc technical-writing
+category: sdgc
 ---
 
 I will update this as new entries are added.

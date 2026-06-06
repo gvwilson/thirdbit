@@ -1,7 +1,7 @@
 ---
 title: "A Note on LLMs"
 date: 2026-05-11
-category: sdgc programming
+category: sdgc technical-writing
 ---
 
 Someone asked on Mastodon if I was using AI to write [this series of posts](@root/sdgc/).

@@ -35,4 +35,4 @@ for md_file in SRC.glob(PATTERN):
         counts.update(value.split())
 
 for tag in sorted(counts):
-    print(f"{tag}: {counts[tag]}")
+    print(f"{counts[tag]:4d}: {tag}")

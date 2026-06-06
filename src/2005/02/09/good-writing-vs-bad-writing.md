@@ -1,7 +1,7 @@
 ---
 title: "Good Writing vs. Bad Writing"
 date: 2005-02-09
-category: writing
+category: cs-education
 ---
 <p>I read this in John Lewis Gaddis's <a href="http://www.amazon.com/exec/obidos/ASIN/0195171578">The Landscape of History</a> on the way in this morning:</p>
 

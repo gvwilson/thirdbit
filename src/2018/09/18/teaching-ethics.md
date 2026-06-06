@@ -1,6 +1,6 @@
 ---
 date: 2018-09-18
-category: cs-education
+category: cs-education ethics
 title: "Teaching Ethics"
 ---
 

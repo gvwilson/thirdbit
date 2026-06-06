@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Fast Food Franchise"
 date: 2026-04-25
-category: sdgc ethics
+category: sdgc
 ---
 
 A McDonald's franchisee invests several hundred thousand dollars building and equipping a restaurant,

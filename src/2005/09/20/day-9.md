@@ -1,7 +1,7 @@
 ---
 title: "Day 9"
 date: 2005-09-20
-category: swcarpentry
+category: software-carpentry
 ---
 Week two of Software Carpentry, and things are starting to settle down.  There are now 93 (!) people signed up for the course:
 <table cellpadding="3">

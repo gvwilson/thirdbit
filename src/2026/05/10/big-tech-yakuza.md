@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Yakuza"
 date: 2026-05-10
-category: sdgc ethics
+category: sdgc
 ---
 
 In the days immediately after the March 2011 Tōhoku earthquake and tsunami,

@@ -1,7 +1,7 @@
 ---
 title: "Quantifying the Learning Curve"
 date: 2005-01-02
-category: software education research
+category: empirical-se
 ---
 Back in the 1980s, R.W. Hockney introduced two measures for quantifying the performance of pipelined machines.  The first, *r<sub>∞</sub>*, is the pipeline's maximum possible performance when startup effects are ignored (or equivalently, its performance on an infinitely-long vector).  The second, *n<sub>½</sub>*, is the half-performance length, i.e. how much data you need to feed the processor in order for it to achieve half its peak performance.
 

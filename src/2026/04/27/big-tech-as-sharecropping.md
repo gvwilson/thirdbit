@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Sharecropping System"
 date: 2026-04-27
-category: sdgc ethics
+category: sdgc
 ---
 
 After the American Civil War,

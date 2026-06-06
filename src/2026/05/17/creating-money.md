@@ -1,7 +1,7 @@
 ---
 title: "The Creation of Money"
 date: 2026-05-17
-category: sdgc ethics
+category: sdgc
 ---
 
 In the 1660s,

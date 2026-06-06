@@ -1,7 +1,7 @@
 ---
 title: "Preparing for the Next Round"
 date: 2004-07-23
-category: education software students
+category: education software student-projects
 ---
 <p>The team that's going to be working on Helium this fall had its first meeting last night.  If all goes well, eleven of the department's best undergraduate students will build on all the hard work that Michelle, Laurie, Jason, Eric, and Wilfred have put in this summer, and deliver something that we can use in undergraduate classes.</p>
 

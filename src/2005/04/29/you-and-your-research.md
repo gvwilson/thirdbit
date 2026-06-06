@@ -1,7 +1,7 @@
 ---
 title: "You and Your Research"
 date: 2005-04-29
-category: research
+category: education
 ---
 Richard Hamming was one of the early greats of information science.
 After working on the Manhattan Project at Los Alamos, he spent thirty

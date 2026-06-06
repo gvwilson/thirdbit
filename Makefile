@@ -14,7 +14,7 @@ serve:
 
 ## categories: show categories
 categories:
-	@echo "anecdote community education favorite personal research sdgc society software writing"
+	@python bin/find-tags.py
 
 ## count: count words in book
 .PHONY: count

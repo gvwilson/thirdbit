@@ -1,7 +1,7 @@
 ---
 title: "Public Subsidy, Private Profit"
 date: 2026-05-06
-category: sdgc politics
+category: sdgc
 ---
 
 When Steve Jobs unveiled the iPhone in January 2007,

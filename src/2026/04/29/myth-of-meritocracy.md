@@ -1,7 +1,7 @@
 ---
 title: "The Myth of Meritocracy"
 date: 2026-04-29
-category: sdgc diversity
+category: sdgc
 ---
 
 The word "meritocracy" was coined by the British sociologist Michael Young

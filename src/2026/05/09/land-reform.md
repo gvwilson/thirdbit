@@ -1,7 +1,7 @@
 ---
 title: "Land to the Landless"
 date: 2026-05-09
-category: sdgc politics
+category: sdgc
 ---
 
 In 1947,

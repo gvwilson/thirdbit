@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Penny Press"
 date: 2026-04-28
-category: sdgc ethics
+category: sdgc
 ---
 
 The business model in which content is provided free to audiences

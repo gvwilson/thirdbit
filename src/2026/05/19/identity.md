@@ -1,7 +1,7 @@
 ---
 title: "Who Are You?"
 date: 2026-05-19
-category: sdgc diversity
+category: sdgc
 ---
 
 In 1879, a young police clerk in Paris named Alphonse Bertillon

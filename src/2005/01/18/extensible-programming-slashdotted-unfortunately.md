@@ -1,7 +1,7 @@
 ---
 title: "Extensible Programming Slashdotted (Unfortunately)"
 date: 2005-01-18
-category: software writing
+category: technical-writing
 ---
 My <a href="http://www.acmqueue.org">ACM Queue</a> article on <a href="http://www.acmqueue.com/modules.php?name=Content&pa=showpage&pid=247&page=1">extensible programming systems</a> just got <a href="http://developers.slashdot.org/developers/05/01/18/2157249.shtml?tid=156">slashdotted</a>.  Once again, it's clear that most of the posters haven't bothered to read the article: even the headliner seems to think that I believe programmers will all be typing XML tags five years from now.
 

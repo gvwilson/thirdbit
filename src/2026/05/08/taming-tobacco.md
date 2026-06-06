@@ -1,7 +1,7 @@
 ---
 title: "Taming Tobacco"
 date: 2026-05-08
-category: sdgc politics
+category: sdgc
 ---
 
 In 1950, Hill and Doll published a landmark paper in the *British Medical Journal*.

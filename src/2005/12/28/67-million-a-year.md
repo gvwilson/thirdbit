@@ -1,7 +1,7 @@
 ---
 title: "$67 million a year"
 date: 2005-12-28
-category: research software
+category: empirical-se
 ---
 The US Dept. of Energy has just announced the <a href="http://www.supercomputingonline.com/article.php?sid=10109">next round of funding</a> for <a href="http://www.scidac.org">SciDAC</a>, its flagship supercomputing program.  US$67 million per year for three to five years.  Supercomputing Online reports:
 

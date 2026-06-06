@@ -1,7 +1,7 @@
 ---
 title: "A Few Simple Rules"
 date: 2004-09-02
-category: students
+category: student-projects
 ---
 <p>We held the post-mortem for Helium this morning.  Lots of things went wrong, but many more went right—it was a fun, productive summer.</p>
 

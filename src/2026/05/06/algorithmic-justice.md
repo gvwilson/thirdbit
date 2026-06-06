@@ -1,7 +1,7 @@
 ---
 title: "Algorithmic Criminal Justice"
 date: 2026-05-06
-category: sdgc ethics
+category: sdgc
 ---
 
 In May 2016, two reporters at ProPublica named Julia Angwin and Jeff Larson
