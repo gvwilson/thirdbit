@@ -3031,7 +3031,7 @@ and the short one over there is called the Quick Tower,
 because it's quickest to get up."
 
 "It's a shame they've been allowed to go to ruin," said Thokmay.
-"The king's engineers work year round to keep the walls of Loghan Castle sturdy.
+"The king's engineers work year round to keep the walls of Loghan-in-Loghan sturdy.
 Perhaps when things settle down he could send some here to fix them."
 
 "That would be nice," Noxy replied vaguely.
@@ -4550,7 +4550,7 @@ The only sound was the *ploop, ploop* of condensation dripping off the ceiling.
 Noxy shivered. "I wonder how deep it is?" she whispered.
 
 "*I* wonder what's in it," Thokmay whispered back.
-"There are some horrible things in the castle moat in Loghan.
+"There are some horrible things in the moat around Loghan-in-Loghan.
 My—the king's grandfather had them brought in specially from the Blight.
 They're all teeth and tentacles and—"
 

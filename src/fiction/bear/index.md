@@ -1175,7 +1175,7 @@ Noxy smiled. "Lots." She hesitated.
 
 The prince raised his mug to his lips,
 then lowered it without drinking.
-"Actually, after I got back to Loghan,
+"Actually, after I got back to Loghan-in-Loghan,
 I thought for a while about becoming a doctress."
 
 "A doctress?" Noxy said. "But—you're a boy!"
@@ -2952,7 +2952,7 @@ if you follow me.
 
 "No? Well then tell me, sergeant, please, what *can* I do?"
 He waved at the crowd.
-"Can I make sure that all of Loghan's citizens are treated equally, human or not?
+"Can I make sure that all Loghan-o citizens are treated equally, human or not?
 Can I do that?"
 
 Whatever answer the sergeant might have given
@@ -3621,7 +3621,7 @@ She and Thokmay had been writing back and forth for two years.
 She had told him things she had never told anyone else,
 and while his letters had been more guarded,
 he had been funny and curious about her life.
-The little sketches of Loghan that he had sometimes included
+The little sketches of Loghan-in-Loghan that he had sometimes included
 were carefully pinned to her bedroom wall.
 She didn't feel like gushing about him
 the way Sensy seemed to want to gush about Rash
@@ -3684,7 +3684,98 @@ not Mope,"
 Noxy observed.
 She held his gaze a moment,
 then picked up her winkle, stood, and left.
-She was careful to close the door quietly instead of letting it slam.
+She was careful to close the door quietly
+even though she wanted to slam it off its hinges.
+
+After that,
+she had no excuse to put off a visit to the field
+where Aft and the other cloudherds were tending to their mounts.
+She still didn't know Sour or Testy very well—they were from Duck Droppings,
+and before this trip she had only ever seen them during the spring roundup
+or at the midsummer fancy.
+They were older than her but younger than Aft,
+and had been a couple long enough to finish each other's sentences
+and exchange looks that meant,
+"We're sharing a joke with each other that you wouldn't understand,"
+so she nodded to them without slowing down.
+
+"How are they doing?" she asked Aft,
+nodding toward the clouds.
+Their petrichor was almost overwhelming.
+Clouds smelled like rain back home,
+but the rich lowland soil made it a hundred times stronger.
+
+Aft shrugged.
+"Resting.
+They made good time."
+He had thrown his coat and overshirt over the wooden slat fence
+that surrounded the makeshift cloudpen.
+The vine tattooed around his right bicep had two berries dangling from it,
+one for each of his children.
+Two small flames decorated his left arm
+to commemorate the funeral pyres of his mother and father.
+Noxy had thought more than once that it was time to get one for her own father,
+even if her mother said it was old-fashioned.
+
+She pushed the thought away.
+"How long do you figure you'll rest them?"
+
+Aft looked up from the rope he was rebraiding.
+"I was planning to leave tomorrow.
+Cloud's healed up,
+and there doesn't seem to be much business for us here."
+
+Noxy nodded.
+Apple Bridge had a lot of things, but a shortage of water wasn't one of them.
+"How did you wind up carrying Shudarga?"
+
+The cloudherd shrugged.
+"A fellow spoke to me after we were done watering fields in Panchthar.
+He said someone wanted a ride from Choghan-in-Choghan.
+I asked if they wanted to go to the capital,
+and the fellow said no,
+they wanted to go to Apple Bridge.
+It was only a few days out of our way,
+and he said he'd pay half up front."
+
+Noxy felt her hands try to clench,
+just as they had in the chai house.
+"And when you got there and saw who it was?"
+
+"Lowland politics isn't any of my business,"
+Aft said curtly.
+"None of yours either.
+What *is* my business is when we're leaving and whether you're coming with us.
+Oh, don't look at me like that,"
+he continued as Noxy opened her mouth.
+"I'd have to be half goof not to notice you making eyes at your pretty boy."
+
+"He's not—" Noxy started,
+then lowered her voice as Sour glanced at her.
+"He's not my anything," she said, quietly but very firmly.
+
+"Uh huh."
+If Aft had been anyone else,
+she would have said he was trying to stifle a grin.
+"So you want to stay behind because…?"
+
+He paused a moment to enjoy her flusterment,
+then shrugged again.
+"Whatever it is,
+you're sixteen,
+and I'd rather not have someone flying with me who's distracted.
+We're going back to Panchthar to soak their crops again,
+then heading for Jyamirgadhi.
+I figure that gives you four days to catch up with us."
+This time, the look he gave her had no hint of amusement.
+"Four days, mind, not five, not six.
+And if you're not there,
+I'll expect you to stand between me and your mother when she finds out.
+Understood?"
+
+"Sure," Noxy said weakly.
+This wasn't at all how she had expected this conversation to go,
+but she knew enough to stop talking when a deal was done.
 
 *The garrison house was still that night
 when a quiet voice only Princess Ogmin could hear told her to get dressed.
