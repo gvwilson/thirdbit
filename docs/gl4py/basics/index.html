@@ -24,6 +24,7 @@
 <li><a class="active" href="../basics/">Getting Started, Types, and Values</a></li>
 <li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
 <li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../use/">The use Expression</a></li>
 <li><a href="../modules/">Modules, Imports, and Testing</a></li>
 <li><a href="../mapreduce/">MapReduce</a></li>
 <li><a href="../glob/">Glob Pattern Matcher</a></li>
@@ -122,13 +123,13 @@
 <h2>Arithmetic</h2>
 <div data-inc="src/arithmetic.gleam" data-mark="arithmetic"><span aria-label="Source: basics/src/arithmetic.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/arithmetic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">sum</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">sum</span><span class="p">))</span>
 
 <span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
 
 <span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">float_div</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_float</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">float_div</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">float</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">float_div</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -299,9 +300,9 @@ strawberry cone is Strawberry in a cone
     tuples are useful for returning multiple values from a function</li>
 </ul>
 <div data-inc="src/tuples.gleam" data-mark="tuple_destruct"><span aria-label="Source: basics/src/tuples.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/tuples.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"a from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"a from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"b from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"c from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"c from tuple is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">bool</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div data-inc="out/tuples.out"><span aria-label="Source: basics/out/tuples.out" class="inc-path" role="img" tabindex="0" title="basics/out/tuples.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>#(1, "hello", True)

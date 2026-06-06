@@ -24,6 +24,7 @@
 <li><a href="../basics/">Getting Started, Types, and Values</a></li>
 <li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
 <li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../use/">The use Expression</a></li>
 <li><a href="../modules/">Modules, Imports, and Testing</a></li>
 <li><a href="../mapreduce/">MapReduce</a></li>
 <li><a href="../glob/">Glob Pattern Matcher</a></li>
@@ -83,6 +84,10 @@ native machine code.</dd>
 </dl>
 <h2>C</h2>
 <dl>
+<dt><span id="callback">callback</span></dt>
+<dd>A function passed as an argument to another function,
+which the receiving function calls at a time of its choosing.
+Gleam's <code>use</code> expression relies on callbacks to flatten nested code.</dd>
 <dt><span id="circular_import">circular import</span></dt>
 <dd>A situation in which module A imports module B and module B
 imports module A (directly or transitively).</dd>

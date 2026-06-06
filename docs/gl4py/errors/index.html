@@ -24,6 +24,7 @@
 <li><a href="../basics/">Getting Started, Types, and Values</a></li>
 <li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
 <li><a class="active" href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../use/">The use Expression</a></li>
 <li><a href="../modules/">Modules, Imports, and Testing</a></li>
 <li><a href="../mapreduce/">MapReduce</a></li>
 <li><a href="../glob/">Glob Pattern Matcher</a></li>
@@ -65,8 +66,6 @@
 </ul>
 </li>
 <li>The <code>Option</code> type represents a value that may or may not be present.</li>
-<li>The <code>use</code> expression eliminates deeply nested <code>case</code> blocks
-     when chaining multiple fallible operations.</li>
 </ul>
 </div>
 <h2>Errors as Values</h2>
@@ -217,59 +216,6 @@ None
 <li>This is equivalent to Python's <code>next((x for x in items if x &gt; 0), None)</code>
     but the return type makes the "might be absent" case explicit</li>
 </ul>
-<h2>Chaining with <code>use</code></h2>
-<ul>
-<li>When you have several operations that each return <code>Result</code>,
-    nesting <code>case</code> expressions becomes unpleasant quickly</li>
-<li><code>use</code> is <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a> that flattens this nesting</li>
-</ul>
-<div data-inc="src/use_demo.gleam" data-mark="use_success"><span aria-label="Source: errors/src/use_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/use_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">))</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"20"</span><span class="p">))</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<ul>
-<li><code>use x &lt;- result.try(parse_int("10"))</code> is equivalent to:</li>
-</ul>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Ok</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">...</span><span class="n">rest</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="p">...</span>
-<span class="w">  </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>Reading top to bottom: parse 10, parse 20, divide their sum by 3, double the result</li>
-<li>Each <code>use</code> line binds a name from the <code>Ok</code> value
-    or <a class="gl-ref" href="../glossary/#short_circuit">short-circuits</a> with the <code>Error</code></li>
-<li>The final expression <code>Ok(z * 2)</code> is the result of the whole block</li>
-</ul>
-<div data-inc="src/use_demo.gleam" data-mark="use_fail"><span aria-label="Source: errors/src/use_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/use_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"10"</span><span class="p">))</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"bad"</span><span class="p">))</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">fail</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<div data-inc="out/use_demo.out"><span aria-label="Source: errors/out/use_demo.out" class="inc-path" role="img" tabindex="0" title="errors/out/use_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(20)
-Error("not an integer: bad")
-</code></pre></div>
-</div>
-<ul>
-<li><code>parse_int("bad")</code> returns <code>Error("not an integer: bad")</code></li>
-<li>The <code>use</code> expression short-circuits at that point<ul>
-<li><code>safe_divide</code> is never called</li>
-<li>The whole block evaluates to <code>Error("not an integer: bad")</code></li>
-</ul>
-</li>
-<li>Analogous to Python's <code>try</code>/<code>except</code>,
-    but the short-circuiting is explicit in the types
-    rather than hidden in the runtime</li>
-</ul>
 <h2>Guidelines for Handling Errors</h2>
 <ul>
 <li>Return <code>Result</code> whenever a function might fail for an externally visible reason
@@ -281,7 +227,6 @@ Error("not an integer: bad")
 </ul>
 </li>
 <li>Use <code>result.try</code> and <code>result.map</code> for short transformations</li>
-<li>Use <code>use</code> for chains of three or more fallible operations</li>
 <li>Prefer custom error types over <code>String</code> for the error type
     in non-trivial programs</li>
 </ul>
@@ -302,17 +247,6 @@ Error("not an integer: bad")
 </li>
 </ul>
 </details>
-<details>
-<summary>How does the <code>use</code> expression compare to Python's <code>try</code>/<code>except</code>?</summary>
-<p>In Python,
-<code>try</code>/<code>except</code> catches exceptions that are raised anywhere in the block,
-regardless of whether the function signature mentions them.
-Gleam's <code>use</code> only short-circuits when a function explicitly returns an <code>Error</code> variant.
-This means you always know from the type whether a function can fail,
-and the <code>use</code> block's short-circuiting is visible in the code structure.
-The practical difference is that Python's exceptions are invisible in type signatures,
-while Gleam's <code>Result</code> values are not.</p>
-</details>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Safe division (5 minutes)</h3>
@@ -325,15 +259,6 @@ and <code>Ok(a / b)</code> otherwise.</p>
 <p>Write a function that takes a <code>List(String)</code> and returns a <code>List(Int)</code>
 containing only the elements that parse successfully as integers.
 Use <code>int.parse</code>, <code>list.filter_map</code>, or a combination of <code>list.map</code> and <code>list.filter</code>.</p>
-</div>
-<div class="exercise">
-<h3>Chaining with use (15 minutes)</h3>
-<p>Write three functions that each return <code>Result(Int, String)</code>:
-<code>parse_age(s: String)</code>,
-<code>validate_age(n: Int)</code> (returns <code>Error</code> if <code>n &lt; 0</code> or <code>n &gt; 150</code>),
-and <code>to_birth_year(age: Int)</code> that subtracts from the current year.
-Chain them with <code>use</code> so that (for example)
-<code>"26"</code> produces <code>Ok(2000)</code> and <code>"-5"</code> produces an error at the validation step.</p>
 </div>
 <div class="exercise">
 <h3>First matching element (10 minutes)</h3>
@@ -354,7 +279,7 @@ Write it using recursion with a <code>case</code> expression.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../modules">Modules, Imports, and Testing</a> <span aria-hidden="true">⇒</span>
+<a href="../use">The use Expression</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

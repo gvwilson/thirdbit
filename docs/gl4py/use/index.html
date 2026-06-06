@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The use Expression</title>
+<meta content="Gleam for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">gl4py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Getting Started, Types, and Values</a></li>
+<li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
+<li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a class="active" href="../use/">The use Expression</a></li>
+<li><a href="../modules/">Modules, Imports, and Testing</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../glob/">Glob Pattern Matcher</a></li>
+<li><a href="../dedup/">File Deduplicator</a></li>
+<li><a href="../binary/">Binary Data Packer</a></li>
+<li><a href="../kvstore/">Log-Structured Key-Value Store</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../vm/">Virtual Machine</a></li>
+<li><a href="../api/">To-Do List Web API</a></li>
+<li><a href="../lustre/">Lustre Frontend Counter and Form</a></li>
+<li><a href="../client/">HTTP API Client with JSON Decoding</a></li>
+<li><a href="../workers/">Supervised Worker Pool</a></li>
+<li><a href="../dataframe/">Dataframes</a></li>
+<li><a href="../machine/">State Machines</a></li>
+<li><a href="../prop/">Property-Based Testing</a></li>
+<li><a href="../stream/">Stream Processing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>The use Expression</h1>
+<div class="callout">
+<ul>
+<li>When several operations each return <code>Result</code>,
+    nesting <code>case</code> expressions quickly becomes unreadable.</li>
+<li><code>use x &lt;- f(...)</code> is <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a>
+    that rewrites the rest of the block as a <a class="gl-ref" href="../glossary/#callback">callback</a> passed to <code>f</code>.</li>
+<li>Any function that accepts a callback as its last argument works with <code>use</code>.</li>
+<li>Used with <code>result.try</code>, <code>use</code> eliminates deeply nested error-handling code.</li>
+</ul>
+</div>
+<h2>The Nesting Problem</h2>
+<ul>
+<li>When you call several functions that each return <code>Result</code>,
+    you need to unwrap each one before using it</li>
+<li>A single <code>case</code> is fine; three in a row is not</li>
+</ul>
+<div data-inc="src/nesting_demo.gleam" data-mark="nested_ok"><span aria-label="Source: use/src/nesting_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/nesting_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">ok_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"6"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">divisor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">            </span><span class="n">Ok</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">validate_positive</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ok_result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/nesting_demo.out"><span aria-label="Source: use/out/nesting_demo.out" class="inc-path" role="img" tabindex="0" title="use/out/nesting_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(5)
+Error("division by zero")
+</code></pre></div>
+</div>
+<ul>
+<li><code>parse_int</code> converts a string to an integer, returning <code>Error</code> if the string is invalid</li>
+<li><code>safe_divide</code> divides two integers, returning <code>Error</code> if the denominator is zero</li>
+<li><code>validate_positive</code> checks that a number is positive, returning <code>Error</code> if it is not</li>
+<li>Every step adds another level of indentation<ul>
+<li>The actual computation (<code>validate_positive(quotient)</code>) is buried at the innermost level</li>
+</ul>
+</li>
+<li>When any step fails, every outer <code>Error(reason) -&gt; Error(reason)</code> arm just re-wraps
+    and propagates the same error without adding any information</li>
+</ul>
+<div data-inc="src/nesting_demo.gleam" data-mark="nested_err"><span aria-label="Source: use/src/nesting_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/nesting_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">err_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ok</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"0"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">divisor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">            </span><span class="n">Ok</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">validate_positive</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">err_result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Replacing <code>"6"</code> with <code>"0"</code> causes <code>safe_divide</code> to return an error<ul>
+<li>The two outer arms still just pass the error along unchanged</li>
+</ul>
+</li>
+</ul>
+<h2>Flattening with use</h2>
+<ul>
+<li><code>use</code> rewrites nested callbacks as a flat sequence of steps</li>
+</ul>
+<div data-inc="src/use_result_demo.gleam" data-mark="use_ok"><span aria-label="Source: use/src/use_result_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_result_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">ok_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"6"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">divisor</span><span class="p">))</span>
+<span class="w">    </span><span class="n">validate_positive</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ok_result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div data-inc="out/use_result_demo.out"><span aria-label="Source: use/out/use_result_demo.out" class="inc-path" role="img" tabindex="0" title="use/out/use_result_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ok(5)
+Error("division by zero")
+</code></pre></div>
+</div>
+<ul>
+<li>Each <code>use</code> line extracts the value from <code>Ok</code> and binds it to a name</li>
+<li>If any step returns <code>Error</code>, the whole block <a class="gl-ref" href="../glossary/#short_circuit">short-circuits</a>
+    to that error immediately<ul>
+<li>The remaining steps are never evaluated</li>
+</ul>
+</li>
+<li>The final expression is the result of the whole block</li>
+<li>Compare the two versions: the <code>use</code> form reads like a plain sequence of steps</li>
+</ul>
+<div data-inc="src/use_result_demo.gleam" data-mark="use_err"><span aria-label="Source: use/src/use_result_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_result_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">err_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"0"</span><span class="p">))</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">safe_divide</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">divisor</span><span class="p">))</span>
+<span class="w">    </span><span class="n">validate_positive</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">err_result</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>parse_int("0")</code> succeeds (zero is a valid integer),
+    so <code>divisor</code> is bound to <code>0</code></li>
+<li><code>safe_divide(30, 0)</code> returns <code>Error("division by zero")</code></li>
+<li>The block short-circuits there;
+    <code>validate_positive</code> is never called</li>
+</ul>
+<h2>How use Works</h2>
+<ul>
+<li><code>use</code> is not special-cased for <code>Result</code>; it is a general rewrite rule</li>
+<li><code>use x &lt;- f(a, b)</code> followed by a block body is equivalent to:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">body</span>
+<span class="p">})</span>
+</code></pre></div>
+<ul>
+<li>In other words: call <code>f</code> with its normal arguments plus one extra argument,
+    a function that takes <code>x</code> and contains the rest of the block</li>
+<li>The function that receives the callback decides what to do with it<ul>
+<li><code>result.try</code> calls the callback only when its first argument is <code>Ok(x)</code>,
+    and propagates <code>Error</code> unchanged otherwise</li>
+</ul>
+</li>
+<li>Any function whose last parameter is a callback works with <code>use</code></li>
+<li>If the callback takes no arguments, omit the binding: <code>use &lt;- f(a, b)</code></li>
+</ul>
+<h2>use Beyond Results</h2>
+<ul>
+<li>Because <code>use</code> is just a rewrite, it works with any function that accepts a callback</li>
+</ul>
+<div data-inc="src/use_general_demo.gleam" data-mark="callback_long"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+</div>
+<div data-inc="src/use_general_demo.gleam" data-mark="callback_use"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">)</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>with_greeting</code> takes a name and a callback, and passes the constructed greeting to the callback</li>
+<li>Both forms produce the same output; <code>use</code> just removes the anonymous function syntax</li>
+</ul>
+<div data-inc="src/use_general_demo.gleam" data-mark="list_each"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">each</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
+<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div data-inc="out/use_general_demo.out"><span aria-label="Source: use/out/use_general_demo.out" class="inc-path" role="img" tabindex="0" title="use/out/use_general_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Gleam!
+Hello, Gleam!
+1
+2
+3
+</code></pre></div>
+</div>
+<ul>
+<li><code>list.each</code> calls the callback once for each element of the list</li>
+<li><code>use item &lt;- list.each([1, 2, 3])</code> is equivalent to writing
+    <code>list.each([1, 2, 3], fn(item) { ... })</code></li>
+<li>The rest of the block becomes the body of the anonymous function</li>
+</ul>
+<h2>Guidelines for use</h2>
+<ul>
+<li>Use <code>use x &lt;- result.try(...)</code> when chaining three or more fallible operations<ul>
+<li>For one or two operations, a <code>case</code> expression is often clearer</li>
+</ul>
+</li>
+<li>Prefer <code>result.try</code> for chaining; use <code>result.map</code> only for single-step transformations</li>
+<li><code>use</code> does not catch errors; it propagates them exactly as nested <code>case</code> would</li>
+<li>Any function that takes a callback as its last argument works with <code>use</code>,
+    not just functions from the <code>result</code> module</li>
+<li>Do not nest <code>use</code> blocks inside <code>use</code> blocks; if you feel tempted to do so,
+    extract a helper function instead</li>
+</ul>
+<h2>Further Reading</h2>
+<ul>
+<li>The <a href="https://tour.gleam.run/advanced-features/use/">Gleam language tour</a> covers <code>use</code> with additional examples,
+    including a discussion of how it relates to monadic bind in other languages.</li>
+</ul>
+<h2>Check Understanding</h2>
+<details>
+<summary>What does <code>use x &lt;- result.try(expr)</code> desugar to?</summary>
+<p>It desugars to:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rest</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span>
+<span class="p">})</span>
+</code></pre></div>
+<p><code>result.try</code> calls the callback with the value inside <code>Ok(x)</code>,
+or returns the <code>Error</code> unchanged without calling the callback at all.
+The <code>use</code> line just removes the need to write the anonymous function explicitly.</p>
+</details>
+<details>
+<summary>Can you use <code>use</code> with a function that returns something other than <code>Result</code>?</summary>
+<p>Yes.
+<code>use</code> works with any function whose last parameter is a callback.
+The function controls what it does with that callback:
+<code>result.try</code> calls it only on success,
+<code>list.each</code> calls it once per element,
+and a custom function can call it however it likes.
+The <code>Result</code> type has no special relationship to <code>use</code>.</p>
+</details>
+<h2>Exercises</h2>
+<div class="exercise">
+<h3>Identify the callback (5 minutes)</h3>
+<p>Rewrite this <code>use</code> expression as an explicit callback without <code>use</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">find_user</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
+<span class="w">  </span><span class="k">use</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">fetch_score</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="w">  </span><span class="n">Ok</span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>What type must <code>find_user</code> and <code>fetch_score</code> return for this to compile?</p>
+</div>
+<div class="exercise">
+<h3>Three-step chain (15 minutes)</h3>
+<p>Write three functions:
+<code>read_config(path: String) -&gt; Result(String, String)</code> (returns <code>Error</code> if the path is empty),
+<code>parse_port(raw: String) -&gt; Result(Int, String)</code> (wraps <code>int.parse</code> with a descriptive error),
+and <code>validate_port(port: Int) -&gt; Result(Int, String)</code> (returns <code>Error</code> if the port is outside 1–65535).
+Chain all three with <code>use</code> so that <code>read_config("")</code> short-circuits before the other two are called.</p>
+</div>
+<div class="exercise">
+<h3>Custom use target (15 minutes)</h3>
+<p>Write <code>with_default(maybe: Option(a), default: a, callback: fn(a) -&gt; b) -&gt; b</code>
+that calls <code>callback</code> with the value inside <code>Some</code>, or with <code>default</code> if the option is <code>None</code>.
+Then use it with <code>use</code> to unwrap an <code>Option(Int)</code> and double the result,
+falling back to <code>0</code> when the option is <code>None</code>.</p>
+</div>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../errors">Results, Options, and Error Handling</a>
+</div>
+<div class="col-6 center">
+<a href="../">gl4py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../modules">Modules, Imports, and Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

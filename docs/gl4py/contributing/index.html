@@ -24,6 +24,7 @@
 <li><a href="../basics/">Getting Started, Types, and Values</a></li>
 <li><a href="../functions/">Functions, Pattern Matching, Lists, and Pipelines</a></li>
 <li><a href="../errors/">Results, Options, and Error Handling</a></li>
+<li><a href="../use/">The use Expression</a></li>
 <li><a href="../modules/">Modules, Imports, and Testing</a></li>
 <li><a href="../mapreduce/">MapReduce</a></li>
 <li><a href="../glob/">Glob Pattern Matcher</a></li>
@@ -83,6 +84,78 @@ from pointing out mistakes to suggestions for better explanations.</dd>
 <li>Activate it by running <code>source .venv/bin/activate</code> in your shell.</li>
 <li>Install dependencies by running <code>uv sync</code>.</li>
 <li>Run <code>task --list</code> to see a list of tasks.</li>
+</ul>
+<h2>Writing Style</h2>
+<p>These rules apply to all lesson prose.</p>
+<ul>
+<li>Write in a conversational tone.
+    Rely on anecdotes about specific events rather than abstract generalizations.</li>
+<li>Use the active voice wherever possible.</li>
+<li>Readers are intelligent and have large vocabularies,
+    but are not familiar with specialist terms beyond
+    what they would learn in high school classes.</li>
+<li>Do not use bold in prose.
+    Use italics sparingly, and only for emphasis or introducing a term.</li>
+<li>Use four-space indentation in bullet lists:
+    a dash and three spaces for top-level items,
+    four spaces then a dash and three spaces for nested items.</li>
+<li>Do not use tab characters anywhere in Markdown files.</li>
+<li>Use semicolons and em-dashes sparingly.
+    Never write <code>---</code> in prose; if an em-dash is truly needed,
+    use the actual character (—) with no spaces around it.</li>
+<li>Do not attempt to be funny or offer generic positive feedback to readers.</li>
+<li>Each lesson must include citations or links for further reading.
+    Use <code>[text][key]</code> for external links and define <code>key</code> in <code>_extras/links.md</code>.</li>
+</ul>
+<h2>Lesson Structure</h2>
+<ul>
+<li>Each lesson lives in its own directory (<code>lessonname/index.md</code>).</li>
+<li>The lesson order is defined in <code>README.md</code>.</li>
+<li>Start each lesson with a <code>&lt;div class="callout"&gt;</code> listing the three to five
+    key takeaways as bullet points.</li>
+<li>Write self-test questions as <code>&lt;details&gt;</code> blocks
+    (see any existing lesson for the exact format).</li>
+<li>Write exercises under an H2 heading named <code>Exercises</code>.
+    Wrap each exercise in <code>&lt;div class="exercise"&gt;</code> and include a time estimate
+    in parentheses in the H3 heading.</li>
+<li>Reference glossary terms with <code>&lt;a class="gl-ref" href="@/glossary/#key"&gt;display text&lt;/a&gt;</code>.</li>
+<li>Reference bibliography entries with <code>[&lt;a class="bib-ref" href="@/bibliography/#Key1"&gt;Key1&lt;/a&gt;, &lt;a class="bib-ref" href="@/bibliography/#Key2"&gt;Key2&lt;/a&gt;]</code>.</li>
+</ul>
+<h2>Gleam Code Style</h2>
+<p>All Gleam source files live in <code>lessonname/src/</code> and their captured output in <code>lessonname/out/</code>.</p>
+<ul>
+<li>Run <code>gleam format</code> on every <code>.gleam</code> file before committing.
+    The CI check will fail if any file does not pass <code>gleam format --check</code>.</li>
+<li>All <code>gleam.toml</code> files must specify <code>gleam_stdlib = "&gt;= 1.0.0 and &lt; 2.0.0"</code>.
+    Do not use <code>&gt;= 0.34.0</code>; that range predates the stable 1.0 release.</li>
+<li>Annotate all public top-level functions and types with explicit type signatures.
+    Type inference is fine for local bindings and private helpers.</li>
+<li>Use meaningful variable names.
+    Write <code>items</code> instead of <code>lst</code>, <code>numerator</code> and <code>denominator</code> instead of <code>a</code> and <code>b</code>
+    when the names carry meaning, and avoid single-letter names except for
+    genuinely generic type parameters (<code>a</code>, <code>b</code>) and short mathematical expressions.</li>
+<li>Prefer <code>int.to_string</code>, <code>float.to_string</code>, and similar concrete conversion functions
+    over <code>string.inspect</code> when printing known types.
+    Reserve <code>string.inspect</code> for debugging values whose type is not known statically.</li>
+<li>Do not use <code>io.debug</code>; it was removed from the standard library.
+    Use <code>echo</code> for quick debug printing or <code>io.println</code> with an explicit conversion.</li>
+<li>Write tests using the <code>assert</code> keyword.
+    The <code>gleeunit/should</code> module is deprecated; do not use <code>should.equal</code>,
+    <code>should.be_ok</code>, or any other function from it.</li>
+<li>Prefer custom error enum types over <code>String</code> as the error type in <code>Result</code>.
+    A custom type lets the compiler verify that every error case is handled.</li>
+<li>Use <code>Option</code> for optional record fields and optional parameters.
+    For return types that can fail, prefer <code>Result</code>,
+    which can carry an error description.</li>
+<li>Use <code>result.try</code> for chaining fallible operations.
+    <code>result.map</code> is for single-step transformations;
+    <code>result.map_error</code> transforms the error side;
+    <code>result.unwrap</code> extracts a value with a fallback.</li>
+<li>Use the <code>use</code> expression when chaining three or more fallible operations.
+    For one or two operations, a <code>case</code> expression is usually clearer.</li>
+<li>Type aliases are rarely useful in normal code.
+    Their main purpose is re-exporting opaque internal types from a module.
+    Do not introduce type aliases just for readability.</li>
 </ul>
 </main>
 <footer aria-label="Page navigation">
