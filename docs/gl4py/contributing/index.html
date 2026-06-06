@@ -65,6 +65,7 @@ All contributors must abide by our Code of Conduct.</p>
 <p><a href="https://third-bit.com/"><em>Greg Wilson</em></a> is a programmer, author, and educator based in Toronto.
 He was the co-founder and first Executive Director of Software Carpentry
 and received ACM SIGSOFT's Influential Educator Award in 2020.</p>
+<p>Many thanks to <a href="https://becca.monster/">Rebecca</a> for early feedback.</p>
 <h2>FAQ</h2>
 <dl>
 <dt>Do you need help?</dt>
@@ -112,7 +113,7 @@ from pointing out mistakes to suggestions for better explanations.</dd>
 <li>Each lesson lives in its own directory (<code>lessonname/index.md</code>).</li>
 <li>The lesson order is defined in <code>README.md</code>.</li>
 <li>Start each lesson with a <code>&lt;div class="callout"&gt;</code> listing the three to five
-    key takeaways as bullet points.</li>
+    key takeaways as sentences.</li>
 <li>Write self-test questions as <code>&lt;details&gt;</code> blocks
     (see any existing lesson for the exact format).</li>
 <li>Write exercises under an H2 heading named <code>Exercises</code>.
@@ -122,23 +123,22 @@ from pointing out mistakes to suggestions for better explanations.</dd>
 <li>Reference bibliography entries with <code>[&lt;a class="bib-ref" href="@/bibliography/#Key1"&gt;Key1&lt;/a&gt;, &lt;a class="bib-ref" href="@/bibliography/#Key2"&gt;Key2&lt;/a&gt;]</code>.</li>
 </ul>
 <h2>Gleam Code Style</h2>
-<p>All Gleam source files live in <code>lessonname/src/</code> and their captured output in <code>lessonname/out/</code>.</p>
+<p>Gleam source files live in <code>lesson/src/</code>; their tests are in <code>lesson/test/</code>
+and their captured output is in <code>lesson/out/</code>.</p>
 <ul>
-<li>Run <code>gleam format</code> on every <code>.gleam</code> file before committing.
-    The CI check will fail if any file does not pass <code>gleam format --check</code>.</li>
+<li>Run <code>gleam format</code> on every <code>.gleam</code> file before committing.</li>
 <li>All <code>gleam.toml</code> files must specify <code>gleam_stdlib = "&gt;= 1.0.0 and &lt; 2.0.0"</code>.
     Do not use <code>&gt;= 0.34.0</code>; that range predates the stable 1.0 release.</li>
 <li>Annotate all public top-level functions and types with explicit type signatures.
     Type inference is fine for local bindings and private helpers.</li>
-<li>Use meaningful variable names.
-    Write <code>items</code> instead of <code>lst</code>, <code>numerator</code> and <code>denominator</code> instead of <code>a</code> and <code>b</code>
-    when the names carry meaning, and avoid single-letter names except for
-    genuinely generic type parameters (<code>a</code>, <code>b</code>) and short mathematical expressions.</li>
+<li>Use meaningful variable names (e.g., <code>items</code> instead of <code>lst</code>).
+    Avoid single-letter names except for genuinely generic type parameters (<code>a</code>, <code>b</code>)
+    and short mathematical expressions.</li>
 <li>Prefer <code>int.to_string</code>, <code>float.to_string</code>, and similar concrete conversion functions
     over <code>string.inspect</code> when printing known types.
     Reserve <code>string.inspect</code> for debugging values whose type is not known statically.</li>
 <li>Do not use <code>io.debug</code>; it was removed from the standard library.
-    Use <code>echo</code> for quick debug printing or <code>io.println</code> with an explicit conversion.</li>
+    Use <code>io.println</code> with an explicit conversion rather than <code>echo</code>.</li>
 <li>Write tests using the <code>assert</code> keyword.
     The <code>gleeunit/should</code> module is deprecated; do not use <code>should.equal</code>,
     <code>should.be_ok</code>, or any other function from it.</li>
