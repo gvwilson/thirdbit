@@ -1,7 +1,7 @@
 ---
 title: "Checking the Balance"
 date: 2016-02-16
-category: software education community
+category: software-carpentry empirical-se
 original: swc
 ---
 <p>

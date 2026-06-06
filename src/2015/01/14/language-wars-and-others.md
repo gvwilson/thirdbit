@@ -1,7 +1,7 @@
 ---
 title: "Language Wars and Others"
 date: 2015-01-14
-category: software education community
+category: programming
 original: swc
 ---
 <p>

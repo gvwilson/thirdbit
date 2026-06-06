@@ -1,7 +1,7 @@
 ---
 title: "Disappearing Data"
 date: 2017-09-18
-category: research software
+category: research-methods
 ---
 
 I woke up this morning to a really depressing thread on Twitter

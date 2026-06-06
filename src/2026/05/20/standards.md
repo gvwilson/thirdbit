@@ -1,7 +1,7 @@
 ---
 title: "Setting the Standard"
 date: 2026-05-20
-category: sdgc
+category: sdgc ethics
 ---
 
 In May 1886,

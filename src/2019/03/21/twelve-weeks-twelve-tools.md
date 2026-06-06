@@ -1,6 +1,6 @@
 ---
 date: 2019-03-21
-category: software
+category: programming cs-education
 title: "Twelve Weeks, Twelve Tools"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Daddy, Why Don't You Ever Laugh?"
 date: 2015-11-09
-category: favorite
+category: personal
 ---
 <p>
   We were eating dinner last Friday night when my daughter asked me,

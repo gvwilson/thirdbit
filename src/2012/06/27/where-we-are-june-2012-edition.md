@@ -1,6 +1,6 @@
 ---
 date: 2012-06-27
-category: software
+category: software-carpentry
 original: swc
 title: Where We Are (June 2012 edition)
 ---

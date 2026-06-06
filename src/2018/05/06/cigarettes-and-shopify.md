@@ -1,7 +1,7 @@
 ---
 title: "Cigarettes and Shopify"
 date: 2018-05-06
-category: favorite
+category: ethics
 ---
 
 When I was seven or eight, my teacher told my class that cigarettes cause cancer.

@@ -1,6 +1,6 @@
 ---
 date: 2012-01-26
-category: software education
+category: software-carpentry
 original: swc
 title: Never Mind the Content, What About the Format?
 ---

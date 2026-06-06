@@ -1,6 +1,6 @@
 ---
 date: 2009-07-24
-category: education software
+category: software-carpentry
 original: swc
 title: Day 10 Done - and With It, Week 2
 ---

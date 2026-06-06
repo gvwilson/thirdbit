@@ -1,7 +1,7 @@
 ---
 title: "We Don't Import Punch Cards Any More"
 date: 2009-04-23
-category: software
+category: programming tools
 ---
 <a href="http://msdn.microsoft.com/en-us/oslo/dd727740.aspx">Interesting talk</a> from Magnus Christerson and Shane Clifford about intentional programming (<a href="http://www.intentsoft.com/">Charles Simonyi</a>'s "next big thing").  Starts a bit slowly, then accelerates; I particularly liked the off-hand characterization of all of today's widely-used languages as glorified punch cards.  I think—I hope—that the demo starting around 14:00 is a glimpse of the future of programming.
 

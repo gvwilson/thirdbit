@@ -1,7 +1,7 @@
 ---
 title: "Nick's Last Day"
 date: 2008-07-17
-category: students
+category: student-projects
 ---
 Tomorrow is Nick Jamil's last day with us—he'ss done a great job of building a variable-speed ticketing system for DrProject, but now he's got to put all that energy into getting married :-) To wrap up, he has put two posts on his blog:
 <ol>

@@ -1,6 +1,6 @@
 ---
 date: 2011-03-01
-category: software education
+category: programming retro
 original: swc
 title: Tuple Spaces (or, Good Ideas Don't Always Win)
 ---

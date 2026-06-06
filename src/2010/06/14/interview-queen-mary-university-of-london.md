@@ -1,6 +1,6 @@
 ---
 date: 2010-06-14
-category: software research community
+category: software-carpentry
 original: swc
 title: "Interview: Mark Plumbley at Queen Mary University of London"
 ---

@@ -1,7 +1,7 @@
 ---
 title: 25 Questions
 date: 2012-10-23
-category: research education software
+category: software-carpentry empirical-se
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Congratulations to Our New Instructor Trainers"
 date: 2016-10-04
-category: community education
+category: software-carpentry
 original: swc
 ---
 

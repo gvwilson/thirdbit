@@ -1,6 +1,6 @@
 ---
 date: 2009-10-21
-category: education software
+category: software-carpentry cs-education
 original: swc
 title: Should Modeling Be Part of This Course?
 ---

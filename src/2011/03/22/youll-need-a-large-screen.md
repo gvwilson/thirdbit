@@ -1,6 +1,6 @@
 ---
 date: 2011-03-22
-category: education
+category: technical-writing
 original: swc
 title: You'll Need a Large Screen
 ---

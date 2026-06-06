@@ -1,7 +1,7 @@
 ---
 title: "More on Instructor Training"
 date: 2016-07-26
-category: education research community
+category: software-carpentry
 original: swc
 ---
 

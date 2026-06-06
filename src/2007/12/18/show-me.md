@@ -1,7 +1,7 @@
 ---
 title: "Show Me"
 date: 2007-12-18
-category: society
+category: politics
 ---
 In an online discussion about why there are so few women in computer science, one student wrote that he thought it was because there are fundamental differences between the sexes.  When asked what data he was basing that opinion on, he replied:
 

@@ -1,7 +1,7 @@
 ---
 title: "Updating the Project List"
 date: 2015-06-15
-category: software
+category: software-carpentry
 original: swc
 ---
 <p>

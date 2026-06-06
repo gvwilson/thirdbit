@@ -1,7 +1,7 @@
 ---
 title: "British Library Courses"
 date: 2014-10-27
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Plus Ça Change"
 date: 2015-09-26
-category: software research writing
+category: personal retro
 ---
 I gave this talk at SciPy'06.
 A few things have changed since then,

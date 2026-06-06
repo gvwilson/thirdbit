@@ -1,7 +1,7 @@
 ---
 title: "WiSE Bootcamp at Lawrence Berkeley National Laboratory"
 date: 2013-11-29
-category: education research society
+category: software-carpentry diversity
 original: swc
 ---
 <p>

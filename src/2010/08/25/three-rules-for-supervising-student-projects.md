@@ -1,7 +1,7 @@
 ---
 title: "Three Rules for Supervising Student Programming Projects"
 date: 2010-08-25
-category: software community education
+category: student-projects cs-education
 ---
 <a href="http://jendodd.com">Jen Dodd</a> recently posted an article titled "<a href="http://jendodd.com/2010/08/16/3-rules-for-running-events/">3 rules for running events</a>", plus one metarule that I particularly appreciated: "Stop deluding yourself."  In the same spirit, I'd like to offer up three rules for running student programming projects.  To set the stage, here's the number of student programming projects I've organized, supervised, or otherwise been guilty of since <a href="http://en.wikipedia.org/wiki/David_Wallace_%28physicist%29">David Wallace</a> first asked me to look after a couple of summer interns in Edinburgh half a lifetime ago:
 <div>

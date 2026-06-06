@@ -1,6 +1,6 @@
 ---
 date: 2018-12-12
-category: software research education
+category: programming
 title: "JavaScript versus Data Science"
 ---
 

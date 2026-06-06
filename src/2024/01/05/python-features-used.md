@@ -1,7 +1,7 @@
 ---
 title: "What Features of Python Do I Use?"
 date: 2024-01-05
-category: software writing
+category: programming technical-writing
 ---
 
 It's easy to answer the question in this post's title

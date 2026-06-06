@@ -1,6 +1,6 @@
 ---
 date: 2011-10-19
-category: software research
+category: software-carpentry
 original: swc
 title: American Scientist Article on Empirical Studies of Software Engineering
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The Finger Is Not The Test"
 date: 2011-07-15
-category: software
+category: cs-education
 ---
 When Buddhists want to remind themselves that scripture is a guide, not a goal, they say, "The finger pointing at the moon is not the moon." I think we need a similar metaphor to explain what testing is really about to junior developers. When I say, "Don't check in code until all the tests pass," I do <em>not</em> mean:
 <ul>

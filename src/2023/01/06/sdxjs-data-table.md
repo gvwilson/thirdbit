@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 6: Data Tables"
 date: 2023-01-06
-category: software writing education
+category: programming technical-writing cs-education
 ---
 
 [Chapter 6][sdxjs_data_table] of [*Software Design by Example*][sdxjs] was a bit nostalgic for me.

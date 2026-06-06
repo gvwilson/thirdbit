@@ -1,7 +1,7 @@
 ---
 title: "DrProject: Transitioning to Kid"
 date: 2006-03-14
-category: swcarpentry
+category: student-projects programming
 ---
 <em>Update</em>:  Previously, I discussed some of the issues we encountered by switching to Kid for our templating framework.  While Kid was much nicer to work with, we were surprised at how slow it was.  Chris Lenz, however, corrected me by pointing out that inserting XML fragments into the template (via the <code>XML(…)</code> function) should be avoided whenever possible.  Instead, your controllers should be creating ElementTree objects that can be rendered directly by Kid.
 

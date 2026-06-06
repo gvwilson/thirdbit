@@ -1,7 +1,7 @@
 ---
 title: "Toronto Technology Week May 28 - June 1"
 date: 2007-02-16
-category: community software
+category: community-events conferences
 ---
 Toronto Technology Week is a new initiative to showcase just how much innovation is happening 'round here.  Their announcement is below, minus the dozens of mis-matched font tags put into the origina by at least two different versions of Word.
 

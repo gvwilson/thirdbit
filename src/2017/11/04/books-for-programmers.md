@@ -1,7 +1,7 @@
 ---
 title: "Books for Programmers"
 date: 2017-11-04
-category: writing software research
+category: book-reviews
 ---
 
 I used to review books about programming for *Doctor Dobb's Journal*.

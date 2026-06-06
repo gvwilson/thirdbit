@@ -1,7 +1,7 @@
 ---
 title: "Selling Hope"
 date: 2015-05-02
-category: research
+category: cs-education
 ---
 <p>
   Last summer,

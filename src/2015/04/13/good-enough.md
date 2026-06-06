@@ -1,7 +1,7 @@
 ---
 title: Good Enough Practices in Scientific Computing
 date: 2015-04-13
-category: research software writing
+category: research-methods
 original: swc
 ---
 <p>

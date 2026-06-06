@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 3: Asynchronous Programming"
 date: 2023-01-03
-category: software education writing
+category: programming technical-writing cs-education
 ---
 
 As I said in [the previous post][systems_programming_post],

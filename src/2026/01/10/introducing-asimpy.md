@@ -1,7 +1,7 @@
 ---
 title: Introducing asimpy
 date: 2026-01-10
-category: software education
+category: programming tools
 ---
 
 I put [the tutorial on discrete event simulation][sim] on hold a couple of days ago

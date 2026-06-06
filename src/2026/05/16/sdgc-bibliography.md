@@ -1,7 +1,7 @@
 ---
 title: "SDGC Bibliography"
 date: 2026-05-16
-category: sdgc
+category: sdgc book-reviews
 ---
 
 I will update this as new entries are added.

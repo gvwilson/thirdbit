@@ -1,6 +1,6 @@
 ---
 date: 2019-03-12
-category: education software writing
+category: education technical-writing
 title: "Reviewing Lessons"
 ---
 

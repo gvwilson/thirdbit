@@ -1,7 +1,7 @@
 ---
 title: Remembrance
 date: 2025-12-06
-category: software
+category: personal
 ---
 
 Jamais plus.

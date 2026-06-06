@@ -1,6 +1,6 @@
 ---
 date: 2019-03-07
-category: education research software
+category: cs-education research-methods
 title: "Learning to Program"
 ---
 

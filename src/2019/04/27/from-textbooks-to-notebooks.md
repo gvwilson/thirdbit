@@ -1,6 +1,6 @@
 ---
 date: 2019-04-27
-category: software education research
+category: education tools technical-writing
 title: "From Textbooks to Notebooks and Back"
 ---
 

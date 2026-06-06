@@ -1,6 +1,6 @@
 ---
 date: 2012-08-17
-category: education
+category: cs-education
 original: swc
 title: Who Are You?
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2019-03-24
-category: education software personal
+category: academia career personal
 title: "Occupations"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Many Ways to Break"
 date: 2007-01-21
-category: students
+category: student-projects programming
 ---
 One of the driving forces behind DrProject was instructors' need for a scripting API to support batch operations (such as creating one repository for each pair of students in a course, or filing the same ticket against each team).  We have mostly succeeded, but as we discovered last week, that just means that we've introduced another place for bugs to breed.
 

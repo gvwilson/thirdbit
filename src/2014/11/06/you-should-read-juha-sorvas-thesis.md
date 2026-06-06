@@ -1,7 +1,7 @@
 ---
 title: "You Should Read Juha Sorva's Thesis"
 date: 2014-11-06
-category: education software research
+category: empirical-se
 original: swc
 ---
 <p>

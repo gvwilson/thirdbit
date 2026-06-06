@@ -1,6 +1,6 @@
 ---
 date: 2010-10-30
-category: software research
+category: software-carpentry empirical-se
 original: swc
 title: Dubois on Maintaining Correctness
 ---

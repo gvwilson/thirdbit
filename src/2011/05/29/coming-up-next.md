@@ -1,7 +1,7 @@
 ---
 title: "Coming Up Next (We Hope)"
 date: 2011-05-29
-category: software education community
+category: software-carpentry
 ---
 <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> was always meant to be the start of something, not the end. We'd really like to collect more descriptions of complex systems' architectures and the lessons to be learned from them, but to do that, we need your help. If you are, or know, the key designers or developers associated with the projects listed below, please let them know that we'd like to hear from them. Where we don't have an application, just a category, please suggest a particular project and make an introduction, and if there's something missing that you think would teach people a lesson that would otherwise go untaught, please let us know that too.
 <ol>

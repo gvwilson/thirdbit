@@ -1,7 +1,7 @@
 ---
 title: "A Proposal for Topic Maintainers"
 date: 2014-09-18
-category: education community writing
+category: software-carpentry
 original: swc
 ---
 <p>

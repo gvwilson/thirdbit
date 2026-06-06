@@ -1,7 +1,7 @@
 ---
 title: "The Design of Fossil"
 date: 2010-01-07
-category: software
+category: programming tools
 ---
 Partly in response to my post about building something <a href="http://www.fossil-scm.org/">Fossil</a>-like on a NoSQL data store, Richard Hipp has written <a href="http://www.fossil-scm.org/fossil/doc/tip/www/theory1.wiki">a brief discussion of Fossil's design</a> that tackles two questions:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Advances"
 date: 2015-11-20
-category: software education community
+category: software-carpentry
 ---
 <p>
   Alfred North Whitehead once said that

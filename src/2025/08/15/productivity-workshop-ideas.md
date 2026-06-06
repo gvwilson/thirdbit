@@ -1,7 +1,7 @@
 ---
 title: Productivity Workshop Ideas
 date: 2025-08-15
-category: software education research
+category: empirical-se research-methods
 ---
 
 Suppose you were going to build a one-day hands-on tutorial for software engineers

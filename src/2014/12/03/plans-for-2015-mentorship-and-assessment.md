@@ -1,7 +1,7 @@
 ---
 title: "Plans for 2015: Mentorship and Assessment"
 date: 2014-12-03
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

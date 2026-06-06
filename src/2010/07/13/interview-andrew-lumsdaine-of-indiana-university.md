@@ -1,6 +1,6 @@
 ---
 date: 2010-07-13
-category: research software education
+category: software-carpentry
 original: swc
 title: "Interview: Andrew Lumsdaine of Indiana University"
 ---

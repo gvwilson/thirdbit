@@ -1,6 +1,6 @@
 ---
 date: 2019-02-05
-category: software
+category: humor programming
 title: "Libraries Tell It Like It Is"
 ---
 

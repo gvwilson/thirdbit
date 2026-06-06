@@ -1,7 +1,7 @@
 ---
 title: "Convocation 2009"
 date: 2009-06-18
-category: software
+category: student-projects
 ---
 Congratulations once again to Carolyn MacLeod, Jeremy Handcock, and Samira Abdi Ashtiani on completing their Master's degrees.
 

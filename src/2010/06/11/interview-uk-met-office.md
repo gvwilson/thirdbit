@@ -1,6 +1,6 @@
 ---
 date: 2010-06-11
-category: community
+category: software-carpentry
 original: swc
 title: "Interview: David Jackson at the UK Met Office"
 ---

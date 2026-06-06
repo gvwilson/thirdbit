@@ -1,6 +1,6 @@
 ---
 date: 2012-04-06
-category: software education research
+category: software-carpentry
 original: swc
 title: Titus Brown Finds a Theme
 ---

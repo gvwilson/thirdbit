@@ -1,7 +1,7 @@
 ---
 title: "Epistocracy as Privilege"
 date: 2016-09-29
-category: education software
+category: politics
 ---
 
 Another day,

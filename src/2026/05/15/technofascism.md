@@ -1,7 +1,7 @@
 ---
 title: "Technofascism"
 date: 2026-05-15
-category: sdgc
+category: sdgc politics
 ---
 
 In July 2016, Peter Thiel walked onto the stage at the Republican National Convention 

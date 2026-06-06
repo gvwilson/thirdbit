@@ -1,6 +1,6 @@
 ---
 date: 2012-02-21
-category: community
+category: software-carpentry
 original: swc
 title: Badges (Mark 1)
 ---

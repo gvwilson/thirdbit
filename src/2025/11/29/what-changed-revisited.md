@@ -1,7 +1,7 @@
 ---
 title: What Changed Revisited
 date: 2025-11-29
-category: software community personal
+category: empirical-se research-methods
 ---
 
 Let's take another look at the log-scaled version of [yesterday's chart][what-changed]:

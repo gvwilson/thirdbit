@@ -1,7 +1,7 @@
 ---
 title: "Risk Budget"
 date: 2008-09-18
-category: software education
+category: student-projects cs-education
 ---
 Ward Cunningham coined the phrase "<a href="http://en.wikipedia.org/wiki/Technical_debt">technical debt</a>" to describe the situation where poor design and/or implementation results in developers paying "interest" in the form of extra maintenance or other work that doesn't add value for users.  Inspired by that, I've started asking my students to think about the "risk budget" for their projects.  Everyone is familiar with budgeting time: if you have X hours to do something, the individual times for the tasks making up that something had better not exceed X.  If they do, you have to move the deadline back (i.e., get more time), cut features (i.e., reduce the time required), or get help (which is really just another way of getting more time).
 

@@ -1,7 +1,7 @@
 ---
 title: "Reading List"
 date: 2022-12-28
-category: writing software
+category: book-reviews programming
 ---
 
 Over the last decade,

@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 19: Who Do You Know?"
 date: 2009-03-01
-category: education
+category: community-events
 ---
 The cheapest kind of social graph is just a count of how many people in the room you know.  Going through the <a href="http://democamp.eventbrite.com/">Eventbite page for DemoCamp 19</a>, I came up with:
 <table class="centered">

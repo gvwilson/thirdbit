@@ -1,6 +1,6 @@
 ---
 date: 2012-01-15
-category: education software
+category: software-carpentry
 original: swc
 title: Why Is This Hard?
 ---

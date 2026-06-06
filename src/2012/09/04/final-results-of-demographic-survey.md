@@ -1,6 +1,6 @@
 ---
 date: 2012-09-04
-category: software education writing
+category: software-carpentry empirical-se
 original: swc
 title: Final Results of Demographic Survey
 ---

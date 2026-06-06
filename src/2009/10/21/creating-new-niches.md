@@ -1,6 +1,6 @@
 ---
 date: 2009-10-21
-category: research software writing
+category: empirical-se technical-writing
 original: swc
 title: Creating New Niches
 ---

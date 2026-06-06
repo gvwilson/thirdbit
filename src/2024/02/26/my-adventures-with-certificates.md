@@ -1,7 +1,7 @@
 ---
 title: "My Adventures with Certificates"
 date: 2024-02-26
-category: education
+category: tools programming
 ---
 
 > Update: thanks to the generosity of [Matt Panaro][panaro-matt],

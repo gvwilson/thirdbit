@@ -1,6 +1,6 @@
 ---
 date: 2019-06-24
-category: education community writing
+category: education technical-writing
 title: "Chapter Summaries"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Where the Time Went"
 date: 2024-04-29
-category: software
+category: personal
 ---
 
 Here's where my time went during my last two weeks in my previous job and my three weeks off.

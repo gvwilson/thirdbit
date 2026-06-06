@@ -1,7 +1,7 @@
 ---
 title: "Data Dictionaries"
 date: 2021-01-19
-category: software writing
+category: data-science technical-writing
 ---
 
 I was helping some friends analyze some data today,

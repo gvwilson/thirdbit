@@ -1,6 +1,6 @@
 ---
 date: 2012-07-05
-category: education software
+category: software-carpentry empirical-se
 original: swc
 title: Independent Assessment of the Past Six Months
 ---

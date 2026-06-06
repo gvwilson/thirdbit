@@ -1,7 +1,7 @@
 ---
 title: "NWIT Retrospective"
 date: 2024-03-21
-category: writing software
+category: empirical-se community-events
 ---
 
 <p>

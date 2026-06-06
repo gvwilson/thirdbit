@@ -1,7 +1,7 @@
 ---
 title: "Questions, Answers, and Lessons"
 date: 2016-04-24
-category: education research software
+category: software-carpentry
 original: swc
 ---
 <p>

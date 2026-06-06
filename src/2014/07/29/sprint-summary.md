@@ -1,7 +1,7 @@
 ---
 title: "Summer Sprint Summary"
 date: 2014-07-29
-category: software education research
+category: software-carpentry
 original: swc
 ---
 

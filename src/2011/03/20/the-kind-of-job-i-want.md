@@ -1,7 +1,7 @@
 ---
 title: "The Kind of Job I Want"
 date: 2011-03-20
-category: education software community
+category: personal career
 ---
 All right: what kind of job do I want?  It's a fair question, and since I've often asked students what they would work on if someone offered to pay their salary for a year, I suppose I should try to answer it myself.
 

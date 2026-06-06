@@ -1,7 +1,7 @@
 ---
 title: "Web Workflows and Public Embarrassment"
 date: 2010-01-05
-category: education community personal
+category: software-carpentry personal
 ---
 As I've mentioned before, I'm one of the organizers of a set of <a href="http://ucosp.wordpress.com/">undergraduate cross-country open source capstone projects</a>, in which students from <a href="http://ucosp.wordpress.com/2009-fall/">several</a> <a href="http://ucosp.wordpress.com/winter-2010/">universities</a> work together in distributed teams for a term for course credit. Here's what I presently have to do for each student:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Freakonomics, But For Good"
 date: 2017-11-17
-category: writing education
+category: noticed
 ---
 
 *[Freakonomics][freakonomics]* was a fun read,

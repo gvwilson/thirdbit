@@ -1,7 +1,7 @@
 ---
 title: "And One That Failed"
 date: 2008-06-15
-category: swcarpentry
+category: software-carpentry
 ---
 To round out the series, this proposal went in last year, but was rejected.  I wish I could blame it on wrong place/wrong time, but NSERC (Canada's major funding agency for science and engineering) has rejected everything related to DrProject that I've sent them as well. Maybe someone's trying to tell me something?
 

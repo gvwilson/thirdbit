@@ -1,7 +1,7 @@
 ---
 title: "So What's It Like Publishing a Book Yourself?"
 date: 2011-05-28
-category: writing community
+category: technical-writing
 ---
 Several authors and would-be authors have asked us what it's like doing a book with a print-on-demand publisher like Lulu. Overall, we're pretty pleased: you have complete control over content and schedule, and since traditional publishers are pushing the work of publicizing technical books onto authors anyway, the only thing you really lose is professional copy-editing. You can always hire a freelancer to do that, though (which is what traditional publishers mostly do); if you're interested, Amy Brown (my co-editor) now has some time…
 

@@ -1,7 +1,7 @@
 ---
 title: "Setting Up a New Project"
 date: 2021-11-15
-category: software education community
+category: open-source software-carpentry
 ---
 
 I recently helped a group of about fifteen people set up a new research software engineering project

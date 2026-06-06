@@ -1,7 +1,7 @@
 ---
 title: "Curriculum Design"
 date: 2013-10-14
-category: education software personal
+category: software-carpentry
 original: swc
 ---
 <p>

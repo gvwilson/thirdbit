@@ -1,7 +1,7 @@
 ---
 title: "Teaching Statistics in the 21st Century"
 date: 2018-01-09
-category: education research software
+category: cs-education
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "This Is Why I Don't Write Any More"
 date: 2014-04-15
-category: education
+category: personal
 ---
 <p>
   Thursday: fly to Montreal for PyCon.

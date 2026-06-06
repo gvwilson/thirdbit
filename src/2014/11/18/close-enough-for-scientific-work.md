@@ -1,7 +1,7 @@
 ---
 title: "Close Enough for Scientific Work"
 date: 2014-11-18
-category: software education research
+category: research-methods
 original: swc
 ---
 

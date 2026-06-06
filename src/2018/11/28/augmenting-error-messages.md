@@ -1,6 +1,6 @@
 ---
 date: 2018-11-28
-category: software research community
+category: cs-education programming
 title: "Augmenting Error Messages"
 ---
 

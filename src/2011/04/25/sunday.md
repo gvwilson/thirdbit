@@ -1,7 +1,7 @@
 ---
 title: "Sunday"
 date: 2011-04-25
-category: software
+category: personal
 ---
 Today, my friends Jorge and Val welcomed their first child, Aurora Aranda-Cortés, into the world. And today, for the first time in nine years, my sister and her family didn't have Easter dinner with my parents, because she is too ill to make the 40 minute journey.
 

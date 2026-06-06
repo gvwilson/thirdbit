@@ -1,6 +1,6 @@
 ---
 date: 2012-02-01
-category: software education
+category: software-carpentry
 original: swc
 title: Re-doing the Three-Minute Pitch
 ---

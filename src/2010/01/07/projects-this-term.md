@@ -1,7 +1,7 @@
 ---
 title: "Projects This Term"
 date: 2010-01-07
-category: software education
+category: student-projects
 ---
 Along with the <a href="http://ucosp.wordpress.com">cross-country capstone projects</a> I'm coordinating this term, I'm also setting up six projects for the students in my CSC302 software engineering course (the first four of which I mentioned in an earlier post):
 <ol>

@@ -1,6 +1,6 @@
 ---
 date: 2009-11-26
-category: software research community
+category: empirical-se
 original: swc
 title: Caesar's Wife
 ---

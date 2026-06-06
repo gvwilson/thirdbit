@@ -1,7 +1,7 @@
 ---
 title: "Do Not Be Worried"
 date: 2014-04-16
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

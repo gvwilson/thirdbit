@@ -1,7 +1,7 @@
 ---
 title: "Ten Simple Rules for Being a Good Educational Research Partner"
 date: 2018-01-15
-category: education research software
+category: research-methods
 ---
 <p>
   <em>

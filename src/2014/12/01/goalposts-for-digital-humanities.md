@@ -1,7 +1,7 @@
 ---
 title: "Goalposts for the Digital Humanities"
 date: 2014-12-01
-category: education software
+category: cs-education
 original: swc
 ---
 <p>

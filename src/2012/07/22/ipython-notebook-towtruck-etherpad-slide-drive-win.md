@@ -1,6 +1,6 @@
 ---
 date: 2012-07-22
-category: software education writing
+category: software-carpentry tools
 original: swc
 title: IPython Notebook + Towtruck + Etherpad + Slide Drive = Win
 ---

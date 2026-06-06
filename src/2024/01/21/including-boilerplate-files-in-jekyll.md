@@ -1,6 +1,6 @@
 ---
 date: 2024-01-20
-category: software community writing
+category: tools technical-writing
 title: "Including Boilerplate Files in Jekyll"
 ---
 

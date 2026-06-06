@@ -1,7 +1,7 @@
 ---
 title: "Other Kinds of Firms"
 date: 2026-05-03
-category: sdgc
+category: sdgc ethics
 ---
 
 When you start a company in Canada,

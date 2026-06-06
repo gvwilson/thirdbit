@@ -1,7 +1,7 @@
 ---
 title: "Ransom as a Business Model"
 date: 2026-05-11
-category: sdgc
+category: sdgc ethics
 ---
 
 The Canvas learning management system was hacked a couple of days ago,

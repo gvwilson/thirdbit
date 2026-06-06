@@ -1,7 +1,7 @@
 ---
 title: "Portrait of the Author"
 date: 2008-07-09
-category: writing
+category: personal
 ---
 I got my first two copies of <em>A Bottle of Light</em> last week, and immediately handed them off to my nephews (to whom the book is dedicated).  About half an hour ago, the postman delivered a (small) box full—w00t!  It's only available through a special reading program that Scholastic is running in schools, rather than regular and online bookstores, but I'm still happy enough to see it to grin a cheesy grin:
 

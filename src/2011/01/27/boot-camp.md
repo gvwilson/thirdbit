@@ -1,6 +1,6 @@
 ---
 date: 2011-01-27
-category: education software research
+category: software-carpentry
 original: swc
 title: Bootcamp
 ---

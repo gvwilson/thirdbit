@@ -1,7 +1,7 @@
 ---
 title: "Seymour Papert 1928-2016"
 date: 2016-08-02
-category: software education community
+category: noticed
 original: swc
 ---
 

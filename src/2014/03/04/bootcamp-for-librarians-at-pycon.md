@@ -1,7 +1,7 @@
 ---
 title: "A Workshop for Librarians at PyCon"
 date: 2014-03-04
-category: software education
+category: software-carpentry
 original: swc
 ---
 <p>

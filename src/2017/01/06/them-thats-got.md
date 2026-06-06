@@ -1,7 +1,7 @@
 ---
 title: "Them That's Got"
 date: 2017-01-06
-category: research education community
+category: noticed
 ---
 
 <p>

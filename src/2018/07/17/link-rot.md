@@ -1,6 +1,6 @@
 ---
 date: 2018-07-17
-category: software education writing
+category: research-methods
 title: "Link Rot"
 ---
 

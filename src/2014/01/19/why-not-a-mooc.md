@@ -1,7 +1,7 @@
 ---
 title: "Why Not a MOOC?"
 date: 2014-01-19
-category: education software
+category: cs-education
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 5: File Backup"
 date: 2023-01-05
-category: software writing
+category: programming technical-writing
 ---
 
 The chapter explaining [how hash-based version control systems work][sdxjs_backup]

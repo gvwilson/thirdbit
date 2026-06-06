@@ -1,7 +1,7 @@
 ---
 title: Minutes from 2012-12-19 09:00:00 All-Hands Meeting
 date: 2012-12-19
-category: community
+category: software-carpentry
 original: swc
 ---
 <p>Our second all-hands meeting was held on Wednesday, December 19, from 12:00-13:10 Eastern time.</p>

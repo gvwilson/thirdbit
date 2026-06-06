@@ -1,6 +1,6 @@
 ---
 date: 2024-02-14
-category: software
+category: programming technical-writing
 title: "A Pair of Interviews"
 ---
 

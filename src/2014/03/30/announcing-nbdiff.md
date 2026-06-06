@@ -1,7 +1,7 @@
 ---
 title: "Announcing NBDiff"
 date: 2014-03-30
-category: software education community
+category: software-carpentry tools
 original: swc
 ---
 <p>

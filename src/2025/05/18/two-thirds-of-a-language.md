@@ -1,7 +1,7 @@
 ---
 title: Two Thirds of a Language
 date: 2025-05-18
-category: software
+category: programming
 ---
 
 Inspired in part by posts online about this year's PyCon,

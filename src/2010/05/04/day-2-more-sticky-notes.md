@@ -1,6 +1,6 @@
 ---
 date: 2010-05-04
-category: software education
+category: software-carpentry
 original: swc
 title: "Day 2: More Sticky Notes"
 ---

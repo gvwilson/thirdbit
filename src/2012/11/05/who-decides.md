@@ -1,7 +1,7 @@
 ---
 title: "Who Decides?"
 date: 2012-11-05
-category: education software writing
+category: cs-education
 ---
 <p>Sal Khan and Michael Noer recently recorded an 11-minute webisode on <a href="http://www.youtube.com/watch?v=LqTwDDTjb6g">the history of education from 1680 to 2050</a>. <a href="http://www.hackeducation.com/2012/11/01/history-of-education-khan-academy/">It angered Audrey Watters</a>, and I think my take on why says a lot about where I stand on education, online or otherwise.</p>
 <p>Michael Noer works for <a href="http://www.forbes.com/"><cite>Forbes</cite></a>, whose byline is, "Information for the World's Business Leaders". I don't know how many business leaders actually subscribe, but I'll bet that most of them believe that education's role is to prepare people to take their place in society. As Khan &amp; Noer point out, Bismarck's Prussians invented modern public schooling as a way to create the skilled workforce they needed. For the powerful, in Thatcher's England just as much as Stalin's Russia, that's been its purpose ever since.</p>

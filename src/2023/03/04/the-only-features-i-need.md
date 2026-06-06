@@ -1,7 +1,7 @@
 ---
 title: "The Only Features I Need"
 date: 2023-03-04
-category: software education research
+category: tools cs-education research-methods
 ---
 
 > This post is a sequel to earlier ones about [the Lox programming language][change-lox]

@@ -1,7 +1,7 @@
 ---
 title: "Analog is More Satisfying"
 date: 2018-03-24
-category: education software research
+category: personal
 ---
 
 I'm organizing my thoughts about other people's thoughts for

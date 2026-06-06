@@ -1,7 +1,7 @@
 ---
 title: "Journal of Comprehensible Explanations"
 date: 2022-11-20
-category: research writing
+category: research-methods technical-writing
 ---
 
 I really, really want the ACM to start a "Journal of Comprehensible Explanations"

@@ -1,7 +1,7 @@
 ---
 title: "Sloan Foundation Proposal Round 2"
 date: 2013-07-05
-category: writing education research
+category: software-carpentry
 original: swc
 ---
 <p>From our "better late than never" department: we submitted a proposal to the Sloan Foundation last August to create what we're now calling the <a href="https://wiki.mozilla.org/ScienceLab">Mozilla Science Lab</a>.  As regular readers already know, it was accepted; we're now more than six months into the project, so in keeping with our own earlier practice, and with the examples of <a href="https://docs.google.com/file/d/0By0SDlWE5_VYV3hvS2FNSzFSSHUtbHlIWWhxUzFIQQ/edit?pli=1">ImpactStory</a>, <a href="http://figshare.com/articles/rOpenSci_Open_Tools_to_Facilitate_Data_Driven_Science_in_Ecology_and_Evolution/719786">rOpenSci</a>, <a href="http://www.niso.org/apps/group_public/download.php/11012/niso-altmetrics-proposal_public_version.pdf">NISO</a>, and <a href="http://figshare.com/articles/A_Research_Driven_Data_Visualization_Framework_for_High_Throughput_Environmental_Sequence_Data/730644">Dr. Holly Blik</a>, I'm posting the proposal here.  I hope it's useful to other people seeking funding for ventures like ours, and I'd be happy to answer questions.</p>

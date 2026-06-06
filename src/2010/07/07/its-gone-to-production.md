@@ -1,7 +1,7 @@
 ---
 title: "It's Gone to Production"
 date: 2010-07-07
-category: software education research
+category: software-carpentry
 ---
 The collection of essays on evidence-based software engineering that Andy Oram and I edited has gone to production. The final title is <em>Making Software: What Really Works, and Why We Believe It</em>. Individual chapters will be available as Rough Cuts from O'Reilly next month, and the book itself should be on the shelves not long after.
 

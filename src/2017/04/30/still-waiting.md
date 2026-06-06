@@ -1,7 +1,7 @@
 ---
 title: "Still Waiting"
 date: 2017-04-30
-category: software writing society
+category: noticed
 ---
 
 A couple of days ago,

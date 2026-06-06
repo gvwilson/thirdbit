@@ -1,7 +1,7 @@
 ---
 title: "Why Developers Don't Do Code Reviews"
 date: 2008-03-08
-category: research software
+category: empirical-se programming
 ---
 Further to thoughts on student-oriented software process, there's this list from Jason Cohen at <a href="http://www.smartbearsoftware.com">SmartBear Software</a> of reasons why developers <em>don't</em> do code reviews:
 <ul>

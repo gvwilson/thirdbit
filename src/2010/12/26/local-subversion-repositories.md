@@ -1,6 +1,6 @@
 ---
 date: 2010-12-26
-category: education software
+category: software-carpentry tools
 original: swc
 title: Local Subversion Repositories
 ---

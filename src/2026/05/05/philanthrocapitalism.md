@@ -1,7 +1,7 @@
 ---
 title: "Philanthrocapitalism"
 date: 2026-05-05
-category: sdgc
+category: sdgc politics
 ---
 
 In June 2010, Bill Gates and Warren Buffett announced the Giving Pledge:

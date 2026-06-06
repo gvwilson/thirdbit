@@ -1,7 +1,7 @@
 ---
 title: "Project Assets"
 date: 2006-02-04
-category: software
+category: student-projects programming
 ---
 <a href="http://www.spinellis.gr/">Diomidis Spinellis</a> (author of <a href="http://www.ercb.com/ddj/2003/ddj.0309.html">Code Reading</a>) calculated the following numbers for various kinds of human-generated text in the FreeBSD project:
 <table class="centered">

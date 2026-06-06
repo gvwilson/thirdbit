@@ -1,7 +1,7 @@
 ---
 title: "Please Tell Me Python Logging Isn't Supposed to Work This Way"
 date: 2006-02-02
-category: software
+category: programming
 ---
 <p>I'm looking at <a href="http://www.python.org/doc/2.4.1/lib/minimal-example.html">http://www.python.org/doc/2.4.1/lib/minimal-example.html</a>;
 I try a cut-down version of the example:</p>

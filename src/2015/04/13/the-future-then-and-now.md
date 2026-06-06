@@ -1,7 +1,7 @@
 ---
 title: The Future Then and Now
 date: 2015-04-13
-category: writing research community
+category: cs-education
 original: swc
 ---
 <p>

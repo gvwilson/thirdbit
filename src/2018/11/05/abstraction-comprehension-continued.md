@@ -1,6 +1,6 @@
 ---
 date: 2018-11-05
-category: software
+category: empirical-se cs-education
 title: "Abstraction and Comprehension Continued"
 ---
 

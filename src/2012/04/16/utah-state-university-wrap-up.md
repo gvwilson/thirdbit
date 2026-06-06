@@ -1,6 +1,6 @@
 ---
 date: 2012-04-16
-category: education
+category: software-carpentry
 original: swc
 title: Utah State University Wrap-Up
 ---

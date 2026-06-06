@@ -1,7 +1,7 @@
 ---
 title: "Git as GOTO"
 date: 2015-07-20
-category: software education
+category: programming
 ---
 <p>
   I am not a fan of Git.

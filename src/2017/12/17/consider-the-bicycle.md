@@ -1,7 +1,7 @@
 ---
 title: "Consider the Bicycle"
 date: 2017-12-17
-category: favorite
+category: cs-education
 ---
 
 Consider the bicycle–more specifically,

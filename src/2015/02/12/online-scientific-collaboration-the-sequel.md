@@ -1,7 +1,7 @@
 ---
 title: "Online Scientific Collaboration: The Sequel"
 date: 2015-02-12
-category: society research community
+category: research-methods
 original: swc
 ---
 <p>

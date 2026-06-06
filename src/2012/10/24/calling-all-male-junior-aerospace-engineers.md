@@ -1,7 +1,7 @@
 ---
 title: "An Apology to the OSC (was: Calling All [Male] Junior Aerospace Engineers)"
 date: 2012-10-24
-category: software community
+category: diversity
 ---
 We received an email from the Ontario Science Centre this morning about their upcoming sleepover camps.  It said:
 <blockquote><strong>SPACE ODYSSEY</strong>: Families, Beavers, Cubs, Scouts and all other groups

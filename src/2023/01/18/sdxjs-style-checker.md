@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 14: Style Checker"
 date: 2023-01-18
-category: software writing
+category: programming technical-writing
 ---
 
 Programmers argue endlessly about the best way to format their programs,

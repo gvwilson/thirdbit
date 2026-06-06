@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 12: A Template Expander"
 date: 2024-04-12
-category: software writing
+category: programming cs-education
 ---
 
 When I was [outlining the content][outline] for [*Software Design by Example*][sdxpy]

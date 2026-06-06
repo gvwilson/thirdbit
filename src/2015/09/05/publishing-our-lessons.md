@@ -1,7 +1,7 @@
 ---
 title: "Our Lessons Have Now Been Published"
 date: 2015-09-05
-category: software education community
+category: software-carpentry
 original: swc
 ---
 <p>

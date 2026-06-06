@@ -1,7 +1,7 @@
 ---
 title: "Building Software, Building Community: Lessons from the rOpenSci Project"
 date: 2016-02-17
-category: software education research
+category: research-methods open-source
 original: swc
 ---
 Carl Boettiger,

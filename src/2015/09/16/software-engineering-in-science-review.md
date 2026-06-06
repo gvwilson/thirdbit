@@ -1,7 +1,7 @@
 ---
 title: "Software Engineering Practices in Science"
 date: 2015-09-16
-category: software research writing
+category: empirical-se
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Welcome Aboard"
 date: 2014-12-23
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

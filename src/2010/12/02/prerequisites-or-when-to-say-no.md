@@ -1,6 +1,6 @@
 ---
 date: 2010-12-02
-category: education software personal
+category: software-carpentry
 original: swc
 title: Prerequisites (or, When to Say No)
 ---

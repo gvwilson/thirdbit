@@ -1,7 +1,7 @@
 ---
 title: "The Software Project Coloring Book"
 date: 2007-06-19
-category: writing
+category: technical-writing humor
 ---
 For the past three or four years, I've been looking for something that would tell undergraduate students how to run their first team programming project.  The books and articles I've found so far didn't satisfy me—the books are very dry and out of date, and Stephanie Ludi's excellent <a href="http://www.csc.calpoly.edu/~sludi/SEmanual/TableOfContents.html"><em>Survival Guide</em></a> is too narrow for my purposes—so I'm thinking about writing one myself (sometime) for CSC301.  Going through old blog postings, I've assembled a tentative table of contents, but this is definitely a case of "what I have" rather than "what students need". I'd be grateful for the interweb's input on this: what do <em>you</em> think students should be told as they set out to do their first term-long multi-person development project?
 <ol>

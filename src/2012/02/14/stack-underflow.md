@@ -1,6 +1,6 @@
 ---
 date: 2012-02-14
-category: education software research
+category: programming noticed
 original: swc
 title: Stack Underflow?
 ---

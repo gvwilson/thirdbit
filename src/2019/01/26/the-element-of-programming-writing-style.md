@@ -1,6 +1,6 @@
 ---
 date: 2019-01-26
-category: software writing
+category: technical-writing book-reviews
 title: "The Elements of Programming Writing Style"
 ---
 

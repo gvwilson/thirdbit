@@ -1,6 +1,6 @@
 ---
 date: 2019-06-15
-category: education software research
+category: education cs-education
 title: "Ten Quick Tips for Delivering a Programming Lesson"
 ---
 

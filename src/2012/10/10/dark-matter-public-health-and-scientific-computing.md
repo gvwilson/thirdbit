@@ -1,6 +1,6 @@
 ---
 date: 2012-10-10
-category: research software community
+category: software-carpentry research-methods
 original: swc
 title: Dark Matter, Public Health, and Scientific Computing
 ---

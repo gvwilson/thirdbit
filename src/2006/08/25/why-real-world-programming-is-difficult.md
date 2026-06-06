@@ -1,7 +1,7 @@
 ---
 title: "Why Real-World Programming Is Difficult"
 date: 2006-08-25
-category: software community
+category: programming
 ---
 I just finished reorganizing my database of former project students, and now it looks like I have to re-jig the schema once again.  The reason is that South Indians use a Unix-like path for personal names: village/father's-name/name.  Thus, the "C." in "C. V. Raman" identifies a place, "V." identifies his father, and "Raman" is his personal name.
 

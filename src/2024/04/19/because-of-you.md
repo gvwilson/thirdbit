@@ -1,7 +1,7 @@
 ---
 title: "Because of You"
 date: 2024-04-19
-category: anecdote
+category: anecdote diversity
 ---
 
 Thirty-one years ago

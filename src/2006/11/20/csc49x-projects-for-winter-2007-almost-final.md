@@ -1,7 +1,7 @@
 ---
 title: "CSC49X Projects for Winter 2007 (final)"
 date: 2006-11-20
-category: students
+category: student-projects
 ---
 Week 11, and most of the projects for next term have been lined up.  Here's the current road map:
 <ul>

@@ -2,7 +2,7 @@
 title: "Why We Can't Have Nice Things"
 date: 2015-06-11
 original: swc
-category: favorite
+category: research-methods
 ---
 <p>
   In the beginning, there were tables:

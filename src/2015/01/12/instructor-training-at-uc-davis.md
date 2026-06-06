@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training at UC Davis"
 date: 2015-01-12
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

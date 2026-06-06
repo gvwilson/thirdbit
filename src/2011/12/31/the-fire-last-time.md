@@ -1,6 +1,6 @@
 ---
 date: 2011-12-31
-category: education software research
+category: personal
 original: swc
 title: The Fire Last Time
 ---

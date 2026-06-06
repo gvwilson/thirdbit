@@ -1,7 +1,7 @@
 ---
 title: "In That Dawn"
 date: 2016-06-21
-category: research
+category: personal
 ---
 <p>
   <em>

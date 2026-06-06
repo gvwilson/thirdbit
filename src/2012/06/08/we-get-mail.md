@@ -1,6 +1,6 @@
 ---
 date: 2012-06-08
-category: software research education
+category: cs-education
 original: swc
 title: We Get Mail
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Cross One Off My List"
 date: 2024-12-30
-category: software writing
+category: book-reviews programming
 ---
 
 Thanks to a recommendation from [Jeff Ramnani][ramnani],

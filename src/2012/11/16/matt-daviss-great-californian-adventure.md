@@ -1,7 +1,7 @@
 ---
 title: Matt Davis's Great Californian Adventure
 date: 2012-11-16
-category: education research
+category: software-carpentry
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Reorganizing"
 date: 2013-11-02
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>TL;DR: We're going to:</p>

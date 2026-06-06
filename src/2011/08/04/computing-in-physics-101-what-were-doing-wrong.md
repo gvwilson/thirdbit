@@ -1,6 +1,6 @@
 ---
 date: 2011-08-04
-category: education research software
+category: cs-education
 original: swc
 title: "Computing in Physics 101: What We're Doing Wrong"
 ---

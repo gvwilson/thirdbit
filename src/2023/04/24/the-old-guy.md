@@ -1,7 +1,7 @@
 ---
 title: "The Old Guy"
 date: 2023-04-24
-category: software
+category: humor personal
 ---
 
 Someone spotted this in a Glassdoor review of my current employer:

@@ -1,7 +1,7 @@
 ---
 title: "An Idea Whose Time Is Long Overdue"
 date: 2010-07-22
-category: software research
+category: software-carpentry
 ---
 When I blogged about App Inventor for Android a couple of days ago, I focused on the fact that it's closed source. What I didn't say, but should have, is that I think drag-and-drop programming tools are an idea whose time should have come at least twenty years ago. Tools like <a href="http://quickfuseapps.com/">QuickFuse</a> (for building voice response apps) respect the 80/20 rule in a way that even the simplest "real" programming languages don't. Like SQL, they're a good solution to a single, but important, sub-problem.
 

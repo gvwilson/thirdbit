@@ -1,7 +1,7 @@
 ---
 title: "'Analyze This!' for CS Education"
 date: 2018-02-14
-category: software education research
+category: cs-education empirical-se
 ---
 
 Back in 2013,

@@ -1,7 +1,7 @@
 ---
 title: "Announcing the Creation of the Software Carpentry Foundation"
 date: 2014-10-08
-category: community software education
+category: software-carpentry
 original: swc
 ---
 <p>

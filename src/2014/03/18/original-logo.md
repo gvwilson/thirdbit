@@ -1,7 +1,7 @@
 ---
 title: "Our Original Logo"
 date: 2014-03-18
-category: software education
+category: software-carpentry
 original: swc
 ---
 <p>

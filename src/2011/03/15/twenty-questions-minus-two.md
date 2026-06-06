@@ -1,6 +1,6 @@
 ---
 date: 2011-03-15
-category: education
+category: empirical-se cs-education
 original: swc
 title: Twenty Questions (Minus Two)
 ---

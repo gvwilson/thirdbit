@@ -1,7 +1,7 @@
 ---
 title: "Another Summer…"
 date: 2007-08-29
-category: students
+category: student-projects
 ---
 Tomorrow is our summer students' last day (and two are already gone).  It's been a great few months: everyone was productive, and I think they all had fun, too. The post-mortem is tomorrow, followed by a barbecue (and possibly a few games of Speed Scrabble).
 

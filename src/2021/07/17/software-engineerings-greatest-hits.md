@@ -1,7 +1,7 @@
 ---
 title: "Software Engineering's Greatest Hits"
 date: 2021-07-17
-category: education research software
+category: empirical-se cs-education
 ---
 
 I have just posted a [30-minute video of my talk "Software Engineering's Greatest Hits"][video].

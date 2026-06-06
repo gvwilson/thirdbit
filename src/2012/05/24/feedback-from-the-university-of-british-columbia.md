@@ -1,6 +1,6 @@
 ---
 date: 2012-05-24
-category: education
+category: software-carpentry
 original: swc
 title: Feedback from the University of British Columbia
 ---

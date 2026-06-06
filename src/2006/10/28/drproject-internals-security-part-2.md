@@ -1,7 +1,7 @@
 ---
 title: "DrProject Internals: Security Part 2"
 date: 2006-10-28
-category: students
+category: student-projects programming
 ---
 The previous article in this series introduced a simple security model based on authentication, authorization, and access control, then described how DrProject implements the first of these.  That still leaves two important pieces, though: how to represent who's allowed to do what, and how to enforce those rules.
 

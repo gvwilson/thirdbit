@@ -1,7 +1,7 @@
 ---
 title: "First Do No Harm"
 date: 2019-10-30
-category: software community society
+category: open-source ethics
 ---
 
 [Maya Gans][gans] and I are pleased to announce that TidyBlocks has adopted the [Hippocratic License][hl],

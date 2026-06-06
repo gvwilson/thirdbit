@@ -1,7 +1,7 @@
 ---
 title: "Half a Century"
 date: 2020-01-11
-category: software
+category: personal
 ---
 
 <figure class="center">

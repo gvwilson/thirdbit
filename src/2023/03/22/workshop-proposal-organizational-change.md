@@ -1,7 +1,7 @@
 ---
 title: "Workshop Proposal: Organizational Change"
 date: 2023-03-22
-category: research community writing
+category: education research-methods community-events
 ---
 
 *Updated 2023-05-05: rejected.*

@@ -1,7 +1,7 @@
 ---
 title: "Competence"
 date: 2011-04-26
-category: software research writing
+category: software-carpentry cs-education
 ---
 <p>When I first saw Starling Software's <a href="http://www.starling-software.com/employment/programmer-competency-matrix.html">Programmer Competency Matrix</a>, I was struck by the parallels between its four levels and the first four of the five that Dr. Patricia Benner identified in her landmark book <a href="http://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/"><cite>From Novice to Expert: Excellence and Power in Clinical Nursing Practice</cite></a>.  Her five levels–which are grounded in a ton of empirical data–are as follows:</p>
 

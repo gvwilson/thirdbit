@@ -1,7 +1,7 @@
 ---
 title: "Ontario Energy Savings: Fail"
 date: 2008-12-31
-category: society
+category: politics
 ---
 We've been getting automated calls that start, "This is not a telemarketing call: please call [phone number] and quote [reference number] immediately regarding your account."  Doesn't say who it's from, or what's wrong with the account, and the reference number isn't familiar, so we've been ignoring them.  Finally snapped this morning and called; turns out it's Ontario Energy Savings, wanting to know if we're going to renew our deal.  (We're not: their service was lousy even before these calls, so we're going to deal with Enbridge directly from now on.)
 

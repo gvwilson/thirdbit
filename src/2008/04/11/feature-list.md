@@ -1,7 +1,7 @@
 ---
 title: "Feature List"
 date: 2008-04-11
-category: students
+category: student-projects programming
 ---
 I skipped an important step in my previous post: I wasn't explicit about the features something had to have to qualify (in my mind, if no one else's) as a "software project portal".  Here are my current thoughts, sorted in order of importance.
 <ol>

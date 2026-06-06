@@ -1,7 +1,7 @@
 ---
 title: "Cognitive Pollution"
 date: 2026-03-08
-category: software education writing
+category: cs-education technical-writing
 ---
 
 A couple of weeks ago,

@@ -1,7 +1,7 @@
 ---
 title: "The Past Is Here Too"
 date: 2012-06-14
-category: software
+category: cs-education retro
 ---
 Earlier today, a friend of mine used his iPhone to shell into a remote machine, edit a file with Vi, and commit it to version control:
 

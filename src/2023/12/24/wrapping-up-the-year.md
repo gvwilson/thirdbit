@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up the Year"
 date: 2023-12-24
-category: software writing education
+category: personal technical-writing
 ---
 
 With seven days left in the year,

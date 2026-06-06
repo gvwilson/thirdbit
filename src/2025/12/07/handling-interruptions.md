@@ -1,7 +1,7 @@
 ---
 title: Handling Interruptions
 date: 2025-12-07
-category: software
+category: programming
 ---
 
 The [previous post in this series][rework] looked at the effects of re-work on throughput.

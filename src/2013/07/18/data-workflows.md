@@ -1,7 +1,7 @@
 ---
 title: "Data Science Workflows"
 date: 2013-07-18
-category: education research writing
+category: software-carpentry data-science
 original: swc
 ---
 <p>

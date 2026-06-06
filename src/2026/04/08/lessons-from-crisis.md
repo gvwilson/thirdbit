@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Crisis"
 date: 2026-04-08
-category: research education community
+category: education research-methods
 ---
 
 The preceding posts assume that project members have time to prepare for closure,

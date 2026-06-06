@@ -1,7 +1,7 @@
 ---
 title: "You Keep Using That Word"
 date: 2013-10-17
-category: education software research
+category: programming
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Can't Get (Directly) There From Here"
 date: 2006-11-09
-category: software writing students
+category: student-projects programming
 ---
 One of the projects I'm contributing to these days is writing a first-year Computer Science textbook using Python.  We're using DrProject to manage it: after all, <a href="http://www.latex-project.org/">LaTeX</a> files are really just another kind of source code, and what better way to keep track of who's supposed to be doing what than ticketing?
 

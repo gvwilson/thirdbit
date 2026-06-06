@@ -1,7 +1,7 @@
 ---
 title: "Summarizing the News"
 date: 2014-12-03
-category: software community education
+category: software-carpentry
 original: swc
 ---
 <p>

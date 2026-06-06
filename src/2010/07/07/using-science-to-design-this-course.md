@@ -1,6 +1,6 @@
 ---
 date: 2010-07-07
-category: education research personal
+category: software-carpentry empirical-se
 original: swc
 title: Using Science to Design This Course
 ---

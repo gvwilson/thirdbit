@@ -1,7 +1,7 @@
 ---
 title: "Two to the Fifth New Instructors"
 date: 2013-12-05
-category: education software community
+category: software-carpentry
 original: swc
 ---
 <p>

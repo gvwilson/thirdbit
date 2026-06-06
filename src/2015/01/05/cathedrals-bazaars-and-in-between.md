@@ -1,7 +1,7 @@
 ---
 title: "Cathedrals, Bazaars, and In Between"
 date: 2015-01-05
-category: software community writing
+category: open-source
 ---
 <p>
   Poul-Henning Kamp's article <a href="https://queue.acm.org/detail.cfm?id=2349257">A Generation Lost in the Bazaar</a>

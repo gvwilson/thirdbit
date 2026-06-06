@@ -1,7 +1,7 @@
 ---
 title: "What I Read"
 date: 2007-09-18
-category: software reading
+category: book-reviews
 ---
 A grad student mailed me this morning to ask me what I read to stay on top of things.  In no particular order:
 

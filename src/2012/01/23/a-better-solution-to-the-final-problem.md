@@ -1,7 +1,7 @@
 ---
 title: "A Better Solution to the Final Problem"
 date: 2012-01-23
-category: writing
+category: cs-education empirical-se
 ---
 <p>I enjoyed the first three episodes of BBC's <em>Sherlock</em>. I was disappointed by how episode 4 (the first of the newest trilogy) resolved episode 3's hangover, but immediately forgave the writers as <em>A Scandal in Belgravia</em> unfolded. But then came episode 5, <em>The Hounds of Baskerville</em>, which was frankly awful.</p>
 <p>So it all came down to episode 6, <em>The Reichenbach Fall</em>. Good opening, great development, tension steadily ratcheting up, and then bam, the final three minutes ruined it all. Completely. It was completely implausible, inconsistent with what we'd seen of the characters up to that point–frankly, it almost had me expecting Moriarty to reveal that he was Sherlock's long-lost twin brother.</p>

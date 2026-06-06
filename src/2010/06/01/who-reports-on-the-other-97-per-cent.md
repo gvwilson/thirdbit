@@ -1,6 +1,6 @@
 ---
 date: 2010-06-01
-category: research
+category: research-methods
 original: swc
 title: Who Reports On The Other 97 Per Cent?
 ---

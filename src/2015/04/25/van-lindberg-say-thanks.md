@@ -1,7 +1,7 @@
 ---
 title: "Van Lindberg's Keynote: Say Thanks"
 date: 2015-04-25
-category: software education community
+category: noticed
 original: swc
 ---
 <p>

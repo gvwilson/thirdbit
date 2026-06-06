@@ -1,6 +1,6 @@
 ---
 date: 2018-12-17
-category: education writing software
+category: personal
 title: "Thirteen Percent and Counting"
 ---
 

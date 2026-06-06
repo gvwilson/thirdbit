@@ -1,7 +1,7 @@
 ---
 title: "Teaching Tech Together Is Out"
 date: 2019-10-25
-category: research community education
+category: education technical-writing
 ---
 
 I am pleased to announce that

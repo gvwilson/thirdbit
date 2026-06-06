@@ -1,7 +1,7 @@
 ---
 title: "Changing Our Core Curriculum"
 date: 2014-03-27
-category: software education research
+category: software-carpentry
 original: swc
 ---
 <p>

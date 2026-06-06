@@ -1,7 +1,7 @@
 ---
 title: "Software Design Webinar"
 date: 2021-08-18
-category: software writing
+category: programming education
 ---
 
 I'm repeating my webinar on [Software Design for Data Scientists][sd4ds] on Sept 1:

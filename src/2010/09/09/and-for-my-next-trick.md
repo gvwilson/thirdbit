@@ -1,6 +1,6 @@
 ---
 date: 2010-09-09
-category: education research
+category: software-carpentry
 original: swc
 title: And For My Next Trick…
 ---

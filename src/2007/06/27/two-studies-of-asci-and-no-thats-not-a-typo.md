@@ -1,7 +1,7 @@
 ---
 title: "Two Studies of ASCI (and no, that's not a typo)"
 date: 2007-06-27
-category: software research
+category: empirical-se software-carpentry
 ---
 After spending ten years helping scientists write programs for massively-parallel computers, I realized that what scientists really needed was to learn how to program, full stop.  It took me another eight years to (a) get up to speed with the theory and practice of modern software engineering, (b) realize how big the gap between the two was, and (c) accept that the only people who are entitled to have an opinion about how we ought to be building software are the ones who are studying how well their favorite tools and practices actually work in the field.  I no longer care what you're pushing—formal methods and cleanroom development or agile adhocracy and pair programming—unless you've gone the extra mile and collected data to show what effect it's actually having.
 

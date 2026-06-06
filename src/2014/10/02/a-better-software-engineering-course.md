@@ -1,7 +1,7 @@
 ---
 title: "A Better Software Engineering Course"
 date: 2014-10-02
-category: education software community
+category: cs-education
 ---
 <p>
   I've taught several university courses on software engineering over the years,

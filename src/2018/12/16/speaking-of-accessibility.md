@@ -1,6 +1,6 @@
 ---
 date: 2018-12-16
-category: software education research
+category: cs-education
 title: "Speaking of Accessibility"
 ---
 

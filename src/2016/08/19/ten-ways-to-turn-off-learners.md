@@ -1,7 +1,7 @@
 ---
 title: "Ten Ways to Turn Off Learners"
 date: 2016-08-19
-category: education software research
+category: software-carpentry
 original: swc
 ---
 

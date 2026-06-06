@@ -1,7 +1,7 @@
 ---
 title: "Architecture Stats"
 date: 2011-06-26
-category: software community
+category: technical-writing
 ---
 In case you were wondering, <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> is now averaging about 4200 page views a day.  (The stats are corrupted a bit by all the clone sites that have popped up and kept our Google Analytics Javascript in their page headers; I've tried putting a filter in place at GA to exclude them, but instead it excluded <em>all</em> data for a three-day period. #itshouldntbethishard)
 

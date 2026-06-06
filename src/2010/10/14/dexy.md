@@ -1,6 +1,6 @@
 ---
 date: 2010-10-14
-category: software education research
+category: tools
 original: swc
 title: Dexy
 ---

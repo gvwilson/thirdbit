@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 8: Parsing Expressions"
 date: 2023-01-10
-category: software writing
+category: programming technical-writing
 ---
 
 While [Chapter 7][sdxjs_regex] explained how to build a simple regular expression matcher,

@@ -1,6 +1,6 @@
 ---
 date: 2012-04-17
-category: software education community
+category: software-carpentry tools
 original: swc
 title: GitHub for Education
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Three Old Men Drinking Tea"
 date: 2013-11-10
-category: software research
+category: personal
 ---
 <p>
   Years ago,

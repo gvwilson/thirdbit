@@ -1,6 +1,6 @@
 ---
 date: 2009-05-12
-category: education software writing
+category: software-carpentry programming
 original: swc
 title: Error Handling
 ---

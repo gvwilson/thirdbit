@@ -1,7 +1,7 @@
 ---
 title: "Practical Computing for Biologists (and Other Scientists)"
 date: 2015-01-14
-category: education software writing
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,6 +1,6 @@
 ---
 date: 2018-08-18
-category: education software
+category: software-carpentry
 title: Ten Simple Rules for Creating an Effective Lesson
 ---
 

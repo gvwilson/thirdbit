@@ -1,6 +1,6 @@
 ---
 date: 2009-07-19
-category: education software
+category: software-carpentry
 original: swc
 title: Day 5
 ---

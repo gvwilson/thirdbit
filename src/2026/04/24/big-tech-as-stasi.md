@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Stasi"
 date: 2026-04-24
-category: sdgc
+category: sdgc ethics
 ---
 
 Privacy is not a timeless natural right.

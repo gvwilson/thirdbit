@@ -1,6 +1,6 @@
 ---
 date: 2012-03-30
-category: education
+category: software-carpentry
 original: swc
 title: Wrapping Up in Oakland
 ---

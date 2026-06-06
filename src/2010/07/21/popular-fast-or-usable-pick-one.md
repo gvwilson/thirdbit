@@ -1,6 +1,6 @@
 ---
 date: 2010-07-21
-category: software education
+category: software-carpentry
 original: swc
 title: "Popular, Fast, or Usable: Pick One"
 ---

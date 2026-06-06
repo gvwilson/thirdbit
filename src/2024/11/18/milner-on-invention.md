@@ -1,7 +1,7 @@
 ---
 title: "Milner on Invention"
 date: 2024-11-18
-category: writing education
+category: noticed technical-writing
 ---
 
 > When I was a PhD student, I attended a talk by the late Robin Milner where he said two things that have stuck with me.

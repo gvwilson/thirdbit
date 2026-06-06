@@ -1,6 +1,6 @@
 ---
 date: 2009-08-01
-category: education
+category: software-carpentry
 original: swc
 title: Post-Mortem
 ---

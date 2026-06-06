@@ -1,7 +1,7 @@
 ---
 title: "One, Two, Three"
 date: 2008-01-02
-category: reading
+category: book-reviews
 ---
 My favorite books these days are Boynton's <a href="http://www.amazon.com/Your-Personal-Penguin-Boynton-Board/dp/0761143726"><cite>Your Personal Penguin</cite></a> and Pratchett's <a href="http://www.amazon.com/Wheres-My-Cow-Terry-Pratchett/dp/0060872675"><cite>Where's My Cow?</cite></a>, but since this is a magazine for programmers, not parents, I'll turn my attention to six others: one very good, two useful, and three that missed the mark.
 

@@ -1,6 +1,6 @@
 ---
 date: 2011-05-06
-category: community writing
+category: technical-writing open-source
 original: swc
 title: The Architecture of Open Source Applications
 ---

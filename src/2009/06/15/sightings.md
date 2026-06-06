@@ -1,6 +1,6 @@
 ---
 date: 2009-06-15
-category: education software
+category: software-carpentry
 original: swc
 title: Sightings
 ---

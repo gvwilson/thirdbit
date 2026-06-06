@@ -1,7 +1,7 @@
 ---
 title: "Where the Time Goes"
 date: 2012-06-10
-category: education software research
+category: personal
 ---
 Here's a typical day:
 <table class="centered">

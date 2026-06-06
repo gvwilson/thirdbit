@@ -1,7 +1,7 @@
 ---
 title: "Our First Workshop in South Korea"
 date: 2015-02-02
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

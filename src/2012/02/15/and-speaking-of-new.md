@@ -1,6 +1,6 @@
 ---
 date: 2012-02-15
-category: software
+category: software-carpentry
 original: swc
 title: And Speaking of New…
 ---

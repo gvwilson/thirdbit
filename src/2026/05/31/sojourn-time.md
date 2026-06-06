@@ -1,7 +1,7 @@
 ---
 title: "Sojourn Time"
 date: 2026-05-31
-category: software
+category: programming research-methods
 katex: true
 ---
 

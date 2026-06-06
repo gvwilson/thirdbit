@@ -1,7 +1,7 @@
 ---
 title: "Eight Hours and After"
 date: 2026-05-07
-category: sdgc
+category: sdgc politics
 ---
 
 On April 21, 1856,

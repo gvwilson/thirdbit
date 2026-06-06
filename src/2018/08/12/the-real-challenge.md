@@ -1,6 +1,6 @@
 ---
 date: 2018-08-12
-category: software community
+category: cs-education empirical-se
 title: The Real Challenge
 ---
 

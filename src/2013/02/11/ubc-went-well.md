@@ -1,7 +1,7 @@
 ---
 title: UBC Went Well
 date: 2013-02-11
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>Ted Hart and Ethan White just wrapped up a bootcamp at the University of British Columbia, and by all accounts it went very well:</p>

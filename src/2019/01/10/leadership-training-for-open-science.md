@@ -1,6 +1,6 @@
 ---
 date: 2019-01-10
-category: education research community
+category: software-carpentry education open-source
 title: "Leadership Training for Open Science"
 ---
 

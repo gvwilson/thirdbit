@@ -1,7 +1,7 @@
 ---
 title: "Another Standard Model"
 date: 2023-01-18
-category: software community writing
+category: open-source technical-writing
 ---
 
 [Back in 2004][new_standard_model] I summarized the [new Standard Model][wikipedia_standard_model] of computing.

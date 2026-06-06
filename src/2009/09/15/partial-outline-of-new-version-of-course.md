@@ -1,6 +1,6 @@
 ---
 date: 2009-09-15
-category: software education
+category: software-carpentry
 original: swc
 title: Partial Outline of New Version of Course
 ---

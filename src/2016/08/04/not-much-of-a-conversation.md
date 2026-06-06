@@ -1,7 +1,7 @@
 ---
 title: "Not Much of a Conversation"
 date: 2016-08-04
-category: writing software
+category: noticed
 ---
 <p>
   I've been reading articles on <a href="https://theconversation.com/us">The Conversation</a> for a while,

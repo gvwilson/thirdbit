@@ -1,7 +1,7 @@
 ---
 title: "There Ought to Be a Badge"
 date: 2013-12-10
-category: software education
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,6 +1,6 @@
 ---
 date: 2010-05-04
-category: education software community
+category: software-carpentry
 original: swc
 title: "Day 1: Shuffling Sticky Notes Around"
 ---

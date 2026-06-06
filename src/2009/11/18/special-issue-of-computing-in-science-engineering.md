@@ -1,6 +1,6 @@
 ---
 date: 2009-11-18
-category: research software
+category: software-carpentry
 original: swc
 title: Special Issue of Computing in Science and Engineering
 ---

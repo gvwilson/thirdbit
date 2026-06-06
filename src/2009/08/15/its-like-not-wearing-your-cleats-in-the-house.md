@@ -1,6 +1,6 @@
 ---
 date: 2009-08-15
-category: education research writing
+category: software-carpentry empirical-se
 original: swc
 title: It's Like Not Wearing Your Cleats in the House
 ---

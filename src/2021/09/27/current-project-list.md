@@ -1,7 +1,7 @@
 ---
 title: "Current Project List"
 date: 2021-09-27
-category: software research education
+category: personal career
 ---
 
 I'm starting a new job as a software engineer with [Deep Genomics](https://www.deepgenomics.com/) next week.

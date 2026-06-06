@@ -1,7 +1,7 @@
 ---
 title: "Directions"
 date: 2023-10-15
-category: software research personal
+category: career personal
 ---
 
 Summer has rather suddenly turned to autumn

@@ -1,7 +1,7 @@
 ---
 title: "Knowing Where You Are"
 date: 2007-04-01
-category: software education community personal
+category: cs-education education
 ---
 End-of-the-month report time (while the baby is sleeping). Here's what traffic has looked like on the Software Carpentry site since it opened:
 

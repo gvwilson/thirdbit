@@ -1,7 +1,7 @@
 ---
 title: "Can You Name the Programming Language?"
 date: 2010-04-03
-category: software
+category: programming
 ---
 A nice little three-minute <a href="http://www.sporcle.com/games/psychofish25/hello_world_syntax">quiz</a> from Sporcle:
 

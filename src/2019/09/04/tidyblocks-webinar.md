@@ -1,7 +1,7 @@
 ---
 title: "TidyBlocks Webinar"
 date: 2019-09-04
-category: software education research
+category: data-science education open-source
 ---
 
 If you've ever played with Scratch or another blocks-based programming tool and said,

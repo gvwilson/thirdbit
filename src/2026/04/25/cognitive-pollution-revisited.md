@@ -1,7 +1,7 @@
 ---
 title: "Cognitive Pollution Revisited"
 date: 2026-04-25
-category: sdgc
+category: sdgc ethics
 ---
 
 Engineers learn to reason about direct, traceable failures:

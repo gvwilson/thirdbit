@@ -1,7 +1,7 @@
 ---
 title: "Two Books of a Different Kind"
 date: 2007-06-17
-category: personal reading
+category: book-reviews personal
 ---
 It being Father's Day, I got breakfast in bed—and my very first Father's Day card.  *sniffle* I also got a few minutes to explain why I was so disappointed by two books I'd been reading, so here goes.
 

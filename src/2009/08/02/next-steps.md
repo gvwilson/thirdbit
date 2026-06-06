@@ -1,6 +1,6 @@
 ---
 date: 2009-08-02
-category: software education
+category: software-carpentry
 original: swc
 title: Next Steps
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2011-03-22
-category: research software education
+category: software-carpentry
 original: swc
 title: I'd Settle for 0.1%
 ---

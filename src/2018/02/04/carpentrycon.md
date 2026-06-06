@@ -1,7 +1,7 @@
 ---
 title: "CarpentryCon 2018"
 date: 2018-02-04
-category: software education
+category: software-carpentry conferences
 ---
 
 Harriet Alexander just announced

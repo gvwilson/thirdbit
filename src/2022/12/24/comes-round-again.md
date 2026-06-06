@@ -1,7 +1,7 @@
 ---
 title: "Comes Round Again"
 date: 2022-12-24
-category: software education writing
+category: personal
 ---
 
 Another year over; what have I learned?

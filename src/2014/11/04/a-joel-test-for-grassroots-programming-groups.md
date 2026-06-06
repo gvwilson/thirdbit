@@ -1,7 +1,7 @@
 ---
 title: "A 'Joel Test' for Grassroots Programming Groups"
 date: 2014-11-04
-category: education software research
+category: cs-education
 original: swc
 ---
 <p>

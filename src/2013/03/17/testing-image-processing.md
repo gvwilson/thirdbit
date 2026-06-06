@@ -1,7 +1,7 @@
 ---
 title: Testing Image Processing
 date: 2013-03-17
-category: software research education
+category: empirical-se programming
 original: swc
 ---
 <p>

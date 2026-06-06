@@ -1,7 +1,7 @@
 ---
 title: "Marble Race"
 date: 2020-05-27
-category: software personal
+category: personal
 ---
 
 Plan: [Andrew Gatt](https://paperrollercoasters.com/).

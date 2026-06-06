@@ -1,6 +1,6 @@
 ---
 date: 2019-04-05
-category: community software
+category: diversity ethics career
 title: "The Worst Behavior"
 ---
 

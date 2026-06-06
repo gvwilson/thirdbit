@@ -1,6 +1,6 @@
 ---
 date: 2012-06-18
-category: education software research
+category: software-carpentry
 original: swc
 title: A Busy Week (And Swag!)
 ---

@@ -1,7 +1,7 @@
 ---
 title: "A Short History of Fads"
 date: 2026-05-01
-category: sdgc
+category: sdgc retro
 ---
 
 In February 1637, a single bulb of the Semper Augustus tulip sold in Amsterdam

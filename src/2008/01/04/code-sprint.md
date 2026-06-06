@@ -1,7 +1,7 @@
 ---
 title: "Code Sprint Day 1"
 date: 2008-01-04
-category: students
+category: student-projects
 ---
 It's now 10:29 EST, and the room is fuller:
 <ul>

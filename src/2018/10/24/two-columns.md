@@ -1,6 +1,6 @@
 ---
 date: 2018-10-24
-category: software education research
+category: cs-education
 title: "Two Columns"
 ---
 

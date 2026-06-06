@@ -1,6 +1,6 @@
 ---
 date: 2012-05-29
-category: education software
+category: software-carpentry
 original: swc
 title: How to Run a Bootcamp
 ---

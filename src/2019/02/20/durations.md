@@ -1,6 +1,6 @@
 ---
 date: 2019-02-20
-category: software
+category: personal
 title: "Durations"
 ---
 

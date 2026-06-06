@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Beauty Industry"
 date: 2026-04-25
-category: sdgc
+category: sdgc ethics
 ---
 
 The beauty industry does not merely sell products.

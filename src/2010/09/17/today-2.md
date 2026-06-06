@@ -1,6 +1,6 @@
 ---
 title: "Today"
 date: 2010-09-17
-category: software
+category: software-carpentry
 ---
 <img src="@root/files/2010/09/sisyphus.jpg" width="333" height="334" class="centered">

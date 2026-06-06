@@ -1,7 +1,7 @@
 ---
 title: "Apparently We're Less Creative"
 date: 2010-07-22
-category: education research community
+category: empirical-se
 ---
 Apparently we're becoming less creative. Well, Americans are, anyway, according to <a href="http://www.newsweek.com/2010/07/10/the-creativity-crisis.html">research reported in <em>Newsweek</em></a> (and repeated <a href="http://computinged.wordpress.com/2010/07/20/the-creativity-crisis-newsweek/">elsewhere</a>):
 <blockquote>Kyung Hee Kim at the College of William &amp; Mary discovered this in  May, after analyzing almost 300,000 Torrance scores of children and  adults. Kim found creativity scores had been steadily rising, just like  IQ scores, until 1990. Since then, creativity scores have consistently  inched downward. "It's very clear, and the decrease is very  significant," Kim says. It is the scores of younger children in  America–from kindergarten through sixth grade–for whom the decline is  "most serious."</blockquote>

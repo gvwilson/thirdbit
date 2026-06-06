@@ -1,7 +1,7 @@
 ---
 title: "Something That Won't Be On The Final Exam"
 date: 2010-03-13
-category: education community software
+category: software-carpentry cs-education
 ---
 The final exam for my CSC302 software engineering course was due this week, and I thought I had come up with a good—and fair—question to put on it. Four out of four of the other instructors I spoke to, however, didn't like it, so I left it out. I'd be very interested in hearing from present and former students (and other teachers) what they think.
 

@@ -1,7 +1,7 @@
 ---
 title: "The Compassionate Programmer"
 date: 2022-12-17
-category: software research writing
+category: programming career
 ---
 
 > I'd like the next best-seller to be

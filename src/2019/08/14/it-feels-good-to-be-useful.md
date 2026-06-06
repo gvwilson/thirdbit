@@ -1,7 +1,7 @@
 ---
 title: "It Feels Good to be Useful"
 date: 2019-08-14
-category: research software community
+category: open-source personal
 ---
 
 <em>

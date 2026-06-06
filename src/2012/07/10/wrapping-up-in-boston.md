@@ -1,6 +1,6 @@
 ---
 date: 2012-07-10
-category: education
+category: software-carpentry
 original: swc
 title: Wrapping Up in Boston
 ---

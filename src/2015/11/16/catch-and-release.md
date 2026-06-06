@@ -1,7 +1,7 @@
 ---
 title: "Catch and Release"
 date: 2015-11-16
-category: research software education
+category: personal
 ---
 <p>
   Edible fish are getting smaller every year

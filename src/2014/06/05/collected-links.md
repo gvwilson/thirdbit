@@ -1,7 +1,7 @@
 ---
 title: "Collected Links"
 date: 2014-06-05
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 <p>

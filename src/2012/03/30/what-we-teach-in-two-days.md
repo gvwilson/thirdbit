@@ -1,6 +1,6 @@
 ---
 date: 2012-03-30
-category: education software research
+category: software-carpentry
 original: swc
 title: What We Teach in Two Days
 ---

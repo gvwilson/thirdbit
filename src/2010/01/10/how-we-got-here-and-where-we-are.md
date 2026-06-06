@@ -1,6 +1,6 @@
 ---
 date: 2010-01-10
-category: software education research
+category: software-carpentry retro
 original: swc
 title: How We Got Here, and Where We Are
 ---

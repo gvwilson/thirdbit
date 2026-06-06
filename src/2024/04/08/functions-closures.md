@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 8: Functions and Closures"
 date: 2024-04-08
-category: software education
+category: programming cs-education
 ---
 
 I didn't initially plan to write [Chapter 8: Functions and Closures][sdxpy_func],

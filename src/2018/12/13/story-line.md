@@ -1,6 +1,6 @@
 ---
 date: 2018-12-13
-category: education software research
+category: technical-writing
 title: "A Story Line Game for Teaching"
 ---
 

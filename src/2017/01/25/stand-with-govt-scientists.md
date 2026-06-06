@@ -1,7 +1,7 @@
 ---
 title: "Stand with Government Scientists"
 date: 2017-01-25
-category: research society software
+category: politics
 ---
 
 Canadians got to see the damage an anti-science government could do when Stephen Harper was Prime Minister.

@@ -1,7 +1,7 @@
 ---
 title: "Things I Won't Do This Year"
 date: 2015-01-01
-category: education writing
+category: personal
 ---
 <p>
   I've made and broken my share of New Year's resolutions,

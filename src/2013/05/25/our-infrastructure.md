@@ -1,7 +1,7 @@
 ---
 title: Our Infrastructure
 date: 2013-05-25
-category: software education
+category: software-carpentry
 original: swc
 ---
 <p>

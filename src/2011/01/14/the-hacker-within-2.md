@@ -1,6 +1,6 @@
 ---
 date: 2011-01-14
-category: software education research
+category: software-carpentry
 original: swc
 title: The Hacker Within
 ---

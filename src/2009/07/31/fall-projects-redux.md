@@ -1,7 +1,7 @@
 ---
 title: "Fall Projects Redux"
 date: 2009-07-31
-category: education software community
+category: cs-education open-source
 ---
 Now that the Software Carpentry course is over, it's time to get back to planning projects for the fall, and there's good news on two fronts.  The first is that we had a very productive meeting on Tuesday about projects using the City of Toronto's data.  The CUPE strike may mean that we start off using canned data instead of live feeds, but lots of people are willing to put in time to help our students figure out what's worth building and how to build it.  Ten undergraduate and two graduate students are already signed up; on past experience, we'll probably have 15 and 20 respectively by the time we start work.
 

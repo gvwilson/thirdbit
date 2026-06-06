@@ -1,7 +1,7 @@
 ---
 title: "The Inspector's Paradox"
 date: 2026-06-04
-category: software
+category: programming research-methods
 katex: true
 ---
 Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:

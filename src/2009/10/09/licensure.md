@@ -1,7 +1,7 @@
 ---
 title: "Licensure"
 date: 2009-10-09
-category: software research
+category: ethics career
 ---
 The idea of licensing software developers has been around almost as long as—well, OK, I haven't done any actual research, but it's been around a long time. It's superficially appealing: if massage therapists and dog groomers need periodic re-certification of their skills in order to practice, why shouldn't programmers? But then comes the hard part of deciding who should do the certification, what should be included in the exams, and the whole project slowly sinks into the sand.
 

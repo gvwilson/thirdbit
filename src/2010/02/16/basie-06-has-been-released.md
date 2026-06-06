@@ -1,7 +1,7 @@
 ---
 title: "Basie 0.6 Has Been Released"
 date: 2010-02-16
-category: software community
+category: student-projects open-source
 ---
 We are pleased to announce the release of Version 0.6 of Basie, a lightweight software project portal built on <a href="http://www.djangoproject.com/">Django</a> and <a href="http://jquery.com/">jQuery</a>. Basie is designed to replace <a href="http://trac.edgewall.org">Trac</a> and DrProject; its main features are:
 <ul>

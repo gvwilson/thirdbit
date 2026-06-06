@@ -1,7 +1,7 @@
 ---
 title: "Consulting Course Fall 2008 Needs You!"
 date: 2008-07-07
-category: students
+category: student-projects cs-education
 ---
 I am going to be running a consulting course for senior undergrads this fall, in which pairs or triples of students will write real software for real customers. (I'll be running the course again in the winter term for graduate students.)  The brochure for the April 2008 Capstone Showcase will give you an idea of what students can accomplish; if you have a project for a couple of talented young programmers, please <a href="mailto:gvwilson@third-bit.com">get in touch</a>. Requirements are:
 <ol>

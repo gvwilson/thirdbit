@@ -1,7 +1,7 @@
 ---
 title: "Give It All Away"
 date: 2020-08-16
-category: personal software writing
+category: personal
 ---
 
 I gave away some of my childhood toys today.

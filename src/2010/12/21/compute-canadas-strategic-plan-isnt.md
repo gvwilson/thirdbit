@@ -1,6 +1,6 @@
 ---
 date: 2010-12-21
-category: community
+category: software-carpentry politics
 original: swc
 title: Compute Canada's 'Strategic' Plan Isn't
 ---

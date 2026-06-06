@@ -1,6 +1,6 @@
 ---
 date: 2012-02-09
-category: education community software
+category: software-carpentry cs-education
 original: swc
 title: Comparing Software Carpentry to CS Principles
 ---

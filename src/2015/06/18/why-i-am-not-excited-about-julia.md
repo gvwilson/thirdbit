@@ -1,7 +1,7 @@
 ---
 title: "Why I Am Not Excited About Julia"
 date: 2015-06-18
-category: software research community
+category: programming
 original: swc
 ---
 <p>

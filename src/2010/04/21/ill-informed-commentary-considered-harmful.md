@@ -1,7 +1,7 @@
 ---
 title: "Ill-Informed Commentary Considered Harmful"
 date: 2010-04-21
-category: software writing
+category: noticed
 ---
 The April 2010 issue of <a href="http://cacm.acm.org/"><em>Communications of the ACM</em></a> has an article by Keith Wright titled "Capstone Programming Courses Considered Harmful". Dr. Wright teaches business intelligence courses at the University of Houston-Downtown, and once you get past the three and a half columns of autobiography that he opens with, his thesis is:
 <ol>

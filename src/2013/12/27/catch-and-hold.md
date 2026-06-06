@@ -1,7 +1,7 @@
 ---
 title: "Catch and Hold"
 date: 2013-12-27
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

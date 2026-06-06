@@ -1,6 +1,6 @@
 ---
 date: 2010-01-13
-category: software education
+category: software-carpentry
 original: swc
 title: Podcast with Jon Udell
 ---

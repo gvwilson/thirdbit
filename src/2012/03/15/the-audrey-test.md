@@ -1,7 +1,7 @@
 ---
 title: "The Audrey Test"
 date: 2012-03-15
-category: education research writing
+category: cs-education
 ---
 <p><a href="http://hackeducation.com/">Audrey Watters' writings</a> are a must-read for anyone interested in education and technology. As she's commented many times, many of the techies who want to revolutionize education don't actually know much about it: they've been through school themselves, but either aren't aware of, or haven't bothered to investigate, the decades of painstaking research that's been done on how people actually learn. In response, she's compiling a "<a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel test</a>" (which I think should be dubbed the "Audrey test") for ed-tech, i.e., a dozen quick questions you can use to tell if someone knows their stuff or is just bluffing. There are already lots of interesting replies to her original tweet; my five suggestions for her list are:</p>
 <ol>

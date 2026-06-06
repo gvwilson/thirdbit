@@ -1,7 +1,7 @@
 ---
 title: "Where My Time Goes"
 date: 2009-01-11
-category: community education writing
+category: personal academia
 ---
 Last week was the first of a new term.  The table below shows where my hours went; it comes to 41 hours, which is under-counting somewhere, but the proportions are accurate.
 <table class="centered">

@@ -1,7 +1,7 @@
 ---
 title: "Given Infinite Minions"
 date: 2016-10-19
-category: software education writing
+category: software-carpentry
 ---
 <p>
   My browser home page has a "to do" list and a "to don't" list.

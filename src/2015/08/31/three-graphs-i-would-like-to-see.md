@@ -1,7 +1,7 @@
 ---
 title: "Three Graphs I Would Like to See"
 date: 2015-08-31
-category: software research education
+category: empirical-se
 original: swc
 ---
 <p>

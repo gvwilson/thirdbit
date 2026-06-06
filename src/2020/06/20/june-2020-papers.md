@@ -1,7 +1,7 @@
 ---
 title: "June 2020 Papers"
 date: 2020-06-20
-category: writing
+category: empirical-se noticed
 ---
 
 I just downloaded 30 papers from ICSE 2020 that are

@@ -1,7 +1,7 @@
 ---
 title: Key Points
 date: 2012-10-23
-category: education software
+category: software-carpentry
 original: swc
 ---
 

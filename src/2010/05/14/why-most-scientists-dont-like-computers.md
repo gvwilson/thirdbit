@@ -1,6 +1,6 @@
 ---
 date: 2010-05-14
-category: software
+category: software-carpentry
 original: swc
 title: Why Most Scientists Don't Like Computers
 ---

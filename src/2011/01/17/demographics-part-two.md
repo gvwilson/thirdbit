@@ -1,6 +1,6 @@
 ---
 date: 2011-01-17
-category: education
+category: software-carpentry empirical-se
 original: swc
 title: Demographics (part two)
 ---

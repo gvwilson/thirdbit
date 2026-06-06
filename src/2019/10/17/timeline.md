@@ -1,7 +1,7 @@
 ---
 title: "Timeline of a Conversation That Never Happened"
 date: 2019-10-17
-category: software community
+category: diversity ethics
 ---
 
 -   In April 2019,

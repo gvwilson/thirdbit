@@ -1,7 +1,7 @@
 ---
 title: "Plans for 2016"
 date: 2015-12-28
-category: education software writing
+category: software-carpentry
 original: swc
 ---
 <p>

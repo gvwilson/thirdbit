@@ -1,7 +1,7 @@
 ---
 title: "Possible CSC49X Projects for Fall 2006"
 date: 2006-07-17
-category: students
+category: student-projects cs-education
 ---
 All very tentative, but here are some of the options:
 <ul>

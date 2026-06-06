@@ -1,7 +1,7 @@
 ---
 title: "A Modest Proposal"
 date: 2016-02-25
-category: research education software
+category: software-carpentry
 ---
 <p>
   I had the pleasure of meeting Denia Djokic on Tuesday evening,

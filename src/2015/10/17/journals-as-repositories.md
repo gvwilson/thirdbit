@@ -1,7 +1,7 @@
 ---
 title: "Journals as Repositories"
 date: 2015-10-17
-category: education research software
+category: research-methods
 original: swc
 ---
 <p>

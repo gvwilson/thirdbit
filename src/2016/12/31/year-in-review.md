@@ -1,7 +1,7 @@
 ---
 title: "2016 in Review"
 date: 2016-12-24
-category: education personal software
+category: software-carpentry
 ---
 <ul>
   <li>

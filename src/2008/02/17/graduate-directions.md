@@ -1,7 +1,7 @@
 ---
 title: "Graduate Directions"
 date: 2008-02-17
-category: students
+category: student-projects academia
 ---
 I realized this morning that I hadn't told the blogosphere what my graduate students have decided to work on.  (I hope the fact that I realized this while cleaning crusty soap scum off a dishwasher says more about me than it does about my graduate students' choices…)  In brief:
 <ul>

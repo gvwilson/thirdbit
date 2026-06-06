@@ -1,6 +1,6 @@
 ---
 date: 2010-08-02
-category: research community
+category: software-carpentry
 original: swc
 title: Interview with Sergey Fomel
 ---

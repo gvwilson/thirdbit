@@ -1,6 +1,6 @@
 ---
 date: 2012-01-20
-category: software education research
+category: software-carpentry
 original: swc
 title: The First Bootcamp of 2012
 ---

@@ -1,7 +1,7 @@
 ---
 title: "What Else for Software Carpentry?"
 date: 2006-02-21
-category: swcarpentry
+category: software-carpentry
 ---
 16 lectures are now in place (more or less), which means I have 8 more to do.  The syllabus shows what I've covered already; my current plans include:
 <ul>

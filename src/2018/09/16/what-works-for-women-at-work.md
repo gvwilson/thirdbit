@@ -1,6 +1,6 @@
 ---
 date: 2018-09-16
-category: research writing society
+category: diversity
 title: "What Works for Women at Work"
 ---
 

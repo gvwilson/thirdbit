@@ -1,7 +1,7 @@
 ---
 title: "From Training to Engagement"
 date: 2014-02-21
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

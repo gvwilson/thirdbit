@@ -1,6 +1,6 @@
 ---
 date: 2011-09-22
-category: software
+category: software-carpentry
 original: swc
 title: Plus Ca Change…
 ---

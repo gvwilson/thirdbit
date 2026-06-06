@@ -1,7 +1,7 @@
 ---
 title: "I'm Tired of Killing Aliens"
 date: 2017-09-24
-category: software
+category: noticed
 ---
 
 I've been waiting over a year for <em>Iron Marines</em> to come out.

@@ -1,7 +1,7 @@
 ---
 title: "'…And Thousands of Their Closest Friends'"
 date: 2009-02-22
-category: education
+category: community-events
 ---
 <a href="http://davidcrow.ca/article/7086/democamp-toronto-19">DemoCamp Toronto 19</a> was announced on Thursday, after a 7-month hiatus.  It's moving to a smaller venue as part of an attempt to get away from the "trade show" feeling of the last few 'camps—lots of people had said that they were too big, and that the proportion of attendees who might plausibly one day present had shrunk too much.
 

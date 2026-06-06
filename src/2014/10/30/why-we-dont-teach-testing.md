@@ -1,7 +1,7 @@
 ---
 title: "Why We Don't Teach Testing (Even Though We'd Like To)"
 date: 2014-10-30
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 <p>

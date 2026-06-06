@@ -1,7 +1,7 @@
 ---
 title: "What Do You See?"
 date: 2010-03-18
-category: software
+category: empirical-se programming
 ---
 One of my favorite software engineering research papers is Cherubini, Venolia, DeLine, and Ko's "<a href="http://portal.acm.org/citation.cfm?id=1240714">Let's go to the whiteboard: how and why software developers use drawings</a>" (SIGCHI'07), which explored the kinds of pictures programmers draw when they're talking to each other, what those drawings are actually used for, and why today's drawing tools don't meet their real needs. In a similar vein, Zuzel Vera Pacheco plans to look at <a href="http://zuzelvp47uoft.wordpress.com/2010/03/17/purpose-and-background-my-research-project/">how developers visualize the execution of SQL queries</a> for her Master's thesis. When you see a query like:
 <blockquote>SELECT left.name, right.name FROM people AS left INNER JOIN people AS right WHERE left.name &gt; right.name;</blockquote>

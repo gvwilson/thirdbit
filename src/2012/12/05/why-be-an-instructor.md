@@ -1,7 +1,7 @@
 ---
 title: Why Be an Instructor
 date: 2012-12-05
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>Our instructors are all volunteers–bootcamp hosts cover their travel and accommodation costs, but they're not paid for their time.  So why do they do it?</p>

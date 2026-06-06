@@ -1,7 +1,7 @@
 ---
 title: "What We Cover in Instructor Training"
 date: 2013-08-13
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

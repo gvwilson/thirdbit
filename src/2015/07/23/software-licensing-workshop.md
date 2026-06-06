@@ -1,7 +1,7 @@
 ---
 title: "A Pair of Workshops"
 date: 2015-07-23
-category: software education community
+category: open-source
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Go On, Convince Me"
 date: 2007-06-12
-category: software students
+category: student-projects programming
 ---
 (Posted on behalf of Alex Krizhevsky.)
 

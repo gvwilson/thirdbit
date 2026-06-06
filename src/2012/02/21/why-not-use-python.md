@@ -1,6 +1,6 @@
 ---
 date: 2012-02-21
-category: education software
+category: software-carpentry
 original: swc
 title: Why Not to Use Python
 ---

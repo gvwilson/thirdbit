@@ -1,7 +1,7 @@
 ---
 title: "Side by Side"
 date: 2022-07-23
-category: software
+category: personal
 ---
 
 We finally said [goodbye to my mum](@root/2020/01/07/goodbye-mum/) yesterday.

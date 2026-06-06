@@ -1,7 +1,7 @@
 ---
 title: "Rich, Famous, and Popular"
 date: 2010-06-28
-category: society
+category: noticed
 ---
 Would you like to be rich, famous, and popular?  Do you have mad computer vision skillz, and/or a Level 29 Jedi Ninja rating in embedded devices?  You do?  Excellent: drop what you're doing and figure out
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Engagement"
 date: 2024-12-28
-category: research software writing
+category: empirical-se noticed
 ---
 
 A junk "study" about "ghost engineers" popped up a few weeks ago claiming that 9.5% of software developers do nothing.

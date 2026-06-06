@@ -1,6 +1,6 @@
 ---
 date: 2011-06-14
-category: software education
+category: software-carpentry
 original: swc
 title: A New Look
 ---

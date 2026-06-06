@@ -1,6 +1,6 @@
 ---
 date: 2012-06-14
-category: research
+category: research-methods
 original: swc
 title: All Entries for the Executable Paper Grand Challenge
 ---

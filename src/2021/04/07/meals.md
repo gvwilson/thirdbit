@@ -1,7 +1,7 @@
 ---
 title: "Meals"
 date: 2021-04-07
-category: software
+category: personal
 ---
 
 One of the silver linings of lockdown is that it gives us more time to cook.

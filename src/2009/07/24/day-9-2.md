@@ -1,6 +1,6 @@
 ---
 date: 2009-07-24
-category: software education
+category: software-carpentry
 original: swc
 title: Day 9
 ---

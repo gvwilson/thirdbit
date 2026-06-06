@@ -1,7 +1,7 @@
 ---
 title: "Six Books for a Canadian Winter"
 date: 2008-02-19
-category: reading
+category: book-reviews
 ---
 For a long time, I have believed that <a href="http://blog.jonudell.net/">Jon Udell</a> has the best job in the world.  He gets to build interesting systems and talk to interesting people about interesting futuristic things, and best of all, he gets paid for it.
 

@@ -1,7 +1,7 @@
 ---
 title: "And Search Returns…?"
 date: 2008-10-16
-category: students
+category: student-projects programming
 ---
 Here's a design challenge for anyone who wants it: what should search return?  More specifically, suppose you have something like DrProject, which stores tickets and wiki pages in a relational database, and revisions to files using a standard Subversion repository. Tickets are identified by ticket number (it's actually the pair [projectId, ticketId], but never mind that for now), while wiki pages are identified by their names (which are strings), and repository entries are identified by a combination of path and version number (e.g., [/trunk/license.txt, 33]). If one ticket, one wiki page, and one file contain the word "Turing", what should 'search("Turing")' return?
 

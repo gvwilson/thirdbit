@@ -1,7 +1,7 @@
 ---
 title: "Etsy for Teaching"
 date: 2016-08-04
-category: education software writing
+category: software-carpentry
 ---
 <p>
   I've been wondering for years why people don't collaborate on lessons

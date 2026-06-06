@@ -1,7 +1,7 @@
 ---
 title: "Cross-Canada Undergrad Projects"
 date: 2009-06-30
-category: education research community
+category: student-projects open-source
 ---
 Since 2002, I have run a course at U of T in which  teams of senior undergraduate students do projects for clients from local startups, non-profits,  university departments, and the research hospitals. Last year, as an experiment, I took on students from other universities as well, including Waterloo,  Lakehead, Alberta, and Havana.
 

@@ -1,7 +1,7 @@
 ---
 title: "Next Steps"
 date: 2016-12-14
-category: education software research
+category: software-carpentry
 original: swc
 ---
 

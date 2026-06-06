@@ -1,6 +1,6 @@
 ---
 date: 2010-12-14
-category: software research writing
+category: technical-writing
 original: swc
 title: Presents for the Holidays
 ---

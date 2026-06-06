@@ -1,7 +1,7 @@
 ---
 title: "Yaks"
 date: 2018-04-01
-category: education software research
+category: programming humor
 ---
 
 I'd like to [teach scientists how to program](https://software-carpentry.org),

@@ -1,7 +1,7 @@
 ---
 title: "Times Nine in a Year"
 date: 2010-02-24
-category: community education
+category: software-carpentry
 ---
 A talk I'd really like to see:
 <blockquote><strong><em>Moving the Needle: How the San Francisco Ruby Community got to 18%</em></strong>

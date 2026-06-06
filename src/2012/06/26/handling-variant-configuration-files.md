@@ -1,6 +1,6 @@
 ---
 date: 2012-06-26
-category: software education
+category: programming tools
 original: swc
 title: Handling Variant Configuration Files
 ---

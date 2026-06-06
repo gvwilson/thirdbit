@@ -1,7 +1,7 @@
 ---
 title: "How Do You Tell?"
 date: 2019-09-05
-category: software education
+category: cs-education education
 ---
 
 I had another good conversation yesterday with [Prof. Sally Fincher](https://www.cs.kent.ac.uk/people/staff/saf/),

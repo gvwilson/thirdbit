@@ -1,6 +1,6 @@
 ---
 date: 2012-03-18
-category: software research education
+category: software-carpentry research-methods
 original: swc
 title: The Dark Matter of Computational Science
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Engineering Strategies &amp; Practice Team Wins Award"
 date: 2007-03-26
-category: education software
+category: cs-education student-projects
 ---
 The team that put together the "Engineering Strategies & Practice" (ESP) course at <a href="http://www.utoronto.ca">U of T</a> just <a href="http://www.news.utoronto.ca/bin6/070316-3016.asp">won an award</a> from the <a href="http://www.mcmaster.ca/stlhe/welcome.html">Society for Teaching and Learning in Higher Education</a>. From the article:
 <blockquote>ESP is required for all first-year engineering students, except those enrolled in engineering science, and includes standard lectures and tutorials but also incorporates seminars &ndash;-- a teaching method usually reserved for upper-year humanities students. The yearlong course finishes with all students participating in an intense 13-week design project, pairing groups of four to six students with a mentor who is either a faculty member or engineering alumni with industry experience.</blockquote>

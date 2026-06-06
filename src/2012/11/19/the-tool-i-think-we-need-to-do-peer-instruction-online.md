@@ -1,7 +1,7 @@
 ---
 title: The Tool (I Think) We Need To Do Peer Instruction Online
 date: 2012-11-19
-category: software education research
+category: software-carpentry tools
 original: swc
 ---
 <p>Clay Shirky's recent essays "<a href="http://www.shirky.com/weblog/2012/11/napster-udacity-and-the-academy/">Napster, Udacity, and the Academy</a>" has attracted a fair bit of attention. I've written about some of the things it <em>doesn't</em> discuss on my personal blog, but here, I'd like to use it as a jumping off point for a description of a tool I'd like someone to write for us. Given that my last request produced working code in just a few hours, I'm hoping one of you will wow me again :-)</p>

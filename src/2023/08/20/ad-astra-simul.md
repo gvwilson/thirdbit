@@ -1,7 +1,7 @@
 ---
 title: "Ad Astra Simul"
 date: 2023-08-20
-category: education research writing
+category: open-source research-methods education
 ---
 
 From <https://astera.org/unblocking-scientific-publishing/>:

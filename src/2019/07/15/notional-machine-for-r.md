@@ -1,7 +1,7 @@
 ---
 title: "Is This a Notional Machine for R?"
 date: 2019-07-15
-category: education software
+category: cs-education education
 ---
 
 A year ago,

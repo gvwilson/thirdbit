@@ -1,6 +1,6 @@
 ---
 date: 2019-03-31
-category: education software community
+category: education
 title: "Concept Maps"
 ---
 

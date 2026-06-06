@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Completion Times"
 date: 2016-07-05
-category: education
+category: software-carpentry empirical-se
 original: swc
 ---
 <p>

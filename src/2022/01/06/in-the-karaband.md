@@ -1,7 +1,7 @@
 ---
 title: "In the Karaband"
 date: 2022-01-06
-category: software
+category: fiction
 ---
 
 The an-Ruuda spent six hundred years fighting to free themselves from their undead masters.

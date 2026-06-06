@@ -1,7 +1,7 @@
 ---
 title: "Petzold's Rules for Writing a Technical Book"
 date: 2006-01-03
-category: writing software
+category: book-reviews technical-writing
 ---
 <p><a href="http://www.charlespetzold.com">Charles Petzold</a> wrote the Bible (or Necronomicon, take your pick) on Windows programming.  He's blogging about the creation of his next book, and has posted these five simple rules for aspiring technical authors:</p>
 

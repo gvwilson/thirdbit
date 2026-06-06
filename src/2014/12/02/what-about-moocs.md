@@ -1,7 +1,7 @@
 ---
 title: "What About MOOCs?"
 date: 2014-12-02
-category: education software society
+category: cs-education
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Making Money from Better Software"
 date: 2006-04-19
-category: software community
+category: programming career
 ---
 <p>Two interesting business models for people who want to make money from open source software:</p>
 

@@ -1,7 +1,7 @@
 ---
 title: "Welcome More New Instructors"
 date: 2014-10-16
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "My Aspect Ratio Seems to Have Changed"
 date: 2011-10-20
-category: software
+category: software-carpentry
 ---
 <table class="centered center">
 <tbody>

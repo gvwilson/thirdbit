@@ -1,7 +1,7 @@
 ---
 title: "How I'm Doing"
 date: 2007-08-07
-category: education swcarpentry
+category: software-carpentry education
 ---
 I wasn't happy with the two courses I taught this past winter—too many distractions, too little preparation.  The feedback on the Software Carpentry course was therefore a pleasant surprise: I've heard second-hand that several of the Computer Science grad students were disappointed by its slow pace, but overall I did better than I expected.  On a 1-5 scale:
 <ul>

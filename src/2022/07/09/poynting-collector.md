@@ -1,7 +1,7 @@
 ---
 title: "Poynting Collector"
 date: 2022-07-09
-category: software
+category: humor
 ---
 
 Back in 2020 I asked:

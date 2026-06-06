@@ -1,7 +1,7 @@
 ---
 title: "The Camel's Humps Are Very Popular"
 date: 2006-07-18
-category: research software
+category: empirical-se cs-education
 ---
 Four people have sent me links to <a href="http://www.cs.mdx.ac.uk/research/PhDArea/saeed/">this research</a> in the last 24 hours.  It claims that:
 <ul>

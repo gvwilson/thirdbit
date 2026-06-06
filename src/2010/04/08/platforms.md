@@ -1,6 +1,6 @@
 ---
 date: 2010-04-08
-category: education software community
+category: software-carpentry
 original: swc
 title: Platforms
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2018-09-04
-category: software education personal
+category: software-carpentry
 title: "Joining RStudio"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Disaster Management"
 date: 2026-04-08
-category: education software community
+category: education research-methods
 ---
 
 Last year I started building a workshop on how to shut projects down.

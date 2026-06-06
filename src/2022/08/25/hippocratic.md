@@ -1,7 +1,7 @@
 ---
 title: "Thoughts on the Hippocratic License"
 date: 2022-08-25
-category: software personal society
+category: ethics open-source
 ---
 
 For the last couple of years I've been putting the [Hippocratic License](https://firstdonoharm.dev/) on my personal projects,

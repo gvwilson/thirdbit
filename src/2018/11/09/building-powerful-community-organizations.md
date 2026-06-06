@@ -1,6 +1,6 @@
 ---
 date: 2018-11-09
-category: community education writing
+category: community-events
 title: "Building Powerful Community Organizations"
 ---
 

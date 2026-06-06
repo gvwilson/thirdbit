@@ -1,6 +1,6 @@
 ---
 date: 2018-10-18
-category: education software research
+category: technical-writing
 title: "Four Forms of Documentation"
 ---
 

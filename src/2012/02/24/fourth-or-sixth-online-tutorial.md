@@ -1,6 +1,6 @@
 ---
 date: 2012-02-24
-category: education software research
+category: software-carpentry
 original: swc
 title: Fourth (or Sixth) Online Tutorial
 ---

@@ -1,7 +1,7 @@
 ---
 title: "How the Year Went"
 date: 2015-12-06
-category: software
+category: software-carpentry
 ---
 <p>
   I wrote a post on New Year's Day

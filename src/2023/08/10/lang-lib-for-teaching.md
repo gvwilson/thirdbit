@@ -1,7 +1,7 @@
 ---
 title: "Language and Library Features for Teaching"
 date: 2023-08-10
-category: software education writing
+category: programming cs-education technical-writing
 ---
 
 I've written [several posts][features] in the past couple of years about

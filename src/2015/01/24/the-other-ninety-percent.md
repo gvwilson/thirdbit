@@ -1,7 +1,7 @@
 ---
 title: "The Other Ninety Percent"
 date: 2015-01-24
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

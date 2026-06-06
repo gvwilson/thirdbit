@@ -1,7 +1,7 @@
 ---
 title: "Learning in Both Directions"
 date: 2015-04-21
-category: education research software
+category: software-carpentry
 original: swc
 ---
 <p>

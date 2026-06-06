@@ -1,7 +1,7 @@
 ---
 title: "Search-Based Software Engineering"
 date: 2009-08-15
-category: software
+category: empirical-se
 ---
 This <a href="http://research.microsoft.com/apps/pubs/default.aspx?id=101301">paper</a> from Microsoft Research is yet another sign that intelligent after-the-fact search is becoming more important in software engineering:
 <blockquote>

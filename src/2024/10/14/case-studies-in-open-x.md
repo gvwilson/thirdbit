@@ -1,7 +1,7 @@
 ---
 title: "Case Studies in Open X"
 date: 2024-10-14
-category: writing society software
+category: open-source politics
 ---
 
 Over the weekend I read Kevin Young's book

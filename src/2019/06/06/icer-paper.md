@@ -1,6 +1,6 @@
 ---
 date: 2019-06-06
-category: education research
+category: cs-education research-methods conferences
 title: "ICER Acceptance"
 ---
 

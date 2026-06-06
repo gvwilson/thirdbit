@@ -1,7 +1,7 @@
 ---
 title: "Massuni Kickstarter Has Launched"
 date: 2014-10-22
-category: software society
+category: software-carpentry
 ---
 <p>
   I'm very excited that Massuni's Kickstarter has launched.

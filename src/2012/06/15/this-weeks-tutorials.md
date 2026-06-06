@@ -1,6 +1,6 @@
 ---
 date: 2012-06-15
-category: education software writing
+category: software-carpentry
 original: swc
 title: This Week's Tutorials
 ---

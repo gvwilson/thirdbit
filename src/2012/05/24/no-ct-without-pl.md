@@ -1,6 +1,6 @@
 ---
 date: 2012-05-24
-category: software education research
+category: cs-education
 original: swc
 title: No CT Without PL
 ---

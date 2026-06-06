@@ -1,7 +1,7 @@
 ---
 title: "What Does Peripheral Participation in Data Look Like?"
 date: 2017-12-15
-category: software community education
+category: research-methods
 ---
 
 One of the cornerstones of modern learning theory is [legitimate peripheral participation][lpp]:

@@ -1,7 +1,7 @@
 ---
 title: "Demand Fair Play for Fauja Singh"
 date: 2011-10-24
-category: software writing
+category: personal noticed
 ---
 I just sent the following to adjudication@guinnessworldrecords.com; please add your voice.
 Damn birthers are everywhere these days…

@@ -1,6 +1,6 @@
 ---
 date: 2018-08-14
-category: software
+category: personal
 title: Our Last Game
 ---
 

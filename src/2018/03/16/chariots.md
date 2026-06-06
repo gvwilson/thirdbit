@@ -1,7 +1,7 @@
 ---
 title: "Chariots"
 date: 2018-03-16
-category: software education community
+category: personal
 ---
 
 > To people who use 'em, a wheelchair is a chariot of independence.

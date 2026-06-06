@@ -1,6 +1,6 @@
 ---
 date: 2010-04-15
-category: community software research
+category: software-carpentry
 original: swc
 title: Scimatic Sponsorship
 ---

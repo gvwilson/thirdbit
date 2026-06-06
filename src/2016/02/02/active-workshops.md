@@ -1,7 +1,7 @@
 ---
 title: "Active Workshops"
 date: 2016-02-02
-category: education
+category: software-carpentry
 original: swc
 ---
 

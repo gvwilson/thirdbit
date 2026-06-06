@@ -1,6 +1,6 @@
 ---
 date: 2019-04-22
-category: writing software
+category: diversity ethics
 title: "DataCamp Clarifications"
 ---
 

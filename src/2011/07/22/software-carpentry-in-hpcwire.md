@@ -1,6 +1,6 @@
 ---
 date: 2011-07-22
-category: software education research
+category: software-carpentry
 original: swc
 title: Software Carpentry in HPCWire
 ---

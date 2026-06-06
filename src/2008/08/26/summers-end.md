@@ -1,7 +1,7 @@
 ---
 title: "Summer's End"
 date: 2008-08-26
-category: students
+category: student-projects
 ---
 The last of our summer students finishes at the end of this week; here's a few links to close off another great season:
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "What Everyone in Tech Should Know About Teaching and Learning"
 date: 2021-07-18
-category: education software
+category: education cs-education
 ---
 
 I have just posted a [40-minute video of my talk "What Everyone In Tech Should Know About Teaching and Learning"][video].

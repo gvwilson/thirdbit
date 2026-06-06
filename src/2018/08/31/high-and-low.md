@@ -1,6 +1,6 @@
 ---
 date: 2018-08-31
-category: research writing
+category: personal
 title: "High and Low, One by One or All Together"
 ---
 

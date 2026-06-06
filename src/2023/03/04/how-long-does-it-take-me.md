@@ -1,7 +1,7 @@
 ---
 title: "How Long Does It Take Me?"
 date: 2023-03-04
-category: software
+category: personal
 ---
 
 How long does it take me to cross things off my to-do list?

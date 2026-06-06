@@ -1,7 +1,7 @@
 ---
 title: "Family"
 date: 2019-10-26
-category: software
+category: personal
 ---
 
 Twelve years ago today.

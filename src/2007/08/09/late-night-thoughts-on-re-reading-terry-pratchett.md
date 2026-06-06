@@ -1,7 +1,7 @@
 ---
 title: "Late Night Thoughts on Re-Reading Terry Pratchett"
 date: 2007-08-09
-category: reading
+category: book-reviews noticed
 ---
 I know this is supposed to be a technical blog, but having just re-read three of Pratchett's Discworld books, I feel compelled to share.  He's always funny, and there's always a sting in the tail.  My personal favorites are:
 <ul>

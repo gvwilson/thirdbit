@@ -1,7 +1,7 @@
 ---
 title: "Software Design Homework"
 date: 2023-11-12
-category: software education
+category: cs-education programming
 ---
 
 I'm giving a guest lecture this week in a course that's using the

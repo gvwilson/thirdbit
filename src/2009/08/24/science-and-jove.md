@@ -1,6 +1,6 @@
 ---
 date: 2009-08-24
-category: research software writing
+category: research-methods noticed
 original: swc
 title: Science and JoVE
 ---

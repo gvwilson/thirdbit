@@ -1,7 +1,7 @@
 ---
 title: "Four Books I'm Not Writing (Plus One)"
 date: 2022-04-30
-category: research software education
+category: cs-education technical-writing
 ---
 
 I have bits and pieces of several overlapping technical books right now,

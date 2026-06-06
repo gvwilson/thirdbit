@@ -1,6 +1,6 @@
 ---
 date: 2011-11-08
-category: software research personal
+category: cs-education
 original: swc
 title: The Best vs. the Good
 ---

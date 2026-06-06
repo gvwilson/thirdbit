@@ -1,6 +1,6 @@
 ---
 date: 2012-06-27
-category: software education research
+category: software-carpentry
 original: swc
 title: A Supercomputing Driver's License
 ---

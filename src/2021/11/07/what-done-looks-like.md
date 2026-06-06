@@ -1,7 +1,7 @@
 ---
 title: "What (a subset of) Done Looks Like"
 date: 2021-11-07
-category: community software research
+category: open-source software-carpentry
 ---
 
 I recently ran [a workshop on managing research software projects](@root/mrsp/),

@@ -1,7 +1,7 @@
 ---
 title: Snowstorms and Blackouts in Virginia
 date: 2013-03-15
-category: education research
+category: software-carpentry
 original: swc
 ---
 <p>Despite inclement weather, last week's bootcamp at the University of Virginia went well.

@@ -1,6 +1,6 @@
 ---
 date: 2024-01-31
-category: education
+category: cs-education education
 title: "Lesson Log"
 ---
 

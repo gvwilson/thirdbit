@@ -1,7 +1,7 @@
 ---
 title: "Software Carpentry Starts Tomorrow"
 date: 2009-07-12
-category: software education research
+category: software-carpentry
 ---
 The next run of the Software Carpentry course starts tomorrow (July 13), and as always, I wish a lot of things were in better shape. We're using Skype to videoconference the lectures from Toronto to Edmonton and vice versa because everything else was either too broken or too expensive. The video quality is pretty poor, and nothing's being recorded, but it's the best we could do in the time we had.
 

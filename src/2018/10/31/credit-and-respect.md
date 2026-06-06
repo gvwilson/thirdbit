@@ -1,6 +1,6 @@
 ---
 date: 2018-10-31
-category: writing research community
+category: cs-education open-source
 title: "Credit and Respect"
 ---
 

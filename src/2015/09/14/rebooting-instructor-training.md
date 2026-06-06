@@ -1,7 +1,7 @@
 ---
 title: "Rebooting Instructor Training"
 date: 2015-09-14
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

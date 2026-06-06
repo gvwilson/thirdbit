@@ -1,7 +1,7 @@
 ---
 title: "Improving the Balance"
 date: 2015-01-22
-category: education research
+category: software-carpentry diversity
 original: swc
 ---
 <p>

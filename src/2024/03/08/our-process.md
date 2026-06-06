@@ -1,7 +1,7 @@
 ---
 title: "Our Process"
 date: 2024-03-08
-category: software research community
+category: tools open-source
 ---
 
 Back in 2022 I wrote that there are two ways of looking at roles in a small-to-medium tech company:

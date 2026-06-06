@@ -1,7 +1,7 @@
 ---
 title: "Report on the Indiana Bootcamp"
 date: 2013-07-26
-category: education software writing
+category: software-carpentry
 original: swc
 ---
 <p>

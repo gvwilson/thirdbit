@@ -1,7 +1,7 @@
 ---
 title: "Circular Imports"
 date: 2020-10-12
-category: software
+category: programming cs-education
 ---
 
 I am struggling to find a readable explanation of how circular imports are handled

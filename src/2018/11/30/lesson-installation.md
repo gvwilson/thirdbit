@@ -1,6 +1,6 @@
 ---
 date: 2018-11-30
-category: software education
+category: software-carpentry
 title: "Lesson Installation"
 ---
 

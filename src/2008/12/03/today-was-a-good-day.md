@@ -1,7 +1,7 @@
 ---
 title: "Today Was a Good Day"
 date: 2008-12-03
-category: students
+category: student-projects
 ---
 Today, the students in my CSC491 project course gave their end-of-term demos. Each team had 10 minutes to present their work to a mixed audience of students, faculty, and visitors from industry.  It went very well—their talks were clear, their demos ran smoothly, and they handled questions well.  For the record, we heard from:
 <ul>

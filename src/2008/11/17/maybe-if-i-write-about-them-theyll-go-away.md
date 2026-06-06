@@ -1,7 +1,7 @@
 ---
 title: "Maybe If I Write About Them, They'll Go Away"
 date: 2008-11-17
-category: students
+category: student-projects programming
 ---
 Prof. <a href="http://www.cs.toronto.edu/~sven">Sven Dickinson</a> (acting chair of Computer Science at the University of Toronto) came in to talk to my undergrad software engineering class last Friday about life as a researcher.  He made it sound pretty appealing, but his description of where his time goes made it clearer than ever that one of the reasons I'm <em>not</em> getting much research done is that I'm juggling too many other balls.  This week, for example, I am supposed to:
 <ul>

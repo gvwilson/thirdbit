@@ -1,7 +1,7 @@
 ---
 title: "Holiday Reading"
 date: 2009-12-30
-category: writing software research
+category: book-reviews
 ---
 <ol>
   <li>Tim Weiner's <a href="http://www.amazon.com/Legacy-Ashes-History-Tim-Weiner/dp/0307389006"><em>Legacy of Ashes: The History of the CIA</em></a> is a darning indictment of an "intelligence" agency that has an unparalleled half-century record of failure: "darning" rather than "damning" because the author's obvious anger makes the book sound one-sided.</li>

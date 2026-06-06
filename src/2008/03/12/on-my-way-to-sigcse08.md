@@ -1,7 +1,7 @@
 ---
 title: "On My Way To SIGCSE'08"
 date: 2008-03-12
-category: research software education
+category: cs-education conferences
 ---
 0515: Madeleine wakes up, so we do too.
 

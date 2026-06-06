@@ -1,7 +1,7 @@
 ---
 title: "Carpentry For Everyone"
 date: 2017-11-05
-category: software education research
+category: cs-education
 ---
 
 *Update: [this post from Terry McGlynn][mcglynn]

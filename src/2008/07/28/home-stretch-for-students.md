@@ -1,7 +1,7 @@
 ---
 title: "Home Stretch for Students"
 date: 2008-07-28
-category: students
+category: student-projects
 ---
 Coming down to the wire…
 <ul>

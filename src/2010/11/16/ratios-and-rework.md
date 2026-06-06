@@ -1,6 +1,6 @@
 ---
 date: 2010-11-16
-category: education software writing
+category: software-carpentry empirical-se
 original: swc
 title: Ratios and Rework
 ---

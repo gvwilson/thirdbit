@@ -1,7 +1,7 @@
 ---
 title: "Beta Book"
 date: 2011-05-19
-category: writing
+category: technical-writing
 ---
 We have our first copy of the book!  And it's beautiful:
 

@@ -1,7 +1,7 @@
 ---
 title: "Jon Udell in Toronto Jan 18 2011"
 date: 2011-01-13
-category: education research community
+category: community-events
 ---
 <p style="text-align: center;"><strong><em>Rethinking the Community Calendar:
 A Case Study in Learning and Teaching Fourth R Principles</em></strong>

@@ -1,7 +1,7 @@
 ---
 title: "Static Lesson Generators"
 date: 2020-09-13
-category: education software research
+category: education tools
 ---
 
 Yesterday I tweeted:

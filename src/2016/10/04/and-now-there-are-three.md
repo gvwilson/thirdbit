@@ -1,7 +1,7 @@
 ---
 title: "And Now There Are Three"
 date: 2016-10-04
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 

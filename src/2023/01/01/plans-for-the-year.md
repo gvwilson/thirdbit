@@ -1,7 +1,7 @@
 ---
 title: "Plans for the Year"
 date: 2023-01-01
-category: writing software education
+category: personal technical-writing education
 ---
 
 I've written about [what I did in 2022][post_2022]

@@ -1,6 +1,6 @@
 ---
 date: 2019-06-16
-category: writing software
+category: programming data-science
 title: "Chunks versus Functions"
 ---
 

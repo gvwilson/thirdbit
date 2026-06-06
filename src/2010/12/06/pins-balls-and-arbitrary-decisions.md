@@ -1,6 +1,6 @@
 ---
 date: 2010-12-06
-category: community software education
+category: software-carpentry
 original: swc
 title: Pins, Balls, and Arbitrary Decisions
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2012-10-03
-category: research software education
+category: software-carpentry research-methods
 original: swc
 title: Best Practices for Scientific Computing
 ---

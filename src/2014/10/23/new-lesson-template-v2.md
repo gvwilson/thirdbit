@@ -1,7 +1,7 @@
 ---
 title: "A New Lesson Template, Version 2"
 date: 2014-10-23
-category: writing software education
+category: software-carpentry
 original: swc
 ---
 

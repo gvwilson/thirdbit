@@ -1,6 +1,6 @@
 ---
 date: 2012-02-22
-category: software research
+category: research-methods
 original: swc
 title: Granules of Research
 ---

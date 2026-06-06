@@ -1,6 +1,6 @@
 ---
 date: 2012-03-09
-category: writing
+category: cs-education
 original: swc
 title: What's the Model, Kenneth?
 ---

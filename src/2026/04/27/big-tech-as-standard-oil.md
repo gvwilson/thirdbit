@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Standard Oil"
 date: 2026-04-27
-category: sdgc
+category: sdgc ethics
 ---
 
 Venture-funded platform competition is a tontine.

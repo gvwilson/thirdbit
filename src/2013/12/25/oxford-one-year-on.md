@@ -1,7 +1,7 @@
 ---
 title: "Oxford, One Year On"
 date: 2013-12-25
-category: education research software
+category: software-carpentry
 original: swc
 ---
 <p>

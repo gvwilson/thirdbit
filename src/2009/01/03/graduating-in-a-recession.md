@@ -1,7 +1,7 @@
 ---
 title: "Graduating in a Recession"
 date: 2009-01-03
-category: education
+category: academia career
 ---
 Via Serguei Zinine, a <a href="http://www.columbia.edu/%7Evw2112/papers/nber_draft_1.pdf">draft paper</a> looking at the effects on students' financial prospects of graduating during a recession. Charts with results start on pg. 47.
 

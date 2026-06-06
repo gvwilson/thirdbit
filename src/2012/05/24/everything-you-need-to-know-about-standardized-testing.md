@@ -1,7 +1,7 @@
 ---
 title: "Everything You Need to Know About Standardized Testing"
 date: 2012-05-24
-category: software
+category: cs-education
 ---
 <p>
   If poor inner-city children consistently outscored children from wealthy suburban homes on standardized tests,

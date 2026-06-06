@@ -1,6 +1,6 @@
 ---
 date: 2018-10-06
-category: software
+category: personal
 title: "Flake and Collins, Mark and Jack and Tobi"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Mental Models and Vicious Circles"
 date: 2014-01-07
-category: education software
+category: cs-education
 original: swc
 ---
 <p>

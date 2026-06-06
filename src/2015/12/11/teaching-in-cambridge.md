@@ -1,7 +1,7 @@
 ---
 title: "Teaching in Cambridge"
 date: 2015-12-11
-category: education software
+category: software-carpentry
 ---
 <p>
   I ran a three-hour class on teaching as part of EuroSciPy in Cambridge this summer;

@@ -1,7 +1,7 @@
 ---
 title: "The Year in Review"
 date: 2017-12-30
-category: education software community
+category: personal
 ---
 
 - January

@@ -1,7 +1,7 @@
 ---
 title: "Quiet Time"
 date: 2010-01-12
-category: writing software education
+category: software-carpentry technical-writing
 ---
 Two grad students in our department bought white lab coats over Christmas. When they wear them, it means that they're "doing science", and are not to be interrupted. I'd buy one too, except almost all my interruptions are auto-generated: no matter how hard I try, I just… can't… stop myself from checking email, reading blogs, et cetera.
 

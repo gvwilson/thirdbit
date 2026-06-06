@@ -1,7 +1,7 @@
 ---
 title: "Pornography, Obscenity, and the Limits of Regulation"
 date: 2026-04-29
-category: sdgc
+category: sdgc politics
 ---
 
 Every argument about internet regulation eventually turns into an argument about free speech and pornography.

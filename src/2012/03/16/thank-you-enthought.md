@@ -1,6 +1,6 @@
 ---
 date: 2012-03-16
-category: software education research
+category: software-carpentry
 original: swc
 title: Thank You, Enthought
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2012-02-19
-category: software research writing
+category: technical-writing
 original: swc
 title: A Flash (well, MP4) from the Past
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The Weizenbaum Test"
 date: 2023-08-27
-category: society education writing
+category: ethics programming
 ---
 
 In honor of [the creator of the first chatbot][weizenbaum]

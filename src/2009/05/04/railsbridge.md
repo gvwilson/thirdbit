@@ -1,7 +1,7 @@
 ---
 title: "RailsBridge"
 date: 2009-05-04
-category: software education community
+category: diversity open-source
 ---
 Via Mike Gunderloy, an <a href="http://afreshcup.com/2009/05/04/announcing-railsbridge/">announcement</a> about <a href="http://railsbridge.org/">RailsBridge</a>:
 

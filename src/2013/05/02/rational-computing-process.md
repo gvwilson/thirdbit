@@ -1,7 +1,7 @@
 ---
 title: "A Rational Computing Process: How and Why to Fake It"
 date: 2013-05-02
-category: software research writing
+category: research-methods programming
 original: swc
 ---
 <p>

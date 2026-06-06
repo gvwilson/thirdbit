@@ -1,6 +1,6 @@
 ---
 date: 2011-08-08
-category: software education
+category: cs-education
 original: swc
 title: Introducing Programming a Different Way
 ---

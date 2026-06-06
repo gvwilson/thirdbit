@@ -1,7 +1,7 @@
 ---
 title: "How Teaching Knowledge Is Transferred"
 date: 2015-09-13
-category: education research writing
+category: education empirical-se
 original: swc
 ---
 <blockquote>

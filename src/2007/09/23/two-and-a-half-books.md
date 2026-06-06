@@ -1,7 +1,7 @@
 ---
 title: "Two and a Half Books"
 date: 2007-09-23
-category: reading
+category: book-reviews
 ---
 Part way through Tracy Kidder's classic look at the computing industry, <cite>The Soul of a New Machine</cite>, one of the hardware team burns out and quits.  After months of worrying about clock ticks and microseconds, his intent is to think about nothing shorter than a season.  When I first read the book, in the summer of my twentieth year, I pitied him; now, at forty-four, with the leaves turning orange and my daughter turning six months, I feel rather envious.
 

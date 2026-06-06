@@ -1,7 +1,7 @@
 ---
 title: "International Tax Avoidance"
 date: 2026-05-06
-category: sdgc
+category: sdgc politics
 ---
 
 In August 2016,

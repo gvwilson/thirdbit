@@ -1,7 +1,7 @@
 ---
 title: "NSERC Should Just Give the Money Away"
 date: 2009-04-28
-category: research
+category: academia research-methods politics
 ---
 <p><em>Not that I'm bitter or anything, but…</em></p>
 <blockquote>

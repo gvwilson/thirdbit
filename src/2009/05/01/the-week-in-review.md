@@ -1,7 +1,7 @@
 ---
 title: "The Week in Review"
 date: 2009-05-01
-category: education research software
+category: personal academia
 ---
 Things I did this week that I was supposed to:
 <ol>

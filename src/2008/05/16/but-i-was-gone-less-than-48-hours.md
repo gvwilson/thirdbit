@@ -1,7 +1,7 @@
 ---
 title: "But I Was Gone Less than 48 Hours!"
 date: 2008-05-16
-category: swcarpentry
+category: software-carpentry
 ---
 I left Toronto for Austin mid-day Wednesday, and got back at midnight last night.  Lots happened in the interim, so here's a linkandthoughtdump (which I bet actually <em>is</em> one word in German):
 <ul>

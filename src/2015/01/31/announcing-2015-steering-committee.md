@@ -1,7 +1,7 @@
 ---
 title: "Announcing 2015 Steering Committee"
 date: 2015-01-31
-category: community software education
+category: software-carpentry
 original: swc
 ---
 <p>

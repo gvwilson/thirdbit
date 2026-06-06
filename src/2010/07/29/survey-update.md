@@ -1,6 +1,6 @@
 ---
 date: 2010-07-29
-category: software
+category: software-carpentry
 original: swc
 title: Survey Update
 ---

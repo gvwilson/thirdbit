@@ -1,6 +1,6 @@
 ---
 date: 2018-07-21
-category: software research
+category: cs-education
 title: Weak Failure, Strong Failure, and Butter Tarts
 ---
 

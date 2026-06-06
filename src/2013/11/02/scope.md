@@ -1,7 +1,7 @@
 ---
 title: "Software Carpentry's Scope"
 date: 2013-11-02
-category: software education research
+category: software-carpentry
 original: swc
 ---
 <p>

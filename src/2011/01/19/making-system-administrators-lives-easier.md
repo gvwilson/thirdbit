@@ -1,6 +1,6 @@
 ---
 date: 2011-01-19
-category: education software research
+category: software-carpentry
 original: swc
 title: Making System Administrators' Lives Easier
 ---

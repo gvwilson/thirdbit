@@ -1,7 +1,7 @@
 ---
 title: "Night Watch"
 date: 2019-11-13
-category: personal
+category: noticed personal
 ---
 
 "That's a nice song," said young Sam, and Vimes remembered that he was hearing it for the first time.

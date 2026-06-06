@@ -1,6 +1,6 @@
 ---
 date: 2012-05-23
-category: education research community
+category: cs-education
 original: swc
 title: Alone and Misunderstood
 ---

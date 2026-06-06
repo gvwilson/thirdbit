@@ -1,7 +1,7 @@
 ---
 title: "Tools"
 date: 2020-10-21
-category: software community writing
+category: tools cs-education
 ---
 
 A couple of days ago I tweeted:

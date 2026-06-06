@@ -1,7 +1,7 @@
 ---
 title: "7 Things You Probably Didn't Know About Me"
 date: 2009-01-27
-category: education research personal
+category: personal
 ---
 I've been tagged by <a href="http://insanecats.com/cgi-bin/single.py?month=jan09&amp;msg=25">Michelle Levesque</a> and <a href="http://mindforks.blogspot.com">David Bolter</a>, so I figure I better respond:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Software Design Rules"
 date: 2021-08-05
-category: software community personal
+category: programming education
 ---
 
 My webinar on "[Software Design for Data Scientists](@root/talks/sd4ds/)" raised over $600 for [Books for Africa](https://www.booksforafrica.org/). The key points are summarized below; if you'd like me to give the talk to your company, university, or other organization, I'd be happy to do so in exchange for a donation to BfA or some other mutually-agreed charity.

@@ -1,7 +1,7 @@
 ---
 title: "The Open Scoop Challenge"
 date: 2014-02-25
-category: software education research
+category: open-source
 original: swc
 ---
 <p>

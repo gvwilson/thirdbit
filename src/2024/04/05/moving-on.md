@@ -1,7 +1,7 @@
 ---
 title: "Moving On"
 date: 2024-04-05
-category: software education
+category: career personal
 ---
 
 Today was my last day at Deep Genomics.

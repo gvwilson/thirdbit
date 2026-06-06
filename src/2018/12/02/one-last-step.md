@@ -1,6 +1,6 @@
 ---
 date: 2018-12-02
-category: software writing
+category: cs-education
 title: "One Last Step"
 ---
 

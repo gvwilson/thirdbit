@@ -1,7 +1,7 @@
 ---
 title: "Templates: We Live, We Learn"
 date: 2014-12-09
-category: software education
+category: software-carpentry
 original: swc
 ---
 <p>

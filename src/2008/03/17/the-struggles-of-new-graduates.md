@@ -1,7 +1,7 @@
 ---
 title: "The Struggles of New Graduates"
 date: 2008-03-17
-category: students
+category: student-projects career
 ---
 I had a lot of interesting conversations while at <a href="http://www.cs.duke.edu/sigcse08/">SIGCSE</a> last week, but the best talk I attended was given by Microsoft's <a href="http://research.microsoft.com/~abegel/">Andrew Begel</a>, who spent a year studying the problems new college graduates face in their first software development job. The takeaway:
 <blockquote> New developers' problems are mainly due to <em>poor communication</em>, not technical skills.</blockquote>

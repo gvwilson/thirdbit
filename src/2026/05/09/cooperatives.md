@@ -1,7 +1,7 @@
 ---
 title: "Cooperatives"
 date: 2026-05-09
-category: sdgc
+category: sdgc ethics
 ---
 
 In 1956, a Catholic priest named José María Arizmendiarrieta

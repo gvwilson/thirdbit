@@ -1,7 +1,7 @@
 ---
 title: Usability Testing and Instructional Design
 date: 2012-10-28
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 

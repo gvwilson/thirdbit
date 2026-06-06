@@ -1,6 +1,6 @@
 ---
 date: 2012-09-30
-category: education
+category: software-carpentry
 original: swc
 title: Oslo and Columbia
 ---

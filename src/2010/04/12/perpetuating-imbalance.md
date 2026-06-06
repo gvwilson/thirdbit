@@ -1,7 +1,7 @@
 ---
 title: "Perpetuating Imbalance?"
 date: 2010-04-12
-category: software
+category: diversity
 ---
 On March 24, a post appeared on the Code Anthem blog titled "<a href="http://codeanthem.com/blog/index.php/2010/03/should-you-judge-a-developer-by-their-open-source-contributions/">Don't Judge a Developer by Open Source</a>". Since it starts by saying that the authors are big fans of 37Signals, I skipped over it (I'm not), but when links to it started appearing elsewhere, I went back to have a read. The post's thesis is that judging developers by looking at their open source contributions is a bad idea. I've been doing that for several years (and telling my students that they should contribute to open projects in order to get noticed), so I expected to disagree with the post, but that's proving hard. In order, the author's points are:
 <ol>

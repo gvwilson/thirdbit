@@ -1,7 +1,7 @@
 ---
 title: "Allocating Responsibilities"
 date: 2019-11-19
-category: software education community
+category: student-projects career
 ---
 
 *I wrote this guide ten years ago when I was supervising undergraduate

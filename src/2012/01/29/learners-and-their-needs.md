@@ -1,6 +1,6 @@
 ---
 date: 2012-01-29
-category: education research
+category: education
 original: swc
 title: Learners and Their Needs
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2019-05-11
-category: software community writing
+category: open-source community-events
 title: "Positive and Negative Openness"
 ---
 

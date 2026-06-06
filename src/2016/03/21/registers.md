@@ -1,7 +1,7 @@
 ---
 title: "Registers"
 date: 2016-03-21
-category: software writing
+category: programming
 ---
 <p>
   Linguists recognize that speech occurs in different modes or <em>registers</em>,

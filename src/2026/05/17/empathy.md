@@ -1,7 +1,7 @@
 ---
 title: "The Expanding Circle"
 date: 2026-05-17
-category: sdgc
+category: sdgc ethics
 ---
 
 In 1965, a married woman in France could not open a bank account,

@@ -1,7 +1,7 @@
 ---
 title: "Reflectus"
 date: 2009-12-11
-category: education writing software
+category: software-carpentry technical-writing
 ---
 I'd like to start playing the sax again.  I'd also like to get to the gym a couple of times a week, and write some more children's books, and tear up the paving stones in our front yard so that we can put in a garden, but you probably don't care much about that.  If you're reading this blog, though, I hope you <em>will</em> care enough about what I hope to do after I'm done at the University of Toronto to help me make it happen.  Funding would be nice, as would pointers to potential sources of funding, but what I need most at this point is a reality check—your thoughts and comments would be very welcome.
 

@@ -1,7 +1,7 @@
 ---
 title: "JavaScript for Data Science"
 date: 2020-02-06
-category: software research writing
+category: technical-writing book-reviews
 ---
 
 We're very pleased to announce that our book

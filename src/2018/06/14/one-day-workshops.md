@@ -1,7 +1,7 @@
 ---
 title: "One-Day Workshops"
 date: 2018-06-14
-category: education software community
+category: software-carpentry
 ---
 
 Over the past year,

@@ -1,7 +1,7 @@
 ---
 title: "Need Some Help?"
 date: 2008-11-18
-category: students
+category: student-projects
 ---
 Next term, I'm teaching a <a href="http://www.cs.utoronto.ca">Computer Science</a> course at the <a href="http://www.utoronto.ca">University of Toronto</a> in which graduate and undergraduate students will do some consulting and/or development work for real-world clients. The students have backgrounds in areas as diverse as network security, user interface design, machine learning, graph theory, and numerical analysis, so pretty much anything is possible—the <a href="http://www.cs.toronto.edu/~gvwilson/2008-winter-showcase.pdf">end-of-term flyer</a> from last April will give you an idea of what they can do.
 

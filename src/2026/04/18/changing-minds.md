@@ -1,7 +1,7 @@
 ---
 title: "Changing Minds"
 date: 2026-04-18
-category: sdgc
+category: sdgc cs-education
 ---
 
 Most scientists and programmers' implicit model of belief is roughly Bayesian:

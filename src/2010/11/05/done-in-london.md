@@ -1,6 +1,6 @@
 ---
 date: 2010-11-05
-category: education
+category: software-carpentry
 original: swc
 title: Done In London
 ---

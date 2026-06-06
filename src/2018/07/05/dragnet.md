@@ -1,6 +1,6 @@
 ---
 date: 2018-07-05
-category: software education
+category: empirical-se noticed
 title: "Isaac Ezer's Dragnet"
 ---
 

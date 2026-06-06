@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 11: Layout Engine"
 date: 2023-01-13
-category: software writing
+category: programming technical-writing
 ---
 
 You might be reading this as an HTML page,

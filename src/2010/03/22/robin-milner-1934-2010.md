@@ -1,7 +1,7 @@
 ---
 title: "Robin Milner: 1934-2010"
 date: 2010-03-22
-category: software education research
+category: programming retro
 ---
 We are sorry to announce that <a href="http://en.wikipedia.org/wiki/Robin_Milner">Robin Milner</a> died on Saturday 20th March,  in Cambridge, just three days after the funeral of his wife, Lucy.
 

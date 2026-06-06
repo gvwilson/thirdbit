@@ -1,7 +1,7 @@
 ---
 title: "I Can't (Quite) Teach JavaScript"
 date: 2018-03-17
-category: software education community
+category: cs-education
 ---
 
 I've been thinking about what tools I would use to teach librarians how to crunch data

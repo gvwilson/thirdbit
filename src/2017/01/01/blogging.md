@@ -1,7 +1,7 @@
 ---
 title: "Blogging"
 date: 2017-01-01
-category: software
+category: personal
 ---
 
 <p>

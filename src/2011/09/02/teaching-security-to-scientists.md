@@ -1,6 +1,6 @@
 ---
 date: 2011-09-02
-category: education research software
+category: software-carpentry
 original: swc
 title: Teaching Security to Scientists
 ---

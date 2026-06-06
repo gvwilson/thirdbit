@@ -1,7 +1,7 @@
 ---
 title: "Not What I Set Out to Do"
 date: 2021-11-23
-category: software education community
+category: education open-source
 ---
 
 [*Software Design by Example Using JavaScript*](@root/sdxjs/)

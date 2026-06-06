@@ -1,7 +1,7 @@
 ---
 title: "Adding a Contributor Covenant"
 date: 2015-03-02
-category: software education community
+category: software-carpentry
 original: swc
 ---
 <p>

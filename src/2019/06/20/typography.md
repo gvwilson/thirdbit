@@ -1,6 +1,6 @@
 ---
 date: 2019-06-20
-category: writing software personal
+category: technical-writing personal
 title: "Typography"
 ---
 

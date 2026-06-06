@@ -1,6 +1,6 @@
 ---
 date: 2012-04-17
-category: education
+category: technical-writing
 original: swc
 title: Halfway Home
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Publishing on the Web"
 date: 2014-01-15
-category: education software writing
+category: technical-writing
 original: swc
 ---
 <p>

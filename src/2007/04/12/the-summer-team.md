@@ -1,7 +1,7 @@
 ---
 title: "The Summer Team"
 date: 2007-04-12
-category: students
+category: student-projects
 ---
 It has been another eventful week—and it's still only Thursday. We're very pleased to announce the lineup for this summer's team:
 

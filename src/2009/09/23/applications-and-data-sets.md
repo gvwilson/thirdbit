@@ -1,7 +1,7 @@
 ---
 title: "Applications and Data Sets"
 date: 2009-09-23
-category: education software
+category: software-carpentry cs-education
 ---
 The first homework assignment for students in the Government 2.0 consulting course was to find prior art (i.e., existing applications on the web) and data sets that might inspire them. Here's what they found:
 

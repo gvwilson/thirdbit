@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training at TGAC"
 date: 2014-11-06
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

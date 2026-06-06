@@ -1,7 +1,7 @@
 ---
 title: "Library Carpentry in Toronto"
 date: 2016-07-30
-category: software education community
+category: software-carpentry
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Throttling"
 date: 2016-03-31
-category: software
+category: software-carpentry
 ---
 <p>
   Every technology that solves problems creates new ones,

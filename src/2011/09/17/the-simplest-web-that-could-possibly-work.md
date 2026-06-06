@@ -1,6 +1,6 @@
 ---
 date: 2011-09-17
-category: software community writing
+category: software-carpentry
 original: swc
 title: The Simplest Web That Could Possibly Work
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2012-06-04
-category: software education community
+category: software-carpentry
 original: swc
 title: "Software Carpentry: The E-Book Version?"
 ---

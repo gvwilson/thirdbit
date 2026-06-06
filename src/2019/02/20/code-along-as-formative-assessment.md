@@ -1,6 +1,6 @@
 ---
 date: 2019-02-20
-category: education software
+category: education cs-education
 title: "Is Code-Along Formative Assessment?"
 ---
 

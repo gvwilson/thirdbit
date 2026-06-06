@@ -1,7 +1,7 @@
 ---
 title: "Empirical Examples"
 date: 2019-12-23
-category: software research
+category: empirical-se programming
 ---
 
 Back in July 2000,

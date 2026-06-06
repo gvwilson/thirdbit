@@ -1,7 +1,7 @@
 ---
 title: Malice and Randomness
 date: 2025-11-26
-category: software
+category: empirical-se research-methods
 ---
 
 The main point of [yesterday's post][you-cant-tell] was that

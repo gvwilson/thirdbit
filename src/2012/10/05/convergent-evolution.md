@@ -1,6 +1,6 @@
 ---
 date: 2012-10-05
-category: software education
+category: software-carpentry
 original: swc
 title: Convergent Evolution
 ---

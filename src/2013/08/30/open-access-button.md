@@ -1,7 +1,7 @@
 ---
 title: "Open Access Button Hackathon is Sept 7-8"
 date: 2013-08-30
-category: software research writing
+category: open-source
 original: swc
 ---
 <p>

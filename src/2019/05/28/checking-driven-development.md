@@ -1,6 +1,6 @@
 ---
 date: 2019-05-28
-category: software research writing
+category: programming data-science research-methods
 title: "Checking-Driven Development"
 ---
 

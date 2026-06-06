@@ -1,7 +1,7 @@
 ---
 title: "Reassurance Cuddles for CEOs"
 date: 2009-03-31
-category: writing research personal
+category: noticed career
 ---
 Chris Anderson, editor-in-chief of <em>Wired</em> and author of <em>The Long Tail</em>, gave a talk at the MaRS Centre this morning to promote his new book about the economics of free stuff.  I was looking forward to hearing him speak: his resume includes stints at <em>The Economist</em>, <em>Nature</em>, <em>Science</em>, and Los Alamos National Laboratory, so he's obviously a bright guy.
 

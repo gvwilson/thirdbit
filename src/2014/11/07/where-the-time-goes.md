@@ -1,7 +1,7 @@
 ---
 title: "Amdahl's Law and Software Carpentry"
 date: 2014-11-07
-category: education software research
+category: personal
 original: swc
 ---
 <p>

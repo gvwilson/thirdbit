@@ -1,6 +1,6 @@
 ---
 date: 2018-12-12
-category: education software research
+category: personal
 title: "Twelve Percent of a Plan"
 ---
 

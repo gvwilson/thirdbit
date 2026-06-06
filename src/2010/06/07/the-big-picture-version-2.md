@@ -1,6 +1,6 @@
 ---
 date: 2010-06-07
-category: software education
+category: software-carpentry
 original: swc
 title: The Big Picture (version 2)
 ---

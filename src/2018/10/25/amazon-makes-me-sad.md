@@ -1,6 +1,6 @@
 ---
 date: 2018-10-25
-category: community software writing
+category: personal noticed
 title: "Amazon Makes Me Sad"
 ---
 

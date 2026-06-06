@@ -1,6 +1,6 @@
 ---
 date: 2009-04-23
-category: education software research
+category: software-carpentry academia
 original: swc
 title: What Supervisors Need To Know
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Code vs. Messages"
 date: 2010-01-10
-category: software writing
+category: programming technical-writing
 ---
 I used to keep track of the numbers of lines of code I'd written per day, and (when I was working on a book) the number of words written or deleted as well. These days, I count emails sent and received, which is a pretty good reflection of how I've "matured". Here's what 2009 looked like:
 

@@ -1,7 +1,7 @@
 ---
 title: "Reproducibility of Computational Results"
 date: 2007-03-10
-category: swcarpentry
+category: software-carpentry research-methods
 ---
 Via <a href="http://ivory.idyll.org/blog/">Titus Brown</a>, a link to the <em><a href="http://www.insight-journal.org">Insight Journal</a></em>, an open access online publication covering medical image processing. They have a very interesting process requirement: your source code must compile & be verifiable by an automatic system.  I've been expecting something like this for a long time; glad to see it happening.
 

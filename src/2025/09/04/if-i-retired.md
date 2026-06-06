@@ -1,7 +1,7 @@
 ---
 title: If I Retired
 date: 2025-09-04
-category: education writing software
+category: personal fiction
 ---
 
 If I retired tomorrow,

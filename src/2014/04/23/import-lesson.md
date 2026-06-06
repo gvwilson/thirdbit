@@ -1,7 +1,7 @@
 ---
 title: "Import Lesson"
 date: 2014-04-23
-category: software education writing
+category: software-carpentry
 original: swc
 ---
 <p>

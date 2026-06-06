@@ -1,6 +1,6 @@
 ---
 date: 2018-11-01
-category: software education community
+category: cs-education empirical-se
 title: "Twelve Questions"
 ---
 

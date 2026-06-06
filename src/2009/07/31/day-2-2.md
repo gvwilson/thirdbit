@@ -1,6 +1,6 @@
 ---
 date: 2009-07-31
-category: education research software
+category: software-carpentry
 original: swc
 title: Day[-2]
 ---

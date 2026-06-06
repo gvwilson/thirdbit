@@ -1,6 +1,6 @@
 ---
 date: 2012-03-14
-category: education software
+category: software-carpentry empirical-se
 original: swc
 title: How We're Doing
 ---

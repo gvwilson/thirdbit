@@ -1,7 +1,7 @@
 ---
 title: "Free Speech and Hate Speech"
 date: 2026-05-04
-category: sdgc
+category: sdgc politics
 ---
 
 In January 2015,

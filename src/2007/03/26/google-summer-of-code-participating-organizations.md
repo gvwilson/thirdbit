@@ -1,7 +1,7 @@
 ---
 title: "Google Summer of Code: Participating Organizations"
 date: 2007-03-26
-category: software community
+category: open-source student-projects
 ---
 As I was paging through the <a href="http://code.google.com/soc/">Google Summer of Code</a> site this morning, I realized that I recognized less than half of the participating organizations.  Ten minutes and twenty-five lines of Python later, I had all their descriptions in a single page for easier printing. (Note: it was only this easy because Google's websters had taken the time to put in clearly-labelled div's—thanks, Google.) So, here they all are—hope it's useful.
 

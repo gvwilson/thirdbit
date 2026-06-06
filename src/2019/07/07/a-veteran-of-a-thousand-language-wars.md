@@ -1,6 +1,6 @@
 ---
 date: 2019-07-07
-category: research software education
+category: empirical-se research-methods
 title: "A Veteran of a Thousand Language Wars"
 ---
 

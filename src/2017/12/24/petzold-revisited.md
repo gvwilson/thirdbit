@@ -1,7 +1,7 @@
 ---
 title: "Petzold's Rules Revisited"
 date: 2017-12-24
-category: writing software
+category: book-reviews
 ---
 
 *Re-visiting content from almost 12 years ago that has aged very well…*

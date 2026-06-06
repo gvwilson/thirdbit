@@ -1,7 +1,7 @@
 ---
 title: "September 2014 Lab Meeting Report"
 date: 2014-09-26
-category: software education community
+category: software-carpentry
 original: swc
 ---
 

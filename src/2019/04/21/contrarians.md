@@ -1,6 +1,6 @@
 ---
 date: 2019-04-21
-category: personal writing
+category: politics personal
 title: "Contrarians"
 ---
 

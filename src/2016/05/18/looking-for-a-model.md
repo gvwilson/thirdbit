@@ -1,7 +1,7 @@
 ---
 title: "Looking for a Model"
 date: 2016-05-18
-category: education software
+category: research-methods
 original: swc
 ---
 <p>

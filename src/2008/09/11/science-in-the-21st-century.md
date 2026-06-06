@@ -1,7 +1,7 @@
 ---
 title: "Science in the 21st Century"
 date: 2008-09-11
-category: swcarpentry
+category: software-carpentry
 ---
 I'm at the "<a href="http://www.science21stcentury.org/">Science in the 21st Century</a>" conference at the <a href="http://www.perimeterinstitute.ca/">Perimeter Institute</a> today.  There are 32 people in the room right now: 23 are male and 9 are female, but only one is non-Caucasian, which pretty much matches the numbers in the <a href="http://science21stcentury.org/photo21.jpg">picture</a> from the conference dinner last night.  That's about the same M/F ratio I see in science grad courses at U of T, but definitely <em>not</em> the ethnic distribution—wonder why?  It can't just be a "seniority effect"—this is a pretty young crowd.  We see the same thing at DemoCamp: non-Caucasians are often a majority n sci/tech classes and companies in the Greater Toronto Area, but definitely a minority on Tuesday nights.  Thoughts? <a href="http://michaelnielsen.org">Michael Nielsen</a> says that <a href="http://www.scibarcamp.org/">SciBarCamp</a> was 50/50…
 

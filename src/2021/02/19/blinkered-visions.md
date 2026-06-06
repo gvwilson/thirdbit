@@ -1,7 +1,7 @@
 ---
 title: "Blinkered Visions"
 date: 2021-02-19
-category: writing software research
+category: empirical-se research-methods
 ---
 
 I was looking for some books in storage yesterday and came across this:

@@ -1,6 +1,6 @@
 ---
 date: 2011-01-21
-category: software
+category: software-carpentry
 original: swc
 title: "Scientists Aren't Stupid: Software Is"
 ---

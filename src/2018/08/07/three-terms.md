@@ -1,6 +1,6 @@
 ---
 date: 2018-08-07
-category: education research software
+category: cs-education
 title: Three Terms
 ---
 

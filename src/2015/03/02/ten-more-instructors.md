@@ -1,7 +1,7 @@
 ---
 title: "Ten More Instructors"
 date: 2015-03-02
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

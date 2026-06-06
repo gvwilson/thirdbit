@@ -1,7 +1,7 @@
 ---
 title: "Two Unfunded Proposals"
 date: 2023-10-02
-category: research education software
+category: research-methods cs-education
 ---
 
 For the price of two condominiums in Toronto,

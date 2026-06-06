@@ -1,6 +1,6 @@
 ---
 date: 2012-03-05
-category: education software
+category: software-carpentry
 original: swc
 title: Help Us Write Assessment Questions
 ---

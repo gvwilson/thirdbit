@@ -1,7 +1,7 @@
 ---
 title: Record and Playback in the IPython Notebook
 date: 2013-01-22
-category: software education writing
+category: software-carpentry tools
 original: swc
 ---
 

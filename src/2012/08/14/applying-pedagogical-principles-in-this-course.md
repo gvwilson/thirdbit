@@ -1,6 +1,6 @@
 ---
 date: 2012-08-14
-category: software education
+category: education
 original: swc
 title: Applying Pedagogical Principles in This Course
 ---

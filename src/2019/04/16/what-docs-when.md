@@ -1,6 +1,6 @@
 ---
 date: 2019-04-16
-category: software education
+category: technical-writing education
 title: "What Docs When"
 ---
 

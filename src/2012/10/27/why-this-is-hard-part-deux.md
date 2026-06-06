@@ -1,7 +1,7 @@
 ---
 title: Why This Is Hard (Part Deux)
 date: 2012-10-27
-category: software education
+category: software-carpentry
 original: swc
 ---
 

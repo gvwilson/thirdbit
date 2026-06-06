@@ -1,7 +1,7 @@
 ---
 title: "The Morea Framework"
 date: 2015-11-20
-category: software education research
+category: software-carpentry tools
 original: swc
 ---
 <p>

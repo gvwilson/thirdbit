@@ -1,7 +1,7 @@
 ---
 title: "Lab for Data Intensive Biology at UC Davis Joins Software Carpentry as an Affiliate"
 date: 2015-02-02
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

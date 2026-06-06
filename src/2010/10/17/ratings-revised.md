@@ -1,6 +1,6 @@
 ---
 date: 2010-10-17
-category: software
+category: software-carpentry
 original: swc
 title: Ratings Revised
 ---

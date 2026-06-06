@@ -1,7 +1,7 @@
 ---
 title: "Building a City, Not a Car"
 date: 2026-05-27
-category: software
+category: programming research-methods
 ---
 
 A lot of companies that build software don't build products: they build cities.

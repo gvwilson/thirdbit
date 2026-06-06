@@ -1,6 +1,6 @@
 ---
 date: 2019-05-24
-category: software
+category: personal
 title: "Words and Hours"
 ---
 

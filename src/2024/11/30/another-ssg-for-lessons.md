@@ -1,7 +1,7 @@
 ---
 title: "Another Static Site Generator for Lessons"
 date: 2024-11-30
-category: software education writing
+category: tools cs-education
 ---
 
 I built a very simple static site generator (SSG) called [McCole][mccole]

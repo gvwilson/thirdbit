@@ -1,7 +1,7 @@
 ---
 title: "Progress"
 date: 2020-08-20
-category: software
+category: personal
 ---
 
 <table class="centered">

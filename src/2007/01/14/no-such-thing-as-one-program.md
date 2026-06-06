@@ -1,7 +1,7 @@
 ---
 title: "No Such Thing As One Program"
 date: 2007-01-14
-category: reading
+category: book-reviews programming
 ---
 As Craig Andera <a href="http://pluralsight.com/blogs/craig/archive/2005/03/29/7102.aspx">observed</a> last March, there's no such thing as "just one application".  Every real program is surrounded by ancillary tools to pre- and post-process its data files, monitor its status, connect it to other programs, and so on.  Six months after deploying DrProject in classrooms at <a href="http://www.utoronto.ca">U of T</a>, here's a snapshot of what else our doughty system administrator has to mess with when he's messing with DrProject:
 <ul>

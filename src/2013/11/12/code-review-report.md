@@ -1,7 +1,7 @@
 ---
 title: "Report on the PLOS/Mozilla Code Review Pilot"
 date: 2013-11-12
-category: research software
+category: empirical-se
 original: swc
 ---
 <p>

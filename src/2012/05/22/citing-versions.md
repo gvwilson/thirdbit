@@ -1,6 +1,6 @@
 ---
 date: 2012-05-22
-category: software education research
+category: software-carpentry research-methods
 original: swc
 title: Citing Versions
 ---

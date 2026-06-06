@@ -1,7 +1,7 @@
 ---
 title: "Writing a Book"
 date: 2006-12-07
-category: writing
+category: technical-writing
 ---
 I have written three books (two on programming, one for children), and edited two others, with a third under way.  I clearly <strike>need professional help</strike> must enjoy it, so here's some advice for those of you who want to give it a whirl.
 

@@ -1,6 +1,6 @@
 ---
 date: 2011-08-17
-category: education research
+category: education cs-education
 original: swc
 title: Demos Reinforce Errors, and Confusion is Good
 ---

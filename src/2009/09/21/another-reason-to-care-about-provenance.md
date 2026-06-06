@@ -1,6 +1,6 @@
 ---
 date: 2009-09-21
-category: software research writing
+category: software-carpentry research-methods
 original: swc
 title: Another Reason to Care About Provenance
 ---

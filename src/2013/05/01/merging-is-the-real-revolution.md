@@ -1,7 +1,7 @@
 ---
 title: "Merging is the Real Revolution"
 date: 2013-05-01
-category: software community society
+category: software-carpentry
 ---
 <p>Many people think that Javascript and HTML5 are the future of the web. Respectfully, I think they're both red herrings: I think what makes successful open source projects work is older, less exciting, and still only kind of works. It's called "merge", and if we really want to help people collaborate on a global scale, we ought to put a lot more effort into making it easy to use.</p>
 <p>What's merge? It's what you do after a "diff". What's diff? It's something that shows you the differences between two files in a human-readable way. More specifically, suppose that you and I are both working on a program. We're sitting in front of different machines, trying to fix different bugs or add different features, and it just so happens that we both need to change <code>graphics.java</code>. After we've both made our changes, the world looks like this:</p>

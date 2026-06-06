@@ -1,6 +1,6 @@
 ---
 date: 2012-02-13
-category: software education writing
+category: software-carpentry
 original: swc
 title: Formatting Revisited
 ---

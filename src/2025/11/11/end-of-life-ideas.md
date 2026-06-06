@@ -1,7 +1,7 @@
 ---
 title: End of Life Ideas
 date: 2025-11-11
-category: software community
+category: open-source
 ---
 
 Years ago, [Mike Hoye suggested][historical-reasons] that we should retire Unix usernames

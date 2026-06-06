@@ -1,7 +1,7 @@
 ---
 title: "Homework"
 date: 2021-03-15
-category: education research personal
+category: cs-education personal
 ---
 
 As we were sorting through the carefully-organized boxes in the basement after my dad died

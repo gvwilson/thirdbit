@@ -1,7 +1,7 @@
 ---
 title: "Step 4: Respect"
 date: 2006-09-07
-category: personal community
+category: cs-education personal
 ---
 (Note: updates are at the bottom of the article.)
 

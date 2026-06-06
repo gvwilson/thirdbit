@@ -1,7 +1,7 @@
 ---
 title: "Why Teachers Don't Collaborate on Lesson Development"
 date: 2016-04-29
-category: education software community
+category: education
 ---
 
 <em>

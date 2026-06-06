@@ -1,6 +1,6 @@
 ---
 date: 2009-09-29
-category: software research
+category: software-carpentry empirical-se
 original: swc
 title: A Strange Obsession
 ---

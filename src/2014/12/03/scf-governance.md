@@ -1,7 +1,7 @@
 ---
 title: "Software Carpentry Foundation: Governance"
 date: 2014-12-03
-category: community software education
+category: software-carpentry
 original: swc
 ---
 <p>

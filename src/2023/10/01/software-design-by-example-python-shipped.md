@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example (Python edition) Has Shipped"
 date: 2023-10-01
-category: software
+category: programming technical-writing
 ---
 
 The Python version of [*Software Design by Example*][sdxpy] has just gone off to the publisher.

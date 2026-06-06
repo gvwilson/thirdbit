@@ -1,6 +1,6 @@
 ---
 date: 2019-03-27
-category: community writing
+category: career
 title: "You Should Talk to HR"
 ---
 

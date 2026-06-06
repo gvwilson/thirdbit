@@ -1,6 +1,6 @@
 ---
 date: 2012-04-17
-category: research software community
+category: research-methods
 original: swc
 title: In Search of Prior Arguments
 ---

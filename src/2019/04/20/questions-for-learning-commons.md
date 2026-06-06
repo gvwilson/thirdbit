@@ -1,7 +1,7 @@
 ---
 date: 2019-04-20
 title: "Leading Questions for Creating a Learning Commons"
-category: favorite
+category: favorite education open-source
 ---
 
 [DataCamp's mishandling of a sexual assault case][computerworld]

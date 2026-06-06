@@ -1,6 +1,6 @@
 ---
 date: 2012-02-22
-category: software education community
+category: software-carpentry
 original: swc
 title: "Watch Me: Trial Run"
 ---

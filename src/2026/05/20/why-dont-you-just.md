@@ -1,7 +1,7 @@
 ---
 title: "Why Don't You Just…"
 date: 2026-05-20
-category: sdgc
+category: sdgc cs-education
 ---
 
 In 2013, the United Kingdom launched Universal Credit,

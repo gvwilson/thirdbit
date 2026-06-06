@@ -1,7 +1,7 @@
 ---
 title: "So How Is Instructor Training Going?"
 date: 2013-12-19
-category: education
+category: software-carpentry empirical-se
 original: swc
 ---
 <p>

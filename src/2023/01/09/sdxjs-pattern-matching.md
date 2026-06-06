@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 7: Pattern Matching"
 date: 2023-01-09
-category: software education writing
+category: programming technical-writing cs-education
 ---
 
 Every piece of technical writing I've ever done has been shaped by the work of

@@ -1,7 +1,7 @@
 ---
 title: "Bridging the Writing Gap"
 date: 2014-04-06
-category: software writing education
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up"
 date: 2008-08-12
-category: students
+category: student-projects
 ---
 The summer is coming to an end, so students are posting screencasts:
 <ul>

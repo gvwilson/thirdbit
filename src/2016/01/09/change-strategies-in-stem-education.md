@@ -1,7 +1,7 @@
 ---
 title: "Change Strategies in STEM Education"
 date: 2016-01-09
-category: education research software
+category: cs-education empirical-se
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Software Engineering Management Books"
 date: 2024-12-03
-category: society writing software
+category: book-reviews career
 ---
 
 I have read the following recent-ish books about software engineering management

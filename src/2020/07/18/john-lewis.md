@@ -1,7 +1,7 @@
 ---
 title: "Good Trouble"
 date: 2020-07-18
-category: software
+category: politics noticed
 ---
 
 <div class="center">

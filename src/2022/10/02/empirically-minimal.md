@@ -1,7 +1,7 @@
 ---
 title: "Empirically Minimal"
 date: 2022-10-02
-category: software education research
+category: empirical-se cs-education
 ---
 
 I'm wrapping up the JavaScript version of [*Software Design by Example*](@root/sdxjs/)

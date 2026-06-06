@@ -1,7 +1,7 @@
 ---
 title: "Where Design Fits In"
 date: 2008-08-02
-category: software students
+category: student-projects programming
 ---
 <a href="http://www.agile2008.org/">Agile'08</a> starts Monday, which makes me feel that I ought to justify the <a href="http://c2.com/xp/BigDesignUpFront.html">Big Design Up Front</a> I'm currently doing.  Here's as far as I've gotten:
 <ol>

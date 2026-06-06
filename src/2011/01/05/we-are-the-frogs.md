@@ -1,7 +1,7 @@
 ---
 title: "We Are the Frogs"
 date: 2011-01-05
-category: education writing
+category: empirical-se
 ---
 We all know it's not true, but it's still a useful story: if you put a frog in hot water, it will jump out, but if you put it in cool water and slowly boil it, it'll just sit there, because there's never a moment when it says, "Wow, this is hot!"
 

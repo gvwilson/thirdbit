@@ -1,7 +1,7 @@
 ---
 title: "A Book and a Typewriter"
 date: 2023-07-16
-category: anecdote
+category: anecdote personal
 ---
 
 My father's typewriter sits on a shelf in our living room

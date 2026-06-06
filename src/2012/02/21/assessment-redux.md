@@ -1,6 +1,6 @@
 ---
 date: 2012-02-21
-category: software education
+category: software-carpentry empirical-se
 original: swc
 title: Assessment Redux
 ---

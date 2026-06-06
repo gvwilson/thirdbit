@@ -1,7 +1,7 @@
 ---
 title: "More Good Science"
 date: 2010-11-12
-category: education software research
+category: software-carpentry
 ---
 We're starting to get feedback on <a href="http://oreilly.com/catalog/9780596808303"><em>Making Software</em></a>, most of it positive (but some of it grumpy: "how dare your evidence contradict my cherished belief!"). Here are two recent papers that aren't in the book, but will give you a taste of what is:
 

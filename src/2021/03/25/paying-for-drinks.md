@@ -1,7 +1,7 @@
 ---
 title: "Paying for Drinks"
 date: 2021-03-25
-category: writing
+category: anecdote ethics
 ---
 
 A lot of my stories aren't true, but this is a true story.

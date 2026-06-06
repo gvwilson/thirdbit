@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up the Summer"
 date: 2009-08-24
-category: software education
+category: software-carpentry
 ---
 One by one and two by two our summer students are wrapping up:
 <ul>

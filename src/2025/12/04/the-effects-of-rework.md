@@ -1,7 +1,7 @@
 ---
 title: The Effects of Rework
 date: 2025-12-04
-category: software
+category: programming empirical-se
 ---
 
 Having [solved yesterday's bug][cancel],

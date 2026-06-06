@@ -1,6 +1,6 @@
 ---
 date: 2009-07-31
-category: software education research
+category: software-carpentry
 original: swc
 title: A Good Afternoon
 ---

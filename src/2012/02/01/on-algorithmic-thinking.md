@@ -1,7 +1,7 @@
 ---
 title: "On Algorithmic Thinking"
 date: 2012-02-01
-category: education software research
+category: cs-education
 ---
 <em>"You keep using that word. I do not think it means what you think it means."
 &ndash; Inigo Montoya</em>

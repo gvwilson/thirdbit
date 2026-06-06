@@ -1,6 +1,6 @@
 ---
 date: 2010-01-13
-category: software education personal
+category: software-carpentry personal
 original: swc
 title: Whatcha Gonna Do When They Come For You?
 ---

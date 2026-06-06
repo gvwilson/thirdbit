@@ -1,7 +1,7 @@
 ---
 title: "Behavioral Economics"
 date: 2026-05-12
-category: sdgc
+category: sdgc research-methods
 ---
 
 In 1971, the psychologists Daniel Kahneman and Amos Tversky ran a simple experiment.

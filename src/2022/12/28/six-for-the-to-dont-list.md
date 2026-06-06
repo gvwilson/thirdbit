@@ -1,7 +1,7 @@
 ---
 title: "Six for the To-Don't List"
 date: 2022-12-28
-category: education software research
+category: cs-education empirical-se
 ---
 
 I was a professor from 2007 to 2010.

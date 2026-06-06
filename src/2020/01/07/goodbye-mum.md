@@ -1,7 +1,7 @@
 ---
 title: "Goodbye, Mum"
 date: 2020-01-07
-category: favorite
+category: favorite personal
 ---
 
 In the end you think about the beginning.

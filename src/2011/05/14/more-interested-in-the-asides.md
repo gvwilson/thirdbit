@@ -1,6 +1,6 @@
 ---
 date: 2011-05-14
-category: software education research
+category: book-reviews
 original: swc
 title: More Interested in the Asides
 ---

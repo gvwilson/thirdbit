@@ -1,6 +1,6 @@
 ---
 date: 2019-01-28
-category: software education research
+category: software-carpentry book-reviews
 title: "Computing Skills Books for Researchers"
 ---
 

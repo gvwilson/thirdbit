@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example"
 date: 2022-10-24
-category: software writing community
+category: programming technical-writing
 ---
 
 The (hopefully) final version of

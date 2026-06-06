@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 7: An Interpreter"
 date: 2024-04-07
-category: software research
+category: programming cs-education
 ---
 
 A lot of people who have done computer science degrees believe that

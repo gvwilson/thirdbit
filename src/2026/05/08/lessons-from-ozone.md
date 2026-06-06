@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Ozone"
 date: 2026-05-08
-category: sdgc
+category: sdgc politics
 ---
 
 In 1974,

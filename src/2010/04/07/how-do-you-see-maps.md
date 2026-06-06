@@ -1,7 +1,7 @@
 ---
 title: "How Do You See Maps?"
 date: 2010-04-07
-category: education community personal
+category: cs-education personal
 ---
 Back in the 1990s, I did a bit of volunteer work with the <a href="http://www.cnib.ca/">Canadian National Institute for the Blind</a>, and one of the things I learned was that computers often make life even harder for people whose lives are already hard enough. Remember when classified ads went online? It was several years before screen readers like <a href="http://www.freedomscientific.com/products/fs/jaws-product-page.asp">JAWS</a> caught up, which meant that for several years, finding a job or an apartment was even harder for the visually impaired than it had been. And just when things had settled down, AJAX appeared and broke screen readers again.
 

@@ -1,6 +1,6 @@
 ---
 date: 2012-01-24
-category: research
+category: technical-writing
 original: swc
 title: Test-Driven Public Speaking
 ---

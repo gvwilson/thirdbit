@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 9: Page Templates"
 date: 2023-01-11
-category: software writing
+category: programming technical-writing
 ---
 
 Some day I'll blog about the tools I built to create [*Software Design by Example*][sdxjs],

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example Summary"
 date: 2023-01-29
-category: software writing education
+category: programming technical-writing cs-education
 ---
 
 I wrote 22 posts this month to summarize the chapters in [*Software Design by Example*][sdxjs]

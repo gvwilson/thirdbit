@@ -38,23 +38,53 @@
 <h1>Blog</h1>
 
 
+<h2>By Topic</h2>
 <table class="centered">
   <tbody>
     <tr>
-      <td><a href="../anecdote/">anecdote</td>
-      <td><a href="../community/">community</td>
-      <td><a href="../education/">education</td>
-      <td><a href="../favorite/">favorite</td>
-      <td><a href="../personal/">personal</td>
-      <td><a href="../research/">research</td>
-      <td><a href="../sdgc/">sdgc</td>
-      <td><a href="../society/">society</td>
-      <td><a href="../software/">software</td>
-      <td><a href="../writing/">writing</td>
+      <td><a href="../academia/">academia</a></td>
+      <td><a href="../anecdote/">anecdote</a></td>
+      <td><a href="../book-reviews/">book-reviews</a></td>
+      <td><a href="../career/">career</a></td>
+      <td><a href="../community-events/">community-events</a></td>
+      <td><a href="../conferences/">conferences</a></td>
+    </tr>
+    <tr>
+      <td><a href="../cs-education/">cs-education</a></td>
+      <td><a href="../data-science/">data-science</a></td>
+      <td><a href="../diversity/">diversity</a></td>
+      <td><a href="../education/">education</a></td>
+      <td><a href="../empirical-se/">empirical-se</a></td>
+      <td><a href="../ethics/">ethics</a></td>
+    </tr>
+    <tr>
+      <td><a href="../favorite/">favorite</a></td>
+      <td><a href="../fiction/">fiction</a></td>
+      <td><a href="../humor/">humor</a></td>
+      <td><a href="../noticed/">noticed</a></td>
+      <td><a href="../open-source/">open-source</a></td>
+      <td><a href="../personal/">personal</a></td>
+    </tr>
+    <tr>
+      <td><a href="../politics/">politics</a></td>
+      <td><a href="../programming/">programming</a></td>
+      <td><a href="../research-methods/">research-methods</a></td>
+      <td><a href="../retro/">retro</a></td>
+      <td><a href="../sdgc/">sdgc</a></td>
+      <td><a href="../software-carpentry/">software-carpentry</a></td>
+    </tr>
+    <tr>
+      <td><a href="../student-projects/">student-projects</a></td>
+      <td><a href="../technical-writing/">technical-writing</a></td>
+      <td><a href="../tools/">tools</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
 
+<h2>By Year</h2>
 <table class="centered">
   <tbody>
     <tr>
@@ -96,13 +126,14 @@
   </tbody>
 </table>
 
+<h2>Recent</h2>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/05/priority-starvation/">
       Priority Starvation
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
   <p>A single server processes two job classes:</p>
 <ul>
@@ -142,11 +173,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/05/braess-paradox/">
       Braess's Paradox
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
   <p>A city has two routes from source $S$ to destination $T$:</p>
 <ul>
@@ -179,11 +210,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/05/rush-hour/">
       Rush Hour Displacement
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
   <p>$N$ commuters all want to leave for work at the same preferred time. The road has a fixed capacity: up to $C$ commuters per time slot travel quickly, but when more than $C$ try to leave in the same slot, everyone in that slot experiences extra delay proportional to the overload.</p>
 <p>Each day, commuters observe yesterday&rsquo;s travel times and shift their departure by one slot toward a less congested option with some probability. Much to their disappointment, the rush hour never disappears. Instead it:</p>
@@ -218,11 +249,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/05/convoy-effect/">
       The Convoy Effect
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
   <p>A single server processes jobs that arrive randomly according to a Poisson process. Most jobs are quick (exponential service with small mean), but a rare few are very slow (exponential service with large mean). This <em>hyperexponential</em> service distribution has high variance. This post compares the performance of two scheduling disciplines in this situation:</p>
 <ul>
@@ -257,11 +288,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/05/tandem-queue/">
       Tandem Queue Blocking
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-05" class="post-date">2026-06-05</time></p>
   <p>Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda &lt; \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).</p>
 <p>Even though both stages have identical mean throughput and the system is underloaded, Stage 2 sits idle for a substantial fraction of time when the buffer between them is small. The idle fraction only vanishes as the buffer size $K \to \infty$.</p>
@@ -290,11 +321,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/04/inspectors-paradox/">
       The Inspector's Paradox
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-04" class="post-date">2026-06-04</time></p>
   <p>Why is the bus always late? Buses arrive at a stop with some average headway (gap between buses) of $\mu$ minutes. A passenger arrives at a uniformly random time and waits for the next bus. How long do they wait? The naive answer is $\mu / 2$: on average you land in the middle of a gap. The correct answer is almost always longer—sometimes much longer. The expected wait is not $\mu/2$ but:</p>
 <p>$$E[\text{wait}] = \frac{\mu}{2} + \frac{\sigma^2}{2\mu}$$</p>
@@ -358,11 +389,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/03/late-merge/">
       Late Merge
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-03" class="post-date">2026-06-03</time></p>
   <p>A two-lane road narrows to one lane at a construction zone. Drivers face a choice:</p>
 <ul>
@@ -404,11 +435,11 @@
 </article>
 
 <article class="post">
-  <h2 class="post-title">
+  <h3 class="post-title">
     <a href="../2026/06/02/pooled-vs-separate/">
       Pooled vs. Separate Queues
     </a>
-  </h2>
+  </h3>
   <p><time datetime="2026-06-02" class="post-date">2026-06-02</time></p>
   <p>A facility has two identical servers. Customers arrive as a Poisson process and each needs one server for an exponentially distributed service time. Which queueing discipline should the facility use?</p>
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "Software Engineering Revisited"
 date: 2019-05-30
-category: research software
+category: empirical-se academia conferences
 ---
 
 I am at the [International Conference on Software Engineering](https://conf.researchr.org/home/icse-2019)

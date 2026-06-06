@@ -1,7 +1,7 @@
 ---
 title: "On Being Bumped Up"
 date: 2007-11-22
-category: education students
+category: cs-education student-projects
 ---
 It's a common complaint in industry: if you're good at building things, the odds are you'll get promoted to team lead, at which point you'll be too busy herding cats to build things any longer. Similarly, professors don't actually get to spend a lot of time thinking deep thoughts; most of the hours are sucked up by administrative duties (the CS department is a 1000-strong division of a 50,000-strong firm, and stuff on that scale takes a fair bit of administering), writing grant applications, teaching, herding TAs, and so on.
 

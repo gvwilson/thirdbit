@@ -1,7 +1,7 @@
 ---
 title: "Two Pages of Evidence"
 date: 2016-02-02
-category: software research
+category: empirical-se
 original: swc
 ---
 

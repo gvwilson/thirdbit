@@ -1,6 +1,6 @@
 ---
 date: 2012-04-03
-category: software education writing
+category: software-carpentry
 original: swc
 title: A Four-Day Curriculum
 ---

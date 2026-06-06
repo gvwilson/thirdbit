@@ -1,6 +1,6 @@
 ---
 date: 2018-12-26
-category: research software
+category: cs-education
 title: "Poor Thinking"
 ---
 

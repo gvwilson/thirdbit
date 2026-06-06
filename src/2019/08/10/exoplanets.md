@@ -1,7 +1,7 @@
 ---
 title: "Exoplanets"
 date: 2019-08-10
-category: software education research
+category: cs-education research-methods
 ---
 
 I think a lot about Scott Hanselman's phrase

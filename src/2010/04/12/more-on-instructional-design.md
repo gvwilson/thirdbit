@@ -1,6 +1,6 @@
 ---
 date: 2010-04-12
-category: education research software
+category: software-carpentry education
 original: swc
 title: More on Instructional Design
 ---

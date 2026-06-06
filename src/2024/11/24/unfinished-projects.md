@@ -1,7 +1,7 @@
 ---
 title: "Unfinished Projects"
 date: 2024-11-24
-category: software education community
+category: technical-writing programming
 ---
 
 Things I haven't finished:

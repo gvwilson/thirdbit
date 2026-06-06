@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Danwei"
 date: 2026-05-01
-category: sdgc
+category: sdgc ethics
 ---
 
 George Pullman built Pullman, Illinois in the 1880s alongside his railroad car factory:

@@ -1,7 +1,7 @@
 ---
 title: "A Model Experiment"
 date: 2020-01-04
-category: software research
+category: empirical-se research-methods
 ---
 
 A couple of years ago,

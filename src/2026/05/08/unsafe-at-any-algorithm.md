@@ -1,7 +1,7 @@
 ---
 title: "Unsafe at Any Algorithm"
 date: 2026-05-08
-category: sdgc
+category: sdgc ethics
 ---
 
 In the autumn of 1965,

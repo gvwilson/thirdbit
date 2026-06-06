@@ -1,7 +1,7 @@
 ---
 title: "On the Failure of Inquiry-Based Teaching"
 date: 2010-04-12
-category: education research software
+category: cs-education empirical-se
 ---
 The full title of Kirschner, Sweller, and Clark's paper is "<a href="http://www.cogtech.usc.edu/publications/kirschner_Sweller_Clark.pdf">Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching</a>". It was published in <em>Educational Psychologist</em> in 2006, but the whole text is available online. If you're a parent, teacher, or student, it's well worth a read. From the abstract:
 <blockquote>Although unguided or minimally guided instructional approaches are very popular and intuitively appealing…these approaches ignore both the structures that constitute human cognitive architecture and evidence from empirical studies over the past half-century that consistently indicate that minimally guided instruction is less effective and less efficient than…approaches that place a strong emphasis on guidance of the student learning process. The advantage of guidance begins to recede only when learners have sufficiently high prior knowledge to provide "internal" guidance.</blockquote>

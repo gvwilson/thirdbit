@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 23: A File Viewer"
 date: 2024-04-23
-category: software education community
+category: programming cs-education
 ---
 
 I was running out of steam by the time I reached the end of

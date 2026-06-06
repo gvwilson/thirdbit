@@ -1,7 +1,7 @@
 ---
 title: "The New Instructor Post-Assessment Questionnaire"
 date: 2014-11-19
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

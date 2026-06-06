@@ -1,7 +1,7 @@
 ---
 title: "Feasible"
 date: 2026-03-26
-category: software education research
+category: cs-education research-methods
 ---
 
 A couple of years ago I wrote a list of student projects I'd like to (co-)supervise.

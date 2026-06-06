@@ -1,7 +1,7 @@
 ---
 title: "A Combinatoric Geometry Problem"
 date: 2022-11-13
-category: software personal
+category: programming personal
 ---
 
 Suppose you have a grid that's W squares wide and H squares tall.

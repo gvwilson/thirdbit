@@ -1,6 +1,6 @@
 ---
 date: 2010-03-30
-category: education software
+category: software-carpentry
 original: swc
 title: Formats
 ---

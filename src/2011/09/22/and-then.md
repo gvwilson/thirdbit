@@ -1,7 +1,7 @@
 ---
 title: "And Then…"
 date: 2011-09-22
-category: writing
+category: personal
 ---
 Ellen Hsiang and I are pleased to announce that <a href="@root/fiction/and-then/004-005/"><em>And Then…</em></a>, our children's book about life, the universe, and climate change, is now available for purchase from Lulu.com. We hope you and the young people in your life enjoy it.
 

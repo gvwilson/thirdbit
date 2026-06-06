@@ -1,7 +1,7 @@
 ---
 title: "If Udacity is Napster, Who Will Be iTunes?"
 date: 2012-11-19
-category: software education
+category: cs-education
 ---
 <p>My Who Decides? post has produced some rather heated email. In answer, no, I am <em>not</em> defending the existing university system: I quit my faculty position at the University of Toronto in part because it doesn't serve students well, and doesn't have a future beyond elite networking-building [1]. But the fact that educational reactionaries are wrong doesn't mean that all educational revolutionaries are right; it particularly doesn't mean that the centralizing pseudo-progressives are on the side of the angels.</p>
 <p>For example, quite a few people have pointed me at <a href="http://www.shirky.com/weblog/2012/11/napster-udacity-and-the-academy/">Clay Shirky's recent post</a> comparing Udacity with Napster. In it, Shirky says:</p>

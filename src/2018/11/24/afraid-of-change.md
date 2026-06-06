@@ -1,7 +1,7 @@
 ---
 date: 2018-11-24
 title: "Afraid of Change"
-category: favorite
+category: personal
 ---
 
 A few months ago,

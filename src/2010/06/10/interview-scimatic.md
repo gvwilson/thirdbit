@@ -1,6 +1,6 @@
 ---
 date: 2010-06-10
-category: research software education
+category: software-carpentry
 original: swc
 title: "Interview: Jim Graham of Scimatic"
 ---

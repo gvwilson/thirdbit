@@ -1,7 +1,7 @@
 ---
 title: "Russian Version of Beautiful Code"
 date: 2009-03-15
-category: software
+category: programming book-reviews
 ---
 <img src="@root/files/2009/03/bc-russian.jpg" alt="bc-russian" width="200" height="274" class="centered">
 

@@ -1,7 +1,7 @@
 ---
 title: "Building a Book (Part 3)"
 date: 2021-04-17
-category: software education writing
+category: cs-education technical-writing
 ---
 
 The [previous post in this series](@root/2021/03/10/building-a-book-2/)

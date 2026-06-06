@@ -1,7 +1,7 @@
 ---
 title: "It's Not You, It's Me"
 date: 2008-10-31
-category: writing
+category: fiction
 ---
 <a href="http://www.ddj.com"><img src="@root/files/2008/10/ddj-old.png" alt="Then" class="centered"></a>
 

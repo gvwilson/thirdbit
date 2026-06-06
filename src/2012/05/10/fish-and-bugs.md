@@ -1,6 +1,6 @@
 ---
 date: 2012-05-10
-category: software community writing
+category: empirical-se programming
 original: swc
 title: Fish and Bugs
 ---

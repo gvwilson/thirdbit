@@ -1,7 +1,7 @@
 ---
 title: "Why It Matters"
 date: 2014-11-11
-category: software
+category: software-carpentry
 original: swc
 ---
 <p>

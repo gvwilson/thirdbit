@@ -1,7 +1,7 @@
 ---
 title: "Code Sprint Wrap-Up"
 date: 2009-02-21
-category: software community
+category: student-projects programming open-source
 ---
 I really did mean to blog several times a day about this term's code sprint, but too much was happening during the day, and I was too tired at night. There were lots of high points:
 <ul>

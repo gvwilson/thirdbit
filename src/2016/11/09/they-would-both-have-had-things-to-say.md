@@ -1,7 +1,7 @@
 ---
 title: "They Would Both Have Had Things to Say"
 date: 2016-11-09
-category: community personal
+category: personal
 ---
 
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Quality Is Free - Getting There Isn't"
 date: 2015-04-15
-category: software research community
+category: software-carpentry
 original: swc
 ---
 <p>

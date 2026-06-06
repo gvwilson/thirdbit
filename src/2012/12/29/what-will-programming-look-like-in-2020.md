@@ -1,7 +1,7 @@
 ---
 title: "What Will Programming Look Like in 2020?"
 date: 2012-12-29
-category: software
+category: programming
 ---
 Over on <a href="http://lambda-the-ultimate.org">Lambda the Ultimate</a>, Sean McDirmid has asked:
 <blockquote>What will programming look like in 2020? Keep in mind that programming in 2012 mostly resembles programming in 2004, so could we even expect any significant changes 8 years from now in the programmer experience? Consider the entire programming stack of language, environment, process, libraries, search technology, and so on.</blockquote>

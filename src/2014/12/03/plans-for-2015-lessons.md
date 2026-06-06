@@ -1,7 +1,7 @@
 ---
 title: "Plans for 2015: Lessons"
 date: 2014-12-03
-category: education community writing
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Learn How to Teach People to Program"
 date: 2014-03-04
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

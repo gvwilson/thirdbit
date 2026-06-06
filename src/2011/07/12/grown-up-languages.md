@@ -1,7 +1,7 @@
 ---
 title: "Grown-Up Languages"
 date: 2011-07-12
-category: software
+category: programming cs-education
 ---
 A few days ago, after browsing the <a href="http://en.wikipedia.org/wiki/CoffeeScript">Coffeescript</a> docs and examples, I tweeted, "I will take your new language seriously when you have a symbolic  debugger for it. For <em>it</em>, not for the C/JavaScript/whatever it compiles  to." So what exactly did I mean by that?  Well, a <a href="http://en.wikipedia.org/wiki/Debugger">debugger</a> is a program that lets you watch and control another program.  (If you've never used one, have a look at <a href="https://software-carpentry.org/4_0/python/debugger/">this 6-minute video</a>.)  Instead of staring at your code, trying to figure out why it's broken, or adding 'print' statements left and right to display values, debuggers let you stop the program at any point and look at the values, or tell the program to execute one line at a time so that you can see which "if/else" branches it's taking, what parameters are being passed to function calls, and so on.
 

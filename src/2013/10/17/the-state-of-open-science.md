@@ -1,7 +1,7 @@
 ---
 title: "The State of Open Science"
 date: 2013-10-17
-category: software research
+category: research-methods open-source
 original: swc
 ---
 <p>

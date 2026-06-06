@@ -1,7 +1,7 @@
 ---
 title: "Current Projects"
 date: 2026-04-01
-category: software education research
+category: programming cs-education
 ---
 
 Personal coding and teaching projects I'm currently using Claude to explore:

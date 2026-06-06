@@ -1,7 +1,7 @@
 ---
 title: "What Would Entice Them?"
 date: 2023-01-20
-category: research software community
+category: cs-education research-methods
 ---
 
 [Jordi Cabot][cabot-jordi] recently wrote:

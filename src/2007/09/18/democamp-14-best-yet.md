@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 14: Best Yet"
 date: 2007-09-18
-category: software community
+category: community-events
 ---
 Last night's DemoCamp was a great success: packed house, lots of people talking to one another, some great presentations, and of course, pictures of David Crow's new daughter. My picks of the night would be Chris Thiessen's <a href="http://zoomii.ca/">Zoomii</a>, a (very) graphical front-end for shopping on Amazon, and Lillian Angel's <a href="http://langel.wordpress.com/2007/09/18/democamp14/">in-the-pub discussion</a> with <a href="http://www.hyperbio.net/">Leila</a>, but everyone deserved the applause they got. Congrats to David and Jay for a well-run show, and many thanks to the sponsors.
 

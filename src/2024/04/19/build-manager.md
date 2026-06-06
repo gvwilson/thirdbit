@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 19: A Build Manager"
 date: 2024-04-19
-category: software education
+category: programming cs-education
 ---
 
 Having had to learn almost everything that went into [the previous chapter][sdxpy_db] from scratch,

@@ -1,6 +1,6 @@
 ---
 date: 2012-01-11
-category: education software research
+category: software-carpentry
 original: swc
 title: Sloan Foundation Grant to Software Carpentry and Mozilla
 ---

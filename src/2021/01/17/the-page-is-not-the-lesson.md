@@ -1,7 +1,7 @@
 ---
 title: "The Page Is Not The Lesson"
 date: 2021-01-17
-category: software education
+category: education technical-writing
 ---
 
 > *The finger pointing at the moon is not the moon.*

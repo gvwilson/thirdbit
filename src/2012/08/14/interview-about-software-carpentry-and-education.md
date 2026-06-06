@@ -1,6 +1,6 @@
 ---
 date: 2012-08-14
-category: education software writing
+category: software-carpentry
 original: swc
 title: Interview about Software Carpentry (and Education)
 ---

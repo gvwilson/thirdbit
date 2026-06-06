@@ -1,7 +1,7 @@
 ---
 title: "We're All Family Here"
 date: 2026-05-12
-category: sdgc
+category: sdgc career
 ---
 
 In November 2022,

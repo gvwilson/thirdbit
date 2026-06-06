@@ -1,7 +1,7 @@
 ---
 title: "Trac Spam"
 date: 2006-08-23
-category: education software community
+category: tools
 ---
 The folks at <a href="http://www.enthought.com">Enthought</a> (sponsors of <a href="http://www.scipy.org">SciPy</a>) were kind enough to set up a Trac so that I could manage development of the Software Carpentry course.  Unfortunately, spammers have figured out how to bomb Trac: over a dozen tickets relating to gay porn, online casinos, and the like have been filed, and there are literally dozens of comments (undeletable) along the same lines on the useful tickets.  I could have prevented this by not giving anonymous users the ability to file tickets, but requiring people to register in order to give feedback on the course notes would greatly reduce the amount of feedback I got.
 

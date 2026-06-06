@@ -1,6 +1,6 @@
 ---
 date: 2018-07-15
-category: education personal writing
+category: software-carpentry
 title: Teaching Tech Together
 ---
 

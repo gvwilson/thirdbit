@@ -1,6 +1,6 @@
 ---
 date: 2011-12-20
-category: education software
+category: software-carpentry
 original: swc
 title: What I've Learned So Far
 ---

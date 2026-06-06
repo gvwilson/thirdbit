@@ -1,6 +1,6 @@
 ---
 date: 2010-09-30
-category: education software research
+category: software-carpentry
 original: swc
 title: Tracking Utility and Impact
 ---

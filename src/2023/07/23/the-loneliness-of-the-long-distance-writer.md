@@ -1,7 +1,7 @@
 ---
 title: "The Loneliness of the Long Distance Writer"
 date: 2023-07-23
-category: software education
+category: personal technical-writing
 ---
 
 The Python version of [*Software Design by Example*][sdxpy] is now 346 pages,

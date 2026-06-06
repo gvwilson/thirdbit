@@ -1,7 +1,7 @@
 ---
 title: "What Would Be in a New AOSA?"
 date: 2024-10-28
-category: software education community
+category: open-source technical-writing
 ---
 
 My desktop background says "no new projects"

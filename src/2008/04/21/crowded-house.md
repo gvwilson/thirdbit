@@ -1,7 +1,7 @@
 ---
 title: "Crowded House"
 date: 2008-04-21
-category: students
+category: student-projects
 ---
 Google <a href="http://google-opensource.blogspot.com/2008/04/announcing-accepted-student-proposals.html">announced</a> this year's <a href="http://code.google.com/soc/2008">Summer of Code</a> projects today.  I'm very pleased that six students from the <a href="http://www.cs.utoronto.ca">University of Toronto</a> were among the recipients:
 <ul>

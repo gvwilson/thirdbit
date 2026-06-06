@@ -1,7 +1,7 @@
 ---
 title: "Portals Paper Online"
 date: 2009-10-05
-category: software research writing
+category: software-carpentry technical-writing
 ---
 The survey of software project portals that Jordi Cabot and I did has now been <a href="http://www.ddj.com/development-tools/220301068">published</a> by <a href="http://www.ddj.com/"><em>Doctor Dobb's Journal</em></a>. Hope you enjoy it.
 

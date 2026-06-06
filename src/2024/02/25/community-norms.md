@@ -1,7 +1,7 @@
 ---
 title: "Community Norms"
 date: 2024-02-25
-category: community software
+category: tools open-source
 ---
 
 I just wrapped up [a poll on Mastodon][mastodon-poll];

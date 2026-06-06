@@ -1,6 +1,6 @@
 ---
 date: 2009-08-03
-category: education research
+category: software-carpentry research-methods
 original: swc
 title: What *Is* Open Science?
 ---

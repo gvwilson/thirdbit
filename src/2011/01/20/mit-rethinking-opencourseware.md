@@ -1,6 +1,6 @@
 ---
 date: 2011-01-20
-category: education software
+category: cs-education
 original: swc
 title: MIT Rethinking OpenCourseWare
 ---

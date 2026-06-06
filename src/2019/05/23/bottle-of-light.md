@@ -1,6 +1,6 @@
 ---
 date: 2019-05-23
-category: writing education
+category: fiction personal
 title: "Bottle of Light"
 ---
 

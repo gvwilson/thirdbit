@@ -1,6 +1,6 @@
 ---
 date: 2012-08-21
-category: education research
+category: software-carpentry
 original: swc
 title: An Updated List of Upcoming Workshops
 ---

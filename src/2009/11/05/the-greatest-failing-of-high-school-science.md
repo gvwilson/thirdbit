@@ -1,7 +1,7 @@
 ---
 title: "The Greatest Failing of High School Science"
 date: 2009-11-05
-category: writing software education
+category: cs-education
 ---
 I don't care exactly what science is taught in high schools, so long as people learn that:
 <ol>

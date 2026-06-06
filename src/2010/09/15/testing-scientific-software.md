@@ -1,6 +1,6 @@
 ---
 date: 2010-09-15
-category: software education research
+category: software-carpentry
 original: swc
 title: Testing Scientific Software
 ---

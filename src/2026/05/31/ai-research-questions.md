@@ -1,7 +1,7 @@
 ---
 title: "Three Research Questions About AI"
 date: 2026-05-31
-category: research
+category: empirical-se research-methods
 ---
 
 [Sebastian Baltes][baltes] recently asked,

@@ -1,7 +1,7 @@
 ---
 title: "Three Paradigms (or, Why LLC Should Teach Javascript)"
 date: 2011-08-25
-category: software education community
+category: cs-education
 ---
 Mark Guzdial recently posted another <a href="http://computinged.wordpress.com/2011/08/23/why-we-ought-to-teach-java-computing-education-and-social-practice/">thought-provoking piece</a> on computing education that has some direct implications for a project here in Toronto called <a href="http://ladieslearningcode.tumblr.com/">Ladies Learning Code</a> (and for other projects Software Carpentry). In his post, Mark summarizes a 1996 paper by Greeno, Collins, and Resnick that summarizes three views of education:
 <ol>

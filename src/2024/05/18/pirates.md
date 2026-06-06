@@ -1,7 +1,7 @@
 ---
 title: "Pirates"
 date: 2024-05-18
-category: anecdote
+category: anecdote personal
 ---
 
 My younger brother had Hodgkin's lymphoma when he was 19.

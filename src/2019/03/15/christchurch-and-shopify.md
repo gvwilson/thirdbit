@@ -1,6 +1,6 @@
 ---
 date: 2019-03-15
-category: software
+category: ethics politics
 title: "Christchurch and Shopify"
 ---
 

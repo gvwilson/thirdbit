@@ -1,7 +1,7 @@
 ---
 title: "Iron Triangles Are Great—Everyone Should Have One"
 date: 2011-12-02
-category: education software
+category: education cs-education
 ---
 I read Power and Gould-Morven's paper "<a href="http://www.irrodl.org/index.php/irrodl/article/view/916">Head of Gold, Feet of Clay: The Online Learning Paradox</a>" on the ride in this morning. In it, they summarize John Daniel's Iron Triangle of education, which presents a trade-off between access, quality, and cost, then replace it with one of their own where the corners are cost-effectiveness, quality, and accessibility. That isn't a big deal by itself, but it allows them to place stakeholders at the triangle's corners: administrators seek to maximize cost-effectiveness, faculty to maximize quality, and students, accessibility.
 

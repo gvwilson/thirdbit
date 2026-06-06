@@ -1,7 +1,7 @@
 ---
 title: Planning for the Break
 date: 2013-05-24
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

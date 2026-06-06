@@ -1,6 +1,6 @@
 ---
 date: 2012-03-16
-category: education software research
+category: software-carpentry
 original: swc
 title: Wrapping Up the STScI Course
 ---

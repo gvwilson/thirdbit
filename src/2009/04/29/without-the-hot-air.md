@@ -1,7 +1,7 @@
 ---
 title: "Without the Hot Air"
 date: 2009-04-29
-category: software
+category: book-reviews education
 ---
 I finished David JC Mackay's <a href="http://www.amazon.com/Sustainable-Energy-Without-Hot-Air/dp/0954452933"><em>Sustainable Energy-Without the Hot Air</em></a> on the flight back from Ottawa yesterday. First response: brilliant. Second response: absolutely brilliant. A physicist, Mackay approaches the question of whether the UK can run on sustainable energy sources by doing back-of-the-envelope calculations—hundreds of them. How much precipitation falls in highland areas? How high <em>are</em> those areas? How much energy could that possibly give us? What fraction of that could we plausibly recover? Then turn the page, and he's doing the same kind of calculations for air travel (which, by the way, is within a few percentage points of being as efficient as it ever could be). He then sketches half a dozen scenarios for sustainability, five relying primarily on one source (wave, wind, biomass), the sixth a balanced mix.
 

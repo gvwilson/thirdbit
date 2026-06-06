@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up 49X for the Term"
 date: 2007-04-29
-category: students
+category: student-projects
 ---
 Another term, another great bunch of 49X projects:
 <ul>

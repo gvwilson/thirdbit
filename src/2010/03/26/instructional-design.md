@@ -1,6 +1,6 @@
 ---
 date: 2010-03-26
-category: education writing software
+category: software-carpentry education
 original: swc
 title: Instructional Design
 ---

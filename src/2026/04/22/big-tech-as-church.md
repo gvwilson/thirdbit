@@ -1,7 +1,7 @@
 ---
 title: "Big Tech as the Medieval Church"
 date: 2026-04-22
-category: sdgc
+category: sdgc ethics
 ---
 
 The medieval Church wasn't just (or primarily) a religious institution:

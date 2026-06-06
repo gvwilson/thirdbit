@@ -1,7 +1,7 @@
 ---
 title: "Team!"
 date: 2011-07-29
-category: education software community
+category: software-carpentry
 ---
 It's just a week 'til the first Ladies Learning Code workshop in Toronto, and the <a href="http://heatherpayne.ca/so-who%E2%80%99s-instructing-the-first-ever-ladies-learning-code-workshop">list of instructors</a> is pretty impressive.  Thanks in advance to:
 <ul>

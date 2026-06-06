@@ -1,6 +1,6 @@
 ---
 date: 2018-11-29
-category: education writing
+category: cs-education
 title: "Teaching as a Telenovela"
 ---
 

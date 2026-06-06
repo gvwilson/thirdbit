@@ -1,6 +1,6 @@
 ---
 date: 2010-03-26
-category: education software research
+category: software-carpentry cs-education
 original: swc
 title: Online Delivery
 ---

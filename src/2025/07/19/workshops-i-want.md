@@ -1,7 +1,7 @@
 ---
 title: Workshops I Want
 date: 2025-07-19
-category: software education research
+category: education research-methods
 ---
 
 Following up on [yesterday's post](@root/2025/07/18/no-satisfaction/),

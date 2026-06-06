@@ -1,6 +1,6 @@
 ---
 date: 2010-06-21
-category: software education research
+category: software-carpentry
 original: swc
 title: Interview with Microsoft's David Rich
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2019-04-04
-category: software
+category: humor programming
 title: "Not a Hammer"
 ---
 

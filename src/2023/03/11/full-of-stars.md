@@ -1,7 +1,7 @@
 ---
 title: "Full of Stars"
 date: 2023-03-11
-category: software
+category: fiction
 ---
 
 *[begin transmission]*

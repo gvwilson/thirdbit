@@ -1,6 +1,6 @@
 ---
 date: 2011-02-15
-category: software community education
+category: software-carpentry
 original: swc
 title: Top Ten Why Nots
 ---

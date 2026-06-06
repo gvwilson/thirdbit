@@ -1,7 +1,7 @@
 ---
 title: "StreetKnit on Canada AM"
 date: 2011-01-28
-category: software
+category: personal
 ---
 <a href="http://streetknit.ca/?p=120">StreetKnit</a>, a charity that collects knitted goods for the homeless, will be on Canada AM this coming Monday (January 31). I'm looking forward to Maddie seeing her mummy on TV!
 

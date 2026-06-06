@@ -1,7 +1,7 @@
 ---
 title: "Teach Teachers What They Use, Teach Kids Where They Are"
 date: 2012-05-11
-category: education software
+category: cs-education
 ---
 <p>Gary Stager isn't the first person to point out that <a href="http://stager.tv/blog/?p=2691">we've been dumbing down computing education</a> for the last 30 years–that we've gone from teaching kids how to program to teaching them how to use Excel to teaching them how to use iPads.  (My five-year-old didn't need to be taught…)  What people mostly aren't asking is why this has happened, but I have a theory.  I think teachers are teaching the computing that they use themselves, because that's the most economical thing for them to do: they use Word to make hand-outs, and Excel to manage grades, so they've already invested in proficiency, so they can put together lessons in less time.  They <em>don't</em> use Logo (or Scratch, or Python, or whatever) in their own work, so teaching it requires more effort.</p>
 

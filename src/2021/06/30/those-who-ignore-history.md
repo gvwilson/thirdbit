@@ -1,7 +1,7 @@
 ---
 title: "That Seems Simple to Me"
 date: 2021-06-30
-category: favorite
+category: favorite diversity
 ---
 ## 1997
 

@@ -1,6 +1,6 @@
 ---
 date: 2010-07-06
-category: education software
+category: software-carpentry
 original: swc
 title: That's, Uh, Pretty Ambitious
 ---

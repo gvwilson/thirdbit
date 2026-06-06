@@ -1,6 +1,6 @@
 ---
 date: 2024-02-17
-category: software education
+category: programming technical-writing
 title: "Concurrent Examples"
 ---
 

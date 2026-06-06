@@ -1,7 +1,7 @@
 ---
 title: "Regulatory Capture"
 date: 2026-05-14
-category: sdgc
+category: sdgc politics
 ---
 
 In April 2010,

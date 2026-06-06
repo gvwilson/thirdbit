@@ -1,7 +1,7 @@
 ---
 title: The Real Hardest Problem
 date: 2025-12-08
-category: software research
+category: programming empirical-se
 ---
 
 > There are only two hard things in computer science:

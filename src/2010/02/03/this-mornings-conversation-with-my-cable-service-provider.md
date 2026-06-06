@@ -1,7 +1,7 @@
 ---
 title: "This Morning's Conversation With My Cable Service Provider"
 date: 2010-02-03
-category: software
+category: humor
 ---
 My side of the conversation this morning went like this. (I would have recorded it "for quality assurance purposes", but where would I send the recording?)
 <ul>

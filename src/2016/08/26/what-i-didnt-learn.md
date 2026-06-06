@@ -1,7 +1,7 @@
 ---
 title: "What I Didn't Learn in a CS Degree"
 date: 2016-08-26
-category: software education writing
+category: software-carpentry
 ---
 
 I recently stumbled across

@@ -1,7 +1,7 @@
 ---
 title: "Learning Objectives for Teaching Workshop"
 date: 2022-10-29
-category: education software research
+category: cs-education education
 ---
 
 I run [a one-day workshop on evidence-based teaching practices][slides] aimed at programmers.

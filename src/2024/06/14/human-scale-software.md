@@ -1,7 +1,7 @@
 ---
 title: "Human-Scale Software"
 date: 2024-06-14
-category: software research writing
+category: programming tools
 ---
 
 I recently posted on Mastodon:

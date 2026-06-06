@@ -1,6 +1,6 @@
 ---
 date: 2009-07-21
-category: software education research
+category: software-carpentry
 original: swc
 title: "Day 6: Theory and Practice"
 ---

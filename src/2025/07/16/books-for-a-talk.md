@@ -1,7 +1,7 @@
 ---
 title: Books For a Talk
 date: 2025-07-16
-category: software education society
+category: book-reviews ethics
 ---
 
 I'm finally turning [my proposal](@root/ideas/sdgc/) for a book titled

@@ -1,7 +1,7 @@
 ---
 title: "Not on the Shelves: 20th Anniversary Edition"
 date: 2017-11-11
-category: writing software
+category: book-reviews
 ---
 
 Twenty years after writing the first version,

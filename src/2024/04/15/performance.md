@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 15: Performance Profiling"
 date: 2024-04-15
-category: software
+category: programming cs-education
 ---
 
 After previous chapters on webbish things,

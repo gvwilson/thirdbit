@@ -1,6 +1,6 @@
 ---
 date: 2011-07-01
-category: software education research
+category: software-carpentry
 original: swc
 title: Mentioned in Nature Methods
 ---

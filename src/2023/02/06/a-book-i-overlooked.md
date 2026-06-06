@@ -1,7 +1,7 @@
 ---
 title: "A Book I Overlooked"
 date: 2023-02-06
-category: software writing
+category: book-reviews technical-writing
 ---
 
 I realized this morning that I left

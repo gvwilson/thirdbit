@@ -1,7 +1,7 @@
 ---
 title: "Online Instructor Training Revisited"
 date: 2015-05-19
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

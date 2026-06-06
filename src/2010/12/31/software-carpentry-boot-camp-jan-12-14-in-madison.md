@@ -1,6 +1,6 @@
 ---
 date: 2010-12-31
-category: education software
+category: software-carpentry
 original: swc
 title: Software Carpentry Bootcamp Jan 12-14 in Madison
 ---

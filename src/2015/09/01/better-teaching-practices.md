@@ -1,7 +1,7 @@
 ---
 title: "Better Teaching Practices"
 date: 2015-09-01
-category: education software
+category: education
 original: swc
 ---
 <p>

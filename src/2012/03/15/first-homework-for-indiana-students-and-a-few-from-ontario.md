@@ -1,6 +1,6 @@
 ---
 date: 2012-03-15
-category: software education
+category: software-carpentry
 original: swc
 title: First Homework for Indiana Students (and a few from Ontario)
 ---

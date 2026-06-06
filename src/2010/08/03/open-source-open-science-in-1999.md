@@ -1,6 +1,6 @@
 ---
 date: 2010-08-03
-category: research personal software
+category: retro open-source
 original: swc
 title: Open Source, Open Science in 1999
 ---

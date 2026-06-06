@@ -1,7 +1,7 @@
 ---
 title: "Asteroids and Dinosaurs"
 date: 2021-02-20
-category: favorite
+category: favorite career
 ---
 
 Many years ago,

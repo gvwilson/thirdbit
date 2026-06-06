@@ -1,7 +1,7 @@
 ---
 title: "Translating Software Carpentry into Korean"
 date: 2014-11-25
-category: education software community
+category: software-carpentry
 original: swc
 ---
 <p>

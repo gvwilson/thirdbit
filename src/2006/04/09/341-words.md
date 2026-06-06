@@ -1,7 +1,7 @@
 ---
 title: "341 Words"
 date: 2006-04-09
-category: swcarpentry
+category: software-carpentry technical-writing
 ---
 The glossary for the Software Carpentry course now defines 341 terms.  What may be more interesting (for those of you who have been following the course's development) is what I've taken out:
 <ul>

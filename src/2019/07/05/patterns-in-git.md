@@ -1,6 +1,6 @@
 ---
 date: 2019-07-05
-category: software research
+category: tools empirical-se
 title: "Patterns in Git"
 ---
 

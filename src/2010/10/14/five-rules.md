@@ -1,6 +1,6 @@
 ---
 date: 2010-10-14
-category: software research
+category: software-carpentry
 original: swc
 title: Five Rules for Computational Scientists
 ---

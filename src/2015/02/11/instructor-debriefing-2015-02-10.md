@@ -1,7 +1,7 @@
 ---
 title: "2015 Post-workshop Instructor Debriefing, Round 3"
 date: 2015-02-11
-category: education
+category: software-carpentry
 original: swc
 ---
 <p>

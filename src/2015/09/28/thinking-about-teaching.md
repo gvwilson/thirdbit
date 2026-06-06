@@ -1,7 +1,7 @@
 ---
 title: "Thinking About Teaching"
 date: 2015-09-28
-category: education software research
+category: education
 original: swc
 ---
 <p>

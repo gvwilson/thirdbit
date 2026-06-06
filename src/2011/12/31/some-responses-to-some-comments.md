@@ -1,6 +1,6 @@
 ---
 date: 2011-12-31
-category: software education community
+category: software-carpentry
 original: swc
 title: Some Responses to Some Comments
 ---

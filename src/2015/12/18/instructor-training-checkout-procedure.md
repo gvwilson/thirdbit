@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Checkout Procedure"
 date: 2015-12-18
-category: education software community
+category: software-carpentry
 original: swc
 ---
 <p>

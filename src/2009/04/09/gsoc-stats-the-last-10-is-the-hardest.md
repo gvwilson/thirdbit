@@ -1,7 +1,7 @@
 ---
 title: "GSoC Stats: The Last 10% Is The Hardest"
 date: 2009-04-09
-category: education software research
+category: open-source cs-education empirical-se
 ---
 As I said in a post on April 4, I'm trying to figure out how many Google Summer of Code students have come from different schools since the program started in 2005. The question was prompted by the release on April 2 of a spreadsheet of statistics about the program (blog post <a href="http://google-opensource.blogspot.com/2009/03/google-summer-of-code-by-numbers.html">here</a>, spreadsheet <a href="http://spreadsheets.google.com/ccc?key=p6DuoA2lJToKmUzoSq6raZQ">here</a>). According to the sixth tab, the <a href="http://www.utoronto.ca">University of Toronto</a> stands second overall for number of accepted students (just behind Sri Lanka's <a href="http://www.mrt.ac.lk/">University of Moratuwa</a>—go UM!).
 

@@ -1,7 +1,7 @@
 ---
 title: "Games I'll Never Make"
 date: 2010-09-05
-category: software community writing
+category: noticed personal
 ---
 <p>
   If you were never a board game geek, this post isn't for you. Move on, move on, nothing to read here…

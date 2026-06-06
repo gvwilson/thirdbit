@@ -1,6 +1,6 @@
 ---
 date: 2018-12-29
-category: software research writing
+category: programming
 title: "Data Wrangling with JavaScript"
 ---
 

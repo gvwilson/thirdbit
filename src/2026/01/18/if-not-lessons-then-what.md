@@ -1,7 +1,7 @@
 ---
 title: If Not Lessons, Then What?
 date: 2026-01-18
-category: education software personal
+category: education cs-education
 ---
 
 I used to think that when I retired,

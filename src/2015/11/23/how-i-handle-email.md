@@ -1,7 +1,7 @@
 ---
 title: "How I Handle Email"
 date: 2015-11-23
-category: software
+category: personal
 ---
 <table class="centered">
   <tr>

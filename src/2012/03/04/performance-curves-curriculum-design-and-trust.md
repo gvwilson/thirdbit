@@ -1,6 +1,6 @@
 ---
 date: 2012-03-04
-category: software education
+category: education
 original: swc
 title: Performance Curves, Curriculum Design, and Trust
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2012-02-27
-category: software
+category: software-carpentry
 original: swc
 title: Frustration (continued)
 ---

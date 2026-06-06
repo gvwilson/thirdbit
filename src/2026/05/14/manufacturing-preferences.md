@@ -1,7 +1,7 @@
 ---
 title: "Manufacturing Preferences"
 date: 2026-05-14
-category: sdgc
+category: sdgc ethics
 ---
 
 On Easter Sunday 1929,

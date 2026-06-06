@@ -1,7 +1,7 @@
 ---
 title: "Recent Reading"
 date: 2009-03-25
-category: software research writing
+category: empirical-se cs-education book-reviews
 ---
 Another bunch of papers and books:
 <ul>

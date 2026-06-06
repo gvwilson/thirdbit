@@ -1,7 +1,7 @@
 ---
 title: "City Data Projects"
 date: 2009-08-21
-category: software education community
+category: cs-education open-source
 ---
 I had a couple of good meetings this week with Jane Zhang, Julia Smith, and Mark Kuznicki, who have kindly agreed to help steer the "Government 2.0" prjoects we're doing this fall. We still don't know what those projects <em>are</em>, but that's OK—figuring out what can and should be built, for whom, is a big part of any entrepreneur's life, so doing it in a sandbox will be an excellent educational experience :-).
 

@@ -1,7 +1,7 @@
 ---
 title: "Our Biggest Event Ever"
 date: 2014-02-13
-category: software education
+category: software-carpentry conferences
 original: swc
 ---
 <p>

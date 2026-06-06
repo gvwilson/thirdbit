@@ -1,7 +1,7 @@
 ---
 title: "Markers"
 date: 2016-08-26
-category: personal
+category: software-carpentry
 ---
 <p>
   <img src="@root/files/2016/08/markers.jpg" class="centered">

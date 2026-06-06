@@ -1,6 +1,6 @@
 ---
 date: 2011-03-07
-category: software research community
+category: programming technical-writing
 original: swc
 title: Literate Programming
 ---

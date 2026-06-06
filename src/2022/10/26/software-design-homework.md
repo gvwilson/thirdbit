@@ -1,7 +1,7 @@
 ---
 title: "Software Design Homework"
 date: 2022-10-26
-category: software education
+category: cs-education programming
 ---
 
 I'm a big fan of [DVC][dvc] for managing large files in Git,

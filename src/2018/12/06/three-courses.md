@@ -1,6 +1,6 @@
 ---
 date: 2018-12-06
-category: software education research
+category: cs-education
 title: "Three Courses"
 ---
 

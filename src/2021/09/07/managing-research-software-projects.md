@@ -1,7 +1,7 @@
 ---
 title: "Managing Research Software Projects Workshop"
 date: 2021-09-07
-category: software community education
+category: software-carpentry open-source
 ---
 
 I am running an online workshop on "Managing Research Software Projects" from 10:00-14:00 Toronto time on Sep 29-30 to raise money for [MetaDocencia](https://www.metadocencia.org/), an inclusive and collaborative community that improves education by empowering instructors from underserved countries. The workshop introduces the ideas and tools you need to manage a team of up to a dozen people working together to build research software. The workshop is intended for new faculty who are setting up their labs, the creators of open source projects that now have other contributors, and everyone else who finds themselves wrangling people and deadlines as well as code. Topics will include:

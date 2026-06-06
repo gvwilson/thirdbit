@@ -1,7 +1,7 @@
 ---
 title: "Why We Built It"
 date: 2012-05-14
-category: software community writing
+category: software-carpentry
 ---
 If you want to know why we created <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> (now in two volumes), you need look no further than the descriptions of other books about software architecture on Amazon. Here's part of the blurb of <a href="http://www.amazon.com/gp/product/032171833X/">one that appeared last year</a>:
 

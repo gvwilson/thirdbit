@@ -1,6 +1,6 @@
 ---
 date: 2010-06-10
-category: research society
+category: software-carpentry
 original: swc
 title: The Big Picture (version 3)
 ---

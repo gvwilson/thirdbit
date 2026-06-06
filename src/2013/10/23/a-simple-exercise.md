@@ -1,7 +1,7 @@
 ---
 title: "A Simple Exercise"
 date: 2013-10-23
-category: education software research
+category: software-carpentry
 ---
 <p>
   Every teacher has a few favorite assignments.

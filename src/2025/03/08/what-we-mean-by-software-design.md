@@ -1,7 +1,7 @@
 ---
 title: What We Mean by Software Design
 date: 2025-03-08
-category: software
+category: programming
 ---
 
 Suppose you are building a static site generator that turns a bunch of Markdown files into HTML pages.

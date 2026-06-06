@@ -1,7 +1,7 @@
 ---
 title: "When I Rule the World #173: Google's Summer of Code"
 date: 2006-08-18
-category: community software students
+category: humor open-source student-projects
 ---
 The second edition of <a href="http://www.google.com">Google</a>'s Summer of Code is winding down, so I figured it'd be a good time to post my (unsolicited ;-)) thoughts on what they should do next time around.  Here are my starting points:
 <ol>

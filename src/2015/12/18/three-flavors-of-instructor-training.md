@@ -1,7 +1,7 @@
 ---
 title: "Three Flavors of Instructor Training"
 date: 2015-12-18
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

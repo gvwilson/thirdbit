@@ -1,7 +1,7 @@
 ---
 title: "DrProject Internals: Subversion"
 date: 2006-11-16
-category: students
+category: student-projects tools
 ---
 It's finally time to look at how DrProject integrates with <a href="http://subversion.tigris.org">Subversion</a>.  "Integrates" is the key word here: whereas we (and <a href="http://trac.edgewall.org">Trac</a>'s designers before us) had a free hand with the ticketing system and wiki, <a href="http://subversion.tigris.org">Subversion</a> and other version control systems are complex enough that we have to base our design on what they can do, rather than what we might want.
 

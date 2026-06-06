@@ -1,7 +1,7 @@
 ---
 title: "You Say Dumbing Down, I Say Inviting In"
 date: 2021-04-17
-category: software writing
+category: education technical-writing
 ---
 
 Most of the early feedback on *Building Tech Together* has been positive,

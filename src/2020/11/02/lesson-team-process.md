@@ -1,7 +1,7 @@
 ---
 title: "A Lightweight Process for Lesson Teams"
 date: 2020-11-02
-category: education software community
+category: education open-source
 ---
 
 Over the course of my last several jobs,

@@ -1,7 +1,7 @@
 ---
 title: "Creating a Forum"
 date: 2013-11-16
-category: software education community
+category: software-carpentry
 original: swc
 ---
 <p>

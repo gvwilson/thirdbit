@@ -1,7 +1,7 @@
 ---
 title: "Negotiation Tactics"
 date: 2022-12-19
-category: software
+category: career
 ---
 
 I think I'm pretty good at [talking people into things][talking],

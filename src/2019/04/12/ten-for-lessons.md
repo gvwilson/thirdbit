@@ -1,6 +1,6 @@
 ---
 date: 2019-04-12
-category: research education
+category: education cs-education
 title: "Ten Quick Tips for Creating an Effective Lesson"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Research Threat Models
 date: 2025-04-12
-category: research software community
+category: research-methods open-source
 ---
 
 [Richard Littauer][littauer] and others are writing some guidance

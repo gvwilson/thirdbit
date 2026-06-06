@@ -1,6 +1,6 @@
 ---
 date: 2019-05-03
-category: education software research
+category: cs-education education
 title: "Shorter Lines"
 ---
 

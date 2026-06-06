@@ -1,6 +1,6 @@
 ---
 date: 2019-07-07
-category: software education society
+category: education ethics politics
 title: "Deskilling Learning"
 ---
 

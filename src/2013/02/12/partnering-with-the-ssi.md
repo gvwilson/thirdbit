@@ -1,7 +1,7 @@
 ---
 title: Partnering with the SSI
 date: 2013-02-12
-category: software education research
+category: software-carpentry
 original: swc
 ---
 <p><img src="@root/files/swc/ssi.png" class="centered"></p>

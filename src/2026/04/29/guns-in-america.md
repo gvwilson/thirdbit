@@ -1,7 +1,7 @@
 ---
 title: "Guns in America"
 date: 2026-04-29
-category: sdgc
+category: sdgc politics
 ---
 
 Every argument about politics in the United States

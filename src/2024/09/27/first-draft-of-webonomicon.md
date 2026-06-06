@@ -1,7 +1,7 @@
 ---
 title: "First Draft of the Webonomicon"
 date: 2024-09-27
-category: education software research
+category: programming technical-writing
 ---
 
 A few months ago I mused about what might go into a lesson on [human-scale software][human].

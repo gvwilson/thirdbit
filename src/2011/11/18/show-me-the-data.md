@@ -1,6 +1,6 @@
 ---
 date: 2011-11-18
-category: education research software
+category: empirical-se
 original: swc
 title: Show Me the Data
 ---

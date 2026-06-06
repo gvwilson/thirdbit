@@ -1,7 +1,7 @@
 ---
 title: "Teaching Biocomputing at UT"
 date: 2015-06-03
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

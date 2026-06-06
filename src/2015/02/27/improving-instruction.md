@@ -1,7 +1,7 @@
 ---
 title: "Improving Instruction"
 date: 2015-02-27
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

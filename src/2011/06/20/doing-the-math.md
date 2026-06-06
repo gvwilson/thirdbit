@@ -1,6 +1,6 @@
 ---
 date: 2011-06-20
-category: education software research
+category: empirical-se software-carpentry
 original: swc
 title: Doing the Math
 ---

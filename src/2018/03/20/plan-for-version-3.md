@@ -1,7 +1,7 @@
 ---
 title: "Comments Sought on the Plan for Version 3 of 'How to Teach Programming'"
 date: 2018-03-20
-category: education software research
+category: software-carpentry
 ---
 
 I am planning a major revision of

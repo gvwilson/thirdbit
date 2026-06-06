@@ -1,7 +1,7 @@
 ---
 title: "Summary of Host Survey"
 date: 2013-08-14
-category: education software
+category: software-carpentry
 original: swc
 ---
 <p>

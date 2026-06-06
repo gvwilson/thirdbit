@@ -1,7 +1,7 @@
 ---
 title: Who Wants To Build a Faded Example Tool for the IPython Notebook?
 date: 2012-11-19
-category: software education writing
+category: software-carpentry tools
 original: swc
 ---
 <p>While I'm asking people to write code for me, here's a small addition to the IPython Notebook that someone should be able to knock off in an hour. The starting points are <a href="http://en.wikipedia.org/wiki/Cognitive_load">cognitive load theory</a> and the idea of faded examples: long story short, one good way to teach is to show learners one example in detail, then ask them to fill in the ever-larger blanks in a series of similar partly-worked-out examples. Here's one that <a href="http://ethanwhite.org">Ethan White</a> did for our online study group:</p>

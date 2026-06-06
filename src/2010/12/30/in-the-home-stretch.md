@@ -1,7 +1,7 @@
 ---
 title: "In the Home Stretch"
 date: 2010-12-30
-category: research community writing
+category: technical-writing
 ---
 A quick update on <em>The Architecture of Open Source Applications</em>—we have chapters in one state or another, or firm promises, for:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Women's Work"
 date: 2026-05-20
-category: sdgc
+category: sdgc diversity
 ---
 
 On October 24, 1975,

@@ -1,7 +1,7 @@
 ---
 title: "Bullshit, Appropriation, and Technology in Education"
 date: 2012-02-02
-category: education software writing
+category: cs-education
 ---
 A few weeks ago, a former student who's now a friend asked me to teach him how to bullshit. At first I couldn't decide whether I was flattered or offended, but then I decided I was more curious than anything. What did he mean by that? And why did he think I'd be a good teacher?
 

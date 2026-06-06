@@ -1,7 +1,7 @@
 ---
 title: "A Multi-Site Sprint in July"
 date: 2014-05-05
-category: community software writing
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,6 +1,6 @@
 ---
 date: 2012-07-21
-category: education software
+category: empirical-se programming
 original: swc
 title: How Robust Is Your Programming Language?
 ---

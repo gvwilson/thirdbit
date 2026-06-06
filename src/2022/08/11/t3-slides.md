@@ -1,7 +1,7 @@
 ---
 title: "Slides for Teaching Tech Together"
 date: 2022-08-11
-category: education software
+category: cs-education
 ---
 
 I have posted [slides for a one-day workshop](https://drive.google.com/drive/folders/1LVcmp48Ym0c6pA9GOT6TrCa47RU1ugaV)

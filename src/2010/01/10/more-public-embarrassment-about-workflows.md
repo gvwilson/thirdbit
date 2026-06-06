@@ -1,7 +1,7 @@
 ---
 title: "More Public Embarrassment About Workflows"
 date: 2010-01-10
-category: software education
+category: software-carpentry
 ---
 Thanks to everyone for the comments on my recent post about web workflows and public embarrassment. I have two of my own to add:
 <ol>

@@ -1,6 +1,6 @@
 ---
 date: 2019-03-20
-category: education software
+category: education
 title: "Educational Paramedics"
 ---
 

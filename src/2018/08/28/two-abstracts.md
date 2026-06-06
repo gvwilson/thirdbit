@@ -1,6 +1,6 @@
 ---
 date: 2018-08-28
-category: education software research
+category: empirical-se
 title: Two Abstracts for Two Audiences
 ---
 

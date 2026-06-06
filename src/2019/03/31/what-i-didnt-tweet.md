@@ -1,6 +1,6 @@
 ---
 date: 2019-03-31
-category: writing
+category: noticed
 title: "What I Didn't Tweet in March"
 ---
 

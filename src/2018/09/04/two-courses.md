@@ -1,6 +1,6 @@
 ---
 date: 2018-09-04
-category: software research education
+category: cs-education
 title: "Two Courses"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Never Mind the Concurrency, What About the Math?"
 date: 2009-11-01
-category: software education
+category: software-carpentry
 ---
 Lots of people are touting functional programming (FP) as a solution to the problem of ever-increasing concurrency. I think the case is "<a href="http://en.wikipedia.org/wiki/Not_proven">not proven</a>": I have never seen any trustworthy studies comparing the productivity or post-release fault rate of developers using FP with those using more popular approaches.
 

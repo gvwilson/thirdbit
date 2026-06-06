@@ -1,7 +1,7 @@
 ---
 title: "Igor, Connect the Electrodes!"
 date: 2008-11-30
-category: swcarpentry
+category: software-carpentry
 ---
 The Software Carpentry course site is still getting a fair bit of traffic, although readership is definitely tailing off:
 

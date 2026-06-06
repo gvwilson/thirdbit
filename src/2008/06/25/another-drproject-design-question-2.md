@@ -1,7 +1,7 @@
 ---
 title: "Another DrProject Design Question"
 date: 2008-06-25
-category: students
+category: student-projects programming
 ---
 We've hit another "what should it do?" question in DrProject, and I'd welcome opinions from readers.  As I've mentioned previously, the new ticketing system for DrProject is going to be extensible.  Each project's tickets will initially contain just four fields: sequence number, date created, creator ID, and one line of text.  The first three will be filled in automatically; the user will only have to type the fourth.  From experience, a simple "to do list" like this is all student teams really want or need.
 

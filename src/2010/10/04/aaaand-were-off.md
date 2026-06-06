@@ -1,6 +1,6 @@
 ---
 date: 2010-10-04
-category: education research
+category: software-carpentry
 original: swc
 title: Aaaand We're Off!
 ---

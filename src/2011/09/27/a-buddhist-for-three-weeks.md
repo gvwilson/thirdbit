@@ -1,7 +1,7 @@
 ---
 title: "A Buddhist For Three Weeks"
 date: 2011-09-27
-category: software
+category: personal
 ---
 I was a Buddhist for three weeks back in the fall of 1985. I had just moved to Edinburgh, ostensibly to do a Master's degree in artificial intelligence, but mostly because I wanted a chance to reinvent myself. The coolest guy I knew was a Buddhist–a real one, not just an intense vegetarian in a black beret–and I thought, hey, maybe if I become a Buddhist, I'll be cool too.
 

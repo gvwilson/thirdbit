@@ -1,7 +1,7 @@
 ---
 title: "Research Educators"
 date: 2020-08-04
-category: education software research
+category: software-carpentry education
 ---
 
 > Good heavens! For more than 40 years I have been speaking prose without knowing it.

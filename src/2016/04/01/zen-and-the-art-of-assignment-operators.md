@@ -1,7 +1,7 @@
 ---
 title: "Zen and the Art of Assignment Operators"
 date: 2016-04-01
-category: software society
+category: programming empirical-se
 ---
 <p>
   I was 19 when I first read <em>Zen and the Art of Motorcycle Maintenance</em>.

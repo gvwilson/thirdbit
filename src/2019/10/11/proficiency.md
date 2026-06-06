@@ -1,7 +1,7 @@
 ---
 title: "Proficiency"
 date: 2019-10-11
-category: software education research
+category: tools empirical-se
 ---
 
 Edwin Thoen recently tweeted a short video

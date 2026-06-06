@@ -1,6 +1,6 @@
 ---
 date: 2012-02-27
-category: software education
+category: software-carpentry
 original: swc
 title: Badges (Finalized)
 ---

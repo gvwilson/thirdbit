@@ -1,6 +1,6 @@
 ---
 date: 2019-07-05
-category: education research writing
+category: cs-education humor academia
 title: "A Modest Proposal"
 ---
 

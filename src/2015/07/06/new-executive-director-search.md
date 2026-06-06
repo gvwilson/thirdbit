@@ -1,7 +1,7 @@
 ---
 title: "Hiring a New Executive Director for Software Carpentry"
 date: 2015-07-06
-category: software education community
+category: software-carpentry
 original: swc
 ---
 <p>

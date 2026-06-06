@@ -1,6 +1,6 @@
 ---
 date: 2009-09-22
-category: education software research
+category: software-carpentry academia
 original: swc
 title: Grant Proposal
 ---

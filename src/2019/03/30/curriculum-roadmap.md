@@ -1,6 +1,6 @@
 ---
 date: 2019-03-30
-category: education research software
+category: cs-education education conferences
 title: "Curriculum Roadmap"
 ---
 

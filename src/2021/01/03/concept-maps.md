@@ -1,7 +1,7 @@
 ---
 title: "Concept Maps"
 date: 2021-01-03
-category: software research
+category: education data-science open-source
 ---
 
 In the second half of last year (and doesn't it feel so good to call 2020 "last year"?)

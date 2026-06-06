@@ -1,7 +1,7 @@
 ---
 title: Updating Snailz
 date: 2026-01-23
-category: software education research
+category: programming tools
 ---
 
 I have updated the [synthetic data generator][snailz] I built last year

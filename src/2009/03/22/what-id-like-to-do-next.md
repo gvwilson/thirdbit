@@ -1,7 +1,7 @@
 ---
 title: "What I'd Like To Do Next"
 date: 2009-03-22
-category: education software community
+category: student-projects cs-education career
 ---
 I've been thinking about what I'd like to do when I leave U of T, and I think I can use what I enjoy most about my present job—mentoring students—to make some company more attractive to talented Canadian Computer Science grads, while at the same time improving CS education in this country.  Here's my pitch.
 <blockquote>

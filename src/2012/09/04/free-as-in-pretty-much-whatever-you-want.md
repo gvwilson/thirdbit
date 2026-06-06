@@ -1,6 +1,6 @@
 ---
 date: 2012-09-04
-category: software education community
+category: open-source
 original: swc
 title: Free As In Pretty Much Whatever You Want
 ---

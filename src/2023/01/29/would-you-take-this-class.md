@@ -1,7 +1,7 @@
 ---
 title: "Would You Take This Class?"
 date: 2023-01-29
-category: software education writing
+category: cs-education technical-writing
 ---
 
 I <s>plan</s> hope to spend February and March revising

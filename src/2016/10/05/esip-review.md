@@ -1,7 +1,7 @@
 ---
 title: "Request for Review: ESIP's Software Guidelines"
 date: 2016-10-05
-category: software research education
+category: software-carpentry
 original: swc
 ---
 

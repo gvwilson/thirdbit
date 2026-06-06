@@ -1,7 +1,7 @@
 ---
 title: "Publishing, Metadata, and Being Ahead of the Curve"
 date: 2015-08-12
-category: writing software education
+category: research-methods
 original: swc
 ---
 <p>

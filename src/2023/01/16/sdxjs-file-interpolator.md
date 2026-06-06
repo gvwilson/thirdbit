@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 12: File Interpolator"
 date: 2023-01-16
-category: software research
+category: programming technical-writing
 ---
 
 Many of the examples in [*Software Design by Example*][sdxjs]

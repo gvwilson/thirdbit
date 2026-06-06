@@ -1,6 +1,6 @@
 ---
 date: 2010-07-11
-category: research community
+category: software-carpentry
 original: swc
 title: Interview with Michigan State's Titus Brown
 ---

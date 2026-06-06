@@ -1,7 +1,7 @@
 ---
 title: "How Are The Mighty Fallen"
 date: 2010-01-19
-category: writing
+category: noticed
 ---
 I was OK when <a href="http://search.safaribooksonline.com/">Safari</a> started selling photography books. I was even OK when they started selling "secret to business success" books. But this? *sigh*
 

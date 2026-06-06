@@ -1,7 +1,7 @@
 ---
 title: Searching for Closure
 date: 2025-09-12
-category: research writing society
+category: open-source research-methods
 ---
 
 For every beginning there must be an ending,

@@ -1,7 +1,7 @@
 ---
 title: "Let's Talk"
 date: 2011-02-09
-category: software personal writing
+category: software-carpentry
 ---
 <p>Today is <a href="http://letstalk.bell.ca/">Let's Talk Day</a>, so let's talk. I'll go first: starting when I was 19, I had bouts of depression every 12-18 months for a little over 20 years. Some were triggered by overwork or big life changes; others hit me out of the blue. Whatever the cause (and the cause might just have been neurochemistry–there's history on both sides of my family), I would feel bleak and exhausted for anything from a couple of weeks to a couple of months. If you've had <a href="http://en.wikipedia.org/wiki/Infectious_mononucleosis">mononucleosis</a> (glandular fever to the British), it feels exactly like that, but without the swollen glands and other physical symptoms–so much so that my first couple of bouts were misdiagnosed as recurrences of mono.</p>
 <p>I didn't even try to get help until I was in my mid-30s. At first, it was because I didn't know I could: two different doctors, in two different countries, told me that was a virus, and all I could do was wait it out. And then, well, people didn't talk about this stuff–not the people I knew–so I didn't even know where to start. But I eventually met someone who'd been through this, who pointed me in the right direction, and here I am, eight years and counting since my last crash (or what I <em>hope</em> was my "last" crash).</p>

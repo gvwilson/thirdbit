@@ -1,7 +1,7 @@
 ---
 title: A Poem
 date: 2025-03-15
-category: software
+category: fiction personal
 ---
 
 ```

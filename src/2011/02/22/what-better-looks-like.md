@@ -1,6 +1,6 @@
 ---
 date: 2011-02-22
-category: software education community
+category: software-carpentry
 original: swc
 title: What Better Looks Like
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Late Merge"
 date: 2026-06-03
-category: software
+category: programming research-methods
 katex: true
 ---
 A two-lane road narrows to one lane at a construction zone. Drivers face a choice:

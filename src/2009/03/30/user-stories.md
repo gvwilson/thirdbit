@@ -1,6 +1,6 @@
 ---
 date: 2009-03-30
-category: education software writing
+category: software-carpentry education
 original: swc
 title: User Stories
 ---

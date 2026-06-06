@@ -1,7 +1,7 @@
 ---
 title: "Making Up Grading Schemes"
 date: 2009-01-14
-category: education research writing
+category: education student-projects
 ---
 I'm running two courses this term, and in both, I'm asking students to make up their own grading schemes.
 

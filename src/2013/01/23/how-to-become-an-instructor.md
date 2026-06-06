@@ -1,7 +1,7 @@
 ---
 title: How to Become an Instructor
 date: 2013-01-23
-category: education research community
+category: software-carpentry
 original: swc
 ---
 <p>As we've mentioned elsewhere, our instructors are volunteers who donate their time because it's fun, because it makes the world a better place, because they learn things themselves from teaching, and because it's good for their careers.  But how did they <em>become</em> instructors?  And how can you become one too?</p>

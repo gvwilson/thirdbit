@@ -1,6 +1,6 @@
 ---
 date: 2012-04-06
-category: software research
+category: software-carpentry personal
 original: swc
 title: On Crossing Australia
 ---

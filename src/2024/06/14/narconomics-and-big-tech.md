@@ -1,7 +1,7 @@
 ---
 title: "Narconomics and Big Tech"
 date: 2024-06-14
-category: writing society
+category: ethics politics
 ---
 
 I really enjoyed Wainwright's *[Narconomics][narconomics]*,

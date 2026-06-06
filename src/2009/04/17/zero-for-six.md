@@ -1,7 +1,7 @@
 ---
 title: "Zero for Six"
 date: 2009-04-17
-category: research software
+category: academia personal
 ---
 Not unexpected, but still disappointing:
 

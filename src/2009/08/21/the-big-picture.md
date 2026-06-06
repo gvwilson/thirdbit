@@ -1,6 +1,6 @@
 ---
 date: 2009-08-21
-category: software research education
+category: software-carpentry research-methods
 original: swc
 title: The Big Picture
 ---

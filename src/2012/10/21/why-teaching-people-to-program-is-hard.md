@@ -1,7 +1,7 @@
 ---
 title: Why Teaching People to Program Is Hard
 date: 2012-10-21
-category: education software
+category: software-carpentry cs-education
 original: swc
 ---
 <p><em>Update: it's clear from comments that I explained myself 

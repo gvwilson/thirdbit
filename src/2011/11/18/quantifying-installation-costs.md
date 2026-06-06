@@ -1,6 +1,6 @@
 ---
 date: 2011-11-18
-category: software
+category: software-carpentry empirical-se
 original: swc
 title: Quantifying Installation Costs
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2009-12-27
-category: software
+category: software-carpentry empirical-se
 original: swc
 title: Dudley and Butte on Software Skills
 ---

@@ -1,6 +1,6 @@
 ---
 date: 2009-11-24
-category: education software
+category: software-carpentry
 original: swc
 title: Tutorials Start This Week
 ---

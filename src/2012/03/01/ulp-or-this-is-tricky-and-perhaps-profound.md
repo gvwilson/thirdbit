@@ -1,6 +1,6 @@
 ---
 date: 2012-03-01
-category: writing
+category: cs-education
 original: swc
 title: ULP (or, This is tricky and perhaps profound)
 ---

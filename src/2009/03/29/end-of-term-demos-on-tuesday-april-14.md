@@ -1,7 +1,7 @@
 ---
 title: "End-of-Term Demos on Tuesday April 14"
 date: 2009-03-29
-category: software education research
+category: student-projects cs-education
 ---
 The students in this term's combined CSC494/CSC2125 consulting course will be doing their end-of-term demos in the <a href="http://gsu.utoronto.ca/pubcafe.html">Graduate Student Union</a> at the University of Toronto between 1:30 and 3:00 pm on Tuesday, April 14. Projects include:
 <ul>

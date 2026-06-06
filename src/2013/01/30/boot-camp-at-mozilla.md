@@ -1,7 +1,7 @@
 ---
 title: A Bootcamp at Mozilla
 date: 2013-01-30
-category: software education research
+category: software-carpentry
 original: swc
 ---
 <p>We ran a two-day bootcamp at Mozilla's office in Toronto last week for people from local research hospitals.  It seemed to go well: only 28 of the 37 who'd registered showed up, but with a couple of exceptions because of scheduling conflicts, everyone who showed up on day 1 came back on day 2.  Many thanks to Dhavide Aruliah, Yele Bonilla, Mike Conley, Gabriel Devenyi, Fan Dong, and Blake Winton for helping out.</p>

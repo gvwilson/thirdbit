@@ -1,7 +1,7 @@
 ---
 title: "One Damned Thing After Another"
 date: 2023-11-21
-category: software education writing
+category: programming cs-education
 ---
 
 I promised that I wouldn't write another technical book,

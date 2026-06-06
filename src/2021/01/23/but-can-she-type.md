@@ -1,7 +1,7 @@
 ---
 title: "But Can She Type?"
 date: 2021-01-23
-category: education research software
+category: diversity cs-education
 ---
 
 One of my favorite *Twilight Zone* episodes is

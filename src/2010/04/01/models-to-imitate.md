@@ -1,6 +1,6 @@
 ---
 date: 2010-04-01
-category: education software community
+category: software-carpentry
 original: swc
 title: Models To Imitate
 ---

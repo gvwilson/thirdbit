@@ -1,7 +1,7 @@
 ---
 title: "The Superbug in Education"
 date: 2016-06-10
-category: education software research
+category: cs-education empirical-se
 ---
 <p>
   <a href="https://hal.archives-ouvertes.fr/file/index/docid/190538/filename/A28_Pea_86.pdf">Roy Pea coined the term "superbug"</a> in 1986

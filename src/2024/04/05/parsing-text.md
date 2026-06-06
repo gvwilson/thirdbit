@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 5: Parsing Text"
 date: 2024-04-05
-category: software education writing
+category: programming cs-education
 ---
 
 [Chapter 5: Parsing Text][sdxpy_parse] shows how to write a parser

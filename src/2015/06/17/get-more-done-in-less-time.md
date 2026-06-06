@@ -1,7 +1,7 @@
 ---
 title: "Get More Done in Less Time"
 date: 2015-06-17
-category: education research software
+category: cs-education
 original: swc
 ---
 <p>

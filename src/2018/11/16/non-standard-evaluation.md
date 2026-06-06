@@ -1,6 +1,6 @@
 ---
 date: 2018-11-16
-category: education software writing
+category: programming
 title: "Non-Standard Evaluation in R"
 ---
 

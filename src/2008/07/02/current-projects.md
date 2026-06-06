@@ -1,7 +1,7 @@
 ---
 title: "Current Projects"
 date: 2008-07-02
-category: software students research
+category: student-projects programming
 ---
 Speaking of where the times goes, these are my current projects:
 <ol>

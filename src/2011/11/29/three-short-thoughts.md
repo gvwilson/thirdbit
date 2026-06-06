@@ -1,6 +1,6 @@
 ---
 date: 2011-11-29
-category: software education research
+category: software-carpentry
 original: swc
 title: Three Short Thoughts
 ---

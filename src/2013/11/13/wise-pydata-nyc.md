@@ -1,7 +1,7 @@
 ---
 title: "Women in Tech Workshop at PyData NYC"
 date: 2013-11-13
-category: education software community
+category: software-carpentry diversity
 original: swc
 ---
 <p>

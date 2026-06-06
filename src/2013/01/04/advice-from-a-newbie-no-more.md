@@ -1,7 +1,7 @@
 ---
 title: Advice From a Newbie No More
 date: 2013-01-04
-category: research writing
+category: software-carpentry
 original: swc
 ---
 <p>Adina Chuang-Howe recently wrote a great blog post titled "<a href="http://adina.github.com/2012/12/29/newbie-advice/">Advice from newbie to newbie</a>", in which she gives some advice to her younger and not-yet-computationally-proficient self:</p>

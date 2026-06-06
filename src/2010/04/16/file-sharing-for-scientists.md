@@ -1,6 +1,6 @@
 ---
 date: 2010-04-16
-category: software research
+category: software-carpentry tools
 original: swc
 title: File Sharing for Scientists
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The First Six Questions"
 date: 2024-01-17
-category: software education research
+category: cs-education education ethics
 ---
 
 > Please see [the bottom of this page](#faq)

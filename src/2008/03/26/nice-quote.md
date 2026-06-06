@@ -1,7 +1,7 @@
 ---
 title: "Nice Quote"
 date: 2008-03-26
-category: reading
+category: noticed
 ---
 An article about computational science in a scientific publication is <em>not</em> the scholarship itself, it is merely <em>advertising</em> of the scholarship. The actual scholarship is the complete software development environment and the complete set of instructions which generated the figures.
 

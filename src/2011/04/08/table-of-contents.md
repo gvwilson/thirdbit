@@ -1,7 +1,7 @@
 ---
 title: "Table of Contents"
 date: 2011-04-08
-category: software community writing
+category: technical-writing
 ---
 If all goes well, <em>The Architecture of Open Source Applications</em> will be available for purchase by the beginning of May. As a teaser, there's a table of contents below the fold–we think it's going to be a great book, and hope you'll think so too.
 

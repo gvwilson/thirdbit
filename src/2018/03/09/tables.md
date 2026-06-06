@@ -1,7 +1,7 @@
 ---
 title: "Tables"
 date: 2018-03-09
-category: software research writing
+category: technical-writing
 ---
 
 An imagined dialog:

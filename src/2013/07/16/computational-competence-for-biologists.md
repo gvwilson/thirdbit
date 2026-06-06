@@ -1,7 +1,7 @@
 ---
 title: "Computational Competence for Biologists"
 date: 2013-07-16
-category: education research community
+category: software-carpentry
 original: swc
 ---
 <p>

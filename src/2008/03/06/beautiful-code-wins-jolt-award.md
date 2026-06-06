@@ -1,7 +1,7 @@
 ---
 title: "Beautiful Code Wins Jolt Award"
 date: 2008-03-06
-category: writing
+category: technical-writing
 ---
 <a href="http://www.ddj.com"><em>Dr. Dobb's Journal</em></a> has <a href="http://www.ddj.com/blog/portal/archives/2008/03/jolt_award_winn.html">announced</a> the winners of the 18th annual Jolt Product Excellence and Productivity Awards at the <a href="http://www.sdexpo.com/">SD West 2008 </a>conference. The <a href="http://www.joltawards.com/">Jolt Awards</a> recognize those products, books, and websites that have "jolted" the industry in past year. Winners are selected by a panel of judges consisting of industry insiders, columnists, and technology leaders. This year's winners are:
 <ul>

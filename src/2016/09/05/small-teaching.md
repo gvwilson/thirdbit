@@ -1,7 +1,7 @@
 ---
 title: "Small Teaching"
 date: 2016-09-05
-category: education community software
+category: education book-reviews
 original: swc
 ---
 

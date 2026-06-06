@@ -1,6 +1,6 @@
 ---
 date: 2012-03-30
-category: software education
+category: software-carpentry
 original: swc
 title: Maintaining Momentum
 ---

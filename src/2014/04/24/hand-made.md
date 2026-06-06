@@ -1,7 +1,7 @@
 ---
 title: "Hand Made"
 date: 2014-04-24
-category: software
+category: personal
 ---
 <p>
   Sadie made this for me.  It's super-cuddly.

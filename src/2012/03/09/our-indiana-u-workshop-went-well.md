@@ -1,6 +1,6 @@
 ---
 date: 2012-03-09
-category: education
+category: software-carpentry
 original: swc
 title: Our Indiana U Workshop Went Well
 ---

@@ -1,7 +1,7 @@
 ---
 title: "What I Learned From My P2PU Course"
 date: 2012-03-16
-category: education personal
+category: software-carpentry
 ---
 The final meeting of my <a href="http://p2pu.org/en/groups/how-to-teach-webcraft-and-programming-to-free-range-students/">P2PU course</a> on teaching free-range learners how to program took place this morning. I enjoyed chatting with the people who showed up, but overall I was disappointed with how things went: less than a quarter of those who signed up back in January were still with us at the halfway mark, and less than 10% were in at the end. Partly, I think, this happened because the demands of day-to-day life trump good intentions every time. I also blame myself: sending out a couple of chapters of reading material at the start of the course sent a clear signal that this was going to be top-down and centralized, rather than bottom-up and peer-to-peer, and that turned a lot of people off.
 

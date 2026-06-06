@@ -1,7 +1,7 @@
 ---
 title: Forming Teams
 date: 2025-01-07
-category: education software research
+category: cs-education empirical-se
 ---
 
 Most people learn better together than they do on their own [[Michaelson2004][Michaelson2004]].

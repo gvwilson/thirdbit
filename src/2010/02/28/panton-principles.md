@@ -1,6 +1,6 @@
 ---
 date: 2010-02-28
-category: software research writing
+category: research-methods open-source
 original: swc
 title: Panton Principles
 ---

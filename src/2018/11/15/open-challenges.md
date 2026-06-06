@@ -1,6 +1,6 @@
 ---
 date: 2018-11-15
-category: software
+category: empirical-se
 title: "The Real Open Challenges"
 ---
 

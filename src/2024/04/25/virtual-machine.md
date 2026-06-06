@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 25: A Virtual Machine"
 date: 2024-04-25
-category: software education writing
+category: programming cs-education
 ---
 
 In the end, you return to the beginning.

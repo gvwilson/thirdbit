@@ -1,6 +1,6 @@
 ---
 date: 2010-05-02
-category: software education research
+category: software-carpentry
 original: swc
 title: T Minus One
 ---

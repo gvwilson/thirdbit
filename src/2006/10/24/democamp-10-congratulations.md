@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 10: Congratulations"
 date: 2006-10-24
-category: software community
+category: community-events
 ---
 DemoCamp 10 was held last night, and three of the five presentations were from <a href="http://www.utoronto.ca">U of T</a>.  Sana Tapal (now at Jonah Group) and Andrey Petrov led off with the Online Marking tool; Jonathan Lung (who was part of the student team that presented at DemoCamp 5) showed us all how productive PHP procrastination can be; and <a href="http://www.sachachua.com">Sacha Chua</a> tried to convince us that Emacs isn't actually bad for you.  The other two demos were a social networking/quotes site called <a href="http://www.quotiki.com">Quotiki.com</a>, and <a href="http://www.brokentomb.com">Broken Tomb</a>, which advertises itself as the world's first commercial Smalltalk host.  There wasn't any new technology, but the presenters were entertaining, and it was fun to read the stuff that flashed by on the screen during their demo; the Smalltalk demo had a lot of technical and other difficulties.
 

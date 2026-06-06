@@ -1,6 +1,6 @@
 ---
 date: 2012-03-01
-category: education
+category: software-carpentry conferences
 original: swc
 title: Inscight from Trieste
 ---

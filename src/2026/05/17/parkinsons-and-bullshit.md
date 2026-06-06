@@ -1,7 +1,7 @@
 ---
 title: "Bullshit Jobs and Parkinson's Law"
 date: 2026-05-17
-category: sdgc
+category: sdgc career
 ---
 
 In 1930,

@@ -1,6 +1,6 @@
 ---
 date: 2009-07-21
-category: research writing
+category: academia open-source
 original: swc
 title: Elsevier's Future, Version 0.1
 ---

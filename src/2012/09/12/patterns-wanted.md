@@ -1,6 +1,6 @@
 ---
 date: 2012-09-12
-category: software education
+category: software-carpentry
 original: swc
 title: Patterns Wanted
 ---

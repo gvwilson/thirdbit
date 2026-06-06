@@ -1,6 +1,6 @@
 ---
 date: 2012-07-28
-category: education software research
+category: software-carpentry
 original: swc
 title: Software Carpentry Needs You!
 ---

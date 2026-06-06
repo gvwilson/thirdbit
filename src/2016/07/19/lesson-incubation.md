@@ -1,7 +1,7 @@
 ---
 title: "Lesson Incubation"
 date: 2016-07-19
-category: software education community
+category: software-carpentry
 original: swc
 ---
 

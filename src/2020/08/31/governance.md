@@ -1,7 +1,7 @@
 ---
 title: "Governance"
 date: 2020-08-31
-category: community software
+category: open-source community-events
 ---
 
 I had another good conversation with [Mike Hoye](http://exple.tive.org/blarg/) this week

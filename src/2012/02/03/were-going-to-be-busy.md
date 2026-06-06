@@ -1,6 +1,6 @@
 ---
 date: 2012-02-03
-category: education
+category: software-carpentry
 original: swc
 title: We're Going to Be Busy
 ---

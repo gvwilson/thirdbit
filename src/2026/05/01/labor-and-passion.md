@@ -1,7 +1,7 @@
 ---
 title: "Labor and Passion"
 date: 2026-05-01
-category: sdgc
+category: sdgc career
 ---
 
 Collective action by workers is not a recent invention,

@@ -1,7 +1,7 @@
 ---
 title: "Unwritten and Undone"
 date: 2015-09-06
-category: software education writing
+category: technical-writing
 ---
 <p>
   Every few years,

@@ -1,7 +1,7 @@
 ---
 title: What Does Victory Look Like?
 date: 2013-05-26
-category: research software education
+category: software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "BDFL Governance"
 date: 2023-10-26
-category: community software
+category: open-source
 ---
 
 I had to put this together today for a small project that's about to go open source,

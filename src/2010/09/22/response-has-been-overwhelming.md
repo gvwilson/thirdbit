@@ -1,6 +1,6 @@
 ---
 date: 2010-09-22
-category: education
+category: software-carpentry
 original: swc
 title: Response Has Been Overwhelming
 ---

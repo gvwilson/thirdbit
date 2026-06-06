@@ -1,6 +1,6 @@
 ---
 date: 2012-02-14
-category: education research writing
+category: software-carpentry
 original: swc
 title: New Kinds of Content
 ---

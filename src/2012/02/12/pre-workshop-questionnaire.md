@@ -1,6 +1,6 @@
 ---
 date: 2012-02-12
-category: software education
+category: software-carpentry
 original: swc
 title: Pre-Workshop Questionnaire
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Here's What I've Learned So Far"
 date: 2011-11-14
-category: software education community
+category: software-carpentry
 ---
 <a href="http://heatherpayne.ca/">Heather Payne</a> is smart, hard-working, and not afraid to dive into things she doesn't know. Starting from nothing more than a tweet six months ago, she and her colleagues have built an organization in Toronto called <a href="http://ladieslearningcode.com/">Ladies Learning Code</a> that runs workshops to teach women basic programming skills. A couple of weeks ago, she set herself a goal: she wanted to build a simple little dynamic web site. Yesterday, she blogged this under the heading, "<a href="http://heatherpayne.ca/heres-what-ive-learned-about-programming-so-far">Here's What I've Learned About Programming So Far</a>":
 

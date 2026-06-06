@@ -1,7 +1,7 @@
 ---
 title: "Long Thoughts"
 date: 2017-09-13
-category: personal education writing
+category: programming
 ---
 
 When's the last time you had a long thought?

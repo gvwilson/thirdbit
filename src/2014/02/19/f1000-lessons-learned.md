@@ -1,7 +1,7 @@
 ---
 title: "Lessons Learned Has Been Published"
 date: 2014-02-19
-category: education software research
+category: software-carpentry
 original: swc
 ---
 <p>

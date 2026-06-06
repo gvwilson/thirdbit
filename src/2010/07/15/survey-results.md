@@ -1,6 +1,6 @@
 ---
 date: 2010-07-15
-category: software education
+category: software-carpentry
 original: swc
 title: Survey Results
 ---

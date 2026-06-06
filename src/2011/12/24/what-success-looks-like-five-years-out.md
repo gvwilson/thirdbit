@@ -1,6 +1,6 @@
 ---
 date: 2011-12-24
-category: education software research
+category: software-carpentry
 original: swc
 title: What Success Looks Like Five Years Out
 ---

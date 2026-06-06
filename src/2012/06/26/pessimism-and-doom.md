@@ -1,6 +1,6 @@
 ---
 date: 2012-06-26
-category: research
+category: cs-education
 original: swc
 title: Pessimism and Doom
 ---

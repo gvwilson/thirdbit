@@ -1,7 +1,7 @@
 ---
 title: "Sustainability"
 date: 2014-08-04
-category: software research community
+category: software-carpentry
 original: swc
 ---
 <p>

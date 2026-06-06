@@ -1,6 +1,6 @@
 ---
 date: 2024-01-20
-category: software research education
+category: technical-writing career
 title: "Not on the Shelves (2024 Edition)"
 ---
 

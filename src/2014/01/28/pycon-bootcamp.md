@@ -1,7 +1,7 @@
 ---
 title: "Workshops at PyCon in Montreal This April"
 date: 2014-01-28
-category: education software
+category: software-carpentry conferences
 original: swc
 ---
 <p>

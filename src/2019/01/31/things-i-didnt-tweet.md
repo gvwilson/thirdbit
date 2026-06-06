@@ -1,6 +1,6 @@
 ---
 date: 2019-01-31
-category: education writing software
+category: noticed
 title: "Things I Didn't Tweet This Month"
 ---
 

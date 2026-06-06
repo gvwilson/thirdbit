@@ -1,7 +1,7 @@
 ---
 title: "Why Discrimination Persists"
 date: 2026-04-25
-category: sdgc
+category: sdgc diversity
 ---
 
 Becker's 1957 work on discrimination in labor markets generated an optimistic prediction.

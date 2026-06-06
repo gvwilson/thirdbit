@@ -1,7 +1,7 @@
 ---
 title: "Eleven New Instructors"
 date: 2015-02-28
-category: education community
+category: software-carpentry
 original: swc
 ---
 <p>

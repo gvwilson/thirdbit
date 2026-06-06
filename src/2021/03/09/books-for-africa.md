@@ -1,7 +1,7 @@
 ---
 title: "Books for Africa"
 date: 2021-03-09
-category: software writing education
+category: education book-reviews
 ---
 
 Randi Cohen at Taylor & Francis

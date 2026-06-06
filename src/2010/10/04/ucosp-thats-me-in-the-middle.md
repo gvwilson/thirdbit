@@ -1,7 +1,7 @@
 ---
 title: "UCOSP: That's Me in the Middle"
 date: 2010-10-04
-category: software education community
+category: student-projects
 ---
 Andrew Louis has posted a great summary of the <a href="http://ucosp.ca/fall2010/2010/10/ucosp-code-sprint/">Fall 2010 UCOSP code sprint</a>, which took place this past weekend here in Toronto.  Over 50 students and mentors from all across the country spent two and a half days talking, coding, learning, laughing (sometimes at me), and getting to know the city and each other.  This term's projects include:
 <ul>

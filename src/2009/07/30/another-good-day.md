@@ -1,7 +1,7 @@
 ---
 title: "Another Good Day"
 date: 2009-07-30
-category: software education research
+category: software-carpentry
 ---
 July 29, 2009, was the second really good day I've had since I started this job. In the morning, our summer students did demos that were as good as anything shown at DemoCamp 21. In the afternoon, six very smart and very eloquent people talked to an audience of about 100 about how the web is changing the practice of science.  I'm very proud of our students, and very grateful to Titus, Cameron, Victoria, Michael, David, and Jon for their time.
 

@@ -1,7 +1,7 @@
 ---
 title: "Third Walls and Eighth Bolts"
 date: 2019-07-22
-category: software personal
+category: personal
 ---
 
 My brother [Jeff](@root/2018/03/20/goodbye-jeff/) used to talk about the third wall.

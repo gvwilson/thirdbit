@@ -1,7 +1,7 @@
 ---
 title: "Being a Great Teacher"
 date: 2024-12-28
-category: education society
+category: cs-education politics
 ---
 
 Three keys to being a great teacher:

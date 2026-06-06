@@ -1,7 +1,7 @@
 ---
 title: "A Bibliography"
 date: 2026-04-13
-category: sdgc
+category: sdgc book-reviews
 ---
 
 *[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*

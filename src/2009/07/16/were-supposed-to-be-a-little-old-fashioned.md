@@ -1,7 +1,7 @@
 ---
 title: "We're *Supposed* to Be a Little Old Fashioned"
 date: 2009-07-16
-category: education research software
+category: software-carpentry empirical-se
 ---
 Tim Bray <a href="http://www.tbray.org/ongoing/When/200x/2009/07/14/Web-Curriculum">recently mused</a> that "…the World Wide Web would serve well as a framework for structuring much of the academic Computer Science curriculum. A study of the theory and practice of the Web's technologies would traverse many key areas of our discipline." He then goes on to outline a curriculum that emphasizes theoretical computer science concepts relevant to modern systems…
 

@@ -1,7 +1,7 @@
 ---
 title: "The Notebook Not Taken"
 date: 2022-11-13
-category: writing software research
+category: tools data-science cs-education
 ---
 
 I had the pleasure of seeing [Alison Hill](https://www.apreshill.com/)

@@ -1,7 +1,7 @@
 ---
 title: "Measuring Software Tools"
 date: 2019-12-17
-category: software
+category: tools empirical-se
 ---
 
 I think there are four interesting ways to measure a software tool.

@@ -1,7 +1,7 @@
 ---
 title: "October 2013 Lab Meeting"
 date: 2013-10-04
-category: software community
+category: software-carpentry
 original: swc
 ---
 <p>

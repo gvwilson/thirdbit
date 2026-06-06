@@ -1,7 +1,7 @@
 ---
 title: "Discussing the Balance"
 date: 2009-08-30
-category: research community writing
+category: academia research-methods
 ---
 I accumulated a few links this summer about gender equity in computing, particularly in open source. The two that bear re-reading are:
 <ol>

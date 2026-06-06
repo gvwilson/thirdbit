@@ -1,7 +1,7 @@
 ---
 title: "Crunch Mode and Burnout"
 date: 2009-06-15
-category: education software writing
+category: career cs-education
 ---
 Several times a year, it seems, I send around the link to Evan Robinson's "<a href="http://www.igda.org/articles/erobinson_crunch.php">Why Crunch Mode Doesn't Work</a>". This time it was prompted by students who are trying to hold down full-time jobs while working on extracurricular projects that are almost as demanding.  I recently came across this post on "<a href="http://www.alistapart.com/articles/burnout/">Burnout</a>" that I'll include in future mailings; it talks about how good intentions lead to ever-lower performance due to fatigue, and what can be done about it.
 

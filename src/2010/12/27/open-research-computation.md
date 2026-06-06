@@ -1,6 +1,6 @@
 ---
 date: 2010-12-27
-category: research software education
+category: software-carpentry research-methods
 original: swc
 title: Open Research Computation
 ---

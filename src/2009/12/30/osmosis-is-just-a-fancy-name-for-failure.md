@@ -1,6 +1,6 @@
 ---
 date: 2009-12-30
-category: research software education
+category: software-carpentry education
 original: swc
 title: Osmosis is Just a Fancy Name for Failure
 ---

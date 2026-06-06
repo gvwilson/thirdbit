@@ -1,7 +1,7 @@
 ---
 title: "Assuming the Problem"
 date: 2013-10-08
-category: community personal
+category: cs-education
 ---
 <p>
   Gizmodo ran a piece recently titled

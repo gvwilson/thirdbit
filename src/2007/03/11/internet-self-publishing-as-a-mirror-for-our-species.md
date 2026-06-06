@@ -1,7 +1,7 @@
 ---
 title: "Internet Self-Publishing as a Mirror for our Species"
 date: 2007-03-11
-category: research education
+category: politics noticed
 ---
 I gave a short talk on non-academic publishing to grad students in the Computer Science department a week ago, and one of them asked me about self-publishing. In the past, companies that did this were called "vanity presses", because in most cases what they printed was material that no other publishing company thought people would buy.  Has the web changed that?  Well, here's the current top 20 from Lulu, which is probably the best-known Internet vanity press.  About the only thing I can conclude from it is that we are a very odd species…
 <ol>

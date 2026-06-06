@@ -1,6 +1,6 @@
 ---
 date: 2010-03-11
-category: software education writing
+category: software-carpentry
 original: swc
 title: How Much Of This Should Scientists Understand?
 ---

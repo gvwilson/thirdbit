@@ -1,7 +1,7 @@
 ---
 title: "What 'Community' Actually Means"
 date: 2008-01-12
-category: community
+category: open-source
 ---
 As I was coming out of the library today, I saw a guy in a white van scrape against a car parked on a side street while trying to make a tight corner. The guy in the van didn't stop, but a passer-by went into the library, wrote down the van's license plate number and his own phone number, and taped it to the car that had been scraped.  That got me thinking about the word "community". It's bandied around a fair bit in our field (as in, "open source community"); here's what I think it actually means.
 

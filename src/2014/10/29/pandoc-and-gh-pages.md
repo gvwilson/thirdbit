@@ -1,7 +1,7 @@
 ---
 title: "Pandoc and Building Pages"
 date: 2014-10-29
-category: software education writing
+category: tools
 original: swc
 ---
 <p>

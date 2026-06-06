@@ -1,7 +1,7 @@
 ---
 title: "The Differential Legalization of Pleasure"
 date: 2026-04-28
-category: sdgc
+category: sdgc politics
 ---
 
 Alcohol kills hundreds of thousands of people a year in wealthy countries

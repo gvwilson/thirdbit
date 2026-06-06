@@ -1,6 +1,6 @@
 ---
 date: 2012-05-12
-category: software education writing
+category: software-carpentry
 original: swc
 title: Feedback from Michigan State
 ---

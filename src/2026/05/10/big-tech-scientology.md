@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Scientology"
 date: 2026-05-10
-category: sdgc
+category: sdgc ethics
 ---
 
 In the 1950s, L. Ron Hubbard developed a practice called auditing.

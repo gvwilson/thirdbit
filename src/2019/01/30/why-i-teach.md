@@ -1,7 +1,7 @@
 ---
 title: "Why I Teach (Revisited)"
 date: 2019-01-30
-category: favorite
+category: favorite education personal
 ---
 <p>
   When I first started volunteering at the University of Toronto,

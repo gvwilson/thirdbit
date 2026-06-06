@@ -1,7 +1,7 @@
 ---
 title: "Workshop on Organizing for Progressive Community Change"
 date: 2018-02-28
-category: education community software
+category: software-carpentry
 ---
 
 A growing number of people who work in tech want to be involved in

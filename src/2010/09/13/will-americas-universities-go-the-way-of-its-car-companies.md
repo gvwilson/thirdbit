@@ -1,6 +1,6 @@
 ---
 date: 2010-09-13
-category: software education research
+category: academia
 original: swc
 title: Will America's Universities Go The Way Of Its Car Companies?
 ---

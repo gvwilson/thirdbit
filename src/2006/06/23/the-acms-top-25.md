@@ -1,7 +1,7 @@
 ---
 title: "The ACM's Top 25"
 date: 2006-06-23
-category: software writing
+category: noticed programming
 ---
 Between October 2005 and January 2006, the ACM polled its professional members, asking them to nominate and then vote for books they considered classics.  The final list is:
 <ol>

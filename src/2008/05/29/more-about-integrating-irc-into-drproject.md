@@ -1,7 +1,7 @@
 ---
 title: "More About Integrating IRC into DrProject"
 date: 2008-05-29
-category: students
+category: student-projects programming
 ---
 Kosta has posted some more thoughts about integrating IRC into DrProject. He's still working on mechanisms, but I'm looking ahead to the user interface. In particular, how should IRC logs be displayed? His first pass will be a "magic" wiki page that conversation entries are appended to (or possibly one separate "magic" page for each IRC conversation topic).  That will work for short projects, but:
 <ol>

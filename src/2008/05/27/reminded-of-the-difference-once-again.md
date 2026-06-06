@@ -1,7 +1,7 @@
 ---
 title: "Reminded of the Difference Once Again"
 date: 2008-05-27
-category: software
+category: programming
 ---
 Via <a href="http://www.controlledflight.ca/2008/05/26/how-can-we-tell-when-were-done/">Irving Reid</a>, a great quote from <a href="http://www.infoq.com/articles/agile-version-control">Henrik Kniberg</a> about how to tell when you're done:
 <blockquote>So when a team member says that a story is Done and moves the story card into the Done column, a customer could run into the room at that moment and say "Great! Lets go live now!", and nobody in the team will say "no, but wait".</blockquote>
