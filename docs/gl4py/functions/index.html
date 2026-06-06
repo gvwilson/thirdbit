@@ -116,6 +116,9 @@
 </ul>
 </li>
 <li>The arms are tried in order, with the first match winning</li>
+<li>You can use <code>|</code> to share a single arm across multiple patterns:
+    <code>a, b, _ | _, a, b | a, _, b if a == b -&gt; Isosceles</code>
+    is equivalent to writing three separate guarded arms</li>
 <li>The compiler verifies that the arms cover all possibilities</li>
 </ul>
 <div data-inc="src/palindrome.gleam" data-mark="palindrome"><span aria-label="Source: functions/src/palindrome.gleam" class="inc-path" role="img" tabindex="0" title="functions/src/palindrome.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Bool</span><span class="w"> </span><span class="p">{</span>
@@ -146,7 +149,7 @@
 </code></pre></div>
 </div>
 <ul>
-<li><code>case lst { [] -&gt; 0 [_, ..rest] -&gt; 1 + length(rest) }</code> is the
+<li><code>case items { [] -&gt; 0 [_, ..rest] -&gt; 1 + length(rest) }</code> is the
     standard recursive structure on lists<ul>
 <li><code>[]</code> matches the empty list, so the <a class="gl-ref" href="../glossary/#base_case">base case</a> returns 0</li>
 <li><code>[_, ..rest]</code> matches a non-empty list:
@@ -206,26 +209,32 @@ take 10 = [1, 2, 3, 4, 5]
 </code></pre></div>
 </div>
 <ul>
-<li>Matching on two values simultaneously: <code>case lst, n { ... }</code></li>
+<li>Matching on two values simultaneously: <code>case items, n { ... }</code></li>
 <li>Three base cases: <code>n = 0</code> (done), empty list (done), otherwise take one element and recurse</li>
 <li>The result is built by <a class="gl-ref" href="../glossary/#prepend">prepending</a> <code>[x, ..take(rest, n - 1)]</code></li>
+<li>Note: this version is <em>not</em> tail-recursive
+    because the prepend waits for the recursive call to return<ul>
+<li>A tail-recursive version would use an accumulator
+    and reverse the result at the end</li>
+</ul>
+</li>
 </ul>
 <h2>Lists and Higher-Order Functions</h2>
 <ul>
 <li>Gleam's <code>List</code> type is a singly-linked list</li>
 <li>The standard library provides <code>list.map</code>, <code>list.filter</code>, and <code>list.fold</code>
     that cover most iteration needs</li>
-<li><code>list.map(lst, f)</code> applies <code>f</code> to every element and returns a new list<ul>
-<li>Like Python's <code>[f(x) for x in lst]</code></li>
+<li><code>list.map(items, f)</code> applies <code>f</code> to every element and returns a new list<ul>
+<li>Like Python's <code>[f(x) for x in items]</code></li>
 </ul>
 </li>
-<li><code>list.filter(lst, pred)</code> keeps elements where <code>pred</code> returns <code>True</code><ul>
-<li>Like Python's <code>[x for x in lst if pred(x)]</code></li>
+<li><code>list.filter(items, pred)</code> keeps elements where <code>pred</code> returns <code>True</code><ul>
+<li>Like Python's <code>[x for x in items if pred(x)]</code></li>
 </ul>
 </li>
-<li><code>list.fold(lst, init, f)</code> combines elements left to right using <code>f</code><ul>
+<li><code>list.fold(items, init, f)</code> combines elements left to right using <code>f</code><ul>
 <li><code>list.fold([1,2,3], 0, fn(acc, x) { acc + x })</code> gives <code>6</code></li>
-<li>Like Python's <code>functools.reduce(f, lst, init)</code></li>
+<li>Like Python's <code>functools.reduce(f, items, init)</code></li>
 </ul>
 </li>
 <li>Anonymous functions use <code>fn(args) { body }</code>:</li>
@@ -266,7 +275,7 @@ take 10 = [1, 2, 3, 4, 5]
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">lst</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 <h2>Check Understanding</h2>
 <details>
@@ -290,7 +299,7 @@ with one of these three functions in Gleam.</p>
 <h2>Exercises</h2>
 <div class="exercise">
 <h3>Recursive sum (5 minutes)</h3>
-<p>Write <code>sum(lst: List(Int)) -&gt; Int</code> using tail recursion with an accumulator.
+<p>Write <code>sum(items: List(Int)) -&gt; Int</code> using tail recursion with an accumulator.
 Verify that <code>sum([1, 2, 3, 4, 5])</code> returns <code>15</code> and <code>sum([])</code> returns <code>0</code>.</p>
 </div>
 <div class="exercise">
@@ -303,6 +312,14 @@ Test it with <code>"racecar"</code>, <code>"gleam"</code>, and at least one stri
 <p>Use a single pipeline to take the list <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>,
 keep only odd numbers, square each one, and sum the results.
 The answer should be <code>165</code>.</p>
+</div>
+<div class="exercise">
+<h3>Tail-recursive take (10 minutes)</h3>
+<p>The <code>take</code> function in this lesson is not tail-recursive.
+Write <code>take_tail(items: List(a), n: Int) -&gt; List(a)</code> using tail recursion
+with an accumulator, reversing the result at the end.
+Verify that <code>take_tail([1, 2, 3, 4, 5], 3)</code> returns <code>[1, 2, 3]</code>
+and <code>take_tail([1, 2], 5)</code> returns <code>[1, 2]</code>.</p>
 </div>
 <div class="exercise">
 <h3>Triangle classifier (10 minutes)</h3>

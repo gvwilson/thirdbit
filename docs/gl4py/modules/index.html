@@ -77,6 +77,9 @@
 <li>Standard library modules follow the same convention:
     <code>import gleam/list</code>, <code>import gleam/dict</code>, <code>import gleam/string</code><ul>
 <li><a class="gl-ref" href="../glossary/#circular_import">Circular imports</a> are not allowed</li>
+<li>Gleam packages are <em>not</em> automatically namespaced:
+    if two dependencies both export a module named <code>utils</code>,
+    there will be a name conflict</li>
 </ul>
 </li>
 </ul>
@@ -139,15 +142,24 @@
 <span class="w">  </span><span class="n">Counter</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">increment</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Counter</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">decrement</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">True</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">False</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">c</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
-<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">c</span><span class="p">.</span><span class="n">value</span>
+<span class="p">}</span>
 </code></pre></div>
 </div>
 <ul>
@@ -224,25 +236,33 @@
 </div>
 <ul>
 <li>Every function ending in <code>_test</code> runs automatically</li>
-<li><code>should.equal(expected)</code> asserts the piped value equals <code>expected</code></li>
-<li><code>should.be_ok</code> and <code>should.be_error</code> check <code>Result</code> values</li>
+<li>Use <code>assert</code> to check values in tests:
+    <code>assert Ok(value) = result</code> gives you the unwrapped value,
+    while a mismatched assertion fails the test with a clear message</li>
 <li><code>gleam test</code> runs all tests, <code>gleam test --module foo_test</code> runs one file</li>
 </ul>
 <h2>Type Aliases</h2>
 <ul>
 <li><code>type MyAlias = SomeOtherType</code> creates a readable name for an existing type.</li>
 </ul>
-<div data-inc="src/modules/aliases.gleam" data-mark="type_aliases"><span aria-label="Source: modules/src/modules/aliases.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/aliases.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span>
-<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span>
-<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">FileMap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">Hash</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Filename</span><span class="p">))</span>
+<div data-inc="src/modules/aliases.gleam" data-mark="type_aliases"><span aria-label="Source: modules/src/modules/aliases.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/aliases.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Filename</span><span class="w"> </span><span class="p">=</span>
+<span class="w">  </span><span class="n">String</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="p">=</span>
+<span class="w">  </span><span class="n">String</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">FileMap</span><span class="w"> </span><span class="p">=</span>
+<span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">Hash</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Filename</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <ul>
 <li><code>Filename</code> and <code>String</code> are identical to the compiler; one is just more descriptive</li>
 <li>Unlike opaque types, aliases do not hide constructors</li>
-<li>Use them to make function signatures communicate intent:
-    <code>fn group(files: List(#(Filename, Hash))) -&gt; FileMap</code> is clearer than
-    <code>fn group(files: List(#(String, String))) -&gt; dict.Dict(String, List(String))</code></li>
+<li>Type aliases are rarely used in ordinary Gleam code<ul>
+<li>Their main practical use is to re-export an opaque internal type
+    under a public name without exposing its constructors</li>
+</ul>
+</li>
 </ul>
 <h2>Check Understanding</h2>
 <details>

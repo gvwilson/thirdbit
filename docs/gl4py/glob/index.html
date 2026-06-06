@@ -292,15 +292,12 @@
 <ul>
 <li>Each test covers exactly one behavior</li>
 <li>Test names end in <code>_test</code> so gleeunit discovers them automatically</li>
-<li><code>should.be_true()</code> and <code>should.be_false()</code> are clearer than <code>should.equal(True)</code> for Boolean results</li>
+<li>Use <code>assert</code> to check Boolean results: <code>assert True = result</code> or <code>assert False = result</code></li>
 <li>Run with <code>gleam test</code></li>
 </ul>
 <h2>Filtering a List of Files</h2>
 <p>Combining the parser and matcher gives a useful utility:</p>
-<div data-inc="src/filter_demo.gleam" data-mark="filter_fn"><span aria-label="Source: glob/src/filter_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/filter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">filter_files</span><span class="p">(</span>
-<span class="w">  </span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span>
-<span class="w">  </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-<span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/filter_demo.gleam" data-mark="filter_fn"><span aria-label="Source: glob/src/filter_demo.gleam" class="inc-path" role="img" tabindex="0" title="glob/src/filter_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">filter_files</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">files</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">elems</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">parse_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
 <span class="w">  </span><span class="k">list</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">match_pattern</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">))</span>
 <span class="p">}</span>

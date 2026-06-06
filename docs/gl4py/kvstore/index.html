@@ -212,7 +212,10 @@
 <span class="w">    </span><span class="p">})</span>
 
 <span class="w">  </span><span class="k">dict</span><span class="p">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">live_dict</span><span class="p">)</span>
-<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">item</span><span class="w">  </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="p">#(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">item</span>
+<span class="w">    </span><span class="n">Set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>

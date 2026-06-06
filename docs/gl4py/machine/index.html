@@ -100,21 +100,21 @@
 <li>An HTTP request lifecycle has six states:</li>
 </ul>
 <div data-inc="src/machine_demo.gleam" data-mark="types"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Idle</span>
-<span class="w">    </span><span class="n">Reading</span>
-<span class="w">    </span><span class="n">Routing</span>
-<span class="w">    </span><span class="n">Handling</span>
-<span class="w">    </span><span class="n">Sending</span>
-<span class="w">    </span><span class="n">Done</span>
+<span class="w">  </span><span class="n">Idle</span>
+<span class="w">  </span><span class="n">Reading</span>
+<span class="w">  </span><span class="n">Routing</span>
+<span class="w">  </span><span class="n">Handling</span>
+<span class="w">  </span><span class="n">Sending</span>
+<span class="w">  </span><span class="n">Done</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Event</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Connect</span>
-<span class="w">    </span><span class="n">Data</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Match</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-<span class="w">    </span><span class="n">NoMatch</span>
-<span class="w">    </span><span class="n">Response</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Sent</span>
+<span class="w">  </span><span class="n">Connect</span>
+<span class="w">  </span><span class="n">Data</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Match</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="w">  </span><span class="n">NoMatch</span>
+<span class="w">  </span><span class="n">Response</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span>
+<span class="w">  </span><span class="n">Sent</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -140,21 +140,21 @@
 </ul>
 <h2>The Transition Function</h2>
 <div data-inc="src/machine_demo.gleam" data-mark="step_fn"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">Event</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">)</span>
-<span class="w">        </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span>
-<span class="w">            </span><span class="n">Error</span><span class="p">(</span>
-<span class="w">                </span><span class="s">"cannot handle "</span>
-<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" in state "</span>
-<span class="w">                </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
-<span class="w">            </span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">)</span>
+<span class="w">    </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="n">Error</span><span class="p">(</span>
+<span class="w">        </span><span class="s">"cannot handle "</span>
+<span class="w">        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">" in state "</span>
+<span class="w">        </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -170,14 +170,14 @@
 </ul>
 <h2>Running a Sequence of Events</h2>
 <div data-inc="src/machine_demo.gleam" data-mark="run_fn"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Event</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<span class="w">        </span><span class="p">[</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="w">                </span><span class="n">Ok</span><span class="p">(</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">)</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Ok</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Ok</span><span class="p">(</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -191,20 +191,20 @@
 <li>Once a bad event arrives, no further events are processed</li>
 </ul>
 <h2>The Happy Path and the 404 Path</h2>
-<div data-inc="src/machine_demo.gleam" data-mark="main_example"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">happy_path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="n">Connect</span><span class="p">,</span>
-<span class="w">        </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Sent</span><span class="p">,</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Happy path: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">happy_path</span><span class="p">)))</span>
+<div data-inc="src/machine_demo.gleam" data-mark="main_example"><span aria-label="Source: machine/src/machine_demo.gleam" class="inc-path" role="img" tabindex="0" title="machine/src/machine_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">happy_path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="n">Connect</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Sent</span><span class="p">,</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Happy path: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">happy_path</span><span class="p">)))</span>
 
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">not_found</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
-<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Not found: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">not_found</span><span class="p">)))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">not_found</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Not found: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">not_found</span><span class="p">)))</span>
 
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
-<span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Bad event: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">bad</span><span class="p">)))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Bad event: "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">bad</span><span class="p">)))</span>
 </code></pre></div>
 </div>
 <ul>
@@ -219,69 +219,69 @@
 </ul>
 <h2>Testing</h2>
 <div data-inc="test/machine_test.gleam" data-mark="tests"><span aria-label="Source: machine/test/machine_test.gleam" class="inc-path" role="img" tabindex="0" title="machine/test/machine_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">idle_connect_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Connect</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Reading</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">reading_data_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">))</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Reading</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">))</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Routing</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">routing_match_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">))</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">))</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Handling</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">routing_not_found_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Routing</span><span class="p">,</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">handling_response_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Handling</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Sending</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">sending_sent_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Sending</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">invalid_transition_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="w">  </span><span class="n">step</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">happy_path_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="n">Connect</span><span class="p">,</span>
-<span class="w">        </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Sent</span><span class="p">,</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="n">Connect</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /users"</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Match</span><span class="p">(</span><span class="s">"users_handler"</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Response</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Sent</span><span class="p">,</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">not_found_path_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
-<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="s">"GET /nope"</span><span class="p">),</span><span class="w"> </span><span class="n">NoMatch</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">  </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">equal</span><span class="p">(</span><span class="n">Ok</span><span class="p">(</span><span class="n">Done</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">stops_on_error_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
-<span class="w">    </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
-<span class="w">    </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Connect</span><span class="p">,</span><span class="w"> </span><span class="n">Sent</span><span class="p">]</span>
+<span class="w">  </span><span class="n">run</span><span class="p">(</span><span class="n">Idle</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">)</span>
+<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_error</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <ul>
 <li>Each single-step test calls <code>step</code> directly with one state and one event</li>
-<li><code>should.equal(Ok(Reading))</code> verifies the exact next state</li>
-<li><code>should.be_error()</code> checks that an invalid transition is rejected
+<li><code>assert Ok(Reading) = result</code> verifies the exact next state</li>
+<li><code>assert Error(_) = result</code> checks that an invalid transition is rejected
     without caring about the error message text</li>
 <li>The <code>run</code> tests verify complete event sequences,
     which is closer to how the machine is actually used in production</li>

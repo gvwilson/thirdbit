@@ -79,7 +79,7 @@
 <span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"erlang"</span>
 
 <span class="k">[dependencies]</span>
-<span class="n">gleam_stdlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;= 0.34.0 and &lt; 2.0.0"</span>
+<span class="n">gleam_stdlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;= 1.0.0 and &lt; 2.0.0"</span>
 
 <span class="k">[dev-dependencies]</span>
 <span class="n">gleeunit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;= 1.0.0 and &lt; 2.0.0"</span>
@@ -115,7 +115,7 @@
 </ul>
 </li>
 <li><code>io.println</code> prints a line with a newline<ul>
-<li><code>io.debug</code> prints any value using its debug representation</li>
+<li><code>echo</code> prints any value using its debug representation</li>
 </ul>
 </li>
 </ul>
@@ -147,7 +147,12 @@
 <li><code>int.to_float</code> converts before you can mix them</li>
 </ul>
 </li>
-<li>Yes, this seems pedantic, but it's consistent</li>
+<li>Integer division by zero (and modulo by zero) returns 0
+    rather than raising an error<ul>
+<li>This is different from Python, where <code>1 / 0</code> raises <code>ZeroDivisionError</code></li>
+</ul>
+</li>
+<li>These rules seem pedantic, but they are consistent</li>
 </ul>
 <h2>Built-in Types</h2>
 <ul>
@@ -158,6 +163,14 @@
 <li><code>String</code>: UTF-8 text, like Python's <code>str</code></li>
 <li><code>Bool</code>: <code>True</code> or <code>False</code>, like Python's <code>bool</code></li>
 <li><code>Nil</code>: the unit value, similar to Python's <code>None</code> but much rarer</li>
+<li>Other types built into the language
+    (introduced in later lessons) include:<ul>
+<li><code>List(a)</code> for sequences of values of the same type</li>
+<li><code>Result(a, e)</code> for operations that can succeed or fail</li>
+<li><code>BitArray</code> for binary data at the bit level</li>
+<li><code>UtfCodepoint</code> for individual Unicode characters</li>
+</ul>
+</li>
 </ul>
 <h2>Custom Types</h2>
 <ul>
@@ -303,7 +316,8 @@ c from tuple is True
 <li>Like Python's <code>a, b, c = t</code> but the <code>#</code> makes clear a tuple is expected</li>
 </ul>
 </li>
-<li>Gleam does not have indexed access like <code>t[0]</code><ul>
+<li>Gleam does have indexed tuple access using dot notation:
+    <code>tuple.0</code> for the first element, <code>tuple.1</code> for the second, etc.<ul>
 <li>Destructuring is the idiomatic way to extract tuple fields</li>
 </ul>
 </li>
@@ -318,7 +332,8 @@ c from tuple is True
      but they are optional for local bindings</li>
 </ul>
 </li>
-<li>You can always add annotations for documentation:<ul>
+<li>Gleam's official recommendation is to annotate all public top-level
+    definitions (exported functions and custom type variants)<ul>
 <li>The compiler checks annotations against the inferred type
     and reports a mismatch as an error</li>
 </ul>

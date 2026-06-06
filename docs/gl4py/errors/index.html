@@ -83,7 +83,10 @@
 </ul>
 </li>
 <li>The type of <code>reason</code> is up to you<ul>
-<li>It can be a <code>String</code>, a custom error type, or anything else</li>
+<li>While <code>String</code> is convenient for examples,
+    Gleam developers usually prefer an explicit custom error type
+    so that the compiler can check that every error case is handled</li>
+<li>A custom error type is just another <code>type</code> definition:</li>
 </ul>
 </li>
 <li>A caller cannot use the value inside <code>Ok</code> without handling the <code>Error</code> case<ul>
@@ -136,7 +139,14 @@ Error("division by zero")
 <h2>Transforming Results</h2>
 <ul>
 <li>Often want to apply a function to the value inside <code>Ok</code> without unwrapping it manually</li>
-<li><code>result.map</code> does exactly that.</li>
+<li><code>result.map(r, f)</code> applies <code>f</code> to the value inside <code>Ok</code> and rewraps it</li>
+<li><code>result.try(r, f)</code> is similar but <code>f</code> returns a <code>Result</code>,
+    so the double-wrapping <code>Ok(Ok(v))</code> is avoided<ul>
+<li>Most Gleam developers use <code>result.try</code> more often than <code>result.map</code></li>
+</ul>
+</li>
+<li><code>result.map_error</code> transforms the error value in <code>Error</code></li>
+<li><code>result.unwrap</code> extracts the value from <code>Ok</code> or returns a default</li>
 </ul>
 <div data-inc="src/map_demo.gleam" data-mark="map_usage"><span aria-label="Source: errors/src/map_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/map_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ok_int</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})))</span>
 <span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">error_str</span><span class="p">(</span><span class="s">"oops"</span><span class="p">)</span><span class="w"> </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})))</span>
@@ -160,6 +170,12 @@ Error("oops")
 <li><code>None</code> represents absence</li>
 </ul>
 </li>
+<li><code>Option</code> is used mostly for optional fields in records
+    and optional function parameters<ul>
+<li>For return types that might fail, <code>Result</code> is usually preferred</li>
+<li><code>Result</code> can carry an error message; <code>Option</code> cannot</li>
+</ul>
+</li>
 </ul>
 <div data-inc="src/option_demo.gleam" data-mark="option_case"><span aria-label="Source: errors/src/option_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/option_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">option_inspect</span><span class="p">(</span><span class="n">opt</span><span class="p">:</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="p">{</span>
@@ -177,7 +193,7 @@ Error("oops")
 <div data-inc="src/option_demo.gleam" data-mark="first_pos"><span aria-label="Source: errors/src/option_demo.gleam" class="inc-path" role="img" tabindex="0" title="errors/src/option_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">fn</span><span class="w"> </span><span class="n">first_positive</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="n">Int</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Option</span><span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">None</span>
-<span class="w">    </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">_rest</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Some</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">..]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Some</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="w">    </span><span class="p">[</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">..</span><span class="n">rest</span><span class="p">]</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">first_positive</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -198,7 +214,7 @@ None
 </ul>
 </li>
 <li>An empty list or an all-negative list reaches <code>[] -&gt; None</code></li>
-<li>This is equivalent to Python's <code>next((x for x in lst if x &gt; 0), None)</code>
+<li>This is equivalent to Python's <code>next((x for x in items if x &gt; 0), None)</code>
     but the return type makes the "might be absent" case explicit</li>
 </ul>
 <h2>Chaining with <code>use</code></h2>
@@ -264,8 +280,10 @@ Error("not an integer: bad")
 <li>It <a class="gl-ref" href="../glossary/#panic">panics</a> on <code>Error</code></li>
 </ul>
 </li>
-<li>Use <code>result.map</code> and <code>result.try</code> for short transformations</li>
+<li>Use <code>result.try</code> and <code>result.map</code> for short transformations</li>
 <li>Use <code>use</code> for chains of three or more fallible operations</li>
+<li>Prefer custom error types over <code>String</code> for the error type
+    in non-trivial programs</li>
 </ul>
 <h2>Check Understanding</h2>
 <details>
@@ -319,7 +337,7 @@ Chain them with <code>use</code> so that (for example)
 </div>
 <div class="exercise">
 <h3>First matching element (10 minutes)</h3>
-<p>Write <code>find(lst: List(a), pred: fn(a) -&gt; Bool) -&gt; Option(a)</code>
+<p>Write <code>find(items: List(a), pred: fn(a) -&gt; Bool) -&gt; Option(a)</code>
 that returns <code>Some(x)</code> for the first element where <code>pred(x)</code> is <code>True</code>,
 or <code>None</code> if no element matches.
 Write it using recursion with a <code>case</code> expression.</p>
