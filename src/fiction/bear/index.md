@@ -580,7 +580,7 @@ Prince Thokmay watched as the housemaid led Noxy away.
 He should probably take a bath before dinner too,
 he thought.
 And find a clean shirt.
-And see if anyone knew the new Chaghan consul's name yet.
+And see if anyone knew the new Chaghan-o consul's name yet.
 The outgoing one, Yisu, had claimed not to know.
 "Oh, they don't tell *me* anything,"
 she had said brightly the last time he had asked.
@@ -1332,7 +1332,7 @@ but Mope always told him to think two moves ahead.
 
 *3. A Stale cloud was injured in the same attack.
 Its rider is to remain here with it until it is able to rejoin its herd.*
-He had almost chewed the end off his quill writing those two sentences.
+He had almost chewed the end off his brush writing those two sentences.
 After what had happened two years ago,
 he doubted his father would be happy knowing that Noxy was staying at the garrison house.
 He wanted his brother to find out even less.
@@ -1346,7 +1346,7 @@ Thokmin had made a point of sneering at cloudherds ever since.
 He sighed,
 trying to think about how to explain Captain Jigme—no, Consul Jigme—then
 froze as something else sighed behind him.
-His right hand was on the writing desk, holding the goose quill.
+His right hand was on the writing desk, holding the delicate writing brush.
 *Breathe naturally,* he told himself
 as he slid his left hand up from his knee
 (which he often scratched while writing)
@@ -3529,7 +3529,7 @@ set a pair of heavy cases on the ground,
 and brushed her hands on her coat.
 
 "Your Highness,"
-Scholar Shudarga said,
+Learned Shudarga said,
 clasping her hands in front of her and giving him a deep, formal bow.
 
 For a moment the words wouldn't come,
@@ -3777,11 +3777,114 @@ Understood?"
 This wasn't at all how she had expected this conversation to go,
 but she knew enough to stop talking when a deal was done.
 
+"All of them? From *memory*?" Mope said,
+almost comically skeptical.
+
+Prince Thokmay flipped back to the start of the book he was holding
+and held it out.
+Pushing his spectacles into place,
+Mope read the frontspiece,
+his frown deepening as he did so.
+"Well, there you go," he said,
+gesturing at the page.
+"She even says it.
+'With corrections based on my discussion with other scholars who choose not to be named.'
+Precious right they don't.
+This is scandalous, honored, scandalous!"
+
+Thokmay sat on the edge of his desk.
+"I don't think Learned Shudarga is particularly worried about scandal.
+I dipped into the other volumes.
+It really does look like she has it all—every law I could think of is there,
+verse on verse."
+
+Mope looked at the open cases sourly.
+"And if she can have two sets printed…"
+
+"…there are probably a hundred others being smuggled across the border right now,"
+the prince finished.
+He sighed,
+but then the corner of his mouth quirked up.
+"It's a brilliant move.
+Even if she mis-remembered a few verses,
+these are what people are going to start quoting."
+
+Mope waved the prince's words away.
+"With respect, honored, it doesn't change anything.
+No judge will accept pilfered laws in court."
+
+"Maybe not," Thokmay said.
+"But I think people are going to care a lot less about what judges will and won't accept
+when they can read the laws for themselves."
+He straightened up.
+"I need to write my father.
+Make sure these are locked up, will you?"
+
+"Of course, honored, of course," the troll said,
+already lost in one of the other volumes.
+Thokmay watched him read for a moment,
+wondering what Loghan and the rest of the Ninety Kingdoms were going to look like
+when everyone who wanted to could do the same,
+then reached for his writing brush and inkpot.
+At this rate,
+the garrison was going to run out of hawks…
+
+Noxy was only a short street away from the garrison house when her day got worse.
+The house that the outgoing Consul Yisu had occupied for the past few years
+was one of the largest in Apple Bridge,
+and she had spared no expense on its upkeep.
+Like the rest of the town's houses it had no windows facing the street,
+just a double door painted with a bright geometric pattern for luck.
+The shutters on its upstairs windows were heavier than most,
+and had key locks instead of knotted ties,
+but the begonias and million bells in knee-tall pots on either side of the door
+made it look welcoming.
+
+One of the doors swung open just as she passed.
+A tall man with a cudgel on his hip stepped out,
+nodded to her,
+and then nodded again over his shoulder.
+Consul Jigme stepped out wearing a dark knee-length formal coat,
+its high collar closed despite the warmth,
+and pressed his hand to his chest.
+"Respected," he said,
+"What an unexpected pleasure."
+
+"For one of us," she shot back.
+Was he going to—saints, yes he was.
+He fell into step beside her with his bodyguard a pace behind.
+
+"Off to see the prince?"
+the consul asked.
+"I'm headed that way myself."
+
+Noxy stopped short.
+When Jigme did too,
+she crossed her arms.
+"I thought you were going to see the prince?"
+
+The consul studied her for a moment, then nodded.
+"That I am.
+Fair weather, respected."
+He pressed his hand to his chest,
+turned,
+and left her to feel angry and foolish in the middle of the street.
+
+"He's up to something,"
+she told Prince Thokmay an hour later,
+her lunch untouched on the table beside her.
+Dolly and Princess Ogmin were busy counting noodles,
+and Mope was apparently still lost in Learned Shudarga's law books.
+
+"I know," the prince replied.
+He picked a fried mushroom off his plate with his chopsticks
+and chewed it reflectively.
+"The question is, what?"
+
 *The garrison house was still that night
 when a quiet voice only Princess Ogmin could hear told her to get dressed.
-She was puzzled—it was dark outside,
-and Dolly was still snoring next door—but
-the princess was used to being puzzled.
+She was puzzled because it was dark outside and Dolly was still snoring next door,
+but the princess was used to being puzzled.
 The itchy tingling under the little wooden ring on her right hand bothered her,
 but only a little.*
 
