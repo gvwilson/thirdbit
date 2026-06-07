@@ -5567,4 +5567,95 @@ Indy tied the door closed behind him and then smiled fondly at her daughter.
 "Come on, sweetling.
 Let's get to bed."
 
+*The people in and of Stale weren't the only ones sheltering from the storm that night.
+An hour away,
+if you were a condoro on a clear day,
+or two days' hard match if you were a soldier,
+rain pounded on a hundred waxed cotton tents
+pitched with almost mathematical precision in a next square.
+Each was meant to hold four people,
+but had five, sex, or even seven crowded into them.
+Some slept and some tried to
+while others knit,
+mended their gear,
+or played games of hive or towers with improvised pieces.*
+
+*In a tent that looked no different from the outside than any of the others,
+a lean man with a shaved head and hawk-like eyes
+studied the pages in front of him.
+The dayglass lantern hanging from the tent's ridgepole
+turned the damp stains on the pages into shadows.
+The ink had run in places,
+and the handwriting was poor enough that other parts would have been unreadable
+even in the best of light,
+but what he could decipher was enough to make him
+take a tight cylinder of silk from a tube and unroll it.
+The map only showed a portion of the Brumosos,
+but that was enough for him to find the name he was looking for.*
+
+*"And all they want…" he started.*
+
+*"…is a sack of apples and some buttons, honored,"
+the soldier standing at attention in his tent's doorway confirmed.
+"The shinier the better."*
+
+*Captain Jigme sat back and tugged on his earlobe.
+"I don't trust good fortune, corporal.
+Have I ever told you that?"*
+
+*"Yes, honored," the corporal replied.
+The captain had in fact told him that almost daily,
+but it had never seemed the right time to point that out.*
+
+*Captain Jigme was still in the way a snake is just before it pounces.
+When he spoke,
+his orders were crisp and clear.
+Pay the raccoons what they asked for,
+but not until they had shown exactly where they had found the packet of letters.
+Pass word that they would strike camp at dawn,
+rain or no rain.
+Everyone who would march should get a good breakast—they wouldn't be stopping until nightfall.
+The wounded who could stand would stay to look after those who couldn't.*
+
+*"Yes, honored."
+The corporal hesitated.
+"Are they to fight, honored?
+When the king's lot get here?"*
+
+*The captain shook his head.
+For a moment he let the weight of dead friends and disappointed hopes
+pull his shoulders down,
+but for a moment.
+Everyone in the tents around him had was a volunteer.
+They had all made the same choice he had.
+They had known what failure would cost,
+but they hadn't failed yet.
+They owed it to those who had fallen to seize whatever chances came their way.
+And to be honest
+(which Captain Jigme always tried tried to be)
+they didn't have any better options.
+They had been so sure people would rise up with them…*
+
+*"No," he said,
+reaching for the dowel that the map had been rolled around.
+There was only one road through the Brumosos,
+but the map had been a gift when he received his commission.
+"Tell them to surrender and blame me for leading them astray."
+He glanced at the corporal.
+"But don't tell anyone where we're headed.
+Let them guess that we're throwing ourselves on the mercy of the Chaghan-o."*
+
+*"Yes, honored."
+The corporal saluted, turned, and ducked under the tent flap,
+apparently as indifferent to the rain as a duck.
+Captain Jigme only half-heard him snapping orders.
+His thoughts were already on the road ahead, and on their destination.
+He had no way of knowing whether Scholar-Candidate Yangyal actually existed,
+but if this was a trap,
+it was far more elaborate than their reduced numbers required.
+There had only been one tiger in the royal army,
+and he had only had one boy.
+If they were in Stale Remainders,
+that just might change everything.*
+
 </section>
