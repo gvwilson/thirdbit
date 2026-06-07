@@ -6,6 +6,7 @@ commands:
 
 ## site: rebuild site without running server
 site:
+	python bin/reading-list.py reading.csv src/reading-list.md
 	ark build
 
 ## serve: build site and run server

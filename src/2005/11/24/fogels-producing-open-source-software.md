@@ -1,7 +1,7 @@
 ---
 title: "Fogel's Producing Open Source Software"
 date: 2005-11-24
-category: software community
+category: software book-reviews
 ---
 A community is more than just a bunch of people.  It's a shared set of values, and rules for how to behave.  By this standard, the open source community isn't just what some programmers choose to do with their time, and why; it's also <em>how</em> they do it.
 

@@ -1,7 +1,7 @@
 ---
 title: "And Should I Fall Behind"
 date: 2021-01-06
-category: personal fiction
+category: fiction-writing
 ---
 
 A short story called "And Should I Fall Behind" that I wrote

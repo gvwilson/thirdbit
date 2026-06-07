@@ -1,7 +1,7 @@
 ---
 title: If I Retired
 date: 2025-09-04
-category: personal fiction
+category: personal
 ---
 
 If I retired tomorrow,

@@ -1,7 +1,7 @@
 ---
 title: "Worlds"
 date: 2024-04-03
-category: personal fiction
+category: fiction-writing
 ---
 
 How it started in 1982:

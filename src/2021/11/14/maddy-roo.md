@@ -1,7 +1,7 @@
 ---
 title: "Maddy Roo"
 date: 2021-11-14
-category: fiction personal
+category: fiction-writing
 ---
 
 For this year's [National Novel Writing Month](https://nanowrimo.org/)

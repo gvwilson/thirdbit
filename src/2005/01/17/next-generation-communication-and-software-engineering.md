@@ -1,7 +1,7 @@
 ---
 title: "Next-Generation Communication and Software Engineering"
 date: 2005-01-17
-category: software community
+category: software tools
 ---
 A couple of years ago (summer of 2003, actually), I noticed something that's been nagging me ever since.  When I log into a computer, the first thing I fire up is email.  When my students log in, the first thing <em>they</em> run is an instant messaging client.  They keep IM running all the time, just as I keep my email client up, and whenever they run into something they don't understand, they're more likely to ask one of their buddies than to ask Google.
 

@@ -1,7 +1,7 @@
 ---
 title: "Their First Message"
 date: 2023-04-27
-category: fiction
+category: fiction-writing
 ---
 
 "You're absolutely sure?"

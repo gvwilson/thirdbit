@@ -1,7 +1,7 @@
 ---
 title: "Ant + Hibernate = Confusion and Pain"
 date: 2004-10-07
-category: software education community
+category: software education
 ---
 Once again, an attempt to get two stable, mature, well-documented open source Java tools to talk to each other has resulted in several hours of frustration, as well as all the bad karma associated with using Those Words (as my Grade 3 teacher called them) out loud.  I finally figured out how to avoid the problem, but I still don't understand why it happens in the first place.  If any Ant and/or Hibernate gurus would care to enlighten me, I would be grateful.
 

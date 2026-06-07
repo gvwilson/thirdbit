@@ -1,7 +1,7 @@
 ---
 title: "A Story's Not Really Over…"
 date: 2009-02-05
-category: personal fiction
+category: personal
 ---
 …as long as it's still being read:
 
