@@ -78,8 +78,6 @@ please [drop me a line](mailto:gvwilson@third-bit.com).
 CV (<a href="@root/cv/gvwilson.pdf">PDF</a>, <a href="@root/cv/">HTML</a>)
 <br>
 <a href="@root/bib/">Bibliography</a>
-<br>
-<a href="@/reading-list/">Reading List</a>
 
 [aosabook]: https://aosabook.org/
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
