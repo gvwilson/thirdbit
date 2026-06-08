@@ -175,3 +175,8 @@ and that even then you get a settlement rather than a solution.
     Bloomsbury,
     2010,
     [9781608193943](https://isbnsearch.org/isbn/9781608193943).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

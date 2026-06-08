@@ -217,3 +217,8 @@ structures that reward bad behavior reproduce themselves.
     Anchor,
     1959,
     [9780385094023](https://isbnsearch.org/isbn/9780385094023).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

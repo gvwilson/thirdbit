@@ -148,3 +148,8 @@ but produced no significant change to Facebook's practices.
     PublicAffairs,
     2025,
     [9781541705302](https://isbnsearch.org/isbn/9781541705302).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

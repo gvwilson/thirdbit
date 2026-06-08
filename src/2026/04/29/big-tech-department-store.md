@@ -59,3 +59,8 @@ and the structural conditions that produced it are not addressed.
     Simon & Schuster,
     2019,
     978-1501183089.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

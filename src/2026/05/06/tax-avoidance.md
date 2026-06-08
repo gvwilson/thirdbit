@@ -133,3 +133,8 @@ which is a creative use of the word responsible.
     University of Chicago Press,
     2015,
     978-0226422640.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

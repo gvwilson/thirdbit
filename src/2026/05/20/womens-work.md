@@ -185,3 +185,8 @@ and women still perform more unpaid domestic labor.
     Harper & Row,
     1988,
     [9780062509338](https://isbnsearch.org/isbn/9780062509338).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

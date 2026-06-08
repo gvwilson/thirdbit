@@ -146,8 +146,6 @@ as do comparable approaches adopted by central banks in Ghana and Sri Lanka.
 The question today is not whether enshittification can be stopped,
 but why regulators in Canada, the US, and elsewhere choose not to stop it.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
-
 <span id="Doctorow2022">Doctorow2022</span>
 :   Cory Doctorow and Rebecca Giblin:
     *Chokepoint Capitalism: How Big Tech and Big Content Captured Creative Labor Markets and How We'll Win Them Back*.
@@ -175,3 +173,8 @@ but why regulators in Canada, the US, and elsewhere choose not to stop it.
     Harvard Business School Press,
     1999,
     [9780875848631](https://isbnsearch.org/isbn/9780875848631).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

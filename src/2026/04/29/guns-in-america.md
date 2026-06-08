@@ -90,3 +90,8 @@ that has survived Columbine, Sandy Hook, Parkland, and dozens of other mass kill
     W.W. Norton,
     2013,
     978-0393345834.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

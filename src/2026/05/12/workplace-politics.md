@@ -218,3 +218,8 @@ The question is whether to participate consciously and honestly or not.
     Profile Books,
     2014,
     [9781846685989](https://isbnsearch.org/isbn/9781846685989).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

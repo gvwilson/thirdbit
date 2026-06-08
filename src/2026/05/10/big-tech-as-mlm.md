@@ -113,3 +113,8 @@ the hope that this time, for this person, the math will work out.
     Polity Press,
     2016,
     [9781509504862](https://isbnsearch.org/isbn/9781509504862).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

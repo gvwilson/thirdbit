@@ -4,8 +4,6 @@ date: 2026-04-13
 category: sdgc
 ---
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
-
 ## A
 
 <span id="Acemoglu2023">Acemoglu2023</span>
@@ -909,3 +907,8 @@ category: sdgc
     University of Chicago Press,
     2015,
     978-0226422640.
+
+*See [the whole series][sdgc].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

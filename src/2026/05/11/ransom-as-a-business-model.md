@@ -81,3 +81,8 @@ while intelligence services routinely assisted with exactly that.
     Oxford University Press,
     2019,
     [9780198815471](https://isbnsearch.org/isbn/9780198815471).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

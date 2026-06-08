@@ -175,3 +175,8 @@ much of the world's communication takes place through platforms they control.
     29(4),
     2024,
     [10.5210/fm.v29i4.13636](https://doi.org/10.5210/fm.v29i4.13636 ).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -150,3 +150,8 @@ country-by-country age verification isn't going to make a difference.
     Wiley,
     1989,
     [9780471522720](https://isbnsearch.org/isbn/9780471522720).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

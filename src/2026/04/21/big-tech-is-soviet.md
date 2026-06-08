@@ -88,3 +88,8 @@ they tend to treat their workers no better than a Soviet-era factory manager.
 	Graywolf Press,
 	2012,
     978-1555976040.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

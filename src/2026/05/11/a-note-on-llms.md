@@ -42,3 +42,8 @@ I think I finally know enough to write something that is less wrong than it woul
 I still don't think I'll ever try to turn these posts into a book,
 but I hope that they'll prompt people who actually know about this stuff
 to take the time to correct me.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

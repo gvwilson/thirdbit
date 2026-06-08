@@ -102,3 +102,8 @@ because most organizations never close that loop.
     *The Rise of the Meritocracy*.
     Thames and Hudson,
     1958.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -79,3 +79,8 @@ it means losing connection to the social world that the platform provides.
     Penguin,
     1990,
     978-0140137552.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

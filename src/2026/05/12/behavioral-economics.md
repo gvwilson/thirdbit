@@ -144,3 +144,8 @@ has become the primary toolkit for industrializing it.
     Penguin,
     2009,
     [9780143115267](https://isbnsearch.org/isbn/9780143115267).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

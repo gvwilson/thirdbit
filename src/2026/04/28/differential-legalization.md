@@ -93,3 +93,8 @@ and was met with mandatory minimums and mass incarceration.
     Bloomsbury,
     2012,
     978-1906860165.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

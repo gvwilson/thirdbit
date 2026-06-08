@@ -133,3 +133,8 @@ this history suggests they can be made a source of vulnerability.
     University of California Press,
     2012,
     [9780520269064](https://isbnsearch.org/isbn/9780520269064).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

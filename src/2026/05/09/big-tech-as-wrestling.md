@@ -172,3 +172,8 @@ that finds the performance sufficient.
     University Press of Mississippi,
     1998,
     [9781578060566](https://isbnsearch.org/isbn/9781578060566).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

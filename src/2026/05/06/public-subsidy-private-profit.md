@@ -146,3 +146,8 @@ and the line between a national champion and an instrument of state policy disap
     PublicAffairs,
     2015,
     978-1610396134.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

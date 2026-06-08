@@ -203,3 +203,8 @@ so long as institutions give them room to try.
     Cambridge University Press,
     2015,
     [9781107569782](https://isbnsearch.org/isbn/9781107569782).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -191,3 +191,8 @@ have enough power to say no.
     Cambridge University Press,
     2000,
     [9780521634939](https://isbnsearch.org/isbn/9780521634939).
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

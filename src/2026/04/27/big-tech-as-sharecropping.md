@@ -129,3 +129,8 @@ and eliminates the degrees of freedom that less tightly managed arrangement perm
     Knopf,
     1966,
     978-0394703220.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -183,3 +183,8 @@ while the people who collected fees at every stage of the transaction do best of
     Princeton University Press,
     2015,
     978-0691166261.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -148,3 +148,8 @@ and to give them feedback that a technical peer couldn't.
     *The Theory of the Leisure Class*.
     Macmillan,
     1899.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

@@ -110,3 +110,8 @@ because their primary product is not the software but the service running on it.
     Beacon Press,
     2022,
     978-0807007068.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/

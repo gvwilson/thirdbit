@@ -168,3 +168,8 @@ should be required to explain why this time is different from every other time.
     *Unsafe at Any Speed: The Designed-In Dangers of the American Automobile*.
     Grossman Publishers,
     1965.
+
+*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
+
+[sdgc]: @root/sdgc/
+[sdgc-bib]: @root/2026/04/13/a-bibliography/
