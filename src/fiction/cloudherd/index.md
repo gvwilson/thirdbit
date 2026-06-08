@@ -5659,3 +5659,120 @@ If they were in Stale Remainders,
 that just might change everything.*
 
 </section>
+<section markdown="1">
+
+## Chapter 7
+
+Purplesday was traditionally a day of rest,
+which in the mountains meant a day for people to work less hard
+and on things they wanted to.
+If someone called something a Purplesday quilt,
+everyone knew what they meant.
+
+It was also a day for those who felt spiritual
+to gather for discussion and reflection.
+Aft hadn't bothered before he married Rind,
+but over the years he had absorbed his wife's faith.
+The one time Grappa Gas accused him of doing it
+just to give them another thing to argue about,
+his son had shaken his head and replied,
+"It's the last thing I want to fight about with you, *appa*."
+As far as anyone knew,
+it was the last time Aft had called his father that.
+
+But that wasn't what Grappa Gas wanted to talk about
+when he knocked on Indy's door that morning
+and invited himself in for chai.
+"Didn't believe my eyes," he said,
+nodding his thanks to Noxy as she set a cup down in front of him.
+"Just knocked on the door and asked Sergeant Dorbu
+if any of them wanted to head up to the grove."
+
+"And did they?"
+Indy asked.
+
+The old man shrugged.
+"About half, I'd say.
+Don't know if that's a lot or a little for soldiers.
+I've never been one for that kind of conversation,
+but even if I was,
+I don't think I'd want to have it with strangers."
+
+Indy blew on her tea reflectively.
+"Well, we did light fires for some of their friends.
+Maybe they think that means they're not strangers any more.
+And they did help out last night.
+We'd have been in real trouble without them."
+
+"Mmph."
+Grappa Gas frowned at his chai,
+unable to argue but unwilling to agree.
+
+"Did Thokmay go with them?" Noxy asked,
+hastily adding,
+"And the tiger?"
+
+Grappa Gas shook his head.
+"They're up on the wall by Quick Tower.
+I guess cats aren't the sort for crowds."
+
+Noxy did her best not to rush through her porridge,
+then pretended not to notice the looks that her mother and Grappa Gas exchanged
+when she excused herself "to go for a walk".
+If they thought she was sweet on the prince—no,
+on Private Thokmay, she had to remember to call him that—then
+maybe they wouldn't look any further.
+And if she took the time to brush her hair and scrub her face before leaving,
+well,
+she was only doing what her *amma* kept nagging her to.
+
+Kulbinder could have been a statue if it wasn't for the wind ruffling his fur.
+He sat on his hind legs,
+eyes half-closed,
+with his tail tucked around his haunches.
+He turned his head to look at her when she said hello at the top of the stairs,
+but didn't reply.
+
+Thokmay sat next to him on the canvas-colored block of stone
+that she and Rash and Sensy had used for their make-believe cloud rides.
+With his legs crossed,
+his head bowed,
+and his hands folded neatly in his lap,
+he could have been a statue as well.
+
+Noxy hesitated.
+She had seen some of the pack traders meditate,
+and vaguely remembered her father doing it
+the few times he had crafted a spell before—she
+pushed the thought out of her head.
+Interrupting him felt like it would be rude,
+and the sky was a beautiful clear blue now that the storm had passed.
+She could just sit and enjoy the sunshine…
+
+"Hey."
+She started and blinked her eyes.
+Thokmay looked down at her,
+his face carefully blank.
+"You were snoring."
+
+"What?"
+She climbed to her feet and rubbed her eyes.
+"I don't snore," she yawned
+before nodding at Kulbinder.
+"That must have been him."
+
+"Mm."
+The prince looked past her at the forest,
+then at Pillow and Big Blue floating peacefully in the cloud pen.
+"We talked about your plan,
+and we'd like to propose one of our own."
+
+"Oh yeah?"
+She yawned again.
+"Well, propose away."
+
+The prince looked at the tiger,
+who flicked back an ear.
+"We'd like to kidnap you."
+
+</section>
