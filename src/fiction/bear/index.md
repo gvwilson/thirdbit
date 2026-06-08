@@ -484,7 +484,7 @@ Noxy pointed upriver where another four pillars cast long shadows.
 The wooden walkway strung between them
 was strong enough to support the weigh of a dozen chain-link nets,
 but still seemed fragile against the Pilots' ancient stonework.
-Shuqang the Great had cast a spell on the nets a century ago
+Zhuqang the Great had cast a spell on the nets a century ago
 to catch things floating down from the Blight.
 While the land downriver from them was lush and green,
 only a few stunted brambles grew upstream.
@@ -3874,12 +3874,161 @@ and left her to feel angry and foolish in the middle of the street.
 she told Prince Thokmay an hour later,
 her lunch untouched on the table beside her.
 Dolly and Princess Ogmin were busy counting noodles,
-and Mope was apparently still lost in Learned Shudarga's law books.
+and Mope had waved the thought of food away impatiently,
+lost in Learned Shudarga's law books.
 
 "I know," the prince replied.
-He picked a fried mushroom off his plate with his chopsticks
-and chewed it reflectively.
-"The question is, what?"
+He picked a dumpling off his plate with his chopsticks.
+"The question is what?
+Sergeant Gyalpa has two people watching him.
+So far they haven't seen anything suspicious."
+
+Noxy hesitated.
+"Do you remember the things he said about Kulbinder?"
+
+The prince held up a finger,
+chewed his dumpling another couple of times,
+and gulped it down.
+"How could I forget?
+'Animals belong in cages,' and all that.
+Just a quote," he added hastily as Dolly glanced over.
+
+Noxy nodded.
+"I had a conversation with a chai seller this morning."
+She briefly summed up the exchange.
+"So maybe he's, I don't know, trying to recruit Bortje and her mob?"
+
+The prince picked up another dumpling,
+nodding in return.
+"That makes as much sense as anything.
+I'll pass it on to the sergeant."
+He popped the dumpling in his mouth.
+"These are all right,"
+he said around it,
+"But they don't have nearly enough garlic."
+
+"Really?"
+Noxy bit into hers and made an exaggerated face.
+"There's a lot more than I'm used to."
+
+Dolly refused Noxy's invitation to go flying,
+politely at first and then more firmly when Princess Ogmin tried to insist.
+Mope,
+on the other hand,
+could hardly contain himself when his mother asked him to take her place.
+"What a truly notable day!" he said excitedly.
+"First a chance to elevate my mind,
+and then a chance to elevate my body,
+literally!"
+
+They had to wait while Ogmin changed out of the winter clothes she had put on
+after being told that the higher they went,
+the colder it would be.
+"Not that cold," Noxy told her, and then,
+"Yes, of course we won't leave without you."
+
+She waited until they were at the cloud pen before mind-speaking to Cloak.
+*Passengers,* she told the cloud,
+patting his flank.
+He had healed up well,
+and the arrival of the other clouds had made him restless.
+If he had been a cat, he would have been scratching at the door and mewling to be let out.
+
+She held one of the princess's hands and Mope held the other
+as Cloak rose gently into the air.
+She needn't have worried:
+Ogmin seemed completely unafraid.
+The troll,
+on the other hand,
+couldn't stop fidgeting.
+"It's not at all," he started.
+"Rooftops.
+It's not like being up on a rooftop at all, is it?"
+
+"I wouldn't know," Noxy replied.
+It was hard to tell if he was going green under his fur.
+She hoped not:
+clouds hated it when people threw up on them.
+"What about trees?
+You must have climbed some that are taller than houses?"
+
+The troll shook his head vigorously.
+"No no no.
+I'm a city boy, born and bred.
+Well,
+not really,
+we did travel around the countryside when I was younger,
+but that was farmland, not, not a jungle or a proper forest like yours.
+No,
+this is the highest I've ever,
+um,
+I say,
+the bridge really is rather striking, isn't it?
+I wonder what they've caught today."
+
+"Can we go look?" Princess Ogmin asked excitedly.
+"Please?"
+
+"Sure."
+Noxy pressed her hand on Cloak.
+Obediently,
+the cloud turned to port,
+cutting across the breeze that carried the sweet smell of blossoms
+mixed with the less appealing aroma of freshly-spread manure.
+
+Mope talked a stride a minute as they flew past the bridge,
+not noticing or not caring that neither of the other passengers was really listening
+to his impromptu lesson on history and architecture.
+Princess Ogmin seemed more excited by the fact that she could look *down* on birds as they flew.
+For her part,
+Noxy was distracted by the feeling that something was not quite right.
+
+She closed her eyes and let herself fall into quiet
+the way Granna Fee had taught her.
+There beneath her was Cloak.
+She could feel a faint trace of the wound the branch had made,
+but the cloud himself didn't seem to notice it any more.
+And there,
+on his back,
+she could feel the weight of his three passengers.
+Except that wasn't quite right.
+If she let her breath out and let her mind wander,
+she could feel the cloud's awareness of *four* passengers.
+
+She shifted slightly.
+All right,
+that one was her,
+which meant the one beside her was—no,
+there were *two* beside her,
+and then a third making so much noise that it had to be Mope.
+
+She opened her eyes,
+expecting to see someone else sitting with the princess,
+but no one else was there.
+She concentrated again.
+It wasn't the tired olf presence she had felt the night before.
+It wasn't another cloud, either.
+She had been on cows just before they calved.
+That had been nothing like this,
+and anyway,
+Cloud was a bull.
+
+She shook her head.
+"We should go back," she said.
+"He still needs to rest.
+But we can come up again tomorrow if you want."
+
+She had never seen anyone so glad to stand on their own two feet
+as Mope was when they got back to the cloud pen.
+"Truly memorable," he said.
+"I am certain I will remember that as long as I live.
+And possibly even after,"
+he added with feeling.
+
+Noxy smiled.
+Princess Ogmin was stroking Cloud's flank and murmuring to him.
+"Come on, honored," she said.
+"Let's go find some chai."
 
 *The garrison house was still that night
 when a quiet voice only Princess Ogmin could hear told her to get dressed.
