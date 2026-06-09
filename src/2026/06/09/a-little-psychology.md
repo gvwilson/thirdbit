@@ -1,6 +1,6 @@
 ---
 title: "A Little Psychology"
-date: 2026-06-08
+date: 2026-06-09
 category: sdgc
 ---
 
@@ -8,6 +8,8 @@ In order to understand how the world works,
 we have to understand how people think.
 That's a tall order,
 so the sections below focus on a few things that I've found particularly useful.
+
+*See the [first post][sdgc-01] in this series for context.*
 
 ## People Don't Maximize Utility
 
@@ -815,5 +817,6 @@ it is taking the psychology of belief seriously [Achen2017,Hoffer2010].
 See [the whole series][sdgc] or the [bibliography][sdgc-bib],
 or [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 
+[sdgc-01]: @root/2026/06/08/sex-and-drugs-and-guns-and-code-restart/
 [sdgc]: @root/sdgc/
 [sdgc-bib]: @root/2026/04/13/a-bibliography/

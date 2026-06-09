@@ -204,3 +204,4 @@ template: page
 | A Trade of Blood | Robert Jackson Bennett | 978-0593723852 | 2026 |
 | A Secret of Birds & Bone | Kiran Millwood Hargrave | 978-1913322960 | 2026 |
 | A Land So Wide | Erin A. Craig | 978-0593686812 | 2026 |
+| Hello, World! | Dale Biagio | 979-8995072102 | 2026 |
