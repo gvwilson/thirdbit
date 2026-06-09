@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>I/O and Monads</title>
+<title>I/O</title>
 <meta content="Lean for Python Programmers" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a class="active" href="../io/">I/O and Monads</a></li>
+<li><a class="active" href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,13 +46,14 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
 </div>
 </nav>
 <main id="main-content">
-<h1>I/O and Monads</h1>
+<h1>I/O</h1>
 <div class="callout">
 <ul>
 <li>Understand the <code>IO</code> type and how Lean separates pure computation from side effects</li>
@@ -63,8 +64,11 @@
 </div>
 <ul>
 <li>Every program eventually has to talk to the world</li>
+<li>But pure functions always return the same result for the same arguments,
+    so how do we handle something like reading from a file?</li>
+<li>The answer is complex in theory but simple(r) in practice</li>
 </ul>
-<h2>What Is IO? (And What Is a Monad?)</h2>
+<h2>What Is <code>IO</code>?</h2>
 <ul>
 <li>A function that does I/O has <code>IO</code> in its return type<ul>
 <li><code>String</code> means "a string, computed purely"</li>
@@ -72,23 +76,24 @@
 <li>This pattern's formal name is a <a class="gl-ref" href="../glossary/#monad">monad</a></li>
 </ul>
 </li>
-<li>The compiler enforces that IO only happens where you say it does<ul>
+<li>The compiler enforces that I/O only happens where you say it does<ul>
 <li>Pure functions are guaranteed not to have side effects</li>
 <li>You can test and reason about them without worrying about hidden state</li>
 </ul>
 </li>
 <li>This is like Python's <code>async def</code>: an async function must return an <code>Awaitable</code><ul>
 <li>You cannot accidentally run an async function from sync code</li>
-<li>Lean's <code>IO</code> type is the same idea: the compiler prevents IO from leaking into pure functions</li>
+<li>Lean's <code>IO</code> type is the same idea: the compiler prevents I/O from leaking into pure functions</li>
 </ul>
 </li>
 <li>Separately, <code>do</code> and <code>←</code> (left arrow) are how you <em>sequence</em> effectful actions<ul>
+<li>Type <code>\leftarrow</code> in the editor</li>
 <li>This is the monad part: chaining steps where each depends on the last</li>
 <li>Like <code>await</code> lets you write sequential-looking code asynchronously, <code>←</code> does the same for IO</li>
 </ul>
 </li>
-<li>You do not need to understand the theory to use monads in Lean<ul>
-<li>(DEBT) We will revisit the theory once we are comfortable doing I/O</li>
+<li>You do not need to understand the theory of monads to use <code>IO</code> in Lean<ul>
+<li>But we describe it briefly in <a href="../monads/">an appendix</a></li>
 </ul>
 </li>
 </ul>
@@ -100,7 +105,8 @@
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="hello_world.out"><span aria-label="Source: io/hello_world.out" class="inc-path" role="img" tabindex="0" title="io/hello_world.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, world!
+<div data-inc="hello_world.out"><span aria-label="Source: io/hello_world.out" class="inc-path" role="img" tabindex="0" title="io/hello_world.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Hello, world!
 </code></pre></div>
 </div>
 <ul>
@@ -117,8 +123,11 @@
 </ul>
 </li>
 <li><code>#eval main</code> runs the action during compilation so we can see the output</li>
-<li>Lean's pure functions cannot raise exceptions; IO actions can fail at runtime and are caught with <code>try</code>/<code>catch</code><ul>
-<li>Errors in pure code are handled with sum types like <code>Except</code>, which we'll cover later in this chapter</li>
+<li>Lean's pure functions cannot raise exceptions<ul>
+<li>I/O actions can fail at runtime and are caught with <code>try</code>/<code>catch</code>,
+    which we discuss <a href="#catch">below</a></li>
+<li>Errors in pure code are handled with sum types like <code>Except</code>,
+    which we will also discussed <a href="#except">below</a></li>
 </ul>
 </li>
 </ul>
@@ -132,7 +141,8 @@
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="do_notation.out"><span aria-label="Source: io/do_notation.out" class="inc-path" role="img" tabindex="0" title="io/do_notation.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Step 1: start
+<div data-inc="do_notation.out"><span aria-label="Source: io/do_notation.out" class="inc-path" role="img" tabindex="0" title="io/do_notation.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Step 1: start
 Step 2: middle
 Step 3: done
 </code></pre></div>
@@ -151,11 +161,12 @@ Step 3: done
 <li>If you want two or more actions in sequence, wrap them in <code>do</code></li>
 <li><code>;</code> can be used as an alternative separator inside <code>do</code> blocks<ul>
 <li>E.g., <code>IO.println "Hi"; IO.println "there"</code> is equivalent to two lines</li>
+<li>Generally avoided to keep code readable</li>
 </ul>
 </li>
 </ul>
 <h2>Forgetting <code>do</code></h2>
-<div data-inc="ex_missing_do.lean"><span aria-label="Source: io/ex_missing_do.lean" class="inc-path" role="img" tabindex="0" title="io/ex_missing_do.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Forgetting `do` is the most common IO mistake</span>
+<div data-inc="missing_do_err.lean"><span aria-label="Source: io/missing_do_err.lean" class="inc-path" role="img" tabindex="0" title="io/missing_do_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Forgetting `do` is the most common IO mistake</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Starting..."</span>
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Done!"</span>
@@ -163,9 +174,23 @@ Step 3: done
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
+<div data-inc="missing_do_err.out"><span aria-label="Source: io/missing_do_err.out" class="inc-path" role="img" tabindex="0" title="io/missing_do_err.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+missing_do_err.lean:4:2: error: Application type mismatch: The argument
+  IO.println
+has type
+  ?m.3 → IO Unit
+but is expected to have type
+  Void IO.RealWorld
+in the application
+  IO.println "Starting..." IO.println
+missing_do_err.lean:6:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+</code></pre></div>
+</div>
 <ul>
-<li>Forgetting <code>do</code> is the most common IO mistake</li>
-<li>Without <code>do</code>, Lean tries to use the second <code>IO.println</code> as an argument to the first<ul>
+<li>Forgetting <code>do</code> is the most common <code>IO</code> mistake</li>
+<li>Without it, Lean tries to use the second <code>IO.println</code> as an argument to the first<ul>
 <li>That's why the error message mentions "application type mismatch"</li>
 </ul>
 </li>
@@ -183,7 +208,8 @@ Step 3: done
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="do_let.out"><span aria-label="Source: io/do_let.out" class="inc-path" role="img" tabindex="0" title="io/do_let.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Lean!
+<div data-inc="do_let.out"><span aria-label="Source: io/do_let.out" class="inc-path" role="img" tabindex="0" title="io/do_let.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Hello, Lean!
 </code></pre></div>
 </div>
 <ul>
@@ -197,10 +223,14 @@ Step 3: done
 </ul>
 </li>
 <li>The compiler will reject <code>let msg ← greet "Lean"</code> because <code>greet</code> does not return an <code>IO</code></li>
-<li><code>let _ := expr</code> is the <em>discard</em> pattern: it binds a value but throws it away<ul>
+<li><code>let _ := expr</code> is the <a class="gl-ref" href="../glossary/#discard_pattern">discard pattern</a><ul>
+<li>It binds a value but throws it away</li>
 <li>The underscore means "I don't intend to use this"</li>
 <li>It also suppresses the unused-variable warning from the compiler</li>
-<li><em>Warning:</em> <code>let _ := someIOAction</code> stores the action without running it — use <code>←</code> for IO</li>
+</ul>
+</li>
+<li>Be careful: <code>let _ := someIOAction</code> stores the action without running it<ul>
+<li>Use <code>←</code> for IO</li>
 </ul>
 </li>
 </ul>
@@ -217,7 +247,8 @@ Step 3: done
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="io_functions.out"><span aria-label="Source: io/io_functions.out" class="inc-path" role="img" tabindex="0" title="io/io_functions.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>echo!
+<div data-inc="io_functions.out"><span aria-label="Source: io/io_functions.out" class="inc-path" role="img" tabindex="0" title="io/io_functions.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+echo!
 echo!
 again
 again
@@ -229,7 +260,7 @@ again
 </ul>
 </li>
 <li><code>printTwice "echo!"</code> runs two <code>IO.println</code> calls in sequence</li>
-<li>IO functions compose: <code>main</code> calls <code>printTwice</code> twice</li>
+<li><code>IO</code> functions compose: <code>main</code> calls <code>printTwice</code> twice</li>
 </ul>
 <h2>Capturing Results from IO</h2>
 <div data-inc="io_return.lean"><span aria-label="Source: io/io_return.lean" class="inc-path" role="img" tabindex="0" title="io/io_return.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Use ← to capture the result of an IO action</span>
@@ -244,14 +275,14 @@ again
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="io_return.out"><span aria-label="Source: io/io_return.out" class="inc-path" role="img" tabindex="0" title="io/io_return.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Building greeting...
+<div data-inc="io_return.out"><span aria-label="Source: io/io_return.out" class="inc-path" role="img" tabindex="0" title="io/io_return.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Building greeting...
 Hello from IO!
 </code></pre></div>
 </div>
 <ul>
 <li>Use <code>let x ← ioAction</code> (the left-arrow <code>←</code>) to capture the result of an IO action<ul>
 <li>Like Python's <code>x = await some_coroutine()</code></li>
-<li>Type <code>\leftarrow</code> in the editor</li>
 </ul>
 </li>
 <li><code>makeGreeting</code> has type <code>IO String</code>: it is an action that produces a <code>String</code></li>
@@ -279,7 +310,8 @@ Hello from IO!
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="read_input.out"><span aria-label="Source: io/read_input.out" class="inc-path" role="img" tabindex="0" title="io/read_input.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your name:
+<div data-inc="read_input.out"><span aria-label="Source: io/read_input.out" class="inc-path" role="img" tabindex="0" title="io/read_input.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Enter your name:
 Hello, !
 </code></pre></div>
 </div>
@@ -312,7 +344,8 @@ Hello, !
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="chain_io.out"><span aria-label="Source: io/chain_io.out" class="inc-path" role="img" tabindex="0" title="io/chain_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Enter your first name:
+<div data-inc="chain_io.out"><span aria-label="Source: io/chain_io.out" class="inc-path" role="img" tabindex="0" title="io/chain_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Enter your first name:
 Enter your last name:
 Hello,  !
 </code></pre></div>
@@ -336,23 +369,45 @@ Hello,  !
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="for_loop.out"><span aria-label="Source: io/for_loop.out" class="inc-path" role="img" tabindex="0" title="io/for_loop.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
+<div data-inc="for_loop.out"><span aria-label="Source: io/for_loop.out" class="inc-path" role="img" tabindex="0" title="io/for_loop.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+apple
 banana
 cherry
 </code></pre></div>
 </div>
 <ul>
 <li><code>for x in list do</code> iterates over a list inside a <code>do</code> block<ul>
-<li>Like Python's <code>for x in list:</code> but the body is an IO action</li>
+<li>Like Python's <code>for x in list:</code> but the body is an <code>IO</code> action</li>
 </ul>
 </li>
 <li>Each iteration runs in sequence, top to bottom</li>
 <li>Works with <code>List</code>, <code>Array</code>, and any type that implements <code>ForIn</code><ul>
-<li>Including the results of <code>IO.FS.readDir</code> (see <a href="../archive/">archive</a>)</li>
+<li>Including the results of <code>IO.FS.readDir</code> (used in <a href="../archive/">archive</a>)</li>
 </ul>
 </li>
-<li>The loop is syntactic sugar for recursion — there is no mutable loop variable by default</li>
+<li>The loop is syntactic sugar for recursion: there is no mutable loop variable by default</li>
 </ul>
+<h2>For Loops Elsewhere</h2>
+<ul>
+<li><code>for</code> with <code>let mut</code> also works in pure functions that do not involve <code>IO</code><ul>
+<li>Lean implicitly uses the identity monad and compiles the loop to a pure fold</li>
+<li>The syntax is identical: <code>for x in xs do body</code></li>
+</ul>
+</li>
+</ul>
+<div data-inc="for_elsewhere.lean"><span aria-label="Source: io/for_elsewhere.lean" class="inc-path" role="img" tabindex="0" title="io/for_elsewhere.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- for with let mut works in pure functions, not just IO do blocks</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">countPositive</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="n">count</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">countPositive</span><span class="w"> </span><span class="o">[</span><span class="bp">-</span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="bp">-</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="bp">-</span><span class="mi">9</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="bp">-</span><span class="mi">6</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<div data-inc="for_elsewhere.out"><span aria-label="Source: io/for_elsewhere.out" class="inc-path" role="img" tabindex="0" title="io/for_elsewhere.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>5
+</code></pre></div>
+</div>
 <h2>Accumulating Results with <code>for</code></h2>
 <div data-inc="for_accum.lean"><span aria-label="Source: io/for_accum.lean" class="inc-path" role="img" tabindex="0" title="io/for_accum.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Accumulate a result across loop iterations using let mut</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
@@ -366,20 +421,21 @@ cherry
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="for_accum.out"><span aria-label="Source: io/for_accum.out" class="inc-path" role="img" tabindex="0" title="io/for_accum.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Words longer than 4 chars: 2
+<div data-inc="for_accum.out"><span aria-label="Source: io/for_accum.out" class="inc-path" role="img" tabindex="0" title="io/for_accum.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+Words longer than 4 chars: 2
 </code></pre></div>
 </div>
 <ul>
 <li><code>let mut count := 0</code> declares a mutable variable in a <code>do</code> block<ul>
-<li>Only valid inside <code>do</code>; pure functions cannot use <code>mut</code></li>
+<li>Only valid inside <code>do</code>: pure functions cannot use <code>mut</code></li>
 </ul>
 </li>
-<li><code>count := count + 1</code> updates it — without <code>:=</code>, the variable is read-only</li>
-<li>Like Python's <code>count = 0; for w in words: if ...: count += 1</code></li>
-<li>Lean guarantees <code>mut</code> variables don't escape the <code>do</code> block<ul>
-<li>They are not truly mutable memory — the compiler translates them into state-passing</li>
+<li><code>count := count + 1</code> updates it<ul>
+<li>Without <code>:=</code>, the variable is read-only</li>
 </ul>
 </li>
+<li>Like Python's <code>count = 0; for w in words: if …: count += 1</code></li>
+<li>Lean guarantees <code>mut</code> variables don't escape the <code>do</code> block</li>
 </ul>
 <h2>What <code>let mut</code> Really Does</h2>
 <div data-inc="let_mut_state.lean"><span aria-label="Source: io/let_mut_state.lean" class="inc-path" role="img" tabindex="0" title="io/let_mut_state.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- let mut looks like mutation but compiles to state-passing under the hood</span>
@@ -399,14 +455,17 @@ cherry
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">countEvensPure</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">6</span><span class="o">]</span>
 </code></pre></div>
 </div>
-<div data-inc="let_mut_state.out"><span aria-label="Source: io/let_mut_state.out" class="inc-path" role="img" tabindex="0" title="io/let_mut_state.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>3
+<div data-inc="let_mut_state.out"><span aria-label="Source: io/let_mut_state.out" class="inc-path" role="img" tabindex="0" title="io/let_mut_state.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+3
 3
 </code></pre></div>
 </div>
 <ul>
-<li><code>let mut</code> is syntactic sugar: the compiler rewrites mutable variables as extra function arguments threaded through each step<ul>
-<li>The generated code is purely functional; no heap mutation occurs</li>
-<li>This is why pure functions can remain efficient even without mutable state: the compiler handles the bookkeeping</li>
+<li><code>let mut</code> is syntactic sugar<ul>
+<li>The compiler rewrites mutable variables as extra function arguments threaded through each step</li>
+<li>The generated code is purely functional: data structures are not mutated in place</li>
+<li>This is why pure functions can remain efficient even without mutable state</li>
+<li>The compiler handles the bookkeeping</li>
 </ul>
 </li>
 <li>The pure <code>foldl</code> version and the <code>let mut</code> loop produce the same result<ul>
@@ -414,7 +473,7 @@ cherry
 <li>For complex logic with multiple conditions or early exit, <code>let mut</code> is usually easier to read</li>
 </ul>
 </li>
-<li>Both approaches are O(n) in the list length</li>
+<li>Both approaches have the same run time</li>
 </ul>
 <h2>Summary</h2>
 <ul>
@@ -429,7 +488,7 @@ cherry
 <li>Lean's <code>IO</code> is more than just files and sockets</li>
 <li>It also manages random number generation and any other <a class="gl-ref" href="../glossary/#effectful">effectful</a> computation</li>
 </ul>
-<h2>Errors Without Exceptions</h2>
+<h2 id="except">Errors Without Exceptions</h2>
 <div data-inc="except_pure.lean"><span aria-label="Source: io/except_pure.lean" class="inc-path" role="img" tabindex="0" title="io/except_pure.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Except carries either a success value or an error message</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">safeDivide</span><span class="w"> </span><span class="o">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Except</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="s2">"division by zero"</span>
@@ -444,24 +503,25 @@ cherry
 <span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Except</span><span class="bp">.</span><span class="n">error</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s!</span><span class="s2">"error: {e}"</span>
 </code></pre></div>
 </div>
-<div data-inc="except_pure.out"><span aria-label="Source: io/except_pure.out" class="inc-path" role="img" tabindex="0" title="io/except_pure.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"result: 5"
+<div data-inc="except_pure.out"><span aria-label="Source: io/except_pure.out" class="inc-path" role="img" tabindex="0" title="io/except_pure.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+"result: 5"
 "error: division by zero"
 </code></pre></div>
 </div>
 <ul>
 <li><code>Except String Int</code> is a sum type with two constructors:<ul>
-<li><code>Except.ok n</code> — success, carrying a value of type <code>Int</code></li>
-<li><code>Except.error e</code> — failure, carrying a message of type <code>String</code></li>
+<li><code>Except.ok n</code>: success, carrying a value of type <code>Int</code></li>
+<li><code>Except.error e</code>: failure, carrying a message of type <code>String</code></li>
 </ul>
 </li>
-<li>Like Python's <code>(value, error)</code> tuple convention, but the compiler forces you to check both cases</li>
+<li>Like the <code>(value, error)</code> convention of other languages, but the compiler forces you to check both cases</li>
 <li><code>match</code> on an <code>Except</code> is exhaustive: you cannot forget the error case</li>
 <li>Use <code>Except</code> for pure functions that can fail with a reason<ul>
 <li>Use <code>Option</code> when absence is normal and no explanation is needed</li>
 </ul>
 </li>
 </ul>
-<h2>IO Can Fail</h2>
+<h2 id="catch">I/O Can Fail</h2>
 <div data-inc="except_io.lean"><span aria-label="Source: io/except_io.lean" class="inc-path" role="img" tabindex="0" title="io/except_io.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- try/catch wraps IO actions that might fail</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">readFileSafe</span><span class="w"> </span><span class="o">(</span><span class="n">path</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="o">(</span><span class="n">Option</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="n">try</span>
@@ -483,57 +543,55 @@ cherry
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">main</span>
 </code></pre></div>
 </div>
-<div data-inc="except_io.out"><span aria-label="Source: io/except_io.out" class="inc-path" role="img" tabindex="0" title="io/except_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>File found
+<div data-inc="except_io.out"><span aria-label="Source: io/except_io.out" class="inc-path" role="img" tabindex="0" title="io/except_io.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: failed to query latest release, using existing version 'leanprover/lean4:v4.30.0'
+File found
 Missing file handled gracefully
 </code></pre></div>
 </div>
 <ul>
 <li><code>try action catch _ =&gt; fallback</code> catches any IO exception<ul>
-<li>The <code>_</code> discards the exception value — inspect it with <code>catch e =&gt; ...</code> if needed</li>
+<li>The <code>_</code> discards the exception value</li>
+<li>Inspect it with <code>catch e =&gt; ...</code> if needed</li>
 </ul>
 </li>
 <li>IO operations like <code>IO.FS.readFile</code> throw on failure (file not found, permission denied, etc.)</li>
 <li>Wrapping in <code>try</code>/<code>catch</code> converts an exception into a safe <code>Option</code> or <code>Except</code> value</li>
-<li>Like Python's <code>try: ... except OSError: ...</code> but typed: the return type shows the fallback</li>
+<li>Like Python's <code>try: ... except OSError: ...</code> but typed<ul>
+<li>The return type shows the fallback</li>
+</ul>
+</li>
 <li>Pure <code>Except</code> (from the previous section) and IO <code>try</code>/<code>catch</code> are complementary:<ul>
 <li>Pure functions use <code>Except</code> to report errors without side effects</li>
 <li>IO functions use <code>try</code>/<code>catch</code> to handle runtime failures</li>
 </ul>
 </li>
 </ul>
-<h2>Lean's Three Error-Handling Mechanisms</h2>
+<h2>Three Ways to Do It</h2>
 <p>Lean splits failure across three mechanisms where Python uses exceptions for all of them:</p>
-<table>
-<thead>
-<tr>
-<th scope="col">Mechanism</th>
-<th scope="col">Where</th>
-<th scope="col">When to use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Option</code></td>
-<td>Pure functions</td>
-<td>Absence is normal; no explanation needed. E.g., looking up a key that may not exist.</td>
-</tr>
-<tr>
-<td><code>Except e a</code></td>
-<td>Pure functions</td>
-<td>Failure needs a reason. E.g., parsing a string that may be malformed.</td>
-</tr>
-<tr>
-<td><code>try</code>/<code>catch</code></td>
-<td>IO actions</td>
-<td>Runtime failure outside your control. E.g., file not found, network error.</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>Option</code> and <code>Except</code> appear in function signatures, so the compiler forces callers to handle failure</li>
-<li><code>try</code>/<code>catch</code> is only available in <code>IO</code>; you cannot silently ignore an IO exception</li>
-<li>When migrating from Python: replace <code>None</code> returns with <code>Option</code>, replace <code>ValueError</code>/<code>KeyError</code> in pure logic with <code>Except</code>, and replace <code>OSError</code>/<code>IOError</code> with <code>try</code>/<code>catch</code> around IO actions</li>
+<ol>
+<li>
+<p>Use <code>Option</code> in pure functions when absence is normal and no explanation needed,
+    e.g., looking up a key that may not exist.</p>
+</li>
+<li>
+<p>Use <code>Except e a</code> in pure functions when failure needs a reason,
+    e.g., parsing a string that may be malformed.</p>
+</li>
+<li>
+<p>Use <code>try</code>/<code>catch</code> in IO actions when runtime failure outside your control,
+    e.g., file not found, or a network error.</p>
+</li>
+<li>
+<p><code>Option</code> and <code>Except</code> appear in function signatures, so the compiler forces callers to handle failure</p>
+</li>
+<li><code>try</code>/<code>catch</code> is only available in <code>IO</code>: you cannot silently ignore an IO exception</li>
+<li>When migrating from Python:<ul>
+<li>Replace <code>None</code> returns with <code>Option</code></li>
+<li>Replace <code>ValueError</code>/<code>KeyError</code> in pure logic with <code>Except</code></li>
+<li>Replace <code>OSError</code>/<code>IOError</code> with <code>try</code>/<code>catch</code> around IO actions</li>
 </ul>
+</li>
+</ol>
 <div class="exercise">
 <h2>Exercises</h2>
 <h3>Fix: Missing <code>do</code></h3>

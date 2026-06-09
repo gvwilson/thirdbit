@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monads</title>
+<meta content="Lean for Python Programmers" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">L4Py</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basics/">Basics</a></li>
+<li><a href="../types/">Types</a></li>
+<li><a href="../pipes/">Functional Pipelines</a></li>
+<li><a href="../io/">I/O</a></li>
+<li><a href="../archive/">A File Archiver</a></li>
+<li><a href="../glob/">Matching Patterns</a></li>
+<li><a href="../template/">A Template Expander</a></li>
+<li><a href="../db/">A Database</a></li>
+<li><a href="../build/">Building Projects</a></li>
+<li><a href="../binary/">Binary Data</a></li>
+<li><a href="../advanced/">Type Classes</a></li>
+<li><a href="../tools/">Tools</a></li>
+<li><a href="../des/">Discrete Event Simulation</a></li>
+<li><a href="../vm/">A Virtual Machine</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a class="active" href="../monads/">Monads</a></li>
+<li><a href="../proof/">Proofs</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Monads</h1>
+<p>A monad is a way to structure computations that carry extra context
+without manually threading that context through every function call.
+If you’re coming from Python,
+the cleanest way to think about it is that
+a monad is a way to chain operations without explicitly passing extra arguments.
+Monads aren't just for input and output;
+they can also be used for:</p>
+<ul>
+<li>possible failure (<code>None</code>, exceptions)</li>
+<li>async execution (<code>await</code>)</li>
+<li>logging</li>
+<li>random number generation</li>
+<li>dependency injection</li>
+<li>parsing context</li>
+</ul>
+<h2>Ordinary function composition</h2>
+<p>Normal composition is straightforward:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">increment</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>   <span class="c1"># 21</span>
+</code></pre></div>
+<p>The output of one function becomes the input of the next.
+But now suppose computations can fail.</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">parse_int</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reciprocal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
+</code></pre></div>
+<p>Now chaining becomes annoying:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">parse_int</span><span class="p">(</span><span class="s2">"10"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">reciprocal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+<p>As programs grow,
+this repetitive “check the context” logic spreads everywhere.
+A monad abstracts this pattern.</p>
+<h2>The Core Idea</h2>
+<p>Instead of values:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">x</span>
+</code></pre></div>
+<p>we work with values inside a context:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Maybe</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>The monad defines:</p>
+<ol>
+<li>how to put a value into the context, and</li>
+<li>how to chain operations while preserving the context.</li>
+</ol>
+<p>Depending on the language,
+the chaining operation is called <code>bind</code>, <code>flatMap</code>, or <code>&gt;&gt;=</code>,
+none of which are particularly memorable.</p>
+<p>Here's a tiny <code>Maybe</code> monad in Python:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Maybe</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Maybe(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)"</span>
+</code></pre></div>
+<p>Functions now return <code>Maybe</code> values:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">parse_int</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reciprocal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>Now composition becomes:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Maybe</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="s2">"10"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">parse_int</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">reciprocal</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>(The outer parentheses are there to force evaluation.)
+The key thing is that failure propagation happens automatically.
+Without monads:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</code></pre></div>
+<p>only works for plain values.
+With monads:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">m</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</code></pre></div>
+<p>works even when every step carries context.
+The monad controls:</p>
+<ul>
+<li>how values flow</li>
+<li>how context combines</li>
+<li>how failure/async/state/etc propagate</li>
+</ul>
+<h2>Examples in Other Languages</h2>
+<p>Monadic ideas show up regularly in other languages.
+For example, consider this Python code:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_user</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_posts</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+<p>Each computation is inside an <code>async</code> context.
+We are not manually managing callbacks or event loops;
+the async machinery handles the context propagation.
+Similarly, in JavaScript, we can write:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nx">user</span><span class="o">?</span><span class="p">.</span><span class="nx">address</span><span class="o">?</span><span class="p">.</span><span class="nx">street</span>
+</code></pre></div>
+<p>This is monad-like behavior:
+if anything is missing, propagate absence automatically.</p>
+<h2>Why Bother?</h2>
+<p>Monads solve a major problem in pure functional languages:</p>
+<blockquote>
+<p>How do we sequence computations when functions cannot mutate state
+and must return the same value for any given set of inputs?</p>
+</blockquote>
+<p>The trick is to treat each context as unique.
+In pseudo-Python, we turn:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">first_line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">second_line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</code></pre></div>
+<p>into:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">first_line</span><span class="p">,</span> <span class="n">second_context</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">first_context</span><span class="p">)</span>
+<span class="n">second_line</span><span class="p">,</span> <span class="n">third_context</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">second_context</span><span class="p">)</span>
+</code></pre></div>
+<p>Since each context is unique,
+<code>readline()</code> is allowed to return different values from each call,
+which it is <em>not</em> allowed to do in the original code.
+Similarly,
+when we're doing output,
+we turn:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">first_num</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">some_string</span><span class="p">)</span>
+<span class="n">second_number</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">some_string</span><span class="p">)</span>
+</code></pre></div>
+<p>into:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">second_context</span><span class="p">,</span> <span class="n">first_num</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">first_context</span><span class="p">,</span> <span class="n">some_string</span><span class="p">)</span>
+<span class="n">third_context</span><span class="p">,</span> <span class="n">second_number</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">second_context</span><span class="p">,</span> <span class="n">some_string</span><span class="p">)</span>
+</code></pre></div>
+<h2>The Two Essential Operations</h2>
+<p>A monad is defined by two operations.
+The first combines a normal value with a context:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Maybe</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Maybe(5)</span>
+</code></pre></div>
+<p>The second chains computations:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Maybe</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div>
+<p>where:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Maybe</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<p><code>bind</code> extracts the inner value,
+applies the function,
+and preserves the context rules.</p>
+<div class="callout">
+<p>Another way to look at monads is that
+they are a way to handle nested contexts.
+Without <code>bind</code>, we would write:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Maybe</span><span class="p">(</span><span class="n">Maybe</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</code></pre></div>
+<p>Bind is essentially map, then flatten,
+which is why some languages call it <code>flatMap</code>.</p>
+</div>
+<h2>So What's the Big Deal?</h2>
+<p>Monads have a reputation for being complex.
+There are three reasons for this:</p>
+<ol>
+<li>
+<p>Functional languages make them unavoidable,
+    so beginners hit them early in languages like Lean.</p>
+</li>
+<li>
+<p>Tutorials often start too abstractly.
+    "A monad is a monoid in the category of endofunctors"
+    is mathetmatically correctly but pedagogically horrible.</p>
+</li>
+<li>
+<p>Monads are more about composition than data structures.
+    Programmers coming from conventional languages are used to thinking about
+    classes, objects, and state.
+    Monads are about computation flow and context propagation,
+    which is a different axis of abstraction.</p>
+</li>
+</ol>
+<h2>The <code>do</code> Notation</h2>
+<p>Let's go back to an earlier Python example:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Maybe</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="s2">"10"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">parse_int</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">reciprocal</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>All those <code>bind()</code> calls make it hard to see what's happening,
+so Lean provides the <code>do</code>/<code>←</code> notation.
+Each function returns an <code>Option</code> instead of a <code>Maybe</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">parseNat</span><span class="bp">?</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Nat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s.toNat</span><span class="bp">?</span>
+
+<span class="kd">def</span><span class="w"> </span><span class="n">reciprocal</span><span class="bp">?</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="o">(</span><span class="mi">1</span><span class="bp">.</span><span class="mi">0</span><span class="w"> </span><span class="bp">/</span><span class="w"> </span><span class="n">n.toFloat</span><span class="o">)</span>
+</code></pre></div>
+<p>The <code>do</code>/<code>←</code> notation replaces the <code>.bind()</code> chain:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">compute</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Option</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">parseNat</span><span class="bp">?</span><span class="w"> </span><span class="s2">"10"</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="n">reciprocal</span><span class="bp">?</span><span class="w"> </span><span class="n">n</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="n">r</span>
+</code></pre></div>
+<p>Each <code>←</code> extracts the value from the <code>Option</code> context.
+If any step returns <code>none</code>, the whole computation short-circuits to <code>none</code>,
+which is exactly what <code>.bind()</code> did manually in Python.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../glossary">Glossary</a>
+</div>
+<div class="col-6 center">
+<a href="../">L4Py</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../proof">Proofs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a class="active" href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -77,7 +78,7 @@
 </code></pre></div>
 </div>
 <ul>
-<li><code>inductive</code> defines a new <a class="gl-ref" href="../glossary/#sum_type">sum type</a> with three constructors<ul>
+<li><code>inductive</code> defines a new sum type with three constructors<ul>
 <li>Like a Python <code>Enum</code> but each variant can carry data</li>
 </ul>
 </li>
@@ -147,7 +148,7 @@
 <li>The <code>Wild</code> case calls <code>glob ps (cs.drop i)</code> where the arguments don't structurally decrease</li>
 </ul>
 </li>
-<li><code>partial</code> tells Lean: "trust me, this function terminates, don't try to prove it"<ul>
+<li><a class="gl-ref" href="../glossary/#partial">partial</a> tells Lean: "trust me, this function terminates, don't try to prove it"<ul>
 <li>The function will still run correctly at runtime</li>
 <li>But Lean won't try to generate a termination proof</li>
 </ul>
@@ -197,7 +198,7 @@ some 4
 <li><strong><code>partial</code></strong>: opt out of termination checking when the measure is too complex to express</li>
 </ol>
 </li>
-<li>Prefer structural recursion or <code>termination_by</code> when possible: Lean's guarantee that your function terminates is a real correctness property</li>
+<li>Prefer structural recursion or <code>termination_by</code> when possible: Lean's <a class="gl-ref" href="../glossary/#termination_checking">termination checking</a> is a real correctness property</li>
 <li><code>partial</code> gives up that guarantee — the function is unchecked at the type level, even if you are confident it terminates in practice</li>
 </ul>
 <h2>String Matching Wrapper</h2>

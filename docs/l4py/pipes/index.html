@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a class="active" href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -57,7 +58,7 @@
 <ul>
 <li>Chain function calls left-to-right with the forward pipeline operator <code>|&gt;</code></li>
 <li>Compose functions into new functions with <code>∘</code></li>
-<li>Build data transformation pipelines using filter, map, and fold</li>
+<li>Build data transformation pipelines using <code>filter</code>, <code>map</code>, and <code>foldl</code></li>
 <li>Import libraries and organize code with namespaces</li>
 </ul>
 </div>
@@ -75,7 +76,7 @@
 <span class="c1">-- with |&gt; : left-to-right, step by step</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">addOne</span><span class="w"> </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">double</span>
 
-<span class="c1">-- works with any data type</span>
+<span class="c1">-- pipes work with any data type</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {name}"</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toUpper</span>
 
@@ -118,7 +119,7 @@
 <li>Anonymous functions work naturally in pipelines</li>
 <li>The <code>·</code> placeholder (from <a href="../basics/">basics</a>) makes them compact</li>
 <li><code>List.map</code> and <code>List.filter</code> use the fully-qualified <code>List.</code> prefix<ul>
-<li>We'll explain <code>List.</code> vs plain <code>map</code> shortly (DEBT)</li>
+<li>The <a href="#namespaces">Namespaces</a> section explains when to use the full name vs. the short name</li>
 </ul>
 </li>
 </ul>
@@ -135,14 +136,22 @@
 <span class="c1">-- compose more than two with parentheses</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="bp">.</span><span class="n">toUpper</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">greet</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {name}"</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">addBang</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="s2">"!!"</span>
 
-<span class="kn">def</span><span class="w"> </span><span class="n">excitedGreeting</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">greet</span>
+<span class="c1">-- parens bound the lambda body so ∘ connects two functions, not terms</span>
+<span class="c1">-- without them: fun s =&gt; s ++ "!!" ∘ shout parses as fun s =&gt; s ++ ("!!" ∘ shout)</span>
+<span class="c1">-- which is a type error: "!!" is a String, not a function</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">shoutThenBang</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="bp">++</span><span class="w"> </span><span class="s2">"!!"</span><span class="o">)</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">shout</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">shoutThenBang</span><span class="w"> </span><span class="s2">"hello"</span>
 
-<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">excitedGreeting</span><span class="w"> </span><span class="s2">"world"</span>
+<span class="c1">-- parens surround the whole composition before applying to an argument</span>
+<span class="c1">-- without them: "world" binds to greet first, giving a String where ∘ expects a function</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="o">(</span><span class="n">addBang</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">shout</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">greet</span><span class="o">)</span><span class="w"> </span><span class="s2">"world"</span>
 </code></pre></div>
 </div>
 <div data-inc="function_composition.out"><span aria-label="Source: pipes/function_composition.out" class="inc-path" role="img" tabindex="0" title="pipes/function_composition.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>8
-"HELLO, WORLD"
+"HELLO!!"
+"HELLO, WORLD!!"
 </code></pre></div>
 </div>
 <ul>
@@ -179,7 +188,7 @@
 </ul>
 </li>
 <li><code>∘</code> builds a new function from two existing ones: <code>double ∘ addOne</code><ul>
-<li>Use when you want to name the combined operation and reuse it</li>
+<li>Use when you want to name and reuse the combined operation</li>
 </ul>
 </li>
 <li><code>x |&gt; f |&gt; g</code> is equivalent to <code>(g ∘ f) x</code><ul>
@@ -191,10 +200,10 @@
 <div data-inc="point_free.lean"><span aria-label="Source: pipes/point_free.lean" class="inc-path" role="img" tabindex="0" title="pipes/point_free.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">addOne</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="c1">-- point-ful: the argument is named explicitly</span>
+<span class="c1">-- pointful: the argument is named explicitly</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">doubleAfterAdd</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="o">(</span><span class="n">addOne</span><span class="w"> </span><span class="n">x</span><span class="o">)</span>
 
-<span class="c1">-- point-free: the argument is never mentioned</span>
+<span class="c1">-- point-free: the argument isn't mentioned</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">doubleAfterAddPF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="bp">→</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="bp">∘</span><span class="w"> </span><span class="n">addOne</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">doubleAfterAdd</span><span class="w"> </span><span class="mi">3</span>
@@ -211,44 +220,30 @@
 </code></pre></div>
 </div>
 <ul>
-<li>Point-free style omits the argument names entirely<ul>
-<li>The argument is implicit: "double after adding one"</li>
-</ul>
-</li>
+<li><a class="gl-ref" href="../glossary/#point_free">Point-free</a> style omits the parameter names entirely</li>
 <li><code>doubleAfterAdd</code> names <code>x</code> explicitly; <code>doubleAfterAddPF</code> never mentions it<ul>
+<li>The parameter in the latter is implicit: "double after adding one"</li>
 <li>Both produce the same result</li>
+<li>Saw this in <a href="../basics/">the basics lesson</a> but didn't name it</li>
 </ul>
 </li>
 <li>Point-free is concise for simple pipelines<ul>
-<li>For complex logic, naming the arguments is usually clearer</li>
+<li>For complex logic, naming the parameters is almost always clearer</li>
 </ul>
 </li>
-<li>Python equivalent: <code>compose(double, add_one)</code> instead of <code>lambda x: double(add_one(x))</code></li>
 </ul>
 <h2>Filter-Map-Fold Pipelines</h2>
-<div data-inc="pipelines.lean"><span aria-label="Source: pipes/pipelines.lean" class="inc-path" role="img" tabindex="0" title="pipes/pipelines.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- pipeline: a chain of |&gt; operations</span>
-<span class="c1">-- like Python: [x for x in data if ...] with transformations</span>
+<div data-inc="pipelines.lean"><span aria-label="Source: pipes/pipelines.lean" class="inc-path" role="img" tabindex="0" title="pipes/pipelines.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">8</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">7</span><span class="o">]</span>
 
-<span class="kn">def</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">8</span><span class="o">,</span><span class="w"> </span><span class="mi">4</span><span class="o">,</span><span class="w"> </span><span class="mi">7</span><span class="o">]</span>
-
-<span class="c1">-- filter, then map, then fold — in one pipeline</span>
+<span class="c1">-- filter, then map, then fold</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">numbers</span>
 <span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span>
 <span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span>
 <span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="o">)</span>
-<span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="bp">·</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span>
-
-<span class="c1">-- same computation as a pipeline of partial results</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">step1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span><span class="w"> </span><span class="n">numbers</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">step2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span><span class="w"> </span><span class="n">step1</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">step3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="o">)</span><span class="w"> </span><span class="n">step2</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="bp">·</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">step3</span>
-
-<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">result</span>
+<span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">foldl</span><span class="w"> </span><span class="o">(</span><span class="bp">·</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="bp">·</span><span class="o">)</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="c1">-- use 0 as initial value</span>
 </code></pre></div>
 </div>
 <div data-inc="pipelines.out"><span aria-label="Source: pipes/pipelines.out" class="inc-path" role="img" tabindex="0" title="pipes/pipelines.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>36
-36
 </code></pre></div>
 </div>
 <ul>
@@ -262,10 +257,7 @@
 </li>
 </ul>
 <h2>Pipelines vs. Imperative Loops</h2>
-<div data-inc="imperative_v_pipeline.lean"><span aria-label="Source: pipes/imperative_v_pipeline.lean" class="inc-path" role="img" tabindex="0" title="pipes/imperative_v_pipeline.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- imperative style: accumulate in mutable variables</span>
-<span class="c1">-- (Python equivalent shown in comment)</span>
-
-<span class="c1">-- Lean version with explicit recursion:</span>
+<div data-inc="imperative_v_pipeline.lean"><span aria-label="Source: pipes/imperative_v_pipeline.lean" class="inc-path" role="img" tabindex="0" title="pipes/imperative_v_pipeline.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Lean version with explicit recursion:</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">sumOfSquaresOfEvens</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="k">with</span>
 <span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="mi">0</span>
@@ -289,15 +281,10 @@
 <ul>
 <li>The recursive version spells out <em>how</em>: loop, accumulate, test, branch</li>
 <li>The pipeline version describes <em>what</em>: filter evens, square them, sum</li>
-<li>Both produce the same result; pipelines are usually easier to read</li>
-<li>In Python, you'd write a <code>for</code> loop with <code>if</code> and an accumulator variable<ul>
-<li>The pipeline is the same idea as <code>sum(x*x for x in xs if x % 2 == 0)</code></li>
-</ul>
-</li>
+<li>They produce the same result, but pipelines are usually easier to read</li>
 </ul>
 <h2>Pipelines with Strings</h2>
-<div data-inc="pipeline_string.lean"><span aria-label="Source: pipes/pipeline_string.lean" class="inc-path" role="img" tabindex="0" title="pipes/pipeline_string.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- pipelines work with strings too</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="o">,</span><span class="w"> </span><span class="s2">"from"</span><span class="o">,</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">]</span>
+<div data-inc="pipeline_string.lean"><span aria-label="Source: pipes/pipeline_string.lean" class="inc-path" role="img" tabindex="0" title="pipes/pipeline_string.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="s2">"hello"</span><span class="o">,</span><span class="w"> </span><span class="s2">"world"</span><span class="o">,</span><span class="w"> </span><span class="s2">"from"</span><span class="o">,</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">]</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">words</span>
 <span class="w">  </span><span class="bp">|&gt;</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="bp">=&gt;</span><span class="w"> </span><span class="n">w</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="o">)</span>
@@ -321,42 +308,34 @@
 </li>
 </ul>
 <h2>Importing Libraries</h2>
-<div data-inc="import_library.lean"><span aria-label="Source: pipes/import_library.lean" class="inc-path" role="img" tabindex="0" title="pipes/import_library.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- import a module from the standard library</span>
-<span class="c1">-- the prelude is always available, but for extra utilities you need imports</span>
+<div data-inc="import_library.lean"><span aria-label="Source: pipes/import_library.lean" class="inc-path" role="img" tabindex="0" title="pipes/import_library.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- import Lean to access modules beyond the prelude</span>
+<span class="kn">import</span><span class="w"> </span><span class="n">Lean</span>
 
-<span class="c1">-- example: List already has many functions without importing</span>
-<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">range</span><span class="w"> </span><span class="mi">5</span>
-<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">List</span><span class="bp">.</span><span class="n">zip</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="s2">"a"</span><span class="o">,</span><span class="w"> </span><span class="s2">"b"</span><span class="o">]</span>
-
-<span class="c1">-- for more advanced operations, import Std</span>
-<span class="c1">-- (shown later when you need it)</span>
+<span class="c1">-- Lean.versionString is not in the prelude; it requires an import</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">Lean</span><span class="bp">.</span><span class="n">versionString</span>
 </code></pre></div>
 </div>
-<div data-inc="import_library.out"><span aria-label="Source: pipes/import_library.out" class="inc-path" role="img" tabindex="0" title="pipes/import_library.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0, 1, 2, 3, 4]
-[(1, "a"), (2, "b")]
+<div data-inc="import_library.out"><span aria-label="Source: pipes/import_library.out" class="inc-path" role="img" tabindex="0" title="pipes/import_library.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"4.30.0"
 </code></pre></div>
 </div>
 <ul>
+<li>The Lean <a class="gl-ref" href="../glossary/#prelude">prelude</a> is always available without imports<ul>
+<li>It includes <code>List</code>, <code>String</code>, <code>Option</code>, <code>Nat</code>, <code>Int</code>, and basic operations</li>
+<li>Everything we've used so far comes from the prelude</li>
+</ul>
+</li>
+<li>For more advanced features, you import additional modules</li>
 <li><code>import ModuleName</code> brings a library module into scope<ul>
 <li>Like Python's <code>import module</code></li>
 </ul>
 </li>
-<li>The Lean <a class="gl-ref" href="../glossary/#prelude">prelude</a> is always available without imports<ul>
-<li>It includes <code>List</code>, <code>String</code>, <code>Option</code>, <code>Nat</code>, <code>Int</code>, and basic operations</li>
-</ul>
-</li>
-<li>Everything we've used so far comes from the prelude</li>
-<li>For more advanced features, you import additional modules<ul>
-<li><code>import Std</code> gives you the extended standard library</li>
-<li>We'll see more import examples in later lessons (DEBT)</li>
+<li>E.g., <code>import Lean</code> gives you Lean's meta-programming and tooling library<ul>
+<li><code>Lean.versionString</code> reports which version of Lean is running</li>
 </ul>
 </li>
 </ul>
-<h2>Namespaces</h2>
-<div data-inc="namespaces.lean"><span aria-label="Source: pipes/namespaces.lean" class="inc-path" role="img" tabindex="0" title="pipes/namespaces.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- namespaces prevent name collisions</span>
-<span class="c1">-- like Python's modules: math.sin vs math.cos</span>
-
-<span class="kn">namespace</span><span class="w"> </span><span class="n">Greeting</span>
+<h2 id="namespaces">Namespaces</h2>
+<div data-inc="namespaces.lean"><span aria-label="Source: pipes/namespaces.lean" class="inc-path" role="img" tabindex="0" title="pipes/namespaces.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">namespace</span><span class="w"> </span><span class="n">Greeting</span>
 
 <span class="kn">def</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="o">(</span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">s!</span><span class="s2">"Hello, {name}"</span>
 
@@ -386,10 +365,6 @@
 <li><code>Greeting.hello</code> and <code>Farewell.hello</code> are different functions</li>
 </ul>
 </li>
-<li>Use <code>Namespace.name</code> to refer to a definition from outside<ul>
-<li>Like Python's <code>module.function</code> after <code>import module</code></li>
-</ul>
-</li>
 </ul>
 <h2>Opening Namespaces</h2>
 <div data-inc="open_namespace.lean"><span aria-label="Source: pipes/open_namespace.lean" class="inc-path" role="img" tabindex="0" title="pipes/open_namespace.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">namespace</span><span class="w"> </span><span class="n">Colors</span>
@@ -399,8 +374,6 @@
 
 <span class="kn">end</span><span class="w"> </span><span class="n">Colors</span>
 
-<span class="c1">-- open brings all names into scope</span>
-<span class="c1">-- like Python's: from module import *</span>
 <span class="kn">open</span><span class="w"> </span><span class="n">Colors</span>
 
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">red</span>
@@ -418,13 +391,12 @@
 </li>
 <li>After <code>open Colors</code>, you can write <code>red</code> instead of <code>Colors.red</code></li>
 <li>Use sparingly: it can make code harder to understand<ul>
-<li>Where did <code>red</code> come from? You have to scan upward to find the <code>open</code></li>
+<li>Also like <code>import *</code> in Python</li>
 </ul>
 </li>
 </ul>
 <h2>Standard Library Examples</h2>
-<div data-inc="library_examples.lean"><span aria-label="Source: pipes/library_examples.lean" class="inc-path" role="img" tabindex="0" title="pipes/library_examples.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List has many useful functions in the prelude</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
+<div data-inc="library_examples.lean"><span aria-label="Source: pipes/library_examples.lean" class="inc-path" role="img" tabindex="0" title="pipes/library_examples.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
 
 <span class="c1">-- take first n elements</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="bp">.</span><span class="n">take</span><span class="w"> </span><span class="mi">3</span>
@@ -466,22 +438,16 @@
 <li>All of these compose naturally in pipelines</li>
 </ul>
 <h2>Arrays vs. Lists</h2>
-<div data-inc="arrays_vs_lists.lean"><span aria-label="Source: pipes/arrays_vs_lists.lean" class="inc-path" role="img" tabindex="0" title="pipes/arrays_vs_lists.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Arrays: contiguous memory, O(1) indexed access, fixed-size after creation</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
+<div data-inc="arrays_vs_lists.lean"><span aria-label="Source: pipes/arrays_vs_lists.lean" class="inc-path" role="img" tabindex="0" title="pipes/arrays_vs_lists.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Array</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="bp">#</span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]!</span><span class="w">          </span><span class="c1">-- 30, direct O(1) access</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="bp">.</span><span class="n">size</span><span class="w">         </span><span class="c1">-- 5</span>
 
-<span class="c1">-- Lists: singly-linked, O(1) head/tail, O(n) indexed access</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">[</span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">20</span><span class="o">,</span><span class="w"> </span><span class="mi">30</span><span class="o">,</span><span class="w"> </span><span class="mi">40</span><span class="o">,</span><span class="w"> </span><span class="mi">50</span><span class="o">]</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">head!</span><span class="w">       </span><span class="c1">-- 10, O(1)</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">length</span><span class="w">      </span><span class="c1">-- 5, O(n): traverses the whole list</span>
 
-<span class="c1">-- Converting between them</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">items</span><span class="bp">.</span><span class="n">toArray</span><span class="w">     </span><span class="c1">-- List → Array</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">nums</span><span class="bp">.</span><span class="n">toList</span><span class="w">       </span><span class="c1">-- Array → List</span>
-
-<span class="c1">-- Use Array when you need random access or interop with IO functions</span>
-<span class="c1">-- Use List when you need pattern matching with :: or cons-style recursion</span>
 </code></pre></div>
 </div>
 <div data-inc="arrays_vs_lists.out"><span aria-label="Source: pipes/arrays_vs_lists.out" class="inc-path" role="img" tabindex="0" title="pipes/arrays_vs_lists.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>30
@@ -504,6 +470,7 @@
 <li>Indexed access <code>arr[i]!</code> is O(1)</li>
 <li>Appending is amortized O(1) (like Python's <code>list.append</code>)</li>
 <li>Cannot be pattern-matched with <code>::</code></li>
+<li>Indexed from 0, not 1 like tuples (just to keep things confusing)</li>
 </ul>
 </li>
 <li>Python's <code>list</code> is closer to Lean's <code>Array</code> in performance<ul>
@@ -511,7 +478,8 @@
 <li>If you're writing idiomatic Lean with <code>map</code>/<code>filter</code>/<code>foldl</code>, <code>List</code> is the natural choice</li>
 </ul>
 </li>
-<li>Most IO functions (like <code>IO.FS.readDir</code>) return <code>Array</code>; pipeline functions work on <code>List</code><ul>
+<li>Most IO functions (like <code>IO.FS.readDir</code>) return <code>Array</code><ul>
+<li>Pipeline functions work on <code>List</code></li>
 <li>Convert with <code>arr.toList</code> or <code>lst.toArray</code> as needed</li>
 </ul>
 </li>
@@ -666,8 +634,8 @@
 <details>
 <summary>hint</summary>
 <ul>
-<li><code>List.map</code> expects a function that takes one argument</li>
-<li><code>(· - ·)</code> is a two-argument function (subtraction with two placeholders)</li>
+<li><code>List.map</code> expects a function that takes one parameter</li>
+<li><code>(· - ·)</code> is a two-parameter function (subtraction with two placeholders)</li>
 <li>Use <code>(· - 2)</code> to subtract 2 from each element, or write an explicit <code>fun x =&gt; x - 2</code></li>
 </ul>
 </details>
@@ -724,7 +692,7 @@
 <li><code>addExcitement</code> does two things: uppercases, then appends <code>"!!!"</code></li>
 <li>Define an <code>exclaim</code> helper: <code>def exclaim (s : String) : String := s ++ "!!!"</code></li>
 <li>Then <code>addExcitementPF</code> is <code>exclaim ∘ String.toUpper</code></li>
-<li>The argument <code>s</code> disappears entirely: that's point-free</li>
+<li>The parameter <code>s</code> disappears entirely: that's point-free</li>
 </ul>
 </details>
 <h3>Write: Zip and Format</h3>
@@ -759,7 +727,7 @@
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../io">I/O and Monads</a> <span aria-hidden="true">⇒</span>
+<a href="../io">I/O</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

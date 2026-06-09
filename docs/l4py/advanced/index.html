@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -55,7 +56,7 @@
 <h1>Type Classes</h1>
 <div class="callout">
 <ul>
-<li>Define a <a class="gl-ref" href="../glossary/#type_class">type class</a> to specify an interface that multiple types can satisfy</li>
+<li>Define a type class to specify an interface that multiple types can satisfy</li>
 <li>Write <code>instance</code> declarations to implement a type class for a specific type</li>
 <li>Use <code>[ClassName α]</code> constraints to write functions that work for any type with an instance</li>
 <li>Combine multiple constraints and extend classes with <code>extends</code></li>
@@ -126,7 +127,7 @@
 <ul>
 <li><code>[Describable α]</code> is a <a class="gl-ref" href="../glossary/#type_class">type class constraint</a><ul>
 <li>Read as: "for any type <code>α</code> that has a <code>Describable</code> instance"</li>
-<li>Square brackets <code>[...]</code> distinguish class constraints from ordinary arguments <code>(...)</code></li>
+<li>Square brackets <code>[...]</code> distinguish class constraints from ordinary parameters <code>(...)</code></li>
 </ul>
 </li>
 <li><code>showAll</code> works for <code>List Bool</code>, <code>List Int</code>, or any list whose element type has an instance</li>

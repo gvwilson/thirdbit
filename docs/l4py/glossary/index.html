@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a class="active" href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -53,107 +54,208 @@
 </nav>
 <main id="main-content">
 <h1>Glossary</h1>
+<h2>A</h2>
+<dl>
+<dt><span id="association_list">association list</span></dt>
+<dd>A list of key-value pairs used as a simple lookup table, where
+each entry pairs a key with a value.</dd>
+</dl>
 <h2>C</h2>
 <dl>
+<dt><span id="chain_of_responsibility">Chain of Responsibility</span></dt>
+<dd>A design pattern in which a request is passed along a sequence of
+handlers, each of which either processes it or passes it on to the
+next.</dd>
 <dt><span id="computer_algebra_system">computer algebra system</span></dt>
-<dd>A program that manipulates mathematical expressions symbolically rather than numerically,
-such as Maple or Mathematica.</dd>
+<dd>A program that manipulates mathematical expressions symbolically
+rather than numerically, such as Maple or Mathematica.</dd>
 <dt><span id="content_addressable">content-addressable</span></dt>
-<dd>Storage in which data is identified by a hash of its content rather than by a name or location.</dd>
+<dd>Storage in which data is identified by a hash of its content
+rather than by a name or location.</dd>
+<dt><span id="context">context</span></dt>
+<dd>A mapping from variable names to values that a template engine
+uses when filling in placeholders.</dd>
 <dt><span id="currying">currying</span></dt>
-<dd>Transforming a function that takes multiple arguments into a sequence of functions each taking a single argument.</dd>
+<dd>Transforming a function that takes multiple parameters into a
+sequence of functions each taking a single parameter.</dd>
 </dl>
 <h2>D</h2>
 <dl>
 <dt><span id="destructuring">destructuring</span></dt>
-<dd>Unpacking values from a composite type such as a tuple or structure into individual bindings.</dd>
+<dd>Unpacking values from a composite type such as a tuple or
+structure into individual bindings.</dd>
+<dt><span id="discard_pattern">discard pattern</span></dt>
+<dd>A binding that uses <code>_</code> or a name starting with <code>_</code> to intentionally
+ignore a value. In a <code>do</code> block, <code>let _ := expr</code> silently discards
+the result and suppresses the unused-variable compiler warning.</dd>
+<dt><span id="des">discrete event simulation</span></dt>
+<dd>A method of modeling a system where time advances in jumps from
+one event to the next rather than in fixed steps.</dd>
 <dt><span id="dsl">Domain Specific Language</span> (DSL)</dt>
-<dd>A programming language specialized to a particular application domain, such as a build system or test framework.</dd>
+<dd>A programming language specialized to a particular application
+domain, such as a build system or test framework.</dd>
 </dl>
 <h2>E</h2>
 <dl>
-<dt><span id="encapsulation">encapsulation</span></dt>
-<dd>Hiding the internal implementation of a component behind a stable interface,
-so that the implementation can change without affecting code that uses it.</dd>
 <dt><span id="effectful">effectful</span></dt>
-<dd>Describing a computation that performs side effects such as printing, reading input, or modifying state.</dd>
+<dd>Describing a computation that performs side effects such as
+printing, reading input, or modifying state.</dd>
+<dt><span id="encapsulation">encapsulation</span></dt>
+<dd>Hiding the internal implementation of a component behind a stable
+interface, so that the implementation can change without affecting
+code that uses it.</dd>
 <dt><span id="enumeration">enumeration</span></dt>
-<dd>A type defined by listing all of its possible values as named constructors, created with <code>inductive</code> in Lean.</dd>
+<dd>A type defined by listing all of its possible values as named
+constructors, created with <code>inductive</code> in Lean.</dd>
+</dl>
+<h2>G</h2>
+<dl>
+<dt><span id="glob">glob</span></dt>
+<dd>A pattern-matching syntax for file names in which <code>*</code> matches any
+sequence of characters and <code>?</code> matches exactly one character.</dd>
+</dl>
+<h2>I</h2>
+<dl>
+<dt><span id="inductive_type">inductive type</span></dt>
+<dd>A type defined by listing its constructors; values are built from
+those constructors and taken apart with pattern matching.</dd>
+<dt><span id="inverse_cdf">inverse-CDF method</span></dt>
+<dd>A technique for generating random samples from a probability
+distribution by inverting its cumulative distribution function; if
+U is uniform on (0,1) then F⁻¹(U) follows the target distribution.</dd>
 </dl>
 <h2>L</h2>
 <dl>
 <dt><span id="lake">Lake</span></dt>
-<dd>Lean's build tool and package manager, analogous to <code>cargo</code> in Rust.</dd>
+<dd>Lean's build tool and package manager, analogous to <code>cargo</code> in
+Rust.</dd>
 <dt><span id="lakefile">lakefile</span></dt>
-<dd>A configuration file (typically <code>lakefile.lean</code>) that declares a package's dependencies and build rules for Lake.</dd>
+<dd>A configuration file (typically <code>lakefile.lean</code>) that declares a
+package's dependencies and build rules for Lake.</dd>
+<dt><span id="language_server">language server</span></dt>
+<dd>A program that implements the Language Server Protocol to provide
+editor features such as error highlighting, autocompletion, and
+go-to-definition.</dd>
 <dt><span id="lemma">lemma</span></dt>
-<dd>A named intermediate statement that has been proved, used to simplify larger proofs by breaking them into smaller steps.</dd>
+<dd>A named intermediate statement that has been proved, used to
+simplify larger proofs by breaking them into smaller steps.</dd>
+<dt><span id="lcg">linear congruential generator</span></dt>
+<dd>A simple pseudorandom number generator defined by the recurrence
+<code>seed' = (A × seed + C) mod M</code>.  The same seed always produces the
+same sequence.</dd>
+<dt><span id="log_structured">log-structured</span></dt>
+<dd>A storage design where all writes are appended to a sequential log
+rather than updating records in place; the current value of a key
+is found by scanning the log for the most recent entry.</dd>
 </dl>
 <h2>M</h2>
 <dl>
 <dt><span id="monad">monad</span></dt>
-<dd>A design pattern that sequences computations while threading extra information such as I/O state through each step.</dd>
+<dd>A design pattern that sequences computations while threading extra
+information such as I/O state through each step.</dd>
 </dl>
 <h2>O</h2>
 <dl>
 <dt><span id="omega_test">Omega test</span></dt>
-<dd>A decision procedure for integer Presburger arithmetic used by Lean's <code>omega</code> tactic to solve linear arithmetic goals automatically.</dd>
+<dd>A decision procedure for integer Presburger arithmetic used by
+Lean's <code>omega</code> tactic to solve linear arithmetic goals
+automatically.</dd>
 </dl>
 <h2>P</h2>
 <dl>
 <dt><span id="partial">partial</span></dt>
-<dd>A keyword that tells Lean to skip termination checking for a function.
-Used when a function is known to terminate but Lean's automatic checker cannot prove it.</dd>
+<dd>A keyword that tells Lean to skip termination checking for a
+function.  Used when a function is known to terminate but Lean's
+automatic checker cannot prove it.</dd>
 <dt><span id="point_free">point-free style</span></dt>
-<dd>A way of defining functions by composing other functions without naming their arguments,
-using <code>∘</code> or <code>|&gt;</code>. The "point" refers to the argument value itself.</dd>
+<dd>A way of defining functions by composing other functions without
+naming their parameters, using <code>∘</code> or <code>|&gt;</code>. The "point" refers to
+the argument value itself.</dd>
 <dt><span id="prelude">prelude</span></dt>
-<dd>A standard library of basic types and functions automatically available in every Lean file without an explicit import.</dd>
+<dd>A standard library of basic types and functions automatically
+available in every Lean file without an explicit import.</dd>
 <dt><span id="product_type">product type</span></dt>
-<dd>A type that combines multiple values into a single compound value; tuples and structures are product types.</dd>
+<dd>A type that combines multiple values into a single compound value;
+tuples and structures are product types.</dd>
 <dt><span id="proof_term">proof term</span></dt>
-<dd>A value whose type is a proposition; produced by tactics such as <code>rfl</code> and <code>omega</code>.</dd>
+<dd>A value whose type is a proposition; produced by tactics such as
+<code>rfl</code> and <code>omega</code>.</dd>
 <dt><span id="proposition">proposition</span></dt>
-<dd>A claim expressed as a type in Lean's type system; has type <code>Prop</code>.</dd>
+<dd>A claim expressed as a type in Lean's type system; has type
+<code>Prop</code>.</dd>
 <dt><span id="pure">pure</span></dt>
-<dd>Describing a function whose output depends only on its input arguments and that has no observable side effects.</dd>
+<dd>Describing a function whose output depends only on its input
+arguments and that has no observable side effects.</dd>
 </dl>
 <h2>R</h2>
 <dl>
+<dt><span id="rng">random number generator</span></dt>
+<dd>An algorithm that produces a sequence of numbers that approximates
+true randomness, driven by an initial seed value.</dd>
 <dt><span id="repl">Read-Eval-Print Loop</span> (REPL)</dt>
-<dd>An interactive prompt where expressions are read, evaluated, and their results printed immediately.</dd>
+<dd>An interactive prompt where expressions are read, evaluated, and
+their results printed immediately.</dd>
+<dt><span id="recursive_data_type">recursive data type</span></dt>
+<dd>A data type that can contain instances of itself, such as a tree
+whose nodes may themselves be trees.</dd>
+<dt><span id="recursive_type">recursive type</span></dt>
+<dd>A type whose definition refers to itself, enabling structures of
+unbounded depth such as lists and trees.</dd>
 <dt><span id="ring">ring</span></dt>
-<dd>An algebraic structure with addition and multiplication satisfying rules such as commutativity,
-associativity, and distributivity; integers, natural numbers, and polynomials are all rings.</dd>
+<dd>An algebraic structure with addition and multiplication satisfying
+rules such as commutativity, associativity, and distributivity;
+integers, natural numbers, and polynomials are all rings.</dd>
 </dl>
 <h2>S</h2>
 <dl>
+<dt><span id="saturating_subtraction">saturating subtraction</span></dt>
+<dd>Subtraction that stops at zero rather than producing a negative
+result, so <code>3 - 5 = 0</code> instead of <code>-2</code>.  Used by Lean's <code>Nat</code>
+type.</dd>
 <dt><span id="sum_type">sum type</span></dt>
-<dd>A type whose value is exactly one of several distinct variants, defined with <code>inductive</code> in Lean.</dd>
+<dd>A type whose value is exactly one of several distinct variants,
+defined with <code>inductive</code> in Lean.</dd>
 <dt><span id="syntactic_sugar">syntactic sugar</span></dt>
-<dd>Syntax that makes code easier to read or write without adding new capabilities to the language.</dd>
+<dd>Syntax that makes code easier to read or write without adding new
+capabilities to the language.</dd>
 </dl>
 <h2>T</h2>
 <dl>
-<dt><span id="termination_checking">termination checking</span></dt>
-<dd>Lean's automatic verification that every recursive function eventually stops.
-Functions that cannot be proved terminating must be marked <code>partial</code>.</dd>
 <dt><span id="tactic">tactic</span></dt>
-<dd>A command that constructs a proof automatically, such as <code>rfl</code>, <code>omega</code>, or <code>simp</code>.</dd>
+<dd>A command that constructs a proof automatically, such as <code>rfl</code>,
+<code>omega</code>, or <code>simp</code>.</dd>
 <dt><span id="tagged_union">tagged union</span></dt>
-<dd>Another name for a sum type; a value that is one of several variants with a runtime tag indicating which variant is held.</dd>
-<dt><span id="type_class">type class</span></dt>
-<dd>An interface that defines operations a type must support, such as <code>BEq</code> for equality
-or <code>Repr</code> for display. Instances are generated automatically with <code>deriving</code> or written by hand.</dd>
+<dd>Another name for a sum type; a value that is one of several
+variants with a runtime tag indicating which variant is held.</dd>
+<dt><span id="template_engine">template engine</span></dt>
+<dd>A program that combines a template containing placeholders with a
+context of values to produce output such as an HTML page.</dd>
+<dt><span id="termination">termination</span></dt>
+<dd>The property of a recursive function that it always reaches a base
+case and halts rather than looping forever.</dd>
+<dt><span id="termination_checking">termination checking</span></dt>
+<dd>Lean's automatic verification that every recursive function
+eventually stops.  Functions that cannot be proved terminating
+must be marked <code>partial</code>.</dd>
+<dt><span id="tombstone">tombstone</span></dt>
+<dd>A marker record in a log-structured store indicating that a key
+has been deleted, rather than removing the original entry.</dd>
 <dt><span id="type_alias">type alias</span></dt>
-<dd>An alternative name for an existing type, created to improve readability without defining a new type.</dd>
+<dd>An alternative name for an existing type, created to improve
+readability without defining a new type.</dd>
+<dt><span id="type_class">type class</span></dt>
+<dd>An interface that defines operations a type must support, such as
+<code>BEq</code> for equality or <code>Repr</code> for display. Instances are generated
+automatically with <code>deriving</code> or written by hand.</dd>
 <dt><span id="type_parameter">type parameter</span></dt>
-<dd>A placeholder in a generic definition that is replaced with a concrete type when the definition is used, such as <code>α</code> in <code>List α</code>.</dd>
+<dd>A placeholder in a generic definition that is replaced with a
+concrete type when the definition is used, such as <code>α</code> in <code>List α</code>.</dd>
 </dl>
 <h2>W</h2>
 <dl>
 <dt><span id="workspace">workspace</span></dt>
-<dd>A collection of related Lean packages managed together by Lake in a shared build environment.</dd>
+<dd>A collection of related Lean packages managed together by Lake in
+a shared build environment.</dd>
 </dl>
 </main>
 <footer aria-label="Page navigation">
@@ -167,7 +269,7 @@ or <code>Repr</code> for display. Instances are generated automatically with <co
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../proof">Proofs</a> <span aria-hidden="true">⇒</span>
+<a href="../monads">Monads</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

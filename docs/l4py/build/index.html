@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -71,9 +72,6 @@
 <div data-inc="single_file.lean"><span aria-label="Source: build/single_file.lean" class="inc-path" role="img" tabindex="0" title="build/single_file.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Hello from a single file!"</span>
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="n">s!</span><span class="s2">"2 + 2 = {2 + 2}"</span>
-</code></pre></div>
-</div>
-<div data-inc="single_file.out"><span aria-label="Source: build/single_file.out" class="inc-path" role="img" tabindex="0" title="build/single_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -116,9 +114,6 @@
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="lake_new.out"><span aria-label="Source: build/lake_new.out" class="inc-path" role="img" tabindex="0" title="build/lake_new.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
-</code></pre></div>
-</div>
 <ul>
 <li><code>lake new MyProject</code> creates a fresh project directory<ul>
 <li>Generates a <code>lakefile.lean</code>, a <code>Main.lean</code>, and a <code>.lake/</code> cache directory</li>
@@ -150,9 +145,6 @@
 <div data-inc="lake_build.lean"><span aria-label="Source: build/lake_build.lean" class="inc-path" role="img" tabindex="0" title="build/lake_build.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Main.lean: entry point for the compiled executable</span>
 <span class="kn">def</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IO</span><span class="w"> </span><span class="n">Unit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="s2">"Built with Lake!"</span>
-</code></pre></div>
-</div>
-<div data-inc="lake_build.out"><span aria-label="Source: build/lake_build.out" class="inc-path" role="img" tabindex="0" title="build/lake_build.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -189,9 +181,6 @@
 <span class="kn">end</span><span class="w"> </span><span class="n">Helpers</span>
 </code></pre></div>
 </div>
-<div data-inc="multi_file.out"><span aria-label="Source: build/multi_file.out" class="inc-path" role="img" tabindex="0" title="build/multi_file.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
-</code></pre></div>
-</div>
 <ul>
 <li>Split large projects into multiple <code>.lean</code> files<ul>
 <li>Each file becomes a module that other files can import</li>
@@ -213,7 +202,13 @@
 <span class="w">  </span><span class="n">IO</span><span class="bp">.</span><span class="n">println</span><span class="w"> </span><span class="o">(</span><span class="n">Helpers</span><span class="bp">.</span><span class="n">shout</span><span class="w"> </span><span class="s2">"lean"</span><span class="o">)</span>
 </code></pre></div>
 </div>
-<div data-inc="import_module.out"><span aria-label="Source: build/import_module.out" class="inc-path" role="img" tabindex="0" title="build/import_module.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Build completed successfully (0 jobs).
+<div data-inc="import_module.out"><span aria-label="Source: build/import_module.out" class="inc-path" role="img" tabindex="0" title="build/import_module.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /Users/gvwilson/l4py/build/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+Build completed successfully (0 jobs).
+✔ [2/6] Built MyProject.Helpers (131ms)
+✔ [3/6] Built import_module (153ms)
+✔ [4/6] Built import_module:c.o (50ms)
+✔ [5/6] Built MyProject.Helpers:c.o (180ms)
+✔ [6/6] Built import_module:exe (161ms)
 Hello, Lake!
 LEAN!!!
 </code></pre></div>
@@ -248,7 +243,7 @@ LEAN!!!
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="lib_vs_exe.out"><span aria-label="Source: build/lib_vs_exe.out" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.c62TtdrWr9/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+<div data-inc="lib_vs_exe.out"><span aria-label="Source: build/lib_vs_exe.out" class="inc-path" role="img" tabindex="0" title="build/lib_vs_exe.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.FwWwphPf0U/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
 info: myproject: no previous manifest, creating one from scratch
 info: toolchain not updated; no toolchain information found
 Build completed successfully (0 jobs).
@@ -301,16 +296,13 @@ Build completed successfully (0 jobs).
 <span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="ss">`Main</span>
 </code></pre></div>
 </div>
-<div data-inc="add_dep.out"><span aria-label="Source: build/add_dep.out" class="inc-path" role="img" tabindex="0" title="build/add_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.dMhSDydxYA/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+<div data-inc="add_dep.out"><span aria-label="Source: build/add_dep.out" class="inc-path" role="img" tabindex="0" title="build/add_dep.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.Ew6Goelg6W/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
 info: myproject: no previous manifest, creating one from scratch
 info: Std: cloning https://github.com/leanprover/std4
-info: Std: checking out revision '708b057842c4cd0845fba132bd94b08493f6fc42'
-info: updating toolchain to 'leanprover/lean4:v4.31.0-rc1'
+info: Std: checking out revision 'a1190b0ae79df764a689f995aabccbf36c7a6745'
+info: updating toolchain to 'leanprover/lean4:v4.31.0-rc2'
 info: restarting Lake via Elan
-info: Version 4.2.2 of elan is available! Use `elan self update` to update.
-info: downloading https://releases.lean-lang.org/lean4/v4.31.0-rc1/lean-4.31.0-rc1-darwin_aarch64.tar.zst
-info: installing /Users/gvwilson/.elan/toolchains/leanprover--lean4---v4.31.0-rc1
-warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.dMhSDydxYA/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+warning: /private/var/folders/jn/dg894s5542dbrw7ry6sks0r80000gn/T/tmp.Ew6Goelg6W/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
 info: myproject: no previous manifest, creating one from scratch
 info: toolchain not updated; already up-to-date
 </code></pre></div>
@@ -345,9 +337,6 @@ info: toolchain not updated; already up-to-date
 <span class="kn">def</span><span class="w"> </span><span class="n">cube</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span>
 
 <span class="kn">end</span><span class="w"> </span><span class="n">MathUtils</span><span class="bp">.</span><span class="n">Basic</span>
-</code></pre></div>
-</div>
-<div data-inc="namespace_files.out"><span aria-label="Source: build/namespace_files.out" class="inc-path" role="img" tabindex="0" title="build/namespace_files.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>

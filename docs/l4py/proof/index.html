@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a class="active" href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -72,7 +73,8 @@
 <span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="n">False</span>
 </code></pre></div>
 </div>
-<div data-inc="prop_as_type.out"><span aria-label="Source: proof/prop_as_type.out" class="inc-path" role="img" tabindex="0" title="proof/prop_as_type.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>1 + 1 = 2 : Prop
+<div data-inc="prop_as_type.out"><span aria-label="Source: proof/prop_as_type.out" class="inc-path" role="img" tabindex="0" title="proof/prop_as_type.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>warning: /Users/gvwilson/l4py/proof/lakefile.lean:5:2: unknown 'PackageConfig' field 'name'
+1 + 1 = 2 : Prop
 5 &gt; 3 : Prop
 True : Prop
 False : Prop
@@ -171,9 +173,6 @@ is not definitionally equal to the right-hand side
 <span class="kn">theorem</span><span class="w"> </span><span class="n">listLen</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="bp">.</span><span class="n">length</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">simp</span>
 </code></pre></div>
 </div>
-<div data-inc="simp_proof.out"><span aria-label="Source: proof/simp_proof.out" class="inc-path" role="img" tabindex="0" title="proof/simp_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
-</code></pre></div>
-</div>
 <ul>
 <li><code>simp</code> is a simplification tactic: it rewrites the goal using known <a class="gl-ref" href="../glossary/#lemma">lemmas</a></li>
 <li>Knows basic list facts: empty list append, list length from literals</li>
@@ -211,9 +210,6 @@ is not definitionally equal to the right-hand side
 <span class="w">  </span><span class="k">have</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
 <span class="w">  </span><span class="k">have</span><span class="w"> </span><span class="n">h2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
 <span class="w">  </span><span class="n">omega</span>
-</code></pre></div>
-</div>
-<div data-inc="have_steps.out"><span aria-label="Source: proof/have_steps.out" class="inc-path" role="img" tabindex="0" title="proof/have_steps.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -266,9 +262,6 @@ is not definitionally equal to the right-hand side
 <span class="w">  </span><span class="k">calc</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
 <span class="w">    </span><span class="bp">_</span><span class="w"> </span><span class="bp">≤</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
 <span class="w">    </span><span class="bp">_</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="mi">10</span><span class="w">    </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rfl</span>
-</code></pre></div>
-</div>
-<div data-inc="calc_proof.out"><span aria-label="Source: proof/calc_proof.out" class="inc-path" role="img" tabindex="0" title="proof/calc_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
@@ -333,9 +326,6 @@ is not definitionally equal to the right-hand side
 <span class="kn">example</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Nat</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="bp">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">omega</span>
 </code></pre></div>
 </div>
-<div data-inc="example_proof.out"><span aria-label="Source: proof/example_proof.out" class="inc-path" role="img" tabindex="0" title="proof/example_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
-</code></pre></div>
-</div>
 <ul>
 <li><code>example</code> is an anonymous theorem: like <code>theorem</code> but with no name<ul>
 <li>Useful for quick checks without cluttering the namespace</li>
@@ -359,151 +349,303 @@ is not definitionally equal to the right-hand side
 <span class="bp">#</span><span class="n">check</span><span class="w"> </span><span class="bp">@</span><span class="n">mulComm</span>
 </code></pre></div>
 </div>
-<div data-inc="ring_proof.out"><span aria-label="Source: proof/ring_proof.out" class="inc-path" role="img" tabindex="0" title="proof/ring_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>info: mathlib: checking out revision '41bee78e2cb1daff530b6838ca8c8f64a6dd898a'
-info: toolchain not updated; already up-to-date
+<div data-inc="ring_proof.out"><span aria-label="Source: proof/ring_proof.out" class="inc-path" role="img" tabindex="0" title="proof/ring_proof.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>info: toolchain not updated; already up-to-date
 info: mathlib: running post-update hooks
-Current branch: HEAD
-Using cache (Azure) from origin: (some leanprover-community/mathlib4)
-Attempting to download 8107 file(s) from leanprover-community/mathlib4 cache
-
-Downloaded: 1 file(s) [attempted 1/8107 = 0%, 106 KB/s], Decompressed: 0[K
-Downloaded: 84 file(s) [attempted 84/8107 = 1%, 1495 KB/s], Decompressed: 1[K
-Downloaded: 150 file(s) [attempted 150/8107 = 1%, 628 KB/s], Decompressed: 64[K
-Downloaded: 220 file(s) [attempted 220/8107 = 2%, 3033 KB/s], Decompressed: 134[K
-Downloaded: 280 file(s) [attempted 280/8107 = 3%, 331 KB/s], Decompressed: 200[K
-Downloaded: 350 file(s) [attempted 350/8107 = 4%, 64 KB/s], Decompressed: 260[K
-Downloaded: 409 file(s) [attempted 409/8107 = 5%, 88 KB/s], Decompressed: 331[K
-Downloaded: 449 file(s) [attempted 449/8107 = 5%, 1088 KB/s], Decompressed: 399[K
-Downloaded: 509 file(s) [attempted 509/8107 = 6%, 785 KB/s], Decompressed: 449[K
-Downloaded: 552 file(s) [attempted 552/8107 = 6%, 340 KB/s], Decompressed: 449[K
-Downloaded: 617 file(s) [attempted 617/8107 = 7%, 280 KB/s], Decompressed: 509[K
-Downloaded: 679 file(s) [attempted 679/8107 = 8%, 860 KB/s], Decompressed: 579[K
-Downloaded: 749 file(s) [attempted 749/8107 = 9%, 293 KB/s], Decompressed: 659[K
-Downloaded: 809 file(s) [attempted 809/8107 = 9%, 3505 KB/s], Decompressed: 729[K
-Downloaded: 869 file(s) [attempted 869/8107 = 10%, 391 KB/s], Decompressed: 789[K
-Downloaded: 929 file(s) [attempted 929/8107 = 11%, 1244 KB/s], Decompressed: 849[K
-Downloaded: 979 file(s) [attempted 979/8107 = 12%, 1890 KB/s], Decompressed: 899[K
-Downloaded: 1028 file(s) [attempted 1028/8107 = 12%, 178 KB/s], Decompressed: 999[K
-Downloaded: 1098 file(s) [attempted 1098/8107 = 13%, 110 KB/s], Decompressed: 1068[K
-Downloaded: 1168 file(s) [attempted 1168/8107 = 14%, 1145 KB/s], Decompressed: 1098[K
-Downloaded: 1228 file(s) [attempted 1228/8107 = 15%, 272 KB/s], Decompressed: 1158[K
-Downloaded: 1288 file(s) [attempted 1288/8107 = 15%, 833 KB/s], Decompressed: 1208[K
-Downloaded: 1358 file(s) [attempted 1358/8107 = 16%, 1474 KB/s], Decompressed: 1258[K
-Downloaded: 1417 file(s) [attempted 1417/8107 = 17%, 1035 KB/s], Decompressed: 1318[K
-Downloaded: 1477 file(s) [attempted 1477/8107 = 18%, 258 KB/s], Decompressed: 1388[K
-Downloaded: 1557 file(s) [attempted 1557/8107 = 19%, 420 KB/s], Decompressed: 1457[K
-Downloaded: 1627 file(s) [attempted 1627/8107 = 20%, 745 KB/s], Decompressed: 1517[K
-Downloaded: 1687 file(s) [attempted 1687/8107 = 20%, 530 KB/s], Decompressed: 1607[K
-Downloaded: 1737 file(s) [attempted 1737/8107 = 21%, 563 KB/s], Decompressed: 1607[K
-Downloaded: 1816 file(s) [attempted 1816/8107 = 22%, 1134 KB/s], Decompressed: 1741[K
-Downloaded: 1886 file(s) [attempted 1886/8107 = 23%, 2001 KB/s], Decompressed: 1796[K
-Downloaded: 1956 file(s) [attempted 1956/8107 = 24%, 994 KB/s], Decompressed: 1896[K
-Downloaded: 2026 file(s) [attempted 2026/8107 = 24%, 3095 KB/s], Decompressed: 1956[K
-Downloaded: 2086 file(s) [attempted 2086/8107 = 25%, 268 KB/s], Decompressed: 2046[K
-Downloaded: 2155 file(s) [attempted 2155/8107 = 26%, 519 KB/s], Decompressed: 2116[K
-Downloaded: 2225 file(s) [attempted 2225/8107 = 27%, 122 KB/s], Decompressed: 2155[K
-Downloaded: 2295 file(s) [attempted 2295/8107 = 28%, 1752 KB/s], Decompressed: 2245[K
-Downloaded: 2355 file(s) [attempted 2355/8107 = 29%, 918 KB/s], Decompressed: 2285[K
-Downloaded: 2435 file(s) [attempted 2435/8107 = 30%, 257 KB/s], Decompressed: 2382[K
-Downloaded: 2504 file(s) [attempted 2504/8107 = 30%, 2028 KB/s], Decompressed: 2421[K
-Downloaded: 2554 file(s) [attempted 2554/8107 = 31%, 2276 KB/s], Decompressed: 2475[K
-Downloaded: 2634 file(s) [attempted 2634/8107 = 32%, 73 KB/s], Decompressed: 2574[K
-Downloaded: 2669 file(s) [attempted 2669/8107 = 32%, 1350 KB/s], Decompressed: 2574[K
-Downloaded: 2723 file(s) [attempted 2723/8107 = 33%, 53 KB/s], Decompressed: 2634[K
-Downloaded: 2774 file(s) [attempted 2774/8107 = 34%, 1113 KB/s], Decompressed: 2694[K
-Downloaded: 2844 file(s) [attempted 2844/8107 = 35%, 558 KB/s], Decompressed: 2754[K
-Downloaded: 2913 file(s) [attempted 2913/8107 = 35%, 311 KB/s], Decompressed: 2863[K
-Downloaded: 2983 file(s) [attempted 2983/8107 = 36%, 415 KB/s], Decompressed: 2913[K
-Downloaded: 3043 file(s) [attempted 3043/8107 = 37%, 219 KB/s], Decompressed: 2973[K
-Downloaded: 3113 file(s) [attempted 3113/8107 = 38%, 176 KB/s], Decompressed: 3033[K
-Downloaded: 3194 file(s) [attempted 3194/8107 = 39%, 880 KB/s], Decompressed: 3133[K
-Downloaded: 3238 file(s) [attempted 3238/8107 = 39%, 746 KB/s], Decompressed: 3183[K
-Downloaded: 3302 file(s) [attempted 3302/8107 = 40%, 1117 KB/s], Decompressed: 3222[K
-Downloaded: 3382 file(s) [attempted 3382/8107 = 41%, 76 KB/s], Decompressed: 3322[K
-Downloaded: 3442 file(s) [attempted 3442/8107 = 42%, 153 KB/s], Decompressed: 3382[K
-Downloaded: 3512 file(s) [attempted 3512/8107 = 43%, 485 KB/s], Decompressed: 3442[K
-Downloaded: 3582 file(s) [attempted 3582/8107 = 44%, 458 KB/s], Decompressed: 3512[K
-Downloaded: 3631 file(s) [attempted 3631/8107 = 44%, 682 KB/s], Decompressed: 3512[K
-Downloaded: 3689 file(s) [attempted 3689/8107 = 45%, 613 KB/s], Decompressed: 3582[K
-Downloaded: 3741 file(s) [attempted 3741/8107 = 46%, 1332 KB/s], Decompressed: 3698[K
-Downloaded: 3811 file(s) [attempted 3811/8107 = 47%, 587 KB/s], Decompressed: 3741[K
-Downloaded: 3861 file(s) [attempted 3861/8107 = 47%, 185 KB/s], Decompressed: 3791[K
-Downloaded: 3931 file(s) [attempted 3931/8107 = 48%, 410 KB/s], Decompressed: 3884[K
-Downloaded: 4010 file(s) [attempted 4010/8107 = 49%, 570 KB/s], Decompressed: 3921[K
-Downloaded: 4070 file(s) [attempted 4070/8107 = 50%, 1116 KB/s], Decompressed: 3970[K
-Downloaded: 4150 file(s) [attempted 4150/8107 = 51%, 721 KB/s], Decompressed: 4030[K
-Downloaded: 4230 file(s) [attempted 4230/8107 = 52%, 874 KB/s], Decompressed: 4090[K
-Downloaded: 4289 file(s) [attempted 4289/8107 = 52%, 451 KB/s], Decompressed: 4160[K
-Downloaded: 4348 file(s) [attempted 4348/8107 = 53%, 757 KB/s], Decompressed: 4160[K
-Downloaded: 4399 file(s) [attempted 4399/8107 = 54%, 109 KB/s], Decompressed: 4250[K
-Downloaded: 4459 file(s) [attempted 4459/8107 = 55%, 241 KB/s], Decompressed: 4250[K
-Downloaded: 4549 file(s) [attempted 4549/8107 = 56%, 1940 KB/s], Decompressed: 4379[K
-Downloaded: 4619 file(s) [attempted 4619/8107 = 56%, 221 KB/s], Decompressed: 4379[K
-Downloaded: 4688 file(s) [attempted 4688/8107 = 57%, 386 KB/s], Decompressed: 4379[K
-Downloaded: 4728 file(s) [attempted 4728/8107 = 58%, 424 KB/s], Decompressed: 4379[K
-Downloaded: 4778 file(s) [attempted 4778/8107 = 58%, 154 KB/s], Decompressed: 4379[K
-Downloaded: 4828 file(s) [attempted 4828/8107 = 59%, 2049 KB/s], Decompressed: 4549[K
-Downloaded: 4908 file(s) [attempted 4908/8107 = 60%, 1384 KB/s], Decompressed: 4549[K
-Downloaded: 4957 file(s) [attempted 4957/8107 = 61%, 290 KB/s], Decompressed: 4549[K
-Downloaded: 5067 file(s) [attempted 5067/8107 = 62%, 361 KB/s], Decompressed: 4549[K
-Downloaded: 5107 file(s) [attempted 5107/8107 = 62%, 1283 KB/s], Decompressed: 4549[K
-Downloaded: 5187 file(s) [attempted 5187/8107 = 63%, 102 KB/s], Decompressed: 4808[K
-Downloaded: 5257 file(s) [attempted 5257/8107 = 64%, 560 KB/s], Decompressed: 4808[K
-Downloaded: 5304 file(s) [attempted 5304/8107 = 65%, 345 KB/s], Decompressed: 4808[K
-Downloaded: 5377 file(s) [attempted 5377/8107 = 66%, 110 KB/s], Decompressed: 4808[K
-Downloaded: 5417 file(s) [attempted 5417/8107 = 66%, 2043 KB/s], Decompressed: 4808[K
-Downloaded: 5456 file(s) [attempted 5456/8107 = 67%, 255 KB/s], Decompressed: 4808[K
-Downloaded: 5511 file(s) [attempted 5511/8107 = 67%, 244 KB/s], Decompressed: 4808[K
-Downloaded: 5596 file(s) [attempted 5596/8107 = 69%, 1600 KB/s], Decompressed: 4808[K
-Downloaded: 5692 file(s) [attempted 5692/8107 = 70%, 911 KB/s], Decompressed: 5157[K
-Downloaded: 5736 file(s) [attempted 5736/8107 = 70%, 1227 KB/s], Decompressed: 5157[K
-Downloaded: 5802 file(s) [attempted 5802/8107 = 71%, 819 KB/s], Decompressed: 5157[K
-Downloaded: 5819 file(s) [attempted 5819/8107 = 71%, 66 KB/s], Decompressed: 5157[K
-Downloaded: 5855 file(s) [attempted 5855/8107 = 72%, 1566 KB/s], Decompressed: 5157[K
-Downloaded: 5935 file(s) [attempted 5935/8107 = 73%, 395 KB/s], Decompressed: 5157[K
-Downloaded: 6015 file(s) [attempted 6015/8107 = 74%, 224 KB/s], Decompressed: 5157[K
-Downloaded: 6045 file(s) [attempted 6045/8107 = 74%, 2584 KB/s], Decompressed: 5157[K
-Downloaded: 6085 file(s) [attempted 6085/8107 = 75%, 342 KB/s], Decompressed: 5157[K
-Downloaded: 6164 file(s) [attempted 6164/8107 = 76%, 798 KB/s], Decompressed: 5157[K
-Downloaded: 6235 file(s) [attempted 6235/8107 = 76%, 1147 KB/s], Decompressed: 5157[K
-Downloaded: 6274 file(s) [attempted 6274/8107 = 77%, 2123 KB/s], Decompressed: 5157[K
-Downloaded: 6344 file(s) [attempted 6344/8107 = 78%, 412 KB/s], Decompressed: 5656[K
-Downloaded: 6424 file(s) [attempted 6424/8107 = 79%, 668 KB/s], Decompressed: 5656[K
-Downloaded: 6474 file(s) [attempted 6474/8107 = 79%, 1267 KB/s], Decompressed: 5656[K
-Downloaded: 6553 file(s) [attempted 6553/8107 = 80%, 89 KB/s], Decompressed: 5656[K
-Downloaded: 6603 file(s) [attempted 6603/8107 = 81%, 200 KB/s], Decompressed: 5656[K
-Downloaded: 6653 file(s) [attempted 6653/8107 = 82%, 75 KB/s], Decompressed: 5656[K
-Downloaded: 6693 file(s) [attempted 6693/8107 = 82%, 77 KB/s], Decompressed: 5656[K
-Downloaded: 6745 file(s) [attempted 6745/8107 = 83%, 2090 KB/s], Decompressed: 5656[K
-Downloaded: 6783 file(s) [attempted 6783/8107 = 83%, 722 KB/s], Decompressed: 5656[K
-Downloaded: 6853 file(s) [attempted 6853/8107 = 84%, 3435 KB/s], Decompressed: 5656[K
-Downloaded: 6902 file(s) [attempted 6902/8107 = 85%, 1909 KB/s], Decompressed: 5656[K
-Downloaded: 6972 file(s) [attempted 6972/8107 = 85%, 434 KB/s], Decompressed: 5656[K
-Downloaded: 7052 file(s) [attempted 7052/8107 = 86%, 1816 KB/s], Decompressed: 5656[K
-Downloaded: 7092 file(s) [attempted 7092/8107 = 87%, 470 KB/s], Decompressed: 5656[K
-Downloaded: 7152 file(s) [attempted 7152/8107 = 88%, 1631 KB/s], Decompressed: 5656[K
-Downloaded: 7232 file(s) [attempted 7232/8107 = 89%, 4322 KB/s], Decompressed: 5656[K
-Downloaded: 7331 file(s) [attempted 7331/8107 = 90%, 1465 KB/s], Decompressed: 5656[K
-Downloaded: 7381 file(s) [attempted 7381/8107 = 91%, 458 KB/s], Decompressed: 6304[K
-Downloaded: 7451 file(s) [attempted 7451/8107 = 91%, 152 KB/s], Decompressed: 6304[K
-Downloaded: 7521 file(s) [attempted 7521/8107 = 92%, 158 KB/s], Decompressed: 6304[K
-Downloaded: 7591 file(s) [attempted 7591/8107 = 93%, 230 KB/s], Decompressed: 6304[K
-Downloaded: 7690 file(s) [attempted 7690/8107 = 94%, 298 KB/s], Decompressed: 6304[K
-Downloaded: 7750 file(s) [attempted 7750/8107 = 95%, 2563 KB/s], Decompressed: 6304[K
-Downloaded: 7810 file(s) [attempted 7810/8107 = 96%, 289 KB/s], Decompressed: 6304[K
-Downloaded: 7850 file(s) [attempted 7850/8107 = 96%, 279 KB/s], Decompressed: 6304[K
-Downloaded: 7920 file(s) [attempted 7920/8107 = 97%, 1263 KB/s], Decompressed: 6304[K
-Downloaded: 7970 file(s) [attempted 7970/8107 = 98%, 147 KB/s], Decompressed: 6304[K
-Downloaded: 7979 file(s) [attempted 7979/8107 = 98%, 846 KB/s], Decompressed: 6304[K
-Downloaded: 8074 file(s) [attempted 8074/8107 = 99%, 2421 KB/s], Decompressed: 6304[K
-Downloaded: 8099 file(s) [attempted 8099/8107 = 99%, 1002 KB/s], Decompressed: 6304[K
-Downloaded: 8107 file(s) [attempted 8107/8107 = 100%, 1002 KB/s], Decompressed: 6304[K
-Decompressed 8107 file(s)
-Already decompressed 8472 file(s)
+✔ [4/24] Built Batteries.Data.String.Basic (239ms)
+✔ [5/24] Built Cache.Lean (341ms)
+✔ [6/24] Built Cache.Init (215ms)
+✔ [7/24] Built Batteries.Data.Array.Match (458ms)
+✔ [8/24] Built Batteries.Data.Array.Match:c.o (138ms)
+✔ [9/24] Built Batteries.Data.String.Basic:c.o (283ms)
+✔ [10/24] Built Cache.Lean:c.o (178ms)
+✔ [11/24] Built Cache.Init:c.o (143ms)
+✔ [12/24] Built Batteries.Data.String.Matcher (234ms)
+✔ [13/24] Built Batteries.Tactic.OpenPrivate (508ms)
+✔ [14/24] Built Batteries.Data.String.Matcher:c.o (105ms)
+✔ [15/24] Built Batteries.Tactic.OpenPrivate:c.o (490ms)
+✔ [16/24] Built Cache.IO (694ms)
+✔ [17/24] Built Cache.Hashing (487ms)
+✔ [18/24] Built Cache.IO:c.o (604ms)
+✔ [19/24] Built Cache.Hashing:c.o (194ms)
+✔ [20/24] Built Cache.Requests (902ms)
+✔ [21/24] Built Cache.Main (555ms)
+✔ [22/24] Built Cache.Main:c.o (290ms)
+✔ [23/24] Built Cache.Requests:c.o (899ms)
+✔ [24/24] Built cache:exe (866ms)
+Decompressing 8544 already-cached file(s) (4 already decompressed)
 Current branch: HEAD
 Using cache (Azure) from origin: (some leanprover-community/mathlib4)
 No files to download
-Already decompressed 8472 file(s)
+Decompressed 8544 already-cached file(s)
+Completed successfully in 10057 ms!
+Decompressing 367 already-cached file(s) (8181 already decompressed)
+Current branch: HEAD
+Using cache (Azure) from origin: (some leanprover-community/mathlib4)
+No files to download
+Decompressed 367 already-cached file(s)
+Completed successfully in 1889 ms!
+✔ [27/40] Built Batteries.Lean.Position (253ms)
+✔ [28/40] Built Batteries.Tactic.Unreachable (298ms)
+✔ [30/40] Built Batteries.Lean.Meta.Inaccessible (251ms)
+✔ [31/40] Built Batteries.Tactic.Lint.Basic (447ms)
+✔ [38/68] Built ImportGraph.Imports.ImportGraph (292ms)
+✔ [40/68] Built ImportGraph.Lean.Environment (322ms)
+✔ [41/68] Built Batteries.Tactic.Lint.Misc (623ms)
+✔ [45/68] Built Batteries.Lean.Syntax (375ms)
+✔ [46/68] Built ImportGraph.Graph.TransitiveClosure (322ms)
+✔ [47/71] Built ImportGraph.Imports.Redundant (294ms)
+✔ [48/71] Built Batteries.Tactic.Lint.TypeClass (433ms)
+✔ [51/72] Built Batteries.Util.LibraryNote (665ms)
+✔ [52/77] Built ImportGraph.Tools.ImportDiff (571ms)
+✔ [53/80] Built ImportGraph.Imports.RequiredModules (636ms)
+✔ [55/80] Built Qq.ForLean.ToExpr (446ms)
+✔ [58/87] Built ImportGraph.Tools.RedundantImports (591ms)
+✔ [59/87] Built Qq.ForLean.ReduceEval (478ms)
+✔ [60/87] Built Qq.Typ (511ms)
+✔ [61/89] Built Qq.ForLean.Do (443ms)
+✔ [62/109] Built Batteries.Util.ProofWanted (918ms)
+✔ [63/109] Built Qq.SortLocalDecls (404ms)
+✔ [64/130] Built ImportGraph.Tools.MinImports (482ms)
+✔ [65/130] Built Batteries.Tactic.Lint.Frontend (1.4s)
+✔ [66/135] Built ImportGraph.Tools.FindHome (679ms)
+✔ [67/135] Built Batteries.Lean.NameMapAttribute (455ms)
+✔ [68/135] Built Batteries.Tactic.Lint.Simp (1.1s)
+✔ [69/143] Built Batteries.Tactic.SeqFocus (552ms)
+✔ [70/143] Built Batteries.Data.Nat.Basic (450ms)
+✔ [71/151] Built Batteries.CodeAction.Deprecated (888ms)
+✔ [72/151] Built Batteries.Lean.Expr (472ms)
+✔ [73/169] Built ImportGraph.Tools (499ms)
+✔ [74/169] Built Batteries.Tactic.Lint (443ms)
+✔ [76/169] Built Batteries.Lean.TagAttribute (342ms)
+✔ [77/171] Built Batteries.Lean.Except (378ms)
+✔ [78/171] Built Batteries.Tactic.HelpCmd (1.8s)
+✔ [105/171] Built Batteries.Linter.UnreachableTactic (690ms)
+✔ [115/171] Built Batteries.Lean.AttributeExtra (355ms)
+✔ [116/171] Built Batteries.Lean.Meta.UnusedNames (316ms)
+✔ [118/173] Built Batteries.Util.ExtendedBinder (477ms)
+✔ [121/185] Built Batteries.Tactic.Init (867ms)
+✔ [122/186] Built Batteries.Tactic.Trans (1.7s)
+✔ [124/186] Built Aesop.Script.Tactic (349ms)
+✔ [125/194] Built Batteries.Tactic.Alias (1.2s)
+✔ [134/194] Built Batteries.Control.Lemmas (408ms)
+✔ [135/194] Built Aesop.Nanos (347ms)
+✔ [138/194] Built Aesop.Script.GoalWithMVars (470ms)
+✔ [139/194] Built Aesop.Index.DiscrTreeConfig (295ms)
+✔ [140/197] Built Batteries.Linter.UnnecessarySeqFocus (832ms)
+✔ [141/197] Built Batteries.Lean.MonadBacktrack (300ms)
+✔ [142/199] Built Batteries.Tactic.Exact (472ms)
+✔ [144/199] Built Batteries.Tactic.PermuteGoals (571ms)
+✔ [145/209] Built Batteries.Control.LawfulMonadState (1.0s)
+✔ [146/209] Built Batteries.Data.Array.Merge (852ms)
+✔ [147/209] Built Aesop.Check (489ms)
+✔ [148/209] Built Batteries.Linter (458ms)
+✔ [149/213] Built Batteries.Logic (616ms)
+✔ [152/213] Built Batteries.Data.Nat.Lemmas (769ms)
+✔ [156/213] Built Aesop.Rule.Name (575ms)
+✔ [166/219] Built Aesop.Util.UnorderedArraySet (386ms)
+✔ [167/219] Built Aesop.Forward.LevelIndex (295ms)
+✔ [168/228] Built Aesop.Options.Public (593ms)
+✔ [169/228] Built Aesop.Script.OptimizeSyntax (540ms)
+✔ [170/228] Built Aesop.Forward.PremiseIndex (394ms)
+✔ [171/234] Built Batteries.Control.OptionT (454ms)
+✔ [172/234] Built Aesop.Percent (338ms)
+✔ [173/237] Built Batteries.Tactic.Basic (410ms)
+✔ [174/237] Built Aesop.Forward.SlotIndex (323ms)
+✔ [175/243] Built Qq.Macro (3.5s)
+✔ [176/243] Built Aesop.Options.Internal (347ms)
+✔ [177/243] Built Aesop.Util.UnionFind (467ms)
+✔ [178/248] Built Aesop.RuleTac.RuleTerm (411ms)
+✔ [179/248] Built Aesop.Util.Tactic (387ms)
+✔ [180/249] Built Aesop.ElabM (463ms)
+✔ [181/249] Built Aesop.Constants (290ms)
+✔ [182/252] Built Aesop.Util.Unfold (533ms)
+✔ [183/254] Built Batteries.Control.AlternativeMonad (696ms)
+✔ [184/254] Built Batteries.Lean.Meta.Expr (312ms)
+✔ [185/256] Built Batteries.Classes.Order (674ms)
+✔ [186/256] Built Aesop.Util.OrderedHashSet (440ms)
+✔ [187/256] Built Batteries.Lean.PersistentHashMap (359ms)
+✔ [191/264] Built Batteries.Lean.PersistentHashSet (343ms)
+✔ [192/274] Built Aesop.RuleTac.ElabRuleTerm (559ms)
+✔ [193/289] Built Qq.Commands (854ms)
+✔ [194/289] Built Batteries.Lean.Meta.DiscrTree (378ms)
+✔ [195/289] Built Aesop.RuleSet.Name (382ms)
+✔ [196/291] Built Batteries.Lean.Meta.Basic (507ms)
+✔ [197/291] Built Batteries.Lean.HashSet (338ms)
+✔ [198/291] Built Aesop.Util.Tactic.Unfold (652ms)
+✔ [199/291] Built Qq.Delab (1.2s)
+✔ [200/291] Built Aesop.Util.Basic (1.7s)
+✔ [201/291] Built Batteries.Data.UInt (795ms)
+✔ [202/291] Built Aesop.RuleSet.Filter (412ms)
+✔ [203/291] Built Aesop.Search.Expansion.Simp (510ms)
+✔ [204/291] Built Aesop.Exception (464ms)
+✔ [205/291] Built Batteries.Control.ForInStep.Basic (413ms)
+✔ [206/293] Built Batteries.Lean.Meta.SavedState (432ms)
+✔ [207/293] Built Batteries.Lean.Meta.InstantiateMVars (539ms)
+✔ [208/309] Built Aesop.Script.TacticState (416ms)
+✔ [209/312] Built Qq.MetaM (487ms)
+✔ [210/312] Built Aesop.Script.CtorNames (570ms)
+✔ [211/328] Built Aesop.RuleTac.Forward.Basic (730ms)
+✔ [212/328] Built Aesop.Frontend.Basic (413ms)
+✔ [216/330] Built Aesop.EMap (796ms)
+✔ [217/330] Built Aesop.Tracing (955ms)
+✔ [218/330] Built Aesop.Forward.Substitution (863ms)
+✔ [219/330] Built Qq.Simp (412ms)
+✔ [220/330] Built Qq.MatchImpl (470ms)
+✔ [223/339] Built Qq.AssertInstancesCommute (893ms)
+✔ [224/339] Built Aesop.RulePattern.Cache (478ms)
+✔ [225/345] Built Aesop.Index.Basic (634ms)
+✔ [226/345] Built Plausible.Random (486ms)
+✔ [227/347] Built Aesop.Util.Tactic.Ext (733ms)
+✔ [228/347] Built Plausible.Attr (343ms)
+✔ [229/348] Built Plausible.Shrinkable (426ms)
+✔ [230/348] Built Aesop.Stats.Basic (1.2s)
+✔ [231/353] Built Plausible.Gen (726ms)
+✔ [232/353] Built Batteries.CodeAction.Attr (590ms)
+✔ [233/353] Built Batteries.Tactic.Case (1.2s)
+✔ [234/353] Built Aesop.Stats.Extension (412ms)
+✔ [235/353] Built Aesop.Stats.File (459ms)
+✔ [236/353] Built Aesop.BaseM (519ms)
+✔ [237/353] Built Batteries.Data.Array.Basic (2.9s)
+✔ [238/353] Built Plausible.DeriveShrinkable (1.3s)
+✔ [240/353] Built Aesop.Util.EqualUpToIds (3.5s)
+✔ [241/353] Built Batteries.CodeAction.Basic (757ms)
+✔ [243/354] Built Plausible.Arbitrary (497ms)
+✔ [244/354] Built Aesop.Stats.Report (595ms)
+✔ [245/357] Built Batteries.Data.BinomialHeap.Basic (3.6s)
+✔ [246/357] Built Plausible.ArbitraryFueled (272ms)
+✔ [247/358] Built Aesop.Script.Util (392ms)
+✔ [249/360] Built LeanSearchClient.Basic (289ms)
+✔ [250/388] Built Aesop.RuleTac.GoalDiff (1.0s)
+✔ [279/395] Built Plausible.Sampleable (605ms)
+✔ [280/395] Built Batteries.CodeAction.Misc (1.6s)
+✔ [286/395] Built Aesop.RulePattern (1.3s)
+✔ [289/398] Built Aesop.Script.Step (785ms)
+✔ [290/398] Built Batteries.Tactic.GeneralizeProofs (3.0s)
+✔ [291/398] Built Batteries.Util.Cache (505ms)
+✔ [292/398] Built Qq.Match (3.8s)
+✔ [293/398] Built Plausible.Functions (613ms)
+✔ [294/407] Built Aesop.Index.RulePattern (766ms)
+✔ [295/407] Built Plausible.DeriveArbitrary (1.3s)
+✔ [302/411] Built Aesop.Script.UScript (411ms)
+✔ [303/411] Built Aesop.Script.ScriptM (502ms)
+✔ [304/411] Built Batteries.Data.List.Basic (2.5s)
+✔ [306/415] Built Aesop.Script.SScript (521ms)
+✔ [307/415] Built Aesop.RuleTac.Basic (751ms)
+✔ [313/415] Built Aesop.Forward.RuleInfo (959ms)
+✔ [314/415] Built Qq (475ms)
+✔ [315/415] Built LeanSearchClient.Syntax (1.6s)
+✔ [320/424] Built Aesop.Script.Check (444ms)
+✔ [331/452] Built Aesop.Search.Expansion.Basic (447ms)
+✔ [332/452] Built Plausible.Testable (1.5s)
+✔ [367/458] Built Aesop.Rule.Forward (466ms)
+✔ [368/458] Built Batteries.Data.MLList.Basic (853ms)
+✔ [369/458] Built Aesop.Script.UScriptToSScript (806ms)
+✔ [370/458] Built Aesop.RuleTac.Tactic (692ms)
+✔ [371/458] Built Batteries.CodeAction.Match (960ms)
+✔ [374/469] Built Plausible.Tactic (603ms)
+✔ [375/477] Built Batteries.Control.Nondet.Basic (510ms)
+✔ [382/507] Built Aesop.Forward.Match.Types (518ms)
+✔ [383/507] Built LeanSearchClient.LoogleSyntax (974ms)
+✔ [408/526] Built Batteries.CodeAction (540ms)
+✔ [409/526] Built ProofWidgets.Compat (456ms)
+✔ [421/577] Built Aesop.Script.SpecificTactics (1.6s)
+✔ [422/577] Built Plausible (423ms)
+✔ [423/577] Built ProofWidgets.Util (592ms)
+✔ [448/577] Built Aesop.Script.StructureStatic (830ms)
+✔ [449/577] Built Aesop.RuleTac.Descr (447ms)
+✔ [450/622] Built Aesop.Index.Forward (547ms)
+✔ [451/622] Built LeanSearchClient (440ms)
+✔ [452/622] Built Batteries.Classes.RatCast (372ms)
+✔ [488/835] Built Aesop.RuleTac.Preprocess (464ms)
+✔ [496/837] Built Aesop.Script.StructureDynamic (1.3s)
+✔ [497/837] Built Aesop.Rule.Basic (423ms)
+✔ [498/837] Built ProofWidgets.Component.Basic (707ms)
+✔ [500/844] Built Aesop.RuleTac.Apply (693ms)
+✔ [501/844] Built Batteries.Control.ForInStep.Lemmas (365ms)
+✔ [502/913] Built Aesop.RuleTac.Cases (769ms)
+✔ [503/913] Built ProofWidgets.Cancellable (758ms)
+✔ [520/1199] Built Batteries.Tactic.Congr (769ms)
+✔ [521/1199] Built Batteries.Data.List.Pairwise (553ms)
+✔ [549/1364] Built Aesop.Rule (499ms)
+✔ [550/1364] Built ProofWidgets.Component.MakeEditLink (543ms)
+✔ [557/1365] Built Aesop.Script.Main (547ms)
+✔ [558/1365] Built Batteries.Data.Fin.Basic (776ms)
+✔ [565/1911] Built Aesop.Index (869ms)
+✔ [567/2117] Built Aesop.RuleSet.Member (439ms)
+✔ [573/2191] Built Aesop.Tree.UnsafeQueue (562ms)
+✔ [599/2724] Built Batteries.Lean.HashMap (238ms)
+✔ [601/2778] Built Aesop.Builder.Basic (499ms)
+✔ [602/2781] Built Aesop.Forward.Match (1.2s)
+✔ [603/2781] Built Batteries.Data.Fin.Lemmas (1.1s)
+✔ [604/2808] Built Aesop.Builder.Constructors (568ms)
+✔ [605/2808] Built Aesop.Builder.Tactic (654ms)
+✔ [606/2808] Built Aesop.Builder.Apply (604ms)
+✔ [607/2943] Built Aesop.Builder.Cases (496ms)
+✔ [608/2943] Built Aesop.Builder.NormSimp (715ms)
+✔ [619/2953] Built Aesop.Tree.Data.ForwardRuleMatches (451ms)
+✔ [620/2953] Built Aesop.Builder.Unfold (771ms)
+✔ [624/2959] Built ProofWidgets.Data.Html (2.4s)
+✔ [626/2959] Built Aesop.Builder.Default (555ms)
+✔ [628/2959] Built ProofWidgets.Component.HtmlDisplay (679ms)
+✔ [629/2959] Built ProofWidgets.Presentation.Expr (835ms)
+✔ [630/2959] Built Aesop.Builder.Forward (1.7s)
+✔ [631/2959] Built ProofWidgets.Component.PenroseDiagram (974ms)
+✔ [632/2959] Built ProofWidgets.Component.OfRpcMethod (841ms)
+✔ [638/2959] Built Aesop.RuleTac.Forward (1.6s)
+✔ [639/2959] Built ProofWidgets.Component.FilterDetails (665ms)
+✔ [641/2959] Built ProofWidgets.Component.Panel.Basic (1.6s)
+✔ [642/2959] Built Aesop.RuleTac (351ms)
+✔ [643/2959] Built Aesop.RuleSet (2.2s)
+✔ [644/2959] Built Aesop.Frontend.Extension.Init (290ms)
+✔ [645/2959] Built Aesop.Frontend.RuleExpr (1.5s)
+✔ [646/2959] Built Batteries.Data.List.Lemmas (4.7s)
+✔ [649/2959] Built Aesop.Frontend.Extension (394ms)
+✔ [650/2959] Built Aesop.Forward.State (3.3s)
+✔ [651/2959] Built Aesop.Frontend.Attribute (609ms)
+✔ [652/2959] Built Batteries.Data.List.Count (995ms)
+✔ [653/2959] Built Aesop.Forward.State.Initial (487ms)
+✔ [654/2959] Built Aesop.Frontend.Tactic (754ms)
+✔ [655/2959] Built Aesop.Forward.State.ApplyGoalDiff (643ms)
+✔ [656/2959] Built Aesop.Frontend.Command (1.0s)
+✔ [657/2959] Built Aesop.BuiltinRules.Rfl (505ms)
+✔ [658/2959] Built Aesop.BuiltinRules.Split (657ms)
+✔ [660/2959] Built Aesop.Tree.Data (1.1s)
+✔ [661/2959] Built Aesop.BuiltinRules.Ext (702ms)
+✔ [662/2959] Built Aesop.BuiltinRules.Intros (692ms)
+✔ [663/2959] Built Aesop.BuiltinRules.Assumption (782ms)
+✔ [664/2959] Built Aesop.BuiltinRules.ApplyHyps (780ms)
+✔ [665/2959] Built Aesop.BuiltinRules.DestructProducts (843ms)
+✔ [666/2959] Built Aesop.BuiltinRules.Subst (663ms)
+✔ [667/2959] Built Aesop.Search.Queue.Class (359ms)
+✔ [668/2959] Built Aesop.Tree.RunMetaM (410ms)
+✔ [669/2959] Built Aesop.Tree.Traversal (493ms)
+✔ [670/2959] Built Aesop.BuiltinRules (444ms)
+✔ [671/2959] Built Aesop.Tree.TreeM (705ms)
+✔ [672/2959] Built Aesop.Search.Queue (543ms)
+✔ [673/2959] Built Batteries.Data.List.Perm (1.4s)
+✔ [674/2959] Built Aesop.Tree.State (585ms)
+✔ [675/2959] Built Aesop.Tree.Free (605ms)
+✔ [676/2959] Built Aesop.Tree.Tracing (987ms)
+✔ [677/2959] Built Aesop.Tree.Stats (636ms)
+✔ [678/2959] Built Aesop.Search.SearchM (792ms)
+✔ [679/2959] Built Aesop.Forward.State.UpdateGoal (555ms)
+✔ [680/2959] Built Aesop.Tree.ExtractProof (893ms)
+✔ [681/2959] Built Aesop.Tree.ExtractScript (983ms)
+✔ [682/2959] Built Aesop.Search.RuleSelection (424ms)
+✔ [683/2959] Built Aesop.Tree.Check (833ms)
+✔ [684/2959] Built Aesop.Tree.AddRapp (1.5s)
+✔ [685/2959] Built Aesop.Saturate (3.3s)
+✔ [686/2959] Built Aesop.Search.Expansion.Norm (1.3s)
+✔ [687/2959] Built Aesop.Frontend.Saturate (487ms)
+✔ [688/2959] Built Aesop.Frontend (285ms)
+✔ [694/2959] Built Aesop.Search.Expansion (850ms)
+✔ [695/2959] Built Aesop.Search.ExpandSafePrefix (445ms)
+✔ [696/2959] Built Aesop.Search.Main (1.4s)
+✔ [697/2959] Built Aesop.Main (492ms)
+✔ [728/2959] Built Aesop (282ms)
+ℹ [2958/2959] Built ring_proof (12s)
+info: ring_proof.lean:6:0: mulComm : ∀ (a b : ℕ), a * b = b * a
+Build completed successfully (2959 jobs).
 mulComm : ∀ (a b : ℕ), a * b = b * a
 </code></pre></div>
 </div>
@@ -728,7 +870,7 @@ mulComm : ∀ (a b : ℕ), a * b = b * a
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../glossary">Glossary</a>
+<span aria-hidden="true">⇐</span> <a href="../monads">Monads</a>
 </div>
 <div class="col-6 center">
 <a href="../">L4Py</a>

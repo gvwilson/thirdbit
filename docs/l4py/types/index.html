@@ -24,7 +24,7 @@
 <li><a href="../basics/">Basics</a></li>
 <li><a class="active" href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -67,7 +68,7 @@
     with the values of the second field, etc.</li>
 </ul>
 </li>
-<li>Explore other kinds of types</li>
+<li>This lesson explores other kinds of types</li>
 </ul>
 <h2>Sum Types</h2>
 <div data-inc="sum_types.lean"><span aria-label="Source: types/sum_types.lean" class="inc-path" role="img" tabindex="0" title="types/sum_types.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- A sum type that can hold either a String or an Int</span>
@@ -118,10 +119,11 @@ StringOrInt.num 42
 <li><code>StringOrInt</code> is a type whose values wrap either a <code>String</code> or an <code>Int</code><ul>
 <li><code>StringOrInt.str</code> constructs a string-flavored value</li>
 <li><code>StringOrInt.num</code> constructs a number-flavored value</li>
+<li>The <code>→</code> specifies the result type for each constructor</li>
 </ul>
 </li>
 <li><code>deriving Repr</code> is like Python's <code>__repr__</code><ul>
-<li>We'll explain why it's called <code>deriving</code> later (DEBT)</li>
+<li>We'll explain why it's called <code>deriving</code> later in this lesson</li>
 </ul>
 </li>
 <li>Since every element of the list has type <code>StringOrInt</code>, the list is homogeneous</li>
@@ -165,6 +167,9 @@ StringOrInt.num 42
 <li><code>inductive</code> can define recursive types, not just flat sums<ul>
 <li><code>Tree</code> is either a <code>leaf</code> containing a <code>String</code>…</li>
 <li>…or a <code>node</code> containing two <code>Tree</code>s</li>
+<li>Reminder: <code>Tree → Tree → Tree</code> means "a function that takes a <code>Tree</code>
+    and returns a function that takes a <code>Tree</code> and returns a <code>Tree</code>"</li>
+<li>We promise you'll get used to it…</li>
 </ul>
 </li>
 <li>Like defining a Python class where each instance is either a leaf or a branch<ul>
@@ -251,10 +256,13 @@ true
 <li>Like Python's <code>enum.Enum</code></li>
 </ul>
 </li>
-<li><code>inductive Season</code> defines four possible values with no extra payload</li>
+<li><code>inductive Season</code> defines four possible values with no extra payload<ul>
+<li>Note: <code>|</code> is a prefix before each option, not a separator between them</li>
+</ul>
+</li>
 <li><code>deriving BEq</code> generates the <code>==</code> operator<ul>
 <li>Without it, you can't compare <code>Season</code> values</li>
-<li>We'll explain the name <code>BEq</code> later (DEBT)</li>
+<li><code>BEq</code> is short for "Boolean equality"</li>
 </ul>
 </li>
 </ul>
@@ -280,6 +288,9 @@ Shape.rect 2.000000 5.000000
 <li>Constructors in a sum type can carry one or more data fields<ul>
 <li><code>Shape.circle</code> takes a <code>Float</code> for the radius</li>
 <li><code>Shape.rect</code> takes two <code>Float</code>s for width and height</li>
+<li>Yes, the parentheses seem oddly placed,
+    but remember that every function takes one parameter,
+    and we need to specify their types</li>
 </ul>
 </li>
 <li>Like a <a class="gl-ref" href="../glossary/#tagged_union">tagged union</a> where each tag stores different-shaped data<ul>
@@ -403,7 +414,7 @@ Color.blue
 </div>
 <ul>
 <li><code>List</code> is also an <code>inductive</code> type with two constructors<ul>
-<li><code>nil</code> for the empty list (written <code>[]</code>)</li>
+<li><code>[]</code> for the empty list (pronounced "nil")</li>
 <li><code>cons</code> for adding an element to the front (written <code>head :: tail</code>)</li>
 <li>The name "cons" is short for "construct", and goes back to the 1950s</li>
 </ul>
@@ -472,10 +483,7 @@ Result.err "division by zero"
 </ul>
 </li>
 <li>Like Rust's <code>Result</code> or Haskell's <code>Either</code></li>
-<li>Cleaner than Python's convention of returning <code>(value, error)</code> tuples<ul>
 <li>The compiler forces the caller to handle both <code>ok</code> and <code>err</code></li>
-</ul>
-</li>
 </ul>
 <h2><code>match</code> with Conditions</h2>
 <div data-inc="match_guard.lean"><span aria-label="Source: types/match_guard.lean" class="inc-path" role="img" tabindex="0" title="types/match_guard.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Use conditionals inside match branches when constructors aren't enough</span>
@@ -500,11 +508,57 @@ Result.err "division by zero"
 <li>Sometimes constructors alone aren't enough: you need finer discrimination</li>
 <li><code>match</code> arms are just expressions, so you can use <code>if</code>/<code>else if</code>/<code>else</code> inside them<ul>
 <li>The <code>n'</code> pattern matches any <code>Int</code>, then the conditional further refines the result</li>
-<li>Pronounced "en prime"</li>
+<li>Pronounced "en prime" (blame math)</li>
 </ul>
 </li>
 <li>The compiler still checks that the <code>match</code> is exhaustive<ul>
 <li>A single <code>n'</code> branch covers all <code>Int</code> values, so no catch-all is needed here</li>
+</ul>
+</li>
+</ul>
+<h2>Combining Branches and Conditions</h2>
+<div data-inc="match_guard_shape.lean"><span aria-label="Source: types/match_guard_shape.lean" class="inc-path" role="img" tabindex="0" title="types/match_guard_shape.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Combine pattern matching on constructors with conditions inside each branch</span>
+<span class="kn">inductive</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="kn">where</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">circle</span><span class="w"> </span><span class="o">(</span><span class="n">radius</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">(</span><span class="n">width</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">height</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span>
+<span class="n">deriving</span><span class="w"> </span><span class="n">Repr</span>
+
+<span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">s</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Shape</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">with</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"large circle"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s2">"small circle"</span>
+<span class="w">  </span><span class="bp">|</span><span class="w"> </span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="bp">=&gt;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"square"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"wide rectangle"</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="s2">"tall rectangle"</span>
+
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="mf">3.0</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">circle</span><span class="w"> </span><span class="mf">15.0</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="mf">4.0</span><span class="w"> </span><span class="mf">4.0</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">2.0</span><span class="o">)</span>
+<span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">Shape</span><span class="bp">.</span><span class="n">rect</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="mf">6.0</span><span class="o">)</span>
+</code></pre></div>
+</div>
+<div data-inc="match_guard_shape.out"><span aria-label="Source: types/match_guard_shape.out" class="inc-path" role="img" tabindex="0" title="types/match_guard_shape.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>"small circle"
+"large circle"
+"square"
+"wide rectangle"
+"tall rectangle"
+</code></pre></div>
+</div>
+<ul>
+<li>Realistic code often needs both: pick a branch by constructor, then refine with <code>if</code></li>
+<li><code>Shape.circle r =&gt; …</code> and <code>Shape.rect w h =&gt; …</code> are separate <code>|</code> branches, one per constructor<ul>
+<li>Each branch destructures its constructor's fields (<code>r</code>, or <code>w</code> and <code>h</code>)</li>
+</ul>
+</li>
+<li>Inside each branch, <code>if</code>/<code>else if</code>/<code>else</code> narrows the result further<ul>
+<li>The <code>circle</code> branch checks the radius</li>
+<li>The <code>rect</code> branch compares width and height to distinguish squares from rectangles</li>
+</ul>
+</li>
+<li>The compiler still requires every constructor to have a branch<ul>
+<li>But it doesn't (and can't) check that your conditions inside a branch are exhaustive — that's on you</li>
 </ul>
 </li>
 </ul>
@@ -751,7 +805,7 @@ Point'.mk 1.000000 2.000000
 <details>
 <summary>hint</summary>
 <ul>
-<li>Use <code>match</code> on the <code>Day</code> argument to check which day it is</li>
+<li>Use <code>match</code> on the <code>Day</code> parameter to check which day it is</li>
 <li>Return <code>true</code> for <code>Day.saturday</code> and <code>Day.sunday</code>, <code>false</code> for everything else</li>
 <li>Use <code>_</code> as a catch-all for the five weekdays to keep the code short</li>
 </ul>
@@ -857,7 +911,7 @@ Point'.mk 1.000000 2.000000
 <ul>
 <li>Use <code>match opt with</code> to handle <code>Option.some</code> and <code>Option.none</code></li>
 <li><code>Option.some val</code> means return <code>val</code> (ignore the default)</li>
-<li><code>Option.none</code> means return the <code>default</code> argument</li>
+<li><code>Option.none</code> means return the <code>default</code> parameter</li>
 </ul>
 </details>
 </div>

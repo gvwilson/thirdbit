@@ -24,7 +24,7 @@
 <li><a class="active" href="../basics/">Basics</a></li>
 <li><a href="../types/">Types</a></li>
 <li><a href="../pipes/">Functional Pipelines</a></li>
-<li><a href="../io/">I/O and Monads</a></li>
+<li><a href="../io/">I/O</a></li>
 <li><a href="../archive/">A File Archiver</a></li>
 <li><a href="../glob/">Matching Patterns</a></li>
 <li><a href="../template/">A Template Expander</a></li>
@@ -46,6 +46,7 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../monads/">Monads</a></li>
 <li><a href="../proof/">Proofs</a></li>
 </ul>
 </div>
@@ -73,9 +74,20 @@
 </div>
 <ul>
 <li>Lean is a compiled language, so it doesn't have a <a class="gl-ref" href="../glossary/#repl">REPL</a></li>
-<li><code>#eval</code> means "evaluate this while compiling"`</li>
-<li>Run with <code>lean add_numbers.lean</code></li>
+<li><code>#eval</code> means "evaluate this while compiling"`<ul>
+<li>Yes, the Lean compiler runs (some of) <em>your</em> code while compiling it</li>
 </ul>
+</li>
+<li>Run with <code>lean add_numbers.lean</code><ul>
+<li>May get a complaint about needing a <code>lean-toolchain</code> file</li>
+<li>Specifies tool versions etc.</li>
+<li>Minimal one shown below</li>
+</ul>
+</li>
+</ul>
+<div data-inc="lean-toolchain"><span aria-label="Source: basics/lean-toolchain" class="inc-path" role="img" tabindex="0" title="basics/lean-toolchain">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>leanprover/lean4:v4.30.0
+</code></pre></div>
+</div>
 <h2>Defining Values</h2>
 <div data-inc="define_values.lean"><span aria-label="Source: basics/define_values.lean" class="inc-path" role="img" tabindex="0" title="basics/define_values.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="bp">+</span><span class="w"> </span><span class="mi">2</span>
 <span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="n">sum</span>
@@ -104,7 +116,8 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </div>
 <ul>
 <li>Python won't let you do this either</li>
-<li>But Lean's type system is more powerful and its checking is stricter</li>
+<li>But it doesn't complain until you run the program</li>
+<li>Lean's type system is more powerful and its checking is stricter</li>
 </ul>
 <h2>Guards</h2>
 <div data-inc="guards.lean"><span aria-label="Source: basics/guards.lean" class="inc-path" role="img" tabindex="0" title="basics/guards.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">language</span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s2">"Lean"</span>
@@ -151,8 +164,8 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </ul>
 </li>
 <li>Lean's <code>List</code> is a singly-linked list<ul>
-<li>Adding to the front (<code>::</code>) and pattern-matching head/tail are O(1)</li>
-<li><code>List.length</code> and indexed access (<code>list[i]</code>) are O(n) — they traverse the whole list</li>
+<li>Adding to the front (shown below) and pattern-matching head/tail are O(1)</li>
+<li><code>List.length</code> and indexed access (<code>list[i]</code>) are O(n) because they traverse the whole list</li>
 <li>If you need O(1) random access, use <code>Array</code> instead (see <a href="../pipes/">pipes</a>)</li>
 </ul>
 </li>
@@ -205,9 +218,9 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </code></pre></div>
 </div>
 <ul>
-<li>Every function actually takes only one argument</li>
-<li><code>func a b</code> defines a function that takes one argument…</li>
-<li>…and returns a function that takes one argument</li>
+<li>Every function actually takes only one parameter</li>
+<li><code>func a b</code> defines a function that takes one parameter…</li>
+<li>…and returns a function that takes one parameter</li>
 <li>This is called <a class="gl-ref" href="../glossary/#currying">currying</a><ul>
 <li>Named after the mathematician Haskell Curry</li>
 <li>The inspiration for Python's <code>functools.partial</code></li>
@@ -232,7 +245,7 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </div>
 <ul>
 <li><code>if</code>/<code>else if</code>/<code>else</code> is an expression returning a value</li>
-<li>This doesn't work because the function isn't guaranteed to return a string</li>
+<li>The example below doesn't work because the function isn't guaranteed to return a string</li>
 </ul>
 <div data-inc="conditional_incomplete_err.lean"><span aria-label="Source: basics/conditional_incomplete_err.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_incomplete_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"positive"</span>
@@ -242,7 +255,7 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </code></pre></div>
 </div>
 <ul>
-<li>This doesn't work because the types are inconsistent</li>
+<li>The example below doesn't work because the types are inconsistent</li>
 </ul>
 <div data-inc="conditional_inconsistent_err.lean"><span aria-label="Source: basics/conditional_inconsistent_err.lean" class="inc-path" role="img" tabindex="0" title="basics/conditional_inconsistent_err.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">classify</span><span class="w"> </span><span class="o">(</span><span class="n">n</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="bp">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s2">"positive"</span>
@@ -259,7 +272,8 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </code></pre></div>
 </div>
 <ul>
-<li>That's a hell of an error message…</li>
+<li>That's a hell of an error message</li>
+<li>It will eventually (sort of) make sense, but Lean has a long way to go to match the quality of Python's error messages</li>
 </ul>
 <h2>Another Way to Do It</h2>
 <div data-inc="match.lean"><span aria-label="Source: basics/match.lean" class="inc-path" role="img" tabindex="0" title="basics/match.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="bp">#</span><span class="n">eval</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">with</span>
@@ -273,7 +287,8 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 <ul>
 <li>Use <code>match…with</code> for pattern matching</li>
 <li>Each alternative uses <code>|</code> and <code>=&gt;</code></li>
-<li>Use <code>_</code> as a catch-all</li>
+<li>Checked in order: first match wins</li>
+<li>Use <code>_</code> as a catch-all to match "anything else"</li>
 </ul>
 <h2>Recursion</h2>
 <div data-inc="sum_list.lean"><span aria-label="Source: basics/sum_list.lean" class="inc-path" role="img" tabindex="0" title="basics/sum_list.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">sumList</span><span class="w"> </span><span class="o">(</span><span class="n">xs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">:=</span>
@@ -290,11 +305,11 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 <ul>
 <li>Use <code>::</code> to get the head and tail of a list<ul>
 <li>Head is one element</li>
-<li>Tail is a list</li>
+<li>Tail is a (possibly empty) list</li>
 </ul>
 </li>
-<li>As with conditional, must handle all alternatives</li>
-<li>Lean checks that you done this have during compilation</li>
+<li>As with conditional, code must handle all alternatives</li>
+<li>And Lean checks that you done this have during compilation</li>
 <li>List concatenation (<code>++</code>) is O(n) in the length of the left list<ul>
 <li>Prepending a single element with <code>::</code> is O(1)</li>
 <li>Functions that build a result list by prepending and then call <code>List.reverse</code> at the end
@@ -323,8 +338,12 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 <ul>
 <li>Some patterns are so common that they're supported directly</li>
 <li><code>fun args =&gt; expr</code> is used for short anonymous functions like Python's <code>lambda</code></li>
-<li><code>map</code> and <code>filter</code> do what their names suggest</li>
-<li><code>foldl</code> is "fold left" and <em>must</em> be given an initial value</li>
+<li><code>map</code> applies a function to each element of a list, creating a new list of results</li>
+<li><code>filter</code> applies a test to each element of a list, creating a new list of elements that pass the test</li>
+<li><code>foldl</code> (short for"fold left") creates a running total (or whatever the function does)<ul>
+<li>It <em>must</em> be given an initial value</li>
+</ul>
+</li>
 </ul>
 <h2>Local Definitions</h2>
 <div data-inc="let_binding.lean"><span aria-label="Source: basics/let_binding.lean" class="inc-path" role="img" tabindex="0" title="basics/let_binding.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">def</span><span class="w"> </span><span class="n">circleArea</span><span class="w"> </span><span class="o">(</span><span class="n">radius</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Float</span><span class="w"> </span><span class="o">:=</span>
@@ -361,8 +380,11 @@ Hint: Type class instance resolution failures can be inspected with the `set_opt
 </code></pre></div>
 </div>
 <ul>
-<li><code>×</code> separates the types of tuple elements (type <code>\times</code> in the editor)</li>
-<li>Use <code>.1</code> and <code>.2</code> to access elements (no, not <code>.0</code>)</li>
+<li><code>×</code> separates the types of tuple elements (type <code>\times</code> in a Lean-aware editor)</li>
+<li>Use <code>.1</code> and <code>.2</code> to access elements<ul>
+<li>Not <code>.0</code> because Lean follows mathematical conventions, not C's</li>
+</ul>
+</li>
 <li>Use <code>let (x, y) := p</code> to extract both elements at once</li>
 </ul>
 <h2>Missing Values</h2>
@@ -511,12 +533,12 @@ origin : Point
 </code></pre></div>
 </div>
 <ul>
-<li>Use <code>·</code> (a centered dot) to match parameters<ul>
+<li>Use <code>·</code> (a centered dot) to match arguments<ul>
 <li>Which is a horrible usability decision</li>
 </ul>
 </li>
-<li>Type <code>\cdot</code> in the editor and <code>\gt</code> to get <code>≥</code></li>
-<li>If there are multiple parameters, each <code>·</code> matches the next one<ul>
+<li>Type <code>\cdot</code> in the editor to get the centered dot and <code>\gt</code> to get <code>≥</code></li>
+<li>If there are multiple arguments, each <code>·</code> matches the next one<ul>
 <li>Which is an even worse usability decision, but we're stuck with it</li>
 </ul>
 </li>
@@ -598,6 +620,25 @@ origin : Point
 <ul>
 <li>The function body returns an <code>Int</code> but the type annotation says <code>String</code></li>
 <li>Fix the type annotation to match what the body actually returns</li>
+</ul>
+</details>
+<h3>Fix: Let Binding Type</h3>
+<div data-inc="ex_bug_let_bind.lean"><span aria-label="Source: basics/ex_bug_let_bind.lean" class="inc-path" role="img" tabindex="0" title="basics/ex_bug_let_bind.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should return a String, but the let binding produces</span>
+<span class="c1">-- an Int without converting it. Fix the type mismatch.</span>
+<span class="kn">def</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">doubled</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="n">doubled</span>
+
+<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"10"</span>
+</code></pre></div>
+</div>
+<details>
+<summary>hint</summary>
+<ul>
+<li><code>let doubled := x * 2</code> produces an <code>Int</code>, but the function returns <code>String</code></li>
+<li>The <code>s!"…"</code> interpolation can convert <code>Int</code> to <code>String</code> automatically</li>
+<li>The reason this looks like it should work is that <code>s!"The value is {doubled}"</code> does produce a <code>String</code></li>
+<li>Check carefully: what does <code>describeValue 5</code> actually evaluate to?</li>
 </ul>
 </details>
 <h3>Write: Double a Number</h3>
@@ -686,25 +727,6 @@ origin : Point
 <ul>
 <li>Replace <code>p</code> with a new <code>Point</code> that has <code>x</code> incremented by <code>1.0</code></li>
 <li>Use the <code>{ old with field := newVal }</code> syntax shown in the structures section</li>
-</ul>
-</details>
-<h3>Fix: Let Binding Type</h3>
-<div data-inc="ex_bug_let_bind.lean"><span aria-label="Source: basics/ex_bug_let_bind.lean" class="inc-path" role="img" tabindex="0" title="basics/ex_bug_let_bind.lean">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- This function should return a String, but the let binding produces</span>
-<span class="c1">-- an Int without converting it. Fix the type mismatch.</span>
-<span class="kn">def</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">:=</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">doubled</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="bp">*</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">  </span><span class="n">doubled</span>
-
-<span class="bp">#</span><span class="n">guard</span><span class="w"> </span><span class="n">describeValue</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="bp">==</span><span class="w"> </span><span class="s2">"10"</span>
-</code></pre></div>
-</div>
-<details>
-<summary>hint</summary>
-<ul>
-<li><code>let doubled := x * 2</code> produces an <code>Int</code>, but the function returns <code>String</code></li>
-<li>The <code>s!"…"</code> interpolation can convert <code>Int</code> to <code>String</code> automatically</li>
-<li>The reason this looks like it should work is that <code>s!"The value is {doubled}"</code> does produce a <code>String</code></li>
-<li>Check carefully: what does <code>describeValue 5</code> actually evaluate to?</li>
 </ul>
 </details>
 <h3>Write: Sum a List</h3>
