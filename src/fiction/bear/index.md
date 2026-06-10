@@ -277,7 +277,8 @@ The prince's carefully polite expression turned wistful
 as he watched the clouds fly away.
 "Can your cloud make it to Apple Bridge?" he asked.
 
-Noxy put her hand on Cloak's flank and closed her eyes to mind-speak with him before nodding.
+Noxy put her hand on Cloak's flank and closed her eyes
+to mind-speak with him before nodding.
 "Yes, if we go slowly.
 I've been pushing him pretty hard to keep up with the others," she added,
 feeling a sudden pang of guilt.
@@ -3934,6 +3935,16 @@ He had healed up well,
 and the arrival of the other clouds had made him restless.
 If he had been a cat, he would have been scratching at the door and mewling to be let out.
 
+Years ago, her mother had shown her that if you looked straight at something in the dark,
+you probably wouldn't see it,
+but if you looked away,
+it would show up in the corner of your eye.
+Whatever strange ability she had seemed to work something like that.
+If she tried to feel Cloak's injury,
+nothing happened.
+If she let her mind wander,
+she could tell it was there.
+
 She held one of the princess's hands and Mope held the other
 as Cloak rose gently into the air.
 She needn't have worried:
@@ -4164,305 +4175,371 @@ as if she was just another roll of cloth.*
 </section>
 <section markdown="1">
 
-## Chapter 8: Missing!
+## Chapter 7: Missing!
 
-Noxy woke to a frantic knock. "His Highness needs you downstairs,
-m'lady," the maid said, hurrying away before Noxy could answer. She
-pulled on her clothes and boots and followed.
+Noxy woke to someone pounding on her door.
+"His Highness needs you downstairs, honored," the servant said,
+hurrying away before Noxy could answer.
+She pulled on her clothes and boots and clattered down the stairs.
 
-The garrison house was in uproar. Soldiers were looking in closets and
-under beds, while the servants tried frantically to remember if they
-had forgotten about any secret passages. Boots thundered on stairs,
-while wooden shoes went *clack! clack! clack!* through every room and
-hallway.
+The garrison house was in uproar.
+Soldiers were looking in closets and under beds,
+as the servants tried frantically to remember where they had been when.
+Boots thundered on stairs
+while wooden shoes went *clack! clack! clack!* through every room and hallway.
 
-Pacing back and forth in the entrance hall, the prince snarled, "She
-can't have just turned into a frog and hopped away! Can she?"
+Pacing back and forth in the entrance hall, the prince snarled,
+"She can't have just turned into a frog and hopped away! Can she?"
 
-"It's doubtful, Your Highness," Sergeant Inambu said, her eyes
-downcast. "Magic along by that powerful would probably have woken me.
-And even if it din't, it would have given such to my apprentices as
-certain." She was standing, but only just, her face still drawn from
-exhausting herself the day before.
+"It's doubtful, Your Highness," Sergeant Inambu said, her eyes downcast.
+"Magic along by that powerful would probably have woken me.
+And even if it din't,
+it would have given along to my apprentices some powerful headaches."
+She was standing, but only just,
+her face still drawn from exhausting herself the day before.
 
-"She loves to go down by the docks and watch the river rafts," Dolly
-fretted. "She might have fallen in, or…or…"
+"She loves to go down by the docks and watch the river rafts," Dolly fretted.
+"She might have fallen in, or…or…"
 
-"Now, mother, I'm sure she's all right." Mope patted her shoulder
-awkwardly, even though he looked no less worried than she did. He
-glanced up as Noxy arrived, then spoke to Sergeant Inambu. "All of Her
-Highness's belongings are up in her room. Can't you use them to find
-out where she's been taken?"
+"Now, mother, I'm sure she's all right."
+Mope patted her shoulder awkwardly, even though he looked no less worried than she did.
+He glanced at Noxy as she arrived, breathless, then spoke to Sergeant Inambu.
+"All of Her Highness's belongings are up in her room.
+Can't you use them to find out where she's been taken?"
 
 "What makes you think somebody took her?" Prince Thokmay asked.
 
-"Erm, well…" Mope seem flustered for an instant. "Isn't it obvious?
-She's never wandered away before, certainly not in the middle of the
-night. And the smugglers have grown bolder, Your Highness, you can't
-argue with that, not after yesterday. I just thought—well, I just
-thought…" He flapped his hands instead of finishing his sentence.
+"Erm, well…" Mope seem flustered for an instant.
+"Isn't it obvious?
+She's never wandered away before, certainly not in the middle of the night.
+And the smugglers have grown bolder, honored, you can't argue with that.
+I just thought—well, I just thought…"
+He flapped his hands instead of finishing his sentence.
 
-"You could be right," the prince said grimly. "Manpa! *Manpa!* Where
-have you—oh, there you are. My compliments to Sergeant Gyalpa, and
-he's to send squads north and south along the main road. Have them
-knock on every door and ask if anyone saw any strangers last night."
+"You could be right," the prince said grimly.
+"Manpa! *Manpa!* Where have you—oh, there you are.
+My compliments to Sergeant Gyalpa,
+and he's to send squads north and south along the main road.
+Have them knock on every door and ask if anyone saw any strangers last night."
 
-"Sir, I believe he's already sent along some out, sir," the soldier
-replied as he saluted.
+"Honored, I believe he's already sent along some out, honored,"
+the soldier replied as he saluted.
 
 "Well then have him send some more!"
 
-"Sir!" The soldier saluted again and jogged away.
+"Honored!" The soldier saluted again and jogged away.
 
-Prince Thokmay suddenly seemed to notice that Noxy was in her riding
-clothes. "I'm glad you're awake," he said curtly. "Is Cloak well
-enough to fly? You might have more luck spotting her from the air."
+Prince Thokmay suddenly seemed to notice that Noxy was in her riding clothes.
+"I'm glad you're awake," he said curtly.
+"Can you take Cloak up and see if you can see anything?
+You might have more luck spotting her from the air."
 
 "I'll go and look," Noxy said.
 
-"I'll come with you," Mope volunteered. "I'm afraid I'm not much use
-standing around here." He patted his mother's shoulder again. "I'm
-sure she'll be all right," he said softly. "No-one would hurt her."
+"I'll come with you," Mope volunteered.
+"I'm afraid I'm not much use standing around here."
+He patted his mother's shoulder again.
+"I'm sure she'll be all right," he said softly.
+"No-one would hurt her."
 Dolly put her own hand on her son's and tried to smile.
 
-Cloak was already floating a few feet above the ground in his pen, his
-edges bunching and clumping with agitation. He could sense how
-worried she was, Noxy realized, even without her mind-speaking to
-him. "Do you really think the smugglers have kidnapped the princess?"
-she asked Mope as she ran her hands over the cloud's flank to soothe
-him.
+Aft and the others were gone,
+leaving Cloak alone in the cloud pen.
+He was floating a few feet above the ground in his pen when they arrived,
+his edges bunching and clumping with agitation.
+He could sense how worried she was,
+Noxy realized,
+even without her mind-speaking to him.
+"Do you really think the smugglers have kidnapped the princess?"
+she asked Mope as she ran her hands over the cloud's flank to soothe him.
 
-"I can't say that I know," Mope replied. He tugged his lower lip for a
-moment, then put his hands back down at his sides in embarrassment
-when he noticed Noxy watching him. "They might have done, they might
-have done. Oh, I hope she's all right. My mother would—well, it
-would be terrible, that's all."
+"I hope so," Mope replied.
+"They'll just want money, or to be left alone," he went on at Noxy's surprised look.
+"If Bortje and her lot are involved, well, that will be more complicated.
+And if this is the Consul's work, 'complicated' won't even *start* to describe it."
 
-Noxy patted Cloak's flank again. Years ago, her mother had shown her
-that if you looked straight at something in the dark, you probably
-wouldn't see it, but if you looked away, it would show up in the
-corner of your eye. Whatever strange ability she had seemed to work
-something like that. If she tried to feel Cloak's injury, nothing
-happened. If she let her mind wander, she could—it was almost like
-stubbing her toe against it.
+"What about Learned Shudarga?" Noxy asked.
 
-She frowned and shook her head. There would be time to explore what
-she could do later. "He's still not completely healed," she told
-Mope, "But he can take us up as long as we don't push him too
-hard. Come on!" She grabbed a double handful of cloud and levered
-herself up onto Cloak's back.
+"Oh no, I can't imagine…"
+The troll paused for a moment and then let out a sigh.
+"Actually, I *can* imagine,
+I just don't want to."
+He tugged his lower lip for a moment,
+then put his hands back down at his sides in embarrassment.
+"I just hope the princess is all right.
+My mother would—well, it would be terrible, that's all."
 
-"Um…" Mope hesitated.
+Noxy patted Cloak's flank again and clambered onto his back.
+"Are you sure you want to do this?"
 
-Noxy lay down flat and stretched out her arm. "Hurry up!"
+"No."
+The troll hesitated,
+then sighed and took the hand Noxy offered and clambered up to sit beside her.
+He swallowed loudly as Cloak began to rise.
 
-The gorilla hesitated a moment longer, then sighed and took the
-offered hand and clambered to sit beside Noxy. He swallowed loudly as
-Cloak began to rise.
+"Keep your eyes peeled," Noxy told him.
+"No, closer to the edge.
+Don't worry, Cloak won't let you fall."
 
-"Keep your eyes peeled," Noxy told him. "No, closer to the edge. Don't
-worry, Cloak won't let you fall."
+They cleared the rooftops a moment later.
+"Do you see anything?" she asked.
 
-They cleared the rooftops a moment later. "Do you see anything?" she
-asked.
+"Only the insides of my eyelids," the troll replied.
+Taking a deep breath, he opeed his eyes and looked down.
+"What am I supposed to be looking for?"
 
-"Only the insides of my eyelids," the gorilla told her. Taking a
-deep breath, he opeed his eyes and looked down. "What am I supposed to
-be looking for?"
+"I don't know," Noxy said. "Anything at all."
 
-"Anything," Noxy said. "Anything at all."
+They flew in a slow circle over Apple Bridge,
+scanning the town for some sign of the missing princess.
+People were dumping slop buckets in the drains,
+opening the awnings over their shops,
+and putting out pots of flowers or pieces of dayglass to catch the morning sun,
+just as they did on every other morning.
+Here and there,
+though,
+she saw knots of activity as soldiers in uniform knocked on doors and asked their questions.
 
-They flew in a slow circle over Apple Bridge, scanning the town below
-for some sign of the missing princess. She wished she had the eagle
-eye that Ulfmaerr had given her grandmother. The old magician had
-claimed it wasn't magic, but when Noxy had looked through the polished
-brass tube, with its twin pieces of curved glass, she had been able to
-count the leaves on trees on the other side of the valley.
+There were more soldiers by the river dock.
+One boatman was gesticulating angrily,
+pointing at his barge and the river in obvious exasperation.
+Noxy couldn't hear what he was saying,
+but she had been on enough flights with Aft to fill in his words:
+I have a schedule, you're costing me money, I've told you everything I know.
 
 "Look!" Mope said excitedly. "Over there!"
 
 Noxy tried to follow his pointing finger. "Where? What do you see?"
 
-"Those soldiers—they've got someone with them! And they're heading
-straight for the house. They must have found something!" Sure enough,
-two uniformed soldiers were hurrying back to the garrison house with a
-third man on a stocky pony between them.
+"Those soldiers—they've got someone with them!
+And they're heading straight for the garrison!"
+Sure enough,
+two soldiers on horseback were trotting back to the garrison house
+with a third man on a stocky pony between them.
 
-Noxy leaped nimbly off Cloak as they touched down and raced across the
-courtyard without waiting for Mope to dismount.
-
+Noxy leaped nimbly off Cloak as they touched down
+and raced across the courtyard without waiting for Mope.
 "What's happened?" the prince demanded. "Did you find her?"
 
-"No, but someone's coming up the road," Noxy said breathlessly. A
-heartbeat later the door banged open. Sergeant Gyalpa strode in with
-two soldiers and a middle-aged man with long, greasy hair behind him.
+"No, but someone's coming up the road," Noxy said breathlessly.
+A moment later the door swung open.
+Sergeant Gyalpa strode in with two soldiers
+and a middle-aged man with long, greasy hair behind him.
 
-"Your Highness," Sergeant Gyalpa saluted. "This is Dobchang. He says
-he saw a bear pulling a wagon out of town after moonfall last night."
+"Honored," Sergeant Gyalpa saluted.
+"This is Dobchang.
+He says he saw a bear pulling a wagon out of town after moonfall last night."
 
-"That's right, Your Highness," the man said, nodding vigorously. "It
-was huge, it was, almost as big along as the wagon."
+"That's right, honored," the man said, nodding vigorously.
+"Seen her around the market.
+She was huge, she was, almost as big along as the wagon."
 
-"Did you see who was in the wagon?" the prince demanded.
+"Did you see anyone in it?" the prince demanded.
 
-"Just a fellow from along around the market," Dobchang said
-helplessly. "I don't know his name, but I been see him often
-enough. Skinny as a rake, he is."
+"You mean like having been eaten?"
+the man squawked.
 
-"That's Mukh!" Noxy exclaimed. "He was in the market! He gave the
-princess some ribbon—"
+"No, not in the bear, in the *wagon*," Thokmay said impatiently.
 
-"—and a ring," the prince finished. He thumped a fist on the
-wall. "He even *told* us it was magical!"
+"Oh, that.
+Yes, a fellow from along around the market," Dobchang said, relieved.
+"I don't know his name, but I been see him often enough.
+Skinny, he is."
 
-"Now, a moment, Your Highness, a moment," Mope cautioned. "You're
-letting feeling run ahead of logic. What did we study last—"
+"That's Mukh!" Noxy exclaimed.
+"He gave the princess some ribbon—"
 
-"This is not a time for lessons!" the prince snapped. He glared at the
-troll for a moment, then unclenched his fists and said, "I'm sorry. I
-shouldn't have yelled. What were you going to say?"
+"—and a ring," the prince finished.
+He thumped a fist on the wall.
+"He even *told* us it was magical!"
 
-"I was just going to say that we don't actually know whether this pair
-has anything to do with your sister's disappearance," Mope replied
-quietly. "Perhaps they wanted to be on the morning ferry at Two Pear
-Crossing. Or wanted to, um, to circumvent the gate inspection traders
-are usually subject to? It could mean nothing."
+"Now, a moment, Your Highness, a moment," Mope cautioned.
+"You're letting feeling run ahead of logic.
+What did we study last—"
 
-Everyone was silent. "I'm—I'm sorry for bringing you bad news, Your
-Highness," Dobchang finally said awkwardly.
+"This is not a time for a lesson!" the prince snapped.
+He glared at the troll for a moment, then unclenched his fists.
+"I'm sorry.
+I shouldn't have yelled.
+What were you going to say?"
 
-The prince shook his head. "No, you've been very helpful. The sergeant
-here will see to it that you are rewarded."
+"I was just going to say that we don't actually know
+whether this pair has anything to do with your sister's disappearance,"
+Mope replied patiently.
+"Perhaps they wanted to be on the morning ferry at Two Pear Crossing.
+Or wanted to, um, to circumvent the gate inspection traders are usually subject to?
+It could mean nothing."
 
-The man drew himself up. "There's no need for that, Your Highness.
+Everyone was silent.
+"I'm—I'm sorry I don't know anything more, honored,"
+Dobchang finally said awkwardly.
+
+The prince shook his head.
+"No, you've been very helpful.
+The sergeant here will see to it that you are rewarded."
+
+The man drew himself up.
+"There's no need for that, honored.
 Helping you out, that's reward enough."
 
-The prince nodded slowly. "Very well. But I hope you'll accept my
-gratitude." He held out his hand. Dobchang hesitated, then shook it.
+The prince nodded slowly.
+"Very well.
+But I hope you'll accept my gratitude."
+He held out his hand.
+Dobchang hesitated, then shook it.
 
-As one of the soldiers showed him out, a smile twitched at the corner
-of the prince's mouth. "Back in the capital, he'd spend the rest of
-his life telling everyone a prince shook his hand," he said to Noxy.
-"Around here, he'll spend the rest of his life telling everyone how it
-wasn't such a big deal."
+As one of the soldiers showed him out,
+a smile twitched at the corner of the prince's mouth.
+"Back in the capital,
+he'd spend the rest of his life telling everyone how he shook my hand,
+and that it wasn't actually a big deal."
 
-"Excuse me, Your Highness," Sergeant Inambu interrupted, "But you said
-that the man in the market gave Her Highness a ribbon."
+"Excuse me, Your Highness," Sergeant Inambu interrupted,
+"But you said that the man in the market gave Her Highness a ribbon."
 
-"Yes, a blue one," the prince confirmed bitterly. "I thought he was
-just trying to earn some royal favor."
+"Yes, a blue one," the prince confirmed bitterly.
+"I thought he was just trying to earn some royal favor."
 
 "Do you still have it?" Sergeant Inambu asked.
 
-The prince raised his eyebrows at Dolly. "I think so," she said. "Yes,
-I'm sure of it, it's upstairs on the princess's dresser."
+The prince raised his eyebrows at Dolly.
+"I think so," she said.
+"Yes, I'm sure of it, it's upstairs on the princess's dresser."
 
-"If it could be brought down, I might be able to use it to find the
-princess," Sergeant Inambu said. Noxy could hear the reluctance in the
-magician's voice.
+"If it could be brought down,
+I might be able to use it to find the princess,"
+Sergeant Inambu said.
+Noxy could hear the reluctance in the magician's voice.
 
-Dolly didn't need any more urging. As she trotted up the stairs the
-sergeant called out, "And if Highness's hair brush could be brought
-down as well, it might also be useful." She turned to one of the
-soldiers standing beside her. "Rinpa, see if you can find my
-apprentices. Have them meet me in the front courtyard in ten minutes."
-With a slight bow of her head to the prince, she added, "If you will
-excuse me, Your Highness? I need some time to prepare."
+Dolly didn't need to be asked twice.
+As she trotted up the stairs the sergeant called out,
+"And if Her Highness's hair brush could be brought down as well, it might also be useful."
+She turned to one of the soldiers standing beside her.
+"Private, see if you can find my apprentices.
+Have them meet me in the front courtyard."
+With a slight bow of her head to the prince, she added,
+"If you will excuse me, honored? I need some time to prepare."
 
 "Of course," the prince said. "Thank you."
 
-As she walked away, Sergeant Gyalpa observed gruffly, "Finding Her
-Highness could take a lot out of her."
+As she walked away, Sergeant Gyalpa observed gruffly,
+"Finding Her Highness could take a lot out of her."
 
-"Magic always does," the prince replied, staring down the hallway at
-Sergeant Inambu's back.
+"Magic always does," the prince replied,
+staring at Sergeant Inambu's back.
 
-Ten minutes later a dozen or more people stood by the water trough in
-the front courtyard of the garrison house. Some of the soldiers had
-put on their armor, as if they expected an invasion. Noxy spotted one
-with a coil of rope slung across his chest like a sash.
+Ten minutes later a dozen people stood by the horse trough
+in the front courtyard of the garrison house.
+Some of the soldiers fingered their swords as if they expected an attack.
+One had a coil of rope slung across his chest like a sash.
+Noxy wondered what he was thinking,
+then realized he was probably at as much of a loss as anyone.
 
-Sergeant Inambu's two apprentices, both newly-recruited soldiers from
-Apple Bridge, watched her nervously as she took the rolled-up ribbon
-from Dolly and set it on a small piece of wood. "You have to be
-careful to put the fresh-cut end on the inside," the sergeant said,
-whether to the apprentices or herself Noxy couldn't tell. "It's easy
-to forget that, but if you do, the spell works backwards, and tells
-you where the thing you're looking for *isn't*."
+Sergeant Inambu's two apprentices,
+both young recruits from Apple Bridge,
+watched closely as she took the rolled-up ribbon from Dolly
+and set it on a small piece of wood.
+"You have to be careful to put the fresh-cut end along by the inside,"
+the sergeant said,
+whether to the apprentices or herself Noxy couldn't tell.
+"It's easy to forget that, but if you get it wrong,
+the spell works backwards,
+and tells you where the thing you're looking for *isn't*."
+She glanced at her apprentices.
+"That's along by a lot of world to try to fit in your head at once.
+You won't like it."
 
-She put the block of wood in the water, then waited until it stopped
-bobbing up and down. Once it settled, she unwound a few strands of
-hair from Princess Ogmin's hair brush and put them on another block of
-wood. "Make sure nothing dangles," she said. "See? Nothing in the
-water to mix everything up." This block went in at the trough's other
-end.
+She put the block of wood in the water,
+watching it until it stopped bobbing up and down.
+Once it settled,
+she unwound a few strands of hair from Princess Ogmin's hair brush
+and put them on another block of wood.
+"Make sure nothing dangles," she said, pointing.
+"See?
+Nothing along in the water to mix everything up."
+This block went in at the trough's other end.
 
-"Now…" Sergeant Inambu took a deep breath, then let it out with a
-whoosh. The two blocks suddenly started speeding toward each other,
-moving so quickly that they each raised a small wake. They met in the
-middle of the trough with a *click!*
+"Now…" Sergeant Inambu took a deep breath,
+then let it out with a whoosh.
+The two blocks suddenly started speeding toward each other,
+moving so quickly that they each raised a small wake.
+They met in the middle of the trough with a *click!*
 
-Sergeant Inambu nodded. "She's with whoever has that roll of ribbon,"
-she said.
+Sergeant Inambu nodded.
+"She's with whoever has that roll of ribbon," she said.
 
-"Can you tell us where that is?" the prince asked, trying to keep his
-voice level.
+"Can you tell us where that is?" the prince asked,
+trying to keep his voice level.
 
-Sergeant Inambu nodded. "The green box," she said to one of her
-apprentices. "We'll try the easy way first."
+Sergeant Inambu nodded.
+"The green box," she ordered.
+"We'll try along by the easy way first."
 
-The apprentice opened the box. Inside, a dozen ordinary-looking stones
-lay in a tray, each with a neat hand-written label pasted beside
-it. The apprentice set the stones one by one on the edge of the
-trough, spacing them out as evenly as he could. As he did so, Sergeant
-Inambu took out the block with Ogmin's hair on it and handed it to her
-other apprentice.
+The apprentice opened the box.
+Inside, a dozen ordinary-looking stones lay in a tray,
+each with a neat hand-written label pasted beside it.
+The apprentice set the stones one by one on the edge of the trough,
+spacing them out as evenly as he could.
+As he did so,
+Sergeant Inambu took out the block with Ogmin's hair on it
+and handed it to her other apprentice.
 
-"But—" The other apprentice looked confused. "Won't it be more
-accurate to look for Her Highness, rather than the ribbon?"
+"But—" The other apprentice looked confused.
+"Won't it be more accurate to look for Her Highness, rather than the ribbon?"
 
-"I think I know what I'm doing," Sergeant Inambu told her. "Of course,
-if you'd like to repeat the test the other way yourself…"
+"I think I know what I'm doing," Sergeant Inambu told her.
+"But if you'd like to try the test along by the other way yourself…"
 
-The apprentice swallowed. "No thank you, ma'am," she said. She stepped
-away from the trough.
+The apprentice swallowed.
+"No, honored."
+She stepped away from the trough.
 
-"Ready here, ma'am," the first apprentice said. Sergeant Inambu nodded
-her head, then took another deep breath.
+"Ready here, honored," the first apprentice said.
+Sergeant Inambu nodded her head, then took another deep breath.
 
-Nothing happened, and then nothing, and then the block of wood started
-moving toward one side of the trough. When it hesitated, Sergeant
-Inambu said, "Take away the middle stone. No, not that one, the
-*middle* one, to your left!"
+Nothing happened, and then nothing,
+and then the block of wood started moving toward one side of the trough.
+When it hesitated,
+Sergeant Inambu said,
+"Take away the middle stone.
+No, not that one, the *middle* one, to your left!"
 
-As soon as the apprentice did so, the block of wood nosed toward a
-flat, blue-gray piece of slate. When it bumped against the side of the
-trough, the sergeant's shoulders slumped. "That's it," she said
-hoarsely. "What does the label say?"
+As soon as the apprentice did so,
+the block of wood nosed toward a flat, blue-gray piece of slate.
+When it bumped against the side of the trough, the sergeant's shoulders slumped.
+"That's it," she said hoarsely. "What does the label say?"
 
-"The west side of Carmick Hill, ma'am," the apprentice replied. His
-eyes widened. "She's in the Blight!"
+"The west side of Carmick Hill, ma'am," the apprentice replied.
+His eyes widened. "She's in the Blight!"
 
-Dolly and Noxy gasped. Sergeant Gyalpa closed his eyes, then opened
-them again. "Don't worry, Your Highness," he said. "We'll find her."
+Dolly gasped.
+Sergeant Gyalpa's jaw tightened.
+"Don't worry, honored," he said to the prince.
+"We'll find her."
 
-"That's right," the prince said distantly, his eyes on Sergeant Inambu.
-"We'll find her." He blinked suddenly, then nodded. "And we'll find
-who took her. Sergeant, I want every soldier you have on a horse in
-fifteen minutes. Full armor, and overnight packs. Manpa! Manpa,
-where—there you are. Lay out my armor, and see whether we have any
-recent maps of that part of the Blight."
+"Yes we will," the prince said distantly, his eyes on Sergeant Inambu.
+"We'll find her."
+He blinked suddenly.
+"And we'll find who took her.
+Sergeant, I want every soldier you have on a horse in fifteen minutes.
+Full armor and overnight packs.
+Jinpa! Jinpa, where—there you are.
+Lay out my armor,
+and see whether we have any recent maps of that part of the Blight."
 
-As Sergeant Gyalpa and the other soldiers hurried away, the prince
-turned back to Sergeant Inambu. "Thank you," he said. "I hope… I hope
-it didn't take too much."
+As Sergeant Gyalpa and the other soldiers hurried away,
+the prince turned back to Sergeant Inambu.
+"Thank you," he said.
+"I hope… I hope it didn't take too much."
 
-The sergeant sighed. "Do you remember your tenth birthday party?" she
-asked. Before the prince could answer, she added, "I don't, not any
-more." She straightened up, but didn't raise her eyes. "With your
-permission, Your Highness, I'd like to go and rest for a while. I
-think my apprentices know enough field magic to take care of whatever
-you might need."
+She sighed.
+"Do you remember your tenth nameday?" she asked.
+Before the prince could answer, she added,
+"I don't, not any more."
+She squared her shoulders against exhaustion but didn't raise her eyes.
+"With your permission, honored, I should rest for a while.
+I think my apprentices know enough field magic
+to take care of whatever you might need."
 
 "Of course," the prince said. "Take all the time you need."
 
@@ -4515,7 +4592,7 @@ tucking his helmet under his arm as he did so. He ran his fingers over
 his short, wiry hair as if to dry it. "How did I do?" he asked Mope,
 his voice cracking.
 
-"Well enough, I think, Your Highness," the gorilla reassured him.
+"Well enough, I think, Your Highness," the troll reassured him.
 
 "Are you sure it's wise to take so few, Your Highness?" a soft voice
 asked from behind Noxy. She jumped, startled. Sergeant Inambu was
@@ -4789,7 +4866,7 @@ speak.
 Mope hesitated. "If you don't tell her, I will," Dolly said, as if
 Mope was a badly-behaved child.
 
-The younger gorilla sighed. "I know the bear," he said reluctantly.
+The younger troll sighed. "I know the bear," he said reluctantly.
 "The one from the market, Rust—I recognized her from mother's
 description. She's—she's involved in politics. Just like me," he
 added, as if daring Noxy to laugh or criticize.
@@ -5120,8 +5197,8 @@ Noxy still didn't understand, but then suddenly she did, and her
 stomach went cold. "From the Blight?" Noxy gasped. "Someone was using
 Blight magic last night? Mope! Mope!"
 
-"Coming!" the gorilla called from two lanes away. Noxy heard a
-chicken squawk as the gorilla trod on it. "What have you found?"
+"Coming!" the troll called from two lanes away. Noxy heard a
+chicken squawk as the troll trod on it. "What have you found?"
 
 She grabbed his arm excitedly. "He says there was Blighted magic here
 last night," she hissed, nodding her head at Piqaluujaq. The Anuat
@@ -5181,7 +5258,7 @@ to catch up.
 "Blankets," Mope puffed. "And biscuits, and apple sauce."
 
 "I don't understand," Noxy said. They had slowed to a walk so that
-Mope could catch his breath. The gorilla stopped completely,
+Mope could catch his breath. The troll stopped completely,
 wheezing.
 
 "What, would, a, bear, do, with, blankets?" he gasped. "And how, would
@@ -5260,7 +5337,7 @@ tumbled past her end over end, like an axe thrown by a giant.
 
 She just had time to think that she would finally find out what it was
 like to fly when a big, hairy hand fastened onto her collar. "Don't
-let go!" Mope shouted in her ear. The gorilla grabbed the stairs
+let go!" Mope shouted in her ear. The troll grabbed the stairs
 with his other hand and both his feet. "Whatever you do, *don't let
 go!*"
 
@@ -5304,7 +5381,7 @@ three times before she heard it.
 
 "Yes, I'm all right," she told him. She suddenly realized that her
 arms and back were aching from holding onto the stair railing. As the
-gorilla let go of her she scrambled to her feet.
+troll let go of her she scrambled to her feet.
 
 Splintered boards and branches, broken glass and gobs of mud… The
 garrison house's parade courtyard was covered with the remains of the
@@ -5312,7 +5389,7 @@ tornado's makeshift toys. Noxy stared at the destruction for a moment,
 then tried to shake free of Mope's grasp. "Let me go!" she
 protested. "I have to find Cloak!"
 
-"Never mind your cloud," the gorilla said. "Where's Sergeant Inambu?"
+"Never mind your cloud," the troll said. "Where's Sergeant Inambu?"
 The magician could no longer be seen on the roof of the old house.
 
 Noxy and Mope limped across the parade courtyard. They were almost at
@@ -5801,7 +5878,7 @@ no-one was present.
 voice behind her.
 
 "Oh, I'm sorry, dear," Dolly said, patting her arm distractedly. "I
-didn't mean to startle you." The old gorilla looked around the room
+didn't mean to startle you." The old troll looked around the room
 curiously, just as Noxy had done a few moments before.
 
 "It's all right," Noxy replied a bit shakily. "Have you seen Sergeant
@@ -5833,7 +5910,7 @@ Dolly stood absolutely still for a moment. When she spoke, the tone of
 her voice reminded Noxy of Sergeant Gyalpa. "All right," she said.
 "I'll get some clothes for her, and some proper food."
 
-"I'll wait here and tell Sergeant Inambu," Noxy nodded. The gorilla
+"I'll wait here and tell Sergeant Inambu," Noxy nodded. The troll
 hurried away.
 
 Noxy took a deep breath. Cloak was feeling stronger—Noxy hadn't lied
@@ -6094,7 +6171,7 @@ that I think about it, I don't think I was ever young enough."
 
 "Did you hear them? Did you?" Noxy demanded.
 
-Dolly nodded. Noxy could hear the old gorilla's breath rasping in
+Dolly nodded. Noxy could hear the old troll's breath rasping in
 and out. "Just…just the last bit. About…about sending the soldiers
 away."
 
@@ -6109,7 +6186,7 @@ Inambu's.
 "What—spell—" Dolly tried to say.
 
 "It's all right, don't talk," Noxy said to her, suddenly concerned.
-The old gorilla's eyes were wide, and Noxy could see her chest
+The old troll's eyes were wide, and Noxy could see her chest
 heaving. She reached out impulsively and put her arms around her
 rescuer. "Thank you," she said softly, hugging Dolly.
 
@@ -6602,7 +6679,7 @@ Noxy's feet dangled in the air. "Is it all right, dear?" Dolly asked.
 
 "Yes," Noxy said breathlessly. "You can let go."
 
-The gorilla released her arm. She dropped into the alley with an
+The troll released her arm. She dropped into the alley with an
 *oomph!* Dolly landed down beside her a moment later.
 
 "Are you hurt?" she asked in a concerned voice.
@@ -6648,7 +6725,7 @@ her around. "Who do you think they'll believe, us or her?"
 
 "But we have to try!" Noxy pleaded. "The smugglers will kill them!"
 
-"They'll believe their sergeant before they'll believe an gorilla
+"They'll believe their sergeant before they'll believe an troll
 and a foreign girl," Dolly said resignedly.
 
 When Sergeant Inambu spoke, her voice was too weak to carry to the
@@ -6660,7 +6737,7 @@ in the middle of the courtyard.
 "Come on!" Noxy hissed. Once again Dolly had to grab her and hold her
 back.
 
-"What do you think you're doing?" the gorilla asked. "She's still
+"What do you think you're doing?" the troll asked. "She's still
 strong enough to make the whistle that we heard. Do you think she
 won't have enough strength to put you to sleep, or make you mute?"
 
@@ -6744,7 +6821,7 @@ a doctor."
 the sergeant. She—" Dolly cut herself off as the leek seller and the
 other man lifted the wounded man to carry him out.
 
-The younger gorilla sat back on his haunches. "What has she done
+The younger troll sat back on his haunches. "What has she done
 now?" he asked wearily. "Are we all under curfew?"
 
 "No, worse." His mother dropped her voice. "Noxy and I heard her
@@ -6768,7 +6845,7 @@ Mukh can get to it," Noxy explained. "There's magic there that works
 in reverse, kind of. It takes strength from the people it works on,
 instead of from the magician casting the spell."
 
-Noxy wouldn't have thought that an gorilla's face could go pale the
+Noxy wouldn't have thought that an troll's face could go pale the
 way that Mope's did. "So it *does* exist…" he whispered. "There are
 stories—old stories, nightmares. That's what finally brought the sky
 down on the Pilots. Someone invented a kind of magic that took from
@@ -6974,7 +7051,7 @@ throat. It raised its nose and sniffed the air, then half-turned its
 head toward Mope. "Humans," it snorted as its began to fade. "They
 just don't understand…"
 
-"Mother! Mother, are you all right?" The younger gorilla hopped
+"Mother! Mother, are you all right?" The younger troll hopped
 awkwardly over Sergeant Inambu and hugged his mother. They were both
 crying, he realized. When had he started crying?
 
@@ -7300,7 +7377,7 @@ which I trust you have by now received. Unless I am instructed
 otherwise, I shall commend him to future patrons.*
 
 Although I probably won't need to do so soon, Thokmay added
-mentally. He had tried to talk the gorilla out of leaving, but Mope
+mentally. He had tried to talk the troll out of leaving, but Mope
 had made up his mind. "It's time I did something as myself," Mope had
 said, his face even longer than usual. "I've been trying to train you
 like the circus man trained my father. It's time I did a few of my own
@@ -7308,7 +7385,7 @@ tricks for a change."
 
 "Where will you go?" Thokmay asked.
 
-The gorilla twiddled his big toes. "Former or Latter Tongsa,
+The troll twiddled his big toes. "Former or Latter Tongsa,
 perhaps, or Chaghan. Or maybe even Garheim. Anyone can argue the law
 in Garheim."
 
@@ -7326,7 +7403,7 @@ into better shape, you can." On an impulse he hugged his tutor.
 
 "I'll miss you," he said softly.
 
-The gorilla hugged him back clumsily. "And I you, Your Highness," he
+The troll hugged him back clumsily. "And I you, Your Highness," he
 said. "You had a pretty good sense of humor, for a human."
 
 The ink on Thokmay's pen had dried. He wiped it carefully on a scrap of
