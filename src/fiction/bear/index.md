@@ -4183,8 +4183,9 @@ hurrying away before Noxy could answer.
 She pulled on her clothes and boots and clattered down the stairs.
 
 The garrison house was in uproar.
-Soldiers were looking in closets and under beds,
-as the servants tried frantically to remember where they had been when.
+Servants were looking in closets and under beds,
+while others tried frantically to remember where they had last seen her
+and whether that window had been open or closed when they went to sleep last night.
 Boots thundered on stairs
 while wooden shoes went *clack! clack! clack!* through every room and hallway.
 
@@ -4257,13 +4258,6 @@ she asked Mope as she ran her hands over the cloud's flank to soothe him.
 "They'll just want money, or to be left alone," he went on at Noxy's surprised look.
 "If Bortje and her lot are involved, well, that will be more complicated.
 And if this is the Consul's work, 'complicated' won't even *start* to describe it."
-
-"What about Learned Shudarga?" Noxy asked.
-
-"Oh no, I can't imagine…"
-The troll paused for a moment and then let out a sigh.
-"Actually, I *can* imagine,
-I just don't want to."
 He tugged his lower lip for a moment,
 then put his hands back down at his sides in embarrassment.
 "I just hope the princess is all right.
@@ -4277,54 +4271,63 @@ The troll hesitated,
 then sighed and took the hand Noxy offered and clambered up to sit beside her.
 He swallowed loudly as Cloak began to rise.
 
-"Keep your eyes peeled," Noxy told him.
-"No, closer to the edge.
-Don't worry, Cloak won't let you fall."
+"You're being very brave," Noxy told him.
 
-They cleared the rooftops a moment later.
+"You sound like my mother," Mope replied.
+Noxy mind-heard Cloud's muted protest as the troll's fingers dug into him.
+
+Noxy stood up once they were above the rooftops.
+From up here the town's growth was as clear as the rings on a tree.
+Streets led to the Dog Market,
+which in turn was centered on the river dock.
+The houses closest to the market were crowded shoulder to shoulder,
+two stories tall and roofed with wooden shingles.
+The larger homes of the town's wealthier merchants stood closer to the garrison house,
+with tiled roofs and neatly-tended ornamental gardens.
 "Do you see anything?" she asked.
 
-"Only the insides of my eyelids," the troll replied.
-Taking a deep breath, he opeed his eyes and looked down.
+"Only the insides of my eyelids," Mope replied.
+Taking a deep breath, he opened his eyes.
 "What am I supposed to be looking for?"
 
-"I don't know," Noxy said. "Anything at all."
+"I don't know," Noxy said. "Anything out of the ordinary."
 
 They flew in a slow circle over Apple Bridge,
-scanning the town for some sign of the missing princess.
+scanning the town.
 People were dumping slop buckets in the drains,
 opening the awnings over their shops,
 and putting out pots of flowers or pieces of dayglass to catch the morning sun,
 just as they did on every other morning.
+
 Here and there,
 though,
-she saw knots of activity as soldiers in uniform knocked on doors and asked their questions.
-
+Noxy saw knots of activity as soldiers in uniform knocked on doors and asked their questions.
 There were more soldiers by the river dock.
 One boatman was gesticulating angrily,
 pointing at his barge and the river in obvious exasperation.
-Noxy couldn't hear what he was saying,
-but she had been on enough flights with Aft to fill in his words:
+She couldn't hear what he was saying,
+but she could imagine it:
 I have a schedule, you're costing me money, I've told you everything I know.
 
-"Look!" Mope said excitedly. "Over there!"
+"Look there!" Mope said excitedly. "By the brewer's!"
 
-Noxy tried to follow his pointing finger. "Where? What do you see?"
+Noxy tried to follow his pointing finger.
+"Where? What do you see?"
 
 "Those soldiers—they've got someone with them!
-And they're heading straight for the garrison!"
+And they're heading for the garrison!"
 Sure enough,
 two soldiers on horseback were trotting back to the garrison house
 with a third man on a stocky pony between them.
 
-Noxy leaped nimbly off Cloak as they touched down
-and raced across the courtyard without waiting for Mope.
+Noxy leaped nimbly off Cloak as they touched down in the courtyard
+and ran to Thokmay without waiting for Mope.
 "What's happened?" the prince demanded. "Did you find her?"
 
-"No, but someone's coming up the road," Noxy said breathlessly.
-A moment later the door swung open.
+"No, but someone's found something," Noxy said breathlessly.
+A moment later the door in the gate opened.
 Sergeant Gyalpa strode in with two soldiers
-and a middle-aged man with long, greasy hair behind him.
+and a middle-aged man with long, greasy hair.
 
 "Honored," Sergeant Gyalpa saluted.
 "This is Dobchang.
@@ -4332,28 +4335,24 @@ He says he saw a bear pulling a wagon out of town after moonfall last night."
 
 "That's right, honored," the man said, nodding vigorously.
 "Seen her around the market.
-She was huge, she was, almost as big along as the wagon."
+She was huge, she was, almost as big along as the wagon,
+and she was pulling hard for fast."
 
-"Did you see anyone in it?" the prince demanded.
+"Did you see anyone in the wagon?" the prince demanded.
 
-"You mean like having been eaten?"
-the man squawked.
-
-"No, not in the bear, in the *wagon*," Thokmay said impatiently.
-
-"Oh, that.
-Yes, a fellow from along around the market," Dobchang said, relieved.
-"I don't know his name, but I been see him often enough.
-Skinny, he is."
+Dobchang shook his head.
+"It was all by closed up.
+But there was a fellow up top I seen from along around the market.
+I don't know his name.
+Skinny, he is, and kind of shifty."
 
 "That's Mukh!" Noxy exclaimed.
 "He gave the princess some ribbon—"
 
-"—and a ring," the prince finished.
-He thumped a fist on the wall.
+"—and a ring," the prince finished, clenching his fist.n
 "He even *told* us it was magical!"
 
-"Now, a moment, Your Highness, a moment," Mope cautioned.
+"Now, a moment, honored, a moment," Mope cautioned.
 "You're letting feeling run ahead of logic.
 What did we study last—"
 
@@ -4364,9 +4363,9 @@ I shouldn't have yelled.
 What were you going to say?"
 
 "I was just going to say that we don't actually know
-whether this pair has anything to do with your sister's disappearance,"
+whether this Mukh person has anything to do with your sister's disappearance,"
 Mope replied patiently.
-"Perhaps they wanted to be on the morning ferry at Two Pear Crossing.
+"Perhaps he and the bear wanted to be on the morning ferry downriver.
 Or wanted to, um, to circumvent the gate inspection traders are usually subject to?
 It could mean nothing."
 
@@ -4394,8 +4393,8 @@ a smile twitched at the corner of the prince's mouth.
 he'd spend the rest of his life telling everyone how he shook my hand,
 and that it wasn't actually a big deal."
 
-"Excuse me, Your Highness," Sergeant Inambu interrupted,
-"But you said that the man in the market gave Her Highness a ribbon."
+"Excuse me, honored," Sergeant Inambu interrupted,
+"But you said that the man in the market gave the princess a ribbon."
 
 "Yes, a blue one," the prince confirmed bitterly.
 "I thought he was just trying to earn some royal favor."
@@ -4423,7 +4422,7 @@ With a slight bow of her head to the prince, she added,
 "Of course," the prince said. "Thank you."
 
 As she walked away, Sergeant Gyalpa observed gruffly,
-"Finding Her Highness could take a lot out of her."
+"Finding the princess could take a lot out of her."
 
 "Magic always does," the prince replied,
 staring at Sergeant Inambu's back.
@@ -4530,7 +4529,7 @@ and find any recent maps of that part of the Blight."
 As Sergeant Gyalpa and the other soldiers hurried away,
 the prince turned back to Sergeant Inambu.
 "Thank you," he said.
-"I hope it didn't take too much."
+"I hope the cost wasn't too great."
 
 She sighed.
 "Do you remember your tenth nameday?" she asked.
@@ -4538,10 +4537,24 @@ Before the prince could answer, she added,
 "I don't, not any more."
 She squared her shoulders against exhaustion but didn't raise her eyes.
 "With your permission, honored, I should rest for a while.
-I think my apprentices know enough field magic
-to take care of whatever you might need."
+I think my apprentices know enough to take care of whatever you might need in the field."
 
-"Of course," the prince said. "Take all the time you need."
+"Of course," the prince said.
+"Get all the rest you need."
+
+Private Jinpa arrived and saluted the prince as the magician left.
+"The horses are ready, honored,
+and your armor too."
+
+"Thank you," Thokmay replied crisply.
+"Sergeant Gyalpa?
+As soon as I'm dressed,
+we're going to pay Consul Jigme a visit.
+And Mope—go and give my respects with Learned Shudarga
+and see if she knows anything about this.
+No,
+I don't imagine she does either,
+but I didn't imagine my sister disappearing into the Blight either."
 
 </section>
 <section markdown="1">

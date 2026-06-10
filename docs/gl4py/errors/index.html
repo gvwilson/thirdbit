@@ -219,14 +219,13 @@ None
 <h2>Guidelines for Handling Errors</h2>
 <ul>
 <li>Return <code>Result</code> whenever a function might fail for an externally visible reason
-     (bad input, missing file, network error)</li>
+    (e.g., bad input, missing file, or network error)</li>
 <li>Return <code>Option</code> when absence is the only failure mode</li>
 <li>Use <code>let assert Ok(x) = ...</code> only when failure truly cannot happen
     (like initialising a known-good constant at startup)<ul>
 <li>It <a class="gl-ref" href="../glossary/#panic">panics</a> on <code>Error</code></li>
 <li>Unlike Python's <code>assert</code>, which is a statement that checks a condition,
-    Gleam's <code>let assert</code> is a binding form:
-    it matches a pattern and brings variables into scope</li>
+    Gleam's <code>let assert</code> matches a pattern <em>and</em> creates a variable</li>
 </ul>
 </li>
 </ul>
@@ -241,6 +240,18 @@ None
 <li>Use <code>result.try</code> and <code>result.map</code> for short transformations</li>
 <li>Prefer custom error types over <code>String</code> for the error type
     in non-trivial programs</li>
+</ul>
+<h2>A Note on Assertions</h2>
+<ul>
+<li>Gleam also allows bare assertions like <code>assert left == right</code><ul>
+<li>Panics if the condition is not true</li>
+</ul>
+</li>
+<li>Used less often than the <code>let assert</code> form<ul>
+<li>Most functions return <code>Result</code>, and if it's <code>Ok(val)</code>, we usually want the value</li>
+</ul>
+</li>
+<li>Discussed more in the section on <a href="../modules/">modules</a></li>
 </ul>
 <h2>Check Understanding</h2>
 <details>

@@ -78,24 +78,29 @@
 <li>Standard library modules follow the same convention:
     <code>import gleam/list</code>, <code>import gleam/dict</code>, <code>import gleam/string</code><ul>
 <li><a class="gl-ref" href="../glossary/#circular_import">Circular imports</a> are not allowed</li>
-<li>Gleam packages are <em>not</em> automatically namespaced:
-    if two dependencies both export a module named <code>utils</code>,
-    there will be a name conflict</li>
+</ul>
+</li>
+<li>If two dependencies both export a module named <code>utils</code>,
+    there will be a name conflict<ul>
+<li><code>import a/utils as au</code> works as you'd expect</li>
 </ul>
 </li>
 </ul>
 <h2>This Lesson</h2>
 <ul>
-<li><code>src/modules/types.gleam</code> contains shared type definitions</li>
-<li><code>src/modules/logic.gleam</code> contains pure functions over those types</li>
-<li><code>src/modules.gleam</code> is the entry point that wires them together</li>
+<li><code>src/utils/types.gleam</code> contains shared type definitions</li>
+<li><code>src/utils/logic.gleam</code> contains pure functions over those types</li>
+<li><code>src/example.gleam</code> is the entry point that wires them together</li>
 </ul>
 <h2>Public and Private Definitions</h2>
 <ul>
-<li>Every function and type in Gleam is private by default</li>
+<li>Every function and type in Gleam is private by default<ul>
+<li>I.e., only visible in its own file</li>
+</ul>
+</li>
 <li>Adding <code>pub</code> makes it accessible from other modules</li>
 </ul>
-<div data-inc="src/modules/types.gleam" data-mark="status_todo"><span aria-label="Source: modules/src/modules/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/utils/types.gleam" data-mark="status_todo"><span aria-label="Source: modules/src/utils/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Active</span>
 <span class="w">  </span><span class="n">Done</span>
 <span class="p">}</span>
@@ -114,9 +119,8 @@
 <li>Other modules can write <code>Todo(title: "...", status: Active)</code></li>
 </ul>
 </li>
-<li>Omit <code>pub</code> and the type is invisible outside the file</li>
 </ul>
-<div data-inc="src/modules/types.gleam" data-mark="display_status"><span aria-label="Source: modules/src/modules/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">display_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/utils/types.gleam" data-mark="display_status"><span aria-label="Source: modules/src/utils/types.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">display_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Active</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"[ ]"</span>
 <span class="w">    </span><span class="n">Done</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="s">"[x]"</span>
@@ -126,20 +130,21 @@
 </div>
 <ul>
 <li>Use private functions for implementation details that callers should not depend on directly<ul>
-<li>E.g., have a public entry point and a private function to do the recursion</li>
+<li>E.g., have a public entry point to start computing
+    and a private function to do the recursion</li>
 </ul>
 </li>
 </ul>
 <h2>Opaque Types</h2>
 <ul>
-<li>An <a class="gl-ref" href="../glossary/#opaque_type">opaque type</a> makes the type name public
-    but hides its constructors</li>
+<li>An <a class="gl-ref" href="../glossary/#opaque_type">opaque type</a> declared with <code>opaque</code>
+    makes the type name public but hides its constructors</li>
 <li>Other modules can hold a value of the type but cannot create or inspect it directly<ul>
 <li>They must use the functions the module provides</li>
 </ul>
 </li>
 </ul>
-<div data-inc="src/modules/counter.gleam" data-mark="counter_type"><span aria-label="Source: modules/src/modules/counter.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/counter.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">opaque</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/utils/counter.gleam" data-mark="counter_type"><span aria-label="Source: modules/src/utils/counter.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/counter.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">opaque</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Counter</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -166,8 +171,8 @@
 <ul>
 <li><code>Counter</code> is visible to other modules</li>
 <li><code>Counter(42)</code> is not: only <code>new()</code> can create a <code>Counter</code></li>
-<li>Common use: collections that enforce invariants<ul>
-<li>Sorted lists, non-empty lists, validated email addresses, etc.</li>
+<li>A common use is collections that enforce invariants<ul>
+<li>E.g., sorted lists, non-empty lists, validated email addresses, etc.</li>
 </ul>
 </li>
 </ul>
@@ -175,7 +180,7 @@
 <ul>
 <li>The <code>logic</code> module contains pure functions that take and return plain data:</li>
 </ul>
-<div data-inc="src/modules/logic.gleam" data-mark="add_task"><span aria-label="Source: modules/src/modules/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_task</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">),</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/utils/logic.gleam" data-mark="add_task"><span aria-label="Source: modules/src/utils/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_task</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">),</span><span class="w"> </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="p">[</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="k">types</span><span class="p">.</span><span class="n">Active</span><span class="p">),</span><span class="w"> </span><span class="p">..</span><span class="n">tasks</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -185,10 +190,10 @@
 <li>Easy to test: call it, inspect the result</li>
 </ul>
 </li>
-<li>It uses <code>types.Todo</code> and <code>types.Active</code> because <code>modules/types</code> is imported at the top of the file</li>
+<li>It uses <code>types.Todo</code> and <code>types.Active</code> because <code>utils/types</code> is imported at the top of the file</li>
 <li>Prepending with <code>[new_item, ..existing]</code> is idiomatic: it runs in constant time</li>
 </ul>
-<div data-inc="src/modules/logic.gleam" data-mark="render"><span aria-label="Source: modules/src/modules/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">render</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<div data-inc="src/utils/logic.gleam" data-mark="render"><span aria-label="Source: modules/src/utils/logic.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/logic.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">render</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="k">types</span><span class="p">.</span><span class="n">Todo</span><span class="p">))</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">tasks</span>
 <span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">index_map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">". "</span>
@@ -220,7 +225,7 @@
 <h2>Testing with gleeunit</h2>
 <ul>
 <li>Gleam's test runner is <code>gleeunit</code></li>
-<li>Tests live in <code>test/</code> in files named <code>*_test.gleam</code></li>
+<li>Put tests in files named <code>*_test.gleam</code> in the <code>test/</code> directory</li>
 </ul>
 <div data-inc="test/modules_test.gleam" data-mark="test_examples"><span aria-label="Source: modules/test/modules_test.gleam" class="inc-path" role="img" tabindex="0" title="modules/test/modules_test.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">add_task_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">logic</span><span class="p">.</span><span class="n">add_task</span><span class="p">([],</span><span class="w"> </span><span class="s">"write tests"</span><span class="p">)</span>
@@ -237,16 +242,19 @@
 </div>
 <ul>
 <li>Every function ending in <code>_test</code> runs automatically</li>
-<li>Use <code>let assert</code> to check values in tests:
-    <code>let assert Ok(value) = result</code> gives you the unwrapped value,
-    while a mismatched assertion fails the test with a clear message</li>
+<li>Use <code>should.equal</code> from <code>gleeunit/should</code> to assert that two values match:
+    pipe the actual value into <code>|&gt; should.equal(expected)</code>,
+    and gleeunit reports a clear failure message if they differ</li>
+<li>Use <code>should.be_true(condition)</code> or <code>should.be_false(condition)</code>
+    when the result is already a <code>Bool</code>
+    and there is no natural expected value to compare against</li>
 <li><code>gleam test</code> runs all tests, <code>gleam test --module foo_test</code> runs one file</li>
 </ul>
 <h2>Type Aliases</h2>
 <ul>
 <li><code>type MyAlias = SomeOtherType</code> creates a readable name for an existing type.</li>
 </ul>
-<div data-inc="src/modules/aliases.gleam" data-mark="type_aliases"><span aria-label="Source: modules/src/modules/aliases.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/modules/aliases.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Filename</span><span class="w"> </span><span class="p">=</span>
+<div data-inc="src/utils/aliases.gleam" data-mark="type_aliases"><span aria-label="Source: modules/src/utils/aliases.gleam" class="inc-path" role="img" tabindex="0" title="modules/src/utils/aliases.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Filename</span><span class="w"> </span><span class="p">=</span>
 <span class="w">  </span><span class="n">String</span>
 
 <span class="k">pub</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">Hash</span><span class="w"> </span><span class="p">=</span>
@@ -307,7 +315,7 @@ Confirm <code>gleam build</code> still succeeds.</p>
 </div>
 <div class="exercise">
 <h3>Opaque stack (15 minutes)</h3>
-<p>Define <code>pub opaque type Stack(a)</code> in a new file <code>src/modules/stack.gleam</code>.
+<p>Define <code>pub opaque type Stack(a)</code> in a new file <code>src/utils/stack.gleam</code>.
 Implement <code>new() -&gt; Stack(a)</code>, <code>push(Stack(a), a) -&gt; Stack(a)</code>,
 <code>pop(Stack(a)) -&gt; Result(#(a, Stack(a)), Nil)</code>, and <code>size(Stack(a)) -&gt; Int</code>.
 <code>pop</code> should return <code>Error(Nil)</code> on an empty stack.
