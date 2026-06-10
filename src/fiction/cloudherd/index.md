@@ -4438,7 +4438,7 @@ He slid his sword into its scabbard.
 "I thought you were an assassin or something."
 
 "And I thought you were trying to run away like the *tralpa*."
-Noxy put her hands on her hips and tried to match the prince's glare.
+Noxy put her hands on her hips and tried to match his glare.
 "Anyway, you shouldn't be down here.
 It's dangerous to go wandering around."
 
@@ -4567,7 +4567,7 @@ Noxy smiled uncertainly.
 She hesitated.
 "I'm sorry about that. About the fish pond, I mean."
 
-"It's not your fault," the prince replied absently,
+"It's not your fault," the young soldier replied absently,
 staring at the dark, still water.
 Suddenly he snapped his fingers. "I know!"
 He unbuckled his belt, 
@@ -5167,7 +5167,7 @@ I'm helping Stale."
 She jerked her sleeve down and slipped her arms back into her coat.
 "The sooner you're gone, the sooner things can get back to normal.
 And if I help you,
-maybe the king won't be angry about, about everything.
+maybe the king won't be angry at us about everything.
 So like I said,
 do you have a better plan?"
 
@@ -5762,7 +5762,7 @@ before nodding at Kulbinder.
 "That must have been him."
 
 "Mm."
-The prince looked past her at the forest,
+The prince looked past her at the rich green of the forest,
 then at Pillow and Big Blue floating peacefully in the cloud pen.
 "We talked about your plan,
 and we'd like to propose one of our own."
@@ -5774,5 +5774,127 @@ She yawned again.
 The prince looked at the tiger,
 who flicked back an ear.
 "We'd like to kidnap you."
+
+It was for her sake, not theirs, Kulbinder explained.
+If Sergeant Dorbu thought she had helped them,
+well,
+he was an honorable man,
+but even honorable men did foolish things when they got angry.
+On the other paw,
+if people thought they had forced her to help them against her will—
+
+"—you'll have my *amma* and Aft and everyone else chasing us,"
+Noxy cut in,
+more scornfully than she had intended but too tired to care.
+"We'd be lucky to make it as far as Murky Lake,
+never mind Loghan-in-Loghan.
+Believe me, hiding out at the bothy is a better plan."
+
+The prince and the tiget exchanged looks.
+"He doesn't like the idea of us being separated," Thokmay said.
+
+Noxy shrugged, yawning again.
+Why was she so tired?
+She could barely keep her eyes open.
+"Better than getting caught," she mumbled.
+She sat down with her back against the wall.
+"I'm just going to…"
+Her eyes closed before she could say "take a nap".
+
+*Once again she was standing beside her father's tree,
+but this time she was fully dressed and wearing boots.
+Was that because some part of her knew what she was actually wearing?
+And why didn't she feel tired any more?*
+
+*"Hello again."
+Alva knuckle-walked toward her and sat down just out of arm's reach.
+"The forest told me about the fire last night.
+I hope you're all right."*
+
+*"I'm fine.
+Wait, is this why I fell asleep?
+Did you do that so you could talk to me?"*
+
+*The troll smiled.
+"Not me, dear, the forest.
+There is only—"*
+
+*"—the forest," Noxy finished sourly.
+"So what's so important that the forest needs to talk to me right now?"*
+
+*"It's Signurd," Alva said.
+"He is going to challenge you."*
+
+*"Great."
+Noxy sighed.
+"What does that mean?
+Do I have to wrestle him,
+or should I start learning how to fence?
+Or wait,
+will it be a poetry contest like in a fairy tale?"*
+
+*"I think you should take this a little more seriously, dear,"
+the troll said primly.
+"And no, it's nothing like that.
+You'll meet him here, in the forest's dreams.
+What happens after that will be up to the two of you."*
+
+*Noxy looked around.
+Every detail of her father's tree was somehow in focus at once.
+Around it,
+the rest of the grove was completely still.
+There wasn't even the slightest hint of a breeze,
+and the usual background of insect noise and birds chirping was missing.*
+
+*Even as she thought that,
+though,
+she felt a breath of wind on her face.
+The branches began to sway gently,
+and somewhere nearby she heard the distinctive two-tone buzz of a carpenter bee.
+Had she done that?*
+
+*"Sort of," the troll said aloud, startling her.
+"It's hard for the forest to speak to people like us.
+We're so small, and our thoughts are too short and too quick.
+But the wind and the smell of fresh juniper or a fallen tree?
+It recognizes those."*
+
+*"What if I don't want any of this?" Noxy asked,
+running her hand over a nearby branch.
+Its needles prickled against her skin.
+"Will it just leave me alone?
+There's kind of a lot of other things happening right now,"
+she added apologetically.*
+
+*Alva scratched her rump.
+"I don't know, dear.
+The forest might, but I don't think Signurd will.
+He's really quite upset."*
+
+*"Well it's not __my__ fault!"
+Noxy protested.*
+
+*Alva rose to her knuckles and feet.
+"There is no fault, dear.
+There is—why are you making that face?"*
+
+Noxy woke with a start.
+The prince was cross-legged on the stone again, his eyes closed.
+Kulbinder had stretched out in a patch of sunlight,
+completely still except for the steady rise and fall of his chest.
+Feeling a little disoriented,
+she stood and looked down at Stale.
+Its cobblestones still glistened in places from the previous night's rain.
+Granna Fee and some other elders were rolling up the canvas
+they had put down to protest the vegetable beds,
+while a handful of soldiers levered the burnt remains of the upstairs shutters
+out of the storehouse's windows.
+She spotted Rash whistling on his way to the bath house.
+Just as he arrived,
+its door opened and the *tralpa* almost ran into him.
+
+Suddenly she had an idea.
+"I'll be back in a bit," she said over her shoulder,
+already heading for the stairs.
 
 </section>

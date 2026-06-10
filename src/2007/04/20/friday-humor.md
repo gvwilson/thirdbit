@@ -1,7 +1,7 @@
 ---
 title: "Friday Humor"
 date: 2007-04-20
-category: humor personal
+category: humor
 ---
 One of my new-month's resolutions was to consolidate my posts (fewer, with more content), but I just can't resist this XKCD comic:
 

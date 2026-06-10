@@ -4521,16 +4521,16 @@ Sergeant Gyalpa's jaw tightened.
 "We'll find her."
 He blinked suddenly.
 "And we'll find who took her.
-Sergeant, I want every soldier you have on a horse in fifteen minutes.
+Sergeant, I want every soldier you have on a horse.
 Full armor and overnight packs.
 Jinpa! Jinpa, where—there you are.
 Lay out my armor,
-and see whether we have any recent maps of that part of the Blight."
+and find any recent maps of that part of the Blight."
 
 As Sergeant Gyalpa and the other soldiers hurried away,
 the prince turned back to Sergeant Inambu.
 "Thank you," he said.
-"I hope… I hope it didn't take too much."
+"I hope it didn't take too much."
 
 She sighed.
 "Do you remember your tenth nameday?" she asked.

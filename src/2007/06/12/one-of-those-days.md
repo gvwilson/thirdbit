@@ -1,7 +1,7 @@
 ---
 title: "One Of Those Days"
 date: 2007-06-12
-category: student-projects personal
+category: student-projects
 ---
 (Posted on behalf of Pardis Beikzadeh)
 

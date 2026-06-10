@@ -1,7 +1,7 @@
 ---
 title: "DrProject Architecture"
 date: 2007-02-10
-category: student-projects programming
+category: student-projects
 ---
 I posted a picture of DrProject's database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again…)
 

@@ -1,7 +1,7 @@
 ---
 title: "Managing, Reviewing, and RESTing"
 date: 2007-09-02
-category: programming noticed
+category: book-reviews
 ---
 It's Sunday morning.  My daughter (the cutest baby <em>ever</em>) is still asleep, my coffee is just the right temperature, and I have the pleasure of being able to review three very good books.  If some passing Samaritan would mow my lawn for me, life would be pretty much perfect.
 

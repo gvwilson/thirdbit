@@ -1,7 +1,7 @@
 ---
 title: "DrProject Funding Proposal Rejected"
 date: 2007-10-10
-category: student-projects academia
+category: academia student-projects
 ---
 I received a letter today from NSERC telling me that the "Idea to Innovation" proposal for DrProject has been rejected:
 

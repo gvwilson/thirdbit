@@ -1,7 +1,7 @@
 ---
 title: "User Interface Jam Session"
 date: 2007-07-12
-category: cs-education programming
+category: cs-education programming student-projects
 ---
 A few weeks ago, Radiant Core's Jay Goldman gave us an excellent critique of OLM's interface and workflow.  It was so useful that I'd like to do it again for DrProject, which has acquired several new features in the past few months.  (I'm particularly keen to get input on the new ticketing system that Jeff Balogh and David Cooper have built—we have to decide fairly soon whether we're going to try to integrate it into the end-of-August release, or delay it 'til December.)
 
