@@ -62,17 +62,16 @@
 <ul>
 <li>When several operations each return <code>Result</code>,
     nesting <code>case</code> expressions quickly becomes unreadable.</li>
-<li><code>use x &lt;- f(...)</code> is <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a>
-    that rewrites the rest of the block as a <a class="gl-ref" href="../glossary/#callback">callback</a> passed to <code>f</code>.</li>
+<li><code>use x &lt;- f(...)</code> rewrites the rest of the block as a callback passed to <code>f</code>.</li>
 <li>Any function that accepts a callback as its last argument works with <code>use</code>.</li>
-<li>Used with <code>result.try</code>, <code>use</code> eliminates deeply nested error-handling code.</li>
+<li>Combined with <code>result.try</code>, <code>use</code> eliminates deeply nested error-handling code.</li>
 </ul>
 </div>
 <h2>The Nesting Problem</h2>
 <ul>
 <li>When you call several functions that each return <code>Result</code>,
     you need to unwrap each one before using it</li>
-<li>A single <code>case</code> is fine; three in a row is not</li>
+<li>A single <code>case</code> is fine; three in a row is hard to read</li>
 </ul>
 <div data-inc="src/nesting_demo.gleam" data-mark="nested_ok"><span aria-label="Source: use/src/nesting_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/nesting_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">ok_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
@@ -127,7 +126,14 @@ Error("division by zero")
 </ul>
 <h2>Flattening with use</h2>
 <ul>
-<li><code>use</code> rewrites nested callbacks as a flat sequence of steps</li>
+<li><code>use</code> rewrites nested <a class="gl-ref" href="../glossary/#callback">callback</a> as a flat sequence of steps<ul>
+<li>This is called <a class="gl-ref" href="../glossary/#syntactic_sugar">syntactic sugar</a> because it sweetens the language</li>
+<li>Translating the easy-to-read form into the basic form is called <a class="gl-ref" href="../glossary/#desugaring">desugaring</a></li>
+<li>This is what passes for wit among language designers</li>
+</ul>
+</li>
+<li><code>result.try(result, callback)</code> calls <code>callback</code> with the value inside <code>Ok(x)</code>,
+    or returns <code>Error</code> unchanged without calling the callback at all</li>
 </ul>
 <div data-inc="src/use_result_demo.gleam" data-mark="use_ok"><span aria-label="Source: use/src/use_result_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_result_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">ok_result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">try</span><span class="p">(</span><span class="n">parse_int</span><span class="p">(</span><span class="s">"30"</span><span class="p">))</span>
@@ -145,8 +151,10 @@ Error("division by zero")
 <ul>
 <li>Each <code>use</code> line extracts the value from <code>Ok</code> and binds it to a name</li>
 <li>If any step returns <code>Error</code>, the whole block <a class="gl-ref" href="../glossary/#short_circuit">short-circuits</a>
-    to that error immediately<ul>
+    and produces that error immediately<ul>
 <li>The remaining steps are never evaluated</li>
+<li>Because when <code>result.try</code> receives an <code>Error</code>,
+    it returns it directly without calling the callback</li>
 </ul>
 </li>
 <li>The final expression is the result of the whole block</li>
@@ -170,14 +178,18 @@ Error("division by zero")
 </ul>
 <h2>How use Works</h2>
 <ul>
-<li><code>use</code> is not special-cased for <code>Result</code>; it is a general rewrite rule</li>
-<li><code>use x &lt;- f(a, b)</code> followed by a block body is equivalent to:</li>
+<li><code>use</code> is not special-cased for <code>Result</code>: it is a general rewrite rule</li>
+<li><code>use x &lt;- f(a, b)</code> followed by a block of code is equivalent to:</li>
 </ul>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">body</span>
 <span class="p">})</span>
 </code></pre></div>
 <ul>
+<li>The <code>x</code> in <code>fn(x)</code> is exactly the same binding as the <code>x</code> introduced by <code>use x &lt;-</code><ul>
+<li>The rewrite is one-for-one, so the name carries over directly</li>
+</ul>
+</li>
 <li>In other words: call <code>f</code> with its normal arguments plus one extra argument,
     a function that takes <code>x</code> and contains the rest of the block</li>
 <li>The function that receives the callback decides what to do with it<ul>
@@ -192,27 +204,35 @@ Error("division by zero")
 <ul>
 <li>Because <code>use</code> is just a rewrite, it works with any function that accepts a callback</li>
 </ul>
-<div data-inc="src/use_general_demo.gleam" data-mark="callback_long"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<div data-inc="src/use_general_demo.gleam" data-mark="callback_long"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"long form"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
 </div>
 <div data-inc="src/use_general_demo.gleam" data-mark="callback_use"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"Gleam"</span><span class="p">)</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="n">with_greeting</span><span class="p">(</span><span class="s">"with use"</span><span class="p">)</span>
 <span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 </div>
 <ul>
 <li><code>with_greeting</code> takes a name and a callback, and passes the constructed greeting to the callback</li>
-<li>Both forms produce the same output; <code>use</code> just removes the anonymous function syntax</li>
+<li>Both forms produce the same output<ul>
+<li><code>use</code> just removes the anonymous function syntax</li>
 </ul>
+</li>
+<li>The <code>use</code> form expands to exactly the same call as the explicit version:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">with_greeting</span><span class="p">(</span><span class="s">"with use"</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
 <div data-inc="src/use_general_demo.gleam" data-mark="list_each"><span aria-label="Source: use/src/use_general_demo.gleam" class="inc-path" role="img" tabindex="0" title="use/src/use_general_demo.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="w">  </span><span class="p">{</span>
 <span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">&lt;-</span><span class="w"> </span><span class="k">list</span><span class="p">.</span><span class="n">each</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
 <span class="w">    </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">int</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 <span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 </div>
-<div data-inc="out/use_general_demo.out"><span aria-label="Source: use/out/use_general_demo.out" class="inc-path" role="img" tabindex="0" title="use/out/use_general_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, Gleam!
-Hello, Gleam!
+<div data-inc="out/use_general_demo.out"><span aria-label="Source: use/out/use_general_demo.out" class="inc-path" role="img" tabindex="0" title="use/out/use_general_demo.out">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Hello, long form!
+Hello, with use!
 1
 2
 3
@@ -222,7 +242,10 @@ Hello, Gleam!
 <li><code>list.each</code> calls the callback once for each element of the list</li>
 <li><code>use item &lt;- list.each([1, 2, 3])</code> is equivalent to writing
     <code>list.each([1, 2, 3], fn(item) { ... })</code></li>
-<li>The rest of the block becomes the body of the anonymous function</li>
+<li>The rest of the block becomes the body of the anonymous function<ul>
+<li>No curly braces because it's a single expression</li>
+</ul>
+</li>
 </ul>
 <h2>Guidelines for use</h2>
 <ul>
@@ -263,6 +286,13 @@ The function controls what it does with that callback:
 <code>list.each</code> calls it once per element,
 and a custom function can call it however it likes.
 The <code>Result</code> type has no special relationship to <code>use</code>.</p>
+</details>
+<details>
+<summary>If <code>result.try</code> were replaced by a function that always calls its callback, could the block still short-circuit?</summary>
+<p>No.
+Short-circuiting is not a property of <code>use</code> itself — it is a property of <code>result.try</code>.
+<code>use</code> only rewrites syntax; whether the callback is called, skipped, or called multiple times depends entirely on what the receiving function does.
+A function that always calls its callback will always execute the rest of the block, regardless of how many <code>use</code> lines appear.</p>
 </details>
 <h2>Exercises</h2>
 <div class="exercise">

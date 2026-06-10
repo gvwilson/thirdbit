@@ -231,16 +231,6 @@
 <span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_false</span><span class="p">()</span>
 <span class="p">}</span>
-
-<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">merged_dominates_both_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)])</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dict</span><span class="p">.</span><span class="n">from_list</span><span class="p">([#(</span><span class="s">"n1"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">#(</span><span class="s">"n2"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)])</span>
-<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">merged</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">merge_clocks</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
-<span class="w">  </span><span class="n">dominates</span><span class="p">(</span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<span class="w">  </span><span class="p">|&gt;</span><span class="w"> </span><span class="k">should</span><span class="p">.</span><span class="n">be_true</span><span class="p">()</span>
-<span class="p">}</span>
 </code></pre></div>
 </div>
 <ul>
