@@ -1,7 +1,7 @@
 ---
 title: "DrProject 1.0 Final now available"
 date: 2006-07-17
-category: student-projects open-source
+category: student-projects
 ---
 We are very pleased to announce the release of DrProject 1.0.  For those of you who aren't regular readers ;-), DrProject is a web-based software project management portal specifically tailored for classroom use.   Like its predecessor, <a href="http://projects.edgewall.com/trac">Trac</a>,  it integrates <a href="http://subversion.tigris.org">Subversion</a> with a wiki, a simple bug tracker, and milestones.  Unlike <a href="http://projects.edgewall.com/trac">Trac</a>, it supports multiple projects out of the box, relies on the underlying Unix system for authentication, and provides per-project mailing lists with whitelisting.  DrProject is already in use in classes at the <a href="http://www.cs.utoronto.ca">University of Toronto</a>, and is being trialed at other educational institutions.
 

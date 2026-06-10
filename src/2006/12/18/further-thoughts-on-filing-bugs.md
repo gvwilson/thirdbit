@@ -1,7 +1,7 @@
 ---
 title: "Further Thoughts on Filing Bugs"
 date: 2006-12-18
-category: programming cs-education
+category: student-projects
 ---
 Pursuant<sup>1</sup> to last week's post on making tickets simpler to work with in DrProject, I'm now wondering whether the real problem isn't the number of fields, but the fact that the only way to file a ticket is through a web browser.  If you're grinding away in <a href="http://www.eclipse.org">Eclipse</a> (or Notepad) and want to add a note to your project, you have to:
 <ol>

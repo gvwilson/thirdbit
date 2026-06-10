@@ -1,7 +1,7 @@
 ---
 title: "Step N: Deliverables"
 date: 2006-09-14
-category: student-projects cs-education
+category: student-projects
 ---
 Let's skip ahead to the last step: wrapping up.  For most students, and most assignments, this means handing the work in and getting a grade.  But course projects are different:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Changes to DrProject's Ticketing System"
 date: 2006-12-16
-category: student-projects programming
+category: student-projects
 ---
 Here's a draft proposal for modifying DrProject's ticketing system based on feedback from the post-mortem:
 <ol>

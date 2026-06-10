@@ -1,7 +1,7 @@
 ---
 title: "Showstopper: Hanging Processes"
 date: 2006-03-29
-category: student-projects programming
+category: student-projects
 ---
 We've run into a rather annoying bug in DrProject. I've been keeping some brief notes in this ticket, but I'll try to organize my thoughts better here.
 

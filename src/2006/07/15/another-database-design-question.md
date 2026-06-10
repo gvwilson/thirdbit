@@ -1,7 +1,7 @@
 ---
 title: "Another Database Design Question"
 date: 2006-07-15
-category: student-projects programming
+category: student-projects
 ---
 Apple Viriyakattiyaporn is adding tagging and <a href="http://en.wikipedia.org/wiki/Tag_clouds">tag clouds</a> to DrProject this summer, and an interesting database design problem has come up. She wants to be able to tag tickets, wiki pages, milestones, and email messages. (For the moment, tags will be added to email messages after the fact, rather than when they're sent.) She also wants to be able to search for items with particular tags as easily as possible, <em>and</em> allow people who are writing new components for DrProject to add tagging to those components with minimal grief.
 

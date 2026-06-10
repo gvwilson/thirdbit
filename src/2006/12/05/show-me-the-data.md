@@ -1,7 +1,7 @@
 ---
 title: "Show Me The Data"
 date: 2006-12-05
-category: empirical-se
+category: students-projects
 ---
 Having written several articles about how DrProject works, I figured it was time to talk about how its database is organized.  Of course, that meant figuring it out myself, which took some digging: I eventually dumped the <a href="http://www.postgresql.org">PostgreSQL</a> schema and started doodling.  The result is cleaner than I expected, though there are a few fields whose purpose I still don't understand:
 

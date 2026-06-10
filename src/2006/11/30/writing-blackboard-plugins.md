@@ -1,7 +1,7 @@
 ---
 title: "Writing Blackboard Plugins"
 date: 2006-11-30
-category: cs-education programming
+category: student-projects
 ---
 Two of my students (Billy Chun and Darren Jung) spent the term writing a plugin for <a href="http://www.blackboard.com">Blackboard</a>, the Java-based learning management system (LMS) that the <a href="http://www.utoronto.ca">University of Toronto</a> is moving to.  Here are there experiences:
 Billy Chun:

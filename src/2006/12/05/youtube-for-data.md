@@ -1,7 +1,7 @@
 ---
 title: "YouTube for Data"
 date: 2006-12-05
-category: research-methods open-source
+category: software-carpentry
 ---
 <a href="http://www.techcrunch.com">TechCrunch</a> is running an interesting report on <a href="http://www.techcrunch.com/2006/12/05/swivel-to-launch-this-week-communitize-your-data/">Swivel</a>, which bills itself as "YouTube for data".  Anyone and everyone can upload data sets to share with the rest of the world, link together, and what have you.  It's going to be a great resource for teaching…
 

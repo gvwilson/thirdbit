@@ -1,7 +1,7 @@
 ---
 title: "Someday"
 date: 2006-07-09
-category: personal
+category: student-projects
 ---
 For more than a year now, we've had a milestone called 'someday' in DrProject, so that we could group all our "wouldn't it be nice if…" ideas together. What about adding an IRC channel for each project? Someday. How about authenticating against LDAP? Someday.
 

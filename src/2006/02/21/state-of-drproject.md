@@ -1,7 +1,7 @@
 ---
 title: "State of DrProject"
 date: 2006-02-21
-category: student-projects programming
+category: student-projects
 ---
 In the wake of feedback at DemoCamp 3 last night, we had another on-line meeting this morning about the state of DrProject.  Our original aim was to release it at the end of January; we're now looking at the first week of March, and it may slip again.  Here's the current to-do list:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "DrProject 1.1 Release Candidate 1"
 date: 2006-10-06
-category: student-projects open-source
+category: student-projects
 ---
 I am very pleased to announce the first release candidate for DrProject 1.1.  We're very grateful for David Scannell[^1] for dozens of improvements and bug fixes.  DrProject is a fork of <a href="http://trac.edgewall.com">Trac</a> with:
 <ul>

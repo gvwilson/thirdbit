@@ -1,7 +1,7 @@
 ---
 title: "DrProject kickoff"
 date: 2006-01-03
-category: student-projects programming
+category: student-projects
 ---
 We had our first on-line meeting about DrProject today.  (I've decided that the one we had in December was the zero'th ;-).  The meeting itself went pretty well, though I'm very conscious of how little time we actually have to get things done: one month is going to fly by.  I'm also a little embarrassed that I didn't make time over the holiday to clean up the DrProject Subversion repository: what Chris, Sean, and Jason are inheriting looks a bit like the remains of a moving-out party.  The current task list is in the meeting minutes; the biggest items are:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Bitten by WGA"
 date: 2006-07-07
-category: ethics tools
+category: tools programming
 ---
 Earlier today, I discovered that Microsoft was making a <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=334ad466-8b53-4440-8ff0-6ac8142d9198">threat analysis tool</a> available for free download. Great, says I: it might make a good teaching aid in my Software Architecture class, or in the security classes that others at <a href="http://www.cs.utoronto.ca">U of T</a> are putting together.
 
