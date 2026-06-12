@@ -3,6 +3,13 @@ title: "Ideas"
 template: page
 ---
 
+[Miscellaneous Advice](./advice/)
+:   My thoughts on everything from how to be fired
+    to how to hand over a project and move on.
+
+[Student Project Ideas](./projects/)
+:   A collection of proposals for student projects.
+
 [Leadership Skills for Open Science](./leadership/)
 :   A proposal for the next kind of workshop
     I think organizations like [the Carpentries][carpentries] need to teach.
@@ -21,9 +28,6 @@ template: page
 [Not on the Shelves](./not-on-the-shelves/)
 :   A list of books I wish someone would write that I've been updating since 1997.
 
-[Sex and Drugs and Guns and Code](./sdgc/)
-:   A longer proposal for the book I most want someone smarter than me to write.
-
 [Software Engineering: Compassion, Evidence, Process, and Tools](./secept/)
 :   The other book I really want someone to write.
 
@@ -34,10 +38,6 @@ template: page
 [Learner Personas](./learner-personas/)
 :   A collection of data science learner personas originally developed at RStudio
     that I also use in [my teaching workshop][t3].
-
-[Miscellaneous Advice](./advice/)
-:   My thoughts on everything from how to be fired
-    to how to hand over a project and move on.
 
 [carpentries]: https://carpentries.org/
 [nwit]: https://neverworkintheory.org/
