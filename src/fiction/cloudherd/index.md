@@ -5889,12 +5889,138 @@ Granna Fee and some other elders were rolling up the canvas
 they had put down to protest the vegetable beds,
 while a handful of soldiers levered the burnt remains of the upstairs shutters
 out of the storehouse's windows.
+
 She spotted Rash whistling on his way to the bath house.
 Just as he arrived,
-its door opened and the *tralpa* almost ran into him.
+the men's door opened and the *tralpa* almost ran into him.
+She couldn't make out the *tralpa*'s words,
+but even at this distance his sharp tone carried clearly.
 
-Suddenly she had an idea.
-"I'll be back in a bit," she said over her shoulder,
-already heading for the stairs.
+Instead of stepping out of his way and making a face behind his back,
+though,
+Rash stepped into the *tralpa*'s way.
+Yangyal gesticulated angrily,
+but Rash didn't move.
+Finally the *tralpa* threw up his hands,
+took an exaggerated step around his adversary,
+and stalked off like a doused cat.
+
+That gave Noxy an idea.
+"I'll be right back," she said over her shoulder
+before hurrying down the stairs.
+
+Once,
+when she was young and some cloudherds from Burned Soup came to visit,
+she heard her mother say,
+"Saints save me from my friends."
+She had used the phrase at every opportunity for a few weeks.
+She hadn't quite understood what it meant,
+but it made adults laugh every time.
+
+She muttered it under her breath
+when she found Sensy waiting for her at the bottom of the stairs
+with a forced smile on her face.
+"Hey," she said,
+putting on a smile as well.
+
+"Hey."
+Sensy held up the towels she was holding.
+"It's been a while since we had some girl time,
+and my *amma* and *appa* said I could take some away from chores,
+and,
+well,
+we should catch up."
+
+Noxy looked at the *tralpa* just as he rounded the corner.
+"Maybe some—"
+
+"Oh come *on*," Sensy pouted.
+She tucked the towels under one arm,
+slid the other through Noxy's,
+and pulled her forward.
+
+*What's gotten into __her__?* Noxy wondered.
+She had always been the one dragging Sensy into things,
+and she wasn't sure she liked this new upside-down world.
+
+She got her answer once they were sitting in adjacent tubs
+full of steaming water.
+Sensy took a long-handled brush down from its hook,
+but just held it instead of scrubbing her back.
+"Well?" Noxy asked impatiently.
+
+"Well what?"
+
+Noxy rolled her eyes.
+"Well, what do you want to talk about?
+Really talk about, I mean,
+because I don't think you dragged me in here
+just because you need help deciding what color ribbons to sew on your shirt."
+
+Sensy slapped the brush down on the shelf beside her.
+"*This* is what I want to talk about!
+How bossy you are.
+You've been like this ever since we were kids,
+and,
+and I want it to stop."
+
+With a shock Noxy realized her friend was on the edge of tears.
+"Whoa, whoa, whoa," she said,
+as if trying to calm a frightened goof.
+"I'm not bossy."
+
+"You *are*."
+Sensy stamped her foot,
+sending water sloshing perilously close to the lip of the tub.
+"Rash thinks so too.
+It was fine when we were little,
+but we're not any more."
+
+Noxy's fingers were digging into her knees hard enough to leave bruises.
+For a moment she felt like her whole world was balanced on edge,
+ready to tip one way or the other at the slightest nudge.
+She forced her hands to relax and crossed her arms,
+tracing the letters on her forearm with her thumb,
+and let out her breath.
+
+"You're right," she said quietly.
+"We're not little any more.
+We're old enough to take clouds out by ourselves
+and help put out fires
+and have someone special to go the fancy with.
+I just—"
+She blinked,
+surprised by the tears in her eyes.
+"I just wish sometimes that we were still kids."
+
+"Well, I don't," Sensy said firmly,
+her anger disappearing as quickly as it had come.
+She picked up the brush and began to scrub her back.
+"If we were, Rash wouldn't want to kiss me."
+
+They filled the next few minutes with things both trivial and important,
+like whether Sensy liked his mustache
+("No, but he's so proud of it")
+and whether they would pair up for the long journey down to the plains
+("Are you serious? My *amma* would lock me in the goof pen if she caught us!").
+Noxy had almost relaxed by the time Sensy very casually asked,
+"So what about you and Thokmay?"
+
+"What about us?"
+Noxy tried to keep her tone light.
+
+Sensy pouted.
+"Oh come on.
+You two were out on Pillow for quite some time."
+
+"With the tiger!" Noxy protested.
+
+"*And* you were just up on the wall with him," Sensy countered.
+
+"With. The. Tiger," Noxy repeated,
+putting as much weight behind each word as she could.
+
+"If you say so," Sensy said airily.
+"Come on, I'll dry your back if you'll dry mine."
 
 </section>
