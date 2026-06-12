@@ -4189,12 +4189,13 @@ and whether that window had been open or closed when they went to sleep last nig
 Boots thundered on stairs
 while wooden shoes went *clack! clack! clack!* through every room and hallway.
 
-Pacing back and forth in the entrance hall, the prince snarled,
 "She can't have just turned into a frog and hopped away! Can she?"
+the prince snarled,
+pacing back and forth in the entrance hall.
 
 "It's doubtful, Your Highness," Sergeant Inambu said, her eyes downcast.
-"Magic along by that powerful would probably have woken me.
-And even if it din't,
+"Hasn't been anyone with magic along by that powerful since the Pilots.
+And if it was something out from the Blight,
 it would have given along to my apprentices some powerful headaches."
 She was standing, but only just,
 her face still drawn from exhausting herself the day before.
@@ -4212,7 +4213,11 @@ Can't you use them to find out where she's been taken?"
 
 "Erm, well…" Mope seem flustered for an instant.
 "Isn't it obvious?
-She's never wandered away before, certainly not in the middle of the night.
+She's never wandered away before,
+certainly not in the middle of the night,
+and with respect,
+I don't think she could have snuck past *all* of the servants,
+not on her own.
 And the smugglers have grown bolder, honored, you can't argue with that.
 I just thought—well, I just thought…"
 He flapped his hands instead of finishing his sentence.
@@ -4267,8 +4272,7 @@ Noxy patted Cloak's flank again and clambered onto his back.
 "Are you sure you want to do this?"
 
 "No."
-The troll hesitated,
-then sighed and took the hand Noxy offered and clambered up to sit beside her.
+The troll sighed, took the hand Noxy offered, and clambered up to sit beside her.
 He swallowed loudly as Cloak began to rise.
 
 "You're being very brave," Noxy told him.
@@ -4278,17 +4282,19 @@ Noxy mind-heard Cloud's muted protest as the troll's fingers dug into him.
 
 Noxy stood up once they were above the rooftops.
 From up here the town's growth was as clear as the rings on a tree.
-Streets led to the Dog Market,
+Older, narrower streets led to the Dog Market,
 which in turn was centered on the river dock.
 The houses closest to the market were crowded shoulder to shoulder,
 two stories tall and roofed with wooden shingles.
-The larger homes of the town's wealthier merchants stood closer to the garrison house,
-with tiled roofs and neatly-tended ornamental gardens.
+The larger homes of the town's wealthier merchants stood closer to the garrison house.
+Their tiled roofs and neatly-tended ornamental gardens made a bit of space around each
+so that they stood apart like people who didn't really want to talk to each other
+but had to make conversation anyway.
 "Do you see anything?" she asked.
 
 "Only the insides of my eyelids," Mope replied.
 Taking a deep breath, he opened his eyes.
-"What am I supposed to be looking for?"
+"What should I be looking for?"
 
 "I don't know," Noxy said. "Anything out of the ordinary."
 
@@ -4298,10 +4304,13 @@ People were dumping slop buckets in the drains,
 opening the awnings over their shops,
 and putting out pots of flowers or pieces of dayglass to catch the morning sun,
 just as they did on every other morning.
+A few shaded their eyes with their hands to look up at the cloud,
+but most seemed intent on own their business.
 
 Here and there,
 though,
-Noxy saw knots of activity as soldiers in uniform knocked on doors and asked their questions.
+Noxy saw knots of activity as soldiers in uniform stopped people in the street
+or knocked on doors and asked their questions.
 There were more soldiers by the river dock.
 One boatman was gesticulating angrily,
 pointing at his barge and the river in obvious exasperation.
@@ -4311,7 +4320,7 @@ I have a schedule, you're costing me money, I've told you everything I know.
 
 "Look there!" Mope said excitedly. "By the brewer's!"
 
-Noxy tried to follow his pointing finger.
+Noxy followed his pointing finger.
 "Where? What do you see?"
 
 "Those soldiers—they've got someone with them!
@@ -4324,10 +4333,10 @@ Noxy leaped nimbly off Cloak as they touched down in the courtyard
 and ran to Thokmay without waiting for Mope.
 "What's happened?" the prince demanded. "Did you find her?"
 
-"No, but someone's found something," Noxy said breathlessly.
-A moment later the door in the gate opened.
+"No, but someone found something," Noxy said breathlessly.
+A moment later the door in the garrison gate opened.
 Sergeant Gyalpa strode in with two soldiers
-and a middle-aged man with long, greasy hair.
+and a middle-aged man with long hair put up in a complicated bun.
 
 "Honored," Sergeant Gyalpa saluted.
 "This is Dobchang.
@@ -4344,12 +4353,20 @@ Dobchang shook his head.
 "It was all by closed up.
 But there was a fellow up top I seen from along around the market.
 I don't know his name.
-Skinny, he is, and kind of shifty."
+Skinny, he is, and kind of shifty,
+if you don't mind me saying so, honored."
 
-"That's Mukh!" Noxy exclaimed.
+Thokmay looked at Sergeant Gyalpa quizzically.
+"That's just Mukh and Rust."
+
+"Yes, honored, but I thought it odd they'd be hauling out
+along by the middle of the night,"
+the sergeant said.
+
+"Wait!" Noxy exclaimed.
 "He gave the princess some ribbon—"
 
-"—and a ring," the prince finished, clenching his fist.n
+"—and a ring," the prince finished, clenching his fist.
 "He even *told* us it was magical!"
 
 "Now, a moment, honored, a moment," Mope cautioned.
@@ -4366,11 +4383,11 @@ What were you going to say?"
 whether this Mukh person has anything to do with your sister's disappearance,"
 Mope replied patiently.
 "Perhaps he and the bear wanted to be on the morning ferry downriver.
-Or wanted to, um, to circumvent the gate inspection traders are usually subject to?
+Or wanted to, um, to circumvent the gate inspection that traders are usually subject to?
 It could mean nothing."
 
 Everyone was silent.
-"I'm—I'm sorry I don't know anything more, honored,"
+"I'm sorry I don't know anything more, honored,"
 Dobchang finally said awkwardly.
 
 The prince shook his head.
@@ -4393,10 +4410,10 @@ a smile twitched at the corner of the prince's mouth.
 he'd spend the rest of his life telling everyone how he shook my hand,
 and that it wasn't actually a big deal."
 
-"Excuse me, honored," Sergeant Inambu interrupted,
+"Excuse me, honored," Sergeant Inambu said quietly,
 "But you said that the man in the market gave the princess a ribbon."
 
-"Yes, a blue one," the prince confirmed bitterly.
+"A blue one with gold roses," the prince confirmed bitterly.
 "I thought he was just trying to earn some royal favor."
 
 "Do you still have it?" Sergeant Inambu asked.
@@ -4406,32 +4423,34 @@ The prince raised his eyebrows at Dolly.
 "Yes, I'm sure of it, it's upstairs on the princess's dresser."
 
 "If it could be brought down,
-I might be able to use it to find the princess,"
+and if this fellow still has the rest of it,
+I might be able to use it to find along by where he's gone,"
 Sergeant Inambu said.
 Noxy could hear the reluctance in the magician's voice.
 
 Dolly didn't need to be asked twice.
-As she trotted up the stairs the sergeant called out,
+As she hurried back to the garrison house the sergeant called out,
 "And if Her Highness's hair brush could be brought down as well, it might also be useful."
 She turned to one of the soldiers standing beside her.
-"Private, see if you can find my apprentices.
-Have them meet me in the front courtyard."
+"Private, find my apprentices.
+Have them meet me along by the stables."
 With a slight bow of her head to the prince, she added,
 "If you will excuse me, honored? I need some time to prepare."
 
 "Of course," the prince said. "Thank you."
 
 As she walked away, Sergeant Gyalpa observed gruffly,
-"Finding the princess could take a lot out of her."
+"It's good of her to volunteer.
+This could take a lot out of her."
 
 "Magic always does," the prince replied,
 staring at Sergeant Inambu's back.
 
 Ten minutes later a dozen people stood by the horse trough
-in the front courtyard of the garrison house.
+beside the garrison stables.
 Some of the soldiers fingered their swords as if they expected an attack.
-One had a coil of rope slung across his chest like a sash.
-Noxy wondered what he was thinking,
+One had a coil of rope slung over his shoulder.
+Noxy wondered why he'd brought it,
 then realized he was probably at as much of a loss as anyone.
 
 Sergeant Inambu's two apprentices,
@@ -4509,7 +4528,9 @@ When it bumped against the side of the trough, the sergeant's shoulders slumped.
 "That's it," she said hoarsely. "What does the label say?"
 
 "The west side of Carmick Hill, ma'am," the apprentice replied.
-His eyes widened. "She's in the Blight!"
+His eyes widened.
+"That's halfway to Choghan.
+She's along by the Blight!"
 
 Dolly gasped.
 Sergeant Gyalpa's jaw tightened.
@@ -4520,18 +4541,19 @@ Sergeant Gyalpa's jaw tightened.
 "We'll find her."
 He blinked suddenly.
 "And we'll find who took her.
-Sergeant, I want every soldier you have on a horse.
-Full armor and overnight packs.
+Sergeant, I want every horse we have saddled,
+and provisions for a week in case they go any deeper.
 Jinpa! Jinpa, where—there you are.
 Lay out my armor,
 and find any recent maps of that part of the Blight."
 
 As Sergeant Gyalpa and the other soldiers hurried away,
 the prince turned back to Sergeant Inambu.
-"Thank you," he said.
-"I hope the cost wasn't too great."
+"Thank you.
+Truly, thank you.
+I hope the cost wasn't too great."
 
-She sighed.
+The magician sighed.
 "Do you remember your tenth nameday?" she asked.
 Before the prince could answer, she added,
 "I don't, not any more."
@@ -4542,19 +4564,193 @@ I think my apprentices know enough to take care of whatever you might need in th
 "Of course," the prince said.
 "Get all the rest you need."
 
-Private Jinpa arrived and saluted the prince as the magician left.
-"The horses are ready, honored,
-and your armor too."
-
 "Thank you," Thokmay replied crisply.
-"Sergeant Gyalpa?
-As soon as I'm dressed,
-we're going to pay Consul Jigme a visit.
+"Private Minpa!
+You and I are going to pay Consul Jigme a visit.
 And Mope—go and give my respects with Learned Shudarga
 and see if she knows anything about this.
 No,
 I don't imagine she does either,
-but I didn't imagine my sister disappearing into the Blight either."
+but I didn't imagine my sister being kidnapped and taken into the Blight either."
+
+The prince and his bodyguard could have walked to the consul's house,
+but galloping made for a more dramatic entrance.
+"My respects to your master," the prince told
+the flustered servant who took their horses's reins.
+"Please let him know we're in a bit of a hurry."
+
+The consul came down the stairs a few moments later in a plain cotton robe
+with a matching cap on his head.
+"Honored," he said, bowing.
+"My apologies for my appearance.
+I had just started to shave, but—"
+
+"My sister has been kidnapped,"
+Thokmay said coldly.
+"And my magician tells me she's on her way to Choghan."
+
+Jigme's eyes widened in surprise.
+"What?
+Honored, by my blood, I know nothing of this.
+When did it happen?"
+
+"Last night."
+The prince drew his dagger and offered it hilt first to the consul.
+"Under the circumstances,
+I would consider it a courtesy."
+
+Jigme didn't hesitate.
+Taking the dagger,
+he pulled up his sleeve to expose his forearm.
+"On my blood, I ask,
+if I took Princess Ogmin or know who did,
+may I never again know sleep or rest."
+As he spoke,
+he pricked his skin with the point of the dagger,
+then wiped it fastidiously on his sleeve and handed it back.
+
+Thokmay thrust it back into its sheath and bowed.
+"Thank you, consul.
+I'll have someone look in on you this evening."
+
+Jigme returned his bow stiffly.
+"Of course, honored.
+If there is anything I can do to help, it would be my honor."
+
+"Doesn't prove anything, honored," Private Minpa said quietly
+as they mounted.
+
+"One in a hundred," the prince quoted, nodding.
+"He'd take the risk if he thought he needed to."
+He sighed.
+"I should have asked him if he knew why Learned Shudarga was here."
+He suddenly realized how tightly he was gripping his horse's reins.
+"Come on.
+We have a long ride in front of us."
+He dug his bootheels into his mount's flanks.
+
+At that same moment,
+back in the garrison house,
+Noxy and Mope were sitting down to chai with Learned Shudarga.
+Noxy had no idea what to say to the spry middle-aged woman
+who handed her a cup and apologized for it not being freshly made.
+The most infamous scholar in the Ninety Kingdoms looked perfectly ordinary.
+Her hair was cut so close to her dark scalp that
+it was hard to tell how much gray there was.
+She wore a jade stud in one ear and a matching stud in the opposite nostril,
+but no rings,
+and her coat and baggy trousers were a sturdy beige.
+She had been barefoot when she answered the door,
+but had put on slippers while apologizing for the mess.
+
+"Not at all, you should see *my* room," Mope said,
+squirming a bit as he tried to find a comfortable position in
+a chair that was a little too narrow for his frame.
+He gestured at the papers piled on the writing desk by the window.
+"Working on your next masterpiece?"
+
+The window had a proper lock rather than a tie string,
+Noxy noticed as Shudarga sipped her chai.
+She wondered if the scholar had the key.
+
+"Just organizing some old letters," Shudarga replied.
+"There are a few I never replied to,
+and some others I answered too hastily.
+One of Balance Petcharatiriv's arguments in particular has been bothering me.
+She asked how a rational spirit would design society
+if it knew it was going to be born into this world,
+but didn't know as who."
+
+The question sounded ridiculous to Noxy,
+but Mope and their host dug into it with polite gusto.
+Would you insist that everyone have an equal share,
+even knowing that some would be born into bodies more capable than others?
+Or would you allow each person to make the most of their gifts,
+but require them to care for the less gifted?
+If so,
+how would you enforce such a rule?
+
+Around and around they went,
+tossing arguments at each other like snowballs
+and quoting scholars as if gossipping about neighbors.
+It reminded Noxy of watching Grappa Gas play hive with his friends,
+each move anticipating the reply to its reply before it was made.
+
+Finally Mope cleared his throat.
+"Speaking of gifted—or rather, Gifted…"
+
+He raised his brows at Shudarga,
+whose answering smile didn't touch her eyes.
+"You're referring to my third debate in Loghan-in-Loghan?
+I haven't changed my position."
+
+Noxy felt the temperature in the room drop a notch
+as Mope pushed his glasses up his nose.
+"You still think there should be one law for humans and another for beasts??"
+
+"Could," Shudarga corrected.
+"I said there *could* be different laws,
+just as there are for different castes in Ini Bantang and Barra Bantang.
+Do you think it unreasonable for the law to permit the Ban Jeevan to carry swords
+while the cargo caste may only have cudgels?"
+
+"If by extension humans are allowed to own property while the Gifted are not,
+then yes,"
+Mope replied testily.
+"Surely you can see—"
+
+Noxy stood up abruptly.
+"Do you know anything about the princess disappearing?"
+she asked.
+
+Scholar Shudarga blinked.
+"No, why would I?"
+
+"But you know about it," Noxy pressed,
+ignoring Mope's pained look.
+
+Shudarga sat back and steepled her hands.
+"I heard the servants running about this morning.
+Is that why you're here?"
+She waved at her desk.
+"I haven't been out of this room since I arrived,
+and to be blunt,
+I resent your suspicion.
+I am a scholar, honored.
+I have come back to Loghan because
+I believe my disagreement with the king can be settled with words.
+Kidnapping his daughter would hardly be the best way to start."
+
+"All right."
+Noxy turned to Mope.
+"I'm going to go help look for her.
+I'll tell someone to bring you more tea."
+She closed the door behind herself a little more loudly than was probably necessary.
+
+*And at that same moment,
+on the edge of the Blight,
+a young woman was crying.
+"But I want to go __home__!" she said yet again.*
+
+*"Not yet," the bear sitting across from her replied,
+as patient and implacable as a glacier.*
+
+*The two raccoons making dinner exchanged worried looks.
+This wasn't the first time they had kidnapped someone,
+but the others had all been adults
+(or at least with adults, if they had to be completely honest).
+They had seen temper tantrums, anger, fear, and despair,
+but this helpless bewilderment was new and uncomfortable.*
+
+*Together,
+they lifted the pot off the fire and spooned some porridge into a bowl.
+"Wish we had some honey," one said quietly.*
+
+*"Or maple syrup," the other agreed.
+They both knew they meant for her, not for themselves or the bear.
+Neither looked directly at the cord tying their captive's ankle to the wagon.
+They had both worn collars and leashes in their youth,
+and it felt too much like that for their comfort.*
 
 </section>
 <section markdown="1">
