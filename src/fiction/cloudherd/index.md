@@ -461,14 +461,15 @@ she added belatedly.
 "Can you take me to your *tralpa*?"
 
 Grappa Gas snorted.
-"Not much point in that.
-But the reeve's about.
-Follow me."
+"I don't expect he'll be awake for a while yet,
+but the reeve's about.
+Come with me."
 
 A few minutes and a lot of questions later,
 the whole village was in the cobbled square—or rather,
 the whole village minus most of the adults,
-who had left a week ago for the snowfields to collect Stale's clouds from their winter pasture.
+who had left a week ago for the snowfields in the mountains
+to collect Stale's clouds from their winter pasture.
 Three hundred people,
 from babies to grandparents,
 stood in a half-circle around the impatient tiger.
@@ -504,7 +505,8 @@ Or has he been up all night 'studying' again?"
 He mimed drinking from a bottle.
 
 "Ssh!"
-But he was right—the voice and hand of the king in Stale Remainders
+But he was right—the voice and hand of the king in Stale Remainders,
+and its resident magician,
 was nowhere to be seen.
 
 Indy thumped the brightly-painted speaker's drum again.
@@ -1013,7 +1015,7 @@ when most scholars were able to drop the word "candidate".
 He looked as though he had slept in his robe and only just woken up,
 which he probably had.
 Like the soldiers who did their best to straighten up
-when they caught sight of his official gray scarf,
+when they caught sight of the official gray scarf wrapped around his neck,
 he had a lowlander's round face and near-black skin.
 But where they were lean he sagged,
 and where they had only a few days of stubble on their shaved heads,
@@ -1045,7 +1047,7 @@ This is long overdue.
 *Long* overdue," he repeated,
 nodding in agreement with himself.
 "I've been writing letters for *months*.
-No offense to His Majesty,
+No offense to His Highness,
 of course,
 but I don't think people realize just how strategically important this pass is.
 And the clouds—why, if those upstart peasants
@@ -1053,9 +1055,9 @@ were to somehow gain control of them,
 there's no telling what might—"
 
 The sergeant cleared his throat.
-"Actually, honored, it wasn't His Majesty who sent us."
-Noxy's breath caught caught
-as one of the soldiers positioned himself behind Yangyal,
+"Actually, honored, it wasn't the king who sent us."
+Noxy's breath caught caught.
+One of the soldiers had positioned himself behind Yangyal,
 his hand falling to the hilt of his sword.
 
 The whole village held its breath.
@@ -1068,7 +1070,7 @@ as if he was having a particularly difficult visit to the outhouse,
 and for a moment Noxy wondered if he might actually have a heart attack.
 He spent most of his time alone in the biggest house in the village
 with his bottles and his books,
-and puffed and wheezed at the prospect of anything resembling physical labor.
+puffing and wheezing at the prospect of anything resembling physical labor.
 
 Instead of falling over,
 the *tralpa* pointed an imperious finger at the sergeant.
@@ -1098,7 +1100,7 @@ putting his hand to his chest respectfully.
 "Sergeant Dorbu," Indy continued
 in a this-is-how-it's-going-to-be voice
 that left no room for disagreement,
-"Do you promise that you and your men will take no action against His Majesty
+"Do you promise that you and your men will take no action against His Highness
 while you're our guests?"
 
 "You have my word, honored," the sergeant said.
@@ -1136,7 +1138,7 @@ and then we can all get some sleep and sort this out in the morning."
 
 The *tralpa* drew himself up.
 "That is *unacceptable*!" he spat.
-"These men have taken arms against His Majesty!
+"These men have taken arms against His Highness!
 You!"
 He pointed at Grappa Gas.
 "In the king's name,
@@ -1190,7 +1192,7 @@ and tell whoever shows up that I'll be there as soon as I can."
 
 The water hadn't even boiled
 before Grappa Gas rapped on the door with his knuckles and entered.
-"Hey there. Where's your mum?"
+"Hey there. Where's your *amma*?"
 
 "She should be back soon," Noxy said.
 She added a handful of dark brown leaves to
@@ -1209,7 +1211,7 @@ to watch Noxy drizzle the last of the honey into the pot.
 she asked after a moment.
 
 The old man snorted affectionately.
-"Just like your mum, aren't you?
+"Just like your *amma*, aren't you?
 And your granna, too.
 Always thinking one step ahead of everyone else.
 You know, if your granna hadn't been so smart, I might've wound up being your grappa.
@@ -1533,7 +1535,7 @@ she amended.
 
 The soldier dipped his head.
 "Thank you, honored."
-He glanced at the tiger.
+He glanced at the tiger again.
 
 "We should see if the sergeant needs any help with preparations,"
 he said,
@@ -1563,7 +1565,8 @@ Noxy asked as she began to set the table,
 not knowing quite how to finish the sentence.
 
 Her mother glanced at her.
-"Help them send off their dead? Yes.
+"Help them send off their dead?
+Yes.
 You don't have to come if you don't want to."
 
 Noxy shrugged. "I'll come."
@@ -1661,17 +1664,21 @@ It was as solemn a moment as she could remember,
 which is why her heart sank when they rounded the corner on the path home
 and saw the *tralpa* standing in front of the gate with a dayglass lantern at his feet,
 his frizzy hair combed and tied back,
-and his scarf of office folded precisely into place.
-In one hand he held a thick book.
+and his scarf of office folded precisely into place for once.
 
-"Oh no," Granna Fee breathed beside her.
+In one hand he held a thick book.
+Its edges glowed with a soft yellow light.
+It was one of the few spells the scholar-candidate could cast reliably,
+and he used it every chance he could.
+
+"Oh no," Granna Fee breathed beside Noxy.
 "Not *now*."
 
 As the villagers approached,
 Scholar-Candidate Yangyal puffed out his chest.
 "Literally Indigestible,
 by election from its inhabitants
-and with the consent of His Majesty Denpa King Gandan made reeve of the village of Stale Leftovers,
+and with the consent of His Highness Denpa King Gandan made reeve of the village of Stale Leftovers,
 come forward!"
 
 Indy waited a moment for the soldiers and villagers behind her to come to a halt,
@@ -1689,7 +1696,9 @@ cursing under his breath and stooping to pick up the bookmark that fluttered to 
 Tucking it under his arm,
 he raised the book with both hands to show a page that was almost black with dense print.
 
-"I'm sorry, Scholar-Candidate, but that's a bit difficult to read in this light,"
+"I'm sorry, Scholar-Candidate,
+but that's a bit difficult to read
+even with the light,"
 Indy said.
 "Perhaps we could make some chai and—"
 
@@ -1699,7 +1708,7 @@ inasmuch as you have—damn it."
 The bookmark slipped out from under his arm and fluttered to the ground again.
 "Inasmuch as you have neglected a *direct order*
 to arrest those who have freely admitted that
-they are in open rebellion against His Majesty."
+they are in open rebellion against His Highness."
 
 Before Indy could reply, Sergeant Dorbu stepped forward.
 "Am I going to have to put this down, honored?" he asked,
@@ -1726,7 +1735,7 @@ his voice carrying clearly like that of an actor on stage.
 
 The *tralpa* nodded jerkily,
 his eyes fixed on the tip of the sergeant's sword.
-"So you're in charge of leases on His Majesty's laws?"
+"So you're in charge of leases on His Highness's laws?"
 Another jerky nod.
 "Well, in that case…"
 The young soldier fished a coin out of his pocket.
@@ -1752,8 +1761,9 @@ He paused.
 "You have to actually take the coin for this to be legal, don't you?"
 
 The *tralpa* swallowed,
-then snatched the coin from the private's hand,
-and scurried through the fortress gate.
+then snatched the coin from the private's hand.
+With the book glowing under his arm,
+he scurried through the fortress gate.
 Noxy heard the villagers behind her sigh with relief.
 
 But not the sergeant.
@@ -2034,7 +2044,7 @@ Aft hopped onto the platform and gave the cloud one last comforting pat.
 "Well," he said,
 "This is more of a welcome than I was expecting."
 
-"Where's the *tralpa*?" Indy demanded.
+"Where's Yangyal?" Indy demanded.
 
 The cloudherd blinked. "How would I know?"
 
@@ -2051,7 +2061,7 @@ Grappa Gas demanded.
 Aft looked from his father to his wife to Indy.
 "Got as far as the Three Sisters,
 but there was lightning further up the pass storm so I turned around.
-What's happened to the *tralpa*?"
+What's happened to the idiot *tralpa*?"
 
 "He's gone to Duck Droppings to tell the king's men about Sergeant Dorbu and his men,"
 Indy said.
@@ -2074,14 +2084,14 @@ The idiot must be trying to hike down on his own."
 "Through the forest?" Kulbinder rumbled.
 
 "It's safe enough if you're sensible enough to stay on the paths," Indy said,
-her tone making it clear exactly how sensible she thought the *tralpa* was.
+her tone making it clear exactly how sensible she thought Scholar-Candidate Yangyal was.
 
 "But it's three days to Duck Droppings on foot,
 and I'd be surprised if that pudgy camel has ever gone more than a hundred strides
 off a paved road in his life,"
 Grappa Gas growled.
 "If he trips and breaks his leg,
-we'll have the Pilots' own job explaining what happened to him."
+we'll have the saints' own job explaining what happened to him."
 
 Indy nodded.
 "We have to go find him."
@@ -2192,7 +2202,7 @@ Shelves of mushrooms grew on the older ones,
 some as big as a kitchen table,
 and the ground under her boots was fragrant and spongy with decades of fallen pine needles.
 
-A lightning-blasted tree leaned drunkenly across the path.
+A half-fallen tree leaned drunkenly across the path.
 She ducked under it and pulled up short.
 "Sorry!"
 
@@ -2207,7 +2217,7 @@ and an impatient little stream flung itself from one small pool to the next,
 each waterfall throwing spray into the air for rainbows to dance on
 as it splashed its way down to a larger pool below.
 
-"Help me!" the *tralpa* shouted again.
+"Help me!" Yangyal shouted again.
 One glance was enough to tell Noxy what had happened.
 Someone had laid a log across the stream to connect one side of the path with the other.
 The *tralpa* must have been halfway across it when one end slipped and rolled away,
@@ -2215,7 +2225,7 @@ leaving him perched atop the other end like a crow sitting on a fencepost.
 If he tried to shift his weight,
 the log would topple over and send him tumbling down the mountain.
 
-"You—don't just stand there, help me!" the *tralpa* shouted angrily.
+"You—don't just stand there, help me!" Yangyal shouted angrily.
 His prized leather satchel hung precariously on a stub of branch
 sticking out from the log a stride below him.
 Papers,
@@ -2249,7 +2259,7 @@ then shrieked again when the log jerked to a stop two paces below where it had b
 clambering over a boulder half his own height covered in damp-slick moss.
 "Can you reach the branch on your left?"
 
-The *tralpa* didn't even look.
+Yangyal didn't even look.
 "No!  You have to come *get* me!"
 
 "Yes, learned."
@@ -2263,7 +2273,7 @@ as he started to unbutton his uniform jacket.
 Noxy picked her way carefully around the boulders,
 clutching at a sword fern for balance as a stone rolled away under her boot.
 She stopped three strides from the terrified lowlander.
-"I can't get any closer," she called to Private Thokmay.
+"I can't go any further," she called to Private Thokmay.
 
 "Understood.  Hang on."
 A second another long stride put him on top of a smaller boulder half-drowned by the waterfall.
@@ -2282,7 +2292,7 @@ and started shivering as the wind scraped across his skin.
 hook it over that branch and then swing yourself over to that big flat rock on your left,
 all right?"
 
-The *tralpa* shook his head violently.
+Yangyal shook his head violently.
 "You can do it, learned," the young soldier coaxed him.
 "I know you can.  Ready?  One… two… *three!*"
 He tossed his balled-up coat into the air.
@@ -2292,8 +2302,7 @@ As he did so, the log shifted underneath him again.
 He screamed as it slid and kept sliding.
 Its bottom end caught on a stone.
 It tipped forward,
-and for one long moment stood upright with the *tralpa* perched on top
-like a bird sitting on a fencepost.
+and for one long moment stood upright with the *tralpa* perched on top.
 
 Without thinking,
 Noxy grabbed the nearest salal bush with one hand and leaned forward as far as she dared,
@@ -2303,7 +2312,7 @@ then lunged for her clumsily
 as the log slipped one last time and tumbled end over end
 to crash to a stop against another boulder a few strides below them.
 
-Noxy grabbed the *tralpa*'s pudgy hand
+Noxy grabbed Yangyal's pudgy hand
 as his boots scrabbled to find purchase on the slippery rocks.
 He clutched her sleeve with his other hand,
 and for a moment she was sure his weight was going to pull her over.
@@ -2388,7 +2397,7 @@ He had streaks of mud on his cheeks where he had wiped away his frightened tears
 "Well maybe you should have thought of that before you ran away!"
 Noxy snapped.
 
-The *tralpa* pulled himself up to his full height.
+Yangyal pulled himself up to his full height.
 "I didn't run away," he said indignantly.
 "I was trying to do my duty because *your mother* wasn't doing *hers*."
 Then his eyes widened.
@@ -2421,33 +2430,49 @@ like *outlaws*."
 Noxy's first thought was,
 *Your house isn't drafty—it's the nicest one in the whole village!*
 What came out of her mouth was,
-"Let's go home and get cleaned up.  I mean it," she continued
-as the *tralpa* opened his mouth.
+"Let's go home and get cleaned up.
+I mean it,"
+she continued as the *tralpa* opened his mouth.
 "You're soaking wet,
 you don't have anything to eat,
 the path is gone,
 and if we don't get him in front of a fire,
-he's going to freeze to death."
+you're both going to freeze to death."
 She nodded at Private Thokmay, whose teeth were still chattering.
 
-"Fine," the *tralpa* said sulkily.
-He stood up gave her an exaggerated bow.
-"I'll follow you."
+"I'll be fine," the *tralpa* said sulkily.
+He stood up and gave her an exaggerated bow.
+"I suppose I should follow you, then.
+Oh, and you—boy.
+Here."
+
+Yangyal held out his hand.
+"Well, take it," he said testily when Thokmay hesitated.
+With a quick glance at Kulbinder,
+the soldier clasped it.
+
+Yangyal closed his eyes and muttered.
+A moment later Thokmay's teeth stopped chattering.
+The private's eyes widened.
+"Thank you, honored," he said,
+letting go and bowing slightly.
+The *tralpa* waved away his thanks as if it was a mosquito.
 
 The trail home seemed so long that
 Noxy started to wonder if they had taken a wrong turn.
 The *tralpa* huffed and puffed but said nothing—at least,
 nothing loud enough for her to make out.
 The tiger stayed at Private Thokmay's side,
-dropping back or slipping in front of him when the path narrowed but always returning to his post.
+dropping back or slipping in front of him when the path narrowed
+but always returning.
 As they passed through a small clearing,
 she fell in step on Thokmay's other side and said,
 "I'm sorry about your coat.
 I can go look for it tomorrow if you want."
 
 The young soldier nodded.
-His teeth had stopped chattering,
-but he still looked drawn.
+Despite the *tralpa*'s spell,
+he still looked drawn with cold.
 "Thank you, honored.  Here."
 He shrugged out of hers and held it out to her.
 
@@ -2473,7 +2498,8 @@ He patted his hip.
 Sergeant Dorbu isn't going to be happy about that."
 
 *Thud.*
-They both stopped and stared at the sword that had just landed on the path in front of them.
+They both stopped and stared at the scabbard and sword
+that had just landed on the path in front of them.
 Private Thokmay cleared his throat.
 "Um," he said uncertainly, "That's unexpected."
 
@@ -2493,7 +2519,7 @@ Private Thokmay picked up his sword.
 
 The soldier nodded.
 "Her, then.
-I don't suppose you could get her to fetch the scabbard as well, could you?"
+I don't suppose you could get her to fetch my coat as well, could you?"
 
 "What?" Noxy blinked.
 "I didn't have anything to do with this1"
@@ -2525,27 +2551,30 @@ so when they get something like that they either throw it into the nearest under
 or try to trade it back to us for sweets."
 
 The young soldier thought for a few steps before answering.
-"Kulbinder told me that people in Thind call them the hands of the jungle,"
+"Kulbinder told me that people in Thind call trolls the hands of the jungle,"
 he said slowly.
 "Maybe it's the same here."
 He glanced at her.
 "So I guess the question is, why would the *forest* want me to have my sword back?"
 
-Noxy shook her head.  "I have no idea."
+Noxy shook her head.
+"I have no idea."
 
-"Hm.  But here, please."  Private Thokmay stopped and shrugged off her coat again.
-"No, please—I've warmed up, honestly."
+"Hm.  But here, please."
+Private Thokmay stopped and shrugged off her coat again.
+"No, please—the Scholar-Candidate's spell really did warm me up."
 When Noxy hesitated, he added,
-"Besides, if the rest of the men see me wearing it,
+"Besides, if the rest of the soldiers see me wearing it,
 they'll make jokes for weeks."
 
 Noxy took it from him.
 The inside was damp,
 but she put it on anyway,
 grateful for the way it blocked the wind
-but very conscious of how warm his body had made it.
+but also conscious of how warm his body had made it.
 
-"Do they make jokes a lot?" she asked as they started up the path again.
+"Do they make jokes a lot?" she asked
+as they started up the path again.
 "I mean, you're the youngest, and, you know, the tiger…"
 She trailed off as she realized that
 she had no idea how she had meant to finish that sentence.
@@ -3005,22 +3034,27 @@ the tiger stretched and padded off toward the main gate.
 
 Indy clapped her hands.
 "Right. Everyone else, time for chores."
-As the children groaned and got to their feet,
-Thokmay finally raised his eyes to look at Noxy.
 
+As the children groaned and got to their feet,
+Thokmay looked at Noxy.
 "Good morning," he said,
 bowing slightly.
 
 Noxy stuck out her hand.
-"Hi. I'm Probably Noxious, but call me Noxy—everyone does."
+"We were never properly introduced.
+I'm Probably Noxious, but call me Noxy—everyone does."
 
 The boy hesitated for a heartbeat,
-then took her hand in a callused grip much stronger than Noxy had expected.
+then grinned and took her hand
+in a callused grip much stronger than Noxy had expected.
+"The Gifted Kulbinder's Private Thokmay, at your service."
 He released her hand and gestured toward the gate.
 "After you."
 
-Noxy and young soldier walked side by side.
-"That's the South Tower," said Noxy,
+"Thank you."
+Noxy could feel Rash and Sensy's eyes on her as they walked away.
+
+"That's the South Tower," said Noxy as they ambled along,
 pointing at six rectangular stories of stone.
 "It still has a roof, but the stairs inside fell down a long time ago.
 You used to be able to get up there by climbing a tree,
@@ -3061,15 +3095,16 @@ Suddenly Thokmay stopped.
 A heavy wooden grill lay across a shoulder-high opening in the wall ahead of them.
 Behind it, rough stone steps led down into the mountain.
 
-"That's just some old tunnels," said Noxy.
+"That's just an old tunnels," said Noxy.
 "We're not supposed to go in."
 
 Thokmay scowled.
-"Sergeant Dorbu will want to know about them."
+"Sergeant Dorbu will want to know about it."
 
 "Why?" Noxy asked.
-"Most of them are flooded.
-Except for the one under Grappa Gas's house, and the ones by the drying sheds.
+"It's just for getting down to the drain and to fix the well.
+Except for the one under Grappa Gas's house,
+and the ones by the drying sheds.
 We use them for cellars."
 
 "Soldiers should know as much as they can about their surroundings,"
@@ -3269,23 +3304,24 @@ And why did the sun have to be so…so sunny?
 
 When she heard the first shouts from the main square she ignored them,
 thinking that it was just children playing jump-sticks or kabbadi.
-Then she heard Sergeant Dorbu shout, "Hah! Heeeyah!"
+Then she heard a woman shout, "Hah! Heeeyah!"
 She tossed another berry into the bowl and stood up on her stone seat to look.
 
-She was just in time to see Thokmay duck under the sergeant's out-thrust sword
+She was just in time to see Thokmay duck under another soldier's out-thrust sword
 and lunge with his own blade as he straightened,
 shouting "Hah!" in turn.
 Every child in the village was gathered around watching,
 and not a few of the adults as well.
 
-The sergeant knocked Thokmay's blade away and spun around,
+The other soldier knocked Thokmay's blade away and spun around,
 slashing left and right, one, two, three,
 as if fighting an invisible opponent.
-While his back was turned the young soldier stepped forward and stabbed the sergeant in the ribs.
+While her back was turned the young soldier stepped forward
+and slapped her ribs with his blade.
 
-The sergeant groaned,
-pinning Thokmay's sword with his arm so that it was pulled out of the boy's grip as Dorbu turned.
-Thokmay only had time to open his mouth before the sergeant's sword tapped him lightly in the chest.
+The soldier groaned,
+pinning Thokmay's sword with her arm so that it was pulled out of the boy's grip as she turned.
+Thokmay only had time to open his mouth before her sword tapped him lightly in the chest.
 To Noxy's disgust, the children started to clap.
 
 "You must keep your grip even after you strike," Kulbinder grumbled
@@ -3293,34 +3329,34 @@ from the porch of the guest house.
 "No point giving your man one last blow."
 
 "I know," said Thokmay, panting slightly. "I forgot."
-The sergeant handed his sword back to him.
-Both his blade and the sergeant's were wrapped in leather so that they wouldn't cut. 
+The other soldier handed his sword back to him.
+Both his blade and hers were wrapped in leather so that they wouldn't cut. 
 
-Thokmay and the sergeant brought their swords up,
+Thokmay and the woman brought their swords up,
 touched blades,
 and started fighting again.
 Thokmay lost quickly this time,
-but won the third round when the sergeant pretended to stumble over a loose cobblestone.
+but won the third round when she pretended to stumble over a loose cobblestone.
 While the children clapped and cheered,
 some of the older villagers shook their heads and swapped disapproving looks.
 Still, they kept watching.
 
-By the time the sergeant and his young opponent stopped, 
-they were both soaked with sweat.
+By the time the matched stopped, 
+both soldiers were both soaked with sweat.
 They saluted each other one last time.
-"You're getting better every day," Sergeant Dorbu said.
+"You're getting better every day," the woman said.
 "But we could both use a wash-up."
 
 Thokmay nodded, still breathing hard. 
-Smells like we could both use one too."
-For the first time, Noxy saw him smile.
+"Thank you, Private Kechen.
+It smells like we could both use one too."
 
 "Show me, show me!" shouted Little Gas.
 He clapped his hands with excitement.
 "I want to!"
 
 Thokmay's smile froze.
-He glanced at the sergeant, who shook his head almost imperceptibly.
+He glanced at Private Kechen, who shook her head almost imperceptibly.
 "I'm glad you liked it," the young soldier said.
 "But it's not really a game."
 
@@ -3384,19 +3420,22 @@ There was a moment of stunned silence.
 
 "It's not magic," Grappa Gas laughed,
 looking as delighted as any of the children.
-"It's called juggling! I saw it in Chaghan once. It's just a trick."
+"It's called juggling! I saw it once in Apple Bridge. It's just a trick."
 
 "That's right," Thokmay agreed.
-"It's just a trick. Here, I'll prove it. Sergeant?"
+"It's just a trick. Here, I'll prove it. Private Kechen?"
 
-Sergeant Dorbu took the brightly colored sock balls and tossed them in the air.
-He whistled a happy little tune as he juggled, and even managed to wink at Sensy (who blushed).
-By the time he was finished, Little Gas was laughing and clapping his hands.
+The woman he had been fencing with
+took the brightly colored sock balls and tossed them in the air.
+She whistled a happy little tune as she juggled,
+and even managed to wink at Rash
+(which made Sensy dig her elbow into his ribs).
+By the time she was finished, Little Gas was laughing and clapping his hands.
 "Let me, let me!" he shrieked. "I want to!"
 
 "All right, but you have to let me show you how," Thokmay said.
 "You have to start with just two, like this.
-Um, Sergeant? Could you show some of the others?
+Um, Private? Could you show some of the others?
 Thank you, respected.
 Now, put this one in this hand, and this one in the other, and…"
 
@@ -3430,7 +3469,7 @@ Thokmay had been standing right behind Sensy,
 reaching around to hold her arms just below the elbows.
 
 Sensy brushed her hair back over her ear.
-"Why should I care what Rash thinks?" she asked.
+"he was just showing me how," she said defensively.
 
 "Well, *I* think it was embarrassing," Noxy said primly.
 "You were all following him around like ducklings,
@@ -3583,8 +3622,8 @@ with Thokmay at his side.
 Sergeant Dorbu was saying.
 
 Indy shook her head.
-"Letting you and yours stay here to heal up is one thing,"
-she said, apologetically but firmly.
+"Your sentries are one thing,"
+she said firmly.
 "But if your men start walking patrols,
 it'll look an awful lot like we're joining this fight."
 
@@ -3970,7 +4009,7 @@ The truth is,
 we are very grateful for your hospitality—we might well have died
 if you hadn't rescued us.
 But unless you can guarantee that
-nobody else is going to try to do what the *tralpa* did,
+nobody else is going to try to do what Scholar-Candidate Yangyal did,
 my soldiers are going to stay where they are."
 
 The look Indy gave him would have frozen a dragon's breath.
@@ -5357,7 +5396,7 @@ his breath heavy and his speech slightly slurred.
 "I am—notes.
 Don't think this will ex-ex-onerate you.
 Any of you."
-He wrapped himself in dignity as ragged as the cuffs of his coat and retreated indoors,
+He wrapped himself in bleary-eyed dignity as bedraggled as his beard and retreated indoors,
 banging the door behind him.
 
 Noxy, Rash, and Sensy worked side by side.
@@ -5426,21 +5465,35 @@ hurrying around the corner toward the square.
 *Crack!*
 Another bolt of lightning left a dazzling scar on the night.
 That one had been close, she realized uneasily—too close.
-The lightning must be nipping at the clouds that had fallen behind their herd.
+The lightnings usually avoided Stale,
+but these ones must be nipping at the clouds that had fallen behind their herd.
 She was glad that she wasn't airborne.
 She had only ever been on one night flight,
 when Granna Fee took her up on her nameday when she turned ten to show her a passing star.
-She couldn't imagine being up there with—
+She couldn't imagine being up there in this.
+
+A shadow moved on the other side of the square.
+*Who else would be dumb enough to be out in this?*
+she wondered,
+then froze.
+Had the troll come back into Stale?
+
+No—it wasn't a troll.
+A faint light glimmered.
+Through the rain,
+she saw Yangyal peer at a glowing scrap of paper
+before stuffing it back in his pocket.
+He raised both hands dramatically and turned to face the guest house.
 
 *CRACK!*
-Noxy shrieked as the third bolt of lightning struck the weather duck
-next to the fortress gate and shattered its wooden pole.
+Noxy shrieked as the third bolt of lightning shattered the weather duck
+spinning in the wind atop the guest house.
 Splinters flew in all directions,
 clattering off roofs.
 One smoking scrap clattered through a storehouse window
 whose shutter had been left untied.
 As Noxy blinked to clear the lightning's after-dazzle from her eyes,
-the sheets of dried moss that the wood had landed in began to smolder.
+the *tralpa* ran clumsily out of sight.
 
 A door banged open.
 "Saints!" Aft hurried over to Noxy.
@@ -5457,10 +5510,11 @@ He gave her a quick once-over.
 He sniffed.
 "What's burning?"
 
-Noxy grabbed his arm and pointed.
+Noxy grabbed his arm and pointed at the storehouse.
 "There! Upstairs!"
-A bright lick of flame was suddenly dancing in a window.
-Another joined it as the familiar herby smell of burning moss caught in Noxy's nostrils.
+A bright lick of flame danced in the window
+as the sheets of moss set out to dry caught fire.
+Another flame joined it as the acrid herby smell caught in Noxy's nostrils.
 
 "Get your mother!" Aft ordered,
 then cupped his hands around his mouth.
@@ -5529,7 +5583,7 @@ The village was lucky.
 That's what everyone told themselves when it was over.
 They were lucky that the rain had made everything so wet,
 that there had been so little of the autumn moss left to burn,
-that Noxy had spotted the fire so quickly.
+that Noxy and Aft had spotted the fire so quickly.
 And yes, they were lucky the soldiers had been there to pass buckets.
 They'd have to pull down what was left of the storehouse,
 but none of the buildings around it had been taken.
@@ -5566,10 +5620,38 @@ I hope you both sleep well."
 Indy tied the door closed behind him and then smiled fondly at her daughter.
 "Come on, sweetling.
 Let's get to bed."
+When Noxy didn't stand,
+her mother frowned.
+"What's wrong?"
+
+Noxy turned her cup in her hands.
+"I think I saw the *tralpa* out in the storm.
+I think he was doing a spell."
+
+"What kind of spell?" Indy asked,
+sitting down again.
+
+Noxy hesitated.
+"I think he was—I think he called the lightning that hit the weather duck.
+Or at least he was trying to,"
+she hurried on at her mother's skeptical look.
+
+Indy took her hand.
+"Sweetling…
+I don't know what you saw,
+but I don't think the *tralpa* could do anything that powerful."
+
+"I know," Noxy sulked,
+"But I think he was trying."
+
+Her mother nodded slowly.
+"All right.
+Thank you for telling me.
+Now, let's get to bed."
 
 *The people in and of Stale weren't the only ones sheltering from the storm that night.
 An hour away,
-if you were a condoro on a clear day,
+if you were a condor on a clear day,
 or two days' hard match if you were a soldier,
 rain pounded on a hundred waxed cotton tents
 pitched with almost mathematical precision in a next square.
