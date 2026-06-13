@@ -207,3 +207,4 @@ template: page
 | Hello, World! | Dale Biagio | 979-8995072102 | 2026 |
 | The Wall Dancers | Yi-Ling Liu | 978-0593491850 | 2026 |
 | Techno-Negative | Thomas Dekeyser | 978-1517917739 | 2026 |
+| The Killing Spell | Shay Kauwe | 9781668053287 | 2026 |

@@ -15,6 +15,7 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [More Psychology](@root/2026/06/10/more-psychology/)
 1.  [When the Model is the Harm](@root/2026/06/11/harmful-models/)
 1.  [Privacy, Power, and the Self](@root/2026/06/12/privacy/)
+1.  [Who Gets What and Why](@root/2026/06/13/who-gets-what-and-why/)
 
 [Bibliography](@root/2026/04/13/a-bibliography/)
 
