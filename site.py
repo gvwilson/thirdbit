@@ -56,11 +56,13 @@ prior_entries = [
         "title": "The Carpentries",
         "url": "https://carpentries.org",
         "description": "A non-profit organization teaching basic software and data skills to researchers world-wide (1998–present).",
+        "image": {"src": "@root/files/carpentries-hex.jpg", "alt": "Carpentries logo"},
     },
     {
         "title": "It Will Never Work in Theory",
         "url": "http://neverworkintheory.org",
         "description": "Brief reviews for working programmers of empirical results in software engineering (2011–2023).",
+        "image": {"src": "@root/files/neverworkintheory.svg", "alt": "NWIT logo"},
     },
     {
         "title": "Software Design by Example in Python",
@@ -114,6 +116,18 @@ prior_entries = [
         "description": "A one-day introduction to the basics of SQL.",
     },
     {
+        "title": "Managing Research Software Projects",
+        "url": "@root/mrsp",
+        "description": "A workshop on the ideas and tools you need to manage a team of research software developers (beta).",
+        "beta": True,
+    },
+    {
+        "title": "How to Not Be Wrong About AI",
+        "url": "@root/notwrong",
+        "description": "What software engineers need to understand to tell good studies from bad ones (beta).",
+        "beta": True,
+    },
+    {
         "title": "Distributed Systems Design by Example",
         "url": "@root/dsdx",
         "description": "Thirteen worked examples of distributed systems in Python (beta).",
@@ -132,27 +146,15 @@ prior_entries = [
         "beta": True,
     },
     {
-        "title": "Managing Research Software Projects",
-        "url": "@root/mrsp",
-        "description": "The ideas and tools you need to manage a team of research software developers (alpha).",
-        "beta": True,
-    },
-    {
-        "title": "How to Not Be Wrong About AI",
-        "url": "@root/notwrong",
-        "description": "What software engineers need to understand to tell good studies from bad ones (alpha).",
-        "beta": True,
-    },
-    {
         "title": "Lean for Python Programmers",
         "url": "@root/l4py",
-        "description": "An introduction to Lean for Python programmers (pre-alpha).",
+        "description": "An introduction to Lean for Python programmers (alpha).",
         "beta": True,
     },
     {
         "title": "Gleam for Python Programmers",
         "url": "@root/gl4py",
-        "description": "An example-based introduction to Gleam for Python programmers (pre-alpha).",
+        "description": "An example-based introduction to Gleam for Python programmers (alpha).",
         "beta": True,
     },
 ]
