@@ -1,0 +1,610 @@
+---
+title: "More Analogies"
+date: 2026-06-14
+category: sdgc
+---
+<div class="callout" markdown="1">
+
+*These posts are Version 2 of this material.
+Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
+
+1.  [Sex and Drugs and Guns and Code Restart](@root/2026/06/08/sex-and-drugs-and-guns-and-code-restart/)
+1.  [A Little Psychology](@root/2026/06/09/a-little-psychology/)
+1.  [How We Got Here](@root/2026/06/09/how-we-got-here/)
+1.  [More Psychology](@root/2026/06/10/more-psychology/)
+1.  [When the Model is the Harm](@root/2026/06/11/harmful-models/)
+1.  [Privacy, Power, and the Self](@root/2026/06/12/privacy/)
+1.  [Who Gets What and Why](@root/2026/06/13/who-gets-what-and-why/)
+1.  [More Analogies](@root/2026/06/14/more-analogies/)
+
+[Bibliography](@root/2026/04/13/a-bibliography/) &middot; [Glossary](@root/2026/05/20/glossary/)
+
+</div>
+
+These posts started as a series titled "Big Tech is Like…".
+[An earlier post in this series](@root/2026/06/11/harmful-models/) included eight of those;
+here are a few more.
+
+## Big Tech is Like a Company Town
+
+E.P. Thompson's account of the transition from putting-out to factory production
+made a point that factories were initially not more efficient at producing cloth:
+they were more effective at eliminating worker autonomy [Thompson1963].
+Before industrialization,
+workers controlled their own time and pace,
+could share work across household members,
+and could resist disadvantageous terms through slow work, variable quality, and informal coordination.
+The factory closed off these responses:
+workers arrived at fixed times,
+worked at a supervised pace,
+and until labor unions emerged,
+had no practical means of collective withdrawal.
+The shift to app-based platform work is doing the same thing today.
+The app is not merely a more convenient interface.
+It is supervisory infrastructure that monitors pace and completion rates
+and eliminates the degrees of freedom that less tightly managed arrangement permitted.
+
+<div class="callout" markdown="1">
+
+Grab and Gojek motorcycle drivers in Jakarta,
+who own their vehicles but are subject to algorithmically set rates they cannot negotiate
+and risk deactivation for declining rides,
+have organized repeated strikes—the precise form of collective resistance
+available to workers who cannot withdraw their invested capital.
+
+</div>
+
+George Pullman built Pullman, Illinois in the 1880s alongside his railroad car factory:
+a planned community where the company owned the workers' housing, stores, church, library, and bank.
+Workers were paid partly in **scrip** redeemable only at company stores.
+When Pullman cut wages during the depression of 1893 while holding rents fixed,
+workers could not cushion the blow by cutting other expenses,
+because the company controlled those too.
+They had no recourse and nothing left to lose.
+The 1894 Pullman Strike paralyzed rail traffic across the country
+and required federal troops to suppress,
+which tells you something about what total control eventually produces.
+
+A developer whose business depends entirely on the App Store,
+a seller whose inventory and customer relationships live on Amazon,
+or a creator whose audience exists only within a single platform
+is in an equivalent position:
+the terms can be changed at any time,
+the cost of departure is prohibitive,
+and the entity that provides the housing also adjudicates disputes about it.
+
+What the company town reveals is something market economics tends to obscure:
+the difference between an employer and an infrastructure provider is a matter of degree,
+not kind.
+An employer controls your income;
+an infrastructure provider controls the conditions
+under which you can earn, spend, and participate in social life.
+Pullman did not merely employ his workers:
+he owned the physical environment in which they lived,
+which meant that the power relationship extended past the end of the workday
+into every dimension of daily existence.
+
+Pullman justified all of this in the language of paternalistic improvement [Lindsey1942].
+The company town was presented as a planned community
+designed to give workers superior housing, sanitation, and amenities
+compared to what they could obtain elsewhere.
+This was partly true:
+Pullman, Illinois was better built than most industrial housing of the period.
+But the justification also framed the absence of collective bargaining as a feature rather than a constraint.
+Workers who were being improved did not need unions.
+They needed to trust the judgment of the person improving them.
+Conveniently,
+this gave the appearance of converting a power arrangement into a benevolent one.
+
+The Pullman case was not unusual.
+Coal patches in Appalachia and the Canadian Maritimes operated on the same model:
+company-owned housing,
+company stores where scrip could be spent,
+company control of access roads and community infrastructure.
+In the post-Civil War South, plantation stores extended dependency relationships
+across the formal end of slavery,
+tying sharecroppers to specific land through debt
+that was nearly impossible to escape
+without leaving behind the credit, relationships, and community standing
+that they depended on.
+Mining camps across Latin America reproduced the same structure under different flags.
+The company town is a recurring organizational form
+because it solves a genuine problem for whoever controls it:
+it makes exit nearly impossible while appearing to be voluntary.
+
+<div class="callout" markdown="1">
+
+Foxconn's manufacturing campuses in Shenzhen house hundreds of thousands of workers in company dormitories,
+sell goods through company stores, and provide company-managed transportation—
+the Pullman model operating at a scale Pullman could not have imagined,
+producing the consumer electronics sold by companies that will not acknowledge the supply chain.
+
+</div>
+
+The distinction between short-term dependency and structural lock-in
+is what keeps workers and developers in arrangements that are getting worse.
+Short-term dependency is a rational calculation:
+you stay because the current terms are good enough and leaving has costs.
+Structural lock-in is different.
+The costs of leaving have been deliberately raised
+so that the calculation does not change even as the terms worsen.
+A platform can worsen its terms incrementally;
+each incremental worsening is individually insufficient to justify the exit cost,
+even if the cumulative total is large.
+
+A more extreme form of this appears in the *danwei*,
+the work unit system through which Mao-era China organized urban life.
+The *danwei* was the unit through which citizens accessed employment,
+housing, healthcare, food rations, and education for their children.
+To be removed from a *danwei* was to lose access to all of these simultaneously.
+The contemporary parallel is super-apps like WeChat
+that integrate messaging, payments, healthcare bookings,
+government service access, merchant discovery, and social identity in a single system.
+A user whose account is suspended loses not just a communication tool
+but the infrastructure through which they conduct their civic and commercial life.
+The Pullman Company controlled the economic conditions of workers' lives.
+The super-app, at its most developed, aims to be a *danwei* [Stoller2019,Walder2017].
+
+## Big Tech is Like the Beauty Industry
+
+The beauty industry does not merely sell products.
+It works by making people believe they have flaws they were not previously considered flaws,
+by creating status competition around those flaws,
+by ensuring that the standards people are supposed to meet remain unstable,
+and then sells temporary relief from the insecurity it has helped create.
+The customer is never meant to arrive,
+because that would end the business model.
+
+The same logic governs much of the digital economy.
+Platforms do not simply sell access to information, communication, or entertainment.
+They produce social comparison at industrial scale,
+amplify the feeling of falling behind or being left out,
+and then sell ads, subscriptions, and self-optimization tools as the remedy.
+
+Thorstein Veblen identified all of this,
+even though he was writing in 1899 rather than in the age of Instagram.
+The point of status goods is not that they are useful or pleasurable.
+It is that they are visible evidence of social rank.
+The phrase "keeping up with the Joneses",
+which entered American English in the early twentieth century,
+names the same dynamic more plainly.
+Consumption becomes competitive because social standing is comparative,
+which means there is never "enough".
+This competition is profitable because
+the goalposts move as soon as people approach them [Veblen1899].
+
+The beauty industry is a particularly efficient machine
+for converting status anxiety into revenue
+because it treats the human body as a perpetually unfinished project.
+Skin can always be smoother,
+hair shinier,
+teeth whiter,
+age less visible,
+and weight lower.
+What matters is not whether any particular intervention works as advertised.
+What matters is the manufactured belief that our peers are taking action,
+so we must too.
+This is why beauty advertising oscillates between aspiration and warning:
+you want to be admired,
+but you fear that you will also be judged.
+
+Women have always borne the brunt of this manufactured insecurity.
+The modern beauty industry developed alongside labor markets and marriage markets
+in which women's economic security and social standing were tied more closely to appearance
+than men's.
+As legal barriers to women's advancement weakened,
+appearance standards became a more intense disciplinary mechanism,
+not a less important one.
+A market built around telling women that their bodies require continuous corrective spending
+fits very comfortably inside a misogynist social order [Peiss2011].
+
+<div class="callout" markdown="1">
+
+South Korea has the highest cosmetic surgery rate per capita in the world,
+produced by a feedback loop among K-pop image norms, social media filters,
+cosmetic surgery clinics, and legally tolerated workplace appearance discrimination
+that has exported its manufactured insecurity to dozens of countries along with its skincare products.
+
+</div>
+
+Big tech has given this machinery telemetry, automation, and scale.
+The platform feed is a Jones machine.
+It puts other people's vacations, kitchens, bodies, weddings, and workout routines in front of us
+not as occasional local gossip but as a continuous global stream.
+The result is not just envy:
+it is the normalization of comparison as a default mental state.
+Am I fit enough, rich enough, busy enough, stylish enough, politically
+informed enough, raising my children well enough, or aging well enough?
+A system that can keep those questions humming in the background can monetize them indefinitely.
+
+The comparison does not have to be truthful to be effective.
+Beauty advertising has always relied on lighting, retouching, and selective casting.
+Social platforms inherit all of that and add filters,
+algorithmic selection,
+and engagement optimization.
+The most attention-grabbing images are not the most representative ones.
+They are the ones most likely to intensify feeling s admiration, desire, resentment, or shame.
+The platform does not need users to believe that everyone else is happier, younger, or richer than us.
+It only needs users to feel,
+for a few seconds at a time and many times a day,
+that they are falling behind.
+
+Influencer culture is itself manufactured.
+The beauty industry has long depended on the blurring of intimacy and commerce.
+Advice from a beautician and endorsements by actresses all worked because
+they borrowed the authority of friendship or expertise while remaining commercial speech.
+Influencers do the same thing with better metrics.
+They present consumption as personality and sponsorship as authenticity.
+
+This is also where misogyny returns in a more explicit form.
+Women are subjected to the harshest forms of visual ranking online,
+and platforms profit from that ranking
+regardless of what they say in public about empowerment or self-expression.
+Image-heavy systems reliably reward content that conforms to existing beauty norms
+while presenting itself as spontaneous self-presentation.
+The labor required to produce that appearance is substantial and usually hidden.
+The result is an economy in which women are pushed to become both product and salesperson,
+while the platform captures a share of every transaction.
+
+The beauty industry also helps explain why the language of choice is inadequate.
+No one is forced to buy a serum or post a filtered selfie,
+but choices made in response to organized social pressure are not free
+in any meaningful social sense.
+A teenager deciding whether to participate in appearance-based competition on a platform
+is making an individual decision
+inside a system designed to make non-participation costly,
+just like a programmer deciding to maintain a LinkedIn presence
+full of visible hustle and polished enthusiasm.
+The compulsion is social before it is economic,
+and economic because it is social.
+
+What the beauty analogy adds to our understanding of big tech
+is not just that platforms sell ads—every industry does that.
+It is that platforms are in the business of manufacturing dissatisfaction
+and organizing it into recurring revenue.
+Their entire business model is that you are not quite enough yet,
+but perhaps one more purchase will fix that.
+A business model built on that premise
+has no interest in ever letting us feel finished [Packard2007,Wu2016].
+
+## Big Tech is Like the Sharecropping System
+
+After the American Civil War,
+former slaves and poor white farmers in the South farmed land they did not own
+under a system called **sharecropping**.
+Contracts that gave the landowner a percentage of the harvest,
+required them to buy supplies on credit from the landowner's store at prices the landowner set,
+and prohibited them from selling to anyone other than the landowner.
+The debt was structured so that a bad harvest
+(or even a good one, depending on how the accounts were kept)
+left the farmer owing more at year's end than at the beginning.
+The system was legal,
+entered into "voluntarily" (by people with no other options),
+and reproduced the economic relations of slavery without the formal institution.
+
+Historians and economists have found systematic underweighting of harvests and overcharging of credit accounts.
+The system was designed to perpetuate indebtedness, not resolve it.
+To make a bad situation worse,
+the merchant providing supplies was often the same person as the landowner;
+if not,
+they usually operated as a tied supplier.
+The farmer could not buy supplies from a competing merchant because
+the **crop lien** pledged the entire harvest to the furnishing merchant
+as collateral for the advance.
+"On credit" prices at the furnishing merchant's store were set at a markup over cash prices
+that could run from thirty to sixty percent.
+
+By pledging next year's crop to cover this year's debt,
+the farmer legally committed future labor before that labor was performed.
+This is the structure of platform lock-in:
+time and effort are committed to a platform
+before the platform's terms are known for the following year.
+A sharecropper who improved the land was *more* trapped,
+not less,
+because the accumulated investment had nowhere else to go.
+The same is true of a creator who has built a hundred thousand subscribers
+on a platform that then changes its revenue-sharing terms.
+
+**Peonage** was the name for debt arrangements that crossed from exploitative into criminal.
+It refers to holding a worker in involuntary servitude through debt
+while using threats or actual violence to prevent them from leaving.
+Federal peonage statutes were enacted after Reconstruction,
+and some prosecutions did occur in the early twentieth century
+after investigative journalism and advocacy exposed conditions
+in the turpentine camps and cotton plantations of the Deep South.
+These prosecutions targeted individual employers;
+they did not address the systemic accounting fraud or the market structure
+that produced mass indebtedness [Daniel1972,Blackmon2008].
+
+The platform equivalent of this operates through percentage fees,
+arbitrary algorithmic changes,
+and paid promotion requirements.
+When YouTube changed its monetization criteria in 2018
+to require one thousand subscribers and four thousand watch hours
+before a channel could earn advertising revenue,
+channels that had not yet crossed those thresholds were cut off from income they had been building toward.
+When organic reach on Facebook declined sharply for business pages after 2012,
+businesses that had invested in building Facebook audiences were told
+they could pay for promotion to reach the audiences they had already acquired.
+The audience is the crop;
+the algorithm change is the landlord raising the rent after the harvest is in.
+
+A related but distinct mechanism appears in gig economy work,
+which parallels the **putting-out system** of early modern textile production.
+Merchants in eighteenth and nineteenth century Britain supplied raw materials to rural householders,
+who processed them at home using their own equipment.
+The merchants then collected the finished goods at prices they set.
+The household owned its tools;
+the merchant owned the raw material, the finished product, and the customer relationship.
+If demand fell,
+the merchant stopped delivering material and the household had to absorb the income shock.
+The merchant's flexibility was the household's precarity, by design [Devries2008].
+
+Gig economy platforms reproduce this structure.
+The delivery worker owns the car or bicycle.
+The platform owns the customer relationship, the pricing mechanism, and access to the market.
+A worker who attempts to find customers outside the platform risks deactivation,
+which functions as accusations of theft or embezzlement did in the putting-out system:
+because formal ownership of the customer relationship belongs to the platform,
+any attempt to access that relationship independently constitutes
+a violation of the terms of service that governs continued access to work.
+
+## Big Tech is Like a Fast Food Franchise
+
+A McDonald's franchisee invests several hundred thousand dollars building and equipping a restaurant,
+recruits and trains staff,
+manages daily operations,
+and absorbs the risk of a bad location.
+McDonald's sets the menu,
+the supplier list,
+the pricing guidelines,
+the design specifications,
+the training requirements,
+and the standards against which the franchise can be audited and revoked.
+The franchisee's capital is at risk;
+McDonald's corporate's is not.
+McDonald's also, in most arrangements, owns the real estate and charges the franchisee rent.
+The arrangement is voluntary in the sense that no one forces the franchisee to sign.
+It is asymmetric in the sense that every significant decision rests with one party.
+
+The franchisee agreed to all of this in advance.
+
+McDonald's corporate revenue derives primarily from real estate, not from food.
+The company acquires the land and building,
+then leases them to the franchisee
+at rates that capture a substantial share of the location's economic value
+regardless of operating performance.
+Franchise royalties are calculated as a percentage of gross sales,
+not profit,
+meaning the franchisor collects whether the franchisee makes money or not.
+The hamburgers are the mechanism by which the real estate and royalty revenue are generated.
+This structure is not incidental to the model;
+it *is* the model.
+
+The parallel to third-party sellers on Amazon,
+app developers on iOS and Android,
+and content creators on social media is structural:
+the platform sets the rules,
+extracts a percentage,
+and can change the terms or terminate the relationship on short notice [Schlosser2001].
+
+Platform fees work like franchise royalties:
+they are a take on gross transaction value,
+not on seller profit.
+
+Apple's standard rate is thirty percent of revenue from in-app purchases,
+a figure that it set unilaterally
+and has adjusted modestly only under regulatory pressure.
+The developer has no alternative distribution channel for iOS users,
+because Apple prohibits **sideloading** and third-party app stores on its platform.
+This makes the fee unavoidable for any developer who wants access to iOS customers.
+What's more,
+Apple and Google review apps before they are listed,
+can remove them after listing,
+and adjudicate appeals internally.
+There is no neutral third party with authority to override a platform's decision.
+
+All this creates an investment trap for platform participants.
+A seller who has accumulated reviews, rankings, and sales history on Amazon
+cannot transfer that reputation to another marketplace;
+a developer whose app has a rating history on the App Store
+cannot move that history to Google Play.
+This is not an accident:
+it is the mechanism that keeps participants in the system
+after the platform has extracted the value of introducing customers to them.
+
+Antitrust law has historically been reluctant to treat voluntarily agreed contractual terms as coercive,
+even when the practical alternatives to agreement are limited.
+The prevailing view is that if the franchisee had an alternative and chose this arrangement,
+the arrangement is presumptively legitimate.
+This framing does not account for **information asymmetry** at the time of contracting
+or the way switching costs increase over time.
+And it does not account for the fact that the "voluntary" choice
+is often a choice between accepting one set of platform terms
+or not accessing a market at all [Stoller2019].
+
+<div class="callout" markdown="1">
+
+The UK Supreme Court ruled in 2021
+that Uber drivers were workers entitled to minimum wage and holiday pay,
+not independent contractors.
+Thsi was the first major judicial rejection of the claim that
+a platform's "voluntary" contractual structure exempts it from employment law,
+now being contested and replicated across Europe.
+
+</div>
+
+## Big Tech is Like Scientology
+
+In the 1950s, L. Ron Hubbard developed a practice called auditing.
+In a standard session,
+a trained Scientology auditor asks the subject a series of questions
+while the subject holds the electrodes of an E-meter that measures galvanic skin response
+(the same physiological signal used in polygraph tests).
+The questions are designed to surface traumatic memories,
+which Scientology calls **engrams**,
+so they can be discharged through conscious recall.
+
+The sessions are recorded, and the records are kept in what Scientology calls "preclear folders."
+They contain whatever the subject disclosed during auditing:
+accounts of illegal activity,
+sexual behavior,
+family conflicts,
+financial difficulties,
+and statements about other people.
+The Church of Scientology denies that folders are used punitively,
+but former members have testified that these folders were used in disciplinary proceedings
+and in litigation against critics and defectors.
+
+The analogy to big tech is not subtle.
+Every major social media platform is, at its core, an auditing system.
+It collects behavioral data—what you look at, what you hesitate over, what you react to—and
+that information is qualitatively different from what you share with a retailer.
+People post about illness and grief and their political beliefs and sexual identity
+because the platform presents itself as a community,
+not a database.
+The fact that it is both doesn't mean the user is naïve;
+it means the platform is designed to exploit the social context
+that makes sharing this information feel appropriate.
+
+Scientology's critics have documented a practice the Church calls **Fair Game**,
+under which people who leave the organization and speak critically about it
+(known as a **suppressive person**)
+can be "deprived of property or injured by any means by any Scientologist
+without any discipline of the Scientologist."
+The Church claims this policy was cancelled in 1968,
+but its critics have documented its continuation under different names.
+The pattern has included litigation designed to exhaust defendants financially,
+harassment campaigns targeting employers and family members,
+and the use of auditing records in legal proceedings.
+
+Tech companies have not employed anything comparable in severity (that we know of).
+They have, however, used legal and institutional power to manage criticism
+in ways that Scientologist would recognize.
+Facebook commissioned audits of third-party researchers who published findings the company disputed.
+Google funded academic research in ways that created conflicts of interest
+for academics who might otherwise study the company critically.
+Uber deployed a team it internally called COIN
+(for Competitive Intelligence)
+to gather information on regulators, journalists, and competitors.
+The distinction between these practices and Fair Game
+seem pretty slim to the researchers, journalists, and regulators on the receiving end.
+
+Scientology's governing doctrine holds that the organization's critics are necessarily criminals.
+If someone attacks Scientology,
+Hubbard's writings state,
+one need only look at their past to find the crimes they are hiding.
+The logic is airtight because it is circular:
+criticism itself is taken as evidence of wrongdoing.
+
+This is a specific and pathological version of a general tendency.
+When researchers publish findings critical of Facebook's recommendation algorithms,
+Facebook's communications team responds not only with factual rebuttals
+but with questions about the researchers' methodology, funding sources, and motivations.
+When journalists publish stories based on leaked documents,
+companies issue statements about documents being "taken out of context"
+and about reporters' prior relationships with the company.
+
+<div class="callout" markdown="1">
+
+In 1993,
+the Church of Scientology achieved recognition from the US Internal Revenue Service
+as a tax-exempt religious organization,
+ending 25 years of litigation.
+Its strategy included filing thousands of personal lawsuits against IRS employees,
+hiring private investigators to gather personal information on IRS staff,
+and conducting what the IRS's own documents describe as a covert intelligence operation against the agency.
+Google, Meta, and Amazon have not run intelligence operations against their regulators
+(that we know of).
+They *have* collectively spent over $100 million per year on lobbying in the United States alone,
+employed virtually every major lobbying firm in Washington,
+and placed former executives in regulatory positions
+in a sustained campaign to shape the rules governing them.
+
+</div>
+
+Scientology is structured so that participation becomes progressively more expensive.
+New members begin with free or low-cost introductory materials.
+Progression up the "Bridge to Total Freedom" requires increasingly expensive courses and auditing sessions.
+Former members have documented spending hundreds of thousands of dollars over years of participation.
+The social world of Scientology reinforces continued involvement:
+friends, family, and community ties are largely internal to the organization,
+which means that leaving means losing them.
+
+The structural lock-in that platforms engineer follows the same logic.
+A photographer who has spent years building an audience on Instagram
+is not free to leave without abandoning what they have built.
+A developer who has built a business on the iOS App Store faces the same kind of switching cost.
+
+The Church of Scientology has survived decades of hostile press,
+regulatory action across multiple continents,
+and prominent defections.
+It has done so by treating litigation as a cost of doing business,
+and by providing genuine community to members.
+The question now is whether the mechanisms that have gradually constrained Scientology
+will operate at the scale of companies whose products are used by billions of people
+who have no obvious alternative [Wright2013].
+
+## Big Tech is Like a Ransom Business
+
+The Canvas learning management system was hacked a couple of days ago,
+so this seems like a good time to point out that extortion,
+if it's professional enough,
+is indistinguishable from any other fee-for-service arrangement.
+The victim pays for the return of something that was theirs,
+the captor provides a guarantee of safety,
+intermediaries take a cut,
+and everyone has an interest in the transaction completing cleanly.
+
+In 1994,
+when the FARC guerrilla organization in Colombia was near the height of its power,
+kidnapping was a line item in its budget.
+The organization maintained specialized units for identifying targets,
+executing abductions,
+holding captives in jungle camps,
+and conducting negotiations.
+Insurance companies led by Lloyd's of London
+responded by creating kidnap-and-ransom (K&R) policies for multinational corporations,
+and specialist firms like Control Risks Group built a business on negotiating with kidnappers.
+By the late 1990s,
+an abduction in Colombia, Venezuela, or the Philippines was like buying a house:
+the kidnapper demanded a high figure,
+the negotiator offered a low one,
+and after weeks or months of back-and-forth they agreed on something in the middle
+and settled up in cash.
+
+Both sides had an interest making this running smoothly;
+in particular,
+kidnappers who killed hostages damaged their own reputations with future potential clients.
+Researchers studying the "industry" found that
+K&R specialists worked hard to prevent ransom inflation:
+they trained negotiators to push back,
+kept payment records confidential,
+and advised clients not to advertise their coverage,
+because a public policy was an advertisement for kidnapping your staff [Shortland2019].
+
+The rise of ransomware attacks over the last decade has followed the same path.
+The 2017 WannaCry attack encrypted hundreds of thousands of computers across 150 countries in a single weekend,
+demanding Bitcoin payments in exchange for decryption keys;
+the attack was later blamed on North Korean state actors.
+Four years later, the DarkSide ransomware group (probably based in Russia)
+shut down the Colonial Pipeline in the United States and demanded approximately $4.4 million in Bitcoin.
+The company paid within hours.
+
+Modern ransomware groups operate on an affiliate model:
+the core developers write the malware and maintain the payment infrastructure,
+while affiliates handle the actual intrusions.
+On the other side of the table,
+cybersecurity firms handle the details just like Control Risks Group did,
+and cyber insurance policies now cover ransom payments,
+which means that insurance companies are wrestling with the same concerns
+about moral hazard and ransom inflation
+that Lloyd's was worrying about in the 1990s.
+
+When Colonial Pipeline paid DarkSide,
+they almost certainly broke US Treasury rules prohibiting payments to sanctioned entities.
+Governments have been consistently inconsistent in their positions on this:
+they urge companies not to pay while acknowledging privately that there is no realistic alternative.
+This is the same ambivalence that surrounded K&R payments in the 1980s,
+when Western governments officially discouraged negotiating with kidnappers
+while intelligence services routinely assisted with exactly that [Dudley2022].
