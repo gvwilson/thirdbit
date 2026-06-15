@@ -16,6 +16,7 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [Privacy, Power, and the Self](@root/2026/06/12/privacy/)
 1.  [Who Gets What and Why](@root/2026/06/13/who-gets-what-and-why/)
 1.  [More Analogies](@root/2026/06/14/more-analogies/)
+1.  [What We Owe the Future](@root/2026/06/15/what-we-owe-the-future/)
 
 [Bibliography](@root/2026/04/13/a-bibliography/) &middot; [Glossary](@root/2026/05/20/glossary/)
 
