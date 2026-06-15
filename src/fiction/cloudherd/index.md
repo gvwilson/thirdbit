@@ -505,7 +505,7 @@ Or has he been up all night 'studying' again?"
 He mimed drinking from a bottle.
 
 "Ssh!"
-But he was right—the voice and hand of the king in Stale Remainders,
+But he was right—the voice and hand of the king in Stale Leftovers,
 and its resident magician,
 was nowhere to be seen.
 
@@ -981,7 +981,7 @@ The soldiers slid wearily off the cloud's back
 to stand among the spring-green ferns.
 The waiting villagers came forward to offer them blankets and hot chai.
 
-"Get everyone up into the traders' hall," Iffy ordered crisply.
+"Get everyone up into the traders' hall," Indy ordered crisply.
 "There's stew cooking,
 and cots for those that need them."
 
@@ -1949,7 +1949,7 @@ Her mother sighed.
 Noxy woke Rash first, then Sensy.
 Both were alone in their houses,
 their parents having gone with the other adults to gather the village's herd of clouds.
-She had to thump on Rash's door for so long to wake her
+She had to thump on Rash's door for so long to wake him
 that she wound up waking the elders in the houses on either side as well,
 but Sensy yanked hers door open almost as soon as Noxy's knuckles hit it.
 It only took her a moment to tell each of them what had happened
@@ -2827,9 +2827,9 @@ Sergeant Dorbu had a seemingly inexhaustible supply of stories
 about his own foolishness, clumsiness, or bad choices.
 Indy asked just enough questions to keep the stories coming,
 while Kulbinder's dry comments provoked protests of innocence and occasional snorts of laughter.
-As she table a tray bearing grilled slabs of cheese,
+As she set a tray bearing grilled slabs of cheese,
 fried onions,
-and boiled potatoes,
+and boiled potatoes on the table,
 Noxy realized with a start that she was actually enjoying herself.
 The mood was only slightly dampened by the tiger sniffing at the cheese
 and then saying thank you,
@@ -2943,7 +2943,7 @@ but the only really sour face was Aft's.
 "Has that tiger eaten anyone yet?" he asked,
 forcing an awl through a scrap of leather.
 "Or is he too busy racing around on rooftops?"
-Iffy gave him the same reply she had given everyone else.
+Indy gave him the same reply she had given everyone else.
 
 Noxy felt nearly frantic with impatience
 by the time she and her mother reached the trading hall.
@@ -3206,8 +3206,8 @@ Noxy bit back an angry retort.
 They didn't smell anything *like* goofs,
 and even if they did—
 
-*Twinge.* "
-Ouch," she muttered,
+*Twinge.*
+"Ouch," she muttered,
 putting her hand on the back of her head.
 The pain was strong enough that she thought there would be a lump,
 but she couldn't feel anything.
@@ -3420,7 +3420,7 @@ There was a moment of stunned silence.
 
 "It's not magic," Grappa Gas laughed,
 looking as delighted as any of the children.
-"It's called juggling! I saw it once in Apple Bridge. It's just a trick."
+"It's called juggling! I saw it once in Ghorahj. It's just a trick."
 
 "That's right," Thokmay agreed.
 "It's just a trick. Here, I'll prove it. Private Kechen?"
@@ -4903,7 +4903,7 @@ Noxy spread her hands.
 Thokmay was sitting cross-legged,
 his back straight and his eyes on the horizon.
 "I did spend time in an orphanage,
-halfway down the Trout toward Apple Bridge.
+halfway down the Sochla toward Ghorahj.
 The abbot knew who I was,
 and the doctress as well,
 but as far as everyone else was concerned,
@@ -5273,7 +5273,7 @@ She only half-noticed Thokmay point at some goats scrambing up a steep slope,
 sending loose rock bouncing down toward the forest.
 
 Big Blue was slowly closing the gap between them.
-*Closer!* ordered,
+*Closer!* she ordered,
 picturing the cloud scraping against mountainside
 to get around the last bend in the valley.
 Pillow bunched herself tight on her port side
@@ -5654,9 +5654,9 @@ An hour away,
 if you were a condor on a clear day,
 or two days' hard match if you were a soldier,
 rain pounded on a hundred waxed cotton tents
-pitched with almost mathematical precision in a next square.
+pitched with almost mathematical precision in a neat square.
 Each was meant to hold four people,
-but had five, sex, or even seven crowded into them.
+but had five, six, or even seven crowded into them.
 Some slept and some tried to
 while others knit,
 mended their gear,
@@ -5737,7 +5737,7 @@ but if this was a trap,
 it was far more elaborate than their reduced numbers required.
 There had only been one tiger in the royal army,
 and he had only had one boy.
-If they were in Stale Remainders,
+If they were in Stale Leftovers,
 that just might change everything.*
 
 </section>

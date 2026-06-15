@@ -140,7 +140,7 @@ It's a long way from Stale."
 Noxy shrugged, then winced.
 This wasn't at all how she had imagined meeting Prince Thokmay again.
 "We were on our way to Chaghan.
-Aft got a contract there—he's the reeve now—and Apple Bridge was sort of on the way, and…"
+Aft got a contract there—he's the reeve now—and Ghorahj was sort of on the way, and…"
 She shrugged again, more carefully, to hide her awkwardness.
 She had wanted to surprise him…
 
@@ -181,8 +181,8 @@ I'm sure we can—uh. Oh."
 "No need for apologies," the prince said mildly as Aft did a double-take.
 "I'm just glad you and your companions weren't seriously hurt."
 
-As Aft opened her mouth to speak, the prince continued,
-"We were on our way to escort the new consul from Chaghan into Apple Bridge
+As Aft opened his mouth to speak, the prince continued,
+"We were on our way to escort the new consul from Chaghan into Ghorahj
 when we spotted the tornado.
 We should get moving in case it comes back."
 
@@ -230,12 +230,12 @@ but what was she going to tell her daughter and her son-in-law about the cottage
 The roof was gone, and the chicken coop, and the whole *barn*, and—
 
 "The king will pay to have it all rebuilt," the prince said soothingly.
-"But right now, my men will see you safely into Apple Bridge.
+"But right now, my men will see you safely into Ghorahj.
 You can stay there until we find out who's behind this."
 
 The old woman nodded, fighting tears.
 The prince turned back to Aft.
-"You would be welcome in Apple Bridge as well, of course.
+"You would be welcome in Ghorahj as well, of course.
 You and all your companions."
 
 "That's impossible," Aft said sharply.
@@ -275,7 +275,7 @@ A few moments later he was airborne, heading portwards with the rest of the herd
 
 The prince's carefully polite expression turned wistful
 as he watched the clouds fly away.
-"Can your cloud make it to Apple Bridge?" he asked.
+"Can your cloud make it to Ghorahj?" he asked.
 
 Noxy put her hand on Cloak's flank and closed her eyes
 to mind-speak with him before nodding.
@@ -286,7 +286,7 @@ feeling a sudden pang of guilt.
 
 The prince handed his horse's reins to Private Rinpa.
 "Put the lady and her young men on Bucketbreath here," he ordered.
-"See them safely back to Apple Bridge,
+"See them safely back to Ghorahj,
 and tell the staff that they're to be put up in the garrison guest house
 if they can't find something more suitable.
 I will take the cloud back with Respected Noxious."
@@ -304,7 +304,7 @@ With the consul, honored, the one that's leaving.
 It being protocol and along like that."
 
 The prince muttered something under his breath.
-"The cloud won't be any slower than horseback," he told Privarte Rinpa.
+"The cloud won't be any slower than horseback," he told Private Rinpa.
 "And if I'm late, I'll tell the good sergeant it was my fault."
 
 "Yes, honored," Private Rinpa said glumly.
@@ -324,7 +324,7 @@ and the big wide world he'd suddenly found himself in.
 
 The prince pulled himself up onto Cloak behind Noxy,
 then sat quietly as she coaxed the injured cloud into the air.
-They levelled off a hundred strides above the trees and turned toward Apple Bridge.
+They levelled off a hundred strides above the trees and turned toward Ghorahj.
 
 The soft, slightly damp feel of the cloud
 brought memories flooding back to the prince.
@@ -379,21 +379,22 @@ and settled himself a bit more comfortably on the cloud.
 
 It was Noxy's turn to shrug.
 "Busy.
-She's the *tralpa* now, so she spends all her time listening to people
+She's the *tralpa* now—thank you for arranging that.
+She spends all her time listening to people
 and trying to figure out which laws they're allowed to rent
 and what they mean."
 
 The prince nodded.
-"Your letter said.
-I was surprised to hear she accepted the king's offer."
+"She earned the job ten times over.
+I was actually surprised to hear she accepted the king's offer."
 
 "A lot of people were angry about what happened," Noxy said,
 her eyes on the horizon.
-"So when Aft said he was going to stand,
+"So when Aft said he was going to stand for reeve,
 there wasn't even an election.
-She says it's important work, but I think she misses herding."
+She says being *tralpa* is important work, but I think she misses herding."
 
-"I know how she feels," the prince said.
+"I know how she feels," the prince said ruefully.
 "Things have been a lot different for me too,
 but I'm actually glad to be out here,
 away from all the fuss at court."
@@ -409,7 +410,7 @@ The prince shrugged.
 "He probably does, but Lormay's the most likely heir now."
 He couldn't quite keep the bitterness out of his voice when he continued,
 "My father said it would make it clear to everyone that things have changed.
-Sending me to Apple Bridge is part of that too.
+Sending me to Ghorahj is part of that too.
 He said that if I'm ever going to rule,
 I have to learn how to give orders and make hard choices."
 
@@ -446,14 +447,18 @@ She pointed without opening her eyes.
 "And you still haven't told anyone?"
 
 Noxy shook her head.
-"Only Granna Fee."
+"Only Granna Fee, and I don't think she told anyone else before…"
+Her voice trailed off.
+It had been almost a year,
+but her grandmother's death still felt like a punch in the chest
+whenever she thought about it.
 
-The prince waited another heartbeat for her to go on.
+The prince gave her a few heartbeats to go on.
 When she didn't, he nodded.
 "All right," he promised. "It'lls stay our secret."
 
 The sun was sitting on the horizon like a fat yellow hen
-by the time Apple Bridge came into view.
+by the time Ghorahj came into view.
 The town was twenty times the size of Stale,
 but seemed small to Noxy after some of the cities she had flown over.
 
@@ -462,7 +467,7 @@ Their ground floors were brick and their upper stories wooden,
 while their roofs were shingled with long, skinny planks.
 The smell of cooking rising from their chimneys made Noxy's stomach rumble.
 
-Most of Apple Bridge lay on the right bank of the Trout River.
+Most of Ghorahj lay on the right bank of the Sochla River.
 Near the center of town,
 where the river bent toward the distant sea,
 four enormous stone pillars rose from the water.
@@ -535,7 +540,7 @@ bowing awkwardly in return.
 She appreciated him keeping a straight face—she knew
 how odd cloudherds' names sounded to lowlanders.
 Even in the capital,
-people had sniggered when Aft introduced herself as "Disgusting Aftertaste".
+people had sniggered when Aft introduced himself as "Disgusting Aftertaste".
 "We'll see who's laughing when the dragons fly," Aft had said darkly.
 "We'll see if *their* names save *them* from being eaten."
 
@@ -544,7 +549,7 @@ people had sniggered when Aft introduced herself as "Disgusting Aftertaste".
 Sergeant Gyalpa nodded.
 "Yes, honored.
 They said a farm was completely destroyed.
-The woman who survived said her son-in-law came along into Apple Bridge today
+The woman who survived said her son-in-law came along into Ghorahj today
 to report some suspicious men.
 He left going on about an hour ago.
 I sent along out some riders, but he's not on the road."
@@ -1107,7 +1112,7 @@ She and Prince Thokmay bowed to each other.
 With a smooth, practiced motion she took off her sash and passed it to Jigme,
 who slipped it over his head and bowed to her.
 
-"And I trust you will enjoy your stay in Apple Bridge, *Consul*,"
+"And I trust you will enjoy your stay in Ghorahj, *Consul*,"
 Thokmay said to his other guest in a voice as cold as a mountain lake.
 
 Consult Jigme inclined his head.
@@ -1152,7 +1157,7 @@ Afterward, Prince Thokmay sent his sister gently off to bed.
 
 The balcony turned out to be as big as
 the house Noxy shared with her mother back in Stale.
-The Trout River stretched away to the left and the right,
+The Sochla River stretched away to the left and the right,
 up toward the magic dam and down through Loghan and Latter Tongsa to the sea.
 Moonlight gleamed on each little ripple,
 and suddenly Noxy missed the million sharp stars of the mountain sky.
@@ -1277,7 +1282,7 @@ but that's all."*
 The crow bobbed its head and took wing again,
 fluttering from building to building
 as the troll and the horse picked their way through the alley
-to a run-down warehouse on the banks of the Trout.*
+to a run-down warehouse on the banks of the Sochla.*
 
 *The carefully-oiled hinges of the warehouse's door
 made no more sound than the window latch had.
@@ -1316,7 +1321,7 @@ but held no heat at all.
 
 He frowned at the sheet of paper before him.
 *Your Majesty,* his letter began, as his reports to his father always did.
-*1. Apple Bridge continues quiet.
+*1. Ghorahj continues quiet.
 The Dog Market is busy,
 but your revenue collectors report only minor disputes and disturbances.*
 He saw no reason to mention Mope's latest run-in with the locals.
@@ -1377,7 +1382,7 @@ The door burst open a moment later.
 
 "I'm fine," Prince Thokmay mumbled.
 He let out his breath with a whoosh, half-expecting to see it fog.
-"It was Edward. He was here."
+"It was Eddard. He was here."
 
 "Pilots preserve us."
 The servant let go of the prince's shoulders.
@@ -1412,7 +1417,7 @@ He was wearing only his boots and a striped cotton nightshirt,
 but the sword in his hand saved him from looking ridiculous.
 "Honored, are you—"
 
-"It was Edward," Sergeant Inambu told him.
+"It was Eddard," Sergeant Inambu told him.
 "He passed along through His Highness."
 She picked up a shard of dayglass from the desk and turned it over in her hand.
 "He's getting stronger."
@@ -1474,7 +1479,7 @@ and was asleep by his third breath.
 
 The prince woke at dawn, still in his clothes, and groaned.
 He'd had a restless night—when
-Edward the Dog's memories hadn't been burbling in his head like undercooked beans,
+Eddard the Dog's memories hadn't been burbling in his head like undercooked beans,
 Consul Jigme's smile had mocked him.
 Loghan's relations with Chaghan had been shaped by half a dozen royal marriages,
 almost as many border wars,
@@ -1483,7 +1488,7 @@ Sergeant Gyalpa was right:
 choosing a rebel who had tried to topple the throne as consul was a deliberate insult,
 but why?
 Why now?
-And why Apple Bridge?
+And why Ghorahj?
 Not for the first time,
 he wished it was someone else's problem,
 or that magicians could read minds in real life
@@ -1501,7 +1506,7 @@ Sergeant Inambu closed the door behind her and saluted.
 "Sergeant."
 Prince Thokmay gestured at stool next to his desk.
 "Thank you for coming so quickly last night.
-Any further thoughts on why Edward keeps bothering us?"
+Any further thoughts on why Eddard keeps bothering us?"
 
 "No, honored," she said, still standing.
 She looked drawn,
@@ -1551,7 +1556,7 @@ Instead,
 afraid that their land might be judged Blighted,
 they had taken a hammer to one of the eggs.
 The explosion had woken the neighbors,
-and the choking smoke had made the sternward road into Apple Bridge impassable for months.
+and the choking smoke had made the sternward road into Ghorahj impassable for months.
 
 That had been ten years ago.
 The fire was still burning.
@@ -1635,7 +1640,7 @@ Noxy slowed down and fell in step beside the troll.
 "Oh, you get used to it," Dolly replied, smiling.
 "Reminds me of my husband sometimes."
 
-"Is he here in Apple Bridge?"
+"Is he here in Ghorahj?"
 
 Dolly's smile slipped.
 "No, he passed away years ago.
@@ -1762,7 +1767,7 @@ she had expected—she wasn't quite sure what, but not this.
 Casting about for something to say, Noxy asked,
 "Why do they call it the Dog Market?"
 
-"Edward the Dog," Dolly said.
+"Eddard the Dog," Dolly said.
 She pointed to the wide stone steps at the far side of the market
 that led down to the river docks.
 A gray stone pillar stood beside them,
@@ -1770,7 +1775,7 @@ on top of which was a life-sized statue of a something that Noxy guessed must be
 
 "He was the richest animal in the world," Dolly sighed.
 "When the dogs started dying,
-Edward bought all the medicine he could, but nothing worked.
+Eddard bought all the medicine he could, but nothing worked.
 In the end, when he was sick,
 he had the rest set aside to build a school for the Gifted in the capital,
 the one that Mope went to.
@@ -1859,7 +1864,7 @@ We'd best away Her Highness before there's too much shouting, is all."
 
 The soldiers stayed close to the princess as they walked to the river stairs.
 Princess Ogmin clapped her hands at the sight of a square-nosed river barge casting off
-to start the long journey down the Trout to the ocean.
+to start the long journey down the Sochla to the ocean.
 The boxes of dried apples,
 crates of apple jelly in heavy glass jars,
 and barrels of apple cider lashed down on its deck
@@ -2228,7 +2233,7 @@ All of a sudden she didn't want to be this close to the ground any more.
 The hungry cloud didn't need to be told twice.
 He rose with a lurch, making Noxy whoop.
 The walls of the garrison house sank below them.
-Suddenly she was above the roof—above all of Apple Bridge's roofs.
+Suddenly she was above the roof—above all of Ghorahj's roofs.
 The clock tower seemed to stare at her jealously,
 its green dial a blind eye,
 before it dropped away as well and she was up in the sky,
@@ -2240,7 +2245,7 @@ She mind-heard the cloud's purr as she scratched around the patch torn by the br
 
 The world looked so big beneath her,
 stretching on and on until it blurred and hazed with distance.
-As big as Apple Bridge was
+As big as Ghorahj was
 it was still small by comparison.
 Streets that had seemed wide as she walked them were narrow tracks between blocks of slate and tile.
 Even the market was a child's toy,
@@ -2325,7 +2330,7 @@ She wondered if he thought about that night as often as she did…
 *Let's go back,* she mind-spoke, patting her cloud.
 
 *At the same moment,
-a few gallops downriver from Apple Bridge,
+a few gallops downriver from Ghorahj,
 a flat-bottomed skiff slid up to the raccoons' barge.
 A rough-looking man stepped onto the barge and pried open the side of an oversized crate.
 The horse that had been hidden inside stepped uncertainly into the light.
@@ -2368,7 +2373,10 @@ returning Private Rinpa's salute as the soldier halted in front of him.
 "Yes, honored," Rinpa replied, slightly breathless.
 "The troll is minding her, and Manpa's stayed up along by them as well."
 
-"Good. Sergeant Gyalpa, are you ready? Sergeant Inambu? Good.
+"Good.
+Sergeant Gyalpa, are you ready?
+Sergeant Inambu?
+Good.
 Remember, no one does anything until I've had a chance to talk to them.
 Now, open the gate!"
 
@@ -2388,7 +2396,7 @@ one hand resting on the hilt of his sword.
 
 He counted twelve paces in his head once he was through the gate,
 just as Sergeant Gyalpa had suggested,
-then halted and raise his arm.
+then halted and raised his arm.
 He definitely *didn't* whoosh with relief relief
 when Sergeant Gyalpa shouted, "Troop… halt!" behind him.
 Thirty boots hit the pavement with a synchronized thud.
@@ -2398,24 +2406,21 @@ Bortja straightened and bowed.
 
 The prince inclined his head.
 "Honored Bortja."
-He hesitated.
-'What is the meaning of this?',
-'Be about your business immediately!',
-and 'Could you not have written a letter?'
-all flashed through his mind,
-but that was what his father, his brother, and Mope would have said.
-Instead, he let his hesitation stretch.
+*Could you not have written a letter?*
+flashed through his mind,
+but it didn't seem like the right time for humor.
 
+Instead,
+he let the silence following his words stretch.
 It was clearly not what Bortja had expected.
-As the silence grew uncomfortable,
-then awkward,
+As the moment grew uncomfortable,
 she cleared her throat.
 "Thank you for coming along by to speak with us, Your Highness."
 She gestured at the crowd.
 "With all of us.
 I promise, the soldiers aren't all by necessary."
 
-"Neither was your shouting," the prince replied sharply.
+"Neither was your shouting," the prince replied evenly.
 
 Bortja spread her hands.
 "Sometimes there's by no other way to be heard.
@@ -2523,7 +2528,7 @@ The prince raised his hand again.
 "Let her go," he said, suddenly weary.
 "I'm sure we'll see her again soon."
 
-Noxy circled Apple Bridge one more time to give Cloud a final satisfying drizzle.
+Noxy circled Ghorahj one more time to give Cloud a final satisfying drizzle.
 *Home now,* she mind-spoke to the cloud,
 forming a picture of the garrison house's rear courtyard.
 He was fluffy now that he'd rained,
@@ -2559,12 +2564,12 @@ begging your pardon for speaking along so freely,"the sergeant began.
 "Oh, please." Noxy rolled her eyes. "It was just rain."
 
 "If anyone had been *hurt*," the sergeant continued implacably,
-"It would have been exactly what Bortja did want,
+"It would have been exactly what Bortja wanted,
 especially along after this morning's news."
 
 "What do you mean?" Noxy asked, glancing at the prince.
 
-His not-quite-a-grin slipped and fell.
+Thokmay's grin slipped and fell.
 "The farmer from yesterday," he said.
 "They found him this morning in a blackberry bush halfway back to his farm.
 It looks like the tornado got him after all."
@@ -2639,7 +2644,7 @@ His face grew serious.
 The prince shook his head. "I don't know."
 
 Two hundred years ago,
-when Apple Bridge was just a handful of houses
+when Ghorahj was just a handful of houses
 around an open field where a weekly market was held,
 its inhabitants had laid down slabs of stone
 to make a lozenge twenty strides from end to end.
@@ -2653,7 +2658,7 @@ to tie their wrists together and say their vows.
 And when they died,
 those who had known them would gather to tell their stories one last time.
 
-As Apple Bridge grew,
+As Ghorahj grew,
 its inhabitants built a witness hall beside the stone lozenge
 to keep the rain off the weddings.
 Walls were put up,
@@ -2668,7 +2673,7 @@ but the Old Hall remained the town's heart.
 
 If the farmer had died a normal death—old age
 or a plague or a fall while pruning an apple tree—his
-family and his neighbors and his friends wouldn't have brought him into Apple Bridge at all.
+family and his neighbors and his friends wouldn't have brought him into Ghorahj at all.
 They would have laid out a diamond with a few stones somewhere he loved and
 told his stories there.
 *But that isn't how he died,*
@@ -2768,8 +2773,33 @@ His glanced at Noxy,
 who gave him an uncertain smile,
 and returned the squeeze.
 
-Half an hour later,
-not knowing where else to go,
+The farmer invited the prince and princess
+to join her family for a meal after the remembrance.
+To her obvious relief,
+the prince declined.
+"It's a time for those who knew him best,"
+he said with yet another bow.
+"But with your permission,
+I'll ask the staff to send some treats for the children.
+Please—"
+He raised a hand to forestall her protest.
+"I would be grateful if you would accept.
+For them."
+
+The staff and soldiers talked quietly behind him
+as they walked back to the garrison house.
+Princess Ogmin held her brother's hand,
+but he hardly noticed.
+*A few treats?*
+He scowled.
+It felt completely inadequate,
+but he didn't know what else to do.
+Arrange apprenticeships for them?
+Or schooling?
+He didn't know if they would want either,
+and he couldn't ask—the answer was sure to be 'yes'.
+
+After exchanging a tired "good night" with the prince,
 Noxy found herself sitting with Mope and Dolly
 in a comfortable little kitchen down the hall from the apartment the two trolls shared.
 "We take most of our meals here,"
@@ -2833,29 +2863,7 @@ She had just a moment to feel it notice her before she drifted off.
 
 ## Chapter 5: The Tornado Returns
 
-The farmer invited the prince and princess
-to join her family for a meal after the remembrance.
-To her obvious relief,
-the prince declined.
-"It's a time for those who knew him best,"
-he said with yet another bow.
-"But with your permission,
-I'll ask the staff to send some treats for the children.
-Please—"
-He raised a hand to forestall her protest.
-"I would be grateful if you would accept.
-For them."
-
-The staff and soldiers talked quietly behind him
-as they walked back to the garrison house.
-Princess Ogmin held her brother's hand,
-but he hardly noticed how uncharacteristically quiet she was.
-A few pieces of candy seemed completely inadequate,
-but he didn't know what else to do.
-Arrange apprenticeships for them?
-Or schooling?
-He didn't know if they would want either,
-and he couldn't ask—the answer was sure to be 'yes'.
+FIXME: get into this scene - Noxy is still asleep
 
 He was so deep in his own thoughts
 that he jumped when Sergeant Gyalpa said, "Hold!"
@@ -2885,8 +2893,7 @@ you know how some here are along with the Gifted, honored."
 Prince Thokmay interrupted before the sergeant could reply.
 "And how is that, exactly?"
 
-Mukh wrung his hands,
-nervous under the glares of the townspeople.
+Mukh seemed to wilt under the townspeople's glares.
 "They just thought…
 Well, honored, they thought by maybe such as these should, well,
 they should find by elsewhere to get their water."
@@ -2977,21 +2984,19 @@ People scattered,
 elbowing aside anyone who got in their way.
 
 "Form up! Form up!" Sergeant Gyalpa bellowed.
-"You lot, get the princess back to the garrison house *now*!
-You too, honored, we have to get you along by somewhere safe."
+"You lot, get the prince back to the garrison house *now*!"
 
-"No." The prince shook off his arm.
-"Take care of the princess.
-I'm going to find out what's going on.
+"No!" The prince shook off his arm.
+"I'm going to find out what's going on.
 Manpa! Jinpa! With me!"
 
-Without waiting to see if they would follow,
-he shouldered through the fleeing people and pounded on the nearest door.
-"Excuse me," he said,
-pushing past the frightened woman who opened it,
-"I need to borrow your roof."
+He shouldered through the fleeing people,
+pounded on the nearest door,
+and pushed past the startled woman who opened it.
+"Excuse me,
+I need to borrow your roof."
 
-The prince pounded up the stairs with the twin soldiers on his heels.
+Thokmay pounded up the stairs with the twin soldiers on his heels.
 The upper floor of the house was one large room.
 Partially-mended tapestries hung on all four walls,
 each with a small work table in front of it.
@@ -3008,7 +3013,7 @@ Bird droppings, a few twigs, and a windblown piece of rain-faded ribbon decorate
 He ignored them all as he shaded his eyes with his hand and looked sternward.
 
 The tornado was a dark twisting column three times the height of the clock tower.
-It was still about two gallops outside Apple Bridge,
+It was still about two gallops outside Ghorahj,
 but even as he watched he could it see it coming closer,
 tearing a furrow of ruin through the beanfields and flower beds
 that the townspeople tended so carefully.
@@ -3111,7 +3116,7 @@ And you, Minpa—get a squad together, and a wagon.
 We shouldn't leave him there.
 Or his horse, either."
 
-Noxy's head hurt when she woke from her nap.
+Noxy's head hurt when she woke from a troubled night's sleep.
 It wasn't a sharp pain in one spot,
 but more like someone was trying to squeeze her brain
 into a jar half a size too small.
@@ -3130,13 +3135,8 @@ or her cheeks, but—
 
 The memory of touching something old and tired just before she fell asleep
 came rushing back.
-Suddenly afraid,
-she reached out.
-*Cloak? Are you all right?*
-
-*Want herd,* the cloud replied grumpily.
-*Want to go home.*
-Noxy whooshed with relief.
+For a moment she thought she might throw up,
+but she steadied herself until the feeling passed.
 
 A small square of cloth, neatly folded,
 lay beside the wash basin on the stand beneath her window.
@@ -3162,12 +3162,7 @@ could someone please get the window unstuck and get some air in?
 
 "Whoops! Sorry."
 Noxy steadied her water jug.
-
-"That's all right, m'lady" the maid said,
-brushing at a few drops that had splashed onto her sleeve.
-"Everything all right?"
-
-"I'm fine," Noxy said. "What's going on?"
+"What's going on?"
 
 The woman shook her head.
 "It's the tornado again.
@@ -3185,13 +3180,15 @@ her eyes open but her face so drawn that Noxy gasped.
 
 "'Scuse us, m'lady," the soldier in front said without breaking stride.
 Noxy pressed herself against the wall to let them past.
+Suddenly afraid,
+she reached out with her mind.
 
-*???* Cloak's wordless question popped into her mind
-like a raindrop into a still pond.
+Cloak's wordless fear felt like someone poking a cold finger in her ear.
 His agitation made her pulse race.
 
-*It's all right,* she mind-spoke back,
-suddenly guilty that her first thought had been Prince Thokmay and not her cloud.
+*It's all right,* she mind-spoke,
+relieved that the cloud was all right
+but feeling guilty at not having checked earlier.
 *I'm coming.*
 
 She waited for a gap in the bustle,
@@ -3251,7 +3248,7 @@ What was the *prince* doing about it?
 
 When Noxy caught sight of him,
 the prince was arguing with Sergeant Gyalpa.
-Privaets Manpa and Rinpa stood next to him,
+Privates Manpa and Rinpa stood next to him,
 eyes on the crowd and the rooftops like sailors watching for signs of a storm.
 
 The prince stopped mid-sentence when he saw Noxy.
@@ -3276,7 +3273,8 @@ Noxy nodded.
 One of the town guard recognized him right away.
 Or what was left of him,"
 he added bleakly.
-"He was caught scavenging in the Blight last year, but escaped."
+"He was caught scavenging in the Blight last year,
+but escaped before trial."
 
 "I'm sorry," Noxy said, feeling inadequate.
 
@@ -3322,7 +3320,7 @@ Mope shooked his head.
 "They've gone mad, honored.
 Bortja and her lot.
 They're saying the tornado is the Gifted's fault,
-that Apple Bridge won't be safe 'til we're all sent out.
+that Ghorahj won't be safe 'til we're all sent out.
 They nearly caught this poor lad, and if they had…"
 He shook his head and turned back toward the drain pipe.
 
@@ -3358,11 +3356,11 @@ The prince squatted down to bring his head to the raccoon's level.
 "Did you see who was chasing you?"
 
 The raccoon shook his head.
-"I'm sorry, Your Highness,
+"I'm sorry, honored,
 I was too busy running to pay much attention."
 
 The prince's next question was interrupted by a shout from the nearby gate.
-"Your Highness! Over here!"
+"Honored! Over here!"
 
 Mope had returned,
 but instead of traveling by rooftop
@@ -3409,7 +3407,7 @@ and scared people always looked for something to take out their fear on.
 everyone knows the Gifted can't do magic,
 so how they thought a couple of raccoons were making that tornado dance their tune
 is a mystery to me."
-The trader bobbed his head.
+The skinny trader bobbed his head.
 "A complete mystery."
 
 The prince clapped Mope on his unbloodied shoulder.
@@ -3565,7 +3563,7 @@ Mope observed,
 instantly making the prince wish his tutor knew when *not* to be so meticulous about facts.
 There had been protests in Chaghan too,
 and in other nearby kingdoms.
-The idea that the law ought to be long to everyone appealed to a lot of people,
+The idea that the law ought to belong to everyone appealed to a lot of people,
 and it was hard to argue that it would lead to chaos
 when Garheim and Thind and elsewhere seemed to manage just fine.
 
@@ -3627,10 +3625,10 @@ were carefully pinned to her bedroom wall.
 She didn't feel like gushing about him
 the way Sensy seemed to want to gush about Rash
 (at least, when she wasn't complaining about him being such a goof),
-but she didn't want to leave Apple Bridge just yet.
+but she didn't want to leave Ghorahj just yet.
 
 She stood and brushed her hands on her trousers.
-As Granna Fee said,
+Granna Fee had been fond of saying that
 a cup of chai wouldn't solve the problem,
 but it wouldn't make it any worse.
 
@@ -3722,12 +3720,12 @@ She pushed the thought away.
 "How long do you figure you'll rest them?"
 
 Aft looked up from the rope he was rebraiding.
-"I was planning to leave tomorrow.
+"I was planning to leave today.
 Cloud's healed up,
 and there doesn't seem to be much business for us here."
 
 Noxy nodded.
-Apple Bridge had a lot of things, but a shortage of water wasn't one of them.
+Ghorahj had a lot of things, but a shortage of water wasn't one of them.
 "How did you wind up carrying Shudarga?"
 
 The cloudherd shrugged.
@@ -3735,7 +3733,7 @@ The cloudherd shrugged.
 He said someone wanted a ride from Choghan-in-Choghan.
 I asked if they wanted to go to the capital,
 and the fellow said no,
-they wanted to go to Apple Bridge.
+they wanted to go to Ghorahj.
 It was only a few days out of our way,
 and he said he'd pay half up front."
 
@@ -3832,7 +3830,7 @@ the garrison was going to run out of hawks…
 
 Noxy was only a short street away from the garrison house when her day got worse.
 The house that the outgoing Consul Yisu had occupied for the past few years
-was one of the largest in Apple Bridge,
+was one of the largest in Ghorahj,
 and she had spared no expense on its upkeep.
 Like the rest of the town's houses it had no windows facing the street,
 just a double door painted with a bright geometric pattern for luck.
@@ -4017,7 +4015,7 @@ She opened her eyes,
 expecting to see someone else sitting with the princess,
 but no one else was there.
 She concentrated again.
-It wasn't the tired olf presence she had felt the night before.
+It wasn't the tired old presence she had felt the night before.
 It wasn't another cloud, either.
 She had been on cows just before they calved.
 That had been nothing like this,
@@ -4164,7 +4162,7 @@ But it'll go along faster if you sleep."*
 *The princess closed her eyes.
 A moment later her breathing slowed.
 Humming to himself,
-the skinny man climbed swung himself up onto the seat of the wagon.
+the skinny man swung himself up onto the seat of the wagon.
 The bear lumbered to her feet with a snort and set off,
 the crow circling overhead.
 The raccoons pushed the door closed
@@ -4298,7 +4296,7 @@ Taking a deep breath, he opened his eyes.
 
 "I don't know," Noxy said. "Anything out of the ordinary."
 
-They flew in a slow circle over Apple Bridge,
+They flew in a slow circle over Ghorahj,
 scanning the town.
 People were dumping slop buckets in the drains,
 opening the awnings over their shops,
@@ -4454,7 +4452,7 @@ Noxy wondered why he'd brought it,
 then realized he was probably at as much of a loss as anyone.
 
 Sergeant Inambu's two apprentices,
-both young recruits from Apple Bridge,
+both young recruits from Ghorahj,
 watched closely as she took the rolled-up ribbon from Dolly
 and set it on a small piece of wood.
 "You have to be careful to put the fresh-cut end along by the inside,"
@@ -4752,2985 +4750,6 @@ Neither looked directly at the cord tying their captive's ankle to the wagon.
 They had both worn collars and leashes in their youth,
 and it felt too much like that for their comfort.*
 
-</section>
-<section markdown="1">
-
-## Chapter 9: Into the Blight
-
-Noxy hadn't realized just how many soldiers were in Apple Bridge until
-she saw them all standing at attention in rows in the front courtyard.
-She started counting, but stopped when Mope said, "Eighty, plus
-Sergeant Inambu and her two apprentices, and Erasmus over there. He's
-not part of the troop's regulation fighting strength any more, not
-since he lost that leg, but he keeps the horses happy."
-
-The prince stood in front of his troops with Sergeant Gyalpa beside
-him. He looked relaxed to Noxy, but if she had been closer, she would
-have been able to see that he was drumming his fingers on the hilt of
-his sword. His plumed helmet made him look older, and stern. The
-yellow feathers on its crest, and the yellow ribbons on his sleeve,
-reminded her of how Sergeant Dorbu had looked the day he had arrived
-in Stale, four years ago. For a moment she felt a lump in her
-throat.
-
-At a nod from Sergeant Gyalpa, Prince Thokmay stepped forward. "You all
-know where we're going," he said loudly, deliberately roughening his
-voice so that it wouldn't break. "And you all know why, and what we
-might run into. If any of you would rather spend a year in the
-galleys, now's the time to say so." He waited a moment. "Very well,
-then. Sergeant?"
-
-"Your Highness?"
-
-The prince waved at the men standing to his right. "These four squads
-will come with us. We'll leave the other four here with Sergeant
-Inambu."
-
-"Yes, Your Highness," the sergeant replied.
-
-"Dismiss the troops," the prince ordered.
-
-The sergeant straightened up. "Atten*tion!* Saaaa*lute!*" As one, the
-soldiers thumped their right fist against their chest and roared
-"Loghan preserved!". The sergeant led those the prince had selected
-toward the stables, while the others split off in twos and threes to
-return to their duties.
-
-The prince walked across the cobblestone courtyard to Mope and Noxy,
-tucking his helmet under his arm as he did so. He ran his fingers over
-his short, wiry hair as if to dry it. "How did I do?" he asked Mope,
-his voice cracking.
-
-"Well enough, I think, Your Highness," the troll reassured him.
-
-"Are you sure it's wise to take so few, Your Highness?" a soft voice
-asked from behind Noxy. She jumped, startled. Sergeant Inambu was
-standing behind her. "It is, after all, your sister."
-
-"My father would want me to deal with this like a soldier," the prince
-said to her evenly, "Not like a frightened child. Anything could
-happen if I leave too few here to guard the town." He studied the
-magician for a moment. "Are you…all right?"
-
-Sergeant Inambu nodded. "Yes, Your Highness. At least, I will be. But
-please, take both of my apprentices. I think I'll be able to take care
-of whatever might happen here in your absence."
-
-"Of course," the prince said. "Thank you." He turned to Noxy. "I'm
-sorry to run away like this," he said, trying to smile as his voice
-broke on the word 'run'. "I hope you understand."
-
-"Of course," she said. On a sudden impulse she stepped toward him. His
-eyes widened. She hesitated, her sudden courage gone, then settled for
-punching his arm gently. "Blue skies, and a safe journey," was all she
-said.
-
-It took the prince until the middle of the afternoon to reach the
-Blight. The squad at the rear would speed up to gallop past the
-others, then slow to a trot once they were in front to let the next
-squad ride past. The prince tried to stay calm, and not think about
-what might be happening to his sister, but every time he rode past
-Sergeant Gyalpa he couldn't help but ask, "Anything?" Every time, the
-sergeant said, "Nothing, Your Highness."
-
-There were no markers on the edge of the Blight, no walls or signs to
-show where the magically-poisoned land began. Prince Thokmay only
-realized they were in it when he saw a patch of flowers that had been
-turned into glass. He turned in his saddle to stare, then heard a
-crunching sound underneath him as his horse stepped on some grass that
-had been transformed the same way.
-
-"You'll want to watch out for that, Your Highness," Manpa
-said. "Bucket's hooves are tough, but they're not so tough that they
-can't be cut."
-
-"I'll be careful," the prince promised. He looked around. "I haven't
-seen any birds for a while."
-
-"Nor you won't, Your Highness. There's not many that'll come here that
-weren't born here. Same as the people, like."
-
-The prince nodded. "I can understand why. Come on, let's keep
-going. It will be dark soon, and we're still four miles from the
-hill."
-
-The further they road, the bleaker the land became. Scraggly
-blackberry bushes hunched down when they heard the soldiers
-approaching, while the knee-high grass had a metallic green sheen,
-like an summer fly's body, and made a scraping sound like rusty
-scissors when the wind brushed over it. The few trees they passed were
-stunted, and the apples hanging from them were blackened, or bloated
-to the size of pumpkins. Even the sky above them was somehow
-twisted. It seemed normal enough when Prince Thokmay looked straight at
-it, but he kept seeing swirls of color sweep through it out of the
-corner of his eye.
-
-They came up over a small rise and saw a wooden 'X' propped up on
-either side of the road. Each was tall as a mounted man's head, and
-the rain had long since washed away whatever paint might once have
-been on them. The prince swallowed as he rode between them. He knew
-from the soldiers' stories that these markers had once stood at the
-edge of the Blight. Now they were two hours' ride inside it.
-
-The sun had sunk into the horizon like a rotten peach into mud when
-one of the soldiers from the lead squad came galloping back to the
-prince. "Your Highness!" he shouted. "There's men up ahead, lots of
-'em. The sergeant says to go slow."
-
-"Understood," the prince said crisply. "Tell Sergeant Gyalpa that
-we'll be with him as quickly as we can." The soldier turned and
-galloped back the way he'd come. The prince drew his sword and laid it
-across his lap. Around him, his soldiers did the same, making much the
-same sound as the metal grass had made. He took a deep breath, held it
-for a second, then spurred his horse to a trot.
-
-Prince Thokmay expected to find the smugglers waiting at the top of a
-hill, or on the far side of a stream. His teachers had told him over
-and over again how important it was to make use of whatever defenses
-the ground offered. Instead, they were gathered around the stump of
-what must have once been an enormous tree. Eight or nine were mounted
-on mean-looking horses, while twice that number with spears and swords
-were on foot beside them.
-
-The prince reined in his horse next to Sergeant Gyalpa, about a
-hundred yards away from the smugglers. "Is that your man Mukh, Your
-Highness?" the sergeant asked, pointing to the skinny figure atop the
-only one of the smugglers' horses that looked like it had eaten a
-decent meal in the last month.
-
-"That's him," the prince said. "Do they have bows?"
-
-"Not that I can see, Your Highness. Rinpa! Can you see any archers
-among them?" the sergeant called.
-
-The soldier squinted for a moment, then called back, "No, sergeant,
-not a one."
-
-Sergeant Gyalpa studied the smugglers a moment longer. "I don't like
-it, Your Highness," he said. "There's forty of us, all mounted,
-against two dozen of them, and most of theirs are on foot. Why are
-they just waiting for us?"
-
-"There's only one way to find out," the prince said, hoping he sounded
-braver than he felt. He started to spur his horse forward, but before
-he could, Sergeant Gyalpa backed his own mount into the prince's way.
-
-The sergeant glanced around, then sidled his horse closer to the
-prince so that their heads were only a couple of feet apart. "You've
-not been in a battle before, have you, Your Highness? Not with a sword
-in your hands."
-
-The prince shook his head. "No, sergeant. I don't suppose you'd call
-what happened at Stale a battle."
-
-The sergeant nodded. "Right, then I'd be grateful if you'd stay close
-to me, Your Highness, and hang back if there's any excitement. Your
-father would have my ears off if I let you get killed by a bunch of
-featherless ducks like this lot."
-
-"Yes, sergeant." The prince cleared his throat. "Shall we?"
-
-The soldiers spread out as they rode forward. They were still about
-fifty yards away from the smugglers when Mukh raised his
-arm. "Hello, hello!" he called. "So glad you could come."
-
-"I am Thokmay Loghan-o Prince," the prince said loudly, hoping that his
-voice wouldn't crack, and that he would be brave if battle came. "I am
-looking for my sister, the Princess Ogmin. We fear she has been
-abducted."
-
-The man on the ground beside Mukh was wagging a finger slowly at the
-soldiers. He frowned and tugged at Mukh's pantleg and said something
-that the prince couldn't hear.
-
-Mukh straightened up and frowned in turn. "Where are the rest of
-your troops?" he asked. "It's such a nice day, I hope they're not
-cooped up washing dishes." A few of his men laughed.
-
-"Never mind the dishes," the prince demanded. "Do you know what has
-become of Her Highness?"
-
-"Oh, yes, the princess," Mukh called back. "About this tall?" He put
-his hand up around his chin, palm flat. "Long hair?"
-
-"What have you done with her?" the prince demanded.
-
-"Oh, nothing, nothing," the smuggler said. "Just given her a haircut."
-The men around him started to laugh. One of them reached over and
-picked something up off the stump.
-
-"Looks like… braids, Your Highness," Manpa said, squinting again.
-
-"Yes, they're braids," Mukh said, as though he'd been able to hear
-the soldier even though there were fifty yards between them. "Show
-them what else you have, Harry."
-
-The smuggler put down the cut-off braids, and held up a roll of blue
-ribbon. "You do recognize it, yes, Your Highness? Eighteen, yes, it
-was eighteen pence a handspan, wasn't it?" The men around him laughed
-again, harder.
-
-Sergeant Gyalpa swore under his breath. "We've been tricked, Your
-Highness," he said. "They must've known we'd use magic to find the
-princess."
-
-"Yes, well, it only seemed reasonable," Mukh called. This time the
-prince was sure that the smuggler had heard them. "I thought of
-pulling out her fingernails too, in case you tried to use clippings
-instead of hair, but I was sure you'd keep too a neat a house for
-that."
-
-"If you've hurt her—" the prince choked.
-
-"Oh no, no, no," the smuggler protested. "*I* would never hurt an
-innocent child—not unless I had to, of course. But we don't even
-*have* the princess, do we?" He twisted around in his saddle to look
-at his men. "Do we?"
-
-"No," they said, and "Nawp," and "Uh uh."
-
-"What do you want?" Sergeant Gyalpa asked loudly.
-
-The smile dropped from Mukh's thin face. He spurred his horse
-forward a few paces. Prince Thokmay noticed that he was holding his
-mount's reins in his right hand, and something else in his lap with
-his left. "I want you and your troops to leave Apple Bridge," he
-said. "By tomorrow. For good."
-
-The prince scowled. "You know we can't do that."
-
-The smuggler beamed. "Of course you can—you're a prince! Well, half
-a prince these days, from what I hear, but a prince nonetheless."
-
-"He can't be serious, Your Highness," Sergeant Gyalpa muttered. "Even
-if we did leave, the king would have half his army down here before
-the harvest started."
-
-The prince nodded. "Why should we leave Apple Bridge?" he said in a
-normal tone of voice. "If you don't have my sister, what reason would
-we have?"
-
-"You might do it just to be friendly," Mukh said, then snickered.
-
-The prince shook his head. "I'm sorry, but I don't think I want to
-have a friend like you. Even if I did, I couldn't oblige you. Apple
-Bridge is part of Loghan."
-
-"Not for long," Mukh said lightly. He picked up a small bag that was
-hanging from his saddle horn. "Not for very long at all."
-
-"It's magic!" one of the apprentices shouted. "I can feel it!"
-
-"Loghan!" Sergeant Gyalpa bellowed. He dug his heels into his horse.
-The soldiers around him shouted, "Loghan and the dawn!" and charged.
-
-Mukh paused for just a moment, watching them come at him with a
-satisfied look on his face. Then he undid the string that held the bag
-closed and shook it out. A terrible roaring sound filled the prince's
-ears as a tornado came whirling out of the bag.
-
-</section>
-<section markdown="1">
-
-## Chapter 10: I Know the Bear
-
-Noxy watched Prince Thokmay and the soldiers ride away with an empty
-feeling in her stomach, as if the bottom of the world had dropped
-away. Unable to think of anything better to do, she went back in the
-house and up the stairs to Princess Ogmin's room. She told herself
-that she was going to see whether she could cheer Dolly up. If she had
-been a few years younger or older, she would have known that she was
-really looking for some cheer herself.
-
-As she walked down the polished wooden floor toward the princess's
-room, she heard muffled voices ahead. She slowed down. One of them was
-Mope's, and the other was Dolly's. She hesitated. The door wasn't
-actually closed, not all the way, she told herself. It wouldn't really
-be eavesdropping…
-
-"—ighness what you know. If you don't, I will!" she heard Dolly say
-angrily. "Who knows what she could do to the princess?"
-
-"Nothing half as bad as what *they'll* do to *her* if they even
-suspect that she has something to do with Her Highness's
-disappearance," Mope replied. "You know how people around here treat
-us, what they think of us. She could have nothing to do with this, and
-they'd still hunt her down like an animal."
-
-"The prince would never do something like that," Dolly said firmly.
-
-"What about Inambu?" Mope asked. "She'd do it without a second
-thought!"
-
-They both froze as Noxy pushed the door open. Mope's rubbery lips were
-pulled back in a snarl, exposing more strong, yellow teeth than Noxy
-would have imagined he could have. Dolly's face was no happier.
-
-"I wouldn't," she said firmly. "Whatever it is, I wouldn't do it. So
-why don't you tell me what's going on?"
-
-"And don't say, 'Tell you what?'," Noxy warned him as he started to
-speak.
-
-Mope hesitated. "If you don't tell her, I will," Dolly said, as if
-Mope was a badly-behaved child.
-
-The younger troll sighed. "I know the bear," he said reluctantly.
-"The one from the market, Rust—I recognized her from mother's
-description. She's—she's involved in politics. Just like me," he
-added, as if daring Noxy to laugh or criticize.
-
-"What kind of politics?" Noxy asked.
-
-"The right kind," Mope said.
-
-"The *noisy* kind," his mother said at the same instant.
-
-Mope sighed. "You'd be noisy too if someone was using my hide for a
-rug," he told his mother. "At least, I hope you would." Dolly just
-sniffed.
-
-"Rust had a son," Mope said to Noxy. "An ungifted son, just a plain,
-ordinary bear cub. Some hunters found him in the woods one day. She
-tried to take them to court afterward, but killing an animal isn't
-murder."
-
-"So she—she had them tried for *theft*," he continued, with so much
-raw bitterness in his voice that Noxy was afraid of him, "But they
-wouldn't even give her that. Gifted animals aren't allowed to own
-other animals in Loghan."
-
-"Was—was Princess Ogmin one of the hunters?" Noxy asked.
-
-"What? Oh, no, no, Her Highness wouldn't hurt a fly," Mope said
-dismissively. "But the king makes the laws in Loghan, and I'm
-afraid…"
-
-He paused. "You understand I want the same things as Rust, don't you?"
-he asked. "The same things that you, and every other human, has from
-birth. I want to be able to run a shop without having a human sign a
-license saying that I'm not rabid. I want to be able to buy books
-without the bookseller having to check that they're not the banned
-list—oh yes, there are still books animals aren't supposed to be
-allowed to read," he snorted, seeing the look on Noxy's face. "They
-might give us *ideas*."
-
-He picked at a piece of lint on his jacket. "And most of all," he
-said, not looking up, "We want our families to be safe, even if
-they're not gifted." He glanced up at her. "Does that sound like so
-much to ask?"
-
-Noxy didn't know how to answer, so instead she asked, "But what has
-all of this got to do with the bear? And the princess?"
-
-Mope shrugged. "I've heard Rust speak at meetings sometimes, the kind
-of meetings that humans aren't invited to. She thinks that the only
-way to fix the world is to shake it up a bit, and hope that when the
-pieces fall into place, they'll fit a bit better than they do right
-now. As long as the king is the only one who can change the law, the
-only way to change the law is to get the king's attention."
-
-Noxy's eyes had gone wide. "You have to tell Thokmay," she
-gasped. "Mope, why haven't you told Thokmay? You're talking about his
-*sister*!"
-
-"I'm also talking about the life of every gifted animal in Loghan!"
-he snapped back. "Do you have any idea what will happen to us if
-people think that a bear has kidnapped a member of the royal family?
-Do you? We'll all be turned into rugs, or roasted for some fat
-farmer's dinner."
-
-"Oh, don't be ridiculous," Noxy said. "Just because one bear was—"
-
-"One?" Mope snapped again. "You think it only happened once? My father
-worked in a circus. He and my mother did tricks together in towns like
-this. When I was born gifted, the circus trainer tried to cut my vocal
-cords, so that no-one would know I was gifted. My father stopped
-him. He threw himself at that, that piece of trash, and he stopped
-him, but he was beaten so badly that he died. The trainer was never
-punished, of course. It was just my mother's word against his, and he
-was *human*."
-
-When he looked up at Noxy, she backed away involuntarily from the old
-hurt and anger in his eyes. "That's why I taught myself everything
-there is to know about the law," Mope finished quietly. Dolly had put
-her arm around her son, and for once he didn't push it away. "That's
-why I'm trying to teach the prince. Even if he'll never be king, he'll
-be important. They'll have to listen to him."
-
-Noxy looked away to give Mope a moment to control the tears that were
-trying to escape him. A few motes of dust sparkled in the sunlight
-that streamed in through Dolly's bedroom window. A small drawing of
-the royal family, the kind of thing that street artists turned out by
-the dozens on festival days, was in a small frame on the dresser,
-beside a cracked old leather cap and a wide-toothed wooden comb with
-mother-of-pearl inlay in the handle. She could hear morning birds
-whistling at each other outside, and she wished more than anything
-that she was back in Stale.
-
-Finally Dolly said wearily, "Mope, we *have* to tell Sergeant Inambu
-about Rust. There's no-one else left."
-
-"If she believes us, and I said 'if', she'll have every animal in
-Apple Bridge down in the dungeon by nightfall," Mope replied, just as
-wearily. "And you mark my words, half of them will never come out
-again."
-
-"Dear, Apple Bridge doesn't have a dungeon," his mother said gently.
-
-"Well then she'll put us on rafts in the middle of the river! Or the
-stables! That would probably appeal to her." Mope flapped his hands.
-"Whatever she does, it will be very, very bad."
-
-"What if we could prove that it wasn't Rust?" Noxy asked suddenly.
-
-"What do you mean?" Dolly asked.
-
-"Well, if everyone thinks the bear took the princess, but she didn't,
-then they'll all be looking in the wrong place. If we can *prove* she
-didn't take Princess Ogmin, then we'd still be helping to find the
-princess."
-
-"Hmm," Mope mused, pursing his lips. "We would at that, wouldn't we?"
-He looked at Noxy shrewdly. "Of course, we'd be doing exactly the same
-things we would do if we were trying to prove that Rust *did* kidnap
-Her Highness."
-
-"Mm hm," Noxy conceded, "But if it *is* Rust, and if we can find the
-princess before anyone else does, then if we get her back, it'll all
-come out even—an animal took her, but an animal brought her back."
-
-"In my experience, people rarely do their moral bookkeeping that
-carefully," Mope said sourly, but then he nodded his head. "All right.
-We'll try to find out if Rust *didn't* take Princess Ogmin." He
-glanced at his mother. "That is, if it's all right with you."
-
-"Of course," Dolly said. "I just want to find her. She must be
-terrified."
-
-</section>
-<section markdown="1">
-
-## Chapter 11: Attacked
-
-The tornado roared into the sky, doubling in size and then doubling
-and doubling again as it poured out of Mukh's bag. "At them!"
-Sergeant Gyalpa shouted to the soldiers. "Get in close, or it'll swat
-you like ladybugs!"
-
-The soldiers charged, shouting "Loghan! Loghan and the dawn!" The
-smugglers shouted curses back. The ones on foot braced the ends of
-their spears against the ground, so that the soldiers' horses couldn't
-get close, while the ones who were riding horses of their own drew
-their swords and dug their spurs into their mounts.
-
-"Stay close, Your Highness!" Sergeant Gyalpa ordered the prince. He
-paused, watching where men were going, watching where they weren't,
-then shouted, "Haw!" and spurred his horse forward. The prince dug his
-heels into his own mount and followed him.
-
-The next few seconds were mad confusion. The soldiers had to ride
-around the front rank of smugglers to avoid their spears. As they did
-so, Mukh held up the copper hoop he'd been holding in his lap and
-shouted commands at the tornado. It twisted and danced across the
-ground, then lashed out like a man kicking a ball.
-
-Instead of a ball, though, it connected with a soldier on
-horseback. The man's horse screamed as it was lifted into the sky. The
-soldier himself dropped out of the saddle onto the ground. His left
-leg buckled underneath him as he hit the ground. Before his comrades
-could reach him, a smuggler on horseback lunged forward, leaned over
-in his saddle, and swung his sword.
-
-An instant later Prince Thokmay saw Manpa and another soldier cut left,
-then right, then left again to get in close to the knot of
-smugglers. Mukh didn't hesitate. The tornado snatched up the two
-soldiers and a smuggler as well and tossed them through the air. They
-tumbled like dice.
-
-Sergeant Gyalpa stood up in his stirrups and waved his sword over his
-head. "Fall back!" he shouted. "Fall back! We can't get past that
-thing!" He watched the melee for a moment in despair, then snarled,
-"They can't hear me! Your Highness, we have to get you out of here!"
-
-"No!" the prince protested. "I won't run away!"
-
-"And I won't have a dead prince on my scroll!" the sergeant bellowed
-back. "Now don't make me carry you on my shoulders!"
-
-"I will *not* run!" the prince shouted. "Haw!" He dug his spurs deep
-into his horse's flanks. The frightened animal bounded forward. Behind
-him, Sergeant Gyalpa cursed, then kick his own horse into a gallop as
-well.
-
-Prince Thokmay crouched low over his horse's neck and charged straight
-at the smugglers. The wind-blown grit stung his eyes. He felt his
-horse's hooves pounding on the ground beneath him. The smugglers were
-small, small, small, and then suddenly larger and larger as he dodged
-behind a startled spearman and swung. His blade bounced off armor. A
-spear thrust up past his ear. He ducked and screamed in fear and anger
-and swung his sword again—
-
-And suddenly the earth beneath him was churning like the ocean in a
-storm. His horse screamed with fear as she lost her footing and
-stumbled, neighing with panic as she found her footing again and
-leaped toward solid ground. The prince twisted around in his saddle,
-just in time to see the spearman he'd just passed sink to his knees in
-the turbulent earth.
-
-Somehow Sergeant Gyalpa was beside him. "It's that thing!" he shouted.
-"The land—his magic is waking it up! We have to get out of here,
-*now*!"
-
-"But what about the troops?" the prince shouted back. He suddenly
-realized he was crying.
-
-"They're already falling back, Your Highness. Look!" Sure enough,
-everyone was fleeing, smugglers and soldiers alike, as the land roiled
-and heaved like a living thing.
-
-"Guard my back!" the sergeant ordered the prince. He spun his horse
-around and charged at the smugglers. Most of the spearmen were
-struggling to get to their feet. As the horsemen around Mukh tried
-to get their panicky mounts under control, Sergeant Gyalpa charged
-through them and swung his sword.
-
-The prince saw the sergeant's blade connect with the copper hoop that
-Mukh was still struggling to hold high. There was a flash like
-lightning. Mukh and the sergeant both cried out. The hoop flew
-through the air. When it hit the ground, the earth splashed like
-water. The copper hoop sunk out of sight like a stone thrown into a
-murky pond.
-
-The tornado roared in triumph as it felt Mukh's hold over it
-break. It pounced on the smugglers like a cat pouncing on a crippled
-bird, throwing them this way and that. Prince Thokmay saw Mukh leap
-from his horse an instant before the tornado snatched it up. The
-smuggler scrambled over to the old tree stump and pulled a man-tall
-mirror off the wagon that was still somehow parked there. He propped
-the thing against the stump and dove through it an instant before the
-tornado snatched it up.
-
-The prince shouted, "Look out!" but it was too late. The mirror
-slammed into Sergeant Gyalpa like a stone from a catapult, knocking
-him from his horse.
-
-"No!" the prince screamed. He dug in his heels. "No!" His horse
-charged forward.
-
-Sergeant Gyalpa tried to stand, but fell again as his knee gave way.
-"Go back!" he shouted to the prince. "Go back!"
-
-"Hang on!" the prince shouted back. He pulled his horse up short
-beside the sergeant and half-climbed, half-fell out of the saddle.
-
-"No, Your Highness, you have to save yourself!" the sergeant shouted,
-pushing the prince's hands away.
-
-The prince grabbed the sergeant's sleeve and pulled him up onto his
-good leg. "I've already lost one sergeant," the prince grunted. "I
-will *not* lose another! Now climb up on that horse!"
-
-The prince pushed the sergeant up by the rump while the sergeant
-pulled himself up into the saddle. A heartbeat later the prince swung
-himself up behind him. "*Now* we can run," he said. He smacked the
-horse on the rump. The animal didn't need any encouragement. It
-galloped heavily away.
-
-Behind them, the tornado picked up Mukh's magic mirror and smashed
-it to the ground once again, then whirled off toward Apple Bridge.
-
-</section>
-<section markdown="1">
-
-## Chapter 12: Comes Big Song
-
-Mope and Noxy walked down the main street to the Dog Market, asking at
-every shop they passed about the bear Rust. Even when Mope asked the
-questions, many of the shopkeepers gave their answers to Noxy. After
-that had happened a few times, Mope started letting Noxy do all the
-talking. He just stood behind her quietly, then followed her back out
-again.
-
-The baker who had sold them beaver tails the day before scowled when
-they asked. "A bear? Mm, I remember one down in the market, selling
-knick knacks and all. Haven't seen it today, though." He raised his
-voice. "Oy, Jokhang! You seen that bear around today? That big old
-scruffy one from down the market, with the wagon."
-
-"Can't say I have," Jokhang puffed. He had tied two dozens bricks
-together with twine to make a block, and then put two wide cloth
-straps around it so that he could carry it like a backpack. He set the
-whole thing down with a groan, and wiped his brow. "Why, is that who
-took the princess?"
-
-"We just think she might have seen something on the road," Noxy said
-quickly. "Since she left last night, I mean."
-
-"Mm, well, I wish I could help," the brickmason said regretfully. "She
-was a real smile, she was." Noxy couldn't help but notice how he said
-'was' instead of 'is'.
-
-They split up when they reached the market itself. Noxy spoke with the
-stern-faced leek woman, who was in her usual place by the
-stairs. "Nope, but good riddance," was all she said when Noxy asked
-her if she knew where Rust might have gone.
-
-Piqaluujaq clucked his tongue when she asked him. "She is not go here
-this day," the Anuat trader said. "The sun, today, and she is gone."
-
-"You mean she left last night?" Noxy asked. Piqaluujaq shrugged. He
-glanced around to see if anyone was looking, then reached into the
-middle of one of his piles of seal skins and pulled out a small wooden
-hoop, crisscrossed with thin leather cords. Bits of red thread were
-tied around the cords wherever they crossed. A dark red feather, and
-an old piece of bone, dangled on loops of cord from the hoop's bottom.
-
-"My grandmother between days sings with Edward," he confided. "Old,
-old song, from sun magic days."
-
-Noxy shook her head in confusion. "I don't understand. Is your
-grandmother here? Did she see Edward's ghost?"
-
-The Anuat clucked his tongue again and held out the wooden hoop. "My
-grandmother," he explained, pointing at the piece of bone dangling
-from it.
-
-Noxy's eyes went wide. "That's…those are from you grandmother?"
-
-"Between days," Piqaluujaq confirmed, nodding. "She sings with Edward.
-Between the sun, someone else sings, from where goes away dogs. From
-all bent, the land."
-
-Noxy still didn't understand, but then suddenly she did, and her
-stomach went cold. "From the Blight?" Noxy gasped. "Someone was using
-Blight magic last night? Mope! Mope!"
-
-"Coming!" the troll called from two lanes away. Noxy heard a
-chicken squawk as the troll trod on it. "What have you found?"
-
-She grabbed his arm excitedly. "He says there was Blighted magic here
-last night," she hissed, nodding her head at Piqaluujaq. The Anuat
-trader had tucked his hoop back out of sight, but he grimaced at
-Noxy's words. "His grandmother told him."
-
-Mope looked around. "Is she still here?" he asked. "If someone has
-brought something here out of the Blight we should report it, even if
-it has nothing to do with Princess Ogmin's disappearance."
-
-"Um, no, I think she's gone now," Noxy said hastily. "But—"
-
-Suddenly Piqaluujaq grunted and winced.
-
-"What's wrong?" Noxy asked. "Are you all right?"
-
-Piqaluujaq looked up at the sky. "Comes big song," he gasped. "Big
-angry song. Comes *now!*"
-
-Just as he said it, Noxy heard something crash in the distance. People
-looked up, startled or annoyed or afraid, as the town bell started to
-ring, *dong, dong, dong, dong*.
-
-"What's happening? What can you see?" Mope demanded, hopping up and
-down.
-
-"Nothing," Noxy said, standing on tip-toes. "I can't see anything at
-all." All around them traders were hastily packing away their more
-precious goods, or throwing cloths or nets over their stalls and tying
-them down.
-
-"Well, something must be wrong," Mope fretted. "They wouldn't ring the
-bell otherwise. We should go back to the garrison house."
-
-They pushed their way through the crowd. The normal buzz and stir of
-the market had been replaced by shouts and frantic haste. Someone
-stepped on Noxy's foot. Someone else pushed her hard from behind, and
-then a two-wheeled cart strung with ropes of sausages was in her
-way. She ducked under its handles, ignoring the curses of the
-heavy-set man who was pushing it. Mope scrambled through after her.
-
-"I spoke with some raccoons who do repairs for the rafters' guild,"
-Mope puffed as they dodged around braying donkeys and worried
-traders. "They didn't want to talk at first, but the younger one
-finally admitted that Rust bought a raft from them a couple of days
-ago, before you arrived in town. She had them leave it tied up by the
-old fishing weir, about an hour's walk downstream." He grabbed Noxy's
-arm and tugged. "Come on over this way, it'll be quicker. Anyway,
-guess what else they sold her?"
-
-"What?" Noxy asked. Someone shoved someone in front of them. A moment
-later a neat pyramid of jars of apple preserve turned into a
-sharp-toothed porridge of broken glass and apple sauce on the
-cobblestones. Noxy skipped over it, then paused a heartbeat for Mope
-to catch up.
-
-"Blankets," Mope puffed. "And biscuits, and apple sauce."
-
-"I don't understand," Noxy said. They had slowed to a walk so that
-Mope could catch his breath. The troll stopped completely,
-wheezing.
-
-"What, would, a, bear, do, with, blankets?" he gasped. "And how, would
-she, open, jars?"
-
-Whatever Noxy might have said next was cut off by a long, mournful
-howl. It seemed to come from everywhere at once, echoing around them
-like a mountain gale. Noxy clapped her hands over her ears and looked
-up. There, standing on top of his own statue, was the ghost of Edward
-the Dog. It was so solid that the building behind it was only visible
-as a dark shadow across its chest.
-
-"ARRRROOOOOOOOOOOO!!!" it howled again, and then someone cried out,
-"Up there! Look! It's the tornado! It's coming straight for town!"
-
-"Big angry song," Noxy whispered to herself. She grabbed Mope by the
-arm. "Come on! We have to get to the garrison house before it hits!"
-
-They didn't make it. Freed of Mukh's magical control, free at last
-from any kind of control at all, the tornado swept down on Apple
-Bridge like an angry bull. Noxy heard a crash that went on and on as
-the tornado tore shingles off of the roofs of houses and threw them
-into the air like pieces of straw. As it whirled up the main road,
-Jokhang's new window shattered, the shards of glass transformed into
-thousands of flying knives.
-
-"Down here!" Mope shouted. He pulled Noxy into a side alley, then
-under a set of stairs. "Hold on!"
-
-Noxy had heard bull clouds thunder at each other, and whole fields of
-snow fall in avalanches down the sides of mountains, but nothing as
-loud or as furious as the tornado. It lifted the logs from the main
-street and used them to batter down the walls of the nearby shops. It
-pulled at the statue of Edward the Dog, but when it found that the
-statue couldn't be lifted from its column, it battered it with a
-wheelbarrow full of bricks until statue and column alike were rubble.
-
-It took the tornado only a heartbeat to reduce the stalls and wagons
-in the dog market to kindling. It smashed pots and scattered
-carefully-stacked boxes of herbs. It hopped over the wall and danced
-on the river, flipping over rafts one by one. The muck and water it
-flung into the air fell back on Apple Bridge as muddy rain.
-
-"Where are you going?" Mope cried as Noxy wriggled out from under the
-stairs.
-
-"I have to get to Cloak!" Noxy shouted. She could barely make herself
-heard over the tornado's horrific roaring. "She'll be terrified!"
-
-"But you can't go out in this!" Mope grabbed her ankle and tried to
-pull her back under the stairs.
-
-"Let go!" Noxy shouted, kicking at his hand. "I have to get to Cloak!"
-She twisted around, then slipped her foot out of her boot and
-scrambled away before Mope could grab her again.
-
-She was nearly knocked off her feet by the wind despite the shelter of
-the narrow alley. She grabbed a nearby wall to steady herself, then
-half-stumbled, half-flew down the alley away from the main street.
-Behind her she heard Mope shouting, "Noxy, come back! Come back!" but
-she bowed her head and pressed on.
-
-She had almost made it to the alley's other end when the tornado grew
-tired of playing in the river and swept back across town toward the
-garrison house. She suddenly felt as if she was caught in the current
-of a fierce mountain stream. It pulled her forward, faster and faster.
-
-Noxy screamed as she felt herself being lifted into the air. She
-stumbled forward a few more steps, then threw her arms around the
-railing of the last set of stairs in the alley. The wooden posts shook
-in her hands. She could see the railing start to pull free, pulled
-sideways further and further by her weight and the fierce wind. She
-fell on her knees and tried to hug it, but the wind pulled her feet
-out from under her. Something long and heavy, a door or a table,
-tumbled past her end over end, like an axe thrown by a giant.
-
-She just had time to think that she would finally find out what it was
-like to fly when a big, hairy hand fastened onto her collar. "Don't
-let go!" Mope shouted in her ear. The troll grabbed the stairs
-with his other hand and both his feet. "Whatever you do, *don't let
-go!*"
-
-Something fluttered over them like a bird, then crashed to the ground
-in the middle of the parade courtyard. "There goes someone's laundry!"
-Mope shouted. "And look—there's Sergeant Inambu!"
-
-Noxy turned her head, scraping her cheek against the railing post. Up
-above the exit from the alley, she could see that Sergeant Inambu had
-somehow climbed onto the roof of the middle wing of the garrison
-house. As Noxy watched, the sergeant stood up and raised her arms.
-
-"Come on, come on," Mope pleaded in Noxy's ear. "Give it all you've
-got!"
-
-The sergeant brought her hands together as if she were clapping. A
-sharp *crack!* cut through the sound of the tornado's winds. Noxy saw
-the tornado jerk as if it had been bitten. It leaped over a house and
-swept its tail at Sergeant Inambu.
-
-The sergeant reached up and grabbed the air in front of her, as if she
-was wrestling with an invisible opponent. Something pushed her back a
-step, and another. Noxy could see the tornado straining to reach her,
-held back as if by the invisible hands of a giant. Then Sergeant Inambu
-twisted and spun around, whirling her arms in a wrestling throw.
-
-The tornado howled as it flew threw the air, tumbling end over end.
-Sergeant Inambu straightened up, raised her arms, and clapped again.
-*Crack!* The tornado doubled over.
-
-Sergeant Inambu raised her clasped hands over her head, bracing her
-legs like a sailor in a rough sea. She spread her arms wide once more,
-then brought her hands together for the third time.
-
-*CRACK! BOOM!* Lightning flashed, and Noxy screamed. The dazzle
-blinded her, and the air suddenly tasted like metal.
-
-It took her a moment to realize that the wind was gone, even though
-the sound of it still roared in her ears. Mope had to say her name
-three times before she heard it.
-
-"Yes, I'm all right," she told him. She suddenly realized that her
-arms and back were aching from holding onto the stair railing. As the
-troll let go of her she scrambled to her feet.
-
-Splintered boards and branches, broken glass and gobs of mud… The
-garrison house's parade courtyard was covered with the remains of the
-tornado's makeshift toys. Noxy stared at the destruction for a moment,
-then tried to shake free of Mope's grasp. "Let me go!" she
-protested. "I have to find Cloak!"
-
-"Never mind your cloud," the troll said. "Where's Sergeant Inambu?"
-The magician could no longer be seen on the roof of the old house.
-
-Noxy and Mope limped across the parade courtyard. They were almost at
-the door when it flew open and Dolly came running out. She threw her
-arms around her son, weeping.
-
-"I'm all right, mother, I'm all right," he said gently. He patted her
-back awkwardly for a moment, then reached up and disentangled her
-arms. "Are you?"
-
-"I'm—I'm fine," his mother said. "I just—I thought—"
-
-"I'm fine," Mope repeated. "So is Noxy. But we have to find out what
-happened to the sergeant."
-
-"And I have to find out what's happened to Cloak!" Noxy said. She
-limped as fast as she could toward the door. She was still a few yards
-away when a soldier she half-recognized stepped through and blinked in
-the afternoon light.
-
-"Are you all right?" he asked. He took Noxy by the shoulders as she
-tried to step past him. "Here, let me look at you."
-
-"I'm fine," Noxy said, pushing his hands away. "I have to talk to my
-cloud!"
-
-"Do you know what happened to Sergeant Inambu?" Mope asked from behind
-her.
-
-The soldier looked grim. "She's collapsed," he told them. "That spell,
-whatever it was she did…she just fell down. A couple of the men
-carried her to her room. The doctor's with her there now."
-
-Mope hesitated for a moment. "Go see to your cloud," he told Noxy.
-"Mother and I will see if there's anything we can do for the
-sergeant."
-
-Noxy limped through the house and out into the rear courtyard.
-"Cloak!" she cried, aloud and with her mind at the same time.
-
-Cloak was huddled in a corner. Noxy didn't have to mind-listen to know
-how terrified the young cloud was. She stumbled over the rubble that
-had fallen into the courtyard and wrapped her arms around a tuft of
-the cloud.
-
-"I'm sorry," she whispered, tears stinging her eyes as she stroked the
-quivering cloud's flank. "I'm sorry, I should have been here. Are you
-all right? Hm? Are you all right?"
-
-"Bad cruel tearing roaring," the cloud whimpered in her head. She
-nodded.
-
-"I know," she said. "I'm sorry. I'm sorry. It's gone now."
-
-The last of the sunlight had faded by the time she went back in the
-house. She found Mope in the kitchen, sweeping up broken glass with
-the cook and two of her assistants.
-
-"How is Sergeant Inambu?" Noxy asked.
-
-Mope didn't look up. "Well enough to not want my company, or my
-mother's," he said shortly. He looked up at Noxy with hurt in his
-eyes. "But she'll be all right."
-
-"Sergeant! Sergeant!" A soldier came running in from the back alley.
-"You two, where's the sergeant?"
-
-"She's upstairs—no, wait, don't go up," Mope said. "She's still
-exhausted. What's wrong? What's happened?"
-
-"The old barrel house," the soldier panted. "Down by the dock. The
-wall's caved in. There's people inside, we can hear them!"
-
-Mope turned to Noxy. "You go upstairs and tell Sergeant Inambu what we
-discovered," he ordered crisply. "And you, take me to the warehouse!"
-
-</section>
-<section markdown="1">
-
-## Chapter 13: Snow
-
-Prince Thokmay and Sergeant Gyalpa stayed on horseback until they were
-over the crest of the hill, where the sergeant reined in Bucket so
-that the prince could slide off her back. "She'll never be able to
-carry both of us, will you, girl?" the prince said, speaking to
-Sergeant Gyalpa as much as to the horse. "Eh? Will you, girl?" he
-soothed, stroking the horse's neck. The weary animal just snorted.
-
-The prince patted her one more time, then looked up at his companion.
-The sergeant's jaw was clenched, and his frown showed pain as much as
-anger. "How is your leg?" Prince Thokmay asked.
-
-The sergeant straightened up a bit in the saddle. "Still a mess," he
-said. "I don't think it's broken, but the knee is in bad shape. Put me
-up against that tree over there, and go and get help. I'll be all
-right."
-
-"I think I'd rather have some company," the prince replied lightly.
-"Here, drink some of this." He passed his half-empty canteen up to the
-old soldier.
-
-As the sergeant drank, Prince Thokmay looked around. The sky above them
-was almost dark, but the land was still lit by a soft glow that came
-from nowhere and everywhere at once. On one side, the rocky slope led
-down to the churning field they had fled, beyond which was Carmick
-Hill and the road home. The other side led down to a narrow valley. A
-few trees grew near the small stream that ran along the its bottom.
-
-"D'you hear that?" the sergeant suddenly said. "The wind's dying
-down." He passed the canteen back to the prince, who tucked it into a
-saddle bag.
-
-"Do you think Mukh put the tornado back in its bag?" the prince
-asked.
-
-Sergeant Gyalpa snorted. "Not without that thing he was waving around,
-I'll wager," he said, satisfaction getting the better of pain in his
-voice for a moment. "I just hope the others are all right."
-
-"Me too," the prince said. He patted the horse once more, then put his
-helmet back on. "Come on. I think I see a path down there by that
-stream."
-
-They picked their way down the rocky hillside. It was bigger than it
-had seemed—it seemed that the further down they went, the further
-they had to go. Prince Thokmay walked in front, while Sergeant Gyalpa
-rode behind him with the reins in one hand and his sword laid across
-his lap.
-
-Neither of them spoke until they reached the floor of the small
-valley. The path turned out to be a narrow dirt road, and the stream
-to be so wide that some might have called it a river.
-
-"It's further than I thought," the prince said, looking back the way
-they had come.
-
-"It's all like that around here," Sergeant Gyalpa told him. He
-gestured with his sword toward a small clump of trees. "Twisted, like
-them. Something that looks like it's a hundred yards off can take you
-all day to get to. Or you can barely see it, but you ride for five
-minutes, and there you are. Sergeant Inambu said it's something to do
-with the way magic bends the light, and all." He shook his head. "I
-don't pretend to understand it."
-
-"Nor I." The prince pulled the canteen from the saddle bag and gulped
-the last of the warm water. "I thought about becoming a magician once,
-you know," he suddenly confessed. "After my visit to Stale. I
-thought that since I'd already had a taste of it, I might as well make
-it my life."
-
-"Why'd you decide against it?" the sergeant asked.
-
-The prince shrugged. "When Barramarrabee—His Majesty's chief
-magician—found out, he asked me if I really wanted to spend my life
-giving up things I cared about." The prince paused for a moment,
-looking along the length of the stream. "When he put it that way, I
-had to wonder. I asked him why anyone would ever become a magician."
-
-"And what did he say?"
-
-The prince shook his head. "All he said was that some people don't get
-to make as many choices as a prince." He shook out the canteen as he
-spoke, and bent over the stream.
-
-"Wait! What are you doing?" Sergeant Gyalpa asked sharply.
-
-The prince glanced up. "Filling the canteen," he said. "We're out of
-water."
-
-"Hold it by the strap," the sergeant ordered. "Don't put your hand in
-the stream. Just dip the canteen. Yes, like that."
-
-The prince lowered the canteen into the stream. Fat bubbles escaped
-from the mouth for a moment, and then the prince said, "What…?" The
-bubbles were trapped under the surface of the stream, as though there
-was a thin layer of ice on top of the water.
-
-He tried to lift the canteen from the water. It wouldn't budge. He
-lowered it slightly—it went deeper without any resistance. When he
-tried to raise it again, it simply wouldn't come up.
-
-"What's going on?" he asked, suddenly more afraid than he had been
-during the battle.
-
-The sergeant scowled. "We're in the Blight, that's what," he said.
-"Sometimes a stream is just a stream, and sometimes it's a live thing
-that'll pounce on you like that tiger your brother has, and
-sometimes…" He pointed at the canteen. "Sometimes it's greedy."
-
-"I could have put my hand in there," the prince whispered.
-
-"You could have," the sergeant agreed. "But you wouldn't ever have
-taken it out again. You'll probably want to stay out from under those
-as well," he added, pointing at the trees up ahead. "They might not be
-as smart as the ones around Lake Ormadine, but they can be meaner than
-wolverines."
-
-He winced suddenly as Bucket shifted her weight. "Is there anything we
-can do for your leg?" the prince asked, not caring that his voice
-broke. "Manpa showed me how to make a splint."
-
-The sergeant nodded, swallowing another pained grunt. "We'll cut your
-tent poles in thirds," he said. "And then we'll follow this stream. I
-think that way is starboard—the Trout's off there somewhere. If we can
-make it that far, we can get a raft to take us back up to Apple
-Bridge."
-
-The prince noticed that the sergeant said 'if', not 'when', but didn't
-comment. Instead, he wrestled his pack off Bucket's back, then took a
-hatchet from one of the saddle bags. The tent poles did double duty as
-braces for the pack. It took him a moment to untie the straps that
-held them in place, and then a few moments longer to cut them to
-length.
-
-That done, he helped Sergeant Gyalpa get down onto the ground. The
-sergeant had to lie down on top of Bucket, then swing his good leg
-over her back and slid down into Prince Thokmay's arms, trying as he
-did so to keep his good leg underneath him. Bucket whinnied, but did
-not step away, as the sergeant first sat, and then lay down, on the
-ground beside her. "Just—just straighten it at the knee," the
-sergeant gasped. "Yes, like that. Good jo-aagh. No, no, it's all
-right. It's all right. Try again. Use your weight. Urgh. Harder. No,
-go on, it's going to hurt either way, you might as well—urrrggh."
-Sergeant Gyalpa clenched his fists so tightly that the prince heard
-one of the joints crack.
-
-"All right, all right," the sergeant gasped a moment later. "That's
-straight enough. Put the poles down beside it. You're going to have to
-lift m' leg to get the rope under it. Yes, like that. Now, easy, both
-hands, just lift—no, no, both hands on my leg, just drop the rope
-underneath. Yes. And again. One more. Uuhhh… All right, now tie it
-all up. No, tighter than that. Don't worry about cutting off the
-blood. No, not like that. Where'd you learn to tie knots? Just cross
-it over and—here, let me."
-
-Sergeant Gyalpa had to prop himself up on one elbow in order to sit
-up. Prince Thokmay sat back and watched while the sergeant untied and
-then re-tied the last knots in the rope that held the splint
-together. His hands shook, but his grip was strong.
-
-When it was finally done, he looked up at the prince. "Thanks," he
-said. "You did well."
-
-The prince swallowed. He wanted to lie down in his bed back in Apple
-Bridge and sleep for a week, but instead he got to his feet. "Let's
-get you back up on Bucket," he said, putting the sergeant's arm around
-his neck as the older man struggled up onto his good leg. The sergeant
-pulled himself up onto Bucket's back until he was lying on his stomach
-in the middle of the saddle. Prince Thokmay helped him swing his good
-leg over to the other side of the horse, and then edge forward into
-the saddle. When it was done, the sergeant was back where he had been
-ten minutes before, but with six roughly-cut lengths of wood tied
-around his injured leg to hold it straight.
-
-They set off along the narrow road, the prince walking, the sergeant
-riding. Their conversation was sparse: "Watch out, that mud will be
-slippery," or "Put those branches on behind me, we can use them for a
-fire tonight."
-
-The prince guessed that they had covered four or five miles in about
-two hours when Sergeant Gyalpa finally said, "All right, we'll camp
-here for the night." The little valley had widened and flattened, so
-that there was twenty yards or so of level ground on either side of
-the road. There was grass, too, and a few blackberry bushes, and even
-a patch of reeds in the stream.
-
-"Is it safe to let Bucket graze?" the prince asked once the sergeant
-was down out of the saddle.
-
-Sergeant Gyalpa shook his head. "Not here," he replied. "You ought to
-have some oats and all in your—yes, good, give her that. Anything
-she eats from around here will probably poison her, or turn her into a
-frog." He tried to smile. "Can you see me riding on frogback?"
-
-"I can see us both riding on one of Noxy's clouds," the prince said,
-trying to match the sergeant's light tone. "It'd be softer than that
-saddle, and we'd be so high up that all of this would look like
-nothing more than a badly-drawn picture."
-
-The sergeant snorted. "Thanks all the same, but I'll take my chances
-down here," he said. "I know how to fall off a horse, but falling off
-one of those things…" He shook his head.
-
-The prince helped the sergeant onto the ground, then pointed at a
-clump of blackberry bushes a few yards from the road. "There are some
-branches over there. If you can stack the ones we have, I'll get some
-more. That ought to get us through the night."
-
-"Yes, Your Highness," the sergeant said.
-
-The prince stopped in his tracks, then turned slowly. The sergeant was
-looking at him expressionlessly. "That's the first time you've called
-me that since the tornado," the prince said slowly.
-
-"Is it, Your Highness? I'm sorry." The sergeant braced a branch
-against the stony ground and leaned on it until it snapped, then set
-the two pieces on top of two other, smaller pieces that he had already
-laid out. The result looked like a giant's wooden tic-tac-toe board.
-
-The prince took a deep breath. "I wouldn't mind if you didn't bother
-highnessing me, you know."
-
-The sergeant shook his head and broke another branch. "I'm sorry, Your
-Highness, but it might be a hard habit to break afterward, and that
-wouldn't be a good for the troops."
-
-The prince blinked. "So what's changed from three hours ago?"
-
-The sergeant looked up at him, still without any expression on his
-face. "Three hours ago, I didn't think I'd ever see any of the other
-troops again to set a bad example." He broke another branch in
-two. "Best get that firewood, Your Highness. I don't think it's going
-to get dark, but I can feel the cold coming on."
-
-Prince Thokmay nodded. He had felt the air growing cold as well. He
-took the hatchet from Bucket's saddle bag again and walked over to the
-blackberry bushes. They rustled slightly as he approached, even though
-there was no wind.
-
-"Easy, easy," he said softly. Somehow it didn't seem strange in this
-place to be talking to a plant. "I'm not here for you. I just want
-those old scraps of wood." He gave the bushes a wide berth, and
-started stacking the dried-up old sticks in his arms.
-
-He didn't notice the first flake of snow, or the second. It wasn't
-until one landed on his cheek that he looked up and realized that the
-air was full of tiny dancing white bits of fluff. "But it's the middle
-of summer," he muttered, exasperated. "Even here!" He picked up a few
-more pieces of wood and turned around.
-
-The snow was falling faster now, so thickly that he could barely make
-out the road. The flakes melted as soon as they touched the ground,
-but the air was getting colder by the second. "Sergeant!" the prince
-shouted. "Sergeant, can you hear me?"
-
-"Yes, Your Highness," the sergeant called. He sounded puzzled. "What's
-the problem?"
-
-"I can barely see you," the prince said, his voice breaking. In fact,
-he couldn't see the road at all.
-
-"What's wrong, Your Highness? Are you all right?" Prince Thokmay heard
-the sergeant grunt as he tried to get up.
-
-"No, wait, stay where you are!" the prince called. He brushed a
-handful of snow from his hair. "I just can't see through all this
-snow."
-
-It wasn't until the sergeant shouted, "What snow, Your Highness?" that
-Prince Thokmay felt afraid. He stumbled in the direction that he
-thought the sergeant's voice had come from. The snow wasn't melting on
-the ground any longer.
-
-"Sergeant!" he shouted. "Sergeant, have you got the fire going?"
-
-"Yes, Your Highness! Can you see it?"
-
-"No! Keep talking, I'll try to get to you!"
-
-"But Your Highness, I can see you!" Prince Thokmay had to strain to
-hear the sergeant's voice. The falling snow was muffling
-everything. With a shock, the prince realized that the hatchet had
-fallen out of his fingers. They had already become numb from the cold.
-
-"Tell me which way to walk!" the prince shouted back desperately.
-"Hurry!"
-
-"Straight ahead, Your Highness! No, no, left! Left! That's
-right. That's right, straight ahead! No, you're turning again!"
-
-"I am not!" the prince shouted back in frustration. "I'm walking in a
-straight line!"
-
-"Stay where you are!" the sergeant shouted. "I'll come and get you!"
-
-"No!" The prince paused for a moment. His teeth were chattering.
-Suddenly he had an idea. "Sergeant! Sergeant, can you hear me?"
-
-"Yes, Your Highness!"
-
-"Sergeant, I want you to put out the fire! Right now!" The prince
-dropped the armload of wood he was somehow still carrying and took
-another few steps through the knee-high snow. He couldn't feel his
-feet.
-
-"But Your Highness—"
-
-"Right now!" The prince almost screamed.
-
-There was no sound for a moment, then the sergeant shouted, "It's out,
-Your Highness. What now?"
-
-"Just keep talking!" the prince shouted, hoping he had guessed right.
-"Just… k-k-keep… t-t-t-talking!"
-
-The prince slogged forward another step, and another. Was the snow
-falling a little less heavily? He tried not to think about it. He
-remembered his uncle's stories about retreating through a blizzard
-from Ax Medicine during the Anuat rebellion thirty years before, then
-tried to push them out of his mind as well. Most of the other soldiers
-in his uncle's regiment had never seen Garheim-in-Garheim again.
-
-But a few heartbeats later there was no doubt: the snow was easing
-off, and the air was warming up. Prince Thokmay shouted, "Sergeant? Am
-I headed the right way?"
-
-"Yes, Your Highness. No, wait, turn right. Now go ahead. No, turn
-right again, and—hold on, Your Highness, stay right where you are."
-Something thumped to the ground a few feet away from the prince a
-moment later.
-
-"Can you see that?" the sergeant called. It was a saddle bag, with one
-of the tent's stay ropes tied to it. The prince stumbled forward and
-grabbed the rope. Its other end was knotted to another stay rope that
-led off through the snow.
-
-"I've got it!" the prince shouted. He trudged through the snow,
-holding onto the rope like a sailor holding a guide rope in a heavy
-storm.
-
-One moment Prince Thokmay was calf-deep in snow. The next, he was
-standing on the road with the rope in his hands. He blinked, then
-whirled around. The tied-together ropes stretched no more than ten
-yards to the saddle bag, which sat dumbly on the dry, stony
-ground. The wood the prince had collected was tumbled together a few
-yards from the bag.
-
-"But I—but it was snowing!" the prince mumbled.
-
-"I know," the sergeant said. "You're covered in it. And your hands!
-Your Highness, you're freezing! I'll get the fire—"
-
-"N-N-No!" the prince chattered. "Th-that's what st-st-started it, I
-think. The l-l-land was ang-ang-angry about th-the f-fire."
-
-"Well, it didn't react here, Your Highness," the sergeant said firmly.
-"And we have to get you warmed up. Sit down here."
-
-It only took Sergeant Gyalpa a few heartbeats to coax a small spark to
-life in a pile of tinder, and another few moments to get it to catch
-on a small branch. The prince watched miserably as the fire slowly
-spread through wood, which was still smoldering from the fire the
-sergeant had doused. Feeling slowly returned to his fingers and toes,
-and what they mostly felt was painful.
-
-He sniffled and wiped his nose. "I couldn't see anything," he said. "I
-mean, out there."
-
-"I couldn't either, Your Highness" the sergeant said. "You were just
-stumbling around, it looked like." He frowned. "I wonder… Sergeant
-
-Inambu said once that there were safe roads in the Blight. The Pilots
-built them so that they could cart stuff in to Fast Lake to dump
-it. Maybe this is what's left of one of those."
-
-"S-so are we headed in toward the lake, or out?" the prince asked. His
-voice cracked again.
-
-The sergeant shook his head. "I don't know, Your Highness. Direction
-doesn't mean a lot in here." He looked up at the starless sky. "I just
-wonder what's going to be waiting for us when we get out. Mukh must
-know he can't hold Apple Bridge for long, not even with a dozen
-tornadoes. He must be planning something, but what?"
-
-</section>
-<section markdown="1">
-
-## Chapter 14: The Other Side of the Mirror
-
-Noxy took the stairs two at a time, but slowed to a walk as she got
-closer to Sergeant Inambu's door. She knocked hesitantly, then pushed
-the door open.
-
-The room she stepped into was as large as her own, but seemed smaller.
-Half a dozen old pieces of furniture had been pushed against one wall
-and covered with sheets. A narrow cot lay under the window, next to a
-plain wooden desk and stool. The only decorations were a framed sketch
-of a run-down old farmhouse, and an oval mirror taller than Noxy
-hanging on the wall opposite the bed. A gentle breeze blew in past the
-open shutters on the room's single large window.
-
-"Sergeant Inambu?" Noxy asked the empty air, even though she could see
-no-one was present.
-
-"Noxy?" The cloudherd jumped and whirled around at the sound of a
-voice behind her.
-
-"Oh, I'm sorry, dear," Dolly said, patting her arm distractedly. "I
-didn't mean to startle you." The old troll looked around the room
-curiously, just as Noxy had done a few moments before.
-
-"It's all right," Noxy replied a bit shakily. "Have you seen Sergeant
-Inambu?"
-
-"No, I haven't. The soldiers downstairs said you'd come up to look for
-her."
-
-"I wonder where she's gone?" Noxy asked, puzzled. "She must have been
-completely exhausted by that spell she cast. But guess what Mope and I
-found out?" she added excitedly, suddenly remembering why she had come
-upstairs. "That bear, Rust—she bought blankets and biscuits and
-other stuff in the market a couple of days ago, and got a raft from
-some raccoons. Mope thinks it must have been to take Princess Ogmin
-down the river!"
-
-"Downriver?" Dolly gasped. "But—but then she could be anywhere by
-now!"
-
-Noxy felt awful as she saw tears well up in Dolly's eyes. She closed
-her eyes and mind-listened for a moment, then grabbed Dolly's
-shoulders in her hands. "Listen," she said urgently. "We can take
-Cloak. She's still not well, but if the tornado really is gone, and if
-we go slowly, it ought to be all right. Clouds heal pretty quickly,
-you know, especially young ones. Even if Rust has the fastest raft on
-the river, we ought to be able to catch up in an hour or two."
-
-Dolly stood absolutely still for a moment. When she spoke, the tone of
-her voice reminded Noxy of Sergeant Gyalpa. "All right," she said.
-"I'll get some clothes for her, and some proper food."
-
-"I'll wait here and tell Sergeant Inambu," Noxy nodded. The troll
-hurried away.
-
-Noxy took a deep breath. Cloak was feeling stronger—Noxy hadn't lied
-about that—and she really was a quick healer, but the injured cloud
-wouldn't be back to her full strength for at least another day. She
-could imagine what Grappa Diego or Aft would say if they ever found
-out…
-
-She was still worrying about it when the oval mirror next to Sergeant
-Inambu's cot went *bloop* and began to ripple, like a pond that someone
-had just thrown a pebble into. For one wild second Noxy was sure that
-she was dreaming, that the whole day must have been just a dream.
-Without thinking she took a step forward. "Ouch!" she whimpered as she
-banged her shin against one of the old dressers standing next to the
-wall. She lost her balance stumbled down onto one knee.
-
-Just as she did so, the mirror went *bloop* again. Mukh toppled out
-into the room and collapsed in a heap on the floor, a small leather
-backpack clutched in one hand.
-
-Noxy's body reacted before her mind had a chance to get in the way.
-She ducked under the sheet that was draped over the dresser she had
-just banged her shin against and flattened herself on the dusty wooden
-floor.
-
-She lay there, afraid to move, afraid even to breathe, until she heard
-the skinny smuggler groan and get to his feet. "Inambu?" he whispered
-loudly. "Inambu, girl, where are you? Eh?"
-
-Noxy saw the smuggler's feet under the edge of the sheet as he tiptoed
-past the her to the door. The door's hinges creaked slightly as he
-pulled it closed. As he walked back toward the mirror, Noxy noticed
-that his boots didn't match. One was dirty brown, and worn down at the
-heel, while the other had a delicate pattern of copper buttons
-stitched around the sole, and looked like it had just been
-polished. *I can guess where you came from,* she thought.
-
-Sergeant Inambu's cot creaked as the smuggler sat down on it. Noxy's
-mind raced. Dolly would be back any moment. If she found Mukh, the
-smuggler would have to—
-
-The door creaked open. "Ah, finally!" Mukh said. Noxy heard him get
-to his feet. "I was just wondering if I should go down to the kitchen
-and see about some dinner."
-
-"They'd feed you your own ears if you did," Sergeant Inambu said. Noxy
-could hear the weariness in her voice. "Do you have any idea what that
-monster of yours has done to this town?"
-
-"Oh, they needed an excuse for a good clean-up anyway, didn't they?"
-Noxy saw Mukh's mismatched boots again. He stopped a few feet in
-front of Sergeant Inambu. "I'm more worried about what it did to
-*you*," he said, doing his best to sound concerned.
-
-"Nothing good," the sergeant replied shortly. She made to step past
-the smuggler, but he stepped into her way. Their boots were almost
-toe-to-toe.
-
-"Let me look at you…" he said softly. There was a pause, and then
-
-Noxy heard him say, "Oh, Inambu. Inambu, girl—you shouldn't have done
-this. Not this. Not for them."
-
-"You didn't leave me much choice," the sergeant replied. "There would
-have been nothing left of this town but mud by the time it was done."
-
-"But girl, there's not even going to be mud left by the time we're
-done. You know that!" Mukh sounded amused.
-
-Sergeant Inambu was silent. "And I'm afraid that's the bad news I'm
-here to give you," the smuggler continued. "I'm not going to be able
-to finish this on my own. I'm going to need your help."
-
-Sergeant Inambu snorted. "Mine? Look at me, Mukh—look at me. Here,
-would you like one as a souvenir?"
-
-"Shh, shh," Mukh said soothingly, even as he stepped back. "Don't do
-that. Don't pull at them. Just leave them alone. We'll be done soon,
-done for good, and then you can just magic yourself up a whole new set
-of teeth." He stepped forward again. Noxy heard a rustling sound as he
-hugged the sergeant.
-
-*If the door wasn't closed, I could get past them now,* Noxy thought.
-*Oh, Dolly, be careful…*
-
-"What happened, anyway?" Sergeant Inambu asked.
-
-"Turns out the Blight didn't like us much," Mukh replied. "And after
-all we're going to do for it—shows you what kind of gratitude you
-can expect from dirt and rocks, eh?" He sighed. "The bad news is that
-Old Musclebrain managed to knock the spirit trap out of my hands. I'm
-sorry, girl, but it's gone—the land swallowed it up." He made a
-gulping noise to illustrate. "We're going to have to do this the hard
-way."
-
-There was a moment of silence. "What do you mean?" Sergeant Inambu
-asked hollowly, as if she already knew the answer, but still had some
-hope that she was wrong.
-
-"I mean you're going to have to break the spells on the dam yourself,"
-Mukh said. "No, listen, listen to me," he added urgently, answering
-some look that Noxy couldn't see. "Just listen. You can do it, I know
-you can. It doesn't matter how much it takes out of you, not this
-time. Once we can get to the lake and back out again without turning
-into dust, you'll have all the magic you've ever wanted, all the magic
-you've ever dreamed of. It'll be just those stories Dad used to
-tell. You'll have the power of the stars, the wind, the, the, I don't
-know, the whole *ocean*! But you have to break that dam. Inambu, you
-have to. We're so close."
-
-"I can't," the magician told him faintly. "Not now. There are five
-different spells that have to be cast. The guards would stop me before
-I was halfway through the first one."
-
-"Well, if that braying little donkey of a prince had taken the whole
-troop with him, that wouldn't be a problem," Mukh snarled. "Can you
-order them away? Can you, I don't know, can you send them to look for
-what's-her-name, the girl?"
-
-"I could…" Sergeant Inambu said slowly. "Or I could have them help
-clear up the mess your tornado made. If I gave them their orders in
-ones and twos, they wouldn't realize the dam's been left unguarded."
-Noxy saw the sergeant's feet walk over to the cot, and heard it creak
-as she sat down. "I'm just so tired…"
-
-Noxy held her breath, then sloowwwwly slid forward so that she could
-peek under the sheet and see what was happening in the room. Mukh
-was fishing around in his pack. Sergeant Inambu was looking at her
-reflection in the mirror he had come through. Finally Mukh said,
-"Aha!" He pulled a small black cloth bag out of his pack, loosened
-the drawstring, and pulled out a clear glass marble.
-
-He frowned at it. "Almost empty, almost," he muttered. He sniffed at
-it, then held it out to Sergeant Inambu. "Do you think there's enough
-left for another trip?" he asked.
-
-"I don't know," the sergeant said dully.
-
-"Hmph." Mukh up-ended the bag and shook it out onto the desk. He
-picked up one of the pebbles that rattled onto the desk, sniffed at
-it, then licked it as if it were a piece of candy. "Nope," he said. He
-picked up another. "Definitely not. Ah, here we are." He showed
-Sergeant Inambu the pebble he had selected. "The back wall of the old
-farmhouse. Remember how we used to hide there when it was time to do
-chores?"
-
-"Did we?" Sergeant Inambu said, sounding for a moment like the little
-girl she had once been, back before the Blight took her home away from
-her. "I wish—I wish I could remember."
-
-"I'll do the remembering for both of us," Mukh promised. "For as
-long as I have to. But that won't be much longer, will it?"
-
-Sergeant Inambu blinked and heaved a deep sigh. "What are you doing?"
-she asked, as if waking from a deep sleep.
-
-"We can't take any chances, not now," the skinny smuggler said. He
-showed her the marble and the pebble he had selected. "I told them
-all, if we got separated, they should make for the farmhouse. The
-land's pretty quiet around there, and slower than most of the Blight."
-He snorted a laugh. "Dad did that much right at least."
-
-He closed his hand into a fist. "Tell your troops you've found out by
-magic that we're riding on Apple Bridge. Tell them, I don't know, tell
-them you had a vision when you were fighting the tornado, but you only
-just remembered it. Whatever you say, make sure you send them along
-the south road. The *south* road, all right? We'll wait for them where
-the road comes around what used to be Aunt Angela's place."
-
-Sergeant Inambu sighed again. "Do we have to?" she asked.
-
-"No," the smuggler said uncaringly, "But it's the safest card to
-play." He leaned over and kissed her cheek. "I'll see you when it's
-over," he said. "And I promise, it'll be over soon."
-
-He straightened up, shouldered his pack, and tossed the marble and
-pebble underhanded into the mirror. Instead of bouncing off, they made
-a slight *gloop*. Once again ripples spread across the mirror. Mukh
-stepped into them and disappeared.
-
-Sergeant Inambu waited a few seconds, then stood up, crossed over to
-the desk, picked up her sword, and drew it. "You can come out now,
-Noxy," she said quietly.
-
-Noxy held her breath, but didn't move. Sergeant Inambu waited a second,
-then flipped the sheet up with her sword. "I saw you in the mirror,"
-she said tiredly. "Now come out. And please, don't try to yell." The
-sergeant hefted the sword. "It's been a while since I had to use one
-of these, but you know what they say—once you learn, you never
-forget."
-
-Noxy edged out from underneath the dresser. As she did so, Sergeant
-Inambu stepped sideways to stay between Noxy and the door.
-
-They studied each other for a few heartbeats while Noxy dusted herself
-off. Sergeant Inambu spoke first. "Aren't you going to ask me why?"
-
-"I really don't care," Noxy said bitterly. "All I care about is that
-you're going to hurt a lot of people. A *lot* of people. And my cloud,
-too."
-
-Sergeant Inambu smiled faintly. "And all I care about is what's under
-Fast Lake. Mukh's shown me things, things I never knew were
-possible. He found a spirit trap, just a hoop of copper with some
-wires on it. Do you know what it did? It let the person a spell was
-*for* pay for it, instead of the person casting it. Just think what
-that would mean! Just think what it would be like to be able to do
-magic without—without—" She put her hand to her mouth and
-tugged. "Without this!"
-
-Noxy looked away from the tooth that Sergeant Inambu was holding out.
-"And that's worth killing everyone in Apple Bridge?" she asked.
-
-"That's worth anything," Sergeant Inambu said, without hesitation,
-without a trace of doubt in her voice. "Justice is worth whatever it
-costs."
-
-"Justice?" Noxy gasped in outrage. "Where's the justice in killing
-innocent people!?"
-
-"Where's the justice in magicians having to scrape themselves down to
-the bone, year after year, for other people's sake?" Sergeant Inambu
-snapped back. "And where's the justice in spending your whole life
-just trying to keep a lid on some garbage that some magician who was
-dead two hundred years before I was born couldn't be bothered to clean
-up for himself?" She gestured with the sword at the cot. "Now *sit
-down!* I have work to do, and I can't have you running around getting
-in the way."
-
-Noxy crossed her arms. "What are you going to do? Put me to sleep for
-a hundred years?"
-
-"No," Sergeant Inambu said, tired again. "I'm going to tie you up. I
-can't afford to waste any magic putting a spell on you right now."
-
-Noxy edged over to the cot and sat down. Without looking away from
-her, the sergeant reached down to open her kit bag, then pulled out a
-coil of heavy twine. "Put out your hands," she ordered Noxy. "On
-second thought, stand up, so that I can—"
-
-The door burst open with a bang. Sergeant Inambu whirled around,
-raising her sword, but Dolly ducked under it. Before Noxy could fill
-her lungs to scream, Dolly grabbed her by the waist, slung her over a
-shoulder, and leaped through the open window.
-
-"Hang on!" Dolly yelled. Noxy caught just a glimpse of the ground
-beneath her, far beneath her, then went *oomph!* as Dolly caught a
-branch of one of the apple trees that grew next to the garrison house
-and swung them around. Something sizzled behind them as Dolly grabbed
-another branch, then half-slithered, half-slid down the tree onto a
-shingled roof.
-
-"Stop! Stop!" Noxy shouted. "We're—ooph!—we're far enough away!"
-
-Dolly slowed, then put Noxy down and collapsed in a heap. "I'm too old
-to be doing things like that," she wheezed. "As a matter of fact, now
-that I think about it, I don't think I was ever young enough."
-
-"Did you hear them? Did you?" Noxy demanded.
-
-Dolly nodded. Noxy could hear the old troll's breath rasping in
-and out. "Just…just the last bit. About…about sending the soldiers
-away."
-
-"We have to stop them!" Noxy said. "They'll—"
-
-"How?" Dolly gasped.
-
-Noxy opened her mouth to say, "We'll tell the soldiers," then closed
-it again. Dolly was right. It would be their word against Sergeant
-Inambu's.
-
-"What—spell—" Dolly tried to say.
-
-"It's all right, don't talk," Noxy said to her, suddenly concerned.
-The old troll's eyes were wide, and Noxy could see her chest
-heaving. She reached out impulsively and put her arms around her
-rescuer. "Thank you," she said softly, hugging Dolly.
-
-Dolly just nodded. Gradually her heartbeat began to slow down. "What
-if she casts a spell on us?" she finally managed to say. "With a
-hairbrush, or—"
-
-"She doesn't have the strength," Noxy said, trying to sound more
-certain than she felt. "She needs it all for the dam. But we have to
-do something to stop her. We have to save the town!"
-
-Prince Thokmay and Sergeant Gyalpa took turns sleeping through what
-passed for night in the Blight. They didn't re-light the fire. It was
-so cold by the time morning came that the prince shivered through the
-whole of his last watch.
-
-"It's cold, isn't it, Your Highness?" Sergeant Gyalpa finally said
-without opening his eyes.
-
-"I've been colder," the prince chattered, "Up in the mountains. But
-not by much."
-
-This time Sergeant Gyalpa did open his eyes, and sit up. He rubbed his
-knee for a moment, then settled back on his elbows. "What was it like,
-Your Highness?" he asked. "If you don't mind my asking."
-
-"I didn't feel any different afterward, if that's what you mean,"
-Prince Thokmay said. "It's probably easiest to show you." People had
-asked him that question a hundred different ways in the four years
-since his return from Stale. His answers had always seemed
-inadequate. The magician Barramarrabee had finally taken pity on him,
-and given him something to help explain.
-
-He fished around in his pocket for a moment and pulled out a loop of
-string. "I think this is the right one," he said, handing it to the
-sergeant.
-
-Sergeant Gyalpa looked at suspiciously. "What is it?"
-
-"It's a knot that can't be untied," the prince told him. "The wizard
-Shuqang made it, a long time ago. One of the magicians at court gave
-it to me."
-
-The sergeant examined the knot. "Doesn't look hard," he hedged. "Just
-a half-snake under."
-
-"Go ahead, try it," the prince urged.
-
-Sergeant Gyalpa raised his eyebrows, then took off his gloves and
-started to untie the knot. At least, that's what he set out to do.
-Somehow, though, he dropped the string as he was taking off his left
-glove. He had to hunt around a second to find it. When he picked it
-up, it caught on a button on one of the side pockets of his
-trousers. When he tried to tug it free, it slipped through his
-fingers. He cursed under his breath and picked it up again more
-carefully.
-
-A couple of minutes later, he had finally managed to get a firm grip
-on the string using both hands, only to find that he didn't have any
-fingers left to untie it. "It really doesn't like me, does it?" he
-said in exasperation, and then added, "Your Highness."
-
-"No, it doesn't," the prince agreed. "And if you hung it from a nail,
-and tried to work on it that way, you'd stumble and bang your head.
-That's how I got this." He pointed at a small scar on his forehead.
-"It's not that the knot is difficult, it just…can't be untied." He
-looked straight at the sergeant, holding the man's eyes for a moment
-as Mope had taught him. "That's what it was like. Nothing changed,
-except that I could never be king."
-
-Neither spoke for a few moments. The emptiness of the twisted land
-around them seemed to fill every space, every silence. "What was it
-like for you?" the prince finally asked. "I mean, growing old so
-quickly."
-
-The sergeant cleared his throat. "Doesn't feel special," he said after
-a moment's reflection. "I guess anyone who's a soldier gets old too
-fast, whether they're in the Blight or not."
-
-They traveled as before. Sergeant Gyalpa rode on Bucket, while Prince
-Thokmay walked along beside them. They saw mud and rocks, bushes and
-trees, but nothing that moved except an occasional bird, far in the
-distance. Prince Thokmay tried to count his footsteps to keep track of
-how far they had come, but kept forgetting whether he was in the three
-hundreds or five hundreds. He supposed it didn't really matter in the
-Blight anyway.
-
-He was startled out of his bleak daydream by Sergeant Gyalpa's voice.
-"Look, Your Highness," the sergeant said, pointing. It took Prince
-Thokmay a moment to realize that all the sergeant was pointing at was a
-few brown blades of grass, and a lone dandelion.
-
-"Is it dangerous?" the prince asked.
-
-Sergeant Gyalpa laughed. "No, Your Highness. It's just a plain old
-dandelion. They don't grow in the deep Blight. They don't like the
-magic." The sergeant scanned the hills around them. "We must be coming
-out of it, but I don't recognize where we are."
-
-They saw the next dandelion ninety-two paces later. There was another
-thirty-six paces after that, and another after that. Slowly,
-grudgingly, the rocky brown earth let normal life take hold. The
-prince couldn't help but grin the first time he saw a startled rabbit
-streak away from them.
-
-The sergeant noticed his grin. "It's always good coming out of there,
-Your Highness." He tipped his head back slightly and sniffed. "And is
-that water I smell?"
-
-Bucket sped up as they crested a small rise. The road ran down on the
-other side to the roofless ruins of a one-room mill on the banks of
-the slow-moving Trout. A stand of apple trees had gone wild near what
-was left of the mill's walls. A few brown logs poking up out of the
-river like rotten teeth showed where the mill's loading dock had been.
-
-Sergeant Gyalpa let Bucket follow her head down the hill and into the
-trees. As she bit an apple off a low-hanging branch, he clambered out
-of the saddle and put his arm around Prince Thokmay's shoulder. "It'll
-be safe to light a fire here, Your Highness," he said, wincing as they
-shuffled over to what was left of the mill building. "Then we can
-figure out how we're going to get back to town."
-
-They were just a few feet away from the building when Prince Thokmay
-heard Bucket snort, then neigh loudly. "Back me!" Sergeant Gyalpa said
-loudly, taking his arm from the prince's shoulders, drawing his sword,
-and turning to his right, all at the same time.
-
-Prince Thokmay drew his own sword and turned to his left, so that he
-and the sergeant were facing in opposite directions. "What's
-happening?" he whispered loudly.
-
-"Something's up there," the sergeant said shortly. He stood
-motionless, searching the mill, the river bank, and the knee-high
-summer grass with his eyes. "Can you see anything in the trees?"
-
-The prince swallowed. "No," he said, trying to match the sergeant's
-calm tone. "Nothing except Bucket."
-
-"Stay with me," the sergeant ordered the prince. He half-hopped,
-half-limped forward. Prince Thokmay stepped backward to stay with him,
-keeping his sword in front of him and holding his left arm straight
-out from his side for balance.
-
-"RRAAAAWWWWRRR!!" Rust charged at them from around the corner of the
-old mill. The prince whirled around as Sergeant Gyalpa cursed, hopping
-to keep his balance. She batted Sergeant Gyalpa's sword out of his
-hand, then reared up on her hind legs as the sergeant toppled
-backward, cursing.
-
-"Throw it on the ground!" she snarled to the prince. "Now!"
-
-"Keep back!" he shouted at her. He lunged at her belly. Too late, he
-realized that she had tricked him. She stepped nimbly aside and batted
-his head with her paw. The blow knocked him flat.
-
-He lay there for a moment in a daze with the world swimming around
-him. It steadied and came back into focus. His head started to pound
-at the same moment.
-
-"Your Highness, are you all right?" The sergeant rolled over and
-dragged himself over to Prince Thokmay.
-
-"He's all right," the bear rumbled. She had dropped back onto all
-fours. She sniffed at them, then lumbered over to the prince's sword
-and carefully picked it up in her jaws. She set it down against a
-stone and stepped on it. The sword bent slightly, then snapped with a
-sharp *crack!* A moment later, the sergeant's sword made the same
-sound.
-
-Sergeant Gyalpa helped the prince sit up. "What are you doing here?"
-he mumbled.
-
-"I was about to ask you the same question," the bear said. She glanced
-over at the stand of apple trees, from which Bucket was nervously
-watching them. Rust bunched her shoulders and charged at the horse
-with another huge roar. The horse turned and galloped away.
-
-"Stupid animals," Rust muttered under her breath, watching the horse
-disappear over the top of the hill. "None of 'em have ever been
-gifted, did you know that?"
-
-Prince Thokmay stood up as she approached. "Where's my sister?" he
-demanded. "What have you done with her?"
-
-"She's down by the river," Rust said, then snarled, "No!" as the
-prince made to dodge around her. She nodded her head ponderously at
-the sergeant. "Help him up. We all go together. And we all go
-*slowly*, you hear? Slowly."
-
-Even if the bear hadn't been two watchful steps behind him, Prince
-Thokmay couldn't have gone quickly with Sergeant Gyalpa's arm around
-his shoulder. The sergeant seemed much less steady than he had been
-before the bear had ambushed them. Prince Thokmay hoped he was
-exaggerating his lameness.
-
-They came around the corner. A sturdy-looking river raft was
-half-hidden in the brambles that had grown up against the side of the
-mill, where the door to the loading dock had once been. And on the
-raft—
-
-"Ogmin!" Prince Thokmay cried. His sister was sitting in the middle of
-the raft next to a crude lean-to. She had drawn up her knees and
-buried her face in them. She still had her nightdress on, and a
-too-large coat and a ragged pair of boots that looked like some poor
-beggar's cast-offs. Nothing was left of her long, beautiful hair
-except stubble.
-
-At the sound of her brother's voice her head shot up. "Thokmay!" she
-cried. "Oh, Thokmay!"
-
-Without thinking Prince Thokmay shook off Sergeant Gyalpa's arm and
-started to run. He only got a few paces before Rust butted him in the
-back with her head and sent him sprawling.
-
-He heard Ogmin scream as he rolled onto his back and looked straight
-into Rust's angry eyes. She stood over him with one paw on either side
-of his head. Her breath was hot and wet and foul on his face. "I said
-*slowly*," she said menacingly. "I won't say it again."
-
-Prince Thokmay gulped. The bear's jagged teeth were yellowish near
-their roots, but gleaming white at the points. "I'm sorry," he said
-weakly.
-
-"Rrrmmm," the bear rumbled. She shuffled sideways so that he could get
-up. "Now get up. It's time for dinner."
-
-Somehow Prince Thokmay helped Sergeant Gyalpa slosh through the
-knee-deep water to the raft. The prince scrambled up onto the raft and
-embraced his sister. "Oh, Ogmin," he said, hugging her fiercely. "Are
-you all right?"
-
-"I'm sc-scared," his sister said, tears running down her cheeks as she
-held him tight. "I tried not to be, but I couldn't help it."
-
-"Sh, sh, sh," he whispered in her ear. "It's all right. It's all
-right. I'm not going to let anything happen to you." He took a
-half-step back to look at her.
-
-Ogmin dropped her eyes. "They—they cut off all my hair," she
-whispered desolately. "I told them Dolly would be mad, but they did it
-anyway."
-
-The prince felt tears welling up in his own eyes, but blinked them
-away. "It's all right," he said fiercely. "You just watch—the day
-after we get back to Apple Bridge, everyone will have cut their hair
-just as short as yours."
-
-"But I don't want to go back there," Princess Ogmin said. "I hate it
-there. I want to go *home!*"
-
-"So do I," Prince Thokmay whispered. He gave her another hug. "So do
-I. But we can't, not just yet."
-
-Sergeant Gyalpa cleared his throat. "Your Highness…?"
-
-"Yes?" Prince Thokmay said, without letting go of his sister or turning
-around.
-
-The raft suddenly dipped to one side as Rust scrambled up onto it.
-Princess Ogmin shrieked. Prince Thokmay stumbled, then straightened up.
-
-"You," Rust said to Sergeant Gyalpa. "Get off."
-
-"No," the sergeant replied flatly. "I'm staying with Their Highnesses."
-
-The bear snorted. "You can get off and wait for your horse to come
-back, or I can knock you off. It comes to the same thing either way."
-
-Sergeant Gyalpa's face reddened. "I will *not* leave!" he shouted.
-
-"Do as she says, Sergeant," Prince Thokmay ordered tiredly as the bear
-growled deep in her throat. "She's right—if she doesn't want you on
-board, one way or another you're going to get off. That's an order,"
-he added, as the sergeant took an angry breath. "When Bucket comes
-back, I want you to ride for Apple Bridge and get help."
-
-"Yes, Your Highness," the sergeant said stiffly. He hesitated, then
-saluted. "It's been a pleasure to serve you, sir." For a moment he
-looked as though he wanted to say something else as well, but the
-moment passed. He slid awkwardly off the raft into the river.
-
-"Sergeant!" the bear called. Sergeant Gyalpa turned around.
-
-"Push us back out into the current before you go," the bear ordered.
-
-For a moment Prince Thokmay thought the sergeant was going to climb
-back up on the raft and try to strangle Rust with his bare
-hands. Instead, he looked up at the prince. "Your Highness?" he asked.
-
-"Do it," Prince Thokmay told him. "And good luck getting home."
-
-"Thank you, Your Highness." The sergeant braced his shoulder against
-the raft and pushed with his good leg. The raft barely moved. Sergeant
-Gyalpa took a deep breath and grunted as he shoved again. This time
-the raft shifted slightly. A third push got it clear of the
-brambles. It slowly gained speed as the river current began to pull it
-along. Sergeant Gyalpa stood there with the river lapping at his
-thighs until the main current of the Trout caught the raft and took it
-away. Then he struggled back to the bank and started calling for
-Bucket.
-
-Prince Thokmay resisted the urge to wave as the sergeant dwindled into
-the distance behind them. Instead, he put his arm around his sister.
-Princess Ogmin sniffled again and laid her head on her brother's
-shoulder.
-
-"Don't worry," Prince Thokmay whispered in her ear. "Sergeant Gyalpa
-will get help. We'll be all right."
-
-The raft swayed again as Rust sat down on her haunches next to the
-lean-to in the middle. "There's food in there," she said, waving a paw
-at the shaky-looking structure. "And blankets, if you're cold."
-
-"Thank you, that's very kind," the prince said icily. "I suppose it
-would be too much to ask for a change of clothes and a hot bath as
-well?"
-
-The bear's nose twitched. "I only planned on having the princess along
-on this trip," she warned the prince. "If you don't mind your manners,
-I might decide that was still the best idea."
-
-The prince bit off an angry response. "Why don't we sit up at the
-front?" he said to Princess Ogmin. "We can play 'I Spy' if you want."
-
-"I don't want to play," she whined, but followed her brother up to the
-front of the raft.
-
-"How about I go first?" the prince said lightly. "I spy, with my
-little eye, something that is—"
-
-"Bears can swim, you know," Rust interrupted from behind them. "We can
-swim pretty well. Even if you could make it to the shore ahead of me,
-your sister probably couldn't."
-
-The prince sat silently for a moment, then put his arm around his
-sister again. "All right," he said. "If you don't want to play, we
-don't have to."
-
-"I'm hungry," Princess Ogmin said after a few minutes.
-
-Prince Thokmay twisted around. "Can I get her some food?" he asked
-Rust.
-
-The bear shrugged. "Why not?" She wrinkled her nose again. "The
-biscuits are in the brown bag, and the apple sauce—"
-
-"—is in the jars," the prince finished for her. He knelt down in
-front of the lean-to and pulled out the biscuit bag and two jars of
-apple sauce. A pair of heavy blankets were crumpled together to make a
-Ogmin-sized nest under the lean-to. A small straw doll lay beside
-them.
-
-Prince Thokmay picked up the doll. "What's this?" he asked.
-
-The bear shifted uncomfortably. "I thought it would keep her quiet,"
-she said.
-
-"Hm." Someone had pulled a few strands of straw part-way out of the
-head to give the doll some spiky hair. Prince Thokmay felt tears sting
-his eyes again. He gently laid the doll back by the blankets.
-
-He sat down cross-legged and laid some biscuits out on his
-leg. "You're acting more like a nurse than a kidnapper," he observed
-as he spooned some apple sauce onto the biscuits. "From what we saw of
-your friend Mukh, I would have expected you to be…rougher."
-
-A rumble came from deep in the bear's throat. For a moment Prince
-Thokmay was reminded of the sound that Kulbinder made when he smelled
-something that he didn't like. "He's not my friend," Rust said. "We
-were just business partners, that's all."
-
-"Business partners," the prince echoed neutrally, careful not to look
-up. Mope had taught him this, as well—how to leave silences for
-other people to fill.
-
-The bear rumbled again. "He needed eyes and ears in Apple Bridge, and
-someone to buy supplies for him with the money he got for the things
-he brought out of the Blight. I needed the princess. It seemed like a
-good exchange."
-
-"You needed the princess," the prince repeated. "Why didn't you need
-me?"
-
-The bear snorted. "How would I have gotten you?" she asked. "Mukh's
-magic was good enough to get the princess out in the middle of the
-night, but it wouldn't have worked on an adult."
-
-"She's an adult," the prince said angrily, then cut himself off.
-
-He thought furiously as he spooned some more apple sauce. "Why did you
-leave Sergeant Gyalpa behind?" he asked, handing Princess Ogmin a
-biscuit. The princess made a face at it, but took it and bit into it
-anyway. Prince Thokmay supposed that she had been eating a lot of
-biscuits and apple sauce recently.
-
-"Why would I bring him?" the bear replied. "Nobody cares enough about
-him for him to be a good hostage."
-
-"Bringing him along wasn't the only other option," the prince said,
-swallowing a mouthful of biscuit himself. He looked over at the bear.
-
-She studied her paws for a heartbeat. "No sense killing unless you
-have to," she said. She raised her head to meet the prince's
-eyes. "It's something humans would do well to learn," she added
-bitterly.
-
-The prince looked away first. "Probably," he said. "But I don't see
-how kidnapping us is going to teach them." He handed his sister
-another biscuit. She sat on the edge of the raft and scraped the apple
-sauce off it with her finger, then licked the sticky goop off her
-finger as the river bank went by.
-
-"I don't expect it to," the bear said. "But it will teach animals that
-they can fight back if they really want to. It will show them that
-they don't have to live by laws that humans have made, or stay in the
-cages that humans have put them in."
-
-"I don't remember ever seeing a gifted animal in a cage," the prince
-said. "Not in Loghan, anyway."
-
-"Some cages aren't easy to see," the bear told him, settling back on
-her haunches. "I've been trading in Apple Bridge for almost twenty
-years, but I still have to ask for permission to set up my stall each
-time I come to town. Human traders are allowed to come and go as they
-please. Every noble household in the Marches hires gifted animals,
-but how many of those animals ever become nobles themselves?"
-
-"How many of them would want to?" Prince Thokmay asked, frightened
-slightly by the anger in the bear's voice. "It's not as much fun as
-most people think."
-
-"Rrrr…" Princess Ogmin jumped at the bear's angry growl and looked
-at her brother fearfully. He patted her shoulder with his hand, but
-didn't take his eyes away from the bear. "That's what your kind always
-say," Rust sneered. "Oh, poor us, what we do is so hard, it takes so
-much out of us. The world is better off just letting us run
-things. Well, do you know what's hard, Your Highness?" The bear almost
-spat the last two words. "What's really hard is watching your son run
-through with a spear for sport, and knowing that the *humans* who did
-it went off and bragged to their friends that night at dinner about
-what a good day's hunting they'd had."
-
-"If someone murdered your son, why didn't you find a judge and have
-them brought to trial?" the prince asked. "Even in Garheim, they
-would—"
-
-"Because killing ungifted animals isn't murder!" the bear
-snarled. "Not according to human law. It doesn't matter if their
-parents are, or if their parents love them. If an animal can't speak,
-it's fair game for any featherless chicken with time on his hands and
-a taste for blood."
-
-She pointed at Princess Ogmin, who had covered her ears with her
-hands. "But it would be murder if I did to her what your kind did to
-my son, wouldn't it? Why is killing an ungifted animal not a crime,
-but killing an ungifted human is?"
-
-The prince gaped at her, his mind whirling. "But you can't—she's not
-ungifted!" he exclaimed. "It's not the same thing!"
-
-"Oh no?" the bear asked grimly, settling back on her haunches. "Then
-why does she have a nursemaid, instead of a tutor like you do?"
-
-"You're mad," the prince said flatly.
-
-The bear snorted. "I live in a mad world. But I think a lot of other
-animals will start to see it a little more clearly once I show them
-how to look at it."
-
-The prince's mouth had gone dry. "I don't believe you," he said
-steadily. "If you were really going to murder my sister, you would
-have done it by now."
-
-"Rrrr…" Rust scratched her neck. "Shut up and eat your apple
-sauce. I'm tired of talking to humans."
-
-The prince studied her face carefully. "That's what you meant to do,
-isn't it?" he said slowly. "But you couldn't. You couldn't give her a
-doll to sleep with, then… then…"
-
-"I said shut up!" the bear growled. The prince shook his head, then
-turned around and put his arm back around his sister.
-
-</section>
-<section markdown="1">
-
-## Chapter 15: A Trap Is Sprung
-
-Noxy's feet dangled in the air. "Is it all right, dear?" Dolly asked.
-
-"Yes," Noxy said breathlessly. "You can let go."
-
-The troll released her arm. She dropped into the alley with an
-*oomph!* Dolly landed down beside her a moment later.
-
-"Are you hurt?" she asked in a concerned voice.
-
-"Just… winded…" Noxy gasped. She gave herself another moment, then
-stood up and brushed the dirt from her knees. "Come on."
-
-They crept as quietly as they could through the narrow alley toward
-the rear courtyard. Shouts came, and they froze, but it was just a
-couple of soldiers who needed help moving an uprooted tree.
-
-Noxy almost jumped out of her skin at the sound of three sharp whistle
-blasts. The sound was so loud that she and Dolly both clapped their
-hands over their ears. Noxy looked around wildly, sure that the
-whistle blower had to have been right behind them, but no-one was
-there.
-
-"What was that?" Dolly asked fearfully.
-
-"I don't know," Noxy said. "But we're almost there." She closed her
-eyes and mind-spoke to Cloak, calming the nervous cloud.
-
-They had only gone another few steps when they heard shouts and
-commotion behind them. Noxy hesitated, then put her finger to her lips
-to signal 'quiet' and crept back the way they had come. By the time
-she reached the other end of the alley, two squads of soldiers were
-already lined up in the main courtyard. More came running into their
-places as she watched.
-
-Sergeant Inambu stood in front of them with her head and shoulders
-bowed. She was leaning on a walking stick, and seemed oblivious to
-the noise around her. *She must have used magic to make her whistle
-louder,* Noxy thought.
-
-"Oh no!" Dolly whispered, peeking around Noxy's waist. "She's going to
-send them out to be ambushed, like she said!"
-
-"We have to stop her!" Noxy said.
-
-"Wait, no!" Dolly hissed, grabbing Noxy just as the cloudherd started
-to step out of the alley. She pulled Noxy back a few paces and spun
-her around. "Who do you think they'll believe, us or her?"
-
-"But we have to try!" Noxy pleaded. "The smugglers will kill them!"
-
-"They'll believe their sergeant before they'll believe an troll
-and a foreign girl," Dolly said resignedly.
-
-When Sergeant Inambu spoke, her voice was too weak to carry to the
-alley. All Noxy and Dolly heard were a few disjointed words:
-"…hill… call… help… wounded… quickly…" Then the soldiers
-saluted and ran for the stables, leaving the sergeant standing alone
-in the middle of the courtyard.
-
-"Come on!" Noxy hissed. Once again Dolly had to grab her and hold her
-back.
-
-"What do you think you're doing?" the troll asked. "She's still
-strong enough to make the whistle that we heard. Do you think she
-won't have enough strength to put you to sleep, or make you mute?"
-
-"But we have to do something!" Noxy protested. Out on the square,
-Sergeant Inambu looked up tiredly. Dolly and Noxy froze as the magician
-glanced around, then shook her head and started walking toward the
-gateway.
-
-"Mope will know what to do," Noxy said suddenly. "He went down to the
-warehouses to help rescue someone."
-
-They waited until Sergeant Inambu had left the courtyard, then waited a
-few heartbeats longer. "Ready?" Noxy whispered. Dolly nodded. "All
-right, let's go." They ran across the courtyard to the archway and out
-into the street.
-
-It only took them a couple of minutes to get down to the chaos by the
-docks. One old warehouse had collapsed completely, while the top part
-of the wall of another had fallen in one piece into the street. It lay
-there like a jigsaw puzzle that someone had been too bored to finish
-assembling. The townspeople were working like busy ants to clear away
-the rubble and find anyone who might be trapped underneath.
-
-"Mope! Mope!" Noxy yelled, trying to make herself heard above the
-noise and confusion.
-
-"The ape's inside!" a familiar voice shouted back at her. The baker
-was standing there with an armload of rubble in his arms, and so much
-dust and mud on his face that Noxy wouldn't have recognized him if it
-weren't for his deep voice.
-
-"Are you all right?" she asked.
-
-"I'm fine," he said, "But Jokhang—that thing swatted him like a
-fly."
-
-Noxy opened her mouth, but all she could think of saying was, "I'm
-sorry." She turned and climbed up the ruins of the collapsed wall
-behind Dolly.
-
-Dolly helped to pull her up to what was left of the warehouse's upper
-floor. "Mope?" they shouted. "Mope, where are you?"
-
-"Mother?" a muffled voice shouted back. "Noxy? Is that you?" They
-stepped forward cautiously. The middle of the floor had fallen in
-completely when the roof had collapsed onto it. Down in the pit below
-they saw Mope and two humans looking up at them anxiously. One of the
-humans was the leek seller who had refused to serve Dolly. Noxy gasped
-as she suddenly realized that the bundle of rags the trio was gathered
-around was a man, whose leg was trapped underneath a fallen roof
-timber.
-
-"Mother, we need help down here!" Mope said urgently. "We can't lift
-this on our own!"
-
-Dolly didn't hesitate. In one fluid motion she crouched down, grabbed
-a protruding floor beam, swung down beneath it, and dropped down to
-the floor below. "Where do you want me?" she asked her son, brushing
-her hands against her jacket.
-
-Mope pointed at the other side of the fallen roof timber. "Over
-there," he ordered. "And you two, grab the end and try to lift it from
-there. Ready? One… two… three!"
-
-The man whose leg was caught screamed as the roof timber
-shifted. "Back up!" Mope grunted at him. The man dragged himself
-backward a pace. His four rescuers let the roof timber crash to the
-ground and rushed to him.
-
-"Lift his leg," Mope ordered the leek seller, pulling off his
-shirt. The man screamed again. Mope twisted his shirt to make a short,
-thick rope, then tied it around the man's leg. He picked up a short
-runner of wood that had probably been meant for training vines and
-stuck it through the makeshift tourniquet. With a grunt, he twisted it
-around twice.
-
-"That ought to stop the bleeding," he said. "But we have to get him to
-a doctor."
-
-"Mope—we need to talk to you," his mother said urgently. "It's about
-the sergeant. She—" Dolly cut herself off as the leek seller and the
-other man lifted the wounded man to carry him out.
-
-The younger troll sat back on his haunches. "What has she done
-now?" he asked wearily. "Are we all under curfew?"
-
-"No, worse." His mother dropped her voice. "Noxy and I heard her
-talking to that trader, the one who took Princess Ogmin. They're
-working together! Mope, they want to destroy the dam! She's sent all
-of the soldiers out of town to be ambushed, and she's going to break
-the spells on the dam!"
-
-Mope stared at his mother. "I can't believe it," he finally said. "As
-much as I dislike her, I can't believe that she'd—"
-
-"Believe it," Noxy said. She had followed Dolly's route to the floor,
-but less gracefully, and was now limping slightly. "He came through
-the mirror. I think he's her brother."
-
-"Her brother? But he's old enough to be—oh." Mope fell silent for a
-moment as he worked it out. "Why would they want to destroy the dam?"
-
-"I think they want to drain some of the magic out of Fast Lake so that
-Mukh can get to it," Noxy explained. "There's magic there that works
-in reverse, kind of. It takes strength from the people it works on,
-instead of from the magician casting the spell."
-
-Noxy wouldn't have thought that an troll's face could go pale the
-way that Mope's did. "So it *does* exist…" he whispered. "There are
-stories—old stories, nightmares. That's what finally brought the sky
-down on the Pilots. Someone invented a kind of magic that took from
-the people it worked on, whether they wanted it or not. But it always
-took more than the magic was worth. They used it on themselves until
-they'd used each other up."
-
-"Well, Mukh has one, whatever it is," Noxy said. "And now Sergeant
-Inambu's sent the soldiers out of town. Mope, she's could be at the dam
-right now! She might already have started!"
-
-"I wondered what that whistle was about," Mope muttered. He looked up
-at Noxy. "Is your cloud strong enough to fly yet?" he asked.
-
-Noxy nodded. Mope stood up with a grunt. "Good. You go and warn the
-soldiers. Mother and I will figure out some way to stop Sergeant
-Inambu."
-
-Dolly stretched up onto her tiptoes to kiss the cloudherd on the
-cheek. "Be careful, dear."
-
-Noxy ran as fast as she could back to the garrison house, no longer
-caring if she was seen. Cloak hovered restlessly a few feet off the
-ground. Noxy jumped up and grabbed the side of the cloud with both
-hands.
-
-"Up!" she mind-spoke as she pulled herself up. "Up, up, up!"
-
-Cloak rose into the air, slowly at first and then faster. In a few
-heartbeats Noxy was up above the rooftops. She glanced at the dam, but
-couldn't see Sergeant Inambu. "Fast!" she mind-spoke at Cloak. They
-turned south and started flying above the road that led to the Blight.
-
-Noxy crept forward until she was right at the cloud's edge. The
-countryside below her was green and peaceful in the summer sun. She
-saw some farmers leading horse-drawn carts toward Apple Bridge, but
-was too high up to call to them.
-
-"Higher!" she mind-ordered the cloud. Cloak struggled to
-obey. "Higher! Slow!" The cloud slowed to a gentle float, and rose
-higher.
-
-Noxy scanned the landscape. The road made a long, gentle loop around a
-hill up ahead. If she went around the hill the other way, over the
-forest, she could save a few minutes. "Left!" she mind-spoke to Cloak.
-The cloud began to gather speed.
-
-Something glinted in the trees. Noxy lay flat on Cloak and took a deep
-breath. Grabbing the cloud firmly with both hands, she pushed her head
-over the cloud's edge. "Stop! Stop!" she ordered. She waited. The
-glint came again.
-
-"Down, slowly," she mind-spoke. For a moment she almost convinced
-herself that the tiny flashes of light had come from a small stream or
-pool, but then she saw movement. A moment later she could make out
-people and horses. It was the smugglers.
-
-One of them looked up as the cloud's shadow fell across his face. Noxy
-had just enough time to recognize Mukh before the skinny man
-shouted. The smuggler next to him twisted around in his saddle and
-aimed his bow at Cloak. Noxy jerked her head back. The arrow went
-*sfffft!* through the air.
-
-"Go! Go!" she mind-shouted at the cloud. Another arrow shot past the
-edge of the cloud, and then Noxy shrieked as one tore through the
-cloud only a few feet away from her.
-
-They flew back along the road, around the hill. There were the
-soldiers! "Look out!" Noxy shouted. They looked up. "Ambush! In the
-trees!"
-
-It was as if she had kicked a beehive. Suddenly the soldiers had their
-swords in their hands, and were galloping forward. Noxy turned Cloak
-in a wide arc and flew back over the battle. This time the smugglers
-ignored her. A few arrows flew, but the first squad of soldiers came
-crashing through the trees too quickly for the smugglers to get off a
-second shot.
-
-Outnumbered, and without the advantage of surprise, the smugglers
-turned and tried to flee through the dense undergrowth. They didn't
-make it very far. A few tried to fight as the soldiers caught up with
-them, but most dropped their swords or bows and raised their hands.
-
-"Yahoo!" Noxy shouted. "That's the—no, wait, over there! Over there!
-He's getting away!" She pointed frantically at the road, trying to get
-Cloak to go lower so that she could tell the soldiers that Mukh was
-escaping. The smuggler had abandoned his horse, and was running down
-the road toward the Blight. Every second step carried him twenty yards
-or more. Noxy urged Cloak on, but Mukh and his one magic boot soon
-outdistanced the cloud.
-
-Noxy finally gave up, and turned the cloud back to where the soldiers
-were collecting the defeated smugglers. She let Cloak float down
-gently until they were just a few feet above the trees.
-
-"Are you all right?" shouted a soldier.
-
-"I was about to ask you the same thing," she shouted back.
-
-The soldier grinned. "Any day you win a fight like this is a good
-one," he said. His grin vanished. "But we have to keep moving. The
-prince needs us."
-
-"No, wait! That's not true! It was a trick!" Noxy saw the doubt on the
-soldier's face, and on the other faces that had turned up to look at
-her. She took a deep breath. "Sergeant Inambu is working with the
-smugglers. I don't know where Prince Thokmay is, but you have to get
-back to Apple Bridge right away. She's going to try to break the
-spells on the dam!"
-
-"What!?" the soldier exclaimed. "But—"
-
-"Please, you have to believe me!" Noxy said urgently. "They're going
-to destroy the whole town!"
-
-She saw the doubt on the soldier's face. Her heart sank as he said, "I
-don't believe it. Not the sergeant. You can't be right."
-
-"Please!" Noxy pleaded. "How do you think they knew to wait for you
-here? Just send some of your troops back to the dam. You'll see!"
-
-Before the soldier could reply, Noxy mind-ordered Cloak back into the
-sky and headed for Apple Bridge.
-
-Meanwhile, back in town, Dolly and Mope made their way toward the dam
-through the wreckage left by the tornado. They stopped only once, to
-help get an overturned wagon the right side up so that it could be
-moved out of the street.
-
-They were still two blocks away from the dam when Mope pulled up
-short. "What's that?" he asked, clocking his head to one side. "That
-sound…" He looked grim. "She's chanting. It's started."
-
-They ran as fast as their awkward gait would carry them to the dam
-road. As they came around the last corner, they saw Sergeant Inambu
-standing in the middle of the wooden walkway that ran along the top of
-the dam. Her arms were raised, and her voice echoed around them with
-unnatural clarity. The air in front of her shimmered with a faint blue
-light that grew stronger even as Mope and Dolly watched.
-
-"Stay here!" Mope told his mother. He scooped up a stone from the
-road, hefted it, and threw it at the sergeant as hard as he could. He
-grabbed two more while the first was still in the air and charged onto
-the walkway.
-
-His first stone hit Sergeant Inambu in the shoulder. She stumbled
-forward, nearly falling off the dam into the Trout below. Mope threw
-another stone on the run. Sergeant Inambu ducked, but the stone went
-wide anyway.
-
-The sergeant straightened up and made a backhanded gesture at
-Mope. The rock that had hit her leaped into the air and flew at
-Mope. It hit Mope in the middle of his chest with the force of a
-hammer, knocking him off his feet. Sergeant Inambu gestured again, and
-a thin sheet of flame raced across the dam. Mope rolled sideways with
-a yelp, feeling a blast of heat as the fire singed his hair.
-
-He scrambled onto his feet. Sergeant Inambu had drawn her sword. Mope
-feinted left, then right, then lunged at her. The point of her sword
-followed his every move. He had to pull up short to avoid being
-spitted.
-
-"It looks like a stand-off," he puffed. "I can't get past your blade,
-but you can't look away from me to cast your spells."
-
-"I don't have to look away," Sergeant Inambu said. "I just have to give
-it a bit… more… *effort*…"
-
-Suddenly the air started to sparkle again, brighter and brighter. Mope
-heard a roaring sound. Something dark, a shadow that somehow wasn't
-quite there, was piling up against the brightness in the air. A smell
-like swamp mud and lightning mixed together was suddenly all around
-them. The dam rumbled as the spells that held it together began to
-break.
-
-"You'll kill us both!" Mope shrieked.
-
-"Small… price…" Sergeant Inambu gasped. Mope heard something splash
-in the river below, and heard a bellow of triumph as whatever it was
-broke through the spells and headed down the Trout. The smell in the
-air around him was getting stronger and stronger.
-
-Mope feinted again, but the sergeant's swordpoint followed him like a
-cobra. He took a deep breath—
-
-—and a pale form on four legs bounded past him and leaped for the
-sergeant's throat. Sergeant Inambu screamed as Edward's ghost slammed
-into her, knocking her onto her knees.
-
-"*My* town!" the ghost snarled. It leaped at her again, howling as
-Sergeant Inambu's sword cut deep into its shoulder. Ghostly blood
-poured out of the wound like smoke. The dog howled. It gathered itself
-up for one last leap—
-
-—and Dolly swung up onto the bridge behind Sergeant Inambu, waddled
-forward two steps, and thumped her hard on the back of the head.
-
-The sergeant dropped like a sack of potatoes. The sparkles in the air
-flared like fireworks, and then were gone.
-
-Edward's ghost stood over the fallen soldier, growling low in its
-throat. It raised its nose and sniffed the air, then half-turned its
-head toward Mope. "Humans," it snorted as its began to fade. "They
-just don't understand…"
-
-"Mother! Mother, are you all right?" The younger troll hopped
-awkwardly over Sergeant Inambu and hugged his mother. They were both
-crying, he realized. When had he started crying?
-
-"Oh, Mope," Dolly sniffed. "I thought—I thought I was going to lose
-you." She squeezed him tight. "Your father would have been so proud."
-
-Mope hugged his mother back. "Thank you," he said. "He'd be proud of
-you too."
-
-</section>
-<section markdown="1">
-
-## Chapter 16: The Bear's Choice
-
-Rust and the prince and princess floated on in silence. The only other
-raft they saw was being pulled upriver by two weary donkeys. The bear
-ordered Prince Thokmay and Princess Ogmin to hide in the lean-to, and
-then sat in front of it and grunted a hello as it passed.
-
-As the other raft passed, the prince and princess could hear one of
-the raftsmen singing a slow, sad song. The words floated over the
-river to them like wisps of cloud in a blue summer sky. "Oooh, just
-one time… I would take the northwest passage…"
-
-"Sergeant Dorbu used to sing that one," Prince Thokmay whispered in his
-sister's ear. "It was so beautiful, sometimes I thought the trees were
-going to tear out their roots so that they could come closer and
-listen."
-
-"Did they ever?" she whispered back.
-
-The prince smiled and shook his head. "No, they never needed to. The
-sergeant always sang loudly enough."
-
-Rust waited until they rounded the next bend before letting the prince
-and princess come out. The two humans sat down near the bow once
-again. A moment later, Princess Ogmin squeaked and grabbed her
-brother as the raft suddenly lurched and began bobbing up and down.
-
-The prince looked back to see what the bear was doing, but Rust was
-looking back as well. "What's wrong?" he asked. "What's happening?"
-
-"I don't know," the bear rumbled. She sniffed at the air. "But I can
-smell something. Something *bad*."
-
-They heard it before they saw it. A roiling two-foot crest of water,
-darker than it had any right to be and somehow managing to hold itself
-together, was sweeping down the width of the Trout. "Hold on!" Rust
-bellowed.
-
-The wave hit the rear of the raft like a charging rhinoceros. Prince
-Thokmay nearly tumbled into the river as the raft tilted forward, then
-righted itself. Princess Ogmin screamed in terror. Dark water from the
-wave had splashed up over the rear of the raft onto the logs and
-formed small pools. Even as they watched, the pools oozed together to
-form a stream, which flowed *up* over the lip of the raft to get back
-into the Trout.
-
-"Don't let it touch you!" Rust said. "It's Blighted!"
-
-The raft was going faster now. "Up ahead!" the prince said suddenly.
-"That island! We can steer for that!" He leaped to his feet and leaned
-against the steering board. The raft barely noticed.
-
-"RRAAAAWWWWRRR!" Rust roared. She lumbered over to the steering board
-and leaned her shoulder against it. Reluctantly, the raft began to
-turn.
-
-"More! More!" the prince called, trying to gauge their speed and
-direction. "A little more! Hold it there! Brace yourself!"
-
-The raft crashed through the reeds on the upstream side of the island
-and ground to a halt in its muddy bank. Rust stumbled, but kept her
-footing. The prince and princess were thrown right off the raft onto
-the muddy little patch of land. The dark water raced past on either
-side of them as they scrambled to their feet.
-
-Suddenly the water knocked the raft sideways. Rust barely had time to
-leap over onto the island before the raft went hurtling away.
-
-The three castaways watched it go. "What's happening?" the prince
-asked. He put his arm around his sister, then hugged her, trying to
-stop her shaking.
-
-"Something must have happened to the dam in Apple Bridge," the bear
-replied. She reared up on her hind legs to get a last glimpse of the
-raft, then fell back on all fours. "That's the last we'll see of our
-food, or your blankets."
-
-Prince Thokmay managed a grim smile. "I guess we're all prisoners now."
-The bear just snarled.
-
-"Look!" Princess Ogmin suddenly said, pointing upstream. "Someone's
-coming!"
-
-It took the prince a moment to figure out what he was seeing. At first
-he thought it was a bird, but then he realized it was a man, skipping
-or hopping twenty yards at a time. Another moment, and he saw that it
-was Mukh.
-
-"What's *he* doing here?" Rust snarled.
-
-"Oh, now, be polite," Prince Thokmay told her, feeling almost
-giddy. "He *is* your business partner."
-
-Another dozen lopsided steps brought the skinny smuggler to the little
-island. "Well hello!" Mukh said jauntily. His jacket was torn and
-muddied, and he had dark circles under his eyes. He held up a lock of
-Princess Ogmin's hair. "Glad to see it still works."
-
-"What do you want?" Rust growled. "We had a deal."
-
-"Oh yes, yes, a deal," Mukh nodded vigorously. He looked
-around. "You also had a raft, didn't you? Whatever happened to it?"
-
-"What happened to the dam?" Prince Thokmay broke in. "We saw the
-wave…"
-
-"Oh, the dam, the dam," Mukh said with a wave of his hand. "The dam
-is still there, I dare say. The river would be a *lot* more lively
-right now if Inambu had managed to bring it down. It's a shame—we
-worked a long time for this."
-
-"Inambu?" the prince said blankly. "Sergeant Inambu?"
-
-"Oh, yes, *Sergeant* Inambu," Mukh agreed. He sighed. "I don't
-suppose she could have survived. She got that from our mother, you
-know. She never learned how to give up either."
-
-"Enough!" Rust snarled. "What do you want?"
-
-Mukh blinked. "Why, the princess, of course," he said. He shrugged
-off his shoulder pack and pulled out a loop of cord. "I imagine half
-of Loghan is going to be looking for me shortly. I'll need a hostage
-to see myself safely away to Chaghan." He paused. "Or maybe Barra
-Bantang," he corrected himself. "I've always liked the beach."
-
-He splatted the mud a couple of times with the toe of his lone magic
-boot. "I could probably carry them both if I'd ever found the other
-one of these, but as it is…" He shrugged.
-
-"The princess is mine!" Rust growled. "We had a bargain!"
-
-"Yes, yes, a bargain," Mukh agreed absently. "But things have
-changed. Anyway, you'll still have the prince. He'd be far too much
-trouble for me to carry—far too likely to try to be a hero. Biting
-off his head will do you as much good as biting off hers."
-
-"She's *mine!*" the bear roared.
-
-Suddenly Mukh had a knife in his hand, a knife whose blade flickered
-like the tongue of a snake. "Now, dear," Mukh said kindly, "We've
-worked *so* well together. Please don't spoil it now." He tossed the
-loop of cord to Prince Thokmay. "Tie her up," he directed.
-
-Much to his own surprise, the prince laughed. "No," he said flatly.
-
-"Tch, tch," Mukh clucked, keeping his eyes on Rust. "If you don't, I
-will, and I'll be *much* less gentle than you."
-
-"Thokmay?" Princes Ogmin quavered. "What does he want?"
-
-Prince Thokmay picked up the coil of rope and flung it back at the
-smuggler. "I said no," he repeated.
-
-Mukh shrugged. "I'm sorry," he said lightly to Rust. "It looks like
-you won't be left with a hostage after all." As quick as a snake, he
-twisted and lunged at the prince with the magic knife.
-
-Prince Thokmay cried out and stepped back as the knife's blade whipped
-out. It grazed his shoulder, and instantly his whole arm went numb
-with cold. "Stand aside, boy," Mukh hissed. "Stand aside, or—"
-
-The prince and princess never got to hear the rest of the smuggler's
-threat. With a huge roar, Rust charged at Mukh. The smuggler spun
-and stabbed with the magic knife again, but Rust's weight carried her
-forward even as it bit into her. Mukh shrieked as they fell backward
-into the dark Blight water.
-
-"No!" he screamed. He struggled toward the shore. She roared again and
-knocked him sideways with a tremendous blow. Even as she did so, the
-Blight water bunched up around them, forming hundreds of dark strands
-that bound them like a net and pulled them down. Mukh screamed again
-as the river pulled him under. Rust roared, straining to break free.
-
-Prince Thokmay ran forward and grabbed the coil of rope he had thrown
-back at Mukh. "Take it!" he shouted, throwing one end at Rust. The
-bear lunged at it and caught it in her teeth. The prince dug in his
-heels and pulled as hard as he could.
-
-He felt Princess Ogmin's arms go around his waist. Together they
-leaned back, further, further, and then suddenly the rope snapped and
-Rust was pulled under. The water roiled for a moment, then went still.
-
-The prince watched dumbly as the river sucked in Rust's end of the
-rope. A few heartbeats later, the only sign that the smuggler and the
-bear had ever been on the little island were their footprints.
-
-He suddenly realized that Princess Ogmin was crying. "Sh, sh," he
-said, putting his arm around her and patting her shoulder
-absent-mindedly. "It's all right. It's all right. It's over." He
-looked at the dark water lapping higher and higher against the sides
-of their little patch of mud.
-
-The river rose a thumb's width at a time. A ragged shark's fin half as
-tall as Prince Thokmay circled the island a few times, then headed
-downstream in search of more accessible prey. Something else sparkled
-across the dark Blightwater like a rainshower, and a few moments later
-the prince thought he saw huge clawed footprints appear and disappear
-on the river's surface.
-
-"I want to go home," Princess Ogmin whispered.
-
-"We will," the prince promised, wondering if there was still a home to
-go to. He took a deep breath, trying to judge the distance to the
-shore, and wondering how you distracted a whole river. It was
-hopeless. Ogmin could manage nothing more than a dog paddle. Even if
-the river had been as peaceful as the fish pond they had paddled their
-feet in when they were little, she wouldn't have been able to make
-it. Hot tears of anger and frustration welled up in his eyes.
-
-"..our..ighness.." Prince Thokmay looked up at the sound. Could the
-Blightwater talk?
-
-"…here…" He looked wildly around, and then up. Cloak was racing
-toward them, dropping as it approached. Noxy and Sergeant Gyalpa waved
-at him from the cloud's back.
-
-"Over here!" he shouted. He waved his arms and laughed. "We're over
-here!" Ogmin looked up and shrieked, then started waving her arms as
-well.
-
-*Down!* Noxy mind-ordered Cloak. The Blightwater was still rising,
-faster now as it sensed that its prey might escape it.
-
-*Bad!* the cloud thought back emphatically. *Bad!*
-
-*Down!* Noxy ordered again, but try as she might, she couldn't get
-Cloak to drop down any further.
-
-"She won't do it!" Noxy said in despair. "She's too scared!"
-
-"You just have to get us close enough for this," the sergeant said,
-uncoiling the rope he'd brought.
-
-Noxy brought Cloak in low over the little island so that the sergeant
-could lower one end of the rope. "Hurry up, Your Highness!" he
-bellowed.
-
-"Can you lift us both?" the prince shouted back. "We're a bit short on
-time down here."
-
-"Blazes," the sergeant cursed. "No!" he shouted. "But if you can both
-hang on, we can get you to shore."
-
-Prince Thokmay grabbed the free end of the rope and tied it under his
-sister's armpits, then lifted her arms. "Hold on really, really
-tight," he told her, putting her hands on the rope. "No matter what
-happens. All right?"
-
-"All right," she said in a small voice.
-
-He kissed her cheek. "You're very brave," he told her. "When we get
-back to Apple Bridge, I'll buy you all the beaver tails you can eat, I
-promise." He reached up and grabbed the rope himself, then shouted,
-"Ready!"
-
-Sergeant Gyalpa wrapped his end of the rope behind his back and sat
-down on the cloud with his legs spread. "All right," he said to Noxy.
-Noxy pursed her lips and flashed an angry command at the cloud. Cloak
-lifted slowly, then swung toward the riverbank.
-
-"We're up!" the prince shouted. For a moment everything seemed to be
-working, but then suddenly they dropped down a hand's breadth.
-
-"I can't get a footing!" the sergeant yelled. Noxy watched in horror
-as his feet slid deeper and deeper into the cloud under the weight of
-the prince and princess. The rope was cutting into Cloud as well,
-making a deep rift that slowly let Thokmay and Ogmin drop further and
-further toward the river.
-
-"Just a few more heartbeats!" Noxy yelled. "Thokmay, hang on! Hang on!"
-
-"Lift up your feet," Thokmay grunted at his sister. He could *smell*
-the Blightwater, it was so close.
-
-"I'm scared!" Ogmin said.
-
-"Just lift up your feet, it's going to be all right," he told her. Ten
-yards… eight… five…
-
-His heels splashed into the river. "Run!" he shouted at his sister. A
-hundred tiny tendrils tugged at his boots as he pushed her through the
-reeds toward the bank. The soft mud underneath them seemed to be
-coming alive. They scrambled up, grabbing bushes and branches and
-dandelions and anything else that offered a handhold, until finally
-they reached the top of the riverbank and flopped down.
-
-Prince Thokmay lay there for a moment, panting, then rolled over and
-started untying the knot around his sister. "Thokmay?" she asked.
-
-"Mm hm?" he gasped as he undid the last of the knot.
-
-"I *really* want to go home."
-
-</section>
-<section markdown="1">
-
-## Epilog: The End of the Letter
-
-*Your Majesty,* Thokmay began, as always. Then he paused, listening to
-the rain tap against the window as he wondered one more time what it
-would have been like to grow up calling his father something a little
-less formal than that. Ogmin was singing to herself in the next room,
-and he could hear Dolly's voice as well, although he couldn't make out
-what she was saying.
-
-He dipped his pen in the inkwell and continued. *1. I am writing to
-inform you that my tutor has decided to leave your service to pursue
-opportunities elsewhere. I have been well pleased with him,
-particularly during the recent difficulties described in the reports
-which I trust you have by now received. Unless I am instructed
-otherwise, I shall commend him to future patrons.*
-
-Although I probably won't need to do so soon, Thokmay added
-mentally. He had tried to talk the troll out of leaving, but Mope
-had made up his mind. "It's time I did something as myself," Mope had
-said, his face even longer than usual. "I've been trying to train you
-like the circus man trained my father. It's time I did a few of my own
-tricks for a change."
-
-"Where will you go?" Thokmay asked.
-
-The troll twiddled his big toes. "Former or Latter Tongsa,
-perhaps, or Chaghan. Or maybe even Garheim. Anyone can argue the law
-in Garheim."
-
-"Argue the law?" "Garheim?" Noxy and the prince asked simultaneously.
-
-"Absolutely," Mope said earnestly. "Eloquence and logic, logic and
-eloquence, that's the key. Did you know that gifted animals still
-aren't allowed to own land in Former Tongsa? They can in Chaghan, but
-they need a human's permission to marry. And there was a monstrous
-case in Garheim, Your Highness will remember we discussed it some
-months ago, which concluded that—"
-
-"Enough, enough," the prince laughed. "If anyone can talk the world
-into better shape, you can." On an impulse he hugged his tutor.
-
-"I'll miss you," he said softly.
-
-The troll hugged him back clumsily. "And I you, Your Highness," he
-said. "You had a pretty good sense of humor, for a human."
-
-The ink on Thokmay's pen had dried. He wiped it carefully on a scrap of
-paper, then dipped it in the inkwell again. *2. Noxy of Stale has
-rejoined her companions. They are returning to the mountains for the
-winter, but I have taken the liberty of extending her the freedom of
-Loghan, and have invited her to visit the capital whenever she might
-choose to do so.*
-
-"Or something like that," the prince muttered under his breath. The
-other cloudherds had flown into Apple Bridge the day before. They had
-been appalled by the destruction, and Aft had been furious when she
-had learned of the part that Noxy had played.
-
-"Cloak could have been torn to shreds!" Aft raged. "And you too!
-You could have been killed!"
-
-Noxy folded her arms and glared at the older woman. "Or half of Loghan
-could have been flooded with poisonous old magic. Or Princess Ogmin
-could have drowned when her raft floated away." That was the story the
-prince, Sergeant Gyalpa, and Noxy had agreed on during the flight back
-to Apple Bridge—the princess had been playing on a raft, and it had
-floated away. Mope had thanked them for that. "Or I could have tripped
-over a pebble and broken my nose. Would you have liked that more?"
-
-Neither saw the amused looks on the other cloudherds' faces, but the
-prince did. "We are of course grateful for Noxy's assistance in this
-matter," he said hastily in his most soothing official voice. On an
-impulse, he took off his signet ring and offered it to the young
-cloudherd. "In recognition of which, we offer her the freedom of
-Loghan, so that she may travel throughout the kingdom without
-hindrance, and call upon His Majesty's servants for aid as she may
-require." For the first time, the prince was glad that Mope had made
-him practice that speech so many times, so that he could say it
-without stumbling.
-
-Aft had glowered at the prince and Noxy as the young cloudherd had
-taken the bracelet and put it on her own arm, but the other cloudherds
-had clapped. It was a rare honor, they all knew, for someone to be
-given the freedom of the kingdom.
-
-Noxy and the prince said their real good-byes an hour later. "I'm glad
-you let me stay," Noxy said, stroking Cloak's flank, somehow not quite
-able to meet the prince's eyes.
-
-Prince Thokmay realized that she felt as awkward as he did, but that
-didn't make him feel any better. "I'm glad too," he said. He paused a
-moment, then added, "Even if all of this hadn't happened, I'd be
-glad." He waved at her a few moments later as Cloud climbed into the
-sky, breathless at how soft her lips had been.
-
-There was a clatter next door. "Excuse me, Your Highness," Dolly
-called out, "But will Her Highness be needing her summer dresses, or
-may I put them in storage?"
-
-"Pack everything, please," Prince Thokmay replied loudly. "We won't be
-coming back."
-
-There was a moment's silence, and then the door to the prince's study
-slowly creaked open. Princess Ogmin peeked around the door. She was
-still wearing a dark brown silk scarf on her head, despite the number
-of times Dolly and the prince had told her how grown-up her short hair
-made her look.
-
-"Are we going home?" Ogmin asked.
-
-"Mm hm," the prince said. He tried to smile at her, but it wouldn't
-stay on his face. "We really are."
-
-"Wheee!" Ogmin shrieked. She bounded into the room and hugged him.
-"We're going home!"
-
-"Whoa, whoa!" he laughed, "Watch out for the inkpot!" He hugged her
-tight, so that he could wipe his eyes without her seeing him do it,
-then let her go. "But only if you help Dolly pack, all right?"
-
-"I'll help!" she promised. She ran out of the room. "Did you hear? Did
-you?" he heard her say.
-
-It wasn't Dolly who answered. "What's 'home'?" Inambu asked
-uncertainly. Prince Thokmay stared down at his letter as Princess
-Ogmin tried to explain. The sergeant had been unconscious for two
-entire days after the fight at the dam. When she had awaken, her mind
-had been as clear and as empty as a baby's. It had only taken her a
-few days to remember how to feed herself, but her progress since then
-had been slow. She seemed to remember nothing of her former life, and
-her former apprentices said she probably never would.
-
-Princess Ogmin was still in the middle of her description of the
-wonderful things to eat in the capital when Inambu interrupted. "Do you
-think we should call this one Rose?" she asked. "Or Lily?" The prince
-could imagine her holding up one of Ogmin's many dolls.
-
-"Lily," the princess said decisively. "Because her hair is so
-beautiful."
-
-The prince smiled and turned back to his letter and wrote, *3. As
-there is no longer an immediate threat to Apple Bridge, and as I
-believe your daughter would be happier in the familiar surroundings of
-the capital, I am returning to Loghan with her at the earliest
-opportunity.* He had lain in bed most of the previous night, watching
-the moon rise and then set, trying to work up the courage to write
-those words. For a moment, he imagined himself crumpling up the letter
-and starting a new one. Instead, he took a deep breath, drew a
-diagonal line across the empty space on the page, and at the bottom
-wrote, *Your dutiful*.
-
-He hesitated only a moment before adding, for the first time, *and
-loving*, then finished, *son, Thokmay Loghan-o Prince*. He let his breath
-out with a whoosh, put his pen back in the inkwell, folded the letter,
-dripped some wax on it, and pressed his signet ring into the wax to
-seal it. Then he leaned back in his chair and stretched like a cat.
-
-Years later, when his hair was starting to turn gray and the scar the
-world's last wolf had left in his arm ached in cold weather, Prince
-Thokmay finally heard what had happened when his father had received
-that letter. "He just smiled," the old steward said to him. "Like he
-used to sometimes before your mother passed away." But there are many
-more stories to tell before that one.
+FIXME: Thokmay writing to his father
 
 </section>
