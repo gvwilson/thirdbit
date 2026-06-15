@@ -110,15 +110,7 @@ coloring schemes.
 
 ## Nothing Done Yet
 
-## Altruism in Software Teams (research)
-
-Is it possible to detect altruism in software teams (i.e., to measure how much
-time developer A spends helping developer B even though B's problem isn't part
-of A's job)? If so, this project will try to determine if there is any
-correlation between altruism and (for example) staff turnover or the long-term
-maintainability of the code base.
-
-### Bubbles! (development)
+### Bubbles! (game)
 
 The aim of the game is to get your bug from one end of the map to the other by
 riding on the surface of bubbles, which drift in the current.  Bubbles bounce
@@ -168,7 +160,7 @@ perform whatever operations it needs to, and then convert the DOM back to
 HTML. In this project, students will refactor Python-Markdown so that it can
 generate a Beautiful Soup-compatible DOM tree directly.
 
-### Save the Humans! (development)
+### Save the Humans! (game)
 
 The zombies have attacked.  The people at the zoo have panicked, and it's up to
 the animals to save them in this tongue-in-cheek game. The tiger can chase
@@ -195,7 +187,7 @@ OAuth, role-based access control, the kind of logging that every sys admin
 wishes they had, static code analysis, and eventually the audit and emergency
 response procedures that such tools are meant to support.
 
-### Tower Support Game (development)
+### Tower Support Game (game)
 
 A [tower defense game](https://en.wikipedia.org/wiki/Tower_defense) is one in
 which the player builds fixed defenses against incoming waves of attackers. The
