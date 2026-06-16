@@ -1,5 +1,5 @@
 ---
-title: "Root Cause Analysis"
+title: "A Darker Web"
 template: page
 fiction: true
 ---
@@ -17,12 +17,12 @@ fiction: true
   - can't fall behind (he has had dreams about what happens to those who fall behind)
   - the rare books collection has been gathering dust since Wingate passed
   - the people who consult it aren't exactly the sort who socialize well with donors
-  - Thornberg is persuaded by MU's Chief Advancement Officer to allow the books to be scanned
+  - Thornberg is persuaded by Barnabas Marsh (MU's Chief Advancement Officer) to allow the books to be scanned
 
 - 2006: angry conversation with IT department about failure to meet deadlines
   - machines keep breaking down ("or are being sabotaged!" says Thornberg, who has heard gossip)
   - Prof. Jayaramath (PhD in Comparative Literature, Mysore University) says that they had similar problems
-  - gets the project back on track
+  - is brought in by Marsh to get the project back on track
 
 - 2014: material is finally available despite repeated mishaps
   - students make jokes about the project being cursed
@@ -37,14 +37,14 @@ fiction: true
 - 2019: a conference on large language models
   - Yuen's model is consistently an outlier
   - Yuen is suffering from the same dreams that Thornberg had
-  - approached by military contractor named Walters doing cross-model validation
+  - approached by military contractor named Lynch doing cross-model validation
   - Yuen is bitter that he never managed to escape Miskatonic, so spitefully agrees
 
 - 2020: pandemic strikes
   - first sign that this model is influencing events by spreading paranoid disinformation
-  - Walters attempts to rein in the model, dies in a freak car accident
+  - Lynch attempts to rein in the model, dies in a freak car accident
 
 - 2024: presidential election swayed by social media and AI influence
-  - Walters' successor find an elderly and ailing Jayaramath
+  - Lynch's successor find an elderly and ailing Jayaramath
   - "almost like it's _trying_ to make things worse" (suspects foreign influence)
   - Jayaramath (wearily, having accepted humanity's doom): "Say rather alien than foreign"
