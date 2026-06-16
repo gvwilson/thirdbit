@@ -58,7 +58,7 @@
 </nav>
 <main id="main-content">
 <h1>Getting Started, Types, and Values</h1>
-<div class="callout">
+<div class="syllabus">
 <ul>
 <li>"Let" bindings are immutable:
     once you bind a name to a value, that binding cannot change.</li>
@@ -210,6 +210,23 @@
 <span class="w">    </span><span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="mf">3.14159</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">r</span>
 <span class="w">    </span><span class="n">Rectangle</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">*.</span><span class="w"> </span><span class="n">h</span>
 <span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Let's watch them run:</li>
+</ul>
+<div data-inc="src/types.gleam" data-mark="main"><span aria-label="Source: basics/src/types.gleam" class="inc-path" role="img" tabindex="0" title="basics/src/types.gleam">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Red</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"red is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">)</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"circle is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"rectangle is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">string</span><span class="p">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"circle area is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">float</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="n">s1</span><span class="p">)))</span>
+<span class="w">  </span><span class="k">io</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"rectangle area is "</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">float</span><span class="p">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="n">s2</span><span class="p">)))</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>

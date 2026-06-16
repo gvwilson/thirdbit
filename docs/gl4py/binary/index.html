@@ -266,7 +266,7 @@ and in pattern matching (<code>&lt;&lt;n:32-big, rest:bits&gt;&gt;</code>).</p>
 </table>
 <div class="callout">
 <p>Python's <code>struct.pack("&gt;I", 42)</code> and <code>struct.unpack("&gt;I", data)</code> do the same job
- but the format string is parsed at runtime.
+but the format string is parsed at runtime.
 A typo in <code>"&gt;II"</code> (two integers) is a runtime error, not a compile error.</p>
 <p>Gleam checks the <code>BitArray</code> annotations at compile time.
 The format descriptor list (<code>List(Fmt)</code>) is also statically typed:
