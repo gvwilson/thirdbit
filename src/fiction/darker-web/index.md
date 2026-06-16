@@ -406,11 +406,11 @@ Those are actually the least unsettling things the model spews out.
 Some of the others—he pushes the thought away,
 trying *not* to think about
 the look on Professor Jayaramath's face when he found out what Bradley had done,
-or the things Bernadette Allen's killer (never caught) had done to her body.
-Both images show up in his dreams every night,
-no matter what he doses himself with.
-Both images,
-and other things that leave him drenched with sweat.
+or the pictures that had surfaced online
+of Bernadette Allen's mutilated body.
+No matter what he doses himself with,
+both images show up in his dreams every night,
+along with other things that leave him drenched with sweat.
 
 The worst thing is that he's no longer sure he has the right to call it "his" model.
 More than once he has noticed log entries that seem to show
