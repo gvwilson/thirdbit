@@ -3,7 +3,6 @@ title: "Sex and Drugs and Guns and Code Restart"
 date: 2026-06-08
 category: sdgc
 ---
-
 <div class="callout" markdown="1">
 
 *These posts are Version 2 of this material.
@@ -18,6 +17,7 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [Who Gets What and Why](@root/2026/06/13/who-gets-what-and-why/)
 1.  [More Analogies](@root/2026/06/14/more-analogies/)
 1.  [What We Owe the Future](@root/2026/06/15/what-we-owe-the-future/)
+1.  [Regulation Works](@root/2026/06/16/regulation-works/)
 
 [Bibliography](@root/2026/04/13/a-bibliography/) &middot; [Glossary](@root/2026/05/20/glossary/)
 

@@ -209,3 +209,4 @@ template: page
 | Techno-Negative | Thomas Dekeyser | 978-1517917739 | 2026 |
 | The Killing Spell | Shay Kauwe | 9781668053287 | 2026 |
 | Both Your Houses | Emmet O'Brien |  | 2026 |
+| Lex Talionis | R.S.A. Garcia | 978-1940076126 | 2014 |
