@@ -56,7 +56,7 @@ The younger man stops himself from mimicking his opponent's body language
 but is unable to prevent himself from feeling like *he* has somehow been called onto the carpet.
 "It isn't foolishness, Wingate.
 You've seen the report from Finance.
-The Pabodie Foundation has signaled that they can't make another donation,
+The Pabodie Foundation has signalled that they can't make another donation,
 and those new colleagues of yours aren't bringing in enough grants to cover their own costs,
 much less our baseline."
 
@@ -111,7 +111,7 @@ was have his office soundproofed.
 </section>
 <section markdown="1">
 
-## A Brighter Future
+## Advancement
 
 It is 2004.
 Edward Thornberg no longer looks young for his age.
@@ -174,13 +174,13 @@ After Professor Peaslee's stroke,
 other scholars had seemed strangely reluctant to make use of the special collection,
 and the ones who did show up to consult it
 weren't the sort of people who socialized well with donors.
-Allen's nerds (as Thornberg thought of them) were just as awkward and obsessive,
+Ms. Allen's nerds (as Thornberg thought of them) were just as awkward and obsessive,
 but seemed bewildered by their sudden wealth.
 If they wanted to spend some of it photocopying the manuscripts
 mouldering away in the basement of the Orne Library,
 he was more than happy to take their money.
 
-He thanked Allen again,
+He thanked Ms. Allen again,
 shaking her hand before she left.
 Lowering himself back into his chair,
 he told Mrs. Marsh that he wasn't to be interrupted,
@@ -191,7 +191,7 @@ though he knew one wouldn't be enough to stop the strange swirling at the edge o
 </section>
 <section markdown="1">
 
-## Deadlines
+## Exotic Materials
 
 "Like I said last week, the fucking machines keep breaking down."
 It is 2006,
@@ -269,39 +269,306 @@ From now on,
 he's your boss.
 Understood?"
 
-"Sure," the nerd says,
-as if he had a choice in the matter.
-He stands.
+"Whatever," the nerd shrugs.
 "Come on, I'll show you the beast."
 
 </section>
 <section markdown="1">
 
-## Outline
+## Training Data
 
-- 2014: material is finally available despite repeated mishaps
-  - students make jokes about the project being cursed
-  - Thornberg has retired for health reasons
-  - Jayaramath is unwell now too, and glad that the digitization project's Silicon Valley partner lost interest
-  - Prof. Bradley Yuen is new faculty in computer science
-  - desperate to make a name for himself and move to a larger school
-  - looking for unusual training data
-  - reveal that Jayaramath was deliberately slowing things down
-  - Yuen hacks in to get the data to train his models
+Eight years have passed.
+President Thornberg retired for health reasons.
+Students still make jokes about his office being haunted.
 
-- 2019: a conference on large language models
-  - Yuen's model is consistently an outlier
-  - Yuen is suffering from the same dreams that Thornberg had
-  - approached by military contractor named Lynch doing cross-model validation
-  - Yuen is bitter that he never managed to escape Miskatonic, so spitefully agrees
+Nikhil Jayaramath is thinking about retiring too.
+He is still young,
+by academic standards,
+but the digitization project has suffered from one setback after another.
+Students make jokes about it,
+too,
+but there is always an undercurrent of uncertainty when they do.
 
-- 2020: pandemic strikes
-  - first sign that this model is influencing events by spreading paranoid disinformation
-  - Lynch attempts to rein in the model, dies in a freak car accident
+Nikhil neatens the unread papers stacked on the corner of his desk and sighs.
+At least the university's latest industry partner hasn't gone bust—yet.
+The first company went from a rising star to the butt of jokes on late-night talk shows
+shortly after the first scans were delivered.
+The company that bought its smoking remains for pennies on the dollar collapsed
+after its founders got involved in some new age nonsense
+that the professor never really understood.
+The company that currently owns the contract seems more interested in
+things with "crypto" in their name.
+Miskatonic hasn't seen nearly the revenue that Bernadette Allen promised
+before her disappearance,
+which has been the subject of sensationalized episodes on several true crime shows.
 
-- 2024: presidential election swayed by social media and AI influence
-  - Lynch's successor find an elderly and ailing Jayaramath
-  - "almost like it's _trying_ to make things worse" (suspects foreign influence)
-  - Jayaramath (wearily, having accepted humanity's doom): "Say rather alien than foreign"
+He starts at a knock on his door.
+"Come in?"
+He still has the carefully-cultivated accent
+that makes so many sentences sound like questions.
+It no longer catches the interest of attractive men and women the way it used to—or rather,
+it does,
+but the only ones who stay interested
+are damaged enough to be excited by the weight the professor seems to carry on his shoulders,
+and he is not damaged enough himself to reciprocate.
+
+His door opens.
+"Got a minute?"
+Professor Bradley Maung recently joined the computer science department.
+He is young, ambitious, and talented,
+though not quite talented enough for the sort of university he would like to be at.
+
+Professor Maung steps in without waiting for an answer.
+"I hear you're the person to talk to about the special collection."
+When Professor Jayaramath admits that he is,
+Professor Maung launches into what is obviously a rehearsed speech.
+He does machine learning,
+which is teaching machines to learn rather than using them *to* learn,
+ha ha,
+and the kind of software he builds needs training data,
+the more unusual the better because if you use public data
+you're up against teams that can afford serious hardware,
+like,
+*serious* hardware,
+and—
+
+He stops when Professor Jayaramath raises a finger.
+"We don't own the data," he says.
+"The license agreement—"
+
+"I had Legal take another look at the agreement,"
+Professor Maung interrupts.
+"Turns out we can build an index or a concordance,
+which is basically what I want to do."
+Professor Maung knows that claim is stretching the truth well past the breaking point.
+He hopes that neither the administration nor the legal department
+will understand enough about the technology to realize that.
+
+But Professor Jayaramath is shaking his head.
+"I'm sorry,
+but until everything is sorted out on the west coast,
+I think the safest thing is to wait."
+
+Professor Maung nods.
+He expected this,
+and has already had several discussions off campus
+with the sys admin who manages the university's digital archive
+and is happy to be paid in bitcoin.
+He exchanges a few pleasantries with Professor Jayaramath for appearances' sake,
+then leaves.
+
+Nikhil takes off his glasses and rubs the bridge of his nose.
+This is not the first time he has fended off an attempt to access the archive.
+He is more convinced than ever that it should never have been created,
+and if there was a way to delete the copies in California,
+he would have found a way to destroy the university's copy years ago.
+
+He looks out his window at the gathering darkness.
+Strange shapes writhe at the edge of his vision,
+vanishing whenever he tries to look directly at them.
+He has started reading scripture again,
+as he did when he was young,
+but now he notices layers of meaning he never did before,
+like toxic mud at the bottom of a clear pool..
+
+Under the papers on his desk lies
+a file folder full of handwritten notes about what has happened
+to the people involved in the project,
+and before that,
+to the people who helped collect and curate the material.
+More and more,
+he understands why President Thornberg chose oblivion.
+
+</section>
+<section markdown="1">
+
+## Outlier
+
+It is 2019.
+Bradley Maung sometimes spends an hour or more in the shower rehashing old conversations.
+Despite that,
+he still doesn't understand when, how, or why his career stalled.
+What he *does* understand is that
+this conference on large language models is probably his last chance
+to get the fuck out of Arkham.
+
+The problem is his model.
+It routinely outperforms others of comparable size and complexity on routine tasks,
+but every time he tries to scale it up it starts hallucinating.
+Ask it to summarize an email thread and it would reply,
+"The angles here refuse to meet as they should."
+Name three things that could be substituted for soy milk?
+"Its name, once spoken, unmakes the one who speaks."
+Influential American composers?
+"We had no word for what the tide brought back."
+
+Those are actually the least unsettling things the model spews out.
+Some of the others—he pushes the thought away,
+trying *not* to think about
+the look on Professor Jayaramath's face when he found out what Bradley had done,
+or the things Bernadette Allen's killer (never caught) had done to her body.
+Both images show up in his dreams every night,
+no matter what he doses himself with.
+Both images,
+and other things that leave him drenched with sweat.
+
+The worst thing is that he's no longer sure he has the right to call it "his" model.
+More than once he has noticed log entries that seem to show
+the model connecting to servers outside his lab.
+At first he dismissed them as glitches or pranks,
+but then came the election result that everyone had dismissed as impossible
+until just before it happened.
+More and more of what the model generated seemed to be showing up online:
+conspiracy theories just plausible enough to be passed on,
+hateful memes that were too funny *not* to copy,
+and then the horrors of Myanmar.
+His parents had immigrated before he was born,
+but had tried to stay in touch with other Rohingya.
+His mother feared they were all dead now.
+She cried,
+while his father muttered about sacrifices and ancient gods.
+
+Bradley pushes those dark thoughts away,
+stands,
+forces a smile,
+and offers his hand to the man who introduces himself as Lynch.
+His job title includes the words "senior" and "consultant".
+Bradley knows he has something to do with defense and/or national security.
+He doesn't want or need to know any more than that.
+All he needs to know is that Mr. Lynch is *very* interested in his model's unusual behavior.
+
+"We've, uh, well, we've been involved in some similar initiatives over the years,"
+Lynch says,
+a slight twang in his voice.
+He leans forward,
+and for a moment a strange light seems to flicker in his eyes.
+"The, uh, the idea of automating and scaling some of those capabilities?
+Without all of the, uh, complications of earlier iterations?
+That's very exciting,
+Doctor Maung,
+very exciting."
+
+</section>
+<section markdown="1">
+
+## Truth
+
+It is the summer of 2020, and everyone is afraid.
+Some people are wearing masks.
+Others are blaming the Chinese,
+drinking bleach,
+and/or demanding the truth about ivermectin,
+all driven by posts, tweets, and memes that seem to bring out the worst in everyone.
+
+The man who calls himself Lynch is driving much too fast for the road he is on.
+He is doing this because doing a hundred and thirty in the dark
+down a back road in West Virginia
+is less frightening than what lies behind him
+in the numbered facility where his latest project has just ended
+(or begun, from its point of view).
+
+He still remembers his first conversation with the no-longer-young Latinx enby
+the organization had recruited to handle the more specialized technical aspects of the work.
+"We were so sure the web was going to bring people together,"
+they said,
+shaking their head,
+before signing the contract.
+Because honestly,
+what else were they going to do?
+Nowhere else would be better.
+If you moved in the right circles in the Valley (and they did),
+sooner or later you'd realize that
+the jokes about founders selling their souls weren't really jokes.
+Sooner or later you'd understand that what lurked behind everyone's screen was too hungry
+to ever be satisfied.
+
+They're dead now,
+just like the rest of his team.
+At least, he *hopes* they are,
+for their sake.
+Every death in this plague will make it stronger.
+He can't stop that, but—
+
+Something dark rises from the road in front of him,
+something that bends in ways that shouldn't be possible.
+It's too late to brake,
+so he does the only thing he can.
+He steps on the gas.
+
+Lynch is laughing and sobbing as he dies.
+
+</section>
+<section markdown="1">
+
+## Influence
+
+It is January 2025.
+The man taking the oath of office for the second time looks human,
+but only if you don't look too closely.
+His flesh seems…loose,
+and his much younger wife clearly has to stop herself from flinching
+each time he reaches for her.
+Nikhil Jayaramath wonders what bargains the man has made,
+then uses the remote to turn the television off.
+
+Someone knocks on his door.
+He stands,
+stiffly,
+to open it.
+He has been expecting this visitor for a while.
+
+The young man standing there is wearing a conservative blue suit and a pin-striped tie,
+but knows enough to fold his hands together in front of his chest and bow slightly.
+Nikhil returns the bow,
+but does not invite the man in.
+
+The silence stretches uncomfortably.
+Finally, the young man clears his throat.
+"Sir, my name is Levitt.
+We spoke on the phone.
+I was hoping…"
+He pauses,
+as if suddenly unsure exactly what he was hoping.
+
+Nikhil inclines his head.
+He very much doubts that the man's name is actually Levitt,
+but sees no point in making an issue of the matter.
+"I appreciate you coming to see me in person,
+Mister Levitt,
+but I'm afraid my answer has not changed."
+
+"But, sir."
+There is a hint of desperation in the young man's voice.
+"Did you look at the pictures I sent you?
+The ones from the riot?"
+
+"I did," Nikhil confirms.
+"I'm surprised you were able to keep them out of the news."
+
+The young man waves the comment away,
+as if deciding what the media does and doesn't let people know is a trivial thing.
+"Sir, it's accelerating.
+It's almost like it's *trying* to make things worse.
+My superiors have almost convinced themselves that some foreign influence is responsible."
+
+Nikhil almost smiles at that.
+"I think it would be more appropriate to say alien rather than foreign."
+
+The young man wastes another few minutes of whatever time they have left
+trying to convince the aging professor to change his mind.
+When that has no effect,
+he invokes the phrase "national security" as if it was the opening line in an exorcism.
+When Nikhil is unmoved by his bluster,
+he gives up and leaves.
+
+Nikhil closes his office door and goes to stand by his window.
+Below,
+students are walking across the quad as they have for well over a hundred years.
+None of them seem to be talking to each other, though.
+Instead,
+they all seem to be looking at the screens in their hands,
+and at the darkness beneath the glass.
+He watches for a moment,
+then lets the curtain fall.
 
 </section>
