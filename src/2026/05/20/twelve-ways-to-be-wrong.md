@@ -22,10 +22,10 @@ the sections below explain why.
 > if we had been willing to let our peers in the human sciences
 > teach us how to study these kinds of things properly.
 >
-> Also, if you'd like a one-day introduction to the research methods you should use
-> to avoid making these errors, please [reach out](mailto:gvwilson@third-bit.com).
-> I'm not qualified to teach it, but I know people who are,
-> and I could probably talk them into doing it…
+> If you'd like an introduction to the research methods you should use
+> to avoid making these errors,
+> I have built both a one-day [workshop][workshop] and a [one-hour talk][talk];
+> please [reach out](mailto:gvwilson@third-bit.com) if you're interested in either.
 
 ## Counting Lines of Code Generated
 
@@ -329,3 +329,6 @@ Xu2025
     by Increasing the Technical Debt and Maintenance Burden."
     arXiv:2510.10165,
     2025.
+
+[talk]: @root/notwrong/lecture/slides.html
+[workshop]: @root/notwrong/
