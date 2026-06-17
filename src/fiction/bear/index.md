@@ -572,7 +572,8 @@ Prince Thokmay asked while the sergeant gave them their orders.
 "She'll be all right as long as she gets some rest.
 But I could use a hot bath."
 
-"Of course. I'll ask Dolly to see to it.
+"Of course.
+I'll ask Dolly to see to it.
 She's my sister's nurse,"
 he added when Noxy raised her eyebrows.
 "She's used to helping people with their baths."
@@ -4915,7 +4916,217 @@ The prince nodded.
 Come on, let's keep going.
 I want to be at Carmick Hill before sunset."
 
-The further they rode, the bleaker the land became.
+Noxy watched Prince Thokmay and the soldiers ride away
+with an empty feeling in her stomach,
+as if the bottom of the world had dropped away.
+Unable to think of anything better to do,
+she went back in the house and up the stairs to Princess Ogmin's room.
+She told herself that she was going to see whether she could cheer Dolly up.
+If she had been a few years younger or older,
+she would have admitted that she was really hoping to be cheered up herself.
+
+As she walked down the polished wooden floor toward the princess's room,
+she heard muffled voices ahead.
+One of them was Mope's, and the other was Dolly's.
+She hesitated.
+The door wasn't actually closed, not all the way, she told herself.
+It wouldn't really be eavesdropping…
+
+"—him what you know. If you don't, I will!"
+she heard Dolly say angrily.
+"Who knows what she could do to the princess?"
+
+"Nothing half as bad as what *they'll* do to *her*,"
+Mope replied.
+"You know how people around here treat us,
+what they think of us.
+She could have nothing to do with this,
+and they'd still hunt her down like, like an *animal*."
+
+"The prince would never do something like that,"
+Dolly said firmly.
+
+"What about Inambu?" Mope demanded.
+"Or Gyalpa?
+They'd do it in a heartbeat, you know they would!"
+
+They both froze as Noxy pushed the door open.
+Mope's rubbery lips were pulled back in a snarl,
+exposing more strong, yellow teeth than Noxy would have imagined he could have.
+Dolly's face was no happier.
+
+"I wouldn't," she said firmly.
+"Whatever it is you think Sergeant Gyalpa would do, I wouldn't do it.
+So why don't you tell me what's going on?
+"And don't say, tell you what?"
+Noxy warned as Mope started to speak.
+
+The troll hesitated.
+"If you don't tell her, I will," Dolly said,
+crossing her arms.
+
+Her son sighed.
+"I know the bear," he said reluctantly.
+"The one from the market, Rust—I recognized her from the man's description.
+She's involved in politics. Just like me," he added,
+as if daring Noxy to laugh or criticize.
+
+"What kind of politics?" Noxy asked.
+
+"The right kind," Mope said.
+
+"The *noisy* kind," his mother said sharply.
+
+Mope sighed.
+"You'd be noisy too if someone was using my hide for a rug," he told his mother.
+"At least, I hope you would."
+Dolly sniffed.
+
+"Rust had a son," Mope explained to Noxy.
+"An ungifted son, just a plain, ordinary bear cub.
+Some hunters found him in the woods one day.
+She tried to take them to court afterward,
+but killing an animal isn't murder."
+
+"So she had them tried for *theft*,
+he continued, with so much bitterness in his voice that Noxy was afraid of him.
+"But they wouldn't even give her that.
+Gifted animals aren't allowed to own other animals in the Ninety Kingdoms."
+
+"Was Princess Ogmin one of the hunters?" Noxy asked.
+
+"What? Oh, no, no, Her Highness wouldn't hurt a fly,"
+Mope said dismissively.
+"But the Debates can't change the law without the king's assent,
+so if you want to get the king's attention…"
+
+"You kidnap his *daughter*?" Noxy asked incredulously.
+"Is that really the kind of attention you want?"
+
+Mope took his glasses off and wiped them with his shirttail.
+"I want the same things that you, and every other human, has from birth.
+I want to be able to run a shop without needing a human to sign a license
+saying that I'm not rabid.
+I want to be able to buy books without the bookseller checking that
+they're not the banned list—oh yes,
+there are still books animals aren't supposed to read,"
+he went on in response to the look on Noxy's face.
+"They might give us *ideas*."
+
+He put his glasses back on his nose
+and picked at a piece of lint on his jacket.
+"And most of all,
+we want our families to be safe,
+even if they're not Gifted.
+Does that sound like so much?"
+
+Noxy didn't know how to answer,
+so instead she asked,
+"So you think the bear—"
+
+"Her name is Rust,"
+Mope interrupted.
+"And no, I *don't* think she would kidnap the princess.
+I've heard her speak at meetings sometimes,
+the kind of meetings that humans aren't invited to.
+She thinks that the only way to fix the world is to shake it up a bit,
+and hope that when the pieces fall into place,
+they'll fit a bit better than they do right now.
+But that doesn't mean she would do something as goof-simple as *this*."
+
+Noxy exchanged a look with Dolly.
+"You have to tell Thokmay," Noxy said firmly.
+"Mope, it's his *sister*!"
+
+"It's also the life of every gifted animal in Loghan!"
+the troll snapped back.
+"Do you have any idea what will happen to us
+if people think that a bear has kidnapped a member of the royal family?
+Do you?
+We'll all be turned into rugs,
+or roasted for some fat farmer's dinner."
+
+"Oh, don't be ridiculous," Noxy said.
+"People would never—"
+
+"Never?" Mope said sharply.
+"You think people would *never*?
+My father worked in a circus.
+He and my mother did tricks together in towns like this.
+When I was born Gifted,
+the ringmaster tried to cut my vocal cords so that no-one would know.
+My father stopped him.
+He threw himself at that, that *trash*,
+and he stopped him,
+but he was beaten so badly that he died.
+The trainer was never punished, of course.
+It was just my mother's word against his,
+and he was *human*."
+
+When he looked up at Noxy,
+she backed away involuntarily from the hurt and anger in his eyes.
+"That's why I taught myself everything there is to know about the law,"
+Mope said vehemently.
+Dolly had put her arm around her son,
+and for once he didn't shrug it off.
+"That's why I'm trying to teach the prince.
+I don't know if he'll ever be king,
+but even if he isn't,
+they'll *listen* to him."
+
+Noxy looked away as Mope wiped his eyes with his sleeve.
+A few motes of dust sparkled in the sunlight
+that streamed in through Dolly's bedroom window.
+A drawing of the royal family,
+the kind of thing that street artists turned out by the dozens on festival days,
+was in a small frame on the dresser
+beside a wide-toothed wooden comb with mother-of-pearl inlay in the handle.
+She could hear birds whistling at each other outside,
+and she wished more than anything that she was back in Stale.
+
+Finally Dolly said wearily,
+"Mope, we have to tell Sergeant Inambu about Rust."
+
+"If we do,
+she'll have every Gifted animal in Ghohraj in the dungeon by nightfall,"
+Mope replied, just as wearily.
+"And mark my words,
+half of them will never come out again."
+
+"Dear, Ghohraj doesn't have a dungeon," his mother said gently.
+
+"Well then she'll lock us in the stables!
+That would probably appeal to her."
+Mope flapped his hands.
+"Whatever she does, it will be very, very bad."
+
+"What if we could prove it wasn't Rust?" Noxy asked suddenly.
+
+"What do you mean?" Dolly asked.
+
+"Well,
+if we can rule her out,
+that would help figure out who did."
+
+"Hmm." Mope pursd his lips.
+"Of course,
+we'd be doing exactly the same things we would do
+if we were trying to prove that Rust *did* kidnap her."
+
+"Yes," Noxy conceded,
+"But if it *is* Rust,
+and if we can find the princess before anyone else does,
+it'll all come out even.
+An animal took her, but an animal brought her back."
+
+"In my experience,
+people rarely do their moral bookkeeping that carefully,"
+Mope said sourly.
+"All right.
+We'll try to find out if Rust *didn't* take Princess Ogmin.
+Where do we start?"
+
+The further the soldiers rode, the bleaker the land became.
 Scraggly blackberry bushes hunched down when they heard the soldiers approaching,
 while the knee-high grass had a metallic green sheen like a summer fly's body,
 and made a scraping sound like rusty scissors when the wind brushed over it.
