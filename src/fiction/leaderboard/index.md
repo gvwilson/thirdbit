@@ -17,11 +17,11 @@ I put down my coffee.
 "Turner,"
 I said after a moment's unnecessary study.
 "*Rain, Steam, and Speed*, mid 1840s."
-I sighed as Bench's grin widened to show off slightly imperfect teeth.
+I sighed as Bench's grin widened to show off deliberately imperfect teeth.
 "Let me guess—your noodle has it."
 
 "He's not mine, and he's not a noodle.
-He's just…new."
+He's just new."
 She waved a hand to excuse her client's youth.
 "It showed up at an estate sale a few months ago,
 and yes,
@@ -43,15 +43,17 @@ turning her tablet to show me the news.
 Vitaly Mendonça:
 Brazilian,
 sixty-four,
-inherited a construction company after his father died (natural causes),
-then made a fortune in remediation work.
-He had been in and out of the Top Twenty for years.
+inherited a construction company after his father died (natural causes).
+He'd made a fortune in remediation work,
+and had been on and off the leaderboard for years.
 A combination of fluctuating exchange rates
 and an automatic contract renewal someone had overlooked
-had catapulted him into the number one spot that morning.
-His handler—a German whiz kid named Joachim—had been trying frantically to unload stuff since then,
-but apparently it hadn't been enough.
-A few minutes ago Senhor Mendonça had gone from
+had catapulted him into the number one spot half an hour ago.
+His handler,
+a German whiz kid named Joachim,
+had been trying frantically to unload stuff since then.
+Apparently it hadn't been enough:
+a few seconds ago Senhor Mendonça had gone from
 briefly being the richest person in the world
 to permanently being dead.
 
@@ -60,17 +62,17 @@ I downed my coffee and stood up.
 "Give me half an hour with the painting.
 And Bench—he really better not be a noodle."
 
----
+<p class="center">* * *</p>
 
 He was a noodle.
 I got an hour with the Turner,
 though,
 which made the trip worthwhile.
+
 The painting dropped out of sight in the early thirties
 when English museums started putting their collections on "permanent loan"
 to make ends meet.
-It showed up in Italy a few years later,
-then disappeared again until Guo Leji stopped being
+It reappeared when Guo Leji stopped being
 Vice Premier of the Standing Committee of the National People's Congress
 (or so my tablet told me)
 and started being dead.
@@ -79,13 +81,14 @@ I scrolled down,
 filling time while my minidrone camera scanned the painting.
 Guo's story was typical:
 graft, bribes, fingers in too many pies, yadda bloody boo,
-so tangled that even the best AI couldn't keep track of it.
-Or maybe he didn't trust them and tried to juggle it all in his head.
+so tangled that even AI couldn't keep track of it.
+Or maybe he'd been so worried about surveillance
+that he tried to juggle it all in his head.
 
 The camera chimed softly.
 I plucked it out of the air and weighed it in my hand
 as I gave the Turner one last look.
-Twenty terabytes wasn't an archival-quality scan,
+Twenty terabytes wasn't archival quality,
 but it would be good enough to train the AI
 that was trying to teach me how to perform miracles like this.
 I put the camera in my pocket and went to find Bench and her client.
@@ -115,7 +118,7 @@ who did I think was responsible?
 God?
 Aliens?
 Some kind of AI,
-or the Israeli government in exile?
+or Israel's government in exile?
 
 "Doesn't matter," I said.
 "What *matters* is transparency.
@@ -137,14 +140,13 @@ but I'd seen bullshit like it a hundred times before.
 
 "But look at their research,"
 Unigwe insisted,
-clearly not used to being told he was wrong.
+clearly no longer used to people telling him he was wrong.
 "In cases where there was no contract—"
 
-"Contracts don't matter
+"Contracts don't matter.
 If whoever you give it to thinks they're supposed to give it back,
 it counts as your money.
 Even if they're planning to steal it.
-Even if they *do* steal it.
 With respect,
 M'sieur Unigwe,
 people have been trying tricks like this for years.
@@ -161,15 +163,15 @@ swiping Bench a surreptitious thumbs down.
 She swiped me back a shrug.
 She could bill the noodle for her time,
 and the Turner meant I'd forgive her for wasting mine.
-All that was left was some more small talk
-and insincere promises to follow up.
+All that was left was small talk and insincere promises to follow up.
 
 She called me again four days later.
-My left arm ached from what my tablet told me was nine solid hours of painting,
+My left arm ached from what my tablet told me was five solid hours of painting,
 and four more people were dead:
-a Texan property developer who had mis-counted the value of some old drilling leases,
+a Texan property developer who miscalculated
+how much his country's government was still paying him *not* to drill,
 a geriatric Saudi prince (number five or number six, depending on whose model you used),
-a banker from the Philippines who waited just a little too long before giving some of her billions away,
+an exec in the Philippines who waited just a little too long before giving some of her billions away,
 and a Papal banker whose graft had been so subtle that she hadn't even been on the board,
 which caused a ten-second news flurry.
 There had been other news too—another carbon sequestration agreement had been signed,
@@ -181,9 +183,9 @@ leaves you feeling like you've been trampled by an angry goat.
 On the upside,
 though,
 I was still alive.
-A flurry of offsetting the day the Filipino banker died
+A flurry of offsetting the day the Filipino died
 had briefly made me the fifty-fifth richest person in the world,
-but the odds on that being terminal had seven zeroes after the decimal point,
+but the odds on that being terminal had several zeroes after the decimal point,
 so I hadn't lost any sleep.
 
 "I have someone for you," Bench said without preamble.
@@ -198,96 +200,81 @@ I couldn't get the smudging right.
 "He doesn't have one," Bench said.
 And then she told me who the client was and I forgot about my painting.
 
----
+<p class="center">* * *</p>
 
-You've seen the video.
+You've seen it.
 Everyone has:
-fifty of the richest people in the world standing awkwardly in three rows
-at the original United Nations building
-while their spokesman begged for their lives.
+fifty of the richest people in the world standing awkwardly in front of
+the pre-war United Nations building
+while their spokesperson begged for their lives.
+
 It was thirty-three days since the first death—a trillionaire
-who had parlayed self promotion, lax regulation, and cannibalistic business tactics
+who had parlayed self promotion, lax regulation, and straight-up fraud
 into the biggest fortune in history—and the pattern had become clear.
 Every day,
 one of them would die,
 and the richer you were,
 the more likely it was to be you.
 
-Nobody knew how or why.
-Benevolent aliens try to save us from ourselves?
-Some renegade AI trying to do the same thing?
-The CIA, the Illuminati, a glitch in the simulation?
-It didn't matter.
-Every twenty-four hours,
-someone just stopped.
-
 "They were cowards."
 The voice from behind me was strong,
-even if its owner's body looked like a puppet made from old scraps of leather.
+even if its owner looked like a puppet made from old scraps of leather.
 "They could all do the math,
-but they were afraid to follow where it led."
-
-"Unlike you,"
-I said,
-clasping my hands in front of me in a way my third-grade teacher would have approved of.
+but they couldn't bear the thought of being *ordinary*.
+None of them lasted a year."
 
 An.ton grinned,
 or perhaps just bared his teeth.
-He had changed his name to celebrate his first startup's IPO.
+He had changed his name to celebrate his first IPO.
 His lifechair made a barely audible hum
 as it rolled across a dark wooden floor that was older than some countries.
 
-He jerked his chin at the video loop on the wall.
-"None of them lasted a year."
-
-He didn't seem like the sort of person who bumped elbows,
-so I unclasped my hands and put them in my pockets.
-"But you did.
-You paid off the foreign debt of Haiti,
-gave sixty billion euros' worth of food to climate refugee camps in the south of France,
+"Unlike you,"
+I said.
+clasping my hands in front of me.
+"You paid off the foreign debt of Haiti,
+gave sixty billion euros' worth of food to climate refugees in France and Spain,
 and then disappeared."
 
-His scowl deepened.
+His grin turned into a scowl.
 "I didn't disappear.
 I just kept out of sight."
 He waved a petulant hand.
-The wall beside me made itself transparent,
-revealing hectares of ludicrously green bamboo.
+The wall beside me turned into a real-time image of ludicrously lush banyan trees.
 "Couldn't stop myself from making money,
 so every time I got into the red zone
 I threw it all at some godawful idiocy like this."
 
 "Mm."
-Once upon a time,
-when we were a thing,
+Back when we were a regular thing,
 Bench called my "mm" the Platonic ideal of noncommittal verbalizations
 and used it as a ringtone.
 "So how can I be of use?
 You've lasted twenty years without the kind of service I provide.
-I'm not sure how—"
+I'm not sure—"
 
 "I want you to kill me,"
 he said impatiently.
-"I want you to talk to every lightning rod you know.
+"I want you to round up every lightning rod you can.
 I want you to dump every penny they have on me,
 all at the same time."
 
 An.ton leaned forward,
 his skeletal hands tight on the arms of his lifechair.
 "I don't care who's doing this.
-I don't care why or what they want from us.
-You're going to make me the richest man in history,
-and *then* they can fucking have me."
+I don't care why.
+You're going to make me richer than anyone has ever lived,
+because fuck them."
 
----
+<p class="center">* * *</p>
 
 Arranging a death is easy when the intended victim is rich and cooperative.
-An.ton was a citizen of one of those drowned Pacific island nations
-whose ongoing existence was mostly a legal fiction.
+An.ton was a citizen of a drowned Pacific island nation
+whose existence was mostly a useful legal fiction.
 Three different AIs confirmed that I couldn't be charged with murder under its laws,
-though one did predict a case could be made for reckless endangerment.
+though one did say a case could be made for reckless endangerment.
 
-Choosing a date was also simple.
+He chose the date.
 The neurodegenerative disorder that had eaten away his muscle mass
 was a result of a gene therapy cure for old age
 he had spent one of his fortunes on thirty years ago.
@@ -304,10 +291,10 @@ The more time I spent with him,
 the more things I found myself not saying.
 He was very intelligent,
 very well informed,
-and hated everything that had happened in the last two decades.
-I got a lecture on the idiocy of rewilding the Great Plains,
-and another on why banning private air travel
-had been an infringement of fundamental human rights.
+and hated everything that the great leveling had made possible.
+No matter where conversation started,
+it inevitably led to a lecture on the idiocy of rewilding the Great Plains
+or why banning private air travel had been an infringement of fundamental human rights.
 
 The hard part was convincing other lightning rods that this wasn't a joke or a hit.
 His choice of date made the first part difficult,
@@ -318,15 +305,14 @@ Joachim said flatly.
 "Remember what happened with the Korean?"
 
 "That was completely different," I shot back.
-"His kids aren't trying to bump him off.
+"His daughter isn't in the picture.
 Hell,
-according to everything I can find,
-he and his daughter haven't spoken in years.
-It's medically assisted—"
+I don't even know if she actually exists.
+This is just—"
 
 "*Nein*," Joachim repeated,
-scratching the piercing in his nose and then cutting the call.
-His reputation had taken a hit after what had happened to Mendonça,
+scratching the piercing in his nose and cutting the call.
+His reputation had taken a hit,
 but if he didn't need the business…
 I shrugged and moved down my list.
 
@@ -334,80 +320,67 @@ It took me a week to get ninety-one people to say "yes".
 My AIs said seventy would be enough,
 but everyone had their own models and margins.
 After a bit of debate and a lot of posturing,
-I finally had a team.
-
-A team,
-and some media attention.
-I don't know who leaked what we were doing,
-but stories with titles like "The Last Trillionaire Cashes Out" started popping up.
-My status bot had to fend off thousands of queries a day.
+I had my team,
+all of them bound by the tightest NDAs I'd ever seen.
 
 And then a week before our chosen Sunday
 it almost fell apart.
-I don't know if Joachim was second-guessing himself or just wasn't as smart as he thought,
-but somehow he got a sign wrong for a few crucial moments at just the wrong time.
+I don't know if Joachim was second-guessing himself after what had happened to Mendonça,
+but somehow he got a sign wrong for a few crucial moments.
 Instead of offloading his clients' money in a hundred different ways
-to keep them out of the top twenty,
+to keep them out of the Top Twenty,
 his AIs sucked it all in.
-For thirty-seven seconds,
+For three point seven seconds,
 he was worth as much as the next three people on Earth put together.
 Whoever or whatever was making decisions made it then,
 and Joachim flatlined at his desk.
 
-"Let me talk to them," Bench said.
-We were spooned on the couch in her apartment
-listening to the near-hurricane outside
-while the Bollywood remake of *Buffy the Vampire Slayer*
-played silently on the wall.
-She cupped my breast for a moment,
-comforting rather than inquiring,
-and sat up.
-"Let me be *your* lightning rod, just this once."
+I spent the evening in my apartment
+with the Bollywood remake of *Buffy the Vampire Slayer*
+playing silently on the wall
+and some Ike Quebec playing on loop.
+He'd known the risks.
+We all did.
+I took one last puff from my hand-rolled joint,
+stubbed it out,
+and fell asleep on the couch.
 
-I sat and listened as she did what she did,
-flattering people and calming them down.
-"OK,
-we'll start running sims tomorrow," she finally said,
-as if she was summing up something they had agreed to rather than making a decision.
-"Everybody checks everybody else's work,
-and if we screw up, well…"
-She grinned her famous grin and clapped me on the shoulder.
-"It's been nice knowing you."
-
----
+<p class="center">* * *</p>
 
 I spent the last day of March painting.
 Bench invited me to try something called immersive gardening,
 but was neither surprised nor disappointed when I declined.
+She didn't know what was happening—even if the NDA hadn't been so tight,
+I wouldn't have told her—but she knew *something* was up.
 "Don't second-guess yourself," she ordered sternly,
-kissing me for emphasis
+kissing my cheek for emphasis
 before climbing into the back of a putt-putt
 with an actual human driver.
 
 My parents were refugees.
 So was pretty much everyone I knew until I was twelve.
-We all got as far as Canada,
-but then there was a change of policy
+We got as far as Canada,
+but then there was a change of policy,
 or maybe there hadn't ever really been a plan or a home for us.
-I grew up thinking everyone had to wear a tracking bracelet.
+I grew up thinking everyone wore a tracking bracelet and ate lentils three times a day.
 
 My *ummi* thought she was going to be a doctor in Toronto.
 Instead,
 she cleaned houses in the suburbs around Sudbury.
 My *abbi* sorted trash instead of designing houses.
-AIs could clean and sort better and faster than people,
+AIs could do both jobs better and faster than people,
 but then what would newcomers like us do to earn citizenship?
 
-They talked sometimes about what they'd do when things changed.
-And things did, eventually,
-but by then they were both sick.
+Things started to change once the trillionaires started dying,
+but by then they both had Caspian flu.
+*Ummi* went first, quickly.
 My *abbi* spent his last days drawing pictures of houses he had once hoped to build,
 houses that could withstand the punishing heat
-that had made their homeland unliveable.
+that had made our homeland unliveable.
+I got a reparations scholarship and went into finance.
 
 That morning,
-after Bench left,
-I pinned one of his drawings on the wall with the last pair of earrings my *ummi* ever bought,
+I pinned one of *abbi*'s drawings on the wall,
 prepped a canvas,
 and started to paint.
 I left the haptic trainer in its case.
@@ -428,25 +401,19 @@ I exhaled slowly
 and set my brush down very precisely on the palette I'd been preparing.
 "Piss on.
 Good afternoon, An.ton.
-How can I help you?"
-
-"Just checking in.
-Can't count how many product launches I've done,
-but…"
-
-"Having second thoughts?"
+Having second thoughts?"
 I was definitely using too much purple.
 And I was skimping where I should have been lathering.
 
 "Never,"
 An.ton snapped.
-"But I did have another look at your offloads.
+"But I did have another look at your offload plan.
 Some of them aren't exactly aligned with the values statement I gave you."
 
 I shrugged.
 His "values statement" had been a who's who of surviving oligarchs
-who did their best to cling to power by only swapping assets amongst themselves.
-"Most of your suggestions are in the top one hundred.
+who were trying to cling to power by only swapping assets amongst themselves.
+"Some of your suggestions were in the top forty.
 We had to go wider for safety's sake."
 
 He snorted.
@@ -460,16 +427,10 @@ we were going to Mars,
 did you know that?
 We were fucking going to *Mars*."
 
-I suddenly realized that he was high.
-D-wave,
-direct neural stimulation,
-maybe even something old-fashioned like cocaine:
-whatever it was,
-it probably would be productive to ask
-if his "we" included the billion who had died
-before his peers weren't able to stall action on the climate crisis any longer.
-Plus,
-I had a painting to finish.
+I briefly debated asking if his "we" included
+the billion who had died
+before his peers weren't able to stall action on the climate crisis any longer,
+but I had a painting to finish.
 
 "I'll take another look at the list first thing in the morning,"
 I told him.
@@ -482,7 +443,7 @@ I picked up my paintbrush,
 adjusted the light over my *abbi*'s drawing,
 and got back to work.
 
----
+<p class="center">* * *</p>
 
 I've seen videos of Wall Street traders hunched over monitors
 or waving pieces of paper in the air and yelling at each other.
@@ -490,8 +451,7 @@ They had as much in common with what I do as painting.
 My AIs had given themselves instructions and fallbacks for millions of contingencies.
 All I had to do to make it all legal was approve their trades.
 
-An.ton join our call on schedule,
-looking no worse for whatever he had indulged in the night before.
+An.ton join our call on schedule.
 "Agreed," he said curtly when the legal AI asked him to confirm my power of attorney.
 He looked at me hungrily.
 "Let's get this over with."
@@ -500,8 +460,7 @@ The tricky part was timing.
 If everyone started giving money to An.ton too early,
 every lightning rod that *wasn't* in our group would see their odds lengthen
 and stop giving their clients' wealth away.
-Instead,
-we had to play to keep as many people within a few pennies of each other for as long as we could,
+We had to keep as many people within a few pennies of each other for as long as we could,
 then offload everything onto An.ton at exactly the same time.
 
 So we danced,
@@ -511,71 +470,50 @@ This professor's patents were suddenly more valuable because—push the thought 
 The "because" didn't matter.
 All that mattered was that we could sell one of them for a fraction of its worth
 to someone two hundred spots lower in the list,
-which put a seventeen-year-old in first place.
+which put the seventeen-year-old Queen of England in first place.
 Her wealth was all real estate,
 but that was okay,
-she was willing to give two square blocks of Shenzhen back to the city.
+she was willing to give six hundred hectares of farmland to charity.
 No,
-three blocks,
+eight hundred,
 just to be safe.
-Others would ostracize her for doing it,
+Others in her circle would piss on her
 for letting a little more money and power slip out of the "right" hands,
-but that wasn't our problem.
+but at least she'd be alive to ask what choice she had.
 
 Shadows shortened and lengthened on my living room floor.
-Two hours left.
-One hour.
-Ten minutes.
+One hour left.
+Thirty minutes.
+Five.
+Two.
+One.
 My tablet bleebled.
 "Are you there?"
 An.ton asked.
 
 "I'm here."
-I had been wondering if he would call.
-
-"Is Benicia with you?"
-
-"Who?"
-
-"Benicia.
-Bench.
-My daughter—is she there?"
-
-It took a moment for what he had said to register.
-"I'm sorry, did you say Bench is—"
-
-"Is. She. There?"
-he bellowed.
-
-"No!
-No, she's not here.
-I don't know where she is."
-My gut turned cold.
-"Wait—you're not going to try to offload everything on her, are you?
-Because that won't work.
-She has to accept it for it to count."
+I had wondered if he would call.
 
 An.ton cackled.
-"Not onto *her*, you idiot."
-And then my tablet bleebled as the rush of offloads we had planned started to happen
-and my net worth began to climb.
+"Good."
+And then the rush of offloads we had planned so carefully started.
+A moment later my tablet bleebled a warning as my net worth began to skyrocket.
 
-I stared at the screen.
+I stared at my screen.
 "What the fuck?"
 
 "You know what the funny part is?"
-An.ton's voice didn't wait for me to answer.
-"I actually lobbied *for* AI's being able to own property.
+He didn't wait for me to answer.
+"I lobbied for AI's being able to own property.
 It would have been a slam dunk in the good old days,
 but by the time it came to a vote,
-well,
 my crowd had a lot less influence than we used to."
 
 "I don't—"
 
 "I'm already dead, you moron!
 Dee ee aye dee dead.
-I died a week ago,
+I died yesterday,
 right on schedule.
 You can't offload jack shit onto the sim you're been talking to,
 so guess what?
@@ -589,11 +527,16 @@ One.
 One.
 One.
 I had climbed to the top of the leaderboard faster than anyone in history,
-and the gap between me and whoever was currently the second richest person in the world
-was only getting wider.
+and the gap between me and whoever was currently in second place
+was getting wider by the second.
 
-Seven minutes until the day ended.
 My AI didn't have a plan for this,
 and there was no way I could offload this much that quickly,
 not with everyone sending everything they had my way.
+
+"How does it feel,
+you miserable parasite?"
+An.ton's sim raged.
+"How does it fucking feel?"
+
 

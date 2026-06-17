@@ -20,7 +20,11 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [Regulation Works](@root/2026/06/16/regulation-works/)
 1.  [How Change Happens](@root/2026/06/17/how-change/)
 
-[Bibliography](@root/2026/04/13/a-bibliography/) &middot; [Glossary](@root/2026/05/20/glossary/)
+[Bibliography](@root/2026/04/13/a-bibliography/)
+&middot;
+[Glossary](@root/2026/05/20/glossary/)
+&middot;
+[A Note on LLMS](@root/2026/05/11/a-note-on-llms/)
 
 </div>
 
@@ -302,7 +306,7 @@ also protect it from competitive consequences [Doctorow2022].
 
 Enshittification depends on two things:
 network effects and **structural lock-in**.
-Neither is not specific to digital platforms.
+Neither is specific to digital platforms.
 The record club Columbia House ran the same play in a different era.
 Launched in the 1950s in the United States and Canada
 and later extended to the United Kingdom, Australia, and Brazil,

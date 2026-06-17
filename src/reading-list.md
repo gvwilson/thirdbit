@@ -211,3 +211,6 @@ template: page
 | Both Your Houses | Emmet O'Brien |  | 2026 |
 | Lex Talionis | R.S.A. Garcia | 978-1940076126 | 2014 |
 | The Uses of Utopia | Joad Raymond Wren | 978-0241761083 | 2026 |
+| Heaven's Graveyard | Grace Curtis | 978-0756419844 | 2026 |
+| Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
+| Radiant Star | Ann Leckie | 978-0316290357 | 2026 |

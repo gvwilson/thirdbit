@@ -20,7 +20,11 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [Regulation Works](@root/2026/06/16/regulation-works/)
 1.  [How Change Happens](@root/2026/06/17/how-change/)
 
-[Bibliography](@root/2026/04/13/a-bibliography/) &middot; [Glossary](@root/2026/05/20/glossary/)
+[Bibliography](@root/2026/04/13/a-bibliography/)
+&middot;
+[Glossary](@root/2026/05/20/glossary/)
+&middot;
+[A Note on LLMS](@root/2026/05/11/a-note-on-llms/)
 
 </div>
 
