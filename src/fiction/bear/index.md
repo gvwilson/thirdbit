@@ -89,7 +89,8 @@ Another rider shouldered his horse past him.
 Noxy stared at the newcomer.
 How did he know her name?
 
-The rider pulled up his battle mask.
+The rider pulled up his battle mask to reveal a young face
+with four parallel scars on one cheek.
 "Noxy—what are you doing here?"
 
 "Thokmay?" Noxy stared at the prince of Loghan,
@@ -4409,13 +4410,26 @@ a smile twitched at the corner of the prince's mouth.
 he'd spend the rest of his life telling everyone how he shook my hand,
 and that it wasn't actually a big deal."
 
-"Excuse me, honored," Sergeant Inambu said quietly,
-"But you said that the man in the market gave the princess a ribbon."
+Suddenly the pieces clicked together in Noxy's head.
+"That's it!" she said excitedly.
+"When we were up on Cloak—it felt like there was an extra person.
+If there was a spell on the ring,
+maybe that's what I was feeling!"
+
+The prince turned to Sergeant Inambu.
+"Is that possible?"
+
+"I don't know, honored," she said quietly,
+her eyes on his boots.
+"I don't understand along by how mind-talk works.
+But it's possible."
+She paused a moment.
+"You said that the man in the market gave the princess a ribbon?"
 
 "A blue one with gold roses," the prince confirmed bitterly.
 "I thought he was just trying to earn some royal favor."
 
-"Do you still have it?" Sergeant Inambu asked.
+"Do you still have it?" the sergeant asked.
 
 The prince raised his eyebrows at Dolly.
 "I think so," she said.
@@ -4428,11 +4442,11 @@ Sergeant Inambu said.
 Noxy could hear the reluctance in the magician's voice.
 
 Dolly didn't need to be asked twice.
-As she hurried back to the garrison house the sergeant called out,
-"And if Her Highness's hair brush could be brought down as well, it might also be useful."
-She turned to one of the soldiers standing beside her.
-"Private, find my apprentices.
-Have them meet me along by the stables."
+As she turned to hurry back to the garrison house the sergeant put a hand on her arm.
+"And if Her Highness's hair brush could be brought down as well, it might also be useful.
+"Private, find my apprentices,"
+she added to a nearby soldier.
+"Have them meet me along by the stables."
 With a slight bow of her head to the prince, she added,
 "If you will excuse me, honored? I need some time to prepare."
 
@@ -4755,22 +4769,28 @@ Thokmay had struggled with letters before, but not like this.
 Ogmin was *his* responsibility,
 an even greater one than Ghohraj in some ways.
 How in the underhells was he supposed to tell his father that he'd lost he?
-And what would his brother do when he heard the news?
+And how would his brother take advantage of the news when he heard it?
+Thokmay had no doubt that he would—Shobmay had wanted to be king
+ever since he was old enough to know what the collar around their father's neck meant,
+and enjoyed playing politics the way some people enjoyed the taste of overripe cheese.
 
-Thokmay chewed the end of his writing brush,
+He chewed the end of his writing brush,
 then set it down angrily on his desk
 and stared at the wall until he caught himself scratching the scars on his chest.
 "What's next, biting your nails?" he asked himself aloud.
 He had worn gloves night and day for a month when he was eight years old
 to give them a chance to grow back.
-His brother Shobmay had teased him about that,
+Shobmay had teased him about that,
 and about his fondness for sweets,
 and about his love of animals, Gifted and otherwise.
 He had always been better at people and politics than Thokmay.
 He would know how to write this damned letter.
 
-Thokmay sighed,
-picked up his writing brush,
+Thokmay sighed.
+Wishing that he and his brohter were friends instead of rivals
+wasn't going to get this letter written.
+He might as well wish for another visit from Eddward the Dog.
+He picked up his writing brush,
 dipped it in the inkwell,
 and began.
 
@@ -4912,7 +4932,35 @@ Each was tall as a mounted man's head,
 and the rain had long since washed away whatever paint might once have been on them.
 The prince swallowed as he rode between them.
 He knew from the soldiers' stories that these markers had once stood at the Blight's edge.
-Now they were two hours' ride inside it.
+Now they were an hour's ride inside it.
+
+A few minutes later a whiff of sulfur stung his nostrils.
+He sniffed,
+then turned to Sergeant Gyalpa.
+"Is that what I think it is?" he asked.
+
+The sergeant nodded grimly and pointed.
+"Still burning, honored, along by the other side of that hill."
+
+Thokmay returned the nod.
+"Do you think that's what made the Blight grow here?"
+
+Sergeant Gyalpa wasn't usually the sort to shrug in answer to a royal question,
+but he somehow seemed more relaxed in the Blight,
+as if being in danger instead of just worrying about it settled his nerves.
+"Nobody knows, honored.
+Border was shifting even before those idiots did a simple.
+I don't expect I'll live to see it reach Ghohraj,
+but you might."
+
+They rode in silence after that.
+So did the soldiers behind them.
+The horses started when something like a scaly badger shot from one side of the road to the other,
+and some of the men made surreptitious signs with their fingers
+when the patches of blue moss on the trees around a muddy patch of road began humming a lullaby
+that Thokmay remembered hearing as a child,
+but other than that,
+they might have been riding in the fields near Loghan-in-Loghan.
 
 The sun had sunk into the horizon like a rotten peach into mud
 when one of the soldiers from the lead squad came galloping back to the prince.
