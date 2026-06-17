@@ -47,6 +47,8 @@ natural way to represent join operations as nested blocks.  The aim of this
 project is to explore an alternative using a node-and-connector model like that
 of [Node-RED](https://nodered.org/) or [Yahoo! Pipes][pipes].
 
+[full proposal](./click-flow/)
+
 ### Browsercast (development)
 
 Tools like PowerPoint aren't web-friendly.  When you export a slideshow to the
@@ -108,6 +110,8 @@ creator is no longer maintaining it; this project will fork the original code,
 fix outstanding issues, and add new features such as axis limits and stable
 coloring schemes.
 
+[full proposal](./xkcd-charts/)
+
 ## Nothing Done Yet
 
 ### Bubbles! (game)
@@ -168,6 +172,8 @@ people away from danger, but they might run straight into the arms of the
 ravenous horde. The bunny is so cute that people will chase *it*, but if they
 catch it they'll just stand there petting it until they're eaten, and so on.
 
+[full proposal](./save-the-humans/)
+
 ### Software Performance by Example (tutorial)
 
 Each lesson in this tutorial will take a simple application, analyze its
@@ -195,6 +201,8 @@ objective of this game is to prototype a simple tower *support* game, in which
 the player builds bridges, first aid stations, and so on to help travelers reach
 their destination.
 
+[full proposal](./tower-support/)
+
 ### Understanding Ethics (research)
 
 This project will start by creating a set of scenarios in which a programmer
@@ -214,6 +222,8 @@ explore a third option by building an [extension][lo-extension] for
 [protocol](https://jupyter-client.readthedocs.io/en/latest/) so that people who
 prefer WYSIWYG editors can embed code and its output alongside diagrams, tables,
 and other media.
+
+[full proposal](./jupyword/)
 
 [discussion-book]: https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715
 [lo-extension]: https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions

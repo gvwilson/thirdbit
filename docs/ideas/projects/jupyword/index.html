@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: </title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1></h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="" class="post-date"></time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><h1>Project Proposal: JupyWord</h1>
+<h2>Background Information</h2>
+<ul>
+<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
+<li>Domain: computational notebooks, office productivity software, plugin development</li>
+<li>Tools like Jupyter and Marimo let users embed and run code cells inside a browser<ul>
+<li>No equivalent exists for desktop word processors such as Microsoft Word or LibreOffice Writer</li>
+</ul>
+</li>
+</ul>
+<h2>Project Description</h2>
+<ul>
+<li>Build a plugin for Microsoft Word and/or LibreOffice Writer that lets users embed computational cells in desktop documents<ul>
+<li>A computational cell is a block of code (e.g., Python) that the user can run from inside the document</li>
+<li>The output (text, tables, or charts) appears inline below the cell</li>
+</ul>
+</li>
+<li>The plugin communicates with a Jupyter-compatible kernel running locally so that cells in the same document share state<ul>
+<li>I.e., a variable defined in one cell is available in later cells</li>
+</ul>
+</li>
+<li>When the document is saved, the source code of each cell and its most recent output are saved so that readers who do not run the plugin still see the last computed results</li>
+<li>Target users are analysts, scientists, and educators who prefer to write reports, papers, or course notes in a familiar word processor rather than a browser-based notebook</li>
+</ul>
+<h2>Project Scope</h2>
+<ul>
+<li>Plugin target: LibreOffice Writer is preferred (open-source, Python UNO API is publicly documented)<ul>
+<li>Microsoft Word support via Office.js is a stretch goal</li>
+</ul>
+</li>
+<li>Kernel integration<ul>
+<li>Connect to a local Jupyter kernel using the Jupyter messaging protocol (ZeroMQ)</li>
+<li>Start and stop the kernel from inside the plugin UI</li>
+</ul>
+</li>
+<li>Cell UI embedded in the document:<ul>
+<li>Syntax-highlighted editable code area</li>
+<li>&ldquo;Run&rdquo; button and keyboard shortcut (e.g., Shift+Enter)</li>
+<li>Output area below the cell that displays plain text, error tracebacks, and images (e.g., charts)</li>
+</ul>
+</li>
+<li>Document persistence: serialize cell source and output into the document&rsquo;s native format</li>
+<li>Session management: a sidebar or toolbar panel showing kernel status, interrupt, etc.</li>
+<li>At least one complete worked example document with 5-10 cells shipped with the plugin</li>
+<li>Unit and integration tests</li>
+<li>Stretch goals:<ul>
+<li>Microsoft Word support via Office.js add-in</li>
+<li>Additional output types: HTML tables, Markdown-rendered text</li>
+<li>Variable inspector panel showing the current kernel namespace</li>
+<li>Export document to a static HTML page with outputs frozen</li>
+</ul>
+</li>
+</ul>
+<h2>Project Challenges</h2>
+<ul>
+<li>Plugin APIs:<ul>
+<li>LibreOffice&rsquo;s UNO API is powerful but sparsely documented</li>
+<li>And behavior differs across platforms (Linux, macOS, Windows)</li>
+</ul>
+</li>
+<li>Embedding a custom UI widget (the code cell) inside a Writer document without disrupting normal text flow is non-trivial<ul>
+<li>Content controls or frames must be used carefully</li>
+</ul>
+</li>
+<li>Kernel lifecycle:<ul>
+<li>Starting, monitoring, and stopping a kernel subprocess introduces process-management complexity</li>
+<li>Kernel crashes must be detected and reported without corrupting the document</li>
+</ul>
+</li>
+<li>Serialization:<ul>
+<li>ODF and OOXML are XML formats</li>
+<li>Storing code and binary image output (e.g., base64 PNG) in a way that survives third-party editors (e.g., Google Docs opening a .docx) requires careful design</li>
+</ul>
+</li>
+<li>Security:<ul>
+<li>Office documents that automatically run code are a known attack vector</li>
+<li>The plugin must require explicit user action (clicking Run) and must never auto-execute on open</li>
+</ul>
+</li>
+<li>Non-technical:<ul>
+<li>The UX must feel native to word processor users who have never used a computational notebook</li>
+<li>Jupyter conventions (e.g., cell numbering, execution order) cannot be assumed</li>
+</ul>
+</li>
+</ul>
+<h2>Number of Students</h2>
+<ul>
+<li>3-4 students preferred</li>
+</ul>
+<h2>Sponsor-Provided Hardware and Software</h2>
+<ul>
+<li>None:<ul>
+<li>LibreOffice is open source and freely available</li>
+<li>The Jupyter kernel protocol is open and documented</li>
+<li>Python and required libraries are freely available</li>
+</ul>
+</li>
+<li>Sponsor will act as project manager, run standups, and test the plugin on realistic data analysis documents</li>
+</ul>
+<h2>Project Search Keywords</h2>
+<ul>
+<li>&ldquo;computational notebooks&rdquo;</li>
+<li>&ldquo;office plugin&rdquo;</li>
+<li>&ldquo;Jupyter kernel&rdquo;</li>
+<li>&ldquo;literate programming&rdquo;</li>
+<li>&ldquo;LibreOffice extension&rdquo;</li>
+</ul>
+<h2>Department of Software Engineering Required Deliverables</h2>
+<ul>
+<li>Standard departmental deliverables as listed by RIT SE</li>
+</ul>
+<h2>Sponsor and Project Specific Deliverables</h2>
+<ul>
+<li>Working plugin installable in LibreOffice Writer (and optionally Microsoft Word) with no build steps for the end user</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred)</li>
+<li>Technical design document: plugin architecture, serialization format, security model, etc.</li>
+<li>User guide</li>
+<li>At least one complete example document that demonstrates the plugin&rsquo;s capabilities</li>
+<li>Test suite covering core execution, rendering, and persistence paths</li>
+<li>Usability report: at least two rounds of user testing with people who are not on the development team<ul>
+<li>Including documented changes made in response to feedback</li>
+</ul>
+</li>
+</ul>
+<h2>Proprietary Information</h2>
+<ul>
+<li>No aspect of this project is proprietary</li>
+</ul>
+<h2>Availability</h2>
+<ul>
+<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
+<li>Responsive by email within 24 hours on weekdays</li>
+</ul>
+<h2>Project Agreements and Assignment of Rights</h2>
+<ul>
+<li>Open-source agreement required: code is published publicly</li>
+<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
+</ul><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

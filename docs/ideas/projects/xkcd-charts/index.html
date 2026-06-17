@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: </title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1></h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="" class="post-date"></time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><h1>Project Proposal: Multilingual XKCD-Style Charting Library</h1>
+<h2>Background Information</h2>
+<ul>
+<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
+<li>Domain: data visualization, multilingual library design, foreign function interfaces</li>
+<li>The sponsor has an existing Python and JavaScript charting library (<a href="https://github.com/gvwilson/chart.xkcd"><code>chart-xkcd</code></a>) that generates XKCD-style hand-drawn charts (bar, line, pie, scatter, radar, heatmap, stacked bar), as well as preliminary Gleam bindings (<a href="https://github.com/gvwilson/starch.gleam"><code>starch</code></a>) that wrap the JavaScript layer via Gleam&rsquo;s FFI mechanism</li>
+<li>The goal is to generalize this work into a multilingual package with clean, idiomatic APIs in Python, JavaScript, Gleam, and Rust, underpinned by a systematic bindings-generation approach</li>
+</ul>
+<h2>Project Description</h2>
+<ul>
+<li>Extend the existing <code>chart-xkcd</code> library so that developers in Python, JavaScript, Gleam, and Rust can create XKCD-style charts using idiomatic APIs without writing FFI glue by hand</li>
+<li>The project has two principal components that interact closely:<ol>
+<li>Bindings generator: a tool and/or set of templates that reads a language-neutral description of the chart API (chart types, their parameters, and option records) and emits the per-language wrapper code, type definitions, and documentation stubs. The existing <code>starch</code> package demonstrates the kind of output this generator should produce for Gleam</li>
+<li>Charting feature set: the chart types, options, and rendering logic that the bindings expose. This component may add new chart types or options not yet in <code>chart-xkcd</code>, and must ensure the feature set is expressible cleanly in all four target languages</li>
+</ol>
+</li>
+<li>The rendering core remains JavaScript (via the existing D3-based chart classes), so each language binding ultimately calls into the same rendering engine. The team must decide how each language reaches that engine: for example, Rust and Python may use WebAssembly, while Gleam calls the JavaScript runtime directly.</li>
+<li>A successful outcome is a single repository in which a developer can declare a bar chart with labeled datasets in any of the four languages and get back an XKCD-style chart.</li>
+</ul>
+<h2>Project Scope</h2>
+<ul>
+<li>A language-neutral API schema as the single source of truth for generating bindings. This is a classic &ldquo;build vs. buy&rdquo; decision.</li>
+<li>Bindings generator for Python, JavaScript, Gleam (a pure functional language), and Rust (a low-level compiled language).</li>
+<li>At minimum, all four bindings must support bar, line, pie, scatter, and heatmap chart types</li>
+<li>Unit tests for the bindings generator</li>
+<li>Integration and visual tests, including cross-language comparison tests</li>
+<li>Documentation</li>
+</ul>
+<h2>Project Challenges</h2>
+<ul>
+<li>Bindings generator design:<ul>
+<li>A schema that is expressive enough to capture all options without becoming a second programming language</li>
+</ul>
+</li>
+<li>Multilingual testing:<ul>
+<li>Each binding must be tested in its own language toolchain, which is an interesting CI challenge</li>
+</ul>
+</li>
+<li>Graphical output testing<ul>
+<li>Pixel-level comparison is brittle because of floating-point differences across platforms</li>
+</ul>
+</li>
+<li>Rust rendering bridge:<ul>
+<li>The team must either adapt the chart classes to run in a non-browser context or choose a JS runtime that provides a minimal DOM stub</li>
+</ul>
+</li>
+<li>Non-technical:<ul>
+<li>Four target languages mean four communities of potential users with different conventions</li>
+</ul>
+</li>
+</ul>
+<h2>Number of Students</h2>
+<ul>
+<li>3-4 students preferred</li>
+</ul>
+<h2>Sponsor-Provided Hardware and Software</h2>
+<ul>
+<li>None: all required tools are freely available</li>
+<li>Sponsor will act as project manager, run standups, and review generated binding code</li>
+</ul>
+<h2>Project Search Keywords</h2>
+<ul>
+<li>&ldquo;data visualization&rdquo;</li>
+<li>&ldquo;multilingual library&rdquo;</li>
+<li>&ldquo;XKCD charts&rdquo;</li>
+</ul>
+<h2>Department of Software Engineering Required Deliverables</h2>
+<ul>
+<li>Standard departmental deliverables as listed by RIT SE</li>
+</ul>
+<h2>Sponsor and Project Specific Deliverables</h2>
+<ul>
+<li>Language-neutral API schema</li>
+<li>Bindings generator tool</li>
+<li>Working bindings for all four languages installable from standard package managers</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred)</li>
+<li>Test suite covering:<ul>
+<li>Generator correctness (textual output matches expected)</li>
+<li>Per-language integration tests (each binding produces valid SVG for each supported chart type)</li>
+<li>Visual regression tests with documented tolerance strategy and stored reference images</li>
+</ul>
+</li>
+<li>Technical design document</li>
+<li>User guide</li>
+</ul>
+<h2>Proprietary Information</h2>
+<ul>
+<li>No aspect of this project is proprietary</li>
+</ul>
+<h2>Availability</h2>
+<ul>
+<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
+<li>Responsive by email within 24 hours on weekdays</li>
+</ul>
+<h2>Project Agreements and Assignment of Rights</h2>
+<ul>
+<li>Open-source agreement required: code is published publicly</li>
+<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
+</ul><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

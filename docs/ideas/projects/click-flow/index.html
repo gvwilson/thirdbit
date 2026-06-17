@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: </title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1></h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="" class="post-date"></time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><h1>Project Proposal: ClickFlow</h1>
+<h2>Background Information</h2>
+<ul>
+<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
+<li>Domain: visual programming, dataflow systems, JavaScript library development</li>
+<li>Dataflow diagram tools appear across many industries<ul>
+<li>LabVIEW (National Instruments) lets scientists wire instruments together</li>
+<li>Apache NiFi and Node-RED let systems integrators route and transform data streams between services and APIs</li>
+<li>Blender&rsquo;s shader and geometry node editors let 3D artists compose visual effects</li>
+</ul>
+</li>
+<li>Scratch uses a click-together block interface to make sequential programming accessible to beginners<ul>
+<li>But it does not support the fan-in/fan-out patterns that arise in dataflow problems</li>
+</ul>
+</li>
+<li>No open-source JavaScript library lets developers mix both paradigms</li>
+</ul>
+<h2>Project Description</h2>
+<ul>
+<li>Build a JavaScript library that lets users construct dataflow applications by combining two visual paradigms:<ol>
+<li>Scratch-style Snap-together blocks</li>
+<li>Dataflow-style port connections</li>
+</ol>
+</li>
+<li>The two paradigms are complementary:<ul>
+<li>A chain of snapped blocks is itself a node that can appear in a dataflow graph and expose ports</li>
+<li>Ports and connectors make it easy to represent complex dataflow relationships such as joins</li>
+</ul>
+</li>
+<li>The project includes a custom block API that lets developers define new block types by declaring:<ul>
+<li>ports</li>
+<li>configuration fields that the end user can set using dropdown menus, radio buttons, or text entry boxes</li>
+<li>The library renders those fields inside the block without the developer writing any rendering code</li>
+</ul>
+</li>
+</ul>
+<h2>Project Scope</h2>
+<ul>
+<li>Canvas engine: an SVG-based (or Canvas-based) workspace that supports:<ul>
+<li>Drag-and-drop placement and movement of blocks</li>
+<li>Snap detection and attachment for sequential (Scratch-style) connections</li>
+<li>Port hit-testing and bezier-curve line drawing for dataflow connections</li>
+<li>Zoom and pan</li>
+<li>Cycle prevention</li>
+</ul>
+</li>
+<li>Data model including block configuration, position, and connection</li>
+<li>A custom block API that allows programmers to define new block types</li>
+<li>Serialization to and from JSON</li>
+<li>Built-in standard library of blocks demonstrating the API:<ul>
+<li>Control flow: Sequence (implicit in snap), If/Else, Repeat N Times, While</li>
+<li>Data routing: Join, Broadcast, Route (conditional fan-out based on a field value)</li>
+<li>Utility: Constant, Log/Debug (prints to a panel)</li>
+</ul>
+</li>
+<li>Demo application: a standalone HTML page that loads the library and lets the user assemble a simple data pipeline, run it, and observe output</li>
+<li>Automated tests:<ul>
+<li>Unit tests for the graph data model</li>
+<li>Unit tests for the custom block API</li>
+<li>Integration tests that programmatically build a graph, execute it, and check its results</li>
+</ul>
+</li>
+<li>Stretch goals:<ul>
+<li>Integrate a simple charting library</li>
+</ul>
+</li>
+</ul>
+<h2>Project Challenges</h2>
+<ul>
+<li>Mixed-paradigm UX:<ul>
+<li>Users must understand intuitively when to snap blocks versus when to draw port connections</li>
+<li>Deciding where the boundary between the two paradigms lies</li>
+</ul>
+</li>
+<li>Unified execution semantics:<ul>
+<li>Snap connections imply a strict execution order while port connections imply a reactive or event-driven model</li>
+<li>Combining them in a single runtime without surprising the user (e.g., a loop in a snapped chain that feeds data into a join node) requires a clearly specified execution model</li>
+<li>Cycles in the port-connection graph must be prevented</li>
+</ul>
+</li>
+<li>Custom block API ergonomics:<ul>
+<li>The extension and registration APIs must be simple enough for the developers to have used <em>before</em> they started the project</li>
+</ul>
+</li>
+<li>Testing a visual, interactive system is always a challenge</li>
+</ul>
+<h2>Number of Students</h2>
+<ul>
+<li>3-4 students preferred</li>
+</ul>
+<h2>Sponsor-Provided Hardware and Software</h2>
+<ul>
+<li>None: all required tools are freely available</li>
+<li>Sponsor will act as project manager, run standups, and participate in UX review sessions</li>
+</ul>
+<h2>Project Search Keywords</h2>
+<ul>
+<li>&ldquo;visual programming&rdquo;</li>
+<li>&ldquo;dataflow diagrams&rdquo;</li>
+<li>&ldquo;block-based programming&rdquo;</li>
+<li>&ldquo;JavaScript library&rdquo;</li>
+<li>&ldquo;no-code tools&rdquo;</li>
+</ul>
+<h2>Department of Software Engineering Required Deliverables</h2>
+<ul>
+<li>Standard departmental deliverables as listed by RIT SE</li>
+</ul>
+<h2>Sponsor and Project Specific Deliverables</h2>
+<ul>
+<li>Published package containing the library with no required external dependencies beyond a modern browser</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred)</li>
+<li>Demo application (standalone HTML page) demonstrating all capabilities</li>
+<li>Technical design document: architecture, data model, execution semantics, serialization format, and design rationale</li>
+<li>Custom block API reference showing how to define blocks with various field types</li>
+<li>Test suite covering the graph model, serialization, and API registration paths</li>
+<li>Usability report: results from at least two rounds of user testing<ul>
+<li>Including documented changes made in response to feedback</li>
+</ul>
+</li>
+</ul>
+<h2>Proprietary Information</h2>
+<ul>
+<li>No aspect of this project is proprietary</li>
+</ul>
+<h2>Availability</h2>
+<ul>
+<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
+<li>Responsive by email within 24 hours on weekdays</li>
+</ul>
+<h2>Project Agreements and Assignment of Rights</h2>
+<ul>
+<li>Open-source agreement required: code is published publicly</li>
+<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
+</ul><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

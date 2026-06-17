@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: </title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1></h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="" class="post-date"></time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><h1>Project Proposal: Save the Humans!</h1>
+<h2>Background Information</h2>
+<ul>
+<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
+<li>Domain: game development, crowd simulation, AI behavior design</li>
+<li>Tongue-in-cheek premise: a zombie outbreak at a zoo where the animals must rescue panicked human visitors</li>
+</ul>
+<h2>Project Description</h2>
+<ul>
+<li>Build a prototype browser-based game in which the player controls zoo animals to save human visitors from a zombie horde</li>
+<li>Humans panic and behave irrationally<ul>
+<li>Zombies pursue humans</li>
+<li>Animals have unique abilities to redirect, distract, or protect humans</li>
+</ul>
+</li>
+<li>Examples of animal abilities<ul>
+<li>Tiger: chases humans away from danger, but humans may run in a wrong direction (into zombies&rsquo; arms)</li>
+<li>Bunny: so cute that humans chase it, but humans who catch it stop moving (and may be eaten while distracted)</li>
+</ul>
+</li>
+<li>Player must use animal abilities in combination to herd humans to safety before zombies reach them</li>
+<li>Game score: how many humans escape</li>
+</ul>
+<h2>Project Scope</h2>
+<ul>
+<li>Game framework selection and justification (e.g., Godot, Pygame, Phaser.js)</li>
+<li>Tile- or grid-based map (zoo layout with enclosures, paths, exits)</li>
+<li>Human crowd simulation: panic state, attraction/repulsion behaviors, basic pathfinding</li>
+<li>Zombie AI: pursuit of nearest human, simple spreading horde behavior</li>
+<li>At least 2 playable animal types (tiger + bunny minimum) with distinct player-controlled abilities</li>
+<li>At least 3 levels with distinct zoo layouts and escalating difficulty</li>
+<li>UI: map view, human/zombie counts, win/lose screen</li>
+<li>Unit and integration tests for AI behaviors and win/loss conditions</li>
+<li>Stretch goals:<ul>
+<li>Additional animal types (elephant stampede, parrot that repeats commands to redirect groups, etc.)</li>
+<li>Environmental hazards (enclosures that open, water hazards)</li>
+<li>Simple level editor</li>
+</ul>
+</li>
+</ul>
+<h2>Project Challenges</h2>
+<ul>
+<li>Crowd simulation:<ul>
+<li>Modeling realistic (or entertainingly unrealistic) panic behavior without full physics simulation</li>
+<li>Tuning attraction/repulsion radii is non-trivial</li>
+</ul>
+</li>
+<li>Emergent behavior:<ul>
+<li>Combining multiple animal abilities can produce unexpected outcomes that are hard to test exhaustively</li>
+</ul>
+</li>
+<li>Balancing double-edged mechanics:<ul>
+<li>Abilities must be useful but not trivially so</li>
+</ul>
+</li>
+<li>Pathfinding under dynamic conditions:<ul>
+<li>Humans, zombies, and animals all move simultaneously</li>
+<li>efficient multi-agent pathfinding is a known hard problem</li>
+</ul>
+</li>
+<li>Non-technical:<ul>
+<li>Communicating animal abilities clearly to players without lengthy tutorials</li>
+<li>Humor and tone must be consistent across art, text, and mechanics</li>
+</ul>
+</li>
+</ul>
+<h2>Number of Students</h2>
+<ul>
+<li>3-4 students preferred</li>
+</ul>
+<h2>Sponsor-Provided Hardware and Software</h2>
+<ul>
+<li>None: all required tools are freely available (open-source engines)</li>
+<li>Sponsor will act as project manager, run standups, and playtest</li>
+</ul>
+<h2>Project Search Keywords</h2>
+<ul>
+<li>&ldquo;zombies&rdquo;</li>
+<li>&ldquo;humorous games&rdquo;</li>
+<li>&ldquo;browser games&rdquo;</li>
+</ul>
+<h2>Department of Software Engineering Required Deliverables</h2>
+<ul>
+<li>Standard departmental deliverables as listed by RIT</li>
+</ul>
+<h2>Sponsor and Project Specific Deliverables</h2>
+<ul>
+<li>Playable prototype: runnable game with at least 3 levels and 2 animal types</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred)<ul>
+<li>Game assets (e.g., artwork and sound effects) must be ethically sourced</li>
+</ul>
+</li>
+<li>Technical design document: agent behavior models, AI architecture, map/level format</li>
+<li>User guide: how to install, run, and play</li>
+<li>Playtesting report: results from at least two rounds of external playtesting<ul>
+<li>Including documented adjustments to game balance</li>
+</ul>
+</li>
+<li>2-minute gameplay video highlighting animal mechanics</li>
+</ul>
+<h2>Proprietary Information</h2>
+<ul>
+<li>No aspect of this project is proprietary</li>
+</ul>
+<h2>Availability</h2>
+<ul>
+<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
+<li>Responsive by email within 24 hours on weekdays</li>
+</ul>
+<h2>Project Agreements and Assignment of Rights</h2>
+<ul>
+<li>Open-source agreement required: code is published publicly</li>
+<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
+</ul><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
