@@ -6,8 +6,6 @@ fiction: true
 
 <section markdown="1">
 
-## Last Words
-
 Edward Thornberg tilts back in his chair, reading.
 In his sixties,
 he still has a full head of hair
@@ -109,9 +107,10 @@ was have his office soundproofed.
 "You… idiot…" turn out to be Professor Peaslee's last words.
 
 </section>
-<section markdown="1">
 
-## Advancement
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 It is 2004.
 Edward Thornberg no longer looks young for his age.
@@ -189,9 +188,10 @@ then took the bottle of vodka from the bottom drawer of his desk.
 though he knew one wouldn't be enough to stop the strange swirling at the edge of his vision.
 
 </section>
-<section markdown="1">
 
-## Exotic Materials
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 "Like I said last week, the fucking machines keep breaking down."
 It is 2006,
@@ -273,9 +273,10 @@ Understood?"
 "Come on, I'll show you the beast."
 
 </section>
-<section markdown="1">
 
-## Training Data
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 Eight years have passed.
 President Thornberg retired for health reasons.
@@ -380,9 +381,10 @@ More and more,
 he understands why President Thornberg chose oblivion.
 
 </section>
-<section markdown="1">
 
-## Outlier
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 It is 2019.
 Bradley Maung sometimes spends an hour or more in the shower rehashing old conversations.
@@ -449,9 +451,10 @@ Doctor Maung,
 very exciting."
 
 </section>
-<section markdown="1">
 
-## Truth
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 It is the summer of 2020, and everyone is afraid.
 Some people are wearing masks.
@@ -498,9 +501,10 @@ He steps on the gas.
 Lynch is laughing and sobbing as he dies.
 
 </section>
-<section markdown="1">
 
-## Influence
+<p class="center">* * *</p>
+
+<section markdown="1">
 
 It is January 2025.
 The man taking the oath of office for the second time looks human,
