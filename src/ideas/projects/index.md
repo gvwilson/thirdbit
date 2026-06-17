@@ -8,6 +8,62 @@ one of the most rewarding and satisfying things I ever did. If you're a student
 or a faculty member in need of a one- or two-semester project, and any of the
 ones listed below seem interesting, please reach out.
 
+## Recruiting
+
+### Blocks-Based Data Science (development)
+
+[TidyBlocks](https://github.com/tidyblocks/tidyblocks) was a prototype of a
+[Scratch](https://scratch.mit.edu/)-like tool for teaching introductory data
+ascience.  It turned out to be an inappropriate visual paradigm, as there was no
+natural way to represent join operations as nested blocks.  The aim of this
+project is to explore an alternative using a node-and-connector model like that
+of [Node-RED](https://nodered.org/) or [Yahoo! Pipes][pipes].
+
+[full proposal](./click-flow/)
+
+### XKCD Charts (development)
+
+[Chart.xkcd](https://timqian.com/chart.xkcd/) is a JavaScript library that
+displays charts in the hand-drawn style of [XKCD](https://xkcd.com/). Its
+creator is no longer maintaining it; this project will fork the original code,
+fix outstanding issues, and add new features such as axis limits and stable
+coloring schemes.
+
+[full proposal](./xkcd-charts/)
+
+### Save the Humans! (game)
+
+The zombies have attacked.  The people at the zoo have panicked, and it's up to
+the animals to save them in this tongue-in-cheek game. The tiger can chase
+people away from danger, but they might run straight into the arms of the
+ravenous horde. The bunny is so cute that people will chase *it*, but if they
+catch it they'll just stand there petting it until they're eaten, and so on.
+
+[full proposal](./save-the-humans/)
+
+### Tower Support Game (game)
+
+A [tower defense game](https://en.wikipedia.org/wiki/Tower_defense) is one in
+which the player builds fixed defenses against incoming waves of attackers. The
+objective of this game is to prototype a simple tower *support* game, in which
+the player builds bridges, first aid stations, and so on to help travelers reach
+their destination.
+
+[full proposal](./tower-support/)
+
+### A WYSIWYG Computational Notebook (development)
+
+[Jupyter](https://jupyter.org/) uses JSON as its storage format, while
+[Marimo](https://marimo.io/) and [Quarto](https://quarto.org/) use Python with
+embedded strings and Markdown with embedded code respectively. This project will
+explore a third option by building an [extension][lo-extension] for
+[LibreOffice](https://www.libreoffice.org/) using the the Jupyter messaging
+[protocol](https://jupyter-client.readthedocs.io/en/latest/) so that people who
+prefer WYSIWYG editors can embed code and its output alongside diagrams, tables,
+and other media.
+
+[full proposal](./jupyword/)
+
 ## In Progress
 
 ### Analysis of Undergrad Textbooks (research)
@@ -37,17 +93,6 @@ claims are backed by citations, and of those, how many are considered valid,
 then survey programmers to see which (if any) they believe.
 
 ## Some Work Done But Not Active
-
-### Blocks-Based Data Science (development)
-
-[TidyBlocks](https://github.com/tidyblocks/tidyblocks) was a prototype of a
-[Scratch](https://scratch.mit.edu/)-like tool for teaching introductory data
-ascience.  It turned out to be an inappropriate visual paradigm, as there was no
-natural way to represent join operations as nested blocks.  The aim of this
-project is to explore an alternative using a node-and-connector model like that
-of [Node-RED](https://nodered.org/) or [Yahoo! Pipes][pipes].
-
-[full proposal](./click-flow/)
 
 ### Browsercast (development)
 
@@ -102,16 +147,6 @@ case studies showing how to find and fix real-world problems.  Along the way, it
 will present examples of what programmers can do to handle errors gracefully,
 from data structure repair to automatically restarting servers.
 
-### XKCD Charts (development)
-
-[Chart.xkcd](https://timqian.com/chart.xkcd/) is a JavaScript library that
-displays charts in the hand-drawn style of [XKCD](https://xkcd.com/). Its
-creator is no longer maintaining it; this project will fork the original code,
-fix outstanding issues, and add new features such as axis limits and stable
-coloring schemes.
-
-[full proposal](./xkcd-charts/)
-
 ## Nothing Done Yet
 
 ### Bubbles! (game)
@@ -164,16 +199,6 @@ perform whatever operations it needs to, and then convert the DOM back to
 HTML. In this project, students will refactor Python-Markdown so that it can
 generate a Beautiful Soup-compatible DOM tree directly.
 
-### Save the Humans! (game)
-
-The zombies have attacked.  The people at the zoo have panicked, and it's up to
-the animals to save them in this tongue-in-cheek game. The tiger can chase
-people away from danger, but they might run straight into the arms of the
-ravenous horde. The bunny is so cute that people will chase *it*, but if they
-catch it they'll just stand there petting it until they're eaten, and so on.
-
-[full proposal](./save-the-humans/)
-
 ### Software Performance by Example (tutorial)
 
 Each lesson in this tutorial will take a simple application, analyze its
@@ -193,16 +218,6 @@ OAuth, role-based access control, the kind of logging that every sys admin
 wishes they had, static code analysis, and eventually the audit and emergency
 response procedures that such tools are meant to support.
 
-### Tower Support Game (game)
-
-A [tower defense game](https://en.wikipedia.org/wiki/Tower_defense) is one in
-which the player builds fixed defenses against incoming waves of attackers. The
-objective of this game is to prototype a simple tower *support* game, in which
-the player builds bridges, first aid stations, and so on to help travelers reach
-their destination.
-
-[full proposal](./tower-support/)
-
 ### Understanding Ethics (research)
 
 This project will start by creating a set of scenarios in which a programmer
@@ -211,19 +226,6 @@ will determine the best answer for each; students and professionals will then be
 asked to answer the same questions, and the results will be analyzed to see how
 well each group matches the experts' opinions and whether practitioners'
 opinions are any better than those of students.
-
-### A WYSIWYG Computational Notebook (development)
-
-[Jupyter](https://jupyter.org/) uses JSON as its storage format, while
-[Marimo](https://marimo.io/) and [Quarto](https://quarto.org/) use Python with
-embedded strings and Markdown with embedded code respectively. This project will
-explore a third option by building an [extension][lo-extension] for
-[LibreOffice](https://www.libreoffice.org/) using the the Jupyter messaging
-[protocol](https://jupyter-client.readthedocs.io/en/latest/) so that people who
-prefer WYSIWYG editors can embed code and its output alongside diagrams, tables,
-and other media.
-
-[full proposal](./jupyword/)
 
 [discussion-book]: https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715
 [lo-extension]: https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions
