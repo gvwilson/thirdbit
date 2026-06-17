@@ -429,7 +429,7 @@ a degree from a prestigious school,
 or a table at an exclusive restaurant are all examples.
 
 Hirsch pointed out that positional goods cannot be democratized.
-Refrigerators and mobile phones can eventually be afford by almost everyone,
+Refrigerators and mobile phones can eventually be afforded by almost everyone,
 and everyone genuinely benefits.
 Positional goods cannot work this way.
 For example,
