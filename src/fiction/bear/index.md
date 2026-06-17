@@ -140,7 +140,7 @@ It's a long way from Stale."
 Noxy shrugged, then winced.
 This wasn't at all how she had imagined meeting Prince Thokmay again.
 "We were on our way to Chaghan.
-Aft got a contract there—he's the reeve now—and Ghorahj was sort of on the way, and…"
+Aft got a contract there—he's the reeve now—and Ghohraj was sort of on the way, and…"
 She shrugged again, more carefully, to hide her awkwardness.
 She had wanted to surprise him…
 
@@ -182,7 +182,7 @@ I'm sure we can—uh. Oh."
 "I'm just glad you and your companions weren't seriously hurt."
 
 As Aft opened his mouth to speak, the prince continued,
-"We were on our way to escort the new consul from Chaghan into Ghorahj
+"We were on our way to escort the new consul from Chaghan into Ghohraj
 when we spotted the tornado.
 We should get moving in case it comes back."
 
@@ -230,12 +230,12 @@ but what was she going to tell her daughter and her son-in-law about the cottage
 The roof was gone, and the chicken coop, and the whole *barn*, and—
 
 "The king will pay to have it all rebuilt," the prince said soothingly.
-"But right now, my men will see you safely into Ghorahj.
+"But right now, my men will see you safely into Ghohraj.
 You can stay there until we find out who's behind this."
 
 The old woman nodded, fighting tears.
 The prince turned back to Aft.
-"You would be welcome in Ghorahj as well, of course.
+"You would be welcome in Ghohraj as well, of course.
 You and all your companions."
 
 "That's impossible," Aft said sharply.
@@ -275,7 +275,7 @@ A few moments later he was airborne, heading portwards with the rest of the herd
 
 The prince's carefully polite expression turned wistful
 as he watched the clouds fly away.
-"Can your cloud make it to Ghorahj?" he asked.
+"Can your cloud make it to Ghohraj?" he asked.
 
 Noxy put her hand on Cloak's flank and closed her eyes
 to mind-speak with him before nodding.
@@ -286,7 +286,7 @@ feeling a sudden pang of guilt.
 
 The prince handed his horse's reins to Private Rinpa.
 "Put the lady and her young men on Bucketbreath here," he ordered.
-"See them safely back to Ghorahj,
+"See them safely back to Ghohraj,
 and tell the staff that they're to be put up in the garrison guest house
 if they can't find something more suitable.
 I will take the cloud back with Respected Noxious."
@@ -324,7 +324,7 @@ and the big wide world he'd suddenly found himself in.
 
 The prince pulled himself up onto Cloak behind Noxy,
 then sat quietly as she coaxed the injured cloud into the air.
-They levelled off a hundred strides above the trees and turned toward Ghorahj.
+They levelled off a hundred strides above the trees and turned toward Ghohraj.
 
 The soft, slightly damp feel of the cloud
 brought memories flooding back to the prince.
@@ -410,7 +410,7 @@ The prince shrugged.
 "He probably does, but Lormay's the most likely heir now."
 He couldn't quite keep the bitterness out of his voice when he continued,
 "My father said it would make it clear to everyone that things have changed.
-Sending me to Ghorahj is part of that too.
+Sending me to Ghohraj is part of that too.
 He said that if I'm ever going to rule,
 I have to learn how to give orders and make hard choices."
 
@@ -458,7 +458,7 @@ When she didn't, he nodded.
 "All right," he promised. "It'lls stay our secret."
 
 The sun was sitting on the horizon like a fat yellow hen
-by the time Ghorahj came into view.
+by the time Ghohraj came into view.
 The town was twenty times the size of Stale,
 but seemed small to Noxy after some of the cities she had flown over.
 
@@ -467,7 +467,7 @@ Their ground floors were brick and their upper stories wooden,
 while their roofs were shingled with long, skinny planks.
 The smell of cooking rising from their chimneys made Noxy's stomach rumble.
 
-Most of Ghorahj lay on the right bank of the Sochla River.
+Most of Ghohraj lay on the right bank of the Sochla River.
 Near the center of town,
 where the river bent toward the distant sea,
 four enormous stone pillars rose from the water.
@@ -549,7 +549,7 @@ people had sniggered when Aft introduced himself as "Disgusting Aftertaste".
 Sergeant Gyalpa nodded.
 "Yes, honored.
 They said a farm was completely destroyed.
-The woman who survived said her son-in-law came along into Ghorahj today
+The woman who survived said her son-in-law came along into Ghohraj today
 to report some suspicious men.
 He left going on about an hour ago.
 I sent along out some riders, but he's not on the road."
@@ -792,12 +792,12 @@ with the gold-and-turquoise collar of Loghan securely around his neck.
 His second wife,
 in a matching jacket and long flowing trousers,
 stood beside him.
-His youngest son, Prince Thokmin, stood in front of the king
+His youngest son, Prince Shobmay, stood in front of the king
 wearing a copy of the royal collar to show the world that he was the heir.
 Prince Thokmay and Princess Ogmin stood to either side,
 hands clasped behind their backs.
 Two years ago,
-Thokmay and Thokmin's positions had been reversed.
+Thokmay and Shobmay's positions had been reversed.
 He wondered if his brother thought about that as often as he did.
 
 </section>
@@ -1113,7 +1113,7 @@ She and Prince Thokmay bowed to each other.
 With a smooth, practiced motion she took off her sash and passed it to Yangyal,
 who slipped it over his head and bowed to her.
 
-"And I trust you will enjoy your stay in Ghorahj, *Consul*,"
+"And I trust you will enjoy your stay in Ghohraj, *Consul*,"
 Thokmay said to his other guest in a voice as cold as a mountain lake.
 
 Consul Yangyal inclined his head.
@@ -1322,7 +1322,7 @@ but held no heat at all.
 
 He frowned at the sheet of paper before him.
 *Your Majesty,* his letter began, as his reports to his father always did.
-*1. Ghorahj continues quiet.
+*1. Ghohraj continues quiet.
 The Dog Market is busy,
 but your revenue collectors report only minor disputes and disturbances.*
 He saw no reason to mention Mope's latest run-in with the locals.
@@ -1344,11 +1344,11 @@ After what had happened two years ago,
 he doubted his father would be happy knowing that Noxy was staying at the garrison house.
 He wanted his brother to find out even less.
 The first time Noxy had written Thokmay a letter,
-Thokmin had run through the palace holding it in the air, crowing,
+Shobmay had run through the palace holding it in the air, crowing,
 "Thokmay has a sweetheart! Thokmay has a sweetheart!"
 The older prince had knocked over a potted lime tree and two elderly surveyors catching up with him,
 and had his riding privileges taken away for a week for blacking his eye.
-Thokmin had made a point of sneering at cloudherds ever since.
+Shobmay had made a point of sneering at cloudherds ever since.
 
 He sighed,
 trying to think about how to explain Scholar-Candidate Yangyal—no, *Consul* Yangyal—then
@@ -1489,7 +1489,7 @@ Sergeant Gyalpa was right:
 choosing a rebel who had tried to topple the throne as consul was a deliberate insult,
 but why?
 Why now?
-And why Ghorahj?
+And why Ghohraj?
 Not for the first time,
 he wished it was someone else's problem,
 or that magicians could read minds in real life
@@ -1557,7 +1557,7 @@ Instead,
 afraid that their land might be judged Blighted,
 they had taken a hammer to one of the eggs.
 The explosion had woken the neighbors,
-and the choking smoke had made the sternward road into Ghorahj impassable for months.
+and the choking smoke had made the sternward road into Ghohraj impassable for months.
 
 That had been ten years ago.
 The fire was still burning.
@@ -1641,7 +1641,7 @@ Noxy slowed down and fell in step beside the troll.
 "Oh, you get used to it," Dolly replied, smiling.
 "Reminds me of my husband sometimes."
 
-"Is he here in Ghorahj?"
+"Is he here in Ghohraj?"
 
 Dolly's smile slipped.
 "No, he passed away years ago.
@@ -2234,7 +2234,7 @@ All of a sudden she didn't want to be this close to the ground any more.
 The hungry cloud didn't need to be told twice.
 He rose with a lurch, making Noxy whoop.
 The walls of the garrison house sank below them.
-Suddenly she was above the roof—above all of Ghorahj's roofs.
+Suddenly she was above the roof—above all of Ghohraj's roofs.
 The clock tower seemed to stare at her jealously,
 its green dial a blind eye,
 before it dropped away as well and she was up in the sky,
@@ -2246,7 +2246,7 @@ She mind-heard the cloud's purr as she scratched around the patch torn by the br
 
 The world looked so big beneath her,
 stretching on and on until it blurred and hazed with distance.
-As big as Ghorahj was
+As big as Ghohraj was
 it was still small by comparison.
 Streets that had seemed wide as she walked them were narrow tracks between blocks of slate and tile.
 Even the market was a child's toy,
@@ -2331,7 +2331,7 @@ She wondered if he thought about that night as often as she did…
 *Let's go back,* she mind-spoke, patting her cloud.
 
 *At the same moment,
-a few gallops downriver from Ghorahj,
+a few gallops downriver from Ghohraj,
 a flat-bottomed skiff slid up to the raccoons' barge.
 A rough-looking man stepped onto the barge and pried open the side of an oversized crate.
 The horse that had been hidden inside stepped uncertainly into the light.
@@ -2529,7 +2529,7 @@ The prince raised his hand again.
 "Let her go," he said, suddenly weary.
 "I'm sure we'll see her again soon."
 
-Noxy circled Ghorahj one more time to give Cloud a final satisfying drizzle.
+Noxy circled Ghohraj one more time to give Cloud a final satisfying drizzle.
 *Home now,* she mind-spoke to the cloud,
 forming a picture of the garrison house's rear courtyard.
 He was fluffy now that he'd rained,
@@ -2645,7 +2645,7 @@ His face grew serious.
 The prince shook his head. "I don't know."
 
 Two hundred years ago,
-when Ghorahj was just a handful of houses
+when Ghohraj was just a handful of houses
 around an open field where a weekly market was held,
 its inhabitants had laid down slabs of stone
 to make a lozenge twenty strides from end to end.
@@ -2659,7 +2659,7 @@ to tie their wrists together and say their vows.
 And when they died,
 those who had known them would gather to tell their stories one last time.
 
-As Ghorahj grew,
+As Ghohraj grew,
 its inhabitants built a witness hall beside the stone lozenge
 to keep the rain off the weddings.
 Walls were put up,
@@ -2674,7 +2674,7 @@ but the Old Hall remained the town's heart.
 
 If the farmer had died a normal death—old age
 or a plague or a fall while pruning an apple tree—his
-family and his neighbors and his friends wouldn't have brought him into Ghorahj at all.
+family and his neighbors and his friends wouldn't have brought him into Ghohraj at all.
 They would have laid out a diamond with a few stones somewhere he loved and
 told his stories there.
 *But that isn't how he died,*
@@ -3014,7 +3014,7 @@ Bird droppings, a few twigs, and a windblown piece of rain-faded ribbon decorate
 He ignored them all as he shaded his eyes with his hand and looked sternward.
 
 The tornado was a dark twisting column three times the height of the clock tower.
-It was still about two gallops outside Ghorahj,
+It was still about two gallops outside Ghohraj,
 but even as he watched he could it see it coming closer,
 tearing a furrow of ruin through the beanfields and flower beds
 that the townspeople tended so carefully.
@@ -3321,7 +3321,7 @@ Mope shooked his head.
 "They've gone mad, honored.
 Bortja and her lot.
 They're saying the tornado is the Gifted's fault,
-that Ghorahj won't be safe 'til we're all sent out.
+that Ghohraj won't be safe 'til we're all sent out.
 They nearly caught this poor lad, and if they had…"
 He shook his head and turned back toward the drain pipe.
 
@@ -3626,7 +3626,7 @@ were carefully pinned to her bedroom wall.
 She didn't feel like gushing about him
 the way Sensy seemed to want to gush about Rash
 (at least, when she wasn't complaining about him being such a goof),
-but she didn't want to leave Ghorahj just yet.
+but she didn't want to leave Ghohraj just yet.
 
 She stood and brushed her hands on her trousers.
 Granna Fee had been fond of saying that
@@ -3726,7 +3726,7 @@ Cloud's healed up,
 and there doesn't seem to be much business for us here."
 
 Noxy nodded.
-Ghorahj had a lot of things, but a shortage of water wasn't one of them.
+Ghohraj had a lot of things, but a shortage of water wasn't one of them.
 "How did you wind up carrying Shudarga?"
 
 The cloudherd shrugged.
@@ -3734,7 +3734,7 @@ The cloudherd shrugged.
 He said someone wanted a ride from Choghan-in-Choghan.
 I asked if they wanted to go to the capital,
 and the fellow said no,
-they wanted to go to Ghorahj.
+they wanted to go to Ghohraj.
 It was only a few days out of our way,
 and he said he'd pay half up front."
 
@@ -3831,7 +3831,7 @@ the garrison was going to run out of hawks…
 
 Noxy was only a short street away from the garrison house when her day got worse.
 The house that the outgoing Consul Yisu had occupied for the past few years
-was one of the largest in Ghorahj,
+was one of the largest in Ghohraj,
 and she had spared no expense on its upkeep.
 Like the rest of the town's houses it had no windows facing the street,
 just a double door painted with a bright geometric pattern for luck.
@@ -4297,7 +4297,7 @@ Taking a deep breath, he opened his eyes.
 
 "I don't know," Noxy said. "Anything out of the ordinary."
 
-They flew in a slow circle over Ghorahj,
+They flew in a slow circle over Ghohraj,
 scanning the town.
 People were dumping slop buckets in the drains,
 opening the awnings over their shops,
@@ -4453,7 +4453,7 @@ Noxy wondered why he'd brought it,
 then realized he was probably at as much of a loss as anyone.
 
 Sergeant Inambu's two apprentices,
-both young recruits from Ghorahj,
+both young recruits from Ghohraj,
 watched closely as she took the rolled-up ribbon from Dolly
 and set it on a small piece of wood.
 "You have to be careful to put the fresh-cut end along by the inside,"
@@ -4751,6 +4751,338 @@ Neither looked directly at the cord tying their captive's ankle to the wagon.
 They had both worn collars and leashes in their youth,
 and it felt too much like that for their comfort.*
 
-FIXME: Thokmay writing to his father
+Thokmay had struggled with letters before, but not like this.
+Ogmin was *his* responsibility,
+an even greater one than Ghohraj in some ways.
+How in the underhells was he supposed to tell his father that he'd lost he?
+And what would his brother do when he heard the news?
+
+Thokmay chewed the end of his writing brush,
+then set it down angrily on his desk
+and stared at the wall until he caught himself scratching the scars on his chest.
+"What's next, biting your nails?" he asked himself aloud.
+He had worn gloves night and day for a month when he was eight years old
+to give them a chance to grow back.
+His brother Shobmay had teased him about that,
+and about his fondness for sweets,
+and about his love of animals, Gifted and otherwise.
+He had always been better at people and politics than Thokmay.
+He would know how to write this damned letter.
+
+Thokmay sighed,
+picked up his writing brush,
+dipped it in the inkwell,
+and began.
+
+</section>
+<section markdown="1">
+
+## Chapter 8: Into the Blight
+
+Noxy hadn't realized just how many soldiers were in Ghohraj
+until she saw them all standing at attention in the garrison house courtyard.
+She started counting, but stopped when Mope said,
+"Eighty, plus Sergeant Inambu and her two apprentices,
+and Kitijan over there.
+He's not part of the troop's regulation fighting strength any more,
+not since he lost that leg,
+but he keeps the horses happy."
+
+The prince stood in front of his troops with Sergeant Gyalpa beside him.
+He looked relaxed to Noxy,
+but if she had been closer,
+she would have seen that he was drumming his fingers on the hilt of his sword.
+His plumed helmet made him look older, and stern.
+The yellow feathers on its crest,
+and the yellow ribbons on his sleeve,
+reminded her uncomfortably of how Captain Jigme had looked
+the day he had arrived in Stale four years ago.
+
+At a nod from Sergeant Gyalpa, Prince Thokmay stepped forward.
+"You all know where we're going," he said loudly.
+"And you all know why,
+and what we might run into.
+If any of you would rather spend a year in the galleys,
+now's the time to say so."
+He waited a moment.
+"Very well, then. Sergeant?"
+
+"Honored?"
+
+The prince waved at the men standing to his right.
+"These four squads will come with us.
+We'll leave the other four here with Sergeant Inambu."
+
+"Yes, honored," the sergeant replied.
+
+"Dismiss the troops," Thokmay ordered.
+
+The sergeant straightened up.
+"Atten*tion!* Saaaa*lute!*"
+As one,
+the soldiers thumped their right fists against their chests and roared "Loghan preserved!"
+The sergeant led those the prince had selected toward the stables,
+while the others split off in twos and threes to return to their duties.
+
+The prince walked across the cobblestone courtyard to Mope and Noxy,
+tucking his helmet under his arm as he did so
+and running his fingers over his shaved scalp.
+"How did I do?" he asked.
+
+"Well enough, honored, quite well" the troll reassured him.
+
+"Are you sure it's wise to take so few, honored?"
+a soft voice asked from behind Noxy.
+She jumped, startled.
+Sergeant Inambu didn't seem to notice.
+"It is, after all, your sister."
+
+"My father would want me to deal with this like a soldier,"
+the prince said evenly,
+"Not like a guilty child.
+Anything could happen if I leave too few here to guard the town."
+He studied the magician for a moment.
+"Are you…all right?"
+
+Sergeant Inambu nodded.
+"Yes, honored. At least, I will be.
+But please, take both of my apprentices.
+I think I'll be able to take care of whatever might happen here in your absence."
+
+"Of course," the prince said. "Thank you."
+He turned to Noxy.
+"I'm sorry to run away like this.
+I hope you understand."
+
+"Of course," she said.
+On a sudden impulse she stepped toward him.
+His eyes widened.
+She hesitated,
+her sudden courage gone,
+and settled for punching his arm gently.
+"Blue skies and a safe journey," was all she said.
+
+It took them until the middle of the afternoon to reach the Blight.
+The squad at the rear would speed up to gallop past the others,
+then slow to a trot once they were in front to let the next squad ride past.
+The prince tried not to think about what might be happening to his sister,
+but he couldn't stop himself from looking at every farm and by-road they passed
+and wondering, "What if she's there?"
+
+There were no markers on the edge of the Blight,
+no walls or signs to show where the magically-poisoned land began.
+Prince Thokmay only realized they were in it
+when he saw a patch of flowers that had been turned into glass.
+He turned in his saddle to stare,
+then heard a crunching sound underneath him
+as his horse stepped on some grass that had been transformed the same way.
+
+"You'll want to watch out for that, honored,"
+Private Manpa said.
+"Bucket's hooves are tough,
+but they're not so tough as they can't be cut."
+
+"I'll be careful," the prince promised.
+He looked around.
+"I haven't seen any birds for a while."
+
+"Nor you won't, honored.
+There's not many that'll come here that weren't born here.
+Same as the people, like."
+
+The prince nodded.
+"I can understand why.
+Come on, let's keep going.
+I want to be at Carmick Hill before sunset."
+
+The further they rode, the bleaker the land became.
+Scraggly blackberry bushes hunched down when they heard the soldiers approaching,
+while the knee-high grass had a metallic green sheen like a summer fly's body,
+and made a scraping sound like rusty scissors when the wind brushed over it.
+The trees they passed were stunted,
+and the apples hanging from them were blackened,
+or bloated to the size of pumpkins.
+Even the sky above them was somehow twisted.
+It seemed normal enough when Prince Thokmay looked straight at it,
+but he kept seeing swirls of color near the horizon out of the corner of his eye.
+
+They came up over a small rise
+and saw a wooden 'X' propped up on either side of the road.
+Each was tall as a mounted man's head,
+and the rain had long since washed away whatever paint might once have been on them.
+The prince swallowed as he rode between them.
+He knew from the soldiers' stories that these markers had once stood at the Blight's edge.
+Now they were two hours' ride inside it.
+
+The sun had sunk into the horizon like a rotten peach into mud
+when one of the soldiers from the lead squad came galloping back to the prince.
+"Honored!" he shouted.
+"There's men up along ahead, a bunch of 'em.
+The sergeant says to go careful like in case there's others."
+
+"Understood," the prince said crisply.
+"Tell Sergeant Gyalpa that we'll be with him as quickly as we can."
+The soldier turned and galloped back the way he'd come.
+The prince drew his sword and laid it across his lap.
+The soldiers behind him did the same,
+making much the same sound as the metal grass had made.
+He took a deep breath and spurred his horse to a trot.
+
+Prince Thokmay expected to find a handful of smugglers waiting at the top of a hill,
+or on the far side of a stream.
+Instead, eight men on mean-looking horses were gathered around
+the stump of what must have once been an enormous tree,
+while twice that number with spears and swords were on foot beside them.
+
+The prince reined in his horse next to Sergeant Gyalpa
+a hundred strides away from them.
+"Recognize anyone, honored?" the sergeant asked,
+jerking his chin at the skinny figure atop
+the only one of the smugglers' horses that looked like it had eaten a decent meal in the last month.
+
+"Mukh," the prince said, making the name a curse.
+"Any sign of bows?"
+
+"Not that I can see, honored.
+Private Rinpa!
+Can you see any archers among them?"
+the sergeant called.
+
+The soldier squinted for a moment.
+"No, sergeant, not a one."
+
+Sergeant Gyalpa studied the men a moment longer.
+"I don't like it, honored," he said.
+"There's forty of us, all mounted,
+against two dozen of them, and most of theirs are on foot.
+Why are they just waiting for us?"
+
+"There's only one way to find out," the prince said,
+hoping he sounded braver than he felt.
+He started to spur his horse forward,
+but Sergeant Gyalpa backed his own mount into the prince's way.
+
+The sergeant glanced around,
+then sidled his horse closer to the prince so that their heads were only a couple of feet apart.
+"You've not been in a battle before, have you, honored?
+Not with a sword in your hands."
+
+The prince shook his head.
+"No, sergeant.
+I don't suppose you'd call what happened at Stale a battle."
+
+The sergeant nodded.
+"Right, then I'd be grateful if you'd stay close to me,
+and hang back if there's any excitement.
+Your father will have my ears off
+if I let you get killed by a bunch of featherless ducks like this lot."
+
+"Yes, sergeant."
+The prince cleared his throat.
+"Shall we?"
+
+The soldiers spread out as they rode forward.
+They were still about fifty strides away
+when Mukh raised his arm.
+"Hello, hello!" he called. "So glad you could come."
+
+"I am Thokmay Loghan-o Prince," the prince said loudly,
+hoping that his voice wouldn't crack,
+and that he would be brave if battle came.
+"I am looking for my sister, the Princess Ogmin.
+We fear she has been abducted."
+
+The man on the ground beside Mukh was wagging a finger slowly at the soldiers.
+He frowned and tugged at Mukh's pantleg and said something that the prince couldn't hear.
+
+Mukh shushed the man with a gesture.
+"Where are the rest of your soldiers?" he asked.
+"It's such a nice day,
+I hope they're not cooped up washing dishes."
+A few of his men sniggered.
+
+"Never mind the dishes," the prince demanded.
+"Do you know what has become of Her Highness?"
+
+"Oh, yes, the princess," Mukh called back.
+"About this tall?
+He put his hand up around his chin, palm flat.
+"Long hair?"
+
+"What have you done with her?" the prince demanded.
+
+"Oh, nothing, nothing," the smuggler said.
+"Just given her a haircut."
+His men sniggered again.
+One of them reached over and picked something up off the stump.
+
+"Looks like a braid, honored," Manpa said, squinting again.
+
+"Yes, they're braids," Mukh said,
+as though he'd been able to hear despite the distance.
+"Show them what else you have, Harjid."
+
+The smuggler put down the cut-off braids and held up a roll of blue ribbon.
+"You do recognize it, yes, honored?
+Eighteen, yes, it was eighteen winkles an arm's length, wasn't it?"
+
+Sergeant Gyalpa swore under his breath.
+"We've been tricked, honored.
+They must've known we'd use magic to find the princess."
+
+"Yes, well, it only seemed reasonable," Mukh said.
+This time the prince was sure that the smuggler had heard them.
+"I thought of pulling out her fingernails too,
+in case you tried to use clippings instead of hair,
+but I was sure you'd keep too a neat a house for that."
+
+"If you've hurt her—" the prince started.
+
+"Oh no, no, no," the smuggler protested.
+"*I* would never hurt an innocent child—not unless I had to, of course.
+But we don't even *have* the princess, do we?"
+He twisted around in his saddle to look at his men. "Do we?"
+
+"No," they said, and "Nawp," and "Uh uh."
+
+"What do you want?" Sergeant Gyalpa asked loudly.
+
+The smile dropped from Mukh's thin face.
+He spurred his horse forward a few paces,
+holding his mount's reins in his right hand
+and something else in his lap with his left.
+"I want you and your troops to leave Ghohraj," he said.
+"By tomorrow. For good."
+
+"He can't be serious, honored," Sergeant Gyalpa muttered.
+"Even if we did leave,
+the king would have half his army down here before the harvest started."
+
+The prince nodded.
+"Why should we leave Ghohraj?" he asked.
+"If you don't have my sister, what reason would we have?"
+
+"You might do it just to be friendly," Mukh said, then snickered.
+
+The prince shook his head.
+"I'm sorry, but I don't think I want to have a friend like you.
+Even if I did, I couldn't oblige you.
+Ghohraj is part of Loghan."
+
+"Not for long," Mukh said lightly.
+He picked up a small bag that was hanging from his saddle horn.
+"Not for very long at all."
+
+"It's magic!" one of the apprentices shouted.
+"I can feel it!"
+
+"Loghan preserved!" Sergeant Gyalpa bellowed,
+digging his heels into his horse.
+The soldiers around him shouted, "Loghan preserved!" and charged.
+
+Mukh paused for just a moment,
+watching them come at him with a smug look on his face.
+Then he undid the string that held the bag closed and shook it out.
+A terrible roaring sound filled the prince's ears as a tornado came whirling out.
 
 </section>

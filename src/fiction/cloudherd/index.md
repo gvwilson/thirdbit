@@ -3420,7 +3420,7 @@ There was a moment of stunned silence.
 
 "It's not magic," Grappa Gas laughed,
 looking as delighted as any of the children.
-"It's called juggling! I saw it once in Ghorahj. It's just a trick."
+"It's called juggling! I saw it once in Ghohraj. It's just a trick."
 
 "That's right," Thokmay agreed.
 "It's just a trick. Here, I'll prove it. Private Kechen?"
