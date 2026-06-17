@@ -1021,18 +1021,19 @@ The man who had entered two paces behind the consul bowed deeply.
 Like her, he wore black trimmed with sky blue.
 His head was shaved and his mustache neatly trimmed.
 "Your Highness. How good to see you again."
-Captain Jigme straightened and turned to Noxy. 
+The man that Thokmay and Noxy had known as Scholar-Candidate Yangyal
+straightened and turned to Noxy. 
 "And you as well, Respected Noxious.
 I trust you are well."
 
 "I—I take it you've met?" Consul Yisu asked weakly,
-her eyes darting back and forth between the prince and Jigme
+her eyes darting back and forth between the prince and Yangyal
 like a rabbit caught between two lions.
 
 "Yes," Prince Thokmay grated.
 "He betrayed my father and tried to kill me."
 
-Captain Jigme coughed.
+Yangyal coughed.
 "Not that I wish to begin my tenure as consul by disagreeing with my host,
 but I never actually tried to kill you."
 
@@ -1041,14 +1042,14 @@ but I never actually tried to kill you."
 "How can you be consul? You're not Chaghan-o!"
 the prince continued.
 
-"I am now," Captain Jigme replied calmly.
-"The Chaghan-o very graciously gave me asylum after…everything that happened.
+"I am now," Yangyal replied calmly.
+"The Chaghan-o very graciously chose to employ me after…everything that happened.
 When Consul Yisu decided to retire,
 offering my services as her replacement seemed the least I could do to thank them."
 
 If Noxy had been raised at court like Prince Thokmay,
 she might have noticed the angry look that flitted across Consul Yisu's face
-when Captain Jigme said she had decided to retire.
+when Yangyal said she had decided to retire.
 As it was,
 she was too angry to notice anything,
 not even the way Private Manpa and Private Rinpa had slipped into the room
@@ -1059,7 +1060,7 @@ very definitely *not* ready to draw their swords at the first hint of trouble.
 "The least you could do is find a cliff like the one you threw Sergeant Dorbu off
 and take a flying leap!"
 
-Captain Jigme sighed theatrically.
+Yangyal sighed theatrically.
 "I did not throw the sergeant off anything, honored.
 We were fighting.
 It was difficult terrain, and he fell.
@@ -1068,7 +1069,7 @@ I'm sorry for every single person or Gifted beast that died that day."
 
 "Sorry enough to come back to Stale for trial?" Noxy burst out.
 
-Captain Jigme shook his head.
+Yangyal shook his head.
 "I very much doubt I would receive a fair hearing if I did so."
 
 "A fair—you don't deserve any kind of hearing! Let *go* of me!"
@@ -1089,7 +1090,7 @@ Loghan-o law can't touch him,
 not without starting a war."
 
 "Thank you, Your Highness."
-Captain Jigme's hair was starting to gray, Noxy noticed,
+Yangyal's hair was starting to gray, Noxy noticed,
 and he was thinner than he had been two years ago.
 She hoped it was more than just age.
 She hoped those two years had been as hard for him as they'd been for her.
@@ -1109,13 +1110,13 @@ Perhaps I could come and bid you farewell before I depart?"
 
 "It would be my pleasure."
 She and Prince Thokmay bowed to each other.
-With a smooth, practiced motion she took off her sash and passed it to Jigme,
+With a smooth, practiced motion she took off her sash and passed it to Yangyal,
 who slipped it over his head and bowed to her.
 
 "And I trust you will enjoy your stay in Ghorahj, *Consul*,"
 Thokmay said to his other guest in a voice as cold as a mountain lake.
 
-Consult Jigme inclined his head.
+Consul Yangyal inclined his head.
 "I sincerely hope so, honored.."
 
 Sergeant Gyalpa had been standing at attention near the dinner table throughout the exchange.
@@ -1350,7 +1351,7 @@ and had his riding privileges taken away for a week for blacking his eye.
 Thokmin had made a point of sneering at cloudherds ever since.
 
 He sighed,
-trying to think about how to explain Captain Jigme—no, Consul Jigme—then
+trying to think about how to explain Scholar-Candidate Yangyal—no, *Consul* Yangyal—then
 froze as something else sighed behind him.
 His right hand was on the writing desk, holding the delicate writing brush.
 *Breathe naturally,* he told himself
@@ -1480,7 +1481,7 @@ and was asleep by his third breath.
 The prince woke at dawn, still in his clothes, and groaned.
 He'd had a restless night—when
 Eddard the Dog's memories hadn't been burbling in his head like undercooked beans,
-Consul Jigme's smile had mocked him.
+Consul Yangyal's smile had mocked him.
 Loghan's relations with Chaghan had been shaped by half a dozen royal marriages,
 almost as many border wars,
 and both kingdoms' need to contain the Blight.
@@ -1568,7 +1569,7 @@ he made another note.
 
 "Yes, honored. Will that be all?"
 
-"Almost. Our guest last night—the new consul, Jigme."
+"Almost. Our guest last night—the new consul, Yangyal."
 He paused a moment, searching for words.
 "He's up to something.
 I don't know what, not yet,
@@ -3552,7 +3553,7 @@ he *was* serious,
 he told Mope curtly.
 Between the tornado,
 Bortja whipping up mobs to go after the Gifted,
-and whatever Consul Jigme was up to,
+and whatever Consul Yangyal was up to,
 they had enough to keep his troop busy ten times over.
 This was Shudarga they were talking about.
 Her writing had brought Loghan to the brink of civil war.
@@ -3574,7 +3575,7 @@ raising his hand to forestall further argument.
 The sergeant is right.
 We can't let her wander around stirring up trouble.
 And no,
-I don't think her arriving at the same time as Jigme is a coincidence.
+I don't think her arriving at the same time as Yangyal is a coincidence.
 We'll put her in the royal suite on the top floor.
 No, no, listen to me."
 He waited for the sergeant to settle back in his chair,
@@ -3843,7 +3844,7 @@ One of the doors swung open just as she passed.
 A tall man with a cudgel on his hip stepped out,
 nodded to her,
 and then nodded again over his shoulder.
-Consul Jigme stepped out wearing a dark knee-length formal coat,
+Consul Yangyal stepped out wearing a dark knee-length formal coat,
 its high collar closed despite the warmth,
 and pressed his hand to his chest.
 "Respected," he said,
@@ -3858,7 +3859,7 @@ the consul asked.
 "I'm headed that way myself."
 
 Noxy stopped short.
-When Jigme did too,
+When Yangyal did too,
 she crossed her arms.
 "I thought you were going to see the prince?"
 
@@ -4564,7 +4565,7 @@ I think my apprentices know enough to take care of whatever you might need in th
 
 "Thank you," Thokmay replied crisply.
 "Private Minpa!
-You and I are going to pay Consul Jigme a visit.
+You and I are going to pay Consul Yangyal a visit.
 And Mope—go and give my respects with Learned Shudarga
 and see if she knows anything about this.
 No,
@@ -4587,7 +4588,7 @@ I had just started to shave, but—"
 Thokmay said coldly.
 "And my magician tells me she's on her way to Choghan."
 
-Jigme's eyes widened in surprise.
+Yangyal's eyes widened in surprise.
 "What?
 Honored, by my blood, I know nothing of this.
 When did it happen?"
@@ -4597,7 +4598,7 @@ The prince drew his dagger and offered it hilt first to the consul.
 "Under the circumstances,
 I would consider it a courtesy."
 
-Jigme didn't hesitate.
+Yangyal didn't hesitate.
 Taking the dagger,
 he pulled up his sleeve to expose his forearm.
 "On my blood, I ask,
@@ -4611,7 +4612,7 @@ Thokmay thrust it back into its sheath and bowed.
 "Thank you, consul.
 I'll have someone look in on you this evening."
 
-Jigme returned his bow stiffly.
+Yangyal returned his bow with the sinuous grace of a slithering snake.
 "Of course, honored.
 If there is anything I can do to help, it would be my honor."
 
