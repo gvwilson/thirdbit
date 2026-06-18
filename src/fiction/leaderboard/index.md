@@ -177,7 +177,7 @@ which caused a ten-second news flurry.
 There had been other news too—another carbon sequestration agreement had been signed,
 and something called leishmaniasis had finally been eradicated—but I had ignored most of it.
 Painting is more physically demanding than most people realize,
-and doing the same strokes over and over with two kilos of haptic trainer on your arm
+and doing the same strokes over and over with a kilo of haptic trainer on your arm
 leaves you feeling like you've been trampled by an angry goat.
 
 On the upside,
@@ -296,32 +296,18 @@ No matter where conversation started,
 it inevitably led to a lecture on the idiocy of rewilding the Great Plains
 or why banning private air travel had been an infringement of fundamental human rights.
 
-The hard part was convincing other lightning rods that this wasn't a joke or a hit.
-His choice of date made the first part difficult,
-and as for the second…
-
+The only holdout was Joachim.
 "*Nein*,"
-Joachim said flatly.
-"Remember what happened with the Korean?"
-
-"That was completely different," I shot back.
-"His daughter isn't in the picture.
-Hell,
-I don't even know if she actually exists.
-This is just—"
-
-"*Nein*," Joachim repeated,
+he said flatly,
 scratching the piercing in his nose and cutting the call.
 His reputation had taken a hit,
 but if he didn't need the business…
-I shrugged and moved down my list.
 
-It took me a week to get ninety-one people to say "yes".
+It took a week to get the other eighty-nine people on my list to say "yes".
 My AIs said seventy would be enough,
 but everyone had their own models and margins.
 After a bit of debate and a lot of posturing,
-I had my team,
-all of them bound by the tightest NDAs I'd ever seen.
+they all signed the tightest NDA I had ever seen.
 
 And then a week before our chosen Sunday
 it almost fell apart.
@@ -335,23 +321,24 @@ he was worth as much as the next three people on Earth put together.
 Whoever or whatever was making decisions made it then,
 and Joachim flatlined at his desk.
 
-I spent the evening in my apartment
-with the Bollywood remake of *Buffy the Vampire Slayer*
-playing silently on the wall
-and some Ike Quebec playing on loop.
+The media had a brief spasm of interest.
+Was it suicide?
+Was the Mendonça family settling the score?
+
+I muted a few keywords and spent the evening in my apartment
+with a joint and the Bollywood remake of *Buffy the Vampire Slayer*.
 He'd known the risks.
 We all did.
-I took one last puff from my hand-rolled joint,
-stubbed it out,
-and fell asleep on the couch.
+When I slept,
+I slept peacefully.
 
 <p class="center">* * *</p>
 
 I spent the last day of March painting.
-Bench invited me to try something called immersive gardening,
+Bench had invited me to try something called immersive gardening,
 but was neither surprised nor disappointed when I declined.
-She didn't know what was happening—even if the NDA hadn't been so tight,
-I wouldn't have told her—but she knew *something* was up.
+She didn't know what was happening—the NDA really was that tight—but
+she knew *something* was up.
 "Don't second-guess yourself," she ordered sternly,
 kissing my cheek for emphasis
 before climbing into the back of a putt-putt
@@ -371,7 +358,7 @@ My *abbi* sorted trash instead of designing houses.
 AIs could do both jobs better and faster than people,
 but then what would newcomers like us do to earn citizenship?
 
-Things started to change once the trillionaires started dying,
+Things started to get better when the trillionaires started dying,
 but by then they both had Caspian flu.
 *Ummi* went first, quickly.
 My *abbi* spent his last days drawing pictures of houses he had once hoped to build,
@@ -386,7 +373,6 @@ and started to paint.
 I left the haptic trainer in its case.
 I wanted to do this one myself.
 It wouldn't be a Turner,
-and I'd scrape the canvas clean when I was done,
 but—
 
 My tablet bleebled.
@@ -446,10 +432,10 @@ and got back to work.
 <p class="center">* * *</p>
 
 I've seen videos of Wall Street traders hunched over monitors
-or waving pieces of paper in the air and yelling at each other.
-They had as much in common with what I do as painting.
-My AIs had given themselves instructions and fallbacks for millions of contingencies.
-All I had to do to make it all legal was approve their trades.
+or waving pieces of paper in the air.
+That had as much in common with what I do as painting.
+My AIs had modeled millions of contingencies.
+All I had to do to make it legal was approve their trades.
 
 An.ton join our call on schedule.
 "Agreed," he said curtly when the legal AI asked him to confirm my power of attorney.
@@ -466,19 +452,18 @@ then offload everything onto An.ton at exactly the same time.
 So we danced,
 my motley crew and I,
 all our eyes on the leaderboard as clients climbed into the red zone.
-This professor's patents were suddenly more valuable because—push the thought away.
-The "because" didn't matter.
-All that mattered was that we could sell one of them for a fraction of its worth
-to someone two hundred spots lower in the list,
-which put the seventeen-year-old Queen of England in first place.
-Her wealth was all real estate,
+Number twenty-nine's patents were suddenly more valuable because—no.
+The "because" didn't matter, not now.
+All that mattered was that we could sell some of them for a fraction of their worth
+to someone two hundred spots lower in the list.
+That put the seventeen-year-old Queen of England in first place,
 but that was okay,
-she was willing to give six hundred hectares of farmland to charity.
+she could give six hundred hectares of farmland to charity.
 No,
-eight hundred,
+make it eight hundred,
 just to be safe.
-Others in her circle would piss on her
-for letting a little more money and power slip out of the "right" hands,
+Others in her ever-less-relevant circle would snark
+about her letting a little more money and power slip out of the "right" hands,
 but at least she'd be alive to ask what choice she had.
 
 Shadows shortened and lengthened on my living room floor.
@@ -486,7 +471,6 @@ One hour left.
 Thirty minutes.
 Five.
 Two.
-One.
 My tablet bleebled.
 "Are you there?"
 An.ton asked.
@@ -496,7 +480,8 @@ I had wondered if he would call.
 
 An.ton cackled.
 "Good."
-And then the rush of offloads we had planned so carefully started.
+Sixty seconds on the clock,
+and the rush of offloads we had planned so carefully started.
 A moment later my tablet bleebled a warning as my net worth began to skyrocket.
 
 I stared at my screen.
@@ -515,28 +500,27 @@ my crowd had a lot less influence than we used to."
 Dee ee aye dee dead.
 I died yesterday,
 right on schedule.
-You can't offload jack shit onto the sim you're been talking to,
-so guess what?
-It's all yours now."
+You're talking to a sim,
+and guess what?
+I can't own jack shit,
+so it's all yours now."
 
 Thirty-one.
 Twenty-two.
 Fifteen.
 Eight.
-One.
+Three.
 One.
 One.
 I had climbed to the top of the leaderboard faster than anyone in history,
 and the gap between me and whoever was currently in second place
 was getting wider by the second.
 
-My AI didn't have a plan for this,
-and there was no way I could offload this much that quickly,
+My AI didn't have a plan for this.
+There was no way I could offload this much that quickly,
 not with everyone sending everything they had my way.
 
 "How does it feel,
 you miserable parasite?"
-An.ton's sim raged.
+An.ton's sim gloated.
 "How does it fucking feel?"
-
-
