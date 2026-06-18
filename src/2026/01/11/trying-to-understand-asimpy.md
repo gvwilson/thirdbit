@@ -1,7 +1,7 @@
 ---
 title: Trying to Understand asimpy
 date: 2026-01-11
-category: programming tools
+category: programming tools simulation
 ---
 
 As a follow-on to [yesterday's post][introducing-asimpy],

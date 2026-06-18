@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Crisis"
 date: 2026-04-08
-category: education research-methods
+category: sdgc
 ---
 
 The preceding posts assume that project members have time to prepare for closure,

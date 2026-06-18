@@ -1,7 +1,7 @@
 ---
 title: "Lessons from MAID"
 date: 2026-04-08
-category: education personal
+category: sdgc
 ---
 
 Eight years on, I still [miss my brother][jeff] almost every day.
