@@ -19,6 +19,7 @@ Please [email me](mailto:gvwilson@third-bit.com?subject=SDGC) with feedback.*
 1.  [What We Owe the Future](@root/2026/06/15/what-we-owe-the-future/)
 1.  [Regulation Works](@root/2026/06/16/regulation-works/)
 1.  [How Change Happens](@root/2026/06/17/how-change/)
+1.  [AI Happens](@root/2026/06/18/ai-happens/)
 
 [Bibliography](@root/2026/04/13/a-bibliography/)
 &middot;
