@@ -1,7 +1,7 @@
 ---
 title: Congratulations to This Term's Students
 date: 2025-04-09
-category: student-projects cs-education
+category: student-projects
 ---
 
 I had the pleasure of working with two teams of undergraduates at the University of Toronto this semester.

@@ -1,7 +1,7 @@
 ---
 title: Cognitive Pollution
 date: 2025-10-25
-category: cs-education ethics
+category: cs-education ethics sdgc
 ---
 
 > *Update: I have posted [a recording of the talk](https://youtu.be/f86KBeJ7e2M).*

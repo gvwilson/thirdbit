@@ -1,7 +1,7 @@
 ---
 title: In Search of Sturdiness
 date: 2025-12-03
-category: programming
+category: simulation
 ---
 
 I took a break from this series of posts for a couple of days

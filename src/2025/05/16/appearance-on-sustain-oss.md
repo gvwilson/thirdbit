@@ -1,7 +1,7 @@
 ---
 title: Appearance on SustainOSS Podcast
 date: 2025-05-16
-category: open-source
+category: community-events
 ---
 
 Richard Littauer interviews Marianne Bellotti and yours truly on the [SustainOSS podcast][podcast]

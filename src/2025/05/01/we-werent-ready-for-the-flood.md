@@ -1,7 +1,7 @@
 ---
 title: We Weren't Ready for the Flood
 date: 2025-05-01
-category: empirical-se cs-education
+category: empirical-se
 ---
 
 In the end I decided not to go to [ICSE 2025][icse2025] in Ottawa.

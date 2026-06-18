@@ -1,7 +1,7 @@
 ---
 title: Crunch Mode
 date: 2025-01-02
-category: empirical-se cs-education student-projects
+category: cs-education student-projects
 ---
 
 I'm supervising some undergraduate students at the University of Toronto this semester.

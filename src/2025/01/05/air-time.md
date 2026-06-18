@@ -1,7 +1,7 @@
 ---
 title: Air Time
 date: 2025-01-05
-category: cs-education diversity
+category: cs-education diversity student-projects
 ---
 
 One problem with [meetings][meetings] is that

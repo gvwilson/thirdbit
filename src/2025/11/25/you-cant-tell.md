@@ -1,7 +1,7 @@
 ---
 title: You Can't Tell
 date: 2025-11-25
-category: empirical-se research-methods
+category: simulation
 ---
 
 [Yesterday's post][analyzing] checked our prediction

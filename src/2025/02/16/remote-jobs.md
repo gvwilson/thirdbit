@@ -1,7 +1,7 @@
 ---
 title: Remote Jobs
 date: 2025-02-16
-category: career student-projects
+category: student-projects
 ---
 
 I'm trying to help some undergrad students find jobs,

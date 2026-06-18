@@ -1,7 +1,7 @@
 ---
 title: What Changed?
 date: 2025-11-28
-category: empirical-se research-methods
+category: simulation
 ---
 
 Your company brought in a new CEO,

@@ -1,7 +1,7 @@
 ---
 title: Malice and Randomness
 date: 2025-11-26
-category: empirical-se research-methods
+category: simulation
 ---
 
 The main point of [yesterday's post][you-cant-tell] was that

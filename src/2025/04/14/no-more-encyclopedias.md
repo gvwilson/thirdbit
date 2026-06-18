@@ -1,7 +1,7 @@
 ---
 title: No More Encyclopedias
 date: 2025-04-14
-category: technical-writing personal
+category: technical-writing
 ---
 
 There were three encyclopedias in our house when I was growing up:

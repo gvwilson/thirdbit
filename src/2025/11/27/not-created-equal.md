@@ -1,7 +1,7 @@
 ---
 title: Not Created Equal
 date: 2025-11-27
-category: empirical-se programming
+category: simulation
 ---
 
 [Yesterday's post][malice] pointed out that

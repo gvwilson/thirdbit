@@ -1,7 +1,7 @@
 ---
 title: Analyzing the Simulation
 date: 2025-11-24
-category: programming empirical-se
+category: simulation
 ---
 
 [Yesterday's post][multiple-stages] added a second stage to the simulation,

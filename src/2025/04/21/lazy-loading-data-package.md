@@ -1,7 +1,7 @@
 ---
 title: Lazy Loading a Data Package
 date: 2025-04-21
-category: programming data-science
+category: programming
 ---
 
 *Later: see the bottom of this post for a much less frightening solution.*

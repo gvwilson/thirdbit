@@ -22,7 +22,8 @@ which would be the most illuminating part of the whole exercise for them.
 died of pancreatic cancer in 2012 at the age of 47,
 leaving three teenage children behind.
 The mRNA cancer vaccine being developed in the US was the best hope we've ever had to prevent this.
-The Trump Administration's decision to cut funding for this live-saving research based on pseudo-scientific hysteria
+The Trump Administration's decision to cut funding for this live-saving research
+based on pseudo-scientific hysteria
 condemns more people like my sister to death and more children to grow up without their mothers.
 
 ## 2025-08-11

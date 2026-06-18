@@ -1,7 +1,7 @@
 ---
 title: Starting to Simulate
 date: 2025-11-18
-category: programming empirical-se
+category: simulation
 ---
 
 Inspired in part by [the software development simulator][hendrickson-sim]

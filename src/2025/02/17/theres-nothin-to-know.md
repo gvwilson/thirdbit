@@ -1,7 +1,7 @@
 ---
 title: There's Nothin' to Know
 date: 2025-02-17
-category: technical-writing humor
+category: humor
 ---
 
 There's nothin' to know.
