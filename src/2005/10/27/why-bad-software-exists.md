@@ -1,7 +1,7 @@
 ---
 title: "Why Bad Software Exists"
 date: 2005-10-27
-category: software
+category: software opinion
 ---
 I have a new theory.  It's not about why there are no toilets on the <em>Enterprise</em> (hint: transporters).  This one's about why bad software exists.
 

@@ -1,7 +1,7 @@
 ---
 title: "Getting Closer"
 date: 2022-11-09
-category: programming
+category: technical-writing
 ---
 
 I don't have hard copies yet, but we're getting closer:

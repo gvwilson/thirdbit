@@ -475,7 +475,7 @@ is worth understanding before applying it to computing.
 The Flexner Report of 1910 recommended consolidating medical education
 around a small number of university-based schools modeled on Johns Hopkins.
 What is less often noted is what this consolidation closed:
-the eclectic and homeopathic schools that had trained a significant proportion of women physicians,
+the non-mainstream schools that trained a significant proportion of women physicians,
 and the historically Black medical colleges that were the primary pathway into medicine for Black practitioners.
 The reorganization of medicine around a single credentialing model
 was also a reorganization of medicine around a single demographic profile.

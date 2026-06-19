@@ -1,7 +1,7 @@
 ---
 title: "Build Your Own Weather Channel"
 date: 2004-12-09
-category: software
+category: software noticed
 ---
 
 Theoretical computer scientists spend a lot of time thinking about

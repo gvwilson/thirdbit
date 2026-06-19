@@ -1,7 +1,7 @@
 ---
 title: "Documents vs. Conversations"
 date: 2005-12-22
-category: software
+category: software opinion proposal
 ---
 Amateurs playing chess think in terms of positions; sharks care more about combinations of moves.  Amateurs think, "I'm going to build a pawn wall, get my bishops onto good squares, and castle so that my kind is somewhere safe."  Sharks think, "I'm going to advance this pawn so my rook can get to that square to cover an advance by my queen."  Since the board is constantly in motion, one piece per turn, the latter style of thinking almost always wins.
 

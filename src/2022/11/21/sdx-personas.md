@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example Personas"
 date: 2022-11-21
-category: cs-education programming
+category: technical-writing
 ---
 
 These [personas][t3_personas] describe who *Software Design by Example in Python* is for:

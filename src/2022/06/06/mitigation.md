@@ -1,7 +1,7 @@
 ---
 title: "Mitigation"
 date: 2022-06-06
-category: career open-source
+category: management
 ---
 
 Here's a conventional view of roles within a small-to-medium tech company:

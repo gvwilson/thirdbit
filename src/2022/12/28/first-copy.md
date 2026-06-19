@@ -1,7 +1,7 @@
 ---
 title: "First Copy"
 date: 2022-12-28
-category: programming
+category: technical-writing
 ---
 
 It's been an off and on project since 2018

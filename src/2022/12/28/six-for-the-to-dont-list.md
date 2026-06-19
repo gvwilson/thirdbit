@@ -1,7 +1,7 @@
 ---
 title: "Six for the To-Don't List"
 date: 2022-12-28
-category: career
+category: career proposal
 ---
 
 I was a professor from 2007 to 2010.

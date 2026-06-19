@@ -1,7 +1,7 @@
 ---
 title: "Stories"
 date: 2022-12-27
-category: fiction-writing technical-writing
+category: fiction-writing
 ---
 
 I'm going to spend the next month or two wrapping up the Python version of [*Software Design by Example*][sdxjs]. Once it's done, I want to stop writing technical books and start writing fiction again. I don't expect many people will read them—I've only sold one short in the last ten years—but stories have given me so much pleasure over the years that I'd like to give some back. And yes, having collected over a hundred rejections since I sold *Bottle of Light* in 2008, I'd like to prove to myself that I can actually do this.

@@ -1,7 +1,7 @@
 ---
 title: "This Year's Books"
 date: 2022-12-10
-category: book-reviews personal
+category: book-reviews
 ---
 
 In no particular order,

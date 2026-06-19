@@ -1,7 +1,7 @@
 ---
 title: "The Sisyphus Test"
 date: 2022-08-07
-category: favorite ethics diversity
+category: favorite opinion
 ---
 
 I believe that if you're serious about diversity, equity, and inclusivity

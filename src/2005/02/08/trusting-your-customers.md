@@ -1,7 +1,7 @@
 ---
 title: "Trusting Your Customers"
 date: 2005-02-08
-category: software
+category: software management
 ---
 In his recent blog posting, <a href="http://msdn.microsoft.com/longhorn/default.aspx?pull=/library/en-us/dnsoftware/html/software02052005.asp">"Tenets of Transparency"</a>, <a href="http://software.ericsink.com/">Eric Sink</a> says that if independent software vendors (ISVs) aren't willing to trust their customers, they won't have any.  When customers buy software from you, they trust that:
 <ul>

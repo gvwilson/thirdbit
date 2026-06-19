@@ -1,7 +1,7 @@
 ---
 title: "I Want a Memory Diagram Generator"
 date: 2022-12-04
-category: tools cs-education
+category: tools cs-education proposal
 ---
 
 Following up on last week's grumble about

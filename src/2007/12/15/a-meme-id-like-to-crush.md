@@ -1,7 +1,7 @@
 ---
 title: "A Meme I'd Like To Crush"
 date: 2007-12-15
-category: empirical-se
+category: empirical-se opinion
 ---
 Over on O'Reilly Radar, Nat Torkington recently <a href="http://radar.oreilly.com/archives/2007/12/amazon_simpledb.html">posted</a>:
 

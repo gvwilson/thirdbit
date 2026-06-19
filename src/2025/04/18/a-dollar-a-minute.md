@@ -1,7 +1,7 @@
 ---
 title: A Dollar a Minute
 date: 2025-04-18
-category: politics open-source
+category: politics open-source closure
 ---
 
 Yesterday I wrote about [making contingency plans for research projects][fire]

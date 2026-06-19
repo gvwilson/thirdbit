@@ -1,7 +1,7 @@
 ---
 title: "Public Health and Future Email"
 date: 2005-02-14
-category: software
+category: software noticed
 ---
 <p>One of my apartment-mates back in grad school was an immunologist.  She told me once about the first rule of public health: it's only a cure if people will actually do it, or use it.  For example, abstinence is <em>not</em> an effective way to prevent HIV/AIDS, or teenage pregnancy, because in practice, people won't abstain.</p>
 

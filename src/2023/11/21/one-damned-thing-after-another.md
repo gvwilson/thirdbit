@@ -1,7 +1,7 @@
 ---
 title: "One Damned Thing After Another"
 date: 2023-11-21
-category: technical-writing
+category: technical-writing proposal
 ---
 
 I promised that I wouldn't write another technical book,

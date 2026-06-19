@@ -1,7 +1,7 @@
 ---
 title: "Throttling"
 date: 2022-10-29
-category: open-source community-events
+category: community-events management tools
 ---
 
 I used to belong to an online group that had a rule:

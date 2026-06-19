@@ -1,7 +1,7 @@
 ---
 title: "Accidental Horizons"
 date: 2004-09-14
-category: software
+category: software opinion
 ---
 <p>A quarter of a century ago, in <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201835959">The Mythical Man Month</a>, Fred Brooks pointed out the difference between intrinsic complexity and accidental complexity.  Intrinsic complexity is how hard a problem really is; accidental complexity is how much harder we make it by creating inconsistent APIs, fragile configuration files, or GUIs that don't accurately reflect the state of the world.</p>
 

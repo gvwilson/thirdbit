@@ -1,7 +1,7 @@
 ---
 title: "Tutorials I Would Like to Attend"
 date: 2024-08-12
-category: education
+category: education proposal
 ---
 
 I have maintained [a list of unwritten books][nots] for over 25 years

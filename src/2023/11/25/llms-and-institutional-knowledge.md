@@ -1,7 +1,7 @@
 ---
 title: "LLMs and Institutional Knowledge"
 date: 2023-11-25
-category: programming tools
+category: programming tools opinion
 ---
 
 Baetjer's *Software as Capital* (sadly, long out of print)

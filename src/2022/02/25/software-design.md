@@ -1,7 +1,7 @@
 ---
 title: "12 Quick Tips for Software Design"
 date: 2022-02-25
-category: programming technical-writing
+category: technical-writing
 ---
 
 My paper "[12 Quick Tips for Software Design](https://doi.org/10.1371/journal.pcbi.1009809)"

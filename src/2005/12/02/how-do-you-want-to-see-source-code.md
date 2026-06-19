@@ -1,7 +1,7 @@
 ---
 title: "How Do You Want to See Source Code?"
 date: 2005-12-02
-category: education software
+category: education software proposal
 ---
 I ran a post-mortem for this term's run of the <a href="https://carpentries.org/">Software Carpentry</a> course on Monday.  Students gave me a lot of useful feedback, which I'll post as soon as I find my notes ;-).  One comment that's got me thinking was about the way sample programs are presented in the notes.  Right now, I include the finished code in a monochrome fixed-width font.  Adding syntax highlighting won't be difficult; the more interesting suggestion was to write the code "live", while talking aloud.  The main benefit would be that it would prevent the instructor from racing by something that students need time to absorb.  It would also force (or at least encourage) the instructor to think aloud about what the code was doing, how it was structured, etc.
 

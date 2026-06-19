@@ -1,7 +1,7 @@
 ---
 title: "Workshop Proposal: Organizational Change"
 date: 2023-03-22
-category: organizational-change
+category: change proposal
 ---
 
 *Updated 2023-05-05: rejected.*

@@ -1,7 +1,7 @@
 ---
 title: "How to Write a Technical Book (Part 2)"
 date: 2022-06-20
-category: technical-writing open-source
+category: technical-writing
 ---
 
 Following up on
