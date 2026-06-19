@@ -1,7 +1,7 @@
 ---
 title: "Build Robots When You Can"
 date: 2023-12-11
-category: anecdote personal
+category: anecdote
 ---
 
 Years ago, when we were living in England,

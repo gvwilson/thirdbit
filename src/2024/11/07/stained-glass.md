@@ -1,7 +1,7 @@
 ---
 title: "Stained Glass"
 date: 2024-11-07
-category: anecdote personal
+category: anecdote
 ---
 
 Many years ago,

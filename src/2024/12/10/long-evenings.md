@@ -1,7 +1,7 @@
 ---
 title: "Long Evenings"
 date: 2024-12-12
-category: anecdote personal
+category: anecdote
 ---
 
 When my brother and I cleaned out my mum's place,

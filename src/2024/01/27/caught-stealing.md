@@ -1,7 +1,7 @@
 ---
 title: "Caught Stealing"
 date: 2024-01-27
-category: anecdote personal
+category: anecdote
 ---
 
 When I was eleven,
