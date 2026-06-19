@@ -1,7 +1,7 @@
 ---
 title: "When I Said 'The Last Twenty Years…'"
 date: 2009-11-16
-category: empirical-se retro
+category: opinion software tools
 ---
 <p>Last week, in response to Google's announcement of a new programming language called Go, I said:</p>
 

@@ -1,7 +1,7 @@
 ---
 title: Another Reason to Care About Provenance
 date: 2009-09-21
-category: software-carpentry research-methods
+category: software-carpentry opinion
 original: swc
 ---
 <p>A vice president at ETH is <a href="http://blogs.nature.com/news/thegreatbeyond/2009/09/eth_zurich_research_chief_to_r.html">resigning today</a> because of accusations of fraud.  A key lab notebook is missing, retractions have been retracted, and according to ETH President Ralph Eichler, "there is now no legal way of finding out for sure who was responsible for the falsifications."</p>

@@ -1,7 +1,7 @@
 ---
 title: Grant Proposal
 date: 2009-09-22
-category: software-carpentry academia
+category: software-carpentry academia career proposal
 original: swc
 ---
 <p>Rebuilding the Software Carpentry course is too big to do in anyone's spare time, so I've submitted a small funding application (included below). If you know any venues that might welcome a similar proposal, I'd be grateful for pointers.</p>

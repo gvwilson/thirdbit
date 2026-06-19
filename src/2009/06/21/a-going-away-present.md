@@ -1,7 +1,7 @@
 ---
 title: "A Going-Away Present"
 date: 2009-06-21
-category: empirical-se cs-education
+category: student-projects
 ---
 <a href="http://phyllers.wordpress.com/">Phyliss Lee</a> finished working with us this past Friday—she's leaving next week for a year-long internship in Japan.  To speed her on her way, the other summer students each contributed one tune to a mixed CD. If you're wondering what hip young nerds listen to these days, here they all are:
 <ul>

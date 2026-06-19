@@ -1,7 +1,7 @@
 ---
 title: "Links and Presentations"
 date: 2009-10-16
-category: software-carpentry
+category: student-projects
 ---
 All of the students in my consulting course now have projects; most have met their customers and/or have some real data to play with.  Lots of other news too:
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "When Is A Book Finished?"
 date: 2009-01-13
-category: technical-writing book-reviews
+category: technical-writing
 ---
 When is a book finished?  When the authors cross off every item on the to-do list?  Uh uh—there's always errata, especially in this age of beta releases and preprint e-copies.  What about when the first printed and bound copies arrive in a box smelling faintly of ink and travel?  Same answer—in an era of print-on-demand, publishers can get a revision out almost immediately (I'm actually surprised the revised 13-digit standard for <a href="http://en.wikipedia.org/wiki/International_Standard_Book_Number">ISBN</a>s doesn't include version numbers.
 

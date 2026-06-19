@@ -1,7 +1,7 @@
 ---
 title: "Current Reading Queue"
 date: 2009-04-16
-category: book-reviews education
+category: book-reviews
 ---
 This time two years ago, most of them would have been computing books; now, they're a minority. Still looking for a readable, grounded, fast-paced guide to instructional design…
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "Elsewhere"
 date: 2009-10-25
-category: software-carpentry
+category: software-carpentry student-projects
 ---
 <strong>Software Carpentry</strong>
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "First Gov 2.0 Class"
 date: 2009-09-15
-category: cs-education
+category: cs-education student-projects
 ---
 The first class in my Government 2.0 consulting course was held yesterday in a sauna in the International Students' Centre.  Dave Wallace, head of IT for the City of Toronto, talked to the students about the background and goals of the city's Open Data initiative, and then Julia Smith and Sam Heath (a pair of recovering management consultants) talked about what consulting is and how students could go about figuring out what they're trying to accomplish this term.  The students' first homework assignment is a pair of treasure hunts: they each have to find and describe two open government applications on the web, and two sources of interesting data about Toronto (not necessarily from the city itself). Mark Kuznicki rattled off a list of starting points for the students, which are listed below:
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: "What (Some Of) My Students Are Up To"
 date: 2009-06-04
-category: student-projects empirical-se
+category: student-projects
 ---
 <ul>
   <li>Jason Montojo is trying to <a href="http://www.jaysnothere.com/blog/?p=71">figure out</a> how to operationalize some aspects of expertise—he'd welcome your suggestions.  How do you tell if one programmer is better than another?</li>

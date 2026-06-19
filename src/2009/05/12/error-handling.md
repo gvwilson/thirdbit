@@ -1,7 +1,7 @@
 ---
 title: Error Handling
 date: 2009-05-12
-category: software-carpentry programming
+category: cs-education software-carpentry
 original: swc
 ---
 

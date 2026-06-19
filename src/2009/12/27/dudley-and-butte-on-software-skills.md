@@ -1,7 +1,7 @@
 ---
 title: Dudley and Butte on Software Skills
 date: 2009-12-27
-category: software-carpentry empirical-se
+category: software-carpentry
 original: swc
 ---
 <p>Via <a href="http://ivory.idyll.org/blog">Titus Brown</a>, a new PLoS paper titled "<a href="http://dx.plos.org/10.1371/journal.pcbi.1000589">A Quick Guide for Developing Effective Bioinformatics Programming Skills</a>" by Joel Dudley and Atul Butte. Their recommendations are:</p>

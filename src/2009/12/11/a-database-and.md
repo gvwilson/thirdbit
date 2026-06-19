@@ -1,7 +1,7 @@
 ---
 title: "A Database And…"
 date: 2009-12-11
-category: software-carpentry
+category: student-projects
 ---
 As I mentioned a few weeks ago, I'm teaching the second course in our two-course sequence on software engineering next term (i.e., in three and a half weeks). The goal of the course is to teach students how to deal with large pre-existing code bases; my first thought was to have each team go spelunking in a different open source project, but (a) I haven't been able to find enough that meet my criteria, and (b) marking would be very difficult. I'm therefore looking at:
 <ol>

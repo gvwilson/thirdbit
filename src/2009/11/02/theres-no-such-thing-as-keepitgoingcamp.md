@@ -1,7 +1,7 @@
 ---
 title: "There's No Such Thing As KeepItGoingCamp"
 date: 2009-11-02
-category: community-events
+category: community-events opinion
 ---
 There are lots of dating sites on the Internet, but many fewer devoted to keeping your marriage happy. Similarly, Toronto now has DemoCamp, Entrepreneurship 101, and a growing list of other events devoted to getting new ventures off the ground, but so far as I can tell, there's nothing for technical types who want to know how to keep an established business going and growing.
 

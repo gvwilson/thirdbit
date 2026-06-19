@@ -1,7 +1,7 @@
 ---
 title: "Update on This Term's Projects"
 date: 2009-01-15
-category: student-projects programming
+category: student-projects
 ---
 I blogged a couple of weeks ago about this term's consulting projects.  Here are a few more details:
 <ul>

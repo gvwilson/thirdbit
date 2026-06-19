@@ -1,7 +1,7 @@
 ---
 title: Post-Mortem
 date: 2009-08-01
-category: software-carpentry
+category: software-carpentry retro
 original: swc
 ---
 <p>Today was the last day of the course, so we spent the morning talking about what had gone well and what had not. The high and low points were:</p>

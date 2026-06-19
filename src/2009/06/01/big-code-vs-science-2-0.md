@@ -1,7 +1,7 @@
 ---
 title: Big Code vs. Science 2.0
 date: 2009-06-01
-category: software-carpentry research-methods
+category: software-carpentry
 original: swc
 ---
 <p>The original goal of this course was to give scientists and engineers the skills they needed to build large pieces of software without heroic effort. It's increasingly clear, though, that another goal is equally important: to help them take part in what's sometimes called "Science 2.0": the sharing of information through the Internet. Cameron Neylon's slides on <a href="http://www.slideshare.net/CameronNeylon/capturing-process">capturing process</a> are, like Jon Udell's on <a href="http://www.slideshare.net/judell/computational-thinking">computational thinking</a>, a good summary of the skills required–skills which overlap with, but are distinct from, those needed by software developers.</p>

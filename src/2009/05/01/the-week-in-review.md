@@ -1,7 +1,7 @@
 ---
 title: "The Week in Review"
 date: 2009-05-01
-category: personal academia
+category: personal retro
 ---
 Things I did this week that I was supposed to:
 <ol>

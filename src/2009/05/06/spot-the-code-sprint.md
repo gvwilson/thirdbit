@@ -1,7 +1,7 @@
 ---
 title: "Spot the Code Sprint"
 date: 2009-05-06
-category: programming student-projects
+category: student-projects
 ---
 Progress on the Django-based reimplementation of DrProject:
 

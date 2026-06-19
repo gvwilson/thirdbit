@@ -1,7 +1,7 @@
 ---
 title: "elmcity and WordPress"
 date: 2009-08-28
-category: cs-education programming
+category: noticed programming tools
 ---
 I had a good discussion yesterday with Jon Udell about goals for <a href="http://ucosp.wordpress.com/project-elmcity/">the students working with him this fall</a>. He has since posted two very cool things:
 <ol>

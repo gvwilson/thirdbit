@@ -1,7 +1,7 @@
 ---
 title: "Why Don't Students Like School?"
 date: 2009-09-26
-category: education personal book-reviews
+category: education book-reviews
 ---
 Why don't students like school?  It isn't a rhetorical question—at least, not to cognitive psychologist Daniel Willingham, who writes a column for <a href="http://www.aft.org/pubs-reports/american_educator/index.htm"><em>American Educator</em></a> magazine, and whose <a href="http://www.amazon.com/Why-Dont-Students-Like-School/dp/0470279303">new book</a> seeks to answer that <a href="http://www.newscientist.com/article/mg20327265.800-brain-science-to-help-teachers-get-into-kids-heads.html">topical</a> question. The chapter titles are a good guide to the content:
 <ol>

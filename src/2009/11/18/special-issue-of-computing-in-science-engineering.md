@@ -1,7 +1,7 @@
 ---
 title: Special Issue of Computing in Science and Engineering
 date: 2009-11-18
-category: software-carpentry
+category: technical-writing software-carpentry
 original: swc
 ---
 <p>A special issue of <a href="http://www.computer.org/portal/web/cise/home"><em>Computing in Science &amp; Engineering</em></a> that <a href="http://www.cs.indiana.edu/~lums">Andy Lumsdaine</a> and I edited, devoted to software engineering in computational science, is now available. We'd like to thank everyone who contributed:</p>

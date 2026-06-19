@@ -1,7 +1,7 @@
 ---
 title: "Reading Week Code Sprint"
 date: 2009-02-19
-category: student-projects programming open-source
+category: student-projects open-source
 ---
 0635: In a little less than three hours, the students working on several of our open source projects will put their heads down for a three-day code sprint. I've been looking forward to it for weeks: it's my first chance to meet Jason, Liz, Heather, and James in person, and between the pizza, the whiteboard re-architecting, the usability testing, and just the plain old coding, it's going to be a ton of fun.  My #1 goal is to have the Django-based rewrite of DrProject solid enough to host Blake Winton's iPhone game development project by 3:30 pm on Saturday; my #2 is to create a screencast by 5:00 that same day showing off what we've built so far.  Lots of other good things in the works too; stay tuned for news.
 

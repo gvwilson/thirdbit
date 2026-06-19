@@ -1,7 +1,7 @@
 ---
 title: The Big Picture
 date: 2009-08-21
-category: software-carpentry research-methods
+category: software-carpentry
 original: swc
 ---
 <p>One of the lessons we learned at <a href="http://www.lanl.gov">Los Alamos National Laboratory</a> in the 1990s and early 2000s is that most scientists don't actually want to learn how to program–they want solve scientific problems.To many,programming is a tax they have to pay in order to do their research.To the rest,it's something they really would find interesting,but they have a grant deadline coming up and a paper to finish.</p>

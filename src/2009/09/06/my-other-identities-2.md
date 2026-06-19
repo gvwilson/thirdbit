@@ -1,7 +1,7 @@
 ---
 title: "My Other Identities"
 date: 2009-09-06
-category: software-carpentry personal
+category: software-carpentry student-projects
 ---
 <a href="http://ucosp.wordpress.com">Undergraduate Cross-Country Open Source Projects</a>:
 <ul>

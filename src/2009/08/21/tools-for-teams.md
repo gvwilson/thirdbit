@@ -1,7 +1,7 @@
 ---
 title: "Tools for Teams"
 date: 2009-08-21
-category: empirical-se tools
+category: empirical-se tools technical-writing academia
 ---
 Last year, <a href="http://jordicabot.com/">Jordi Cabot</a> and I interviewed the creators of several web-based software project management portals to find out whose needs they were trying to meet and how. Getting the results published academically has turned out to be harder and slower than we expected; since we're both moving on to other things, we thought we'd put our findings out on the web in the hopes that others would find them useful. The abstract of our paper is below; you can find the whole thing online at <a href="http://www.cs.utoronto.ca/~gvwilson/articles/portals.html">http://www.cs.utoronto.ca/~gvwilson/articles/portals.html</a>, and Jordi has a post about its conclusions up on <a href="http://modeling-languages.com/blog/content/tools-teams-survey-web-based-software-project-portals">his blog</a>. We'd welcome your comments.
 

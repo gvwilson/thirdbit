@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up"
 date: 2009-12-07
-category: software-carpentry
+category: student-projects
 ---
 On the same day that the <em>New York Times</em> ran an article about <a href="http://www.nytimes.com/2009/12/07/technology/internet/07cities.html">open data and Government 2.0</a>, the graduate and undergraduate students in this term's consulting course did their final presentations. On deck were:
 <ol>

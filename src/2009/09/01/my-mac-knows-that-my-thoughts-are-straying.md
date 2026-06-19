@@ -1,7 +1,7 @@
 ---
 title: "My Mac Knows That My Thoughts Are Straying"
 date: 2009-09-01
-category: noticed personal
+category: noticed software tools
 ---
 After spending some more time yesterday browsing for a new laptop, I came back to the office and plugged some speakers into my Mac so that I could listen to music while filling in forms for ethics review. At the end of the day I pulled the RCA jack out of my computer, folded it up, and biked home.
 

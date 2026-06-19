@@ -1,7 +1,7 @@
 ---
 title: "Zero for Six"
 date: 2009-04-17
-category: academia personal
+category: career academia
 ---
 Not unexpected, but still disappointing:
 

@@ -1,7 +1,7 @@
 ---
 title: "30 and Counting"
 date: 2009-08-20
-category: software-carpentry
+category: student-projects
 ---
 30 students are now signed up for <a href="http://ucosp.wordpress.com">cross-country capstone projects</a> this fall from a bunch o' schools:
 <ul>

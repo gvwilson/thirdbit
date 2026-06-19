@@ -1,7 +1,7 @@
 ---
 title: "Toronto Innovations Showcase"
 date: 2009-11-05
-category: cs-education community-events
+category: cs-education community-events student-projects
 ---
 My students and I a few hours on Monday and Tuesday (Nov 2-3) at City Hall showing off our projects. It wasn't as busy as expected, thanks primarily to H1N1 fears, but there was still more traffic at our double booth than at any other I saw, and I was proud of how well the students presented their work. The projects and teams were:
 <ul>

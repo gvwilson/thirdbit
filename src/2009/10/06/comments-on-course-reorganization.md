@@ -1,7 +1,7 @@
 ---
 title: Comments on Course Reorganization
 date: 2009-10-06
-category: software-carpentry cs-education
+category: software-carpentry
 original: swc
 ---
 <p>I'm grateful to <a href="http://www.east.isi.edu/~lorin/">Lorin Hochstein</a> for sending detailed feedback on my proposal to reorganize the course.  His comments are below, with my replies and his counter-replies interspersed; more comments would be very welcome.</p>

@@ -1,7 +1,7 @@
 ---
 title: "Off We Go…"
 date: 2009-06-22
-category: software-carpentry
+category: personal
 ---
 …with Grandma looking on proudly:
 
