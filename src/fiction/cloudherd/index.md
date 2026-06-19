@@ -3295,7 +3295,7 @@ Noxy nodded glumly. "Yes, mum."
 She moped home to collect the bucket full of hard red thimbleberries and a large bowl,
 then climbed the steps to the top of the Quick Tower.
 She and Rash and Sensy had covered a tumbled-down block of stone with a bit of gray canvas
-to make a pretend cloud the year a couple of years before.
+to make a pretend cloud when they were younger.
 Plopping herself down on it,
 she started squeezing bitter grain-sized seeds out of the thimbleberries one by one.
 Why did they have to have so many seeds?
@@ -6080,10 +6080,10 @@ her anger disappearing as quickly as it had come.
 She picked up the brush and began to scrub her back.
 "If we were, Rash wouldn't want to kiss me."
 
-They filled the next few minutes with things both trivial and important,
+They filled the next few minutes with things simultaneously trivial and important,
 like whether Sensy liked his mustache
 ("No, but he's so proud of it")
-and whether they would pair up for the long journey down to the plains
+and whether they would pair up on the long journey down to the plains
 ("Are you serious? My *amma* would lock me in the goof pen if she caught us!").
 Noxy had almost relaxed by the time Sensy very casually asked,
 "So what about you and Thokmay?"
@@ -6103,6 +6103,116 @@ You two were out on Pillow for quite some time."
 putting as much weight behind each word as she could.
 
 "If you say so," Sensy said airily.
-"Come on, I'll dry your back if you'll dry mine."
+"Come on, I'll dry your back if you'll dry mine,
+and you can tell me what he's like."
+
+Noxy wanted to say,
+"He's the heir to the throne and we were almost buried in a cave-in yesterday,"
+just to see if Sensy would take her seriously.
+Instead she just shrugged.
+"I honestly don't know what he's like.
+He's about as easy to read as Kulbinder.
+And before you ask,
+I think the only thing *he's* interested in is getting out of Stale."
+
+Sensy sighed,
+scrubbing Noxy's back with a scratchy gray towel.
+"Rash talks that way too."
+Noxy relaxed slightly as the conversation shifted back to the safer ground
+of Rash's plans to see the world.
+
+She finally managed to escape
+after promising to make these baths a regular thing.
+Her damp hair chilled as soon as she stepped outside,
+but the narrow street was still eerily empty.
+She took a left and a right and a deep breath,
+and knocked quietly on the back door of the *tralpa*'s house.
+
+When he didn't answer,
+she knocked again more loudly.
+She had no idea what she'd say if someone saw her.
+"I just wanted to see how he was doing," would be about as convincing as,
+"I love seeding thimbleberries so much I just *had* to do another bucket."
+
+Luckily,
+Yangyal answered this time.
+"What do you want?" he snapped,
+taking advantage of the single step to look down his nose at her.
+
+"May I come in, honored?"
+
+The *tralpa* glared at her suspiciously,
+then leaned out and made a show of peering both ways.
+"I'm actually in the middle of something important," he huffed.
+"Come back later."
+
+"Wait."
+Noxy put a hand on the door as he began to close it.
+"I think you'll want to hear this."
+
+Noxy hadn't been inside the *tralpa*'s house since his arrival in Stale three years earlier.
+She had expected it to be as messy as the Scholar-Candidate himself.
+Instead,
+it was as tidy as Granna Fee's one-room school.
+The rug on the floor was simple but clean,
+the calligraphy scrolls hanging on the wall were straight and perfectly spaced,
+and the only thing she could smell was a faint whiff of ginger.
+The only things that seemed out of place were the bottles on his desk.
+
+Yangyal caught her glancing at them and scowled.
+"Well?" he asked,
+sitting but not offering her a seat.
+
+"I saw you last night," she said,
+stuffing her hands in her coat pockets
+to stop herself from crossing her arms.
+"When you called the lightning, I mean.
+I saw you do it."
+
+The *tralpa* leaned back,
+the petulant expression on his face giving way to a colder one.
+He had shaved his head that morning,
+and his bald pate made him look more than a little like a snapping turtle.
+"You know perfectly well I don't have that much power,"
+he finally said,
+straightening.
+"And if this is some kind of prank,
+rest assured I will be speaking to your mother about it."
+
+Noxy shook her head.
+"I saw you," she repeated.
+"And it got me wondering if you could do other things like that.
+Because if you can,"
+she went on hurriedly as he opened his mouth,
+"I think we can help each other."
+
+Five minutes later she was back on the wall,
+recounting the conversation to Kulbinder and Thokmay in a low voice.
+The tiger's ears lay flat against his skull,
+and his tail whipped from side to side.
+"Foolish girl," he hissed.
+"That was a stupid, needless risk."
+
+"Maybe not,"
+Thokmay said slowly.
+Was that respect Noxy saw on his face?
+"Even my father's magicians wouldn't try to get through the forest.
+If Sergeant Dorbu and the reeve believe he's suddenly come into his power,
+using the bothy as a jail cell would make sense.
+And if you volunteer us to be his guards—"
+
+"I don't like it," Kulbinder said emphatically.
+
+Thokmay turned his hands palm up and then palm down
+in a lowland gesture that meant, "It's not much, but it's the best I have."
+Kulbinder growled instead of snarling,
+but made no reply.
+
+"All right," Thokmay said to Noxy.
+"What's the first step?"
+
+Noxy smiled,
+hoping she looked more confident than she felt.
+"The first step is to pick a fight."
 
 </section>
