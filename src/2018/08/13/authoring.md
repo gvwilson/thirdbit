@@ -1,6 +1,6 @@
 ---
-date: 2018-08-13
 title: "Authoring"
+date: 2018-08-13
 category: technical-writing
 ---
 

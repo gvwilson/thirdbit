@@ -1,7 +1,7 @@
 ---
+title: Two Abstracts for Two Audiences
 date: 2018-08-28
 category: empirical-se
-title: Two Abstracts for Two Audiences
 ---
 
 I recently read and enjoyed this paper:

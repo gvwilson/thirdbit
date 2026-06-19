@@ -1,7 +1,7 @@
 ---
+title: "Positive and Negative Openness"
 date: 2019-05-11
 category: open-source community-events
-title: "Positive and Negative Openness"
 ---
 
 Yesterday,

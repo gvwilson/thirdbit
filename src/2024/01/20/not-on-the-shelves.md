@@ -1,7 +1,7 @@
 ---
-date: 2024-01-20
-category: technical-writing career
 title: "Not on the Shelves (2024 Edition)"
+date: 2024-01-20
+category: technical-writing
 ---
 
 It has been five years since I updated [my list of unwritten books][shelves].

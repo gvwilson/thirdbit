@@ -1,7 +1,7 @@
 ---
+title: "Flake and Collins, Mark and Jack and Tobi"
 date: 2018-10-06
 category: personal
-title: "Flake and Collins, Mark and Jack and Tobi"
 ---
 
 It's been a difficult couple of weeks,

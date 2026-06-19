@@ -1,8 +1,8 @@
 ---
+title: Take Out Agile, and Add…What?
 date: 2012-01-24
 category: software-carpentry
 original: swc
-title: Take Out Agile, and Add…What?
 ---
 <p>Based on the feedback we've received so far (both as comments and by email), it looks like we should take development methodologies (i.e., agile development) out of the core curriculum and replace it with two hours on:</p>
 <ol>

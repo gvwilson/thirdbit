@@ -1,6 +1,6 @@
 ---
-date: 2019-06-13
 title: "Martha's Rules"
+date: 2019-06-13
 category: favorite open-source career
 ---
 

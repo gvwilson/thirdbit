@@ -1,8 +1,8 @@
 ---
+title: Applying Pedagogical Principles in This Course
 date: 2012-08-14
 category: education
 original: swc
-title: Applying Pedagogical Principles in This Course
 ---
 <p>I've talked a bit about instructional design and educational principles in this blog in the past; here's a concrete example of how we try to apply those ideas. As well as teaching the basics of the Bash shell and Python, we also (try to) teach people that <em>every programming system must have:</em></p>
 <ul>

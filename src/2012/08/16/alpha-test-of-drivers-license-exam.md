@@ -1,8 +1,8 @@
 ---
+title: Alpha Test of Driver's License Exam
 date: 2012-08-16
 category: software-carpentry
 original: swc
-title: Alpha Test of Driver's License Exam
 ---
 <p>As we announced back in June, we're working with the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a> to create a "driver's license" exam for the <a href="http://www.stfc.ac.uk/Our+Research/24711.aspx">DiRAC</a> supercomputing facility. Mike Jackson at the SSI alpha tested our exam on four people last week; the exam itself, and his comments, are below. We would be <em>very</em> grateful for feedback from the community on the scope and level of the questions.</p>
 <h2>Exam</h2>

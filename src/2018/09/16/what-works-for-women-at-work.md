@@ -1,7 +1,7 @@
 ---
+title: "What Works for Women at Work"
 date: 2018-09-16
 category: diversity
-title: "What Works for Women at Work"
 ---
 
 I never got more than a couple of dozen pages into Sandberg's *Lean In*,

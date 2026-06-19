@@ -1,8 +1,8 @@
 ---
+title: Performance Curves, Curriculum Design, and Trust
 date: 2012-03-04
 category: education
 original: swc
-title: Performance Curves, Curriculum Design, and Trust
 ---
 <p>Suppose you have a processing pipeline with three stages.</p>
 <p><img src="@root/files/2012/03/pipeline.png" class="centered"></p>

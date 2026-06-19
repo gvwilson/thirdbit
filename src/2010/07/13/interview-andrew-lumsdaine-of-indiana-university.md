@@ -1,8 +1,8 @@
 ---
+title: "Interview: Andrew Lumsdaine of Indiana University"
 date: 2010-07-13
 category: software-carpentry
 original: swc
-title: "Interview: Andrew Lumsdaine of Indiana University"
 ---
 <p>Today's interview is with Indiana University's Professor <a href="http://osl.iu.edu/~lums/">Andrew Lumsdaine</a>.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

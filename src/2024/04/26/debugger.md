@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 26: A Debugger"
 date: 2024-04-26
-category: programming cs-education
+category: technical-writing
 ---
 
 As [I wrote two weeks ago][file_archiver],

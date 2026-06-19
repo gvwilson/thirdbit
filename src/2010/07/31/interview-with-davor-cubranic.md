@@ -1,8 +1,8 @@
 ---
+title: Interview with Davor Cubranic
 date: 2010-07-31
 category: software-carpentry
 original: swc
-title: Interview with Davor Cubranic
 ---
 <p>Today's interview is with Dr. <a href="http://cubranic.freeshell.org/">Davor Cubranic</a>, a statistician who lives and works in Vancouver, B.C. Davor recently ran a workshop for faculty and grad students in statistics that covered many of the same ideas as Software Carpentry.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

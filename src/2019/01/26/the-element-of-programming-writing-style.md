@@ -1,7 +1,7 @@
 ---
+title: "The Elements of Programming Writing Style"
 date: 2019-01-26
 category: technical-writing book-reviews
-title: "The Elements of Programming Writing Style"
 ---
 
 Along with my [list of unwritten books](@root/2019/01/06/not-on-the-shelves-2019/) about programming,

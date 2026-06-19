@@ -1,8 +1,8 @@
 ---
+title: Wrapping Up in Oakland
 date: 2012-03-30
 category: software-carpentry
 original: swc
-title: Wrapping Up in Oakland
 ---
 <p>We've wrapped up the workshop in Oakland for folks from NERSC, Berkeley, and Stanford. More later (when I'm home and have slept), but here's the students' feedback. Many thanks to Shreyas Cholia for organizing the workshop, to Michelle Levesque for helping to teach it, and to Elango Cheran and Jorge Aranda for helping out.</p>
 <table class="centered">

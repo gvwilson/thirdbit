@@ -1,8 +1,8 @@
 ---
+title: What to Teach Researchers About the Web
 date: 2012-04-01
 category: software-carpentry
 original: swc
-title: What to Teach Researchers About the Web
 ---
 <p>One reason I'm reflecting on what I've learned in the last two years is a question that is back on the top of my work pile: what should we teach researchers about the web? Partly, it's a priority because I'm currently embedded in Mozilla; their mandate is to defend and extend the open web, and their educational efforts are all aimed at that, so I ought to be doing something too. The real reason, though, is that a lot of things have brought this into sharper focus recently:</p>
 <ol>

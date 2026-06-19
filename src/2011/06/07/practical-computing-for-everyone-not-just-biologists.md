@@ -1,8 +1,8 @@
 ---
+title: Practical Computing for Everyone (not just biologists)
 date: 2011-06-07
 category: software-carpentry
 original: swc
-title: Practical Computing for Everyone (not just biologists)
 ---
 <table class="centered">
 <tbody>

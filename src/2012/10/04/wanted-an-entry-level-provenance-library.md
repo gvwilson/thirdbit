@@ -1,8 +1,8 @@
 ---
+title: "Wanted: An Entry-Level Provenance Library"
 date: 2012-10-04
 category: software-carpentry tools
 original: swc
-title: "Wanted: An Entry-Level Provenance Library"
 ---
 <p>One of the reason we keep teaching Subversion is that it allows us to show students a simple but useful trick. If you add the following to a text file:</p>
 <pre>$Revision: $</pre>

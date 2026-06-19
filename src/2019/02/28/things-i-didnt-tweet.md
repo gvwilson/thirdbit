@@ -1,7 +1,7 @@
 ---
+title: "Things I Didn't Tweet This Month"
 date: 2019-02-28
 category: noticed
-title: "Things I Didn't Tweet This Month"
 ---
 
 -   [Classifying Data](@root/2019/02/04/classifying-data/)

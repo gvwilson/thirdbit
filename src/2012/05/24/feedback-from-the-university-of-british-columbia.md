@@ -1,8 +1,8 @@
 ---
+title: Feedback from the University of British Columbia
 date: 2012-05-24
 category: software-carpentry
 original: swc
-title: Feedback from the University of British Columbia
 ---
 <p>Aaaand that's a wrap in Vancouver, ladies and gentlemen: our workshop at the University of British Columbia seems to have gone well:</p>
 <table class="centered">

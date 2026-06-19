@@ -1,8 +1,8 @@
 ---
+title: "Interview: Mark Plumbley at Queen Mary University of London"
 date: 2010-06-14
 category: software-carpentry
 original: swc
-title: "Interview: Mark Plumbley at Queen Mary University of London"
 ---
 <p>Today's interview is with Prof. Mark Plumbley, of the Department of Electronic Engineering &amp; Computer Science at Queen Mary University of London.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

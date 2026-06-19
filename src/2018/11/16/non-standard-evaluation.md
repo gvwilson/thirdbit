@@ -1,7 +1,7 @@
 ---
+title: "Non-Standard Evaluation in R"
 date: 2018-11-16
 category: programming
-title: "Non-Standard Evaluation in R"
 ---
 
 <p>This post is my attempt to explain how <strong>non-standard evaluation</strong> works in R. I'm writing from the standpoint of a C and Python programmer who was once conversant in Scheme, and who has spent a lot of the last fifteen years teaching people how to program. I'm going to cut a few corners, but if you want a reliable mental model that explains how to write functions that play nicely with <a href="https://www.tidyverse.org/">the tidyverse</a>, I don't think any of what's included below can be skipped.</p>

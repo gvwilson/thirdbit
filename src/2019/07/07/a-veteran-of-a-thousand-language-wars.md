@@ -1,7 +1,7 @@
 ---
+title: "A Veteran of a Thousand Language Wars"
 date: 2019-07-07
 category: empirical-se research-methods
-title: "A Veteran of a Thousand Language Wars"
 ---
 
 > You see me now a veteran of a thousand psychic wars<br>

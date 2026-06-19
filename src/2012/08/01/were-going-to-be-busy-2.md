@@ -1,8 +1,8 @@
 ---
+title: We're Going to Be Busy
 date: 2012-08-01
 category: software-carpentry
 original: swc
-title: We're Going to Be Busy
 ---
 <p>We're going to be busy–and these are just the ones we have confirmed.</p>
 <table class="centered">

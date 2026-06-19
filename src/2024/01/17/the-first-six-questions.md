@@ -1,7 +1,7 @@
 ---
 title: "The First Six Questions"
 date: 2024-01-17
-category: cs-education education ethics
+category: technical-writing sdgc
 ---
 
 > Please see [the bottom of this page](#faq)

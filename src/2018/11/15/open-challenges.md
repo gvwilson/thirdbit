@@ -1,7 +1,7 @@
 ---
+title: "The Real Open Challenges"
 date: 2018-11-15
 category: empirical-se
-title: "The Real Open Challenges"
 ---
 
 Two days, two articles I can't access

@@ -1,7 +1,7 @@
 ---
 title: "My Last To-Don't List"
 date: 2024-02-25
-category: personal career
+category: personal
 ---
 
 The best productivity tip I ever got

@@ -1,7 +1,7 @@
 ---
+title: "Durations"
 date: 2019-02-20
 category: personal
-title: "Durations"
 ---
 
 I've been tracking how long I work on what for a while now,

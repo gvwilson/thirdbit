@@ -1,7 +1,7 @@
 ---
+title: "Amazon Makes Me Sad"
 date: 2018-10-25
 category: personal noticed
-title: "Amazon Makes Me Sad"
 ---
 
 I have bought hundreds of books from Amazon in the past eighteen years,

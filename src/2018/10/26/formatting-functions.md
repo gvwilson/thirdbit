@@ -1,7 +1,7 @@
 ---
+title: "Formatting Functions"
 date: 2018-10-26
 category: programming
-title: "Formatting Functions"
 ---
 
 I've written and edited a little over two million words of computer-related material in the last 35 years.

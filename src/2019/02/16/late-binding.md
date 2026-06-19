@@ -1,7 +1,7 @@
 ---
+title: "Late Binding"
 date: 2019-02-16
 category: programming tools
-title: "Late Binding"
 ---
 
 I've been working on a new Jekyll template for lessons

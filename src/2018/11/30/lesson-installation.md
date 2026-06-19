@@ -1,7 +1,7 @@
 ---
+title: "Lesson Installation"
 date: 2018-11-30
 category: software-carpentry
-title: "Lesson Installation"
 ---
 
 I asked this question on Twitter last night:

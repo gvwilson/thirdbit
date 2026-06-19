@@ -1,7 +1,7 @@
 ---
+title: "The Third Wall"
 date: 2018-12-08
 category: personal
-title: "The Third Wall"
 ---
 
 My brother Jeff used to say that the third wall's the hardest.

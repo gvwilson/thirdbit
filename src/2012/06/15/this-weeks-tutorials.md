@@ -1,8 +1,8 @@
 ---
+title: This Week's Tutorials
 date: 2012-06-15
 category: software-carpentry
 original: swc
-title: This Week's Tutorials
 ---
 <p>We ran five and a half online tutorials this week: one each for the workshop participants from UCL, Newcastle, UBC, and Edmonton, one for students combined from five previous workshops, and a make-up mini-tutorial for students from Plymouth who'd had A/V problems. The topics included:</p>
 <ul>

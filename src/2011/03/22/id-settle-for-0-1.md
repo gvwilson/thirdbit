@@ -1,8 +1,8 @@
 ---
+title: I'd Settle for 0.1%
 date: 2011-03-22
 category: software-carpentry
 original: swc
-title: I'd Settle for 0.1%
 ---
 <p>In a recent article about computational thinking, Carnegie-Mellon's Jeannette Wing says:</p>
 <blockquote><p>…every scientific directorate and office at the National Science Foundation participates in the Cyber-enabled Discovery and Innovation, or CDI, program, an initiative started four years ago with a fiscal year 2011 budget request of $100 million. CDI is in a nutshell "computational thinking for science and engineering."</p></blockquote>

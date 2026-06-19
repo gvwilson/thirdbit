@@ -1,7 +1,7 @@
 ---
+title: "Learning to Program"
 date: 2019-03-07
 category: cs-education research-methods
-title: "Learning to Program"
 ---
 
 A colleague recently pointed me at

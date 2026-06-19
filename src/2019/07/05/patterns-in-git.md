@@ -1,7 +1,7 @@
 ---
+title: "Patterns in Git"
 date: 2019-07-05
 category: tools empirical-se
-title: "Patterns in Git"
 ---
 
 Two years ago,

@@ -1,7 +1,7 @@
 ---
-date: 2024-01-23
-category: technical-writing noticed
 title: "The Votes Are In"
+date: 2024-01-23
+category: technical-writing
 ---
 
 After updating [my list of unwritten books][unwritten-2024] a few days ago,

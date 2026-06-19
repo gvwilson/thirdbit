@@ -1,8 +1,8 @@
 ---
+title: Ratings Revised
 date: 2010-10-17
 category: software-carpentry
 original: swc
-title: Ratings Revised
 ---
 <p>We asked, you answered: here are the latest results from our survey of what topics you'd most like us to cover, with links to the ones that have been posted. A few notes:</p>
 <ol>

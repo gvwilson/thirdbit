@@ -1,6 +1,6 @@
 ---
-date: 2019-04-15
 title: "An Exchange with DataCamp"
+date: 2019-04-15
 category: favorite diversity ethics
 ---
 

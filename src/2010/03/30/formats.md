@@ -1,8 +1,8 @@
 ---
+title: Formats
 date: 2010-03-30
 category: software-carpentry
 original: swc
-title: Formats
 ---
 <p>As I said in last week's announcement, and mentioned again in a later post, one of the main goals of this rewrite is to make it possible for students to do the course when and where they want to. That means recording audio and video, but much of the material will probably still be textual: code samples (obviously), lecture notes (for those who prefer skimming to viewing, or who want to teach the material locally), and exercises will still be words on a virtual page. And even the AV material will (probably) be accompanied by scripts or transcripts, depending on what turns out to work best.</p>
 <p>Which brings up a question everyone working with computers eventually faces: what format(s) should material be stored in? For images, audio, and video, the choices are straightforward: SVG for line drawings, PNG for images, MP3 for audio, and MP4, MPEG, or FLV or video (I don't know enough yet to choose). But there's a bewildering variety of options for text, each with its pros and cons.</p>

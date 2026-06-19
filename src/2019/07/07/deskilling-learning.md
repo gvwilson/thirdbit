@@ -1,7 +1,7 @@
 ---
+title: "Deskilling Learning"
 date: 2019-07-07
 category: education ethics politics
-title: "Deskilling Learning"
 ---
 
 According to Wikipedia,

@@ -1,8 +1,8 @@
 ---
+title: User Stories
 date: 2009-03-30
 category: software-carpentry education
 original: swc
-title: User Stories
 ---
 <p>One of the tricks I teach my undergraduates is to create fictional personas to describe the intended users of a system–or in this case, a course.  Here are three of the "people" I've had in mind while developing Software Carpentry to date; my goal is to update these stories to better reflect how scientists work today.</p>
 <p><strong>Bhargan Basepair</strong></p>

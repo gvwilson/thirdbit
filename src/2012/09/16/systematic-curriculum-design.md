@@ -1,8 +1,8 @@
 ---
+title: Systematic Curriculum Design
 date: 2012-09-16
 category: software-carpentry
 original: swc
-title: Systematic Curriculum Design
 ---
 <p><em>Executive summary: we'd appreciate your help organizing and motivating our material better.</em></p>
 <p>One of the good things about traveling is that it gives me time to think. One of the bad things about thinking is that every time I do, I wind up with more work than I had when I started. For example, to organize and motivate our content, I'm using eight questions that scientists frequently ask:</p>

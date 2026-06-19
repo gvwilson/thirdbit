@@ -1,8 +1,8 @@
 ---
+title: Introducing Programming a Different Way
 date: 2011-08-08
 category: cs-education
 original: swc
-title: Introducing Programming a Different Way
 ---
 <p>Our quick introduction to Python is the module I'm least happy with, so I've been thinking about how to re-design it. I've included a new outline below; comments would be very welcome.</p>
 <hr />

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 13: A Code Linter"
 date: 2024-04-13
-category: programming cs-education
+category: technical-writing
 ---
 
 The [HTML validator example][sdxpy_check] in Chapter 11 has two natural follow-ons.

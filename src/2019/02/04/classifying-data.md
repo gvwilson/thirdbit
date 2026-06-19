@@ -1,6 +1,6 @@
 ---
-date: 2019-02-04
 title: "Classifying Data"
+date: 2019-02-04
 category: favorite data-science humor
 ---
 

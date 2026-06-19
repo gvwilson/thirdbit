@@ -1,7 +1,7 @@
 ---
 title: "What Worked Last Time?"
 date: 2024-11-10
-category: cs-education technical-writing
+category: sdgc
 ---
 
 *I'm going to ask a favor, but I need to tell a story first.*

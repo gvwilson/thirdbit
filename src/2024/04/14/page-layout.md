@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 14: Page Layout"
 date: 2024-04-14
-category: programming cs-education
+category: technical-writing
 ---
 
 As I said [a week ago][post_interp],

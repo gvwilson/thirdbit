@@ -1,7 +1,7 @@
 ---
-date: 2024-02-03
-category: tools cs-education
 title: "First Draft of SQL Tutorial"
+date: 2024-02-03
+category: cs-education technical-writing
 ---
 
 I still need to draw half a dozen diagrams,

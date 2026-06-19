@@ -1,7 +1,7 @@
 ---
+title: Teaching Tech Together
 date: 2018-07-15
 category: software-carpentry
-title: Teaching Tech Together
 ---
 
 I am pleased to announce the publication of *[Teaching Tech

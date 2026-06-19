@@ -1,8 +1,8 @@
 ---
+title: A Flash (well, MP4) from the Past
 date: 2012-02-19
 category: technical-writing
 original: swc
-title: A Flash (well, MP4) from the Past
 ---
 <p>In July 2009, we held a one-day symposium on open science at the University of Toronto. I recently uploaded video from those talks to YouTube; the audio is a bit shaky, but I hope they're useful despite that. The talks are linked below.</p>
 <p>Titus Brown: <a href="http://youtu.be/1XAipuBacsE">Choosing Infrastructure and Testing Tools for Scientific Software Projects</a></p>

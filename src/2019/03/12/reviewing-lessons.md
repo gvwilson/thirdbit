@@ -1,7 +1,7 @@
 ---
+title: "Reviewing Lessons"
 date: 2019-03-12
 category: education technical-writing
-title: "Reviewing Lessons"
 ---
 
 I had a great discussion yesterday with a colleague about reviewing slides for lessons.

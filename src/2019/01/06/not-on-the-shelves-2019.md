@@ -1,7 +1,7 @@
 ---
+title: "Not on the Shelves (2019 Edition)"
 date: 2019-01-06
 category: book-reviews technical-writing
-title: "Not on the Shelves (2019 Edition)"
 ---
 
 I made progress on two book projects last year:

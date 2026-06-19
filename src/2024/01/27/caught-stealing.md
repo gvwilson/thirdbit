@@ -1,6 +1,6 @@
 ---
-date: 2024-01-27
 title: "Caught Stealing"
+date: 2024-01-27
 category: anecdote personal
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "In Search of Balls and Sticks"
 date: 2024-04-07
-category: tools data-science
+category: education ethics technical-writing
 ---
 
 This is not a molecule of acetone:

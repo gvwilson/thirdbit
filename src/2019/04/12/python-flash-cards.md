@@ -1,7 +1,7 @@
 ---
+title: "Python Flash Cards"
 date: 2019-04-12
 category: book-reviews cs-education
-title: "Python Flash Cards"
 ---
 
 I've never met [Eric Matthes](https://ehmatthes.github.io/),

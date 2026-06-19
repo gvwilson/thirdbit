@@ -1,8 +1,8 @@
 ---
+title: Patterns Wanted
 date: 2012-09-12
 category: software-carpentry
 original: swc
-title: Patterns Wanted
 ---
 <p>At some point or other, most programmers have encountered the idea of design patterns in software, and many (including myself) have been zealous about them, at least for a while. They haven't actually revolutionized either the practice of software development or the way we teach it, but becoming familiar with them is to programmers what learning the Beatles' greatest hits is to musicians.</p>
 <p>That presents us with a problem. We have deliberately chosen <em>not</em> to include object-oriented programming in the core of Software Carpentry: it's too big to fit into the time we have, and too far beyond what our learners bring with them. However, almost all discussion of design patterns is phrased in terms of classes and objects. It doesn't have to be–the ideas behind Proxy, Singleton, and Iterator are frequently used in procedural languages like C–but:</p>

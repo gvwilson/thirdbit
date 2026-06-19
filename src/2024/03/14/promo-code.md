@@ -1,7 +1,7 @@
 ---
 title: "Promo Code"
 date: 2024-03-14
-category: technical-writing noticed
+category: technical-writing
 ---
 
 The Python version of [*Software Design by Example*][sdxpy] will be out Real Soon:

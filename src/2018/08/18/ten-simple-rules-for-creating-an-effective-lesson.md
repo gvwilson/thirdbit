@@ -1,7 +1,7 @@
 ---
+title: Ten Simple Rules for Creating an Effective Lesson
 date: 2018-08-18
 category: software-carpentry
-title: Ten Simple Rules for Creating an Effective Lesson
 ---
 
 I'm preparing a couple of talks based on [*Teaching Tech Together*](http://teachtogether.tech),

@@ -1,8 +1,8 @@
 ---
+title: Stop Me If You've Heard This One
 date: 2012-04-28
 category: cs-education
 original: swc
-title: Stop Me If You've Heard This One
 ---
 <p>I used to tell this joke:</p>
 <blockquote><p>An engineer says, "Theory approximates reality."<br />

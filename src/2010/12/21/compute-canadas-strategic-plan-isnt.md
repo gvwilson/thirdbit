@@ -1,8 +1,8 @@
 ---
+title: Compute Canada's 'Strategic' Plan Isn't
 date: 2010-12-21
 category: software-carpentry politics
 original: swc
-title: Compute Canada's 'Strategic' Plan Isn't
 ---
 <p>Last Friday–December 17–I received an email from Compute Canada.  The emphasis is mine:</p>
 <blockquote><p>A <a href="https://computecanada.org/?mod=cms&amp;lang=EN&amp;pageId=1435">Strategic Plan for Compute Canada</a> was a key recommendation of the International Review Panel. This plan draws on suggestions from that panel as well as the information and discussions from the Town Hall Meetings held earlier this year. It has been many months in preparation and review by Compute Canada's committees and <em>must be submitted</em> to CFI <em>before the end of December 2010</em>… Your comments are invited and should be sent…by end of day <em>Monday, December 20th</em>.</p></blockquote>

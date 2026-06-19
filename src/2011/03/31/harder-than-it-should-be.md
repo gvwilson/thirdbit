@@ -1,8 +1,8 @@
 ---
+title: Harder Than It Should Be
 date: 2011-03-31
 category: software-carpentry
 original: swc
-title: Harder Than It Should Be
 ---
 <p>Someone once said, "Chemistry is basically anything chemists will give each other awards for doing."  Or something like that–Google doesn't find matches for that exact quote.  Even if I've mangled it, the idea is sound: art is no more and no less than what great artists accept as being art.</p>
 <p>So what is computer science?  More particularly, what constitutes the <em>core</em> of computer science?  What's the stuff that everyone who calls themselves a "computer scientist" should know, or at least have seen?  One way to answer the question would be to look at what people are given prizes for, but that's turning out to be harder than I expected, and the reason highlights a gap in this course.</p>

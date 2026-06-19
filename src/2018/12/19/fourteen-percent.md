@@ -1,7 +1,7 @@
 ---
+title: "Fourteen Percent and a Change of Direction"
 date: 2018-12-19
 category: personal
-title: "Fourteen Percent and a Change of Direction"
 ---
 
 > Following on from [previous](@root/2018/12/12/twelve-percent/)

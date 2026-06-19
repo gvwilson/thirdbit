@@ -1,7 +1,7 @@
 ---
+title: "Christchurch and Shopify"
 date: 2019-03-15
 category: ethics politics
-title: "Christchurch and Shopify"
 ---
 
 > Man I can’t honestly tell if it's just transference because I don't know what to do with my anger and pain about it,

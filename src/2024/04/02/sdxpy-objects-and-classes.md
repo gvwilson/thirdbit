@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 2: Objects and Classes"
 date: 2024-04-02
-category: programming cs-education
+category: technical-writing
 ---
 
 Python is an object-oriented language,

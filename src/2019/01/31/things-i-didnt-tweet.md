@@ -1,7 +1,7 @@
 ---
+title: "Things I Didn't Tweet This Month"
 date: 2019-01-31
 category: noticed
-title: "Things I Didn't Tweet This Month"
 ---
 
 -   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou

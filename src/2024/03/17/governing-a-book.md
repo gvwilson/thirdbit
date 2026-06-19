@@ -1,7 +1,7 @@
 ---
 title: "Governing a Book"
 date: 2024-03-17
-category: open-source technical-writing
+category: open-source technical-writing politics
 ---
 
 As [I said a couple of days ago][lesson-types],

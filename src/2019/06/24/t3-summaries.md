@@ -1,7 +1,7 @@
 ---
+title: "Chapter Summaries"
 date: 2019-06-24
 category: education technical-writing
-title: "Chapter Summaries"
 ---
 
 Here are key points from each chapter of *[Teaching Tech Together](http://teachtogether.tech)*.

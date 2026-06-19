@@ -1,7 +1,7 @@
 ---
+title: "Already Mostly There"
 date: 2019-04-22
 category: book-reviews politics
-title: "Already Mostly There"
 ---
 
 I picked up Phillips and Rozworski's

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 16: Object Persistence"
 date: 2024-04-16
-category: programming cs-education
+category: technical-writing
 ---
 
 I don't know how many times I've written code to save and load data structures,

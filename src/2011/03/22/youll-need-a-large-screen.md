@@ -1,8 +1,8 @@
 ---
+title: You'll Need a Large Screen
 date: 2011-03-22
 category: technical-writing
 original: swc
-title: You'll Need a Large Screen
 ---
 <p>I've been working on a graph showing</p>
 <ul>

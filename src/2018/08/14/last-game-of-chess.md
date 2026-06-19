@@ -1,7 +1,7 @@
 ---
+title: Our Last Game
 date: 2018-08-14
 category: personal
-title: Our Last Game
 ---
 
 <figure class="center">

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 4: Matching Patterns"
 date: 2024-04-04
-category: programming cs-education
+category: technical-writing
 ---
 
 As I wrote [last year][sdxjs_pattern_matching],

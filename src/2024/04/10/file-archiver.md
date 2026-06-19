@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 10: A File Archiver"
 date: 2024-04-10
-category: programming cs-education
+category: technical-writing
 ---
 
 [*Software Design by Example*][sdxpy] began as a response to the shortcomings of [*Beautiful Code*][bc],

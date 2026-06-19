@@ -1,7 +1,7 @@
 ---
+title: "Twelve Percent of a Plan"
 date: 2018-12-12
 category: personal
-title: "Twelve Percent of a Plan"
 ---
 
 > Please see [this post](@root/2018/12/17/thirteen-percent/)

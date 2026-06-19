@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 24: Undo and Redo"
 date: 2024-04-24
-category: programming cs-education
+category: technical-writing
 ---
 
 [Chapter 24: Undo and Redo][sdxpy_undo]

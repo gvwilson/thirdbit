@@ -1,7 +1,7 @@
 ---
+title: "Four Forms of Documentation"
 date: 2018-10-18
 category: technical-writing
-title: "Four Forms of Documentation"
 ---
 
 A colleague recently pointed me at [this article by Daniele Procida](https://www.divio.com/blog/documentation/)

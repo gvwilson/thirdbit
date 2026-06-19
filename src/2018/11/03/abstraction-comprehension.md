@@ -1,6 +1,6 @@
 ---
-date: 2018-11-03
 title: "Abstraction and Comprehension"
+date: 2018-11-03
 category: empirical-se cs-education
 ---
 

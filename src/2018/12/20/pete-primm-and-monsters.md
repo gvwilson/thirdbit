@@ -1,7 +1,7 @@
 ---
+title: "PETE, PRIMM, and Monsters"
 date: 2018-12-20
 category: personal
-title: "PETE, PRIMM, and Monsters"
 ---
 
 A year ago,

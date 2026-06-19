@@ -1,7 +1,7 @@
 ---
 title: "Labels for Technical Writing Projects"
 date: 2024-09-12
-category: technical-writing tools
+category: technical-writing
 ---
 
 *(Originally posted in the [rOpenSci blog][ropensci]—my thanks to [Yanina Bellini Saibene][yanina] for editing.)*

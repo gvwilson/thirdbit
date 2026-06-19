@@ -1,7 +1,7 @@
 ---
+title: "Not a Hammer"
 date: 2019-04-04
 category: humor programming
-title: "Not a Hammer"
 ---
 
 A plea to programmers everywhere:

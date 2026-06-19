@@ -1,7 +1,7 @@
 ---
 title: "The Other Examples"
 date: 2024-01-03
-category: programming technical-writing
+category: technical-writing
 ---
 
 I'm not going to write another book in the *Software Design by Example* series,

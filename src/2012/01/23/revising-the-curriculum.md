@@ -1,8 +1,8 @@
 ---
+title: Revising the Curriculum
 date: 2012-01-23
 category: software-carpentry
 original: swc
-title: Revising the Curriculum
 ---
 <p>I've been thinking some more about what the foundation and core of Software Carpentry actually are (and not just because Jon Pipitone keeps pestering me to do so). My last attempt had a foundation of seven principles and dozen topics in the core. I think I can slim that down even further; in fact, I think three big principles form the foundation of computational thinking:</p>
 <ol>

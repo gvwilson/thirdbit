@@ -1,7 +1,7 @@
 ---
+title: "Analyze That! Very Preliminary Results"
 date: 2018-12-06
 category: cs-education empirical-se
-title: "Analyze That! Very Preliminary Results"
 ---
 
 What questions do people who teach computing most want computing education researchers to investigate?

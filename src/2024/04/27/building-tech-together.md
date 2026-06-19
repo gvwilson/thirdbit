@@ -1,7 +1,7 @@
 ---
 title: "Building Tech Together"
 date: 2024-04-27
-category: cs-education empirical-se
+category: cs-education
 ---
 
 I supervised almost 200 senior undergraduates' projects at the University of Toronto

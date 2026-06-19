@@ -1,7 +1,7 @@
 ---
-date: 2024-01-31
-category: cs-education education
 title: "Lesson Log"
+date: 2024-01-31
+category: cs-education technical-writing
 ---
 
 Some folks knit,

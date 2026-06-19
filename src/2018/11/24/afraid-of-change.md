@@ -1,6 +1,6 @@
 ---
-date: 2018-11-24
 title: "Afraid of Change"
+date: 2018-11-24
 category: personal
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "My Academic Flyby Revisited"
 date: 2024-01-06
-category: academia cs-education software-carpentry
+category: career
 ---
 
 I had a very enjoyable cup of coffee yesterday

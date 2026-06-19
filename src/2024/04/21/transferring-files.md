@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 21: Transferring Files"
 date: 2024-04-21
-category: programming cs-education
+category: technical-writing
 ---
 
 [A week ago][layout_post] I wrote that

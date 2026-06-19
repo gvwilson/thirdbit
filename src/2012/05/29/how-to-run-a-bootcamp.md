@@ -1,8 +1,8 @@
 ---
+title: How to Run a Bootcamp
 date: 2012-05-29
 category: software-carpentry
 original: swc
-title: How to Run a Bootcamp
 ---
 <p>With so many people setting up and running Software Carpentry workshops, I thought it was time to put together a more complete how-to. If I've forgotten anything, please let me know. <em>(Later: please also see this PLoS paper"<a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002245">Ten Simple Rules for Developing a Short Bioinformatics Training Course</a>".)</em></p>
 <p><strong>Assumptions</strong></p>

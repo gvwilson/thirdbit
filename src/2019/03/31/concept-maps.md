@@ -1,7 +1,7 @@
 ---
+title: "Concept Maps"
 date: 2019-03-31
 category: education
-title: "Concept Maps"
 ---
 
 Inspired by [Daniela Soto](http://www.dennislab.org/daniela-soto)'s awesome

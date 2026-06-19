@@ -1,8 +1,8 @@
 ---
+title: Halfway Home
 date: 2012-04-17
 category: technical-writing
 original: swc
-title: Halfway Home
 ---
 <p>We're half-way through our current round of work, so it's time to start thinking about what we've accomplished, what we've learned, and what we'd like to do next. Here's what I think we now know:</p>
 <ol>

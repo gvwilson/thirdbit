@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 9: Protocols"
 date: 2024-04-09
-category: programming cs-education
+category: technical-writing
 ---
 
 As I wrote [yesterday][func_post]

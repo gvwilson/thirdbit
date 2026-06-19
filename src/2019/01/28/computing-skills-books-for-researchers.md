@@ -1,7 +1,7 @@
 ---
+title: "Computing Skills Books for Researchers"
 date: 2019-01-28
 category: software-carpentry book-reviews
-title: "Computing Skills Books for Researchers"
 ---
 
 Thrice upon a time,

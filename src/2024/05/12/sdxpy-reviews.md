@@ -1,7 +1,7 @@
 ---
 title: "Reviews Are Coming In"
 date: 2024-05-12
-category: technical-writing noticed
+category: technical-writing
 ---
 
 Reviews of the Python version of [*Software Design by Example*][sdxpy] have been coming in:

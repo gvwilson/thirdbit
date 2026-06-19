@@ -1,8 +1,8 @@
 ---
+title: Interview with STSci's Perry Greenfield
 date: 2010-07-20
 category: software-carpentry
 original: swc
-title: Interview with STSci's Perry Greenfield
 ---
 <p>Today's interview is with Dr. Perry Greenfield of the <a href="http://www.stsci.edu">Space Telescope Science Institute</a>.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

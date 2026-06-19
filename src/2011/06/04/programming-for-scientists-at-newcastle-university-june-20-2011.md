@@ -1,8 +1,8 @@
 ---
+title: "Programming for Scientists at Newcastle University: June 20, 2011"
 date: 2011-06-04
 category: software-carpentry
 original: swc
-title: "Programming for Scientists at Newcastle University: June 20, 2011"
 ---
 <p>From <a href="http://conferences.ncl.ac.uk/sciprog/">the announcement</a>:</p>
 <blockquote><p><em>Programming is becoming an increasingly important part of scientific research, yet many scientists are self-taught programmers with little formal training. This means that we are often unfamiliar with simple tools that can make programming and dealing with data faster, more reliable and more reproducible. This event is a day-long workshop to develop awareness of the skills and tools that help make computing more efficient and provide results that are less prone to error. If you've ever thought "Surely there must be a better way to do this", then this is the event for you!</em></p></blockquote>

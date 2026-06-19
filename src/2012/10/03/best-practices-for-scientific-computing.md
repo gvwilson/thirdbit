@@ -1,8 +1,8 @@
 ---
+title: Best Practices for Scientific Computing
 date: 2012-10-03
 category: software-carpentry research-methods
 original: swc
-title: Best Practices for Scientific Computing
 ---
 <p>The following pre-print is now <a href="http://arxiv.org/abs/1210.0530">available on arXiv</a>:</p>
 <blockquote>

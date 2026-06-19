@@ -1,6 +1,6 @@
 ---
-date: 2024-01-20
 title: "The Moon and Tears"
+date: 2024-01-20
 category: anecdote personal
 ---
 

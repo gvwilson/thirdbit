@@ -1,8 +1,8 @@
 ---
+title: Sending Email Back in Time
 date: 2012-04-01
 category: programming tools
 original: swc
-title: Sending Email Back in Time
 ---
 <p>We're about to release the second volume of <a href="http://aosabook.org"><cite>The Architecture of Open Source Applications</cite></a>, which has indirectly prompted a bit of soul-searching on my part. When we invited people to contribute, we asked them to give us the one-hour whiteboard talk they'd give to a new developer being brought onto the project. We also asked them to sum up what they'd learned. "Imagine you could send a brief email back in time," we told them. "What would you say to your younger self?" Which of course begs the question, what would I tell the me of 2010 about Software Carpentry?</p>
 <ol>

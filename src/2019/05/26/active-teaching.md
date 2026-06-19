@@ -1,7 +1,7 @@
 ---
+title: "Active Teaching"
 date: 2019-05-26
 category: education cs-education
-title: "Active Teaching"
 ---
 
 Educators use the term [active learning](https://en.wikipedia.org/wiki/Active_learning)

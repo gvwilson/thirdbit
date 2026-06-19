@@ -1,6 +1,6 @@
 ---
-date: 2019-04-20
 title: "Leading Questions for Creating a Learning Commons"
+date: 2019-04-20
 category: favorite education open-source
 ---
 

@@ -1,7 +1,7 @@
 ---
+title: "Two Columns"
 date: 2018-10-24
 category: cs-education
-title: "Two Columns"
 ---
 
 I'm spending a few minutes every morning adding prose to the point-form notes in

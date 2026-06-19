@@ -1,7 +1,7 @@
 ---
+title: "Is Code-Along Formative Assessment?"
 date: 2019-02-20
 category: education cs-education
-title: "Is Code-Along Formative Assessment?"
 ---
 
 Wikipedia defines [formative assessment](https://en.wikipedia.org/wiki/Formative_assessment) as,

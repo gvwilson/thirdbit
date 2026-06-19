@@ -1,8 +1,8 @@
 ---
+title: An Updated List of Upcoming Workshops
 date: 2012-08-21
 category: software-carpentry
 original: swc
-title: An Updated List of Upcoming Workshops
 ---
 <p>Here's an update to our upcoming workshop list:</p>
 <table class="centered">

@@ -1,7 +1,7 @@
 ---
+title: "What Docs When"
 date: 2019-04-16
 category: technical-writing education
-title: "What Docs When"
 ---
 
 **Note: this post updates [an earlier one](@root/2019/04/10/what-docs-and-when/)

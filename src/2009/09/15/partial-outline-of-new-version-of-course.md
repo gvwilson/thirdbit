@@ -1,8 +1,8 @@
 ---
+title: Partial Outline of New Version of Course
 date: 2009-09-15
 category: software-carpentry
 original: swc
-title: Partial Outline of New Version of Course
 ---
 <p>I have put a mostly-complete draft of my ideas for a rewrite of the course online.  This version would start with specific problems, then backfill the tools and skills needed to solve them, but there are some big outstanding issues:</p>
 <ol>

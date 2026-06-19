@@ -1,6 +1,6 @@
 ---
-date: 2019-05-23
 title: "Bottle of Light"
+date: 2019-05-23
 category: fiction-writing
 ---
 

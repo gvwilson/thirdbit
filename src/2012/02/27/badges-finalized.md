@@ -1,8 +1,8 @@
 ---
+title: Badges (Finalized)
 date: 2012-02-27
 category: software-carpentry
 original: swc
-title: Badges (Finalized)
 ---
 <p>We have finalized our first set of <a href="http://openbadges.org/">Software Carpentry badges</a>–with luck, we'll list the first set of recipients later this week.</p>
 <table class="centered">

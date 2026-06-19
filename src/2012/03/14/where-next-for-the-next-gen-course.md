@@ -1,8 +1,8 @@
 ---
+title: Where Next for the Next-Gen Course (and Software Carpentry)?
 date: 2012-03-14
 category: software-carpentry
 original: swc
-title: Where Next for the Next-Gen Course (and Software Carpentry)?
 ---
 <p>Titus Brown's next-generation sequencing course has been a great success: so great, in fact, that he's overwhelmed with applications for this year's run. That has made him think aloud (or rather, ablog) about <a href="http://ivory.idyll.org/blog/mar-12/ngs-course-where-next.html">where to take the course next</a>. His options include:</p>
 <ol>

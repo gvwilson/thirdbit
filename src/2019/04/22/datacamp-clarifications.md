@@ -1,7 +1,7 @@
 ---
+title: "DataCamp Clarifications"
 date: 2019-04-22
 category: diversity ethics
-title: "DataCamp Clarifications"
 ---
 
 There has been a lot of discussion online about DataCamp's mishandling of a sexual assault case

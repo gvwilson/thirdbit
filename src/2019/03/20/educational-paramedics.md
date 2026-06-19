@@ -1,7 +1,7 @@
 ---
+title: "Educational Paramedics"
 date: 2019-03-20
 category: education
-title: "Educational Paramedics"
 ---
 
 A colleague and I just wrapped up a couple of days of instructor training for RStudio staff,

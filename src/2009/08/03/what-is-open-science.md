@@ -1,8 +1,8 @@
 ---
+title: What *Is* Open Science?
 date: 2009-08-03
 category: software-carpentry research-methods
 original: swc
-title: What *Is* Open Science?
 ---
 <p>Over at the OpenScience Project, Dan Gezelter is trying to define <a href="http://www.openscience.org/blog/?p=269">what "open science" means</a>. He thinks there are four key points:</p>
 <ul>

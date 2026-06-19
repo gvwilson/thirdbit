@@ -1,8 +1,8 @@
 ---
+title: What Success Looks Like Five Years Out
 date: 2011-12-24
 category: software-carpentry
 original: swc
-title: What Success Looks Like Five Years Out
 ---
 <p>Having talked about what I've learned and how well our teaching measures up, I'd like to explore what success would actually look like for Software Carpentry. Our long-term objective is to make productive and reliable computing practices the norm in science and engineering. My model is the way statistics became a "normal" part of most scientists' training in the 20th Century. Most psychologists and geologists are emphatically not statisticians, but most of them know (or at least have known, at some point) what a t-test is, what a correlation coefficient means, and how to tell when they're out of their depth. Equally, most scientists should know how to pipe a few simple filters together to clean up their data, how to use version control to track and share their work, whether their computational results are as trustworthy as their experimental results [<a href="#1">1</a>], and when to go and talk to either a real numerical analyst or a professional software developer.</p>
 <p>On a five-year timescale, this translates into three concrete goals:</p>

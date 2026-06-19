@@ -1,8 +1,8 @@
 ---
+title: We're Neutral (but Not Really)
 date: 2012-04-14
 category: software-carpentry
 original: swc
-title: We're Neutral (but Not Really)
 ---
 <p>From <a href="http://en.wikipedia.org/wiki/Open_science">Wikipedia</a>:</p>
 <blockquote><p><em>Open science</em> is the umbrella term of the movement to make scientific research, data and dissemination accessible to all levels of an inquiring society, amateur or professional. It encompasses practices such as publishing <a href="http://en.wikipedia.org/wiki/Open_research">open research</a>, campaigning for <a href="http://en.wikipedia.org/wiki/Open_access">open access</a>, encouraging scientists to practice <a href="http://en.wikipedia.org/wiki/Open_notebook_science">open notebook science</a>, and generally making it easier to publish and communicate scientific knowledge.</p></blockquote>

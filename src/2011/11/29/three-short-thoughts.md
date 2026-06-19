@@ -1,8 +1,8 @@
 ---
+title: Three Short Thoughts
 date: 2011-11-29
 category: software-carpentry
 original: swc
-title: Three Short Thoughts
 ---
 <ol>
 <li>A BBC article title "<a href="http://www.bbc.co.uk/news/technology-15916677">Coding – the New Latin</a>" resonated: Latin was the language of learned discourse in the formative years of modern science, but not something most people spoke day-to-day. I think that's a good model for computing in the sciences; like statistics, it requires familiarity, not expertise.</li>

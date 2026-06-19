@@ -1,7 +1,7 @@
 ---
+title: "Joining RStudio"
 date: 2018-09-04
 category: software-carpentry
-title: "Joining RStudio"
 ---
 
 Today is my daughter's first day at her new school—she's very excited.

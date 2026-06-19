@@ -1,8 +1,8 @@
 ---
+title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 date: 2012-04-18
 category: cs-education ethics
 original: swc
-title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 ---
 <p>A lot goes on behind the scenes here at software-carpentry.org:</p>
 <ol>

@@ -1,7 +1,7 @@
 ---
-date: 2024-02-14
-category: programming technical-writing
 title: "A Pair of Interviews"
+date: 2024-02-14
+category: noticed technical-writing
 ---
 
 Adam Gordon Bell recently [interviewed me][co-recursive] for "CoRecursive"

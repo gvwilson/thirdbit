@@ -1,8 +1,8 @@
 ---
+title: Utah State University Wrap-Up
 date: 2012-04-16
 category: software-carpentry
 original: swc
-title: Utah State University Wrap-Up
 ---
 <p>Our bootcamp at Utah State University finished earlier today–many thanks once again to Ethan White and his friends for hosting us.  Here's what the students thought:</p>
 <table class="centered">

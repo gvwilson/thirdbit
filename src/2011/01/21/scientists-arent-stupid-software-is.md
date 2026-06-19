@@ -1,8 +1,8 @@
 ---
+title: "Scientists Aren't Stupid: Software Is"
 date: 2011-01-21
 category: software-carpentry
 original: swc
-title: "Scientists Aren't Stupid: Software Is"
 ---
 <p>Last night, <a href="http://techspot.zzzeek.org/">Mike Bayer</a> tweeted:</p>
 <blockquote><p>Why are "scientists", who are so dramatically smarter than me, such dumdums when it comes to basic programming skills: <a rel="nofollow" href="http://bit.ly/fWPtjW" target="_blank">http://bit.ly/fWPtjW</a></p></blockquote>

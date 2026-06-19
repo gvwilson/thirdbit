@@ -1,8 +1,8 @@
 ---
+title: Day 5
 date: 2009-07-19
 category: software-carpentry
 original: swc
-title: Day 5
 ---
 <p>Day 5 of the course: <a href="http://www.cs.ualberta.ca/~paullu">Paul Lu</a> gave a lecture on Make in the morning, and students had a chance to work on problems of their choice in the afternoon. Of all the tools we teach in this course, Make is the least satisfying (at least to me): the basic concept is simple, and I wouldn't run a project without some automating repetitive tasks, but Make's syntax and limitations are repellant.</p>
 <p>The problem is, the alternatives available today are equally unsatisfying. Ant requires human beings to write XML (the assembly code of the internet), and extending it requires serious skillz.  Its creator, James Duncan Davidson, said back in 2004 that if he had it to do all over again, he'd have used a general-purpose scripting language as a base instead. Lots of build systems do, including CONS, SCons, and Rake, but they're all still niche products with small user bases, weak IDE integration, and even weaker documentation.</p>

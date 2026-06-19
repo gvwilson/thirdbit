@@ -1,8 +1,8 @@
 ---
+title: Surviving the Tsunami
 date: 2011-11-14
 category: software-carpentry
 original: swc
-title: Surviving the Tsunami
 ---
 <p>The October 2011 issue of <em>ACM Queue</em> features an article by Bruce Berriman and Steven Groom titled "<a href="http://queue.acm.org/detail.cfm?id=2047483">How Will Astronomy Archives Survive the Data Tsunami?</a>" The figures are scary: astronomers already have a petabyte of publicy-available data, and are adding half a petabyte per year, a rate which will increase dramatically as new instruments come online. The only way to avoid this all becoming write-only is to bet on emerging technologies, from general-purpose GPUs to cloud computing. The problem, of course, is that "emerging" usually means "flaky", both because the tools haven't had time to mature, and because we, their users, don't have the years of experience needed to know how best to use them.  (As far as I'm concerned, we're still trying to figure out how best to use object-oriented programming in science, and we've been at it for thirty years…)</p>
 <p>But here's the good news. Instead of just the usual perfunctory nod toward education and training, Berriman and Groom put a spotlight on it:</p>

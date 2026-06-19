@@ -1,7 +1,7 @@
 ---
+title: "Occupations"
 date: 2019-03-24
 category: academia career personal
-title: "Occupations"
 ---
 
 There are some threads right now on Twitter and on various forums I belong to

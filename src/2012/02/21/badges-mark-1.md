@@ -1,8 +1,8 @@
 ---
+title: Badges (Mark 1)
 date: 2012-02-21
 category: software-carpentry
 original: swc
-title: Badges (Mark 1)
 ---
 <p>One of our key deliverables for the Sloan Foundation-funded work is a badging program built on top of Mozilla's <a href="http://openbadges.org/">Open Badges Initiative</a>. Riffing on our new logo, Carri Han has designed three badges for us:</p>
 <table class="centered">

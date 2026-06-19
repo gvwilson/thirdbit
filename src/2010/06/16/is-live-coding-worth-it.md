@@ -1,8 +1,8 @@
 ---
+title: Is Live Coding Worth It?
 date: 2010-06-16
 category: software-carpentry education
 original: swc
-title: Is Live Coding Worth It?
 ---
 <p>I put together an introductory lecture on regular expressions yesterday, but I'm not happy with the results, and I'd like your feedback to help me make it better.</p>
 <p>One of the reasons we're moving from static HTML to videos is to show people <em>how</em> to program, rather than just the results of programming. As part of that, I want (or wanted–I may be changing my mind) to do all the programming examples live instead of showing snippets of code and snippets of output slide-style. Jon has already done that with the database lectures, but his "programs" were single-line SQL statements; this episode is the first time we've had longer examples. It was a pain to do: each time I made a typo inside a function definition, for example, I'd wind up with a dozen or more junk lines on screen (since the error wouldn't show up until the first time I called the function).  I don't want to waste viewers' time on trivial errors, but there's no way in IDLE (or other IDEs) to erase the last few lines of interaction with the interpreter. I "solved" the problem by hitting return until the offending text had scrolled off the top of the screen, but it leaves a couple of ugly breaks in the video. If IDLE had a "clear screen" button, I might use that periodically, but (a) it doesn't, and (b) one of the reasons to code live is to keep recent context in view, which "clear screen" would erase.</p>

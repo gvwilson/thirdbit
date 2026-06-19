@@ -1,8 +1,8 @@
 ---
+title: A Question and Answer Matrix for Software Carpentry
 date: 2012-08-14
 category: software-carpentry
 original: swc
-title: A Question and Answer Matrix for Software Carpentry
 ---
 <p>Following up on yesterday's post about applying educational principles to this course, here's a not-yet-completed Q&amp;A matrix for this course. The section headings are questions people ask (or equivalently, tasks they want to perform). The headings underneath are the major topics Software Carpentry covers, and below each of those is my attempt to relate those topics to the questions. "TBD" means "I haven't written it yet", while "N/A" means "I can't think of any relationship." This matrix is going to be the basis of our next big reorganization of material (which should start this fall), so we would be <em>very</em> grateful for your input:</p>
 <ul>

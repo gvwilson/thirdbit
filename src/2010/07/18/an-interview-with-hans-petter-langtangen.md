@@ -1,8 +1,8 @@
 ---
+title: An Interview with Hans Petter Langtangen
 date: 2010-07-18
 category: software-carpentry
 original: swc
-title: An Interview with Hans Petter Langtangen
 ---
 <p>Our latest interview is with Hans Petter Langtangen, author of two books for scientists about Python (and a lot more).</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

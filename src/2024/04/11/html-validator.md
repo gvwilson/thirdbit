@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 11: An HTML Validator"
 date: 2024-04-11
-category: programming cs-education
+category: technical-writing
 ---
 
 [This book][sdxpy] teaches software design by building scale models of tools that programmers actually use.

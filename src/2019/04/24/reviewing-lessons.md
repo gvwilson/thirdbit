@@ -1,6 +1,6 @@
 ---
-date: 2019-04-24
 title: "Ten Quick Tips for Reviewing Lessons"
+date: 2019-04-24
 category: favorite education technical-writing
 ---
 

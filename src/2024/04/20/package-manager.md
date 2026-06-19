@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 20: A Package Manager"
 date: 2024-04-20
-category: programming cs-education
+category: technical-writing
 ---
 
 I had to learn almost as much to write [Chapter 20: A Package Manager][sdxpy_pack]

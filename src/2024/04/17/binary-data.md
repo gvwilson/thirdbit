@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 17: Binary Data"
 date: 2024-04-17
-category: programming cs-education
+category: technical-writing
 ---
 
 Packing and unpacking binary data is a well-trodden path

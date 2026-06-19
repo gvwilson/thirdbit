@@ -1,7 +1,7 @@
 ---
+title: "High and Low, One by One or All Together"
 date: 2018-08-31
 category: personal
-title: "High and Low, One by One or All Together"
 ---
 
 Thinking some more about [my last post](@root/2018/08/28/two-abstracts/),

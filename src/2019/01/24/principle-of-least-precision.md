@@ -1,7 +1,7 @@
 ---
+title: "The Principle of Least Precision"
 date: 2019-01-24
 category: programming
-title: "The Principle of Least Precision"
 ---
 
 Another day,

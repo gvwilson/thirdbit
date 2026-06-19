@@ -1,7 +1,7 @@
 ---
 title: "What's the Scratch of the Social Sciences?"
 date: 2024-01-13
-category: cs-education education ethics
+category: education ethics
 ---
 
 Short version:

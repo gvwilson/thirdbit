@@ -1,7 +1,7 @@
 ---
+title: "Late Night Thoughts"
 date: 2018-05-30
 category: personal
-title: "Late Night Thoughts"
 ---
 
 My keynote talk from <a href="https://2018.carpentrycon.org/">CarpentryCon 2018</a> went well:

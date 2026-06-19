@@ -1,7 +1,7 @@
 ---
+title: "Poor Thinking"
 date: 2018-12-26
 category: cs-education
-title: "Poor Thinking"
 ---
 
 Linda Tirado's essay about [being poor](https://www.theguardian.com/society/2014/sep/21/linda-tirado-poverty-hand-to-mouth-extract)

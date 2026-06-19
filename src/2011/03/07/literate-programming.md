@@ -1,8 +1,8 @@
 ---
+title: Literate Programming
 date: 2011-03-07
 category: programming technical-writing
 original: swc
-title: Literate Programming
 ---
 <p>Last week's post about the <a href="@root/2011/03/01/tuple-spaces-or-good-ideas-dont-always-win/">tuple space programming model</a> was so popular that I thought readers might enjoy a discussion of another beautiful idea that failed: <a href="http://en.wikipedia.org/wiki/Literate_programming">literate programming</a>.  Like Lisp and other toenail-based languages, it inspires a kind of passion in its fans that is normally reserved for gods, sports teams, and angsty rock bands.  And, like them, it leaves everyone else wondering what the big deal is.</p>
 <p>Literate programming was invented by Donald Knuth (one of the few real geniuses ever to grace computer science) as a way of making programs easier to understand.  His idea was that the code and the documentation should be a single document, written in a free-flowing mixture of Pascal and TeX, C and LaTeX, or more generally, a text markup language and a programming language.  Functions, classes, modules, and other things could be introduced <em>and explained</em> in whatever order made sense for human readers.  One tool would extract and format the text-y bits to create documentation, while another would extract and compile the code-y bits to produce the runnable program.</p>

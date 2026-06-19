@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example in Python 6: Running Tests"
 date: 2024-04-06
-category: programming cs-education
+category: technical-writing
 ---
 
 Having written a bunch of tests while building [the parser][sdxpy_parse] and [pattern matcher][sdxpy_glob]

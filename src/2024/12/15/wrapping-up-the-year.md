@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up the Year"
 date: 2024-12-15
-category: personal career
+category: personal
 ---
 
 Another year, another look back.

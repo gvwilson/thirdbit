@@ -1,10 +1,11 @@
 ---
 title: "Engagement"
 date: 2024-12-28
-category: empirical-se noticed
+category: empirical-se
 ---
 
-A junk "study" about "ghost engineers" popped up a few weeks ago claiming that 9.5% of software developers do nothing.
+A junk "study" about "ghost engineers" popped up a few weeks ago
+claiming that 9.5% of software developers do nothing.
 The author, Yegor Denisov-Blanch, has consistently dodged questions about methodology and refused to share data,
 but I'm willing to bet his work has been seen by more practitioners in the past 30 days
 than every careful, peer-reviewed piece of empirical software engineering research published this year.

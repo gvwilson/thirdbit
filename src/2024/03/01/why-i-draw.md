@@ -1,7 +1,7 @@
 ---
 title: "Why I Draw"
 date: 2024-03-01
-category: personal cs-education
+category: cs-education
 ---
 
 People ask me why I draw diagrams by hand and then complain about not being able to diff and merge SVGs in version control.

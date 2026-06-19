@@ -1,7 +1,7 @@
 ---
 title: "Governance Revisited"
 date: 2024-03-30
-category: open-source technical-writing
+category: student-projects politics
 ---
 
 *Following up on [this post][governing-a-book],

@@ -1,8 +1,8 @@
 ---
+title: Demos Reinforce Errors, and Confusion is Good
 date: 2011-08-17
 category: education cs-education
 original: swc
-title: Demos Reinforce Errors, and Confusion is Good
 ---
 <p>Mark Guzdial has posted a good summary of <a href="http://computinged.wordpress.com/2011/08/17/eric-mazurs-keynote-at-icer-2011-observing-demos-hurts-learning-and-confusion-is-a-sign-of-understanding/">this year's ICER keynote</a> by physics education guru Eric Mazur, in which he reported the results of several recent experiments. The most important for us are:</p>
 <ol>

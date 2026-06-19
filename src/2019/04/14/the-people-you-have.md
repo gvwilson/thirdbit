@@ -1,7 +1,7 @@
 ---
+title: "The People You Have"
 date: 2019-04-14
 category: politics personal
-title: "The People You Have"
 ---
 
 > Too often, the defenders of free markets forget that what we really want is free men. <br>

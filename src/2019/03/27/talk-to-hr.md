@@ -1,7 +1,7 @@
 ---
+title: "You Should Talk to HR"
 date: 2019-03-27
 category: career
-title: "You Should Talk to HR"
 ---
 
 I was recently reminded that a lot of people in tech think HR's only responsibilities are hiring, benefits, and firing.

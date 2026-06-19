@@ -1,8 +1,8 @@
 ---
+title: Interview with Cameron Neylon
 date: 2010-08-12
 category: software-carpentry
 original: swc
-title: Interview with Cameron Neylon
 ---
 <p>Today's interview is with <a href="http://blog.openwetware.org/scienceintheopen/">Cameron Neylon</a>, a noted advocate of open science.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

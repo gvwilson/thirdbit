@@ -1,7 +1,7 @@
 ---
+title: "Twelve Weeks, Twelve Tools"
 date: 2019-03-21
 category: programming cs-education
-title: "Twelve Weeks, Twelve Tools"
 ---
 
 Suppose you have a group of junior developers

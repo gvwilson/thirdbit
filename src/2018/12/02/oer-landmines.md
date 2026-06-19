@@ -1,6 +1,6 @@
 ---
-date: 2018-12-02
 title: "OER Landmines"
+date: 2018-12-02
 category: cs-education
 ---
 

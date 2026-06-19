@@ -1,7 +1,7 @@
 ---
 title: "Labels"
 date: 2024-03-07
-category: technical-writing tools
+category: technical-writing
 ---
 
 I use the labels shown below for programming book projects hosted on GitHub;
