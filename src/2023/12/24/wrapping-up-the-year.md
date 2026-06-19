@@ -1,7 +1,7 @@
 ---
 title: "Wrapping Up the Year"
 date: 2023-12-24
-category: personal technical-writing
+category: retro
 ---
 
 With seven days left in the year,

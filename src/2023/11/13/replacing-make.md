@@ -1,7 +1,7 @@
 ---
 title: "Replacing Make"
 date: 2023-11-13
-category: tools cs-education
+category: tools education
 ---
 
 I'd like to find a laptop-scale build/workflow tool to teach to data scientists instead of Make.

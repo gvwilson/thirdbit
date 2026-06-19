@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 13: Module Loader"
 date: 2023-01-17
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 The [previous chapter][sdxjs_interpolator] showed how to use `eval` to load code dynamically.

@@ -1,7 +1,7 @@
 ---
 title: "Directions"
 date: 2023-10-15
-category: career personal
+category: career
 ---
 
 Summer has rather suddenly turned to autumn

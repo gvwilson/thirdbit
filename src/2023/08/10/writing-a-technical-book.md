@@ -1,7 +1,7 @@
 ---
 title: "Writing a Technical Book"
 date: 2023-08-10
-category: technical-writing research-methods
+category: technical-writing
 ---
 
 Very pleased to announce that ["Ten simple rules for writing a technical book"][paper]

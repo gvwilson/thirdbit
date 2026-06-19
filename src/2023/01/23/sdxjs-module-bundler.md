@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 17: Module Bundler"
 date: 2023-01-23
-category: programming technical-writing
+category: technical-writing
 ---
 
 JavaScript was designed in a hurry to make web pages interactive.

@@ -1,7 +1,7 @@
 ---
 title: "It Will Never Work in Theory"
 date: 2011-06-29
-category: empirical-se
+category: nwit
 ---
 Inspired in part by <a href="http://lambda-the-ultimate.org/">Lambda the Ultimate</a>, which reports on what's new in programming language research, <a href="http://catenary.wordpress.com/">Jorge Aranda</a> and I have started a new blog called "<a href="http://www.neverworkintheory.org/">It Will Never Work in Theory</a>" to bring you the latest results in empirical studies of software engineering. The first posts discuss:
 <ul>

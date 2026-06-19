@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 19: Virtual Machine"
 date: 2023-01-25
-category: programming technical-writing
+category: technical-writing
 ---
 
 To explain how languages like JavaScript actually work,

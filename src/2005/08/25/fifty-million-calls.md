@@ -1,7 +1,7 @@
 ---
 title: "Fifty… Million… Calls"
 date: 2005-08-25
-category: software education
+category: student-projects
 ---
 "House" and "CSI" (the original) are two of my favorite TV shows.
 Partly, it's the characters—Hugh Laurie and Marg Helgenberger are

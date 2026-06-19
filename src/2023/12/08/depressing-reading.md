@@ -1,7 +1,7 @@
 ---
 title: "Depressing Reading"
 date: 2023-12-08
-category: research-methods open-source
+category: software-carpentry
 ---
 
 The "National Research Software Strategy 2023" whitepaper ([en][rs-en], [fr][rs-fr])

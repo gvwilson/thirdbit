@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 18: Package Manager"
 date: 2023-01-24
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 Inspired by the [Comprehensive TeX Archive Network][ctan],

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 20: Debugger"
 date: 2023-01-26
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 The [penultimate chapter][sdxjs_debugger] of [*Software Design by Example*][sdxjs]

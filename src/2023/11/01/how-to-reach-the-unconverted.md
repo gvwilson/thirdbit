@@ -1,7 +1,7 @@
 ---
 title: "How to Reach the Unconverted?"
 date: 2023-11-01
-category: education ethics
+category: education sdgc diversity
 ---
 
 Someone recently re-tooted a link to [Donald Norman's article][norman] from 2019

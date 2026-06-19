@@ -1,7 +1,7 @@
 ---
 title: "Hiring an Engineering Manager"
 date: 2023-09-26
-category: career open-source
+category: management
 ---
 
 Things I look for in an engineering manager's CV during initial screening:

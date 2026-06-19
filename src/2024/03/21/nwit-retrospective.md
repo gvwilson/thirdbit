@@ -1,7 +1,7 @@
 ---
 title: "NWIT Retrospective"
 date: 2024-03-21
-category: empirical-se technical-writing
+category: technical-writing nwit
 ---
 
 <p>

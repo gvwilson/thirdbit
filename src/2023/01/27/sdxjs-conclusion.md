@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example: Conclusion"
 date: 2023-01-27
-category: programming technical-writing
+category: technical-writing
 ---
 
 We've come a long way since the start of this series of posts.

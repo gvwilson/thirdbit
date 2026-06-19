@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 1: Introduction"
 date: 2023-01-01
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 In the early 2000s,

@@ -1,7 +1,7 @@
 ---
 title: "Ultracrepidarian"
 date: 2023-12-12
-category: cs-education empirical-se
+category: cs-education sdgc
 ---
 
 Yesterday I [wrote][meetings] about using a lesson on how to run a meeting

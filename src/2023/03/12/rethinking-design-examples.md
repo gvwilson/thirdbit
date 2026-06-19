@@ -1,7 +1,7 @@
 ---
 title: "Rethinking Design Examples"
 date: 2023-03-12
-category: cs-education open-source
+category: technical-writing
 ---
 
 We're five weeks into the class I'm running on

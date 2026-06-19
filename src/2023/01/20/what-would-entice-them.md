@@ -1,12 +1,13 @@
 ---
 title: "What Would Entice Them?"
 date: 2023-01-20
-category: cs-education research-methods
+category: career academia
 ---
 
 [Jordi Cabot][cabot-jordi] recently wrote:
 
-> Wondering how many of the 10K Microsoft layoffs or the 18K ones from Amazon…will even consider spending some time in #Academia.
+> Wondering how many of the 10K Microsoft layoffs
+> or the 18K ones from Amazon…will even consider spending some time in #Academia.
 > Or what would entice them to move to Academia for a while.
 > It would be for sure very interesting to have some of them making the jump
 > and helping us to identify and validate some of our research ideas.

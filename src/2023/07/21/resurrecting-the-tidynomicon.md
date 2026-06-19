@@ -1,7 +1,7 @@
 ---
 title: "Resurrecting the Tidynomicon"
 date: 2023-07-21
-category: programming technical-writing
+category: technical-writing
 ---
 
 I didn't know any R when I joined RStudio back in 2018,

@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 16: Documentation Generator"
 date: 2023-01-20
-category: programming technical-writing
+category: technical-writing
 ---
 
 Many programmers believe they're more likely to write documentation and keep it up to date

@@ -1,7 +1,7 @@
 ---
 title: "Adventures in Publishing"
 date: 2023-09-13
-category: technical-writing open-source
+category: technical-writing nwit aosa
 ---
 
 Years ago,

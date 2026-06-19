@@ -1,7 +1,7 @@
 ---
 title: "Comes Round Again"
 date: 2021-12-31
-category: personal career
+category: retro
 ---
 
 Another year over; what have I learned?

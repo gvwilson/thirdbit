@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example (Python edition) Now in Beta"
 date: 2023-07-12
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 The first beta version of

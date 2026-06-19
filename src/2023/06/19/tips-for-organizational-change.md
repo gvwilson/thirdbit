@@ -1,7 +1,7 @@
 ---
 title: "Eleven Tips for Organizational Change"
 date: 2023-06-19
-category: education research-methods open-source
+category: technical-writing organizational-change
 ---
 
 2023 is the twenty-fifth anniversary of the first Software Carpentry workshop

@@ -1,7 +1,7 @@
 ---
 title: "Twenty-Five Years and Counting"
 date: 2023-07-19
-category: favorite software-carpentry education
+category: favorite software-carpentry
 ---
 
 Next Monday (July 24, 2023) is the 25th anniversary of the first Software Carpentry workshop

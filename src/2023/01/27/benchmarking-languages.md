@@ -1,7 +1,7 @@
 ---
 title: "Benchmarking Languages"
 date: 2023-01-27
-category: programming empirical-se
+category: empirical-se
 ---
 
 Back in the 1980s, R.W. Hockney introduced two measures for quantifying the performance of pipelined machines.

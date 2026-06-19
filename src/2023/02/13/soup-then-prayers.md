@@ -1,7 +1,7 @@
 ---
 title: "Soup, Then Prayers"
 date: 2023-02-13
-category: book-reviews research-methods politics
+category: book-reviews education
 ---
 
 I just finished reading a book on ethics for people who work in tech,

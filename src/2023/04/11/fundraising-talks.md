@@ -1,7 +1,7 @@
 ---
 title: "Fundraising Talks"
 date: 2023-04-11
-category: diversity education
+category: diversity community-events
 ---
 
 If you and your team are looking for an entertaining and informative lunch-and-learn session,

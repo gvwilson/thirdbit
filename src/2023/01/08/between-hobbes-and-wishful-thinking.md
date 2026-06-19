@@ -1,7 +1,7 @@
 ---
 title: "Somewhere Between Hobbes and Wishful Thinking"
 date: 2023-01-08
-category: programming cs-education ethics
+category: sdgc ethics politics
 ---
 
 A couple of days ago the news broke that a company called Koko<sup>[1](#1)</sup>

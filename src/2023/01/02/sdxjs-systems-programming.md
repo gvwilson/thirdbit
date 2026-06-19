@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 2: Systems Programming"
 date: 2023-01-02
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 The biggest difference between JavaScript and most other programming languages

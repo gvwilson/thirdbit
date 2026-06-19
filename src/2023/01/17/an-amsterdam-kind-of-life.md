@@ -1,7 +1,7 @@
 ---
 title: "An Amsterdam Kind of Life"
 date: 2023-01-17
-category: open-source community-events
+category: noticed
 ---
 
 Several conversations have brushed up against each other in interesting ways recently.

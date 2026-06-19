@@ -1,7 +1,7 @@
 ---
 title: "Explaining Code"
 date: 2023-07-20
-category: programming technical-writing
+category: technical-writing cs-education
 ---
 
 I've been trying to avoid and ignore the current hype around AI,

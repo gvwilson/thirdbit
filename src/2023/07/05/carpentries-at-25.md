@@ -1,7 +1,7 @@
 ---
 title: "The Carpentries at 25"
 date: 2023-07-05
-category: software-carpentry education diversity
+category: software-carpentry
 ---
 
 July 24 will be the 25th anniversary of the first Software Carpentry workshop at Los Alamos National Laboratory.

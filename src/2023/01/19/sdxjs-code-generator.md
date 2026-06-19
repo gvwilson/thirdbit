@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 15: Code Generator"
 date: 2023-01-19
-category: programming technical-writing
+category: technical-writing
 ---
 
 [Chapter 14][sdxjs_checker] turned source code into a data structure

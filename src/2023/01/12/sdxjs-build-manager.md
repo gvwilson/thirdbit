@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 10: Build Manager"
 date: 2023-01-12
-category: programming technical-writing
+category: technical-writing
 ---
 
 Make was the first programming support tool I ever learned how to use,

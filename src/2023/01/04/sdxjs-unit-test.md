@@ -1,7 +1,7 @@
 ---
 title: "Software Design by Example 4: Unit Testing"
 date: 2023-01-04
-category: programming technical-writing cs-education
+category: technical-writing
 ---
 
 The first draft of [*Software Design by Example*][sdxjs] didn't have either
