@@ -1,7 +1,7 @@
 ---
 title: "How to Run a Meeting"
 date: 2020-08-13
-category: software-carpentry career
+category: career software-carpentry
 ---
 
 Video from my [CarpentryCon 2020](https://2020.carpentrycon.org/) talk

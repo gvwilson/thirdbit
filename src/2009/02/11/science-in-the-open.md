@@ -1,7 +1,7 @@
 ---
 title: "Science in the Open"
 date: 2009-02-11
-category: research-methods open-source
+category: open-source research
 ---
 Otto von Bismarck might never actually have said, "Laws are like sausages, it is better not to see them being made," but either way, the same is definitely not true of science. <a href="http://www.realclimate.org/index.php/archives/2009/02/antarctic-warming-is-robust"> This discussion</a> at realclimate.org is a great example: it starts with a description of a recent paper in <em>Nature</em> claiming that parts of Antarctica are warming faster than we thought, but quickly turns into a discussion of reproducibility, openness, and oh yeah, the science itself.  It's a great look at how fallible, ornery human beings arrive at provisional truth.
 

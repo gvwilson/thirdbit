@@ -1,7 +1,7 @@
 ---
 title: A Note on Tools
 date: 2010-07-20
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>After a bit of experimenting, I've decided to use <a href="http://www.syntevo.com/smartsvn/index.html">SmartSVN</a> as a GUI client for Subversion in the version control lectures, rather than <a href="http://rapidsvn.tigris.org/">RapidSVN</a> or the command line. My reasoning is:</p>

@@ -1,7 +1,7 @@
 ---
 title: "I Don't Know What to Teach"
 date: 2022-10-29
-category: cs-education data-science
+category: data-science education
 ---
 
 I've been working with biologists and bioinformaticians for a year now,

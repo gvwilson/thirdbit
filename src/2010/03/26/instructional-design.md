@@ -1,7 +1,7 @@
 ---
 title: Instructional Design
 date: 2010-03-26
-category: software-carpentry education
+category: education software-carpentry
 original: swc
 ---
 <p>As well as deciding on the format of the course, I have to re-shape its content. In contrast to e-learning, there seems to be a lot of solid material available on instructional design. The most useful guide I've found so far is Wiggins &amp; McTighe's <a href="http://www.amazon.com/Understanding-Design-Expanded-Grant-Wiggins/dp/0131950843"><em>Understanding by Design</em></a>. I was initially a bit put off by the micro-industry the authors have built around the book, but its step-by-step approach immediately felt right:</p>

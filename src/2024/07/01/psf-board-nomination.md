@@ -1,7 +1,7 @@
 ---
 title: "Python Software Foundation Board Nomination"
 date: 2024-07-01
-category: open-source career
+category: career open-source
 ---
 
 *Update: congratulations to Tania Allard, KwonHan Bae, and Cristián Maureira-Fredes

@@ -1,7 +1,7 @@
 ---
 title: "Mondays This Fall"
 date: 2009-06-25
-category: cs-education student-projects
+category: education student-projects
 ---
 We have a green light!  As I hinted back in May, I'm going to run my consulting course this fall (CSC490 for undergrads, CSC2125 for grad students), but with a twist: every project will involve doing something with the data that the City of Toronto is about to start making available for citizens to use.  The course will run 3-5 pm on Mondays from September to December; we hope to know by late July or early August exactly what data sets we'll have access to.
 

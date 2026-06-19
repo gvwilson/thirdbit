@@ -1,7 +1,7 @@
 ---
 title: What Deep Thoughts Look Like
 date: 2012-02-22
-category: cs-education
+category: education
 original: swc
 ---
 <p>Before writing yesterday's post about assessment, I should have explained what I mean by"fundamental concepts".  I'll start with Lewis Epstein's wonderful book <a href="http://www.amazon.com/Thinking-Physics-Lewis-C-Epstein/dp/0935218017"><em>Thinking Physics</em></a>:</p>

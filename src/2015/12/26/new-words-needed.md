@@ -1,7 +1,7 @@
 ---
 title: "New Words Needed"
 date: 2015-12-26
-category: cs-education
+category: education
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Please Help Trans Tech"
 date: 2014-09-10
-category: community-events
+category: community
 ---
 <p>
   <a href="https://www.youtube.com/watch?v=4R6FXtZl154">Naomi Ceder's talk at PyCon 2014</a>

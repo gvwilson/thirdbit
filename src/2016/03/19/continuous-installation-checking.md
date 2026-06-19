@@ -1,7 +1,7 @@
 ---
 title: "Continuous Installation Checking"
 date: 2016-03-19
-category: software-carpentry tools
+category: programming software-carpentry
 ---
 <p>
   This one started with me

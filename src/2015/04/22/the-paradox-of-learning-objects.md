@@ -1,7 +1,7 @@
 ---
 title: "The Paradox of Learning Objects"
 date: 2015-04-22
-category: software-carpentry cs-education
+category: education software-carpentry
 original: swc
 ---
 <p>

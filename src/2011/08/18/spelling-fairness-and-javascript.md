@@ -1,7 +1,7 @@
 ---
 title: "Spelling, Fairness, and JavaScript"
 date: 2011-08-18
-category: cs-education programming
+category: education programming
 ---
 My daughter has been sounding out words for a while now, and in the last couple of weeks has gone from c-a-t to "B-os-ton" (as in "Boston Pizza").  A couple of days ago, she was struggling with a new word: eff, are, eye, ee, en, dee—we've taught her that when two vowels are together, the first one says its name, so she pronounced it to rhyme with "blind".  "Close," I told her. "It's 'friend'—in this word, the <em>second</em> vowel says its name." She wrinkled her nose and said, "That's not fair."
 

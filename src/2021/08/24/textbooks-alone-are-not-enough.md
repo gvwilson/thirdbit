@@ -1,7 +1,7 @@
 ---
 title: "Textbooks (Alone) Are Not Enough"
 date: 2021-08-24
-category: cs-education research-methods
+category: education research
 ---
 
 Yesterday I tweeted:

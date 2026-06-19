@@ -1,7 +1,7 @@
 ---
 title: "What I Need in a Static Site Generator"
 date: 2024-04-11
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 I want to create lessons and books rather than blogs,

@@ -1,7 +1,7 @@
 ---
 title: "NWIT Retrospective"
 date: 2024-03-21
-category: technical-writing nwit
+category: nwit technical-writing
 ---
 
 <p>

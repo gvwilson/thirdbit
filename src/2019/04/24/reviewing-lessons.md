@@ -1,7 +1,7 @@
 ---
 title: "Ten Quick Tips for Reviewing Lessons"
 date: 2019-04-24
-category: favorite education technical-writing
+category: education favorite technical-writing
 ---
 
 If you do a degree in English literature,

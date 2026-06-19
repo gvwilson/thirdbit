@@ -1,7 +1,7 @@
 ---
 title: "SciPy 2014 Talks and Lessons"
 date: 2014-07-21
-category: software-carpentry conferences
+category: conferences software-carpentry
 original: swc
 ---
 

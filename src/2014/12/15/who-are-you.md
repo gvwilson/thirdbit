@@ -1,7 +1,7 @@
 ---
 title: "Who Are We?"
 date: 2014-12-15
-category: cs-education
+category: education
 original: swc
 ---
 <p>

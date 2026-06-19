@@ -1,7 +1,7 @@
 ---
 title: "SciPy'06: First Morning"
 date: 2006-08-17
-category: software-carpentry conferences
+category: conferences software-carpentry
 ---
 <strong>Guido van Rossum's Keynote</strong>
 <ul>

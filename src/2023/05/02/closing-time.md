@@ -1,7 +1,7 @@
 ---
 title: "Closing Time"
 date: 2023-05-02
-category: software-carpentry personal
+category: personal software-carpentry
 ---
 
 <div class="center">

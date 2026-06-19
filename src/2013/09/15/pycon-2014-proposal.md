@@ -1,7 +1,7 @@
 ---
 title: "PyCon 2014 Proposal"
 date: 2013-09-15
-category: software-carpentry conferences
+category: conferences software-carpentry
 ---
 <p>
   I submitted this proposal to PyCon 2014–win or lose, I hope to see you all there.

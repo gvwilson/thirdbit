@@ -1,7 +1,7 @@
 ---
 title: Charging and Being Charged
 date: 2012-11-01
-category: cs-education
+category: education
 original: swc
 ---
 <p>As noted in the minutes from our meeting on Monday, one of the many things we want to improve about our workshops is the attendance rate. While we get near-complete turnout for some, we have 50% no-shows for others, which is disappointing for instructors, and unfair to people left on the waiting list.</p>

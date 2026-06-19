@@ -1,7 +1,7 @@
 ---
 title: "Making It Work in Practice"
 date: 2019-02-25
-category: nwit academia
+category: academia nwit
 ---
 
 From 2011 to 2016,

@@ -1,7 +1,7 @@
 ---
 title: "Maybe That's Why"
 date: 2012-04-03
-category: cs-education
+category: education
 ---
 I have a lot of respect for <a href="http://heatherpayne.ca">Heather Payne</a> (founder of <a href="http://ladieslearningcode.com/">Ladies Learning Code</a>): she's working hard to get women into technology, and has been more creative about doing it in 12 months than I've been in 14 years. I'm therefore reluctant to disagree with her publicly, but <a href="http://heatherpayne.ca/defining-the-role-of-a-teacher">her most recent post</a> said this:
 <blockquote>I find it pretty interesting to note that most of our Lead Instructors and Mentors are in a teaching role for the first time ever when they join us at a Ladies Learning Code workshop. And no one on the Ladies Learning Code team has a background in education. The funny thing about that is that it might be why what we're doing works.</blockquote>

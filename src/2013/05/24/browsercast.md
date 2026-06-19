@@ -1,7 +1,7 @@
 ---
 title: Browsercast
 date: 2013-05-24
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Research This!"
 date: 2019-08-14
-category: cs-education research-methods conferences
+category: conferences education research
 ---
 
 I presented "Research This! Questions that Computing Educators Most Want Computing Education Researchers to Answer"

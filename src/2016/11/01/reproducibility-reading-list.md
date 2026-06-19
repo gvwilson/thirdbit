@@ -1,7 +1,7 @@
 ---
 title: "A Reproducibility Reading List"
 date: 2016-11-01
-category: research-methods
+category: research
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Grand Unified Editor Theory"
 date: 2018-03-24
-category: tools
+category: programming
 ---
 
 It's a sad fact that you can't get a PhD in Computer Science simply by building an innovative piece of software.

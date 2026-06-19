@@ -1,7 +1,7 @@
 ---
 title: Division of Labor
 date: 2025-01-08
-category: student-projects diversity cs-education
+category: diversity education student-projects
 ---
 
 All right, you've [formed a team][forming-teams]:

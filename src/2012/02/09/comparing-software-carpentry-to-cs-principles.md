@@ -1,7 +1,7 @@
 ---
 title: Comparing Software Carpentry to CS Principles
 date: 2012-02-09
-category: software-carpentry cs-education
+category: education software-carpentry
 original: swc
 ---
 <p>A lot of new educational initiatives in computing have sprung up in the past couple of years, ranging from Mozilla's <a href="http://hackasaurus.org/">Hackasaurus</a> to the UK <a href="http://royalsociety.org/education/policy/computing-in-schools/report/">rethinking its grade-school curriculum</a>. One of the biggest is the "<a href="http://www.csprinciples.org/">Computer Science: Principles</a>" project in the United States, which, with backing from the National Science Foundation, is trying to re-define the high school Advanced Placement course. They have some well-grounded ideas about what should be taught and why; how does Software Carpentry compare?</p>

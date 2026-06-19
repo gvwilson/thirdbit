@@ -1,7 +1,7 @@
 ---
 title: First-of in asimpy
 date: 2026-01-14
-category: programming tools simulation
+category: programming simulation
 ---
 
 Adding a "first of" operation to [asimpy][asimpy] required a pretty substantial redesign.

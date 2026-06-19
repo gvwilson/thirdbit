@@ -1,7 +1,7 @@
 ---
 title: "Is This a Notional Machine for Python?"
 date: 2018-04-12
-category: cs-education
+category: education
 ---
 
 [Mark Guzdial](http://computinged.wordpress.com) was kind enough

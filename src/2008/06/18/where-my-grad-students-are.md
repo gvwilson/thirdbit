@@ -1,7 +1,7 @@
 ---
 title: "Where My Grad Students Are"
 date: 2008-06-18
-category: student-projects academia
+category: academia student-projects
 ---
 I've been blogging about undergrad projects pretty regularly, but not about the progress my graduate students have been making.  In brief:
 <ul>

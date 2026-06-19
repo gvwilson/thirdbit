@@ -1,7 +1,7 @@
 ---
 title: "Cognitive Pollution"
 date: 2026-03-08
-category: sdgc personal
+category: personal sdgc
 ---
 
 A couple of weeks ago,

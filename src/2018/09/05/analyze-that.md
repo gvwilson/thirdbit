@@ -1,7 +1,7 @@
 ---
 title: "Analyze That!"
 date: 2018-09-05
-category: cs-education empirical-se
+category: education empirical-se
 ---
 
 We are conducting a study to find out what questions people who teach computing

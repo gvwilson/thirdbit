@@ -1,7 +1,7 @@
 ---
 title: "Their Names Were"
 date: 2015-06-19
-category: personal noticed
+category: noticed personal
 ---
 <p>
   Cynthia Hurd was a public library manager.

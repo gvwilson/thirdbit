@@ -1,7 +1,7 @@
 ---
 title: "Rome In Its Later Days"
 date: 2006-08-20
-category: politics noticed
+category: noticed politics
 ---
 A survey of 32 European countries, the US, and Japan, reveals that the only people less willing to believe in evolution than Americans are those living in Turkey.
 

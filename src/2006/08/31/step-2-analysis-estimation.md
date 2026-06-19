@@ -1,7 +1,7 @@
 ---
 title: "Step 2: Analysis &amp; Estimation"
 date: 2006-08-31
-category: student-projects cs-education
+category: education student-projects
 ---
 Step 2: <strong>Build a schedule</strong>.  Most students have never had to do this, so for some, it's the most valuable part of the course.  In order to explain how to go about it, I need to describe two important roles in real software projects: the product manager, and the project manager.
 

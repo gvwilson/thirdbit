@@ -1,7 +1,7 @@
 ---
 title: "Update on Extensible Programming"
 date: 2006-07-30
-category: programming technical-writing noticed
+category: noticed programming technical-writing
 ---
 A couple of years ago, I wrote an <a href="http://www.acmqueue.com/modules.php?name=Content&pa=showpage&pid=247&page=1">article</a> about <a href="http://en.wikipedia.org/wiki/Extensible_programming">extensible programming systems</a>, which I believe are the Next Big Thing in programming.  I've had a few pings about this recently, so I thought I'd post my current link collection:
 <ul>

@@ -1,7 +1,7 @@
 ---
 title: Citing Versions
 date: 2012-05-22
-category: software-carpentry research-methods
+category: research software-carpentry
 original: swc
 ---
 <p>We got mail yesterday from a workshop participant saying, "My question is how does one show in a research paper that the underlying data and the software is version controlled?" Cameron Neylon's answer, slightly edited, was:</p>

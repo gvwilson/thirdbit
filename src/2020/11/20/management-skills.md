@@ -1,7 +1,7 @@
 ---
 title: "Management Skills"
 date: 2020-11-20
-category: education career
+category: career education
 ---
 
 The four skills I needed most when I was managing people have all turned out to be equally important in teaching:

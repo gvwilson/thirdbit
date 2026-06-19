@@ -1,7 +1,7 @@
 ---
 title: "First Analysis of Instructor Training Data"
 date: 2016-05-20
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 Following up on Wednesday's post about instructor training stats,

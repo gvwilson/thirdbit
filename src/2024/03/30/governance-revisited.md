@@ -1,7 +1,7 @@
 ---
 title: "Governance Revisited"
 date: 2024-03-30
-category: student-projects politics
+category: politics student-projects
 ---
 
 *Following up on [this post][governing-a-book],

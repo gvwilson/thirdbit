@@ -1,7 +1,7 @@
 ---
 title: "Software Isn't Sustainable"
 date: 2019-06-14
-category: software-carpentry education
+category: education software-carpentry
 ---
 
 Software Carpentry didn't start life as a training program:

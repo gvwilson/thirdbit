@@ -1,7 +1,7 @@
 ---
 title: "Using a Package Manager for Lessons and Papers"
 date: 2014-07-21
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>

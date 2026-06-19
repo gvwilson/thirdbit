@@ -1,7 +1,7 @@
 ---
 title: Using Science to Design This Course
 date: 2010-07-07
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 <p>One of the many reasons I left the University of Toronto to work full-time revising this course was to explore two areas I've been curious about for years: educational technology, and the science of learning. With my daughter a year away from kindergarten, is no longer academic [<a href="#1">1</a>]. In this post and some that follow, I'd like to talk about what I'm finding and how it's influencing the design of this course. If you want to know more, please subscribe to <a href="http://computinged.wordpress.com/">Mark Guzdial's excellent and thought-provoking blog</a> about computer science education.</p>

@@ -1,7 +1,7 @@
 ---
 title: "Research Software Design by Example"
 date: 2023-12-10
-category: technical-writing proposal
+category: proposal technical-writing
 ---
 
 I'm thinking about running a 12-week course online next year,

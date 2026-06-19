@@ -1,7 +1,7 @@
 ---
 title: Making Decisions
 date: 2025-01-06
-category: student-projects cs-education
+category: education student-projects
 ---
 
 The first release of GitHub's [Minimum Viable Governance][github-mvg] guidelines

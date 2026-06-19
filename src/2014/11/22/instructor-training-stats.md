@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Stats"
 date: 2014-11-22
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 The Software Carpentry Foundation's board asked me for some stats on instructor training,

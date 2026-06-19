@@ -1,7 +1,7 @@
 ---
 title: "An Online Peer Instruction Tool"
 date: 2014-02-09
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>

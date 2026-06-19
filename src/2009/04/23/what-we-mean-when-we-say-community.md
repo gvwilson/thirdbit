@@ -1,7 +1,7 @@
 ---
 title: "What We Mean When We Say 'Community'"
 date: 2009-04-23
-category: community-events open-source
+category: community open-source
 ---
 Two recent posts that highlight what "community" means to me:
 <ol>

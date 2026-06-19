@@ -1,7 +1,7 @@
 ---
 title: "Orwell, Dickens, and How We'll Know We're Done"
 date: 2015-01-17
-category: open-source research-methods
+category: open-source research
 original: swc
 ---
 <p>

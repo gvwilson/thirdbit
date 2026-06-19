@@ -1,7 +1,7 @@
 ---
 title: "Using Jekyll for Lessons"
 date: 2015-06-24
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>

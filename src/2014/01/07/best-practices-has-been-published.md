@@ -1,7 +1,7 @@
 ---
 title: "'Best Practices' Has Been Published"
 date: 2014-01-07
-category: research-methods
+category: research
 original: swc
 ---
 <p>

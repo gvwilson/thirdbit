@@ -1,7 +1,7 @@
 ---
 title: "Top 10 Myths about Teaching CS"
 date: 2015-07-18
-category: cs-education
+category: education
 original: swc
 ---
 <p>

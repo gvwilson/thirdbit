@@ -1,7 +1,7 @@
 ---
 title: "Why We're Not Switching to Git"
 date: 2008-07-05
-category: student-projects tools
+category: programming student-projects
 ---
 I got the following a couple of days ago from a colleague in the US:
 

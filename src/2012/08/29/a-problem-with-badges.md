@@ -1,7 +1,7 @@
 ---
 title: A Problem With Badges
 date: 2012-08-29
-category: cs-education
+category: education
 original: swc
 ---
 <p>We issued the first learning badges for Software Carpentry a couple of weeks ago, and in doing so, uncovered a significant flaw in the design of existing badging systems. My intent was to give a bunch of people "Instructor" badges; by mistake, I set the pulldown to "Organizer", then clicked "Issue". As a result, two dozen people got the wrong kind of badge–and there doesn't appear to be any way for me to undo that. According to Dave Lester, who created the <a href="http://wordpress.org/extend/plugins/wpbadger/">WPBadger</a> plugin for WordPress that I'm using:</p>

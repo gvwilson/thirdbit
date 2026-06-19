@@ -1,7 +1,7 @@
 ---
 title: File Sharing for Scientists
 date: 2010-04-16
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>A scientist I recently met in Toronto had a problem: how to share large files with colleagues. Each file is a couple of hundred megabytes; dozens are produced each week, but each is only interesting for a couple of months; and there are confidentiality issues, so some kind of password protection is needed. Conventional file-sharing services like <a href="http://www.dropbox.com">Dropbox</a> aren't designed for data that size, so in the end she bought a domain and set up secure FTP.</p>

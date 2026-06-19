@@ -1,7 +1,7 @@
 ---
 title: "Ant + Hibernate: There's More Than One Way to Fix It"
 date: 2004-10-08
-category: software
+category: programming
 ---
 I don't know who William Lopez is—I've never met the man, and before yesterday at 19:40 EST, I'd never heard of him.  But then a mail message landed in my inbox saying, "I think I've solved your Ant + Hibernate problem."  He included his solution in a ZIP file; it took me all of five minutes to download it, edit a couple of settings for my machine (library files in different places), and convince myself that yes, it did work.  It took another ten minutes to figure out which of his changes was the crucial one, and guess what: it's an Ant bug.
 

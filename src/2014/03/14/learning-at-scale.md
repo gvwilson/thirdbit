@@ -1,7 +1,7 @@
 ---
 title: "Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?"
 date: 2014-03-14
-category: cs-education
+category: education
 ---
 <p>
   Last week,

@@ -1,7 +1,7 @@
 ---
 title: "Commands I Use"
 date: 2023-01-24
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 Unix commands I've used recently in order of descending frequency according to `history` and `sort -n`:

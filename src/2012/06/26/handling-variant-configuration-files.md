@@ -1,7 +1,7 @@
 ---
 title: Handling Variant Configuration Files
 date: 2012-06-26
-category: programming tools
+category: programming
 original: swc
 ---
 <p>One of our learners came to us with a problem last week. The program she uses depends on some complex configuration files, which she'd like to store in version control. However, a couple of parameters change depending on the machine the program is running on. She doesn't want to check <em>those</em> changes into version control over and over again; what should she do?</p>

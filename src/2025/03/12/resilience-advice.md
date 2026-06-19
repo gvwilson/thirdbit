@@ -1,7 +1,7 @@
 ---
 title: Resilience Advice
 date: 2025-03-12
-category: politics closure
+category: closure politics
 ---
 
 I wish we didn't have to talk about this,

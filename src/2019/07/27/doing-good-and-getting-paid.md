@@ -1,7 +1,7 @@
 ---
 title: "Doing Good and Getting Paid"
 date: 2019-07-27
-category: favorite education career
+category: career education favorite
 ---
 
 I taught RStudio's instructor training course three times in the last three weeks,

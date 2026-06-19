@@ -1,7 +1,7 @@
 ---
 title: "Meetings, Interruptions, and Power"
 date: 2023-12-11
-category: management sdgc cs-education
+category: education management sdgc
 ---
 
 A couple of weeks ago I [wrote][seeing] about Frank,

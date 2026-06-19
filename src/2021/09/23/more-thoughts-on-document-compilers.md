@@ -1,7 +1,7 @@
 ---
 title: "More Thoughts on Document Compilers"
 date: 2021-09-23
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 I let fly with some half-baked complaints about the state of document compilers on Twitter yesterday,

@@ -1,7 +1,7 @@
 ---
 title: "Ways to Explain Code"
 date: 2022-12-28
-category: cs-education
+category: education
 ---
 
 In the mid-1980s, Benjamin Bloom reported that

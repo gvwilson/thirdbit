@@ -1,7 +1,7 @@
 ---
 title: "Say Their Names"
 date: 2017-06-12
-category: politics diversity
+category: diversity politics
 ---
 
 <table class="centered">

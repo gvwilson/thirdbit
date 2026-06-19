@@ -1,7 +1,7 @@
 ---
 title: "Staying Safe Online"
 date: 2021-03-04
-category: research-methods technical-writing
+category: research technical-writing
 ---
 
 I am pleased to announce that

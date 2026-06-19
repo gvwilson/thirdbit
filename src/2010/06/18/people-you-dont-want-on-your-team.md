@@ -1,7 +1,7 @@
 ---
 title: People You Don't Want On Your Team
 date: 2010-06-18
-category: cs-education career
+category: career education
 original: swc
 ---
 <p>Study after study has shown that the biggest causes of software project failure are over-optimistic scheduling and unstable requirements.  I think the only reason team dynamics isn't in the #1 spot is that it's hard for an outsider to judge after the fact. In my experience, though, how well people work together is a lot more important than how smart they are individually: everyone in the engineering group of the first start-up I joined was very good at their job, but when you put us together, our IQs somehow canceled out.</p>

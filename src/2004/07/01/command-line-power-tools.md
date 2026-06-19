@@ -1,7 +1,7 @@
 ---
 title: "Command-Line Power Tools"
 date: 2004-07-01
-category: software
+category: programming
 ---
 <p>Harald Koch just pointed me at <a href="http://xmlstar.sourceforge.net/">XMLStarlet</a>, a command-line toolset for manipulating XML.  This isn't the first beast of its ilk—Sean McGrath built similar tools several years ago in Python, for example—but it seems to be more mature than others.</p>
 

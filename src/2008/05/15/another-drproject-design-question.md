@@ -1,7 +1,7 @@
 ---
 title: "Another DrProject Design Question"
 date: 2008-05-15
-category: student-projects programming
+category: programming student-projects
 ---
 We're pleased to welcome <a href="http://www.lizblankenship.com/">Liz Blankenship</a>, a <a href="http://openusability.org/">Season of Usability</a> intern, to the DrProject team.  Liz, a grad student in HCI, is going to help us redesign DrProject's admin interface.  Along the way, I'm hoping she can give us some advice on a few other things as well, chief among them the notion of the "All" project.
 

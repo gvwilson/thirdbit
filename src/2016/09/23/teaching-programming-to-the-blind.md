@@ -1,7 +1,7 @@
 ---
 title: "Teaching Programming to the Blind"
 date: 2016-09-23
-category: cs-education
+category: education
 original: swc
 ---
 

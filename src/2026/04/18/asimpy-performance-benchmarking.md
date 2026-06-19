@@ -1,7 +1,7 @@
 ---
 title: "asimpy Performance Benchmarking"
 date: 2026-04-18
-category: programming tools simulation
+category: programming simulation
 ---
 
 [asimpy][asimpy] is a discrete event simulation framework written in Python.

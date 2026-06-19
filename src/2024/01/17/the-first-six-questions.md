@@ -1,7 +1,7 @@
 ---
 title: "The First Six Questions"
 date: 2024-01-17
-category: technical-writing sdgc
+category: sdgc technical-writing
 ---
 
 > Please see [the bottom of this page](#faq)

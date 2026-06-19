@@ -1,7 +1,7 @@
 ---
 title: "Slow Imports"
 date: 2005-08-22
-category: software
+category: programming
 ---
 Argon (our re-worked <a href="http://projects.edgewall.com/trac">Trac</a>) is now up and running on the <a href="http://www.cdf.utoronto.ca">CDF</a> lab machines, but it's very, very slow: 5-10 seconds per request at best.  We've tracked the problem down to the <code>import</code> statements, which are taking 3.5 seconds or more each time the CGI is executed (we're running as a pure CGI for now).  This is puzzling, because (a) they take less than half a second on Chris Lenz's Powerbook (slower processor and less memory than the CDF servers), and (b) Bin Liang's installation on his hosted Debian service in Dallas, Texas takes 1-2 seconds per page request max.  Something's seriously confused here, and we need to track it down.
 

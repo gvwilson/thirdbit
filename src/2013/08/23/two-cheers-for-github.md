@@ -1,7 +1,7 @@
 ---
 title: "Two Cheers for GitHub"
 date: 2013-08-23
-category: tools open-source
+category: open-source programming
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "What I Want for Code in Textbooks"
 date: 2022-11-30
-category: technical-writing tools proposal
+category: programming proposal technical-writing
 ---
 
 Regular readers will know that

@@ -1,7 +1,7 @@
 ---
 title: "Why I Miss Command-Line Programming"
 date: 2009-07-12
-category: software-carpentry programming
+category: programming software-carpentry
 ---
 Here is the HTML I'm rendering:
 

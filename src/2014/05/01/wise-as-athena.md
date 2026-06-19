@@ -1,7 +1,7 @@
 ---
 title: "Wise as Athena…"
 date: 2014-05-01
-category: software-carpentry diversity
+category: diversity software-carpentry
 original: swc
 ---
 <p>

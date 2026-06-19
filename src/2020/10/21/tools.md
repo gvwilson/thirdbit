@@ -1,7 +1,7 @@
 ---
 title: "Tools"
 date: 2020-10-21
-category: tools cs-education
+category: education programming
 ---
 
 A couple of days ago I tweeted:

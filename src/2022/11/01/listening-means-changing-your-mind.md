@@ -1,7 +1,7 @@
 ---
 title: "Listening Means Changing Your Mind"
 date: 2022-11-01
-category: diversity conferences opinion
+category: conferences diversity opinion
 ---
 
 The last two and a half years have been the most inclusive in tech conference history.

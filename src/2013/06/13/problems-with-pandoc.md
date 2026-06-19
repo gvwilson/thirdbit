@@ -1,7 +1,7 @@
 ---
 title: "Problems with Pandoc"
 date: 2013-06-13
-category: technical-writing tools
+category: programming technical-writing
 ---
 People have been asking me to write the Software Carpentry instructor's guide in Markdown instead of HTML, mostly so that it will be easier for other people to review and contribute. I was initially against the idea because standard Markdown lacks so many features that I'd basically be writing HTML with back quotes instead of &lt;code&gt; tags, but it turns out that Pandoc's variation on Markdown provides a lot of what I want–a lot, but not all. After converting the section on databases, I've come up against the following.
 

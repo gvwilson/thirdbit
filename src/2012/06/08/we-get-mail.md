@@ -1,7 +1,7 @@
 ---
 title: We Get Mail
 date: 2012-06-08
-category: cs-education
+category: education
 original: swc
 ---
 <p>Hi Greg and Adina!</p>

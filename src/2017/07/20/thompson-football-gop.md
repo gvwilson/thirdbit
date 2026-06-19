@@ -1,7 +1,7 @@
 ---
 title: "Hunter S. Thompson, Football, and the GOP"
 date: 2017-07-20
-category: politics noticed
+category: noticed politics
 ---
 
 Hunter S. Thompson is remembered today for his gonzo style: frequently imitated, rarely matched.

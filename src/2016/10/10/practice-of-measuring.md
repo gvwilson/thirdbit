@@ -1,7 +1,7 @@
 ---
 title: "Beth Duckles on the Practice of Measuring"
 date: 2016-10-10
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 

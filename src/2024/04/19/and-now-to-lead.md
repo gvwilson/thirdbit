@@ -1,7 +1,7 @@
 ---
 title: "And Now to Lead"
 date: 2024-04-19
-category: education diversity
+category: diversity education
 ---
 
 As a companion to [yesterday's post about a new stack][new-stack],

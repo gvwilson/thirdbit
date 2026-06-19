@@ -1,7 +1,7 @@
 ---
 title: "2008 Research In Action Showcase"
 date: 2008-03-06
-category: student-projects conferences
+category: conferences student-projects
 ---
 <p>The Department of Computer Science held its second annual "Research in Action" showcase this afternoon; the lineup was pretty impressive:</p>
 <ul>

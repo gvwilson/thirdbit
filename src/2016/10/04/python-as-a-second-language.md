@@ -1,7 +1,7 @@
 ---
 title: "Python as a Second Language"
 date: 2016-10-04
-category: cs-education
+category: education
 original: swc
 ---
 

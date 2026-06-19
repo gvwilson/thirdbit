@@ -1,7 +1,7 @@
 ---
 title: The Delight Is In The Details, Too
 date: 2009-08-23
-category: software-carpentry programming tools
+category: programming software-carpentry
 original: swc
 ---
 <p>They say the devil is in the details, but so's the delight, because it's the details that determine whether something works or doesn't. So let's take a look at how to translate the last post's "big picture" into actual course content.</p>

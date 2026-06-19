@@ -1,7 +1,7 @@
 ---
 title: Mark Guzdial on Software Carpentry
 date: 2010-07-28
-category: software-carpentry cs-education
+category: education software-carpentry
 original: swc
 ---
 <p>Mark Guzdial, a leading researcher in computing education, <a href="http://computinged.wordpress.com/2010/07/25/what-do-scientists-and-engineers-need-to-know-about-supercomputing/">blogged</a> a few days ago about the Texas Advanced Computing Center's training program for computational scientists, and asked, "Given the importance of computational science, what do all scientists  and engineers need to know about high-performance computing?" As you might expect, I replied to say that the question was almost always premature: we should first ask what scientists and engineers need to know about computing in general before tackling HPC.</p>

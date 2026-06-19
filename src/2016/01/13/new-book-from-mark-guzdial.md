@@ -1,7 +1,7 @@
 ---
 title: "A New Book from Mark Guzdial"
 date: 2016-01-13
-category: cs-education book-reviews
+category: book-reviews education
 original: swc
 ---
 

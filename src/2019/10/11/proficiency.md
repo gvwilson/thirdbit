@@ -1,7 +1,7 @@
 ---
 title: "Proficiency"
 date: 2019-10-11
-category: tools empirical-se
+category: empirical-se programming
 ---
 
 Edwin Thoen recently tweeted a short video

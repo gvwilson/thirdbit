@@ -1,7 +1,7 @@
 ---
 title: "Anatole France, Updated"
 date: 2014-03-07
-category: cs-education noticed
+category: education noticed
 original: swc
 ---
 <figure class="center">

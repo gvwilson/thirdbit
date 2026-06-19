@@ -1,7 +1,7 @@
 ---
 title: The Dark Matter of Computational Science
 date: 2012-03-18
-category: software-carpentry research-methods
+category: research software-carpentry
 original: swc
 ---
 <p>Scott Hanselman's recent post "<a href="http://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">Dark Matter Developers</a>" got me thinking once again about what Software Carpentry is about. He says:</p>

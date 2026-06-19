@@ -1,7 +1,7 @@
 ---
 title: "Contrarians"
 date: 2019-04-21
-category: politics personal
+category: personal politics
 ---
 
 > Q: How many TED speakers does it take to screw in a lightbulb? <br>

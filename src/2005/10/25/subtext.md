@@ -1,7 +1,7 @@
 ---
 title: "Subtext"
 date: 2005-10-25
-category: software
+category: programming
 ---
 There's a new <a href="http://www.subtextual.org/demo1.html">demo</a> of Jonathan Edwards' <a href="http://www.subtextual.org">Subtext</a> system online.  This is the best example I've seen yet of an extensible programming system.  It's pretty cool—once you stop insisting that programs have to be directly presentable as ASCII strings, many new thoughts become possible.
 

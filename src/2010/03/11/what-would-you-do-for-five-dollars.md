@@ -1,7 +1,7 @@
 ---
 title: "What Would You Do For Five Dollars?"
 date: 2010-03-11
-category: tools
+category: programming
 ---
 From <a href="http://www.fiverr.com">fiverr.com</a>'s front page:
 

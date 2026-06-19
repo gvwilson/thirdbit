@@ -1,7 +1,7 @@
 ---
 title: "You and Jimi Hendrix"
 date: 2014-03-14
-category: cs-education
+category: education
 original: swc
 ---
 <p>

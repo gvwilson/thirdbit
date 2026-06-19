@@ -1,7 +1,7 @@
 ---
 title: "Disk Usage"
 date: 2024-03-27
-category: tools programming
+category: programming
 ---
 
 Base image courtesy of [Grand Perspective][gp]

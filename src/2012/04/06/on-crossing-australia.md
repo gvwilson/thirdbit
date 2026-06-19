@@ -1,7 +1,7 @@
 ---
 title: On Crossing Australia
 date: 2012-04-06
-category: software-carpentry personal
+category: personal software-carpentry
 original: swc
 ---
 <p>A while back, I blogged about Bret Victor's "<a href="http://vimeo.com/36579366">Inventing on Principle</a>" talk at CUSEC'12, which is an inspiring vision of what programming <em>could</em> be. <a href="http://www.starchamber.com/2012/04/tool-spinning-task-boxing-and-the-trade-off-between-usability-and-learning.html">Ned Gulley's thoughts</a> on it are more nuanced (and more interesting):</p>

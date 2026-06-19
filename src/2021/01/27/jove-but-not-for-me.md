@@ -1,7 +1,7 @@
 ---
 title: "JoVE But Not For Me"
 date: 2021-01-27
-category: research-methods technical-writing
+category: research technical-writing
 ---
 
 I first wrote about the [Journal of Visualized Experiments](https://www.jove.com/) over a decade ago,

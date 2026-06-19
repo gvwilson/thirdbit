@@ -1,7 +1,7 @@
 ---
 title: "Project Status"
 date: 2026-03-30
-category: programming cs-education student-projects
+category: education programming student-projects
 ---
 
 A couple of years ago I posted [a list of student projects](@root/projects/) I'd be interested in supervising.

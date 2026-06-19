@@ -1,7 +1,7 @@
 ---
 title: "A Book That Should Be Read More Widely"
 date: 2007-02-27
-category: book-reviews politics diversity
+category: book-reviews diversity politics
 ---
 Here are two facts:
 <ol>

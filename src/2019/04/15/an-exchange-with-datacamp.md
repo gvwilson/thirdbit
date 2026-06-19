@@ -1,7 +1,7 @@
 ---
 title: "An Exchange with DataCamp"
 date: 2019-04-15
-category: favorite diversity ethics
+category: diversity ethics favorite
 ---
 
 I haven't spoken publicly about my experience with DataCamp

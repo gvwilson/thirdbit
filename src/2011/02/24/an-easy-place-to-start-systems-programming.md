@@ -1,7 +1,7 @@
 ---
 title: "An Easy Place to Start: Systems Programming"
 date: 2011-02-24
-category: software-carpentry programming
+category: programming software-carpentry
 original: swc
 ---
 <p>As a follow-up to recent posts on how to contribute, what better looks like, and Elango Cheran's secure shell episode, here's a specific request: we would like three episodes on systems programming, by which we mean writing programs to:</p>

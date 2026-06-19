@@ -1,7 +1,7 @@
 ---
 title: "Once More Unto the REST"
 date: 2009-02-01
-category: student-projects programming
+category: programming student-projects
 ---
 Two of my consulting course students (Mohammad Jalali and Rory Tulk) are looking at (semi-)automatically building <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST API</a>s for web application frameworks like <a href="http://www.djangoproject.com/">Django</a>.  The idea is to complement the metadata used to persist objects to databases in <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">object-relational mapping</a> tools with metadata to allow URL-mapped over-the-web interaction.  One of their starting points is <a href="http://cherrypy.org/">CherryPy</a>'s "<a href="http://tools.cherrypy.org/wiki/ExposeAs">expose</a>" decorator, which binds objects to elements in a URL tree.  The students would like to be able to bind classes and constructors as well, so that (for example) <code>/myapp/api/person/GregWilson</code> gets data for the person whose ID is 'GregWilson'.
 

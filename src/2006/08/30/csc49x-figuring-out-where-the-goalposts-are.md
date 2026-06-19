@@ -1,7 +1,7 @@
 ---
 title: "CSC49X: Figuring Out Where the Goalposts Are"
 date: 2006-08-30
-category: student-projects cs-education
+category: education student-projects
 ---
 Another batch of CSC49X projects are due to start next week, so this seems like a good time to fulfil the promise I made two years ago to write up how the course is run, and why. (For readers outside <a href="http://www.cs.utoronto.ca">U of T</a>, CSC494/495 is a term-long project course, in which students work directly under the supervision of a professor.)
 Step 1: <strong>Figure out where the goalposts are</strong>, so you know which way to kick the ball.  If you're an academic, this means finding something that is interesting and challenging enough to be publishable, but not intractable.  In a startup, it means figuring out <a href="http://www.ericsink.com/Marketing_for_Geeks.html">what you can build that people will pay for</a>.  Working for someone else? Check your job description (including criteria for performance evaluation and bonuses).

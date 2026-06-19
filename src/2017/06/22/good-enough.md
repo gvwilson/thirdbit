@@ -1,7 +1,7 @@
 ---
 title: "Good Enough Practices in Scientific Computing"
 date: 2017-06-22
-category: research-methods
+category: research
 original: swc
 ---
 

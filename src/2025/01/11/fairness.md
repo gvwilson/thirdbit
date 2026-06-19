@@ -1,7 +1,7 @@
 ---
 title: Fairness
 date: 2025-01-11
-category: diversity cs-education
+category: diversity education
 ---
 
 This series of posts is about course projects designed to prepare students for real jobs.

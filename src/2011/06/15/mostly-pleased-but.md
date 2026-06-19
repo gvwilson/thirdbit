@@ -1,7 +1,7 @@
 ---
 title: "Mostly Pleased, But…"
 date: 2011-06-15
-category: empirical-se cs-education
+category: education empirical-se
 ---
 We have started recruiting for the second volume of <em>The Architecture of Open Source Applications</em>, and while I'm mostly pleased with how it's going, there's one glaring problem.  Here's how the three collections I've edited in the past five years have broken down:
 <table class="centered">

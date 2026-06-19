@@ -1,7 +1,7 @@
 ---
 title: "My Dagstuhl"
 date: 2018-02-10
-category: software-carpentry conferences
+category: conferences software-carpentry
 ---
 
 Another week,

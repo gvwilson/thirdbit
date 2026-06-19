@@ -1,7 +1,7 @@
 ---
 title: "One of Our Inspirations"
 date: 2014-03-27
-category: cs-education
+category: education
 original: swc
 ---
 <p>

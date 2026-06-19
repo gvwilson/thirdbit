@@ -1,7 +1,7 @@
 ---
 title: "Computational Science Education (1996 edition)"
 date: 2019-08-05
-category: software-carpentry cs-education retro
+category: education retro software-carpentry
 ---
 
 Once upon a time,

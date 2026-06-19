@@ -1,7 +1,7 @@
 ---
 title: "The Right Tool for the Job"
 date: 2004-07-26
-category: software student-projects
+category: programming student-projects
 ---
 It is easier to bang in a nail with the back of a screwdriver than with a handleless hammer (believe me, I've tried and it wasn't pretty).  Even though a hammer is the right tool for that job, sometimes you have to switch tools if the one that you would like to use isn't complete.
 

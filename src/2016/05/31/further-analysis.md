@@ -1,7 +1,7 @@
 ---
 title: "Further Analysis of Instructor Training Data"
 date: 2016-05-31
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 Following Erin Becker's analysis of our instructor training data,

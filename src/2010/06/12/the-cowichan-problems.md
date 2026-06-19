@@ -1,7 +1,7 @@
 ---
 title: The Cowichan Problems
 date: 2010-06-12
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 Back in the 1990s, as the first wave of euphoria about parallel computing was topping out, I had a crazy idea: why don't we actually try to measure, or at least compare, the *usability* of different parallel programming systems? I left the field before taking the idea very far, but with talk about clouds and GPUs growing louder by the day, I think the idea is worth revisiting; the proposal that Bruce Irvin and I put together is below the cut, and I'd be interested in feedback.

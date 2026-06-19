@@ -1,7 +1,7 @@
 ---
 title: Alone and Misunderstood
 date: 2012-05-23
-category: cs-education
+category: education
 original: swc
 ---
 <p>Jeffrey Mirel and Simona Goldin's recent article in <em>The Atlantic</em> titled "<a href="http://www.theatlantic.com/national/archive/2012/04/alone-in-the-classroom-why-teachers-are-too-isolated/255976/">Alone in the Classroom</a>" initially struck a chord with me, particularly when they said, "A recent study by Scholastic and the Gates Foundation found that teachers spend only about 3 percent of their teaching day collaborating with colleagues. The majority of American teachers plan, teach, and examine their practice alone." But then Mirel and Goldin blew it by saying:</p>

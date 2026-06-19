@@ -1,7 +1,7 @@
 ---
 title: "Integration Irony"
 date: 2008-04-15
-category: student-projects programming
+category: programming student-projects
 ---
 We've been having a problem recently with self-registration in the new version of DrProject. Would-be users fill an oh-so-familiar form (preferred ID, email address, password); their data is then held in queue for an admin to approve.  However, when the admin clicks "approve", DrProject reports "user already exists in password file".
 

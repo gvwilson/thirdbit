@@ -1,7 +1,7 @@
 ---
 title: "The Chilling Effect of the GPL"
 date: 2010-04-12
-category: open-source ethics
+category: ethics open-source
 ---
 <p>Distributed version control systems have finally passed my two-year test [<a href="#1">1</a>], so while I was at <a href="http://us.pycon.org/2010/about/">PyCon</a> in February, I asked a few questions about what it would take to add a <a href="http://mercurial.selenic.com/">Mercurial</a> repository browser to Basie.  Two months and a couple of dozen email messages later, the answer seems to be that it can't be done—at least, not unless we're willing to use someone else's definition of "freedom".</p>
 

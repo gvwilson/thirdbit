@@ -1,7 +1,7 @@
 ---
 title: In Search of Prior Arguments
 date: 2012-04-17
-category: research-methods
+category: research
 original: swc
 ---
 <p>A faculty member whose research involves building some fairly complex scientific software would like to make all his work open source. He is repeatedly having to justify this choice to funding agencies and his dean, whose objections include:</p>

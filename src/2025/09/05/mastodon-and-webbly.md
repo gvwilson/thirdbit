@@ -1,7 +1,7 @@
 ---
 title: Mastodon and Webbly
 date: 2025-09-05
-category: open-source tools
+category: open-source programming
 ---
 
 I was going to title this post "Two Great Tastes That Taste Great Together",

@@ -1,7 +1,7 @@
 ---
 title: "Working Backwards"
 date: 2024-01-24
-category: cs-education technical-writing
+category: education technical-writing
 ---
 
 Here's the last exercise in an introductory programming course for biologists:

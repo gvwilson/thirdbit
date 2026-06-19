@@ -1,7 +1,7 @@
 ---
 title: "How Dare They Hold Us Accountable?"
 date: 2009-02-12
-category: academia politics opinion
+category: academia opinion politics
 ---
 According to the <a href="http://blogs.nature.com/news/thegreatbeyond/">Great Beyond</a>, several prominent British scientists have <a href="http://blogs.nature.com/news/thegreatbeyond/2009/02/leading_uk_scientists_call_for.html">called for a revolt</a> against new rules that require them to "include a two-page summary of the potential economic and social impacts of their research in funding proposals to the nation's research councils".  The scientists say that, "In research worthy of the name, we are not aware of anyone who would be competent at foretelling specific future benefits and therefore in complying with the request in any meaningful manner," to which a representative of one of the grants councils replies, "The impact statement is not designed to ask peer reviewers or applicants to predict future benefits. It is intended to allow the applicant to highlight potential pathways to impact, especially through collaboration with partners, and to help the research councils support them in these activities."
 

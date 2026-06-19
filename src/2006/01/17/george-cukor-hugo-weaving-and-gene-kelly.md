@@ -1,7 +1,7 @@
 ---
 title: "George Cukor, Hugo Weaving, and Gene Kelly"
 date: 2006-01-17
-category: personal noticed
+category: noticed personal
 ---
 <p>According to <a href="http://www.myheritage.com">MyHeritage.com</a>'s facial recognition software, the three celebrities I resemble most are the director George Cukor, the actor Hugo Weaving (OK, I can live with that), and the dancer Gene Kelly.  Numbers 4, 5, and 6 are Kevin Mitnick, Noam Chomsky, and Michael Caine; make of it what you will.</p>
 

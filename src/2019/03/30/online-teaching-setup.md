@@ -1,7 +1,7 @@
 ---
 title: "Online Teaching Setup"
 date: 2019-03-30
-category: education tools
+category: education programming
 ---
 
 As [I mentioned last week](@root/2019/03/20/educational-paramedics/),

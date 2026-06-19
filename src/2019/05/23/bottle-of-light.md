@@ -1,7 +1,7 @@
 ---
 title: "Bottle of Light"
 date: 2019-05-23
-category: fiction-writing
+category: fiction
 ---
 
 Scholastic published a book of mine titled *Bottle of Light* back in 2008 as part of a reluctant reader program—it wasn't ever available directly to the public, but every once in a while I get a mail like this from a teacher whose class has enjoyed it, and it makes my day.

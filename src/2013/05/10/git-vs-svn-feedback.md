@@ -1,7 +1,7 @@
 ---
 title: Git vs. Subversion and Feedback in General
 date: 2013-05-10
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>Software Carpentry's mission is to help scientists teach other scientists how to be better programmers.  If we want to do that successfully, we need to be scientists ourselves.  In particular, we need to base what we teach on evidence, not anecdotes or personal preferences.</p>

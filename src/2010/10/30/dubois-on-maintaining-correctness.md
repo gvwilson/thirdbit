@@ -1,7 +1,7 @@
 ---
 title: Dubois on Maintaining Correctness
 date: 2010-10-30
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 <p>Something else I didn't get to at the Met Office last week:</p>

@@ -1,7 +1,7 @@
 ---
 title: GitHub for Education
 date: 2012-04-17
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>In my experience, most teachers don't develop courses from scratch. Instead, they take whatever material is at hand, modify it to meet their needs, and then–well, that's usually where they stop. Unlike open source software developers, they usually don't give it back to the community in any explicit way. Instead, the next person who needs a starting point has to stumble over it in a Google search, and the original creator may never know that someone improved upon what they did.</p>

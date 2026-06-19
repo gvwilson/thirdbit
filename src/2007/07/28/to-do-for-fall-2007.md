@@ -1,7 +1,7 @@
 ---
 title: "To Do for Fall 2007"
 date: 2007-07-28
-category: student-projects personal
+category: personal student-projects
 ---
 Must… get… organized:
 <ol>

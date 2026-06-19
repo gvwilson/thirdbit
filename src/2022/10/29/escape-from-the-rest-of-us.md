@@ -1,7 +1,7 @@
 ---
 title: "Escape From the Rest of Us"
 date: 2022-10-29
-category: noticed book-reviews
+category: book-reviews noticed
 ---
 
 "For them, the future of technology is about only one thing: escape from the rest of us."

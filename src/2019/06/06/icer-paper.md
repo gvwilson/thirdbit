@@ -1,7 +1,7 @@
 ---
 title: "ICER Acceptance"
 date: 2019-06-06
-category: cs-education research-methods conferences
+category: conferences education research
 ---
 
 Paul Denny, Brett Becker, Michelle Craig, Piotr Banaszkiewicz, and I

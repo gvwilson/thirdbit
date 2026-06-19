@@ -1,7 +1,7 @@
 ---
 title: Spreadsheets, Retractions, and Bias
 date: 2013-04-19
-category: research-methods
+category: research
 original: swc
 ---
 <p>Just in case there's any misunderstanding:</p>

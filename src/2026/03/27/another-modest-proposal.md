@@ -1,7 +1,7 @@
 ---
 title: "Another Modest Proposal"
 date: 2026-03-27
-category: programming research-methods proposal
+category: programming proposal research
 ---
 
 [RSECon26][rse-con-26] is happening in Sheffield in September.

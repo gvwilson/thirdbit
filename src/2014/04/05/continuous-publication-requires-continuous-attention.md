@@ -1,7 +1,7 @@
 ---
 title: "Does Continuous Publication Require Continuous Attention?"
 date: 2014-04-05
-category: research-methods
+category: research
 original: swc
 ---
 <p>

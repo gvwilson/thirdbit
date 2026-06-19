@@ -1,7 +1,7 @@
 ---
 title: "Reorganizing Our Software Engineering Courses"
 date: 2006-07-09
-category: cs-education
+category: education
 ---
 Today, the <a href="http://www.utoronto.ca">University of Toronto</a>'s <a href="http://www.cs.utoronto.ca">Computer Science</a> department has a three-course sequence in software engineering: <a href="http://www.cs.utoronto.ca/~csc340h">CSC340</a> (Requirements Engineering), <a href="http://www.cs.utoronto.ca/~csc407h">CSC407</a> (Software Architecture), and <a href="http://www.cs.utoronto.ca/~csc408h">CSC408</a> (Software Engineering, which is a team project course). Nobody is happy with them: students in CSC340 haven't seen projects big enough to need formal requirements management, so they don't understand what all the modeling and paperwork they're being taught is for; there's a lot of overlap between that course and CSC407; and CSC408 comes too late in their degrees (typically, the last term of fourth year) to help them find summer internships.
 

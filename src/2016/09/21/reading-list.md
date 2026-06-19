@@ -1,7 +1,7 @@
 ---
 title: "What I Wish I'd Read"
 date: 2016-09-21
-category: cs-education book-reviews
+category: book-reviews education
 ---
 
 I would have called myself a [research software engineer](http://www.rse.ac.uk/)

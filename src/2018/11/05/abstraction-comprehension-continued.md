@@ -1,7 +1,7 @@
 ---
 title: "Abstraction and Comprehension Continued"
 date: 2018-11-05
-category: empirical-se cs-education
+category: education empirical-se
 ---
 
 In response to [my previous post](@root/2018/11/03/abstraction-comprehension/),

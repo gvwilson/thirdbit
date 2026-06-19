@@ -1,7 +1,7 @@
 ---
 title: "What Sciences Are There?"
 date: 2014-09-11
-category: cs-education
+category: education
 ---
 <p>
   The Software Carpentry pre-assessment questionnaire for bootcamp participants

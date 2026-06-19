@@ -1,7 +1,7 @@
 ---
 title: "Including Boilerplate Files in Jekyll"
 date: 2024-01-20
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 I use [Ark][ark] to format my books[^1]

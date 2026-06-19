@@ -1,7 +1,7 @@
 ---
 title: "Collaborative Choral Software Exegesis"
 date: 2016-09-12
-category: cs-education
+category: education
 ---
 
 I've been thinking a lot about Mike Caulfield's idea of [choral explanations](https://hapgood.us/2016/05/13/choral-explanations/),

@@ -1,7 +1,7 @@
 ---
 title: "Enrolment Figures (Fall 2013)"
 date: 2013-10-09
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 <p>Our total enrolment (or enrollment, if you're American) continues to grow steadily: if we stay on the curve below, we'll have our four thousandth learner by the end of this year.</p>

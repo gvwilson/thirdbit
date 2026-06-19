@@ -1,7 +1,7 @@
 ---
 title: "Two Courses"
 date: 2018-09-04
-category: cs-education
+category: education
 ---
 
 Toby Hodges and I are pleased to announce

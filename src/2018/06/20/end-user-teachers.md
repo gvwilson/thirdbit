@@ -1,7 +1,7 @@
 ---
 title: "End-User Teachers"
 date: 2018-06-20
-category: cs-education
+category: education
 ---
 
 I've been thinking about

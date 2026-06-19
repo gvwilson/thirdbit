@@ -1,7 +1,7 @@
 ---
 title: "Data Science Workflows"
 date: 2013-07-18
-category: software-carpentry data-science
+category: data-science software-carpentry
 original: swc
 ---
 <p>

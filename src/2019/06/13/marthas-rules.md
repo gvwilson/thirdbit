@@ -1,7 +1,7 @@
 ---
 title: "Martha's Rules"
 date: 2019-06-13
-category: favorite open-source career
+category: career favorite open-source
 ---
 
 A group I'm part of is using [Martha's Rules](https://doi.org/10.1177/088610998600100206) for consensus-based decision making.

@@ -1,7 +1,7 @@
 ---
 title: "18 Months of Progress"
 date: 2016-01-15
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 

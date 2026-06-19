@@ -1,7 +1,7 @@
 ---
 title: "Do These Tools Exist?"
 date: 2023-01-14
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 I wrote several posts last year about why teaching or learning programming

@@ -1,7 +1,7 @@
 ---
 title: "Four Traditions Revisited"
 date: 2026-01-28
-category: favorite cs-education
+category: education favorite
 ---
 
 Tedre and Sutinen's paper "[Three Traditions of Computing: What Educators Should Know][doi]"

@@ -1,7 +1,7 @@
 ---
 title: "Possible vs. Feasible vs. Trivial"
 date: 2005-02-25
-category: software opinion
+category: opinion programming
 ---
 A sociologist I once did some work for once told me that all human activities could be classified as belonging to one of a small number of natural timescales, which he described as:
 <ul>

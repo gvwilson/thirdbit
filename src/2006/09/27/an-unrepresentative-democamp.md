@@ -1,7 +1,7 @@
 ---
 title: "An Unrepresentative DemoCamp"
 date: 2006-09-27
-category: community-events diversity
+category: community diversity
 ---
 DemoCamp 9, held two days ago, was the first that has disappointed me.  Disappointment #1 was the demos themselves: <a href="http://conceptshare.com/">ConceptShare</a>'s was great—I really want a chance to play with their stuff—and <a href="http://dictabrain.com/">DictaBrain</a>'s voicemail-to-text was intriguing until we learned that the transcription is going to be done by typists in India, rather than software, but the <a href="http://www.theemailcompany.com/formulate.html">eMail Company's form builder</a> looked very 1999, and I'm not sure even now what the point of the <a href="http://www.infoq.com">InfoQ</a> and <a href="http://pursudo.com/">Pursudo</a> demos were: the guy who demo'd the first seemed to be trying to persuade us that yes, there really was some technical innovation in the site (I didn't see it), while the second was something thrown together in three days just so its authors could demo it.
 

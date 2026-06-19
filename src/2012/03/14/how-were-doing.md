@@ -1,7 +1,7 @@
 ---
 title: How We're Doing
 date: 2012-03-14
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 <p>The first online session for our Indiana University students will run tomorrow afternoon (assuming we can get web conferencing to work–why is this still so hard in 2012?). Meanwhile, our other workshops are filling up quickly:</p>

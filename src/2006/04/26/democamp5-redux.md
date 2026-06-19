@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp5 Redux"
 date: 2006-04-26
-category: community-events
+category: community
 ---
 The <a href="http://www.utoronto.ca">University of Toronto</a> hosted DemoCamp 5 last night.  It went well: 143 people showed up, the Bell Kids Help Phone team gave a fault-free presentation, and the folks at <a href="http://www.mollyblooms.ca">Molly Bloom's</a> took good care of us afterward (so good, in fact, that I'm going to let people who <em>don't</em> have hangovers cover the details).
 <ul>

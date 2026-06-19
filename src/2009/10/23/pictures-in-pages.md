@@ -1,7 +1,7 @@
 ---
 title: "Pictures in Pages"
 date: 2009-10-23
-category: technical-writing tools
+category: programming technical-writing
 ---
 It's still a lot harder than it should be to add pictures to web pages. I know, you think it's easy, but let's do a comparison:
 <table class="centered">

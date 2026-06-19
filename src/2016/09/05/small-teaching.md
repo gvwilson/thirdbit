@@ -1,7 +1,7 @@
 ---
 title: "Small Teaching"
 date: 2016-09-05
-category: education book-reviews
+category: book-reviews education
 original: swc
 ---
 

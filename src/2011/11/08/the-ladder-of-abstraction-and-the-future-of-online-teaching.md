@@ -1,7 +1,7 @@
 ---
 title: The Ladder of Abstraction and the Future of Online Teaching
 date: 2011-11-08
-category: cs-education
+category: education
 original: swc
 ---
 <p><a href="http://worrydream.com/LadderOfAbstraction/">Up and Down the Ladder of Abstraction</a> is one of the most thought-provoking things to hit the web in a long time. Its author, Bret Victor, doesn't just talk about the design process–he shows us what a great interactive tutorial ought to look like. (For a shorter, simpler, but equally inspiring example, have a look at the home page for his <a href="http://worrydream.com/Tangle/">Tangle</a> project, and ask yourself what learning would be like if learners could play with every diagram and quantitative statement in their "textbooks" that way…)</p>

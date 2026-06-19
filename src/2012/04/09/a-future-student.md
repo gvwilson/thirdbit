@@ -1,7 +1,7 @@
 ---
 title: A Future Student
 date: 2012-04-09
-category: cs-education personal
+category: education personal
 original: swc
 ---
 <p><img src="@root/files/2012/04/IMG_4325.jpg" class="centered"></p>

@@ -1,7 +1,7 @@
 ---
 title: "Book Extensions"
 date: 2023-06-12
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 I use a static site generator called [Ark][ark] (formerly Ivy) to build my books

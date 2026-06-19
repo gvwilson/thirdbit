@@ -1,7 +1,7 @@
 ---
 title: "The Tool I Want"
 date: 2019-03-10
-category: tools programming
+category: programming
 ---
 
 We talk about "programming" as if there was just one kind,

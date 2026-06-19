@@ -1,7 +1,7 @@
 ---
 title: "Not Very Scalable"
 date: 2024-12-27
-category: programming tools
+category: programming
 ---
 
 I have been teaching some informal lessons to colleagues based on

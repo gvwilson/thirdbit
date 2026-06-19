@@ -1,7 +1,7 @@
 ---
 title: The Real Challenge
 date: 2018-08-12
-category: cs-education empirical-se
+category: education empirical-se
 ---
 
 A recent conversation with Toby Hodges reminded me of

@@ -1,7 +1,7 @@
 ---
 title: "So, Greg, What Are You Up To These Days?"
 date: 2012-01-14
-category: software-carpentry personal
+category: personal software-carpentry
 ---
 I'm glad you asked:
 <ul>

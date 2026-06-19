@@ -1,7 +1,7 @@
 ---
 title: Meetings
 date: 2025-01-04
-category: cs-education student-projects
+category: education student-projects
 ---
 
 The [previous post][time-management] explained how to be productive individually,

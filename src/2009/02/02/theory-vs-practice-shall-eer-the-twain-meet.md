@@ -1,7 +1,7 @@
 ---
 title: "Theory vs. Practice: Shall E'er the Twain Meet?"
 date: 2009-02-02
-category: empirical-se cs-education
+category: education empirical-se
 ---
 I just got a flyer for the Spring 2009 <a href="http://stpcon.com/">Software Test &amp; Performance</a> conference to be held in San Mateo from March 31 to April 2 this year.  The <a href="http://stpcon.com/conferencefaculty.html">faculty</a> include:
 <table class="centered">

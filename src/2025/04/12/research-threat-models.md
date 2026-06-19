@@ -1,7 +1,7 @@
 ---
 title: Research Threat Models
 date: 2025-04-12
-category: technical-writing education
+category: education technical-writing
 ---
 
 [Richard Littauer][littauer] and others are writing some guidance

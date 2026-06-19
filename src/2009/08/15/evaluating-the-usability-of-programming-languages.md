@@ -1,7 +1,7 @@
 ---
 title: "Evaluating the Usability of Programming Languages"
 date: 2009-08-15
-category: empirical-se cs-education
+category: education empirical-se
 ---
 From <a href="http://lambda-the-ultimate.org/node/3529">Lambda the Ultimate</a> to <a href="http://wadler.blogspot.com/2009/07/evaluation-and-usability-of-programming.html">Phil Wadler's blog</a> to a link that was working yesterday, but is 404'ing this morning: a workshop on <a href="http://ecs.victoria.ac.nz/Events/PLATEAU/WebHome">evaluation and usability of programming languages and tools</a>, to be held at OOPSLA in late October. Scope includes:
 <ul>

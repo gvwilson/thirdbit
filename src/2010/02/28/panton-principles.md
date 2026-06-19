@@ -1,7 +1,7 @@
 ---
 title: Panton Principles
 date: 2010-02-28
-category: research-methods open-source
+category: open-source research
 original: swc
 ---
 <p>Via <a href="http://cameronneylon.net/blog/the-panton-principles-finding-agreement-on-the-public-domain-for-published-scientific-data/">Cameron Neylon</a>: the <a href="http://pantonprinciples.org/">Panton Principles</a> are guidelines for open data in science. In full:</p>

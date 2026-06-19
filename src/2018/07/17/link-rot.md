@@ -1,7 +1,7 @@
 ---
 title: "Link Rot"
 date: 2018-07-17
-category: research-methods
+category: research
 ---
 
 <p>

@@ -1,7 +1,7 @@
 ---
 title: One Small Command
 date: 2025-10-18
-category: tools data-science
+category: data-science programming
 ---
 
 > Please note that I am suffering from jet lag and recovering from a bad cold while writing this,

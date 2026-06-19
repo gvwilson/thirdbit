@@ -1,7 +1,7 @@
 ---
 title: "Better is Harder than New"
 date: 2004-09-07
-category: software career
+category: career programming
 ---
 <p>I gave notice at Hewlett-Packard last Friday; I've enjoyed working with the SelectAccess team a lot over the past four years, and have learned a tremendous amount from them, it's time for me to focus on a few personal projects (including Hippo—I really would like to learn how it works).</p>
 

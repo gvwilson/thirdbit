@@ -1,7 +1,7 @@
 ---
 title: "How I Write a Technical Book"
 date: 2021-01-25
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 I have written four technical books (with three more in progress) and have edited seven others.

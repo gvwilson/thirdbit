@@ -1,7 +1,7 @@
 ---
 title: The Future Then and Now
 date: 2015-04-13
-category: cs-education
+category: education
 original: swc
 ---
 <p>

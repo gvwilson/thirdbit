@@ -1,7 +1,7 @@
 ---
 title: "In the Classroom"
 date: 2019-05-04
-category: favorite education cs-education
+category: education favorite
 ---
 
 My [ten rules for teaching](http://teachtogether.tech/en/#s:index-rules)

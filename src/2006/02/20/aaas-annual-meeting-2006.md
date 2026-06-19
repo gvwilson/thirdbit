@@ -1,7 +1,7 @@
 ---
 title: "AAAS Annual Meeting 2006"
 date: 2006-02-20
-category: software-carpentry conferences
+category: conferences software-carpentry
 ---
 <strong>Wednesday, 11:10 p.m.</strong>: phone call from Air Can'tada saying that my Thursday morning flight to St Louis has been cancelled because of bad weather.  Next available is 4:00 p.m. Friday afternoon—two and a half hours after my workshop is due to end.  No, they can't help me find an alternative carrier.  <a href="http://www.expedia.ca">Expedia</a> can, though, and by midnight, I have a ticket on Delta, via Cincinnati.
 

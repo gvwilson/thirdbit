@@ -1,7 +1,7 @@
 ---
 title: "Milner on Invention"
 date: 2024-11-18
-category: noticed education
+category: education noticed
 ---
 
 > When I was a PhD student,

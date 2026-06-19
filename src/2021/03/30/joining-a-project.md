@@ -1,7 +1,7 @@
 ---
 title: "Joining a Project"
 date: 2021-03-30
-category: open-source career
+category: career open-source
 ---
 
 A few days ago I asked people how to get up to speed when joining a new software

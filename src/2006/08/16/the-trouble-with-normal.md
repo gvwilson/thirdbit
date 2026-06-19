@@ -1,7 +1,7 @@
 ---
 title: "The Trouble With Normal"
 date: 2006-08-16
-category: politics opinion
+category: opinion politics
 ---
 We were listening to Bruce Cockburn on the way up to the cottage last Friday.  "Lovers in a Dangerous Time", "Rumors of Glory", "Wondering Where the Lions Are", and so many others are gorgeous, but the line that stuck in my head was, "The trouble with normal is it always gets worse."
 

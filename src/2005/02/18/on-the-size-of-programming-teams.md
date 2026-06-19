@@ -1,7 +1,7 @@
 ---
 title: "On the Size of Programming Teams"
 date: 2005-02-18
-category: software empirical-se opinion
+category: empirical-se opinion programming
 ---
 I once heard an anthropologist ask a room, "How big is a sports team?"  When people said, "They're all different sizes," she said, "No, actually, they all have about half a dozen members.  Anything larger than that (football, rugby, baseball) immediately splits into smaller groups (forwards and backs in rugby, infield and outfield in baseball)."
 

@@ -1,7 +1,7 @@
 ---
 title: "Building a Book"
 date: 2023-03-12
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 In response to a question about [today's first post][rethinking],

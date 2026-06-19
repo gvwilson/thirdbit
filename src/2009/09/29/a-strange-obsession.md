@@ -1,7 +1,7 @@
 ---
 title: A Strange Obsession
 date: 2009-09-29
-category: software-carpentry opinion
+category: opinion software-carpentry
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Open Source, Open Science in 1999
 date: 2010-08-03
-category: retro open-source
+category: open-source retro
 original: swc
 ---
 <p>A long time ago, in a galaxy far, far away… Actually, it was 1999, and the venue was Brookhaven National Laboratory in New York–it just feels like a different time and place. The event was a conference called "Open Source, Open Science", and Stephen Adler, Tom Throwe, and Sean McCorkle have very kindly resurrected its web site at <a href="http://openscience.bnl.gov/">http://openscience.bnl.gov/</a> for those interested in the history of an idea whose time may finally have come. It's interesting to see what has changed in the intervening decade, and what hasn't: supercomputing is still disproportionately represented, but I think the open side has won the debate that was the subject of the main panel discussion, "Overcoming the obstacles…in using and contributing to Open Source technologies."</p>

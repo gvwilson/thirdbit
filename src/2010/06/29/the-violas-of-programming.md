@@ -1,7 +1,7 @@
 ---
 title: The Violas of Programming
 date: 2010-06-29
-category: cs-education
+category: education
 original: swc
 ---
 <p>Orchestral musicians make <a href="http://www.mit.edu/~jcb/jokes/viola.html">jokes about violas and viola players</a>. "What's a string quartet? A great violin player, a mediocre violin player, a bad violin player, and a cellist."  Or, "What's the difference between a viola and a trampoline? You take off your shoes to jump on a trampoline." But violas are as essential as they are unglamorous: hardly anyone plays them as a lead or solo instrument, but string quartets just don't sound right without that third voice.</p>

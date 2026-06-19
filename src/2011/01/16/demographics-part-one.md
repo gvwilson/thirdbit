@@ -1,7 +1,7 @@
 ---
 title: Demographics (part one)
 date: 2011-01-16
-category: software-carpentry empirical-se
+category: empirical-se software-carpentry
 original: swc
 ---
 <p>As near as we can tell, here's where this term's students are from. It's quite a mix…</p>

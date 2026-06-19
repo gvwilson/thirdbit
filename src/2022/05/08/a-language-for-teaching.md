@@ -1,7 +1,7 @@
 ---
 title: "A Language for Teaching"
 date: 2022-05-08
-category: cs-education technical-writing proposal
+category: education proposal technical-writing
 ---
 
 I'm hoping to send *[Software Design by Example][sdxjs]* to the publisher

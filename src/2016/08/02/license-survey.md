@@ -1,7 +1,7 @@
 ---
 title: "How Well Do Developers Understand Open Source Licenses?"
 date: 2016-08-02
-category: software-carpentry open-source
+category: open-source software-carpentry
 original: swc
 ---
 

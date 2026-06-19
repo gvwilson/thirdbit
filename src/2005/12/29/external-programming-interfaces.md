@@ -1,7 +1,7 @@
 ---
 title: "External Programming Interfaces"
 date: 2005-12-29
-category: software
+category: programming
 ---
 <a href="http://www.artima.com/forums/flat.jsp?forum=106&thread=142428">This article</a>, by Eamonn McManus, is a nice little summary of API design principles.  It contains a bit of motherhood and apple pie—nobody would ever set out to make an API difficult to learn or hard to use, for example—but the specifics are good (particularly the discussion of why interfaces are often the wrong thing to use).  The article contains a link to <a href="http://openide.netbeans.org/tutorial/api-design.html">this essay</a> at the NetBeans site, which talks about some of the same ideas in more detail.
 

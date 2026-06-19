@@ -1,7 +1,7 @@
 ---
 title: "How to Be Interviewed"
 date: 2024-10-11
-category: career education community-events
+category: career community education
 ---
 
 Earlier this week

@@ -1,7 +1,7 @@
 ---
 title: "Building Better Teachers"
 date: 2014-09-04
-category: cs-education
+category: education
 original: swc
 ---
 <p>

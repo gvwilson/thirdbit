@@ -1,7 +1,7 @@
 ---
 title: "I'm Not a Lawyer…"
 date: 2010-05-27
-category: open-source ethics
+category: ethics open-source
 ---
 Google recently announced a <a href="http://code.google.com/apis/predict/">Prediction API</a>:
 <blockquote>The Prediction API enables access to Google's machine learning algorithms  to analyze your historic data and predict likely future outcomes.  Upload your data…, then use the Prediction API to make  real-time decisions in your applications.</blockquote>

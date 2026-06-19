@@ -1,7 +1,7 @@
 ---
 title: "The Compassionate Programmer"
 date: 2022-12-17
-category: technical-writing opinion
+category: opinion technical-writing
 ---
 
 > I'd like the next best-seller to be

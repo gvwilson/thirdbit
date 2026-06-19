@@ -1,7 +1,7 @@
 ---
 title: "Documentation Types"
 date: 2019-08-08
-category: technical-writing education
+category: education technical-writing
 ---
 
 *This post is an update on [an earlier one](@root/2019/04/16/what-docs-when/)

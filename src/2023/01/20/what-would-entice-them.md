@@ -1,7 +1,7 @@
 ---
 title: "What Would Entice Them?"
 date: 2023-01-20
-category: career academia opinion
+category: academia career opinion
 ---
 
 [Jordi Cabot][cabot-jordi] recently wrote:

@@ -1,7 +1,7 @@
 ---
 title: "Exaptation and the Future of Software Engineering"
 date: 2015-11-29
-category: cs-education
+category: education
 ---
 <p>
   Back in the 1980s,

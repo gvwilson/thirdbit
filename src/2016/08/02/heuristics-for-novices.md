@@ -1,7 +1,7 @@
 ---
 title: "Heuristic Evaluation for Novice Programming Systems"
 date: 2016-08-02
-category: software-carpentry cs-education
+category: education software-carpentry
 original: swc
 ---
 

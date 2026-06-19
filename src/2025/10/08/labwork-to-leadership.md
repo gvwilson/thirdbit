@@ -1,7 +1,7 @@
 ---
 title: Labwork to Leadership
 date: 2025-10-08
-category: book-reviews academia
+category: academia book-reviews
 ---
 
 Jen Heemstra's

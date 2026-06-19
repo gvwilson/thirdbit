@@ -1,7 +1,7 @@
 ---
 title: Is Live Coding Worth It?
 date: 2010-06-16
-category: software-carpentry education
+category: education software-carpentry
 original: swc
 ---
 <p>I put together an introductory lecture on regular expressions yesterday, but I'm not happy with the results, and I'd like your feedback to help me make it better.</p>

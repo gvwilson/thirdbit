@@ -1,7 +1,7 @@
 ---
 title: "OER Landmines"
 date: 2018-12-02
-category: cs-education
+category: education
 ---
 
 Some great discussions this past week with some new friends in the Open Educational Resources movement.

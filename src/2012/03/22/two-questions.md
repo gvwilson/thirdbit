@@ -1,7 +1,7 @@
 ---
 title: "Two Questions After the Audrey Test"
 date: 2012-03-22
-category: cs-education
+category: education
 ---
 <p>Once upon a time, about a quarter of a century ago, I went into a prof's office in Edinburgh and told him that neural networks were the future, because, look, that's how our brains work, right? Neurons and connections and firing potentials–those are the building blocks of human intelligence, so all we have to do to make AI work is, you know, do that in software. And if it isn't working yet, well, that just means we need a bigger neural network, or maybe different firing rules. I was in my mid-twenties at the time–about the age that many of today's ed-tech entrepreneurs are now–and when he tried to explain to me why things might not be that simple, I quickly filed him under "old fogey". I didn't bother to read any of the papers he pointed me at: what could those patient, painstaking, footnoted summaries of old news possibly have to say about the brave new world my friends and I were about to create?</p>
 

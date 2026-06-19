@@ -1,7 +1,7 @@
 ---
 title: "The Tool I Want"
 date: 2010-03-04
-category: software-carpentry tools
+category: programming software-carpentry
 ---
 I want to make the next version of the Software Carpentry material more dynamic. I'm planning to use screencasts to show people how to use a debugger and other power tools, but I don't like screencasts for showing programming examples: the text is often hard to read (even when anti-aliased), and they're almost never accessible to the visually impaired.
 

@@ -1,7 +1,7 @@
 ---
 title: When the Fire Comes
 date: 2025-04-17
-category: politics closure
+category: closure politics
 ---
 
 I grew up in a logging town in British Columbia.

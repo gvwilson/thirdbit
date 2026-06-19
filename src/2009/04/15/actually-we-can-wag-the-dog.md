@@ -1,7 +1,7 @@
 ---
 title: "Getting Ready to Wag the Dog"
 date: 2009-04-15
-category: programming career opinion
+category: career opinion programming
 ---
 A conversation with an ex-student yesterday reminded me of a post I've been meaning to write for at least a few months.  He's now a user experience designer, and believes that with a new generation of natural interfaces hitting the market (voice, tabletop, etc.), software developers will <em>have</em> to involve designers early and often, or suffer massive failure.
 

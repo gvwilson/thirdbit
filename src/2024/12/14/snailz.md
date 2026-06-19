@@ -1,7 +1,7 @@
 ---
 title: "Snailz"
 date: 2024-12-14
-category: programming open-source
+category: open-source programming
 ---
 
 Earlier this year I put together notes for

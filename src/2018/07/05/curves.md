@@ -1,7 +1,7 @@
 ---
 title: Performance Curves, Curriculum Design, and Trust Revisited
 date: 2018-07-05
-category: cs-education empirical-se
+category: education empirical-se
 ---
 
 Suppose you have a processing pipeline with three stages,

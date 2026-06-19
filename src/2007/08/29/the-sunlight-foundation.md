@@ -1,7 +1,7 @@
 ---
 title: "The Sunlight Foundation and Hosted Lifebits"
 date: 2007-08-29
-category: politics open-source
+category: open-source politics
 ---
 Jon Udell has posted a <a href="http://blog.jonudell.net/2007/08/20/a-conversation-with-greg-elin-about-the-sunlight-foundation/">conversation with Greg Elin</a> about the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>, whose goal is to make the workings of government more transparent and accessible.  Interesting quote from Elin:
 <blockquote>I increasingly feel that the reason for Congressional hearings to be open and recorded and annotated is market efficiency. The fed does not announce what it's going to do with interest rates until it announces it to everybody. But is that the case for the rest of Congress and legislation? If I can afford to have a fulltime lobbyist going to the committee meetings, don't I have an inside track?</blockquote>

@@ -1,7 +1,7 @@
 ---
 title: "Guidance on Running Undergraduate Software Projects"
 date: 2005-12-05
-category: education software
+category: education programming
 ---
 As regular readers know, I supervise senior undergraduate software engineering projects on a semi-regular basis at the University of Toronto.  I keep thinking that <em>someone</em> must have written <em>something</em> for students (and supervisors) explaining how to do this, but every time I've gone looking, I've come away dissatisfied.  The four nearest misses to date are:
 <ul>

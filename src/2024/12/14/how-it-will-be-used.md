@@ -1,7 +1,7 @@
 ---
 title: "How It Will Be Used"
 date: 2024-12-14
-category: cs-education politics opinion
+category: education opinion politics
 ---
 
 I was a big proponent of MOOCs when they first emerged.

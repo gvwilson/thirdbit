@@ -1,7 +1,7 @@
 ---
 title: "Building Powerful Community Organizations"
 date: 2018-11-09
-category: community-events
+category: community
 ---
 
 I've written about the book *[Building Powerful Community Organizations][bpco]* before,

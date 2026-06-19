@@ -1,7 +1,7 @@
 ---
 title: "What It Takes to Get Eclipse Out the Door"
 date: 2006-02-27
-category: programming open-source
+category: open-source programming
 ---
 <a href="http://www.eclipse.org/eclipse/development/eclipse_3_1_stats.html">These stats</a> on the development of Eclipse 3.1 (via <a href="http://www.cs.toronto.edu/~dw/">Prof. Dave Wortman</a> at the <a href="http://www.cs.utoronto.ca">University of Toronto</a>) show what it takes to get something that size out the door:
 <ul>

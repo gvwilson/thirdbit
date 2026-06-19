@@ -1,7 +1,7 @@
 ---
 title: "Keywords Speak Louder Than Words"
 date: 2009-03-19
-category: open-source student-projects cs-education
+category: education open-source student-projects
 ---
 Mozilla is taking education pretty seriously these days (see previous posts). The latest news from David Humphrey is a brand new Bugzilla keyword for tagging tickets: <a href="http://vocamus.net/dave/?p=408"><strong>student-project</strong></a>. This tag will help students find things to work on; as he says, good candidates are:
 <ul>

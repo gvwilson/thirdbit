@@ -1,7 +1,7 @@
 ---
 title: "WiSE Bootcamp Roundup"
 date: 2013-07-05
-category: software-carpentry diversity
+category: diversity software-carpentry
 original: swc
 ---
 <p>It's been over a week since our first bootcamp for women in science and engineering wrapped up in Boston, and feedback has been coming in pretty steadily.  In no particular order:</p>

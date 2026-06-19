@@ -1,7 +1,7 @@
 ---
 title: "Teaching in the Third Dimension"
 date: 2022-12-14
-category: cs-education tools proposal
+category: education programming proposal
 ---
 
 I've been blogging recently about teaching tools I want,

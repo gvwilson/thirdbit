@@ -1,7 +1,7 @@
 ---
 title: Stack Underflow?
 date: 2012-02-14
-category: programming noticed
+category: noticed programming
 original: swc
 ---
 <p>Circling back to an earlier post, one of the challenges free-range learners face is where to get help after their workshop or short course is over. Google isn't much help, since they don't yet know enough to know what to look for, and Q&amp;A sites like Stack Overflow can be pretty intimidating: most novices don't want to bother people and/or don't want to look clueless in public (and getting "That's a stupid thing to ask, newbie" doesn't help).</p>

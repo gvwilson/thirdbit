@@ -1,7 +1,7 @@
 ---
 title: Lifted by the Audience
 date: 2012-09-02
-category: software-carpentry personal
+category: personal software-carpentry
 original: swc
 ---
 <p>I spent Thursday and Friday recording most of the material we've been using in workshops for the past six months [<a href="#1">1</a>]. One thing that kept bugging me was how flat and uninspiring it was to talk to a camera: I had forgotten just how much a live audience energizes me. I also realized how much I rely on people's questions, and the expressions on their faces, to keep me on track: it took me almost 15 minutes to remember that I needed to explain that Python uses indentation to show nesting, whereas I <em>always</em> do that at the right time in a live class because someone either asks or looks puzzled.</p>

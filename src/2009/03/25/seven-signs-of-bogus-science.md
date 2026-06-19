@@ -1,7 +1,7 @@
 ---
 title: "Seven Signs of Bogus Science"
 date: 2009-03-25
-category: research-methods noticed
+category: noticed research
 ---
 Nice article in the <em>Chronicle of Higher Education</em> on <a href="http://chronicle.com/free/v49/i21/21b02001.htm">signs of bogus science</a>:
 <ol>

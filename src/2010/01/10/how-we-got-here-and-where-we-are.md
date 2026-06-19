@@ -1,7 +1,7 @@
 ---
 title: How We Got Here, and Where We Are
 date: 2010-01-10
-category: software-carpentry retro
+category: retro software-carpentry
 original: swc
 ---
 <p>I gave a talk in Santa Fe early in 1997 describing a set of articles I'd organized for the Summer 1996 and Fall 1996 issues of <em>IEEE Computational Science and Engineering</em> (now <a href="http://cise.aip.org/"><em>Computing in Science &amp; Engineering</em></a> on the subject, "What should computer scientists teach physical scientists and engineers?" After the talk, John Reynders (then the director of the Advanced Computing Lab at <a href="http://www.lanl.gov">Los Alamos National Laboratory</a>) challenged me to put my money where my mouth was and actually teach basic software development skills to working scientists.</p>

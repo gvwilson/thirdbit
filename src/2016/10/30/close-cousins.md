@@ -1,7 +1,7 @@
 ---
 title: "Close Cousins"
 date: 2016-10-30
-category: tools programming
+category: programming
 original: swc
 ---
 

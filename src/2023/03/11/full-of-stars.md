@@ -1,7 +1,7 @@
 ---
 title: "Full of Stars"
 date: 2023-03-11
-category: fiction-writing
+category: fiction
 ---
 
 *[begin transmission]*

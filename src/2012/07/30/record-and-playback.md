@@ -1,7 +1,7 @@
 ---
 title: Record and Playback
 date: 2012-07-30
-category: software-carpentry tools
+category: programming software-carpentry
 original: swc
 ---
 <p>The biggest bottleneck Software Carpentry faces right now is a shortage of experienced instructors. To help fix that, we are going to record a complete presentation of our core two-day material so that people who want to teach it themselves can see <em>how</em> we say things, as well as <em>what</em> we say [<a href="#1">1</a>, <a href="#2">2</a>].</p>

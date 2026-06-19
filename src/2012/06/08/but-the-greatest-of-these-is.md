@@ -1,7 +1,7 @@
 ---
 title: But the Greatest of These Is…
 date: 2012-06-08
-category: cs-education
+category: education
 original: swc
 ---
 <p>In her <a href="http://www.eage.org/events/index.php?evp=6819&amp;ActiveMenu=44&amp;Opendivs=s3,s13,s29">EAGE keynote</a> earlier today, <a href="http://blog.stodden.net/">Victoria Stodden</a> talked about the central role of geophysics in the reproducible research movement. After discussing the problem, she identified five interlocking solutions:</p>

@@ -1,7 +1,7 @@
 ---
 title: Graph Layout, Models vs. Views, and Computational Thinking
 date: 2011-03-16
-category: programming cs-education
+category: education programming
 original: swc
 ---
 <p>Money for me to keep working full-time on Software Carpentry hasn't materialized, so as I've mentioned in a couple of recent posts, I'm trying to find a way to organize the course material more coherently in the hope that other people will (finally) start to contribute content as well.  As part of that, I have spent the last two days trying to draw a graph showing the questions Software Carpentry seeks to answer, and the concepts that underpin the answers.  It's been harder than I expected, and I think the reasons might give some insight into how a computational thinker thinks.</p>

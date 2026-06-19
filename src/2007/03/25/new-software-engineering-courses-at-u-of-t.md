@@ -1,7 +1,7 @@
 ---
 title: "New Software Engineering Courses at U of T"
 date: 2007-03-25
-category: cs-education
+category: education
 ---
 Starting in September 2007, the <a href="http://www.utoronto.ca">University of Toronto</a> will replace its current three-course sequence in software engineering with two new courses.  The first, CSC301, will be suitable for students in all streams; the second will primarily target Software Engineering specialists, though we expect a significant number of students from other specializations (particularly those intending to do <a href="http://www.peyonline.com/">PEY</a> internships) will take it as well.  I've included outlines for the courses below, and I'd be grateful for feedback.
 

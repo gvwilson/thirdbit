@@ -1,7 +1,7 @@
 ---
 title: "Das Kapital, Computational Thinking, and Productivity"
 date: 2009-02-23
-category: software-carpentry opinion
+category: opinion software-carpentry
 ---
 Somewhere in <em>The Age of Uncertainty</em>, Galbraith wrote that what made <em>Das Kapital</em> and the Bible great books was that they were so large, and so full of contradictions, that everyone could find support in them for anything they wanted. I have felt the same way about the phrase "<a href="http://www.cs.cmu.edu/~CompThink/">computational thinking</a>" ever since I attended a workshop at Microsoft Research in September 2007. In one of the breakout sessions, six of us tried to operationalize our understanding of the term by coming up with questions for a quiz that could be given to someone to determine if he or she was thinking computationally. It quickly became clear that we meant very different things when we used those two words. It was also clear (to me at least) that this ambiguity was socially very useful, since (to switch metaphors) it allowed people to attend the same church while disagreeing on the nature of salvation. It's not a <a href="http://en.wikipedia.org/wiki/Polite_fiction">polite fiction</a> per se, but rather a—um, damn, I don't know the word—a thing that no one looks at closely because doing so would cause discomfort or friction.
 

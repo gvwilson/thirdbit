@@ -1,7 +1,7 @@
 ---
 title: "You Need a Debugger to Change the World"
 date: 2005-10-27
-category: software
+category: programming
 ---
 Following links from the latest <a href="http://www.subtextual.org/">Subtext</a> demo, I came to Martin Fowler's article <a href="http://www.martinfowler.com/articles/languageWorkbench.html">"Language Workbenches: The Killer-App for Domain Specific Languages?"</a>.  It's well written and thought provoking, like everything else Martin writes, but I think there's one glaring oversight. Two thirds of the way through, he says:
 

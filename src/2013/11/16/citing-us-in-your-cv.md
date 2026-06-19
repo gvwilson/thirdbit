@@ -1,7 +1,7 @@
 ---
 title: "Citing Us In Your CV"
 date: 2013-11-16
-category: research-methods
+category: research
 original: swc
 ---
 <p>

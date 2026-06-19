@@ -1,7 +1,7 @@
 ---
 title: "A Model Experiment"
 date: 2020-01-04
-category: empirical-se research-methods
+category: empirical-se research
 ---
 
 A couple of years ago,

@@ -1,7 +1,7 @@
 ---
 title: "Teaching Workshops for Rainbow Railroad"
 date: 2023-08-20
-category: education diversity community-events
+category: community diversity education
 ---
 
 <div class="row">

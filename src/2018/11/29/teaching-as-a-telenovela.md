@@ -1,7 +1,7 @@
 ---
 title: "Teaching as a Telenovela"
 date: 2018-11-29
-category: cs-education
+category: education
 ---
 
 I have never been a fan of a daytime soap opera (that I'm willing to admit in public),

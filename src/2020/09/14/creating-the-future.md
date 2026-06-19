@@ -1,7 +1,7 @@
 ---
 title: "We're Creating the Future"
 date: 2020-09-14
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 *Have you seen Mary Rose Cook's [Gitlet](http://gitlet.maryrosecook.com/docs/gitlet.html)?*

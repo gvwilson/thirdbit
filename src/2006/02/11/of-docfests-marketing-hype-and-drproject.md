@@ -1,7 +1,7 @@
 ---
 title: "Of DocFests, Marketing Hype, and DrProject"
 date: 2006-02-11
-category: student-projects programming
+category: programming student-projects
 ---
 Sean, Michelle, and I spent a couple of hours yesterday writing and updating documentation for DrProject.  The first 1.0 release candidate is now up on the web; while there are lots of little things to fix, I'm 99% confident we'll be able to announce it, and open up the Subversion repository, within the week.
 

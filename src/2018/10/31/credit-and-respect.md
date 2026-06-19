@@ -1,7 +1,7 @@
 ---
 title: "Credit and Respect"
 date: 2018-10-31
-category: cs-education open-source
+category: education open-source
 ---
 
 You can tell what people respect by what they're willing to give others credit for doing.

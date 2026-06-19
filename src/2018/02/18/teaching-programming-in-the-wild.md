@@ -1,7 +1,7 @@
 ---
 title: "Teaching Programming in the Wild"
 date: 2018-02-18
-category: cs-education
+category: education
 ---
 
 Back in 2007,

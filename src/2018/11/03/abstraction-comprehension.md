@@ -1,7 +1,7 @@
 ---
 title: "Abstraction and Comprehension"
 date: 2018-11-03
-category: empirical-se cs-education
+category: education empirical-se
 ---
 
 I've been thinking a lot about the notations we use for programming

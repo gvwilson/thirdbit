@@ -1,7 +1,7 @@
 ---
 title: "Mr. Biczo Was Right"
 date: 2014-04-23
-category: cs-education
+category: education
 original: swc
 ---
 <p>

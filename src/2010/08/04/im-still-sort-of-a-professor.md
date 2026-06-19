@@ -1,7 +1,7 @@
 ---
 title: "I'm Still Sort of a Professor"
 date: 2010-08-04
-category: software-carpentry academia
+category: academia software-carpentry
 ---
 While I'm no longer employed by the University of Toronto, I'm still involved with several student projects. Several of them have had good news to report this past week:
 <ul>

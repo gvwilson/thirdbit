@@ -1,7 +1,7 @@
 ---
 title: "Strategies for Change"
 date: 2021-02-22
-category: cs-education community-events
+category: community education
 ---
 
 I've written before

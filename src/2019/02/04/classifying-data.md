@@ -1,7 +1,7 @@
 ---
 title: "Classifying Data"
 date: 2019-02-04
-category: favorite data-science humor
+category: data-science favorite humor
 ---
 
 With apologies to [Borges](https://en.wikipedia.org/wiki/Celestial_Emporium_of_Benevolent_Knowledge),

@@ -1,7 +1,7 @@
 ---
 title: "The Wes Mongtomery of Software"
 date: 2022-05-14
-category: opinion software opinion
+category: opinion programming
 ---
 
 I had a conversation yesterday with a data scientist who is now working for a large IT consulting company.

@@ -1,7 +1,7 @@
 ---
 title: "Good Enough Teaching"
 date: 2021-01-18
-category: cs-education empirical-se
+category: education empirical-se
 ---
 
 I'm blocked by a tech issue at work right now. I should do diagrams for [*Software Design by Example Using JavaScript*](@root/sdxjs/), but instead I'm going to talk about good enough practices in teaching. Years ago we wrote a paper called "[Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)". A lot of people found it useful, but a lot of other people found it intimidating (like, triathlete's daily workout intimidating), so we followed it up with "[Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)" to describe more approachable things that the majority could do right away.

@@ -1,7 +1,7 @@
 ---
 title: "Sessioncasting"
 date: 2022-12-18
-category: cs-education tools proposal
+category: education programming proposal
 ---
 
 > INTRODUCTION: [This trend], which everyone knows about,

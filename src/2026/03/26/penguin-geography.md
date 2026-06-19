@@ -1,7 +1,7 @@
 ---
 title: "Penguin Geography"
 date: 2026-03-26
-category: cs-education
+category: education
 ---
 
 If you are using the [Palmer Penguins][penguins] dataset

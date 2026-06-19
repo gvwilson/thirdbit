@@ -1,7 +1,7 @@
 ---
 title: "Procrastination: One of the Few Things in Life Nicer Than Toast"
 date: 2005-12-23
-category: personal software
+category: personal programming
 ---
 I finished rewriting the build system for the Software Carpentry course notes yesterday.  Doing so was an extended form of procrastination: the system I built over the summer and used through the fall was adequate, but I wanted to clean a few things up, and then, well, I might as well make it easier for other instructors to add site-specific content, and make tables inclusions instead of inlining them, and mumble mumble mumble type type type…
 

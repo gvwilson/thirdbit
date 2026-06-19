@@ -1,7 +1,7 @@
 ---
 title: "Empirical Software Engineering Vignettes"
 date: 2022-08-14
-category: empirical-se cs-education
+category: education empirical-se
 ---
 
 I have been [arguing for years][essay]

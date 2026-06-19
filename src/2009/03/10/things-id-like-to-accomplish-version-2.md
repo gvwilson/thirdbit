@@ -1,7 +1,7 @@
 ---
 title: "Things I'd Like to Accomplish (Version 2)"
 date: 2009-03-10
-category: personal academia
+category: academia personal
 ---
 415 days to go; here's an update my last "things I'd like to accomplish" post:
 <ol>

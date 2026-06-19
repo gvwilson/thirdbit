@@ -1,7 +1,7 @@
 ---
 title: "A New Stack"
 date: 2024-04-18
-category: tools programming
+category: programming
 ---
 
 I'm tired of teaching tools that are older than most of the people learning them,

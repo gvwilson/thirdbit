@@ -1,7 +1,7 @@
 ---
 title: "Curriculum Roadmap"
 date: 2019-03-30
-category: cs-education education conferences
+category: conferences education
 ---
 
 "PythonSneks: An Open-Source, Instructionally-Designed Introductory Curriculum with Action-Design Research"

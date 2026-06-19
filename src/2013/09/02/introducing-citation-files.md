@@ -1,7 +1,7 @@
 ---
 title: "Introducing Citation Files"
 date: 2013-09-02
-category: research-methods open-source
+category: open-source research
 original: swc
 ---
 <p>

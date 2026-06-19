@@ -1,7 +1,7 @@
 ---
 title: "Poor Cousins"
 date: 2004-08-04
-category: software student-projects
+category: programming student-projects
 ---
 <p>Four weeks left until the summer's work on Hippo (formerly Helium)
 winds down, and we're starting to run into the 10% of cases that make

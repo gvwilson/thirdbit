@@ -1,7 +1,7 @@
 ---
 title: "Rationalizing the Admin Interface"
 date: 2008-02-15
-category: student-projects programming
+category: programming student-projects
 ---
 Anyone who has ever worked with me knows that I should <em>not</em> be allowed to design user interfaces. Nature, nurture—dunno why, but anything that I find intuitive and pleasing leaves most people queasy and confused.
 

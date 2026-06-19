@@ -1,7 +1,7 @@
 ---
 title: Whatcha Gonna Do When They Come For You?
 date: 2010-01-13
-category: software-carpentry personal
+category: personal software-carpentry
 original: swc
 ---
 <p>First it was pharma companies withholding "unhelpful" data, then it was ClimateGate, and now there's <a href="http://blogs.nature.com/news/thegreatbeyond/2010/01/baby_einstein_research_row_res.html">this</a>:</p>

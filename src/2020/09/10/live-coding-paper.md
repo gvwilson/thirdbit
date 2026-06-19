@@ -1,7 +1,7 @@
 ---
 title: "Ten Quick Tips for Teaching with Participatory Live Coding"
 date: 2020-09-10
-category: software-carpentry education
+category: education software-carpentry
 ---
 
 Our paper "[Ten quick tips for teaching with participatory live coding](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008090)"

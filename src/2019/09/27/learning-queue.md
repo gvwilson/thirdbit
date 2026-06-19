@@ -1,7 +1,7 @@
 ---
 title: "Managing a Queue of Learners"
 date: 2019-09-27
-category: education career
+category: career education
 ---
 
 More than 200 people will have taken [RStudio instructor training](https://education.rstudio.com/trainers/) by the end of this year.

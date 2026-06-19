@@ -1,7 +1,7 @@
 ---
 title: Next Steps for Simulation
 date: 2026-01-05
-category: programming tools simulation
+category: programming simulation
 ---
 
 I've filed [a few issues][issues]

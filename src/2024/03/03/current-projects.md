@@ -1,7 +1,7 @@
 ---
 title: "Current Projects"
 date: 2024-03-03
-category: technical-writing fiction-writing programming
+category: fiction programming technical-writing
 ---
 
 A week ago I posted [my last to-don't list][to-dont];

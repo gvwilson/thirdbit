@@ -1,7 +1,7 @@
 ---
 title: "Procedural versus Declarative"
 date: 2018-01-15
-category: cs-education programming
+category: education programming
 ---
 
 The distinction between declarative memory and procedural memory

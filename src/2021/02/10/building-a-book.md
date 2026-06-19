@@ -1,7 +1,7 @@
 ---
 title: "Building a Book"
 date: 2021-02-10
-category: tools technical-writing
+category: programming technical-writing
 ---
 
 I have written or edited five technical books in the last 11 years

@@ -1,7 +1,7 @@
 ---
 title: "Blaise Pascal's Shorter Letter"
 date: 2005-02-05
-category: software
+category: programming
 ---
 <p>The French mathematician Blaise Pascal once wrote, "I have made this letter longer than usual, only because I have not had the time to make it shorter."  The 'letter' in question was a mathematical proof—Pascal was apologizing for not having taken the time to clean it up and make it more elegant.</p>
 

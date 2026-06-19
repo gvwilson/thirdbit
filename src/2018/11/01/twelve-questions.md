@@ -1,7 +1,7 @@
 ---
 title: "Twelve Questions"
 date: 2018-11-01
-category: cs-education empirical-se
+category: education empirical-se
 ---
 
 Way back in the year 2000,

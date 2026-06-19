@@ -1,7 +1,7 @@
 ---
 title: Online Delivery
 date: 2010-03-26
-category: software-carpentry cs-education
+category: education software-carpentry
 original: swc
 ---
 <p>As the announcement of Version 4 said, Software Carpentry is being redesigned so that it can be delivered in several ways. I want to support:</p>

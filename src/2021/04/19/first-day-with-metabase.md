@@ -1,7 +1,7 @@
 ---
 title: "First Day with Metabase"
 date: 2021-04-19
-category: data-science tools
+category: data-science programming
 ---
 
 Today is my first day as Head of Education at [Metabase](http://metabase.com).

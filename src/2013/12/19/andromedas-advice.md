@@ -1,7 +1,7 @@
 ---
 title: "Andromeda's Advice"
 date: 2013-12-19
-category: cs-education
+category: education
 original: swc
 ---
 <p>

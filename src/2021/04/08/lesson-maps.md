@@ -1,7 +1,7 @@
 ---
 title: "Lesson Maps"
 date: 2021-04-08
-category: cs-education education
+category: education
 ---
 
 One of the silver linings of unemployment is that

@@ -1,7 +1,7 @@
 ---
 title: Managing Conflict
 date: 2025-01-09
-category: cs-education student-projects
+category: education student-projects
 ---
 
 You just missed an important deadline, and people are unhappy.

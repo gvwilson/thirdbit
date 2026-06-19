@@ -1,7 +1,7 @@
 ---
 title: "I Don't Know What to Think About AI"
 date: 2023-08-13
-category: ethics cs-education opinion
+category: education ethics opinion
 ---
 
 I had a conversation last week with someone who has been working hard for years

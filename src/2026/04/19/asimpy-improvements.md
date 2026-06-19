@@ -1,7 +1,7 @@
 ---
 title: "asimpy Improvements"
 date: 2026-04-19
-category: programming tools simulation
+category: programming simulation
 ---
 
 Following up on [yesterday's post about benchmarking][benchmark],

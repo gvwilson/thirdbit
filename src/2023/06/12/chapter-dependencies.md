@@ -1,7 +1,7 @@
 ---
 title: "Chapter Dependencies"
 date: 2023-06-12
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 I'm making slow but steady progress

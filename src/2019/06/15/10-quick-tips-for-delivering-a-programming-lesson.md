@@ -1,7 +1,7 @@
 ---
 title: "Ten Quick Tips for Delivering a Programming Lesson"
 date: 2019-06-15
-category: education cs-education
+category: education
 ---
 
 > Designing a great lesson is the first 90% of effective teaching;

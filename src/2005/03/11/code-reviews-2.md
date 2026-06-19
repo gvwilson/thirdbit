@@ -1,7 +1,7 @@
 ---
 title: "Code reviews"
 date: 2005-03-11
-category: software education
+category: education programming
 ---
 <p>We're two weeks away from the coding cutoff, so I've got students doing code reviews.  For most of them, this is the first time in their lives that they've marked someone else's code, and had their own examined line by line.  (They've all had plenty of code marked, of course, but with an average of 70 students in a course, TAs can't give the kind of detailed feedback students we all wish they could.)</p>
 

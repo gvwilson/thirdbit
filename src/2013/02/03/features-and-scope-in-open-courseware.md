@@ -1,7 +1,7 @@
 ---
 title: Features and Scope in Open Courseware
 date: 2013-02-03
-category: cs-education open-source
+category: education open-source
 original: swc
 ---
 

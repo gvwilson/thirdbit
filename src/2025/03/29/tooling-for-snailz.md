@@ -1,7 +1,7 @@
 ---
 title: Tooling for Snailz
 date: 2025-03-29
-category: programming tools
+category: programming
 ---
 
 I built [a synthetic data generator][snailz] last year to use in a "software design for data scientists" tutorial

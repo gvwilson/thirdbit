@@ -1,7 +1,7 @@
 ---
 title: "Announcing Glosario"
 date: 2020-07-28
-category: software-carpentry open-source
+category: open-source software-carpentry
 ---
 
 [`glosario`](https://github.com/carpentries/glosario) is an open source glossary of terms used in data science

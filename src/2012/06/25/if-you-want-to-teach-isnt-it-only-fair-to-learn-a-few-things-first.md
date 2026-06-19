@@ -1,7 +1,7 @@
 ---
 title: If You Want to Teach, Isn't It Only Fair to Learn a Few Things First?
 date: 2012-06-25
-category: cs-education
+category: education
 original: swc
 ---
 <p>Carla, a high school student, is doing a class project comparing climate change in the Northern and Southern hemispheres. She wants to see whether the gap between the average annual temperatures in Canada and Australia increased during the Twentieth Century. The raw data she needs is available online; all she needs to do (for some value of "all") is get it, load it into her program, do her calculations, and create an HTML to display her results for other students to see.</p>

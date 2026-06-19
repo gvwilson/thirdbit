@@ -1,7 +1,7 @@
 ---
 title: "Teaching in the Large"
 date: 2015-10-09
-category: cs-education
+category: education
 ---
 <p>
   Acccording to

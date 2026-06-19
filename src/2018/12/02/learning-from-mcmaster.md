@@ -1,7 +1,7 @@
 ---
 title: "Learning from McMaster"
 date: 2018-12-02
-category: cs-education
+category: education
 ---
 
 The medical program at McMaster University is one of the best in Canada.

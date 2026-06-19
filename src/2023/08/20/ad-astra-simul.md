@@ -1,7 +1,7 @@
 ---
 title: "Ad Astra Simul"
 date: 2023-08-20
-category: software-carpentry noticed
+category: noticed software-carpentry
 ---
 
 From <https://astera.org/unblocking-scientific-publishing/>:

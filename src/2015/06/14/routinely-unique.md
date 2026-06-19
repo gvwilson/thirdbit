@@ -1,7 +1,7 @@
 ---
 title: "Routinely Unique"
 date: 2015-06-14
-category: cs-education
+category: education
 original: swc
 ---
 <p>

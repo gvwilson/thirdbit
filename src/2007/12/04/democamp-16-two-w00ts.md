@@ -1,7 +1,7 @@
 ---
 title: "DemoCamp 16: two w00ts"
 date: 2007-12-04
-category: community-events
+category: community
 ---
 Last night's DemoCamp at the Board of Trade went very well. 200+ people in attendance, despite the weather, and some very cool <a href="http://davidcrow.ca/article/1781/democamptoronto16-update">demos and presentations</a>, including two from U of T that got lots of applause:
 <ul>

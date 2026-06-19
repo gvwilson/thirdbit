@@ -1,7 +1,7 @@
 ---
 title: What Skills Are Required to Implement Open Access?
 date: 2012-06-04
-category: research-methods open-source
+category: open-source research
 original: swc
 ---
 <p>Late last night, local time, the <a href="https://wwws.whitehouse.gov/petitions/!/petition/require-free-access-over-internet-scientific-journal-articles-arising-taxpayer-funded-research/wDX82FLQ">Access2Research petition at whitehouse.gov</a> got 25,000 signatures, which means that the White House is committed to responding. As someone who no longer reviews for journals that aren't OA, I obviously think that's great news, but it once again raises the question: what concepts and skills do researchers need in order to <em>implement</em> open access?  Jon Udell has written at length about some things (most recently <a href="http://www.wired.com/cloudline/2012/06/calendars-in-the-cloud/">here</a>), but to sharpen up the discussion:</p>

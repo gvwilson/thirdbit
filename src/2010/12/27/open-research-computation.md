@@ -1,7 +1,7 @@
 ---
 title: Open Research Computation
 date: 2010-12-27
-category: software-carpentry research-methods
+category: research software-carpentry
 original: swc
 ---
 <p>By now, many of you have (hopefully) seen the announcement of <a href="http://www.openresearchcomputation.com/"><em>Open Research Computation</em></a>, a new journal devoted to "…peer reviewed articles that describe the development, capacities, and  uses of software designed for use by researchers in any field." The editorial board includes several friends of this course; as one of them, Titus Brown, observed in his blog:</p>

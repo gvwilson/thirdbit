@@ -1,7 +1,7 @@
 ---
 title: "ITiCSE'07"
 date: 2007-07-14
-category: cs-education conferences
+category: conferences education
 ---
 The latest issue of <a href="http://www.sigcse.org/bulletin/">SIGCSE Bulletin</a> (Vol 39, #3, Sept 2007) has the proceedings from the 12th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education (<a href="http://iticse2007.computing.dundee.ac.uk/">ITiCSE'07</a>). The papers aren't available (directly) on the web, though students can get them through through the U of T library, and a little creating Googling can usually turn up authors' copies of their contributions. I read about a quarter of the papers, and skimmed another quarter; notes are below.
 

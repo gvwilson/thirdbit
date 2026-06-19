@@ -1,7 +1,7 @@
 ---
 title: "Publishing Our Lessons, Version 2016.06"
 date: 2016-07-19
-category: software-carpentry open-source
+category: open-source software-carpentry
 original: swc
 ---
 <p>

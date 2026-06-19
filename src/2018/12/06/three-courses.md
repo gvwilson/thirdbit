@@ -1,7 +1,7 @@
 ---
 title: "Three Courses"
 date: 2018-12-06
-category: cs-education
+category: education
 ---
 
 People who've known me for a while will have heard all this before,

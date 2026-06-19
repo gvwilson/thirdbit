@@ -1,7 +1,7 @@
 ---
 title: "Making a Book"
 date: 2023-06-13
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 Mike Hoye recently [tooted][toot]:

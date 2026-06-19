@@ -1,7 +1,7 @@
 ---
 title: Novelty, Efficiency, and Trust
 date: 2013-01-28
-category: cs-education
+category: education
 original: swc
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Martin Fenner on SciBarCamp
 date: 2009-07-26
-category: software-carpentry conferences noticed
+category: conferences noticed software-carpentry
 original: swc
 ---
 <p><em>Nature</em>'s Martin Fenner has <a href="http://blogs.plos.org/mfenner/2009/07/10/i_was_at_scibarcamp_palo_alto/">blogged</a> a summary of what he heard and saw at SciBarCamp'09 in Palo Alto a couple of weeks ago.  Cameron Neylon <a href="http://blog.openwetware.org/scienceintheopen/2009/07/15/sci-bar-foo-etc-part-i-scibarcamp-palo-alto/">was</a> <a href="http://blog.openwetware.org/scienceintheopen/2009/07/17/sci-bar-foo-etc-part-ii-scifoo-engaging-with-the-world/">there</a> <a href="http://blog.openwetware.org/scienceintheopen/2009/07/19/sci-bar-foo-etc-part-iii-google-wave-session-at-scifoo/">too</a>–in fact, I'd be willing to bet that a healthy number of attendees posted their experiences in some form or another.  Maybe the next challenge for scientific publishing is something that will aggregate and summarize disparate reports of such events?</p>

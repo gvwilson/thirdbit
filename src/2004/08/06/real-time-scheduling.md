@@ -1,7 +1,7 @@
 ---
 title: "Real-time Scheduling"
 date: 2004-08-06
-category: software tools
+category: programming
 ---
 <p>In <a href="http://www.jrothman.com/weblog/archive/2004_05_01_mpdarchive.html#108361096283936713">this blog posting</a> from May 2004, Johanna Rothman talks about how easy it is to build a schedule for a small project using just yellow sticky notes.  Back in June, I commented on Roy Osherove's <a href="http://weblogs.asp.net/rosherove/archive/2004/06/18/158720.aspx">whiteboard-based project management</a>, and asked for links to software tools that were as easy to collaborate with.  None were forthcoming, but thanks to Michelle Levesque's recent experience at <a href="http://insanecats.com/cgi-bin/single.py?month=jul04&amp;msg=31">VanPy</a>, I now know where to look.</p>
 

@@ -1,7 +1,7 @@
 ---
 title: "Chunks versus Functions"
 date: 2019-06-16
-category: programming data-science
+category: data-science programming
 ---
 
 I have now done two multi-page analyses in R Markdown,

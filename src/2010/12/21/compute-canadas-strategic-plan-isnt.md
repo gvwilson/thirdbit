@@ -1,7 +1,7 @@
 ---
 title: Compute Canada's 'Strategic' Plan Isn't
 date: 2010-12-21
-category: software-carpentry politics
+category: politics software-carpentry
 original: swc
 ---
 <p>Last Friday–December 17–I received an email from Compute Canada.  The emphasis is mine:</p>

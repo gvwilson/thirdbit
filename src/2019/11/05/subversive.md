@@ -1,7 +1,7 @@
 ---
 title: "Power is Always Suspicious of Fun"
 date: 2019-11-05
-category: personal humor
+category: humor personal
 ---
 
 My dad told me once that Hitler feared Charlie Chaplin more than Winston Churchill,

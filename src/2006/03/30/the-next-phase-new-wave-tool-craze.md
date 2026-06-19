@@ -1,7 +1,7 @@
 ---
 title: "The Next Phase New Wave Tool Craze"
 date: 2006-03-30
-category: programming empirical-se
+category: empirical-se programming
 ---
 I spent some time yesterday chatting with <a href="http://osl.cs.uiuc.edu/~ksen/">Koushik Sen</a>, a graduate student at the University of Illinois whose work has been picking up prizes.  Koushik's "concolic" technique combines concrete and symbolic evaluation: basically, he uses program analysis to identify paths through the code, then works backward to generate unit tests that cover those paths efficiently.  The combination is effective enough to uncover previously-unknown bugs in well-tested code from NASA, Sun, and elsewhere; you can download his tools (in binary form only, not source) from his web site.
 

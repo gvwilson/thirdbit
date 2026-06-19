@@ -1,7 +1,7 @@
 ---
 title: "Offering a New Order"
 date: 2013-08-12
-category: cs-education
+category: education
 ---
 <blockquote>
 Every movement that seeks to change society faces two great tasks.

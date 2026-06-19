@@ -1,7 +1,7 @@
 ---
 title: "Steps in Order"
 date: 2021-01-07
-category: cs-education research-methods
+category: education research
 ---
 
 Our book <a href="@root/py-rse/"><em>Research Software Engineering with Python</em></a>

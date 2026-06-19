@@ -1,7 +1,7 @@
 ---
 title: "Converting PowerPoint to SVG: Help Needed"
 date: 2012-02-22
-category: technical-writing tools
+category: programming technical-writing
 ---
 Software Carpentry has 110 PowerPoint files, each containing between 20 and 120 slides–call it 5000 slides in total. I'd like to convert them to HTML5 for use with <a href="https://github.com/dseif/slide-drive">Slide Drive</a>, the <a href="http://imakewebthings.github.com/deck.js/">deck.js</a>+audio slideshow tool that <a href="http://dseifried.wordpress.com/">David Seifried</a> is building. Here's the breakdown:
 <ul>

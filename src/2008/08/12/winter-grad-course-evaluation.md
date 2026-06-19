@@ -1,7 +1,7 @@
 ---
 title: "Winter Grad Course Evaluation"
 date: 2008-08-12
-category: student-projects cs-education
+category: education student-projects
 ---
 I finally got a summary of graduate students feedback on the consulting course I ran this past winter.  It was pretty good overall—on a scale of 1-5, the responses were:
 <table class="centered">

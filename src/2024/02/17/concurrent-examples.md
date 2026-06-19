@@ -1,7 +1,7 @@
 ---
 title: "Concurrent Examples"
 date: 2024-02-17
-category: technical-writing tools
+category: programming technical-writing
 ---
 
 I would like to write a short tutorial on web programming for data scientists.

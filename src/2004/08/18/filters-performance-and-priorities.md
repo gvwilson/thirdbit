@@ -1,7 +1,7 @@
 ---
 title: "Filters, Performance, and Priorities"
 date: 2004-08-18
-category: software education student-projects
+category: education programming student-projects
 ---
 <p>Where has the summer gone?  We've written a lot of software (and documentation), but there's still a lot to do before Helium (er, sorry, Hippo—we're renaming it, for reasons that are too silly to go into) is ready to deploy.</p>
 

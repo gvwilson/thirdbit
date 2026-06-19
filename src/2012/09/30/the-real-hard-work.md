@@ -1,7 +1,7 @@
 ---
 title: The Real Hard Work
 date: 2012-09-30
-category: cs-education
+category: education
 original: swc
 ---
 <p>I spent a couple of thought-provoking hours at <a href="http://www.codecademy.com/">Codecademy</a>'s office in New York on Thursday, during which my host said, "It's so different from Silicon Valley, where a lack of experience is considered an asset." The next day, while teaching at Columbia, I used one of my favorite sayings, "A week of hard work can sometimes save you an hour of thought," and someone in the audience piped up, "Or an hour of reading." The two comments helped crystallize something that I've been thinking about for several months now about what's hard for creative people to do, and what implications that has.</p>

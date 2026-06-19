@@ -1,7 +1,7 @@
 ---
 title: "Looking for a Model"
 date: 2016-05-18
-category: research-methods
+category: research
 original: swc
 ---
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "Accessibility Improvements"
 date: 2026-03-24
-category: programming open-source
+category: open-source programming
 ---
 
 I've made some improvements to the accessibility of

@@ -1,7 +1,7 @@
 ---
 title: "Two Unfunded Proposals"
 date: 2023-10-02
-category: software-carpentry proposal
+category: proposal software-carpentry
 ---
 
 For the price of two condominiums in Toronto,

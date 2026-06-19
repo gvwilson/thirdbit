@@ -1,7 +1,7 @@
 ---
 title: "CourseSource: A(nother) New Hope"
 date: 2015-11-15
-category: cs-education
+category: education
 original: swc
 ---
 <p>

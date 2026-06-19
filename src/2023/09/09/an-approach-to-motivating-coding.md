@@ -1,7 +1,7 @@
 ---
 title: "An Approach to Motivating Coding"
 date: 2023-09-09
-category: cs-education programming tools
+category: education programming
 ---
 
 One of the many challenges when teaching programming to adults is

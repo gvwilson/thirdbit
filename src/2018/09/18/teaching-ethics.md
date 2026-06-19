@@ -1,7 +1,7 @@
 ---
 title: "Teaching Ethics"
 date: 2018-09-18
-category: cs-education ethics
+category: education ethics
 ---
 
 [A couple of days ago](@root/2018/09/16/what-works-for-women-at-work/),

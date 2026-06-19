@@ -1,7 +1,7 @@
 ---
 title: Dark Matter, Public Health, and Scientific Computing
 date: 2012-10-10
-category: software-carpentry research-methods
+category: research software-carpentry
 original: swc
 ---
 <blockquote><p><em>This is the text of a talk given at the 8th IEEE International Conference on eScience, October 10, 2012. The <a href="http://www.slideshare.net/gvwilson/dark-matter-public-health-and-scientific-computing">slides</a> are also available.</em></p></blockquote>

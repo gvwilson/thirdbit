@@ -1,7 +1,7 @@
 ---
 title: "Empirically Minimal"
 date: 2022-10-02
-category: cs-education technical-writing proposal
+category: education proposal technical-writing
 ---
 
 I'm wrapping up the JavaScript version of [*Software Design by Example*](@root/sdxjs/)

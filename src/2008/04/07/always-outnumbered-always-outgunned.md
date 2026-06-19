@@ -1,7 +1,7 @@
 ---
 title: "Always Outnumbered, Always Outgunned"
 date: 2008-04-07
-category: cs-education empirical-se
+category: education empirical-se
 ---
 Or, in the case of software tools in education, always a step behind, but for a good reason. David Wolever recently wrote about <a href="http://blog.codekills.net/archives/35-How-SVK-has-made-my-life-happy.html">how SVK has made his life better</a>; he thinks it's less painful to use than Subversion, and has hinted more than once that DrProject ought to switch. I'm willing to agree with the first, but not (yet) the second—not until there are tutorials that have had their tires kicked, a couple of books, plugins for <a href="http://www.eclipse.org">Eclipse</a> and other IDEs, desktop GUI integration, and everything else that comprises a mature, student-accessible software ecosystem.
 

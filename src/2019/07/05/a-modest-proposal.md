@@ -1,7 +1,7 @@
 ---
 title: "A Modest Proposal"
 date: 2019-07-05
-category: cs-education humor academia
+category: academia education humor
 ---
 
 Undergraduate enrolment in computer science has gone up and down several times over the years.

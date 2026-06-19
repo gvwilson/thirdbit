@@ -1,7 +1,7 @@
 ---
 title: "Hard Problems"
 date: 2022-08-10
-category: programming career opinion
+category: career opinion programming
 ---
 
 I don't know how many hard problems there are in computer science,

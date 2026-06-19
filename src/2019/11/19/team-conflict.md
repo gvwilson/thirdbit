@@ -1,7 +1,7 @@
 ---
 title: "Team Conflict"
 date: 2019-11-19
-category: student-projects career
+category: career student-projects
 ---
 
 *I wrote this guide ten years ago when I was supervising undergraduate
