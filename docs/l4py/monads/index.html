@@ -249,7 +249,7 @@ There are three reasons for this:</p>
 <li>
 <p>Tutorials often start too abstractly.
     "A monad is a monoid in the category of endofunctors"
-    is mathetmatically correctly but pedagogically horrible.</p>
+    is mathematically correctly but pedagogically horrible.</p>
 </li>
 <li>
 <p>Monads are more about composition than data structures.
@@ -286,6 +286,89 @@ Each function returns an <code>Option</code> instead of a <code>Maybe</code>:</p
 <p>Each <code>←</code> extracts the value from the <code>Option</code> context.
 If any step returns <code>none</code>, the whole computation short-circuits to <code>none</code>,
 which is exactly what <code>.bind()</code> did manually in Python.</p>
+<h2>A Second Look at <code>unit</code></h2>
+<p>In the Python <code>Maybe</code> monad above, <code>unit</code> does not actually do anything
+that the constructor does not already do:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Maybe</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Maybe(5)</span>
+<span class="n">Maybe</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>       <span class="c1"># Maybe(5)</span>
+</code></pre></div>
+<p>These are identical.
+<code>unit</code> is present because it names one of the two operations that formally define a monad,
+and writing <code>Maybe.unit(x)</code> signals "this is the entry point into the monadic context"
+rather than "I happen to be constructing an object."
+In a language with a real type system, <code>unit</code> carries a distinct type signature
+(<code>a -&gt; M a</code>) that the compiler can enforce.
+In Python, it is a naming convention, not a functional requirement.</p>
+<h2>The List Monad</h2>
+<p>The List monad shows where this distinction matters.
+The Maybe monad answers "did this computation succeed?"
+The List monad answers "what are all possible outcomes?"
+Instead of propagating failure, it propagates non-determinism:
+each step can return zero, one, or many values,
+and <code>bind</code> fans out across all of them automatically.</p>
+<h3>The Problem It Solves</h3>
+<p>Suppose you want every combination of color and size:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">combos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"S"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">]:</span>
+        <span class="n">combos</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+</code></pre></div>
+<p>Nested loops like this multiply as you add dimensions.
+The List monad abstracts the "try every combination" pattern
+the same way Maybe abstracts "check for failure."</p>
+<h3>A Tiny List Monad in Python</h3>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ListM</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ListM</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">])</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ListM</span><span class="p">([</span><span class="n">x</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"ListM(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">)"</span>
+</code></pre></div>
+<p>Here <code>unit</code> is not just a renamed constructor.
+<code>ListM(x)</code> calls <code>list(x)</code>, which iterates over <code>x</code>:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">ListM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>        <span class="c1"># TypeError: 'int' object is not iterable</span>
+<span class="n">ListM</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># ListM([5])</span>
+</code></pre></div>
+<p><code>unit</code> wraps a single value in a list before passing it to the constructor.
+Without it, there is no safe way to lift a plain value into the List context.</p>
+<p><code>bind</code> applies <code>f</code> to every element and flattens the results.
+That flattening step is what makes it a monad rather than a plain map:
+each call to <code>f</code> returns a <code>ListM</code>, and <code>bind</code> collapses
+the resulting list of lists into one list.</p>
+<h3>Composing with bind</h3>
+<p>Functions in this monad return a <code>ListM</code> of their possible outputs:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pick_color</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ListM</span><span class="p">([</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pick_size</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ListM</span><span class="p">([(</span><span class="n">color</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"S"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">]])</span>
+</code></pre></div>
+<p>Chaining them:</p>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">ListM</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">pick_color</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">pick_size</span><span class="p">)</span>
+<span class="c1"># ListM([("red","S"), ("red","M"), ("red","L"),</span>
+<span class="c1">#        ("blue","S"), ("blue","M"), ("blue","L")])</span>
+</code></pre></div>
+<p>Each step declares its own possibilities;
+the monad handles the cross-product automatically.
+An empty list at any step short-circuits that branch to nothing,
+which is the List monad's equivalent of Maybe's <code>none</code>.</p>
+<h3>In Lean's do Notation</h3>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">allPairs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">(</span><span class="n">String</span><span class="w"> </span><span class="bp">×</span><span class="w"> </span><span class="n">String</span><span class="o">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="bp">←</span><span class="w"> </span><span class="o">[</span><span class="s2">"red"</span><span class="o">,</span><span class="w"> </span><span class="s2">"blue"</span><span class="o">]</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">size</span><span class="w">  </span><span class="bp">←</span><span class="w"> </span><span class="o">[</span><span class="s2">"S"</span><span class="o">,</span><span class="w"> </span><span class="s2">"M"</span><span class="o">,</span><span class="w"> </span><span class="s2">"L"</span><span class="o">]</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="o">(</span><span class="n">color</span><span class="o">,</span><span class="w"> </span><span class="n">size</span><span class="o">)</span>
+</code></pre></div>
+<p>Each <code>←</code> means "for each possible value of..."
+The <code>return</code> at the end is <code>unit</code>:
+it lifts the plain tuple into the List context as a single result,
+rather than introducing a new set of choices.</p>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
