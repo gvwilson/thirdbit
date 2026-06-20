@@ -48,7 +48,6 @@ So what is a rating? It's simply a number: 0 if the character is average, positi
 *Gertrude is big and healthy, so she has bonuses for Size and Fitness, but she's not good with her hands, so she has a penalty for Dexterity. Like most elephants she is somewhat near-sighted, which means a penalty for Perception as well. Her ratings are:*
 
 | *SIZ +3* | *FIT +1* | *DEX -2* | *INT 0* | *PER -1* |
-| :---- | :---- | :---- | :---- | :---- |
 
 ### Strength
 
@@ -192,12 +191,10 @@ Players can get extra points to distribute by lowering ratings as well: they may
 *Garree is a 15-year-old goat. Her default rating is zero for everything, but her player decides to lower her Size by 1 point and to distribute 6 points evenly across Fitness, Dexterity, and Intellect:*
 
 | *SIZ -1* | *FIT +2* | *DEX +2* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
 
 *The same player makes different decisions for Garree's brother Gruff. His Perception is reduced 2 points and his Intellect by 1 point, which gives him 8 points to distribute to other features.*
 
 | *SIZ +3* | *FIT +3* | *DEX +2* | *INT -1* | *PER -2* |
-| :---- | :---- | :---- | :---- | :---- |
 
 ## Skills
 
@@ -254,9 +251,14 @@ Just like features, skills have ratings. Positive ratings mean that characters a
 
 *Garree's initial ratings for the common skills are:*
 
-| *Brawling* | *+1* | *Climbing* | *+3* | *Hiding* | *+3* |
-| :---- | :---- | :---- | :---- | :---- | :---- |
-| *Stealth* | *+3* | *Swimming* | *+2* | *Throwing* | *+2* |
+| Skill | Rating |
+| :---- | -----: |
+| *Brawling* | *+1* |
+| *Climbing* | *+3* |
+| *Hiding* | *+3* |
+| *Stealth* | *+3* |
+| *Swimming* | *+2* |
+| *Throwing* | *+2* |
 
 The six "skills" below are actually categories. Specialties within each must be mastered separately:
 
@@ -281,7 +283,6 @@ When a player is creating a character, they can spend INT+10 points improving th
 *Garree's features are:*
 
 | *SIZ -1* | *FIT +2* | *DEX +2* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
 
 *so she has 12 points to spend on her initial skills. Her adjusted ratings for the six common skills, and her ratings for Bow and First Aid (which her player has chosen to raise), are:*
 
@@ -311,66 +312,64 @@ Every living character belongs to a **species**. They all stand upright, speak, 
 Bears are deeply spiritual animals, apt to halt in the middle of combat and ask, "But truly, what is the point of such strife?" Of course, if you were this big, you could afford to be philosophical too.
 
 | *SIZ +2* | *FIT 0* | *DEX -2* | *INT 0* | *PER -1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Fur counts as Light armor.* |  |  |  |  |
-| *Claws and bite count as Small weapons.* |  |  |  |  |
+
+-   Fur counts as Light armor.
+-   Claws and bite count as Small weapons.
 
 ### Bison
 
 Bison are rarely found on their own—in fact, most suffer from acute isolophobia (the fear of being alone). They are naturally protective of weak members of their "herd", which can include their workmates, neighbors, and fellow adventurers.
 
 | *SIZ +2* | *FIT 0* | *DEX -4* | *INT 0* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Thick hide counts as Light armor.* |  |  |  |  |
-| *Horns count as Small weapons.* |  |  |  |  |
+
+-   Thick hide counts as Light armor.
+-   Horns count as Small weapons.
 
 ### Crocodile
 
 Crocodiles are slow moving, except when they're not, and incredibly patient—particularly when it comes to their favorite sport: revenge.
 
 | *SIZ 0* | *FIT 0* | *DEX -2* | *INT -1* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
-| *Thick hide counts as Light armor.* |  |  |  |  |
-| *Can hold breath for 15 minutes.* |  |  |  |  |
-| *Automatically have Swimming \= 0 at no cost.* |  |  |  |  |
+
+-   Carnivorous.
+-   Thick hide counts as Light armor.
+-   Can hold breath for 15 minutes.
+-   Automatically have Swimming = 0 at no cost.
 
 ### Crow
 
 Crows are the fast-talking deal-makers of the animal world. Their feathered appendages make them somewhat clumsy, and they are fascinated by shiny objects. Crows cannot fly by default but are able to learn.
 
 | *SIZ -4* | *FIT +2* | *DEX -2* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Automatically have Charisma \= 0 at no cost.* |  |  |  |  |
-| *Start with Flight \= None.* |  |  |  |  |
 
-### 
+-   Automatically have Charisma = 0 at no cost.
+-   Start with Flight = None.
 
 ### Eagle
 
 Natural aristocrats, eagles are quick to take offense, but their keen eyesight makes them natural guards and scouts. Eagles cannot fly by default but are able to learn.
 
 | *SIZ -2* | *FIT +1* | *DEX +2* | *INT 0* | *PER +3* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
-| *Start with Flight \= None.* |  |  |  |  |
+
+-   Carnivorous.
+-   Start with Flight = None.
 
 ### Elephant
 
 Elephants naturally form a matriarchal society: females are in charge of government and business, while most adult males skulk around the sidelines trying to find ways to be useful. Young males often go on quests to try to win glory; they are natural story-tellers and have exceptional memories.
 
 | *SIZ +3* | *FIT 0* | *DEX 0* | *INT +2* | *PER -1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Can use trunk as clumsy extra hand (though it's rude to do so in company).* |  |  |  |  |
+
+-   Can use trunk as clumsy extra hand (though it's rude to do so in company).
 
 ### Fox
 
 As cunning as crows, foxes are nimble-fingered, quick-witted, and always looking for their next deal.
 
 | *SIZ -2* | *FIT 0* | *DEX +1* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
-| *Sense of smell is +1 not 0.* |  |  |  |  |
+
+-   Carnivorous.
+-   Sense of smell is +1 not 0.
 
 *Ferenc hated salvage work, even when the tech was as beautiful as this old junk. He especially hated salvage work when he knew that the crocodiles who ran Undertown had already sent a team after the stuff, and that none of them had come back. With a sigh, he shone his flashlight on the—turbine? Engine casing? He had no idea what this was, but the metal alone would be worth a fortune. Something went tick-tick-tick in the darkness above him. He gripped his cudgel more tightly and swung his light in the direction of the sound, not noticing the mechanical blue tentacle snaking out of the hole beside him…*
 
@@ -379,125 +378,115 @@ As cunning as crows, foxes are nimble-fingered, quick-witted, and always looking
 Goats are completely average in every way except for their horns. (Telling them this is a good way to upset them.)
 
 | *SIZ 0* | *FIT 0* | *DEX 0* | *INT 0* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-
-### 
 
 ### Kangaroo
 
 Kangaroos are the happy-go-lucky clowns of the animal world. Townies often dye their tails in bright colors; those who live in the wild will camouflage theirs instead.
 
 | *SIZ 0* | *FIT +2* | *DEX 0* | *INT -1* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Automatically have Jumping \= 0 at no cost.* |  |  |  |  |
-| *Get +1 on Brawling (they're natural boxers).* |  |  |  |  |
+
+-   Automatically have Jumping = 0 at no cost.
+-   Get +1 on Brawling (they're natural boxers).
 
 ### Komodo
 
 These lizard people are most at home in the depths of the jungle, and are fiercely protective of the nesting grounds where they incubate their eggs. If they are shapers, they start with an ability of -2 rather than -4.
 
 | *SIZ -1* | *FIT 0* | *DEX 0* | *INT 0* | *PER +2* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
-| *Get +2 on Stealth when moving slowly.* |  |  |  |  |
+
+-   Carnivorous.
+-   Get +2 on Stealth when moving slowly.
 
 ### Lion
 
 Like elephants, lions form matriarchal societies, and their young males often go adventuring to try to win enough glory to attract female attention.
 
 | *SIZ 0* | *FIT +2* | *DEX 0* | *INT 0* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
+
+-   Carnivorous.
 
 ### Monkey
 
 Smart, curious, and mechanically minded, monkeys are constantly tinkering with gadgets (or breaking them). They are often less respectful of robots' personal space than they should be.
 
 | *SIZ -2* | *FIT 0* | *DEX +4* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Can use their tail as a clumsy third hand.* |  |  |  |  |
+
+-   Can use their tail as a clumsy third hand.
 
 ### Parrot
 
 Born able to fly (though poorly), parrots are also gifted mimics.
 
 | *SIZ -4* | *FIT +3* | *DEX -2* | *INT 0* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Start with Flight \= -4.* |  |  |  |  |
-| *Automatically get Ventriloquism \= 0 at no cost.* |  |  |  |  |
 
-### 
+-   Start with Flight = -4.
+-   Automatically get Ventriloquism = 0 at no cost.
 
 ### Rabbit
 
 It's easy to make fun of rabbits' small size and near-sightedness, but nobody who has ever seen a fluffle of rabbits go berserk in battle is likely to do so. Whenever a rabbit is wounded, it loses control on a roll of 4, 5, or 6 on one die. After that, it gets an extra action each round which it must use for attacking and gains +2 on all attack rolls, but does not defend itself.
 
 | *SIZ -3* | *FIT 0* | *DEX 0* | *INT 0* | *PER +1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *May go berserk.* |  |  |  |  |
 
-### 
+-   May go berserk.
 
 ### Raccoon
 
 Raccoons are the only competition monkeys have for the title "most likely to get into trouble". They are very inquisitive, but sometimes have trouble concentrating on—hey look, a butterfly!
 
 | *SIZ -3* | *FIT 0* | *DEX +4* | *INT +2* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
 
 ### Rhino
 
 Grumpy, they prefer to stay with their herd and are protective of its weaker members.
 
 | *SIZ +3* | *FIT +2* | *DEX -4* | *INT 0* | *PER -2* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Horns counts as Small weapon.* |  |  |  |  |
-| *Sense of smell is +1 not -2.* |  |  |  |  |
+
+-   Horns counts as Small weapon.
+-   Sense of smell is +1 not -2.
 
 ### Sloth
 
 Slow-moving but quick-witted, sloths are sages and healers.
 
 | *SIZ 0* | *FIT 0* | *DEX -2* | *INT +3* | *PER 0* |
-| :---- | :---- | :---- | :---- | :---- |
-| *If a Sloth is a shaper they start at -2 instead of -4.* |  |  |  |  |
-| *Start with Sense Danger \= PER - 3.* |  |  |  |  |
+
+-   If a Sloth is a shaper they start at -2 instead of -4.
+-   Start with Sense Danger = PER - 3.
 
 ### Tiger
 
 As proud as eagles, tigers are scornful of creatures that live in herds or packs, including lions—especially lions.
 
 | *SIZ 0* | *FIT +2* | *DEX 0* | *INT 0* | *PER +1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
 
-### 
+-   Carnivorous.
 
 ### Turtle
 
 Slow-moving, short-sighted, and natural shapers: their ability starts at -2 rather than -4.
 
 | *SIZ -2* | *FIT -2* | *DEX +2* | *INT +2* | *PER -3* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Automatically have Swimming \= 0 at no cost.* |  |  |  |  |
-| *Shell counts as Light armor.* |  |  |  |  |
-| *Can hold their breath for 15 minutes.* |  |  |  |  |
+
+-   Automatically have Swimming = 0 at no cost.
+-   Shell counts as Light armor.
+-   Can hold their breath for 15 minutes.
 
 ### Wolf
 
 Fast, strong, and brave, wolves usually travel in packs of half a dozen, and their alphas are often community leaders.
 
 | *SIZ 0* | *FIT +2* | *DEX 0* | *INT 0* | *PER +1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *Carnivorous.* |  |  |  |  |
+
+-   Carnivorous.
 
 ### Zebra
 
 Zebras have a remarkable ability to hide themselves, which is described below under "Skills".
 
 | *SIZ -2* | *FIT 0* | *DEX -2* | *INT 0* | *PER +1* |
-| :---- | :---- | :---- | :---- | :---- |
-| *When standing still, can change color to blend into surroundings, giving them +2 bonus for Hiding.* |  |  |  |  |
+
+-   When standing still, can change color to blend into surroundings, giving them +2 bonus for Hiding.
 
 *"He was handsome, your dad," Jubba's grandma said, passing her the colored sketch that had hung on her wall for as long as Jubba could remember. "A bit full of himself sometimes, though. That gun? He borrowed that for the portrait." "And nobody ever found out what happened to him?" Jubba asked. Her grandma glanced around to see if anyone was listening. "That's the official story," she said quietly. "But here, look at this." She took back the sketch, slid it out of its frame, and turned it over. Jubba's eyes widened. "Is that—is that a map?"*
 
@@ -686,57 +675,7 @@ Bots naturally have Light Armor. By default, every robot character has either tr
 
 **Species**: a kind of intelligent living character.
 
-**Shapers and Bots**
-
-| Name: |  |  |  |
-| :---- | ----- | :---- | ----- |
-| Species: |  | Age: |  |
-| Background:  |  |  |  |
-|  **Features** |  |  |  |
-| Size: |  | Intelligence: |  |
-| Fitness: |  | Perception: |  |
-| Dexterity: |  | Strength: |  |
-| Special: |  |  |  |
-|  **Skills** |  |  |  |
-| Brawling: |  | Stealth: |  |
-| Climbing: |  | Swimming: |  |
-| Hiding: |  | Throwing: |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  **Gear** |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-
-**Shapers and Bots**
-
-| Name: Garree |  |  |  |
-| :---- | ----- | :---- | ----- |
-| Species: Goat |  | Age: 15 |  |
-| Background: Ran away from home last year because she doesn't want to be a cabbage farmer. Tries to act tough, but is actually very kind.  |  |  |  |
-|  **Features** |  |  |  |
-| Size: -1 |  | Intelligence: +2 |  |
-| Fitness: +2 |  | Perception: 0 |  |
-| Dexterity: +2 |  | Strength: +1 |  |
-| Special: |  |  |  |
-|  **Skills** |  |  |  |
-| Brawling: +3 |  | Stealth: +4 |  |
-| Climbing: +3 |  | Swimming: -3 |  |
-| Hiding: +3 |  | Throwing: +1 |  |
-| Bow: -2 |  |  |  |
-| First Aid: -1 |  |  |  |
-|  |  |  |  |
-|  **Gear** |  |  |  |
-| Knapsack |  | Bow (in hand) |  |
-| Water bottle |  | Arrows (in quiver): o o o o o o o o |  |
-| 15m rope |  | Knife (in boot) |  |
-| Warm sweater |  | 15 silver coins (in pocket) |  |
-| Loaf of bread |  | Small ball of string (in pocket) |  |
-
-### Skills Reference
+## Skills Reference
 
 | Skill | Rating | Skill | Rating |
 | :---- | :---- | :---- | :---- |
@@ -747,29 +686,28 @@ Bots naturally have Light Armor. By default, every robot character has either tr
 | Camouflage | -3 | Riding | FIT |
 | Camping | -3 | Sailing | -5 |
 | Charisma | INT | Singing | -3 |
-| ***Climbing*** | FIT | Skating | FIT - 3 |
+| **Climbing** | FIT | Skating | FIT - 3 |
 | Computers | None | Skiing | FIT - 3 |
 | Dancing | FIT | Stage Magic | None |
-| Driving | None | ***Stealth*** | FIT - SIZ |
-| Escapology | DEX | ***Swimming*** | FIT - 3 |
-| Farming | -3 | ***Throwing*** | FIT |
+| Driving | None | **Stealth** | FIT - SIZ |
+| Escapology | DEX | **Swimming** | FIT - 3 |
+| Farming | -3 | **Throwing** | FIT |
 | First Aid | -3 | Tracking | PER |
 | Gambling | -3 | Trapping | -5 |
-| ***Hiding*** | INT - SIZ | Tunnelling | -3 |
+| **Hiding** | INT - SIZ | Tunnelling | -3 |
 | Hypnotism | None | Ventriloquism | None |
-|  |  |  |  |
-| ***Craft*** | None | ***Music*** | None |
-| ***Fine Art*** | None | ***Weapon*** | FIT - 4 |
-| ***Lore*** | None | ***Shaping*** | None |
+| **Craft** | None | **Music** | None |
+| **Fine Art** | None | **Weapon** | FIT - 4 |
+| **Lore** | None | **Shaping** | None |
 
 ### Character Creation Reference
 
-1. Spent 5 points raising ratings (none by more than 3 points).  
-2. Gain points by lowering ratings (cannot lower total by more than 3 points).  
-3. Spend INT+10 points on skills.  
-   1. Raising a skill from None to -4 costs 1 point.  
-   2. Raising a skill costs point 1 each level up to +3.  
-   3. Raising a skill costs 2 points per level from +4 on up.
+1.  Spent 5 points raising ratings (none by more than 3 points).  
+2.  Gain points by lowering ratings (cannot lower total by more than 3 points).  
+3.  Spend INT+10 points on skills.  
+    1.  Raising a skill from None to -4 costs 1 point.  
+    2.  Raising a skill costs point 1 each level up to +3.  
+    3.  Raising a skill costs 2 points per level from +4 on up.
 
 | Species | Size | Fitness | Dexterity | Intelligence | Perception |
 | :---- | ----- | ----- | ----- | ----- | ----- |
@@ -823,36 +761,3 @@ Bots naturally have Light Armor. By default, every robot character has either tr
 | Cannot communicate | Thin-skinned |
 | Deaf | Top-heavy |
 | Fragile | Weak battery |
-
-### Odds
-
-| Modifier | Roll Needed | Chance of Winning |  | Challenge Roll Roll 3 dice Add/subtract modifiers for skill Add/subtract modifiers for situation Succeed on 11 or higher Fluke Roles Always succeed on roll of 17-18 Always fail on roll of 3-4 Contests Both players roll 3 dice Each player adds/subtracts modifiers Higher roll wins Deadlock if rolls tied  |
-| ----- | ----- | ----- | ----- | :---- |
-| -7 | 18 | 0.5% |  |  |
-| -6 | 17 | 1.9% |  |  |
-| -5 | 16 | 4.6% |  |  |
-| -4 | 15 | 9.3% |  |  |
-| -3 | 14 | 16.2% |  |  |
-| -2 | 13 | 25.9% |  |  |
-| -1 | 12 | 37.5% |  |  |
-| 0 | 11 | 50.0% |  |  |
-| +1 | 10 | 62.5% |  |  |
-| +2 | 9 | 74.1% |  |  |
-| +3 | 8 | 83.8% |  |  |
-| +4 | 7 | 90.7% |  |  |
-| +5 | 6 | 95.4% |  |  |
-| +6 | 5 | 98.1% |  |  |
-| +7 | 4 | 99.5% |  |  |
-| +8 | 3 | 100.0% |  |  |
-
-### 
-
-| Damage |  |  | Armor |  |
-| :---- | ----- | :---- | :---- | ----- |
-| **Weapon Type** | **Number of Dice** |  | **Kind** | **Damage On** |
-| Punch/Kick | 1 |  | None | 4, 5, 6 |
-| Small | 2 |  | Light | 5, 6 |
-| Medium | 3 |  | Heavy | 6 |
-| Large | 4 |  |  |  |
-
-## *It Began With an Old Map…*
