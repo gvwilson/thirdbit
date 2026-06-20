@@ -2,7 +2,6 @@
 title: "Better Teaching Practices"
 date: 2015-09-01
 category: education
-original: swc
 ---
 <p>
   It wasn't part of our original plan,

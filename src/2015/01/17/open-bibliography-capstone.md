@@ -2,7 +2,6 @@
 title: "Orwell, Dickens, and How We'll Know We're Done"
 date: 2015-01-17
 category: open-source research
-original: swc
 ---
 <p>
   I started working on a short capstone example last month

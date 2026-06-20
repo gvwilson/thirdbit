@@ -2,7 +2,6 @@
 title: "Software Carpentry Foundation: Governance"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   I am pleased to announce that

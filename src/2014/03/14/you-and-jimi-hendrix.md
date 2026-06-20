@@ -2,7 +2,6 @@
 title: "You and Jimi Hendrix"
 date: 2014-03-14
 category: education
-original: swc
 ---
 <p>
   I had a discussion a couple of weeks ago

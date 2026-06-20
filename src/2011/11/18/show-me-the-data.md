@@ -1,8 +1,7 @@
 ---
 title: Show Me the Data
 date: 2011-11-18
-category: empirical-se
-original: swc
+category: software-carpentry opinion
 ---
 <p>I got mail from a colleague at a prominent US university yesterday saying (in part, and elided to protect the guilty):</p>
 <blockquote><p><em>…the graduate student representative to the curriculum committee reported that the students did not want a scientific computing course, that they would instead figure it out themselves…. How does one respond to statements like this…that have…basically frozen skill levels? The options I see are formal ("in curriculum") training, bootcamps and /workshops, and letting them "figure it out themselves". Are there arguments about the successes of each?</em></p></blockquote>

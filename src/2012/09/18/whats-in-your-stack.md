@@ -2,7 +2,6 @@
 title: What's In Your Stack?
 date: 2012-09-18
 category: software-carpentry
-original: swc
 ---
 <p>As a long-delayed follow-up to a conversation with <a href="http://technicaldiscovery.blogspot.com">Travis Oliphant</a>: based on our experience, researchers who are computational novices want more than numerical computing and visualization tools. They want a complete stack–an end-to-end, nachos-to-cheesecake [<a href="#1">1</a>] solution to their basic computing needs, including an editor, a debugger, a version control system, blogging tools, data management tools, some way to create presentations and papers, and so on.  My personal stack includes:</p>
 <ul>

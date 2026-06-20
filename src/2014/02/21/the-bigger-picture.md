@@ -2,7 +2,6 @@
 title: "From Training to Engagement"
 date: 2014-02-21
 category: software-carpentry
-original: swc
 ---
 <p>
   I was interviewed about Software Carpentry earlier this week,

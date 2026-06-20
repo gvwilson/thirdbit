@@ -2,7 +2,6 @@
 title: "The Discussion Book"
 date: 2016-09-10
 category: book-reviews education
-original: swc
 ---
 
 Hot on the heels of *[Small Teaching](https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/)*

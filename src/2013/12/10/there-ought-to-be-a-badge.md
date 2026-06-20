@@ -2,7 +2,6 @@
 title: "There Ought to Be a Badge"
 date: 2013-12-10
 category: software-carpentry
-original: swc
 ---
 <p>
   I feel like there should be a Software Carpentry badge for drawing one of these for someone for the first time.

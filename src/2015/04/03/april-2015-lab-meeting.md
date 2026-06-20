@@ -2,7 +2,6 @@
 title: "April 2015 Lab Meeting"
 date: 2015-04-03
 category: software-carpentry
-original: swc
 ---
 <p>
   We held our second lab meeting of 2015 on April 1st, and had near-record turnout.

@@ -2,7 +2,6 @@
 title: First Online Tutorial
 date: 2012-02-03
 category: software-carpentry
-original: swc
 ---
 <p>Our first online tutorial with the folks at the <a href="http://www.stsci.edu">Space Telescope Science Institute</a> via Skype, and I think it worked well. Our setup was:</p>
 <ul>

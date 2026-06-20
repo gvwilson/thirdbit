@@ -2,7 +2,6 @@
 title: "Further Analysis of Instructor Training Data"
 date: 2016-05-31
 category: empirical-se software-carpentry
-original: swc
 ---
 Following Erin Becker's analysis of our instructor training data,
 Byron Smith has done another analysis

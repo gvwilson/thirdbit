@@ -2,7 +2,6 @@
 title: "New Maintainers"
 date: 2016-03-17
 category: software-carpentry
-original: swc
 ---
 We are pleased to announce that Harriet Dashnow
 and Daniel Chen

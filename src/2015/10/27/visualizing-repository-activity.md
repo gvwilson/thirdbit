@@ -2,7 +2,6 @@
 title: "Visualizing Repository Activity"
 date: 2015-10-27
 category: empirical-se
-original: swc
 ---
 <p>
   I am updating the

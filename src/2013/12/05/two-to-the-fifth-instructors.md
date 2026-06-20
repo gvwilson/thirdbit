@@ -2,7 +2,6 @@
 title: "Two to the Fifth New Instructors"
 date: 2013-12-05
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to welcome 32 new instructors

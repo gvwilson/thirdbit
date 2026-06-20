@@ -2,7 +2,6 @@
 title: How Much Of This Should Scientists Understand?
 date: 2010-03-11
 category: software-carpentry
-original: swc
 ---
 <p>Let's start with the problem description:</p>
 <blockquote><p>All of the Software Carpentry course material (including lecture notes, code samples, data files, and images) is stored in a Subversion repository. That's currently hosted at the University of Toronto, but I'd like to move it to the software-carpentry.org domain (along with this blog). However, software-carpentry.org is hosted with site5.com, who only provide one shell account per domain for cheap accounts like the one I bought.</p>

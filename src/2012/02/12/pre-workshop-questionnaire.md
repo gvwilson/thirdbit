@@ -2,7 +2,6 @@
 title: Pre-Workshop Questionnaire
 date: 2012-02-12
 category: software-carpentry
-original: swc
 ---
 <p>I've been asking people to fill in the short questionnaire below before our workshops in order to give us a better idea of what they want and what they already know.  How do you score, and how could we improve the questions?</p>
 <ol>

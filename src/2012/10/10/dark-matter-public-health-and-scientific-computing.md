@@ -2,7 +2,6 @@
 title: Dark Matter, Public Health, and Scientific Computing
 date: 2012-10-10
 category: research software-carpentry
-original: swc
 ---
 <blockquote><p><em>This is the text of a talk given at the 8th IEEE International Conference on eScience, October 10, 2012. The <a href="http://www.slideshare.net/gvwilson/dark-matter-public-health-and-scientific-computing">slides</a> are also available.</em></p></blockquote>
 <p>Back in March, <a href="http://www.hanselman.com/blog/AboutMe.aspx">Scott Hanselman</a> wrote a blog post titled <a href="http://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">Dark Matter Developers: The Unseen 99%</a> that crystallized something I'd been thinking about for a while. In it, he said:</p>

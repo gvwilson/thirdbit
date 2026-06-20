@@ -2,7 +2,6 @@
 title: "A Multi-Site Sprint in July"
 date: 2014-05-05
 category: software-carpentry
-original: swc
 ---
 <p>
   We'll be holding our first-ever global sprint on July 22-23, 2014.

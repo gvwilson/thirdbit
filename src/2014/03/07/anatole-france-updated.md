@@ -2,7 +2,6 @@
 title: "Anatole France, Updated"
 date: 2014-03-07
 category: education noticed
-original: swc
 ---
 <figure class="center">
   <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Anatole_France_1921.jpg/169px-Anatole_France_1921.jpg" alt="Anatole France" class="centered">

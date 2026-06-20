@@ -2,7 +2,6 @@
 title: "Behind the Scenes"
 date: 2014-05-20
 category: software-carpentry
-original: swc
 ---
 <p>
   A lot of people work behind the scenes to organize bootcamps,

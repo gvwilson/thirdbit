@@ -2,7 +2,6 @@
 title: Feedback at UKMO
 date: 2010-10-28
 category: software-carpentry
-original: swc
 ---
 <p>I've just finished teaching a four-day version of the course at the UK Met Office in Exeter. I think it went reasonably well, even if we did version control last instead of first :-). Here's the feedback the students gave me:</p>
 <p><strong><em>Good</em></strong></p>

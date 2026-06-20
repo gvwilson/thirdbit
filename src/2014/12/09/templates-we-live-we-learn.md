@@ -2,7 +2,6 @@
 title: "Templates: We Live, We Learn"
 date: 2014-12-09
 category: software-carpentry
-original: swc
 ---
 <p>
   We have partially converted four of our core lessons to

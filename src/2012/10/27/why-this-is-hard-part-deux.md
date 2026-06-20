@@ -2,7 +2,6 @@
 title: Why This Is Hard (Part Deux)
 date: 2012-10-27
 category: software-carpentry
-original: swc
 ---
 
 <p>I pointed a grad student at the <a href="http://ipython.org/ipython-doc/stable/interactive/tutorial.html">IPython tutorial</a> and made some notes as she started to work through it. (She has used the vanilla Python interpreter before, but is still a novice.) Here's what happened.</p>

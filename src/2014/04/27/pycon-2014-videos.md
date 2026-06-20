@@ -2,7 +2,6 @@
 title: "PyCon 2014 Videos"
 date: 2014-04-27
 category: conferences software-carpentry
-original: swc
 ---
 
 A double handful of people associated with Software Carpentry

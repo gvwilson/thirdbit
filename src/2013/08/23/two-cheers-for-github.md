@@ -2,7 +2,6 @@
 title: "Two Cheers for GitHub"
 date: 2013-08-23
 category: open-source programming
-original: swc
 ---
 <p>
   There's been a micro-flurry of excitement in the scientific world

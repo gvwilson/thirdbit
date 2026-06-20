@@ -2,7 +2,6 @@
 title: "Building Better Teachers"
 date: 2014-09-04
 category: education
-original: swc
 ---
 <p>
   Some books are intrinsically great.

@@ -2,7 +2,6 @@
 title: "Introducing Citation Files"
 date: 2013-09-02
 category: open-source research
-original: swc
 ---
 <p>
   Robin Wilson,

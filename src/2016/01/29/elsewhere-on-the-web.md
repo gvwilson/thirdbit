@@ -2,7 +2,6 @@
 title: "Elsewhere on the Web"
 date: 2016-01-29
 category: software-carpentry
-original: swc
 ---
 
 Our instructors teach a lot more than just Software Carpentry.

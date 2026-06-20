@@ -2,7 +2,6 @@
 title: "Sustainability"
 date: 2014-08-04
 category: software-carpentry
-original: swc
 ---
 <p>
   I took part in a meeting about

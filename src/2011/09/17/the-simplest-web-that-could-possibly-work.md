@@ -1,8 +1,7 @@
 ---
 title: The Simplest Web That Could Possibly Work
 date: 2011-09-17
-category: software-carpentry
-original: swc
+category: programming software-carpentry
 ---
 <p>A new web tool called <a href="http://ifttt.com/">If This Then That</a> generated a flurry of interest this week (see for example <a href="http://www.hanselman.com/blog/EssentialIFTTTIfThisThenThatProgrammingWorkflowsForHumansUsingTheWebsSocialGlue.aspx">Scott Hanselman's blog post</a>). Simply put, IFTTT lets you connect web services together using if-then rules. It's as simple as:</p>
 <ol>

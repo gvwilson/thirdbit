@@ -2,7 +2,6 @@
 title: Help Us Write Assessment Questions
 date: 2012-03-05
 category: software-carpentry
-original: swc
 ---
 <p>We have been asking people the questions below before the start of a bootcamp in order to get a handle on how much they already know. As part of evaluating the current round of work, we'd like to expand the list a little, and touch on a few more topics.  Our rough categorization of how much someone should know about various things is in the competence matrix; ideally, we want another 3-4 questions on each topic. Our criteria are:</p>
 <ul>

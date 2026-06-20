@@ -2,7 +2,6 @@
 title: "Welcome Maneesha and Katarzyna"
 date: 2015-07-20
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that Maneesha Sane (pronounced

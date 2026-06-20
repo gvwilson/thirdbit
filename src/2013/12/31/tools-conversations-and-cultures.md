@@ -2,7 +2,6 @@
 title: "Tools, Conversations, and Cultures"
 date: 2013-12-31
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://pgbovine.net/">Philip Guo</a> is best known these days for

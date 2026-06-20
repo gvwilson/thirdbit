@@ -2,7 +2,6 @@
 title: Wrapping Up MBARI Workshop
 date: 2012-03-28
 category: software-carpentry
-original: swc
 ---
 <p><a href="http://www.mbari.org/staff/haddock/">Steve "Jellyfish" Haddock</a> and <a href="http://third-bit.com">Greg Wilson</a> taught a two-day workshop at <a href="http://www.mbari.org/">MBARI</a> this week. It seemed to go well: feedback is below.</p>
 <table class="centered">

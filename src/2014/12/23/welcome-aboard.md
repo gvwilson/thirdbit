@@ -2,7 +2,6 @@
 title: "Welcome Aboard"
 date: 2014-12-23
 category: software-carpentry
-original: swc
 ---
 <p>
   A lot of people qualified as instructors this fall and winter,

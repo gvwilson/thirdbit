@@ -1,7 +1,7 @@
 ---
 title: "Insufficient Purity Considered Harmful"
 date: 2011-10-06
-category: education
+category: education opinion
 ---
 Joseph Hellerstein, a professor in the Computer Science department at UC Berkeley, posted an article on his blog a couple of weeks ago titled, "<a href="http://databeta.wordpress.com/2011/09/15/is-teaching-mapreduce-healthy-for-students/">Is Teaching MapReduce Healthy for Students?</a>" His conclusion?
 <blockquote>I have begun to think that Google's MapReduce model is not healthy for beginning students. The basic issue is that Google's narrow MapReduce API conflates logical semantics (define a function over all items in a collection) with an expensive physical implementation (utilize a parallel barrier).</blockquote>

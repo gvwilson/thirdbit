@@ -2,7 +2,6 @@
 title: "Interview: SHARCNET's Hugh Couchman"
 date: 2010-06-11
 category: software-carpentry
-original: swc
 ---
 <p>The first of our two sponsor interviews today is with SHARCNET's Prof. Hugh Couchman.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

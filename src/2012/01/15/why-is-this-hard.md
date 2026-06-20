@@ -2,7 +2,6 @@
 title: Why Is This Hard?
 date: 2012-01-15
 category: software-carpentry
-original: swc
 ---
 <p>I've been teaching scientists to program since 1998 (or 1986, if you want to start with my first lunch-and-learn for grad students in physics at the University of Edinburgh). Technology has advanced by leaps and bounds in that time, but I don't think it's any easier than it used to be to get basic software skills into people's heads. What makes it hard?</p>
 <p><strong>Programming is intrinsically difficult.</strong> It's fashionable to claim otherwise, but abstract thinking is a fairly recent innovation in evolutionary terms, and our brains still find it hard. On the other hand, I don't believe that state machines and data transformations are any <em>harder</em> than high school algebra, and everyone we're trying to help has long since mastered that.</p>

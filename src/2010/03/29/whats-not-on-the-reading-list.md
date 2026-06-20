@@ -2,7 +2,6 @@
 title: What's Not on the Reading List
 date: 2010-03-29
 category: software-carpentry
-original: swc
 ---
 <p>I mentioned yesterday that I maintain a list of books that haven't been written yet. Partly it's an exercise in sympathetic magic–if the reviews exist, maybe the books will follow–but it's also useful for organizing my thoughts about what a programmer's education <em>should</em> look like. Looking at the books I've matched to various topics in the Software Carpentry course outline, there are some distressing gaps:</p>
 <ol>

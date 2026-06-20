@@ -2,7 +2,6 @@
 title: "Congratulations to Our New Instructor Trainers"
 date: 2016-10-04
 category: software-carpentry
-original: swc
 ---
 
 We are very pleased to welcome Karin Lagesen

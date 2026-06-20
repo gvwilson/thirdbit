@@ -2,7 +2,6 @@
 title: "Prepping for the Python Lesson"
 date: 2015-08-16
 category: software-carpentry
-original: swc
 ---
 <p>
   Inspired in part by Byron Smith's post

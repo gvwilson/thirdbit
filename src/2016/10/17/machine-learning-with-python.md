@@ -2,7 +2,6 @@
 title: "Machine Learning with Python"
 date: 2016-10-17
 category: software-carpentry
-original: swc
 ---
 
 A new book has recently been published that may be of interest to our community:

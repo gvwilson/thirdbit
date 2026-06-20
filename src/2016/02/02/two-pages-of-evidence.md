@@ -2,7 +2,6 @@
 title: "Two Pages of Evidence"
 date: 2016-02-02
 category: empirical-se
-original: swc
 ---
 
 Andreas Stefik and his colleagues have written

@@ -2,7 +2,6 @@
 title: "The New Instructor Post-Assessment Questionnaire"
 date: 2014-11-19
 category: software-carpentry
-original: swc
 ---
 <p>
   As mentioned two weeks ago,

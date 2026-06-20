@@ -2,7 +2,6 @@
 title: "What About MOOCs?"
 date: 2014-12-02
 category: education
-original: swc
 ---
 <p>
   We frequently get asked whether Software Carpentry would work as a MOOC.

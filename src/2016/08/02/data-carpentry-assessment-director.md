@@ -2,7 +2,6 @@
 title: "Data Carpentry's New Deputy Director of Assessment"
 date: 2016-08-02
 category: software-carpentry
-original: swc
 ---
 
 Data Carpentry has just announced that

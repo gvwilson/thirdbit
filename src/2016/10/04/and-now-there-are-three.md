@@ -2,7 +2,6 @@
 title: "And Now There Are Three"
 date: 2016-10-04
 category: software-carpentry
-original: swc
 ---
 
 A new book has just been published that covers much of the same material as Software Carpentry,

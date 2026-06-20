@@ -2,7 +2,6 @@
 title: "Announcing NBDiff"
 date: 2014-03-30
 category: programming software-carpentry
-original: swc
 ---
 <p>
   I am very pleased to announce the first release of NBDiff,

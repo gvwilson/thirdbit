@@ -2,7 +2,6 @@
 title: "Conversations About Teaching"
 date: 2014-08-18
 category: education
-original: swc
 archives: 
 ---
 <p>

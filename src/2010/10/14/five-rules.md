@@ -2,7 +2,6 @@
 title: Five Rules for Computational Scientists
 date: 2010-10-14
 category: software-carpentry
-original: swc
 ---
 <p>Stepping back from the details for a moment, here are five rules every computational scientist should (try to) follow:</p>
 <p><em><strong>1. Version Control</strong></em></p>

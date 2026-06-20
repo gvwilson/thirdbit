@@ -2,7 +2,6 @@
 title: "Updating the Project List"
 date: 2015-06-15
 category: software-carpentry
-original: swc
 ---
 <p>
   Updating my description of

@@ -2,7 +2,6 @@
 title: Who Are You?
 date: 2012-08-17
 category: education
-original: swc
 ---
 <p>We asked participants in this year's workshops to tell us a bit about themselves. So far, 121 have done so, and their responses are summarized below.</p>
 <table class="centered">

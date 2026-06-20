@@ -2,7 +2,6 @@
 title: "Announcing 2015 Steering Committee"
 date: 2015-01-31
 category: software-carpentry
-original: swc
 ---
 <p>
   The election for the Software Carpentry Foundation's Steering Committee

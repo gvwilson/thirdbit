@@ -2,7 +2,6 @@
 title: "Two Studies of Online Communities"
 date: 2016-09-30
 category: empirical-se
-original: swc
 ---
 
 Two recent papers may be of interest to this community.  The first is

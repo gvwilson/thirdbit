@@ -2,7 +2,6 @@
 title: "Amdahl's Law and Software Carpentry"
 date: 2014-11-07
 category: personal
-original: swc
 ---
 <p>
   Amdahl's Law says that the speedup you can get by parallelizing a computation

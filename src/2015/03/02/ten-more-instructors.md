@@ -2,7 +2,6 @@
 title: "Ten More Instructors"
 date: 2015-03-02
 category: software-carpentry
-original: swc
 ---
 <p>
   It's a pleasure to welcome another ten instructors from the Southern Hemisphere to our team:

@@ -2,7 +2,6 @@
 title: "Practical Computing for Biologists (and Other Scientists)"
 date: 2015-01-14
 category: software-carpentry
-original: swc
 ---
 <p>
   We are big fans of Steve Haddock and Casey Dunn's book

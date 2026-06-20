@@ -2,7 +2,6 @@
 title: "Welcome Our New Instructors"
 date: 2014-10-03
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to welcome a new batch of instructors to our team:

@@ -2,7 +2,6 @@
 title: A Four-Day Curriculum
 date: 2012-04-03
 category: software-carpentry
-original: swc
 ---
 <p>In response to my weekend post about what we teach in two days, <a href="http://www.mbari.org/staff/haddock/">Steve Haddock</a> sent me <a href="http://www.duke.edu/~ccc14/pcfb/">this link</a> to a four-day course based on the excellent book <a href="http://practicalcomputing.org/"><em>Practical Computing for Biologists</em></a> that he co-wrote with <a href="http://www.brown.edu/Faculty/Dunn_Lab/">Casey Dunn</a>. It's worth reading and pondering in full, but in brief, their curriculum (in half-day chunks) is:</p>
 <ol>

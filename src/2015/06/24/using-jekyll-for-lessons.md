@@ -2,7 +2,6 @@
 title: "Using Jekyll for Lessons"
 date: 2015-06-24
 category: programming software-carpentry
-original: swc
 ---
 <p>
   A recurring complaint about our lesson template

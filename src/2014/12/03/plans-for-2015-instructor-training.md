@@ -2,7 +2,6 @@
 title: "Plans for 2015: Instructor Training"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   Instructor training has been going well:

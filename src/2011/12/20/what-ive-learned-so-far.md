@@ -2,7 +2,6 @@
 title: What I've Learned So Far
 date: 2011-12-20
 category: software-carpentry
-original: swc
 ---
 <p>I worked on Software Carpentry full-time for a year starting in May 2010. In that time I created over 140 PowerPoint decks, about 12 hours of video, and taught the course six times (twice online and four times in person). I also learned a few things that I hope other people will find useful:</p>
 <ol>

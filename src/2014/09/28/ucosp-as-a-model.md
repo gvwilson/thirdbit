@@ -2,7 +2,6 @@
 title: "UCOSP as a Model"
 date: 2014-09-28
 category: student-projects
-original: swc
 ---
 <p>
   Software Carpentry's two-day workshops are just one of many ways to teach people practical skills.

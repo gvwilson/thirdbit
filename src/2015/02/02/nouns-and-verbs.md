@@ -2,7 +2,6 @@
 title: "Nouns and Verbs"
 date: 2015-02-02
 category: education
-original: swc
 ---
 <p>
   I've spoken and written many times about how puzzled I am that

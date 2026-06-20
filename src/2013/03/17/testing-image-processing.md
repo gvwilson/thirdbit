@@ -2,7 +2,6 @@
 title: Testing Image Processing
 date: 2013-03-17
 category: empirical-se programming
-original: swc
 ---
 <p>
   Testing has always been part of Software Carpentry,

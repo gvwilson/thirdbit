@@ -2,7 +2,6 @@
 title: "18 Months of Progress"
 date: 2016-01-15
 category: empirical-se software-carpentry
-original: swc
 ---
 
 [My talk at SciPy](https://youtu.be/1e26rp6qPbA?t=1748) in 2014

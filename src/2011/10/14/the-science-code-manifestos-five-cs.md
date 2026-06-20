@@ -1,8 +1,7 @@
 ---
 title: The Science Code Manifesto's Five C's
 date: 2011-10-14
-category: research software-carpentry
-original: swc
+category: software-carpentry
 ---
 <p>The <a href="http://sciencecodemanifesto.org/">Science Code Manifesto</a> comprises five core principles:</p>
 <ul>

@@ -2,7 +2,6 @@
 title: "Congratulations to Data Carpentry"
 date: 2014-11-24
 category: software-carpentry
-original: swc
 ---
 <p>
   In case you missed the announcement last week,

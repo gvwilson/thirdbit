@@ -1,7 +1,7 @@
 ---
 title: "Vulgarity Isn't Honesty (or, Who's Welcome Here?)"
 date: 2011-11-10
-category: diversity software-carpentry
+category: community diversity opinion
 ---
 I unfollowed a former student on Twitter a couple of months ago because he was tossing words like "bitch" and "whore" into his tweets like marshmallows into hot chocolate. Today, I unfollowed a guy named Ted Dziuba because of <a href="http://teddziuba.com/2011/11/dirty-words.html">this post</a> defending–actually, praising–the use of foul language. He probably doesn't care, but I'm hoping you will, so here goes.
 

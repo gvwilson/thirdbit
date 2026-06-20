@@ -1,7 +1,7 @@
 ---
 title: "My OSCON'11 Hall of Fame"
 date: 2011-07-24
-category: conferences software-carpentry
+category: conferences diversity
 ---
 Seven years ago, Michelle Levesque and I wrote in "<a href="http://drdobbs.com/architecture-and-design/184415216">Open Source, Cold Shoulder</a>":
 <blockquote>Proponents of free, libre and open source software (FLOSS) often describe their campaign as a struggle for civil rights. They portray FLOSS as a great equalizer: Not only is it freely available to everyone, but anyone who wants to help shape it can do so, regardless of race, nationality, faith, politics or sexual preference.

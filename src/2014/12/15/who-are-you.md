@@ -2,7 +2,6 @@
 title: "Who Are We?"
 date: 2014-12-15
 category: education
-original: swc
 ---
 <p>
   For the last three years,

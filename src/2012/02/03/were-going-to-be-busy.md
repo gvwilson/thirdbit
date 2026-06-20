@@ -2,7 +2,6 @@
 title: We're Going to Be Busy
 date: 2012-02-03
 category: software-carpentry
-original: swc
 ---
 <p>Here are the bootcamps we have lined up for the next few months:</p>
 <ul>

@@ -2,7 +2,6 @@
 title: "The Other Ninety Percent"
 date: 2015-01-24
 category: software-carpentry
-original: swc
 ---
 <p>
   Ninety percent or more of learning a skill takes place outside formal lessons

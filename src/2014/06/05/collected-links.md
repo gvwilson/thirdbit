@@ -2,7 +2,6 @@
 title: "Collected Links"
 date: 2014-06-05
 category: software-carpentry
-original: swc
 ---
 <p>
   A lot of people have been writing about Software Carpentry on other blogs of late.

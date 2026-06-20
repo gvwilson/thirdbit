@@ -2,7 +2,6 @@
 title: "Software Carpentry Foundation: FAQ"
 date: 2014-11-03
 category: software-carpentry
-original: swc
 ---
 <p>
   As we announced two weeks ago,

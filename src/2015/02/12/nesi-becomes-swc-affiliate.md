@@ -2,7 +2,6 @@
 title: "NeSI Becomes Software Carpentry Affiliate"
 date: 2015-02-12
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that

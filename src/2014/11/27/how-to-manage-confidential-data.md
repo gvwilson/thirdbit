@@ -2,7 +2,6 @@
 title: "How to Manage Confidential Data"
 date: 2014-11-27
 category: programming
-original: swc
 ---
 <p>
   A couple of days ago,

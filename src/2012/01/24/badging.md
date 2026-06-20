@@ -2,7 +2,6 @@
 title: Badging
 date: 2012-01-24
 category: software-carpentry
-original: swc
 ---
 <p>One of the things we need to do in the next six months along with running workshops and updating our online content is to create some sort of badging to recognize people's skills and contributions. As we said in the proposal to the Sloan Foundation, "A badge program will provide near-term incentives for both learning and mentoring; a framework to support viral, peer-driven engagement with the program; and facilitate recognition by partner institutions and potential employers."</p>
 <p>We're going to rely on Mozilla's <a href="http://openbadges.org/">Open Badges project</a> to handle the mechanics of storing and validating badges, so we only have three questions to answer:</p>

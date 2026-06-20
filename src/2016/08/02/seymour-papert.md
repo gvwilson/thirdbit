@@ -2,7 +2,6 @@
 title: "Seymour Papert 1928-2016"
 date: 2016-08-02
 category: noticed
-original: swc
 ---
 
 [Seymour Papert](https://en.wikipedia.org/wiki/Seymour_Papert) passed away on Sunday at the age of 88.

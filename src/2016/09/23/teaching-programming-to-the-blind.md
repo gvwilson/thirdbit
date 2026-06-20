@@ -2,7 +2,6 @@
 title: "Teaching Programming to the Blind"
 date: 2016-09-23
 category: education
-original: swc
 ---
 
 [Andreas Stefik](https://ramblesblog.files.wordpress.com/2016/05/inpraiseoftweaking.pdf)

@@ -2,7 +2,6 @@
 title: "The State of Open Science"
 date: 2013-10-17
 category: open-source research
-original: swc
 ---
 <p>
   As part of the biannual Mozilla Summit a couple of weeks ago,

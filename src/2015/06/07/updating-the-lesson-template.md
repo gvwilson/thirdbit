@@ -2,7 +2,6 @@
 title: "Updating the Lesson Template"
 date: 2015-06-07
 category: software-carpentry
-original: swc
 ---
 <p>
   A couple of weeks ago,

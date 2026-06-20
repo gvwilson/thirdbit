@@ -2,7 +2,6 @@
 title: Pins, Balls, and Arbitrary Decisions
 date: 2010-12-06
 category: software-carpentry
-original: swc
 ---
 <p>We'd like to include more extended examples like invasion percolation in this course, but they're surprisingly hard to write.  One that seems simple at first is a <a href="http://en.wikipedia.org/wiki/Bean_machine">Galton box</a> simulator.  As the diagram below shows, this is simply a a vertical board with interleaved rows of pins.  Small balls are dropped in at the top, and bounce left and right as they hit pins until they land in the boxes at the bottom.  Since each bounce randomly goes left or right, the distribution of balls is binomial, which, in the limit, approximates a normal distribution.</p>
 <p><img src="@root/files/2010/12/galton-box.png" class="centered"></p>

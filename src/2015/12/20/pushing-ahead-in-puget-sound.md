@@ -2,7 +2,6 @@
 title: "Pushing Ahead in Puget Sound"
 date: 2015-12-20
 category: software-carpentry
-original: swc
 ---
 <p>
   As regular readers will know,

@@ -2,7 +2,6 @@
 title: Novelty, Efficiency, and Trust
 date: 2013-01-28
 category: education
-original: swc
 ---
 
 <p>I've spent a lot of time trying to figure out what the "big picture" is for Software Carpentry.  What are the <a href="http://arxiv.org/abs/1210.0530">best practices</a> every scientist should master?  What are the principles of computational thinking?  How exactly are we helping people?  My latest attempt to put this all in a nutshell has three strands: <em>novelty</em>, <em>efficiency</em>, and <em>trust</em>:</p>

@@ -2,7 +2,6 @@
 title: Interview with Sergey Fomel
 date: 2010-08-02
 category: software-carpentry
-original: swc
 ---
 <p>Sergey Fomel is a professor at the University of Texas at Austin, and the leader of the <a href="https://sourceforge.net/blog/for-reproducible-research-go-to-madagascar/">Madagascar</a> project.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

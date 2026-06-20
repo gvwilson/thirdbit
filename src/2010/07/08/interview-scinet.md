@@ -2,7 +2,6 @@
 title: "Interview: SciNet's Daniel Gruner"
 date: 2010-07-08
 category: software-carpentry
-original: swc
 ---
 <p>Today's interview is with Dr. Daniel Gruner of <a href="http://www.scinet.utoronto.ca/">SciNet</a>.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

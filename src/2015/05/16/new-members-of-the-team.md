@@ -2,7 +2,6 @@
 title: "New Members of the Team"
 date: 2015-05-16
 category: software-carpentry
-original: swc
 ---
 <p>
   It's been several months

@@ -2,7 +2,6 @@
 title: "Why It Matters"
 date: 2014-11-11
 category: software-carpentry
-original: swc
 ---
 <p>
   Sometimes I forget that it isn't obvious

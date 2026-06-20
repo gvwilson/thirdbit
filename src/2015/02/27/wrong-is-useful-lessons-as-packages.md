@@ -2,7 +2,6 @@
 title: "Wrong Is Useful: Lessons as Packages"
 date: 2015-02-27
 category: software-carpentry
-original: swc
 ---
 <blockquote>
   "What would Greg do? [pause] OK, now that we've ruled that out…"

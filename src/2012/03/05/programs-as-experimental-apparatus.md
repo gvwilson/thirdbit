@@ -2,7 +2,6 @@
 title: Programs as Experimental Apparatus
 date: 2012-03-05
 category: empirical-se research
-original: swc
 ---
 <p>Suppose you have two photographs of a patch of the night sky and you want to know how different they are. The simplest way would be to see if any of the pixels' values differ, but that's pretty much guaranteed to return a "yes". A better measure is to see how many pixels differ by more than some threshold, but that raises two questions:</p>
 <ol>

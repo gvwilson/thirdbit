@@ -2,7 +2,6 @@
 title: Interview with Michigan State's Titus Brown
 date: 2010-07-11
 category: software-carpentry
-original: swc
 ---
 <p>Today's interview is with Professor <a href="http://ivory.idyll.org/blog">Titus Brown</a>, from <a href="http://ged.msu.edu/">Michigan State University</a>.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

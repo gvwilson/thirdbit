@@ -2,7 +2,6 @@
 title: "The Fourteenth Anniversary"
 date: 2013-07-19
 category: personal
-original: swc
 ---
 <p>
   Fourteen years ago this October,

@@ -2,7 +2,6 @@
 title: "How Well Do Developers Understand Open Source Licenses?"
 date: 2016-08-02
 category: open-source software-carpentry
-original: swc
 ---
 
 You are invited to participate in a survey on software licensing

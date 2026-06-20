@@ -2,7 +2,6 @@
 title: "Improving Instruction"
 date: 2015-02-27
 category: software-carpentry
-original: swc
 ---
 <p>
   It's been quite a year for Software Carpentry instructor training:

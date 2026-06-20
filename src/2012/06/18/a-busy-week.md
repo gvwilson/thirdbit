@@ -2,7 +2,6 @@
 title: A Busy Week (And Swag!)
 date: 2012-06-18
 category: software-carpentry
-original: swc
 ---
 <p>We have a busy week coming up:</p>
 <table class="centered">

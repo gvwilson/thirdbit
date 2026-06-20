@@ -2,7 +2,6 @@
 title: "Please Welcome Our New Executive Director"
 date: 2015-10-01
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that Jonah Duckles

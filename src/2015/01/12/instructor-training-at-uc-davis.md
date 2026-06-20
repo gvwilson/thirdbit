@@ -2,7 +2,6 @@
 title: "Instructor Training at UC Davis"
 date: 2015-01-12
 category: software-carpentry
-original: swc
 ---
 <p>
   On Tuesday and Wednesday of last week,

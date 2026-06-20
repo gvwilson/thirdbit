@@ -2,7 +2,6 @@
 title: "Code and Data for the Social Sciences"
 date: 2013-09-26
 category: software-carpentry
-original: swc
 ---
 <p>
   Matthew Gentzkow and Jesse Shapiro have written an excellent guide

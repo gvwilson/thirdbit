@@ -2,7 +2,6 @@
 title: "A New Book from Mark Guzdial"
 date: 2016-01-13
 category: book-reviews education
-original: swc
 ---
 
 Regular readers will know that I am a huge fan of Mark Guzdial,

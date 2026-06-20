@@ -2,7 +2,6 @@
 title: "Summarizing the News"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   We made several big announcements this morning,

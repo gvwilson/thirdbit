@@ -2,7 +2,6 @@
 title: Re-doing the Three-Minute Pitch
 date: 2012-02-01
 category: software-carpentry
-original: swc
 ---
 <p>It's time to revise Software Carpentry's three-minute pitch. Here's what I think I need to say; as always, comments would be welcome.</p>
 <p>Opening slide: large logo, the title "Computing Skills for Scientists and Engineers", and a small block at the bottom with the date and license.</p>

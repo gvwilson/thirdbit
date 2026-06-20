@@ -2,7 +2,6 @@
 title: Dubois on Maintaining Correctness
 date: 2010-10-30
 category: empirical-se software-carpentry
-original: swc
 ---
 <p>Something else I didn't get to at the Met Office last week:</p>
 <blockquote><p>Paul F. Dubois: "Maintaining Correctness in Scientific Programs". <em>Computing in Science &amp; Engineering</em>, May-June 2005, <a href="http://doi.ieeecomputersociety.org/10.1109/MCSE.2005.54">http://doi.ieeecomputersociety.org/10.1109/MCSE.2005.54</a>.</p></blockquote>

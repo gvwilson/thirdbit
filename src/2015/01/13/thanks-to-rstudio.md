@@ -2,7 +2,6 @@
 title: "Thanks to RStudio"
 date: 2015-01-13
 category: software-carpentry
-original: swc
 ---
 <p>
   Our thanks to <a href="http://www.rstudio.com">RStudio</a>

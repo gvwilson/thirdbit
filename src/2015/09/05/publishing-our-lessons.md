@@ -2,7 +2,6 @@
 title: "Our Lessons Have Now Been Published"
 date: 2015-09-05
 category: software-carpentry
-original: swc
 ---
 <p>
   It's been a long time coming,

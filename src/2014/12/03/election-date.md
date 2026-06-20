@@ -2,7 +2,6 @@
 title: "Our First Election"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   The Software Carpentry Foundation's bylaws

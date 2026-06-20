@@ -1,8 +1,7 @@
 ---
 title: More Interested in the Asides
 date: 2011-05-14
-category: book-reviews
-original: swc
+category: retro
 ---
 <p>So how did the term go, you ask?  Here's what traffic on this site looked like:</p>
 <p><img src="@root/files/2011/05/temp.png" class="centered"></p>

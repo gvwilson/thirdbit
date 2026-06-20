@@ -2,7 +2,6 @@
 title: "Announcing Two More WiSE Bootcamps"
 date: 2014-05-26
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   Thanks to generous support from

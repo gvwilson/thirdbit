@@ -2,7 +2,6 @@
 title: "Plans for 2015: Lessons"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   The previous three posts in this set looked at instructor training,

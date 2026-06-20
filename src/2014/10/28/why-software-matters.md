@@ -2,7 +2,6 @@
 title: "Why Software Matters"
 date: 2014-10-28
 category: software-carpentry
-original: swc
 ---
 <p>
   Why does software matter to scientists?

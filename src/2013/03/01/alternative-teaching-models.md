@@ -2,7 +2,6 @@
 title: Alternative Teaching Models
 date: 2013-03-01
 category: education
-original: swc
 ---
 <p>Our two-day bootcamps are working well, but that doesn't mean they're the best–or only–way to teach basic computing skills to scientists.  We've been kicking around other ideas recently, and we'd welcome your input as well.</p>
 <p><strong>Become part of a regular university course.</strong></p>

@@ -2,7 +2,6 @@
 title: "Our Biggest Event Ever"
 date: 2014-02-13
 category: conferences software-carpentry
-original: swc
 ---
 <p>
   If you have friends or colleagues in or near Montreal,

@@ -2,7 +2,6 @@
 title: Usability Testing and Instructional Design
 date: 2012-10-28
 category: software-carpentry
-original: swc
 ---
 
 <p>This is a story in several parts.</p>

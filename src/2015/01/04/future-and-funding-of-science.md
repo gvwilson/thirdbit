@@ -2,7 +2,6 @@
 title: "The Future and Funding of Science"
 date: 2015-01-04
 category: research
-original: swc
 ---
 <p>
   I was talking with friends over the holiday about the future of science

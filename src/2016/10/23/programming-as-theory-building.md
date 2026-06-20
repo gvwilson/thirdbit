@@ -2,7 +2,6 @@
 title: "Programming as Theory Building"
 date: 2016-10-23
 category: education empirical-se
-original: swc
 ---
 
 I was recently reminded of a thought-provoking but often-overlooked essay by Peter Naur from 1985

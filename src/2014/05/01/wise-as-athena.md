@@ -2,7 +2,6 @@
 title: "Wise as Athena…"
 date: 2014-05-01
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   Katy Huff has written <a href="http://sciencereview.berkeley.edu/wise-athena-swifter-hermes/">an article</a>

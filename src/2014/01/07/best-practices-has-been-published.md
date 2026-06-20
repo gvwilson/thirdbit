@@ -2,7 +2,6 @@
 title: "'Best Practices' Has Been Published"
 date: 2014-01-07
 category: research
-original: swc
 ---
 <p>
   I'm very pleased to announce that our paper

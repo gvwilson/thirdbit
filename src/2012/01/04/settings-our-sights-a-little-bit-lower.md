@@ -2,7 +2,6 @@
 title: Settings Our Sights a Little Bit Lower
 date: 2012-01-04
 category: software-carpentry
-original: swc
 ---
 <p>A couple of days ago, I posted replies to some of the comments that people had made on my posts about Software Carpentry's future. To recap, I want SC to:</p>
 <ol>

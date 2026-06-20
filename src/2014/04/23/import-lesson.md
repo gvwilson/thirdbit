@@ -2,7 +2,6 @@
 title: "Import Lesson"
 date: 2014-04-23
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://lorenabarba.com">Lorena Barba</a> has done it again.

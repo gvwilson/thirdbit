@@ -2,7 +2,6 @@
 title: "Three Flavors of Instructor Training"
 date: 2015-12-18
 category: software-carpentry
-original: swc
 ---
 <p>
   It's been a busy few months for instructor training:

@@ -2,7 +2,6 @@
 title: New Kinds of Content
 date: 2012-02-14
 category: software-carpentry
-original: swc
 ---
 <p>Mark Guzdial, whose blog on CS education is always interesting, recently posted about <a href="http://computinged.wordpress.com/2012/02/14/using-a-worksheet-to-address-a-cs-education-problem/">using worksheets to help people learn to write programs</a>. As he says, research going back 30 years shows that <em>reading</em> and <em>writing</em> skills develop independently; there's also a ton of research showing that partially-worked examples are a very effective (possibly the most effective) way to teach people new skills.</p>
 <p>Which immediately suggests two questions:</p>

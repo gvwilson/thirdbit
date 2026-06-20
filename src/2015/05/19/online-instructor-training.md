@@ -2,7 +2,6 @@
 title: "Online Instructor Training Revisited"
 date: 2015-05-19
 category: software-carpentry
-original: swc
 ---
 <p>
   We have now run instructor training in three formats:

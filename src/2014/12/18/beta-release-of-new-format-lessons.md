@@ -2,7 +2,6 @@
 title: "All I Want for Christmas is a Pull Request…"
 date: 2014-12-18
 category: software-carpentry
-original: swc
 ---
 <p>
   As we said back in October,

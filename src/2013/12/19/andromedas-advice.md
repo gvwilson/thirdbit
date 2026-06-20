@@ -2,7 +2,6 @@
 title: "Andromeda's Advice"
 date: 2013-12-19
 category: education
-original: swc
 ---
 <p>
   We're very pleased to announce that

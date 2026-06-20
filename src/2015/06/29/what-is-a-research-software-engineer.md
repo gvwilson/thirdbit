@@ -2,7 +2,6 @@
 title: "What is a Research Software Engineer?"
 date: 2015-06-29
 category: career
-original: swc
 ---
 <p>
   By now, many people in the UK (well, many of the sort who read this blog)

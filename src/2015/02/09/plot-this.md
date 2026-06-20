@@ -2,7 +2,6 @@
 title: "Plot This"
 date: 2015-02-09
 category: empirical-se
-original: swc
 ---
 <p>
   The most useful little guide to visualization I've ever found

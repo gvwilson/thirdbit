@@ -2,7 +2,6 @@
 title: "Where the Time Goes (Version 2)"
 date: 2015-06-14
 category: personal
-original: swc
 ---
 <p>
   Last November,

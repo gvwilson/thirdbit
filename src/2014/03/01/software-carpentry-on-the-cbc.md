@@ -2,7 +2,6 @@
 title: "Software Carpentry on the CBC"
 date: 2014-03-01
 category: software-carpentry
-original: swc
 ---
 <p>
   Greg Wilson was recently interviewed by CBC Radio's "Spark" program:

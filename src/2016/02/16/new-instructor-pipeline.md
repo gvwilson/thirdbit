@@ -2,7 +2,6 @@
 title: "Our New Instructor Pipeline"
 date: 2016-02-16
 category: software-carpentry
-original: swc
 ---
 Last fall,
 we decided to reboot

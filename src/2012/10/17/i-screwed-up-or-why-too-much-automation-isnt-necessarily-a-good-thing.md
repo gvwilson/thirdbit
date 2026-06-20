@@ -2,7 +2,6 @@
 title: I Screwed Up (or, Why Automation Isn't Always a Good Thing)
 date: 2012-10-17
 category: software-carpentry
-original: swc
 ---
 <p>A couple of months ago, a group of astronomers asked us to run a workshop at Caltech in conjunction with their annual get-together: they'd cover travel costs for two instructors, and seats at the workshop would be reserved for them. Which would have been fine, except when I pushed the button to create the workshop, I also created an EventBrite signup page and a Software Carpentry bootcamp page with open enrollment. As a result, I had to send email to 15 people last night to say that there isn't actually room.</p>
 

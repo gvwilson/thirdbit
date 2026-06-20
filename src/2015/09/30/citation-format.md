@@ -2,7 +2,6 @@
 title: "Citation Format"
 date: 2015-09-30
 category: research
-original: swc
 ---
 <p>
   Earlier this month,

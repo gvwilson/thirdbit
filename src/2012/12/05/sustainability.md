@@ -2,7 +2,6 @@
 title: Sustainability
 date: 2012-12-05
 category: software-carpentry
-original: swc
 ---
 <p>Software Carpentry wouldn't exist without support from the Sloan Foundation, <a href="http://mozilla.org">Mozilla</a>, and a lot of other supporters, but that support won't last forever.  Over the next two years, we need to find a way to make this project self-sustaining; to achieve that, we're currently doing the following:</p>
 <ol>

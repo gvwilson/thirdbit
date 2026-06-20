@@ -2,7 +2,6 @@
 title: "A Data Programming CS1 Course at the University of Washington"
 date: 2016-01-03
 category: education
-original: swc
 ---
 
 People who are interested in integrating Data Carpentry and Software Carpentry ideas into the undergraduate curriculum may enjoy reading

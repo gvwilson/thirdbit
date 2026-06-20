@@ -2,7 +2,6 @@
 title: "WiSE Bootcamp at Lawrence Berkeley National Laboratory"
 date: 2013-11-29
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that

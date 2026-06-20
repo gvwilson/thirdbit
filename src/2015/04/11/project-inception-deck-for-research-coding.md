@@ -2,7 +2,6 @@
 title: "A Project Inception Deck for Research Coding"
 date: 2015-04-11
 category: software-carpentry
-original: swc
 ---
 <p>
   I've never seen the point of comparing programmers to ninjas or samurai,

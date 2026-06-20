@@ -2,7 +2,6 @@
 title: "Open Access Button Hackathon is Sept 7-8"
 date: 2013-08-30
 category: open-source
-original: swc
 ---
 <p>
   Millions of people a day are denied access to the research they both need and paid for because of paywalls.

@@ -2,7 +2,6 @@
 title: "Show Me Your Model"
 date: 2016-09-18
 category: software-carpentry
-original: swc
 ---
 
 As far as I can tell,

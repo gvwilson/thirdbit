@@ -2,7 +2,6 @@
 title: "Checking What We Teach"
 date: 2015-08-14
 category: software-carpentry
-original: swc
 ---
 <p>
   Back in May,

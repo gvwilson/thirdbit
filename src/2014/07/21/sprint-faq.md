@@ -2,7 +2,6 @@
 title: "Summer Sprint FAQ"
 date: 2014-07-21
 category: software-carpentry
-original: swc
 ---
 <p>
   The Mozilla Science Lab's first-ever two-day sprint

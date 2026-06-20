@@ -2,7 +2,6 @@
 title: "Pushing Back"
 date: 2015-07-01
 category: education
-original: swc
 ---
 <p>
   A week ago,

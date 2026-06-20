@@ -2,7 +2,6 @@
 title: "Hiring a New Executive Director for Software Carpentry"
 date: 2015-07-06
 category: software-carpentry
-original: swc
 ---
 <p>
   The Software Carpentry Foundation seeks to hire a new Executive Director to build relations with partners,

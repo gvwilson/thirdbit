@@ -2,7 +2,6 @@
 title: Osmosis is Just a Fancy Name for Failure
 date: 2009-12-30
 category: education opinion software-carpentry
-original: swc
 ---
 <p>My <a href="@root/2009/12/27/dudley-and-butte-on-software-skills/">last post</a> linked to
 a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000589">PLoS

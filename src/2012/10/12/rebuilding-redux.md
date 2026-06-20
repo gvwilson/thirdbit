@@ -2,7 +2,6 @@
 title: Rebuilding Redux
 date: 2012-10-12
 category: software-carpentry
-original: swc
 ---
 <p>The time has come to replace our creaking combination of web tools with something that will let us do more for more people while spending less time switching between browser tabs. To recap an earlier post, we currently use:</p>
 <ul>

@@ -2,7 +2,6 @@
 title: "April 2014 Lab Meeting"
 date: 2014-04-25
 category: software-carpentry
-original: swc
 ---
 <p>
   We held another online lab meeting yesterday,

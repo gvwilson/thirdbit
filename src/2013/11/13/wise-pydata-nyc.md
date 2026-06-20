@@ -2,7 +2,6 @@
 title: "Women in Tech Workshop at PyData NYC"
 date: 2013-11-13
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   Software Carpentry has always focused on scientists at the graduate level and above,

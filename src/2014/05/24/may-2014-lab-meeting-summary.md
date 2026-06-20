@@ -2,7 +2,6 @@
 title: "Summary of May 2014 Lab Meeting"
 date: 2014-05-24
 category: software-carpentry
-original: swc
 ---
 <p>
   Our monthly online lab meeting took place this past Thursday (May 22),

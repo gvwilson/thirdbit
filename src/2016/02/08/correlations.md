@@ -2,7 +2,6 @@
 title: "Correlations"
 date: 2016-02-08
 category: empirical-se
-original: swc
 ---
 
 <p>

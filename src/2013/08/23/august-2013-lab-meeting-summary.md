@@ -2,7 +2,6 @@
 title: "August 2013 Lab Meeting"
 date: 2013-08-23
 category: software-carpentry
-original: swc
 ---
 <p>
   We held another of our semi-regular online lab meetings yesterday,

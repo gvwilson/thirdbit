@@ -2,7 +2,6 @@
 title: What Does Victory Look Like?
 date: 2013-05-26
 category: software-carpentry
-original: swc
 ---
 <p>
   A lot of changes are happening to science as I write this.

@@ -2,7 +2,6 @@
 title: "And Now We Are Three"
 date: 2015-03-17
 category: software-carpentry
-original: swc
 ---
 <p>
   The four core topics that every Software Carpentry workshop is supposed to teach are

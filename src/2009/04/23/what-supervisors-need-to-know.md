@@ -2,7 +2,6 @@
 title: What Supervisors Need To Know
 date: 2009-04-23
 category: academia software-carpentry
-original: swc
 ---
 <p>I received an interesting email yesterday from a grad student who took this course the last time it was offered at the University of Toronto.  It said in part:</p>
 <p><em>My supervisor could better advise students doing computational work if they had more background knowledge.  They are routinely faced with questions like:<br />

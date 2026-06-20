@@ -2,7 +2,6 @@
 title: Announcing a Bootcamp for Women in Science and Engineering
 date: 2013-04-07
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   On June 24-25, 2013,

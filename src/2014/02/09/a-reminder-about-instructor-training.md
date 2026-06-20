@@ -2,7 +2,6 @@
 title: "Wrapping Up Round 7 (and a Reminder About Instructor Training)"
 date: 2014-02-09
 category: software-carpentry
-original: swc
 ---
 <p>
   We had the wrap-up meetings for Round 7 of instructor training this past Thursday.

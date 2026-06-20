@@ -2,7 +2,6 @@
 title: "A Counterpoint to Collaborative Lesson Design"
 date: 2016-02-16
 category: education open-source
-original: swc
 ---
 Discussion of our proposed lesson on
 on modern scientific authoring

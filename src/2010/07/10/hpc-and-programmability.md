@@ -2,7 +2,6 @@
 title: HPC and Programmability
 date: 2010-07-10
 category: software-carpentry
-original: swc
 ---
 <p>Via <a href="http://osl.iu.edu/~lums/">Andrew Lumsdaine</a>, a pointer to an interesting article in <a href="http://cacm.acm.org/"><em>Communications of the ACM</em></a> by Eugene Loh titled "<a href="http://cacm.acm.org/magazines/2010/7/95060-the-ideal-hpc-programming-language/fulltext">The Ideal HPC Programming Language</a>". A few key quotes:</p>
 <blockquote><p>These programmability studies began with a focus on programming  languages, but the focus quickly shifted to other topics. Existing  languages–notably Fortran…–proved remarkably adequate. Programming challenges stem mostly  from other factors.</p></blockquote>

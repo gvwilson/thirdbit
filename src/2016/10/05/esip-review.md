@@ -2,7 +2,6 @@
 title: "Request for Review: ESIP's Software Guidelines"
 date: 2016-10-05
 category: software-carpentry
-original: swc
 ---
 
 ESIP (the Federation of Earth Science Information Partners) has been

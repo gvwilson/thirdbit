@@ -2,7 +2,6 @@
 title: "Software Carpentry Foundation: Organizational Membership"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   As we said in the previous post in this series,

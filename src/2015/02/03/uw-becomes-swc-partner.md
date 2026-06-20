@@ -2,7 +2,6 @@
 title: "University of Washington Becomes Software Carpentry Partner"
 date: 2015-02-03
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that the

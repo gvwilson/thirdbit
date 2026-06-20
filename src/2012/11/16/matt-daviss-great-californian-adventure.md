@@ -2,7 +2,6 @@
 title: Matt Davis's Great Californian Adventure
 date: 2012-11-16
 category: software-carpentry
-original: swc
 ---
 
 <p>Matt Davis (who works at the Space Telescope Science Institute, and has become one of our regular instructors) taught three bootcamps in eight days back in October. He has finally recovered enough to <a href="http://penandpants.com/2012/11/12/software-carpentry-california-tour-2012/">write a description</a> of what he did, how it went, and what he learned. The two biggest lessons are:</p>

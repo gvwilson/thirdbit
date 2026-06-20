@@ -2,7 +2,6 @@
 title: "Welcome Our First New Instructors of 2015"
 date: 2015-01-24
 category: software-carpentry
-original: swc
 ---
 <p>
   One of the best parts of this job is welcoming new instructors to our team.

@@ -2,7 +2,6 @@
 title: Running Bootcamps
 date: 2013-06-07
 category: software-carpentry
-original: swc
 ---
 <p>
   It's been eighteen months since we started running two-day bootcamps.

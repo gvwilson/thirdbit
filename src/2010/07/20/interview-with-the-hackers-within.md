@@ -2,7 +2,6 @@
 title: Interview with The Hackers Within
 date: 2010-07-20
 category: software-carpentry
-original: swc
 ---
 <p>Today's interview is with Nicholas Preston, Katy Huff, and Milad Fatenejad of the <a href="http://hackerwithin.org/">The Hacker Within</a> at the University of Wisconsin-Madison.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

@@ -2,7 +2,6 @@
 title: "What's In Your Bag?"
 date: 2015-03-11
 category: personal
-original: swc
 ---
 <p>
   What do you have in your knapsack when you travel to teach a workshop?

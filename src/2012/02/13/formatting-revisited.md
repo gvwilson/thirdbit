@@ -2,7 +2,6 @@
 title: Formatting Revisited
 date: 2012-02-13
 category: software-carpentry
-original: swc
 ---
 <p><a href="http://dseifried.wordpress.com/">David Seifreid</a> has been working for the past week to combine <a href="http://imakewebthings.github.com/deck.js/">deck.js</a>, a Javascript-plus-CSS slideshow package, with the <a href="https://github.com/dz0ny/AudioJS">AudioJS</a> audio player, so that we can re-do slides as pure HTML5 (instead of using PNGs exported from PowerPoint). At the same time, I'm trying to turn the course notes into long-form prose (what used to be called a "book") for people who prefer reading at leisure. How should all this content be managed? My previous post on 21st Century teaching formats described what I'd eventually like, but the tool I want doesn't exist yet, so what can be done now?</p>
 <p>We will have:</p>

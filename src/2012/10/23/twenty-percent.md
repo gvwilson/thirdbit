@@ -1,7 +1,6 @@
 ---
 title: Twenty Percent
 date: 2012-10-23
-original: swc
 category: education
 ---
 

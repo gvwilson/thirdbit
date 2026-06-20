@@ -2,7 +2,6 @@
 title: What Better Looks Like
 date: 2011-02-22
 category: software-carpentry
-original: swc
 ---
 <p style="text-align: center;">Paradise is exactly like where you are right now… only much, much better.<br />
 <em>– Laurie Anderson</em></p>

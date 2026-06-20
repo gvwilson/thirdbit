@@ -2,7 +2,6 @@
 title: "Open Instructor Training"
 date: 2016-11-19
 category: software-carpentry
-original: swc
 ---
 
 After workshops and conferences, we frequently get questions from people who are interested in teaching with the

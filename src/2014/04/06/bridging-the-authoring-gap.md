@@ -2,7 +2,6 @@
 title: "Bridging the Writing Gap"
 date: 2014-04-06
 category: software-carpentry
-original: swc
 ---
 <p>
   A few months ago,

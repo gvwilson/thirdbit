@@ -1,8 +1,7 @@
 ---
 title: Twenty Questions (Minus Two)
 date: 2011-03-15
-category: education empirical-se
-original: swc
+category: software-carpentry
 ---
 <p>Following up on last week's musings about reorganizing the course, we've drawn up eighteen questions that we think cover the reasons people come to this course. That leaves us two short of the traditional twenty: what would <em>you</em> add to this list?</p>
 <ol>

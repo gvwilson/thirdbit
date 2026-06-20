@@ -2,7 +2,6 @@
 title: "Online Scientific Collaboration: The Sequel"
 date: 2015-02-12
 category: research
-original: swc
 ---
 <p>
   Jon Udell's

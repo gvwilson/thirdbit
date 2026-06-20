@@ -2,7 +2,6 @@
 title: "Warming Up for Version 5.4"
 date: 2015-06-12
 category: personal
-original: swc
 ---
 <p>
   It's time to start thinking about what should be in Version 5.4 of our lessons

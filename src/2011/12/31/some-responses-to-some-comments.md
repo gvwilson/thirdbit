@@ -2,7 +2,6 @@
 title: Some Responses to Some Comments
 date: 2011-12-31
 category: software-carpentry
-original: swc
 ---
 <p>Several people have written some useful comments on my recent "where are we going?" posts. It's exactly the kind of feedback I was after, so here are my answers.</p>
 <p><strong>Goal #1: helping thousands of people each year.</strong></p>

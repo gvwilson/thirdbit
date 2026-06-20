@@ -2,7 +2,6 @@
 title: "Teaching Biocomputing at UT"
 date: 2015-06-03
 category: software-carpentry
-original: swc
 ---
 <p>
   Becca Tarvin

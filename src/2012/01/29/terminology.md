@@ -2,7 +2,6 @@
 title: Terminology
 date: 2012-01-29
 category: software-carpentry
-original: swc
 ---
 <p>Before going further with the redesign of the Software Carpentry curriculum, I need to define a few terms and their relationships. These definitions refer to another post on learners and their needs, which you may want to read first.</p>
 <ul>

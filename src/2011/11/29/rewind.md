@@ -1,7 +1,7 @@
 ---
 title: "Rewind"
 date: 2011-11-29
-category: software-carpentry
+category: proposal
 ---
 <p>I have an idea for a game, but no time to implement it, so I'm going to throw it out in the hope that some interwebby young'un with time on her/his hands will build it for me (and everyone else). The starting point is a basic first person shooter with a science-fiction theme (rayguns, jetpacks, etc.). What makes it different is that each player has the ability to wind time backwards, but only a little bit: at any point, they can press a "rewind" button and reverse the flow of time, but doing so uses up the charge in their temporal battery (which is fairly limited). So, if you just got shot, you rewind a few seconds, then go forward again, but this time you <em>don't</em> stick your head up to look over the parapet. Or suppose you missed a shot: no problem, wind back a second and aim a little lower.</p>
 <p>Ah, but wait. If you're winding time backward because you just missed a shot, I'm going to do something different in th replay as well, right? I'm going to jump instead of crouch, or crouch instead of jump. Except you know that, so instead of aiming low where I was crouching, you'll aim high because you know I'm going to jump instead. But I know that you know that et cetera, so it becomes one great big head game:</p>

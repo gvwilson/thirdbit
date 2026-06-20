@@ -214,3 +214,4 @@ template: page
 | Heaven's Graveyard | Grace Curtis | 978-0756419844 | 2026 |
 | Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
 | Radiant Star | Ann Leckie | 978-0316290357 | 2026 |
+| Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |

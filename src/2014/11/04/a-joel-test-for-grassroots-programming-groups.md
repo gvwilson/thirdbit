@@ -2,7 +2,6 @@
 title: "A 'Joel Test' for Grassroots Programming Groups"
 date: 2014-11-04
 category: education
-original: swc
 ---
 <p>
   Back during the first dot-com bubble,

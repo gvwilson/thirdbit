@@ -2,7 +2,6 @@
 title: Next Steps
 date: 2009-08-02
 category: software-carpentry
-original: swc
 ---
 <p>It's clear from Friday's end-of-course review that the course needs shaking up. Before that starts, though, there's a higher-level question to answer: should the course notes be converted to a wiki to encourage contributions from others? It was always my hope that other people would contribute material, but in four years, only five ever have; perhaps wikification would change that.</p>
 <p>Right now, the notes are stored as HTML pages in a Subversion repository and compiled by a little Python script to resolve cross-references, insert code samples, and so on. The advantages of this approach are:</p>

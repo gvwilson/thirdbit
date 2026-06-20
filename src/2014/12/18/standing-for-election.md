@@ -2,7 +2,6 @@
 title: "Standing for Election"
 date: 2014-12-18
 category: software-carpentry
-original: swc
 ---
 <p>
   From 26-30 January,

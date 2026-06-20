@@ -1,8 +1,7 @@
 ---
 title: Demographics (part two)
 date: 2011-01-17
-category: empirical-se software-carpentry
-original: swc
+category: software-carpentry
 ---
 <p>Here are summaries (slightly edited) of what people taking the course do.  There's quite a range…</p>
 <ul>

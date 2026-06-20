@@ -2,7 +2,6 @@
 title: Excel Isn't Intrinsically Evil
 date: 2012-10-22
 category: software-carpentry
-original: swc
 ---
 
 <p>Excel and other spreadsheets aren't intrinsically evil, but like any power tool, they can easily take off fingers when used carelessly. From <a href="http://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/">Neil Saunders' blog</a>:</p>

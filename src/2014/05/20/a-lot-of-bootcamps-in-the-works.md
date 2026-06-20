@@ -2,7 +2,6 @@
 title: "A Lot of Bootcamps in the Works"
 date: 2014-05-20
 category: software-carpentry
-original: swc
 ---
 <p>
   Last week,

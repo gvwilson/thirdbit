@@ -2,7 +2,6 @@
 title: "From 0 to 1 to 10"
 date: 2014-01-15
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://andromedayelton.com">Andromeda Yelton</a> has written

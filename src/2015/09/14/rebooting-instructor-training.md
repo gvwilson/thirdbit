@@ -2,7 +2,6 @@
 title: "Rebooting Instructor Training"
 date: 2015-09-14
 category: software-carpentry
-original: swc
 ---
 <p>
   Instructor training has been key to Software Carpentry's growth,

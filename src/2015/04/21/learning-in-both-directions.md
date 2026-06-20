@@ -2,7 +2,6 @@
 title: "Learning in Both Directions"
 date: 2015-04-21
 category: software-carpentry
-original: swc
 ---
 <p>
   We have spent a lot of time thinking about how to assess the impact that Software Carpentry is having.

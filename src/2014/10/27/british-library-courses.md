@@ -2,7 +2,6 @@
 title: "British Library Courses"
 date: 2014-10-27
 category: software-carpentry
-original: swc
 ---
 <p>
   I had a chance to catch up with James Baker at the British

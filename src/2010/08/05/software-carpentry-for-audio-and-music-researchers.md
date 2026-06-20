@@ -2,7 +2,6 @@
 title: Software Carpentry for Audio and Music Researchers
 date: 2010-08-05
 category: software-carpentry
-original: swc
 ---
 <p>I will be teaching a version of Software Carpentry tailored for audio and music researchers at Queen Mary University in London from November 1st to 5th, 2010.  From the <a href="http://www.soundsoftware.ac.uk/autumnschool-2010-cfn">full announcement</a>:</p>
 <blockquote><p>We are seeking nominations for a small number (up to 15) of UK-based  PhD students or early career researchers to attend the Autumn School.  The <a href="http://SoundSoftware.ac.uk">SoundSoftware.ac.uk</a> project will pay for reasonable travel and  accommodation costs for attendees.</p>

@@ -2,7 +2,6 @@
 title: "Our IUSE Proposal Was Rejected"
 date: 2014-06-27
 category: software-carpentry
-original: swc
 ---
 <p>
   We got word a few days ago that our proposal to the

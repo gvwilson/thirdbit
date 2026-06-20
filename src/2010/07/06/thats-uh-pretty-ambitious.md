@@ -2,7 +2,6 @@
 title: That's, Uh, Pretty Ambitious
 date: 2010-07-06
 category: software-carpentry
-original: swc
 ---
 <p>The title of this post is taken from the reaction of the first person I showed this course schedule to. If we're really going to teach Software Carpentry in one university term (12-13 weeks), this is the pace we'll have to move at. What do you think? Is it crazy, or just nuts? And what, if anything, can be done about it?</p>
 <p><strong>Notes</strong></p>

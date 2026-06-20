@@ -2,7 +2,6 @@
 title: "Reopening Instructor Training"
 date: 2016-07-25
 category: software-carpentry
-original: swc
 ---
 
 For the last ten months,

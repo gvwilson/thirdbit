@@ -2,7 +2,6 @@
 title: "A Few Articles on Education"
 date: 2015-05-25
 category: education
-original: swc
 ---
 <p>
   Over the past year,

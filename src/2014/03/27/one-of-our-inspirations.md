@@ -2,7 +2,6 @@
 title: "One of Our Inspirations"
 date: 2014-03-27
 category: education
-original: swc
 ---
 <p>
   Last week's post about our original logo

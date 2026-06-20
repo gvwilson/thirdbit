@@ -2,7 +2,6 @@
 title: "Research-Based Course Design"
 date: 2015-06-21
 category: education
-original: swc
 ---
 <p>
   I've written before about the breadth and depth of

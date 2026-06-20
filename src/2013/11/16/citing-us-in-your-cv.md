@@ -2,7 +2,6 @@
 title: "Citing Us In Your CV"
 date: 2013-11-16
 category: research
-original: swc
 ---
 <p>
   People volunteer to teach Software Carpentry bootcamps for many reasons.

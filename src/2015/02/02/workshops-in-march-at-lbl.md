@@ -2,7 +2,6 @@
 title: "Workshops in March at Lawrence Berkeley Lab"
 date: 2015-02-02
 category: software-carpentry
-original: swc
 ---
 <p>
   I will be teaching a two-day Software Carpentry instructor training course on March 10-11, 2015 at Lawrence Berkeley Lab,

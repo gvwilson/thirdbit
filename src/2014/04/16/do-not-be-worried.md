@@ -2,7 +2,6 @@
 title: "Do Not Be Worried"
 date: 2014-04-16
 category: software-carpentry
-original: swc
 ---
 <p>
   Sage advice for our instructors and learners from an eight-year-old:

@@ -2,7 +2,6 @@
 title: Pre-Assessment Results
 date: 2013-04-30
 category: empirical-se software-carpentry
-original: swc
 ---
 <p>Of the 29 people who responded to a brief questionnaire before a recent bootcamp, we have:</p>
 <table class="centered">

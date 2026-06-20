@@ -2,7 +2,6 @@
 title: "Curriculum Design"
 date: 2013-10-14
 category: software-carpentry
-original: swc
 ---
 <p>
   I spoke with three different people about curriculum design last week,

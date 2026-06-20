@@ -2,7 +2,6 @@
 title: "Data Science Workflows"
 date: 2013-07-18
 category: data-science software-carpentry
-original: swc
 ---
 <p>
   Half a dozen of us got together yesterday morning to chat about

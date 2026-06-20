@@ -2,7 +2,6 @@
 title: "Planning Our Summer Sprint"
 date: 2014-06-09
 category: software-carpentry
-original: swc
 ---
 <p>
   As a warm-up for our lab meeting on June 26,

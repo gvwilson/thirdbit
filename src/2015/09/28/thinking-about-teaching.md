@@ -2,7 +2,6 @@
 title: "Thinking About Teaching"
 date: 2015-09-28
 category: education
-original: swc
 ---
 <p>
   A little over a year ago,

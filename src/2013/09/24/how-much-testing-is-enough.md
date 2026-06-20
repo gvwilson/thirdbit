@@ -2,7 +2,6 @@
 title: "How Much Testing Is Enough?"
 date: 2013-09-24
 category: empirical-se
-original: swc
 ---
 <p>When we teach testing, we are sometimes asked, "How much is enough?"  The short answer is, "It depends."  To help construct a longer answer, we'd like to find out how much testing scientists do in other contexts.  For example, the Cosmic Origins Spectrograph (COS) and the Space Telescope Imaging Spectrograph (STIS) are two of the instruments on the Hubble Space Telescope.  During Cycle 21 (which starts this month, and runs for about a year), they will spend roughly 25% and 67% of their time respectively on calibration:</p>
 <table class="centered">

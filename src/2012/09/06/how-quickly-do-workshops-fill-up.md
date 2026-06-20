@@ -2,7 +2,6 @@
 title: How Quickly Do Workshops Fill Up?
 date: 2012-09-06
 category: empirical-se software-carpentry
-original: swc
 ---
 <p>I had to compile some data on signups anyway, so here's a graph showing cumulative registration per workshop over time (counting from the day registration opened) for past workshops:</p>
 <p><img src="@root/files/2012/09/past.png" class="centered"></p>

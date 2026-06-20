@@ -2,7 +2,6 @@
 title: "A New Template for Workshop Websites"
 date: 2014-10-04
 category: software-carpentry
-original: swc
 ---
 <p>
   The first step in reorganizing the <code>bc</code> repository is

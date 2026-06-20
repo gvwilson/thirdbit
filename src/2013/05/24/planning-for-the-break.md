@@ -2,7 +2,6 @@
 title: Planning for the Break
 date: 2013-05-24
 category: software-carpentry
-original: swc
 ---
 <p>
   We've had a busy nine months:

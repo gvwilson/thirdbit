@@ -2,7 +2,6 @@
 title: "Translating Software Carpentry into Korean"
 date: 2014-11-25
 category: software-carpentry
-original: swc
 ---
 <p>
   This is pretty amazing:

@@ -2,7 +2,6 @@
 title: The Delight Is In The Details, Too
 date: 2009-08-23
 category: programming software-carpentry
-original: swc
 ---
 <p>They say the devil is in the details, but so's the delight, because it's the details that determine whether something works or doesn't. So let's take a look at how to translate the last post's "big picture" into actual course content.</p>
 <p>Every competent developer uses some kind of tool to automate tasks that involve dependencies. The best known is still <a href="http://www.gnu.org/software/make/">Make</a>, which compares the last-modified-times on files to see which ones are stale, and runs shell commands to bring them up to date. <a href="http://ant.apache.org/">Ant</a>, <a href="http://rake.rubyforge.org/">Rake</a>, and whatever's built into your IDE all work basically the same way, and can all be used (with greater or less ease) to recompile software, re-run tests, prepare distributions, update web sites, and what have you.</p>

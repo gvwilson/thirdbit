@@ -2,7 +2,6 @@
 title: Learners and Their Needs
 date: 2012-01-29
 category: education
-original: swc
 ---
 <p>I originally wrote these descriptions as part of a post on formats for learning material. I'm finding them useful in other contexts as well, so I'm re-posting them separately. Our description of our audience describes four scientific users in more detail.</p>
 <ul>

@@ -2,7 +2,6 @@
 title: "GSoC Projects for 2014"
 date: 2014-04-22
 category: open-source student-projects
-original: swc
 ---
 
 <p>

@@ -2,7 +2,6 @@
 title: "Changing the Channel"
 date: 2014-04-18
 category: software-carpentry
-original: swc
 ---
 <p>
   A lot of open source projects use an antiquated-but-reliable chat system

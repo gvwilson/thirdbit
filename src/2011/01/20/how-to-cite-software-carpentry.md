@@ -2,7 +2,6 @@
 title: How to Cite Software Carpentry
 date: 2011-01-20
 category: software-carpentry
-original: swc
 ---
 <p>If you are citing Software Carpentry in papers or technical reports, the web site and the 2006 article in <cite>Computing in Science &amp; Engineering</cite> are probably best; the other articles below provide other background that might also be useful. I hope to update the 2006 article some time this year, but a lot of other things are ahead of it in queue…</p>
 <pre>@article{wilson-bottleneck,

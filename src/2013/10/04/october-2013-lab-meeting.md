@@ -2,7 +2,6 @@
 title: "October 2013 Lab Meeting"
 date: 2013-10-04
 category: software-carpentry
-original: swc
 ---
 <p>
   25 people attended our monthly (ish) online lab meeting yesterday,

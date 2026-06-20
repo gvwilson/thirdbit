@@ -2,7 +2,6 @@
 title: "Pandoc and Building Pages"
 date: 2014-10-29
 category: programming
-original: swc
 ---
 <p>
   Long-time readers of this blog and

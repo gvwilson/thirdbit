@@ -2,7 +2,6 @@
 title: "Report on the Indiana Bootcamp"
 date: 2013-07-26
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://synesthesiam.com/">Mike Hansen</a>,

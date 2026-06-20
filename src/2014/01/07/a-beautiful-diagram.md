@@ -2,7 +2,6 @@
 title: "We Need More of These"
 date: 2014-01-07
 category: software-carpentry
-original: swc
 ---
 <p>
   Michael Nygard's <a href="http://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213/"><cite>Release It!</cite></a>

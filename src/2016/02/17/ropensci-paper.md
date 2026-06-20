@@ -2,7 +2,6 @@
 title: "Building Software, Building Community: Lessons from the rOpenSci Project"
 date: 2016-02-17
 category: open-source research
-original: swc
 ---
 Carl Boettiger,
 Scott Chamberlain,

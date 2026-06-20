@@ -2,7 +2,6 @@
 title: "Coding for Librarians"
 date: 2015-05-22
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://andromedayelton.com">Andromeda Yelton</a>

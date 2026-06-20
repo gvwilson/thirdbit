@@ -2,7 +2,6 @@
 title: "Journals as Repositories"
 date: 2015-10-17
 category: research
-original: swc
 ---
 <p>
   I had a really good conversation yesterday with Cath Brooksbank and Sarah Morgan,

@@ -2,7 +2,6 @@
 title: "Workshops at the Data Science Centers"
 date: 2014-01-30
 category: data-science software-carpentry
-original: swc
 ---
 <p>
   We are pleased to announce that we will be running workshops simultaneously

@@ -2,7 +2,6 @@
 title: "iPlant Becomes Software Carpentry Affiliate"
 date: 2015-02-02
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that

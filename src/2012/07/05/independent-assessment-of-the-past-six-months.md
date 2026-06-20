@@ -2,7 +2,6 @@
 title: Independent Assessment of the Past Six Months
 date: 2012-07-05
 category: empirical-se software-carpentry
-original: swc
 ---
 <p>As many of you know, Dr. Jorge Aranda has been doing an independent assessment of Software Carpentry's effectiveness over the past six months. His brief was to tell us whether we were having an impact on scientists' lives, and if so, what kind, and how we could do better. He just submitted his final report, and we would welcome your thoughts.</p>
 <blockquote><p><strong>Execute Summary</strong></p>

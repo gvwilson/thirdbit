@@ -2,7 +2,6 @@
 title: IPython Notebook + Towtruck + Etherpad + Slide Drive = Win
 date: 2012-07-22
 category: programming software-carpentry
-original: swc
 ---
 <p><em>Executive summary: the tool I want for teaching programming doesn't yet exist, but could be built by combining the <a href="http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html">IPython Notebook</a>, <a href="http://vimeo.com/36754286">Towtruck</a>, <a href="http://code.google.com/p/etherpad/">Etherpad</a>, and <a href="https://github.com/dseif/slide-drive">Slide Drive</a>. This would be a better web-based tool for teaching programming than anything currently available, and would alleviate the most critical bottleneck programming-for-everyone efforts face: the shortage of competent tutors.</em></p>
 <p>A lot of people <a href="http://www.edwardtufte.com/tufte/powerpoint">say harsh things about PowerPoint</a>, but as I've discussed before, the alternatives are all unsatisfying as well. HTML5 slideshows don't allow authors to mix text and graphics free-hand the way people do on a whiteboard; instead, the two have to be segregated into blocks. Screencasts are unsatisfying too: they don't display first-class content [<a href="#1">1</a>], and, like slideshows, aren't interactively hackable.</p>

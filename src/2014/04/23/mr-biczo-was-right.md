@@ -2,7 +2,6 @@
 title: "Mr. Biczo Was Right"
 date: 2014-04-23
 category: education
-original: swc
 ---
 <p>
   I didn't have nearly enough time to enjoy everything that was going on

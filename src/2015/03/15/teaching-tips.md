@@ -2,7 +2,6 @@
 title: "Teaching Tips"
 date: 2015-03-15
 category: software-carpentry
-original: swc
 ---
 <p>
   Last week's post on what's in your bag

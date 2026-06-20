@@ -2,7 +2,6 @@
 title: "A Workshop for Librarians at PyCon"
 date: 2014-03-04
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that we will be running a two-day workshop

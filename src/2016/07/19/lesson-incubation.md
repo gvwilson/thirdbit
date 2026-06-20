@@ -2,7 +2,6 @@
 title: "Lesson Incubation"
 date: 2016-07-19
 category: software-carpentry
-original: swc
 ---
 
 The Data Carpentry and Software Carpentry Steering Committees

@@ -2,7 +2,6 @@
 title: What I Learned From Software Carpentry
 date: 2011-01-06
 category: software-carpentry
-original: swc
 ---
 <p>Anna Maidens, who works for the UK Met Office in Exeter and took part in our October 2010 Software Carpentry course there, did a presentation a few weeks ago to her team about what she learned. She has kindly given permission for us to post those slides; as always, we're eager to hear what other people have taken away from the course as well.</p>
 <p><img src="@root/files/2011/01/slide-001.png" class="centered"></p>

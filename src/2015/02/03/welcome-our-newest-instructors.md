@@ -2,7 +2,6 @@
 title: "Welcome Our Newest Instructors"
 date: 2015-02-03
 category: software-carpentry
-original: swc
 ---
 <p>
   It's a pleasure to welcome another eight instructors to our team:

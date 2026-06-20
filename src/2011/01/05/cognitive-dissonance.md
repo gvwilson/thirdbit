@@ -1,7 +1,7 @@
 ---
 title: "Cognitive Dissonance"
 date: 2011-01-05
-category: education
+category: opinion politics
 ---
 Cognitive dissonance (n): voting for someone because they're going to clean up the city's finances, then supporting them when they decide to spend $344 million on 61,000 people instead of $111 million on 630,000:
 

@@ -2,7 +2,6 @@
 title: "New Words Needed"
 date: 2015-12-26
 category: education
-original: swc
 ---
 <p>
   Titus Brown <a href="http://ivory.idyll.org/blog/2015-software-hardening-q.html">recently asked</a>

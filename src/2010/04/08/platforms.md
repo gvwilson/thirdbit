@@ -2,7 +2,6 @@
 title: Platforms
 date: 2010-04-08
 category: software-carpentry
-original: swc
 ---
 <p>After Thursday's post-mortem on the latest offering of Software Carpentry at the University of Toronto, I had a chance to talk further with <a href="http://skoolr.blogspot.com/">Jon Pipitone</a>, who was one of the tutors (and who is just wrapping up an M.Sc. looking at code quality in climate models). We got onto the topic of infrastructure for Version 4, which needs to be settled quickly.</p>
 <ol>

@@ -2,7 +2,6 @@
 title: "Oxford, One Year On"
 date: 2013-12-25
 category: software-carpentry
-original: swc
 ---
 <p>
   Philip Fowler recently posted

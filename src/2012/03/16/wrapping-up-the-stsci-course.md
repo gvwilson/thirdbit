@@ -2,7 +2,6 @@
 title: Wrapping Up the STScI Course
 date: 2012-03-16
 category: software-carpentry
-original: swc
 ---
 <p>The online portion of our work with learners at the <a href="http://www.stsci.edu">Space Telescope Science Institute</a> wound up today. 6 of the 14 people who took part in the on-site workshop submitted "graduation exercise" videos, and three more sent apologies (time pressure, technical difficulties, etc.), which I think is a pretty good completion rate. As always, we finished up by asking everyone to give us one good and one bad thing about the class:</p>
 <table class="centered">

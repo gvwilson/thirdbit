@@ -2,7 +2,6 @@
 title: Wrapping Up in Boston
 date: 2012-07-10
 category: software-carpentry
-original: swc
 ---
 <p>We just wrapped up a two-day workshop in Boston with learners from several universities. It seems to have gone pretty well; we look forward to coming back soon.  Many thanks once again to Jessica McKellar, Geraldine van der Auwera, and Gus Muench for setting it up, and to Jessica for teaching yesterday afternoon.</p>
 <table class="centered">

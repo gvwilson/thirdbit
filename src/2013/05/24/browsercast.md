@@ -2,7 +2,6 @@
 title: Browsercast
 date: 2013-05-24
 category: programming software-carpentry
-original: swc
 ---
 <p>
   <a href="http://blog.codekills.net/">David Wolever</a>

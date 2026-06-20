@@ -2,7 +2,6 @@
 title: "Biological Computing User Stories"
 date: 2013-07-17
 category: software-carpentry
-original: swc
 ---
 <p>
   Three years ago,

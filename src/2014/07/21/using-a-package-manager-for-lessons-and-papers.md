@@ -2,7 +2,6 @@
 title: "Using a Package Manager for Lessons and Papers"
 date: 2014-07-21
 category: programming software-carpentry
-original: swc
 ---
 <p>
   I've been musing for a couple of years now about

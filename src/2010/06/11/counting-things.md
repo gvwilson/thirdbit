@@ -2,7 +2,6 @@
 title: Counting Things
 date: 2010-06-11
 category: software-carpentry
-original: swc
 ---
 <p>I re-read Robins et al's "Learning and Teaching Programming: A Review and Discussion"[^1] and Eccles and Stacey's "Understanding the Parallel Programming"[^2] this morning. One of the key takeaways in both is that novice programmers tend to classify problems according to problem domain or language features, while experienced programmers tend to classify them according to solution strategies. Where a beginner sees a problem in molecular biology or statistics, for example, an expert sees an opportunity to apply divide-and-conquer or accumulate-and-adjust.</p>
 <p>Knowing that, it's tempting to try a strategies-first approach when teaching programming. That usually doesn't work, though, because the strategies are shaped by what computers can do, and if you don't know that, those strategies seem to appear like rabbits out of a magician's hat.</p>

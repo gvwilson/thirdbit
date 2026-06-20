@@ -1,7 +1,7 @@
 ---
 title: "If You're Going to Teach an Undergrad Intro to Software Engineering…"
 date: 2011-06-12
-category: education
+category: education opinion
 ---
 I got mail yesterday from a former student of a friend of mine who has just been told that he has to teach an "Intro to Software Engineering" class this fall to a bunch of third-year undergraduates. He's not an SE guy–his background is operating systems–so he asked me what he should read to get one step ahead of his future students.  As regular readers will know, I don't think much of most traditional software engineering books: I've never seen most of what's in them in the real world, and most of what I've needed to know hasn't been in them.
 

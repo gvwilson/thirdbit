@@ -2,7 +2,6 @@
 title: "Interview: Jim Graham of Scimatic"
 date: 2010-06-10
 category: software-carpentry
-original: swc
 ---
 <p>Over the next few weeks, I'll be interviewing the people whose sponsorship has made this course possible.  First up is Scimatic's Jim Graham.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

@@ -2,7 +2,6 @@
 title: "Workshop for Women in Science and Engineering: April 14-15 at LBL"
 date: 2014-01-28
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   We're very pleased to announce that

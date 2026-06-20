@@ -2,7 +2,6 @@
 title: Another Update on What You Want
 date: 2010-08-26
 category: software-carpentry
-original: swc
 ---
 <p>Responses have slowed, so here are the final scores for the topics we're including (or thinking about including) in this course. It looks like the Unix shell just might go back in…</p>
 <table class="centered">

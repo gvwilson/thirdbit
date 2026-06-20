@@ -2,7 +2,6 @@
 title: June 2013 Lab Meeting
 date: 2013-06-13
 category: software-carpentry
-original: swc
 ---
 <p>
   Earlier this week,

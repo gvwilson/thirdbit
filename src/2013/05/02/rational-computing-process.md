@@ -2,7 +2,6 @@
 title: "A Rational Computing Process: How and Why to Fake It"
 date: 2013-05-02
 category: programming research
-original: swc
 ---
 <p>
   Parnas and Clement's 1986 paper

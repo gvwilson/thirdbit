@@ -2,7 +2,6 @@
 title: "Software Carpentry's Scope"
 date: 2013-11-02
 category: software-carpentry
-original: swc
 ---
 <p>
   To help people figure out what's in and what out

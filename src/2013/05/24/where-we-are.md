@@ -2,7 +2,6 @@
 title: Where We Are (More or Less)
 date: 2013-05-24
 category: software-carpentry
-original: swc
 ---
 <p>
 In January 2012,

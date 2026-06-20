@@ -2,7 +2,6 @@
 title: "What We Cover in Instructor Training"
 date: 2013-08-13
 category: software-carpentry
-original: swc
 ---
 <p>
   The sixth round of our

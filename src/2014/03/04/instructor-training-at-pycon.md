@@ -2,7 +2,6 @@
 title: "Learn How to Teach People to Program"
 date: 2014-03-04
 category: software-carpentry
-original: swc
 ---
 <p>
   We are very pleased to announce that we will be running two one-day workshops

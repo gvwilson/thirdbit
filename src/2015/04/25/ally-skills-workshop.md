@@ -2,7 +2,6 @@
 title: "Ada Initiative's Ally Skills Workshop"
 date: 2015-04-25
 category: diversity
-original: swc
 ---
 <p>
   The <a href="https://adainitiative.org/">Ada Initiative</a>

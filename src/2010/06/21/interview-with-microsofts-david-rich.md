@@ -2,7 +2,6 @@
 title: Interview with Microsoft's David Rich
 date: 2010-06-21
 category: software-carpentry
-original: swc
 ---
 <p>The latest in our series of interviews with Software Carpentry sponsors is with Microsoft's David Rich.</p>
 <p><em>Tell us a bit about your organization and its goals.</em></p>

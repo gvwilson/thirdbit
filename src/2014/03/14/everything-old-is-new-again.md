@@ -2,7 +2,6 @@
 title: "Everything Old is New Again"
 date: 2014-03-14
 category: education retro
-original: swc
 ---
 <p>
   Yesterday,

@@ -2,7 +2,6 @@
 title: "My Favorite Tool - Asking for Help"
 date: 2017-11-28
 category: education
-original: swc
 ---
 
 My favorite tool is asking for help.

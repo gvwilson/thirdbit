@@ -2,7 +2,6 @@
 title: Features and Scope in Open Courseware
 date: 2013-02-03
 category: education open-source
-original: swc
 ---
 
 <p>A couple of weeks ago, Brian Granger (one of the core developers of IPython) posted some thoughts on <a href="http://brianegranger.com/?p=249">features and scope in open source software</a>.  In it, he enumerates some of the risks associated with constantly adding new features to a piece of software (open source or otherwise):</p>

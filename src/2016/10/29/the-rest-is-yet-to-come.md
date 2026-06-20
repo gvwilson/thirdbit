@@ -2,7 +2,6 @@
 title: "The Rest Is Yet To Come"
 date: 2016-10-29
 category: personal
-original: swc
 ---
 
 I co-taught an instructor training workshop earlier this week,

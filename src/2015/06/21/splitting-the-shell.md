@@ -2,7 +2,6 @@
 title: "Splitting the Shell Window"
 date: 2015-06-21
 category: software-carpentry
-original: swc
 ---
 <p>
   Raniere Silva

@@ -2,7 +2,6 @@
 title: "A New Lesson Template, Version 2"
 date: 2014-10-23
 category: software-carpentry
-original: swc
 ---
 
 *Update: this post now includes feedback from participants in the

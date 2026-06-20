@@ -2,7 +2,6 @@
 title: "Splitting the Repository"
 date: 2014-09-29
 category: software-carpentry
-original: swc
 ---
 <p>
   United Airlines messed up my travel again last weekend,

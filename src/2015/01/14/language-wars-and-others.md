@@ -2,7 +2,6 @@
 title: "Language Wars and Others"
 date: 2015-01-14
 category: programming
-original: swc
 ---
 <p>
   We often get asked, "Why do you teach [X]?  Why don't you teach [Y]?"

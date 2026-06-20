@@ -2,7 +2,6 @@
 title: "Changing Our Core Curriculum"
 date: 2014-03-27
 category: software-carpentry
-original: swc
 ---
 <p>
   We currently say

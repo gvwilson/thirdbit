@@ -2,7 +2,6 @@
 title: Not Really Disjoint
 date: 2012-09-04
 category: education
-original: swc
 ---
 <p>The twinned discussions in bioinformatics about openness and software quality are heating up. A recent salvo on Gas Stations Without Pumps is titled "<a href="http://gasstationwithoutpumps.wordpress.com/2012/08/27/accountable-research-software/">Accountable research software</a>", and one statement in particular caught my eye:</p>
 <blockquote><p><em>The rapid prototyping skills needed for research programming and the careful specification, error checking, and testing needed for software engineering are almost completely disjoint.</em></p></blockquote>

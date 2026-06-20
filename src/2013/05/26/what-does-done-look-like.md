@@ -2,7 +2,6 @@
 title: What Does Done Look Like?
 date: 2013-05-26
 category: software-carpentry
-original: swc
 ---
 <p>
   After recent posts about

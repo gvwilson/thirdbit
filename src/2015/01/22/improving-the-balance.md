@@ -2,7 +2,6 @@
 title: "Improving the Balance"
 date: 2015-01-22
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   Jennifer Martin's recent article

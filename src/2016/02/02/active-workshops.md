@@ -2,7 +2,6 @@
 title: "Active Workshops"
 date: 2016-02-02
 category: software-carpentry
-original: swc
 ---
 
 A few days ago,

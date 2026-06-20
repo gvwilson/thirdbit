@@ -2,7 +2,6 @@
 title: Never Mind the Content, What About the Format?
 date: 2012-01-26
 category: software-carpentry
-original: swc
 ---
 <p>I'm still gnawing on the problem of how to construct content for 21st Century learning–or, more prosaically, what I should use to build the next version of Software Carpentry. My starting point is the need to serve several different kinds of users [<a id="a1" href="#f1">1</a>], whose descriptions I have moved to a separate post on learners and their needs.</p>
 <ul>

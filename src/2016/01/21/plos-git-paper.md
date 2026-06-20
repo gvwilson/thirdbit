@@ -2,7 +2,6 @@
 title: "Our Introduction to Git Has Been Published"
 date: 2016-01-21
 category: open-source research
-original: swc
 ---
 
 Our short paper

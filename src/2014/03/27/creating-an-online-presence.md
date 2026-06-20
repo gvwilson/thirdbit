@@ -2,7 +2,6 @@
 title: "Building a Minimal Online Presence"
 date: 2014-03-27
 category: software-carpentry
-original: swc
 ---
 <p>
   Titus Brown and Ethan White led a half-hour discussion today of

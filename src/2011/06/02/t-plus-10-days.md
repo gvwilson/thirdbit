@@ -1,7 +1,7 @@
 ---
 title: "T Plus 10 Days"
 date: 2011-06-02
-category: personal
+category: aosa technical-writing
 ---
 So how is <a href="http://aosabook.org"><cite>The Architecture of Open Source Applications</cite></a> doing?
 

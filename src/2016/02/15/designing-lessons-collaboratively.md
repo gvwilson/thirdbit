@@ -2,7 +2,6 @@
 title: "Designing Lessons Collaboratively"
 date: 2016-02-15
 category: software-carpentry
-original: swc
 ---
 A few days ago,
 I asked for feedback on a new Python lesson aimed at people who've never programmed before.

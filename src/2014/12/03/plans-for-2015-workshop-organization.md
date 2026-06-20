@@ -2,7 +2,6 @@
 title: "Plans for 2015: Workshop Organization"
 date: 2014-12-03
 category: software-carpentry
-original: swc
 ---
 <p>
   As I write this,

@@ -2,7 +2,6 @@
 title: "Publishing Our Lessons"
 date: 2015-04-17
 category: software-carpentry
-original: swc
 ---
 <p>
   <a href="http://en.wikipedia.org/wiki/Digital_object_identifier">Digital Object Identifiers</a> (DOIs)

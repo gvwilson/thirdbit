@@ -2,7 +2,6 @@
 title: "Our Biggest Bootcamp Ever at PyCon 2014"
 date: 2013-10-04
 category: software-carpentry
-original: swc
 ---
 <p>
   Thanks to the generous support of the Python Software Foundation,

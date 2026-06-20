@@ -2,7 +2,6 @@
 title: Creating New Niches
 date: 2009-10-21
 category: empirical-se technical-writing
-original: swc
 ---
 <p>"Publish or perish" is the central credo of academic life: despite all the hoopla about the blogosphere and online what-not, the reality for most of us is that if our work doesn't get into a respected journal or conference, it doesn't count.</p>
 <p>But what do you do if there isn't a home for your kind of work? People working in scientific computing have been struggling with this for at least a quarter century: while there are many places to submit the <em>results</em> of programs, there are very few places where you can publish a description of the program itself, even if building it took years and required one intellectual breakthrough after another. In contrast, if you design a new telescope, there are at least half a dozen places you could turn.</p>

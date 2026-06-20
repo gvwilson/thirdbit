@@ -2,7 +2,6 @@
 title: Software Carpentry Needs You!
 date: 2012-07-28
 category: software-carpentry
-original: swc
 ---
 <p>Software Carpentry needs you! If you found our workshops, tutorials, or online material useful, there are many ways you could help us grow:</p>
 <p><strong>Send us a testimonial</strong> to add to this page, or write a longer one that we can post on our blog. (We show these to potential sponsors as evidence that we're doing good things, and to people who are thinking about organizing or attending workshops to give them an idea of the benefits.)</p>

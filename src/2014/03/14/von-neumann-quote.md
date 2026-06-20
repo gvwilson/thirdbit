@@ -2,7 +2,6 @@
 title: "A Letter from John von Neumann"
 date: 2014-03-14
 category: noticed
-original: swc
 ---
 <p>
   Plans to standardize and publish codes of various groups have been made in the past,

@@ -2,7 +2,6 @@
 title: "Questions, Answers, and Lessons"
 date: 2016-04-24
 category: software-carpentry
-original: swc
 ---
 <p>
   While working on an outline of

@@ -2,7 +2,6 @@
 title: "Software Carpentry: Lessons Learned"
 date: 2013-06-20
 category: software-carpentry
-original: swc
 ---
 <p>With contributions from:</p>
 <table class="centered">

@@ -2,7 +2,6 @@
 title: "Good Communities (Kinds Of)"
 date: 2016-01-09
 category: software-carpentry
-original: swc
 ---
 
 Back in October,

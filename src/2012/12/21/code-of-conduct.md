@@ -2,7 +2,6 @@
 title: Code of Conduct
 date: 2012-12-21
 category: software-carpentry
-original: swc
 ---
 <p>
   Software Carpentry is dedicated to providing a harassment-free learning experience for everyone,

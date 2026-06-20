@@ -2,7 +2,6 @@
 title: "Library Carpentry is One Year Old"
 date: 2016-10-22
 category: software-carpentry
-original: swc
 ---
 
 The indefatigable James Baker

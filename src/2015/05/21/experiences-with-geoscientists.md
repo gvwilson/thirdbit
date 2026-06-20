@@ -2,7 +2,6 @@
 title: "Experiences with Geoscientists"
 date: 2015-05-21
 category: software-carpentry
-original: swc
 ---
 <p>
   Christian Jacobs,

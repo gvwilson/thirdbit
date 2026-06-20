@@ -2,7 +2,6 @@
 title: The Twelve Bar Blues of Open Science
 date: 2013-06-19
 category: noticed research
-original: swc
 ---
 <p>
   Most musicians can play along with a twelve-bar blues

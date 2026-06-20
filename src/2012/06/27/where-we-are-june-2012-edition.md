@@ -2,7 +2,6 @@
 title: Where We Are (June 2012 edition)
 date: 2012-06-27
 category: software-carpentry
-original: swc
 ---
 <p>Last week, a double dozen friends and colleagues gathered physically and virtually to review what we've done and where we should go next. I'll postpone discussion of the biggest "what next" items to separate posts, but here's the status report itself.</p>
 <h2>Successes</h2>

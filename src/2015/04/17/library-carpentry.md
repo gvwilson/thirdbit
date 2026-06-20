@@ -2,7 +2,6 @@
 title: "Library Carpentry"
 date: 2015-04-17
 category: software-carpentry
-original: swc
 ---
 <p>
   We wrote about

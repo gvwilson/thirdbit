@@ -2,7 +2,6 @@
 title: Feedback from Michigan State
 date: 2012-05-12
 category: software-carpentry
-original: swc
 ---
 <p>Our workshop at Michigan State University this week was three days long instead of two, and included two topics (Git and the IPython notebook) that we haven't tried before.  Feedback was generally positive, but we've got lots to work on for next time as well.</p>
 <table class="centered">

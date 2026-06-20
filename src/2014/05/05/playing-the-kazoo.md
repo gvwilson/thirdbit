@@ -2,7 +2,6 @@
 title: "Playing the Kazoo"
 date: 2014-05-05
 category: software-carpentry
-original: swc
 ---
 <p>
   Yesterday,

@@ -2,7 +2,6 @@
 title: "What the Data Says About Novice Programming Mistakes"
 date: 2016-01-09
 category: education empirical-se
-original: swc
 ---
 
 I recently had a chance to catch up with this paper from 2014:

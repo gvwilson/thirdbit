@@ -2,7 +2,6 @@
 title: The Big Picture
 date: 2012-01-25
 category: software-carpentry
-original: swc
 ---
 <p>I'm trying to be systematic about re-designing the core curriculum of Software Carpentry. So far, I've identified 11 common questions:</p>
 <table class="centered">

@@ -1,7 +1,7 @@
 ---
 title: "Gibson's Law in the Small"
 date: 2011-01-06
-category: empirical-se programming
+category: noticed
 ---
 A little bit of the future from this morning's Twitter… :-)
 

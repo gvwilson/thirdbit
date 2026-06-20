@@ -2,7 +2,6 @@
 title: "Summary of June 2014 Lab Meeting"
 date: 2014-06-27
 category: software-carpentry
-original: swc
 ---
 <p>
   At our monthly lab meeting yesterday (June 26),

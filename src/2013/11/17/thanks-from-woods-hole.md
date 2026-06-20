@@ -2,7 +2,6 @@
 title: "Thanks from Woods Hole"
 date: 2013-11-17
 category: software-carpentry
-original: swc
 ---
 <p>
   We ran a bootcamp last week at Woods Hole Oceanographic Institute.

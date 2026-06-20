@@ -2,7 +2,6 @@
 title: "Data Science Centers at UCB, UW, and NYU"
 date: 2013-11-13
 category: research
-original: swc
 ---
 <p>
   Yesterday,

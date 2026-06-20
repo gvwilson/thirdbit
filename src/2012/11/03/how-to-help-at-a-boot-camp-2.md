@@ -2,7 +2,6 @@
 title: How to Help at a Bootcamp
 date: 2012-11-03
 category: software-carpentry
-original: swc
 ---
 
 <p>Aleksandra Pawlik has written a <a href="http://www.software.ac.uk/blog/2012-11-02-top-tips-helpers-software-carpentry-bootcamp">five-point guide</a> to helping out with Software Carpentry bootcamps:</p>

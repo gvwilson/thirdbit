@@ -2,7 +2,6 @@
 title: "Teaching For Loops"
 date: 2015-12-10
 category: software-carpentry
-original: swc
 ---
 
 A few days ago,

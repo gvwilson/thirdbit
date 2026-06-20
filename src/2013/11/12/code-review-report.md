@@ -2,7 +2,6 @@
 title: "Report on the PLOS/Mozilla Code Review Pilot"
 date: 2013-11-12
 category: empirical-se
-original: swc
 ---
 <p>
   Marian Petre and I have written a report on

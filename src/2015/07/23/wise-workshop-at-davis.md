@@ -2,7 +2,6 @@
 title: "WiSE Workshop at UC Davis Aug 17-18"
 date: 2015-07-23
 category: diversity software-carpentry
-original: swc
 ---
 <p>
   We are pleased to announce that

@@ -2,7 +2,6 @@
 title: "Close Cousins"
 date: 2016-10-30
 category: programming
-original: swc
 ---
 
 Our process for developing and maintaining lessons has grown and changed over time.

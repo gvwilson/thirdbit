@@ -2,7 +2,6 @@
 title: Feedback and Boundaries
 date: 2010-04-04
 category: software-carpentry
-original: swc
 ---
 <p>Thanks to the initiative of Dominique Vuvan (who took Software Carpentry last summer), we ran a semi-formal version of the course from last November through to this past week for grad students in Psychology, Linguistics, and a few other disciplines at the University of Toronto. Weekly tutorials were offered in both Python and MATLAB by graduate teaching assistants from Computer Science, covering roughly half of the existing material.</p>
 <p>The two things students like least were the general disorganization of the course and the fact that a lot of the material felt like what we computer scientists though they ought to know, rather than what they could see as being immediately useful. The disorganization reflects the grassroots nature of this round of the course, and the fact that it was our first time teaching in MATLAB. Next time around, we'll use a more natural order for material in MATLAB, rather than sticking to the order that makes sense for Python, but forces students to grapple with some of the more obscure features of MATLAB early on.</p>

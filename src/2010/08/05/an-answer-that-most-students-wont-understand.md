@@ -2,7 +2,6 @@
 title: An Answer That Most Students Won't Understand
 date: 2010-08-05
 category: software-carpentry
-original: swc
 ---
 <p>Two days ago, I asked how to generates tests from tables of fixtures using Nose:</p>
 <blockquote><p>…does Nose already have a tool for running through a table of fixtures and expected results?  My hand-rolled version is:</p>

@@ -2,7 +2,6 @@
 title: Ratios and Rework
 date: 2010-11-16
 category: empirical-se software-carpentry
-original: swc
 ---
 <p>It's been six months and a bit since we started working on Version 4 of this course, so I'd like to share two things we've learned about creating online tutorial videos:</p>
 <ol>

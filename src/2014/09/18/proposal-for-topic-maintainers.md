@@ -2,7 +2,6 @@
 title: "A Proposal for Topic Maintainers"
 date: 2014-09-18
 category: software-carpentry
-original: swc
 ---
 <p>
   I can lift ten pounds.

@@ -2,7 +2,6 @@
 title: "Summarizing Our Lesson Discussion Sessions"
 date: 2016-04-29
 category: software-carpentry
-original: swc
 ---
 
 For the first four months of this year, we ran hour-long lesson

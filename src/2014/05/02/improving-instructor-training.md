@@ -2,7 +2,6 @@
 title: "How to Improve Instructor Training"
 date: 2014-05-02
 category: software-carpentry
-original: swc
 ---
 <p>
   We ran a three-day intensive version of our instructor training course

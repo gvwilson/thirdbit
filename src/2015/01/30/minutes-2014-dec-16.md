@@ -2,7 +2,6 @@
 title: "Interim Steering Committee Meeting: Dec 16, 2014"
 date: 2015-01-30
 category: software-carpentry
-original: swc
 ---
 <p>Software Carpentry Foundation Interim Board Meeting: Dec 16, 2014</p>
 <p><strong>Attending</strong></p>

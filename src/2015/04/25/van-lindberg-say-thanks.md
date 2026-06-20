@@ -2,7 +2,6 @@
 title: "Van Lindberg's Keynote: Say Thanks"
 date: 2015-04-25
 category: noticed
-original: swc
 ---
 <p>
   Van Lindberg,

@@ -2,7 +2,6 @@
 title: Wrapping Up in Melbourne
 date: 2013-02-15
 category: software-carpentry
-original: swc
 ---
 <p>Two long but useful days at Melbourne Uni have just wound down, and five dozen meteorologists and climate scientists have given us feedback on a well-run bootcamp:</p>
 <table class="centered">

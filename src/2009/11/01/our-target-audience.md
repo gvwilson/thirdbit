@@ -2,7 +2,6 @@
 title: Our Target Audience
 date: 2009-11-01
 category: software-carpentry
-original: swc
 ---
 <p>Some graduate students at the University of Toronto have asked us to run the course for them later this fall or during the winter. There's an obvious selection bias (if they were expert programmers, they wouldn't need this course), but I think they're pretty representative of scientists at their level:</p>
 <table class="centered">

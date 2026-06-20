@@ -2,7 +2,6 @@
 title: Done In London
 date: 2010-11-05
 category: software-carpentry
-original: swc
 ---
 <p>We wrapped up this week's class in London today: I think a lot of the students felt that they'd been in the wind tunnel most of the week, but the feedback was fairly positive:</p>
 <p><em><strong>Good</strong></em></p>

@@ -2,7 +2,6 @@
 title: "Close Enough for Scientific Work"
 date: 2014-11-18
 category: research
-original: swc
 ---
 
 The discussion around last month's post

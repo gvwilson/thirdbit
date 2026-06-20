@@ -2,7 +2,6 @@
 title: "Adding a Contributor Covenant"
 date: 2015-03-02
 category: software-carpentry
-original: swc
 ---
 <p>
   The Software Carpentry Foundation's Steering Committee has voted to add

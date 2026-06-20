@@ -2,7 +2,6 @@
 title: Alpha Testing Ideas for the IPython Notebook
 date: 2012-11-27
 category: programming software-carpentry
-original: swc
 ---
 <p>Before I post any of these ideas on the <a href="http://wiki.ipython.org/Main_Page">IPython Notebook wiki</a>, I'd be grateful for feedback from our learners and instructors. Most of these (maybe all of them?) would be done as extensions, rather than as patches to IPyNB itself. Please let us know what you think; I'll revise and then cross-post to the IPyNB folks.</p>
 <h2>Our Users</h2>

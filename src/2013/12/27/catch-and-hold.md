@@ -2,7 +2,6 @@
 title: "Catch and Hold"
 date: 2013-12-27
 category: software-carpentry
-original: swc
 ---
 <p>
   I'm a big fan of <a href="http://computinged.wordpress.com">Mark Guzdial</a>'s work

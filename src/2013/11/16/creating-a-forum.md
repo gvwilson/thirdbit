@@ -2,7 +2,6 @@
 title: "Creating a Forum"
 date: 2013-11-16
 category: software-carpentry
-original: swc
 ---
 <p>
   Every few months,

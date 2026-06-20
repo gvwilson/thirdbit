@@ -2,7 +2,6 @@
 title: "Top 10 Myths about Teaching CS"
 date: 2015-07-18
 category: education
-original: swc
 ---
 <p>
   Mark Guzdial (whose <a href="https://computinged.wordpress.com/">blog</a> has been a frequent inspiration)

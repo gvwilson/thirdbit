@@ -2,7 +2,6 @@
 title: Ten Simple Rules
 date: 2012-06-07
 category: software-carpentry
-original: swc
 ---
 <p>The "<a href="http://www.ploscollections.org/article/browseIssue.action?issue=info:doi/10.1371/issue.pcol.v03.i01">Ten Simple Rules</a>" series being run in <cite>PLoS Computational Biology</cite> has a lot of useful gems. Written by editor-in-chief Philip Bourne and others, the entire collection to date is available as <a href="http://www.ploscollections.org/downloads/TenSimpleRulesCollection.pdf">a single PDF</a>, but for those who prefer bite-sized reading, here are ten simple rules for:</p>
 <ul>

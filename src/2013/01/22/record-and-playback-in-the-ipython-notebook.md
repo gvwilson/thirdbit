@@ -2,7 +2,6 @@
 title: Record and Playback in the IPython Notebook
 date: 2013-01-22
 category: programming software-carpentry
-original: swc
 ---
 
 <p>We decided last fall to start teaching Python using the <a href="http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html">IPython Notebook</a> rather than a plain old command-line interpreter.  It will take us a few months to complete the transition, but one of the things that we're hoping to do in the meanwhile is build a record-and-playback plugin for the Notebook.  We think this will be more useful than the screencasts we currently have because:</p>

@@ -2,7 +2,6 @@
 title: "Computational Competence for Biologists"
 date: 2013-07-16
 category: software-carpentry
-original: swc
 ---
 <p>
   On July 8 and 9,

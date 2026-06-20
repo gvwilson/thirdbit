@@ -2,7 +2,6 @@
 title: "A New Version of 'Lessons Learned'"
 date: 2016-01-28
 category: software-carpentry
-original: swc
 ---
 
 A new version of "Software Carpentry: Lessons Learned" is

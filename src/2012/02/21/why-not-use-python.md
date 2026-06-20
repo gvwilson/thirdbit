@@ -2,7 +2,6 @@
 title: Why Not to Use Python
 date: 2012-02-21
 category: software-carpentry
-original: swc
 ---
 <p><img src="@root/files/2012/02/greg-teaching-mozilla-2012-02-a.jpg" class="centered"></p>
 <p>When we started Software Carpentry back in the late 1990s, we used Perl as a teaching language instead of Python. At the time, it was a no-brainer: Perl had many more users, better documentation, and more libraries. We switched because we found ourselves explaining the same inconsistencies over and over again (as I've said many times since, every page of the <a href="http://shop.oreilly.com/product/9781565924956.do">O'Reilly Pocket Guide to Perl</a> used one of the words "except", "unless", or "however" at least once). Python had fewer "buts": we saw right away that students were learning concepts more quickly, and they seemed to retain more as well.</p>

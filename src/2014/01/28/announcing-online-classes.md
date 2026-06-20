@@ -2,7 +2,6 @@
 title: "Teaching Online (Sort Of) in 2014"
 date: 2014-01-28
 category: software-carpentry
-original: swc
 ---
 <p>
   We have tried several times to teach Software Carpentry online,

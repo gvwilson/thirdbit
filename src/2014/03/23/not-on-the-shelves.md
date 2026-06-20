@@ -2,7 +2,6 @@
 title: "Not on the Shelves"
 date: 2014-03-23
 category: book-reviews
-original: swc
 ---
 
 <p>

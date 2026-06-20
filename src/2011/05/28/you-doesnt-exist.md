@@ -1,7 +1,7 @@
 ---
 title: "You Doesn't Exist"
 date: 2011-05-28
-category: education programming
+category: aosa community open-source technical-writing
 ---
 <p>
   The title of this post is not grammatically incorrect, and therein

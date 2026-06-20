@@ -2,7 +2,6 @@
 title: Our Infrastructure
 date: 2013-05-25
 category: software-carpentry
-original: swc
 ---
 <p>
   As described in these posts from

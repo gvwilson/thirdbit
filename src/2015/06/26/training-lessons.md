@@ -2,7 +2,6 @@
 title: "Training Lessons"
 date: 2015-06-26
 category: software-carpentry
-original: swc
 ---
 <p>
   I wrote about

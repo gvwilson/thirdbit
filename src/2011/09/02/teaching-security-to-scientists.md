@@ -2,7 +2,6 @@
 title: Teaching Security to Scientists
 date: 2011-09-02
 category: software-carpentry
-original: swc
 ---
 <p>Thanks to everyone for their suggestions regarding what we should teach about computer security if we only have one hour (the usual constraint for topics in this course). The outline below is based in part on the lecture on security from Version 3 of this course, in part on <a href="http://www.rickwash.com/papers/rwash-homesec-soups10-final.pdf">Rick Wash's excellent study of folks models of computer security</a>, and in part on mistakes I've seen (or made) myself in the past five years. Feedback would be very welcome, but remember: we're teaching scientists and engineers who are programming as a way to do science, not as an end in itself.</p>
 <hr />

@@ -2,7 +2,6 @@
 title: "Library Carpentry in Toronto"
 date: 2016-07-30
 category: software-carpentry
-original: swc
 ---
 
 On July 28-29, a group of volunteers from the University of Toronto's libraries

@@ -2,7 +2,6 @@
 title: "Scientific Groupware Revisited"
 date: 2014-07-05
 category: software-carpentry
-original: swc
 ---
 <p>
   16 years ago,

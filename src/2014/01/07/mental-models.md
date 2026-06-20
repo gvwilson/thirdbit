@@ -2,7 +2,6 @@
 title: "Mental Models and Vicious Circles"
 date: 2014-01-07
 category: education
-original: swc
 ---
 <p>
   A few days ago,

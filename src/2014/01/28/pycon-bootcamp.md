@@ -2,7 +2,6 @@
 title: "Workshops at PyCon in Montreal This April"
 date: 2014-01-28
 category: conferences software-carpentry
-original: swc
 ---
 <p>
   We are pleased to announce that registration is now open for our largest event ever:

@@ -2,7 +2,6 @@
 title: "More on Instructor Training"
 date: 2016-07-26
 category: software-carpentry
-original: swc
 ---
 
 Since we announced yesterday that we are

@@ -2,7 +2,6 @@
 title: "An Online Peer Instruction Tool"
 date: 2014-02-09
 category: programming software-carpentry
-original: swc
 ---
 <p>
   <a href="http://en.wikipedia.org/wiki/Peer_instruction">Peer instruction</a>

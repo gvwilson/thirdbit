@@ -2,7 +2,6 @@
 title: "The Paradox of Learning Objects"
 date: 2015-04-22
 category: education software-carpentry
-original: swc
 ---
 <p>
   <a href="http://sclt.science.ubc.ca/warcode">Warren Code</a>

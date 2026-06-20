@@ -2,7 +2,6 @@
 title: "Why Not a MOOC?"
 date: 2014-01-19
 category: education
-original: swc
 ---
 <p>
   We got mail yesterday asking us whether we were going to run Software Carpentry as a MOOC.
