@@ -1,7 +1,7 @@
 ---
 title: "Rates"
 date: 2019-12-13
-category: career education
+category: career opinion
 ---
 
 I talk a lot about lesson design and delivery,

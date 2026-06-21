@@ -1,7 +1,7 @@
 ---
 title: "Buzzfeed on DataCamp"
 date: 2019-05-13
-category: diversity ethics
+category: career ethics
 ---
 
 Davey Alba's article for Buzzfeed about

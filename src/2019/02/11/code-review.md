@@ -1,7 +1,7 @@
 ---
 title: "Examples Wanted for Code Review"
 date: 2019-02-11
-category: education programming
+category: education programming technical-writing
 ---
 
 There's a lot of good advice on the web about how to do code reviews,

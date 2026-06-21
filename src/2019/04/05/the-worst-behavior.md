@@ -1,7 +1,7 @@
 ---
 title: "The Worst Behavior"
 date: 2019-04-05
-category: career diversity ethics
+category: career ethics
 ---
 
 > two years after the incident and DataCamp is here to collect their reward for doing the absolute bare minimum.

@@ -1,7 +1,7 @@
 ---
 title: "Checking-Driven Development"
 date: 2019-05-28
-category: data-science programming research
+category: data-science programming
 ---
 
 I spent some time talking to a colleague this week about software testing and data science,

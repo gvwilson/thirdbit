@@ -1,7 +1,7 @@
 ---
 title: "Libraries Tell It Like It Is"
 date: 2019-02-05
-category: humor programming
+category: humor
 ---
 
 <table class="centered">

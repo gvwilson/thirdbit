@@ -1,7 +1,7 @@
 ---
 title: "From Textbooks to Notebooks and Back"
 date: 2019-04-27
-category: education programming technical-writing
+category: education technical-writing
 ---
 
 I just converted my introduction to R for Python programmers from Jekyll to [bookdown][bookdown],

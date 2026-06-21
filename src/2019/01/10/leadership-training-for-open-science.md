@@ -1,7 +1,7 @@
 ---
 title: "Leadership Training for Open Science"
 date: 2019-01-10
-category: education open-source software-carpentry
+category: education proposal software-carpentry
 ---
 
 Many people in various open science communities have technical skills and good

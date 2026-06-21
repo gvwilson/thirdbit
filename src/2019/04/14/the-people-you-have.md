@@ -1,7 +1,7 @@
 ---
 title: "The People You Have"
 date: 2019-04-14
-category: personal politics
+category: career ethics personal politics
 ---
 
 > Too often, the defenders of free markets forget that what we really want is free men. <br>

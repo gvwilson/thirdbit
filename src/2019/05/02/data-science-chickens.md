@@ -1,10 +1,11 @@
 ---
 title: "Sexing Data Science Chickens"
 date: 2019-05-02
-category: data-science research
+category: data-science diversity research
 ---
 
-The biggest problem in data science is its bias against people who aren't straight, affluent, white or Asian males.
+The biggest problem in data science is its bias
+against people who aren't straight, affluent, white or Asian males.
 Its second biggest problem, in my opinion, is that nobody talks about how they sex chickens.
 After a long period of trial and error,
 people can learn [how to tell at a glance whether a newborn chick is male or female][sexing].

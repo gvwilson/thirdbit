@@ -1,7 +1,7 @@
 ---
 title: "Patterns in Git"
 date: 2019-07-05
-category: empirical-se programming
+category: empirical-se student-projects
 ---
 
 Two years ago,

@@ -1,7 +1,7 @@
 ---
 title: "Ten Quick Tips for Creating an Effective Lesson"
 date: 2019-04-12
-category: education
+category: education technical-writing
 ---
 
 My paper "[Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915)"

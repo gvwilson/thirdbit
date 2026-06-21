@@ -1,7 +1,7 @@
 ---
 title: "Exoplanets"
 date: 2019-08-10
-category: education research
+category: education opinion
 ---
 
 I think a lot about Scott Hanselman's phrase

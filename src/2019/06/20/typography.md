@@ -1,7 +1,7 @@
 ---
 title: "Typography"
 date: 2019-06-20
-category: personal technical-writing
+category: personal
 ---
 
 My dad used to have a little pocketbook that was given to Australian soldiers during the Korean War.

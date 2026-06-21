@@ -1,7 +1,7 @@
 ---
 title: "Words and Hours"
 date: 2019-05-24
-category: personal
+category: retro
 ---
 
 Words and productive hours per day over the past five months.

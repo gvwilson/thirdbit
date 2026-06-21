@@ -1,7 +1,7 @@
 ---
 title: "Cutting Corners"
 date: 2019-11-19
-category: programming student-projects
+category: management student-projects
 ---
 
 *I wrote this guide ten years ago when I was supervising undergraduate

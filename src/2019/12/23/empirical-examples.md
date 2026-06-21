@@ -1,7 +1,7 @@
 ---
 title: "Empirical Examples"
 date: 2019-12-23
-category: empirical-se programming
+category: education empirical-se favorite
 ---
 
 Back in July 2000,

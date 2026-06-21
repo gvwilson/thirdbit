@@ -1,7 +1,7 @@
 ---
 title: "Shorter Lines"
 date: 2019-05-03
-category: education
+category: education noticed
 ---
 
 [Mark Guzdial](https://www.si.umich.edu/people/mark-guzdial)

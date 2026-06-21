@@ -1,7 +1,7 @@
 ---
 title: "Timeline of a Conversation That Never Happened"
 date: 2019-10-17
-category: diversity ethics
+category: career ethics
 ---
 
 -   In April 2019,
