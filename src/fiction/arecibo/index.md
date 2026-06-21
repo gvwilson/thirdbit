@@ -462,7 +462,7 @@ comes up the gravel path in the waning light.
 
 The young astrologer inclines his head again.
 He is no longer taken aback by the foreigner's black skin,
-but will not notice how gracefully he walks.
+but cannot help but notice yet again how gracefully he walks.
 "Are you at peace?" he asks in greeting.
 
 "I am, and you?"
@@ -521,8 +521,8 @@ the oldest guard orders his partner.
 He hurries away with the messenger in tow,
 their armor clanking in time with their steps.
 Queen Seondeok's desire for her cousin to succeed her is well known,
-but it has only been a week since her chief minister led an abortive rebellion,
-and only a day since he and thirty of his followers were beheaded.
+but it has only been a week since her chief minister led an abortive rebellion
+that cost him and thirty of his followers their heads.
 
 Scholar Liu waits for them to vanish among the ornamental bushes,
 then gestures to the remaining guard.
@@ -551,7 +551,7 @@ has fantasized about such a thing,
 but has never dared act.
 The shame it would bring his family if they were caught,
 not to mention the impossible awkwardness of trying to raise the subject
-with someone he practically worshipped—
+with someone he practically worships—
 
 But the foreigner is shaking his head.
 "You would not have come this far to make such an offer
@@ -614,8 +614,9 @@ bandits,
 Turks,
 and even a company of Franks
 who somehow found themselves east of the Black Sea.
-His men have heard him bellow orders and sing in a surprisingly melodious voice,
-but they have never heard him be as sarcastic as this.
+His men have heard him bellow orders and sing in a surprisingly melodious voice.
+They have learned that when he sounds sarcastic,
+they should find somewhere else to be.
 
 Otgon hefts the golden candlestick he holds
 as if wondering whether it's too late to hide it behind his back.
@@ -651,7 +652,7 @@ careful not to wince at the protest from his knee.
 "Up the hill, my *beg*.
 Some crazy man saying we can have the gold if we leave the books."
 He snaps his fingers at Otgon,
-who holds up the candlestick like a child showing a toy he has made.
+who holds up the candlestick like a child showing a toy he has found.
 
 The *beg* narrows his eyes.
 "An Ethiopian?
@@ -672,7 +673,7 @@ have brought one wall down completely
 and left others leaning perilously.
 The *beg* picks his way across the cracked courtyard tiles
 to a door that still hangs true in its frame.
-To Batu's surprise he pauses as if unsure of himself before knocking.
+To Batu's surprise he stops there.
 "Peace be upon you," he calls.
 "May we enter?"
 
@@ -716,35 +717,20 @@ He blinks,
 and for a moment Batu thinks he is going to cry.
 
 "I thought I could make some real progress this time,"
-the Ethiopian continues quietly,
+the Ethiopian continues,
 more to himself than to the *beg* or his soldiers.
 "When al-Tusi persuaded the great khan to build this
 I thought I would finally be able to get past the bare beginning,
 but…"
 He gestures at the ruined walls.
 
-The *beg* points at Batu.
-"You.
-How many men in your *arban*?"
-
-"Nine, *beg*," the old soldier says promptly.
-He clears his throat.
-"Should be ten, but Dzhambul took an arrow in the leg and —"
-
-The *beg* cuts him off with a wave.
-"And you fight together, yes?
-You stand watch while each other sleep?"
-
-"Yes, *beg*," Batu says.
-He learned long ago not to ask officers what point they were trying to make.
-
-The *beg* turns back to the Ethiopian.
-"What if I built you a school in Samarkand?
-What if you taught others the method of triangles and all of al-Tusi's other arts?"
+"What if I built you a school in Samarkand?"
+the *beg* asks.
+"What if you taught others the method of triangles and all of al-Tusi's other arts?"
 
 "I can't," the Ethiopian says,
 the weight of ages in his voice.
-"I'm not allowed."
+"I'm not allowed to interfere."
 
 "Not allowed?" the *beg* says,
 theatrically astonished.
@@ -761,8 +747,6 @@ The *beg* cocks his head.
 The Ethiopian looks up at him,
 and this time there actually are tears in his eyes.
 "I can't do that either," he whispers.
-He bows his head for a moment,
-then stands and begins to gather the few books he will bring with him.
 
 *Otgon dies when a Georgian knifes him in a campfire squabble over a game of dice.
 Batu loses an arm in battle outside Balkh,
@@ -851,8 +835,7 @@ A button from his first Company uniform lies in a box under his bed.
 It was called the Raj by the time he retired,
 or more accurately,
 by the time a quiet Englishman who spoke nearly perfect Punjabi
-had a quiet word with him in an out-of-the-way office
-about how else he might be able to serve.
+explain how else he might be able to serve.
 
 That was almost twenty years ago.
 The Rebellion had been put down,
@@ -866,7 +849,7 @@ So now he walks further each day than he used to march,
 though without a pack or a rifle to weigh him down.
 Past the Delhi Gate and down the old Ansari Road
 or through the cacaphony of Chawri bazaar,
-he visits one informant here and another there,
+he visits his informants,
 never in the same order or at the same time of day.
 
 Today is different.
@@ -986,9 +969,9 @@ Twenty-eight minutes until sundown,
 another hour after that until they could start taking photographs.
 
 The watchman looks uncomfortable.
-"A Negro, sir."
+"A Negro, sir.
 Well dressed.
-Might have been a veteran, sir.
+Might have been a veteran.
 Had quite the scar."
 
 Edwin Hubble purses his lips.
@@ -1029,8 +1012,7 @@ to receive a PhD in astronomy.*
 "The Arecibo Radio Observatory was completed in 1963.
 It was 305 meters in diameter and made out of 38,778 perforated aluminum panels.
 It collapsed on Dec 1, 2020 after years of under-funding.
-Plans to build a new instrument on the site were shelved after Hurricane 2031-B21
-destroyed the remainder of the site."
+Plans to build a new instrument on the site were shelved after Hurricane 2031-B21."
 
 The voice pauses.
 Music starts,
@@ -1042,22 +1024,21 @@ In a porta-cabin a hundred meters away half-buried to protect it from storms,
 Luisa sighs.
 Only five people have shown up today,
 and only one of them in person.
-Maybe Sergei is right—maybe it's time to smarten up
-and follow most of her fellow Puerto Ricans to the relative safety of the mainland.
+Maybe Sergei is right—maybe it's time to follow most of her fellow Puerto Ricans
+to the relative safety of the mainland.
 
-A tracking light goes red in her HUD.
+A light goes red in her HUD.
 The day's in-person visitor is far enough off track to make her software uncomfortable.
 She starts to tweak the algorithm to nudge him back where he's supposed to be,
 then looks at the clear blue sky in her video feed
 and mutters, "Fuck it, why not?"
 Maybe an actual conversation with an actual human will give her some inspiration.
 
-It takes her a few minutes to pick her way downslope to what's left of Highway 625.
+It takes her a few minutes to pick her way downslope to the remains of Highway 625.
 Another few minutes brings her to the old visitors' center.
 Her errant guest is sitting on what's left of a cinder-block wall.
 She chords a few commands on her palm to bring his stats up on her glasses,
 then frowns.
-Something…
 
 *Hey,* she blinks Sergei.
 *Can you do a scrape on this one?*
@@ -1092,8 +1073,7 @@ We learned so much."
 
 "Oh? Like what?"
 Tap tap on her palm and her glasses start recording.
-The scar on his temple—a botched augment, she guesses,
-or maybe a memento of combat in Florida or Georgia.
+The scar on his temple—a botched augment, she guesses.
 She blinks the image to Sergei.
 
 The stranger looks at her quizzically.
@@ -1185,7 +1165,7 @@ She lives long enough to see the first mining robots land on the Moon.
 The metal they smelt is used to build orbital factories
 capable of manufacturing fractal sensors
 a thousand times more sensitive than anything built before.
-She is struck by a bullet during a vaccination rights protest two years later
+She is struck by a bullet during a vaccination protest two years later
 and dies when her hospital loses power.*
 
 </section>
@@ -1212,7 +1192,7 @@ but only if they stay close to the sides.
 "i'm more glummed by our socials,"
 Green says.
 "still well below redline.
-dunno what genius thought deep space astro was gonna earn the big feels."
+dunno what genius thought deep space astro was gonna earn big feels."
 
 Black says nothing.
 The others don't know that they are the genius in question,
@@ -1220,7 +1200,7 @@ or that they spent enough in bribes to reforest Oregon
 to make the observatory a reality.
 Fabbing a backstory solid enough to get themself on it cost less
 but required much more care.
-The trick was to leave enough gaps and icy patches to convince anyone who went digging
+The trick was to leave enough gaps to convince anyone who went digging
 that they were a twitch for some *other* corp, klept, or agency.
 
 They glance out the window.
@@ -1351,7 +1331,7 @@ by a class 4 volcanic eruption in Hawai'i.
 Shortly after that the automated mission feeds go dark.*
 
 *Black knows they should shut off the receiver—every joule they divert from the sensors
-cost 17.45 seconds of observation time—but instead they float,
+cost 174 microseconds of observation time—but instead they float,
 eyes closed,
 breathing slowly for hours at a time as the sensors amass data,
 listening to the increasingly desperate chatter
@@ -1432,7 +1412,7 @@ for food, sex, data, and slabs of rendered jellyfish they can eat or burn as fue
 
 Thu Anh has three planters in her reclamation *sangha*.
 The Dutch couple spend more time praying than digging,
-but the final member of her team more than makes up for their shortfall.
+but the final member of her team more than makes up for that.
 Tall, thin, and dark,
 with ragged scars on both temples,
 he looks like a scav until he smiles.
