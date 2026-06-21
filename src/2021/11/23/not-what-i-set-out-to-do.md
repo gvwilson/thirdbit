@@ -1,7 +1,7 @@
 ---
 title: "Not What I Set Out to Do"
 date: 2021-11-23
-category: education open-source
+category: retro technical-writing
 ---
 
 [*Software Design by Example Using JavaScript*](@root/sdxjs/)
@@ -11,7 +11,8 @@ I'm glad it's finally out,
 and I hope you find it useful,
 but it has fallen short of my original hopes in two different ways.
 
-The first is that there's been no interest in the book among people who teach software design and software engineering.
+The first is that there's been no interest in the book
+among people who teach software design and software engineering.
 I taught a course called "Software Architecture" several times at the University of Toronto in the early 2000s;
 while lots of textbooks had those two words in their title,
 none of them spent more than a few pages describing the designs of actual systems.

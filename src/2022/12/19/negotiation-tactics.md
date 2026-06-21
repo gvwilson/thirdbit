@@ -1,9 +1,8 @@
 ---
 title: "Negotiation Tactics"
 date: 2022-12-19
-category: career
+category: management
 ---
-
 I think I'm pretty good at [talking people into things][talking],
 but that's not the same as negotiating.
 In light of a couple of conversations over the last few days

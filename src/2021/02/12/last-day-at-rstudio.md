@@ -1,7 +1,7 @@
 ---
 title: "Last Day at RStudio"
 date: 2021-02-12
-category: career personal
+category: career
 ---
 
 Today was my last day at RStudio.

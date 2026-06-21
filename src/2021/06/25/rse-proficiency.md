@@ -1,7 +1,7 @@
 ---
 title: "A Proficiency Test for Research Software Engineers"
 date: 2021-06-25
-category: education software-carpentry
+category: software-carpentry
 ---
 
 Back in 2014,

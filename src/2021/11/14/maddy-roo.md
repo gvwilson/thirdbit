@@ -3,7 +3,6 @@ title: "Maddy Roo"
 date: 2021-11-14
 category: fiction
 ---
-
 For this year's [National Novel Writing Month](https://nanowrimo.org/)
 I revised a YA novel called *Maddy Roo*
 about a teenage kangaroo whose little sister is kidnapped by robots.

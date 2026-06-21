@@ -1,7 +1,7 @@
 ---
 title: "Evening and Morning Routine"
 date: 2021-04-19
-category: humor personal
+category: personal
 ---
 
 Whoever goes to bed last:

@@ -1,9 +1,8 @@
 ---
 title: "Ways to Explain Code"
 date: 2022-12-28
-category: education
+category: education programming
 ---
-
 In the mid-1980s, Benjamin Bloom reported that
 students tutored one-to-one performed two standard deviations better than
 students lectured to in a class of 30.

@@ -1,7 +1,7 @@
 ---
 title: "Steps in Order"
 date: 2021-01-07
-category: education research
+category: technical-writing
 ---
 
 Our book <a href="@root/py-rse/"><em>Research Software Engineering with Python</em></a>

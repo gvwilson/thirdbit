@@ -1,7 +1,7 @@
 ---
 title: "A Magic USB Drive"
 date: 2021-06-19
-category: personal technical-writing
+category: personal
 ---
 
 I dreamed again last night about a magic USB drive.

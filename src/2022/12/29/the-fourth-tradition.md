@@ -1,9 +1,8 @@
 ---
 title: "The Fourth Tradition"
 date: 2022-12-29
-category: education favorite opinion
+category: education favorite opinion programming
 ---
-
 Tedre and Sutinen's paper "Three Traditions of Computing: What Educators Should Know" (2008)
 has shaped my view of computer science, software engineering, and programming
 since I first read it.

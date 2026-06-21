@@ -1,7 +1,7 @@
 ---
 title: "Strategies for Change"
 date: 2021-02-22
-category: community education
+category: community management
 ---
 
 I've written before

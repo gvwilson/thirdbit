@@ -1,9 +1,8 @@
 ---
 title: "Setting Up a New Project"
 date: 2021-11-15
-category: open-source software-carpentry
+category: management software-carpentry
 ---
-
 I recently helped a group of about fifteen people set up a new research software engineering project
 (where by "new" I mean "restart something that was in bits and pieces scattered across half the internet").
 They all had GitHub accounts already,

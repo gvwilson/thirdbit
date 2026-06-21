@@ -1,7 +1,7 @@
 ---
 title: "Nine Weeks Off"
 date: 2021-04-17
-category: career personal
+category: retro
 ---
 
 I'm starting a new job on Monday;

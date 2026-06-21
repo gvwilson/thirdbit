@@ -3,7 +3,6 @@ title: "Comes Round Again"
 date: 2021-12-31
 category: retro
 ---
-
 Another year over; what have I learned?
 
 - A story I wrote after my brother died

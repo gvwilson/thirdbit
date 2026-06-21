@@ -1,9 +1,8 @@
 ---
 title: "Six for the To-Don't List"
 date: 2022-12-28
-category: career proposal
+category: proposal
 ---
-
 I was a professor from 2007 to 2010.
 My grad students had a pretty rough time:
 all five of the grant proposals I made in those 40 months were turned down,

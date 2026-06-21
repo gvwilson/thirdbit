@@ -3,7 +3,6 @@ title: "Comes Round Again"
 date: 2022-12-24
 category: retro
 ---
-
 Another year over; what have I learned?
 
 - I successfully avoided management for two decades,

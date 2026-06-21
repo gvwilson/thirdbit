@@ -1,7 +1,7 @@
 ---
 title: "Scorecards"
 date: 2021-04-20
-category: community open-source
+category: community open-source politics software-carpentry
 ---
 
 Grassroots organizing isn't enough to achieve meaningful change.

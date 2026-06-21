@@ -1,7 +1,7 @@
 ---
 title: "The Ghosts in the Debugging"
 date: 2021-03-27
-category: book-reviews programming
+category: education programming
 ---
 
 A couple of days ago I tweeted:
@@ -35,10 +35,13 @@ and a roughly equal number on operating systems.
 Again on Twitter:
 
 > I used to think the reason there are several hundred books on parsers and compilers in print
-> but only a handful on debugging stems in part from the fact that debugging doesn't have a mathematical foundation
+> but only a handful on debugging stems in part from the fact that
+> debugging doesn't have a mathematical foundation
 > (i.e., there are no theorems to prove).
-> But I no longer think that's the case - there are lots of good books on the practical aspects of operating systems and network stacks, for example.
-> My current theory is that debugging is mostly about verbs rather than nouns, and we're just not very good at teaching verbs.
+> But I no longer think that's the case - there are lots of good books
+> on the practical aspects of operating systems and network stacks, for example.
+> My current theory is that debugging is mostly about verbs rather than nouns,
+> and we're just not very good at teaching verbs.
 > We do a much better job of teaching code than teaching coding:
 > for example, there are a gajillion tools for checking style,
 > but I don't know of any that watch the order in which you write things and says,
@@ -47,7 +50,8 @@ Again on Twitter:
 Mark Guzdial replied:
 
 > I have a hypothesis that we can't teach debugging.
-> We can teach a debugging process as rules ("When you see this, do that"), but we can't teach [students] to be successful debuggers.
+> We can teach a debugging process as rules ("When you see this, do that"),
+> but we can't teach [students] to be successful debuggers.
 > Debugging is a process of looking at a situation, noting that it's wrong, and developing a theory for why…
 > You have to know enough patterns/situations to see what's wrong and to match to a known pattern,
 > re: [Marton's Variation Theory](https://math4teaching.com/what-is-variation-theory-of-learning/).

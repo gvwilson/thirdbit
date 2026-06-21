@@ -3,7 +3,6 @@ title: "First Copy"
 date: 2022-12-28
 category: technical-writing
 ---
-
 It's been an off and on project since 2018
 (with a lot more "off" than "on"),
 but the JavaScript version of *Software Design by Example* is finally here.

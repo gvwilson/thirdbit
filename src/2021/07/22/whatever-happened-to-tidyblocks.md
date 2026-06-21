@@ -1,7 +1,7 @@
 ---
 title: "Whatever Happened to TidyBlocks?"
 date: 2021-07-22
-category: data-science open-source
+category: data-science open-source retro student-projects
 ---
 
 TidyBlocks is a Scratch-like tool for doing basic data science.

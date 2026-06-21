@@ -1,7 +1,7 @@
 ---
 title: "IQ and Personality Tests"
 date: 2021-09-13
-category: career ethics
+category: career ethics opinion
 ---
 
 Not long ago I interviewed for a community manager position with Canonical.

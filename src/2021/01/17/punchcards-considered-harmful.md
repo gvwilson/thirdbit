@@ -1,7 +1,7 @@
 ---
 title: "Punchcards Considered Harmful"
 date: 2021-01-17
-category: education empirical-se
+category: opinion programming
 ---
 
 <img src="@root/files/2021/punchcard.jpg" alt="punchcard" class="centered">
