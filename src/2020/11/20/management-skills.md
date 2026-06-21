@@ -1,13 +1,13 @@
 ---
 title: "Management Skills"
 date: 2020-11-20
-category: career education
+category: education management
 ---
 
 The four skills I needed most when I was managing people have all turned out to be equally important in teaching:
 
 1.  How to intervene when people behave badly.
-    It doesn't come up often, but [knowing how makes you more likely to do it when you should](https://hbr.org/2020/05/why-sexual-harassment-programs-backfire).
+    It doesn't come up often, but [knowing how makes you more likely to do it when you should][harassment].
 
 2.  How to run a meeting.
     Agenda before, minutes after, manage speaking time—none of it is magic,
@@ -23,3 +23,5 @@ The four skills I needed most when I was managing people have all turned out to 
 If I was going to add a 5th, it would be "how to make things discoverable"
 so that people can find what they need when they need it,
 but I'm still trying to figure that one out…
+
+[harassment]: https://hbr.org/2020/05/why-sexual-harassment-programs-backfire

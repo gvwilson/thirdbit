@@ -25,3 +25,6 @@ I get a little restless as the weekend draws to a close.
 As silly as it is,
 part of me hopes that I'll never get used to
 not being able to call home on Sunday night.
+
+Time to make another cup of tea.
+If you came in peace, be welcome.

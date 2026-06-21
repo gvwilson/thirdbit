@@ -1,7 +1,7 @@
 ---
 title: "Thoughts from a Not-So-Influential Educator"
 date: 2020-07-09
-category: academia education favorite
+category: academia education favorite nwit
 ---
 
 I was honored to receive ACM SIGSOFT's [Influential Educator

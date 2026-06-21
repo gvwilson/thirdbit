@@ -14,3 +14,6 @@ and my dad's old Remington typewriter.
 I know I'll have to give them away eventually,
 because in the end we give it all away,
 but I'm not ready to do that yet.
+
+Time to make another cup of tea.
+If you came in peace, be welcome.

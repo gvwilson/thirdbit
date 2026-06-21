@@ -1,7 +1,7 @@
 ---
 title: "Tools"
 date: 2020-10-21
-category: education programming
+category: noticed programming
 ---
 
 A couple of days ago I tweeted:

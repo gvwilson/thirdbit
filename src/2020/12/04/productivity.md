@@ -1,7 +1,7 @@
 ---
 title: "Productivity and Collective Action"
 date: 2020-12-04
-category: career community
+category: community management opinion
 ---
 
 If COVID-19 has taught us anything,

@@ -1,7 +1,7 @@
 ---
 title: "What Every Community Needs"
 date: 2020-09-01
-category: open-source programming
+category: technical-writing
 ---
 
 Yesterday I wrote that every project should make its governance discoverable.

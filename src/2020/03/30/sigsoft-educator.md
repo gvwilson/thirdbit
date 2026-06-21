@@ -1,7 +1,7 @@
 ---
 title: "SIGSOFT Influential Educator Award"
 date: 2020-03-30
-category: academia education
+category: academia career education
 ---
 
 I received an unexpected email message yesterday:

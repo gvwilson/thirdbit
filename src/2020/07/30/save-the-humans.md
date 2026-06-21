@@ -1,7 +1,7 @@
 ---
 title: "Save the Humans"
 date: 2020-07-30
-category: personal
+category: proposal
 ---
 
 My whole family has enjoyed the *Kingdom Rush* family of games from [Ironhide Games](https://www.ironhidegames.com/),
