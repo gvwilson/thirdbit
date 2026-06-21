@@ -1,7 +1,7 @@
 ---
 title: "Changes"
 date: 2018-02-07
-category: personal
+category: retro software-carpentry
 ---
 
 <figure class="center">

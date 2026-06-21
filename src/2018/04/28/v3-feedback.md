@@ -1,7 +1,7 @@
 ---
 title: "Version 3 Feedback"
 date: 2018-04-28
-category: software-carpentry
+category: education technical-writing
 ---
 
 Version 3 of *How to Teach Programming (and Other Things)* is now kinda sorta maybe ready for feedback:

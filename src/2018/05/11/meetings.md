@@ -1,7 +1,7 @@
 ---
 title: "Meetings"
 date: 2018-05-11
-category: career
+category: management
 ---
 
 Most people are really bad at meetings: they don't have an agenda going in, they

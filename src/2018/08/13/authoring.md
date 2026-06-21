@@ -1,7 +1,7 @@
 ---
 title: "Authoring"
 date: 2018-08-13
-category: technical-writing
+category: opinion personal technical-writing
 ---
 
 In the beginning was the finger, and paint, and the wall of the cave.

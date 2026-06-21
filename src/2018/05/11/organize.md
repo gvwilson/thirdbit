@@ -1,7 +1,7 @@
 ---
 title: "Organize!"
 date: 2018-05-11
-category: career personal
+category: opinion
 ---
 
 I want a cartoon like this,

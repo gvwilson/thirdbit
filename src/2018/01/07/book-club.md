@@ -1,7 +1,7 @@
 ---
 title: "Book Club"
 date: 2018-01-07
-category: book-reviews
+category: book-reviews education
 ---
 
 I started as a programmer,

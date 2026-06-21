@@ -1,7 +1,7 @@
 ---
 title: Weak Failure, Strong Failure, and Butter Tarts
 date: 2018-07-21
-category: education
+category: noticed
 ---
 
 [Dr. Veronika Cheplygina](https://veronikach.com/) recently

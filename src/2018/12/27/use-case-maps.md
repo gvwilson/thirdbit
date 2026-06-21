@@ -1,7 +1,7 @@
 ---
 title: "Use Case Maps Revisited"
 date: 2018-12-27
-category: programming
+category: education programming
 ---
 
 Back when I was struggling to teach a meaningful course on software architecture at the University of Toronto,

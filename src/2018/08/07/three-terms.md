@@ -1,7 +1,7 @@
 ---
 title: Three Terms
 date: 2018-08-07
-category: education
+category: education proposal
 ---
 
 After DataCamp fired me in June,

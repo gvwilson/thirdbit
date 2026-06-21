@@ -1,7 +1,7 @@
 ---
 title: "Speaking of Accessibility"
 date: 2018-12-16
-category: education
+category: education ethics
 ---
 
 [Elizabeth Patitsas](https://patitsas.github.io/)

@@ -1,7 +1,7 @@
 ---
 title: "Thirteen Percent and Counting"
 date: 2018-12-17
-category: personal
+category: education proposal
 ---
 
 Last week, I posted a description of a half-baked plan for

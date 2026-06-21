@@ -1,7 +1,7 @@
 ---
 title: "The Undergraduate Software Project Guide"
 date: 2018-04-01
-category: empirical-se
+category: education technical-writing
 ---
 
 Back in 2007, I tried to condense everything I had learned from

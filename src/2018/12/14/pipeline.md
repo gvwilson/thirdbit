@@ -1,7 +1,7 @@
 ---
 title: "No Straight Pipeline"
 date: 2018-12-14
-category: software-carpentry
+category: programming technical-writing
 ---
 
 Most people will probably read

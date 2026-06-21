@@ -1,7 +1,7 @@
 ---
 title: "Teaching Statistics in the 21st Century"
 date: 2018-01-09
-category: education
+category: data-science education
 ---
 
 The late 1980s saw a wave of new undergraduate programs launched in computational physics,

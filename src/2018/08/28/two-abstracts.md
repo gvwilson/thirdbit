@@ -1,7 +1,7 @@
 ---
 title: Two Abstracts for Two Audiences
 date: 2018-08-28
-category: empirical-se
+category: education research
 ---
 
 I recently read and enjoyed this paper:

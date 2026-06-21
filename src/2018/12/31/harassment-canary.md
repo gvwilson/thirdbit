@@ -1,7 +1,7 @@
 ---
 title: "How Feasible is a Harassment Canary?"
 date: 2018-12-31
-category: ethics
+category: community ethics
 ---
 
 After reading "[10 Impressive Questions to Ask in a Job Interview](https://www.thecut.com/article/questions-to-ask-in-a-job-interview.html)"

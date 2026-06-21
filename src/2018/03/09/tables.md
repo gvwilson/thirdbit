@@ -1,7 +1,7 @@
 ---
 title: "Tables"
 date: 2018-03-09
-category: technical-writing
+category: opinion programming
 ---
 
 An imagined dialog:

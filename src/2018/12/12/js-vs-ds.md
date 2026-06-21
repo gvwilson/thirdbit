@@ -1,7 +1,7 @@
 ---
 title: "JavaScript versus Data Science"
 date: 2018-12-12
-category: programming
+category: technical-writing
 ---
 
 Toby Hodges and I are very pleased to announce the launch of

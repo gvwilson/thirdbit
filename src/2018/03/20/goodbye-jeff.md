@@ -1,7 +1,7 @@
 ---
 title: "Goodbye, Jeff"
 date: 2018-03-20
-category: personal
+category: favorite personal
 ---
 
 In the end you think about the beginning.

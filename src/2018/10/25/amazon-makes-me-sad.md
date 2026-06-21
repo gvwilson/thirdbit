@@ -1,7 +1,7 @@
 ---
 title: "Amazon Makes Me Sad"
 date: 2018-10-25
-category: noticed personal
+category: noticed
 ---
 
 I have bought hundreds of books from Amazon in the past eighteen years,

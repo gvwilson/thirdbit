@@ -1,7 +1,7 @@
 ---
 title: "A Story Line Game for Teaching"
 date: 2018-12-13
-category: technical-writing
+category: education technical-writing
 ---
 
 In the wake of [yesterday's launch](@root/2018/12/12/js-vs-ds/)

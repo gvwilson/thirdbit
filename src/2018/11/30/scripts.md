@@ -1,7 +1,7 @@
 ---
 title: "Scripts"
 date: 2018-11-30
-category: software-carpentry
+category: opinion
 ---
 
 Somewhere out there, in this universe or another,

@@ -1,7 +1,7 @@
 ---
 title: "Afraid of Change"
 date: 2018-11-24
-category: personal
+category: career opinion
 ---
 
 A few months ago,

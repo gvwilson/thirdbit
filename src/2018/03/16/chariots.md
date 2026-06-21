@@ -1,7 +1,7 @@
 ---
 title: "Chariots"
 date: 2018-03-16
-category: personal
+category: education
 ---
 
 > To people who use 'em, a wheelchair is a chariot of independence.
@@ -24,12 +24,15 @@ the [Cube School](https://thecubeschool.ca/),
 and [Lighthouse Labs](https://lighthouselabs.ca/),
 whose agendas are set more by "how can I do something useful?"
 than by "what do Computer Science departments teach?"
-This is also why I want to help people working in those initiatives to learn more about evidence-based pedagogy in general,
+This is also why I want to help people working in those initiatives
+learn more about evidence-based pedagogy in general,
 and computing education research in particular:
 all too often,
-I think people working in free-range initiatives throw a lot of very useful babies out with the bathwater they view as "just theory".
+I think people working in free-range initiatives
+throw a lot of very useful babies out with the bathwater they view as "just theory".
 
-I'm going to have to learn a lot of things I don't know in order to help build bridges between these two groups.
+I'm going to have to learn a lot of things I don't know 
+in order to help build bridges between these two groups.
 [This workshop](http://teachtogether.tech) is a start,
 and I'll continue recording what I discover here.
 Pointers, suggestions, experience reports, and introductions are always welcome.

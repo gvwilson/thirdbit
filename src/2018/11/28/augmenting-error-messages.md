@@ -1,7 +1,7 @@
 ---
 title: "Augmenting Error Messages"
 date: 2018-11-28
-category: education programming
+category: education programming research
 ---
 
 *Posted on behalf of a colleague: if you're a Python programmer, and

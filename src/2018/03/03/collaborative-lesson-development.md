@@ -1,7 +1,7 @@
 ---
 title: "Collaborative Lesson Development"
 date: 2018-03-03
-category: software-carpentry
+category: technical-writing
 ---
 
 William Gibson once said that our children would find it quaint that

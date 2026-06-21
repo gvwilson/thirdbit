@@ -1,7 +1,7 @@
 ---
 title: "Data Wrangling with JavaScript"
 date: 2018-12-29
-category: programming
+category: book-reviews data-science programming
 ---
 
 I recently read and enjoyed Ashley Davis's new book

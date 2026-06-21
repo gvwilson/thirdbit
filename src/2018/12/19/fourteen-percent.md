@@ -1,7 +1,7 @@
 ---
 title: "Fourteen Percent and a Change of Direction"
 date: 2018-12-19
-category: personal
+category: education opinion
 ---
 
 > Following on from [previous](@root/2018/12/12/twelve-percent/)
@@ -43,8 +43,7 @@ category: personal
     we already teach people [a systematic lesson design process](http://teachtogether.tech/en/process/)
     that produces most of this:
     -   Write or recycle learner personas to figure out who you're trying to help
-        what *they* think they want to learn,
-	and how you're going to help them.
+        what *they* think they want to learn, and how you're going to help them.
     -   Brainstorm (e.g., draw a concept map or two).
     -	Write the summative assessment(s) that will tell you and your learners if the lesson worked.
     -	Write the formative assessments that will tell you and them if they're on track.

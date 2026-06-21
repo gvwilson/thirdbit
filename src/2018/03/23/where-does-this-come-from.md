@@ -1,7 +1,7 @@
 ---
 title: "Where Does This Come From?"
 date: 2018-03-23
-category: education empirical-se
+category: education noticed
 ---
 
 A few years ago I saw a talk that described a tracing tool for blocks-based programming languages.

@@ -1,7 +1,7 @@
 ---
 title: "More Dagstuhl"
 date: 2018-02-12
-category: software-carpentry
+category: education proposal
 ---
 
 Following up on [my previous post](@root/2018/02/10/my-dagstuhl/)

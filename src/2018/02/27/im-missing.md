@@ -1,7 +1,7 @@
 ---
 title: "I'm Missing"
 date: 2018-02-27
-category: personal
+category: academia personal
 ---
 
 I've been browsing the [SIGCSE 2018 proceedings](https://dl.acm.org/citation.cfm?id=3159450)

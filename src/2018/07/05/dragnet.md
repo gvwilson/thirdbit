@@ -1,7 +1,7 @@
 ---
 title: "Isaac Ezer's Dragnet"
 date: 2018-07-05
-category: empirical-se noticed
+category: programming
 ---
 
 <p>

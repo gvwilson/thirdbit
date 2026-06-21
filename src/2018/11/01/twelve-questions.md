@@ -1,7 +1,7 @@
 ---
 title: "Twelve Questions"
 date: 2018-11-01
-category: education empirical-se
+category: community education politics
 ---
 
 Way back in the year 2000,

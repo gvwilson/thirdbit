@@ -1,7 +1,7 @@
 ---
 title: "Rules for Teaching"
 date: 2018-05-13
-category: software-carpentry
+category: education
 ---
 
 1.  Be kind: all else is details.

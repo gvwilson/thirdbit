@@ -1,7 +1,7 @@
 ---
 title: "Harper: Lesson Discovery and Aggregation"
 date: 2018-12-30
-category: programming software-carpentry
+category: education proposal
 ---
 
 After feedback from several people,

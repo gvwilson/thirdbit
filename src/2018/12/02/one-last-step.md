@@ -1,7 +1,7 @@
 ---
 title: "One Last Step"
 date: 2018-12-02
-category: education
+category: data-science proposal
 ---
 
 I've been [saying for a while](@root/2017/05/22/numerical-javascript/)

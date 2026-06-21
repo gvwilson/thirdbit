@@ -1,7 +1,7 @@
 ---
 title: "Credit and Respect"
 date: 2018-10-31
-category: education open-source
+category: academia opinion
 ---
 
 You can tell what people respect by what they're willing to give others credit for doing.
@@ -10,10 +10,11 @@ Which brings me to the most recent version of
 
 > Anyone listed as Author on an ACM manuscript submission must meet all the following criteria:
 >
-> * they have made substantial intellectual contributions to some components of the original work described in the manuscript; and
-> * they have participated in drafting and/or revision of the manuscript and
-> * they are aware the manuscript has been submitted for publication; and
-> * they agree to be held accountable for any issues relating to correctness or integrity of the work.
+> -   they have made substantial intellectual contributions to some components of
+>     the original work described in the manuscript; and
+> -   they have participated in drafting and/or revision of the manuscript and
+> -   they are aware the manuscript has been submitted for publication; and
+> -   they agree to be held accountable for any issues relating to correctness or integrity of the work.
 >
 > Other contributors may be acknowledged at the end of the paper, before the bibliography.
 
