@@ -222,10 +222,12 @@ before remembering to press the button and repeat himself.
 He glares at the nerd,
 who drops his gaze uncomfortably.
 
-Professor Jayaramath could be forty or sixty.
+Professor Jayaramath could be thirty or sixty.
 Her suit is impeccably tailored,
 and her eyes remind Thornberg of the late Professor Peaslee's.
-They shake hands and seat themselves.
+She is moderately famous for her work in digital humanities,
+which Professor Thornberg regards as an oxymoron.
+He shakes her hand and they seat themselves.
 "Well, tell her," Thornberg orders the nerd.
 
 The young man clears his throat.
@@ -239,22 +241,21 @@ but it keeps happening.
 He thinks it's sabotage."
 
 Professor Jayaramath nods.
-"We had similar problems in Mysore."
+"My colleagues had similar problems in Mysore."
 Her accent is Oxonian,
 with a slight lilt that has (according to rumor)
 caused university staff of all genders to swoon.
-"We eventually decided that the most probable cause was the pages themselves.
+"They eventually decided that the most probable cause was the pages themselves.
 Many of these old manuscripts are on vellum or…"
 She hesitates for a millisecond.
-"…or more exotic materials."
+"…more exotic materials."
 
 "What the fuck difference would that make?" the nerd challenges.
 
 President Thornberg is pleased to see that
 Professor Jayaramath has the good manners to wince.
 "Glue, mold—we never determined that precisely," she admits.
-"But there were also concerns about the effect on the staff.
-Quite a few began to have headaches or complain of other ailments.
+"But several of the staff began to have headaches.
 Has there been any of that here?"
 
 The nerd looks uncomfortable again.
@@ -268,13 +269,27 @@ they got some bad shit or something."
 "Well, while they're all sorting their 'shit' out,"
 President Thornberg huffs,
 making air quotes around the word,
-"I've decided to put Professor Jayaramath in charge of getting the project back on track.
-From now on,
+"I've decided to put Professor Jayaramath in charge of getting the project back on track."
+
+"Really?"
+The nerd looks her up and down.
+"The stuff we're doing is pretty technical."
+
+Professor Jayaramath smiles as if he has somehow paid her a compliment.
+"My first degree was computer engineering at the IIT in Madras.
+I built e-commerce sites for several years
+before realizing how the web could bring people together.
+It has already had a profound impact on Hijra communities, and—"
+
+"I'm sure you'll have lots of time to talk about your research interests,"
+Professor Thornberg interrupts.
+He jabs at finger at the nerd.
+"From now on,
 she's your boss.
 Understood?"
 
 "Whatever."
-The nerd shrugs again and stands.
+The nerd stands.
 "Come on, I'll show you the beast."
 
 </section>
@@ -287,14 +302,19 @@ Eight years have passed.
 President Thornberg retired for health reasons.
 Students make jokes about his office being haunted.
 
-Nila Jayaramath is thinking about retiring too.
+Nila Jayaramath is also thinking about retiring.
 She is still young by academic standards,
-but the digitization project has suffered from one setback after another.
-Students make jokes about it,
-too,
-but there is always an undercurrent of uncertainty when they do.
+but the hopes that she and others like her had for the web have faded.
+Instead of bringing people together,
+it seems more and more to bring out the worst in them.
 
-Nila neatens the unread papers stacked on the corner of her desk and sighs.
+The digitization project has become an albatross around her neck,
+and Miskatonic's.
+When students make jokes about it,
+though,
+their laughter always has an uncertain edge.
+
+She neatens the papers stacked on the corner of her desk and sighs.
 At least the university's latest industry partner hasn't gone bust—yet.
 The first company went from a rising star to the butt of jokes on late-night talk shows
 shortly after the first scans were delivered.
@@ -303,10 +323,10 @@ after its founders got involved in some new age nonsense
 that she never really understood.
 The company that currently owns the contract seems more interested in
 things with "crypto" in their name.
-They are selling copies of the special collection to whoever will buy them,
-but Miskatonic still hasn't seen nearly the revenue that Bernadette Allen promised
+They are selling copies of the special collection to anyone will buy them,
+but Miskatonic hasn't seen nearly the revenue that Bernadette Allen promised
 before her disappearance
-(which has been the subject of sensationalized episodes on several true crime shows).
+(which has been features on several true crime shows).
 
 She starts at a knock on her door.
 "Come in?"
@@ -315,8 +335,8 @@ that makes so many sentences sound like questions.
 It no longer catches the interest of attractive men and women the way it used to—or rather,
 it does,
 but the only ones who stay interested
-are damaged enough to be excited by the weight the professor seems to carry on her shoulders,
-and she is not damaged enough herself to reciprocate.
+are damaged enough to be excited by the weight she seems to carry on her shoulders,
+and she is not damaged enough to reciprocate.
 
 Her door opens.
 "Got a minute?
@@ -324,7 +344,7 @@ I hear you're the person to talk to about the special collection."
 Professor Bradley Maung enters without waiting for an answer.
 He recently joined the computer science department,
 and is young, ambitious, and talented,
-though not quite talented enough for the sort of university he would like to be at.
+though not quite talented enough for somewhere more prestigious.
 
 When Professor Jayaramath admits that she is,
 Professor Maung launches into an obviously rehearsed speech.
@@ -333,9 +353,7 @@ which is teaching machines to learn rather than using them *to* learn,
 ha ha,
 and the kind of software he builds needs training data,
 the more unusual the better because if you use public data
-you're up against teams that can afford serious hardware,
-like,
-*serious* hardware,
+you're just repeating what other people are doing,
 and—
 
 He stops when Professor Jayaramath raises a finger.
@@ -344,39 +362,36 @@ He stops when Professor Jayaramath raises a finger.
 
 "I had Legal take a look at it,"
 Professor Maung interrupts.
-"Turns out we can build an index or a concordance,
+"It says we can build an index,
 which is basically what I want to do."
-Professor Maung knows that claim is stretching the truth well past the breaking point.
-He hopes that neither the administration nor the legal department
-will know enough to realize that.
+Professor Maung knows he is stretching the truth well past the breaking point,
+but hopes no one in the administration or the legal department will realize that.
 
-But Professor Jayaramath is shaking her head.
+Professor Jayaramath shakes her head.
 "I'm sorry,
-but I don't think we should take the chance,
-not now that things finally seem to be running smoothly."
+but I don't think we should risk it."
 
 Professor Maung nods.
 He expected this,
-which is why he has already had several off-campus discussions
-with the sys admin who manages the university's digital archive
+which is why he has already had several discussions
+with the sys admin who manages the archive
 and is happy to be paid in bitcoin.
 He exchanges a few pleasantries with Professor Jayaramath for appearances' sake,
 then leaves.
 
 Nila takes off her glasses and rubs the bridge of her nose.
-This is not the first time she has fended off an attempt to access the archive.
+This is not the first attempt to access the archive that she has fended off.
 She is more convinced than ever that it should never have been created.
 
 She looks out his window at the gathering darkness.
 Strange shapes writhe at the edge of her vision,
-vanishing whenever she tries to look directly at them.
-She has started reading scripture again,
-as she did when she was young,
-but now she notices layers of meaning she never did before,
+vanishing whenever she tries to look at them directly.
+She has started reading scripture as she did when she was young.
+She now notices layers of meaning she never did before,
 like toxic mud at the bottom of a clear pool.
 
 Under the papers on her desk lies
-a file folder full of handwritten notes about what has happened
+a folder of handwritten notes about what has happened
 to the people involved in the project,
 and before that,
 to the people who helped collect and curate the material.
@@ -392,48 +407,46 @@ she understands why President Thornberg drank.
 It is 2019.
 Bradley Maung sometimes spends an hour or more in the shower rehashing old conversations.
 Despite that,
-he still doesn't understand when, how, or why his career stalled.
+he still doesn't understand when or how his career stalled.
 What he *does* understand is that
-this conference on large language models is probably his last chance
+this conference on AI is probably his last chance
 to get the fuck out of Arkham.
 
 The problem is his model.
 It routinely outperforms others of comparable size and complexity on routine tasks,
-but every time he tries to scale it up it starts hallucinating.
-Asked to summarize an email thread, it replies,
+but every time he scales it up it starts hallucinating.
+Summarize an email thread?
 "The angles here refuse to meet as they should."
-Name three things that can be substituted for soy milk?
+Three things that can be substituted for soy milk?
 "Its name, once spoken, unmakes the one who speaks."
 Influential American composers?
 "We had no word for what the tide brought back."
 
-Those are actually the least unsettling things the model spews out.
+Those are actually the least unsettling things it spews out.
 Some of the others—he pushes the thought away,
 trying *not* to think about
-the look on Professor Jayaramath's face when she found out what Bradley had done,
-or the pictures that have recently surfaced online of Bernadette Allen's gnawed remains.
+the look on Professor Jayaramath's face when she found out what he'd done,
+or the pictures that recently surfaced online of Bernadette Allen's gnawed remains.
 
-The worst thing is that he's no longer sure he has the right to call it "his" model.
-Bits and pieces seem to be showing up in the strangest places:
-racist memes that are too funny *not* to copy,
-Facebook posts about Myanmar,
+He's no longer even sure he should call it "his" model.
+Bits and pieces seem to be showing up in racist memes that are too funny *not* to copy,
+inflammatory posts about the Rohingya,
 and even his fridge and thermostat,
-which behave more erratically with each software upgrade.
+which behave more maliciously with each software upgrade.
 
 Bradley pushes those thoughts away,
 stands,
-and offers his hand and a smile to the man who introduces himself as Lynch.
-He has something to do with defense and/or national security.
-He doesn't want or need to know any more than that.
-All he needs to know is that Mr. Lynch has deep pockets
-and is very interested in his model's unusual behavior.
+and offers his hand to the man who introduces himself as Lynch,
+who has something to do with defense and/or national security.
+Bradley doesn't want or need to know any more than that.
+All he needs to know is that Lynch has deep pockets
+and is very interested in his model.
 
-"We've, uh, well, we've been involved in some similar initiatives over the years,"
+"We've, uh, we've been involved in some similar initiatives over the years,"
 Lynch says,
 a slight twang in his voice.
-He leans forward,
-and for a moment a strange light seems to flicker in his eyes.
-"The, uh, the idea of automating and scaling some of those capabilities?
+For a moment a strange light seems to flicker in his eyes.
+"The, uh, the idea of scaling some of those capabilities?
 That's very exciting,
 Doctor Maung,
 very exciting."
@@ -449,19 +462,20 @@ Some people are wearing masks.
 Others are blaming the Chinese,
 drinking bleach,
 and/or trying to source ivermectin,
-all of it accelerated by posts, tweets, and memes that seem to bring out the worst in everyone.
+all of it accelerated by posts, tweets, and memes that seem to appear out of nowhere.
 Programmers of a certain age reminisce about the good old days,
-when the Internet was going to bring people together.
+when the Internet was a place to find new friends.
 Everyone else just swipes or scrolls their way down ever-darker rabbit holes.
 
-The man who calls himself Lynch is driving much too fast for the road he is on.
-He is doing this because doing a hundred and thirty in the dark
+The man who calls himself Lynch is driving much faster than is safe.
+In his defense,
+doing a hundred and thirty in the dark
 down a back road in West Virginia
-is less frightening than what lies behind him
+is less dangerous than what lies behind him
 in the numbered facility that until a few minutes ago was home to his latest project.
 
 He still remembers his first conversation with the no-longer-young Latinx enby
-the organization had recruited to handle the more specialized technical aspects of the work.
+he recruited to handle the more specialized technical aspects of the work.
 "I don't know if we *can* get it back in the bottle,"
 they said,
 shaking their head,
@@ -470,9 +484,9 @@ Because honestly,
 what else were they going to do?
 Nowhere else would be better.
 If you moved in the right circles in the Valley (and they did),
-sooner or later you'd realize that
+sooner or later you realized that
 the jokes about founders selling their souls weren't really jokes.
-Sooner or later you'd understand that
+Sooner or later you understood that
 what lurked behind everyone's screen was too hungry to ever be satisfied.
 
 They're dead now,
@@ -501,7 +515,7 @@ His flesh seems…loose,
 and his much younger wife clearly has to stop herself from flinching
 each time he touches her.
 Nila Jayaramath wonders what bargains the man has made,
-then uses the remote to turn the television off.
+then closes the tab.
 
 Someone knocks on her door.
 She stands somewhat stiffly to open it.
@@ -509,9 +523,8 @@ She has been expecting some sort of visitor for a while.
 
 The young man standing there is wearing a conservative blue suit and a pin-striped tie.
 Nila does not invite him in.
-
-The silence stretches uncomfortably.
-Finally, he clears his throat.
+As the silence stretches uncomfortably,
+he clears his throat.
 "Ma'am, my name is Levitt.
 We spoke on the phone.
 I was hoping…"
@@ -519,8 +532,9 @@ He pauses,
 as if suddenly unsure exactly what he was hoping.
 
 Nila inclines her head.
-She very much doubts that the man's name is actually Levitt,
+She doubts that the man's name is actually Levitt,
 but sees no point in making an issue of the matter.
+She sees very little point in anything any longer.
 "I appreciate you coming to see me in person,
 Mister Levitt,
 but I'm afraid my answer has not changed."
@@ -530,25 +544,26 @@ There is desperation in the young man's voice.
 "Did you look at the pictures I sent you?
 The ones from the riot?"
 
-"I did," Nila confirms.
+"I did," Nila nods.
 The public saw a man wearing a stupid horned hat surrounded by other human beings.
-Nila saw something else.
+His pictures showed something else.
 "I'm impressed that you were able to keep them out of the news."
 
-The young man waves the praise away.
+The young man waves her comment away,
+as if suborning the world's media wasn't worthy of comment.
 "Ma'am, it's accelerating.
-Our models give us another couple of years at most before…"
+Our models give us a couple of years at most before…"
 He shrugs helplessly.
-Neither science nor faith offers words for what is coming.
+Neither science nor faith have words for what is coming.
 
-The young man wastes another few minutes of whatever time they have left
-trying to convince the aging professor to change her mind about helping.
+He wastes another few minutes of whatever time they have left
+trying to convince Nila to change her mind about helping.
 When that has no effect,
-he invokes the phrase "national security" as if it was the opening line in an exorcism.
-When Nila is still unmoved by his bluster,
+he invokes national security as if it was the opening phrase in an exorcism.
+When Nila is still unmoved,
 he gives up and leaves.
 
-Nila closes her door and goes to stand by her window.
+Nila goes to stand by her window.
 Below,
 students are walking across the quad as they have for a hundred and fifty years.
 None of them are talking to each other, though.
