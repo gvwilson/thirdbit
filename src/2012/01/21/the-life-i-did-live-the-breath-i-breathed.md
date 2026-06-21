@@ -1,7 +1,7 @@
 ---
 title: "We Have Nothing To Give Them"
 date: 2012-01-21
-category: personal
+category: favorite personal
 ---
 <p>
   <em>
