@@ -52,103 +52,56 @@
 </div>
 <!-- content --><h1>Project Proposal: Multilingual XKCD-Style Charting Library</h1>
 <h2>Background Information</h2>
-<ul>
-<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
-<li>Domain: data visualization, multilingual library design, foreign function interfaces</li>
-<li>The sponsor has an existing Python and JavaScript charting library (<a href="https://github.com/gvwilson/chart.xkcd"><code>chart-xkcd</code></a>) that generates XKCD-style hand-drawn charts (bar, line, pie, scatter, radar, heatmap, stacked bar), as well as preliminary Gleam bindings (<a href="https://github.com/gvwilson/starch.gleam"><code>starch</code></a>) that wrap the JavaScript layer via Gleam&rsquo;s FFI mechanism</li>
-<li>The goal is to generalize this work into a multilingual package with clean, idiomatic APIs in Python, JavaScript, Gleam, and Rust, underpinned by a systematic bindings-generation approach</li>
-</ul>
+<p>The sponsor maintains an existing Python and JavaScript charting library (<code>chart-xkcd</code>) that generates charts in XKCD&rsquo;s hand-drawn style. The goal of this project is to generalize that work to create a multilingual package with clean, idiomatic APIs in Python, JavaScript, Gleam, and Rust, underpinned by a principled and systematic approach to bindings generation.</p>
+<h2>Mentor</h2>
+<p>Greg Wilson is an independent educator and software engineering author who has spent decades teaching software development skills and designing learning materials for developers at all stages of their careers. </p>
 <h2>Project Description</h2>
-<ul>
-<li>Extend the existing <code>chart-xkcd</code> library so that developers in Python, JavaScript, Gleam, and Rust can create XKCD-style charts using idiomatic APIs without writing FFI glue by hand</li>
-<li>The project has two principal components that interact closely:<ol>
-<li>Bindings generator: a tool and/or set of templates that reads a language-neutral description of the chart API (chart types, their parameters, and option records) and emits the per-language wrapper code, type definitions, and documentation stubs. The existing <code>starch</code> package demonstrates the kind of output this generator should produce for Gleam</li>
-<li>Charting feature set: the chart types, options, and rendering logic that the bindings expose. This component may add new chart types or options not yet in <code>chart-xkcd</code>, and must ensure the feature set is expressible cleanly in all four target languages</li>
-</ol>
-</li>
-<li>The rendering core remains JavaScript (via the existing D3-based chart classes), so each language binding ultimately calls into the same rendering engine. The team must decide how each language reaches that engine: for example, Rust and Python may use WebAssembly, while Gleam calls the JavaScript runtime directly.</li>
-<li>A successful outcome is a single repository in which a developer can declare a bar chart with labeled datasets in any of the four languages and get back an XKCD-style chart.</li>
-</ul>
+<p>This project asks the team to extend the existing <code>chart-xkcd</code> library so that developers working in Python, JavaScript, Gleam, or Rust can create XKCD-style hand-drawn charts using idiomatic APIs in their language of choice, without writing foreign function interface glue code by hand.</p>
+<p>The project has two principal components that interact closely throughout the development process. The first component is a bindings generator that reads a language-neutral description of the chart API and emits the per-language wrapper code, type definitions, and documentation stubs. The existing <code>starch</code> package in Gleam demonstrates the kind of output this generator should produce for one target language. The team must design the schema language for describing the API, implement the generator, and validate its output against all four target languages.</p>
+<p>The second component is the charting feature set: the chart types, configuration options, and rendering logic that the generated bindings expose. This component will extend the current <code>chart-xkcd</code> feature set with new chart types or options not yet implemented, but the central constraint is that every feature must be expressible cleanly in all four target languages, each of which has distinct type systems, module conventions, and idioms.</p>
+<p>The rendering core will remain JavaScript, relying on the existing D3-based chart classes. Each language binding ultimately calls into the same rendering engine, and the team must design and justify the bridging strategy for each language. For example, Gleam can be compiled directly into JavaScript; this presents a different set of constraints than Rust, which typically requires either a WebAssembly build of the rendering core or a JavaScript runtime that provides a minimal DOM environment. A successful outcome is a single repository in which a developer can declare a bar chart with labeled datasets in any of the four supported languages and receive back a correctly rendered XKCD-style chart.</p>
 <h2>Project Scope</h2>
-<ul>
-<li>A language-neutral API schema as the single source of truth for generating bindings. This is a classic &ldquo;build vs. buy&rdquo; decision.</li>
-<li>Bindings generator for Python, JavaScript, Gleam (a pure functional language), and Rust (a low-level compiled language).</li>
-<li>At minimum, all four bindings must support bar, line, pie, scatter, and heatmap chart types</li>
-<li>Unit tests for the bindings generator</li>
-<li>Integration and visual tests, including cross-language comparison tests</li>
-<li>Documentation</li>
-</ul>
+<p>The team&rsquo;s first major deliverable is a language-neutral API schema that serves as the single source of truth for generating bindings across all four target languages. Designing this schema requires a classic &ldquo;build vs. buy&rdquo; decision: the team must evaluate whether an existing interface description language such as OpenAPI or Protocol Buffers is appropriate, or whether the project&rsquo;s needs are sufficiently specific to justify a domain-specific language (DSL). The decision and its rationale must be documented in the technical design document.</p>
+<p>The bindings generator must read the schema and emit idiomatic code for Python (packaged via PyPI), JavaScript (packaged via npm), Gleam (published via the Gleam package repository), and Rust (published via crates.io). &ldquo;Idiomatic&rdquo; means that each binding should feel natural to a developer already familiar with that language, and the generator must have unit tests that confirm the generator&rsquo;s textual output matches expected fixtures for each supported language.</p>
+<p>At minimum, all four bindings must support bar, line, pie, scatter, and heatmap chart types. The team will write integration tests for each binding in its own language toolchain to confirm that a representative chart declaration in each language produces valid output. Visual regression tests must be defined with a documented tolerance strategy and stored reference images, in order to handle floating-point rendering differences across platforms and browser versions.</p>
+<p>Documentation is a first-class deliverable. Each binding must have a user guide explaining installation from its respective package manager and at least one complete worked example. A technical design document must describe the overall architecture, the schema language and generator design, and the bridging strategy used for each target language.</p>
+<p>Stretch goals include additional chart types (radar and stacked bar) and a web-based interactive demonstration page that renders a user-supplied chart description in all four languages side by side.</p>
 <h2>Project Challenges</h2>
-<ul>
-<li>Bindings generator design:<ul>
-<li>A schema that is expressive enough to capture all options without becoming a second programming language</li>
-</ul>
-</li>
-<li>Multilingual testing:<ul>
-<li>Each binding must be tested in its own language toolchain, which is an interesting CI challenge</li>
-</ul>
-</li>
-<li>Graphical output testing<ul>
-<li>Pixel-level comparison is brittle because of floating-point differences across platforms</li>
-</ul>
-</li>
-<li>Rust rendering bridge:<ul>
-<li>The team must either adapt the chart classes to run in a non-browser context or choose a JS runtime that provides a minimal DOM stub</li>
-</ul>
-</li>
-<li>Non-technical:<ul>
-<li>Four target languages mean four communities of potential users with different conventions</li>
-</ul>
-</li>
-</ul>
+<p>The bindings generator design is the project&rsquo;s most open-ended challenge. The schema must be expressive enough to capture optional parameters, nested configuration records, and enumerated types without becoming so complex that it is effectively a fifth programming language. Striking this balance requires the team to study existing approaches in other multilingual projects and to make defensible design decisions early in the project.</p>
+<p>Multilingual testing presents another challenge: each binding must be tested in its own language&rsquo;s toolchain, which means the continuous integration pipeline must install and run four different build systems. Designing a CI configuration that is correct, maintainable, and reasonably fast across Python, JavaScript, Gleam, and Rust is a non-trivial systems engineering task in its own right.</p>
+<p>Graphical output testing is inherently fragile. Pixel-level comparison of rendered charts can fail due to floating-point differences in layout calculations across platforms or browser versions. The team must choose and justify a tolerance strategy based on perceptual image similarity, structural SVG comparison, or some other mechanism, and document it clearly so that future contributors can understand the approach.</p>
+<p>The Rust rendering bridge is probably the single greatest technical challenge. The rendering core of the existing library is D3-based JavaScript, and Rust cannot call that code directly without an intermediary. The team must either adapt the chart classes to run in a non-browser context using a headless JavaScript runtime, or produce a WebAssembly build of the rendering core that Rust can invoke. Both approaches involve significant unknowns that the team should prototype early to reduce risk.</p>
+<p>On the non-technical side, four target languages mean four communities of potential users with different conventions, documentation expectations, and idioms. The team should prioritize correctness and consistency over completeness, ensuring that what is released is genuinely useful to developers in each community rather than superficially covering all four targets.</p>
 <h2>Number of Students</h2>
-<ul>
-<li>3-4 students preferred</li>
-</ul>
+<p>3-4 students preferred.</p>
 <h2>Sponsor-Provided Hardware and Software</h2>
-<ul>
-<li>None: all required tools are freely available</li>
-<li>Sponsor will act as project manager, run standups, and review generated binding code</li>
-</ul>
+<p>No special hardware or software is required. All tools needed to complete this project are freely available, including open-source language runtimes, package managers, and development environments. The sponsor will act as project manager, participate in weekly standups, and review generated binding code throughout development.</p>
 <h2>Project Search Keywords</h2>
 <ul>
-<li>&ldquo;data visualization&rdquo;</li>
-<li>&ldquo;multilingual library&rdquo;</li>
-<li>&ldquo;XKCD charts&rdquo;</li>
+<li>data visualization</li>
+<li>multilingual library</li>
+<li>XKCD charts</li>
+<li>foreign function interface</li>
+<li>code generation</li>
 </ul>
 <h2>Department of Software Engineering Required Deliverables</h2>
-<ul>
-<li>Standard departmental deliverables as listed by RIT SE</li>
-</ul>
+<p>Standard departmental deliverables as listed by the RIT Department of Software Engineering.</p>
 <h2>Sponsor and Project Specific Deliverables</h2>
 <ul>
-<li>Language-neutral API schema</li>
-<li>Bindings generator tool</li>
-<li>Working bindings for all four languages installable from standard package managers</li>
+<li>Language-neutral API schema serving as the single source of truth for all generated bindings</li>
+<li>Bindings generator tool capable of emitting idiomatic code for all four target languages</li>
+<li>Working bindings for Python, JavaScript, Gleam, and Rust, each installable from its standard package manager</li>
 <li>Source code in a public Git repository under an open-source license (MIT preferred)</li>
-<li>Test suite covering:<ul>
-<li>Generator correctness (textual output matches expected)</li>
-<li>Per-language integration tests (each binding produces valid SVG for each supported chart type)</li>
-<li>Visual regression tests with documented tolerance strategy and stored reference images</li>
-</ul>
-</li>
-<li>Technical design document</li>
-<li>User guide</li>
+<li>Test suite covering: generator correctness (textual output matches expected fixtures), per-language integration tests (each binding produces valid SVG for each supported chart type), and visual regression tests with a documented tolerance strategy and stored reference images</li>
+<li>Technical design document describing the overall architecture, schema language, generator design, and bridging strategy for each target language</li>
+<li>User guide for each language binding, including installation instructions and at least one complete worked example</li>
 </ul>
 <h2>Proprietary Information</h2>
-<ul>
-<li>No aspect of this project is proprietary</li>
-</ul>
+<p>No aspect of this project is proprietary. The project will be developed and published openly, and team members are free to discuss all aspects of their work with potential employers or graduate programs.</p>
 <h2>Availability</h2>
-<ul>
-<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
-<li>Responsive by email within 24 hours on weekdays</li>
-</ul>
+<p>The sponsor is available for weekly 30-minute video calls and is flexible on the day and time, with a preference for morning slots (Eastern Time). The sponsor responds to email within 24 hours on weekdays.</p>
 <h2>Project Agreements and Assignment of Rights</h2>
-<ul>
-<li>Open-source agreement required: code is published publicly</li>
-<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
-</ul><!-- /content -->
+<p>The sponsor requires the open-source project agreement: all code will be published publicly under an open-source license. The sponsor confirms that all necessary internal clearances have been obtained to use the RIT standard open-source project agreement unmodified.</p><!-- /content -->
 
 
     </main>

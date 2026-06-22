@@ -52,114 +52,52 @@
 </div>
 <!-- content --><h1>Project Proposal: Tower Support Game</h1>
 <h2>Background Information</h2>
-<ul>
-<li>Sponsor: Greg Wilson, independent educator and software engineering author</li>
-<li>Domain: game development, software design education</li>
-<li>Tower defense is a well-established game genre</li>
-<li>This project inverts the conventional mechanic: goal is to <em>help</em> the travelers, not destroy them</li>
-</ul>
+<p>Tower defense is a well-established video game genre in which players build static defenses to destroy waves of enemies before they reach a protected point. This proposal inverts that familiar mechanic to create something pedagogically and mechanically novel: a game in which the goal is cooperation and assistance rather than destruction.</p>
+<h2>Mentor</h2>
+<p>Greg Wilson is an independent educator and software engineering author who has spent decades teaching software development skills and designing learning materials for developers at all stages of their careers. </p>
 <h2>Project Description</h2>
-<ul>
-<li>Build a prototype browser-based &ldquo;tower support&rdquo; game</li>
-<li>Inversion of the tower defense genre:<ul>
-<li>Instead of building defenses against attackers, the player places infrastructure (bridges, first aid stations, supply depots, etc.) to help travelers safely reach their destination</li>
-</ul>
-</li>
-<li>Travelers follow paths through a map: they are slowed, blocked, or harmed by terrain and hazards</li>
-<li>Player deploys limited support structures strategically to keep travelers alive and moving</li>
-<li>Score: how many travelers reach their destination</li>
-</ul>
+<p>The goal of this project is to build a browser-based &ldquo;tower support&rdquo; game that inverts the conventional tower defense genre. Rather than deploying weapons to halt attackers, the player places infrastructure such as bridges, first aid stations, supply depots, and guards to help travelers safely reach their destination despite threats and obstacles. Travelers follow paths through a map and are slowed, blocked, or harmed by terrain features and hazards they encounter along the way. The player&rsquo;s task is to deploy a limited set of supports strategically, managing resources to keep as many travelers alive and moving as possible. The game score is determined by how many travelers successfully reach their destination.</p>
+<p>This project will appeal to students interested in game AI, agent-based simulation, and interactive software design. It requires them to tackle authentic engineering challenges in a domain that is immediately engaging and testable through play. The prosocial game mechanic is both a distinguishing feature and a design constraint: structures must visibly benefit travelers without removing all challenge from the game.</p>
 <h2>Project Scope</h2>
-<ul>
-<li>Game framework selection and justification (e.g., Pygame, Godot, Phaser.js)</li>
-<li>Tile- or graph-based map representation</li>
-<li>Traveler agent AI: pathfinding around obstacles and toward exits</li>
-<li>Minimum support structure types:<ul>
-<li>Bridges (cross gaps)</li>
-<li>First aid stations (restore health)</li>
-<li>Shelters (pause travelers safely)</li>
-<li>Guards (fend off wolves and bandits)</li>
-</ul>
-</li>
-<li>Resource/economy system:<ul>
-<li>Player earns points when travelers reach their destination</li>
-<li>Spends points to place structures</li>
-</ul>
-</li>
-<li>At least 3 distinct levels with increasing complexity</li>
-<li>Basic UI: map view, resource counter, traveler status, win/lose screen</li>
-<li>Save/load and level-select functionality</li>
-<li>Unit and integration tests for core game logic (pathfinding, resource management, win condition)</li>
-<li>Stretch goals:<ul>
-<li>Procedural level generation</li>
-<li>Additional structure types (food stations, signal towers, wizards)</li>
-<li>Simple level editor</li>
-</ul>
-</li>
-</ul>
+<p>The team will select and justify a game framework appropriate for browser-based development, with candidate options including Godot, Phaser.js, and Pygame. The selection decision should be documented and driven by factors such as language familiarity, asset pipeline support, and browser deployment requirements.</p>
+<p>The map representation will use either a tile- or graph-based approach, and the team will design and implement at least three distinct levels of increasing complexity. Each level must be expressible in a documented data format that can be loaded at runtime, laying the groundwork for the stretch goal of a simple level editor.</p>
+<p>Traveler agents require an AI subsystem capable of pathfinding around obstacles and toward exits, with the ability to dynamically recompute routes as the player places new structures. The team will implement at minimum four support structure types: bridges (which allow travelers to cross gaps in the terrain), first aid stations (which restore traveler health), shelters (which pause travelers in a protected state), and guards (which defend travelers from wolves, bandits, or other hazards encountered on the map). Additional structure types are listed as stretch goals below.</p>
+<p>The game economy gives players points when travelers reach their destination; those points are spent to place new structures. This feedback loop is central to the game&rsquo;s strategic depth and must be balanced carefully through iterative playtesting.</p>
+<p>The user interface must display the map view, the player&rsquo;s current resource total, the status of travelers in the field, and appropriate win/lose screens. The game must support save/load functionality and a level-select screen. The team will write unit and integration tests for all core game logic, including the pathfinding subsystem, the resource management system, and the win/loss condition evaluation.</p>
+<p>The broad scope of the project, with framework selection, AI design, game balance, UI implementation, data persistence, and testing, is designed to provide an authentic full-cycle software engineering experience in which students develop requirements, design, and test documentation as a natural part of building a working product. Stretch goals may include procedural level generation, additional structure types such as food stations, signal towers, or wizards, and a simple in-game level editor.</p>
 <h2>Project Challenges</h2>
-<ul>
-<li>Pathfinding:<ul>
-<li>Travelers must dynamically recompute routes as structures are placed</li>
-<li>Efficient re-evaluation is non-trivial</li>
-</ul>
-</li>
-<li>Balancing: tuning the game so it is neither trivial nor frustrating requires iterative playtesting</li>
-<li>Emergent complexity: interactions between structures, terrain, and traveler behavior is hard to predict/test</li>
-<li>Non-technical:<ul>
-<li>Clear, intuitive UI for structure placement without a tutorial</li>
-<li>Game feel (timing, feedback) affects playability significantly</li>
-</ul>
-</li>
-<li>Scope management: distinguishing a playable prototype from a complete game is a challenge for the team</li>
-</ul>
+<p>The largest challenge in this project is game balance. Tuning the game so that it is neither trivially easy nor frustratingly difficult requires iterative playtesting with external users, not just the development team. The team must build this testing time into their schedule and treat balance adjustments as first-class engineering work rather than an afterthought. This is particularly important because emergent complexity arises from interactions between structures, terrain types, and traveler behavior. A combination of structures that seems straightforward in isolation may produce unexpected results when travelers interact with several of them in sequence, and exhaustive automated testing of such interactions is difficult by nature.</p>
+<p>A purely technical challenge is the pathfinding subsystem. Travelers (and mobile threats) must dynamically recompute routes whenever the player places a new structure, and this recomputation must be fast enough not to disrupt gameplay. Naive re-evaluation strategies are unlikely to be acceptable, and the team will need to evaluate incremental or event-driven approaches.</p>
+<p>On the non-technical side, the user interface must make structure placement intuitive without requiring a lengthy tutorial. Game feel significantly affects playability, but is difficult to specify in advance. Finally, the team must exercise scope discipline, clearly distinguishing the deliverables of a playable prototype from the aspirations of a complete commercial game.</p>
 <h2>Number of Students</h2>
-<ul>
-<li>3-4 students preferred</li>
-</ul>
+<p>3-4 students preferred.</p>
 <h2>Sponsor-Provided Hardware and Software</h2>
-<ul>
-<li>None: all required tools are freely available (open-source game engines, Python, JavaScript)</li>
-<li>Sponsor will act as project manager, run standups, and playtest</li>
-</ul>
+<p>No special hardware or software is required. All tools needed to complete this project are freely available as open-source software, including game engines, language runtimes, and development environments. The sponsor will act as project manager, participate in weekly standups, and serve as an external playtester throughout development.</p>
 <h2>Project Search Keywords</h2>
 <ul>
-<li>&ldquo;tower defense&rdquo;</li>
-<li>&ldquo;browser game&rdquo;</li>
+<li>tower defense</li>
+<li>browser game</li>
+<li>game AI</li>
+<li>agent pathfinding</li>
+<li>cooperative game mechanics</li>
 </ul>
 <h2>Department of Software Engineering Required Deliverables</h2>
-<ul>
-<li>Standard departmental deliverables as listed by RIT SE</li>
-</ul>
+<p>Standard departmental deliverables as listed by the RIT Department of Software Engineering.</p>
 <h2>Sponsor and Project Specific Deliverables</h2>
 <ul>
-<li>Playable prototype: runnable game with at least 3 levels and 2 animal types</li>
-<li>Source code in a public Git repository under an open-source license (MIT preferred)<ul>
-<li>Game assets (e.g., artwork and sound effects) must be ethically sourced</li>
-</ul>
-</li>
-<li>Technical design document: agent behavior models, AI architecture, map/level format</li>
-<li>User guide: how to install, run, and play</li>
-<li>Playtesting report: results from at least two rounds of external playtesting<ul>
-<li>Including documented adjustments to game balance</li>
-</ul>
-</li>
-<li>2-minute gameplay video highlighting animal mechanics</li>
+<li>Playable prototype: a runnable game with at least 3 levels and at least 2 distinct traveler types, hosted in a browser</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred); all game assets must be ethically sourced and licensed for reuse</li>
+<li>Technical design document covering agent behavior models, AI architecture, and the map/level data format</li>
+<li>User guide explaining how to install, run, and play the game</li>
+<li>Playtesting report documenting results from at least two rounds of external playtesting, including the adjustments made to game balance based on tester feedback</li>
+<li>A 2-minute gameplay video highlighting the traveler and support structure mechanics</li>
 </ul>
 <h2>Proprietary Information</h2>
-<ul>
-<li>No aspect of this project is proprietary</li>
-</ul>
+<p>No aspect of this project is proprietary. The project will be developed and published openly, and team members are free to discuss all aspects of their work with potential employers or graduate programs.</p>
 <h2>Availability</h2>
-<ul>
-<li>Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)</li>
-<li>Responsive by email within 24 hours on weekdays</li>
-</ul>
+<p>The sponsor is available for weekly 30-minute video calls and is flexible on the day and time, with a preference for morning slots (Eastern Time). The sponsor responds to email within 24 hours on weekdays.</p>
 <h2>Project Agreements and Assignment of Rights</h2>
-<ul>
-<li>Open-source agreement required: code is published publicly</li>
-<li>Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified</li>
-</ul><!-- /content -->
+<p>The sponsor requires the open-source project agreement: all code will be published publicly under an open-source license. The sponsor confirms that all necessary internal clearances have been obtained to use the RIT standard open-source project agreement unmodified.</p><!-- /content -->
 
 
     </main>
