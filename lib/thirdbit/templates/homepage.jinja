@@ -28,5 +28,30 @@
   </div>
 </div>
 
-{% include "homepage_prior.jinja" %}
+<h2>Projects</h2>
+
+{% with snippets=site.projects %}
+  {% include "prior-section.jinja" %}
+{% endwith %}
+
+<h2>Books</h2>
+
+{% with snippets=site.books %}
+  {% include "prior-section.jinja" %}
+{% endwith %}
+
+<h2>Workshops</h2>
+
+<h3>Complete</h3>
+
+{% with snippets=site.workshops %}
+  {% include "prior-section.jinja" %}
+{% endwith %}
+
+<h3>Beta</h3>
+
+{% with snippets=site.beta %}
+  {% include "prior-section.jinja" %}
+{% endwith %}
+
 {% endblock %}

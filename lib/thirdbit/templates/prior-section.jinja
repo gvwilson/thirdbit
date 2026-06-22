@@ -1,12 +1,10 @@
-<h2>Projects and Books</h2>
-
-{% for pair in site.prior_entries | batch(2, '') %}
+{% for pair in snippets | batch(2, '') %}
 <div class="row">
   {% for entry in pair %}
   {% if entry %}
   <div class="col-6 col">
     <div class="card{% if entry.beta is defined and entry.beta %} beta{% endif %}">
-      <h3 class="card-title"><em><a href="{{ entry.url }}">{{ entry.title }}</a></em></h3>
+      <h4 class="card-title"><em><a href="{{ entry.url }}">{{ entry.title }}</a></em></h4>
       {% if entry.image is defined %}
       <div class="row">
         <div class="col-4">

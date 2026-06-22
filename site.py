@@ -51,7 +51,7 @@ papers = [
     }
 ]
 
-prior_entries = [
+projects = [
     {
         "title": "The Carpentries",
         "url": "https://carpentries.org",
@@ -64,6 +64,9 @@ prior_entries = [
         "description": "Brief reviews for working programmers of empirical results in software engineering (2011–2023).",
         "image": {"src": "@root/files/neverworkintheory.svg", "alt": "NWIT logo"},
     },
+]
+
+books = [
     {
         "title": "Software Design by Example in Python",
         "url": "@root/sdxpy/",
@@ -100,6 +103,9 @@ prior_entries = [
         "description": "A collection of essays describing the architectures of fifty open source projects (2011–12).",
         "image": {"src": "@root/files/bib/aosa-1.jpg", "alt": "Architecture of Open Source Applications"},
     },
+]
+
+workshops = [
     {
         "title": "Organizational Change",
         "url": "@root/change",
@@ -115,40 +121,43 @@ prior_entries = [
         "url": "@root/sql",
         "description": "A one-day introduction to the basics of SQL.",
     },
+]
+
+beta = [
     {
         "title": "Managing Research Software Projects",
         "url": "@root/mrsp",
-        "description": "A workshop on the ideas and tools you need to manage a team of research software developers (beta).",
+        "description": "A workshop on the ideas and tools you need to manage a team of research software developers.",
         "beta": True,
     },
     {
         "title": "How to Not Be Wrong About AI",
         "url": "@root/notwrong",
-        "description": "What software engineers need to understand to tell good studies from bad ones (beta).",
+        "description": "What software engineers need to understand to tell good studies from bad ones.",
         "beta": True,
     },
     {
         "title": "Distributed Systems Design by Example",
         "url": "@root/dsdx",
-        "description": "Thirteen worked examples of distributed systems in Python (beta).",
+        "description": "Thirteen worked examples of distributed systems in Python.",
         "beta": True,
     },
     {
         "title": "Unbreaking Software",
         "url": "@root/unbreak",
-        "description": "An example-driven tutorial on finding and fixing bugs in software (beta).",
+        "description": "An example-driven tutorial on finding and fixing bugs in software.",
         "beta": True,
     },
     {
         "title": "Sex and Drugs and Guns and Code",
         "url": "@root/sdgc",
-        "description": "A few things I think programmers should know about how the world actually works (beta).",
+        "description": "A few things I think programmers should know about how the world actually works.",
         "beta": True,
     },
     {
         "title": "Gleam for Python Programmers",
         "url": "@root/gl4py",
-        "description": "An example-based introduction to Gleam for Python programmers (alpha).",
+        "description": "An example-based introduction to Gleam for Python programmers.",
         "beta": True,
     },
 ]
@@ -157,25 +166,25 @@ unused_entries = [
     {
         "title": "Research Software Testing by Example",
         "url": "@root/rstx",
-        "description": "Thirty-one short examples that explore how to test research software (alpha).",
+        "description": "Thirty-one short examples that explore how to test research software.",
         "beta": True,
     },
     {
         "title": "Lean for Python Programmers",
         "url": "@root/l4py",
-        "description": "An introduction to Lean for Python programmers (alpha).",
+        "description": "An introduction to Lean for Python programmers.",
         "beta": True,
     },
     {
         "title": "Learning Web Programming with LLMs",
         "url": "@root/webllm",
-        "description": "A short introduction to web programming using LLMs as a teaching aid (alpha).",
+        "description": "A short introduction to web programming using LLMs as a teaching aid.",
         "beta": True,
     },
     {
         "title": "Learning Data Science with LLMs",
         "url": "@root/dsllm",
-        "description": "A short introduction to data science using LLMs as a teaching aid (alpha).",
+        "description": "A short introduction to data science using LLMs as a teaching aid.",
         "beta": True,
     },
 ]
