@@ -5350,8 +5350,8 @@ He took a deep breath and spurred his horse to a trot.
 
 Prince Thokmay expected to find a handful of smugglers waiting at the top of a hill,
 or on the far side of a stream.
-Instead, eight men on mean-looking horses were gathered around
-the stump of what must have once been an enormous tree,
+Instead, eight men on mean-looking horses were gathered next to a wagon
+parked by the stump of what must have once been an enormous tree,
 while twice that number with spears and swords were on foot beside them.
 
 The prince reined in his horse next to Sergeant Gyalpa
@@ -5504,5 +5504,138 @@ Mukh paused for just a moment,
 watching them come at him with a smug look on his face.
 Then he undid the string that held the bag closed and shook it out.
 A terrible roaring sound filled the prince's ears as a tornado came whirling out.
+
+</section>
+<section markdown="1">
+
+## Chapter 9: Attacked
+
+The tornado roared into the sky,
+growing larger by the heartbeat as it poured out of Mukh's bag.
+"At them!" Sergeant Gyalpa shouted to the soldiers.
+"Get in close, or it'll swat you like bugs!"
+
+"Loghan preserved!" the soldiers shouted, and charged.
+The smugglers shouted curses back.
+The ones on foot braced their spears against the ground,
+while the ones who were mounted drew their swords and dug their heels into their mounts.
+
+"Stay close, honored!" Sergeant Gyalpa ordered the prince.
+He slowed for a beat,
+watching where men were going and where they weren't,
+then shouted, "Haw!" and spurred his horse forward
+with the prince's nose-to-tail behind him.
+
+The next few seconds were mad confusion.
+The soldiers split around the front rank of smugglers to avoid their spears.
+As they did so, Mukh shouted commands at the tornado.
+It twisted and danced across the ground,
+then lashed out like a man kicking a ball,
+except the ball it hit was a soldier on horeback.
+
+The man's horse screamed as it was lifted into the sky.
+The soldier threw himself out of his saddle,
+his left leg buckling when he hit the ground.
+Before his comrades could reach him,
+a smuggler on horseback galloped past and swung his sword.
+
+An instant later two other riders cut left,
+then right,
+then left again to get in close to the knot of smugglers.
+Mukh didn't hesitate.
+The tornado grabbed them and a hapless smuggler and tossed them through the air.
+They tumbled like dice.
+
+Sergeant Gyalpa stood up in his stirrups and waved his sword over his head.
+"Fall back!" he shouted.
+"Fall back! We can't get past that thing!"
+He watched the melee for a moment, then snarled,
+"They can't hear me! Honored, we have to get you out of here!"
+
+"No!" Thokmay protested. "I won't run away!"
+
+"And I won't have a dead prince on my scroll!" the sergeant bellowed back.
+
+"I will *not* run!" the prince shouted.
+"Haw!"
+He dug his heels deep into his horse's flanks.
+The frightened animal bounded forward.
+Behind him Sergeant Gyalpa cursed,
+then kick his own horse into a gallop as well.
+
+Thokmay crouched low over his horse's neck,
+wind-blown grit stinging his eyes.
+His horse's hooves pounded the ground beneath him.
+The smugglers were small, small, small, and then suddenly large and *right there*.
+He dodged a startled spearman and swung.
+His blade bit something that wasn't armor.
+A spear thrust past his ear.
+He dodged and screamed in fear and anger and swung his sword again—
+
+And suddenly the earth beneath him was churning like the ocean in a storm.
+His horse screamed with fear as she lost her footing,
+stumbled,
+found her footing again,
+and leaped toward solid ground.
+The prince twisted around in his saddle
+just in time to see the spearman he'd hit sink to his knees in the turbulent earth.
+
+Somehow Sergeant Gyalpa was beside him.
+"It's the land!" he shouted.
+"His magic is waking it up!
+We have to get out of here *now*!"
+
+"What about the troops?" the prince shouted back.
+
+"They're already falling back! Look!"
+Sure enough,
+everyone was fleeing,
+smugglers and soldiers alike,
+as the land roiled and heaved like a storm-tossed sea.
+
+"'Ware my back!" the sergeant ordered.
+He spun his horse around and charged at the smugglers.
+Most of the spearmen were struggling to get to their feet.
+As the horsemen around Mukh tried to get their panicky mounts under control,
+Sergeant Gyalpa charged through them and swung his sword.
+
+The prince saw the sergeant's blade connect with bag in Mukh's hands.
+There was a flash like lightning.
+Mukh and the sergeant both cried out as it flew through the air.
+When it hit the ground,
+the earth splashed like water.
+The bag sunk out of sight like a stone thrown in a murky pond.
+
+The tornado roared in triumph as it felt Mukh's hold over it break.
+It pounced on the smugglers like a cat pouncing on a crippled bird,
+throwing them this way and that.
+Prince Thokmay saw Mukh leap from his horse an instant before the tornado snatched it up.
+The smuggler scrambled over to the wagon and pulled a man-tall mirror off it,
+propped it against the wagon,
+and dove through it an instant before the tornado snatched it up.
+
+The prince shouted, "Look out!"
+The mirror slammed into Sergeant Gyalpa like a stone from a catapult,
+knocking him from his horse.
+
+"No!" the prince screamed,
+sliding clumsily off his saddle.
+
+"Get out of here, honored!" Sergeant Gyalpa shouted,
+pushing the prince away.
+
+Thokmay grabbed the sergeant's arm and pulled him to his feet.
+"I've already lost one sergeant," the prince grunted.
+"I will *not* lose another! Now *get up*!"
+
+The prince put his shoulder against Gyalpa's rump
+to help the sergeant pull himself up into the saddle.
+A heartbeat later the prince swung up behind him.
+"*Now* we can run," he said.
+He smacked the horse on the rump.
+
+As they galloped heavily away,
+the tornado picked up Mukh's magic mirror and smashed it to the ground once again,
+then whirled off toward Ghohraj.
 
 </section>
