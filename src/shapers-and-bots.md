@@ -3,6 +3,8 @@ title: "Shapers and Bots"
 template: page
 ---
 
+> Yazzer hated how the breathing mask crushed his whiskers against his face, and for the hundredth time wished that the air tanks on his back weren't so heavy. But he had seen what the fumes from the old chemical dump did to people's minds, and he definitely didn't want to wind up like Skeez, who thought that the trees whispered secrets no one else could hear. A soft tick-tick-tick in the distance caught Yazzer's ears. The rest of his crew was already back at the wagon loading the bits of tech they had salvaged that day. There! Something had definitely moved. He reached for the little crossbow holstered against his leg, not knowing that it was already too late…
+
 *Shapers and Bots* is a role-playing game for children 8 and older inspired by *Dungeons & Dragons*, *Avatar: The Last Airbender*, and every cartoon animal that ever walked upright and wore clothes. The rules focus on storytelling rather than realism: dice rolls are kept simple, and there are no complicated tables showing how much damage a broadsword does compared to a katana.
 
 ## Background
@@ -33,15 +35,15 @@ Once the game starts, each player decides what their character does. When the pl
 
 Every character has strengths and weaknesses that determine what they're good at and what they aren't. We describe this by giving every character a **rating** for five **features**:
 
-* **Size** (abbreviated SIZ): how large the character is. If the character is exceptionally short or exceptionally skinny, the character may list height and weight separately.
+-   **Size** (abbreviated SIZ): how large the character is. If the character is exceptionally short or exceptionally skinny, the character may list height and weight separately.
 
-* **Fitness** (FIT): how strong and coordinated she is. Characters with a high fitness are good athletes.
+-   **Fitness** (FIT): how strong and coordinated she is. Characters with a high fitness are good athletes.
 
-* **Dexterity** (DEX): how good the character is with her hands. This determines how well she can pick locks, play musical instruments, or perform surgery.
+-   **Dexterity** (DEX): how good the character is with her hands. This determines how well she can pick locks, play musical instruments, or perform surgery.
 
-* **Intelligence** (INT): how good she is at book learning and abstract reasoning. A character with a low Intellect isn't stupid—she just isn't good at logic puzzles.
+-   **Intelligence** (INT): how good she is at book learning and abstract reasoning. A character with a low Intellect isn't stupid—she just isn't good at logic puzzles.
 
-* **Perception** (PER): How well the character notices things in their surroundings, which depends on eyesight, hearing, sense of smell, and actually paying attention (which any parent can tell you is very different from just seeing or hearing). If the character has exceptionally good or bad eyesight, hearing, or a sense of smell, they may have a separating rating for that, just as they might for height and weight.
+-   **Perception** (PER): How well the character notices things in their surroundings, which depends on eyesight, hearing, sense of smell, and actually paying attention (which any parent can tell you is very different from just seeing or hearing). If the character has exceptionally good or bad eyesight, hearing, or a sense of smell, they may have a separating rating for that, just as they might for height and weight.
 
 So what is a rating? It's simply a number: 0 if the character is average, positive if they're higher than average, and negative if they're lower. (A positive rating is sometimes called a **bonus**, and a negative one is sometimes called a **penalty**.)
 
@@ -59,13 +61,11 @@ Every character has one more feature called **Strength** (abbreviated STR) which
 
 If an extra is important to the plot—for example, if they are a player character's sidekick—the Director may give extras ratings for two more features:
 
-* **Courage** (CRG): how brave the character is.
+-   **Courage** (CRG): how brave the character is.
 
-* **Honesty** (HON): how likely the character is to tell the truth.
+-   **Honesty** (HON): how likely the character is to tell the truth.
 
 Player characters don't have ratings for these features because being brave and telling the truth (or not) are part of the game.
-
-*Yazzer hated how the breathing mask crushed his whiskers against his face, and for the hundredth time wished that the air tanks on his back weren't so heavy. But he had seen what the fumes from the old chemical dump did to people's minds, and he definitely didn't want to wind up like Skeez, who thought that the trees whispered secrets no one else could hear. A soft tick-tick-tick in the distance caught Yazzer's ears. The rest of his crew was already back at the wagon loading the bits of tech they had salvaged that day. There! Something had definitely moved. He reached for the little crossbow holstered against his leg, not knowing that it was already too late…*
 
 ## Challenges
 
@@ -99,29 +99,29 @@ A situation in which one character is trying to outdo another is called a **cont
 
 *Gertrude and Norwin are arm-wrestling. Gertrude rolls 8; her Strength is +4, so her score is 12. Norwin's Strength is +2; he rolls 10, giving him a score of 12 as well, so the Director decides that they are still locked in combat. When they re-roll, they both get a total of 11. After adding their Strengths, Gertrude's score is higher, so she wins.*
 
-*“Why do I always get stuck with guard duty?” Mushi thought resentfully, even though she knew it was because she had the keenest eyes and ears in the team. Yazzer should have been back half an hour ago, so everyone else had gone to look for him and left her to guard the wagon full of scrap tech they had salvaged. She hoped it would be enough to pay off the gang of crocodiles who ran the local crime syndicate, but if it wasn't—she hefted her bow. She wouldn't mind seeing just how tough their scaly hides really were. A soft tick-tick-tick in the distance made her perk up her carefully-groomed ears. “Yaz?” she called. Nobody answered. A chill ran up her spine as the last of the autumn leaves crunched beneath a heavy footstep. Slowly, she drew an arrow and notched it…*
-
 ## Combat
 
-Once a fight starts, everything happens in rounds that are a few seconds long in game time. In each round, characters act in order of Fitness, with highest Fitness going first. If two or more characters are tied, their players roll 3D once at the start of the fight to see who goes first for the duration of that fight.
+> "Why do I always get stuck with guard duty?" Mushi thought resentfully, even though she knew it was because she had the keenest eyes and ears in the team. Yazzer should have been back half an hour ago, so everyone else had gone to look for him and left her to guard the wagon full of scrap tech they had salvaged. She hoped it would be enough to pay off the gang of crocodiles who ran the local crime syndicate, but if it wasn't—she hefted her bow. She wouldn't mind seeing just how tough their scaly hides really were. A soft tick-tick-tick in the distance made her perk up her carefully-groomed ears. "Yaz?" she called. Nobody answered. A chill ran up her spine as the last of the autumn leaves crunched beneath a heavy footstep. Slowly, she drew an arrow and notched it…
+
+Once a fight starts, everything happens in rounds that are a few seconds long in game time. In each round, characters act in order of Fitness, with highest Fitness going first. If two or more characters are tied, their players do rock-paper-scissors at the start of the fight to see who goes first for the duration of that fight.
 
 In each round, a character can take two actions. Each of the following counts as one action:
 
-* Attack someone.
+-   Attack someone.
 
-* Defend against an attack (discussed below).
+-   Defend against an attack (discussed below).
 
-* Pick something up. (Dropping something doesn't count as an action.)
+-   Pick something up. (Dropping something doesn't count as an action.)
 
-* Run from one place to another.
+-   Run a few steps.
 
-* Draw a weapon.
+-   Draw a weapon.
 
-* Reload a weapon. This counts as one or more actions depending on the type of weapon. For example, getting another arrow from a quiver counts as one action (which means archers can fire one shot per turn, since shooting counts as their other action). Reloading a crossbow, on the other hand, requires several actions, and so takes several rounds.
+Reloading a weapon counts as one or more actions depending on the type of weapon. For example, getting another arrow from a quiver counts as one action (which means archers can fire one shot per turn, since shooting counts as their other action). Reloading a crossbow, on the other hand, requires several actions, and so takes several rounds.
 
 Characters can only attack once per round, even though they have two actions.
 
-For each attack, the attacker declares who or what they are attacking, and the target says whether they are going to use one of their actions for defense. If the defender isn't using an action for defense, the attacker succeeds if they win a regular roll. If the defender is using an action for defense, the attack succeeds if the attacker makes their roll and the defender misses a roll. This is different from a regular contest roll: the attacker doesn't have to beat the defender's roll—the attacker has to succeed and the defender has to fail.
+For each attack, the attacker declares who or what they are attacking, and the target says whether they are going to use one of their actions for defense. If the defender isn't using an action for defense, the attacker succeeds if they win a regular roll. If the defender is using an action for defense, the attack succeeds if the attacker makes their roll and the defender misses a roll. This is different from a regular contest roll: the attacker doesn't have to beat the defender's roll: the attacker has to succeed and the defender has to fail.
 
 *Yoshi has a rating of +3 for fencing and her opponent Lin has a rating of +1. Yoshi attacks first and rolls a total of 6. Even with her +3 bonus, that's only 9, so she has missed and Lin doesn't need to roll for defense.*
 
@@ -131,17 +131,17 @@ For each attack, the attacker declares who or what they are attacking, and the t
 
 There are a few special cases:
 
-1. If the Director decides that an attack is a complete surprise, the defender doesn't get a defense roll.
+1.  If the Director decides that an attack is a complete surprise, the defender doesn't get a defense roll.
 
-2. If the target hasn't had their turn yet, their defense uses up an action for that round (i.e., if they defend themselves against an attack, they can only use one other action when their turn comes around).
+2.  If the target hasn't had their turn yet, their defense uses up an action for that round (i.e., if they defend themselves against an attack, they can only use one other action when their turn comes around).
 
-3. If the target has already used all of their actions for the round, they cannot defend themselves in that round. Going first is therefore not as much of an advantage as you might think, since smart players will save one action to use in defense.
+3.  If the target has already used all of their actions for the round, they cannot defend themselves in that round. Going first is therefore not as much of an advantage as you might think, since smart players will save one action to use in defense.
 
 Flukes and fumbles count when attacking and defending: a fluke attack always succeeds, while a fumble always misses. (If someone gets a fluke when attacking and their opponent gets a fluke when defending, the defense has succeeded.)
 
 ## Injury
 
-Every time a character is injured, their character must win a challenge roll with their Strength *before* the injury as a bonus and the amount of the damage as a penalty. If they fail the roll, they have been knocked out. Regardless of the roll's outcome, they lose that many points of Strength because of the injury. A character dies when their Strength goes negative (so someone with a Strength of -3 or less won't survive a single hit).
+Every time a character is injured, their character must win a challenge roll with their Strength *before* the injury as a bonus and the amount of the damage as a penalty. If they fail the roll, they have been knocked out. Regardless of the roll's outcome, they lose that many points of Strength because of the injury. If someone's strength is negative, they must make a roll each time they're hit with their current Strength as penalty; if they miss it, well, adventurers aren't famous for their long lives…
 
 *Alouenne is a kangaroo with a Strength of +3. As the tunnel collapses around her, she is hit by a falling rock that does 1 point of damage. She needs to win a roll with a +2 bonus to stay conscious: +3 for her Strength before the injury and -1 for the damage. She rolls 9 on 3D, giving her a score of 11. She has won her roll, but the rock has injured her shoulder, and she is now down to a Strength of +2.*
 
@@ -149,13 +149,11 @@ Every time a character is injured, their character must win a challenge roll wit
 
 ### Death
 
-Since Shapers and Bots is a storytelling game, the Director shouldn't let player characters die unless there's no way around it (for example, they've fallen into lava), it serves some dramatic purpose, or they deserve it ("Hey, I wonder if I can eat dynamite?"). For extras, and for cases in which the Director doesn't want to be blamed for the decision:
+Since *Shapers and Bots* is a storytelling game, the Director shouldn't let player characters die unless it serves some dramatic purpose, there's no way around it (for example, they've fallen into lava), or they deserve it ("Hey, I wonder if I can eat dynamite?"). For extras, and for cases in which the Director doesn't want to be blamed for the decision:
 
-1. When a character's strength drops to -4 or less, they have succumbed to their injuries. This means that a character with a Strength of -3 can be killed by a single blow, however small, and that even strong characters can be taken out by a sufficiently large one.
+1.  If a character is bleeding badly (for example, if their injury was a sword cut), they take 1 more point of damage each round unless someone successfully does first aid.
 
-2. If a character is bleeding badly (for example, if their injury was a sword cut), they take 1 more point of damage each round unless someone successfully does first aid.
-
-3. When a character is unconscious, an opponent can kill them with a single blow—no roll is needed.
+2.  When a character is unconscious, an opponent can kill them with a single blow—no roll is needed.
 
 ### Healing
 
@@ -198,19 +196,19 @@ Players can get extra points to distribute by lowering ratings as well: they may
 
 ## Skills
 
-Every character has **skills**. Some are automatic: for example, almost everyone can try to throw a rock. Others are not: trust me, nobody can play the oboe if they've never seen one before.
+Every character has **skills**. Some are automatic: for example, almost everyone can try to throw a rock. Others are not: despite what some people seem to think, nobody can play the bagpipes on the first try.
 
 Just like features, skills have ratings. Positive ratings mean that characters are better than average. negative ratings mean that they find even simple tasks difficult. Some common skills are listed below, along with a character's initial rating:
 
-* If the initial rating is "None" the character has no initial ability and must rely on fluke rolls to do tasks.
+-   If the initial rating is "None" the character has no initial ability and must rely on fluke rolls to do tasks.
 
-* If a number is given, the character starts with that rating.
+-   If a number is given, the character starts with that rating.
 
-* If a feature is given, the character's initial rating in the skill is equal to their rating for that feature. For example, every character's initial rating for Brawling is equal to their Fitness.
+-   If a feature is given, the character's initial rating in the skill is equal to their rating for that feature. For example, every character's initial rating for Brawling is equal to their Fitness.
 
-* If a formula is given, their initial rating is whatever the formula calculates. For example, with Size -2 and Fitness +1, their initial rating for Acrobatics is +3, which is Fitness minus Size. (Being small is an advantage when doing flips and walking a tightrope.)
+-   If a formula is given, their initial rating is whatever the formula calculates. For example, with Size -2 and Fitness +1, their initial rating for Acrobatics is +3, which is Fitness minus Size. (Being small is an advantage when doing flips and walking a tightrope.)
 
-* If a skill is shown in **bold**, it's worth writing down the character's rating even if they haven't improved it, since these skills are used so often in adventures.
+-   If a skill is shown in **bold**, it's worth writing down the character's rating even if they haven't improved it, since these skills are used so often in adventures.
 
 | Skill | Rating | Explanation |
 | :---- | :---- | :---- |
@@ -274,11 +272,11 @@ The six "skills" below are actually categories. Specialties within each must be 
 
 When a player is creating a character, they can spend INT+10 points improving the character's skills. For example, if a character has an INT of +3, they have 13 points to spend on raising skills. If their INT is -2, on the other hand, they only have 8 points to spend on skills (they're a slower learner).
 
-* Raising a skill from None to -4 costs 1 point.
+-   Raising a skill from None to -4 costs 1 point.
 
-* Each raise thereafter costs 1 point, up to a rating of +3.
+-   Each raise thereafter costs 1 point, up to a rating of +3.
 
-* Every raise above a level of +3 costs 2 points.
+-   Every raise above a level of +3 costs 2 points.
 
 *Garree's features are:*
 
@@ -305,6 +303,8 @@ After each adventure, the Director may allow a player to raise a skill they used
 
 ## Species
 
+> Ferenc hated salvage work, even when the tech was as beautiful as this old junk. He especially hated salvage work when he knew that the crocodiles who ran Undertown had already sent a team after the stuff, and that none of them had come back. With a sigh, he shone his flashlight on the—turbine? Engine casing? He had no idea what this was, but the metal alone would be worth a fortune. Something went tick-tick-tick in the darkness above him. He gripped his cudgel more tightly and swung his light in the direction of the sound, not noticing the mechanical blue tentacle snaking out of the hole beside him…
+
 Every living character belongs to a **species**. They all stand upright, speak, and have hands, but they also have fur (or feathers) and their feet look like animals' feet. Different species have different default values for the seven features, which are shown below. All animals are either vegetarian or omnivores; those marked as "carnivorous" simply have a particularly strong liking for meat. Eating intelligent animals is considered cannibalism.
 
 ### Bear
@@ -327,7 +327,7 @@ Bison are rarely found on their own—in fact, most suffer from acute isolophobi
 
 ### Crocodile
 
-Crocodiles are slow moving, except when they're not, and incredibly patient—particularly when it comes to their favorite sport: revenge.
+Crocodiles are slow moving, except when they're not, and incredibly patient, particularly when it comes to their favorite sport: revenge.
 
 | *SIZ 0* | *FIT 0* | *DEX -2* | *INT -1* | *PER 0* |
 
@@ -371,8 +371,6 @@ As cunning as crows, foxes are nimble-fingered, quick-witted, and always looking
 -   Carnivorous.
 -   Sense of smell is +1 not 0.
 
-*Ferenc hated salvage work, even when the tech was as beautiful as this old junk. He especially hated salvage work when he knew that the crocodiles who ran Undertown had already sent a team after the stuff, and that none of them had come back. With a sigh, he shone his flashlight on the—turbine? Engine casing? He had no idea what this was, but the metal alone would be worth a fortune. Something went tick-tick-tick in the darkness above him. He gripped his cudgel more tightly and swung his light in the direction of the sound, not noticing the mechanical blue tentacle snaking out of the hole beside him…*
-
 ### Goat
 
 Goats are completely average in every way except for their horns. (Telling them this is a good way to upset them.)
@@ -411,7 +409,7 @@ Smart, curious, and mechanically minded, monkeys are constantly tinkering with g
 
 | *SIZ -2* | *FIT 0* | *DEX +4* | *INT +2* | *PER 0* |
 
--   Can use their tail as a clumsy third hand.
+-   Can use their tail as a clumsy third hand. They don't care that it's impolite to do this in company.
 
 ### Parrot
 
@@ -488,23 +486,23 @@ Zebras have a remarkable ability to hide themselves, which is described below un
 
 -   When standing still, can change color to blend into surroundings, giving them +2 bonus for Hiding.
 
-*"He was handsome, your dad," Jubba's grandma said, passing her the colored sketch that had hung on her wall for as long as Jubba could remember. "A bit full of himself sometimes, though. That gun? He borrowed that for the portrait." "And nobody ever found out what happened to him?" Jubba asked. Her grandma glanced around to see if anyone was listening. "That's the official story," she said quietly. "But here, look at this." She took back the sketch, slid it out of its frame, and turned it over. Jubba's eyes widened. "Is that—is that a map?"*
-
 ## Shaping
+
+> "He was handsome, your dad," Jubba's grandma said, passing her the colored sketch that had hung on her wall for as long as Jubba could remember. "A bit full of himself sometimes, though. That gun? He borrowed that for the portrait." "And nobody ever found out what happened to him?" Jubba asked. Her grandma glanced around to see if anyone was listening. "That's the official story," she said quietly. "But here, look at this." She took back the sketch, slid it out of its frame, and turned it over. Jubba's eyes widened. "Is that—is that a map?"
 
 A small number of animal characters have psychic powers that let them control or **shape** the world with their mind. Characters who can shape typically start with a rating of -4, which improves with practice and training. The six known kinds of shaping are:
 
-* **Earth**: dirt and stone. Very experienced earth shapers can also shape metal.
+-   **Earth**: dirt and stone. Very experienced earth shapers can also shape metal.
 
-* **Air**: wind and sound.
+-   **Air**: wind and sound.
 
-* **Light**: create (silent) illusions and wrap themselves in shadows.
+-   **Light**: create (silent) illusions and wrap themselves in shadows.
 
-* **Water**: in its liquid form. Very experienced shapers can also shape ice. Using water shaping to control a living creature is extremely difficult and also a serious crime.
+-   **Water**: in its liquid form. Very experienced shapers can also shape ice. Using water shaping to control a living creature is extremely difficult and also a serious crime.
 
-* **Luck**: increase or decrease the chance of something happening.
+-   **Luck**: increase or decrease the chance of something happening.
 
-* **Time**: slow things down or speed things up. Nobody can stop time or reverse it, and nobody can see the future (though unscrupulous time shapers sometimes pretend that they can).
+-   **Time**: slow things down or speed things up. Nobody can stop time or reverse it, and nobody can see the future (though unscrupulous time shapers sometimes pretend that they can).
 
 Note that it is *extremely* rare for someone to be able to do more than one kind of shaping.
 
@@ -523,6 +521,8 @@ The Director decides case by case how hard it is to shape something. If the shap
 
 ## Bots
 
+> Its official designation was Thirty-Ack Forty-Four, but it had long ago decided to call itself the Toxicator. It did not know why the Makers had wanted this site guarded. It did not need to know: that was its mission, and anyone or anything that interfered was just a problem to be solved. Right now it had two such problems, both furry, cautious, and well-armed. As it snuck toward them, it triggered the remote-controlled speaker it had set up ages ago. Its soft tick-tick-tick sound drew their attention…
+
 The Makers built bots to do everything from cleaning windows to mining the ocean floor. Since they disappeared, the bots have repaired themselves however they can to keep themselves going, and made new bots whenever they can find the right parts. The result is that no two bots look or think exactly alike. One might have six short legs and a pair of mismatched claws for arms, while another might use two rotor fans to fly, but have only a single slender manipulator to pick things up.
 
 Like living characters, bots start with 0 ratings for Size, Fitness, Dexterity, and Intellect. A bot with low fitness is probably rusty or missing parts, while one with high fitness looks brand new (and will therefore be a target for other bots in need of parts).
@@ -531,105 +531,101 @@ Bots' Perception is also 0 by default, but only a few bots have any sense of sme
 
 Bots naturally have Light Armor. By default, every robot character has either tracks, wheels, or legs to move with, two arms (which don't have to match), cameras, a microphone (for hearing), and a speaker (for communicating). The player can then give it two features from the list below, or three features as long as it takes a penalty from the second list.
 
-*Its official designation was Thirty-Ack Forty-Four, but it had long ago decided to call itself the Toxicator. It did not know why the Makers had wanted this site guarded. It did not need to know: that was its mission, and anyone or anything that interfered with that mission was just a problem to be solved. Right now it had two such problems, both furry, cautious, and well-armed. As it snuck toward them, it triggered the remote-controlled speaker it had set up ages ago. A soft tick-tick-tick sound drew their attention, just as it was supposed to…*
-
 ### Bot Features
 
-* **Accelerator**: can move very quickly for brief periods.
+-   **Accelerator**: can move very quickly for brief periods.
 
-* **Arm**: each extra arm counts as one feature.
+-   **Arm**: each extra arm counts as one feature.
 
-* **Camouflage**: hard to see (though jungle camouflage is pretty noticeable in the desert).
+-   **Camouflage**: hard to see (though jungle camouflage is pretty noticeable in the desert).
 
-* **Cart**: some kind of large bin to carry things in.
+-   **Cart**: some kind of large bin to carry things in.
 
-* **Coldproof**: able to function in extreme cold.
+-   **Coldproof**: able to function in extreme cold.
 
-* **Cutting laser**: counts as a small weapon but drains power quickly.
+-   **Cutting laser**: counts as a small weapon but drains power quickly.
 
-* **Display screen**: useful for displaying maps and pictures as well as communicating.
+-   **Display screen**: useful for displaying maps and pictures as well as communicating.
 
-* **Drill**: can be small or large.
+-   **Drill**: can be small or large.
 
-* **Electromagnet**: for picking things up (such as armored opponents).
+-   **Electromagnet**: for picking things up (such as armored opponents).
 
-* **Extendable arm**: good for reaching into difficult places.
+-   **Extendable arm**: good for reaching into difficult places.
 
-* **Fireproof**: able to withstand flames.
+-   **Fireproof**: able to withstand flames.
 
-* **Flotation**: air tanks or some sort of inflatable attachment.
+-   **Flotation**: air tanks or some sort of inflatable attachment.
 
-* **Furnace**: allows the bot to run on wood or alcohol.
+-   **Furnace**: allows the bot to run on wood or alcohol.
 
-* **Gas bag**: when inflated, allows the bot to fly.
+-   **Gas bag**: when inflated, allows the bot to fly.
 
-* **Grapple**: a hook on a winch.
+-   **Grapple**: a hook on a winch.
 
-* **Grinder**: counts as a small weapon.
+-   **Grinder**: counts as a small weapon.
 
-* **Heavy armor**: an upgrade to their natural Light armor counts as one feature.
+-   **Heavy armor**: an upgrade to their natural Light armor counts as one feature.
 
-* **Heavy equipment**: a bulldozer blade, hydraulic jack, or other construction gear.
+-   **Heavy equipment**: a bulldozer blade, hydraulic jack, or other construction gear.
 
-* **Legs**: additional ones.
+-   **Legs**: additional ones.
 
-* **Liquid storage/dispenser**: a spray and a bottle.
+-   **Liquid storage/dispenser**: a spray and a bottle.
 
-* **Microphone**: super-sensitive hearing.
+-   **Microphone**: super-sensitive hearing.
 
-* **Power leech**: can drain energy from other bots.
+-   **Power leech**: can drain energy from other bots.
 
-* **Powered flight**: a rotor or wings and a propellor. All drain power very quickly.
+-   **Powered flight**: a rotor or wings and a propellor. All drain power very quickly.
 
-* **Radio**: for long-range communication. Does not work underground or underwater.
+-   **Radio**: for long-range communication. Does not work underground or underwater.
 
-* **Sawblade**: counts as a small weapon.
+-   **Sawblade**: counts as a small weapon.
 
-* **Searchlight**: useful at night, underground, and for blinding opponents.
+-   **Searchlight**: useful at night, underground, and for blinding opponents.
 
-* **Solar panels**: fold-out panels for recharging.
+-   **Solar panels**: fold-out panels for recharging.
 
-* **Submersible**: not just watertight, but capable of "swimming".
+-   **Submersible**: not just watertight, but capable of "swimming".
 
-* **Speakers**: in addition to the default ones.
+-   **Speakers**: in addition to the default ones.
 
-* **Tracks**: heavy-duty tank treads (in addition to whatever is chosen by default).
+-   **Tracks**: heavy-duty tank treads (in addition to whatever is chosen by default).
 
-* **Vacuum**: for sucking things up—usually extensible.
+-   **Vacuum**: for sucking things up—usually extensible.
 
-* **Wheels**: in addition to the default means of getting around.
+-   **Wheels**: in addition to the default means of getting around.
 
-* **Windmill**: a retractable wind turbine for generating power.
+-   **Windmill**: a retractable wind turbine for generating power.
 
 ### Bot Penalties
 
-* **Armless**: no way to pick things up and manipulate them.
+-   **Armless**: no way to pick things up and manipulate them.
 
-* **Blind**: no cameras.
+-   **Blind**: no cameras.
 
-* **Buggy**: will freeze or behave inappropriately under stress (e.g., in combat).
+-   **Buggy**: will freeze or behave inappropriately under stress (e.g., in combat).
 
-* **Cannot communicate**: no screen or speakers.
+-   **Cannot communicate**: no screen or speakers.
 
-* **Conspicuous**: very noticeable (e.g., squeaky, or brightly painted).
+-   **Conspicuous**: very noticeable (e.g., squeaky, or brightly painted).
 
-* **Deaf**: no microphone.
+-   **Deaf**: no microphone.
 
-* **Fragile**: flammable, parts easy to break off, etc.
+-   **Fragile**: flammable, parts easy to break off, etc.
 
-* **Not waterproof**: and susceptible to shorting out.
+-   **Not waterproof**: and susceptible to shorting out.
 
-* **Obedient**: programmed to follow orders from anyone with a keyword or controller.
+-   **Obedient**: programmed to follow orders from anyone with a keyword or controller.
 
-* **Slow**: cannot move quickly.
+-   **Slow**: cannot move quickly.
 
-* **Thin-skinned**: no natural armor.
+-   **Thin-skinned**: no natural armor.
 
-* **Top-heavy**: unable to right itself once turned over.
+-   **Top-heavy**: unable to right itself once turned over.
 
-* **Weak battery**: needs frequent recharging.
-
-*Brodge didn't know what the strange machines had done to her or why. All she knew was that she was now half-bot, maybe more, and that everyone she'd ever known was trying to scrap her. Everyone except Hungry, who had just broken her out of a double-locked cell but wouldn't tell her why. "Time for talk later, my lady," was all he said as he yanked open an access panel to reveal an air duct just wide enough to crawl through. Why had he called her 'my lady'? she wondered. And how did she knew which way to go?*
+-   **Weak battery**: needs frequent recharging.
 
 ## Glossary
 
