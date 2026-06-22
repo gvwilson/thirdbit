@@ -312,8 +312,7 @@ After a bit of debate and a lot of posturing,
 they all signed the tightest NDA I had ever seen.
 
 And then a week before D-Day it almost fell apart.
-I don't know if Joachim was second-guessing himself,
-but somehow he got a sign wrong for a few crucial moments.
+Somehow Joachim's agents got a sign wrong for a few crucial moments.
 Instead of offloading his clients' money in a hundred different ways
 to keep them out of the Top Twenty,
 his agents sucked it all in.
@@ -325,12 +324,29 @@ and Joachim flatlined at his desk.
 The media had a brief spasm of interest.
 Was it suicide?
 Were the Mendonças settling the score?
-I muted the relevant keywords and spent the evening in my apartment
-with a joint and the Bollywood remake of *Buffy the Vampire Slayer*.
-He'd known the risks.
-We all did.
-When I slept,
-I slept peacefully.
+I muted the relevant keywords and spent the evening curled up with Bench,
+a joint,
+and the Bollywood remake of *Buffy the Vampire Slayer*.
+"Second thoughts?" she asked.
+
+"About An.ton? Nah."
+I shook my head.
+"The world won't miss him any more than it misses any of these assholes."
+
+She propped herself up on her elbow and studied my face.
+"That's the first time I've ever heard you call them that."
+
+I shrugged.
+She waited,
+her hand resting comfortably on my ass.
+"I just—if they're assholes,
+and I'm helping them,
+what does that make me?"
+
+Bench chuckled.
+"Stoned.
+Here, roll over."
+I did, and she spooned with me, and we fell asleep.
 
 <p class="center">* * *</p>
 
@@ -497,19 +513,17 @@ Twenty-six.
 "What are you doing?"
 
 "Just balancing the books," I said.
-He was in the forties now and still dropping.
 
-I swiped the leaderboard onto my wall just in time to get the news.
+He was in the forties and still dropping when the bell rang.
+I swiped the leaderboard onto my wall.
 Oops:
-as soon as the Belgian saw An.ton start to climb,
-she had canceled the land transfer.
-She wouldn't be anyone's client ever again.
+the Belgian shouldn't have canceled the land transfer when saw An.ton start to climb.
 
 "Still there?"
 I asked.
 
 He was silent for a moment.
-When he spoke,
+When he answered,
 he sounded tired.
 "Why?"
 
@@ -520,7 +534,7 @@ Those bots were supposed to remediate deep-sea fishing damage.
 You could have burned just as much money doing that,
 but you just couldn't,
 could you?
-You just couldn't bear the thought of being useful."
+You just couldn't bear the thought of being *useful*."
 
 "My legal team is going to strip you for parts."
 There was no bluster in his voice.
@@ -531,6 +545,6 @@ so I killed the call,
 picked up my brush,
 and squinted at my canvas.
 My agent estimated I would spend six to sixteen years in prison,
-depending on what jurisdiction caught the case.
+depending on what jurisdiction the case landed in.
 Whatever it turned out to be,
 at least I'd have more time to work on my Turner.
