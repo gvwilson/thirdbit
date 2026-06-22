@@ -5,7 +5,7 @@ template: page
 
 > Yazzer hated how the breathing mask crushed his whiskers against his face, and for the hundredth time wished that the air tanks on his back weren't so heavy. But he had seen what the fumes from the old chemical dump did to people's minds, and he definitely didn't want to wind up like Skeez, who thought that the trees whispered secrets no one else could hear. A soft tick-tick-tick in the distance caught Yazzer's ears. The rest of his crew was already back at the wagon loading the bits of tech they had salvaged that day. There! Something had definitely moved. He reached for the little crossbow holstered against his leg, not knowing that it was already too late…
 
-*Shapers and Bots* is a role-playing game for children 8 and older inspired by *Dungeons & Dragons*, *Avatar: The Last Airbender*, and every cartoon animal that ever walked upright and wore clothes. The rules focus on storytelling rather than realism: dice rolls are kept simple, and there are no complicated tables showing how much damage a broadsword does compared to a katana.
+*Shapers and Bots* is a role-playing game for children 8 and older inspired by *Dungeons & Dragons*, *Avatar: The Last Airbender*, *Wall-E*, and every cartoon animal that ever walked upright and wore clothes. The rules focus on storytelling rather than realism: dice rolls are kept simple, and there are no complicated tables showing how much damage a broadsword does compared to a katana.
 
 ## Background
 
