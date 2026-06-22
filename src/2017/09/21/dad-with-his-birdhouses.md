@@ -11,7 +11,6 @@ but I rather suspect he would quote William Blake:
 <blockquote>
 When I tell the truth,
 it is not for the sake of convincing those who do not know it,
-<br>
 but for the sake of defending those that do.
 </blockquote>
 

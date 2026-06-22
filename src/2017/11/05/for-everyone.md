@@ -1,7 +1,7 @@
 ---
 title: "Carpentry For Everyone"
 date: 2017-11-05
-category: education
+category: opinion software-carpentry
 ---
 
 *Update: [this post from Terry McGlynn][mcglynn]

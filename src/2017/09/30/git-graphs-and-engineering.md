@@ -1,7 +1,7 @@
 ---
 title: "Git, Graphs, and Software Engineering"
 date: 2017-09-30
-category: programming
+category: programming proposal
 ---
 
 A couple of years ago,

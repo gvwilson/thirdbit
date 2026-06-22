@@ -1,7 +1,7 @@
 ---
 title: "Data Visualization as Industrial Design"
 date: 2017-12-27
-category: data-science
+category: data-science opinion
 ---
 
 I've had some interesting discussions by email since posting my article about

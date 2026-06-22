@@ -1,7 +1,7 @@
 ---
 title: "Teaching for Learning"
 date: 2017-12-17
-category: education
+category: book-reviews education
 ---
 
 <img src="@root/files/2017/12/teaching-for-learning.jpg" alt="Teaching for Learning" width="200px" class="centered">

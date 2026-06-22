@@ -1,7 +1,7 @@
 ---
 title: "Bridge and Evolution"
 date: 2017-09-08
-category: technical-writing
+category: community diversity education
 ---
 
 I hate the phrase "thought leader".

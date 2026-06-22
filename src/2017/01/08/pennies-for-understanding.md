@@ -1,7 +1,7 @@
 ---
 title: "Pennies for Understanding"
 date: 2017-01-08
-category: technical-writing
+category: academia
 ---
 
 <p>

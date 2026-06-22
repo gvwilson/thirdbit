@@ -1,7 +1,7 @@
 ---
 title: "Still Waiting"
 date: 2017-04-30
-category: noticed
+category: aosa
 ---
 
 A couple of days ago,

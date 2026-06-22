@@ -1,7 +1,7 @@
 ---
 title: "The New Standard Model"
 date: 2017-12-06
-category: empirical-se
+category: personal programming
 ---
 
 It's been 35 years since I first wrote a program for someone else to use.

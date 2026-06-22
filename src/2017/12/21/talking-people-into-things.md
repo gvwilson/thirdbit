@@ -1,7 +1,7 @@
 ---
 title: "Ten Simple Rules for Talking People Into Things"
 date: 2017-12-21
-category: career
+category: management
 ---
 
 I don't always exhibit good judgment,

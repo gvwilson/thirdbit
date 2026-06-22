@@ -1,7 +1,7 @@
 ---
 title: "Disappearing Data"
 date: 2017-09-18
-category: research
+category: politics
 ---
 
 I woke up this morning to a really depressing thread on Twitter

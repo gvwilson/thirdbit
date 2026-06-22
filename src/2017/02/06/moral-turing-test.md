@@ -1,7 +1,7 @@
 ---
 title: "A Moral Equivalent of the Turing Test"
 date: 2017-02-06
-category: ethics
+category: ethics politics
 ---
 
 Given recent discussions about how Silicon Valley CEOs are dealing

@@ -1,7 +1,7 @@
 ---
 title: "Too Soon and From Unexpected Directions"
 date: 2017-07-21
-category: programming
+category: opinion
 ---
 
 Alvin Toffler once wrote,

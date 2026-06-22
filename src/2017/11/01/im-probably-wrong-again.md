@@ -1,7 +1,7 @@
 ---
 title: "I'm Probably Wrong Again"
 date: 2017-11-01
-category: programming
+category: programming software-carpentry
 ---
 
 A couple of years ago,

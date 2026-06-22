@@ -1,7 +1,7 @@
 ---
 title: "Freakonomics, But For Good"
 date: 2017-11-17
-category: noticed
+category: book-reviews sdgc
 ---
 
 *[Freakonomics][freakonomics]* was a fun read,
