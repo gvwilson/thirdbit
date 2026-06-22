@@ -1,7 +1,7 @@
 ---
 title: "Is This Really Necessary?"
 date: 2012-08-15
-category: education
+category: education opinion
 ---
 <p>I was very excited by today's announcement that <a href="http://ejohn.org/blog/introducing-khan-cs/">the Khan Academy is going to start offering programming courses</a>–until I read the whole post. I'm not a fan of today's universities, but this is an undeserved smear:</p>
 <blockquote>The desire to learn and understand can be a powerful accelerant for students and it's something that <em>is completely missing from almost all Computer Science education</em>.</blockquote>

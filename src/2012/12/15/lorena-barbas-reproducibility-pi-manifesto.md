@@ -1,7 +1,7 @@
 ---
 title: Lorena Barba's Reproducibility PI Manifesto
 date: 2012-12-15
-category: research
+category: noticed software-carpentry
 ---
 <p>Prof. <a href="http://barbagroup.bu.edu/">Lorena Barba</a>, of <a href="http://www.bu.edu">Boston University</a>, presented an excellent <a href="http://figshare.com/articles/Reproducibility_PI_Manifesto/104539">manifesto</a> at the ICERM meeting on reproducible research:</p>
 <ol>

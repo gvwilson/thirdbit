@@ -1,7 +1,7 @@
 ---
 title: "I Have a Cunning Plan (or, Making Money by Doing Good)"
 date: 2012-01-07
-category: software-carpentry
+category: programming proposal
 ---
 <p>If you've ever posted an ad for a programmer, you'll know just how much haystack you have to sift through to find a few needles. At least half of the people who send in resumes cannot write a simple <a href="http://c2.com/cgi/wiki?FizzBuzzTest">FizzBuzz</a> program, and filtering the ones who can is always a headache (and a big drain on a company's technical resources, since most HR staff don't know enough about programming to do it themselves).</p>
 <p>Enter <a href="http://stackoverflow.com/">Stack Overflow</a>, the premier technical Q&amp;A site on the interweb. Lots of people spend lots of time being helpful there, and smart companies have taken notice: I know of at least two that ask applicants for their SO scores as part of the resume-screening process. My question is, could companies outsource technical interviews to SO? More specifically:</p>

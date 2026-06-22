@@ -1,7 +1,7 @@
 ---
 title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 date: 2012-04-18
-category: education ethics
+category: software-carpentry
 ---
 <p>A lot goes on behind the scenes here at software-carpentry.org:</p>
 <ol>

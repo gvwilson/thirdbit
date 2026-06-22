@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Gravenhurst"
 date: 2012-01-23
-category: personal
+category: proposal
 ---
 OK, so on the one hand we have online education growing by leaps and zounds, until anyone who really wants to do a quality university degree can do so from the comfort and security of their parents' basement. On the other hand, we have the quite natural desire of 18-year-olds to get out of said basement and hang out with each other.  What can we do to help them?
 

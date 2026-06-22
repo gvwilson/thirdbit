@@ -1,7 +1,7 @@
 ---
 title: "Two Solitudes Illustrated"
 date: 2012-12-06
-category: education empirical-se
+category: academia empirical-se nwit opinion
 ---
 <p><a href="http://cuevano.ca/">Jorge Aranda</a> and I submitted a short opinion piece to <a href="http://cacm.acm.org/"><cite>Communications of the ACM</cite></a> in February 2012 that discussed some of the reasons people in industry and academia don't talk to each other as much as they should. Ten months later, it has ironically turned into an illustration of one of the reasons: it was six months before we received any feedback at all, and we've now waited four months for any further word. In that time, Jorge has left academia and I've taken a job with Mozilla, so we have decided to withdraw the manuscript and publish it here. We hope you find it interesting, and we would welcome comments.</p>
 

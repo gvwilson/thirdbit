@@ -1,7 +1,7 @@
 ---
 title: "…Which Is Wrong"
 date: 2012-04-09
-category: empirical-se programming
+category: education opinion
 ---
 <blockquote>For every complex problem, there is a solution that is simple, neat, and wrong.
 <br>

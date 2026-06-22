@@ -1,6 +1,6 @@
 ---
 title: Happy People
 date: 2012-03-05
-category: personal
+category: software-carpentry
 ---
 <p>Our workshop at the International Center for Theoretical Physics in Trieste has ended, and judging from the participants' smiles, it went well. Thanks once again to Tommy Guy and Katy Huff for teaching, to Stefano Cozzini for inviting them, and to everyone who took part for all their hard work.</p>

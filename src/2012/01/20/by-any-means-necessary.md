@@ -1,7 +1,7 @@
 ---
 title: "By Any Means Necessary"
 date: 2012-01-20
-category: education
+category: opinion
 ---
 I was passionate about politics when I was in my twenties, mostly because I was desperate for something to be passionate about. (I had friends who felt as strongly about <a href="http://www.hibernianfc.co.uk/">Hibs</a> and jazz as I did about apartheid and nuclear weapons, for much the same reason.) And while I'd never actually been in any "direct action", and would have been absolutely useless in a riot, I often quoted Malcolm X's phrase, "By any means necessary." I even used the whole thing as a mail signature for a while:
 <blockquote>We declare our right on this earth…to be a human being, to be respected as a human being, to be given the rights of a human being in this society, on this earth, in this day, which we intend to bring into existence by any means necessary.</blockquote>

@@ -1,7 +1,7 @@
 ---
 title: We Get Mail
 date: 2012-06-08
-category: education
+category: software-carpentry
 ---
 <p>Hi Greg and Adina!</p>
 <p>Two days ago I filled out the Software Carpentry survey which asked me, among other things, how much time I had saved using my new Software Carpentry skills. I filled out the I had not really saved that many hours yet (but that I was approaching computational problems in a different way and began implementing version control!).</p>
