@@ -1,7 +1,7 @@
 ---
 title: "The Markov Test"
 date: 2016-09-27
-category: programming
+category: proposal
 ---
 
 The [Turing Test](https://en.wikipedia.org/wiki/Turing_test) is used to determine

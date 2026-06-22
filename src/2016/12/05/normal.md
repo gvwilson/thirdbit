@@ -1,7 +1,7 @@
 ---
 title: "Normal"
 date: 2016-12-05
-category: personal
+category: noticed programming
 ---
 
 <p>

@@ -1,7 +1,7 @@
 ---
 title: "500 Lines"
 date: 2016-07-12
-category: open-source technical-writing
+category: aosa
 ---
 <p>
   After a lot of hard work by Mike Dibernardo and Amy Brown,

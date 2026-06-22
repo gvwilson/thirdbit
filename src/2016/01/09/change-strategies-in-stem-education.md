@@ -1,7 +1,7 @@
 ---
 title: "Change Strategies in STEM Education"
 date: 2016-01-09
-category: education empirical-se
+category: education research
 ---
 
 <p>I recently had a chance to read:</p>

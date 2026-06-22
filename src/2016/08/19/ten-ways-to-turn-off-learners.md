@@ -1,7 +1,7 @@
 ---
 title: "Ten Ways to Turn Off Learners"
 date: 2016-08-19
-category: software-carpentry
+category: education favorite
 ---
 
 PLOS has published a very useful set of articles called [Ten Simple Rules](http://collections.plos.org/ten-simple-rules)

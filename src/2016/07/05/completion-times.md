@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Completion Times"
 date: 2016-07-05
-category: empirical-se software-carpentry
+category: software-carpentry
 ---
 <p>
   How long does it take to complete instructor training once the class itself is done?

@@ -1,7 +1,7 @@
 ---
 title: "Python as a Second Language"
 date: 2016-10-04
-category: education
+category: software-carpentry
 ---
 
 Donny Winston, Joey Montoya, and I taught a one-day class for [Lawrence Berkeley National Laboratory](http://lbl.gov)

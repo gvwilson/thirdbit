@@ -1,7 +1,7 @@
 ---
 title: "Complexity vs. Subtlety"
 date: 2016-03-05
-category: empirical-se software-carpentry
+category: programming
 ---
 I gave a lightning talk on Software Carpentry for the [OICR](http://oicr.on.ca/) yesterday,
 and in discussion afterward,

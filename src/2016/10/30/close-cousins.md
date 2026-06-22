@@ -1,7 +1,7 @@
 ---
 title: "Close Cousins"
 date: 2016-10-30
-category: programming
+category: community noticed software-carpentry
 ---
 
 Our process for developing and maintaining lessons has grown and changed over time.

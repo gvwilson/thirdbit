@@ -1,7 +1,7 @@
 ---
 title: "Next Steps"
 date: 2016-12-14
-category: software-carpentry
+category: career software-carpentry
 ---
 
 Software Carpentry has accomplished an amazing amount over the past six and a half years,

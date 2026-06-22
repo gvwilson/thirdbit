@@ -1,7 +1,7 @@
 ---
 title: "Ten Simple Rules for Digital Data Storage"
 date: 2016-10-20
-category: research
+category: technical-writing
 ---
 
 We are pleased to announce the publication of a new paper

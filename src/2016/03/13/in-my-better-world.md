@@ -1,7 +1,7 @@
 ---
 title: "In My Better World"
 date: 2016-03-13
-category: programming software-carpentry
+category: opinion programming research
 ---
 <p>
   In my better world,

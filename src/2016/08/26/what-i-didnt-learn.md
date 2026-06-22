@@ -1,7 +1,7 @@
 ---
 title: "What I Didn't Learn in a CS Degree"
 date: 2016-08-26
-category: software-carpentry
+category: book-reviews diversity retro
 ---
 
 I recently stumbled across

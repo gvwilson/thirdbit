@@ -1,7 +1,7 @@
 ---
 title: "Commonization"
 date: 2016-07-17
-category: software-carpentry
+category: book-reviews
 ---
 <p>
   I just finished a pair of books that were each very good in their own right,

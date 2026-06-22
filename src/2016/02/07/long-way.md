@@ -1,7 +1,7 @@
 ---
 title: "Come a Long Way, Got a Long Way to Go"
 date: 2016-02-07
-category: education open-source
+category: education noticed research
 ---
 
 [Simon Oxenham recently reported](http://bigthink.com/neurobonkers/we-need-to-rewrite-the-textbook-on-how-to-teach)

@@ -1,7 +1,7 @@
 ---
 title: "Correlations"
 date: 2016-02-08
-category: empirical-se
+category: software-carpentry
 ---
 
 <p>

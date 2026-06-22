@@ -1,7 +1,7 @@
 ---
 title: "And Now There Are Three"
 date: 2016-10-04
-category: software-carpentry
+category: book-reviews
 ---
 
 A new book has just been published that covers much of the same material as Software Carpentry,

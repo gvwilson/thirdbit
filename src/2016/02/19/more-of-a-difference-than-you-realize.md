@@ -1,7 +1,7 @@
 ---
 title: "More of a Difference Than You Realize"
 date: 2016-02-19
-category: empirical-se software-carpentry
+category: community software-carpentry
 ---
 We received this after an online instructor training workshop earlier this week,
 which reminded me that small differences for some people

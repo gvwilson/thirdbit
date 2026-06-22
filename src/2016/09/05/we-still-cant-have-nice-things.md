@@ -1,7 +1,7 @@
 ---
 title: "We Still Can't Have Nice Things Together"
 date: 2016-09-05
-category: empirical-se software-carpentry
+category: programming
 ---
 
 Last year I used YAML and Norway to explain why why we can't have nice things.

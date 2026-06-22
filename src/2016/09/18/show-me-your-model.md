@@ -1,7 +1,7 @@
 ---
 title: "Show Me Your Model"
 date: 2016-09-18
-category: software-carpentry
+category: empirical-se proposal research
 ---
 
 As far as I can tell,

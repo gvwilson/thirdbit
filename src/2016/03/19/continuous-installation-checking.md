@@ -1,7 +1,7 @@
 ---
 title: "Continuous Installation Checking"
 date: 2016-03-19
-category: programming software-carpentry
+category: programming proposal
 ---
 <p>
   This one started with me

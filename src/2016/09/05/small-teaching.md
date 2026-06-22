@@ -1,7 +1,7 @@
 ---
 title: "Small Teaching"
 date: 2016-09-05
-category: book-reviews education
+category: book-reviews
 ---
 
 Elizabeth Green's *Building a Better Teacher*

@@ -1,7 +1,7 @@
 ---
 title: "First Analysis of Instructor Training Data"
 date: 2016-05-20
-category: empirical-se software-carpentry
+category: software-carpentry
 ---
 Following up on Wednesday's post about instructor training stats,
 Erin Becker (Data Carpentry's new Associate Director) has posted an analysis.

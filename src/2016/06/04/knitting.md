@@ -1,7 +1,7 @@
 ---
 title: "Knitting"
 date: 2016-06-04
-category: personal
+category: personal programming
 ---
 <p>
   Sometimes programming feels like trying to fix a leaky pipe,
