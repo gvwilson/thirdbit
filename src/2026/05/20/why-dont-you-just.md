@@ -1,7 +1,7 @@
 ---
 title: "Why Don't You Just…"
 date: 2026-05-20
-category: sdgc
+category: humanities-writing
 ---
 
 In 2013, the United Kingdom launched Universal Credit,
@@ -158,7 +158,4 @@ They transfer the cost of a structural failure onto the person least able to bea
     2013,
     [9780805092646](https://isbnsearch.org/isbn/9780805092646).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

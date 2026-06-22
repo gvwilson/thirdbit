@@ -1,7 +1,7 @@
 ---
 title: "A Note on LLMs"
 date: 2026-05-11
-category: sdgc technical-writing
+category: humanities-writing technical-writing
 ---
 
 Someone asked on Mastodon if I was using AI to write [this series of posts](@root/sdgc/).
@@ -43,7 +43,4 @@ I still don't think I'll ever try to turn these posts into a book,
 but I hope that they'll prompt people who actually know about this stuff
 to take the time to correct me.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

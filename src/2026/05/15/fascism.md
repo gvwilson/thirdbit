@@ -1,7 +1,7 @@
 ---
 title: "Fascism Plain and Simple"
 date: 2026-05-15
-category: sdgc
+category: humanities-writing
 ---
 
 In 1919,
@@ -159,7 +159,7 @@ Precision here is not pedantry:
 if you call everything fascism,
 you lose the ability to recognize it when it is actually forming.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Black2001">Black2001</span>
 :   Edwin Black:
@@ -202,7 +202,4 @@ you lose the ability to recognize it when it is actually forming.
     March 21, 2018.
     <https://crookedtimber.org/2018/03/21/liberals-against-progressives/#comment-729288>.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

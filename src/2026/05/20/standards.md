@@ -1,7 +1,7 @@
 ---
 title: "Setting the Standard"
 date: 2026-05-20
-category: sdgc
+category: humanities-writing
 ---
 
 In May 1886,
@@ -119,7 +119,7 @@ are attempting to do the same thing for social platforms.
 Whether they succeed depends on implementation details that are actively contested,
 and on enforcement that companies have historically resisted every way they can.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Russell2014">Russell2014</span>
 :   Andrew L. Russell:
@@ -142,7 +142,4 @@ and on enforcement that companies have historically resisted every way they can.
     2011,
     [9780307390998](https://isbnsearch.org/isbn/9780307390998).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

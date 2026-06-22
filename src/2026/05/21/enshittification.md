@@ -1,7 +1,7 @@
 ---
 title: "Enshittification"
 date: 2026-05-21
-category: sdgc
+category: humanities-writing
 ---
 
 In 2005, a Dutch startup called Booking.com offered hotels a deal:
@@ -174,7 +174,4 @@ but why regulators in Canada, the US, and elsewhere choose not to stop it.
     1999,
     [9780875848631](https://isbnsearch.org/isbn/9780875848631).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "Changing Minds"
 date: 2026-04-18
-category: sdgc
+category: humanities-writing
 ---
 
 Most scientists and programmers' implicit model of belief is roughly Bayesian:
@@ -94,7 +94,7 @@ and working through social networks rather than through arguments.
 This is not manipulation:
 it is taking the actual psychology of belief seriously.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Achen2017">Achen2017</span>
 :   Christopher Achen and Larry Bartels:
@@ -132,7 +132,4 @@ it is taking the actual psychology of belief seriously.
     978-1399413923.
 
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "Cooperatives"
 date: 2026-05-09
-category: sdgc
+category: humanities-writing
 ---
 
 In 1956, a Catholic priest named José María Arizmendiarrieta
@@ -129,7 +129,7 @@ They are all choices,
 and the choice that has dominated tech for the past forty years
 is not the only choice available.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Blasi2013">Blasi2013</span>
 :   Joseph R. Blasi, Richard B. Freeman, and Douglas L. Kruse:
@@ -159,7 +159,4 @@ is not the only choice available.
     1991,
     [9780875461823](https://isbnsearch.org/isbn/9780875461823).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

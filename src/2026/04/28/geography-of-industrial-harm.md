@@ -1,7 +1,7 @@
 ---
 title: "The Geography of Industrial Harm"
 date: 2026-04-28
-category: sdgc
+category: humanities-writing
 ---
 
 Industries that produce toxic byproducts face a choice:
@@ -77,7 +77,7 @@ The gap between the industry's self-presentation and its actual material footpri
 It is sustained by the geographic distance between production and consumption,
 and by the way that distance makes the connection invisible to those who benefit from it.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Lapierre2002">Lapierre2002</span>
 :   Dominique Lapierre and Javier Moro:
@@ -100,7 +100,4 @@ and by the way that distance makes the connection invisible to those who benefit
     2017,
     978-0520299931.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

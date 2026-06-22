@@ -1,7 +1,7 @@
 ---
 title: Searching for Closure
 date: 2025-09-12
-category: closure education proposal
+category: education proposal workshops
 ---
 
 For every beginning there must be an ending,

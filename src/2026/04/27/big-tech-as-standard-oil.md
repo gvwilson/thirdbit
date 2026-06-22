@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Standard Oil"
 date: 2026-04-27
-category: sdgc
+category: humanities-writing
 ---
 
 Venture-funded platform competition is a tontine.
@@ -115,7 +115,7 @@ before they could grow large enough to threaten market share.
 The current debate over platform regulation is therefore partly a debate about
 whether antitrust law should return to its original concern with concentration of power.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Doctorow2025">Doctorow2025</span>
 :   Cory Doctorow:
@@ -139,7 +139,4 @@ whether antitrust law should return to its original concern with concentration o
     978-0307390998.
 
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

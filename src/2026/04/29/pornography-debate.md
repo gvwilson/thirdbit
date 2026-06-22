@@ -1,7 +1,7 @@
 ---
 title: "Pornography, Obscenity, and the Limits of Regulation"
 date: 2026-04-29
-category: sdgc
+category: humanities-writing
 ---
 
 Every argument about internet regulation eventually turns into an argument about free speech and pornography.
@@ -94,7 +94,7 @@ such age verification requirements, platform liability rules, and filtering mand
 would make it harder for geographically isolated youth
 to learn more about who they might be.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Gray2009">Gray2009</span>
 :   Mary L. Gray:
@@ -124,7 +124,4 @@ to learn more about who they might be.
     2016,
     978-0190205140.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "Cognitive Pollution Revisited"
 date: 2026-04-25
-category: sdgc
+category: humanities-writing
 ---
 
 Engineers learn to reason about direct, traceable failures:
@@ -67,7 +67,7 @@ can come sooner,
 will be far more robust,
 and will have more impact than pious gestures like banning young people from using social media.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Michaels2008">Michaels2008</span>
 :   David Michaels:
@@ -97,7 +97,4 @@ and will have more impact than pious gestures like banning young people from usi
     2023,
     978-1982129668.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

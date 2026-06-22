@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Business"
 date: 2026-04-08
-category: sdgc
+category: humanities-writing
 ---
 
 For-profit businesses weren't the focus of the workshop I [planned to create][disasters],

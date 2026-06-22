@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Yakuza"
 date: 2026-05-10
-category: sdgc
+category: humanities-writing
 ---
 
 In the days immediately after the March 2011 Tōhoku earthquake and tsunami,
@@ -117,7 +117,7 @@ to make the cost of association with them prohibitive for legitimate businesses.
 The tech industry's political connections are currently a source of strength;
 this history suggests they can be made a source of vulnerability.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Adelstein2023">Adelstein2023</span>
 :   Jake Adelstein:
@@ -134,7 +134,4 @@ this history suggests they can be made a source of vulnerability.
     2012,
     [9780520269064](https://isbnsearch.org/isbn/9780520269064).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

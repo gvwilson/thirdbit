@@ -1,7 +1,7 @@
 ---
 title: "What We Owe the Future"
 date: 2026-06-15
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

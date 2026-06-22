@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Scientology"
 date: 2026-05-10
-category: sdgc
+category: humanities-writing
 ---
 
 In the 1950s, L. Ron Hubbard developed a practice called auditing.
@@ -113,7 +113,7 @@ The question now is whether the mechanisms that have gradually constrained Scien
 will operate at the scale of companies whose products are used by billions of people
 who have no obvious alternative.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Wright2013">Wright2013</span>
 :   Lawrence Wright:
@@ -122,7 +122,4 @@ who have no obvious alternative.
     2013,
     [9780307700667](https://isbnsearch.org/isbn/9780307700667).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

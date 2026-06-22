@@ -1,7 +1,7 @@
 ---
 title: "Not So Selfish After All"
 date: 2026-05-17
-category: sdgc
+category: humanities-writing
 ---
 
 Imagine you are given ten dollars to split with a stranger.
@@ -180,7 +180,7 @@ It was what happened when community governance was absent.
 Building that governance, it turns out, is something humans are rather good at,
 so long as institutions give them room to try.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Bowles2011">Bowles2011</span>
 :   Samuel Bowles and Herbert Gintis:
@@ -204,7 +204,4 @@ so long as institutions give them room to try.
     2015,
     [9781107569782](https://isbnsearch.org/isbn/9781107569782).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

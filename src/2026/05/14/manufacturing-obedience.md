@@ -1,7 +1,7 @@
 ---
 title: "Manufacturing Obedience"
 date: 2026-05-14
-category: sdgc
+category: humanities-writing
 ---
 
 In 2016,
@@ -104,7 +104,7 @@ but produced no significant change to Facebook's practices.
 
 </div>
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Arendt2006">Arendt2006</span>
 :   Hannah Arendt:
@@ -149,7 +149,4 @@ but produced no significant change to Facebook's practices.
     2025,
     [9781541705302](https://isbnsearch.org/isbn/9781541705302).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

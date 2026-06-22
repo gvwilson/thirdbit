@@ -1,7 +1,7 @@
 ---
 title: "A Little Psychology"
 date: 2026-06-09
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

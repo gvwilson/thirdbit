@@ -1,7 +1,7 @@
 ---
 title: "Big Tech as Payola"
 date: 2026-04-23
-category: sdgc
+category: humanities-writing
 ---
 
 Supermarkets charge manufacturers slotting fees for shelf space,
@@ -82,7 +82,7 @@ Short of this,
 accurate disclosure would require prominence and clarity that platforms have no incentive to provide,
 since their business model depends on users not knowing that the game is rigged.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Doctorow2022">Doctorow2022</span>
 :   Cory Doctorow and Rebecca Giblin:
@@ -112,7 +112,4 @@ since their business model depends on users not knowing that the game is rigged.
     2019,
     978-1501183089.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

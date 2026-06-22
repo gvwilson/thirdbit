@@ -1,7 +1,7 @@
 ---
 title: "Software Taboos"
 date: 2026-04-25
-category: sdgc
+category: humanities-writing
 ---
 
 Every professional culture places certain topics outside the scope of legitimate concern,
@@ -80,7 +80,7 @@ we should keep politics out of programming,
 these decisions about what to write (and read) are political:
 it puts the interests of one set of stakeholders over another.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Douglas2002">Douglas2002</span>
 :   Mary Douglas:
@@ -103,7 +103,4 @@ it puts the interests of one set of stakeholders over another.
     2000,
     978-0309068376.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

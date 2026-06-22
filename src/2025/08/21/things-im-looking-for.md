@@ -1,7 +1,7 @@
 ---
 title: Things I'm Looking For
 date: 2025-08-21
-category: closure education
+category: education workshops
 ---
 
 Following up on [my recent plea](@root/2025/08/15/productivity-workshop-ideas/)

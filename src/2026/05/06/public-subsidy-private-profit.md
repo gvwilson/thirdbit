@@ -1,7 +1,7 @@
 ---
 title: "Public Subsidy, Private Profit"
 date: 2026-05-06
-category: sdgc
+category: humanities-writing
 ---
 
 When Steve Jobs unveiled the iPhone in January 2007,
@@ -124,7 +124,7 @@ It creates a different problem, though:
 accountability runs upward to the Communist Party rather than outward to citizens,
 and the line between a national champion and an instrument of state policy disappears entirely.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Acemoglu2023">Acemoglu2023</span>
 :   Daron Acemoglu and Simon Johnson:
@@ -147,7 +147,4 @@ and the line between a national champion and an instrument of state policy disap
     2015,
     978-1610396134.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

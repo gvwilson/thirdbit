@@ -1,7 +1,7 @@
 ---
 title: "We're All Family Here"
 date: 2026-05-12
-category: sdgc
+category: humanities-writing
 ---
 
 In November 2022,
@@ -188,7 +188,7 @@ Your organization is political.
 The question is not whether to participate in its politics.
 The question is whether to participate consciously and honestly or not.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="BuenodeMesquita2011">BuenodeMesquita2011</span>
 :   Bruce Bueno de Mesquita and Alastair Smith:
@@ -219,7 +219,4 @@ The question is whether to participate consciously and honestly or not.
     2014,
     [9781846685989](https://isbnsearch.org/isbn/9781846685989).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

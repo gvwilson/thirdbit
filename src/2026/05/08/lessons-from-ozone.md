@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Ozone"
 date: 2026-05-08
-category: sdgc
+category: humanities-writing
 ---
 
 In 1974,
@@ -135,7 +135,7 @@ Similarly,
 if we want to mitigate the cognitive pollution caused by social media,
 country-by-country age verification isn't going to make a difference.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Parson2003">Parson2003</span>
 :   Edward A. Parson:
@@ -151,7 +151,4 @@ country-by-country age verification isn't going to make a difference.
     1989,
     [9780471522720](https://isbnsearch.org/isbn/9780471522720).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

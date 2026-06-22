@@ -1,7 +1,7 @@
 ---
 title: "Technofascism"
 date: 2026-05-15
-category: sdgc
+category: humanities-writing
 ---
 
 In July 2016, Peter Thiel walked onto the stage at the Republican National Convention 
@@ -146,7 +146,7 @@ Every authoritarian movement tells this story;
 what makes their version distinctive the fact that
 much of the world's communication takes place through platforms they control.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Andreessen2023">Andreessen2023</span>
 :   Marc Andreessen:
@@ -176,7 +176,4 @@ much of the world's communication takes place through platforms they control.
     2024,
     [10.5210/fm.v29i4.13636](https://doi.org/10.5210/fm.v29i4.13636 ).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

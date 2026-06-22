@@ -1,7 +1,7 @@
 ---
 title: No Satisfaction
 date: 2025-07-18
-category: empirical-se nwit
+category: empirical-se
 ---
 
 I don't actually get much satisfaction from saying "I told you so"

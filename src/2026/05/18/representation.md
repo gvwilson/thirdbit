@@ -1,7 +1,7 @@
 ---
 title: "The Representation Feedback Loop"
 date: 2026-05-18
-category: sdgc
+category: humanities-writing
 ---
 
 In 1967,
@@ -91,7 +91,7 @@ The response to evidence of the filter is to explain that the filter must be wor
 because look at the results.
 The loop closes there unless something breaks it open.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Gray2009">Gray2009</span>
 :   Mary L. Gray:
@@ -108,7 +108,4 @@ The loop closes there unless something breaks it open.
     2015,
     [9780415520317](https://isbnsearch.org/isbn/9780415520317).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

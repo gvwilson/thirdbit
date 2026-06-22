@@ -1,7 +1,7 @@
 ---
 title: "Unsafe at Any Algorithm"
 date: 2026-05-08
-category: sdgc
+category: humanities-writing
 ---
 
 In the autumn of 1965,
@@ -147,7 +147,7 @@ The burden of proof runs in the other direction now:
 those who claim the market will handle it
 should be required to explain why this time is different from every other time.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Hilts2003">Hilts2003</span>
 :   Philip J. Hilts:
@@ -169,7 +169,4 @@ should be required to explain why this time is different from every other time.
     Grossman Publishers,
     1965.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

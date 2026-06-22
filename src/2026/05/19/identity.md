@@ -1,7 +1,7 @@
 ---
 title: "Who Are You?"
 date: 2026-05-19
-category: sdgc
+category: humanities-writing
 ---
 
 In 1879, a young police clerk in Paris named Alphonse Bertillon
@@ -155,7 +155,7 @@ The center always wants more information.
 The question is always whether the people most likely to be harmed by that information
 have enough power to say no.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Breckenridge2016">Breckenridge2016</span>
 :   Keith Breckenridge:
@@ -192,7 +192,4 @@ have enough power to say no.
     2000,
     [9780521634939](https://isbnsearch.org/isbn/9780521634939).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

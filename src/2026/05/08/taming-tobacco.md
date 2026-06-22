@@ -1,7 +1,7 @@
 ---
 title: "Taming Tobacco"
 date: 2026-05-08
-category: sdgc
+category: humanities-writing
 ---
 
 In 1950, Hill and Doll published a landmark paper in the *British Medical Journal*.
@@ -160,7 +160,7 @@ that is wealthy enough and politically connected enough to resist?
 The tobacco case suggests the answer is measured in decades,
 and that even then you get a settlement rather than a solution.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Brandt2007">Brandt2007</span>
 :   Allan M. Brandt:
@@ -176,7 +176,4 @@ and that even then you get a settlement rather than a solution.
     2010,
     [9781608193943](https://isbnsearch.org/isbn/9781608193943).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

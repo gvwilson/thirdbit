@@ -1,7 +1,7 @@
 ---
 title: "The Expanding Circle"
 date: 2026-05-17
-category: sdgc
+category: humanities-writing
 ---
 
 In 1965, a married woman in France could not open a bank account,
@@ -203,7 +203,4 @@ and be prepared to keep going when the counter-movement wins the next election.
     Farrar, Straus and Giroux,
     1981.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

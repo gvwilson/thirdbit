@@ -1,7 +1,7 @@
 ---
 title: "The Psychology of Building Harmful Things"
 date: 2026-05-05
-category: sdgc
+category: humanities-writing
 ---
 
 In September and October 2021,
@@ -138,7 +138,7 @@ When the metrics that determine whether a career succeeds
 are the same metrics that produce harm,
 most people will find ways to make peace with the harm.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Arendt2006">Arendt2006</span>
 :   Hannah Arendt:
@@ -176,7 +176,4 @@ most people will find ways to make peace with the harm.
     1996,
     978-0226851754.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

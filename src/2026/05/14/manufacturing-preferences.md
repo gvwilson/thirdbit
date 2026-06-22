@@ -1,7 +1,7 @@
 ---
 title: "Manufacturing Preferences"
 date: 2026-05-14
-category: sdgc
+category: humanities-writing
 ---
 
 On Easter Sunday 1929,
@@ -73,7 +73,7 @@ is tell you whether your preferences satisfying are worth having,
 who created them,
 or why.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Bernays2024">Bernays2024</span>
 :   Edward L. Bernays:
@@ -109,7 +109,4 @@ or why.
     2016,
     [9780385352017](https://isbnsearch.org/isbn/9780385352017).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

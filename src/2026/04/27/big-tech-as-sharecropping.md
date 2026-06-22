@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Sharecropping System"
 date: 2026-04-27
-category: sdgc
+category: humanities-writing
 ---
 
 After the American Civil War,
@@ -100,7 +100,7 @@ The app is not merely a more convenient interface.
 It is supervisory infrastructure that monitors pace and completion rates
 and eliminates the degrees of freedom that less tightly managed arrangement permitted.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Blackmon2008">Blackmon2008</span>
 :   Douglas A. Blackmon:
@@ -130,7 +130,4 @@ and eliminates the degrees of freedom that less tightly managed arrangement perm
     1966,
     978-0394703220.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "The Differential Legalization of Pleasure"
 date: 2026-04-28
-category: sdgc
+category: humanities-writing
 ---
 
 Alcohol kills hundreds of thousands of people a year in wealthy countries
@@ -71,7 +71,7 @@ This was not the policy response extended to crack cocaine in the 1980s,
 which devastated predominantly Black urban communities
 and was met with mandatory minimums and mass incarceration.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Hari2015">Hari2015</span>
 :   Johann Hari:
@@ -94,7 +94,4 @@ and was met with mandatory minimums and mass incarceration.
     2012,
     978-1906860165.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "Ultracrepidarian"
 date: 2023-12-12
-category: education sdgc
+category: education humanities-writing
 ---
 
 Yesterday I [wrote][meetings] about using a lesson on how to run a meeting

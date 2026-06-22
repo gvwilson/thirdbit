@@ -1,7 +1,7 @@
 ---
 title: "Land to the Landless"
 date: 2026-05-09
-category: sdgc
+category: humanities-writing
 ---
 
 In 1947,
@@ -172,7 +172,7 @@ Big tech makes the same arguments today
 about proposals to democratize social media and break up virtual monopolies.
 There is no reason to believe the outcomes would be different.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Conquest1986">Conquest1986</span>
 :   Robert Conquest:
@@ -202,7 +202,4 @@ There is no reason to believe the outcomes would be different.
     2017,
     [9780674975491](https://isbnsearch.org/isbn/9780674975491).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

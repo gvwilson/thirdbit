@@ -1,7 +1,7 @@
 ---
 title: "Why Discrimination Persists"
 date: 2026-04-25
-category: sdgc
+category: humanities-writing
 ---
 
 Becker's 1957 work on discrimination in labor markets generated an optimistic prediction.
@@ -62,7 +62,7 @@ they were not at the very bottom.
 >
 > – Lyndon B. Johnson
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Banaji2013">Banaji2013</span>
 :   Mahzarin R. Banaji and Anthony G. Greenwald:
@@ -100,7 +100,4 @@ they were not at the very bottom.
     2011,
     978-1608193417.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

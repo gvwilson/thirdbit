@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Beauty Industry"
 date: 2026-04-25
-category: sdgc
+category: humanities-writing
 ---
 
 The beauty industry does not merely sell products.
@@ -114,7 +114,7 @@ but perhaps one more purchase will fix that.
 A business model built on that premise
 has no interest in ever letting us feel finished.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Packard1957">Packard1957</span>
 :   Vance Packard:
@@ -142,7 +142,4 @@ has no interest in ever letting us feel finished.
     2016,
     978-0385352024.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

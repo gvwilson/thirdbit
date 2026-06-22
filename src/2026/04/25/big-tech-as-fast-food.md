@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Fast Food Franchise"
 date: 2026-04-25
-category: sdgc
+category: humanities-writing
 ---
 
 A McDonald's franchisee invests several hundred thousand dollars building and equipping a restaurant,
@@ -75,7 +75,7 @@ And it does not account for the fact that the "voluntary" choice
 is often a choice between accepting a bad deal
 or having none at all.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Schlosser2001">Schlosser2001</span>
 :   Eric Schlosser:
@@ -91,7 +91,4 @@ or having none at all.
     2019,
     978-1501183089.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

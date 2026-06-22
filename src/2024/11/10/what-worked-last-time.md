@@ -1,7 +1,7 @@
 ---
 title: "What Worked Last Time?"
 date: 2024-11-10
-category: sdgc
+category: humanities-writing
 ---
 
 *I'm going to ask a favor, but I need to tell a story first.*
@@ -9,7 +9,7 @@ category: sdgc
 Back in 2017,
 in the wake of Trump's first inauguration and the Muslim travel ban,
 I tried to get a bunch of people to write a chapter each for
-[a book][sdgc] that would explain basic ideas in politics, economics, and justice to programmers.
+a book that would explain basic ideas in politics, economics, and justice to programmers.
 The model had succeeded before:
 [*Beautiful Code*][bc],
 [*Making Software*][ms],
@@ -57,4 +57,3 @@ thank you in advance for pointers to others.
 [email]: mailto:gvwilson@third-bit.com
 [grantee-safety]: https://www.fordfoundation.org/work/learning/learning-reflections/keeping-those-on-the-front-lines-of-change-safe-five-years-of-the-ford-foundation-grantee-safety-program/
 [ms]: https://www.oreilly.com/library/view/making-software/9780596808310/
-[sdgc]: @root/sdgc/

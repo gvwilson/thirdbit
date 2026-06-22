@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Cocaine Cartels"
 date: 2026-04-19
-category: sdgc
+category: humanities-writing
 ---
 
 Wainwright's *Narconomics* is one of my favorite books.
@@ -118,7 +118,7 @@ or harmful to national security.
 As we belatedly start to think seriously about regulating social media and AI,
 I think it's worth keeping the cocaine cartels in mind.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Wainwright2017">Wainwright2017</span>
 :   Tom Wainwright:
@@ -127,7 +127,4 @@ I think it's worth keeping the cocaine cartels in mind.
     2017,
     978-1610397704.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

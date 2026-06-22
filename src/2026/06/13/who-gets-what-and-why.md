@@ -1,7 +1,7 @@
 ---
 title: "Who Gets What and Why"
 date: 2026-06-13
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

@@ -1,7 +1,7 @@
 ---
 title: "How to Reach the Unconverted?"
 date: 2023-11-01
-category: diversity education sdgc
+category: diversity education humanities-writing
 ---
 
 Someone recently re-tooted a link to [Donald Norman's article][norman] from 2019
@@ -49,4 +49,3 @@ and then wonder why we keep losing fights.
 
 [design-book]: https://educate.elsevier.com/book/details/9780128044674
 [norman]: https://www.fastcompany.com/90338379/i-wrote-the-book-on-user-friendly-design-what-i-see-today-horrifies-me
-[sdgc]: @root/ideas/sdgc/

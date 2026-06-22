@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like Multi-Level Marketing"
 date: 2026-05-10
-category: sdgc
+category: humanities-writing
 ---
 
 Jay Van Andel and Rich DeVos founded Amway in 1959
@@ -98,7 +98,7 @@ by being larger, more diffuse, and more politically connected.
 The most honest description of both sell is hope:
 the hope that this time, for this person, the math will work out.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="FitzPatrick2020">FitzPatrick2020</span>
 :   Robert L. FitzPatrick:
@@ -114,7 +114,4 @@ the hope that this time, for this person, the math will work out.
     2016,
     [9781509504862](https://isbnsearch.org/isbn/9781509504862).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

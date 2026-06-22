@@ -1,7 +1,7 @@
 ---
 title: "How Change Happens"
 date: 2026-06-17
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

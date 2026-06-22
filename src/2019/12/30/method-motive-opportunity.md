@@ -1,7 +1,7 @@
 ---
 title: "Method, Motive, and Opportunity"
 date: 2019-12-30
-category: proposal sdgc
+category: proposal humanities-writing
 ---
 
 > TL;DR: I propose [a two-day workshop](#proposal)

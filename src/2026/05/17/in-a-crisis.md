@@ -1,7 +1,7 @@
 ---
 title: "In a Crisis"
 date: 2026-05-17
-category: sdgc
+category: humanities-writing
 ---
 
 On the morning of December 6, 1917,
@@ -134,7 +134,7 @@ biased reporting can manufacture mistrust,
 and in doing so,
 hurt us all.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Quarantelli1998">Quarantelli1998</span>
 :   E.L. Quarantelli (ed.):
@@ -158,7 +158,4 @@ hurt us all.
     2006,
     [10.1177/0002716205285589](https://doi.org/10.1177/0002716205285589).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

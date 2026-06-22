@@ -1,7 +1,7 @@
 ---
 title: "The Evolution of Morality"
 date: 2026-05-02
-category: sdgc
+category: humanities-writing
 ---
 
 When I was young,
@@ -128,7 +128,7 @@ and maintained pressure across decades of partial progress and setback.
 Finally, legal strategy matters:
 advocates have to choose which cases to bring, in which courts, at which moment.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Dowbiggin2007">Dowbiggin2007</span>                                                                    
 :   Ian Dowbiggin:
@@ -165,7 +165,4 @@ advocates have to choose which cases to bring, in which courts, at which moment.
 	2011,
     978-0199746415.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

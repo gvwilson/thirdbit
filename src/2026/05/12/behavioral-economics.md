@@ -1,7 +1,7 @@
 ---
 title: "Behavioral Economics"
 date: 2026-05-12
-category: sdgc
+category: humanities-writing
 ---
 
 In 1971, the psychologists Daniel Kahneman and Amos Tversky ran a simple experiment.
@@ -129,7 +129,7 @@ is a behavioral economics intervention.
 The field that began by documenting human irrationality
 has become the primary toolkit for industrializing it.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Kahneman2011">Kahneman2011</span>
 :   Daniel Kahneman:
@@ -145,7 +145,4 @@ has become the primary toolkit for industrializing it.
     2009,
     [9780143115267](https://isbnsearch.org/isbn/9780143115267).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

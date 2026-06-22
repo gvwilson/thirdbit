@@ -1,7 +1,7 @@
 ---
 title: "Unfinished Projects"
 date: 2024-11-24
-category: technical-writing
+category: technical-writing workshops
 ---
 
 Things I haven't finished:

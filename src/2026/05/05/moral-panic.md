@@ -1,7 +1,7 @@
 ---
 title: "Moral Panics and the Video Game Debate"
 date: 2026-05-05
-category: sdgc
+category: humanities-writing
 ---
 
 In April 1999,
@@ -190,7 +190,7 @@ Knowing the pattern does not make the current alarm obviously wrong.
 It should make you ask harder questions about the evidence
 before accepting or rejecting the claim.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Ferguson2015">Ferguson2015</span>
 :   Christopher J. Ferguson:
@@ -223,7 +223,4 @@ before accepting or rejecting the claim.
     2017,
     978-1942952992.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

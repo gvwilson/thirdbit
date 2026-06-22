@@ -1,7 +1,7 @@
 ---
 title: "More Analogies"
 date: 2026-06-14
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

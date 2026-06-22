@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Enclosure Movement"
 date: 2026-04-26
-category: sdgc
+category: humanities-writing
 ---
 
 Email, RSS, the open hyperlink, and the early web were commons:
@@ -58,7 +58,7 @@ extinguish practices that had sustained communities for generations,
 convert resource into commodities that could be extracted or sold,
 and make the people dependent on their new overlords.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Linebaugh2014">Linebaugh2014</span>
 :   Peter Linebaugh:
@@ -81,7 +81,4 @@ and make the people dependent on their new overlords.
     2015,
     978-1107569782.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

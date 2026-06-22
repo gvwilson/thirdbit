@@ -1,7 +1,7 @@
 ---
 title: "Reading List"
 date: 2022-12-28
-category: book-reviews sdgc
+category: book-reviews humanities-writing
 ---
 Over the last decade,
 I have belatedly realized that programmers can't understand what they ought to build

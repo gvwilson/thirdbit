@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Soviet"
 date: 2026-04-21
-category: sdgc
+category: humanities-writing
 ---
 
 Scott's *Seeing Like a State* describes
@@ -59,7 +59,7 @@ they tend to treat their workers no better than a Soviet-era factory manager.
 > See also Spufford's wonderful *Red Plenty*,
 > which I'm not even going to try to describe.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Cassidy2025">Cassidy2025</span>
 :   John Cassidy:
@@ -89,7 +89,4 @@ they tend to treat their workers no better than a Soviet-era factory manager.
 	2012,
     978-1555976040.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "Free Speech and Hate Speech"
 date: 2026-05-04
-category: sdgc
+category: humanities-writing
 ---
 
 In January 2015,
@@ -240,7 +240,7 @@ Meanwhile,
 the platforms' owners are spending billions to ensure that
 whatever answer emerges will serve their interests.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Dallaire2005">Dallaire2005</span>
 :   Roméo Dallaire with Brent Beardsley:
@@ -270,7 +270,4 @@ whatever answer emerges will serve their interests.
     2014,
     978-0674416864.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

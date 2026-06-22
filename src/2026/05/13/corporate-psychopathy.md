@@ -1,7 +1,7 @@
 ---
 title: "The Corporation as Psychopath"
 date: 2026-05-13
-category: sdgc
+category: humanities-writing
 ---
 
 In October 2011,
@@ -179,7 +179,7 @@ the organization's incentives reproduced psychopathic behavior regardless of who
 Bad people come and go;
 structures that reward bad behavior reproduce themselves.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="BabiakHare2019">BabiakHare2019</span>
 :   Paul Babiak and Robert D. Hare:
@@ -218,7 +218,4 @@ structures that reward bad behavior reproduce themselves.
     1959,
     [9780385094023](https://isbnsearch.org/isbn/9780385094023).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

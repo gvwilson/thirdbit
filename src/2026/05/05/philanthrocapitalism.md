@@ -1,7 +1,7 @@
 ---
 title: "Philanthrocapitalism"
 date: 2026-05-05
-category: sdgc
+category: humanities-writing
 ---
 
 In June 2010, Bill Gates and Warren Buffett announced the Giving Pledge:
@@ -94,7 +94,7 @@ and global health system priorities.
 The fact that this power was exercised with what donors believe are good intentions
 does not change the fact that they lack the democratic legitimacy of public institutions.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Giridharadas2018">Giridharadas2018</span>
 :   Anand Giridharadas:
@@ -110,7 +110,4 @@ does not change the fact that they lack the democratic legitimacy of public inst
     2018,
     978-0691183497.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

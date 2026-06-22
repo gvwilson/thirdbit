@@ -1,7 +1,7 @@
 ---
 title: "Keeping Up With Everybody"
 date: 2026-05-12
-category: sdgc
+category: humanities-writing
 ---
 
 In 2001, the Norwegian government made its tax records publicly searchable online,
@@ -153,7 +153,7 @@ charge advertisers to place products in the resulting stream of anxiety,
 and call the resulting business a social network.
 It's a game that only they can win.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Boyce2010">Boyce2010</span>
 :   Christopher J. Boyce, Gordon D. A. Brown, and Simon C. Moore:
@@ -198,7 +198,4 @@ It's a game that only they can win.
     2011,
     [9781608193417](https://isbnsearch.org/isbn/9781608193417).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

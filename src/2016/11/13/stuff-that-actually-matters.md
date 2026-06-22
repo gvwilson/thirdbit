@@ -1,7 +1,7 @@
 ---
 title: "Stuff That Actually Matters"
 date: 2016-11-13
-category: sdgc
+category: humanities-writing
 ---
 
 <p>

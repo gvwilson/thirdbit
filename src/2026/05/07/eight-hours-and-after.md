@@ -1,7 +1,7 @@
 ---
 title: "Eight Hours and After"
 date: 2026-05-07
-category: sdgc
+category: humanities-writing
 ---
 
 On April 21, 1856,
@@ -186,7 +186,7 @@ The organizational capacity takes years to build.
 The lesson from the eight-hour day is not that patience pays off.
 It is that you need to be organized before the opening arrives.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Beckerman2022">Beckerman2022</span>
 :   Gal Beckerman:
@@ -216,7 +216,4 @@ It is that you need to be organized before the opening arrives.
     1966,
     [9780394703220](https://isbnsearch.org/isbn/9780394703220).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

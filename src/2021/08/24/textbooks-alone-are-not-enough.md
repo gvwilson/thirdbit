@@ -1,7 +1,7 @@
 ---
 title: "Textbooks (Alone) Are Not Enough"
 date: 2021-08-24
-category: opinion sdgc
+category: opinion humanities-writing
 ---
 
 Yesterday I tweeted:

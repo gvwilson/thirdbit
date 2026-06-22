@@ -1,7 +1,7 @@
 ---
 title: "The Myth of Meritocracy"
 date: 2026-04-29
-category: sdgc
+category: humanities-writing
 ---
 
 The word "meritocracy" was coined by the British sociologist Michael Young
@@ -60,7 +60,7 @@ Neither criterion is without any signal about likely job performance,
 but neither is calibrated against actual job performance data,
 because most organizations never close that loop.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Cottom2017">Cottom2017</span>
 :   Tressie McMillan Cottom:
@@ -103,7 +103,4 @@ because most organizations never close that loop.
     Thames and Hudson,
     1958.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

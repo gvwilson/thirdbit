@@ -140,15 +140,9 @@ prior_entries = [
         "beta": True,
     },
     {
-        "title": "Research Software Testing by Example",
-        "url": "@root/rstx",
-        "description": "Thirty-one short examples that explore how to test research software (alpha).",
-        "beta": True,
-    },
-    {
-        "title": "Lean for Python Programmers",
-        "url": "@root/l4py",
-        "description": "An introduction to Lean for Python programmers (alpha).",
+        "title": "Sex and Drugs and Guns and Code",
+        "url": "@root/sdgc",
+        "description": "A few things I think programmers should know about how the world actually works (beta).",
         "beta": True,
     },
     {
@@ -160,6 +154,18 @@ prior_entries = [
 ]
 
 unused_entries = [
+    {
+        "title": "Research Software Testing by Example",
+        "url": "@root/rstx",
+        "description": "Thirty-one short examples that explore how to test research software (alpha).",
+        "beta": True,
+    },
+    {
+        "title": "Lean for Python Programmers",
+        "url": "@root/l4py",
+        "description": "An introduction to Lean for Python programmers (alpha).",
+        "beta": True,
+    },
     {
         "title": "Learning Web Programming with LLMs",
         "url": "@root/webllm",

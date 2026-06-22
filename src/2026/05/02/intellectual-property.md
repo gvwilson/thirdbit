@@ -1,7 +1,7 @@
 ---
 title: "The Invention of Intellectual Property"
 date: 2026-05-02
-category: sdgc
+category: humanities-writing
 ---
 
 Copyright, patent, and trademark are not natural rights:
@@ -81,7 +81,7 @@ big tech companies have learned to extract enormous value from open source softw
 while contributing relatively little back,
 because their primary product is not the software but the service running on it.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Baldwin2014">Baldwin2014</span>
 :   Peter Baldwin:
@@ -111,7 +111,4 @@ because their primary product is not the software but the service running on it.
     2022,
     978-0807007068.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

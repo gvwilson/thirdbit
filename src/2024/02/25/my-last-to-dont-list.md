@@ -11,7 +11,7 @@ because life is too short
 and you already have too much on the go.
 The ones I would most have liked to do were:
 
-- [Sex and Drugs and Guns and Code](@root/ideas/sdgc/)
+- [Sex and Drugs and Guns and Code](@root/sdgc/)
 - [Leadership Skills for Open Science](@root/ideas/leadership/)
 - [Software Engineering: Compassion, Evidence, Process, and Tools](@root/ideas/secept/)
 - [Harper-Lite: Simple Lesson Discovery and Aggregation](@root/ideas/harper/)

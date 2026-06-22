@@ -1,7 +1,7 @@
 ---
 title: "Bullshit Jobs and Parkinson's Law"
 date: 2026-05-17
-category: sdgc
+category: humanities-writing
 ---
 
 In 1930,
@@ -113,7 +113,7 @@ but because they needed someone to run interference with other teams,
 to help them think through career decisions,
 and to give them feedback that a technical peer couldn't.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Garvin2013">Garvin2013</span>
 :   David A. Garvin:
@@ -149,7 +149,4 @@ and to give them feedback that a technical peer couldn't.
     Macmillan,
     1899.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

@@ -1,7 +1,7 @@
 ---
 title: "The Creation of Money"
 date: 2026-05-17
-category: sdgc
+category: humanities-writing
 ---
 
 In the 1660s,
@@ -136,7 +136,7 @@ who gets to create money and who bears the losses when it goes wrong.
 If the past is any guide,
 the answer to the latter question is, "Not the bankers."
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Chang2012">Chang2012</span>
 :   Ha-Joon Chang:
@@ -168,7 +168,4 @@ the answer to the latter question is, "Not the bankers."
     <https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy>.
 
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

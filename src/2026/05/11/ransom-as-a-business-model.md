@@ -1,7 +1,7 @@
 ---
 title: "Ransom as a Business Model"
 date: 2026-05-11
-category: sdgc
+category: humanities-writing
 ---
 
 The Canvas learning management system was hacked a couple of days ago,
@@ -66,7 +66,7 @@ This is the same ambivalence that surrounded K&R payments in the 1980s,
 when Western governments officially discouraged negotiating with kidnappers
 while intelligence services routinely assisted with exactly that.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Dudley2022">Dudley2022</span>
 :   Renée Dudley and Daniel Golden:
@@ -82,7 +82,4 @@ while intelligence services routinely assisted with exactly that.
     2019,
     [9780198815471](https://isbnsearch.org/isbn/9780198815471).
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

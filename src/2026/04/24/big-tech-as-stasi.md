@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Stasi"
 date: 2026-04-24
-category: sdgc
+category: humanities-writing
 ---
 
 Privacy is not a timeless natural right.
@@ -71,7 +71,7 @@ than the Stasi could ever have dreamed of knowing.
 The irony is that the Stasi had to coerce their informants;
 we pay subscription fees for the privilege of being surveilled.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Funder2011">Funder2011</span>
 :   Anna Funder:
@@ -87,7 +87,4 @@ we pay subscription fees for the privilege of being surveilled.
     2020,
     978-0674244795.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

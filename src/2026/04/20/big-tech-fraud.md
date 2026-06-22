@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Long Firm Fraud"
 date: 2026-04-20
-category: sdgc
+category: humanities-writing
 ---
 
 Another book that I really enjoyed last year was Davies' *Lying for Money*.
@@ -93,7 +93,7 @@ Most importantly,
 auditing fails because big accounting firms depend on their clients for their income,
 which gives them a powerful reason to *not* find any problems.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Davies2022">Davies2022</span>
 :   Dan Davies:
@@ -102,7 +102,4 @@ which gives them a powerful reason to *not* find any problems.
     2022,
     978-1982114930.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

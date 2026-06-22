@@ -1,7 +1,7 @@
 ---
 title: "Other Kinds of Firms"
 date: 2026-05-03
-category: sdgc
+category: humanities-writing
 ---
 
 When you start a company in Canada,
@@ -213,7 +213,7 @@ and profit-sharing arrangements work—Mondragón has been running for nearly se
 they distribute power rather than concentrating it,
 which is precisely why you will not find them recommended at Y Combinator.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Bakan2005">Bakan200t</span>
 :   Joel Bakan:
@@ -271,7 +271,4 @@ which is precisely why you will not find them recommended at Y Combinator.
     1991,
     978-0875461823.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

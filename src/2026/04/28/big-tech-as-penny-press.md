@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like the Penny Press"
 date: 2026-04-28
-category: sdgc
+category: humanities-writing
 ---
 
 The business model in which content is provided free to audiences
@@ -83,7 +83,7 @@ or content that simply satisfies a question and lets the user close the tab.
 Big tech companies that depend on advertising revenue
 will therefore always amplify inflammatory distortion over mere facts.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Campbell2001">Campbell2001</span>
 :   W. Joseph Campbell:
@@ -119,7 +119,4 @@ will therefore always amplify inflammatory distortion over mere facts.
     2016,
     978-0385352024.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

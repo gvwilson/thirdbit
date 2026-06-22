@@ -1,7 +1,7 @@
 ---
 title: "Sex and Drugs and Guns and Code Restart"
 date: 2026-06-08
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

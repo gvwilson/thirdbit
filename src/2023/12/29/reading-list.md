@@ -1,7 +1,7 @@
 ---
 title: "Reading List"
 date: 2023-12-29
-category: book-reviews sdgc
+category: book-reviews humanities-writing
 ---
 
 I've explained [elsewhere][ultracrepidarian]

@@ -1,7 +1,7 @@
 ---
 title: "Guns in America"
 date: 2026-04-29
-category: sdgc
+category: humanities-writing
 ---
 
 Every argument about politics in the United States
@@ -68,7 +68,7 @@ No single one of these factors is individually decisive,
 but together they have sustained a policy equilibrium
 that has survived Columbine, Sandy Hook, Parkland, and dozens of other mass killings.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Hemenway2009">Hemenway2009</span>
 :   David Hemenway:
@@ -91,7 +91,4 @@ that has survived Columbine, Sandy Hook, Parkland, and dozens of other mass kill
     2013,
     978-0393345834.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

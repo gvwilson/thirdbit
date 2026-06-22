@@ -1,7 +1,7 @@
 ---
 title: "A Short History of Fads"
 date: 2026-05-01
-category: sdgc
+category: humanities-writing
 ---
 
 In February 1637, a single bulb of the Semper Augustus tulip sold in Amsterdam
@@ -146,7 +146,7 @@ Historically, the engineers and founders who cashed out early do well.
 The pension funds, retail investors, and laid-off workers who arrived later in the story do not,
 while the people who collected fees at every stage of the transaction do best of all.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Galbraith1954">Galbraith1954</span>
 :   John Kenneth Galbraith:
@@ -184,7 +184,4 @@ while the people who collected fees at every stage of the transaction do best of
     2015,
     978-0691166261.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

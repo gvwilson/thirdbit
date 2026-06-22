@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Danwei"
 date: 2026-05-01
-category: sdgc
+category: humanities-writing
 ---
 
 George Pullman built Pullman, Illinois in the 1880s alongside his railroad car factory:
@@ -86,7 +86,7 @@ but the infrastructure through which they conduct their civic and commercial lif
 The Pullman Company controlled the economic conditions of workers' lives.
 The super-app, at its most developed, aims to be a danwei.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Lindsey1942">Lindsey1942</span>
 :   Almont Lindsey:
@@ -108,7 +108,4 @@ The super-app, at its most developed, aims to be a danwei.
 	2017,
     9780674975491.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

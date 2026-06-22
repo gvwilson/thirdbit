@@ -1,7 +1,7 @@
 ---
 title: "AI Happens"
 date: 2026-06-18
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

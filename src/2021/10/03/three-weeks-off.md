@@ -1,7 +1,7 @@
 ---
 title: "Three Weeks Off"
 date: 2021-10-03
-category: retro
+category: retro workshops
 ---
 
 I'm starting work as a software engineer with [Deep Genomics](https://www.deepgenomics.com/) tomorrow;

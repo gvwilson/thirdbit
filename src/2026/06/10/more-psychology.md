@@ -1,7 +1,7 @@
 ---
 title: "More Psychology"
 date: 2026-06-10
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

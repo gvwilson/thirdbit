@@ -1,7 +1,7 @@
 ---
 title: "Big Tech as the Medieval Church"
 date: 2026-04-22
-category: sdgc
+category: humanities-writing
 ---
 
 The medieval Church wasn't just (or primarily) a religious institution:
@@ -70,7 +70,7 @@ Major technology platforms' power comes from the same sources.
 To leave Facebook does not just mean losing a service:
 it means losing connection to the social world that the platform provides.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Southern1990">Southern1990</span>
 :   R.W. Southern:
@@ -80,7 +80,4 @@ it means losing connection to the social world that the platform provides.
     1990,
     978-0140137552.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

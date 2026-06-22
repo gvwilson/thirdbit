@@ -1,7 +1,7 @@
 ---
 title: "Regulatory Capture"
 date: 2026-05-14
-category: sdgc
+category: humanities-writing
 ---
 
 In April 2010,
@@ -73,7 +73,7 @@ All of them require active maintenance
 and a belief that business exists to serve the pubilc,
 not the other way around.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Freudenberg2011">Freudenberg2011</span>
 :   William R. Freudenburg and Robert Gramling:
@@ -119,7 +119,4 @@ not the other way around.
     [9780307390998](https://isbnsearch.org/isbn/9780307390998).
 
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

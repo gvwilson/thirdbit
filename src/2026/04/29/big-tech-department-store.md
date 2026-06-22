@@ -1,7 +1,7 @@
 ---
 title: "Big Tech is Like a Department Store"
 date: 2026-04-29
-category: sdgc
+category: humanities-writing
 ---
 
 When Sears Roebuck introduced Kenmore appliances and Craftsman tools in the 1920s and 1930s,
@@ -44,7 +44,7 @@ which is how banks usually respond to findings of insider train:
 misconduct labeled individual aberration,
 and the structural conditions that produced it are not addressed.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Khan2017">Khan2017</span>
 :   Lina Khan:
@@ -60,7 +60,4 @@ and the structural conditions that produced it are not addressed.
     2019,
     978-1501183089.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

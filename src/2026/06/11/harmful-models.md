@@ -1,7 +1,7 @@
 ---
 title: "When the Model Is the Harm"
 date: 2026-06-11
-category: sdgc
+category: humanities-writing
 ---
 <div class="callout" markdown="1">
 

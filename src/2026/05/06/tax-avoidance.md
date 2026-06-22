@@ -1,7 +1,7 @@
 ---
 title: "International Tax Avoidance"
 date: 2026-05-06
-category: sdgc
+category: humanities-writing
 ---
 
 In August 2016,
@@ -111,7 +111,7 @@ The companies that benefit from this system defend it as legal, which it is.
 They also describe it as responsible tax planning,
 which is a creative use of the word responsible.
 
-*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
+*[see the latest version](@root/sdgc/)*
 
 <span id="Schneier2023">Schneier2023</span>
 :   Bruce Schneier:
@@ -134,7 +134,4 @@ which is a creative use of the word responsible.
     2015,
     978-0226422640.
 
-*This essay is part of Version 1 of this material. See [the whole series][sdgc] or the [bibliography][sdgc-bib].*
-
-[sdgc]: @root/sdgc/
-[sdgc-bib]: @root/2026/04/13/a-bibliography/
+[sdgc-bib]: @root/sdgc/bibliography/

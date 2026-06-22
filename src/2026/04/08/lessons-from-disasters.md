@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Disaster Management"
 date: 2026-04-08
-category: sdgc
+category: humanities-writing
 ---
 
 Last year I started building a workshop on how to shut projects down.
