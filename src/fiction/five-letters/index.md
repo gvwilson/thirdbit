@@ -110,7 +110,7 @@ that would be broth and barley for court gossip,
 and more practically,
 insurance for us should she realize—
 
-* * *
+<p class="center">* * *</p>
 
 On the road southeast of Nevy Rav
 <br/>
@@ -199,13 +199,13 @@ Master is now sure we are followed,
 so we move more quickly than before.
 Master says—
 
-* * *
+<p class="center">* * *</p>
 
 By the hand of
 <br/>
-Thokmay Prince Gandan (renounced)
+Thokmay Prince Loghan (renounced)
 <br/>
-The University, Gandan-in-Gandan
+The University, Loghan-in-Loghan
 <br/>
 19th Malachite, 1243rd Year Since
 
@@ -276,13 +276,13 @@ I have found it impossible not to speculate on how the current rulers of Uws wou
 if they learned of that.
 At the least—
 
-* * *
+<p class="center">* * *</p>
 
 By the hand of
 <br/>
-Thokmay Prince Gandan (renounced)
+Thokmay Prince Loghan (renounced)
 <br/>
-The University, Gandan-in-Gandan
+The University, Loghan-in-Loghan
 <br/>
 Yellowsday, 3rd Tourmaline, 1243 YS
 
@@ -315,7 +315,7 @@ someone *did* burst into flames a little after noon yesterday,
 to wit,
 my tutor,
 a Stipendiary Scholar named Andrae Ghislaine é Marcque.
-He came to Gandan from Araña some eight years ago
+He came to Loghan from Aranda some eight years ago
 and has been my occasional tutor these past two years.
 I have spoken to my father's Minister of Rumors,
 who assures me that her agents never had any indication that Learned Andrae was other than he seemed.
@@ -323,7 +323,7 @@ who assures me that her agents never had any indication that Learned Andrae was 
 Item,
 no,
 I do not recall the Learned being particularly despondent over the past few months.
-I agree that Gandan's winters may seem damp and gray to someone accustomed to southern skies,
+I agree that Loghan's winters may seem damp and gray to someone accustomed to southern skies,
 but he had weathered several such with no apparent ill effect.
 And if I may be so bold,
 if he *did* find our weather, food, or conversation unbearable,
@@ -347,7 +347,7 @@ And when read in light of the second letter,
 it does suggest that you may have had some prior knowledge of the events following YS 1224.
 If this is true—
 
-* * *
+<p class="center">* * *</p>
 
 Ossisswe
 <br/>
@@ -355,18 +355,18 @@ Greensday 22 Sapphire '43
 
 To
 <br/>
-Thokmay Prince Gandan (renounced)
+Thokmay Prince Loghan (renounced)
 <br/>
 The University
 <br/>
-Gandan-in-Gandan
+Loghan-in-Loghan
 
 Highness,
 
 Received yrs of 3 Tourm. this morning.
 First page intact but stained, other pages missing.
 Deduce from this that fifty-year-old brandy was
-too great a temptation for at least one courier on the road between Gandan and Ossisswe.
+too great a temptation for at least one courier on the road between Loghan and Ossisswe.
 Doubt anyone at this end would open something addressed to me;
 suggest inquiry at your end,
 followed by whipping.
