@@ -5350,7 +5350,8 @@ He took a deep breath and spurred his horse to a trot.
 
 Prince Thokmay expected to find a handful of smugglers waiting at the top of a hill,
 or on the far side of a stream.
-Instead, eight men on mean-looking horses were gathered next to a wagon
+Instead,
+eight men on mean-looking horses were gathered next to a wagon
 parked by the stump of what must have once been an enormous tree,
 while twice that number with spears and swords were on foot beside them.
 
@@ -5496,14 +5497,9 @@ He picked up a small bag that was hanging from his saddle horn.
 "It's magic!" one of the apprentices shouted.
 "I can feel it!"
 
-"Loghan preserved!" Sergeant Gyalpa bellowed,
-digging his heels into his horse.
-The soldiers around him shouted, "Loghan preserved!" and charged.
-
-Mukh paused for just a moment,
-watching them come at him with a smug look on his face.
-Then he undid the string that held the bag closed and shook it out.
-A terrible roaring sound filled the prince's ears as a tornado came whirling out.
+Mukh watched them with a smug look on his face,
+then undid the tie string on the bag and shook it out.
+A terrible roaring sound filled the air as the tornado roared out.
 
 </section>
 <section markdown="1">
@@ -5528,49 +5524,46 @@ with the prince's nose-to-tail behind him.
 
 The next few seconds were mad confusion.
 The soldiers split around the front rank of smugglers to avoid their spears.
-As they did so, Mukh shouted commands at the tornado.
-It twisted and danced across the ground,
-then lashed out like a man kicking a ball,
-except the ball it hit was a soldier on horeback.
+As they did so, Mukh shouted a command at the tornado.
+It twisted and then lashed out like a man kicking a ball,
+except the ball it hit was a soldier.
 
-The man's horse screamed as it was lifted into the sky.
+The man's horse screamed as it was flung through the air.
 The soldier threw himself out of his saddle,
 his left leg buckling when he hit the ground.
 Before his comrades could reach him,
 a smuggler on horseback galloped past and swung his sword.
 
-An instant later two other riders cut left,
-then right,
-then left again to get in close to the knot of smugglers.
-Mukh didn't hesitate.
-The tornado grabbed them and a hapless smuggler and tossed them through the air.
-They tumbled like dice.
+An instant later two other soldiers cut left then right
+to get behind the spearmen.
+Mukh shouted again.
+The tornado tossed them and a hapless smuggler like dice.
+They did not stand after they fell.
 
 Sergeant Gyalpa stood up in his stirrups and waved his sword over his head.
-"Fall back!" he shouted.
+"Fall back!" he bellowed.
 "Fall back! We can't get past that thing!"
 He watched the melee for a moment, then snarled,
 "They can't hear me! Honored, we have to get you out of here!"
 
 "No!" Thokmay protested. "I won't run away!"
 
-"And I won't have a dead prince on my scroll!" the sergeant bellowed back.
+"And I won't have a dead prince on my scroll!" the sergeant shouted back.
 
-"I will *not* run!" the prince shouted.
-"Haw!"
-He dug his heels deep into his horse's flanks.
-The frightened animal bounded forward.
+"I will *not* run! Haw!"
+Thokmay dug his heels deep into his horse's flanks.
+His mount bounded forward.
 Behind him Sergeant Gyalpa cursed,
-then kick his own horse into a gallop as well.
+then kicked his own horse into a gallop as well.
 
 Thokmay crouched low over his horse's neck,
-wind-blown grit stinging his eyes.
-His horse's hooves pounded the ground beneath him.
+wind-blown grit stinging his eyes
+and hooves pounding the ground beneath him.
 The smugglers were small, small, small, and then suddenly large and *right there*.
 He dodged a startled spearman and swung.
 His blade bit something that wasn't armor.
 A spear thrust past his ear.
-He dodged and screamed in fear and anger and swung his sword again—
+He screamed in fear and anger and swung his sword again.
 
 And suddenly the earth beneath him was churning like the ocean in a storm.
 His horse screamed with fear as she lost her footing,
@@ -5637,5 +5630,209 @@ He smacked the horse on the rump.
 As they galloped heavily away,
 the tornado picked up Mukh's magic mirror and smashed it to the ground once again,
 then whirled off toward Ghohraj.
+
+</section>
+<section markdown="1">
+
+## Epilog: The End of the Letter
+
+*Your Majesty,* Thokmay began, as always.
+Then he paused,
+listening to the rain tap against the window as he wondered yet again
+what it would have been like to grow up
+calling his father something a little less formal than that.
+Ogmin was singing to herself in the next room,
+and he could hear Dolly's voice as well,
+although he couldn't make out what she was saying.
+
+He dipped his brush in the inkwell and continued.
+*1. I am writing to inform you that my tutor has decided to leave your service
+to pursue opportunities elsewhere.
+I have been well pleased with him,
+particularly during the recent difficulties
+described in the reports which I trust you have by now received.
+Unless I am instructed otherwise,
+I shall commend him to future patrons.*
+
+Although I probably won't need to do so soon,
+Thokmay added mentally.
+He had tried to talk Mope out of leaving,
+but the troll had made up his mind.
+"I've been trying to train you like the circus man trained my father,"
+Mope had said,
+his face even longer than usual.
+"It's time I did a few of my own tricks for a change."
+
+"Where will you go?" Thokmay asked.
+
+The troll twiddled his big toes.
+"Former or Latter Tongsa, perhaps, or Aranda.
+Anyone can argue the law in Aranda."
+
+"Argue the law?" "Aranda?"
+Noxy and the prince asked simultaneously.
+
+"Absolutely," Mope said earnestly.
+"Eloquence and logic,
+logic and eloquence,
+those are the keys.
+Did you know that gifted animals still aren't allowed to own land in Former Tongsa?
+They can in Latter Tongsa,
+but need a human's permission to marry.
+And there was a monstrous case in Aranda,
+Your Highness will remember we discussed it some months ago,
+which concluded that—"
+
+"Enough, enough," the prince laughed.
+"If anyone can talk the world into better shape, you can."
+On an impulse he hugged his tutor.
+"I'll miss you," he said softly.
+
+The troll hugged him back clumsily.
+"And I you, honored," he said.
+"You had a pretty good sense of humor, for a human."
+
+The ink on Thokmay's brush had dried.
+He wiped it carefully on a scrap of paper,
+then dipped it in the inkwell again.
+*2. Noxy of Stale has rejoined her companions.
+They are returning to the mountains for the winter,
+but I have taken the liberty of inviting her to visit the capital
+whenever she might choose to do so.*
+
+"Or something like that," the prince muttered under his breath.
+The other cloudherds had flown back to Ghohraj the day before.
+They had been appalled by the destruction,
+and Aft had been furious when he learned the part that Noxy had played.
+
+"Cloak could have been torn to shreds!" Aft raged.
+"And you too!
+You could have been killed,
+and *then* what would your *amma* do to me?"
+
+Noxy folded her arms and glared at him.
+"Or half of Loghan could have been flooded with poisonous old magic.
+Or Princess Ogmin could have drowned when her raft floated away."
+That was the story the prince, Sergeant Gyalpa, and Noxy had agreed on
+during the flight back to Ghohraj—the princess had been playing on a raft,
+and it had floated away.
+Mope had thanked them for that.
+"Or I could have tripped over a pebble and broken my nose.
+Would you have liked that more?"
+
+Neither saw the amused looks on the other cloudherds' faces,
+but the prince did.
+"We are of course grateful for Noxy's assistance in this matter,"
+he said hastily in his most soothing official voice.
+On an impulse,
+he took off his signet bracelet and offered it to the young cloudherd.
+"In recognition of which,
+we offer her the freedom of Loghan,
+so that she may travel throughout the kingdom without hindrance,
+and call upon His Majesty's servants for aid as she may require."
+For once he was glad that Mope had made him practice that speech so many times
+so that he could say it without stumbling.
+
+Aft had glowered at Noxy as she slipped the bracelet around her wrist,
+but the other cloudherds had clapped.
+It was a rare honor for someone to be given the freedom of the kingdom.
+
+Noxy and the prince said their real good-byes an hour later.
+"I'm glad you let me stay," Noxy said,
+stroking Cloak's flank,
+not quite able to meet the prince's eyes.
+
+Prince Thokmay realized that she felt as awkward as he did,
+but that didn't make him feel any better.
+"I'm glad too."
+He paused a moment, then added,
+"Even if all of this hadn't happened, I'd be glad."
+He waved at her a few moments later as Cloud climbed into the sky,
+breathless at how soft her lips had been.
+
+There was a clatter next door.
+"Excuse me, Your Highness," Dolly said,
+"But will Her Highness be needing her summer dresses,
+or may I put them in storage?"
+
+"Pack everything, please," Prince Thokmay replied.
+"We won't be coming back."
+
+There was a moment's silence,
+and then the door slowly creaked open.
+Princess Ogmin peeked around it.
+She was still wearing a dark brown silk scarf on her head,
+despite the number of times Dolly and the prince had told her
+how grown-up her short hair made her look.
+
+"Are we going home?" Ogmin asked.
+
+"Mm hm."
+The prince smiled.
+"We really are."
+
+"Wheee!" Ogmin shrieked.
+She bounded into the room and hugged him.
+"We're going home!"
+
+"Whoa, whoa!" he laughed,
+"Watch out for the inkpot!"
+He hugged her tight so that he could wipe his eyes without her seeing him do it.
+"But only if you help Dolly pack, all right?"
+
+"I'll help!" she promised.
+She ran out of the room.
+"Did you hear? Did you?" he heard her say.
+
+"What's 'home'?" Inambu asked uncertainly in reply.
+Prince Thokmay stared down at his letter as Princess Ogmin tried to explain.
+The sergeant had been unconscious for two days after the fight at the dam.
+When she had woken,
+her mind had been as clear and as empty as a baby's.
+It had only taken her a few days to remember how to speak and feed herself,
+but her progress since then had been slow.
+She seemed to remember nothing of her former life,
+and her former apprentices said she probably never would.
+
+Princess Ogmin was still in the middle of describing
+the wonderful things to eat in the capital
+when Inambu interrupted.
+"Do you think we should call this one Rose or Lily?"
+The prince could imagine her holding up one of Ogmin's many dolls.
+
+"Lily," the princess said decisively.
+"Because her hair is so beautiful."
+
+The prince smiled and turned back to his letter.
+*3. As there is no longer an immediate threat to Ghohraj,
+and as I believe your daughter would be happier in the familiar surroundings of the capital,
+I am escorting her back to Loghan-in-Loghan at the earliest opportunity.*
+He had lain in bed most of the previous night,
+watching the moon rise and then set,
+trying to work up the courage to write those words.
+For a moment he imagined himself crumpling up the letter and starting a new one.
+Instead,
+he took a deep breath,
+drew a diagonal line across the empty space on the page,
+and at the bottom wrote, *Your dutiful*.
+
+He hesitated a moment before adding,
+*and loving*,
+then finished,
+*son, Thokmay Loghan-o Prince*.
+He let his breath out with a whoosh,
+set down his brush,
+folded the letter,
+and dripped some wax on it to seal it.
+Then he leaned back in his chair and stretched like a cat.
+
+Years later,
+when his hair was starting to turn gray
+and the scar the world's last wolf had left in his arm ached in cold weather,
+Prince Thokmay finally heard what had happened
+when his father had read that letter.
+"He just smiled," the old steward said to him.
+"Like he used to sometimes before your mother died."
+But there are many more stories to tell before that one.
 
 </section>

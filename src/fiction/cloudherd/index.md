@@ -5767,7 +5767,7 @@ when he knocked on Indy's door that morning
 and invited himself in for chai.
 "Didn't believe my eyes," he said,
 nodding his thanks to Noxy as she set a cup down in front of him.
-"Just knocked on the door and asked Sergeant Dorbu
+"He just knocked on the door and asked Sergeant Dorbu
 if any of them wanted to head up to the grove."
 
 "And did they?"
@@ -5778,13 +5778,13 @@ The old man shrugged.
 Don't know if that's a lot or a little for soldiers.
 I've never been one for that kind of conversation,
 but even if I was,
-I don't think I'd want to have it with strangers."
+I don't think I'd want to have it with Aft."
 
 Indy blew on her tea reflectively.
-"Well, we did light fires for some of their friends.
-Maybe they think that means they're not strangers any more.
-And they did help out last night.
-We'd have been in real trouble without them."
+"Well, they did help out last night.
+We'd have been in real trouble without them.
+And we did light fires for some of their friends.
+Maybe they think that means they're not strangers any more."
 
 "Mmph."
 Grappa Gas frowned at his chai,
@@ -5806,7 +5806,7 @@ on Private Thokmay, she had to remember to call him that—then
 maybe they wouldn't look any further.
 And if she took the time to brush her hair and scrub her face before leaving,
 well,
-she was only doing what her *amma* kept nagging her to.
+she was only doing it so her *amma* wouldn't nag her.
 
 Kulbinder could have been a statue if it wasn't for the wind ruffling his fur.
 He sat on his hind legs,
@@ -5867,7 +5867,7 @@ if people thought they had forced her to help them against her will—
 
 "—you'll have my *amma* and Aft and everyone else chasing us,"
 Noxy cut in,
-more scornfully than she had intended but too tired to care.
+more scornfully than she had intended but too cranky from dozing to care.
 "We'd be lucky to make it as far as Murky Lake,
 never mind Loghan-in-Loghan.
 Believe me, hiding out at the bothy is a better plan."
@@ -5958,7 +5958,7 @@ Noxy protested.*
 
 *Alva rose to her knuckles and feet.
 "There is no fault, dear.
-There is—why are you making that face?"*
+There is only—why are you making that face?"*
 
 Noxy woke with a start.
 The prince was cross-legged on the stone again, his eyes closed.
@@ -6194,8 +6194,7 @@ and his tail whipped from side to side.
 "That was a stupid, needless risk."
 
 "Maybe not,"
-Thokmay said slowly.
-Was that respect Noxy saw on his face?
+Thokmay said thoughtfully.
 "Even my father's magicians wouldn't try to get through the forest.
 If Sergeant Dorbu and the reeve believe he's suddenly come into his power,
 using the bothy as a jail cell would make sense.
