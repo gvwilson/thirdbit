@@ -1,7 +1,7 @@
 ---
 title: "How to Not Be Wrong About AI"
 date: 2026-05-30
-category: education empirical-se
+category: education software-engineering
 ---
 
 My post [Twelve Ways to Be Wrong About AI-Assisted Coding][12-ways] seemed to hit a nerve,

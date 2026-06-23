@@ -1,7 +1,7 @@
 ---
 title: "Software Engineering Practices in Science"
 date: 2015-09-16
-category: empirical-se
+category: software-engineering
 ---
 <p>
   Dustin Heaton and Jeffrey Carver have just published a paper titled

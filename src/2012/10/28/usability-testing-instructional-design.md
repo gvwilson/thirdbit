@@ -1,7 +1,7 @@
 ---
 title: Usability Testing and Instructional Design
 date: 2012-10-28
-category: empirical-se programming
+category: software-engineering programming
 ---
 
 <p>This is a story in several parts.</p>

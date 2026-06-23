@@ -1,7 +1,7 @@
 ---
 title: "Miscellaneous Projects"
 date: 2015-11-15
-category: software-carpentry
+category: noticed programming
 ---
 This post is a bit of a
 <a href="http://www.theguardian.com/science/brain-flapping/2014/sep/10/wild-extrapolation-classification-system-science-media-scepticism">link fest</a>,

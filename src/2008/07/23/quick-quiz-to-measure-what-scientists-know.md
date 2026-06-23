@@ -1,7 +1,7 @@
 ---
 title: "Quick Quiz to Measure What Scientists Know"
 date: 2008-07-23
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 Suppose you have a room full of scientists—hundreds of 'em—and want to find out how they actually use computers in their work.  There isn't time to interview them individually, or to record their desktops during a typical working week, so you've decided to ask them to self-asses their understanding of some key terms on a scale of:
 <ol>

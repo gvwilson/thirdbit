@@ -1,7 +1,7 @@
 ---
 title: Organizing Instruction and Study to Improve Student Learning
 date: 2011-12-24
-category: education empirical-se
+category: education software-engineering
 ---
 <p>I had breakfast a couple of days ago with Jon Pipitone, a former student who has helped out with Software Carpentry off and on in the past. When we discussed my post summarizing what I've learned so far about online education, he had several questions and suggestions (thanks, Jon). I'm still digesting everything he said, but there is one point I'd like to act on now.</p>
 <p>Back in 2007, the US Department of Education's <a href="http://ies.ed.gov">Institute of Education Sciences</a> published a 60-page report <a href="http://ies.ed.gov/ncee/wwc/practiceguide.aspx?sid=1">Organizing Instruction and Study to Improve Student Learning</a>. It's a great resource: seven specific recommendations are summarized in clear language, along with the evidence that backs them up. The report even classifies that evidence into three levels:</p>

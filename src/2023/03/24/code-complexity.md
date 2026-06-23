@@ -1,7 +1,7 @@
 ---
 title: "Code Complexity"
 date: 2023-03-24
-category: empirical-se technical-writing
+category: software-engineering technical-writing
 ---
 
 I wrote a small program this afternoon to parse a set of Python files

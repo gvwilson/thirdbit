@@ -1,7 +1,7 @@
 ---
 title: "A Pair of Workshops"
 date: 2015-07-23
-category: open-source
+category: open-source noticed
 ---
 <p>
   Do you know your options for software licensing?

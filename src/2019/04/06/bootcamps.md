@@ -1,7 +1,7 @@
 ---
 title: "Bootcamps"
 date: 2019-04-06
-category: education empirical-se
+category: education software-engineering
 ---
 
 Some [interesting data](https://dev.to/triplebyte/bootcamps-vs-college-21cd)

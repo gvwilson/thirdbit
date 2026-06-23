@@ -1,7 +1,7 @@
 ---
 title: "Papers"
 date: 2009-02-18
-category: education empirical-se
+category: education software-engineering
 ---
 <a href="http://www.lsi.upc.edu/~jcabot/">Jordi Cabot</a> and I submitted the rewrite of our survey of software project portals last Friday; the <a href="http://www.cs.ua.edu/~SECSE09/">SE-CSE'09</a> paper summarizing the results of our survey of how scientists use computers is almost done, and I've got a few minutes to kill before two students arrive from the <a href="http://www.cs.ualberta.ca">University of Alberta</a> for our reading week code sprint, so here's a quick list of some papers I've read so far this year that I've liked:
 <ul>

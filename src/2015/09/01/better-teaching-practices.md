@@ -1,7 +1,7 @@
 ---
 title: "Better Teaching Practices"
 date: 2015-09-01
-category: education
+category: education software-carpentry noticed
 ---
 <p>
   It wasn't part of our original plan,

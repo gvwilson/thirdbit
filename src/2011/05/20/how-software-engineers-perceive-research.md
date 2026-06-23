@@ -1,7 +1,7 @@
 ---
 title: "How Do Actual Software Engineers Perceive Software Engineering Research?"
 date: 2011-05-20
-category: empirical-se
+category: software-engineering
 ---
 <table class="centered">
 <tbody>

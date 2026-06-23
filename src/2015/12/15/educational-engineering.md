@@ -1,7 +1,7 @@
 ---
 title: "Educational Engineering"
 date: 2015-12-15
-category: education
+category: education opinion
 ---
 <p>
   One of the participants in this week's instructor training course mailed me to say,

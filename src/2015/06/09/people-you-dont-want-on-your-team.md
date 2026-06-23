@@ -1,7 +1,7 @@
 ---
 title: "People You Don't Want On Your Team"
 date: 2015-06-09
-category: career
+category: career management
 ---
 <p>I have been at least half of these people at different times in my life…</p>
 <p><em>Anna</em> knows more about every subject than everyone else on the team put together–at least, she thinks she does. No matter what you say, she'll correct you; no matter what you know, she knows better. Annas are pretty easy to spot: if you keep track in team meetings of how often people interrupt one another, her score is usually higher than everyone else's put together.</p>

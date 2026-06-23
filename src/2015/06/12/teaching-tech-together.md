@@ -1,7 +1,7 @@
 ---
 title: "Learning in Both Directions"
 date: 2015-06-12
-category: education software-carpentry
+category: community education
 ---
 <p>
   Last weekend,

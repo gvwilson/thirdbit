@@ -1,7 +1,7 @@
 ---
 title: "Checking the Balance"
 date: 2016-02-16
-category: diversity empirical-se research software-carpentry
+category: diversity software-engineering research software-carpentry
 ---
 <p>
   <em>

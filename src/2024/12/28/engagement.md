@@ -1,7 +1,7 @@
 ---
 title: "Engagement"
 date: 2024-12-28
-category: empirical-se
+category: software-engineering
 ---
 
 A junk "study" about "ghost engineers" popped up a few weeks ago

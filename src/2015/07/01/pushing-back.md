@@ -1,7 +1,7 @@
 ---
 title: "Pushing Back"
 date: 2015-07-01
-category: education
+category: education software-carpentry programming
 ---
 <p>
   A week ago,

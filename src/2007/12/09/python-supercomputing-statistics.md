@@ -1,7 +1,7 @@
 ---
 title: "Python Supercomputing Statistics"
 date: 2007-12-09
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 I have a major grant application and (hopefully final) revisions to my next children's book due on Friday, so of course I'm reading white papers about Python-friendly supercomputing from <a href="http://www.interactivesupercomputing.com">Interactive Supercomputing</a>, a Boston-area firm that's about three years old.  IS offers several kinds of parallelism for MATLAB, Python, R, SAS, and other high-level languages; I don't know if their tools are any easier to use than anyone else's, but they have an impressive team (including Russ Barbour, ex-Apollo, and Steve Reinhardt, ex-Cray).
 

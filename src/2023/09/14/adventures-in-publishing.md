@@ -1,7 +1,7 @@
 ---
 title: "Adventures in Publishing"
 date: 2023-09-13
-category: aosa empirical-se technical-writing
+category: aosa software-engineering technical-writing
 ---
 
 Years ago,

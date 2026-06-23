@@ -1,7 +1,7 @@
 ---
 title: "CSER, Privacy, Agility, and Games"
 date: 2006-10-16
-category: conferences empirical-se
+category: conferences software-engineering
 ---
 I spent Sunday at a workshop organized by the Consortium for Software Engineering Research (<a href="http://www.cser.ca/">CSER</a>). The theme was "empirical software engineering", a subfield that has emerged since the late 1980s whose practitioners focus on studying and evaluating software development methods and tools in systematic, rigorous ways. I went there to try to persuade educators at other Canadian universities to start using DrProject to manage undergraduate programming teams. A few people seemed interested, but what really got the room talking was the ethical issues surrounding the collection and publication of data on how students actually use tools like DrProject.
 

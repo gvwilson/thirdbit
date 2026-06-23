@@ -1,7 +1,7 @@
 ---
 title: "Micro NWIT"
 date: 2024-06-02
-category: empirical-se
+category: software-engineering
 ---
 
 From 2011 to 2023,

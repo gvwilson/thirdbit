@@ -1,7 +1,7 @@
 ---
 title: "Agility and Romanticism"
 date: 2006-06-19
-category: empirical-se opinion programming
+category: software-engineering opinion programming
 ---
 According to Wikipedia, <a href="http://en.wikipedia.org/wiki/Romanticism">Romanticism</a> was "…a secular and intellectual movement in the history of ideas that originated in late 18th century Western Europe. It…was in part inspired by a revolt against aristocratic social and political norms of the previous period, as well as a reaction against the rationalization of nature by the <a href="http://en.wikipedia.org/wiki/The_Age_of_Enlightenment">Enlightenment</a>…It stressed strong emotion…, legitimized the individual imagination as a critical authority…, and overturned some previous social conventions."
 

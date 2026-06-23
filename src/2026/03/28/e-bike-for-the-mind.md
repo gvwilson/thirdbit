@@ -1,7 +1,7 @@
 ---
 title: "An E-Bike for the Mind"
 date: 2026-03-28
-category: empirical-se programming
+category: software-engineering programming
 ---
 
 As I wrote [a couple of days ago][feasible],

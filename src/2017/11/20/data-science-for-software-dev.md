@@ -1,7 +1,7 @@
 ---
 title: "Data Science for Software Development"
 date: 2017-11-20
-category: data-science education empirical-se proposal
+category: data-science education software-engineering proposal
 ---
 
 <p>Many software developers are learning data science to analyze their

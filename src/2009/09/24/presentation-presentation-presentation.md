@@ -1,7 +1,7 @@
 ---
 title: "Presentation, Presentation, Presentation"
 date: 2009-09-24
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 Over on the Software Carpentry blog, I've posted a plea for pointers to good online tutorials: if I'm going to reorganize the SC material, I'd like to upgrade the format as well, and I'm looking for pointers to stuff that's effective, but (relatively) easy to produce.
 

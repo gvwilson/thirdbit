@@ -1,7 +1,7 @@
 ---
 title: "Python, Typing, and the Scientific Spirit"
 date: 2005-01-16
-category: empirical-se programming
+category: software-engineering programming
 ---
 <p>There's been a minor blog storm over the last few weeks about Guido
 van Rossum's proposal to add optional type declarations to Python [<a href="#1">1</a>].  Guido believes it will help catch errors before code is run (or in sections of code that aren't exercised by unit

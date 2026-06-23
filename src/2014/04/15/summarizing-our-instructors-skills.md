@@ -1,7 +1,7 @@
 ---
 title: "Summarizing Our Instructors' Skills"
 date: 2014-04-15
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 <p>
   We've been asking bootcamp participants to tell us about themselves for a while now,

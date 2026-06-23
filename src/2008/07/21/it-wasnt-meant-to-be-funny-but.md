@@ -1,7 +1,7 @@
 ---
 title: "It Wasn't *Meant* To Be Funny, But…"
 date: 2008-07-21
-category: empirical-se humor
+category: software-engineering humor
 ---
 From the OSCON'08 schedule:
 

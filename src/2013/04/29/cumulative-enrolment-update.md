@@ -1,7 +1,7 @@
 ---
 title: An Update on Cumulative Enrolment
 date: 2013-04-29
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 <p>It's been a busy few months, and the next three promise to be busier still.  Somewhere in there we helped our two thousandth learner, and if everything goes well, we'll reach 2500 by mid-summer.</p>
 <p><img src="@root/files/2013/04/enrolment-2013-04.png" alt="Enrolment as of April 2013" class="centered"></p>

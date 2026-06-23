@@ -1,7 +1,7 @@
 ---
 title: "Making Software Now Available on Rough Cuts"
 date: 2010-07-16
-category: empirical-se technical-writing
+category: software-engineering technical-writing
 ---
 <a href="http://my.safaribooksonline.com/9780596808310"><em>Making Software</em></a> (the collection on empirical software engineering that I helped edit) is now available on Safari Rough Cuts—chapters include:
 <ol>

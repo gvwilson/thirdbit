@@ -1,7 +1,7 @@
 ---
 title: "Two Pages of Evidence"
 date: 2016-02-02
-category: empirical-se noticed
+category: software-engineering noticed
 ---
 
 Andreas Stefik and his colleagues have written

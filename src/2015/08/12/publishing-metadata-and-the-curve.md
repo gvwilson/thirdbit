@@ -1,11 +1,10 @@
 ---
 title: "Publishing, Metadata, and Being Ahead of the Curve"
 date: 2015-08-12
-category: research
+category: software-carpentry
 ---
 <p>
-  As described in earlier
-  posts,
+  As described in earlier posts,
   we are publishing our Version 5.3 lessons through <a href="https://zenodo.org/">Zenodo</a>
   to make it easier for people to cite them.
   We're getting closer,

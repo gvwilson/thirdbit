@@ -1,7 +1,7 @@
 ---
 title: "Correlations"
 date: 2019-12-31
-category: empirical-se data-science education
+category: software-engineering data-science education
 ---
 A [previous post](@root/2019/12/23/gini-coefficients/)
 presented the Gini coefficients for contributions to 10 Git repositories

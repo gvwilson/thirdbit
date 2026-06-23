@@ -1,7 +1,7 @@
 ---
 title: "A Challenge for Modellers"
 date: 2009-07-27
-category: empirical-se proposal
+category: software-engineering proposal
 ---
 Like many software developers of a certain age, I had a brief love affair with UML in the 1990s. Pictures of programs—what a great way to communicate! In my case, it lasted about four months. I simply didn't find class diagrams helped me understand what was going on in my programs, or anyone else's.
 

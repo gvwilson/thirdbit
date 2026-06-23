@@ -1,7 +1,7 @@
 ---
 title: "Three Studies (Maybe Four)"
 date: 2008-04-10
-category: empirical-se student-projects
+category: software-engineering student-projects
 ---
 We're in the thick of picking students and projects for Google Summer of Code, which has inspired some less-random-than-usual thoughts.  Here are two studies I'd like to do (or see done):
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "Why I Am Not Excited About Julia"
 date: 2015-06-18
-category: programming
+category: opinion programming
 ---
 <p>
   If you hang out in scientific programming circles,

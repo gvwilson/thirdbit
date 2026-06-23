@@ -1,7 +1,7 @@
 ---
 title: "Get More Done in Less Time"
 date: 2015-06-17
-category: education
+category: education software-carpentry research
 ---
 <p>
   Over the past year,

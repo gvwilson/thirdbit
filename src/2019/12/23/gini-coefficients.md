@@ -1,7 +1,7 @@
 ---
 title: "Gini Coefficients"
 date: 2019-12-23
-category: data-science empirical-se
+category: data-science software-engineering
 ---
 
 A [Gini coefficient](https://en.wikipedia.org/wiki/Gini_coefficient)

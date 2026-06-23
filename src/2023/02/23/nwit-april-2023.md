@@ -1,7 +1,7 @@
 ---
 title: "It Will Never Work in Theory: April 2023 Lightning Talks"
 date: 2023-02-23
-category: community empirical-se
+category: community software-engineering
 ---
 
 Registration is now open for our third live event!

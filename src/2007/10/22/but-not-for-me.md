@@ -1,7 +1,7 @@
 ---
 title: "But Not For Me"
 date: 2007-10-22
-category: empirical-se
+category: software-engineering
 ---
 I used to play a little jazz, and was fond of a Gershwin tune called "But Not For Me":
 

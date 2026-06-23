@@ -1,7 +1,7 @@
 ---
 title: "Why We Can't Have Nice Things"
 date: 2015-06-11
-category: research
+category: programming opinion
 ---
 <p>
   In the beginning, there were tables:

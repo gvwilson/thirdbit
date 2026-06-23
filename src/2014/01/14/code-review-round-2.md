@@ -1,7 +1,7 @@
 ---
 title: "Code Review, Round 2"
 date: 2014-01-14
-category: empirical-se
+category: software-engineering
 ---
 <p>
   Short version: we will launch a second pilot study of code review

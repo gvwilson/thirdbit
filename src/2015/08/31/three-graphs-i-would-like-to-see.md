@@ -1,7 +1,7 @@
 ---
 title: "Three Graphs I Would Like to See"
 date: 2015-08-31
-category: empirical-se
+category: software-engineering
 ---
 <p>
   I spent part of the weekend chatting with a friend in Cambridge

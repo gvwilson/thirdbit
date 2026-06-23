@@ -1,7 +1,7 @@
 ---
 title: "How Well Do Developers Understand Open Source Licenses?"
 date: 2016-08-02
-category: empirical-se open-source research
+category: software-engineering open-source research
 ---
 
 You are invited to participate in a survey on software licensing

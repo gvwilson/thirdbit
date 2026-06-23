@@ -1,7 +1,7 @@
 ---
 title: "The Morea Framework"
 date: 2015-11-20
-category: programming software-carpentry
+category: education open-source software-carpentry
 ---
 <p>
   I first met <a href="http://philipmjohnson.org/">Philip Johnson</a>,

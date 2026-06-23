@@ -1,7 +1,7 @@
 ---
 title: "Empirical Software Engineering Papers"
 date: 2014-03-19
-category: empirical-se
+category: software-engineering
 ---
 <p>
   When I teach scientists programming,

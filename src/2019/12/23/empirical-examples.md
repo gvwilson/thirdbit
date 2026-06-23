@@ -1,7 +1,7 @@
 ---
 title: "Empirical Examples"
 date: 2019-12-23
-category: education empirical-se favorite
+category: education software-engineering favorite
 ---
 
 Back in July 2000,

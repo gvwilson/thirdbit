@@ -1,7 +1,7 @@
 ---
 title: "Strong Typing, Unit Testing, and Science"
 date: 2006-04-13
-category: empirical-se programming
+category: software-engineering programming
 ---
 <p>I've doing a technical review of a new book on object-oriented
 analysis &amp; design that spends several pages discussing

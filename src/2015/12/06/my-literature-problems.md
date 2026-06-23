@@ -10,7 +10,8 @@ category: research
   A couple of years ago,
   I put together a bibliography
   of research into the software engineering aspects of scientific computing.
-  I'd now like to find all papers published in the last five years that reference anything in the existing bibliography.
+  I'd now like to find all papers published in the last five years
+  that reference anything in the existing bibliography.
   As far as I can tell,
   though,
   the tool I want doesn't exist:

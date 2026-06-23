@@ -1,7 +1,7 @@
 ---
 title: "Plans for 2016"
 date: 2015-12-28
-category: software-carpentry
+category: retro
 ---
 <p>
   Twelve months is a long time.
@@ -21,11 +21,8 @@ category: software-carpentry
   and those are just the things I've bookmarked.
 </p>
 <p>
-  But it's been a difficult
-  year
-  for me personally,
-  one that has prompted considerable
-  reflection.
+  But it's been a difficult year for me personally,
+  one that has prompted considerable reflection.
   Based on that and discussions with people in the two Carpentries,
   I'm going to work on instructor training full-time for the whole of 2016.
   The notes need to be polished,

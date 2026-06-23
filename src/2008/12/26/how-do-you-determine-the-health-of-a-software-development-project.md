@@ -1,7 +1,7 @@
 ---
 title: "How Do You Determine the Health of a Software Development Project?"
 date: 2008-12-26
-category: empirical-se management student-projects
+category: software-engineering management student-projects
 ---
 This one has come up before, but with a near year dawning, I think it's worth revisiting.  Suppose you had been asked to audit a medium-sized software development project—something with a couple of dozen people, split between two or three sites, with a couple of hundred thousand lines of moderately complex code already written.  What would you do to determine how healthy the it was? Obvious things include:
 <ol>

@@ -1,7 +1,7 @@
 ---
 title: "A Model Experiment"
 date: 2020-01-04
-category: empirical-se proposal
+category: software-engineering proposal
 ---
 
 A couple of years ago,

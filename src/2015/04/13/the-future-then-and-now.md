@@ -1,7 +1,7 @@
 ---
 title: The Future Then and Now
 date: 2015-04-13
-category: education
+category: education noticed programming
 ---
 <p>
   Jon Udell's

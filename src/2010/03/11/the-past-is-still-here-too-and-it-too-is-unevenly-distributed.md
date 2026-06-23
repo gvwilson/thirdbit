@@ -1,7 +1,7 @@
 ---
 title: "The Past Is Still Here Too, and It Too Is Unevenly Distributed"
 date: 2010-03-11
-category: empirical-se noticed
+category: software-engineering noticed
 ---
 If I want to request a book at the University of Toronto Library, all I have to do is log in to their web site, look up the book, and click "reserve".  Unless the book is in someone's study carrel. In that case, I have to go to the library in person and fill in a recall slip. Can't do it through the web or over the phone, even though the information about the book being in a carrel is in the same computer as everything else. According to the library I spoke to, "The computer will not produce a list of books to be retrieved from carrels, closed stacks, or basement. I believe people in [the library] are trying to automate the process but at present they have to use this process." This isn't stupidity or sloth: it's just too low a priority to have been done yet.
 

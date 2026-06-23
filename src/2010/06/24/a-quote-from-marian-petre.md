@@ -1,7 +1,7 @@
 ---
 title: "A Quote from Marian Petre"
 date: 2010-06-24
-category: empirical-se
+category: software-engineering
 ---
 From Marian Petre's recent paper "<a href="http://portal.acm.org/citation.cfm?id=1801419">Mental imagery and software visualization in high-performance software development teams</a>":
 <blockquote>…even in debugging and comprehension, the experts relied more on their own systematic practices than on visualizations—and their use of available visualizations related to how directly the visualizations supported their practices.  Tools which simply re-presented available information, which failed to provide forms of abstraction or selection, or which embodied assumptions at odds with the experts' practices were discarded.

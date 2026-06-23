@@ -1,7 +1,7 @@
 ---
 title: "CourseSource: A(nother) New Hope"
 date: 2015-11-15
-category: education
+category: education noticed
 ---
 <p>
   I came across <a href="http://coursesource.org">CourseSource</a> a few weeks ago,

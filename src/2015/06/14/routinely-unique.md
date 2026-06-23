@@ -1,7 +1,7 @@
 ---
 title: "Routinely Unique"
 date: 2015-06-14
-category: education
+category: software-carpentry noticed
 ---
 <p>
   Back in April,

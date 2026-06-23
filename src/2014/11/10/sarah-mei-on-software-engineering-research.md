@@ -1,7 +1,7 @@
 ---
 title: "Sarah Mei on Software Engineering Research"
 date: 2014-11-10
-category: empirical-se noticed
+category: software-engineering noticed
 ---
 <p>
   Sarah Mei tweeted this

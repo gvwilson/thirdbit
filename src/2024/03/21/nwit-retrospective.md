@@ -1,7 +1,7 @@
 ---
 title: "NWIT Retrospective"
 date: 2024-03-21
-category: empirical-se retro technical-writing
+category: software-engineering retro technical-writing
 ---
 
 <p>

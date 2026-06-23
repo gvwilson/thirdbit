@@ -1,7 +1,7 @@
 ---
 title: "Measurement"
 date: 2007-11-06
-category: education empirical-se software-carpentry
+category: education software-engineering software-carpentry
 ---
 One of the differences between professionals and amateurs is that professionals measure things, and use the data they collect to improve their performance.  Whether it's the cost of making a widget, teaching evaluations, or <a href="http://xkcd.com/284/">how far your tape measure reaches</a>, knowing where you are and how things are changing is a sign that you take what you're doing seriously.
 

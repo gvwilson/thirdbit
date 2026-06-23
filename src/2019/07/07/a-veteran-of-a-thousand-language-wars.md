@@ -1,7 +1,7 @@
 ---
 title: "A Veteran of a Thousand Language Wars"
 date: 2019-07-07
-category: data-science empirical-se opinion
+category: data-science software-engineering opinion
 ---
 
 > You see me now a veteran of a thousand psychic wars<br>

@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Statistics"
 date: 2013-08-23
-category: empirical-se software-carpentry
+category: software-engineering software-carpentry
 ---
 <p>
   We started running an

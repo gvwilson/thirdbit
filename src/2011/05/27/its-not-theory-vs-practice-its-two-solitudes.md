@@ -1,7 +1,7 @@
 ---
 title: "It's Not Theory vs. Practice, It's Two Solitudes"
 date: 2011-05-27
-category: aosa empirical-se opinion
+category: aosa software-engineering opinion
 ---
 In Canada, the phrase "<a href="http://en.wikipedia.org/wiki/Two_Solitudes_%28Canadian_society%29">two solitudes</a>" refers to the lack of communication–and the lack of interest in communicating–between Anglophones and Francophones. I think of that phrase every time someone uses the phrase "theory versus practice" when talking about academia and industry. Having worked in both, I don't think that's the real dividing line: lots of academics actually do build things (look at <a href="http://www.aosabook.org/en/bdb.html">Berkeley DB</a> and <a href="http://www.aosabook.org/en/snowflock.html">SnowFlock</a>), and the people writing optimizing compilers for IBM, or doing machine learning for Google, are as lost in the theoretical stratosphere as anyone. Instead, I think of industry and academia as two branches of an extended family that send each other Christmas cards, and occasionally show up for each other's weddings or funerals, but aren't in day-to-day or even year-to-year contact [1].
 

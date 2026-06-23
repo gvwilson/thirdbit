@@ -1,7 +1,7 @@
 ---
 title: "Reverse Engineering CSS"
 date: 2015-06-14
-category: programming
+category: programming software-carpentry
 ---
 <p>
   Software Carpentry's lessons

@@ -1,7 +1,7 @@
 ---
 title: "Structural Programming and Rational Metaprogramming"
 date: 2008-01-15
-category: empirical-se programming
+category: software-engineering programming
 ---
 I keep trying to put extensible programming aside, but it just won't let me let go.  (Yes, I know, the eighties want their lyrics back…)  Most recently, Michael Feathers posted <a href="http://beautifulcode.oreillynet.com/2008/01/structuring_tests_with_operato_1.php">this piece</a> about what he calls <em>structural programming</em>.  As he says:
 <blockquote>A structural program (or program snippet) is a program that is essentially a data structure on a page. The structure both dominates and conveys the semantics.</blockquote>

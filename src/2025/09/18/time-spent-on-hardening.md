@@ -1,7 +1,7 @@
 ---
 title: Time Spent on Hardening
 date: 2025-09-18
-category: empirical-se
+category: software-engineering
 ---
 
 I recently received mail from someone working on a software-based approach to fault tolerance.

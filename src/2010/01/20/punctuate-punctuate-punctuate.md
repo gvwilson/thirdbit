@@ -1,7 +1,7 @@
 ---
 title: "Punctuate! Punctuate! Punctuate!"
 date: 2010-01-20
-category: empirical-se programming
+category: software-engineering programming
 ---
 I'm reading yet another proposal for a specialized markup language (this one for scientific results, so that they can be shared and searched semantically), and it occurred to me that markup is actually a very old idea. Look at the markup I've already used in this blog post: two apostrophes, to show shortcuts ("I'm" and "I've"), parentheses to delimit more detailed explanations, and the '.' character normally used to separate fields in IP addresses to show the ends of sentences.
 
