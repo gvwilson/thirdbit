@@ -109,12 +109,17 @@ workshops = [
     {
         "title": "Organizational Change",
         "url": "@root/change",
-        "description": "This workshop is a short introduction to organizational change for people with backgrounds in research.",
+        "description": "An introduction to organizational change for people with backgrounds in research.",
     },
     {
         "title": "Closing Time",
         "url": "@root/closure",
-        "description": "This workshop is a short introduction to winding down research and software projects, either deliberately or on short notice.",
+        "description": "How to wind down research and software projects, either deliberately or on short notice.",
+    },
+    {
+        "title": "Managing Research Software Projects",
+        "url": "@root/mrsp",
+        "description": "Ideas and tools you need to manage a team of research software developers.",
     },
     {
         "title": "Introduction to SQL",
@@ -124,12 +129,6 @@ workshops = [
 ]
 
 beta = [
-    {
-        "title": "Managing Research Software Projects",
-        "url": "@root/mrsp",
-        "description": "A workshop on the ideas and tools you need to manage a team of research software developers.",
-        "beta": True,
-    },
     {
         "title": "How to Not Be Wrong About AI",
         "url": "@root/notwrong",
