@@ -6,15 +6,16 @@ fiction: true
 
 <section markdown="1">
 
-Edward Thornberg tilts back in his chair, reading.
+It is 1995.
+Edward Thornberg tilts back in his chair,
+frowning as he re-reads the letter in his hands.
 In his sixties,
 he still has a full head of hair
 and the trim body of a former college track star.
 He works in a spacious office with century-old furniture
 and a PC more powerful than he needs.
 
-He frowns at the note he is holding.
-"Dear President Thornberg," it begins,
+The letter begins, "Dear President Thornberg,"
 but goes downhill from there.
 It is on university stationery,
 and he is sure that its author has sent copies to other members of
@@ -27,7 +28,8 @@ Professor Peaslee is one of Miskatonic's most eminent scholars,
 and has played an important (if somewhat murky) role
 in managing various scandals over the years.
 On the other,
-he doesn't seem to understand that it is 1995, not 1955.
+the world has moved on,
+and Miskatonic needs to move with it.
 
 Thornberg picks up his phone and presses 1.
 "Please show him in, Mrs. Marsh."
