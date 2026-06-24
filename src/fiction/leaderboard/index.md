@@ -247,13 +247,13 @@ I just kept out of sight."
 He waved a petulant hand
 to swipe a real-time image onto the wall beside us.
 There in the depths of the Marianas Trench,
-gold-plated robots were building a larger-than-life reconstruction of Stonehenge.
+a fleet of robots were building a larger-than-life replica of Stonehenge.
 "I couldn't stop making money.
 so every time I got into the red zone
 I threw it at some godawful idiocy like this."
 
 "Mm."
-Back when we were a regular thing,
+Back when we were a thing,
 Bench called my "mm" the Platonic ideal of noncommittal verbalizations
 and used it as a ringtone.
 "So how can I be of use?
@@ -522,22 +522,31 @@ the Belgian shouldn't have canceled the land transfer when saw An.ton start to c
 "Still there?"
 I asked.
 
-He was silent for a moment.
-When he answered,
-he sounded tired.
+He was silent for a moment before answering.
 "Why?"
 
 "Because fuck you," I said.
-"My parents didn't get to pick when and how they died, so why should you?
-And I had a look at that Stonehenge project of yours.
-Those bots were supposed to remediate deep-sea fishing damage.
+"I had a look at that Stonehenge project of yours.
+Those bots were supposed to remediate deep-sea mining damage.
 You could have burned just as much money doing that,
-but you just couldn't,
+but you just couldn't do it,
 could you?
-You just couldn't bear the thought of being *useful*."
+You just couldn't bear the thought of being *helpful*."
 
-"My legal team is going to strip you for parts."
-There was no bluster in his voice.
+"You petulant little shit."
+His voice trembled.
+"What do you think this proves?
+Huh?
+What the fuck do you think you're proving here?"
+
+I swiped him the keyword graph that had been sitting in the corner of my screen
+and added a highlight.
+His name hadn't broken the top thousand on social
+even when he was in the number one spot on the leaderboard.
+
+When he spoke, his voice was neutral.
+"My legal team is going to strip you for parts!"
+It wasn't a threat.
 It was just a statement that two plus two was four.
 
 I had nothing to say to that,
