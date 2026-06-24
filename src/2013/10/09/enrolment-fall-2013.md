@@ -1,7 +1,7 @@
 ---
 title: "Enrolment Figures (Fall 2013)"
 date: 2013-10-09
-category: software-engineering software-carpentry
+category: software-carpentry
 ---
 <p>Our total enrolment (or enrollment, if you're American) continues to grow steadily: if we stay on the curve below, we'll have our four thousandth learner by the end of this year.</p>
 <p><img src="@root/files/2013/10/enrolment-fall-2013.png" alt="Enrolment for Fall 2013" class="centered"></p>

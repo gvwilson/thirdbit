@@ -1,7 +1,7 @@
 ---
 title: Spreadsheets, Retractions, and Bias
 date: 2013-04-19
-category: research
+category: opinion research
 ---
 <p>Just in case there's any misunderstanding:</p>
 <p class="center"><em><strong>I'm not suggesting that scientists should use Excel.</strong></em></p>

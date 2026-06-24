@@ -1,7 +1,7 @@
 ---
 title: "The Future: Today"
 date: 2013-09-27
-category: programming
+category: noticed research
 ---
 <p>
   Two papers appeared on my radar this week that give a taste of

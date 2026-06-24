@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Statistics"
 date: 2013-08-23
-category: software-engineering software-carpentry
+category: software-carpentry
 ---
 <p>
   We started running an

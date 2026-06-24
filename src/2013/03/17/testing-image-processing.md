@@ -1,7 +1,7 @@
 ---
 title: Testing Image Processing
 date: 2013-03-17
-category: software-engineering programming
+category: software-engineering
 ---
 <p>
   Testing has always been part of Software Carpentry,

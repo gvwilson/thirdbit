@@ -1,7 +1,7 @@
 ---
 title: Browsercast
 date: 2013-05-24
-category: programming software-carpentry
+category: programming student-projects
 ---
 <p>
   <a href="http://blog.codekills.net/">David Wolever</a>

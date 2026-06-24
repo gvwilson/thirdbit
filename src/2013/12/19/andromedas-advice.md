@@ -1,7 +1,7 @@
 ---
 title: "Andromeda's Advice"
 date: 2013-12-19
-category: education
+category: software-carpentry
 ---
 <p>
   We're very pleased to announce that

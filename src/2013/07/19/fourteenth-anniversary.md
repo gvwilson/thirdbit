@@ -1,7 +1,7 @@
 ---
 title: "The Fourteenth Anniversary"
 date: 2013-07-19
-category: personal
+category: conferences open-source software-carpentry
 ---
 <p>
   Fourteen years ago this October,

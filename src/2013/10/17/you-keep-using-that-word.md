@@ -1,7 +1,7 @@
 ---
 title: "You Keep Using That Word"
 date: 2013-10-17
-category: programming
+category: software-carpentry
 ---
 <p>
   The first Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE)

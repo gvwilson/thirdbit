@@ -1,7 +1,7 @@
 ---
 title: "Citing Us In Your CV"
 date: 2013-11-16
-category: research
+category: software-carpentry academia
 ---
 <p>
   People volunteer to teach Software Carpentry bootcamps for many reasons.

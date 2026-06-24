@@ -1,7 +1,7 @@
 ---
 title: "Heroes"
 date: 2013-06-09
-category: software-carpentry
+category: opinion politics
 ---
 <blockquote>All that is necessary for evil to triumph is for good men to do nothing.
 <br>
