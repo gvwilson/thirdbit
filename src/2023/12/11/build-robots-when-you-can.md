@@ -30,7 +30,7 @@ I made a little cardboard box costume for one of her stuffed animals.
 She just rolled her eyes when I gave it to her:
 she was now very much a teenager,
 and whatever window might once have been open had closed.
-My advice to you is there to build robots whenever you can.
+My advice to you is therefore to build robots whenever you can.
 
 Time to make another cup of tea.
 If you came in peace, be welcome.
