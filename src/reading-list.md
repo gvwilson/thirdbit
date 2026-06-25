@@ -216,3 +216,4 @@ template: page
 | Radiant Star | Ann Leckie | 978-0316290357 | 2026 |
 | Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |
 | The Tinder Box | M.R. Carey | 978-0316595490 | 2026 |
+| Auntie Heroes | Rita Beeman | 979-8257583667 | 2026 |

@@ -1,7 +1,7 @@
 ---
 title: "'Best Practices' Has Been Published"
 date: 2014-01-07
-category: research
+category: research technical-writing
 ---
 <p>
   I'm very pleased to announce that our paper

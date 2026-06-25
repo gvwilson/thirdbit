@@ -1,7 +1,7 @@
 ---
 title: "IP Communism"
 date: 2014-11-18
-category: ethics open-source
+category: academia ethics open-source opinion
 ---
 <p>
   Back in August,

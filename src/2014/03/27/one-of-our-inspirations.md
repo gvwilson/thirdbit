@@ -1,7 +1,7 @@
 ---
 title: "One of Our Inspirations"
 date: 2014-03-27
-category: education
+category: software-carpentry book-reviews
 ---
 <p>
   Last week's post about our original logo

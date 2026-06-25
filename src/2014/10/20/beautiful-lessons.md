@@ -1,7 +1,7 @@
 ---
 title: "Beautiful Lessons"
 date: 2014-10-20
-category: software-carpentry
+category: education proposal
 ---
 <p>
   On May 17, 2006, I sent the following email

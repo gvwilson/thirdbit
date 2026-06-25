@@ -1,7 +1,7 @@
 ---
 title: "How to Manage Confidential Data"
 date: 2014-11-27
-category: programming
+category: programming software-carpentry
 ---
 <p>
   A couple of days ago,

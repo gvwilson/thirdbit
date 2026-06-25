@@ -1,7 +1,7 @@
 ---
 title: "Playing the Kazoo"
 date: 2014-05-05
-category: software-carpentry
+category: software-carpentry opinion
 ---
 <p>
   Yesterday,

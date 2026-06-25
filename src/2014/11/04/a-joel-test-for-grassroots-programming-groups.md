@@ -1,7 +1,7 @@
 ---
 title: "A 'Joel Test' for Grassroots Programming Groups"
 date: 2014-11-04
-category: education
+category: community education open-source
 ---
 <p>
   Back during the first dot-com bubble,

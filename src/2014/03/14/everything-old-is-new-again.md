@@ -1,7 +1,7 @@
 ---
 title: "Everything Old is New Again"
 date: 2014-03-14
-category: education retro
+category: noticed
 ---
 <p>
   Yesterday,

@@ -1,7 +1,7 @@
 ---
 title: "Inessential Weirdness in Software Carpentry"
 date: 2014-08-11
-category: education
+category: software-carpentry noticed
 ---
 <p>
   Sumana Harihareswara, of the Wikimedia Foundation,

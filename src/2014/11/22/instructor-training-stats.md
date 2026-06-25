@@ -1,7 +1,7 @@
 ---
 title: "Instructor Training Stats"
 date: 2014-11-22
-category: software-engineering software-carpentry
+category: software-carpentry
 ---
 The Software Carpentry Foundation's board asked me for some stats on instructor training,
 and I thought other people would find them interesting as well.

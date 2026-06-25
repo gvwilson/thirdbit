@@ -1,7 +1,7 @@
 ---
 title: "Stray Thoughts"
 date: 2014-09-15
-category: software-carpentry
+category: personal
 ---
 <p>
   My friend Bob told me a story once.

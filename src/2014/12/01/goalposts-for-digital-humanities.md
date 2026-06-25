@@ -1,7 +1,7 @@
 ---
 title: "Goalposts for the Digital Humanities"
 date: 2014-12-01
-category: education
+category: software-carpentry
 ---
 <p>
   As a follow-on to last month's post about

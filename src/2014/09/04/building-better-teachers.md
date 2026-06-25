@@ -1,7 +1,7 @@
 ---
 title: "Building Better Teachers"
 date: 2014-09-04
-category: education
+category: education book-reviews
 ---
 <p>
   Some books are intrinsically great.

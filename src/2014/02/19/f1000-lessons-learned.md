@@ -1,7 +1,7 @@
 ---
 title: "Lessons Learned Has Been Published"
 date: 2014-02-19
-category: software-carpentry
+category: software-carpentry technical-writing
 ---
 <p>
   I'm pleased to announce that "Software Carpentry: Lessons Learned"

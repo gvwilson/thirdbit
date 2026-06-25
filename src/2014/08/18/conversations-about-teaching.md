@@ -1,8 +1,7 @@
 ---
 title: "Conversations About Teaching"
 date: 2014-08-18
-category: education
-archives: 
+category: software-carpentry
 ---
 <p>
   Over the last few days,

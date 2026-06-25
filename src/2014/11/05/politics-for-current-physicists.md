@@ -1,7 +1,7 @@
 ---
 title: "Politics for Current Physicsts"
 date: 2014-11-05
-category: education
+category: humanities-writing proposal opinion
 ---
 <p>
   Richard Muller's

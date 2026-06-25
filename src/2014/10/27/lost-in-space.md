@@ -1,7 +1,7 @@
 ---
 title: "Lost in Space"
 date: 2014-10-27
-category: software-engineering
+category: software-carpentry opinion
 ---
 <p>
   You probably haven't seen the 1998 movie <a href="http://www.imdb.com/title/tt0120738/"><em>Lost in Space</em></a>,

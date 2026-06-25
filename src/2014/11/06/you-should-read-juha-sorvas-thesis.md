@@ -1,7 +1,7 @@
 ---
 title: "You Should Read Juha Sorva's Thesis"
 date: 2014-11-06
-category: software-engineering
+category: education noticed
 ---
 <p>
   If you really want to dig deeper into educational research and how it applies to teaching programming,
