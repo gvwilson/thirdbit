@@ -8780,9 +8780,8 @@ Iffy gestured toward the door.
 
 The governor chuckled.
 "You really are quite extraordinary, you know.
-If circumstances were different I would probably offer you a job."
-He chuckled.
-"Though if I did,
+If circumstances were different I would probably offer you a job.
+Though if I did,
 I suspect that I would be working for *you* in rather short order."
 
 When Iffy didn't answer,
