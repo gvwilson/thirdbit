@@ -1939,7 +1939,7 @@ As they walked into the market, Noxy said,
 Dolly, I'm really sorry."
 
 "It's just how people are around here," the troll replied mildly.
-"Bortja's the worst of them,
+"Bortje's the worst of them,
 but at least we're not in Garheim."
 
 "But…but she said it right *to* you!"
@@ -2290,7 +2290,7 @@ Cloak grumbled as if he was an old cirrus rather than a frisky young cumulus,
 but pulled in his edges and turned to angle across the wind.
 
 As they approached the barge,
-two small gray figures scampered across its deck.
+two small black-and-gray figures scampered across its deck.
 One stood on its hind legs and began turning a wheel with its paws,
 while the other leaned against a rudder post
 to nudge the barge back into the middle of the river
@@ -2339,26 +2339,12 @@ She wondered if he thought about that night as often as she did…
 
 <p class="centered">* * *</p>
 
-At the same moment,
-a few gallops downriver from Ghohraj,
-a flat-bottomed skiff slid up to the raccoons' barge.
-A rough-looking man stepped onto the barge and pried open the side of an oversized crate.
-The horse that had been hidden inside stepped uncertainly into the light.
-The man tossed a small bag of shells at the raccoons contemptuously
-and slipped a halter over the horse's muzzle.
-She tossed her head,
-but stilled when the man smacked her sharply.
-When he twitched on her reins,
-she followed him meekly onto the skiff and back into servitude.
-
-<p class="centered">* * *</p>
-
 Noxy heard the shouting before she saw the mob outside the garrison's gate.
 *Hold,* she mind-spoke to Cloak.
 Forty or fifty people with black bandannas tied over their hair
 were bunched together in the street.
 
-The leek seller, Bortja,
+The leek seller, Bortje,
 stood on a crate in front of them.
 "What do we want?" she bellowed.
 
@@ -2398,7 +2384,7 @@ Two others began cranking a windlass.
 With a rattle and a prolonged squeak, the gate swung open.
 
 The crowd outside fell silent.
-Bortja stepped down from her crate to stand with her hands clasped in front of her.
+Bortje stepped down from her crate to stand with her hands clasped in front of her.
 "In ranks!" the prince ordered,
 his voice cracking.
 He strode forward,
@@ -2413,18 +2399,18 @@ He definitely *didn't* whoosh with relief relief
 when Sergeant Gyalpa shouted, "Troop… halt!" behind him.
 Thirty boots hit the pavement with a synchronized thud.
 
-Bortja straightened and bowed.
+Bortje straightened and bowed.
 "Your Highness," she said in a loud, clear voice.
 
 The prince inclined his head.
-"Honored Bortja."
+"Honored Bortje."
 *Could you not have written a letter?*
 flashed through his mind,
 but it didn't seem like the right time for humor.
 
 Instead,
 he let the silence following his words stretch.
-It was clearly not what Bortja had expected.
+It was clearly not what Bortje had expected.
 As the moment grew uncomfortable,
 she cleared her throat.
 "Thank you for coming along by to speak with us, Your Highness."
@@ -2434,14 +2420,14 @@ I promise, the soldiers aren't all by necessary."
 
 "Neither was your shouting," the prince replied evenly.
 
-Bortja spread her hands.
+Bortje spread her hands.
 "Sometimes there's by no other way to be heard.
 Pargyu!"
 
 A burly man stepped forward.
 A couple of bystanders clapped him on the shoulder.
 
-When Bortja nodded to him,
+When Bortje nodded to him,
 the man bowed awkwardly to the prince.
 "M'name's Pargyu," he said,
 deferential and belligerent at the same time.
@@ -2450,7 +2436,7 @@ Been doing along by that all my life, never been cause by trouble.
 Then last night some troll comes along by my room and drags me out from bed
 and, and strips me for naked and ties me up like a hog for market and, and…"
 
-"…and hangs him from a lamp post down by the market," Bortja finished.
+"…and hangs you from a lamp post down by the market," Bortje finished.
 "But that's not all, is it?"
 
 "No sir," the bricksmith said.
@@ -2487,7 +2473,7 @@ And I want that animal of yours out *here* where we can *all* have a word by him
 "Or it won't be his troll you'll be by to talk with,
 and it won't be the kitchen you'll be along by to sit!"
 
-Bortja smacked her thigh with her hand.
+Bortje smacked her thigh with her hand.
 "You see?" she said to the crowd.
 "You see who they favor? Beasts over people! Well I say, people over beasts!"
 
@@ -2497,7 +2483,7 @@ Others took up the cry.
 People began clapping and stomping their feet in time.
 "People over beasts!"
 
-Two quick steps took Bortja back to her crate.
+Two quick steps took Bortje back to her crate.
 "What do we want?"
 she bellowed as she straightened on top of it.
 
@@ -2529,7 +2515,7 @@ but he didn't care,
 not when the crowd broke up,
 people running for doorways or toward the market to shelter under stall awnings.
 
-His humor vanished instantly when he saw the fury on Bortja's face.
+His humor vanished instantly when he saw the fury on Bortje's face.
 The leek seller  stepped off her crate,
 her hands bunched into fists at her sides,
 and spat on the cobblestones before turning and striding away.
@@ -2576,7 +2562,7 @@ begging your pardon for speaking along so freely,"the sergeant began.
 "Oh, please." Noxy rolled her eyes. "It was just rain."
 
 "If anyone had been *hurt*," the sergeant continued implacably,
-"It would have been exactly what Bortja wanted,
+"It would have been exactly what Bortje wanted,
 especially along after this morning's news."
 
 "What do you mean?" Noxy asked, glancing at the prince.
@@ -2877,7 +2863,7 @@ She had just a moment to feel it notice her before she drifted off.
 
 ## Chapter 5: The Tornado Returns
 
-FIXME: get into this scene - Noxy is still asleep
+FIXME: get Thokmay into this scene - Noxy is still asleep
 
 He was so deep in his own thoughts
 that he jumped when Sergeant Gyalpa said, "Hold!"
@@ -3224,7 +3210,7 @@ Dolly quickly filled her in.
 "His Highness didn't think I should be at the service.
 But people are scared, m'lady.
 You mark my words,
-there'll be another of Bortja's mobs at the gate soon saying the prince ought to do something,
+there'll be another of Bortje's mobs at the gate soon saying the prince ought to do something,
 though the saints only know what she thinks he can do."
 
 Noxy nodded, then did a half-squat and took the princess's hand.
@@ -3334,7 +3320,7 @@ struggling for a moment and then lying limp again.
 
 Mope shooked his head.
 "They've gone mad, honored.
-Bortja and her lot.
+Bortje and her lot.
 They're saying the tornado is the Gifted's fault,
 that Ghohraj won't be safe 'til we're all sent out.
 They nearly caught this poor lad, and if they had…"
@@ -3567,7 +3553,7 @@ And yes,
 he *was* serious,
 he told Mope curtly.
 Between the tornado,
-Bortja whipping up mobs to go after the Gifted,
+Bortje whipping up mobs to go after the Gifted,
 and whatever Consul Yangyal was up to,
 they had enough to keep his troop busy ten times over.
 This was Shudarga they were talking about.
@@ -3794,10 +3780,10 @@ Understood?"
 This wasn't at all how she had expected this conversation to go,
 but she knew enough to stop talking when a deal was done.
 
+<p class="centered">* * *</p>
+
 "All of them? From *memory*?" Mope said,
 almost comically skeptical.
-
-<p class="centered">* * *</p>
 
 Prince Thokmay flipped back to the start of the book he was holding
 and held it out.
@@ -5630,6 +5616,452 @@ He smacked the horse on the rump.
 As they galloped heavily away,
 the tornado picked up Mukh's magic mirror and smashed it to the ground once again,
 then whirled off toward Ghohraj.
+
+</section>
+<section  markdown="1">
+
+## Chapter N
+
+Prince Thokmay and Sergeant Gyalpa stayed on horseback
+until they were over the crest of the hill,
+where the sergeant reined in Bucket
+so that the prince could slide off her back.
+"You can't carry both of us, can you, girl?" the prince said,
+patting the horse's neck.
+The weary animal just snorted.
+
+The prince patted her again, then looked up at his companion.
+The sergeant's jaw was clenched,
+and his frown showed pain as much as anger.
+"How is your leg?" the prince asked.
+
+The sergeant straightened up a bit in the saddle.
+"I don't think it's broken, but the knee is in bad shape," he said brusquely.
+"Put me up along by that tree over there, then go and get help.
+I'll be all right."
+
+"I think I'd rather have some company," the prince replied lightly.
+"Here."
+He passed his half-empty canteen up to the old soldier.
+
+As the sergeant drank, Prince Thokmay looked around.
+The sky above them was almost dark,
+but the land was lit by a soft glow that came from nowhere and everywhere at once.
+On one side,
+the rocky slope led down to the churning field they had fled.
+The other side led down to a narrow valley.
+A few trees grew near the small stream that ran along the its bottom.
+
+"D'you hear that?" the sergeant asked,
+hanging the canteen on the saddle horn.
+"The wind's dying down."
+
+"Do you think Mukh put the tornado back in its bag?"
+the prince asked.
+
+Sergeant Gyalpa snorted.
+"Not without that thing he was waving around, I'll wager.
+I just hope the others are all right."
+
+"Me too," the prince said.
+He patted the horse once more, then put his battle mask back on.
+"Come on. I think I see a path down there by that stream."
+
+They picked their way down the rocky hillside.
+It was bigger than it had appeared—it seemed that
+the further they went,
+the further they had to go.
+Prince Thokmay walked in front,
+while Sergeant Gyalpa rode behind him with the reins in one hand
+and his sword laid across his lap.
+
+Neither spoke until they reached the valley floor.
+The path turned out to be a narrow dirt road,
+and the stream to be a small river.
+
+"It's further than I thought," the prince said,
+looking back the way they had come.
+
+"It's all like that around here," Sergeant Gyalpa told him.
+He gestured with his sword toward a small clump of trees.
+"Twisted, like them.
+Something that looks like it's a hundred strides off
+can take you all day to get to.
+Or you can barely see it,
+but you ride for five minutes,
+and there you are.
+Sergeant Inambu said it's something to do with the way magic bends the light, and all."
+He shook his head.
+"I don't pretend to understand it."
+
+"Nor I."
+The prince took the canteen from the saddle bag and glanced at Sergeant Gyalpa,
+who nodded.
+Thokmay swallowed the last of the warm water.
+"I thought about becoming a magician once," he confessed.
+"Before I met the cloudherds.
+I'd had a taste of it,
+and I thought I might as well make it my life."
+
+"Why'd you decide against it?" Sergeant Gyalpa asked.
+
+The prince shrugged.
+"When my father's chief magician found out,
+he asked me if I really wanted to spend my life giving up things I cared about."
+The prince paused for a moment,
+looking along the length of the little river.
+"When he put it that way,
+I asked him why anyone would ever become a magician."
+
+"What did he say?"
+
+The prince shook his head.
+"All he said was that
+some people don't get to make as many choices as a prince."
+He shook out the canteen as he spoke and bent over the stream.
+
+"Wait! What are you doing?" Sergeant Gyalpa asked sharply.
+
+The prince glanced up.
+"Filling the canteen. We're out of water."
+
+"Hold it by the strap," the sergeant ordered.
+"Don't put your hand in the water.
+Just dip the canteen.
+Yes, like that."
+
+The prince lowered the canteen into the narrow river.
+Fat bubbles escaped from the mouth for a moment,
+and then the prince said,
+"What…?"
+The bubbles were trapped under the surface
+as though there was a thin layer of ice on top of the water.
+
+When he tried to lift the canteen, it wouldn't budge.
+He lowered it slightly—it went deeper without any resistance.
+When he tried to raise it again,
+it simply wouldn't come up.
+
+"What's going on?" he asked,
+suddenly more afraid than he had been during the battle.
+
+The sergeant scowled.
+"We're in the Blight, that's what.
+Sometimes a river is just a river,
+and sometimes it's a live thing that'll pounce on you like a tiger.
+And sometimes…"
+He pointed at the canteen.
+"Sometimes it's greedy."
+
+"I could have put my hand in there," the prince whispered.
+
+"You could have," the sergeant agreed.
+"But you wouldn't ever have taken it out again.
+You'll probably want to stay out from under those as well," he added,
+pointing at a nearby stand of trees.
+"Could be just what they look like,
+or could be meaner than wolverines."
+
+He winced suddenly as Bucket shifted her weight.
+"Is there anything we can do for your leg?" the prince asked.
+"Manpa showed me how to make a splint."
+
+The sergeant nodded, swallowing a pained grunt.
+"That would help," he said.
+"And then we'll try following the current.
+I think that way is starboard—the Sochla's off there somewhere.
+If we can make it that far,
+we can wave down a barge to get us back up to Ghohraj."
+
+The prince noticed that the sergeant said 'if', not 'when',
+but didn't comment.
+Instead,
+he wrestled his pack off Bucket's back
+and took a hatchet from one of the saddle bags.
+
+It only took a moment to slice the canvas of the pack
+and pull out two of the bracing rods.
+That done, he helped Sergeant Gyalpa get down onto the ground.
+The sergeant had to lie down on top of Bucket,
+then swing his good leg over her back and slide down into Prince Thokmay's arms,
+trying as he did so to keep his good leg underneath him.
+Bucket whinnied but did not step away
+as lay down on the ground beside her.
+"Just—just straighten it at the knee," he gasped.
+"Yes, like that.
+Good jo-aagh.
+No, no, it's all right.
+It's all right.
+Try again.
+Use your weight.
+Urgh.
+Harder.
+No, go on, it's going to hurt either way, you might as well—urrrggh."
+Sergeant Gyalpa clenched his fists so tightly that the prince heard his knuckles crack.
+
+"All right, all right," the sergeant gasped a moment later.
+"That's straight enough.
+Put the poles down beside it.
+You're going to have to lift my leg to get the rope under it.
+Yes, like that.
+Now, easy, both hands, just lift—no, no, both hands on my leg,
+just drop the rope underneath.
+Yes. And again. One more. Uuhhh…
+All right, now tie it all up.
+No, tighter than that.
+Don't worry about cutting off the blood.
+No, not like that.
+Where'd you learn to tie knots?
+Just cross it over and—here, let me."
+
+Sergeant Gyalpa propped himself up on one elbow.
+The prince sat back and watched him untie and re-tie
+the last knots in the rope that held the splint together.
+His face was drawn,
+but his grip was strong.
+
+When it was finally done, he looked up at the prince.
+"Thanks," he said. "You did well."
+
+The prince swallowed.
+He wanted to lie down in his bed back in Ghohraj and sleep for a week,
+but instead he got to his feet.
+"Let's get you back up on Bucket."
+He put Sergeant Gyalpa's arm around his neck as the older man struggled up onto his good leg.
+The sergeant pulled himself up onto Bucket's back
+until he was lying on his stomach in the middle of the saddle,
+then swung his good leg over and forced himself upright.
+
+They set off along the narrow road.
+Their conversation was sparse:
+"Watch out, that mud will be slippery,"
+or "Put those branches on behind me, we can use them for a fire tonight."
+
+The prince guessed that they had been traveling at least a coupel of hours
+when Sergeant Gyalpa finally said,
+"All right, let's camp here."
+The little valley had widened and flattened
+so that there was twenty strides or so of level ground on either side of them.
+There was grass,
+too,
+and a few blackberry bushes,
+and patches of reeds in the river.
+
+"Is it safe to let Bucket graze?"
+Thokmay asked as the sergeant dismounted awkwardly.
+
+Sergeant Gyalpa shook his head.
+"Not hardly.
+You ought to have some oats and all in your—yes, good, give her that.
+Anything she eats from around here will probably poison her,
+or turn her into a frog."
+He forced a smile.
+"Can you see me riding on frogback?"
+
+"I can see us both riding on one of Noxy's clouds," the prince said,
+trying to match the sergeant's light tone.
+"It'd be softer than that saddle,
+and we'd probably be back in the garrison by now."
+
+The sergeant snorted.
+"Thanks all the same, but I'll take my chances down here.
+I know how to fall off a horse,
+but falling off one of those things…"
+He shook his head.
+
+Thokmay pointed at a clump of trees a few strides from the road.
+"There are some branches over there.
+If you can stack the ones we have,
+I'll get some more.
+That ought to get us through the night."
+
+"Yes, honored," the sergeant said.
+
+The prince stopped in his tracks, then turned slowly.
+"That's the first time you've called me that since the tornado,"
+Thokmay said.
+
+"Is it, honored? I'm sorry."
+The sergeant braced a branch against the stony ground and leaned on it until it snapped,
+then set the two pieces on top of two smaller pieces he had already laid out.
+
+The prince took a deep breath.
+"I wouldn't mind if you didn't bother, you know."
+
+The sergeant shook his head and broke another branch.
+"I'm sorry, honored,
+but it might be a hard habit to break afterward,
+and that would be a bad example for the troops."
+
+The prince nodded slowly.
+"So what's changed from an hour ago?"
+
+The sergeant looked up at him.
+"An hour ago,
+I didn't think I'd ever see any of the other troops again to set a bad example."
+He broke another branch in two.
+"Best get that firewood, honored.
+I don't think it's going to get dark, but I can feel the cold coming on."
+
+Prince Thokmay nodded.
+He had felt the air growing cold as well.
+With the hatchet in his hand,
+he walked over to the bushes beneath the nearby trees.
+They rustled slightly as he approached,
+even though there was no wind.
+
+"Easy, easy," he said softly.
+Somehow it didn't seem strange in this place to be talking to a plant.
+"I'm not here for you.
+I just want those old scraps of wood."
+He gave the bushes a wide berth
+and started stacking the dried-up old sticks in his arms.
+
+He didn't notice the first flake of snow, or the second.
+It wasn't until one landed on his cheek
+that he looked up and realized that the air was full of tiny dancing white bits of fluff.
+"But it's the middle of summer," he muttered, exasperated.
+"Even here!"
+He picked up a few more pieces of wood and turned around.
+
+The snow was falling so thickly that he could barely make out the road.
+The flakes melted as soon as they touched the ground,
+but the air was getting colder by the second.
+"Sergeant!" the prince shouted.
+"Sergeant, can you hear me?"
+
+"Yes, honored," the sergeant called.
+Prince Thokmay heard the sergeant grunt as he tried to get up.
+"What's the problem?"
+
+He brushed a handful of snow from his hair.
+"I just can't see through all this snow."
+
+It wasn't until the sergeant shouted, "What snow, honored?"
+that Prince Thokmay felt afraid.
+He stumbled in the direction that he thought the sergeant's voice had come from.
+The snow wasn't melting on the ground any longer.
+
+"Sergeant!" he shouted.
+"Sergeant, have you got the fire going?"
+
+"Yes, honored! Can you see it?"
+
+"No! Keep talking, I'll try to get to you!"
+
+"But honored, I can see you plain as day!"
+Prince Thokmay had to strain to hear the sergeant's voice.
+The falling snow was muffling everything,
+and his fingers were already going numb from the cold.
+
+"Tell me which way to walk!" the prince shouted back desperately.
+"Hurry!"
+
+"Straight ahead, honored!
+No, left! Left!
+That's right.
+Now straight ahead!
+No, you're turning again!"
+
+"I am not!" the prince shouted back in frustration.
+"I'm walking in a straight line!"
+
+"Stay where you are!" the sergeant shouted.
+"I'll come and get you!"
+
+"No!" The prince paused for a moment.
+His teeth were chattering.
+Suddenly he had an idea.
+"Sergeant! Sergeant, can you hear me?"
+
+"Yes, honored!"
+
+"Sergeant, I want you to put out the fire! Right now!"
+The prince dropped the armload of wood he was somehow still carrying
+and took another few steps through the ankle-deep snow.
+He couldn't feel his feet.
+
+"But honored—"
+
+"Right now!" The prince almost screamed.
+
+There was no sound for a moment, then the sergeant shouted,
+"It's out, honored. What now?"
+
+"Just keep talking!" the prince shouted, hoping he had guessed right.
+"Just… k-k-keep… t-t-t-talking!"
+
+Thokmay slogged forward another step, and another.
+Was the snow falling a little less heavily?
+He tried not to think about it.
+He remembered his uncle's stories about retreating from Ax Medicine in a blizzard,
+then tried to push them out of his mind as well.
+Most of the soldiers in his uncle's regiment had never seen Garheim again.
+
+But a few heartbeats later there was no doubt:
+the snow was easing off and the air was warming up.
+Prince Thokmay shouted,
+"Sergeant?
+Am I headed the right way?"
+
+"Yes, honored.
+No, wait, turn right.
+Now go ahead.
+No, turn right again, and—hold on, honored, stay right where you are."
+Something thumped to the ground a few feet away from the prince a moment later.
+
+"Can you see that?" the sergeant called.
+It was a saddle bag with one of the tent's stay ropes tied to it.
+
+The prince stumbled forward and grabbed the rope.
+"I've got it!" he shouted.
+
+One moment Prince Thokmay was calf-deep in snow.
+The next, he was standing on the road with the rope in his hands.
+He whirled around.
+The rope stretched no more than ten strides to the saddle bag,
+which sat dumbly on the dry, stony ground.
+The wood the prince had collected was tumbled together a few strides from the bag.
+
+"But I—but it was snowing!" the prince mumbled.
+
+"I know," the sergeant said. "You're covered in it. And your hands!
+Honored, you're freezing! I'll get the fire—"
+
+"N-N-No!" the prince chattered.
+"I think th-that's what st-st-started it.
+The l-l-land was ang-ang-angry about th-the f-fire."
+
+"Well, it didn't react here, honored," the sergeant said firmly.
+"And we have to get you warmed up."
+
+It only took Sergeant Gyalpa a few heartbeats
+to coax a small spark to life in a pile of tinder,
+and another few moments to get it to catch on a small branch.
+The prince watched miserably as the flame slowly spread through wood,
+which was still smoldering from the fire the sergeant had doused.
+Painful feeling slowly returned to his fingers and toes.
+
+He sniffled and wiped his nose.
+"I couldn't see anything," he said.
+"I mean, out there."
+
+"I couldn't either, honored," the sergeant said.
+"You were just stumbling around, it looked like."
+
+He frowned.
+"I wonder… Sergeant Inambu said once that there were safe roads in the Blight.
+The Pilots built them so that they could cart stuff in to Fast Lake to dump it.
+Maybe this is what's left of one of those."
+
+"S-so are we headed in toward the lake, or out?" the prince asked.
+
+The sergeant shook his head.
+"I don't know, honored.
+Direction doesn't mean a lot in here."
+He looked up at the featureless sky.
+"I just wonder what's going to be waiting for us when we get out.
+Mukh must be planning something, but what?"
 
 </section>
 <section markdown="1">
