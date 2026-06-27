@@ -49,7 +49,7 @@ date: "2026-05-21"
 
 ---
 
-## 3. Before/After With No Control Group
+## 3. No Control Group
 
 -   You adopt LLMs in January; pull requests ship faster by June
 
@@ -62,7 +62,7 @@ date: "2026-05-21"
 
 ---
 
-## 4. Asking Developers If They Feel More Productive
+## 4. Asking Developers
 
 -   "87% of developers report feeling more productive with AI tools" [Liang2024]
 
@@ -74,7 +74,7 @@ date: "2026-05-21"
 
 ---
 
-## 5. Counting Commits, Pull Requests, and Tickets
+## 5. Counting the Obvious
 
 -   McKinsey proposed measuring productivity via commit and PR counts [McKinsey2023]
 
@@ -104,7 +104,7 @@ date: "2026-05-21"
 
 ---
 
-## 7. Treating Adoption Rate as a Success Metric
+## 7. Treating Adoption as Success
 
 -   "90% AI tool adoption across engineering" is a procurement outcome, not a productivity outcome
 
@@ -118,7 +118,7 @@ date: "2026-05-21"
 
 ---
 
-## 8. Comparing Volunteers to Non-Volunteers
+## 8. Volunteers vs. Non-Volunteers
 
 -   Studies comparing LLM adopters to non-adopters are comparing two different populations
 
@@ -131,7 +131,7 @@ date: "2026-05-21"
 
 ---
 
-## 9. Measuring the Individual Instead of the System
+## 9. Individual vs. System
 
 -   Individual coding speed is the easiest thing to measure, so it gets measured
 
@@ -146,7 +146,7 @@ date: "2026-05-21"
 
 ---
 
-## 10. Measuring During the Novelty Period
+## 10. Measuring the Novelty Period
 
 -   A four-week study that finds a productivity boost has found a *four-week* boost
 
@@ -160,7 +160,7 @@ date: "2026-05-21"
 
 ---
 
-## 11. Treating Suggestion Acceptance Rate as a Quality Signal
+## 11. Suggestion Acceptance
 
 -   Higher acceptance rates are presented as evidence the tool is useful
 
@@ -188,9 +188,25 @@ date: "2026-05-21"
 
 ---
 
+## Old Man Shakes Fist at Clouds
+
+-   [It Will Never Work in Theory](https://neverworkintheory/)
+    was a multi-year attempt to get researchers and practitioners to talk to each other
+
+-   [It didn't work](https://www.computer.org/csdl/magazine/so/2024/03/10424425/1Ulj1Qa8tJ6)
+
+-   I think we should replace today's undergraduate introductions to software engineering
+    with a course on what we actually know and why we believe it's true
+
+-   If we had done that ten years ago, we would have been ready for today
+
+-   But everyone is overwhelmed and morale is low
+
+---
+
 ## Conclusion
 
--   These twelve errors are not unique to AI research
+-   These errors are not unique to AI research
 
 -   The same problems appear in studies of agile, TDD, and other practices
 
@@ -198,8 +214,7 @@ date: "2026-05-21"
 
 -   The full post, with citations: <https://third-bit.com/2026/05/20/twelve-ways-to-be-wrong/>
 
--   If you'd like a one-day introduction to research methods that avoid these errors,
-    I'm [gvwilson@third-bit.com](mailto:gvwilson@third-bit.com)
+-   If you'd like to know more: [gvwilson@third-bit.com](mailto:gvwilson@third-bit.com)
 
 ---
 
