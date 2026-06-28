@@ -3247,8 +3247,6 @@ And if they thought they could take it away from me without consequences,
 I'm pretty sure our welcome would have been much less friendly."
 He raised an eyebrow at Doctor Johel.
 
-<div class="change" markdown="1">
-
 The old woman sighed theatrically.
 "Always so cynical.
 I suppose some things never change."
@@ -3261,8 +3259,6 @@ Doctor Johel's expression tightened.
 "Fine, thank you."
 Her tone made it clear that whatever Wales had asked about
 wasn't something she wanted to discuss.
-
-</div>
 
 Rothera bustled around them as the bus left the dock behind.
 They hummed quietly through the city streets
@@ -7067,14 +7063,10 @@ the green bar on the screen beside her face reading 99%.
 "Chances of what?"
 Wales asked.
 
-<div class="change" markdown="1">
-
 Doctor Johel's eyes glittered.
 "Of getting to Mount Tyree.
 And doing something useful once we're there.
 You know what's at stake, Johnson."
-
-</div>
 
 Through the window of the pilot house,
 Iffy saw a figure climb through a hatch and onto the *Bengal*'s deck.
@@ -7091,16 +7083,12 @@ then made a pistol with her hand and pointed it at them.
 
 "What the hell is *she* doing here?" Wales growled.
 
-<div class="change" markdown="1">
-
 "I thought the Australians would be more welcoming if I showed up with a gift,"
 Doctor Johel replied calmly.
 "And I thought *you* might be more reasonable if I had a stick as well as a carrot."
 
 "Still waiting for the carrot,"
 Wales muttered.
-
-</div>
 
 The doctor and three Marines came over to the *Guinevere* an hour later
 in a sleek little runabout that looked like a lethal miniature of the *Bengal*.
@@ -8321,8 +8309,6 @@ they're not listenin' but they got somethin' to watch where I go?*
 
 *«yes / confirm»*
 
-<div class="change" markdown="1">
-
 She suddenly remembered
 an image of herself from above
 as she walked up to the door of Mister Mishra's workshop a few minutes earlier.
@@ -8330,8 +8316,6 @@ The image was almost immediately replaced by one of Doctor Johel's face.
 Both felt genuine,
 but somehow crisper or sharper than actual memories.
 Were they the machines' way of telling her who was keeping an eye on her?
-
-</div>
 
 Before she could chase the thought any further,
 Jeep handed her a mug of chai.
@@ -8447,15 +8431,11 @@ when she had done all the haggling she was going to do over a bag of onions.
 She lowered her voice to a loud whisper.
 "I'm bein' surveilled."
 
-<div class="change" markdown="1">
-
 The raccoon chittered with annoyance,
 lowered itself to all fours,
 and scampered away
 to disappear behind a pair of crates stacked against the wall.
 Iffy sighed and turned back toward the mansion.
-
-</div>
 
 She spent the rest of the day doing homework
 on her very comfortable bed.
@@ -9174,15 +9154,11 @@ turning to stand at attention in the hall as it swung close.
 This will just take a moment."
 Doctor Johel gestured at a comfortable-looking chair opposite her desk.
 
-<div class="change" markdown="1">
-
 Sandrine sat on the edge of the seat,
 her back straight and her hands folded neatly in her lap.
 "What do you know about the Niobium project?"
 Doctor Johel asked,
 twirling a pen back and forth through her fingers.
-
-</div>
 
 Sandrine shook her head.
 "Never heard of it, ma'am."
@@ -9231,8 +9207,6 @@ skinny,
 female,
 and with something blobbish and silvery scattered through her like spilled mercury.
 
-<div class="change" markdown="1">
-
 "Citizen Kwan—she prefers Iffy, by the way—well,
 she has some rather interesting modifications.
 The first clone in her lineage seems to have been made
@@ -9243,8 +9217,6 @@ It's all rather a mystery,"
 Doctor Johel mused,
 twirling the pen in her fingers again.
 "What I'd like you to do is unravel it for me."
-
-</div>
 
 "I'm afraid I'm not much good at puzzles, ma'am,"
 Sandrine said.
@@ -9787,8 +9759,6 @@ I think that's all the proof—"
 Sandrine raised a finger.
 "If you'll just give it a moment?"
 
-<div class="change" markdown="1">
-
 Doctor Johel sat back.
 Her pen twirled end over end through her fingers,
 first one way and then the other.
@@ -9798,8 +9768,6 @@ Five steps, ten—when it reached the edge of the desk
 the ostrich put one foot into empty air and stopped.
 Its head continued bobbing up and down,
 but its legs no longer propelled it forward.
-
-</div>
 
 "I say,"
 Doctor Johel said admiringly.
@@ -10330,8 +10298,6 @@ Try again.
 Make a fist.
 Up and…down.
 
-<div class="change" markdown="1">
-
 Weight on her chest pressed her into the chair
 as the single-seat hoverjeep launched itself.
 It was still accelerating as they zoomed out of the stadium,
@@ -10341,8 +10307,6 @@ and left Bharati behind.
 Sandrine thought.
 *If you see your friend again, tell her about the mudslide, will you?
 And thank you—it's been an honor.*
-
-</div>
 
 Iffy felt an upside-down ache in her chest when she regained consciousness
 and knew immediately that Sandrine was gone.
@@ -10772,8 +10736,6 @@ where they were going,
 who he worked for,
 and what was going to happen to her—so she stopped asking.
 
-<div class="change" markdown="1">
-
 Late one night,
 when Edson was snoring in his cot,
 she climbed the rungs as quietly as she could
@@ -10791,8 +10753,6 @@ climbed back down,
 curled up on her cot,
 and tried to make herself believe that Edson's gentle snores were
 the sound of waves.
-
-</div>
 
 "Aright,"
 he finally said a couple of days later,
@@ -10843,8 +10803,6 @@ he told her,
 but with luck they would look like a colony of arctic hares in a burrow
 rather than two people
 kilometers away from anywhere people ought to be.
-
-<div class="change" markdown="1">
 
 *«message»*
 
@@ -10905,8 +10863,6 @@ The tent's roof was claustrophobically close above her.
 The wind sounded wrong,
 the ground didn't rock her the way the ocean did,
 and she was tired of things happening to her.
-
-</div>
 
 When Edson wriggled out of his tent a few hours later
 Iffy was sitting cross-legged in front of hers,
@@ -11636,14 +11592,10 @@ Another charging a Marine,
 only to have its target step aside at the last moment
 and snap a kick that broke the ox's leg.
 
-<div class="change" markdown="1">
-
 The Marine crouched down beside the fallen ox
 and raised the visor on her helmet.
 Captain Kerse grinned savagely,
 then made a pistol with her hand and pointed it at them.
-
-</div>
 
 The app flashed.
 The images froze as whatever had been transmitting went offline.
@@ -11903,15 +11855,12 @@ He tossed his rifle aside,
 its ammunition spent,
 and scuttled uphill to sit beside her with his back against the outcrop.
 
-<div class="change" markdown="1">
 
 "Hey you lot!"
 Iffy's heart sank at the sound of Captain Kerse's voice.
 "You got two choices—smart or dead.
 I figure Wales is gonna come look for you either way,
 so it's no nevermind to me which you pick."
-
-</div>
 
 Edson looked at Iffy.
 "Any ideas?"
@@ -11923,15 +11872,11 @@ Edson chuckled.
 He was still chuckling when the Marines edged cautiously around the rocks
 and hauled them to their feet.
 
-<div class="change" markdown="1">
-
 One Marine carried Iffy despite her protests.
 Another kept a metal-gloved hand on Edson's arm.
 Two more carried their bicycles down the slope to meet the hovercraft,
 while Captain Kerse brought up the rear,
 whistling a little tune that Iffy didn't recognize.
-
-</div>
 
 A hatch opened on the hovercraft's leading edge just as they reached it.
 Something bulbous poked out.
@@ -12041,8 +11986,6 @@ Captain Kerse ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," Doctor Johel said,
 gesturing at the padded chair to the left of hers.
 
-<div class="change" markdown="1">
-
 "And buckle up."
 Captain Kerse took another seat and gave Iffy a wolf-like grin.
 "This yobbo was built for shock and awe, not comfort."
@@ -12055,8 +11998,6 @@ Doctor Johel clucked her tongue.
 "Don' worry about it,"
 Iffy muttered.
 
-</div>
-
 Instead of replying,
 Doctor Johel laid her hands on the apps in the arms of her chair,
 bringing the displays in front of them to life.
@@ -12067,8 +12008,6 @@ the rotational speeds of idling engines,
 weather reports,
 and projections from a hundred independent simulations of the next few moments
 vied for attention like courtiers waiting on a queen.
-
-<div class="change" markdown="1">
 
 "Where are we goin'?" Iffy asked sullenly.
 She had tried loosening the straps of her harness so that she could wriggle out if she needed to,
@@ -12096,8 +12035,6 @@ Doctor Johel nodded.
 Now, don't mind the noise.
 You'll get used to it."
 
-</div>
-
 The engines beneath them rumbled.
 The hovercraft rose like a ship being lifted by a wave
 and rotated smoothly on its cushion of air.
@@ -12105,8 +12042,6 @@ Orange status lights blinked and turned green
 as sentry bots climbed back aboard.
 "All accounted for, ma'am,"
 said the Marine seated beside Iffy.
-
-<div class="change" markdown="1">
 
 Doctor Johel flicked her fingers again.
 The hovercraft picked up speed like an overweight seagull trying to take off.
@@ -12137,8 +12072,6 @@ Her voice was almost gentle.
 but I 'spect it'll help me sleep.
 He comes for you,
 best you not be in the way."
-
-</div>
 
 A Marine arrived a few silent minutes later
 with a patch to dull the pain in Iffy's knee
@@ -12751,8 +12684,6 @@ your bunkers would allow them to wait out the worst the southern continent could
 
 ## Chapter 14
 
-<div class="change" markdown="1">
-
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
 but then she saw the silver sheen beneath the bear's fur.
 A moment later a familiar voice said,
@@ -12803,8 +12734,6 @@ Iffy asked as the Ecologist swore in three different languages.
 "It shocked me,"
 he said indignantly.
 
-</div>
-
 *«undesired»*
 Ideas emerged in Iffy's mind,
 bumping into each other like ice floes.
@@ -12822,8 +12751,6 @@ She lifted the hatch.
 "Secret lair, eh?"
 Edson said,
 looking over her shoulder at the laddered shaft descending into the mountain.
-
-<div class="change" markdown="1">
 
 She shrugged.
 "Think there's treasure down there?"
@@ -12871,8 +12798,6 @@ The tweaked bears' tech would dampen and modify their heat signatures
 to make them look like half a dozen arctic rabbits
 fleeing from their unmodified companion.
 As for Edson and Wales—
-
-</div>
 
 She shook her head.
 It didn't matter.
@@ -13168,16 +13093,12 @@ wishing she believed her own words
 and wondering how much of the Shepherds was now in the guard robots,
 and how much of their programming was in the Shepherds.
 
-<div class="change" markdown="1">
-
 The first *crack!* echoed through the tunnel a few moments later.
 Gunfire chattered in the distance—Iffy couldn't tell how far away—followed by
 the sound of another explosion.
 Her heart sank.
 If Marines were in the tunnel,
 the Edson and Wales were—
-
-</div>
 
 She pushed the thought away.
 "Full speed!"
@@ -13297,16 +13218,12 @@ They would heal—the tweaks in her genes were quadruply redundant to make sure 
 healing would take time
 and that was something she/they/the world didn't have enough of right now.
 
-<div class="change" markdown="1">
-
 "Serves you bloody right,"
 said an Australian voice.
 Captain Kerse raised her visor and looked at her
 as if she was a barnacle to be scraped off the side of a ship.
 Her last thought before the drugs took her away was,
 "Great…"
-
-</div>
 
 She woke feeling nauseous.
 Yawning triggered a dull ache in her side,
@@ -13371,8 +13288,6 @@ species were disappearing every day,
 and no matter what people did,
 their models kept making the same dark predictions."
 
-<div class="change" markdown="1">
-
 "The people responsible suffered less than most,
 of course,
 but they still suffered.
@@ -13383,14 +13298,10 @@ As things got worse,
 a few scientists managed to convince some of them
 that the only solution was to move to Hell."
 
-</div>
-
 "Upload themselves?"
 Iffy scoffed.
 "An' then what,
 try t' find a way t' spend money while they're bein' torn apart by malware?"
-
-<div class="change" markdown="1">
 
 Doctor Johel shook her head.
 "No.
@@ -13453,8 +13364,6 @@ I think she found a way in.
 I think she managed to talk to the machines,
 and I think you can do the same."
 
-</div>
-
 Iffy burst out laughing.
 Doctor Johel blinked.
 "Well, that's not quite the reaction I was expecting."
@@ -13467,8 +13376,6 @@ She lowered her voice.
 "Oh, Iffy, you're th' chosen one.
 Shad."
 
-<div class="change" markdown="1">
-
 "Your First said pretty much the same thing when Johnson and I tracked her down,"
 Doctor Johel said drily.
 "It took us twenty years.
@@ -13476,8 +13383,6 @@ I don't know how she got to Cape Town or what happened to Suhailah.
 All I know is that your First had the same ability you do.
 Somehow you can talk to them—really talk,
 not just trade deals and cryptic warnings about no-go zones but actual conversations."
-
-</div>
 
 "And there's another thing,"
 the doctor continued as Iffy opened her mouth to protest.
@@ -13488,8 +13393,6 @@ but somehow you all managed to stay hidden."
 She spread her hands.
 "Someone likes you, Iffy.
 Someone or something has been looking out for you."
-
-<div class="change" markdown="1">
 
 A lifetime of hurt and anger boiled up inside Iffy.
 "Wasn't anyone lookin' out for th' *Rushin Doll* when she went under,"
@@ -13507,8 +13410,6 @@ Doctor Johel corrected.
 The governor—well, you've met the other two.
 You can imagine what he was like when he thought
 he'd been handed a way to control the machines."
-
-</div>
 
 Something clicked in Iffy's head.
 "So Mister Wales bumpin' into me at th' Sandhu's—that
@@ -13917,8 +13818,6 @@ then paused to look back at her.
 "Aright," Iffy said.
 "Let's go home."
 
-<div class="change" markdown="1">
-
 Edson was waiting for them on the surface.
 "You look like hell," he said,
 hugging her tight.
@@ -13936,8 +13835,6 @@ his eyes widening.
 He looked from her to the raccoon and back.
 "You can talk to them," he breathed.
 "Like, properly talk 'n' all."
-
-</div>
 
 She nodded.
 A wide grin split his face.
@@ -13984,8 +13881,6 @@ and the little craft juddered with every breeze,
 but Iffy didn't care.
 As she turned toward Halley,
 it felt like the whole world was laid out in front of her.
-
-<div class="change" markdown="1">
 
 Edson tapped her shoulder as they neared the port.
 "Aussies are in a twist," he said happily,
@@ -14040,7 +13935,5 @@ like a farewell shouted from a receding ship.
 
 Iffy smiled.
 *Good enough.*
-
-</div>
 
 </section>
