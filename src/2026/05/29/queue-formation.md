@@ -1,7 +1,7 @@
 ---
 title: "Queue Formation"
 date: 2026-05-29
-category: programming simulation
+category: programming
 katex: true
 ---
 

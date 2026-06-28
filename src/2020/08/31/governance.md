@@ -57,8 +57,8 @@ just as they pick [an OSI-approved license license](https://opensource.org/)
 or adopt [the Contributor Covenants](https://www.contributor-covenant.org/).
 For example,
 a project with a single decision maker (typically the founder) could copy
-the [bucks stops here](@root/files/2020/08/buck-stops-here.md) file into its repository,
-while a consensus-based team project could use [Martha's Rules](@root/files/2020/08/marthas.txt).
+the bucks stops here file into its repository,
+while a consensus-based team project could use Martha's Rules.
 I don't think we would need many more,
 but agreeing on names and wording,
 making rules findable,

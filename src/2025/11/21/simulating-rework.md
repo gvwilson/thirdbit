@@ -1,7 +1,7 @@
 ---
 title: Simulating Rework
 date: 2025-11-21
-category: simulation
+category: programming
 ---
 
 In [yesterday's post][making-sense] we started collecting data from our simulation,

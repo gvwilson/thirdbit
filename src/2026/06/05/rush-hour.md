@@ -1,7 +1,7 @@
 ---
 title: "Rush Hour Displacement"
 date: 2026-06-05
-category: programming simulation
+category: programming
 katex: true
 ---
 $N$ commuters all want to leave for work at the same preferred time. The road has a fixed capacity: up to $C$ commuters per time slot travel quickly, but when more than $C$ try to leave in the same slot, everyone in that slot experiences extra delay proportional to the overload.

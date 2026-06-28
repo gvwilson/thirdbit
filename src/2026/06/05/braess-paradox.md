@@ -1,7 +1,7 @@
 ---
 title: "Braess's Paradox"
 date: 2026-06-05
-category: programming simulation
+category: programming
 katex: true
 ---
 A city has two routes from source $S$ to destination $T$:

@@ -1,7 +1,7 @@
 ---
 title: "Little's Law"
 date: 2026-05-30
-category: programming simulation
+category: programming
 katex: true
 ---
 

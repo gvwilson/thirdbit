@@ -1,7 +1,7 @@
 ---
 title: "Basic Ideas in Queueing Theory"
 date: 2026-05-28
-category: programming simulation
+category: programming
 katex: true
 ---
 

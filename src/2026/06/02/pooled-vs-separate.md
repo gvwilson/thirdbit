@@ -1,7 +1,7 @@
 ---
 title: "Pooled vs. Separate Queues"
 date: 2026-06-02
-category: programming simulation
+category: programming
 katex: true
 ---
 A facility has two identical servers. Customers arrive as a Poisson process and each needs one server for an exponentially distributed service time. Which queueing discipline should the facility use?

@@ -1,7 +1,7 @@
 ---
 title: Not Created Equal
 date: 2025-11-27
-category: simulation
+category: programming
 ---
 
 [Yesterday's post][malice] pointed out that

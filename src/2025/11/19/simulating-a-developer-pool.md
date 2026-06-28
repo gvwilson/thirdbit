@@ -1,7 +1,7 @@
 ---
 title: Simulating a Developer Pool
 date: 2025-11-19
-category: simulation
+category: programming
 ---
 
 Following [yesterday's post][starting-to-simulate]

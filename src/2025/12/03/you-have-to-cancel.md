@@ -1,7 +1,7 @@
 ---
 title: You Have to Cancel
 date: 2025-12-03
-category: simulation
+category: programming
 ---
 
 It has taken me almost three hours to answer [my earlier question][sturdiness] about [SimPy][simpy],

@@ -1,7 +1,7 @@
 ---
 title: You Can't Tell
 date: 2025-11-25
-category: simulation
+category: programming
 ---
 
 [Yesterday's post][analyzing] checked our prediction

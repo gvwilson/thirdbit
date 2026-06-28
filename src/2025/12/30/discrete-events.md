@@ -1,7 +1,7 @@
 ---
 title: Discrete Events
 date: 2025-12-30
-category: programming simulation
+category: programming
 ---
 
 My work log tells me I've spent 54 hours since mid-November

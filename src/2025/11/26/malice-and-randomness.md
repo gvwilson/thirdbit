@@ -1,7 +1,7 @@
 ---
 title: Malice and Randomness
 date: 2025-11-26
-category: simulation
+category: programming
 ---
 
 The main point of [yesterday's post][you-cant-tell] was that

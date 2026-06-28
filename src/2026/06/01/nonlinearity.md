@@ -1,7 +1,7 @@
 ---
 title: "Queue Nonlinearity"
 date: 2026-06-01
-category: programming simulation
+category: programming
 katex: true
 ---
 A single server handles jobs that arrive randomly and take a random amount of time to process. If both inter-arrival times and service times follow exponential distributions, this is called an *M/M/1 queue*, and is the simplest model in queueing theory.

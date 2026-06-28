@@ -1,7 +1,7 @@
 ---
 title: "Tandem Queue Blocking"
 date: 2026-06-05
-category: programming simulation
+category: programming
 katex: true
 ---
 Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda < \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).
