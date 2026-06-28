@@ -14,7 +14,7 @@ so I'd like to know who'd be interested in
 an hour-a-week online class that taught participants
 how to build a dozen applications from the list below in Python:
 
-<div class="row">
+<div class="row" markdown="1">
 <div class="col-6" markdown="1">
 -   a testing framework
 -   an interpreter
