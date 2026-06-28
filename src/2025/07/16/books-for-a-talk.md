@@ -4,7 +4,7 @@ date: 2025-07-16
 category: book-reviews ethics
 ---
 
-I'm finally turning [my proposal](@root/ideas/sdgc/) for a book titled
+I'm finally turning [my proposal](@root/sdgc/) for a book titled
 *Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, Justice, and Power*
 into a talk.
 The sources I plan to mention are listed below;

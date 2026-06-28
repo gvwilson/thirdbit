@@ -4,7 +4,7 @@ date: 2026-03-30
 category: education programming student-projects
 ---
 
-A couple of years ago I posted [a list of student projects](@root/projects/) I'd be interested in supervising.
+A couple of years ago I posted a list of student projects I'd be interested in supervising.
 Here's what's happened since:
 
 | Project				    | Status      |
