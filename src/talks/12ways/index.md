@@ -190,7 +190,7 @@ date: "2026-05-21"
 
 ## Old Man Shakes Fist at Clouds
 
--   [It Will Never Work in Theory](https://neverworkintheory/)
+-   [It Will Never Work in Theory](https://neverworkintheory.org/)
     was a multi-year attempt to get researchers and practitioners to talk to each other
 
 -   [It didn't work](https://www.computer.org/csdl/magazine/so/2024/03/10424425/1Ulj1Qa8tJ6)
