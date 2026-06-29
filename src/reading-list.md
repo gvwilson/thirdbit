@@ -217,3 +217,5 @@ template: page
 | Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |
 | The Tinder Box | M.R. Carey | 978-0316595490 | 2026 |
 | Auntie Heroes | Rita Beeman | 979-8257583667 | 2026 |
+| The Spacecraft Hacker's Handbook | Andrzej Olchawa | 978-1718504745 | 2026 |
+| Bodies of Magic | Freya Marske | 978-1250341655 | 2026 |
