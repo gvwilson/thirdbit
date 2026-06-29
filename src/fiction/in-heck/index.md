@@ -904,7 +904,7 @@ with his hands clasped behind his back.
 "Now, who has questions?" Miz Nabbles asked.
 
 Hands shot into the air.
-How old had Special Blazes been when he became a Operator?
+How old had Special Blazes been when he became an Operator?
 Eighteen, but he'd joined a troop of Junior Operators when he was twelve.
 Oh, really?
 There wasn't one in Rusty Bridge?

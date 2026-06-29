@@ -285,7 +285,7 @@ Dockety had said when she asked why they hadn't stayed.
 "Some of them have vanished.
 No one knows why."
 
-"Do you think it's the Specials?" Sindy had asked.
+"Do you think it's the Operators?" Sindy had asked.
 
 "No one knows," Dockety had repeated.
 
