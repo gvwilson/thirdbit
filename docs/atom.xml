@@ -3,12 +3,43 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-06-26T00:00:00Z</updated>
+ <updated>2026-06-29T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>A Modest Proposal</title>
+   <link href="https://third-bit.com/2026/06/29/a-modest-proposal/"/>
+   <updated>2026-06-29T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/06/29/a-modest-proposal/</id>
+   <content type="html">&lt;p&gt;Would you like to have some real impact on the tech industry?
+Do you have $100,000 to spend?
+If you answered &amp;ldquo;yes&amp;rdquo; to both questions,
+ask software engineering researchers
+(the kinds of people who participated in &lt;a href=&#34;https://neverworkintheory.org/&#34;&gt;It Will Never Work in Theory&lt;/a&gt;)
+to design a study that companies could run internally
+to measure the impact that genAI adoption by programmers is having on business outcomes.
+Spend $50K to get expert reviews from both practitioners and (other) researchers,
+publish all of the proposals with the reviews,
+and award prizes of $25K, $15K, and $10K to the three best proposals.
+(If you &lt;em&gt;really&lt;/em&gt; want to have an impact,
+do this in two rounds so that participants can hybridize their best ideas.)&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;$100K feels like a lot of money…&lt;/dt&gt;
+&lt;dd&gt;Really? Compared to what you&amp;rsquo;re spending on tokens?&lt;/dd&gt;
+&lt;dt&gt;Does anybody actually know how to measure genAI&amp;rsquo;s impact?&lt;/dt&gt;
+&lt;dd&gt;It&amp;rsquo;ll be interesting to find out.
+(After all, &amp;ldquo;yes&amp;rdquo; and &amp;ldquo;no&amp;rdquo; are equally interesting answers.)&lt;/dd&gt;
+&lt;dt&gt;Will people write decent proposals for just a few thousand dollars?&lt;/dt&gt;
+&lt;dd&gt;No, but they&amp;rsquo;ll do it for the attention,
+and for the chance to be involved in running the study if their proposal is a winner.&lt;/dd&gt;
+&lt;dt&gt;I&amp;rsquo;m interested—how do I get the ball rolling?&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;Let&amp;rsquo;s talk&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
  
  <entry>
    <title>Years Too Late</title>
@@ -6444,50 +6475,6 @@ but I hope you&amp;rsquo;ll find it informative, entertaining, and inspiring.&lt
 &lt;p&gt;The variance $\sigma^2$ measures how spread out the gap sizes are. A perfectly regular bus schedule has $\sigma^2 = 0$ and gives the naive answer $\mu/2$. An exponentially distributed schedule has $\sigma^2 = \mu^2$, which doubles the expected wait to $\mu$. More irregular buses, higher penalty.&lt;/p&gt;
 &lt;h3&gt;Connecting to expected values&lt;/h3&gt;
 &lt;p&gt;The formula arises from a standard result: the expected length of the gap containing a random arrival is $\mu + \sigma^2/\mu$. You can think of this as the mean gap plus a correction term proportional to the variance divided by the mean. Dividing by 2 (uniform arrival within the gap) gives the wait formula above.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Late Merge</title>
-   <link href="https://third-bit.com/2026/06/03/late-merge/"/>
-   <updated>2026-06-03T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/06/03/late-merge/</id>
-   <content type="html">&lt;p&gt;A two-lane road narrows to one lane at a construction zone. Drivers face a choice:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Early (courtesy) merge: upon seeing the &amp;ldquo;Lane Ends Ahead&amp;rdquo; sign, drivers immediately move from the closing lane into the open lane.&lt;/li&gt;
-&lt;li&gt;Late (zipper) merge: drivers use both lanes all the way to the merge point, then alternate — one car from each lane in turn, like a zipper.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It turns out that late merging produces higher throughput and shorter queues than early merging, even though it feels less polite. Early merging creates a single long queue that wastes the closing lane&amp;rsquo;s capacity. Late merging fully utilises both lanes up to the bottleneck, then processes cars at the same rate with a zipper pattern. This result is not merely theoretical: the Minnesota Department of Transportation, the German ADAC, and the UK Highway Code all recommend late merging in slow-moving traffic precisely because it is provably more efficient.&lt;/p&gt;
-&lt;p&gt;The primary benefit of late merging is higher throughput: more cars complete the merge per unit time. Mean sojourn time for individual cars may actually be slightly longer under late merge, because the larger total buffer admits more cars into the system, increasing average queue occupancy. By Little&amp;rsquo;s Law $L = \lambda W$, if $\lambda$ grows faster than $L$ falls, $W$ rises. This is not a disadvantage: it means more drivers successfully pass through rather than being turned away.&lt;/p&gt;
-&lt;h2&gt;Why Early Merging Hurts&lt;/h2&gt;
-&lt;p&gt;With early merging:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;All $N$ cars queue in one lane of capacity $K$.&lt;/li&gt;
-&lt;li&gt;When the single queue is full ($K$ cars), arriving cars are turned away (blocking), reducing throughput.&lt;/li&gt;
-&lt;li&gt;The merge point processes at rate $\mu$ regardless, but there are fewer cars available to process (the second lane is empty and wasted).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;With late merging:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Cars distribute across two lanes, each of capacity $K$ (total $2K$).&lt;/li&gt;
-&lt;li&gt;The merge point receives supply from both lanes, reducing starvation.&lt;/li&gt;
-&lt;li&gt;Blocking occurs only when &lt;em&gt;both&lt;/em&gt; lanes are simultaneously full, a rarer event.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The key metric is the &lt;em&gt;blocking probability&lt;/em&gt;: the fraction of arriving cars turned away because the pre-merge buffer is full. Let $\rho = \lambda/\mu$ be the utilisation of the merge bottleneck. For a finite-buffer M/M/1/K queue the blocking probability is:&lt;/p&gt;
-&lt;p&gt;$$P_{\text{block}} = \frac{(1-\rho)\rho^K}{1 - \rho^{K+1}}$$&lt;/p&gt;
-&lt;p&gt;Early merge has buffer $K$; late merge effectively has buffer $2K$ (spread across two lanes). Since $P_{\text{block}}$ decreases exponentially in $K$, doubling the available buffer dramatically reduces blocking.&lt;/p&gt;
-&lt;h2&gt;Understanding the Math&lt;/h2&gt;
-&lt;h3&gt;The finite-buffer formula&lt;/h3&gt;
-&lt;p&gt;For a queue with random arrivals, exponential service, a single server, and a buffer that holds at most $K$ cars (the M/M/1/K model), the blocking probability is:&lt;/p&gt;
-&lt;p&gt;$$P_{\text{block}} = \frac{(1-\rho)\,\rho^K}{1 - \rho^{K+1}}$$&lt;/p&gt;
-&lt;p&gt;As usual, $\rho = \lambda/\mu$ is the utilization. Notice that the numerator contains $\rho^K$. Because $\rho &amp;lt; 1$, increasing $K$ by 1 multiplies the numerator by $\rho &amp;lt; 1$, shrinking $P_{\text{block}}$ faster than linearly. Each extra slot in the buffer is more valuable than a simple linear reduction would suggest.&lt;/p&gt;
-&lt;h3&gt;Early vs. late merge in terms of $K$&lt;/h3&gt;
-&lt;p&gt;Early merging creates a single queue with buffer $K$: one lane&amp;rsquo;s worth of space. Late merging uses both lanes up to the merge point, creating an effective buffer of $2K$ cars total. Plugging $2K$ into the formula instead of $K$ replaces $\rho^K$ with $\rho^{2K} = (\rho^K)^2$. Since $\rho^K &amp;lt; 1$, squaring it makes it much smaller. This is the why doubling the buffer dramatically reduces blocking.&lt;/p&gt;
-&lt;h3&gt;Intuition about two lanes&lt;/h3&gt;
-&lt;p&gt;Here is another way to see it. Under late merge, both lanes must be simultaneously full for a car to be blocked. Suppose each individual lane is full with probability $p$. If the two lanes are roughly independent, the probability both are full at once is approximately $p^2$. For example, if $p = 0.3$, then $p^2 = 0.09$ — blocking drops from 30% to 9%. Two lanes are dramatically more forgiving than one.&lt;/p&gt;
-&lt;h3&gt;Connection to throughput&lt;/h3&gt;
-&lt;p&gt;Throughput is the rate at which cars successfully pass through the merge: $\text{throughput} = \lambda \cdot (1 - P_{\text{block}})$. Every blocked car is a car that does not get through. Reducing $P_{\text{block}}$ by doubling $K$ therefore raises throughput nearly proportionally. Late merge does not speed up the bottleneck (the merge point still processes cars at rate $\mu$) but it ensures the bottleneck is never starved of cars to process, maximizing the number of drivers who make it through.&lt;/p&gt;
-&lt;h3&gt;The broader lesson&lt;/h3&gt;
-&lt;p&gt;The key insight is that the &lt;em&gt;structure&lt;/em&gt; of a waiting space matters, not just its total size. Two separate lanes of capacity $K$ each are far better than one lane of capacity $2K$ because blocking requires both lanes to fill simultaneously. This logic generalises widely: in computer networks, having multiple independent paths reduces the chance a single congested link stalls all traffic; in hospitals, pooling patients across several triage nurses reduces the chance one idle nurse sits beside an overwhelmed colleague. Wherever there is a finite buffer feeding a shared bottleneck, the late-merge principle applies: spread the waiting space across parallel channels and blocking probability falls dramatically.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
  </entry>
  
