@@ -12,9 +12,8 @@ fiction: true
 
 *Consider Cherne.
 A diamond adrift in the heavens,
-its single continent is surrounded by a great ocean whose outer shore,
-the Worldrim,
-is an unbroken range of mountains
+its single continent is surrounded by a great ocean
+whose outer shore is an unbroken range of mountains
 that tower above even the highest-flying cloud.*
 
 *Cherne's history began with the Pilots,
@@ -22,14 +21,13 @@ and nearly ended with them as well.
 Powerful and inhuman,
 they destroyed themselves in a war
 that scarred the moon and turned Lake Karaband into a sea of glass.
-When the last battle was over the remaining Pilots disappeared,
+When it was over the  Pilots disappeared,
 leaving the world to carry on as best it could.*
 
 *Now look there,
-toward the bow,
-where the Brumoso Mountains rise above the endless squabbles of the Ninety Kingdoms.
+where the Churya Mountains look down on the endless squabbles of the Ninety Kingdoms.
 It is Redsday, the 11th of Peridot, 1272 Years Since,
-and a girl who is no longer a child but not quite yet a woman
+and a girl who is no longer a child but not quite a woman
 is standing on a cloud,
 chilled to the bone and desperately hoping that
 the old man beside her knows what he's doing…*
@@ -40,10 +38,9 @@ the old man beside her knows what he's doing…*
 Noxy dropped to one knee,
 pulling the glove off her left hand
 and pressing her palm into Big Blue's spongy gray back.
-She could mind-hear how tired the cloud was.
-He was even older than Grappa Gas,
+The cloud was even older than Grappa Gas,
 and had just flown hard into a headwind for an hour.
-
+She could mind-hear how tired he was.
 *Faster!* she urged.
 *Please, faster!*
 She shivered despite her camelskin hat and coat,
@@ -55,54 +52,58 @@ One broke off from the swirling flock and dove at his head.
 He swiped at it with one paw,
 cursing in Thindi as the black bird snapped its wings open
 so that the wind threw it sideways
-just an instant before the tiger's claws would have torn it apart.
+an instant before the tiger's claws would have torn it apart.
 
 Up ahead,
-a barren stump of rock rose like an island out of the forest.
+a barren stump of dark rock rose like an island out of the forest.
 Half a dozen drab gray tents huddled around a small fire on top of it.
 Shading her eyes with her free hand,
 Noxy saw the soldiers they were supposed to rescue.
-Their kilts and sturdy boots were travel-stained,
-and their battle masks and lacquered leather armor were scarred from fighting.
-Some had swords in their hands,
-while others held spears or bows.
 Big Blue's mate Pillow was directly above them,
-her sides rippling as she struggled to keep station in the wind,
-but the soldiers kept their eyes on the trees,
-waiting for the forest to attack again.
+her sides rippling as she struggled to keep station in the wind.
+The soldiers ignored her,
+their eyes on the trees as they waited for the forest to attack again.
 
 "You're coming in too low!" Granna Fee yelled.
-Noxy's grandmother lay full length on Big Blue,
-propped up on her elbows with her precious binoculars in her hands.
+Noxy's grandmother lay propped up on her elbows,
+a determined expression on her face.
 "Level off!"
 
-"There's no time!" Grappa Gas yelled back,
-his red-and-yellow scarf flapping madly behind him.
+"There's no time!" Grappa Gas yelled back.
+His red-and-yellow scarf flapped madly behind him.
 "We're going to have to bump and scrape!"
+
 The old man closed his eyes.
 His lips moved as he mind-spoke commands to the cloud beneath him.
 Noxy mind-heard Big Blue protest,
-but even as the old bull grumbled he bunched up
-and went into a long, steep dive.
+but even as the old bull grumbled he bunched up and went into a dive.
 
 Noxy had just a moment to think,
-*I'd be grounded for a __month__ if I even __thought__ about doing something like this,*
+*I'd be grounded for a month if I even thought about doing something like this,*
 and then the cloud thudded against the side of the peak like a sack full of wet wool.
 Noxy yelped and sprawled forward,
 landing in an untidy heap on Granna Fee's legs.
 "Sorry!" she said,
 but her grandmother was already up,
 swaying to keep her balance as the cloud scraped across the rock,
-flattened two tents,
+flattened a tent,
 and came to a halt.
 
-The tiger bounded off with a roar.
-"What are you waiting for!?" Granna Fee shouted at the soldiers,
+The tiger leaped off.
+"What are you waiting for?" Granna Fee shouted at the soldiers,
 sliding down Big Blue's flank and waving her arm as if to sweep them all onto the cloud.
 "Get on! Get on!"
 
+The soldiers' kilts and boots were travel-stained,
+and their battle masks and lacquered leather armor were scarred from fighting.
+Those who could stand on their own held bows or spears,
+or propped up those who couldn't.
+"Move move move!" one of them barked,
+pushing his companions forward.
+
 Grappa Gas caught Noxy's arm as she scrambled back onto her feet.
-"I'll help 'em up. You stay here and keep Blue together."
+"I'll help them get on.
+You stay here and keep Blue together."
 Without waiting for her to answer he stumped forward,
 his peg leg leaving dimples in the cloud.
 "And keep an eye out for squirrels!"
@@ -111,79 +112,74 @@ he yelled over his shoulder.
 Noxy glanced at the forest.
 Something big and brown swing between two trees.
 Another hairy shape followed it,
-then another.
-Suddenly the trees were full of them,
+then another,
 hooting and shaking the branches.
 
-"Grappa! Grappa! trolls!" she shouted.
-
-"I see 'em!" the old man shouted back.
-
-"And a bear!" Noxy added
-as a brown bear charged out of the trees and reared up on its hind legs
-to bellow a challenge.
+"Grappa!" she shouted.
+"Trolls! And a bear!"
+she added as a brown mass lumbered out of the trees and
+reared up on its hind legs.
 
 "Of *course* there's a bear,"
-Grappa Gas grunted as he clasped hands with the nearest soldier
-and helped him scramble up onto the cloud.
+Grappa Gas grunted,
+clasping hands with the nearest soldier to help him scramble up onto the cloud.
 A second soldier tossed his spear aside and pulled himself up beside the first.
 Together they reached back and hauled up a third man
 while Grappa Gas reached for a fourth.
 
 But instead of grabbing the cloudherd's hand,
 the man on the ground lifted a heavy canvas-wrapped bundle.
-"Never mind that, get yourself up here!" Grappa Gas ordered.
+"Never mind that, get up here!" Grappa Gas ordered.
 
-"We're not leaving them!" the man on the ground yelled back.
-One of the soldiers already on the cloud shouldered Grappa Gas aside,
+"We're not leaving them!" the man yelled back.
+One of the soldiers already on Big Blue shouldered Grappa Gas aside,
 grabbed a handful the canvas,
-and tried to drag it onto the cloud.
-His legs sank halfway to his knees with the weight.
+and heaved.
 
+His legs sank halfway to his knees.
 Noxy felt Big Blue shudder beneath them.
-She dropped to her knees and pressed her hand against the cloud once again.
+She knelt and pressed her hand against the cloud again.
 *He didn't mean to,* she mind-said,
 trying to squelch her fear so that he couldn't mind-hear it.
-*Please, stay bunched up just a little longer.*
+*Please, just a little longer.*
 She pictured the cloud pulling itself into a dense blob.
-Reluctantly,
-the cloud began to contract.
 
-Noxy heard a shrill whistle from her friends keeping watch on board Pillow.
 The trolls stopped hooting.
-Cold fear jellied in her gut.
-"Grappa—" she started to say.
+Rash whistled a shrill two-note warning from his perch on Pillow overhead.
+Cold fear jellied in Noxy's gut.
+"Grappa—"
 
-"Just keep him together!" Grappa Gas snapped.
+"Just keep Blue together!" Grappa Gas snapped.
 Cursing, he yanked another soldier up onto the cloud.
 This one was no older than she was,
 Noxy realized,
-his face marked by four parallel scars that looked like they had only just healed.
-He took two steps before his feet slipped out from under him.
-He fell awkwardly beside the half-dozen canvas-wrapped bundles
-that now lay side by side on Big Blue's back.
+his face marked by four thin parallel scars that looked like they had only just healed.
+He managed two steps before slipping and falling awkwardly
+beside the trio of canvas-wrapped bundles
+that now lay on Big Blue's back.
 
 The tiger scrambled up the cloud behind the boy.
 Noxy mind-heard Big Blue's protest as the great cat's claws dug into his flank.
-*Just a little longer,* she begged.
-*Please, just a little longer.*
+*Please,* she begged.
+*Please, just a few more moments.*
 
-She glanced at the forest.
-A brown mass swirled back and forth around the bases of the trees like blown leaves.
-Above it, the trolls began hooting again
+She glanced at the forest,
+where a brown mass swirled back and forth around the bases of the trees like blown leaves.
+Above it,
+the trolls began hooting again
 as the will of the forest surged through their minds like a raging flood.
 
-"Spread yourselves out, you numbskulls!"
-Grappa Gas thundered at the soldiers struggling not to sink into the cloud.
-"Lie down if you have to!
+"Lie down, you lackwits!"
+Grappa Gas thundered at the soldiers struggling to keep their feet on the cloud's back.
+"And spread out!
 Come on, Fee, we gotta fly!"
 
 Noxy's grandmother clambered up Big Blue's flank
 with a speed born from decades of practice.
 "Now or never!" she yelled at the last soldier.
-He grabbed a handful of cloud
-just as a swarm of squirrels burst out of the forest and surged up the rocky slope,
-thousands of them leaping from stone to stone,
+Just as he grabbed a handful of cloud,
+a swarm of squirrels burst out of the forest and surged up the rocky slope.
+Hundreds of them leaped from stone to stone,
 their bright, mad eyes fixed on the intruders.
 
 *Up!* Noxy mind-yelled at Big Blue.
@@ -191,20 +187,20 @@ The cloud heaved himself into the air.
 
 The last soldier hung on desperately
 as the cloud's flank squished between his fingers like soggy dough.
-A dozen squirrels jumped at his legs.
+A dozen squirrels jumped for his legs.
 One managed to catch hold of his boot,
-scrambling up the laces and sinking its teeth into his calf.
+scramble up the laces,
+and sink its teeth into his calf.
 The soldier cursed and kicked it off.
 
 The young soldier with the scarred face
 flung himself across the cloud and grabbed his comrade's hand.
 Without thinking,
-Noxy threw herself onto the soldier's legs
-to stop him from being dragged off by his comrade's weight.
-Grunting and cursing,
-they somehow managed to get the last soldier up onto Big Blue's back.
+Noxy threw herself onto his legs
+to stop him from being dragged off by the other man's weight.
+Somehow they managed to get the last soldier up onto Big Blue's back.
 
-"You idiot!" Grappa Gas yelled as the soldier rolled over onto his back,
+"You idiot!" Grappa Gas yelled as the man rolled over onto his back,
 gasping.
 "You saints-be-damned *idiot*!
 They would have peeled you like an apple!
@@ -212,14 +208,14 @@ What was so damned important that you couldn't just leave it?"
 He kicked one of the bundles.
 "Eh? What was so—urp!"
 
-In one smooth motion the soldier had rolled onto his feet
-and grabbed a handful of Grappa Gas's collar.
+In one smooth motion the soldier had risen to his feet
+and taken hold of Grappa Gas's collar.
 "With respect, honored, I'm grateful for the rescue,"
 he panted.
 "But that's one of my men you're kicking,
 and I'll be thanking you to stop."
 
-He let go of Grappa Gas's coat.
+He let go.
 The cloudherd coughed.
 "Ah.
 Sorry, lad.
@@ -230,7 +226,7 @@ He looked down at the bodies lying at his feet.
 The soldier nodded.
 "Me too."
 He stared back at the stump of rock,
-where the squirrels had already torn the tents to pieces.
+where the squirrels were tearing the tents to pieces.
 "Me too."
 
 *Earlier that day…*
@@ -254,9 +250,8 @@ and started winding it onto a stick.
 "Do you think I should put new buttons on my coat?" Sensy asked.
 
 Noxy glanced at her.
-"Why? Are those ones coming loose?"
-She had been trying for an hour to think of a way to broach the subject of their mutual friend Rash,
-who was the only boy their age in the village.
+"Why? Are those ones loose?"
+She had been trying for an hour to think of a way to broach the subject of their mutual friend Rash.
 
 "No, they're just kind of plain."
 Sensy looked down at her bulky camelskin coat critically.
@@ -269,10 +264,11 @@ and stuffed it into the loosely-woven bag slung over her shoulder.
 "Why would you do all that work for buttons you don't need?"
 
 "Oh, you're no help," Sensy pouted.
-She had spent the winter embroidering red and green patterns on her jacket's cuffs and collar.
+She had spent the winter embroidering green and gold patterns on her jacket's cuffs and collar.
 All she seemed to want to talk about any more was her clothes and her hair
-and who she and Noxy might meet that summer.
-The only thing she *didn't* want to talk about was Rash.
+and who she and Noxy might meet at the cloudherds' midsummer gathering.
+The only thing she *didn't* want to talk about was Rash,
+who was the only boy their age in the village.
 
 "A lot of girls are like that when they get their changes,"
 Granna Fee had said when Noxy had complained about the flighty stranger
@@ -280,17 +276,16 @@ who seemed to have taken her best friend's place.
 
 "Not me!" Noxy had declared.
 
-Her grandmother had laughed.
+Her grandmother had laughed and hugged her.
 "No, sweetling, not you."
 
-She and Sensy and Rash had grown up together,
+She, Sensy, and Rash had grown up together,
 done chores together,
 played tag and make-believe in the forest around Stale together,
 and learned to mind-speak with clouds together,
 but something had changed that winter.
-Sometimes Noxy saw Sensy look at Rash,
-or Rash look at Sensy,
-and then look away as if they felt guilty.
+Sometimes Noxy saw Sensy and Rash look at each other,
+then look away as if they felt guilty.
 And when they talked to each other,
 all they did was bicker.
 If her two best friends were mad at one another,
@@ -298,22 +293,24 @@ Noxy thought,
 it was her job go sort it out.
 
 Noxy slung her bag over her shoulder.
-"Come on, there's more up on the ridge."
+"Come on, there are more up on the ridge."
 She set off without waiting for an answer.
 A moment later Sensy scrambled to catch up with her.
 
-The path was one of dozens that snaked through the evergreen forest surrounding Stale.
+The path was one of dozens that snaked through the shallows of the forest that surrounded Stale.
 Mud made it slippery where it wasn't slick with ice,
 but Noxy didn't slow down until she reached the rocky ridge overlooking her home.
 
-Below them lay the ancient walls of the fortress that held the village of Stale.
+Below them lay the ancient walls that held the village of Stale.
 The centuries had smoothed the edges of the Pilots' stonework,
-making the fortress look like it was made of snow that was just starting to melt,
+so that the fortress looked like it was made of snow that was just starting to melt,
 but it was still as solid as the mountains themselves.
-The villagers' two-story wooden houses sheltered inside the walls like ducklings in a nest,
+The villagers' two-story wooden houses sheltered inside like ducklings in a nest,
 thin licks of smoke rising from their slate chimneys.
-Narrow streets wound between goof pens, vegetable plots, and racks laden with drying spiderwebs,
-and even from a distance Noxy could hear
+Narrow streets wound between camel pens,
+vegetable plots,
+and racks laden with drying sheets of moss.
+Even from a distance Noxy could hear
 the soft musical clang of the windchimes that hung by every door.
 
 On the port side,
@@ -329,8 +326,8 @@ Noxy had spent every moment she could that winter watching the clouds,
 riding them,
 and most importantly,
 practicing mind-speech with them.
-Grownups called Big Blue and Pillow slow and lazy,
-but they and the herd of half-wild clouds grazing on the mountain peaks in the distance
+The village grownups called Big Blue and Pillow slow and lazy,
+but they and the herd of half-wild clouds grazing on the peaks in the distance
 were the most exciting things in Noxy's world.
 
 As Noxy pulled her bag off her shoulder,
@@ -338,13 +335,13 @@ Sensy grabbed her arm.
 "Look!" she hissed,
 pointing into the trees.
 
-At first all Noxy saw was branches,
+At first Noxy just saw branches,
 but then a pair of dark eyes blinked.
 Black fur framed a round face with heavy brows.
-The troll blinked again and pulled a branch aside with one long, hairy arm.
+The troll blinked again and pulled a branch aside with a long, hairy arm.
 
-Noxy and Sensy took a step back, then another,
-and froze at a sudden rustling behind them.
+Noxy and Sensy took a step back,
+freezing as greenery rustled behind them.
 Noxy turned her head slowly to look over her shoulder.
 A second troll hung by one hand from a branch behind them,
 blocking their way.
@@ -354,26 +351,23 @@ blocking their way.
 "Ssh!" Noxy said. "Just… don't… move."
 
 Branches rustled overhead.
-Two—three—four trolls swung by,
-except no,
-the fourth didn't swing by.
-She stopped and looked down at them.
+A pair of trolls swung past.
+A third stopped and looked down at them.
 Her fur was shot through with gray,
-and even from five strides below it Noxy could see
-the long hairless scar that ran up the length of her left leg.
+and a long hairless scar ran up the length of her left leg.
 
 Something twinged in the back of Noxy's head like the start of one of her headaches.
 For a moment it was as if *she* was in the tree looking down at herself.
 
 A roar broke the stillness.
-The gray troll hooted and vanished into the forest.
+The old troll hooted and vanished into the forest.
 Noxy and Sensy let out long shaky breaths—
 
-—and shrieked as a tiger burst out of the trees half a dozen strides in front of them.
+—and shrieked as a tiger burst out of the trees half a dozen strides away.
 His fur was yellow-brown with dark brown stripes,
 not orange and black like the picture in the book
 that three generations of village children had passed around.
-A pair of golden earrings hung from his left ear,
+A golden earring hung from his left ear,
 and his tail twitched slightly as he looked at them,
 as if their presence reminded him that he had not yet eaten lunch.
 
@@ -381,7 +375,7 @@ as if their presence reminded him that he had not yet eaten lunch.
 
 "Wh-what?" Noxy stammered.
 
-"Are… you… all… right?" the tiger repeated impatiently.
+"Are… you… all… right?" the tiger repeated.
 "Did those blasted gorillas harm you at all?"
 
 "No, they—I mean, we're all right.
@@ -389,12 +383,12 @@ We're fine, thank you very much.
 Ouch, Sensy, you're going to break my fingers!"
 Noxy pulled her hand free from her friend's terrified grip.
 
-"Saints be praised,"
+"Good,"
 the tiger rumbled,
 settling onto his haunches.
 "Now, if I may ask a favor,
 could you be so kind as to direct me to the village of Stale Leftovers?"
-His ear twitched at the sound of a distant hoot.
+His ear twitched at a distant hoot.
 "Or if perchance you are going that way yourselves,
 may I have the honor of accompanying you?
 Those creatures will think twice about molesting you
@@ -422,15 +416,14 @@ Noxy shot a look at Sensy.
 Her friend shook her head and mouthed "no".
 That was enough to make up Noxy's mind.
 
-"It's this way," she said, pointing down the path.
+"The village is this way," she said, pointing down the path.
 "Come on!"
 
 Ten minutes later they reached the fortress gate.
-An enormous slab of stone had once hung there like a door
-on hinges made of polished diamond.
+An enormous slab of stone had once hung there as a door
+on polished diamond hinges.
 The diamonds were long gone,
-but a few pieces of the shattered slab still lay half-buried in the ground,
-too heavy for mountain camels to pull free.
+but a few pieces of the slab still lay half-buried in the ground.
 
 Grappa Gas was sitting on one of them
 whittling a new leg when they came out of the trees.
@@ -458,7 +451,7 @@ At least, I think they're people,"
 she added belatedly.
 
 "They are that," the tiger confirmed.
-"Can you take me to your *tralpa*?"
+"Can you take me to your tralpa?"
 
 Grappa Gas snorted.
 "I don't expect he'll be awake for a while yet,
@@ -468,8 +461,8 @@ Come with me."
 A few minutes and a lot of questions later,
 the whole village was in the cobbled square—or rather,
 the whole village minus most of the adults,
-who had left a week ago for the snowfields in the mountains
-to collect Stale's clouds from their winter pasture.
+who had left a week ago
+to collect Stale's clouds from their winter pasture in the bowwards peaks.
 Three hundred people,
 from babies to grandparents,
 stood in a half-circle around the impatient tiger.
@@ -484,7 +477,7 @@ was the only one in shirtsleeves,
 but not the only one scowling at the new arrival.
 
 Noxy's mother Indy thumped the speaker's drum three times
-and stepped up onto the squared-off stone that marked the center of the square.
+and stepped onto the squared-off stone in the center of the square.
 "Friends," she said loudly,
 patting the air with her hands to quiet everyone.
 "Friends, please.
@@ -493,44 +486,42 @@ but please, give welcome to Kulbinder, a Gifted of Thind."
 
 "Welcome… welcome… be welcome…"
 Some voices were hearty,
-some grudging,
-and some people didn't speak at all,
-but Noxy's mother took it all in stride like she always did.
+others were grudging.
+Noxy's mother took it all in stride like she always did.
 
 Someone nudged Noxy's shoulder with their own.
 "Hey," Rash said, slipping between her and Sensy.
-"Where's the *tralpa*?
+"Where's the tralpa?
 Is he too afraid of the tiger to come out and say hello?
-Or has he been up all night 'studying' again?"
+Or has he been up all night studying again?"
 He mimed drinking from a bottle.
 
 "Ssh!"
-But he was right—the voice and hand of the king in Stale Leftovers,
-and its resident magician,
+But he was right—the voice of the king in Stale Leftovers
 was nowhere to be seen.
 
 Indy thumped the brightly-painted speaker's drum again.
-"The Gifted has told me that he and his companions were trying to get through the pass to Chaghan.
-An avalanche forced them off the road."
+"The Gifted has told me that he and his companions were trying to get through the pass to Garheim.
+An avalanche forced them off the road,
+so they made camp in the trees."
 She swept her gaze across the assembled villagers.
-"They made camp in the trees.
-For some reason the forest became angry.
+"For some reason the forest became angry.
 Some of them have died, and the rest are trapped.
 They need our help."
 
 A murmur ran through the crowd.
-The Herd of Trees that blanketed the Brumoso Mountains
+The Herd of Trees that blanketed the Churya Mountains
 guarded its territory as jealously as a mother bear guarded her cubs.
 People who stayed near the Pilots' ancient roads never came to harm,
-and those who ventured deeper were safe in small numbers.
+and those who ventured deeper were safe if they kept their wits about them.
 If they made a fire,
 though,
 or cut a branch from one of the towering redwoods
 that Granna Fee cautioned Noxy and her friends to steer clear of on training flights,
-the forest's wrath could be as merciless as a winter storm.
+the forest could be as merciless as a winter storm.
 
 Aft elbowed his way to the front of the small crowd.
-"These companion you're talking about—are they smugglers?"
+"These companions of his—are they smugglers?"
 he asked loudly.
 
 Noxy's mother suppressed an exasperated sigh.
@@ -539,9 +530,9 @@ Noxy's mother suppressed an exasperated sigh.
 "Then why in the saints' names were they trying to get through the pass this time of year?
 It'll be another month at least before the high trails are clear."
 He crossed his muscular arms.
-"Isn't something folk would do."
+"Isn't something honest folk would do."
 
-"My companions are not 'folk',"
+"My companions are not folk,"
 the tiger said haughtily.
 "They are soldiers."
 
@@ -552,60 +543,61 @@ The crowd murmured again.
 The soldier blinked slowly.
 "Deserting."
 
-"Well isn't that a bucket of trouble,"
+"Well now, isn't that a bucket of trouble,"
 Aft said sarcastically as yet another murmur ran through the crowd.
-"Are you hoping we're going to help you hide out?"
+"Are you hoping we're going to help them hide out?"
 
 The tiger's tail twitched.
 "I did not come to your village to hide,
 honored.
 In truth,
 I did not intend to come here at all,
-but my companions need help.
-If you fear it will bring more trouble than you can chew,
+but my companions are injured.
+If you think they will be more trouble than you can chew,
 say so and I will be on my way."
 
 "Nobody is saying we won't help," Indy said firmly.
 "And as long as I'm reeve, nobody is *going* to say that."
 She raised a hand to cut Aft off before he could speak again.
-"We can argue about the politics later.
-Right now there's folk in trouble,
-and I won't have it said that we ever turned our backs on those that needed us."
+"We can argue about politics later.
+Right now there are people in trouble,
+and I won't have it said that we turned our backs on those that needed us."
 
 The next five minutes were chaos.
 Out of the question, Aft said emphatically.
-The *tralpa* might look the other way
-if they sheltered a stray who'd been stupid enough to anger the forest,
-but flying off to rescue a rebel army?
-Even he would have to report that.
+The tralpa might look the other way
+if they sheltered a stray soldier or two who'd been stupid enough to anger the forest,
+but a whole army?
+If that wasn't picking a side in the lowlanders' endless squabbles, what was?
 "We have to look to our own,"
 he finished,
-glancing meaningfully at the bulge under his wife Rind's coat.
+putting his arm around his wife Rind
+and glancing at the bulge beneath her coat.
 
-And what did he think "their own" were going say
-when they got back from rounding up the village's clouds
-and found out that the folk who'd stayed behind
-had left strangers at the forest's mercy,
+It wasn't an army,
 Grappa Gas shot back.
+And what did Aft think their own would say
+when they got back from rounding up the village's clouds
+and discovered that the folk who'd stayed behind
+had left strangers to the forest's mercy?
 Father and son glared at each other
 with a mutual stubbornness born of long practice.
 
 The argument swirled back and forth across the cobblestones,
 punctuated by soft bings and bongs from the village windchimes.
 Little whirlpools of disagreement came together,
-spun about,
-and flew apart as people overheard neighbors they disagreed with,
-or turned around to nod at something they had overheard
+spun around,
+and flew apart as people turned around to nod at something they had overheard
 and were sucked into yet another "what if?"
 
 "Why don't they just get on with it?" Noxy said sourly.
-"They're all going to do whatever my mum wants to do in the end."
 She, Sensy, and Rash had stayed together in a knot on the sidelines.
+"They're all going to do whatever my *amma* wants in the end."
 
 Rash ran a finger along the lip fuzz he insisted on calling a mustache.
 It had become a habit over the winter,
 one that Noxy had told him countless times he ought to break
-before *someone* broke his stupid finger.
+before someone broke his stupid finger.
 "What I want to know is whether we're going to get to go,
 or if we're going to be stuck here with the littles."
 
@@ -614,20 +606,18 @@ or if we're going to be stuck here with the littles."
 "You sure about that?"
 Rash raised an eyebrow,
 another annoying habit he had cultivated over the winter.
-"Because your mum's giving jobs to just about everyone except us."
 
-Noxy puffed an annoyed breath,
-biting off her, "Of course I'm sure!" when at Sensy's uncertain look.
+Noxy bit off her, "Of course I'm sure!" at Sensy's uncertain look.
 "Wait here," she ordered.
 
-She strode through the crowd to the speaker's stone
+She wriggled through the crowd to the speaker's stone
 and caught her mother's eye.
 Before Noxy could speak,
 Indy said,
 "Oh, and I think you've met my daughter, Probably Noxious."
 
 "The honor was mine," the tiger rumbled,
-dipping his head in what might have been the feline equivalent of a very small bow.
+dipping his head in what might have been the feline equivalent of a small bow.
 
 "Just call me Noxy," she told him.
 "*Amma*, which cloud do you want me and Sensy and Rash on?
@@ -640,7 +630,7 @@ But Noxy knew her mother as well as her mother knew her,
 and had assembled her arguments as she crossed the square.
 They were definitely old enough—why,
 they were all going to be riding *real* clouds in a few weeks,
-not just the tame old pair floating in the cloud pen.
+not just the old pair floating in the cloud pen.
 And they wouldn't be going far,
 just a few gallops down the pass,
 and it was really important for cloudherds to know how to do rescues,
@@ -655,13 +645,13 @@ pointedly ignoring the amused look on Granna Fee's face.
 
 Noxy nodded obediently.
 "Yes, *amma*."
-She had learned long ago not to keep asking for two sweet buns
-when she'd already talked her mother into one.
+She had learned long ago not to ask for two sweet buns
+when she had talked her mother into one.
 
 Eventually everyone realized that they agreed with Indy's decision
 or were so outnumbered as to make further argument pointless.
 Even Aft gave in
-on condition that he be given lead on one of the clouds
+on condition that he lead one of the clouds
 so that he could keep an eye on things.
 
 After that,
@@ -669,33 +659,32 @@ it only took the villagers a few minutes to gather what they needed.
 Rockfalls and avalanches were common in the mountains,
 and they had lifted more than one tinker or trader out of a difficult spot.
 Coils of hemp rope with spider-silk cores hung ready in the long shed next to the cloud pen,
-and everyone kept a camelskin cap and some heavy gloves handy just in case.
+and everyone kept a camelskin cap and some heavy gloves ready just in case.
 
 "You look ridiculous," Noxy told Rash flatly
 as he came down the wooden steps to the mounting platform.
 He had embroidered a pattern he claimed was eagle's wings
 onto the flaps of his cap during the winter,
 and was wearing bright orange gloves
-that the last of the autumn pack traders had sworn were all the rage in Gandan.
+that the last of the autumn pack traders had sworn were all the rage in Loghan.
 
 Rash looked her up and down.
 "Really? Because I think you look amazing. Excuse me."
 He winked and stepped around the speechless fourteen-year-old.
 
-They were the last to arrive at the wooden platform
-that hung over the edge of the cloud pen.
+They were the last to reach the sturdy wooden platform that hung over the cloud pen.
 "Ears all!" Aft said loudly.
 He had changed into heavy pants,
 a padded coat,
 and a pair of soft boots,
-and his hair was tied back in a thick club braid.
+and tied his hair back in a thick club braid.
 "I'll lead on Pillow with Rash and Sensy as spotters.
 Gas and Fee, you're on Blue—you take Noxy and the Gifted with you.
 In and out,
 quick and simple,
 and everyone's back here for soup before you can sneeze.
 No adventures, right?"
-He glared at Noxy, Sensy, and Rash until the three teenagers mumbled,
+He glared at Noxy, Sensy, and Rash until the teenagers mumbled,
 "No adventures."
 
 "Right!"
@@ -711,14 +700,14 @@ The second,
 smaller blob next to it followed suit.
 Side by side,
 Big Blue and Pillow drifted toward the platform.
-A clattering noise further along the ravine signalled that
+A clattering further along the ravine signalled that
 whoever Indy had sent to pull back the pen's spiderweb gate
 had started hauling in the rope-and-bamboo chain it hung from.
 
 Noxy's pulse beat faster as the clouds approached,
 their flanks rippling slightly in the wind.
 When Big Blue bumped against the ravine wall,
-Aft took three steps and jumped off the end of the plank.
+Aft took three steps and fell forward off the platform.
 
 Noxy leaned over the railing.
 One, two, three…
@@ -733,8 +722,7 @@ but she knew his eyes would be closed in concentration as he mind-spoke to his m
 Granna Fee elbowed him.
 "Gets it from his old man."
 
-Something twinged in the back of Noxy's head.
-She blinked.
+Noxy blinked as something twinged behind her eyes.
 "Did you say something?" she asked Sensy.
 
 "What?"
@@ -749,7 +737,7 @@ bunching into an even firmer mass as he neared them.
 Aft had risen to one knee,
 but kept one hand on the cloud's back so that he could continue to mind-talk to it.
 
-A silver-winged scaw shot out of its cliffside nest,
+A silver-winged swallow shot out of its cliffside nest,
 cawing its displeasure at the sight of a human just a few strides away.
 Aft looked up and smiled as he always did
 when he was on cloudback or holding hands with his wife.
@@ -759,7 +747,7 @@ and launched himself into the air again.
 Rash whistled.
 "Nice one," he said appreciatively
 as Aft landed dead center on Pillow.
-"And into the blind, too."
+"And blind, too."
 
 "It's not such a trick," Noxy said dismissively,
 though she was secretly impressed.
@@ -767,13 +755,12 @@ though she was secretly impressed.
 
 "Sure, but would you trust a cloud's sight that much?"
 Rash challenged her.
-"Most of the time I can't make cheese or cherries out of
-what they're trying to show me."
+"Most of the time I can't make cheese or cherries out of what they're saying."
 
 Noxy shrugged.
 She had realized early in their training that
 mind-speech was a lot easier for her than it was for Sensy or Rash,
-or even for some of the olders who were already riding.
+or even for some of the olders who had been riding longer than she'd been alive.
 She had stopped talking about it after a few mutters about showing off.
 The only person she shared her progress with now was her grandmother,
 and even then she didn't tell Granna Fee everything.
@@ -782,7 +769,7 @@ Grappa Gas made everyone wait
 until Pillow was only a couple of strides below the mounting platform
 before he let Sensy and Rash jump.
 The teenagers had been doing it since they were children,
-but the brief moment of flight and *poof!* as they landed
+but the brief moment of flight and the *poof!* as they landed
 still made them whoop.
 
 Aft steered the cow out of the way
@@ -809,17 +796,17 @@ Her grandmother noticed her expression.
 
 "Sure," Noxy lied.
 One of the grownups' many rules was that no one should fly if they were sick,
-and she was not about to be left behind.
+and she was *not* going to miss this.
 "Come on, let's see if you remember your lessons."
 
 "Cheeky," her grandmother said.
-Three quick steps and a little hop and she was gone,
+With a little hop and she was gone,
 leaving Noxy alone on the platform.
 She took a deep breath,
 grinned,
-and sprinted for the end of the plank.
+and jumped,
+landing just a stride away from her grandmother.
 
-She landed just a stride away from her grandmother.
 "Oof," Granna Fee grunted,
 rolling over and sitting up.
 "He's not as soft as he used to be."
@@ -831,15 +818,15 @@ The cloud turned and began drifting toward the mouth of the gorge.
 
 "Really? How unusual of you,"
 Granna Fee said just loudly enough to make Noxy grin.
-She steered Big Blue into position behind the smaller cow.
+She steered Big Blue into position behind his mate.
 
-As they neared the gate,
-Aft took the ox horn from his belt and blew three loud notes.
-Indy blew an answering note
-as the two clouds passed through the gate and into the pass.
+Aft took the ox horn from his belt and blew three loud notes
+as they drifted through the gate.
+Indy blew an answering note and waved,
+and then they were out and into the pass.
 
-Cloudherding is cold work, even in the summer.
-In the spring,
+Cloudherding is cold work, even in summer.
+In spring,
 when every breath instantly turns to fog
 and the wind pokes its fingers through every loose seam and down every collar,
 it's freezing.
@@ -849,16 +836,16 @@ and wrapped it around herself and Noxy,
 leaving only their faces exposed.
 Up ahead,
 Noxy saw that Rash and Sensy had done the same—as Sensy had said more than once,
-Rash might be a goof,
-but at least he was a *warm* goof.
+Rash might be a pest,
+but at least he was a *warm* pest.
 
 Only Grappa Gas seemed unaffected.
 "Saints and their inventions,
 but I love this," he sighed.
 He'd brought a cushion to rest his wooden leg on
 so that it wouldn't poke into Big Blue,
-but a long scarf only slightly less colorful than Rash's gloves
-was his only concession to the freezing temperature.
+but his only concession to the freezing temperature
+was a long scarf only slightly less colorful than Rash's gloves.
 "Look, the condors are back in their nest!
 We should invite them them to visit some time."
 
@@ -872,7 +859,7 @@ That would be a thing, wouldn't it?"
 
 It had taken the tiger a day to make his way up the pass to Stale Leftovers.
 Even with the headwind,
-the clouds covered the same distance in half an hour.
+the clouds covered the same distance in just an hour.
 "Is that them?" Granna Fee asked, pointing at a thin plume of smoke.
 
 "What's left of them," the tiger growled.
@@ -880,24 +867,19 @@ He had spent the flight crouched down to get out of the wind,
 his legs and tail tucked underneath his body.
 Now he stood and padded forward to join Granna Fee at Big Blue's leading edge.
 
-The soldiers' makeshift camp sat on a barren pinnacle of rock
-that rose out of the forest like an island.
-Half a dozen drab tents huddled around a small fire.
+The soldiers' makeshift camp sat on a barren pinnacle of rock.
+Half a dozen tents huddled around a small fire.
 Shading her eyes with her hand,
 Noxy saw men moving about,
 some leaning against one another to stay upright.
 
-Grappa Gas gave a low whistle.
-"The *tralpa* really isn't going to like this,"
-he said.
-
-One of the soldiers spotted them a moment later.
+One of the soldiers spotted them.
 They were too far away to hear his shout,
 but there was no mistaking the urgency in the way he waved his arms
 or in the way his companions hurried to roust their injured comrades.
 
-"Keep your eyes wide," Grappa Gas ordered Noxy curtly.
-"Forest might be happy to let us take them, or it might not."
+"Eyes wide," Grappa Gas ordered Noxy curtly.
+"The forest might be happy to let us take them, or it might not."
 
 It wasn't.
 An angry voice cawed behind them.
@@ -905,20 +887,20 @@ A hundred more answered it.
 All at once they were surrounded by a flock of gray crows,
 each one an angry feathered missile with sharp claws and a pecking beak.
 
-Noxy screamed as a bird grabbed her hair.
+Noxy yelped as a bird grabbed her hair.
 Another took hold of her collar and pecked her shoulder.
-She screamed again,
+She yelped again,
 swatting at them as Granna Fee and Grappa Gas yelled and did the same.
 
 The tiger's roar sent the birds wheeling back into the air.
-Noxy slapped at her hair one last time,
+Noxy slapped at her hair,
 then spun around at a shout from up ahead
-as the flock descended on the other three cloudherds.
+as the flock descended on the other cloud.
 
 "Get off! Get off me!" Aft yelled,
-spinning the end of a coil of rope over his head to keep them at bay.
-Sensy and Rash batted at any bird that came too close.
-The crows swirled around them for a dozen heartbeats before veering away again.
+spinning the end of a coil of rope over his head to keep the crows at bay
+while Sensy and Rash batted at any that came too close.
+The birds swirled around them for a dozen heartbeats before veering away again.
 
 Aft handed the rope to Rash and knelt to press his hands against Pillow.
 A moment later he looked up and shook his head grimly.
@@ -927,7 +909,7 @@ A moment later he looked up and shook his head grimly.
 
 "Underhells with that," Grappa Gas muttered.
 "Fee—I'll get Blue down there.
-You 'n' Noxy get 'em loaded up fast as you can."
+You and Noxy get them loaded up fast as you can."
 
 "But—" Granna Fee protested.
 
@@ -939,16 +921,16 @@ You 'n' Noxy get 'em loaded up fast as you can."
 
 ## Chapter 2
 
-No one said much on the way back to Stale.
-Even without her hand on Big Blue,
+No one said much on the flight back to Stale.
+Whenever she put her hand on Big Blue,
 Noxy could feel how unhappy the cloud was.
 It wasn't just that he was carrying strangers
 or that those strangers were wounded and weary.
 When clouds died they just spread out into nothing.
 The thought that something could end but still be there—that
 it could go from being alive to being like a rock or a log—made
-the canvas-wrapped corpses on the cloud's back frightening
-in a way that storm winds and lightning would never be.
+the three canvas-wrapped corpses on the cloud's back frightening
+in a way that storms and lightning would never be.
 
 *Sh, sh, sh,* Noxy mind-spoke soothingly,
 as if the cloud was a newborn kitten.
@@ -956,14 +938,16 @@ as if the cloud was a newborn kitten.
 She wanted one just as much as the cloud.
 
 The soldiers watched the mountains go by,
-too exhausted to show more than an occasional flicker of interest
-in the mountains around them or the wilderness below.
-The one who had been last on
-spoke quietly to each of his companions in turn.
-The young soldier with the scarred face sat beside the tiger
-with his chin resting on his knees
-and his brightly-painted battle mask pushed up on top of his head.
+too exhausted to show more than an occasional flicker of interest.
+Nothing stirred in the forest below except a few startled birds.
+The sun glittered off the occasional stream still half-choked with ice,
+but the only sounds were the wind
+and the voice of the soldier who'd been the last to climb onto Big Blue,
+who spoke quietly to each of his companions in turn.
 
+The young soldier with the scarred face sat beside the tiger
+with his chin on his knees
+and his brightly-painted battle mask pushed up on top of his head.
 Noxy cleared her throat.
 "I'm sorry about your friends," she said hesitantly.
 
@@ -976,11 +960,11 @@ Beside him,
 the tiger rumbled something too low for Noxy to hear.
 
 Grappa Gas set Big Blue down in front of the fortress gate
-where he had been contentedly whittling two hours before.
+where he had been contentedly whittling just a couple of hours earlier.
 The soldiers slid wearily off the cloud's back
-to stand among the spring-green ferns.
-The waiting villagers came forward to offer them blankets and hot chai.
+to stand in a ragged line among the spring-green ferns.
 
+The waiting villagers came forward to offer them more blankets and hot chai.
 "Get everyone up into the traders' hall," Indy ordered crisply.
 "There's stew cooking,
 and cots for those that need them."
@@ -996,33 +980,33 @@ I've never seen the forest that angry."
 "I never want to again," Sensy said, shivering.
 
 Rash nudged her shoulder with his.
-"Where's the tiger gone?" he asked Noxy.
+"Where's the tiger?" he asked Noxy.
 
 A terrified shout from inside the ancient walls was his answer.
-A moment later the village *tralpa* stumbled through the gate,
+A moment later the village tralpa stumbled through the gate,
 tripping over the hem of the formal lowland-style robe he insisted on wearing.
 "There's— there's a— Reeve! Reeve!
 What is *that* doing here?"
 
-"Saints give me strength," Noxy's mother muttered.
-Granna Fee rolled her eyes at Noxy
-as Indy put on the smile she used when talking to people she didn't like
-and turned to face the king's official representative in Stale Leftovers.
+"Saints give me strength," Indy muttered.
+Granna Fee rolled her eyes
+as Noxy's mother put on the smile she used when talking to people she didn't like
+and turned to face the kingdom of Loghan's official representative in Stale Leftovers.
 
 Scholar-Candidate Yangyal insisted that the villagers use his full title
 despite being two decades past the age
 when most scholars were able to drop the word "candidate".
-He looked as though he had slept in his robe and only just woken up,
+He looked as though he had slept in his robe,
 which he probably had.
 Like the soldiers who did their best to straighten up
-when they caught sight of the official gray scarf wrapped around his neck,
+when they caught sight of the official gray scarf around his neck,
 he had a lowlander's round face and near-black skin.
 But where they were lean he sagged,
 and where they had only a few days of stubble on their shaved heads,
 his frizzy hair and failed beard
 were as unruly as the ferns he trampled as he strode over to Indy.
 
-"Reeve, what is that an *animal* doing in the village?"
+"Reeve, what is that *animal* doing in the village?"
 he demanded icily.
 
 "His name is Kulbinder, Scholar-Candidate," she replied calmly.
@@ -1030,7 +1014,7 @@ he demanded icily.
 
 "Why was I not informed? And who are *these* people?"
 he continued without waiting for an answer.
-He jabbed a finger at the soldier who had been the last up onto Big Blue.
+He jabbed a finger at the soldier who had been the onto Big Blue.
 "You! Sergeant! What are you doing here?
 Just look at your uniform—it's a disgrace!"
 
@@ -1040,46 +1024,49 @@ The soldier nodded.
 I'll see to it once my men are settled."
 
 "Settled?"
-The *tralpa* looked from the sergeant to his men and back to the sergeant.
+The tralpa looked from the sergeant to his men and back to the sergeant.
 His sour look brightened to merely displeased.
-"Well, *finally*.
+"Well, finally.
 This is long overdue.
 *Long* overdue," he repeated,
 nodding in agreement with himself.
 "I've been writing letters for *months*.
 No offense to His Highness,
 of course,
-but I don't think people realize just how strategically important this pass is.
+but I don't think his advisors realize just how strategically important this pass is.
 And the clouds—why, if those upstart peasants
 were to somehow gain control of them,
-there's no telling what might—"
+there's no telling what they might—"
 
 The sergeant cleared his throat.
 "Actually, honored, it wasn't the king who sent us."
 Noxy's breath caught caught.
-One of the soldiers had positioned himself behind Yangyal,
-his hand falling to the hilt of his sword.
+One of the soldiers had positioned herself behind Yangyal,
+her hand falling to the hilt of her sword.
 
 The whole village held its breath.
 One heartbeat, two…
-"You're—you're *rebels*!?" the *tralpa* spluttered.
+"You're—you're *rebels*!?" the tralpa spluttered.
 "Here!?"
 
 His face screwed up
 as if he was having a particularly difficult visit to the outhouse,
-and for a moment Noxy wondered if he might actually have a heart attack.
+and for a moment Noxy wondered if he might finally have a heart attack
+as he kept threatening to.
 He spent most of his time alone in the biggest house in the village
-with his bottles and his books,
+with his books and his bottles,
 puffing and wheezing at the prospect of anything resembling physical labor.
+After two years,
+he still complained about how thin the mountain air was.
 
 Instead of falling over,
-the *tralpa* pointed an imperious finger at the sergeant.
+the tralpa pointed an imperious finger at the sergeant.
 "Reeve! Arrest these men immediately!"
 
 "No." "No!" Indy and the sergeant said simultaneously.
-The sergeant shook his head almost imperceptibly at the soldier behind the *tralpa*.
+The sergeant shook his head almost imperceptibly at the soldier behind the tralpa.
 Obediently,
-the man slid his half-drawn sword back into its sheath.
+she slid her half-drawn sword back into its sheath.
 
 The sergeant turned to Indy.
 "Honored?
@@ -1093,25 +1080,24 @@ They need our help,
 and we need to lay their dead to rest.
 Sergeant—I'm sorry, I don't know your name?"
 
-"Dorbu, honored—Gandan's Ninety-Eighth Dorbu,"
-the sergeant replied,
-putting his hand to his chest respectfully.
+The sergeant put his hand to his chest respectfully.
+"Dorbu, honored—Loghan's Ninety-Eighth Dorbu,
+or at least I used to be."
 
-"Sergeant Dorbu," Indy continued
-in a this-is-how-it's-going-to-be voice
-that left no room for disagreement,
+"Sergeant Dorbu,"
+Indy continued in a voice that left no room for disagreement,
 "Do you promise that you and your men will take no action against His Highness
 while you're our guests?"
 
 "You have my word, honored," the sergeant said.
 
 "And mine," Kulbinder rumbled,
-"Since I am not, as the *tralpa* so quickly observed, a man."
+"Since I am not, as the tralpa so quickly observed, a man."
 
 Noxy jumped.
 The tiger had padded up behind them all while they were talking.
 
-The *tralpa* stumbled backed a step,
+The tralpa stumbled backed a step,
 tripping over the hem of his robe once again.
 "What?
 No!
@@ -1121,22 +1107,22 @@ They are *rebels*!
 They are *traitors*!
 I, I *insist*!"
 
-Sergeant Dorbu sighed,
-unbuckled his sword belt,
-and held it out to Indy.
-The reeve blinked.
+Before Yangyal could reply,
+Sergeant Dorbu unbuckled his sword belt and held it out to Indy.
+she blinked.
 "What am I supposed to do with this?"
 
-"Whatever you want," the soldier said.
-"And lock me up if you want.
+"Whatever you want," the sergeant said.
+"Lock me up if you want.
 Just make sure someone looks after my men."
 
-"As I just said, that won't be necessary," Indy replied tartly.
+"That won't be necessary," Indy replied tartly.
 "Let's just get everyone warmed up and fed, shall we?
-It's an hour until sunset—we'll put your dead to rest
+We have a few hours until sunset.
+We'll put your dead to rest
 and then we can all get some sleep and sort this out in the morning."
 
-The *tralpa* drew himself up.
+The tralpa drew himself up.
 "That is *unacceptable*!" he spat.
 "These men have taken arms against His Highness!
 You!"
@@ -1148,8 +1134,7 @@ He swivelled his arm to point accusingly at Indy.
 
 Grappa Gas had been stroking Big Blue's flank,
 mind-speaking to the old bull to calm him.
-He looked from the indignant *tralpa* to the reeve
-and back to the *tralpa*.
+He looked from the indignant tralpa to the reeve and back to the tralpa.
 "Can't do that, honored,"
 he said cheerfully.
 "I have to get this old boy back in his pen."
@@ -1163,7 +1148,7 @@ he squatted and lifted one of the canvas bundles onto his shoulder.
 
 "I'll show you the way," Granna Fee said quietly.
 
-The *tralpa* stormed and raged for a few moments longer,
+The tralpa stormed and raged for a few moments longer,
 but once he realized that no one was paying attention
 he wrapped his robe and what was left of his dignity around himself
 and marched back the house that he shared with
@@ -1177,22 +1162,24 @@ Feeling somewhat deflated,
 she went looking for something to do.
 
 Her mother was still organizing people in the square.
-Yes, the soldiers would use the trading hall, she'd already said that.
+Yes, the soldiers would sleep in the trading hall,
+she'd already said that.
 Yes, the wounded too—where else would they go?
-And yes, there *were* more than "a few" of them,
-but there was nothing they could do about that now, was there?
-Oh for the saints' sakes, of *course* they would eat beans.
-And no, she didn't know what the tiger was planning to eat,
+For the saints' sakes, of *course* they would eat beans.
+And no,
+she didn't know what the tiger was going to eat,
 but she would find out.
 
 "There you are," she said when she caught sight of her daughter.
 "Can you please go home and make some chai?
-Use all the honey we have left,
+Use whatever honey we have left,
 and tell whoever shows up that I'll be there as soon as I can."
 
 The water hadn't even boiled
-before Grappa Gas rapped on the door with his knuckles and entered.
-"Hey there. Where's your *amma*?"
+before Grappa Gas rapped on the door with his knuckles
+and entered without waiting for an answer.
+"Hey, sweetling.
+Where's your *amma*?"
 
 "She should be back soon," Noxy said.
 She added a handful of dark brown leaves to
@@ -1210,15 +1197,16 @@ to watch Noxy drizzle the last of the honey into the pot.
 "What did you find out?"
 she asked after a moment.
 
-The old man snorted affectionately.
+The old man snorted.
 "Just like your *amma*, aren't you?
 And your granna, too.
 Always thinking one step ahead of everyone else.
-You know, if your granna hadn't been so smart, I might've wound up being your grappa.
+You know, if your granna hadn't been so smart,
+I might've wound up being your grappa.
 I remember once when—"
 
 "Grappa!" Noxy cut in,
-exasperated and amused by his teasing at the same time.
+exasperated and amused.
 "Tell me what the soldiers said!"
 
 "And how do you know they said anything?"
@@ -1235,21 +1223,21 @@ Now, what did he say?
 And how in the saints' names did a bunch of rebel soldiers wind up *here*?"
 She kissed the old man on his grizzled cheek and sat on the other stool.
 
-For a moment all Grappa Gas could think of was how alike mother and daughter were.
+For a moment all Grappa Gas could think was how alike mother and daughter were.
 Noxy's hair was brown and wavy like her father's had been
 instead of straight and black like her mother's,
 and her nose sharper than was common among the mountain-born,
 but they had the same strong wills and quick minds.
 When Indy had turned ten,
-he had predicted that she would be reeve before she was thirty.
+he had predicted that she would be reeve before she was forty.
 *Better start telling everyone that Noxy's going to beat that,*
 he thought.
 
-He slurped his chai,
-cradling the warm mug in his hands.
+He cracked a knuckle.
 "The sergeant said that they were posted on the border with Chaghan.
-There's been heavy snow this winter,
+The snow was heavy this winter,
 so they were stuck in their barracks most of the time and got to talking, and…"
+
 He shrugged.
 "One thing led to another, I guess.
 By the time the snow had melted enough that they can get on the road,
@@ -1261,9 +1249,11 @@ and that helped the rest figure out which side they were on."
 "So why were they trying to come through the pass?"
 Indy asked.
 
-Grappa Gas shrugged again.
-"Don't know.
-The king's men hit them at the ford near Duck Droppings.
+Grappa Gas grimaced.
+"None of them said it outright,
+but I think their rebellion is pretty much done.
+The captain they were lined up behind thought they'd find shelter in Garheim,
+but the king's men hit them at the ford near Duck Droppings.
 They were split cross the two sides of the river when the attack came."
 For a moment his years showed on his face.
 "The sergeant doesn't expect he'll see many of his friends again."
@@ -1277,7 +1267,7 @@ then set the chai on the table to steep.
 
 "Was there anything else?" Indy asked.
 
-The front door banged open before he could answer.
+The front door banged open before he could reply.
 Aft strode in and glared at Indy.
 "What in the underhells do you think you're doing?"
 he demanded.
@@ -1288,14 +1278,14 @@ leaning back and lacing his fingers behind his head.
 Aft stabbed a finger toward him.
 "Stow that.
 Indy, this is madness.
-I don't like the *tralpa* any more than anyone else,
+I don't like the tralpa any more than anyone else,
 but as soon as he gets word down the mountain that we've gone over to the scoffing rebels—"
 
 "Stop," Indy said sharply.
 She stood up and gestured at her stool.
 "Sit down.
-Make yourself comfortable.
-And then take a deep breath before you use language like that in this house again.
+Make yourself comfortable,
+and then take a deep breath before you use language like that in this house again.
 We have not 'gone over' to anything,
 and we're not going to,
 not as long as I'm reeve.
@@ -1303,28 +1293,29 @@ Noxy?
 Go get the peeling stool from out back.
 Brush it off before you bring it in the house."
 
-Aft glowered at her and his father until Noxy returned.
+Aft glowered at the reeve and his father until Noxy returned.
 The stool creaked under his weight as he sat.
 Noxy poured chai as inconspicuously as she could
 while Aft ticked points off on his fingers.
 What would the village do if the king sent an army after the rebels?
 And by "if", he meant "when",
-because the *tralpa* was sure to be writing another one of his letters
+because the tralpa was sure to be writing another one of his letters
 while they were sitting there,
 and this one would surely get an answer.
-They couldn't fight,
-not with most of the adults gone,
-and even once they were back,
-nobody in Stale had ever actually swung a sword,
+They couldn't fight if that happened—nobody in Stale had ever actually swung a sword,
 not that they had any swords to swing.
-They'd be lucky not to wind up in prison,
-and even if they didn't,
-the village would be paying double taxes for the next hundred years.
+The best outcome was losing all their business in Loghan,
+and they couldn't afford that.
+The worst,
+well,
+if Loghan sent soldiers then Chaghan would too,
+and that would be the end of the fragile unwritten bargain
+that kept the Ninety Kingdoms out of the mountains.
 
 "So what do think we should do?"
 Grappa Gas challenged.
 "Turn them out?
-They wouldn't make it more'n a couple of gallops before they froze to death
+They wouldn't make it more than a couple of gallops before they froze to death
 or the forest tore 'em apart.
 I can just hear what folk would say if we did that."
 
@@ -1332,22 +1323,22 @@ I can just hear what folk would say if we did that."
 "Enough, both of you.
 We have a stormload of trouble to fly through,
 and I will *not* have you two making it worse with your bickering."
-She stared into her chai as if hoping the dark brew might spell out some answers.
+She stared into her chai as if hoping the dark brew might hold some answers.
 "I know it's a big thing," she went on quietly.
 "And I did think about turning them away,
 but Gas is right—they wouldn't even make it to Rancid.
 I won't have that on my conscience."
 
 Aft scowled.
-"Your conscience won't matter much once the king hears about this.
+"Your conscience won't matter much once the king in Loghan hears about this.
 No, wait, hear me out.
 Saving travelers who got caught on the mountain, sure, we can explain that if we have to.
-But letting them stay here—saints and all their gifts,
+But letting them stay here—saints and their creations,
 Indy,
-what'll they do to us?"
+you're taking a mighty chance."
 
 "And what about the tiger?"
-he continued before Indy could reply.
+he continued before the reeve could reply.
 "What are we supposed to feed it?
 Or should I ask 'who'?"
 
@@ -1356,25 +1347,26 @@ Indy snapped.
 "I will *not* have that kind of talk about one of the Gifted."
 
 "Just saying," Aft muttered.
-He swallowed the last of his chai and stood.
+He swallowed the last of his chai.
 "Just think about it, all right?"
 He glared at her a moment longer,
-then turned and left without saying goodbye.
+then stood and left without saying goodbye.
 
 "Maybe it wouldn't be such a bad thing if he *did* eat some of us!"
 Grappa Gas called after him.
 "Maybe we'd have some peace and quiet around here!"
 
 He turned back to Indy.
-"Don't worry about him. He's just worried about the baby.
-Everyone gets wound up their first time."
+"Don't worry about him.
+He's just worried about the baby.
+Everyone gets wound up with their first."
 
-"I know," Indy smiled.
+"I know," Indy sighed.
 With their first baby due in just a few weeks,
 Aft and his wife Rind had stayed behind
 when the other adults left to gather the village's herd.
 The double weight of becoming a father and not being up in his element
-had made him as fidgety as a young goof in springtime.
+had made him as fidgety as a young camel in springtime.
 
 Grappa Gas drained the last of his own chai.
 "It's good," he told Noxy appreciatively.
@@ -1382,10 +1374,11 @@ Grappa Gas drained the last of his own chai.
 
 "I'll try to remember," Noxy promised.
 
-Indy stood when Grappa Gas did. "Will you stay for dinner?"
+Indy stood when Grappa Gas did.
+"Will you stay for dinner?"
 
 He shook his head.
-"Thanks, girl, but I promised your mother I'd, um, peel her potatoes."
+"Thanks, sweetling, but I promised your mother I'd, um, peel her potatoes."
 He winked,
 ignoring Noxy's little 'eww' of disgust.
 Indy smiled and kissed him on the cheek again.
@@ -1396,7 +1389,7 @@ Noxy waited until her mother said down again before saying, "*Amma*…?"
 "Yes, sweetling?"
 
 Noxy hesitated.
-"Do you think the king really will send an army after them?"
+"Do you think the king really will send an army?"
 
 Indy snorted.
 "Probably not a whole army.
@@ -1436,7 +1429,7 @@ the tiger burst into the kitchen and skidded to a stop.
 his tail lashing.
 
 The sound of a door banging upstairs answered his question before Indy could.
-"Wait!" she shouted as the tiger took the steps three at a time.
+"Wait!" she shouted as the tiger bounded up the steps.
 "Blast!" they heard him roar.
 "The blighter's gone through the window!"
 
@@ -1464,7 +1457,8 @@ The tiger twitched his whiskers.
 "Are you going to answer that?"
 
 Indy waited precisely as long as it would take Noxy to count to five in her head,
-then turned and opened the door. "Yes?"
+then turned and opened the door.
+"Yes?"
 
 The young soldier with the scarred face saluted.
 "Excuse me, honored," he panted,
@@ -1504,11 +1498,11 @@ The tiger's tail twitched.
 "They steer well clear of settlements in Thind."
 
 "They do here as well," Indy said,
-beckoning the young soldier to come in as she spoke.
+beckoning the young soldier in as she spoke.
 "We've had an arrangement with them for, oh, I don't know how long.
 They keep to the deep forest, we stay out of it,
 and every fall a few of their Gifted show up
-to trade whatever odds and ends they have for some dried fruit or candy."
+to trade whatever odds and ends they've collectd for some dried fruit or candy."
 
 "Hrrm." The tiger's tail twitched again.
 "If they saw soldiers on the road,
@@ -1519,9 +1513,11 @@ Indy shook her head.
 "Only if they were in trouble,
 and even then they wouldn't do it if the forest was angry."
 
+The silence that followed stretched uncomfortably.
 On impulse,
 Noxy offered her hand to the young soldier.
-"Hi, I'm Probably Noxious, but everyone calls me Noxy."
+"Hi.
+I'm Probably Noxious, but everyone calls me Noxy."
 
 The soldier blinked,
 glanced at the tiger,
@@ -1530,7 +1526,8 @@ and then gave her hand a single firm shake.
 Thank you for rescuing us."
 
 "I'm glad we could help," Noxy said.
-"And—I'm sorry for your loss. Your losses,"
+"And I really am sorry for your loss.
+Your losses,"
 she amended.
 
 The soldier dipped his head.
@@ -1538,10 +1535,11 @@ The soldier dipped his head.
 He glanced at the tiger again.
 
 "We should see if the sergeant needs any help with preparations,"
-he said,
+Kulbinder said,
 rising to all fours.
 
-"Of course," Indy said, her voice warm once again.
+"Of course."
+Indy's voice was warm once again.
 "Please let him know that we'll be there at sundown.
 And if there's anything we can do to help…"
 
@@ -1565,7 +1563,7 @@ Noxy asked as she began to set the table,
 not knowing quite how to finish the sentence.
 
 Her mother glanced at her.
-"Help them send off their dead?
+"Send off their dead?
 Yes.
 You don't have to come if you don't want to."
 
@@ -1575,7 +1573,6 @@ They had two eggs each atop the grilled parsnips left over from the night before
 They talked sporadically while they cooked and ate,
 leaving sentences half-finished
 and changing direction like bats chasing bugs on a summer's evening.
-
 When they were done,
 Indy pushed her plate away and reached across the table to squeeze her daughter's hand.
 "You really can stay here if you want, you know."
@@ -1588,14 +1585,14 @@ Noxy took the box of candles from the shelf beside the stairs
 while her mother carefully wound the embroidered gray scarf of her office around her neck.
 They closed the door gently behind them,
 brushed their hands over the windchimes that hung from the eaves to set them ringing,
-and set off toward the square.
+and set off for the square.
 
 A handful of other villagers joined them on their way,
 Grappa Gas and Granna Fee among them,
-but no one spoke
+but no one spoke.
 The soft sound of windchimes echoing through the evening
 said everything that need to be said.
-Even the goofs in their pens were quiet,
+Even the camels in their pens were quiet,
 and the village's cats and raccoons too.
 *Probably scared of the tiger,*
 Noxy thought.
@@ -1617,23 +1614,22 @@ and up the path that led to the village's worship circle.
 Sergeant Dorbu and two other soldiers had piled logs on the heavy gray stone
 that lay at the circle's center,
 then laid the bodies of their fallen friends atop the pyre.
-They stood at attention as people shuffled into a circle,
-their battle masks raised to show their stony expressions.
+They stood at attention with their battle masks raised to show their stony expressions
+as people shuffled into a circle.
 No one spoke except the smallest children,
 who were immediately hushed.
 
 Noxy scanned the crowd,
 hoping to see Rash or Sensy,
 but neither was there.
-"Where's the *tralpa*?" she whispered to her mother.
-*And where is Aft?* she wondered.
+*Where is the tralpa?* she wondered.
+*And where is Aft?*
 The big cloudherd often led the villagers' Purplesday worship,
 but tonight he was nowhere to be seen.
 
-"Ssh!"
 As the last corner of the sun disappeared behind the peaks,
 Indy nodded to the sergeant.
-Saluting in return,
+Nodding back,
 he took a flint from a pouch on his belt,
 drew his sword,
 and scraped sparks onto a neat pile of pitch-soaked tinder.
@@ -1662,12 +1658,12 @@ so that the flames could shield them from the dark.
 One of the soldiers wept quietly, without shame.
 It was as solemn a moment as she could remember,
 which is why her heart sank when they rounded the corner on the path home
-and saw the *tralpa* standing in front of the gate with a dayglass lantern at his feet,
+and saw the tralpa standing in front of the gate with a dayglass lantern at his feet,
 his frizzy hair combed and tied back,
 and his scarf of office folded precisely into place for once.
 
-In one hand he held a thick book.
-Its edges glowed with a soft yellow light.
+In one hand he held a thick book,
+its edges glowing with a soft yellow light.
 It was one of the few spells the scholar-candidate could cast reliably,
 and he used it every chance he could.
 
@@ -1677,8 +1673,7 @@ and he used it every chance he could.
 As the villagers approached,
 Scholar-Candidate Yangyal puffed out his chest.
 "Literally Indigestible,
-by election from its inhabitants
-and with the consent of His Highness Denpa King Gandan made reeve of the village of Stale Leftovers,
+by election from its inhabitants made reeve of the village of Stale Leftovers,
 come forward!"
 
 Indy waited a moment for the soldiers and villagers behind her to come to a halt,
@@ -1686,11 +1681,11 @@ and another for their whispers to grow still.
 "This is not the time or place, Scholar-Candidate," she said,
 her voice carrying clearly on the cold evening breeze.
 
-But the *tralpa* plowed on.
+But the tralpa plowed on.
 "As the king's voice in this place,
 I require you,
 Literally Indigestible,
-to answer to a charge of insubordination."
+to answer to a charge of breach of contract."
 He opened his book,
 cursing under his breath and stooping to pick up the bookmark that fluttered to the ground.
 Tucking it under his arm,
@@ -1702,20 +1697,25 @@ even with the light,"
 Indy said.
 "Perhaps we could make some chai and—"
 
-"As the king's voice in this place," the *tralpa* continued loudly,
-"I require you also to answer to an additional charge of derelection of duty,
+"As the king's voice in this place," the tralpa continued loudly,
+"I require you also to answer to an additional charge of possession of stolen property,
 inasmuch as you have—damn it."
 The bookmark slipped out from under his arm and fluttered to the ground again.
-"Inasmuch as you have neglected a *direct order*
-to arrest those who have freely admitted that
-they are in open rebellion against His Highness."
+"Inasmuch as you have given shelter to those those who have freely admitted that
+they are in open rebellion against His Highness
+while still retaining,
+um,
+here it is.
+While still retaining equipment and material provided to them by said His Highness.
+Said Highness.
+The king."
 
 Before Indy could reply, Sergeant Dorbu stepped forward.
 "Am I going to have to put this down, honored?" he asked,
 raising his candle slightly,
 its delicate yellow flame protected by his cupped hand.
 
-The *tralpa* snapped his book shut.
+The tralpa snapped his book shut.
 "I do *not* hear the words of traitors," he said haughtily.
 
 "I see. Honored, could you take this please?"
@@ -1729,11 +1729,11 @@ before someone cleared their throat behind her and said,
 "Excuse me, honored? If I may?"
 
 Ignoring the tiger's growl of, "Not now, boy,"
-Private Thokmay came forward to join the sergeant and the reeve.
+Private Thokmay stepped forward.
 "Did I hear correctly that you're the king's voice here?" he asked,
 his voice carrying clearly like that of an actor on stage.
 
-The *tralpa* nodded jerkily,
+The tralpa nodded jerkily,
 his eyes fixed on the tip of the sergeant's sword.
 "So you're in charge of leases on His Highness's laws?"
 Another jerky nod.
@@ -1753,14 +1753,14 @@ That will mean the reeve isn't breaking any of the others
 if she waits until tomorrow to arrest people,
 won't it?"
 
-The *tralpa* looked from the boy to the sergeant's sword to the reeve and back.
-"I—yes, I should think so," he replied weakly.
+The tralpa looked from the boy to the sergeant's sword to the reeve and back.
+"Um, yes, I suppose," he replied weakly.
 
 "Thank you, honored.
 He paused.
 "You have to actually take the coin for this to be legal, don't you?"
 
-The *tralpa* swallowed,
+The tralpa swallowed,
 then snatched the coin from the private's hand.
 With the book glowing under his arm,
 he scurried through the fortress gate.
@@ -1789,8 +1789,8 @@ by Indy stepping in front of him and holding out her hand.
 Sergeant Dorbu stared at her for a moment,
 then unbuckled his sword belt for a second time and held it out.
 Indy took it from him with an icy, "Thank you,"
-and handed it to Grappa Gas without looking at him.
-"I will let your men keep theirs," she said,
+and handed it to Noxy without looking at her.
+"I will let your troops keep theirs," she said,
 her voice colder than the mountain breeze,
 "But only on the condition that there will *not* be another incident like this one.
 Do we have an understanding?"
@@ -1810,10 +1810,10 @@ Then let's all get a good night's sleep and hope that tomorrow is a better day f
 Noxy?
 It's time for bed."
 And with her back as straight as any soldier's,
-she marched past the sergeant and the tiger's boy.
+she swept past the sergeant and the tiger's boy.
 Noxy hurryied to keep up with,
 wondering if her mother had always been this brave
-and if every sword was as heavy and awkward as the one she was carrying.
+and if every sword was as heavy as the one she was carrying.
 
 *Noxy had a dream that night.
 She often had dreams,
@@ -1836,14 +1836,12 @@ She didn't do battle with an angry pack of squirrels
 armed only with her courage and a magic sword
 while Rash and Sensy and the rest of the village cheered her on.*
 
-*No, this dream wasn't one of those.
-This one was troubled and strange.
+*No, this dream was troubled and strange.
 The tiger was in it, as large as a house.
 The crows were in it too,
 but they were skeletons decorated with feathers
-like the toys children made for All Ghosts' Night
-and they were pecking chunks out of the people around her
-who were slowly losing shape like weary clouds.*
+like the toys that children made for All Ghosts' Night,
+and they were pecking at the faceless people around her.*
 
 *Standing in the middle of everything was the troll she had seen that morning.
 Her eyes were as deep as the shadows in the forest
@@ -1855,7 +1853,7 @@ and then raised a hand in greeting.*
 She lay in bed and listened to the windchimes outside her window
 and the soft, rhythmic snuffle of her mother snoring in the room below her.
 Once her pulse slowed,
-she fumbled among the lifetime of odds and ends on top of the two-drawer dresser beside her bed.
+she fumbled among the odds and ends on top of the two-drawer dresser beside her bed.
 Her hand closed on the little brass lamp her father had given her when she had first started reading.
 She hadn't set it out that morning to recharge it,
 but the thumbnail-sized piece of dayglass inside it still gleamed with trapped sunlight
@@ -1865,17 +1863,18 @@ She set it back on the dresser
 and fished under her pillow to pull out the knit dolls that lay there.
 Her father had made them when she was little,
 either to comfort her when she was sick or as a nameday gift or just because he loved her.
-She and Sensy and Rash had played with them when they were younger—they had
+She had played with them every day when she was younger—they had
 been pirates and cloudherds and once even pirate cloudherds,
-which Noxy had declared ought to be a thing even if it wasn't.
+which her father had agreed ought to be a thing even if it wasn't.
 
-She tucked them back under her pillow.
+She tucked them back under her pillow and stared at the ceiling.
 Her room was still big enough for her to sit and gossip with Sensy or play a game of stones,
 but the last time Rash had joined them,
 it had somehow seemed much too small.
 
 She sighed.
-No matter what her mother said, she needed to talk to Sensy
+No matter what her mother said,
+she needed to talk to Sensy
 and find out why she and Rash were mad at each other.
 *Tomorrow*, she promised herself,
 twisting the cover on the dayglass lamp to close it.
@@ -1906,7 +1905,7 @@ pulled on the trousers and sweater she had dropped on the floor the night before
 and hurried downstairs just as her mother opened the door.
 
 "They're gone," Grappa Gas said breathlessly.
-"That idiot son of mine and the *tralpa*—they're gone.
+"That idiot son of mine and the tralpa—they're gone.
 They've taken Big Blue."
 
 "Oh, names of the saints," Indy cursed.
@@ -1929,8 +1928,8 @@ So I went looking for him and found this pinned to the guest house door."
 He held out a dew-stained sheet of paper.
 Indy took it and scanned it quickly as Noxy fed a handful of wood shavings to the stove.
 "That idiot," the reeve said.  "That self-righteous, self-pitying *idiot*."
-She tossed the *tralpa*'s note onto the table and pinched the bridge of her nose.
-"The *tralpa* is going to Duck Droppings to—what did he say?"
+She tossed the tralpa's note onto the table and pinched the bridge of her nose.
+"The tralpa is going to Duck Droppings to—what did he say?"
 She picked up the letter.
 "To denounce us for our complicity in treason," she recited bitterly.
 "He must have talked Aft into flying him there."
@@ -2061,7 +2060,7 @@ Grappa Gas demanded.
 Aft looked from his father to his wife to Indy.
 "Got as far as the Three Sisters,
 but there was lightning further up the pass storm so I turned around.
-What's happened to the idiot *tralpa*?"
+What's happened to the idiot tralpa?"
 
 "He's gone to Duck Droppings to tell the king's men about Sergeant Dorbu and his men,"
 Indy said.
@@ -2075,7 +2074,7 @@ Why would you go behind my back and fly off to talk to the other villages?"
 Indy retorted hotly.
 
 "Honoreds, forgive me," Sergeant Dorbu cut in.
-"If you didn't take the *tralpa*, then where is he?"
+"If you didn't take the tralpa, then where is he?"
 
 Grappa Gas made a disgusted noise in the back of his throat.
 "He must be on foot.
@@ -2100,7 +2099,7 @@ So it was that Noxy found herself picking her way down a side trail a few minute
 with Private Thokmay and the tiger in her wake.
 "Show them the shortcut to the fishpond,"
 her mother had instructed her as she sent people in twos and threes
-to search paths that the *tralpa* might have taken.
+to search paths that the tralpa might have taken.
 
 Noxy had nodded,
 still wondering how she had known that Big Blue was coming back.
@@ -2220,7 +2219,7 @@ as it splashed its way down to a larger pool below.
 "Help me!" Yangyal shouted again.
 One glance was enough to tell Noxy what had happened.
 Someone had laid a log across the stream to connect one side of the path with the other.
-The *tralpa* must have been halfway across it when one end slipped and rolled away,
+The tralpa must have been halfway across it when one end slipped and rolled away,
 leaving him perched atop the other end like a crow sitting on a fencepost.
 If he tried to shift his weight,
 the log would topple over and send him tumbling down the mountain.
@@ -2250,7 +2249,7 @@ as miserable as he was angry.
 Like an actor who had been waiting for her cue,
 the log slipped down the mountain.
 
-The *tralpa* shrieked,
+The tralpa shrieked,
 then shrieked again when the log jerked to a stop two paces below where it had been.
 "Hurry up!" he yelped in a strangled voice.
 "Get me *off* this thing *right now*!"
@@ -2287,7 +2286,7 @@ revealing only a sleeveless vest beneath it.
 He was skinnier than Noxy had realized,
 and started shivering as the wind scraped across his skin.
 
-"I'm going to toss this to you, learned," he told the *tralpa*.
+"I'm going to toss this to you, learned," he told the tralpa.
 "When you get it,
 hook it over that branch and then swing yourself over to that big flat rock on your left,
 all right?"
@@ -2297,16 +2296,16 @@ Yangyal shook his head violently.
 "I know you can.  Ready?  One… two… *three!*"
 He tossed his balled-up coat into the air.
 
-The *tralpa* leaned forward and reached for it.
+The tralpa leaned forward and reached for it.
 As he did so, the log shifted underneath him again.
 He screamed as it slid and kept sliding.
 Its bottom end caught on a stone.
 It tipped forward,
-and for one long moment stood upright with the *tralpa* perched on top.
+and for one long moment stood upright with the tralpa perched on top.
 
 Without thinking,
 Noxy grabbed the nearest salal bush with one hand and leaned forward as far as she dared,
-reaching for the *tralpa* with the other and shouting, "Jump!"
+reaching for the tralpa with the other and shouting, "Jump!"
 The terrified Scholar-Candidate hesitated for a heartbeat,
 then lunged for her clumsily
 as the log slipped one last time and tumbled end over end
@@ -2319,7 +2318,7 @@ and for a moment she was sure his weight was going to pull her over.
 
 "I've got you!" Private Thokmay grabbed her collar to steady her.
 With a sound somewhere between a grunt and an angry yell,
-she pulled the *tralpa* toward her—
+she pulled the tralpa toward her—
 
 —and fell to one knee as the rock she was standing on shifted under her feet.
 The log's impact on the boulder below them had knocked it loose.
@@ -2335,13 +2334,13 @@ Kulbinder roared as he burst out of the bushes on the other side of the stream.
 He hauled on Noxy's collar.
 Choking,
 Noxy let go of the salal bush,
-grabbed the *tralpa* with both hands,
+grabbed the tralpa with both hands,
 and heaved him up onto the rock beside her even as it tilted beneath her.
-The *tralpa* shoved her out of his way and scrambled up the path for safer ground.
+The tralpa shoved her out of his way and scrambled up the path for safer ground.
 
 "Go!" Private Thokmay let go of her collar.
 Noxy leaped off the rock just as it tipped over and started sliding down the mountain.
-Her momentum carried her three steps forward to trip over the *tralpa*,
+Her momentum carried her three steps forward to trip over the tralpa,
 who was on his knees sobbing in the narrow path.
 He shrieked and wrapped his arms around the trunk of the nearest dwarf spruce.
 
@@ -2368,7 +2367,7 @@ he tripped over a stray branch lying on the path and fell backward into Noxy's s
 The tiger appeared out of the bushes next to them a heartbeat later
 and pulled up short.
 "Are you all right?" he demanded,
-ignoring the *tralpa*'s frightened yelp.
+ignoring the tralpa's frightened yelp.
 
 Private Thokmay rolled off Noxy and stood up.
 "I'm fine,"
@@ -2387,10 +2386,10 @@ He shook his head stubbornly.
 With a jerky nod,
 Thokmay took the heavy quilted coat and wrapped it around himself.
 
-"And you," the tiger continued, turning his head to the *tralpa*.
+"And you," the tiger continued, turning his head to the tralpa.
 "Are you injured?"
 
-"Injured?  Injured!?" the *tralpa* said indignantly.
+"Injured?  Injured!?" the tralpa said indignantly.
 He had streaks of mud on his cheeks where he had wiped away his frightened tears.
 "I could have *died*!"
 
@@ -2407,14 +2406,14 @@ He pushed past Noxy and Private Thokmay to glare at the tumbled pile of rocks be
 Trees jutted out of the freshly-rearranged rock slide
 like the uncombed hair of someone freshly woken from a nap.
 The stream was already filling new pools and splashing from one to the next in new waterfalls,
-but there was no sign of the *tralpa*'s prized leather satchel.
+but there was no sign of the tralpa's prized leather satchel.
 
 He spun around.
 "You—tiger! I need that satchel. In the king's name, I order you to—"
 
 "You *what*?" the tiger growled menacingly.
 
-The *tralpa* gulped and would have taken a step backward into the rock slide
+The tralpa gulped and would have taken a step backward into the rock slide
 if Noxy hadn't said, "Look out!"
 He caught himself and looked from her to the tiger to Private Thokmay,
 and then to Noxy's astonishment plopped himself down on the path.
@@ -2432,7 +2431,7 @@ Noxy's first thought was,
 What came out of her mouth was,
 "Let's go home and get cleaned up.
 I mean it,"
-she continued as the *tralpa* opened his mouth.
+she continued as the tralpa opened his mouth.
 "You're soaking wet,
 you don't have anything to eat,
 the path is gone,
@@ -2440,7 +2439,7 @@ and if we don't get him in front of a fire,
 you're both going to freeze to death."
 She nodded at Private Thokmay, whose teeth were still chattering.
 
-"I'll be fine," the *tralpa* said sulkily.
+"I'll be fine," the tralpa said sulkily.
 He stood up and gave her an exaggerated bow.
 "I suppose I should follow you, then.
 Oh, and you—boy.
@@ -2456,11 +2455,11 @@ A moment later Thokmay's teeth stopped chattering.
 The private's eyes widened.
 "Thank you, honored," he said,
 letting go and bowing slightly.
-The *tralpa* waved away his thanks as if it was a mosquito.
+The tralpa waved away his thanks as if it was a mosquito.
 
 The trail home seemed so long that
 Noxy started to wonder if they had taken a wrong turn.
-The *tralpa* huffed and puffed but said nothing—at least,
+The tralpa huffed and puffed but said nothing—at least,
 nothing loud enough for her to make out.
 The tiger stayed at Private Thokmay's side,
 dropping back or slipping in front of him when the path narrowed
@@ -2471,7 +2470,7 @@ she fell in step on Thokmay's other side and said,
 I can go look for it tomorrow if you want."
 
 The young soldier nodded.
-Despite the *tralpa*'s spell,
+Despite the tralpa's spell,
 he still looked drawn with cold.
 "Thank you, honored.  Here."
 He shrugged out of hers and held it out to her.
@@ -2486,7 +2485,7 @@ if the soldier arrived shivering and she was bundled up and warm.
 "Thank you," Private Thokmay repeated,
 wrapping her coat around his wiry shoulders once again.
 "And thank you for…"
-He nodded at the *tralpa* trudging up the rise in front of them.
+He nodded at the tralpa trudging up the rise in front of them.
 
 "Thank *you* for grabbing hold of me," she replied.
 "I think they'd be lighting candles for both of us if you hadn't."
@@ -2525,7 +2524,7 @@ I don't suppose you could get her to fetch my coat as well, could you?"
 "I didn't have anything to do with this1"
 
 "I see."
-Private Thokmay nodded at Kulbinder and the *tralpa*,
+Private Thokmay nodded at Kulbinder and the tralpa,
 who were almost out of sight further up the path.
 "We should probably catch up."
 
@@ -2540,7 +2539,7 @@ Noxy opened her mouth and then closed it again.
 She really didn't know why the trolls had brought his sword back,
 but saying it out loud a second time would just sound foolish.
 
-She pushed herself up the hill after the tiger and the *tralpa*,
+She pushed herself up the hill after the tiger and the tralpa,
 annoyed and frustrated and still a little frightened,
 but slowed and stopped after a few strides.
 "I'm telling the truth,"
@@ -2629,7 +2628,7 @@ Her friend stared at her.
 "Well, maybe they should start," Noxy grumbled.
 
 Sensy rolled her eyes, then pulled up a stool and sat down.
-"Granna Fee says you rescued the *tralpa*.
+"Granna Fee says you rescued the tralpa.
 What happened?"
 
 "I'll tell you if you get me some more hot water."
@@ -2646,7 +2645,7 @@ as her friend poured a fresh bucket of hot water into the wooden tub.
 
 Sensy sat down once again.
 "So what's he like?
-Private Thokmay, I mean, not the *tralpa*."
+Private Thokmay, I mean, not the tralpa."
 
 Noxy shrugged again.
 "I don't know.  He doesn't say much."
@@ -2723,7 +2722,7 @@ as Noxy flicked more water at her.
 sinking lower into the tub.
 In the silence that followed,
 she heard voices murmuring on the other side of the wall.
-The petulant tone of the first had to belong to the *tralpa*,
+The petulant tone of the first had to belong to the tralpa,
 and the deep rumble of the second could only be the tiger.
 For one moment she wondered what would happen if she invited *him* to the fancy.
 
@@ -2766,7 +2765,7 @@ in the hope that the rain would do at least half the work of washing them clean.
 
 The tiger blinked slowly.
 "He is well.
-I have set him to watch over the *tralpa* until some other arrangement can be made."
+I have set him to watch over the tralpa until some other arrangement can be made."
 
 The sun had almost disappeared behind the mountains
 when the first sharp line of lightning lashed the far-off clouds.
@@ -2858,7 +2857,7 @@ Then one of our neighbors decided she wanted to build a mill,
 and,
 well,
 we were on the other side of the river she had her eye on,
-so she honeyed up the local *tralpa*, promised him a slice of the takings, and…"
+so she honeyed up the local tralpa, promised him a slice of the takings, and…"
 He spread his hands.
 "By the time we got to court,
 she'd rented all the laws that would have saved us.
@@ -3974,7 +3973,7 @@ Noxy saw two more soldiers on its parapet.
 "Keep watch for what?"
 
 The soldier whose name she didn't know shrugged.
-"Doesn't want the *tralpa* running away again, I guess.
+"Doesn't want the tralpa running away again, I guess.
 It's pretty normal."
 
 *Not here it isn't,* Noxy thought.
@@ -4476,7 +4475,7 @@ You're the one who snuck up on *me*!"
 He slid his sword into its scabbard.
 "I thought you were an assassin or something."
 
-"And I thought you were trying to run away like the *tralpa*."
+"And I thought you were trying to run away like the tralpa."
 Noxy put her hands on her hips and tried to match his glare.
 "Anyway, you shouldn't be down here.
 It's dangerous to go wandering around."
@@ -4698,7 +4697,7 @@ Please, just give me a chance to explain, all right?"
 He glanced at Kulbinder,
 then back at Noxy.
 "I'll come find you as soon as I can, I promise.
-And if you want to tell the reeve or the *tralpa*—"
+And if you want to tell the reeve or the tralpa—"
 
 "We talked about this," Kulbinder growled.
 
@@ -5155,7 +5154,7 @@ It was a statement, not a question.
 Noxy nodded.
 "He wasn't really a magician.
 He just picked up a few things in Garheim before he met my *amma*.
-He asked the *tralpa* for help,
+He asked the tralpa for help,
 but *he* was no use,
 so he made the best bargain he could.
 He couldn't eat or drink afterward,
@@ -5390,7 +5389,7 @@ His troops had all had lives before they became soldiers:
 farmers, coopers, yardsters, or brewers,
 they either knew what to do or knew how to follow orders.
 
-The only person who proved useless was, to no-one's surprise, the *tralpa*.
+The only person who proved useless was, to no-one's surprise, the tralpa.
 "I am taking note," he declared,
 his breath heavy and his speech slightly slurred.
 "I am—notes.
@@ -5493,7 +5492,7 @@ clattering off roofs.
 One smoking scrap clattered through a storehouse window
 whose shutter had been left untied.
 As Noxy blinked to clear the lightning's after-dazzle from her eyes,
-the *tralpa* ran clumsily out of sight.
+the tralpa ran clumsily out of sight.
 
 A door banged open.
 "Saints!" Aft hurried over to Noxy.
@@ -5625,7 +5624,7 @@ her mother frowned.
 "What's wrong?"
 
 Noxy turned her cup in her hands.
-"I think I saw the *tralpa* out in the storm.
+"I think I saw the tralpa out in the storm.
 I think he was doing a spell."
 
 "What kind of spell?" Indy asked,
@@ -5639,7 +5638,7 @@ she hurried on at her mother's skeptical look.
 Indy took her hand.
 "Sweetling…
 I don't know what you saw,
-but I don't think the *tralpa* could do anything that powerful."
+but I don't think the tralpa could do anything that powerful."
 
 "I know," Noxy sulked,
 "But I think he was trying."
@@ -5672,7 +5671,7 @@ and the handwriting was poor enough that other parts would have been unreadable
 even in the best of light,
 but what he could decipher was enough to make him
 take a tight cylinder of silk from a tube and unroll it.
-The map only showed a portion of the Brumosos,
+The map only showed a portion of the Churyas,
 but that was enough for him to find the name he was looking for.*
 
 *"And all they want…" he started.*
@@ -5720,7 +5719,7 @@ They had been so sure people would rise up with them…*
 
 *"No," he said,
 reaching for the dowel that the map had been rolled around.
-There was only one road through the Brumosos,
+There was only one road through the Churyas,
 but the map had been a gift when he received his commission.
 "Tell them to surrender and blame me for leading them astray."
 He glanced at the corporal.
@@ -5974,16 +5973,16 @@ out of the storehouse's windows.
 
 She spotted Rash whistling on his way to the bath house.
 Just as he arrived,
-the men's door opened and the *tralpa* almost ran into him.
-She couldn't make out the *tralpa*'s words,
+the men's door opened and the tralpa almost ran into him.
+She couldn't make out the tralpa's words,
 but even at this distance his sharp tone carried clearly.
 
 Instead of stepping out of his way and making a face behind his back,
 though,
-Rash stepped into the *tralpa*'s way.
+Rash stepped into the tralpa's way.
 Yangyal gesticulated angrily,
 but Rash didn't move.
-Finally the *tralpa* threw up his hands,
+Finally the tralpa threw up his hands,
 took an exaggerated step around his adversary,
 and stalked off like a doused cat.
 
@@ -6013,7 +6012,7 @@ and,
 well,
 we should catch up."
 
-Noxy looked at the *tralpa* just as he rounded the corner.
+Noxy looked at the tralpa just as he rounded the corner.
 "Maybe some—"
 
 "Oh come *on*," Sensy pouted.
@@ -6126,7 +6125,7 @@ after promising to make these baths a regular thing.
 Her damp hair chilled as soon as she stepped outside,
 but the narrow street was still eerily empty.
 She took a left and a right and a deep breath,
-and knocked quietly on the back door of the *tralpa*'s house.
+and knocked quietly on the back door of the tralpa's house.
 
 When he didn't answer,
 she knocked again more loudly.
@@ -6141,7 +6140,7 @@ taking advantage of the single step to look down his nose at her.
 
 "May I come in, honored?"
 
-The *tralpa* glared at her suspiciously,
+The tralpa glared at her suspiciously,
 then leaned out and made a show of peering both ways.
 "I'm actually in the middle of something important," he huffed.
 "Come back later."
@@ -6150,7 +6149,7 @@ then leaned out and made a show of peering both ways.
 Noxy put a hand on the door as he began to close it.
 "I think you'll want to hear this."
 
-Noxy hadn't been inside the *tralpa*'s house since his arrival in Stale three years earlier.
+Noxy hadn't been inside the tralpa's house since his arrival in Stale three years earlier.
 She had expected it to be as messy as the Scholar-Candidate himself.
 Instead,
 it was as tidy as Granna Fee's one-room school.
@@ -6169,7 +6168,7 @@ to stop herself from crossing her arms.
 "When you called the lightning, I mean.
 I saw you do it."
 
-The *tralpa* leaned back,
+The tralpa leaned back,
 the petulant expression on his face giving way to a colder one.
 He had shaved his head that morning,
 and his bald pate made him look more than a little like a snapping turtle.
