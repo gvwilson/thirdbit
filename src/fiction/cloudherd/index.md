@@ -592,7 +592,7 @@ and were sucked into yet another "what if?"
 
 "Why don't they just get on with it?" Noxy said sourly.
 She, Sensy, and Rash had stayed together in a knot on the sidelines.
-"They're all going to do whatever my *amma* wants in the end."
+"They're all going to do whatever my *anna* wants in the end."
 
 Rash ran a finger along the lip fuzz he insisted on calling a mustache.
 It had become a habit over the winter,
@@ -620,7 +620,7 @@ Indy said,
 dipping his head in what might have been the feline equivalent of a small bow.
 
 "Just call me Noxy," she told him.
-"*Amma*, which cloud do you want me and Sensy and Rash on?
+"*anna*, which cloud do you want me and Sensy and Rash on?
 We can go and start getting them ready while everyone's still talking."
 
 Indy gave her daughter a look that Noxy knew all too well.
@@ -644,7 +644,7 @@ pointedly ignoring the amused look on Granna Fee's face.
 "You do what you're told and nothing more, understood?"
 
 Noxy nodded obediently.
-"Yes, *amma*."
+"Yes, *anna*."
 She had learned long ago not to ask for two sweet buns
 when she had talked her mother into one.
 
@@ -1179,7 +1179,7 @@ The water hadn't even boiled
 before Grappa Gas rapped on the door with his knuckles
 and entered without waiting for an answer.
 "Hey, sweetling.
-Where's your *amma*?"
+Where's your *anna*?"
 
 "She should be back soon," Noxy said.
 She added a handful of dark brown leaves to
@@ -1198,7 +1198,7 @@ to watch Noxy drizzle the last of the honey into the pot.
 she asked after a moment.
 
 The old man snorted.
-"Just like your *amma*, aren't you?
+"Just like your *anna*, aren't you?
 And your granna, too.
 Always thinking one step ahead of everyone else.
 You know, if your granna hadn't been so smart,
@@ -1384,7 +1384,7 @@ ignoring Noxy's little 'eww' of disgust.
 Indy smiled and kissed him on the cheek again.
 He was humming as he stumped out the door.
 
-Noxy waited until her mother said down again before saying, "*Amma*…?"
+Noxy waited until her mother said down again before saying, "*anna*…?"
 
 "Yes, sweetling?"
 
@@ -1401,7 +1401,7 @@ Finally Indy stretched.
 did you collect any spiderwebs,
 or did you and Sensy spend the whole morning mooning after Rash?"
 
-"*Amma*!
+"*anna*!
 How can you think about spiderwebs on a day like this?
 And anyway, nobody's mooning after Rash."
 She sighed.
@@ -2021,7 +2021,7 @@ coming around the bend in the pass,
 was a faint smudge of gray.
 She turned around and ran as fast as she could back to the square.
 
-"*Amma*! *Amma!* He's coming back!"
+"*anna*! *Amma!* He's coming back!"
 She skidded to a stop on the cobblestones.
 "Big Blue—he's coming back!"
 
@@ -2802,7 +2802,7 @@ and started peeling what might have been the last knob of ginger in Stale.
 "It's the polite thing to do,"
 she continued without looking as Noxy opened her mouth.
 
-"Yes, *amma*."
+"Yes, *anna*."
 Noxy set the loosely-woven bag of potatoes
 beside the chipped pot that they used as a sink
 and began to scrub the skins off them with a piece of pumice.
@@ -3284,7 +3284,7 @@ She combed her daughter's hair off her forehead with her fingers.
 How can I ask them to behave when my own daughter won't?
 Now, go wash your hands and get started on those thimbleberries."
 
-Noxy nodded glumly. "Yes, *amma*."
+Noxy nodded glumly. "Yes, *anna*."
 
 She moped home to collect the bucket of hard red thimbleberries and a large bowl,
 then climbed the steps to the top of the Quick Tower.
@@ -3805,7 +3805,7 @@ She stopped herself.
 "Do you know how he discovered he could do magic?"
 
 Noxy shrugged.
-"*Amma* never said."
+"*anna* never said."
 
 Granna Fee settled back in her chair,
 warming her hands with her teacup.
@@ -3872,7 +3872,7 @@ what had happened earlier that day had nothing to do with her.
 "I should go," Noxy finally said,
 eyeing her empty teacup regretfully.
 "If I don't get those thimbleberries done,
-*amma* will take the seeds out of *me*."
+*anna* will take the seeds out of *me*."
 
 Granna Fee smiled.
 "How about you bring them down here and we'll do them together?"
@@ -4145,7 +4145,7 @@ She never knew how to start…
 
 "Hi, *appa*," she said quietly.
 "I, uh, I guess it's been a while since I talked to you.
-*Amma* says to tell you that she misses you,
+*anna* says to tell you that she misses you,
 and,
 and I do too."
 
@@ -4297,7 +4297,7 @@ looking at the snoring male with a mixture of fondness and disappointment.
 Noxy hadn't known she was going to say it until she did.
 "He was from Garheim,
 but he liked the mountains and,
-and he fell in love with my *amma* and settled here.
+and he fell in love with my *anna* and settled here.
 That's his tree."
 She gestured behind her.
 
@@ -5120,7 +5120,7 @@ It was a statement, not a question.
 Noxy nodded.
 "He wasn't really a magician,
 not like Yangyal's trying to be.
-He just picked up a few things in Garheim before he met my *amma*.
+He just picked up a few things in Garheim before he met my *anna*.
 He asked the tralpa for help,
 but *he* was no use,
 so he made the best bargain he could.
@@ -5327,7 +5327,7 @@ No idea if they'd have one."
 His son shrugged.
 "Someone will have something."
 He looked at Noxy.
-"Let your *amma* know, will you?"
+"Let your *anna* know, will you?"
 
 "Sure," said said.
 "Do you know what caused it?"
@@ -5700,5 +5700,259 @@ it was far more elaborate than their reduced numbers required.
 There had only been one tiger in the royal army.
 If he and his boy were in Stale Leftovers,
 that just might be the luck he needed.*
+
+</section>
+<section markdown="1">
+
+## Chapter 7
+
+Purplesday was traditionally a day for people to work less hard
+and on things they wanted to.
+If someone called something a Purplesday quilt,
+they meant it was a labor of love.
+
+It was also a day for those who followed the saints' teachings
+to gather for discussion and reflection.
+Aft hadn't been particularly interested before he married Rind,
+but over the years he had absorbed some of his wife's faith.
+The one time Grappa Gas accused him of doing it
+just so that he and his son would have another thing to argue about,
+Aft had replied,
+"It's the last thing I want to fight about with you, *appa*."
+As far as anyone knew,
+it was the last time Aft had called his father that.
+
+But that wasn't what Grappa Gas wanted to talk about
+when he knocked on Indy's door
+and invited himself in for chai.
+"Didn't believe my eyes," he said,
+nodding his thanks to Noxy as she set a cup down in front of him.
+"He just knocked on the door and asked Sergeant Dorbu
+if any of the soldiers wanted to join this morning's conversation."
+
+"And did they?"
+Indy asked.
+
+The old man shrugged.
+"About half, I'd say.
+Don't know if that's a lot or a little for lowlanders.
+Have to say,
+it took me by surprise."
+
+Indy blew on her chai reflectively.
+"Well, we'd have been in real trouble without them last night.
+If Aft is willing to make peace…"
+
+"Are you?" Grappa Gas asked.
+
+She shook her head.
+"I can't.
+I can't stop them walking the walls or standing guard at the gate,
+but when this is all over,
+it can't look like we took a side."
+
+"Hm."
+Grappa Gas frowned at his chai.
+"Have to say,
+I'm glad these are your prunes to stew and not mine."
+
+When the chai and the conversation had both run out,
+he and Noxy left Indy to her accounts.
+The old man's peg leg made a slow *tock tock tock* on the cobblestones
+as they walked to the bath house.
+"What would happen if someone told the king about Sergeant Dorbu?"
+Noxy asked suddenly.
+"I mean, not *anna* but…"
+
+"But me?" Grappa Gas finished as she trailed off.
+He fished a small lump of hard, salty licorice out of his pocket,
+offered it to Noxy,
+and popped it in his mouth when she shook her head as she always did.
+"I thought about it,
+but she's the reeve."
+He clapped her on the shoulder,
+thoughts clearly chasing one another in his head.
+"Enjoy your bath."
+
+Sensy was waiting for her at the women's door of the bath house.
+"Hey," Noxy said,
+forcing a smile.
+
+"Hey."
+Sensy held up a bag.
+"I made some biscuits."
+
+"Great," Noxy said as enthusiastically as she could.
+Grappa Gas's licorice had been as soft as a ripe plum
+compared to her friend's last batch of biscuits.
+
+A few minutes later they were sitting in adjacent tubs
+full of steaming water.
+"So how are things going with Rash?" Noxy asked,
+taking a long-handled brush down from its hook.
+
+"Fine."
+Sensy studied her chin in a small mirror
+that was her most precious possession.
+"He's going to embroider a flower on my coat today."
+she amended.
+
+Noxy blinked.
+"That's—that seems pretty quick."
+
+Sensy put down her mirror and slid a little deeper into the water.
+"Not really.
+We've been talking all winter about, you know, us."
+
+Noxy traced the letters on her forearm with her thumb.
+"How come you didn't tell me?"
+she asked quietly,
+instantly hating the plaintive tone in her voice.
+
+"I tried to a couple of times," Sensy said.
+"But you never seemed in the mood to listen.
+You always just wanted to talk about,
+I don't know,
+whether we'll get to pick names for the cloud calves
+and things like that.
+You never wanted to talk about *us*."
+
+They sat without speaking for a few moments.
+Somewhere,
+little beads of condensation sounded a slow *drip drip drip*
+that reminded Noxy of Grappa Gas's peg leg.
+Outside,
+she heard a camel bleat,
+and Little Gas scold it in his young voice.
+She blinked,
+surprised by the tears in her eyes.
+"Sometimes I wish we were still kids,"
+she said.
+
+"Well, I don't," Sensy said firmly.
+She picked up the brush and began to scrub her back.
+"If we were, Rash wouldn't want to kiss me."
+
+They filled the next few minutes with things simultaneously trivial and important,
+like whether Sensy liked his mustache
+("No, but he's so proud of it")
+and whether they would pair up on the long journey down to the plains
+("Are you serious? My *anna* would lock me up with the camels if she caught us!").
+Noxy had almost relaxed by the time Sensy very casually asked,
+"So what about you and Thokmay?"
+
+"What about us?"
+
+Sensy pouted.
+"Oh come on.
+You two were out on Pillow for quite some time."
+
+"With the tiger!" Noxy protested.
+
+"*And* you were just up on the wall with him," Sensy countered.
+
+"With. The. Tiger," Noxy repeated,
+putting as much weight behind each word as she could.
+
+"If you say so," Sensy said airily.
+"Come on, I'll dry your back if you'll dry mine,
+and you can tell me what he's like."
+
+Noxy wanted to say,
+"He's the heir to the throne and we were almost buried in a cave-in yesterday,"
+just to see if Sensy would take her seriously.
+Instead she just shrugged.
+"I honestly don't know.
+He's about as easy to read as Kulbinder.
+I think the only thing either of them cares about is getting out of Stale."
+
+Sensy sighed,
+scrubbing Noxy's back with a scratchy gray towel.
+"Rash talks that way too."
+Noxy relaxed slightly as the conversation shifted back to the safer ground
+of their mutual friend's dreams of seeing the world.
+
+She and Sensy parted with a promise to see each other again next Purplesday.
+Noxy's damp hair chilled as she slowly made her way home
+along a street that felt oddly empty.
+The cobblestones still glistened in places from the previous night's rain.
+Granna Fee and some other elders were rolling up the canvas
+they had put down to protest the vegetable beds,
+while a couple of soldiers wrestled the burnt remains of the upstairs shutters
+out of the storehouse's windows.
+
+How had she missed what was happening between Sensy and Rash?
+Her *anna* would have noticed,
+and so would her granna.
+If she wanted to be reeve one day,
+she had to start paying attention to things like this.
+
+*If*, she thought glumly,
+kicking a stray scrap of dried moss out of her way.
+Everyone seemed to think her feet were on that road,
+but she didn't know if she wanted it or not.
+And then there was the forest,
+which was too big a problem to even think about properly.
+She didn't want to be a magician,
+not after what happened to her *appa*,
+but—
+
+Suddenly restless,
+she turned right and climbed the stairs to the Quick Tower,
+stopping short at the top when she caught sight of the tiger and his boy.
+Kulbinder could have been a statue if it wasn't for the wind ruffling his fur.
+He sat on his hind legs,
+his eyes half-closed and his tail tucked around his haunches.
+He turned his head to look at her,
+blinked,
+and looked out over the valley again without speaking.
+
+Thokmay sat next to him on the block that she and Rash and Sensy
+had used for their make-believe cloud rides.
+With his legs crossed,
+his head bowed,
+and his hands folded neatly in his lap,
+he could have been a statue as well.
+
+Noxy hesitated.
+She had seen some of the pack traders meditate,
+and vaguely remembered her father doing it a few times as well.
+Interrupting him felt like it would be rude.
+She started to turn away,
+but he opened his eyes and said, "Good morning."
+
+"Hi."
+She hesitated.
+"So have you thought about, um, things?"
+
+The prince nodded.
+"We talked about your plan,
+and we'd like to propose one of our own."
+
+"Oh yeah?"
+She put her back against the outer wall and slid down to sit.
+"Well, propose away."
+
+The prince looked at the tiger,
+who flicked back an ear.
+"We'd like to kidnap you."
+
+It was for her sake, not theirs, Kulbinder explained.
+If Sergeant Dorbu thought she had helped them,
+well,
+he was an honorable man,
+but even honorable men did foolish things when they got angry.
+On the other paw,
+if people thought they had forced her to help them against her will—
+
+"—you'll have my *anna* and Aft and everyone else chasing us,"
+Noxy cut in,
+more scornfully than she had intended but too cranky from dozing to care.
+"We'd be lucky to make it as far as Murky Lake,
+never mind Loghan-in-Loghan.
+Believe me, hiding out at the bothy is a better plan."
+
+The prince and the tiget exchanged looks.
+"He doesn't like the idea of us being separated," Thokmay said.
 
 </section>
