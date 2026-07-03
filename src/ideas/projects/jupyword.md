@@ -78,10 +78,6 @@
 -   "literate programming"
 -   "LibreOffice extension"
 
-## Department of Software Engineering Required Deliverables
-
--   Standard departmental deliverables as listed by RIT SE
-
 ## Sponsor and Project Specific Deliverables
 
 -   Working plugin installable in LibreOffice Writer (and optionally Microsoft Word) with no build steps for the end user
@@ -101,8 +97,3 @@
 
 -   Sponsor available for weekly 30-minute video calls; flexible on day and time; prefers morning slots (ET)
 -   Responsive by email within 24 hours on weekdays
-
-## Project Agreements and Assignment of Rights
-
--   Open-source agreement required: code is published publicly
--   Sponsor confirms all necessary clearances to use RIT standard open-source project agreement unmodified

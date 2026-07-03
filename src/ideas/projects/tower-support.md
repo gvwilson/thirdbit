@@ -52,10 +52,6 @@ No special hardware or software is required. All tools needed to complete this p
 - agent pathfinding
 - cooperative game mechanics
 
-## Department of Software Engineering Required Deliverables
-
-Standard departmental deliverables as listed by the RIT Department of Software Engineering.
-
 ## Sponsor and Project Specific Deliverables
 
 - Playable prototype: a runnable game with at least 3 levels and at least 2 distinct traveler types, hosted in a browser
@@ -72,7 +68,3 @@ No aspect of this project is proprietary. The project will be developed and publ
 ## Availability
 
 The sponsor is available for weekly 30-minute video calls and is flexible on the day and time, with a preference for morning slots (Eastern Time). The sponsor responds to email within 24 hours on weekdays.
-
-## Project Agreements and Assignment of Rights
-
-The sponsor requires the open-source project agreement: all code will be published publicly under an open-source license. The sponsor confirms that all necessary internal clearances have been obtained to use the RIT standard open-source project agreement unmodified.

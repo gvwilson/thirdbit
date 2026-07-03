@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: </title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../about/">about</a>
+    <a href="../../../blog/">blog</a>
+    <a href="../../../talks/">talks</a>
+    <a href="../../../packages/">packages</a>
+    <a href="../../../bib/">bibliography</a>
+    <a href="../../../ideas/">ideas</a>
+    <a href="../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1></h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="" class="post-date"></time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><h1>Project Proposal: Software Team Simulator</h1>
+<h2>Background Information</h2>
+<p>Discrete-event simulation has been used to model software development dynamics for decades. <a href="curiousduck.io">DuckSim</a> demonstrates that this kind of simulation can be pedagogically useful if it has a well-designed interactive interface: a user adjusts sliders for developer pressure, codebase quality, and bug-prioritization strategy, presses Run, and watches burndown curves and defect counts evolve in real time.</p>
+<p>The scenarios that DuckSim makes available correspond directly to claims that appear repeatedly in software engineering textbooks and management folklore. Most programmers have encountered these claims in the abstract; few have had the opportunity to observe how sensitive outcomes are to starting conditions. An open-source, locally-installable simulator would make that experience available without a subscription.</p>
+<p><a href="https://asimpy.readthedocs.io/">Asimpy</a> is a Python discrete-event simulation library that is already in use in related work in this project. It provides the process-oriented simulation primitives needed to model software teams: developers as processes, backlogs as queues, bugs as entities with arrival and service rates, and deploy pipelines as resources with finite capacity.</p>
+<h2>Mentor</h2>
+<p>Greg Wilson is an independent educator and software engineering author who has spent decades teaching software development skills and designing learning materials for developers at all stages of their careers.</p>
+<h2>Project Description</h2>
+<p>The goal of this project is to build a Python-based GUI application that runs configurable simulations of software teams using asimpy as the underlying discrete-event simulation engine. The user selects a scenario from a menu, adjusts its parameters using interactive sliders, runs the simulation, and views the results as animated line charts that update as the simulated days advance. The application must be runnable locally from the command line without a network connection.</p>
+<p>The project will implement at minimum four scenarios, each grounded in a well-known software engineering dynamic:</p>
+<p><strong>Schedule Pressure</strong> models what happens when developers are pushed to go faster. Higher pressure leads to cut corners, which seeds more latent defects, which take longer to find and fix, which slows the team further. Parameters include initial system reliability, developer pressure level, and bug-prioritization strategy (interrupt, top of backlog, or bottom of backlog). Outputs include features remaining, open bug count, and system reliability score over time.</p>
+<p><strong>Mythical Man Month</strong> models Brooks&rsquo; Law: adding developers to a late project makes it later. The model accounts for the time new hires spend unproductive while onboarding, the coordination overhead that grows with team size, and the drag imposed by interrupting experienced developers to help newcomers. Parameters include project size, chunk size, work week hours, coordination overhead per pair, onboarding time, drag factor, and interruption rate. Output is a family of curves showing estimated project duration as a function of team size.</p>
+<p><strong>Staffing Strategy</strong> compares a team of configurable generalists against a reference team of highly skilled specialists. Each developer on the generalist team has adjustable skill levels across four task categories, and the user can choose whether each developer picks work from the backlog in order or seeks out work matching their highest skill. Output shows work remaining and work completed for both teams side by side over time.</p>
+<p><strong>Legacy Maintenance</strong> models a team adding features to an existing codebase of known quality. Parameters include developer team size, tester team size, legacy system quality, requirements quality (how accurate the information the developers are working from is), developer skill, and tester skill. Outputs include feature stories remaining, bugs found, open bugs, and total remaining work.</p>
+<h2>Project Scope</h2>
+<p>The team will select and justify a GUI framework appropriate for local desktop use in Python. The primary candidate is <a href="https://marimo.io/">Marimo</a>, which supports interactive slider widgets and live-updating charts natively and can be run as a desktop application or a local web server. Alternative candidates include Panel and Streamlit for server-style local deployment, or PyQt or Tkinter for a native desktop window. The selection must be documented and justified against concrete criteria including ease of building responsive interactive sliders, chart update performance during simulation playback, and the learning curve for contributors who will add new scenarios.</p>
+<p>Each scenario must be implemented as a standalone asimpy simulation module with a documented parameter interface. The GUI layer must call into these modules without modification when the user presses Run; scenario modules must not import from the GUI layer. This separation of concerns is a first-class design requirement and must be enforced by the project&rsquo;s test suite.</p>
+<p>The simulation must not block the user interface thread. When the user presses Run, the simulation advances in a background thread or process, emits state snapshots at configurable intervals, and the GUI updates its charts from those snapshots without freezing. The team must choose and document a concurrency strategy, test it under the full parameter range of each scenario, and verify that it does not produce race conditions or stale chart data.</p>
+<p>Charts must update smoothly during playback. Each scenario must display at minimum two time-series charts. Chart axes must be labeled with units, and charts must support a pause/resume control and a speed slider that adjusts the delay between simulation ticks.</p>
+<p>The team will write unit tests for each scenario module confirming that the simulation produces qualitatively correct dynamics under well-understood parameter settings. For the Schedule Pressure scenario, for example, maximum pressure with a poor codebase must produce more total bugs and a longer completion time than minimum pressure with a clean codebase.</p>
+<p>The project must include a short guide explaining how to add new scenarios.</p>
+<h2>Project Challenges</h2>
+<p>Model calibration is the central challenge. A simulation that produces trivially obvious outputs teaches nothing; one that produces wildly unrealistic dynamics loses credibility. Each scenario must be tuned so that its default parameter settings produce behavior that resembles what practitioners report from real projects, and so that the effect of changing each parameter is legible without a statistics degree. Achieving this requires running structured playtesting sessions with developers who can say whether a given outcome &ldquo;feels right&rdquo; before the team commits to the model. The team must schedule at least two calibration sessions with external reviewers and document the changes made as a result.</p>
+<p>The concurrency design for live chart updates is technically demanding. The simplest approach, running the simulation to completion and then animating the stored results, avoids race conditions but defeats the purpose of a live simulator. Approaches that truly advance the simulation on a background thread and push updates to the GUI require careful use of thread-safe queues or async event loops. The team must prototype at least two approaches early, benchmark their responsiveness, and select one before beginning the full implementation.</p>
+<p>The scenario abstraction boundary requires discipline. It is tempting to let scenario modules reach into the GUI for parameter values or to let the GUI call into asimpy internals rather than the documented scenario interface. Both shortcuts make the codebase harder to test and to extend. The team must establish this boundary in the first sprint and enforce it through code review throughout the project.</p>
+<p>Finally, the project must produce something that is genuinely useful for teaching. A technically correct simulator that no instructor would assign to students is a failure. The team should identify at least one instructor willing to use the tool in a course and incorporate their feedback into the design before the final deliverable.</p>
+<h2>Number of Students</h2>
+<p>2-3 students preferred.</p>
+<h2>Sponsor-Provided Hardware and Software</h2>
+<p>No special hardware or software is required. All tools needed to complete this project are freely available as open-source software, including Python, asimpy, Marimo, and the charting libraries needed for the visualization layer. The sponsor will act as project manager, participate in weekly standups, and serve as an external calibration reviewer throughout development.</p>
+<h2>Project Search Keywords</h2>
+<ul>
+<li>discrete-event simulation</li>
+<li>software engineering education</li>
+<li>team dynamics</li>
+<li>asimpy</li>
+<li>interactive visualization</li>
+<li>Python GUI</li>
+</ul>
+<h2>Sponsor and Project Specific Deliverables</h2>
+<ul>
+<li>Runnable application: a locally installable Python package containing at least four fully implemented scenarios with interactive parameter controls and live-updating charts</li>
+<li>Source code in a public Git repository under an open-source license (MIT preferred)</li>
+<li>Technical design document covering the scenario module interface, the concurrency strategy for live chart updates, and the GUI framework selection rationale</li>
+<li>User guide explaining how to install and run the application and how to interpret the output of each scenario</li>
+<li>Scenario extension guide documenting how to add a new scenario to the application</li>
+<li>Calibration report documenting the external review sessions, the feedback received, and the parameter adjustments made in response</li>
+<li>A 3-minute demo video showing all four scenarios running with different parameter settings and narrating what the outputs mean</li>
+</ul>
+<h2>Proprietary Information</h2>
+<p>No aspect of this project is proprietary. The project will be developed and published openly, and team members are free to discuss all aspects of their work with potential employers or graduate programs.</p>
+<h2>Availability</h2>
+<p>The sponsor is available for weekly 30-minute video calls and is flexible on the day and time, with a preference for morning slots (Eastern Time). The sponsor responds to email within 24 hours on weekdays.</p><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../bib/"><img src="../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../atom.xml"><img src="../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../license/"><img src="../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../colophon/"><img src="../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../cv/"><img src="../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

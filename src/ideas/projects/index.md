@@ -64,6 +64,27 @@ and other media.
 
 [full proposal](./jupyword/)
 
+### Rewind (game)
+
+A first-person shooter with a science-fiction theme in which each player has a
+limited "temporal battery" that can be spent to reverse the flow of time by a
+few seconds. If you just got shot, rewind and take cover instead; if you missed
+a shot, rewind and aim lower. The twist is that your opponent knows you can do
+this, turning every rewind into a battle of wits.
+
+[full proposal](./rewind/)
+
+### Software Team Simulator (development)
+
+This project will use [Asimpy](https://asimpy.readthedocs.io/), a Python
+discrete-event simulation library, to build an interactive GUI that lets users
+adjust parameters such as developer skill, schedule pressure, bug-fix strategy,
+and team composition, then watch simulated burndown curves, defect accumulation,
+and cycle times evolve in real time. The goal is an open-source tool covering
+scenarios from Brooks' Law to specialist-versus-generalist staffing.
+
+[full proposal](./team-sim/)
+
 ## In Progress
 
 ### Analysis of Undergrad Textbooks (research)
@@ -92,7 +113,7 @@ survey of best-selling books on software developmnt to measure how many of their
 claims are backed by citations, and of those, how many are considered valid,
 then survey programmers to see which (if any) they believe.
 
-## Some Work Done But Not Active
+## Inactive
 
 ### Browsercast (development)
 
@@ -129,14 +150,6 @@ edge cases in reproducible ways.
 JavaScript. [This project](@root/gl4py/) will translate examples from [*Software
 Design by Example in Python*](@root/sdxpy/) into Gleam to help people coming
 from Python and other mainstream languages understand how to use FP in practice.
-
-### Software Design by Example in Lean (tutorial)
-
-[Lean](https://lean-lang.org/) is a modern functional language used primarily
-for theorem proving. [This project](@root/l4py/) will translate examples from
-[*Software Design by Example in Python*](@root/sdxpy/) into Lean to help people
-coming from Python and other mainstream languages understand how to use FP in
-practice.
 
 ### Unbreaking Software (tutorial)
 
