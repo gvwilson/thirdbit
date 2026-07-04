@@ -21,7 +21,7 @@ and nearly ended with them as well.
 Powerful and inhuman,
 they destroyed themselves in a war
 that scarred the moon and turned Lake Karaband into a sea of glass.
-When it was over the  Pilots disappeared,
+When it was over the Pilots disappeared,
 leaving the world to carry on as best it could.*
 
 *Now look there,
@@ -2245,17 +2245,16 @@ Private Thokmay grabbed Noxy's arm as she started forward.
 "Help, of course!" she said, shaking him off.
 
 "How?"  Private Thokmay nodded at the log.
-"One wrong move and they'll be lighting candles for all three of us."
+"One wrong move and they'll be lighting candles for you both."
 
 "We can't just leave him there!" Noxy protested.
-"He'll freeze!"
 The Scholar-Candidate was soaked to the skin and shivering,
 as miserable as he was angry.
 
 "I know, but—"
+
 Like an actor who had been waiting for her cue,
 the log started to slide down the mountain.
-
 The tralpa shrieked
 as the log jerked to a stop two paces below where it had been.
 "Hurry up!" he yelped in a strangled voice.
@@ -2424,9 +2423,8 @@ He spun around.
 The tralpa gulped and would have taken a step backward into the rock slide
 if Noxy hadn't said, "Look out!"
 He caught himself and looked from her to the tiger to Private Thokmay.
-To Noxy's astonishment he plopped himself down on the path.
-
-"I just wanted to do the right thing," he sniffled.
+To Noxy's astonishment he started to sniffle.
+"I just wanted to do the right thing," he whimpered.
 "I know you all laugh at me behind my back,
 but I do try,
 I really do,
@@ -2464,6 +2462,28 @@ The private's eyes widened.
 "Thank you, honored," he said,
 letting go and bowing slightly.
 The tralpa waved away his thanks as if it was a mosquito.
+
+"I didn't know you could do that,"
+Noxy said as they trudged along.
+
+The tralpa sniffed.
+"I'm not *completely* incompetent."
+
+"Then how did you wind up on that log?" Kulbinder rumbled.
+
+Yangyal gave him a dirty look.
+"I didn't 'wind up' anywhere.
+Some trolls started chasing me,
+and I was running too fast to mind my footing."
+
+*Really?* Noxy thought, but didn't say.
+On the one hand,
+she suspected that when the tralpa said he was being chased,
+what he meant was that he had seen a troll in the distance.
+On the other hand,
+they *had* approached her and Sensy the day before.
+She shook her head.
+The important thing now was to get home.
 
 The trail home seemed so long that
 Noxy started to wonder if they had taken a wrong turn.
@@ -5784,7 +5804,8 @@ He fished a small lump of hard, salty licorice out of his pocket,
 offered it to Noxy,
 and popped it in his mouth when she shook her head as she always did.
 "I thought about it,
-but she's the reeve."
+but she's the reeve.
+Wouldn't have voted for her if I didn't trust her to do the job."
 He clapped her on the shoulder,
 thoughts clearly chasing one another in his head.
 "Enjoy your bath."
@@ -5945,16 +5966,16 @@ I was the first to sign on."
 
 Sensy caught Noxy's eye and shook her head,
 but Noxy plowed on.
-"Grappa Gas says your side is—isn't winning."
+"Grappa Gas says your side isn't winning."
 
 Kechen smiled without opening her eyes.
-"You mean losing?
-Yeah, he's not wrong.
+"You mean we're losing?
+He's not wrong.
 But I'd rather lose for the right side than win for the wrong one.
 And who knows?
 Maybe someone will write a song about us
 and folks will sing it
-and someday…"
+and one day there will be enough of us to change things."
 Her shrug sent a little ripple through the water.
 
 Noxy and Sensy dressed and left in silence,
@@ -6176,5 +6197,142 @@ What's your plan?"
 Noxy smiled,
 hoping she looked more confident than she felt.
 "Well, the first step is for you to pick a fight."
+
+FIXME
+
+*Once again she was standing beside her father's tree,
+but this time she was fully dressed instead of wearing only
+the loose cotton shift that she slept in.
+The trees were different too.
+The green buds of fresh spring growth were gone.
+Instead, the grove had the slightly weary feeling of autumn just before it turned to winter.*
+
+*"Hello again."
+Alva knuckle-walked toward her and sat down just out of arm's reach.
+"The forest told me about the fire last night.
+I hope you're all right."*
+
+*"I'm fine.
+Wait, is this why I fell asleep?
+Did you do that so you could talk to me?"*
+
+*The troll smiled.
+"Not me, dear, the forest.
+There is only—"*
+
+*"—the forest," Noxy finished sourly.
+"So what's so important that the forest needs to talk to me right now?"*
+
+*"It's Signurd," Alva said.
+"He is going to challenge you."*
+
+*Noxy sighed.
+"Great. What does that mean?
+Do I have to wrestle him,
+or should I start learning how to fence?
+Or wait,
+will it be a poetry contest like in a fairy tale?"*
+
+*"I think you should take this a little more seriously, dear,"
+the troll said primly.
+"And no, it's nothing like that.
+You'll meet him here, in the forest's dreams.
+What happens after that will be up to the two of you."*
+
+*Noxy looked around.
+There wasn't even the slightest hint of a breeze,
+and the usual background of insect noise and birds chirping was missing.
+Even as she thought that,
+though,
+she felt a breath of wind on her face.
+The branches began to sway gently,
+and somewhere nearby she heard the distinctive two-tone buzz of a carpenter bee.
+Had she done that?*
+
+*"Sort of," the troll said aloud, startling her.
+"It's hard for the forest to speak to people like us.
+We're so small, and words are so short and quick.
+It's much better at understanding sights and smells."*
+
+*"What if I don't want to fight Signurd?" Noxy asked,
+running her hand over a nearby branch.
+Its needles prickled against her skin.
+"Will he just leave me alone?
+There's kind of a lot of other things happening right now,"
+she added apologetically.*
+
+*Alva scratched her rump.
+"I don't know, dear.
+He's really quite upset."*
+
+*"Well it's not __my__ fault!"
+Noxy protested.*
+
+*"There is no fault, dear.
+There is only—why are you making that face?"*
+
+*Whatever Noxy might have said or thought or dreamed in reply
+was swept away by a sudden wind that bent the tops of the trees around her.
+One moment Alva was there, the next she wasn't.
+The wind swept a cloud of fallen pine needles into the air
+and Noxy along with them.
+She was flying,
+flying like a bird or a magician from a story instead of riding a cloud.*
+
+*The forest fell away below her.
+She had a moment to think, "That's Stale," before her home was behind her as well.
+Up, up, up she went,
+so high that she could see the great long spine of the Churyas
+that separated the plains of Darp from Uws and Garheim.
+Lakes and rivers gleamed in the sun.
+Terraced fields climbed the steep sides of valleys,
+and everywhere there was forest,
+one great forest that was somehow aware of itself.*
+
+*And of her.
+She felt a tiny fragment of its attention,
+as careful as a child touching an ant with its fingertip
+but still so big,
+so much larger than anything merely human.*
+
+*She was falling now instead of rising.
+Sternwards of the mountains,
+where the valleys relaxed into hilly plains,
+a bruise lay beneath the skin of the world.
+There was a lake in its center,
+as bright and clear to the eye as it was wrong in her mind.
+With a shock she realized that the forest was afraid of what lay in that lake.
+What could something so big, so old, so __powerful__ be afraid of?*
+
+*The forest answered.
+Afterward,
+when she woke up,
+only fragments of what the forest had shared with her
+were small enough to fit in her mind.
+The Pilots marshalled armies of monsters they had brewed in the underhells beneath Cherne.
+They threw white fire at the moon,
+scarring it and set it spinning.
+The forest burned and burned and grieved and grieved,
+and then it was over,
+except it wasn't,
+any more than a flower is over when its seeds still lie buried,
+waiting for spring.*
+
+*The forest wasn't afraid for itself, Noxy realized with a cold shock.
+It was afraid for her and for the forest that __she__ belonged to,
+for every person alive or yet to be born.
+Whatever lay dormant and patient in the middle of that bruise on the world
+could burn through them like a fire through dry undergrowth.
+Someone was trying to light the tinder,
+and the forest wanted her to stop them.*
+
+Noxy woke, tangled in her duvet and drenched in sweat once again.
+Her mother was knocking on her door,
+asking if she was all right.
+"I'm fine, *anna*," she managed.
+"Just a bad dream."
+And then she rubbed the scribbles on her arm,
+looked at the ceiling,
+and said, "Well, crap."
 
 </section>
