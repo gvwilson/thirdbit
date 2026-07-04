@@ -6198,7 +6198,139 @@ Noxy smiled,
 hoping she looked more confident than she felt.
 "Well, the first step is for you to pick a fight."
 
-FIXME
+Afterward,
+Noxy would herself that she didn't pick Rash because she was mad at him
+for inviting Sensy to the fancy without telling her,
+but that was afterward.
+That morning,
+she told Thokmay and Kulbinder what the tralpa had agreed to,
+then went to Granna Fee's and started weeding her grandmother's little pepper garden.
+There weren't actually very many weeds,
+but from there she had a clear view of the men's entrance to the bath house.
+
+She waved at Rash when she saw him.
+If his parents had been home he would have been up at dawn,
+but he had been sleeping in ever since they left with the other adults.
+He gave her a lazy wave,
+entered,
+and closed the door behind him.
+
+She started counting under her breath.
+One hungry dragon, two hungry dragons…
+At twenty she was sure her plan had failed,
+but then she heard the tralpa's raised voice.
+He paused,
+presumably while Rash replied,
+then spoke again even more sharply.
+
+She glanced up at the wall,
+but couldn't see the prince or the tiger.
+Good—by now they should be back at the trading hall ready to do their part.
+That meant it was time for her to do hers.
+She stood,
+brushed her hands on her trousers,
+and waited.
+
+Sure enough,
+Rash burst out of the bath house a few moments later,
+slamming the door behind him.
+She almost had to sprint to intercept him.
+"Hey," she said a little breathlessly.
+"What was that all about?"
+
+Rash glared at her.
+"The stupid tralpa told me I had to get out of the bath house."
+
+"What?"
+Noxy gaped at him.
+"Why?"
+
+Rash brushed his wet hair out of his eyes.
+"He said he doesn't feel safe sharing it with people who've sided with traitors.
+Those were his exact words—people who've sided with traitors."
+
+Noxy put her hands on her hips.
+"He can't tell you what to do!"
+
+"I know!"
+Rash puffed out his cheeks, then shook his head.
+"I'm just going to—"
+
+"You should tell my *anna*," Noxy cut in hastily.
+She would if he didn't,
+but she didn't want to give her mother any reason to believe this encounter had been planned.
+"Really," she went on as Rash hesitated.
+"You're not his camel."
+
+That did it.
+Rash nodded,
+his jaw set,
+then spun around and hurried away,
+his wet hair still dripping down his back.
+
+The tralpa must have been watching through the grille in the bath house door,
+because he came out just as Rash returned with Indy.
+Noxy had found a basket to mend,
+and was doing her best to be inconspicuous when the tralpa pulled up short
+and gave the pair a glare that was probably meant to be withering.
+"Can I help you, reeve?" he demanded acidly.
+
+Indy made a gesture to quiet Rash before he could speak.
+"You can start by explaining yourself."
+
+"I think I explained myself perfectly clearly," Yangyal said.
+"Now if you'll excuse me,
+I have a letter to write."
+
+Indy took a step to block him from leaving.
+"I think the letter can wait on the explanation."
+Her mother was furious,
+Noxy realized uneasily.
+That hadn't been part of the plan.
+
+The tralpa looked her up and down.
+"I am the king's representative in this saints-forsaken dungheap," he hissed.
+"And I insist that you treat me with the respect my office demands!"
+
+"Respect!? What about—"
+Rash stopped mid-sentence at another gesture from the reeve.
+
+"Respect goes both ways," Indy said.
+"And the surest way to show that you understand that would be to apologize to Rash.
+He has every right to take a bath when he wants to.
+In fact,
+I'd actually encourage him to do it more often,
+but that's beside the point."
+
+"Apologize?" the tralpa spluttered.
+"I will not apologize to anyone!
+I'm the one who's being held here against my will.
+Now *stand aside*."
+
+*Here it comes,* Noxy thought,
+her heart in her throat.
+Her mother wasn't moving.
+This had been a terrible plan.
+She stood,
+dropping the basket she was mending without noticing.
+She had to stop this.
+
+But it was too late.
+A soundless flash of light blinded her.
+Her mother and Rash yelped in shock.
+Somewhere nearby someone exclaimed,
+"Saints! What was that?"
+
+"*Anna*!" Noxy called, suddenly afraid.
+"*Anna*, are you all right?"
+
+"I can't see!" her mother called back.
+
+"You'll be fine in a moment, reeve," Yangyal said,
+the venom in his voice making her title sound like a curse.
+"But I suggest that the next time you want to accost a royal representative,
+you think twice.
+Good day."
 
 *Once again she was standing beside her father's tree,
 but this time she was fully dressed instead of wearing only
