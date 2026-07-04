@@ -2347,7 +2347,7 @@ The tralpa shoved her out of his way and scrambled up the path for safer ground.
 Noxy jumped just as the boulder beneath her tipped over and started rolling down the mountain.
 Her momentum carried her three steps forward to trip over the tralpa,
 who was on his knees sobbing in the narrow path.
-He shrieked and wrapped his arms around the trunk of the nearest tre.
+He shrieked and wrapped his arms around the trunk of the nearest tree.
 
 Noxy spun around.
 Private Thokmay was on his feet,
@@ -4965,7 +4965,7 @@ He shrugged.
 I was already in uniform by then,
 and there were a couple of times when I thought we might be ordered
 to break up some meetings,
-but then winter came and everthing seemed to settle down.
+but then winter came and everything seemed to settle down.
 I didn't know…"
 
 He paused,
