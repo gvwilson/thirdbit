@@ -6318,19 +6318,201 @@ She had to stop this.
 But it was too late.
 A soundless flash of light blinded her.
 Her mother and Rash yelped in shock.
-Somewhere nearby someone exclaimed,
-"Saints! What was that?"
+She heard other voices nearby.
+"Saints!"
+"What was that?"
+"What happened?"
+"Are the damn lightnings back?"
 
-"*Anna*!" Noxy called, suddenly afraid.
+"*Anna*!" Noxy called out.
 "*Anna*, are you all right?"
 
-"I can't see!" her mother called back.
+"I can't see!" Indy said.
+For the first time that Noxy could remember,
+her mother sounded afraid.
 
-"You'll be fine in a moment, reeve," Yangyal said,
+"You'll be fine in a moment, *reeve*," Yangyal said,
 the venom in his voice making her title sound like a curse.
 "But I suggest that the next time you want to accost a royal representative,
 you think twice.
 Good day."
+
+Even as he clomped away in the heavy wooden sandals he always wore when bathing,
+the white blindness in Noxy's eyes turned to painful sparkles.
+She grabbed the fence beside her,
+for reassurance as much as to steady herself,
+and blinked until tears ran down her cheeks and the world reappeared.
+
+The blurs in front of her turned into Rash and her mother.
+"Are you all right?" Noxy asked again.
+
+"I'm fine, sweetling," Indy said.
+
+"What in the underhells was that?" Rash demanded,
+grinding the heels of his hands into his eyes one last time.
+"He can't do that kind of magic!"
+
+"Apparently the scholar-candidate is more powerful than we realized."
+Noxy hadn't seen that expression on her mother's face
+since a pack trader had been caught trying to sell guppa dust during the summer fancy.
+
+"I've heard of it happening before,"
+Kulbinder rumbled a few minutes later.
+He, Sergeant Dorbu, and Granna Fee were crowded around the table in the kitchen.
+Indy had insisted on standing,
+which left Noxy sitting on the stairs
+as she waited for the kettle to boil.
+"Some people spend years trying to work up the courage to make their first bargain.
+Perhaps what happened to him in the forest was the spur he needed."
+
+"Well, I wish I could say I was happy for him,
+but this is a problem."
+Sergeant Dorbu said.
+He had arrived at the bath house a trot with three other soldiers,
+blades in their hands,
+and cursed in a creative monotone after Indy explained what had happened.
+"I don't expect he'll tell us what he traded for it,
+which means we have no idea what else he can do."
+
+He rapped the table with his knuckles angrily.
+"I'm sorry, reeve, but we're going to have to put a guard on him.
+We can't take the chance that he'll…"
+He made a frustrated sound in the back of his throat.
+"I don't know, fly away or turn invisible."
+
+"He can't be all *that* powerful," Granna Fee protested.
+"At least, not yet.
+We'd have noticed changes if he was, wouldn't we?"
+
+"Maybe."
+Indy set a plate of pickles on the table.
+"But maybe not.
+I don't know him well enough to notice
+if he's suddenly started skipping on every third step
+or avoiding anything painted blue."
+
+The corner of Sergeant Dorbu's mouth quirked up.
+"I see someone's read *The Turtle Prince*," he said.
+
+"Every week for a year,"
+Granna Fee volunteered,
+earning a mock-scowl from her daughter.
+"She even had a doll."
+
+"That's *not* what we're talking about right now," Indy said firmly.
+She nodded to Noxy as the kettle started to whistle.
+"We need to figure out if we're going to do anything about the tralpa."
+
+"I'm sorry," Sergeant Dorbu repeated,
+"But it's not an if.
+We need another few days before we can be out of your way,
+and I can't take the chance of him running off again.
+I'm going to have to put guards on him."
+
+"Why not stick him somewhere in the forest?" Noxy asked in the silence that followed.
+Kulbinder's ears flattened against his skull.
+*Well then __you__ should have said something,* she thought.
+"After what happened to him last time,
+I don't think he'll try hiking out again.
+You could even say it was for his own safety,"
+she went on in a rush as the adults exchanged looks.
+"To, you know, make sure there aren't any other problems."
+
+She turned and busied herself with the chai.
+Had she said too much?
+She and Rash and Sensy had tried selling some knitted toy clouds at the fancy market the year before.
+After a disappointing afternoon,
+Grappa Gas had taken pity on them and explained that the more they talked,
+the less people would believe them.
+The trick was to make them think everyone else believed it.
+
+As if he could read her mind,
+Kulbinder flicked his tail abruptly as if to swish away a fly.
+"The idea has merit.
+As the young honored says,
+the tralpa is unlikely to chance his luck in the forest again.
+You could set me as guard in case he decides to be foolish,"
+he added as Sergeant Dorbu started to object.
+
+Noxy held her breath as she stirred the chai,
+then tried not to whoosh with relief when Sergeant Dorbu said,
+"Well, I don't have a better idea.
+Thank you."
+He took the chai that Noxy handed him and blew on it.
+"Never a dull day around here, is there?"
+
+Indy smiled at him.
+"Welcome to my life."
+
+After that,
+it was just a matter of details.
+Sergeant Dorbu would give the tralpa the rest of the day
+to pack what he needed for his temporary exile.
+Indy and Granna Fee would tell the villagers what they had decided and why.
+"Can I do anything?" Noxy asked.
+
+"You can look after his birds," Indy said,
+tousling her daughter's hair.
+
+"Great."
+Noxy made it sound like a complaint out of habit,
+but all she felt was relief.
+She did her best not to rush through her porridge after Kulbinder and Sergeant Dorbu left,
+then pretended not to notice the looks that her mother and Granna Fee exchanged
+when she said she was going to go and talk to Thokmay about the bothy.
+If they thought she was sweet on the prince—no,
+on Private Thokmay, she had to remember to call him that—then
+maybe they wouldn't look any further.
+And if she took a bit of extra time to brush her hair and scrub her face before leaving,
+well,
+she was only doing it so her *anna* wouldn't nag her.
+
+She found Thokmay doing laundry—all of it,
+or so she first thought.
+"Just a hundredweight," he said,
+squeezing suds out of a sodden kilt and dunking it back in fresh water.
+He had stripped down to his vest again,
+and spoke in short grunts as he worked.
+"Everyone…takes a turn.
+Well…every common soldier.
+Only some…of the officers."
+
+Noxy pushed aside a pang of sympathy.
+"Did Kulbinder talk to you?"
+
+Thokmay nodded,
+pausing to wipe sweat from his forehead.
+"He said the tralpa put on a good show.
+Apparently you're going to be looking after his birds?"
+
+"I suppose," Noxy said.
+
+"Good.
+We're supposed to leave tomorrow morning after breakfast."
+Thokmay paused.
+"So I suppose this is goodbye."
+
+Noxy blinked.
+It hadn't even occurred to her…
+"I suppose," she echoed.
+
+Thokmay nodded again.
+"In that case, thank you.
+Really."
+He hesitated.
+"If you're ever in Loghan-in-Loghan,
+I'd be happy to show you around."
+
+"But no tunnels," Noxy said.
+
+Thokmay smiled.
+"I promise."
+
+Noxy busied herself with chores for the rest of the day,
+then borrowed Granna Fee's copy of *The Turtle Prince*
+and re-read the first six chapters in bed
+by the light of her little dayglass lamp.
+She fell asleep almost as soon as she finally closed her eyes.
 
 *Once again she was standing beside her father's tree,
 but this time she was fully dressed instead of wearing only
