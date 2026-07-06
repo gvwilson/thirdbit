@@ -6619,10 +6619,6 @@ With a shock she realized that the forest was afraid of what lay in that lake.
 What could something so big, so old, so __powerful__ be afraid of?*
 
 *The forest answered.
-Afterward,
-when she woke up,
-only fragments of what the forest had shared with her
-were small enough to fit in her mind.
 The Pilots marshalled armies of monsters they had brewed in the underhells beneath Cherne.
 They threw white fire at the moon,
 scarring it and set it spinning.
@@ -6648,5 +6644,354 @@ asking if she was all right.
 And then she rubbed the scribbles on her arm,
 looked at the ceiling,
 and said, "Well, crap."
+
+</section>
+<section markdown="1">
+
+## Chapter 8
+
+Noxy woke tangled in her duvet, and groaned.
+Her sheet was soaked with sweat once again,
+which meant she either had to do laundry early
+or put up with it for a week.
+
+Only fragments of what the forest had shared with her
+were small enough to fit in her mind,
+but that was enough to leave her with a knot in her stomach.
+Something bad was coming,
+but she had no idea what she was supposed to do about it.
+At least the magician in *The Turtle Prince* had given the hero quests
+rather than just a sense of impending doom.
+
+She froze at the sound of something scrabbling on the roof.
+Was Alva back?
+Or had Signurd come to challenge her?
+She threw the duvet aside and pulled on her trousers and a sweater,
+then opened the door as quietly as she could and tiptoed downstairs.
+
+Indy looked up from her account books.
+"Good morning, sleepy-head.
+You were out like—what?"
+She blinked as Noxy put a finger to her lips.
+
+"On the roof," Noxy mouthed,
+pointing at the ceiling with one hand
+and tapping her ear with the other.
+Her mother nodded,
+stood,
+and took the kitchen knife from beside the sink pot.
+
+"Stay here," Indy mouthed,
+making the flat-hand gesture pack traders used with camels.
+A brief flurry of gestures and annoyed head-shakes later,
+the reeve rolled her eyes and beckoned her daughter to follow her up the stairs.
+
+Like most houses in Stale,
+theirs only had two rooms on the upper floor.
+Unlike most,
+they both had doors instead of heavy curtains—Ulfmaerr had insisted on them,
+lowland-style,
+after Noxy was old enough to climb out of bed.
+Indy made another "stay" gesture at Noxy
+and tugged at the loop of string that held her door closed.
+It creaked slightly as it opened,
+making them wince in unison.
+
+Overhead,
+they heard the scrabbling noise again,
+followed by a muffled caw and a muttered curse.
+Indy relaxed,
+set the knife on the little shelf beside the bed,
+and pulled the shutters open.
+"You can come in," she called through the window.
+
+"Easy for you to say," a scraping voice replied.
+
+Indy gave Noxy an exasperated look.
+"Come around to the front door,
+I'll let you in there."
+
+A few moments later Noxy found herself sitting on the stairs
+while her mother shelled pistachios
+under the bright unblinking eyes of a white-headed condor.
+The bird smelled like dirty straw,
+but Noxy didn't see any point mentioning that,
+or the fact that she hadn't had breakfast yet.
+
+"There you go," Indy said,
+putting a small plate of nuts in front of the bird
+and seating herself.
+"So, how's the family?"
+
+"Could be worse."
+The condor picked up a nut in its beak
+and used its red-black tongue to maneuver it into position to swallow.
+"Two of the chicks are flying already."
+
+"Congratulations," Indy said.
+"Are either of them…?"
+
+"Nawp."
+The condor pecked at another pistachio.
+"Dumb as chickens."
+It sniggered at its own joke.
+
+Indy smiled politely,
+the same way she did when Grappa Gas made puns.
+"So what brings you calling this morning?"
+
+"People coming," the condor said.
+"Saw 'em this morning when I was out hunting.
+Whole flock of 'em.
+Figured you'd want to know."
+
+Most people wouldn't have noticed the sudden stiffening in her mother's shoulders,
+but Noxy wasn't most people.
+"Pack traders?" Indy asked casually.
+
+"Nawp."
+The condor snagged two pistachios at once
+and ruffled its feathers as one fell to the floor.
+"No camels or wagons,
+just a bunch of people.
+Like the ones you got here already."
+
+Noxy's breath caught in her throat.
+Soldiers?
+Now?
+Had the tralpa somehow gotten word to the king?
+Had he been playing her and Thokmay and Kulbinder for fools
+while they had been trying to fool him?
+
+Her mother was already on her feet.
+"Here."
+She hefted the small cloth bag that held the remaining pistachios.
+"If you head back to your nest and don't tell anyone else what you saw,
+you can have the rest of them."
+
+The condor cocked its head.
+"You gonna shell them for me?"
+
+"Don't push your luck," Indy warned.
+"Do we have a deal?"
+
+"Yawp."
+The condor hopped off the stool,
+snapped up the pistachio it had dropped,
+walked primly to the door,
+and paused.
+"You gonna get that for me?"
+
+Noxy filled the kettle and set it to boil
+as her mother closed the door behind the bird,
+sat down,
+and buried her face in her hands.
+"I just need one day," she said in a muffled voice.
+"One day where nothing happens.
+Is that too much to ask?"
+
+"If wishes were fishes, we'd all have kippers for breakfast,"
+Noxy said as lightly as she could.
+"Speaking of which…"
+She scraped a spoonful of ghee out of its pot,
+dropped it in the frying pan beside the kettle,
+and added the remains of the previous night's beans, squash, and onions.
+Her mother had gone out and gotten a couple of eggs from the village chickens
+while Noxy was sleeping,
+but after the condor's visit she felt guilty about adding them to the pan.
+
+Her mother straightened.
+"Thanks, sweetling.
+I haven't thought about kippers in years.
+Not really sure they'd make this day any better."
+
+"So what are you going to do?"
+Noxy asked as the kettle began to whistle.
+She dumped some leaves and herbs into the teapot without measuring them,
+then splashed herself with boiling water as she poured.
+
+Indy sighed.
+"Go and have a look for myself, I suppose.
+Oh saints—what if they're Chaghan-o?"
+
+"What?"
+Noxy hadn't even thought of that.
+Like the other cloudherd villages,
+Stale lay in territory that both kingdoms claimed but neither occupied.
+If Chaghan's queen had heard there were Loghan-o soldiers in the village—
+
+"I should have asked the condor which direction the soldiers were coming from,"
+her mother said.
+She shook her head angrily.
+"Stupid, stupid, stupid."
+
+"Hey."
+Noxy dumped half of the improvised breakfast in a bowl,
+set it on the table,
+and wrapped her arms around her mother from behind.
+"I didn't think of it either."
+
+"You're not the reeve," Indy said,
+squeezing her daughter's arms and then shaking her off.
+She stared into the distance for a moment.
+"But let's not tell Sergeant Dorbu about this until we know what's cheese and what's cherries, all right?"
+She took the spoon Noxy offered and began shoveling her breakfast without waiting for an answer.
+
+Noxy didn't ask how her mother was going to get Big Blue or Pillow out of the cloud pen
+without the soldiers stopping her.
+She also didn't ask to come along—she knew what the answer would be,
+and anyway,
+she needed to find Thokmay and Kulbinder and let them know what was happening.
+She'd let them figure out what to tell the tralpa.
+
+After Indy dressed and left,
+Noxy gave the dishes a quick scrub,
+tied her hair back,
+and exclaimed,
+"What now?"
+when someone thumped their fist on the door.
+
+"Indy?
+Indy, are you there?"
+The urgency in Grappa Gas's voice was matched by
+the look on his face when Noxy pulled the door open.
+"Where's your mother?"
+
+"She's gone out," Noxy said.
+"What's wrong?"
+
+"It's Rind."
+Grappa Gas was breathing hard.
+"She's lost her waters.
+The baby is coming.
+Now where in the underhells is Indy?
+She said she'd be the fourth for luck!"
+
+"She's out flying."
+Noxy started to explain about the condor.
+She had just reached the part about
+not knowing if the soldiers were Loghan-o or Chaghan-o
+when Grappa Gas said,
+"Tell me later,"
+and took her arm.
+
+Stale was large enough to have a birthing room attached to the women's bath house,
+but small enough that Grappa Gas sometimes joked
+that they should use it for camels as well as people.
+He wasn't making any jokes as they hurried down the street,
+his peg leg thunking on the cobblestones with every second step.
+Rind had been beating the dust out of some blankets when it happened.
+She wasn't due for another couple of weeks.
+Aft hadn't panicked,
+and Rind had helped with enough births to know what she was in for,
+and Granna Fee had everything ready,
+thank the saints,
+but of all the times for Indy to go running off—
+
+"She didn't run off," Noxy panted,
+but if Grappa Gas heard he didn't answer.
+
+He pulled up short at the birthing room door.
+Noxy heard Aft and Rind's voices inside,
+and then Granna Fee's.
+"Thank the saints," the old man said with relief.
+"Go on in.
+I'll, um…"
+
+"You'll go and let everyone else know what's happening,"
+Noxy said firmly,
+turning him around and giving him a gentle push.
+He blinked at her for a moment,
+then smiled,
+gave her a quick hug,
+and stumped away.
+
+Noxy squared her shoulders and opened the door.
+
+"Where's your *anna*?"
+"Where's Indy?"
+"Careful with that!"
+Granna Fee, Aft, and Rind spoke on top of one another as she entered.
+She ignored the questions and lunged forward
+to stop Aft from spilling a cup of chai on his wife.
+
+"Where's your *anna*?"
+Granna Fee repeated.
+
+"She was out when Grappa Gas came by."
+Noxy swallowed.
+She had helped camels do this since was eight years old,
+but Rind wasn't a camel.
+"What do you want me to do?"
+
+"Just hold her hand for now," Granna Fee said crisply.
+"I need to wash up.
+And Aft—just put that down, she'll drink it later!"
+
+Noxy tried not to wince each time Rind crushed her hand.
+Aft kept telling her everything was going to be all right,
+she was doing great,
+the baby was going to be beautiful just like her.
+Granna Fee ordered them each to take a few moments
+to scrub their hands with soap and hot water.
+"And try to stay on your corner," she added.
+"For luck."
+
+Noxy checked her feet.
+Bow, stern, port, starboard—scuff marks on
+the diamond lozenge painted on the floor
+showed where generations of villagers had stood
+to welcome new arrivals into the world.
+The mother,
+the midwife,
+and two others made four for long life and good fortune.
+For a brief moment she wondered what trolls and tigers and condors did,
+but then Granna Fee said,
+"All right,
+here we go,"
+and too much was happening for her to think about anything else.
+
+"You're doing great, you're doing great," Aft repeated.
+He was brushing hair back from his wife's forehead when someone thumped on the door.
+
+"Reeve!"
+Private Kechen called.
+"Reeve, I need to speak with you!"
+
+"She's not here!"
+Granna Fee shouted back.
+
+"Reeve, I'm sorry, but I really need to talk to you now!"
+
+"She's *not here*!" Aft bellowed.
+"Sorry, sorry," he added quickly as Rind groaned.
+
+Noxy heard the door open.
+She had just a moment to see the shocked looks on Rind and Aft's faces
+before Granna Fee turned around and snapped,
+"Get! Out!"
+
+Private Kechen took in the scene with a single glance.
+"I'm sorry, but—"
+
+"*Now!*"
+Noxy had never heard her grandmother shout like that.
+The soldier closed the door without a word.
+
+"It's all right," Aft comforted Rind.
+"The baby's not here yet.
+It's all right."
+
+Noxy caught Granna Fee's eye.
+Her grandmother gave a small shrug.
+Four was lucky.
+Five was not.
+Five was the broken moon spinning above them,
+and nobody wanted that as a birth omen.
+
+"Have you picked a name?" Noxy asked.
+
+"Probby," Rind grunted.
+"Probably Has Worms, after my—oohhh…"
 
 </section>
