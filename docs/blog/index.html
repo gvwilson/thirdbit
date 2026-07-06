@@ -133,6 +133,697 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/07/05/now-what/">
+      Now What? A Workshop on Error Handling
+    </a>
+  </h3>
+  <p><time datetime="2026-07-05" class="post-date">2026-07-05</time></p>
+  <p>I finally have time to flesh out ideas for lessons that I&rsquo;ve wanted for years.
+However,
+if I can&rsquo;t find a way to send them back to 2006,
+there&rsquo;s no point writing them:
+very few people read long-form tutorials about software these days.
+I&rsquo;d still be interested in comments, though—figuring out what I would teach
+always helps me learn.</p>
+<h2>Overview</h2>
+<p><strong>Topic</strong>: Error handling.</p>
+<p><strong>Audience</strong>: Senior undergraduates who are
+comfortable writing programs in Python and JavaScript that are hundred of lines long,
+know how to raise and catch exceptions,
+and are familiar with SQL, C, and the Unix shell,
+but have no experience building production-robust programs.</p>
+<p><strong>Format</strong>: seven 45-minute lessons with exercises.</p>
+<h2>1) What Can Go Wrong</h2>
+<ul>
+<li>Taxonomy of errors<ul>
+<li>Logic errors: bugs in the program itself</li>
+<li>Runtime errors: null dereference, division by zero, index out of bounds</li>
+<li>External errors: file not found, network timeout, database constraint violation</li>
+<li>Human errors: bad input, misconfiguration, wrong file format</li>
+<li>Environmental errors: disk full, out of memory, clock skew</li>
+</ul>
+</li>
+<li>Failure modes<ul>
+<li>Fail-fast vs. fail-slow: silent corruption is harder to debug than an early crash</li>
+<li>Silent failures: errors ignored, wrong results returned without warning</li>
+<li>Cascading failures: one component&rsquo;s error triggering failures in others</li>
+</ul>
+</li>
+<li>C-style error signaling<ul>
+<li>Return codes: functions return -1, NULL, or 0 on failure</li>
+<li><code>errno</code>: a global (thread-local) integer set by system calls<ul>
+<li>Read with <code>perror()</code> or <code>strerror()</code></li>
+</ul>
+</li>
+<li>Sentinel values: EOF (-1), invalid index, or a special out-of-band value</li>
+<li>Advantages: explicit control flow, no hidden jumps, zero runtime overhead</li>
+<li>Disadvantages: easy to ignore, verbose, callers must check every call, no stack information</li>
+<li>Common pitfalls:<ul>
+<li>Not checking return values</li>
+<li>Reading <code>errno</code> after another call has overwritten it</li>
+<li><code>errno</code> not being set on success</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Philosophy: errors are not exceptional, they are expected<ul>
+<li>The happy path is one of many paths</li>
+<li>Spectrum of responses: ignore vs. crash vs. recover vs. degrade gracefully</li>
+<li>Choosing a response requires knowing the context and the cost of each option</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Taxonomy drill</dt>
+<dd>Given six short programs in Python, JavaScript, and C,
+each containing a different type of error,
+classify each error using the taxonomy above
+and explain whether the program&rsquo;s response (crash, wrong output, hang, silent skip)
+is appropriate for a production context.</dd>
+<dt><code>errno</code> pitfall hunt</dt>
+<dd>A short C function uses <code>fopen</code>, <code>fread</code>, and <code>fclose</code> and checks <code>errno</code> after each call.
+The function contains three bugs related to C-style error handling
+(e.g., ignoring a return value, checking <code>errno</code> too late, not distinguishing error from end-of-file).
+Identify each bug and propose a fix.</dd>
+<dt>Failure brainstorm</dt>
+<dd>Given a brief description of a web form that accepts a user&rsquo;s name, email, and a file upload,
+then stores the data in a database,
+list every error that could occur,
+including errors the user causes,
+errors the network causes,
+errors the OS causes,
+and errors the program itself could cause.
+Compare lists with a partner and identify any category you missed.</dd>
+</dl>
+<h2>2) Error Propagation and Recovery</h2>
+<ul>
+<li>Options when an error is detected<ul>
+<li>Crash/abort: call <code>abort()</code>, <code>panic</code>, or let the process die<ul>
+<li>Appropriate when the program is in an unrecoverable state or an invariant is violated</li>
+</ul>
+</li>
+<li>Return an error value: C-style return codes, Go-style <code>(value, error)</code> pairs, Rust-style <code>Result&lt;T, E&gt;</code></li>
+<li>Raise an exception: hands control to the caller&rsquo;s handler</li>
+<li>Log and continue: almost always wrong<ul>
+<li>Hides failures and corrupts program state</li>
+</ul>
+</li>
+<li>Retry: attempt the operation again (only safe for transient, idempotent operations)</li>
+<li>Use a fallback value: return a default, a cached result, or a degraded response</li>
+<li>Partial success: complete what you can, report what failed</li>
+<li>Compensating action: undo work already done before propagating the error</li>
+</ul>
+</li>
+<li>Propagating errors without losing information<ul>
+<li>Re-raise: pass the error up unchanged</li>
+<li>Wrap/chain: add context while preserving the original cause (Python <code>raise X from Y</code>, Java <code>initCause</code>)</li>
+<li>Translate: convert a low-level error into a domain-level error
+    (e.g., from <code>OSError</code> to <code>ConfigurationError</code>)</li>
+<li>Anti-pattern: catching an exception and throwing a new one that discards the original</li>
+</ul>
+</li>
+<li>Adding context as errors propagate<ul>
+<li>Include what was being attempted and with what inputs (sanitized)</li>
+<li>Each layer adds the context it has</li>
+<li>Callers should not have to guess</li>
+</ul>
+</li>
+<li>C-style propagation patterns<ul>
+<li>Check every return value, every time: a missed check is a latent bug</li>
+<li>Passing error information up via out-parameters or a shared error struct</li>
+<li><code>goto cleanup</code> pattern for resource cleanup on multiple error paths</li>
+<li>Comparing C-style propagation to exception propagation: explicitness vs. verbosity</li>
+</ul>
+</li>
+<li>Retry logic<ul>
+<li>Distinguish transient errors (timeout, temporary unavailability)
+    from permanent errors (permission denied, not found)</li>
+<li>Exponential backoff: double the wait time between retries</li>
+<li>Add jitter (random variation) to prevent thundering herd</li>
+<li>Set a maximum number of retries and a total timeout</li>
+<li>Only retry idempotent operations<ul>
+<li>Retrying a non-idempotent operation can cause duplicate side effects</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Propagation rewrite</dt>
+<dd>A Python function reads a configuration file,
+connects to a database using values from that file,
+and runs a query.
+The function is given with no error handling.
+Rewrite it so that errors at each stage are wrapped with context and propagated appropriately,
+then rewrite the equivalent in C using return codes, noting what is harder and easier in each style.</dd>
+<dt>Swallowed exceptions</dt>
+<dd>A code snippet contains three <code>except: pass</code> or equivalent constructs.
+For each, explain what failure is being hidden,
+what could go wrong as a result,
+and what the correct handling would be.
+At least one case should be a place where logging-and-continuing is wrong even though it feels safe.</dd>
+<dt>Retry with backoff</dt>
+<dd>Implement a <code>retry</code> decorator (Python) or higher-order function (JavaScript) that wraps a function call,
+retries up to N times on specified exception types,
+uses exponential backoff with jitter,
+and raises the last exception if all retries fail.
+Test it against a stub that fails a configurable number of times before succeeding.
+Discuss which HTTP status codes should trigger a retry and which should not.</dd>
+</dl>
+<h2>3) Error Communication</h2>
+<ul>
+<li>Errors have multiple audiences with different needs<ul>
+<li>End users: need to know what happened and what they can do about it</li>
+<li>API callers: need structured, machine-readable information to handle programmatically</li>
+<li>Operators and on-call engineers: need enough detail to diagnose and fix the problem</li>
+</ul>
+</li>
+<li>User-facing error messages<ul>
+<li>State what went wrong in plain language</li>
+<li>Tell the user what to do next (retry, contact support, correct their input)</li>
+<li>Avoid technical jargon, stack traces, and internal identifiers</li>
+<li>Do not blame the user</li>
+<li>Provide a reference (request ID, error code) they can give to support without revealing internals</li>
+<li>Distinguish &ldquo;you did something wrong&rdquo; (4xx) from &ldquo;we did something wrong&rdquo; (5xx)</li>
+</ul>
+</li>
+<li>API error responses<ul>
+<li>HTTP status codes: 4xx for client errors, 5xx for server errors<ul>
+<li>Use specific codes (400, 401, 403, 404, 409, 422, 429, 503) rather than always returning 400 or 500</li>
+</ul>
+</li>
+<li>Error response body: include <code>type</code>, <code>message</code>, <code>detail</code>, and <code>request_id</code> fields</li>
+<li>RFC 7807 (Problem Details for HTTP APIs): a standard format worth knowing</li>
+<li>Consistent schema across all endpoints<ul>
+<li>Callers should not have to handle different shapes</li>
+</ul>
+</li>
+<li>Validation errors: return all field errors at once, not just the first one</li>
+</ul>
+</li>
+<li>Security considerations in error communication<ul>
+<li>Information leakage:
+    stack traces, SQL queries, file paths, and internal service names in error messages help attackers</li>
+<li>User enumeration: &ldquo;user not found&rdquo; vs. &ldquo;wrong password&rdquo; reveals whether an account exists<ul>
+<li>Use &ldquo;invalid credentials&rdquo; instead</li>
+</ul>
+</li>
+<li>Timing side-channels: if &ldquo;user not found&rdquo; returns in 1ms and &ldquo;wrong password&rdquo; returns in 200ms
+    (due to password hashing),
+     an attacker can enumerate accounts by timing<ul>
+<li>Always perform the same operations regardless of the error branch</li>
+</ul>
+</li>
+<li>Error messages as reconnaissance:
+    the more specific the error, the more an attacker learns about your system</li>
+<li>Rule of thumb:
+    the user-facing message and the internal log entry should contain different levels of detail</li>
+</ul>
+</li>
+<li>Correlation IDs<ul>
+<li>Generate a unique ID per request<ul>
+<li>Include it in all logs and in the user-visible error response</li>
+</ul>
+</li>
+<li>Allows an operator to find all logs related to a specific error report</li>
+<li>Pass the ID through every internal service call in a distributed system</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Message rewrite</dt>
+<dd>Five error messages from real or realistic applications are provided
+(e.g., a raw Python traceback shown in a web UI,
+a message reading &ldquo;MySQL error 1045 for user &lsquo;admin&rsquo;@&rsquo;localhost&rsquo;&rdquo;,
+a message reading &ldquo;Your session token has expired and cannot be refreshed&rdquo;).
+For each,
+write a user-appropriate replacement that is informative without leaking internals,
+and write a separate message suitable for the internal log.</dd>
+<dt>API error schema design</dt>
+<dd>Design the error response body for a REST endpoint that registers a new user.
+The schema must handle missing required fields,
+fields that fail validation (email format, password length),
+a duplicate username,
+and an unexpected server failure.
+Show example JSON for each case.</dd>
+<dt>Login timing attack</dt>
+<dd>A login function is provided that queries the database first
+and returns &ldquo;User not found&rdquo; immediately if the user does not exist,
+or hashes the password and compares it (taking ~200ms) if the user does exist.
+Explain the timing side-channel,
+fix it so both branches take the same time,
+and discuss whether this fix is always necessary or whether it depends on the threat model.</dd>
+</dl>
+<h2>4) Logging and Observability</h2>
+<ul>
+<li>Why logging matters for error handling<ul>
+<li>Errors that are caught and handled still need to be visible to operators</li>
+<li>Post-mortem debugging requires a record of what happened</li>
+<li>Trends in error rates reveal systemic problems before they become outages</li>
+</ul>
+</li>
+<li>Log levels and when to use each<ul>
+<li><code>DEBUG</code>: detailed internal state, useful during development, not in production by default</li>
+<li><code>INFO</code>: normal significant events (startup, shutdown, completed request)</li>
+<li><code>WARNING</code>: unexpected but handled conditions that may indicate a problem</li>
+<li><code>ERROR</code>: a failure that was caught but means something did not complete successfully</li>
+<li><code>CRITICAL</code>: system is in a severely degraded or unrecoverable state</li>
+<li>Common mistake: logging every caught exception at <code>ERROR</code> regardless of severity</li>
+</ul>
+</li>
+<li>Structured logging<ul>
+<li>Free-text logs are hard to query: key-value pairs (or JSON) are machine-parseable</li>
+<li>Standard fields: <code>timestamp</code>, <code>level</code>, <code>message</code>, <code>request_id</code>, <code>user_id</code>, <code>error_type</code>, <code>duration_ms</code></li>
+<li>Log the event, not a sentence:
+    <code>{"event": "db_query_failed", "table": "users", "error": "timeout"}</code>
+    rather than <code>"Failed to query users table due to timeout"</code></li>
+</ul>
+</li>
+<li>What to include in an error log entry<ul>
+<li>What was being attempted and with what parameters (sanitized)</li>
+<li>The error: type, message, and stack trace for unexpected errors (not for expected/handled errors)</li>
+<li>The outcome: did the system recover, degrade, or fail?</li>
+<li>Correlation ID to link this entry to the request and to other services</li>
+</ul>
+</li>
+<li>What NOT to log<ul>
+<li>Passwords, API keys, session tokens, OAuth codes: not even partial values or hashes</li>
+<li>Personally identifiable information (PII): names, emails, government IDs<ul>
+<li>Check compliance requirements (GDPR, HIPAA)</li>
+</ul>
+</li>
+<li>Full request/response bodies if they may contain credentials or sensitive data</li>
+<li>Stack traces in user-facing API responses (they belong in the internal log only)</li>
+</ul>
+</li>
+<li>Audit logs vs. diagnostic logs<ul>
+<li>Diagnostic logs: help engineers debug problems (mutable, short retention, lower protection)</li>
+<li>Audit logs: immutable record of security-relevant actions
+    (who authenticated, what data was accessed, what was changed)<ul>
+<li>Long retention, tamper-evident, access-controlled</li>
+</ul>
+</li>
+<li>Not the same stream: conflating them causes both compliance and debugging problems</li>
+</ul>
+</li>
+<li>The observability triad<ul>
+<li>Logs: record of individual events</li>
+<li>Metrics: aggregated numerical measurements (error rate, latency percentiles, queue depth)</li>
+<li>Traces: end-to-end path of a request through multiple services</li>
+<li>Correlation IDs connect all three (errors visible in metrics can be traced to specific log entries)</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Logging retrofit</dt>
+<dd>A function that processes uploaded CSV files
+is given with a single <code>except Exception as e: print(e)</code> handler.
+Add structured logging using Python&rsquo;s <code>logging</code> module (or a JavaScript equivalent).
+Include appropriate log levels for different error conditions,
+add relevant context fields,
+distinguish expected errors (bad CSV format) from unexpected errors (disk full),
+and identify what was unobservable before your changes.</dd>
+<dt>Security audit of log output</dt>
+<dd>Three log excerpts are provided,
+each containing at least one security violation
+(e.g., a plaintext password,
+a full stack trace that reveals an internal file path and SQL query,
+or a user ID that allows enumeration of account existence).
+Identify each violation, explain what risk it creates, and show the corrected log entry.</dd>
+<dt>Logging strategy design</dt>
+<dd>A data pipeline reads records from an API, transforms them, and writes results to a database.
+The pipeline processes records in batches.
+Design a logging strategy: what events are logged at each stage,
+what fields each entry includes,
+what constitutes a loggable error vs. a metric,
+and how an operator would diagnose a job that completed without crashing
+but produced fewer output records than expected.</dd>
+</dl>
+<h2>5) External Systems</h2>
+<ul>
+<li>Why external systems are the primary source of production errors<ul>
+<li>Code you write can be tested exhaustively</li>
+<li>Systems you depend on cannot be controlled</li>
+<li>External systems fail in ways that are partial, delayed, and inconsistent</li>
+</ul>
+</li>
+<li>File system errors<ul>
+<li>Not found, permission denied, disk full, file locked by another process, corrupted data</li>
+<li>Always close files: use context managers (<code>with</code> in Python, <code>using</code> in C#, RAII in C++)</li>
+<li>Atomic writes: write to a temporary file, then rename<ul>
+<li>Rename is atomic on POSIX systems</li>
+<li>Direct writes leave a window where the file is partially written</li>
+</ul>
+</li>
+<li>Handling partial reads and partial writes explicitly</li>
+</ul>
+</li>
+<li>Database errors<ul>
+<li>Connection failure: the database is unreachable (transient, so retry with backoff)</li>
+<li>Timeout: query took too long (may or may not have committed, so check before retrying)</li>
+<li>Constraint violation: duplicate key, foreign key failure, not-null violation (permanent, so do not retry)</li>
+<li>Deadlock: two transactions are waiting on each other (transient, so retry the whole transaction)</li>
+<li>Serialization failure (in serializable isolation):
+    transaction conflicted with a concurrent one (transient, so retry)</li>
+<li>Connection pool exhaustion: all connections are in use (application-level backpressure needed)</li>
+<li>Distinguishing transient from permanent errors using error codes, not message strings</li>
+</ul>
+</li>
+<li>Network and HTTP errors<ul>
+<li>Every external call must have a timeout: separate connect timeout and read/total timeout</li>
+<li>Retrying safely:
+    only retry if the operation is idempotent or the error occurred before the request was received</li>
+<li>HTTP status codes that indicate retrying is safe: 429 (with <code>Retry-After</code>), 503, 504</li>
+<li>HTTP status codes that should not be retried: 400, 401, 403, 404, 409, 422</li>
+<li>Exponential backoff with jitter (review from Lesson 2, now applied to real HTTP clients)</li>
+<li>Handling rate limiting: respect <code>Retry-After</code> headers, implement client-side rate limiting</li>
+</ul>
+</li>
+<li>Parsing external data<ul>
+<li>Never assume the schema of data from an external source</li>
+<li>Validate presence and type of required fields before using them</li>
+<li>Handle missing optional fields explicitly rather than letting a <code>KeyError</code> or <code>undefined</code> propagate</li>
+<li>Version skew: the API changed its schema (your parser must detect and report this)</li>
+<li>Fail loudly on unexpected schema changes rather than silently producing wrong results</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Error handling retrofit for a pipeline</dt>
+<dd>A script that downloads a JSON file from an HTTP endpoint,
+parses it,
+and inserts records into a SQLite database is given.
+It has no error handling.
+Add appropriate handling for
+HTTP errors (including distinguishing retryable from non-retryable),
+JSON parse failures,
+missing required fields,
+and database constraint violations.
+For each error type, decide whether to abort, skip the record, or retry, and justify the choice.</dd>
+<dt>Transaction retry</dt>
+<dd>A function executes a multi-statement database transaction and fails with a deadlock error.
+Implement retry logic that retries the entire transaction on deadlock,
+does not retry on constraint violations,
+limits total retries,
+and logs each retry attempt.
+Discuss why retrying only the failed statement, rather than the whole transaction, is wrong.</dd>
+<dt>Atomic file write</dt>
+<dd>A function saves user settings to a JSON file by opening the file,
+serializing the settings,
+and writing directly.
+Demonstrate two failure scenarios where this approach corrupts the file:
+interrupted write,
+and crash between open and close.
+Implement the temp-file-then-rename pattern and explain why it is safe
+even if the process is killed mid-write.</dd>
+</dl>
+<h2>6) Concurrency and Async Errors</h2>
+<ul>
+<li>Why concurrency changes error handling<ul>
+<li>An error in a thread or task may not propagate to the code that started it</li>
+<li>Operations may be partially complete when an error occurs, leaving shared state inconsistent</li>
+<li>Some errors (race conditions, deadlocks) only appear under concurrency and are hard to reproduce</li>
+</ul>
+</li>
+<li>Errors in threads<ul>
+<li>Python: an uncaught exception in a <code>Thread</code> prints a traceback
+    but does not crash the main thread or propagate to the caller<ul>
+<li>Errors are silently lost unless explicitly collected</li>
+</ul>
+</li>
+<li>Thread pools (<code>concurrent.futures.ThreadPoolExecutor</code>):
+    exceptions are stored and re-raised when <code>future.result()</code> is called<ul>
+<li>But only if you call it</li>
+</ul>
+</li>
+<li>Always collect results from thread pools<ul>
+<li>Never fire-and-forget threads that could fail silently</li>
+</ul>
+</li>
+<li>Setting a global thread exception handler (<code>threading.excepthook</code>) as a backstop</li>
+</ul>
+</li>
+<li>Async/await errors (Python and JavaScript)<ul>
+<li>Python: an unawaited coroutine silently does nothing (forgetting <code>await</code> is a silent bug)</li>
+<li>Python: an unhandled exception in a <code>Task</code> is reported when the task is garbage-collected<ul>
+<li>Too late to be useful</li>
+<li>Always await tasks or attach <code>.add_done_callback</code></li>
+</ul>
+</li>
+<li>JavaScript: an unhandled promise rejection crashes Node.js in recent versions<ul>
+<li>In older versions (and some browsers) it is silently swallowed</li>
+</ul>
+</li>
+<li>Always handle rejections: <code>.catch()</code>, <code>try/await/catch</code>, or <code>process.on('unhandledRejection')</code></li>
+<li>Forgetting <code>await</code> in a loop:
+    tasks are created but not awaited, the loop exits, and all tasks are cancelled</li>
+</ul>
+</li>
+<li>Parallel operations and partial failure<ul>
+<li><code>Promise.all</code>: fails fast<ul>
+<li>If any promise rejects, the whole thing rejects and other results are lost</li>
+</ul>
+</li>
+<li><code>Promise.allSettled</code>: waits for all promises regardless of outcome<ul>
+<li>Returns an array of <code>{status, value/reason}</code></li>
+<li>Use when you want partial results</li>
+</ul>
+</li>
+<li>Python <code>asyncio.gather(return_exceptions=True)</code>:
+    returns exceptions as values instead of raising them<ul>
+<li>Allows processing partial results</li>
+</ul>
+</li>
+<li>Decision: whether to fail fast or collect all results depends on whether partial results are useful</li>
+</ul>
+</li>
+<li>Structured concurrency<ul>
+<li>The problem: a task that spawns subtasks and then throws has left orphaned subtasks running</li>
+<li>Python <code>asyncio.TaskGroup</code> (3.11+):
+    all tasks in the group are cancelled if any raises an exception<ul>
+<li>The group does not exit until all tasks are done</li>
+</ul>
+</li>
+<li>Structured concurrency ensures the lifetime of every subtask is bounded by the scope that created it</li>
+<li>Cancellation propagation:
+    when a task is cancelled, it receives a <code>CancelledError</code> (Python) or <code>AbortError</code> (JS)<ul>
+<li>Cleanup must happen in <code>finally</code> or <code>try/catch</code> around <code>await</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Shared state and locks in error paths<ul>
+<li>A lock must always be released, even if an error occurs</li>
+<li>Use <code>try/finally</code> or a context manager</li>
+<li>If an error occurs while holding a lock after modifying shared state,
+    the state may be inconsistent when the lock is released<ul>
+<li>Decide if the modification needs to be rolled back before releasing</li>
+</ul>
+</li>
+<li>Deadlock: two threads each hold a lock the other needs<ul>
+<li>Prevent via lock ordering (always acquire locks in the same order) or via timeouts</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Silent thread failures</dt>
+<dd>A Python script spawns ten threads,
+each of which downloads a file and writes it to disk.
+When a download fails,
+the exception is printed to stderr but the main thread sees all tasks as complete.
+Rewrite using <code>ThreadPoolExecutor</code>,
+collect all futures,
+and report which downloads succeeded and which failed,
+then introduce a deliberate failure in two of the threads
+and verify the errors are caught and reported correctly.</dd>
+<dt>Promise.all to Promise.allSettled</dt>
+<dd>A JavaScript function fetches data from five independent APIs using <code>Promise.all</code>.
+The whole function fails if any one API is unavailable.
+Rewrite it using <code>Promise.allSettled</code> so that
+results from available APIs are returned and failures are reported per-API.
+When is <code>Promise.all</code>&rsquo;s fail-fast behavior preferable?</dd>
+<dt>Deadlock identification and fix</dt>
+<dd>A function managing a shared cache acquires <code>cache_lock</code> and then <code>stats_lock</code> in that order.
+Another function acquires the same locks in the opposite order.
+Trace through a scenario where both functions run concurrently and deadlock.
+Fix the bug using lock ordering.
+As a second fix,
+add a timeout to the lock acquisition and show how to handle the case where the timeout expires.</dd>
+</dl>
+<h2>7) Resilience Patterns and Production Practices</h2>
+<ul>
+<li>The goal: systems that degrade gracefully rather than fail catastrophically<ul>
+<li>&ldquo;Fail safe&rdquo; vs. &ldquo;fail secure&rdquo; vs. &ldquo;fail operational&rdquo;</li>
+<li>No system achieves zero errors: the goal is bounded, predictable failure</li>
+</ul>
+</li>
+<li>Circuit breaker pattern<ul>
+<li>Closed state: requests pass through normally</li>
+<li>Open state: requests fail immediately without attempting the operation
+    (protecting a downstream that is already failing)</li>
+<li>Half-open state: a probe request is allowed through<ul>
+<li>If it succeeds, the breaker closes</li>
+<li>If not, it stays open</li>
+</ul>
+</li>
+<li>Thresholds: open after N failures in a time window<ul>
+<li>Reset after a timeout</li>
+</ul>
+</li>
+<li>Use case:
+    preventing cascading failures when a slow or failing dependency causes your thread pool to fill up</li>
+</ul>
+</li>
+<li>Bulkhead pattern<ul>
+<li>Isolate resources (thread pools, connection pools, processes)
+    so that a failure in one area does not exhaust resources for another</li>
+<li>Example: use separate HTTP connection pools for critical and non-critical external services</li>
+<li>Trade-off: resource isolation requires over-provisioning in aggregate</li>
+</ul>
+</li>
+<li>Timeout patterns<ul>
+<li>Every call to an external system must have a timeout<ul>
+<li>A call without a timeout can block forever</li>
+</ul>
+</li>
+<li>Cascading timeouts:
+    internal timeouts should be shorter than the external deadline so the caller still gets a response</li>
+<li>Distinguishing timeout-on-connect from timeout-on-read</li>
+</ul>
+</li>
+<li>Graceful degradation<ul>
+<li>Serve stale cached data rather than failing when the data source is unavailable</li>
+<li>Disable non-critical features (recommendations, analytics) when load is high or dependencies are down</li>
+<li>Return partial results rather than failing when some data is unavailable</li>
+<li>Read-only mode: allow reads but reject writes when the system cannot safely persist data</li>
+</ul>
+</li>
+<li>Testing for failure<ul>
+<li>Happy-path tests verify normal behavior<ul>
+<li>Error-path tests verify that errors are handled correctly</li>
+</ul>
+</li>
+<li>Fault injection: deliberately introduce failures (network errors, corrupt data, slow responses) in tests</li>
+<li>Property-based testing (Hypothesis, fast-check): generate unexpected inputs to find unhandled edge cases</li>
+<li>Chaos engineering: inject controlled failures in production
+    to find weaknesses before an actual incident does</li>
+</ul>
+</li>
+<li>Error budgets and SLOs<ul>
+<li>Service Level Indicator (SLI): a measurement of reliability (e.g., fraction of requests that succeed)</li>
+<li>Service Level Objective (SLO): the target (e.g., 99.9% success over 30 days)</li>
+<li>Error budget: the allowed failure rate (e.g., 0.1% of requests, or about 43 minutes of downtime per month)</li>
+<li>If the error budget is exhausted, new features stop and reliability work takes priority</li>
+</ul>
+</li>
+<li>Post-mortems<ul>
+<li>Document what happened, what the impact was, and why it happened</li>
+<li>Blameless culture: focus on systemic causes, not individual mistakes</li>
+<li>Five Whys: ask &ldquo;why&rdquo; repeatedly to find the root cause rather than the proximate cause</li>
+<li>Action items must be concrete, assigned, and time-bound</li>
+</ul>
+</li>
+</ul>
+<h3>Exercises</h3>
+<dl>
+<dt>Circuit breaker implementation</dt>
+<dd>Implement a <code>CircuitBreaker</code> class in Python or JavaScript that wraps a function.
+It should track consecutive failures,
+open after a configurable threshold,
+fail fast while open,
+and attempt recovery after a timeout.
+Write tests that simulate a dependency that fails, recovers, and fails again,
+verifying the breaker transitions through all three states correctly.</dd>
+<dt>Single points of failure analysis</dt>
+<dd>A diagram shows a web application with a load balancer,
+two application servers,
+one database,
+and one external payment API.
+Each component can fail independently.
+Identify the single points of failure,
+propose bulkhead and timeout strategies to limit the blast radius of each failure,
+and discuss the cost (infrastructure, complexity) of each mitigation.
+At what point does additional resilience add more complexity than it is worth?</dd>
+<dt>Error path test coverage</dt>
+<dd>A small data processing function is provided,
+along with a test suite with 100% line coverage on the happy path.
+Enumerate all error paths in the function
+(e.g., invalid input, missing file, network failure, and malformed response).
+Write tests for each error path using fault injection (i.e., mock the failing component).
+Measure what fraction of error paths were untested before,
+and explain why line coverage is a misleading metric for error-handling code.</dd>
+</dl>
+<h2>Appendix: Exceptions</h2>
+<ul>
+<li>Exception hierarchies<ul>
+<li>Python: <code>BaseException</code> vs. <code>Exception</code> vs. specific types<ul>
+<li><code>KeyboardInterrupt</code> and <code>SystemExit</code> inherit from <code>BaseException</code>, not <code>Exception</code></li>
+</ul>
+</li>
+<li>JavaScript: <code>Error</code> base class plus built-in subtypes (<code>TypeError</code>, <code>RangeError</code>, <code>SyntaxError</code>, etc.)</li>
+<li>Catching a parent class catches all subclasses<ul>
+<li><code>except Exception</code> in Python does not catch <code>KeyboardInterrupt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Custom exception types<ul>
+<li>Subclass the appropriate base: add fields for structured error data</li>
+<li>Use custom exceptions to distinguish your errors from library errors
+    and to allow callers to catch specifically</li>
+<li>Name exceptions as nouns describing the condition,
+    not the action (<code>ConfigurationError</code>, not <code>FailedToLoadConfig</code>)</li>
+</ul>
+</li>
+<li>Exception chaining<ul>
+<li>Python: <code>raise NewException("context") from original_exception</code> preserves the original traceback</li>
+<li>Python: <code>raise NewException("context")</code> inside an <code>except</code> block implicitly chains
+    (visible as &ldquo;During handling of the above exception, another exception occurred&rdquo;)</li>
+<li>Java: pass the original exception to the constructor of the new one (<code>new RuntimeException("msg", cause)</code>)</li>
+</ul>
+</li>
+<li>Cleanup with <code>finally</code> and context managers<ul>
+<li><code>finally</code> runs whether or not an exception was raised<ul>
+<li>Use for resource cleanup (closing files, releasing locks)</li>
+</ul>
+</li>
+<li>Context managers (<code>with</code> statement) encapsulate the <code>try/finally</code> pattern<ul>
+<li>Prefer them for resource management</li>
+</ul>
+</li>
+<li><code>__exit__</code> receives exception information and can suppress the exception by returning <code>True</code><ul>
+<li>Do this rarely and intentionally</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Anti-patterns<ul>
+<li><code>except Exception: pass</code>: silently discards all errors</li>
+<li><code>except Exception as e: print(e)</code>: visible but unactionable<ul>
+<li>Provides no context and does not propagate</li>
+</ul>
+</li>
+<li>Catching overly broad types: bare <code>except:</code> in Python catches <code>KeyboardInterrupt</code> and <code>SystemExit</code></li>
+<li>Raising <code>Exception</code> directly instead of a specific type: callers cannot catch it selectively</li>
+</ul>
+</li>
+<li>Checked vs. unchecked exceptions (Java)<ul>
+<li>Checked exceptions must be declared or caught<ul>
+<li>Unchecked (<code>RuntimeException</code> subclasses) need not be</li>
+</ul>
+</li>
+<li>Checked exceptions enforce handling at compile time
+    but lead to verbose, often-ignored <code>throws</code> declarations</li>
+<li>Most modern languages (Python, C#, Kotlin, Swift) do not have checked exceptions</li>
+</ul>
+</li>
+</ul>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/06/29/a-modest-proposal/">
       A Modest Proposal
     </a>
@@ -1973,554 +2664,6 @@ I believe that we don&rsquo;t own those things.
 We are just their trustees,
 and like all trustees,
 we are accountable for what we hand on—even if the beneficiaries aren&rsquo;t in the room.</p>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/06/14/more-analogies/">
-      More Analogies
-    </a>
-  </h3>
-  <p><time datetime="2026-06-14" class="post-date">2026-06-14</time></p>
-  <div class="callout">
-<p><em>These posts are Version 2 of this material.
-Please <a href="mailto:gvwilson@third-bit.com?subject=SDGC">email me</a> with feedback.</em></p>
-<ol>
-<li><a href="../2026/06/08/sex-and-drugs-and-guns-and-code-restart/">Sex and Drugs and Guns and Code Restart</a></li>
-<li><a href="../2026/06/09/a-little-psychology/">A Little Psychology</a></li>
-<li><a href="../2026/06/09/how-we-got-here/">How We Got Here</a></li>
-<li><a href="../2026/06/10/more-psychology/">More Psychology</a></li>
-<li><a href="../2026/06/11/harmful-models/">When the Model is the Harm</a></li>
-<li><a href="../2026/06/12/privacy/">Privacy, Power, and the Self</a></li>
-<li><a href="../2026/06/13/who-gets-what-and-why/">Who Gets What and Why</a></li>
-<li><a href="../2026/06/14/more-analogies/">More Analogies</a></li>
-<li><a href="../2026/06/15/what-we-owe-the-future/">What We Owe the Future</a></li>
-<li><a href="../2026/06/16/regulation-works/">Regulation Works</a></li>
-<li><a href="../2026/06/17/how-change/">How Change Happens</a></li>
-<li><a href="../2026/06/18/ai-happens/">AI Happens</a></li>
-</ol>
-<p><a href="../2026/04/13/a-bibliography/">Bibliography</a>
-&middot;
-<a href="../2026/05/20/glossary/">Glossary</a>
-&middot;
-<a href="../2026/05/11/a-note-on-llms/">A Note on LLMS</a></p>
-</div>
-<p>These posts started as a series titled &ldquo;Big Tech is Like…&rdquo;.
-<a href="../2026/06/11/harmful-models/">An earlier post in this series</a> included eight of those;
-here are a few more.</p>
-<h2>Big Tech is Like a Company Town</h2>
-<p>E.P. Thompson&rsquo;s account of the transition from putting-out to factory production
-made a point that factories were initially not more efficient at producing cloth:
-they were more effective at eliminating worker autonomy [Thompson1963].
-Before industrialization,
-workers controlled their own time and pace,
-could share work across household members,
-and could resist disadvantageous terms through slow work, variable quality, and informal coordination.
-The factory closed off these responses:
-workers arrived at fixed times,
-worked at a supervised pace,
-and until labor unions emerged,
-had no practical means of collective withdrawal.
-The shift to app-based platform work is doing the same thing today.
-The app is not merely a more convenient interface.
-It is supervisory infrastructure that monitors pace and completion rates
-and eliminates the degrees of freedom that less tightly managed arrangement permitted.</p>
-<div class="callout">
-<p>Grab and Gojek motorcycle drivers in Jakarta,
-who own their vehicles but are subject to algorithmically set rates they cannot negotiate
-and risk deactivation for declining rides,
-have organized repeated strikes—the precise form of collective resistance
-available to workers who cannot withdraw their invested capital.</p>
-</div>
-<p>George Pullman built Pullman, Illinois in the 1880s alongside his railroad car factory:
-a planned community where the company owned the workers&rsquo; housing, stores, church, library, and bank.
-Workers were paid partly in <strong>scrip</strong> redeemable only at company stores.
-When Pullman cut wages during the depression of 1893 while holding rents fixed,
-workers could not cushion the blow by cutting other expenses,
-because the company controlled those too.
-They had no recourse and nothing left to lose.
-The 1894 Pullman Strike paralyzed rail traffic across the country
-and required federal troops to suppress,
-which tells you something about what total control eventually produces.</p>
-<p>A developer whose business depends entirely on the App Store,
-a seller whose inventory and customer relationships live on Amazon,
-or a creator whose audience exists only within a single platform
-is in an equivalent position:
-the terms can be changed at any time,
-the cost of departure is prohibitive,
-and the entity that provides the housing also adjudicates disputes about it.</p>
-<p>What the company town reveals is something market economics tends to obscure:
-the difference between an employer and an infrastructure provider is a matter of degree,
-not kind.
-An employer controls your income;
-an infrastructure provider controls the conditions
-under which you can earn, spend, and participate in social life.
-Pullman did not merely employ his workers:
-he owned the physical environment in which they lived,
-which meant that the power relationship extended past the end of the workday
-into every dimension of daily existence.</p>
-<p>Pullman justified all of this in the language of paternalistic improvement [Lindsey1942].
-The company town was presented as a planned community
-designed to give workers superior housing, sanitation, and amenities
-compared to what they could obtain elsewhere.
-This was partly true:
-Pullman, Illinois was better built than most industrial housing of the period.
-But the justification also framed the absence of collective bargaining as a feature rather than a constraint.
-Workers who were being improved did not need unions.
-They needed to trust the judgment of the person improving them.
-Conveniently,
-this gave the appearance of converting a power arrangement into a benevolent one.</p>
-<p>The Pullman case was not unusual.
-Coal patches in Appalachia and the Canadian Maritimes operated on the same model:
-company-owned housing,
-company stores where scrip could be spent,
-company control of access roads and community infrastructure.
-In the post-Civil War South, plantation stores extended dependency relationships
-across the formal end of slavery,
-tying sharecroppers to specific land through debt
-that was nearly impossible to escape
-without leaving behind the credit, relationships, and community standing
-that they depended on.
-Mining camps across Latin America reproduced the same structure under different flags.
-The company town is a recurring organizational form
-because it solves a genuine problem for whoever controls it:
-it makes exit nearly impossible while appearing to be voluntary.</p>
-<div class="callout">
-<p>Foxconn&rsquo;s manufacturing campuses in Shenzhen house hundreds of thousands of workers in company dormitories,
-sell goods through company stores, and provide company-managed transportation—
-the Pullman model operating at a scale Pullman could not have imagined,
-producing the consumer electronics sold by companies that will not acknowledge the supply chain.</p>
-</div>
-<p>The distinction between short-term dependency and structural lock-in
-is what keeps workers and developers in arrangements that are getting worse.
-Short-term dependency is a rational calculation:
-you stay because the current terms are good enough and leaving has costs.
-Structural lock-in is different.
-The costs of leaving have been deliberately raised
-so that the calculation does not change even as the terms worsen.
-A platform can worsen its terms incrementally;
-each incremental worsening is individually insufficient to justify the exit cost,
-even if the cumulative total is large.</p>
-<p>A more extreme form of this appears in the <em>danwei</em>,
-the work unit system through which Mao-era China organized urban life.
-The <em>danwei</em> was the unit through which citizens accessed employment,
-housing, healthcare, food rations, and education for their children.
-To be removed from a <em>danwei</em> was to lose access to all of these simultaneously.
-The contemporary parallel is super-apps like WeChat
-that integrate messaging, payments, healthcare bookings,
-government service access, merchant discovery, and social identity in a single system.
-A user whose account is suspended loses not just a communication tool
-but the infrastructure through which they conduct their civic and commercial life.
-The Pullman Company controlled the economic conditions of workers&rsquo; lives.
-The super-app, at its most developed, aims to be a <em>danwei</em> [Stoller2019,Walder2017].</p>
-<h2>Big Tech is Like the Beauty Industry</h2>
-<p>The beauty industry does not merely sell products.
-It works by making people believe they have flaws they were not previously considered flaws,
-by creating status competition around those flaws,
-by ensuring that the standards people are supposed to meet remain unstable,
-and then sells temporary relief from the insecurity it has helped create.
-The customer is never meant to arrive,
-because that would end the business model.</p>
-<p>The same logic governs much of the digital economy.
-Platforms do not simply sell access to information, communication, or entertainment.
-They produce social comparison at industrial scale,
-amplify the feeling of falling behind or being left out,
-and then sell ads, subscriptions, and self-optimization tools as the remedy.</p>
-<p>Thorstein Veblen identified all of this,
-even though he was writing in 1899 rather than in the age of Instagram.
-The point of status goods is not that they are useful or pleasurable.
-It is that they are visible evidence of social rank.
-The phrase &ldquo;keeping up with the Joneses&rdquo;,
-which entered American English in the early twentieth century,
-names the same dynamic more plainly.
-Consumption becomes competitive because social standing is comparative,
-which means there is never &ldquo;enough&rdquo;.
-This competition is profitable because
-the goalposts move as soon as people approach them [Veblen1899].</p>
-<p>The beauty industry is a particularly efficient machine
-for converting status anxiety into revenue
-because it treats the human body as a perpetually unfinished project.
-Skin can always be smoother,
-hair shinier,
-teeth whiter,
-age less visible,
-and weight lower.
-What matters is not whether any particular intervention works as advertised.
-What matters is the manufactured belief that our peers are taking action,
-so we must too.
-This is why beauty advertising oscillates between aspiration and warning:
-you want to be admired,
-but you fear that you will also be judged.</p>
-<p>Women have always borne the brunt of this manufactured insecurity.
-The modern beauty industry developed alongside labor markets and marriage markets
-in which women&rsquo;s economic security and social standing were tied more closely to appearance
-than men&rsquo;s.
-As legal barriers to women&rsquo;s advancement weakened,
-appearance standards became a more intense disciplinary mechanism,
-not a less important one.
-A market built around telling women that their bodies require continuous corrective spending
-fits very comfortably inside a misogynist social order [Peiss2011].</p>
-<div class="callout">
-<p>South Korea has the highest cosmetic surgery rate per capita in the world,
-produced by a feedback loop among K-pop image norms, social media filters,
-cosmetic surgery clinics, and legally tolerated workplace appearance discrimination
-that has exported its manufactured insecurity to dozens of countries along with its skincare products.</p>
-</div>
-<p>Big tech has given this machinery telemetry, automation, and scale.
-The platform feed is a Jones machine.
-It puts other people&rsquo;s vacations, kitchens, bodies, weddings, and workout routines in front of us
-not as occasional local gossip but as a continuous global stream.
-The result is not just envy:
-it is the normalization of comparison as a default mental state.
-Am I fit enough, rich enough, busy enough, stylish enough, politically
-informed enough, raising my children well enough, or aging well enough?
-A system that can keep those questions humming in the background can monetize them indefinitely.</p>
-<p>The comparison does not have to be truthful to be effective.
-Beauty advertising has always relied on lighting, retouching, and selective casting.
-Social platforms inherit all of that and add filters,
-algorithmic selection,
-and engagement optimization.
-The most attention-grabbing images are not the most representative ones.
-They are the ones most likely to intensify feeling s admiration, desire, resentment, or shame.
-The platform does not need users to believe that everyone else is happier, younger, or richer than us.
-It only needs users to feel,
-for a few seconds at a time and many times a day,
-that they are falling behind.</p>
-<p>Influencer culture is itself manufactured.
-The beauty industry has long depended on the blurring of intimacy and commerce.
-Advice from a beautician and endorsements by actresses all worked because
-they borrowed the authority of friendship or expertise while remaining commercial speech.
-Influencers do the same thing with better metrics.
-They present consumption as personality and sponsorship as authenticity.</p>
-<p>This is also where misogyny returns in a more explicit form.
-Women are subjected to the harshest forms of visual ranking online,
-and platforms profit from that ranking
-regardless of what they say in public about empowerment or self-expression.
-Image-heavy systems reliably reward content that conforms to existing beauty norms
-while presenting itself as spontaneous self-presentation.
-The labor required to produce that appearance is substantial and usually hidden.
-The result is an economy in which women are pushed to become both product and salesperson,
-while the platform captures a share of every transaction.</p>
-<p>The beauty industry also helps explain why the language of choice is inadequate.
-No one is forced to buy a serum or post a filtered selfie,
-but choices made in response to organized social pressure are not free
-in any meaningful social sense.
-A teenager deciding whether to participate in appearance-based competition on a platform
-is making an individual decision
-inside a system designed to make non-participation costly,
-just like a programmer deciding to maintain a LinkedIn presence
-full of visible hustle and polished enthusiasm.
-The compulsion is social before it is economic,
-and economic because it is social.</p>
-<p>What the beauty analogy adds to our understanding of big tech
-is not just that platforms sell ads—every industry does that.
-It is that platforms are in the business of manufacturing dissatisfaction
-and organizing it into recurring revenue.
-Their entire business model is that you are not quite enough yet,
-but perhaps one more purchase will fix that.
-A business model built on that premise
-has no interest in ever letting us feel finished [Packard2007,Wu2016].</p>
-<h2>Big Tech is Like the Sharecropping System</h2>
-<p>After the American Civil War,
-former slaves and poor white farmers in the South farmed land they did not own
-under a system called <strong>sharecropping</strong>.
-Contracts that gave the landowner a percentage of the harvest,
-required them to buy supplies on credit from the landowner&rsquo;s store at prices the landowner set,
-and prohibited them from selling to anyone other than the landowner.
-The debt was structured so that a bad harvest
-(or even a good one, depending on how the accounts were kept)
-left the farmer owing more at year&rsquo;s end than at the beginning.
-The system was legal,
-entered into &ldquo;voluntarily&rdquo; (by people with no other options),
-and reproduced the economic relations of slavery without the formal institution.</p>
-<p>Historians and economists have found systematic underweighting of harvests and overcharging of credit accounts.
-The system was designed to perpetuate indebtedness, not resolve it.
-To make a bad situation worse,
-the merchant providing supplies was often the same person as the landowner;
-if not,
-they usually operated as a tied supplier.
-The farmer could not buy supplies from a competing merchant because
-the <strong>crop lien</strong> pledged the entire harvest to the furnishing merchant
-as collateral for the advance.
-&ldquo;On credit&rdquo; prices at the furnishing merchant&rsquo;s store were set at a markup over cash prices
-that could run from thirty to sixty percent.</p>
-<p>By pledging next year&rsquo;s crop to cover this year&rsquo;s debt,
-the farmer legally committed future labor before that labor was performed.
-This is the structure of platform lock-in:
-time and effort are committed to a platform
-before the platform&rsquo;s terms are known for the following year.
-A sharecropper who improved the land was <em>more</em> trapped,
-not less,
-because the accumulated investment had nowhere else to go.
-The same is true of a creator who has built a hundred thousand subscribers
-on a platform that then changes its revenue-sharing terms.</p>
-<p><strong>Peonage</strong> was the name for debt arrangements that crossed from exploitative into criminal.
-It refers to holding a worker in involuntary servitude through debt
-while using threats or actual violence to prevent them from leaving.
-Federal peonage statutes were enacted after Reconstruction,
-and some prosecutions did occur in the early twentieth century
-after investigative journalism and advocacy exposed conditions
-in the turpentine camps and cotton plantations of the Deep South.
-These prosecutions targeted individual employers;
-they did not address the systemic accounting fraud or the market structure
-that produced mass indebtedness [Daniel1972,Blackmon2008].</p>
-<p>The platform equivalent of this operates through percentage fees,
-arbitrary algorithmic changes,
-and paid promotion requirements.
-When YouTube changed its monetization criteria in 2018
-to require one thousand subscribers and four thousand watch hours
-before a channel could earn advertising revenue,
-channels that had not yet crossed those thresholds were cut off from income they had been building toward.
-When organic reach on Facebook declined sharply for business pages after 2012,
-businesses that had invested in building Facebook audiences were told
-they could pay for promotion to reach the audiences they had already acquired.
-The audience is the crop;
-the algorithm change is the landlord raising the rent after the harvest is in.</p>
-<p>A related but distinct mechanism appears in gig economy work,
-which parallels the <strong>putting-out system</strong> of early modern textile production.
-Merchants in eighteenth and nineteenth century Britain supplied raw materials to rural householders,
-who processed them at home using their own equipment.
-The merchants then collected the finished goods at prices they set.
-The household owned its tools;
-the merchant owned the raw material, the finished product, and the customer relationship.
-If demand fell,
-the merchant stopped delivering material and the household had to absorb the income shock.
-The merchant&rsquo;s flexibility was the household&rsquo;s precarity, by design [Devries2008].</p>
-<p>Gig economy platforms reproduce this structure.
-The delivery worker owns the car or bicycle.
-The platform owns the customer relationship, the pricing mechanism, and access to the market.
-A worker who attempts to find customers outside the platform risks deactivation,
-which functions as accusations of theft or embezzlement did in the putting-out system:
-because formal ownership of the customer relationship belongs to the platform,
-any attempt to access that relationship independently constitutes
-a violation of the terms of service that governs continued access to work.</p>
-<h2>Big Tech is Like a Fast Food Franchise</h2>
-<p>A McDonald&rsquo;s franchisee invests several hundred thousand dollars building and equipping a restaurant,
-recruits and trains staff,
-manages daily operations,
-and absorbs the risk of a bad location.
-McDonald&rsquo;s sets the menu,
-the supplier list,
-the pricing guidelines,
-the design specifications,
-the training requirements,
-and the standards against which the franchise can be audited and revoked.
-The franchisee&rsquo;s capital is at risk;
-McDonald&rsquo;s corporate&rsquo;s is not.
-McDonald&rsquo;s also, in most arrangements, owns the real estate and charges the franchisee rent.
-The arrangement is voluntary in the sense that no one forces the franchisee to sign.
-It is asymmetric in the sense that every significant decision rests with one party.</p>
-<p>The franchisee agreed to all of this in advance.</p>
-<p>McDonald&rsquo;s corporate revenue derives primarily from real estate, not from food.
-The company acquires the land and building,
-then leases them to the franchisee
-at rates that capture a substantial share of the location&rsquo;s economic value
-regardless of operating performance.
-Franchise royalties are calculated as a percentage of gross sales,
-not profit,
-meaning the franchisor collects whether the franchisee makes money or not.
-The hamburgers are the mechanism by which the real estate and royalty revenue are generated.
-This structure is not incidental to the model;
-it <em>is</em> the model.</p>
-<p>The parallel to third-party sellers on Amazon,
-app developers on iOS and Android,
-and content creators on social media is structural:
-the platform sets the rules,
-extracts a percentage,
-and can change the terms or terminate the relationship on short notice [Schlosser2001].</p>
-<p>Platform fees work like franchise royalties:
-they are a take on gross transaction value,
-not on seller profit.</p>
-<p>Apple&rsquo;s standard rate is thirty percent of revenue from in-app purchases,
-a figure that it set unilaterally
-and has adjusted modestly only under regulatory pressure.
-The developer has no alternative distribution channel for iOS users,
-because Apple prohibits <strong>sideloading</strong> and third-party app stores on its platform.
-This makes the fee unavoidable for any developer who wants access to iOS customers.
-What&rsquo;s more,
-Apple and Google review apps before they are listed,
-can remove them after listing,
-and adjudicate appeals internally.
-There is no neutral third party with authority to override a platform&rsquo;s decision.</p>
-<p>All this creates an investment trap for platform participants.
-A seller who has accumulated reviews, rankings, and sales history on Amazon
-cannot transfer that reputation to another marketplace;
-a developer whose app has a rating history on the App Store
-cannot move that history to Google Play.
-This is not an accident:
-it is the mechanism that keeps participants in the system
-after the platform has extracted the value of introducing customers to them.</p>
-<p>Antitrust law has historically been reluctant to treat voluntarily agreed contractual terms as coercive,
-even when the practical alternatives to agreement are limited.
-The prevailing view is that if the franchisee had an alternative and chose this arrangement,
-the arrangement is presumptively legitimate.
-This framing does not account for <strong>information asymmetry</strong> at the time of contracting
-or the way switching costs increase over time.
-And it does not account for the fact that the &ldquo;voluntary&rdquo; choice
-is often a choice between accepting one set of platform terms
-or not accessing a market at all [Stoller2019].</p>
-<div class="callout">
-<p>The UK Supreme Court ruled in 2021
-that Uber drivers were workers entitled to minimum wage and holiday pay,
-not independent contractors.
-Thsi was the first major judicial rejection of the claim that
-a platform&rsquo;s &ldquo;voluntary&rdquo; contractual structure exempts it from employment law,
-now being contested and replicated across Europe.</p>
-</div>
-<h2>Big Tech is Like Scientology</h2>
-<p>In the 1950s, L. Ron Hubbard developed a practice called auditing.
-In a standard session,
-a trained Scientology auditor asks the subject a series of questions
-while the subject holds the electrodes of an E-meter that measures galvanic skin response
-(the same physiological signal used in polygraph tests).
-The questions are designed to surface traumatic memories,
-which Scientology calls <strong>engrams</strong>,
-so they can be discharged through conscious recall.</p>
-<p>The sessions are recorded, and the records are kept in what Scientology calls &ldquo;preclear folders.&rdquo;
-They contain whatever the subject disclosed during auditing:
-accounts of illegal activity,
-sexual behavior,
-family conflicts,
-financial difficulties,
-and statements about other people.
-The Church of Scientology denies that folders are used punitively,
-but former members have testified that these folders were used in disciplinary proceedings
-and in litigation against critics and defectors.</p>
-<p>The analogy to big tech is not subtle.
-Every major social media platform is, at its core, an auditing system.
-It collects behavioral data—what you look at, what you hesitate over, what you react to—and
-that information is qualitatively different from what you share with a retailer.
-People post about illness and grief and their political beliefs and sexual identity
-because the platform presents itself as a community,
-not a database.
-The fact that it is both doesn&rsquo;t mean the user is naïve;
-it means the platform is designed to exploit the social context
-that makes sharing this information feel appropriate.</p>
-<p>Scientology&rsquo;s critics have documented a practice the Church calls <strong>Fair Game</strong>,
-under which people who leave the organization and speak critically about it
-(known as a <strong>suppressive person</strong>)
-can be &ldquo;deprived of property or injured by any means by any Scientologist
-without any discipline of the Scientologist.&rdquo;
-The Church claims this policy was cancelled in 1968,
-but its critics have documented its continuation under different names.
-The pattern has included litigation designed to exhaust defendants financially,
-harassment campaigns targeting employers and family members,
-and the use of auditing records in legal proceedings.</p>
-<p>Tech companies have not employed anything comparable in severity (that we know of).
-They have, however, used legal and institutional power to manage criticism
-in ways that Scientologist would recognize.
-Facebook commissioned audits of third-party researchers who published findings the company disputed.
-Google funded academic research in ways that created conflicts of interest
-for academics who might otherwise study the company critically.
-Uber deployed a team it internally called COIN
-(for Competitive Intelligence)
-to gather information on regulators, journalists, and competitors.
-The distinction between these practices and Fair Game
-seem pretty slim to the researchers, journalists, and regulators on the receiving end.</p>
-<p>Scientology&rsquo;s governing doctrine holds that the organization&rsquo;s critics are necessarily criminals.
-If someone attacks Scientology,
-Hubbard&rsquo;s writings state,
-one need only look at their past to find the crimes they are hiding.
-The logic is airtight because it is circular:
-criticism itself is taken as evidence of wrongdoing.</p>
-<p>This is a specific and pathological version of a general tendency.
-When researchers publish findings critical of Facebook&rsquo;s recommendation algorithms,
-Facebook&rsquo;s communications team responds not only with factual rebuttals
-but with questions about the researchers&rsquo; methodology, funding sources, and motivations.
-When journalists publish stories based on leaked documents,
-companies issue statements about documents being &ldquo;taken out of context&rdquo;
-and about reporters&rsquo; prior relationships with the company.</p>
-<div class="callout">
-<p>In 1993,
-the Church of Scientology achieved recognition from the US Internal Revenue Service
-as a tax-exempt religious organization,
-ending 25 years of litigation.
-Its strategy included filing thousands of personal lawsuits against IRS employees,
-hiring private investigators to gather personal information on IRS staff,
-and conducting what the IRS&rsquo;s own documents describe as a covert intelligence operation against the agency.
-Google, Meta, and Amazon have not run intelligence operations against their regulators
-(that we know of).
-They <em>have</em> collectively spent over $100 million per year on lobbying in the United States alone,
-employed virtually every major lobbying firm in Washington,
-and placed former executives in regulatory positions
-in a sustained campaign to shape the rules governing them.</p>
-</div>
-<p>Scientology is structured so that participation becomes progressively more expensive.
-New members begin with free or low-cost introductory materials.
-Progression up the &ldquo;Bridge to Total Freedom&rdquo; requires increasingly expensive courses and auditing sessions.
-Former members have documented spending hundreds of thousands of dollars over years of participation.
-The social world of Scientology reinforces continued involvement:
-friends, family, and community ties are largely internal to the organization,
-which means that leaving means losing them.</p>
-<p>The structural lock-in that platforms engineer follows the same logic.
-A photographer who has spent years building an audience on Instagram
-is not free to leave without abandoning what they have built.
-A developer who has built a business on the iOS App Store faces the same kind of switching cost.</p>
-<p>The Church of Scientology has survived decades of hostile press,
-regulatory action across multiple continents,
-and prominent defections.
-It has done so by treating litigation as a cost of doing business,
-and by providing genuine community to members.
-The question now is whether the mechanisms that have gradually constrained Scientology
-will operate at the scale of companies whose products are used by billions of people
-who have no obvious alternative [Wright2013].</p>
-<h2>Big Tech is Like a Ransom Business</h2>
-<p>The Canvas learning management system was hacked a couple of days ago,
-so this seems like a good time to point out that extortion,
-if it&rsquo;s professional enough,
-is indistinguishable from any other fee-for-service arrangement.
-The victim pays for the return of something that was theirs,
-the captor provides a guarantee of safety,
-intermediaries take a cut,
-and everyone has an interest in the transaction completing cleanly.</p>
-<p>In 1994,
-when the FARC guerrilla organization in Colombia was near the height of its power,
-kidnapping was a line item in its budget.
-The organization maintained specialized units for identifying targets,
-executing abductions,
-holding captives in jungle camps,
-and conducting negotiations.
-Insurance companies led by Lloyd&rsquo;s of London
-responded by creating kidnap-and-ransom (K&amp;R) policies for multinational corporations,
-and specialist firms like Control Risks Group built a business on negotiating with kidnappers.
-By the late 1990s,
-an abduction in Colombia, Venezuela, or the Philippines was like buying a house:
-the kidnapper demanded a high figure,
-the negotiator offered a low one,
-and after weeks or months of back-and-forth they agreed on something in the middle
-and settled up in cash.</p>
-<p>Both sides had an interest making this running smoothly;
-in particular,
-kidnappers who killed hostages damaged their own reputations with future potential clients.
-Researchers studying the &ldquo;industry&rdquo; found that
-K&amp;R specialists worked hard to prevent ransom inflation:
-they trained negotiators to push back,
-kept payment records confidential,
-and advised clients not to advertise their coverage,
-because a public policy was an advertisement for kidnapping your staff [Shortland2019].</p>
-<p>The rise of ransomware attacks over the last decade has followed the same path.
-The 2017 WannaCry attack encrypted hundreds of thousands of computers across 150 countries in a single weekend,
-demanding Bitcoin payments in exchange for decryption keys;
-the attack was later blamed on North Korean state actors.
-Four years later, the DarkSide ransomware group (probably based in Russia)
-shut down the Colonial Pipeline in the United States and demanded approximately $4.4 million in Bitcoin.
-The company paid within hours.</p>
-<p>Modern ransomware groups operate on an affiliate model:
-the core developers write the malware and maintain the payment infrastructure,
-while affiliates handle the actual intrusions.
-On the other side of the table,
-cybersecurity firms handle the details just like Control Risks Group did,
-and cyber insurance policies now cover ransom payments,
-which means that insurance companies are wrestling with the same concerns
-about moral hazard and ransom inflation
-that Lloyd&rsquo;s was worrying about in the 1990s.</p>
-<p>When Colonial Pipeline paid DarkSide,
-they almost certainly broke US Treasury rules prohibiting payments to sanctioned entities.
-Governments have been consistently inconsistent in their positions on this:
-they urge companies not to pay while acknowledging privately that there is no realistic alternative.
-This is the same ambivalence that surrounded K&amp;R payments in the 1980s,
-when Western governments officially discouraged negotiating with kidnappers
-while intelligence services routinely assisted with exactly that [Dudley2022].</p>
 </article>
 
 

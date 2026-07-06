@@ -3,12 +3,701 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-06-29T00:00:00Z</updated>
+ <updated>2026-07-05T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Now What? A Workshop on Error Handling</title>
+   <link href="https://third-bit.com/2026/07/05/now-what/"/>
+   <updated>2026-07-05T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/07/05/now-what/</id>
+   <content type="html">&lt;p&gt;I finally have time to flesh out ideas for lessons that I&amp;rsquo;ve wanted for years.
+However,
+if I can&amp;rsquo;t find a way to send them back to 2006,
+there&amp;rsquo;s no point writing them:
+very few people read long-form tutorials about software these days.
+I&amp;rsquo;d still be interested in comments, though—figuring out what I would teach
+always helps me learn.&lt;/p&gt;
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Topic&lt;/strong&gt;: Error handling.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Audience&lt;/strong&gt;: Senior undergraduates who are
+comfortable writing programs in Python and JavaScript that are hundred of lines long,
+know how to raise and catch exceptions,
+and are familiar with SQL, C, and the Unix shell,
+but have no experience building production-robust programs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Format&lt;/strong&gt;: seven 45-minute lessons with exercises.&lt;/p&gt;
+&lt;h2&gt;1) What Can Go Wrong&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Taxonomy of errors&lt;ul&gt;
+&lt;li&gt;Logic errors: bugs in the program itself&lt;/li&gt;
+&lt;li&gt;Runtime errors: null dereference, division by zero, index out of bounds&lt;/li&gt;
+&lt;li&gt;External errors: file not found, network timeout, database constraint violation&lt;/li&gt;
+&lt;li&gt;Human errors: bad input, misconfiguration, wrong file format&lt;/li&gt;
+&lt;li&gt;Environmental errors: disk full, out of memory, clock skew&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Failure modes&lt;ul&gt;
+&lt;li&gt;Fail-fast vs. fail-slow: silent corruption is harder to debug than an early crash&lt;/li&gt;
+&lt;li&gt;Silent failures: errors ignored, wrong results returned without warning&lt;/li&gt;
+&lt;li&gt;Cascading failures: one component&amp;rsquo;s error triggering failures in others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;C-style error signaling&lt;ul&gt;
+&lt;li&gt;Return codes: functions return -1, NULL, or 0 on failure&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;errno&lt;/code&gt;: a global (thread-local) integer set by system calls&lt;ul&gt;
+&lt;li&gt;Read with &lt;code&gt;perror()&lt;/code&gt; or &lt;code&gt;strerror()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Sentinel values: EOF (-1), invalid index, or a special out-of-band value&lt;/li&gt;
+&lt;li&gt;Advantages: explicit control flow, no hidden jumps, zero runtime overhead&lt;/li&gt;
+&lt;li&gt;Disadvantages: easy to ignore, verbose, callers must check every call, no stack information&lt;/li&gt;
+&lt;li&gt;Common pitfalls:&lt;ul&gt;
+&lt;li&gt;Not checking return values&lt;/li&gt;
+&lt;li&gt;Reading &lt;code&gt;errno&lt;/code&gt; after another call has overwritten it&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;errno&lt;/code&gt; not being set on success&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Philosophy: errors are not exceptional, they are expected&lt;ul&gt;
+&lt;li&gt;The happy path is one of many paths&lt;/li&gt;
+&lt;li&gt;Spectrum of responses: ignore vs. crash vs. recover vs. degrade gracefully&lt;/li&gt;
+&lt;li&gt;Choosing a response requires knowing the context and the cost of each option&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Taxonomy drill&lt;/dt&gt;
+&lt;dd&gt;Given six short programs in Python, JavaScript, and C,
+each containing a different type of error,
+classify each error using the taxonomy above
+and explain whether the program&amp;rsquo;s response (crash, wrong output, hang, silent skip)
+is appropriate for a production context.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;errno&lt;/code&gt; pitfall hunt&lt;/dt&gt;
+&lt;dd&gt;A short C function uses &lt;code&gt;fopen&lt;/code&gt;, &lt;code&gt;fread&lt;/code&gt;, and &lt;code&gt;fclose&lt;/code&gt; and checks &lt;code&gt;errno&lt;/code&gt; after each call.
+The function contains three bugs related to C-style error handling
+(e.g., ignoring a return value, checking &lt;code&gt;errno&lt;/code&gt; too late, not distinguishing error from end-of-file).
+Identify each bug and propose a fix.&lt;/dd&gt;
+&lt;dt&gt;Failure brainstorm&lt;/dt&gt;
+&lt;dd&gt;Given a brief description of a web form that accepts a user&amp;rsquo;s name, email, and a file upload,
+then stores the data in a database,
+list every error that could occur,
+including errors the user causes,
+errors the network causes,
+errors the OS causes,
+and errors the program itself could cause.
+Compare lists with a partner and identify any category you missed.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;2) Error Propagation and Recovery&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Options when an error is detected&lt;ul&gt;
+&lt;li&gt;Crash/abort: call &lt;code&gt;abort()&lt;/code&gt;, &lt;code&gt;panic&lt;/code&gt;, or let the process die&lt;ul&gt;
+&lt;li&gt;Appropriate when the program is in an unrecoverable state or an invariant is violated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Return an error value: C-style return codes, Go-style &lt;code&gt;(value, error)&lt;/code&gt; pairs, Rust-style &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Raise an exception: hands control to the caller&amp;rsquo;s handler&lt;/li&gt;
+&lt;li&gt;Log and continue: almost always wrong&lt;ul&gt;
+&lt;li&gt;Hides failures and corrupts program state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Retry: attempt the operation again (only safe for transient, idempotent operations)&lt;/li&gt;
+&lt;li&gt;Use a fallback value: return a default, a cached result, or a degraded response&lt;/li&gt;
+&lt;li&gt;Partial success: complete what you can, report what failed&lt;/li&gt;
+&lt;li&gt;Compensating action: undo work already done before propagating the error&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Propagating errors without losing information&lt;ul&gt;
+&lt;li&gt;Re-raise: pass the error up unchanged&lt;/li&gt;
+&lt;li&gt;Wrap/chain: add context while preserving the original cause (Python &lt;code&gt;raise X from Y&lt;/code&gt;, Java &lt;code&gt;initCause&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Translate: convert a low-level error into a domain-level error
+    (e.g., from &lt;code&gt;OSError&lt;/code&gt; to &lt;code&gt;ConfigurationError&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Anti-pattern: catching an exception and throwing a new one that discards the original&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Adding context as errors propagate&lt;ul&gt;
+&lt;li&gt;Include what was being attempted and with what inputs (sanitized)&lt;/li&gt;
+&lt;li&gt;Each layer adds the context it has&lt;/li&gt;
+&lt;li&gt;Callers should not have to guess&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;C-style propagation patterns&lt;ul&gt;
+&lt;li&gt;Check every return value, every time: a missed check is a latent bug&lt;/li&gt;
+&lt;li&gt;Passing error information up via out-parameters or a shared error struct&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;goto cleanup&lt;/code&gt; pattern for resource cleanup on multiple error paths&lt;/li&gt;
+&lt;li&gt;Comparing C-style propagation to exception propagation: explicitness vs. verbosity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Retry logic&lt;ul&gt;
+&lt;li&gt;Distinguish transient errors (timeout, temporary unavailability)
+    from permanent errors (permission denied, not found)&lt;/li&gt;
+&lt;li&gt;Exponential backoff: double the wait time between retries&lt;/li&gt;
+&lt;li&gt;Add jitter (random variation) to prevent thundering herd&lt;/li&gt;
+&lt;li&gt;Set a maximum number of retries and a total timeout&lt;/li&gt;
+&lt;li&gt;Only retry idempotent operations&lt;ul&gt;
+&lt;li&gt;Retrying a non-idempotent operation can cause duplicate side effects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Propagation rewrite&lt;/dt&gt;
+&lt;dd&gt;A Python function reads a configuration file,
+connects to a database using values from that file,
+and runs a query.
+The function is given with no error handling.
+Rewrite it so that errors at each stage are wrapped with context and propagated appropriately,
+then rewrite the equivalent in C using return codes, noting what is harder and easier in each style.&lt;/dd&gt;
+&lt;dt&gt;Swallowed exceptions&lt;/dt&gt;
+&lt;dd&gt;A code snippet contains three &lt;code&gt;except: pass&lt;/code&gt; or equivalent constructs.
+For each, explain what failure is being hidden,
+what could go wrong as a result,
+and what the correct handling would be.
+At least one case should be a place where logging-and-continuing is wrong even though it feels safe.&lt;/dd&gt;
+&lt;dt&gt;Retry with backoff&lt;/dt&gt;
+&lt;dd&gt;Implement a &lt;code&gt;retry&lt;/code&gt; decorator (Python) or higher-order function (JavaScript) that wraps a function call,
+retries up to N times on specified exception types,
+uses exponential backoff with jitter,
+and raises the last exception if all retries fail.
+Test it against a stub that fails a configurable number of times before succeeding.
+Discuss which HTTP status codes should trigger a retry and which should not.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;3) Error Communication&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Errors have multiple audiences with different needs&lt;ul&gt;
+&lt;li&gt;End users: need to know what happened and what they can do about it&lt;/li&gt;
+&lt;li&gt;API callers: need structured, machine-readable information to handle programmatically&lt;/li&gt;
+&lt;li&gt;Operators and on-call engineers: need enough detail to diagnose and fix the problem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;User-facing error messages&lt;ul&gt;
+&lt;li&gt;State what went wrong in plain language&lt;/li&gt;
+&lt;li&gt;Tell the user what to do next (retry, contact support, correct their input)&lt;/li&gt;
+&lt;li&gt;Avoid technical jargon, stack traces, and internal identifiers&lt;/li&gt;
+&lt;li&gt;Do not blame the user&lt;/li&gt;
+&lt;li&gt;Provide a reference (request ID, error code) they can give to support without revealing internals&lt;/li&gt;
+&lt;li&gt;Distinguish &amp;ldquo;you did something wrong&amp;rdquo; (4xx) from &amp;ldquo;we did something wrong&amp;rdquo; (5xx)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;API error responses&lt;ul&gt;
+&lt;li&gt;HTTP status codes: 4xx for client errors, 5xx for server errors&lt;ul&gt;
+&lt;li&gt;Use specific codes (400, 401, 403, 404, 409, 422, 429, 503) rather than always returning 400 or 500&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Error response body: include &lt;code&gt;type&lt;/code&gt;, &lt;code&gt;message&lt;/code&gt;, &lt;code&gt;detail&lt;/code&gt;, and &lt;code&gt;request_id&lt;/code&gt; fields&lt;/li&gt;
+&lt;li&gt;RFC 7807 (Problem Details for HTTP APIs): a standard format worth knowing&lt;/li&gt;
+&lt;li&gt;Consistent schema across all endpoints&lt;ul&gt;
+&lt;li&gt;Callers should not have to handle different shapes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Validation errors: return all field errors at once, not just the first one&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Security considerations in error communication&lt;ul&gt;
+&lt;li&gt;Information leakage:
+    stack traces, SQL queries, file paths, and internal service names in error messages help attackers&lt;/li&gt;
+&lt;li&gt;User enumeration: &amp;ldquo;user not found&amp;rdquo; vs. &amp;ldquo;wrong password&amp;rdquo; reveals whether an account exists&lt;ul&gt;
+&lt;li&gt;Use &amp;ldquo;invalid credentials&amp;rdquo; instead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Timing side-channels: if &amp;ldquo;user not found&amp;rdquo; returns in 1ms and &amp;ldquo;wrong password&amp;rdquo; returns in 200ms
+    (due to password hashing),
+     an attacker can enumerate accounts by timing&lt;ul&gt;
+&lt;li&gt;Always perform the same operations regardless of the error branch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Error messages as reconnaissance:
+    the more specific the error, the more an attacker learns about your system&lt;/li&gt;
+&lt;li&gt;Rule of thumb:
+    the user-facing message and the internal log entry should contain different levels of detail&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Correlation IDs&lt;ul&gt;
+&lt;li&gt;Generate a unique ID per request&lt;ul&gt;
+&lt;li&gt;Include it in all logs and in the user-visible error response&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Allows an operator to find all logs related to a specific error report&lt;/li&gt;
+&lt;li&gt;Pass the ID through every internal service call in a distributed system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Message rewrite&lt;/dt&gt;
+&lt;dd&gt;Five error messages from real or realistic applications are provided
+(e.g., a raw Python traceback shown in a web UI,
+a message reading &amp;ldquo;MySQL error 1045 for user &amp;lsquo;admin&amp;rsquo;@&amp;rsquo;localhost&amp;rsquo;&amp;rdquo;,
+a message reading &amp;ldquo;Your session token has expired and cannot be refreshed&amp;rdquo;).
+For each,
+write a user-appropriate replacement that is informative without leaking internals,
+and write a separate message suitable for the internal log.&lt;/dd&gt;
+&lt;dt&gt;API error schema design&lt;/dt&gt;
+&lt;dd&gt;Design the error response body for a REST endpoint that registers a new user.
+The schema must handle missing required fields,
+fields that fail validation (email format, password length),
+a duplicate username,
+and an unexpected server failure.
+Show example JSON for each case.&lt;/dd&gt;
+&lt;dt&gt;Login timing attack&lt;/dt&gt;
+&lt;dd&gt;A login function is provided that queries the database first
+and returns &amp;ldquo;User not found&amp;rdquo; immediately if the user does not exist,
+or hashes the password and compares it (taking ~200ms) if the user does exist.
+Explain the timing side-channel,
+fix it so both branches take the same time,
+and discuss whether this fix is always necessary or whether it depends on the threat model.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;4) Logging and Observability&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Why logging matters for error handling&lt;ul&gt;
+&lt;li&gt;Errors that are caught and handled still need to be visible to operators&lt;/li&gt;
+&lt;li&gt;Post-mortem debugging requires a record of what happened&lt;/li&gt;
+&lt;li&gt;Trends in error rates reveal systemic problems before they become outages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Log levels and when to use each&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEBUG&lt;/code&gt;: detailed internal state, useful during development, not in production by default&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INFO&lt;/code&gt;: normal significant events (startup, shutdown, completed request)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WARNING&lt;/code&gt;: unexpected but handled conditions that may indicate a problem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ERROR&lt;/code&gt;: a failure that was caught but means something did not complete successfully&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CRITICAL&lt;/code&gt;: system is in a severely degraded or unrecoverable state&lt;/li&gt;
+&lt;li&gt;Common mistake: logging every caught exception at &lt;code&gt;ERROR&lt;/code&gt; regardless of severity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Structured logging&lt;ul&gt;
+&lt;li&gt;Free-text logs are hard to query: key-value pairs (or JSON) are machine-parseable&lt;/li&gt;
+&lt;li&gt;Standard fields: &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;level&lt;/code&gt;, &lt;code&gt;message&lt;/code&gt;, &lt;code&gt;request_id&lt;/code&gt;, &lt;code&gt;user_id&lt;/code&gt;, &lt;code&gt;error_type&lt;/code&gt;, &lt;code&gt;duration_ms&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Log the event, not a sentence:
+    &lt;code&gt;{&#34;event&#34;: &#34;db_query_failed&#34;, &#34;table&#34;: &#34;users&#34;, &#34;error&#34;: &#34;timeout&#34;}&lt;/code&gt;
+    rather than &lt;code&gt;&#34;Failed to query users table due to timeout&#34;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What to include in an error log entry&lt;ul&gt;
+&lt;li&gt;What was being attempted and with what parameters (sanitized)&lt;/li&gt;
+&lt;li&gt;The error: type, message, and stack trace for unexpected errors (not for expected/handled errors)&lt;/li&gt;
+&lt;li&gt;The outcome: did the system recover, degrade, or fail?&lt;/li&gt;
+&lt;li&gt;Correlation ID to link this entry to the request and to other services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What NOT to log&lt;ul&gt;
+&lt;li&gt;Passwords, API keys, session tokens, OAuth codes: not even partial values or hashes&lt;/li&gt;
+&lt;li&gt;Personally identifiable information (PII): names, emails, government IDs&lt;ul&gt;
+&lt;li&gt;Check compliance requirements (GDPR, HIPAA)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Full request/response bodies if they may contain credentials or sensitive data&lt;/li&gt;
+&lt;li&gt;Stack traces in user-facing API responses (they belong in the internal log only)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Audit logs vs. diagnostic logs&lt;ul&gt;
+&lt;li&gt;Diagnostic logs: help engineers debug problems (mutable, short retention, lower protection)&lt;/li&gt;
+&lt;li&gt;Audit logs: immutable record of security-relevant actions
+    (who authenticated, what data was accessed, what was changed)&lt;ul&gt;
+&lt;li&gt;Long retention, tamper-evident, access-controlled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Not the same stream: conflating them causes both compliance and debugging problems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The observability triad&lt;ul&gt;
+&lt;li&gt;Logs: record of individual events&lt;/li&gt;
+&lt;li&gt;Metrics: aggregated numerical measurements (error rate, latency percentiles, queue depth)&lt;/li&gt;
+&lt;li&gt;Traces: end-to-end path of a request through multiple services&lt;/li&gt;
+&lt;li&gt;Correlation IDs connect all three (errors visible in metrics can be traced to specific log entries)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Logging retrofit&lt;/dt&gt;
+&lt;dd&gt;A function that processes uploaded CSV files
+is given with a single &lt;code&gt;except Exception as e: print(e)&lt;/code&gt; handler.
+Add structured logging using Python&amp;rsquo;s &lt;code&gt;logging&lt;/code&gt; module (or a JavaScript equivalent).
+Include appropriate log levels for different error conditions,
+add relevant context fields,
+distinguish expected errors (bad CSV format) from unexpected errors (disk full),
+and identify what was unobservable before your changes.&lt;/dd&gt;
+&lt;dt&gt;Security audit of log output&lt;/dt&gt;
+&lt;dd&gt;Three log excerpts are provided,
+each containing at least one security violation
+(e.g., a plaintext password,
+a full stack trace that reveals an internal file path and SQL query,
+or a user ID that allows enumeration of account existence).
+Identify each violation, explain what risk it creates, and show the corrected log entry.&lt;/dd&gt;
+&lt;dt&gt;Logging strategy design&lt;/dt&gt;
+&lt;dd&gt;A data pipeline reads records from an API, transforms them, and writes results to a database.
+The pipeline processes records in batches.
+Design a logging strategy: what events are logged at each stage,
+what fields each entry includes,
+what constitutes a loggable error vs. a metric,
+and how an operator would diagnose a job that completed without crashing
+but produced fewer output records than expected.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;5) External Systems&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Why external systems are the primary source of production errors&lt;ul&gt;
+&lt;li&gt;Code you write can be tested exhaustively&lt;/li&gt;
+&lt;li&gt;Systems you depend on cannot be controlled&lt;/li&gt;
+&lt;li&gt;External systems fail in ways that are partial, delayed, and inconsistent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;File system errors&lt;ul&gt;
+&lt;li&gt;Not found, permission denied, disk full, file locked by another process, corrupted data&lt;/li&gt;
+&lt;li&gt;Always close files: use context managers (&lt;code&gt;with&lt;/code&gt; in Python, &lt;code&gt;using&lt;/code&gt; in C#, RAII in C++)&lt;/li&gt;
+&lt;li&gt;Atomic writes: write to a temporary file, then rename&lt;ul&gt;
+&lt;li&gt;Rename is atomic on POSIX systems&lt;/li&gt;
+&lt;li&gt;Direct writes leave a window where the file is partially written&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Handling partial reads and partial writes explicitly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Database errors&lt;ul&gt;
+&lt;li&gt;Connection failure: the database is unreachable (transient, so retry with backoff)&lt;/li&gt;
+&lt;li&gt;Timeout: query took too long (may or may not have committed, so check before retrying)&lt;/li&gt;
+&lt;li&gt;Constraint violation: duplicate key, foreign key failure, not-null violation (permanent, so do not retry)&lt;/li&gt;
+&lt;li&gt;Deadlock: two transactions are waiting on each other (transient, so retry the whole transaction)&lt;/li&gt;
+&lt;li&gt;Serialization failure (in serializable isolation):
+    transaction conflicted with a concurrent one (transient, so retry)&lt;/li&gt;
+&lt;li&gt;Connection pool exhaustion: all connections are in use (application-level backpressure needed)&lt;/li&gt;
+&lt;li&gt;Distinguishing transient from permanent errors using error codes, not message strings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Network and HTTP errors&lt;ul&gt;
+&lt;li&gt;Every external call must have a timeout: separate connect timeout and read/total timeout&lt;/li&gt;
+&lt;li&gt;Retrying safely:
+    only retry if the operation is idempotent or the error occurred before the request was received&lt;/li&gt;
+&lt;li&gt;HTTP status codes that indicate retrying is safe: 429 (with &lt;code&gt;Retry-After&lt;/code&gt;), 503, 504&lt;/li&gt;
+&lt;li&gt;HTTP status codes that should not be retried: 400, 401, 403, 404, 409, 422&lt;/li&gt;
+&lt;li&gt;Exponential backoff with jitter (review from Lesson 2, now applied to real HTTP clients)&lt;/li&gt;
+&lt;li&gt;Handling rate limiting: respect &lt;code&gt;Retry-After&lt;/code&gt; headers, implement client-side rate limiting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Parsing external data&lt;ul&gt;
+&lt;li&gt;Never assume the schema of data from an external source&lt;/li&gt;
+&lt;li&gt;Validate presence and type of required fields before using them&lt;/li&gt;
+&lt;li&gt;Handle missing optional fields explicitly rather than letting a &lt;code&gt;KeyError&lt;/code&gt; or &lt;code&gt;undefined&lt;/code&gt; propagate&lt;/li&gt;
+&lt;li&gt;Version skew: the API changed its schema (your parser must detect and report this)&lt;/li&gt;
+&lt;li&gt;Fail loudly on unexpected schema changes rather than silently producing wrong results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Error handling retrofit for a pipeline&lt;/dt&gt;
+&lt;dd&gt;A script that downloads a JSON file from an HTTP endpoint,
+parses it,
+and inserts records into a SQLite database is given.
+It has no error handling.
+Add appropriate handling for
+HTTP errors (including distinguishing retryable from non-retryable),
+JSON parse failures,
+missing required fields,
+and database constraint violations.
+For each error type, decide whether to abort, skip the record, or retry, and justify the choice.&lt;/dd&gt;
+&lt;dt&gt;Transaction retry&lt;/dt&gt;
+&lt;dd&gt;A function executes a multi-statement database transaction and fails with a deadlock error.
+Implement retry logic that retries the entire transaction on deadlock,
+does not retry on constraint violations,
+limits total retries,
+and logs each retry attempt.
+Discuss why retrying only the failed statement, rather than the whole transaction, is wrong.&lt;/dd&gt;
+&lt;dt&gt;Atomic file write&lt;/dt&gt;
+&lt;dd&gt;A function saves user settings to a JSON file by opening the file,
+serializing the settings,
+and writing directly.
+Demonstrate two failure scenarios where this approach corrupts the file:
+interrupted write,
+and crash between open and close.
+Implement the temp-file-then-rename pattern and explain why it is safe
+even if the process is killed mid-write.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;6) Concurrency and Async Errors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Why concurrency changes error handling&lt;ul&gt;
+&lt;li&gt;An error in a thread or task may not propagate to the code that started it&lt;/li&gt;
+&lt;li&gt;Operations may be partially complete when an error occurs, leaving shared state inconsistent&lt;/li&gt;
+&lt;li&gt;Some errors (race conditions, deadlocks) only appear under concurrency and are hard to reproduce&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Errors in threads&lt;ul&gt;
+&lt;li&gt;Python: an uncaught exception in a &lt;code&gt;Thread&lt;/code&gt; prints a traceback
+    but does not crash the main thread or propagate to the caller&lt;ul&gt;
+&lt;li&gt;Errors are silently lost unless explicitly collected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Thread pools (&lt;code&gt;concurrent.futures.ThreadPoolExecutor&lt;/code&gt;):
+    exceptions are stored and re-raised when &lt;code&gt;future.result()&lt;/code&gt; is called&lt;ul&gt;
+&lt;li&gt;But only if you call it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Always collect results from thread pools&lt;ul&gt;
+&lt;li&gt;Never fire-and-forget threads that could fail silently&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Setting a global thread exception handler (&lt;code&gt;threading.excepthook&lt;/code&gt;) as a backstop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Async/await errors (Python and JavaScript)&lt;ul&gt;
+&lt;li&gt;Python: an unawaited coroutine silently does nothing (forgetting &lt;code&gt;await&lt;/code&gt; is a silent bug)&lt;/li&gt;
+&lt;li&gt;Python: an unhandled exception in a &lt;code&gt;Task&lt;/code&gt; is reported when the task is garbage-collected&lt;ul&gt;
+&lt;li&gt;Too late to be useful&lt;/li&gt;
+&lt;li&gt;Always await tasks or attach &lt;code&gt;.add_done_callback&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;JavaScript: an unhandled promise rejection crashes Node.js in recent versions&lt;ul&gt;
+&lt;li&gt;In older versions (and some browsers) it is silently swallowed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Always handle rejections: &lt;code&gt;.catch()&lt;/code&gt;, &lt;code&gt;try/await/catch&lt;/code&gt;, or &lt;code&gt;process.on(&#39;unhandledRejection&#39;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Forgetting &lt;code&gt;await&lt;/code&gt; in a loop:
+    tasks are created but not awaited, the loop exits, and all tasks are cancelled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Parallel operations and partial failure&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Promise.all&lt;/code&gt;: fails fast&lt;ul&gt;
+&lt;li&gt;If any promise rejects, the whole thing rejects and other results are lost&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Promise.allSettled&lt;/code&gt;: waits for all promises regardless of outcome&lt;ul&gt;
+&lt;li&gt;Returns an array of &lt;code&gt;{status, value/reason}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use when you want partial results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Python &lt;code&gt;asyncio.gather(return_exceptions=True)&lt;/code&gt;:
+    returns exceptions as values instead of raising them&lt;ul&gt;
+&lt;li&gt;Allows processing partial results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Decision: whether to fail fast or collect all results depends on whether partial results are useful&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Structured concurrency&lt;ul&gt;
+&lt;li&gt;The problem: a task that spawns subtasks and then throws has left orphaned subtasks running&lt;/li&gt;
+&lt;li&gt;Python &lt;code&gt;asyncio.TaskGroup&lt;/code&gt; (3.11+):
+    all tasks in the group are cancelled if any raises an exception&lt;ul&gt;
+&lt;li&gt;The group does not exit until all tasks are done&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Structured concurrency ensures the lifetime of every subtask is bounded by the scope that created it&lt;/li&gt;
+&lt;li&gt;Cancellation propagation:
+    when a task is cancelled, it receives a &lt;code&gt;CancelledError&lt;/code&gt; (Python) or &lt;code&gt;AbortError&lt;/code&gt; (JS)&lt;ul&gt;
+&lt;li&gt;Cleanup must happen in &lt;code&gt;finally&lt;/code&gt; or &lt;code&gt;try/catch&lt;/code&gt; around &lt;code&gt;await&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Shared state and locks in error paths&lt;ul&gt;
+&lt;li&gt;A lock must always be released, even if an error occurs&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;try/finally&lt;/code&gt; or a context manager&lt;/li&gt;
+&lt;li&gt;If an error occurs while holding a lock after modifying shared state,
+    the state may be inconsistent when the lock is released&lt;ul&gt;
+&lt;li&gt;Decide if the modification needs to be rolled back before releasing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Deadlock: two threads each hold a lock the other needs&lt;ul&gt;
+&lt;li&gt;Prevent via lock ordering (always acquire locks in the same order) or via timeouts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;Silent thread failures&lt;/dt&gt;
+&lt;dd&gt;A Python script spawns ten threads,
+each of which downloads a file and writes it to disk.
+When a download fails,
+the exception is printed to stderr but the main thread sees all tasks as complete.
+Rewrite using &lt;code&gt;ThreadPoolExecutor&lt;/code&gt;,
+collect all futures,
+and report which downloads succeeded and which failed,
+then introduce a deliberate failure in two of the threads
+and verify the errors are caught and reported correctly.&lt;/dd&gt;
+&lt;dt&gt;Promise.all to Promise.allSettled&lt;/dt&gt;
+&lt;dd&gt;A JavaScript function fetches data from five independent APIs using &lt;code&gt;Promise.all&lt;/code&gt;.
+The whole function fails if any one API is unavailable.
+Rewrite it using &lt;code&gt;Promise.allSettled&lt;/code&gt; so that
+results from available APIs are returned and failures are reported per-API.
+When is &lt;code&gt;Promise.all&lt;/code&gt;&amp;rsquo;s fail-fast behavior preferable?&lt;/dd&gt;
+&lt;dt&gt;Deadlock identification and fix&lt;/dt&gt;
+&lt;dd&gt;A function managing a shared cache acquires &lt;code&gt;cache_lock&lt;/code&gt; and then &lt;code&gt;stats_lock&lt;/code&gt; in that order.
+Another function acquires the same locks in the opposite order.
+Trace through a scenario where both functions run concurrently and deadlock.
+Fix the bug using lock ordering.
+As a second fix,
+add a timeout to the lock acquisition and show how to handle the case where the timeout expires.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;7) Resilience Patterns and Production Practices&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The goal: systems that degrade gracefully rather than fail catastrophically&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Fail safe&amp;rdquo; vs. &amp;ldquo;fail secure&amp;rdquo; vs. &amp;ldquo;fail operational&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;No system achieves zero errors: the goal is bounded, predictable failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Circuit breaker pattern&lt;ul&gt;
+&lt;li&gt;Closed state: requests pass through normally&lt;/li&gt;
+&lt;li&gt;Open state: requests fail immediately without attempting the operation
+    (protecting a downstream that is already failing)&lt;/li&gt;
+&lt;li&gt;Half-open state: a probe request is allowed through&lt;ul&gt;
+&lt;li&gt;If it succeeds, the breaker closes&lt;/li&gt;
+&lt;li&gt;If not, it stays open&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Thresholds: open after N failures in a time window&lt;ul&gt;
+&lt;li&gt;Reset after a timeout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Use case:
+    preventing cascading failures when a slow or failing dependency causes your thread pool to fill up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Bulkhead pattern&lt;ul&gt;
+&lt;li&gt;Isolate resources (thread pools, connection pools, processes)
+    so that a failure in one area does not exhaust resources for another&lt;/li&gt;
+&lt;li&gt;Example: use separate HTTP connection pools for critical and non-critical external services&lt;/li&gt;
+&lt;li&gt;Trade-off: resource isolation requires over-provisioning in aggregate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Timeout patterns&lt;ul&gt;
+&lt;li&gt;Every call to an external system must have a timeout&lt;ul&gt;
+&lt;li&gt;A call without a timeout can block forever&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cascading timeouts:
+    internal timeouts should be shorter than the external deadline so the caller still gets a response&lt;/li&gt;
+&lt;li&gt;Distinguishing timeout-on-connect from timeout-on-read&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Graceful degradation&lt;ul&gt;
+&lt;li&gt;Serve stale cached data rather than failing when the data source is unavailable&lt;/li&gt;
+&lt;li&gt;Disable non-critical features (recommendations, analytics) when load is high or dependencies are down&lt;/li&gt;
+&lt;li&gt;Return partial results rather than failing when some data is unavailable&lt;/li&gt;
+&lt;li&gt;Read-only mode: allow reads but reject writes when the system cannot safely persist data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Testing for failure&lt;ul&gt;
+&lt;li&gt;Happy-path tests verify normal behavior&lt;ul&gt;
+&lt;li&gt;Error-path tests verify that errors are handled correctly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Fault injection: deliberately introduce failures (network errors, corrupt data, slow responses) in tests&lt;/li&gt;
+&lt;li&gt;Property-based testing (Hypothesis, fast-check): generate unexpected inputs to find unhandled edge cases&lt;/li&gt;
+&lt;li&gt;Chaos engineering: inject controlled failures in production
+    to find weaknesses before an actual incident does&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Error budgets and SLOs&lt;ul&gt;
+&lt;li&gt;Service Level Indicator (SLI): a measurement of reliability (e.g., fraction of requests that succeed)&lt;/li&gt;
+&lt;li&gt;Service Level Objective (SLO): the target (e.g., 99.9% success over 30 days)&lt;/li&gt;
+&lt;li&gt;Error budget: the allowed failure rate (e.g., 0.1% of requests, or about 43 minutes of downtime per month)&lt;/li&gt;
+&lt;li&gt;If the error budget is exhausted, new features stop and reliability work takes priority&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Post-mortems&lt;ul&gt;
+&lt;li&gt;Document what happened, what the impact was, and why it happened&lt;/li&gt;
+&lt;li&gt;Blameless culture: focus on systemic causes, not individual mistakes&lt;/li&gt;
+&lt;li&gt;Five Whys: ask &amp;ldquo;why&amp;rdquo; repeatedly to find the root cause rather than the proximate cause&lt;/li&gt;
+&lt;li&gt;Action items must be concrete, assigned, and time-bound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Exercises&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;Circuit breaker implementation&lt;/dt&gt;
+&lt;dd&gt;Implement a &lt;code&gt;CircuitBreaker&lt;/code&gt; class in Python or JavaScript that wraps a function.
+It should track consecutive failures,
+open after a configurable threshold,
+fail fast while open,
+and attempt recovery after a timeout.
+Write tests that simulate a dependency that fails, recovers, and fails again,
+verifying the breaker transitions through all three states correctly.&lt;/dd&gt;
+&lt;dt&gt;Single points of failure analysis&lt;/dt&gt;
+&lt;dd&gt;A diagram shows a web application with a load balancer,
+two application servers,
+one database,
+and one external payment API.
+Each component can fail independently.
+Identify the single points of failure,
+propose bulkhead and timeout strategies to limit the blast radius of each failure,
+and discuss the cost (infrastructure, complexity) of each mitigation.
+At what point does additional resilience add more complexity than it is worth?&lt;/dd&gt;
+&lt;dt&gt;Error path test coverage&lt;/dt&gt;
+&lt;dd&gt;A small data processing function is provided,
+along with a test suite with 100% line coverage on the happy path.
+Enumerate all error paths in the function
+(e.g., invalid input, missing file, network failure, and malformed response).
+Write tests for each error path using fault injection (i.e., mock the failing component).
+Measure what fraction of error paths were untested before,
+and explain why line coverage is a misleading metric for error-handling code.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Appendix: Exceptions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Exception hierarchies&lt;ul&gt;
+&lt;li&gt;Python: &lt;code&gt;BaseException&lt;/code&gt; vs. &lt;code&gt;Exception&lt;/code&gt; vs. specific types&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;KeyboardInterrupt&lt;/code&gt; and &lt;code&gt;SystemExit&lt;/code&gt; inherit from &lt;code&gt;BaseException&lt;/code&gt;, not &lt;code&gt;Exception&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;JavaScript: &lt;code&gt;Error&lt;/code&gt; base class plus built-in subtypes (&lt;code&gt;TypeError&lt;/code&gt;, &lt;code&gt;RangeError&lt;/code&gt;, &lt;code&gt;SyntaxError&lt;/code&gt;, etc.)&lt;/li&gt;
+&lt;li&gt;Catching a parent class catches all subclasses&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;except Exception&lt;/code&gt; in Python does not catch &lt;code&gt;KeyboardInterrupt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Custom exception types&lt;ul&gt;
+&lt;li&gt;Subclass the appropriate base: add fields for structured error data&lt;/li&gt;
+&lt;li&gt;Use custom exceptions to distinguish your errors from library errors
+    and to allow callers to catch specifically&lt;/li&gt;
+&lt;li&gt;Name exceptions as nouns describing the condition,
+    not the action (&lt;code&gt;ConfigurationError&lt;/code&gt;, not &lt;code&gt;FailedToLoadConfig&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Exception chaining&lt;ul&gt;
+&lt;li&gt;Python: &lt;code&gt;raise NewException(&#34;context&#34;) from original_exception&lt;/code&gt; preserves the original traceback&lt;/li&gt;
+&lt;li&gt;Python: &lt;code&gt;raise NewException(&#34;context&#34;)&lt;/code&gt; inside an &lt;code&gt;except&lt;/code&gt; block implicitly chains
+    (visible as &amp;ldquo;During handling of the above exception, another exception occurred&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Java: pass the original exception to the constructor of the new one (&lt;code&gt;new RuntimeException(&#34;msg&#34;, cause)&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cleanup with &lt;code&gt;finally&lt;/code&gt; and context managers&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;finally&lt;/code&gt; runs whether or not an exception was raised&lt;ul&gt;
+&lt;li&gt;Use for resource cleanup (closing files, releasing locks)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Context managers (&lt;code&gt;with&lt;/code&gt; statement) encapsulate the &lt;code&gt;try/finally&lt;/code&gt; pattern&lt;ul&gt;
+&lt;li&gt;Prefer them for resource management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__exit__&lt;/code&gt; receives exception information and can suppress the exception by returning &lt;code&gt;True&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;Do this rarely and intentionally&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Anti-patterns&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;except Exception: pass&lt;/code&gt;: silently discards all errors&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;except Exception as e: print(e)&lt;/code&gt;: visible but unactionable&lt;ul&gt;
+&lt;li&gt;Provides no context and does not propagate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Catching overly broad types: bare &lt;code&gt;except:&lt;/code&gt; in Python catches &lt;code&gt;KeyboardInterrupt&lt;/code&gt; and &lt;code&gt;SystemExit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Raising &lt;code&gt;Exception&lt;/code&gt; directly instead of a specific type: callers cannot catch it selectively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Checked vs. unchecked exceptions (Java)&lt;ul&gt;
+&lt;li&gt;Checked exceptions must be declared or caught&lt;ul&gt;
+&lt;li&gt;Unchecked (&lt;code&gt;RuntimeException&lt;/code&gt; subclasses) need not be&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Checked exceptions enforce handling at compile time
+    but lead to verbose, often-ignored &lt;code&gt;throws&lt;/code&gt; declarations&lt;/li&gt;
+&lt;li&gt;Most modern languages (Python, C#, Kotlin, Swift) do not have checked exceptions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>A Modest Proposal</title>
@@ -6400,37 +7089,6 @@ but I hope you&amp;rsquo;ll find it informative, entertaining, and inspiring.&lt
 &lt;p&gt;The mean time a job spends waiting (not counting its own service time) in a FIFO single-server queue is:&lt;/p&gt;
 &lt;p&gt;$$W_q = \frac{\lambda \cdot E[S^2]}{2(1 - \rho)}$$&lt;/p&gt;
 &lt;p&gt;Here $\lambda$ is the arrival rate, $E[S^2]$ is the second moment of service time, and $\rho = \lambda \cdot E[S]$ is the server utilization. Both $\lambda$ and $E[S^2]$ appear in the numerator, so more variance means more waiting even at the same $\rho$. The $(1-\rho)$ denominator is the familiar blow-up term from M/M/1.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Tandem Queue Blocking</title>
-   <link href="https://third-bit.com/2026/06/05/tandem-queue/"/>
-   <updated>2026-06-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/06/05/tandem-queue/</id>
-   <content type="html">&lt;p&gt;Two processing stages are arranged in series: Stage 1 feeds work into a bounded buffer, which feeds Stage 2. Both stages have the same mean service rate $\mu$, and the arrival rate $\lambda &amp;lt; \mu$ so neither stage is overloaded on average. However, Stage 1 has high variance (hyperexponential service); Stage 2 has zero variance (deterministic service).&lt;/p&gt;
-&lt;p&gt;Even though both stages have identical mean throughput and the system is underloaded, Stage 2 sits idle for a substantial fraction of time when the buffer between them is small. The idle fraction only vanishes as the buffer size $K \to \infty$.&lt;/p&gt;
-&lt;p&gt;High service-time variance at Stage 1 produces bursts of output—many jobs finish close together—followed by droughts. With a small buffer, the burst overflows (blocking Stage 1) and the drought starves Stage 2. Both effects reduce system throughput below what we would intuitively expect.&lt;/p&gt;
-&lt;h2&gt;Analysis&lt;/h2&gt;
-&lt;p&gt;For a two-stage tandem queue with a finite buffer of capacity $K$, the blocking probability at Stage 1 and the starvation probability at Stage 2 depend on the full service-time distributions, not just their means. The Kingman approximation gives the mean wait in a single G/G/1 queue as:&lt;/p&gt;
-&lt;p&gt;$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$&lt;/p&gt;
-&lt;p&gt;where $c_a^2$ and $c_s^2$ are the squared coefficients of variation of inter-arrival and service times respectively. For a hyperexponential service distribution with $c_s^2 \gg 1$, waiting times are far higher than the M/M/1 formula predicts.&lt;/p&gt;
-&lt;p&gt;In a tandem network, this extra variability propagates: the departure process of Stage 1 (which is the arrival process for Stage 2) has higher variance than Poisson when Stage 1 has high service variance. This is &lt;em&gt;Departure Process Variability Propagation&lt;/em&gt; and is a key driver of manufacturing and supply-chain &lt;a href=&#34;https://en.wikipedia.org/wiki/Bullwhip_effect&#34;&gt;bullwhip effects&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Buffer as a Variability Absorber&lt;/h2&gt;
-&lt;p&gt;The buffer acts as a shock absorber. Each unit of additional buffer capacity $K$ reduces the starvation probability at Stage 2 by absorbing burst output from Stage 1. The marginal benefit decreases as $K$ grows, leading to a classic diminishing-returns relationship. Practitioners use this to size work-in-progress inventory (WIP) buffers in manufacturing cells.&lt;/p&gt;
-&lt;h2&gt;Understanding the Math&lt;/h2&gt;
-&lt;h3&gt;Coefficient of variation&lt;/h3&gt;
-&lt;p&gt;The coefficient of variation (CV) of a random variable $X$ with mean $\mu$ and standard deviation $\sigma$ is defined as $c = \sigma / \mu$. It measures spread relative to the mean. A CV of 0 means the variable is deterministic: every value equals $\mu$. A CV of 1 means the spread equals the mean (the exponential distribution has CV exactly 1). A CV greater than 1 means the distribution is bursty: occasional very large values dominate, even if most values are small. The squared CV $c^2 = \sigma^2/\mu^2$ appears frequently in queueing formulas.&lt;/p&gt;
-&lt;h3&gt;Why high CV at Stage 1 creates bursts and droughts&lt;/h3&gt;
-&lt;p&gt;With a hyperexponential service distribution ($c_s^2 \gg 1$), Stage 1 sometimes completes several jobs in rapid succession (a burst) and sometimes spends a very long time on a single job (a drought). During a burst, jobs pile up in the buffer between stages. During a drought, Stage 2 exhausts the buffer and has to wait for Stage 1 to finish. This wastes capacity even though the system is underloaded on average.&lt;/p&gt;
-&lt;h3&gt;The buffer as a shock absorber&lt;/h3&gt;
-&lt;p&gt;A buffer of capacity $K$ can hold at most $K$ jobs between the two stages. It absorbs burst output from Stage 1 and releases it steadily to Stage 2. With a small buffer, a burst overflows (blocking Stage 1) or a drought empties the buffer (starving Stage 2). As $K$ grows, both effects weaken and Stage 2 idle time falls. However, the marginal benefit of each extra unit of buffer decreases. Real factories choose $K$ to balance the cost of holding inventory against the cost of machine starvation.&lt;/p&gt;
-&lt;h3&gt;Kingman&amp;rsquo;s approximation&lt;/h3&gt;
-&lt;p&gt;For a single-stage queue with general service and arrival distributions, the approximate mean waiting time is:&lt;/p&gt;
-&lt;p&gt;$$W_q \approx \frac{\rho}{1-\rho} \cdot \frac{c_a^2 + c_s^2}{2} \cdot \frac{1}{\mu}$$&lt;/p&gt;
-&lt;p&gt;Here $c_a^2$ is the squared CV of inter-arrival times and $c_s^2$ is the squared CV of service times. Notice that the formula separates the utilization effect (the $\rho/(1-\rho)$ term) from the variability effect (the $(c_a^2 + c_s^2)/2$ term). When Stage 1 has $c_s^2 \gg 1$, wait time is far higher than the basic M/M/1 formula predicts, even at the same mean throughput. The mean alone does not tell you enough.&lt;/p&gt;
-&lt;h3&gt;Supply-chain connection&lt;/h3&gt;
-&lt;p&gt;In manufacturing, Stage 1 corresponds to a supplier and Stage 2 to a production line. High variability at the supplier forces the factory to hold large work-in-progress (WIP) buffers, tying up capital and floor space. The &lt;a href=&#34;https://en.wikipedia.org/wiki/Toyota_Production_System&#34;&gt;Toyota Production System&lt;/a&gt; explicitly targets CV reduction as the primary tool for shrinking necessary WIP by making every process more deterministic through standardized work and small batch sizes. The math here explains exactly why: lower $c_s^2$ directly reduces $W_q$ and the required buffer size $K$.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
  </entry>
  
