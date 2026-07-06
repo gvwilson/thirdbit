@@ -8,14 +8,13 @@ template: page
 | Technological Revolutions and Financial Capital | Carlota Perez | 978-1843763314 | 2003 |
 | An Elemental Thing | Eliot Weinberger | 978-0811216944 | 2007 |
 | Psychology and the Real World | Morton Ann Gernsbacher, Richard W. Pew | 978-1429230438 | 2009 |
-| On Killing: The Psychological Cost of Learning to Kill in War and Society | Dave Grossman | 978-0316040938 | 2009 |
 | After the Prophet: The Epic Story of the Shia-Sunni Split in Islam | Lesley Hazleton | 978-0385523943 | 2010 |
 | Is That a Fish in Your Ear?: Translation and the Meaning of Everything | David Bellos | 978-0241954300 | 2012 |
-| For All the People | John Curl, Ishmael Reed | 978-1604865820 | 2012 |
+| For All the People | John Curl and Ishmael Reed | 978-1604865820 | 2012 |
 | The United States of Paranoia: A Conspiracy Theory | Jesse Walker | 978-0062135551 | 2013 |
 | Caring Democracy: Markets, Equality, and Justice | Joan C. Tronto | 978-0814782774 | 2013 |
 | Slavery's Exiles | Sylviane A Diouf | 978-0814760284 | 2016 |
-| How Reason Almost Lost Its Mind: The Strange Career of Cold War Rationality | Paul Erickson, Judy L. Klein | 978-0226324159 | 2016 |
+| How Reason Almost Lost Its Mind: The Strange Career of Cold War Rationality | Paul Erickson and Judy L. Klein | 978-0226324159 | 2016 |
 | Great Tide Rising | Kathleen Dean Moore | 978-1619029064 | 2016 |
 | The Gauntlet | Karuna Riazi | 978-1536435443 | 2017 |
 | Snowglobe | Amy Wilson | 978-1509885800 | 2018 |
@@ -220,3 +219,4 @@ template: page
 | The Spacecraft Hacker's Handbook | Andrzej Olchawa | 978-1718504745 | 2026 |
 | Bodies of Magic | Freya Marske | 978-1250341655 | 2026 |
 | The Best Science Stories and How They Work | Siri Carpenter | 978-0226830346 | 2026 |
+| Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |

@@ -51,20 +51,109 @@ please give me a shout;
 if you'd like to write one,
 please get in touch as well---I'd be happy to help if I can.
 
-Versions:
-[2024](./2024/)
-&middot;
-[2019](./2019/)
-&middot;
-[2017](./2017/)
-&middot;
-[2014](./2014/)
-&middot;
-[2009](./2009/)
-&middot;
-[2003](./2003/)
-&middot;
-[1997](./1997/)
+## [2024](./2024/)
+
+-   *Sex and Drugs and Guns and Code*
+-   *Software Engineering: An Evidence-Based Approach*
+-   *Testing Research Software*
+-   *Security by Example*
+-   *Software Design as if Everyone Mattered*
+-   *Unbreaking Software*
+-   *Building Tech Together*
+-   *Managing Research Software Projects*
+-   *Organizing for Institutional Change in Research*
+-   *Computing and the Law: A Guide for the Perplexed*
+-   *The Middle and the End*
+-   *Now What? A Practitioner's Guide to Error Handling*
+-   *Concurrent Design by Example*
+-   *Performance Tuning*
+-   *Difference Engines*
+-   *The Architecture of Open Source Applications*
+
+## [2019](./2019/)
+
+-   *Still Magic: A Guide for Research Software Engineers*
+-   *Probably Approximately Correct: A Guide to Testing Numerical Software*
+-   *Software Engineering: An Evidence-Based Approach*
+-   *Software Tools in JavaScript*
+-   *Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power*
+-   *The Modern Developer: An Owner's Manual*
+-   *Unbreaking Software*
+
+## [2017](./2017/)
+
+-   *Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power*
+-   *The Undergraduate Operator's Manual*
+-   *Software Tools in JavaScript*
+-   *Research Computing from A to B*
+-   *Managing Research Software Projects*
+-   *Software Engineering: An Evidence-Based Approach*
+-   *Computing and the Law: A Guide for the Perplexed*
+-   *Software Architecture by Example*
+-   *Now What? A Practitioner's Guide to Error Handling*
+-   *A Practical Introduction to Debugging*
+-   *300 Lines of Science*
+-   *Performance Tuning*
+
+## [2014](./2014/)
+
+-   *Software Carpentry for Scientists and Engineers*
+-   *Big, Fast, Cheap, or Good: A Student's Guide to Software Engineering*
+-   *A Practical Introduction to Debugging*
+-   *Software Tools for the World-Wide Web*
+-   *Computing and the Law: A Guide for the Perplexed*
+-   *Difference Engines*
+
+## [2009](./2009/)
+
+-   *The Architecture of Open Source Applications*
+-   *The Design and Implementation of Virtual Machines*
+-   *Debuggers: Theory and Practice*
+-   *Software Carpentry for Scientists and Engineers*
+-   *Software Tools for the World-Wide Web*
+-   *Jonad in a Nutshell*
+-   *Computing and the Law: A Guide for the Perplexed*
+-   *Programming Small Devices*
+-   *Quality Assurance: A Modern Synthesis*
+-   *Extensible Programming Systems*
+-   *Difference Engines*
+-   *A Reference Architecture for Web 2.0*
+-   *Big, Fast, Cheap, or Good: A Student's Guide to Software Project Management*
+-   *Exploring Computer Science with Python*
+
+## [2003](./2003/)
+
+-   *Introduction to Software Development*
+-   *Introduction to Computer Architecture and Systems Programming*
+-   *Multi-Tier Architectures: Theory and Practice*
+-   *Design and Implementation of Virtual Machines*
+-   *Quality Assurance: Theory and Practice*
+-   *Modern Operating Systems*
+-   *Case Studies in User Interface Design*
+-   *Computing and the Law*
+-   *Software Development for Scientists and Engineers*
+
+## [1997](./1997/)
+
+-   *Real-World C++*
+-   *Case Studies in User Interface Design*
+-   *Windows NT for Unix Programmers*
+-   *The Design and Implementation of Interpreted Languages*
+-   *A Second Course in Object-Oriented Programming: Design, Analysis, Data Structures, and Algorithms in Java*
+-   *Debuggers: Design and Implementation*
+-   *The Elements of Software Engineering Style*
+-   *How to Write Better Computer Games Faster*
+-   *Software Tools for Scientists and Engineers*
+-   *Large-Scale Visual Basic Software Design*
+-   *Software Tools for the World-Wide Web*
+-   *The Future of the Java Programming Language*
+-   *Object-Oriented Systems Programming*
+-   *Intellectual Property Made Simple*
+-   *Computational Layout: An Object-Oriented Approach*
+-   *From Key to Screen: How Computers Really Work*
+-   *The UML Workbook*
+-   *Software Tools: A Survey of Best Practice*
+-   *C++ As If C Never Happened*
 
 [aosa]: http://aosabook.org/
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
