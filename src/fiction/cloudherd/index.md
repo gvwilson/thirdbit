@@ -1613,9 +1613,9 @@ The tiger merely blinked.
 
 In silence,
 the small crowd made their way through the gate
-and up the path that led to the village's worship circle.
+and up the path that led to the village's worship diamond.
 Sergeant Dorbu and two other soldiers had piled logs on the heavy gray stone
-that lay at the circle's center,
+that lay at the center of the paved lozenge,
 then laid the bodies of their fallen friends atop the pyre.
 They stood at attention with their battle masks raised to show their stony expressions
 as people shuffled into a circle.
@@ -5988,7 +5988,7 @@ they had put down to protest the vegetable beds,
 while a couple of soldiers wrestled the burnt remains of the upstairs shutters
 out of the storehouse's windows.
 
-Private Kechen's words chased each other in circles in her head.
+Private Kechen's words chased each other around and around in her head.
 And the scars on her back—thinking about what might have made them
 made Noxy feel queasy.
 
@@ -6993,5 +6993,128 @@ and nobody wanted that as a birth omen.
 
 "Probby," Rind grunted.
 "Probably Has Worms, after my—oohhh…"
+
+The next few minutes were nothing like helping camels.
+When it was over,
+Granna Fee handed a stone knife to Aft to cut the baby's cord
+and sent Noxy for hot water so that they could clean up.
+Noxy sat on the changing bench in the women's bath house
+and cried for a moment with wonder and exhaustion,
+then wiped her face,
+filled a bucket,
+and brought it back.
+
+Aft and Rind were lost in each other and their newborn daughter.
+"I'm sorry *anna* wasn't here,"
+Noxy said quietly.
+
+"I'm sure whatever she's doing is important,"
+Granna Fee replied curtly.
+Her expression softened.
+"But you did well, sweetling, really well.
+Go tell Gas—I'll finish up here."
+
+Grappa Gas was pacing back and forth in the street when Noxy emerged.
+"Thank the saints," he whooshed when she gave him the news.
+
+"I thought you didn't care much for the saints," Noxy teased.
+
+The old man smiled.
+"Everyone cares about the saints on days like this."
+
+Noxy was half-way home when a shadow passed over her.
+She looked up to see Big Blue banking over the village.
+A whistle from up on the wall told her that
+Sergeant Dorbu's sentries had spotted the cloud too.
+For a moment she thought about pretending she hadn't seen it
+so that she could just sit with a cup of chai or go back to bed.
+Then,
+with a sigh,
+she turned back toward the fortress gate.
+
+Sergeant Dorbu and two soldiers were standing on the mounting platform
+when Noxy reached it.
+"I apologize for Private Kechen interrupting," the sergeant said without preamble.
+"I hope everyone is well."
+
+"They're fine."
+When Noxy didn't elaborate,
+Sergeant Dorbu gave a single short nod.
+After that,
+the only sounds were the wind and the birds.
+
+Indy slid off Big Blue's back onto the platform
+with a questioning look on her face.
+"Is everything all right?" she asked Noxy,
+ignoring the soldiers.
+
+Noxy hesitated a moment,
+then threw herself at her mother.
+"Rind had her baby," she said into the shoulder of Indy's coat.
+
+Indy froze.
+"Is she all right?
+Is the baby all right?"
+At Noxy's nod,
+her mother hugged her and kissed the top of her head.
+
+Sergeant Dorbu cleared his throat.
+"I don't want to interrupt, but…"
+
+"But you're going to anyway," Indy said tiredly.
+She kissed Noxy again before releasing her.
+"I suppose you want to know where I went?"
+
+"Actually,
+the first thing I want to know is how you got past my men without them noticing.
+Then we can talk about where you went and why you didn't tell me you were going."
+
+The reeve and the sergeant locked eyes.
+If she hadn't known the sky was clear,
+the tension would made Noxy look up for signs of lightning.
+
+"There are soldiers coming up the pass,"
+Indy finally said.
+"Two hundred of them,
+maybe more,
+all with heavy packs.
+They're wearing Loghan-o colors,"
+she added as Sergeant Dorbu opened his mouth,
+"But I didn't see any banners,
+and I didn't feel like getting close enough to ask whose side they're on."
+
+The sergeant's jaw set.
+"How long?"
+
+Indy shrugged.
+"They're already this side of Murkh Lake,
+so unless they stop to do some knitting
+they'll be here in time for dinner."
+
+Sergeant Dorbu looked past her at Big Blue,
+and past the cloud at the mountains rising to the sky.
+Noxy almost felt sorry for him.
+To her astonishment the corner of his mouth quirked up.
+"I don't suppose you'd care to suggest a menu?"
+
+"No, I wouldn't," the reeve replied levelly.
+"This is exactly what I was afraid would happen.
+It doesn't matter if they're yours or the king's.
+Either way,
+*we're* the ones with muck on our boots."
+
+The sergeant nodded.
+"You're right, and I'm sorry."
+He sighed.
+"Give me an hour to get the men together.
+We'll march out and meet them.
+It won't save you having to answer some hard questions,
+but at least this way if they're any fighting
+it won't happen in your kitchen."
+
+At Indy's nod,
+he turned to the soldiers behind him.
+"Come on, lads.
+Let's stretch our legs."
 
 </section>
