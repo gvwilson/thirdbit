@@ -7115,6 +7115,151 @@ it won't happen in your kitchen."
 At Indy's nod,
 he turned to the soldiers behind him.
 "Come on, lads.
-Let's stretch our legs."
+Let's give the others the news."
+
+Word of the approaching soldiers spread through Stale like spilled chai.
+No, it wasn't an army, Indy told one concerned knot of people after another.
+And no, there wasn't going to be a battle or a siege,
+but yes,
+Rind and Aft had a baby,
+a beautiful little girl named Probby,
+and yes,
+she was sure an extra quilt would be very welcome.
+
+Noxy slipped away as soon as she could to find Thokmay and Kulbinder.
+Her heart sank when she saw them lined up with the rest of their small troop
+in front of the speaker's stone.
+Thokmay caught her eye and shook his head slightly.
+*So much for our brilliant plan,* she thought angrily.
+
+"Well, this is inconvenient."
+She jumped at the tralpa's sour voice behind her.
+He scowled at her as if the disruption was somehow her fault.
+
+"What are you doing out of your house?" she asked.
+
+Yangyal snorted.
+"Apparently I'm not worth worrying about when an an army is on its way.
+Did you mother really not think to find out whose side they're on?
+At least I won't be stuck in some drafty hovel,"
+he went on before Noxy could reply,
+gently stroking the head of the thrush he was cradling in the crook of his arm.
+He bent his head to whisper in the bird's ear,
+then tossed it into the air.
+It darted away with a brief flutter of its wings.
+With a final scowl at Noxy, the soldiers, and the world in general,
+the tralpa turned and tromped away.
+
+Rash and Sensy weren't at the camel pen
+or up on the wall
+or anywhere else that Noxy checked.
+Not knowing what else to do,
+she made her way to Granna Fee's,
+arriving just in time to see her mother close the door
+so firmly that if anyone else had done it,
+Noxy would have called it slamming.
+"What's wrong?" she asked.
+
+Indy sighed.
+"She's just upset that I wasn't there for Aft and Rind."
+
+"Well, you should have been!"
+Granna Fee said loudly from behind the door.
+
+Indy put her arm around Noxy's shoulders.
+"Come on.
+Let's go home and figure out what to do next."
+
+Birth, death, and marriage—the cloudherds knew what to do when those happened.
+They knew how to handle summer storms and winter blizzards,
+and how to take shelter when bull clouds battled each other during mating season,
+but an army was something new.
+Grappa Gas had flown past the siege of Armaq many years before,
+and had once seen river pirates attack a convoy of barges on the Zhugariye river in Uws,
+but had never been on the ground for anything like this.
+
+"There's nothing we *can* do," Indy snapped the third time Noxy asked.
+She reached across the table and took her daughter's hands.
+"I'm sorry.
+This isn't your fault.
+I shouldn't have said that."
+
+"It's all right."
+Noxy slipped her hands out of her mother's.
+"I'm going to go take a nap.
+Wake me if the moon falls?"
+Her mother forced a smile at the weak joke.
+
+*All right,* Noxy thought,
+lying down on top of her duvet and closing her eyes.
+*Let's see if you can be useful.*
+She willed herself to relax,
+then started humming the Garheimmen lullaby her father used to sing to her.
+
+*She wasn't asleep, not really, but she wasn't awake any more either.
+Thoughts seemed to bubble up inside her like water from a spring,
+each connected to the one before
+but the whole chain wandering haphazardly
+with no more direction than a dropped strand of yarn.
+From the lullaby to her father to his tree in the grove
+to the forest around them
+to the squirrels that had attacked the soldiers a week ago
+(had it really only been a week?)
+to the way to Big Blue felt beneath her hand
+to what it would feel like to see Loghan-in-Loghan or some other city from the sky
+to visiting the prince (did he really mean it when he invited her?),
+her mind felt like it was spreading out like a cloud did when it relaxed,
+thinning and thinning until the light could shine through it.*
+
+*Two clouds drifted nearby.
+They felt her mind touch theirs,
+but were so used to the sensation that they gave her only a flicker of acknowledgment.
+They were so much bigger than her,
+but so much smaller than the forest
+that had been all around her the whole time but too large too see.
+Lakes and rivers felt like cold drops of rain trickling down her face.
+The wind—it was like someone stirring the tiny hairs on her forearms with the gentlest of breaths.
+For a moment she imagined Thokmay doing that, and felt herself blush.*
+
+*There.
+The Pilots' ancient roads felt like rings or bracelets,
+hard and unyielding but not uncomfortable.
+She couldn't feel what was on them the way she could feel the ducks in Murkh Lake
+or the squirrels in their hives,
+but the sound of boots and voices carried,
+as did the smell of sweat-soaked wool.
+There was magic too,
+little flickers here and there of healing and mending and luck.*
+
+*The forest couldn't tell whose side the soldiers were on,
+Noxy realized.
+Even asking felt foolish,
+like asking what color a song was.
+Flowers and raindrops, armies and kingdoms—they were all the same to the forest.
+She could lose herself in it if she wanted to,
+except that wasn't right,
+she wouldn't be lost any more than a leaf on the ground was lost
+as it slowly turned to mulch and then back into soil.*
+
+"Noxy.
+Sweetling, wake up."
+
+Pulling herself back into herself was like rousing from a nap in a warm bath.
+She looked up at her mother blearily.
+Faces were such strange things:
+so similar to each other and yet so different.
+
+Indy smiled and tousled her daughter's hair.
+"Welcome back, sleepy head.
+You've been away for hours."
+
+"Mmph?"
+Noxy worked her mouth.
+Her tongue felt pasty, and she really needed to pee.
+
+Indy stood.
+"Come on.
+Wash your face and eat something,
+and we'll go and see if your granna is talking to me yet."
 
 </section>
