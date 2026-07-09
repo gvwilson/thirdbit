@@ -129,7 +129,8 @@ review comments are addressed, not just dismissed.</dd>
 <dt>Testing</dt>
 <dd><a class="gl-ref" href="../glossary/#unit-test">Unit tests</a> are run before every merge; CI is configured and a failing
 build blocks the merge; coverage is tracked and not declining.
-<a class="gl-ref" href="../glossary/#tdd">Test-driven development</a> is one way to ensure tests exist before code is merged [<a class="bib-ref" href="../bibliography/#Petre2014">Petre2014</a>].</dd>
+<a class="gl-ref" href="../glossary/#tdd">Test-driven development</a> is one way to ensure
+that tests exist before code is merged [<a class="bib-ref" href="../bibliography/#Petre2014">Petre2014</a>].</dd>
 <dt>Dependencies</dt>
 <dd>Versions are pinned; <code>pip audit</code> or the equivalent runs regularly;
 someone is responsible for acting on vulnerability reports.</dd>
@@ -137,34 +138,51 @@ someone is responsible for acting on vulnerability reports.</dd>
 <dd>Every public function has a docstring; every release has a
 changelog entry; the README contains at least one working example.</dd>
 </dl>
+<div class="callout">
+<p>The list above is intimidating,
+and very few projects do everything in it.
+Rather than overwhelming yourself,
+discuss it with the team and pick one thing to implement first.
+The change that usually pays off most quickly fastest is branch protection,
+i.e.,
+requiring at least one review before merge.
+This catches lots of accidental mistakes
+without requiring any configuration beyond a checkbox.</p>
+</div>
 <h2>Safety and Compliance</h2>
-<p>Research software carries obligations that other open-source software usually doesn't:</p>
+<p>Research software often has obligations that other open-source software doesn't:</p>
 <dl>
 <dt>Data privacy</dt>
 <dd>If your software touches data about human subjects, you are in
 data privacy territory even if the software itself is open
 source. "Anonymized" is not a safe harbor: re-identification
 attacks are routine.</dd>
-<dt>IRB and ethics review</dt>
+<dt>Ethics review</dt>
 <dd>Software that collects or processes data about human subjects may
 require ethics board approval even if the software is just a
-tool. The IRB office, not a web search, is the right place to
-ask. Not asking is not a defense.</dd>
+tool. Your institution's review board, not a web search, is the
+right place to ask. Not asking is not a defense.</dd>
 <dt>Secrets in version control</dt>
-<dd>Api keys, passwords, and personal data committed to git are not
+<dd>API keys, passwords, and personal data committed to git are not
 gone when deleted: they live in history. Tools like <code>git-secrets</code>
 or <code>trufflehog</code> detect them. <a class="gl-ref" href="../glossary/#secret-rotation">Key rotation</a>,
 not deletion, is the fix when accidents happen.</dd>
 <dt>Licensing</dt>
-<dd>A contributor who adds <a class="gl-ref" href="../glossary/#gpl">GPL</a> code to your <a class="gl-ref" href="../glossary/#mit-license">MIT</a>-licensed project
-changes the license of the whole project. A Contributor License
-Agreement or Developer Certificate of Origin clarifies who owns
-what before it becomes a problem.</dd>
+<dd>A contributor who adds <a class="gl-ref" href="../glossary/#gpl">GPL</a> code to your
+<a class="gl-ref" href="../glossary/#mit-license">MIT</a>-licensed project changes the license of
+the whole project. A Contributor License Agreement or Developer
+Certificate of Origin clarifies who owns what before it becomes a
+problem.</dd>
 <dt>Export controls</dt>
 <dd>Accepting contributions from people in certain countries may be
 subject to export control regulations. This is your institution's
 legal team's problem, but you need to know the question exists.</dd>
 </dl>
+<div class="callout">
+<p>Pre-commit hooks and CI don't enforce themselves:
+someone needs to be responsible for acting when a check starts failing.
+Name that person in CONTRIBUTING.md.</p>
+</div>
 <h2>After</h2>
 <p>After the API key incident,
 Jess added <code>git-secrets</code> to the repository's pre-commit hooks
@@ -212,6 +230,17 @@ Asking a search engine or an LLM is not the same as asking any of them.</p>
 </li>
 </ul>
 <h2>Exercises</h2>
+<section class="exercise">
+<h3>How to Check (5 min)</h3>
+<p>The list below gives specific things to look for when doing an audit of practices.
+Add three more,
+two of which cover areas that these three don't.</p>
+<ul>
+<li>Version control: a branch protection rule in GitHub.</li>
+<li>Code review: a rule requiring reviewers on PRs before merging.</li>
+<li>Testing: coverage reports checked into version control.</li>
+</ul>
+</section>
 <section class="exercise">
 <h3>Practice Audit (8 min)</h3>
 <p>Go through the practices checklist provided earlier.

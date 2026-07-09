@@ -101,7 +101,7 @@ with a fixed <a class="gl-ref" href="../glossary/#rng-seed">seed</a> for any sto
 Without this,
 collaborators can't run the code or check results.</dd>
 <dt><a class="gl-ref" href="../glossary/#testability">Testability</a></dt>
-<dd>Automated tests exist and are run on every change via <a class="gl-ref" href="../glossary/#ci">continuous integration</a>.
+<dd>Automated tests exist and are run on every change via <a class="gl-ref" href="../glossary/#ci">continuous integration</a> (CI).
 Without this, every fix can introduce new bugs.
 (You may or may not track test <a class="gl-ref" href="../glossary/#test-coverage">test coverage</a>;
 if you do,
@@ -121,6 +121,14 @@ the <a class="gl-ref" href="../glossary/#lottery-factory">lottery factor</a> is 
 and there is a <a class="gl-ref" href="../glossary/#succession-plan">succession plan</a>.
 Without this, the project dies when the post-doc graduates.</dd>
 </dl>
+<p>These dimensions are <em>not</em> independent.
+A project with a low governance score almost always has poor sustainability
+because nobody agrees on who makes release decisions.
+Similarly,
+a project with poor reproducibility usually has low testability
+because tests that pass on some contributors' machines
+fail for other people or for CI.
+We will explore these dependencies more in the exercises.</p>
 <div class="callout">
 <p>These six points focus mostly on the software, not on the team,
 because that's what most participants in this workshop have the most experience with,
@@ -209,14 +217,17 @@ governance feels unnecessary until the moment it isn't.</p>
 </ul>
 <h2>Exercises</h2>
 <section class="exercise">
-<h3>Self-Audit (10 min)</h3>
-<p>Using the six-dimension rubric, score your project.
-Include evidence for each dimension,
-(e.g., the URL of the governance description).</p>
+<h3>Dependencies (5 min)</h3>
+<p>Sort the six dimensions in the order in which you think they should be tackled.
+Compare your order to other people's.
+Are any of the differences important?</p>
 </section>
 <section class="exercise">
-<h3>LLM Audit (5 min)</h3>
-<p>Repeat the audit using an LLM.</p>
+<h3>Project Audit (15 min)</h3>
+<p>Using the six-dimension rubric, score your project.
+Include evidence for each dimension,
+(e.g., the URL of the governance description).
+Repeat the audit using an LLM:</p>
 <blockquote>
 <p>I have a research software project called [name].
 It does [one sentence].
@@ -225,9 +236,8 @@ Score it on these six dimensions and explain each score:
 findability, reproducibility, testability,
 contribution pathway, governance, sustainability.</p>
 </blockquote>
-<p>Note any dimension where the LLM seems to have assumed something exists
-that you know doesn't.
-Note dimensions where the LLM's score differs from yours by more than one point.</p>
+<p>Where does the LLM seem to have assumed something exists that you know doesn't?
+Where do the LLM's scores differ from yours by more than one point?</p>
 </section>
 <section class="exercise">
 <h3>Action Planning (5 min)</h3>
