@@ -7192,7 +7192,8 @@ Her mother forced a smile at the weak joke.
 
 *All right,* Noxy thought,
 lying down on top of her duvet and closing her eyes.
-*Let's see if you can be useful.*
+*Let's see if I can do this.
+And let's see if you can be useful.*
 She willed herself to relax,
 then started humming the Garheimmen lullaby her father used to sing to her.
 
@@ -7261,5 +7262,118 @@ Indy stood.
 "Come on.
 Wash your face and eat something,
 and we'll go and see if your granna is talking to me yet."
+
+Granna Fee wasn't home.
+Neither was Grappa Gas.
+"They're cleaning up in the trading hall,"
+another elder told them
+as he put the winter shutters back on his windows.
+"In case there's any trouble,"
+he explained when Indy asked why.
+
+Granna Fee and Grappa Gas were indeed tidying up in the trading hall.
+So, to Noxy's surprise, was Rash.
+She couldn't remember ever seeing him use a broom voluntarily.
+"I just wanted to see if they left anything behind,"
+he said defensively when she teased him about it.
+
+"Like what?" she asked,
+looking around.
+The cots were arranged in two neat rows,
+the bedding had all been sorted and piled,
+and if there were crumbs,
+they were too small for her to see.
+Other than the freshly-washed bowls stacked in a drying rack above the sink,
+there was no sign that the soldiers had ever been there.
+
+Rash shrugged.
+"I don't know.
+Anything."
+For a moment he sounded as bereft as he had when his pet raccoon went missing three winters before.
+He scowled at Noxy's expression.
+"I mean like coins or something."
+
+The two elders were as brisk as Rash was mopey.
+Grappa Gas's peg leg thunked on the wooden floor as he sorted the bedding into piles for laundry.
+"Someone will,"
+Granna Fee said when Noxy asked if she thought the soldiers were going to come back.
+"Their own lot or the king's or the Chaghan-o,
+whoever is on the road isn't going to turn around and go home
+without giving us a look-over."
+
+There was nothing for Noxy to do at the trading hall.
+There was nothing for her to do anywhere else
+except for the hundred everyday chores that always needed to be done,
+but none of those were urgent
+and they all seemed trivial compared to the possibility that
+a couple of hundred soldiers were going to be camped out in the village square by sundown.
+
+"Why would they camp on the cobblestones?"
+Sensy asked.
+Noxy had found her sorting jars in the shed
+that her family and a few others used for pickling.
+
+"I just meant camped *here*,"
+Noxy snapped,
+exasperated.
+
+"I guess."
+Sensy moved a box of jars from one shelf to another,
+studied the result critically,
+and moved them back.
+
+"Are you even listening?"
+Noxy demanded.
+
+Sensy's shoulders slumped.
+"I'm sorry.
+I was just…"
+And to Noxy's horror,
+her friend began sobbing quietly.
+
+The story came out in gulps and rushes.
+When Rash found out the soldiers were leaving,
+he confessed to Sensy that he had been thinking about going with them.
+No,
+more than that,
+he'd been *planning* to.
+He wanted to see the world and have adventures and
+he thought this was his chance,
+and she understood why he was upset,
+but why hadn't he told her?
+
+"Because he's an idiot, that's why,"
+Noxy said.
+She didn't know if she should put her arm around Sensy or not.
+Saints, why wasn't Granna Fee here?
+She always knew what to do when things like this happened.
+"I mean,
+if he wants to see the world,
+we're *cloudherds*.
+We get to see more of it than practically anyone!"
+
+"He said it—it's not the same,"
+Sensy hiccupped.
+"Do—do you think it's because of Yeh Sheh?"
+
+"What?"
+It took Noxy a heartbeat to place the name.
+"The girl who was here with the pack traders last summer?
+What's she got to do with this?"
+
+"I don't know,"
+Sensy said miserably.
+"He talked to her a lot,
+and they danced at the fancy, remember?"
+
+Noxy bit back an exasperated laugh.
+"Even Rash isn't dumb enough to run away just because he danced with someone."
+She bumped her shoulder against's Sensy's.
+"Come on.
+I'll help you stack the rest of these
+and then we can go have some chai."
+
+Sensy smiled weakly.
+"You sound like your *anna*."
 
 </section>
