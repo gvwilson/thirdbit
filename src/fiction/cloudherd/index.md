@@ -7300,12 +7300,15 @@ Granna Fee said when Noxy asked if she thought the soldiers were going to come b
 "Their own lot or the king's or the Chaghan-o,
 whoever is on the road isn't going to turn around and go home
 without giving us a look-over."
+She turned back to arguing with Indy
+about whether another flyover would be useful,
+or would be more likely to raise the temperature.
 
 There was nothing for Noxy to do at the trading hall.
 There was nothing for her to do anywhere else
 except for the hundred everyday chores that always needed to be done,
-but none of those were urgent
-and they all seemed trivial compared to the possibility that
+but none of them were urgent.
+They all seemed trivial compared to the possibility that
 a couple of hundred soldiers were going to be camped out in the village square by sundown.
 
 "Why would they camp on the cobblestones?"
