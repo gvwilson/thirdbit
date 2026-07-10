@@ -464,8 +464,6 @@ Deadlock identification and fix
     -   Five Whys: ask "why" repeatedly to find the root cause rather than the proximate cause
     -   Action items must be concrete, assigned, and time-bound
 
-### Exercises
-
 Circuit breaker implementation
 :   Implement a `CircuitBreaker` class in Python or JavaScript that wraps a function.
     It should track consecutive failures,
