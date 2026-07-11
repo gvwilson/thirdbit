@@ -52,12 +52,12 @@ and cocks an eyebrow.
 
 The younger man stops himself from mimicking his opponent's body language
 (another trick learned from the leadership retreat)
-but is unable to prevent himself from feeling that he has somehow been called onto the carpet.
+but is unable to avoid feeling that he has somehow been called onto the carpet.
 "It isn't foolishness, Wingate.
 You've seen the report from Finance.
 The Pabodie Foundation has signalled that they can't make another donation,
-and those new colleagues of yours aren't bringing in enough grants to cover their own costs,
-much less our baseline."
+and those new colleagues of yours aren't bringing in enough to cover their own costs,
+much less our overheads."
 
 Wingate Peaslee snorts.
 His hair has long since surrendered to time,
@@ -78,7 +78,7 @@ unique,
 and is the one thing we have that might attract the kind of funding that—"
 
 "No."
-Professor Peaslee's voice is quiet but emphatic.
+Professor Peaslee is quiet but emphatic.
 "It's far too risky.
 We learned that the hard way when we tried putting a few volumes on microfiche in the sixties.
 There are things you don't know, Edward,"
@@ -116,11 +116,11 @@ was have his office soundproofed.
 
 It is 2004.
 Edward Thornberg no longer looks young for his age.
-He blames the loss of his hair and his nearsightedness on the stress of the job,
+He blames his nearsightedness and the loss of his hair on the stress of the job,
 and is irrationally irritated every time he allows himself to notice that
 Mrs. Marsh doesn't appear to have aged at all.
 
-He adjusts his glasses and frowns at the email on his screen.
+He adjusts his glasses and squints at the email on his screen.
 Princeton and Oxford have both now signed agreements to digitize their entire collections—or rather,
 to have them digitized by Silicon Valley companies
 whose founders' faces regularly appear on the covers of the sorts of magazines
@@ -167,9 +167,8 @@ which they both know is a lie.
 
 Thornberg's eyes widen.
 He looks up at her.
-"They'll do the scanning here on site?"
+"They'll do the scanning here?"
 
-She nods.
 Her smile widens in a way that reminds Edward of a snake preparing to swallow its dinner whole.
 "That should take care of the insurance issues that the staff have been squawking about."
 
@@ -181,7 +180,7 @@ and the ones who did show up to consult it
 weren't the sort of people who socialized well with donors.
 Ms. Allen's nerds (as Thornberg thinks of them) are just as awkward and obsessive
 as Peaslee's colleagues,
-and seem bewildered by the wealth the Internet has showered them with.
+but they seem bewildered by the wealth the Internet has showered them with.
 If they want to spend some of it photocopying the manuscripts
 mouldering away in the basement of the Orne Library,
 he is more than happy to take their money.
@@ -204,9 +203,9 @@ though he knows one won't be enough to stop the strange swirling at the edge of 
 It is 2006,
 and President Thornberg wonders (again)
 if the heavy-set young man sitting opposite him in a golf shirt and jeans is testing him,
-or really oblivious to his own vulgarity.
+or really is oblivious to his own vulgarity.
 
-"Are you sure that's what it is?"
+"Are you sure that's all it is?"
 Thornberg asks angrily.
 He feels angry almost all the time now,
 angry or depressed.
@@ -256,7 +255,7 @@ She hesitates for a millisecond.
 
 President Thornberg is pleased to see that
 Professor Jayaramath has the good manners to wince.
-"Glue, mold—we never determined that precisely," she admits.
+"Something in the glue, or mold—they never determined that precisely," she admits.
 "But several of the staff began to have headaches.
 Has there been any of that here?"
 
@@ -315,6 +314,7 @@ and Miskatonic's.
 When students make jokes about it,
 though,
 their laughter always has an uncertain edge.
+There have been…incidents.
 
 She neatens the papers stacked on the corner of her desk and sighs.
 At least the university's latest industry partner hasn't gone bust—yet.
@@ -328,7 +328,7 @@ things with "crypto" in their name.
 They are selling copies of the special collection to anyone will buy them,
 but Miskatonic hasn't seen nearly the revenue that Bernadette Allen promised
 before her disappearance
-(which has been features on several true crime shows).
+(which has been features on several true crime podcasts).
 
 She starts at a knock on her door.
 "Come in?"
@@ -338,7 +338,7 @@ It no longer catches the interest of attractive men and women the way it used to
 it does,
 but the only ones who stay interested
 are damaged enough to be excited by the weight she seems to carry on her shoulders,
-and she is not damaged enough to reciprocate.
+and she is not yet damaged enough to reciprocate.
 
 Her door opens.
 "Got a minute?
@@ -376,8 +376,8 @@ but I don't think we should risk it."
 Professor Maung nods.
 He expected this,
 which is why he has already had several discussions
-with the sys admin who manages the archive
-and is happy to be paid in bitcoin.
+with the sys admin who manages the archive,
+who is something of a bitcoin aficionado.
 He exchanges a few pleasantries with Professor Jayaramath for appearances' sake,
 then leaves.
 
@@ -415,7 +415,7 @@ this conference on AI is probably his last chance
 to get the fuck out of Arkham.
 
 The problem is his model.
-It routinely outperforms others of comparable size and complexity on routine tasks,
+It outperforms others of comparable size and complexity on routine tasks,
 but every time he scales it up it starts hallucinating.
 Summarize an email thread?
 "The angles here refuse to meet as they should."
@@ -432,16 +432,14 @@ or the pictures that recently surfaced online of Bernadette Allen's gnawed remai
 
 He's no longer even sure he should call it "his" model.
 Bits and pieces seem to be showing up in racist memes that are too funny *not* to copy,
-inflammatory posts about the Rohingya,
+inflammatory Russian posts about Ukraine,
 and even his fridge and thermostat,
-which behave more maliciously with each software upgrade.
+which seem more malicious with each software upgrade.
 
-Bradley pushes those thoughts away,
-stands,
-and offers his hand to the man who introduces himself as Lynch,
+Bradley stands and offers his hand to the man who introduces himself as Lynch,
 who has something to do with defense and/or national security.
 Bradley doesn't want or need to know any more than that.
-All he needs to know is that Lynch has deep pockets
+All he cares about is that Lynch has deep pockets
 and is very interested in his model.
 
 "We've, uh, we've been involved in some similar initiatives over the years,"
@@ -476,7 +474,7 @@ down a back road in West Virginia
 is less dangerous than what lies behind him
 in the numbered facility that until a few minutes ago was home to his latest project.
 
-He still remembers his first conversation with the no-longer-young Latinx enby
+He still remembers his first conversation with the Latinx enby
 he recruited to handle the more specialized technical aspects of the work.
 "I don't know if we *can* get it back in the bottle,"
 they said,
@@ -497,7 +495,7 @@ At least, he *hopes* they are,
 for their sake.
 He will be too, if he can't—
 
-Something dark rises from the road in front of him,
+Something rises from the road in front of him,
 bending in ways that aren't logically possible.
 It's too late to brake,
 so he does the only thing he can.
@@ -512,20 +510,20 @@ Lynch is laughing and sobbing as he dies.
 <section markdown="1">
 
 It is January 2025.
-The man taking the oath of office for the second time only looks human if you don't look too closely.
+The man taking the oath of office only looks human if you don't look too closely.
 His flesh seems…loose,
 and his much younger wife clearly has to stop herself from flinching
 each time he touches her.
-Nila Jayaramath wonders what bargains the man has made,
+Nila Jayaramath wonders what might be wearing the man,
 then closes the tab.
 
 Someone knocks on her door.
-She stands somewhat stiffly to open it.
+She stands rather stiffly to open it.
 She has been expecting some sort of visitor for a while.
 
-The young man standing there is wearing a conservative blue suit and a pin-striped tie.
+The young man is wearing a conservative blue suit and a pin-striped tie.
 Nila does not invite him in.
-As the silence stretches uncomfortably,
+After a moment of uncomfortable silence,
 he clears his throat.
 "Ma'am, my name is Levitt.
 We spoke on the phone.
@@ -552,7 +550,7 @@ His pictures showed something else.
 "I'm impressed that you were able to keep them out of the news."
 
 The young man waves her comment away,
-as if suborning the world's media wasn't worthy of comment.
+as if subverting the world's media wasn't worthy of comment.
 "Ma'am, it's accelerating.
 Our models give us a couple of years at most before…"
 He shrugs helplessly.
