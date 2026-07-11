@@ -6628,7 +6628,7 @@ except it wasn't,
 any more than a flower is over when its seeds still lie buried,
 waiting for spring.*
 
-*The forest wasn't afraid for itself, Noxy realized with a cold shock.
+*The forest wasn't afraid for itself, Noxy realized with a sinking feeling.
 It was afraid for her and for the forest that __she__ belonged to,
 for every person alive or yet to be born.
 Whatever lay dormant and patient in the middle of that bruise on the world
@@ -7378,5 +7378,124 @@ and then we can go have some chai."
 
 Sensy smiled weakly.
 "You sound like your *anna*."
+
+They had just closed the door behind them
+when Little Gas came running down the street shouting,
+"They're here! The soldiers! They're here!"
+The girls exchanged wide-eyed looks and sprinted for the gate.
+
+Three hundred people,
+from babies to grandparents,
+were gathered around the speaker's stone when the soldiers came through the gate.
+They wore the same uniforms as Sergeant Dorbu and his men,
+but had heavy packs on their backs and their battle masks down.
+A child's question was quickly hushed.
+
+Twenty, thirty, forty—Noxy was surprised when her count stopped.
+Were the rest waiting outside?
+And where were Thokmay and Kulbinder?
+"Where's the tiger?" Sensy whispered beside her.
+
+"I don't know."
+She glanced sideways as Rash joined them,
+taking Sensy's hand in his.
+They exchanged uncertain smiles.
+
+A soldier with a cross-hatch of ribbons sewn on his sleeves
+stepped forward and raised his battle mask.
+"I am Captain Jigme,
+commanding was what formerly Loghan's Ninety-Eighth,"
+he said,
+his voice carrying across the square.
+"Do I have the honor of addressing your reeve?"
+
+Noxy caught her breath as her mother stepped up onto the speaker's stone.
+"You do."
+Her voice was as clear as the captain's.
+
+Captain Jigme pressed his hand to his chest and bowed.
+"And am I also addressing the Scholar-Candidate Yangyal?"
+
+"I am here."
+Heads turned as the tralpa strode forward.
+He had trimmed his beard,
+Noxy realized.
+In place of his usual peevish expression
+he wore one of cold anger,
+and the formal gray scarf of his office was folded in precise pleats
+for the first time she could remember.
+
+Yangyal planted himself beside Indy.
+"May I assume from your introduction that
+you have chosen to dishonor your oath to this kingdom?"
+
+The captain shook his head.
+"I have dishonored nothing, tralpa.
+I swore to serve this kingdom and its people,
+and I shall do so until my last breath."
+
+"How does that service bring you here?"
+Indy asked before Yangyal could reply.
+Her gesture took in the troops on either side of him.
+"We aren't used to so many guests with so little warning."
+
+"I think that would best be discussed more privately."
+The captain's tone made it clear he wasn't just making a suggestion.
+
+But it was Indy's turn to shake her head.
+"We're simple people, captain.
+Anything you have to say to me,
+you can say in front of everyone here.
+I might be able to save you some trouble, though.
+It's the turn of the seasons—we don't have enough to feed you,
+and our trading hall would be stretched to hold the men I see,
+much less those still outside our walls."
+
+"We can feed ourselves," Captain Jigme said levelly.
+"As for your trading hall,
+we will pitch our tents outside your walls.
+Though we would be grateful for the use of your bath house,
+if that wouldn't be too much to ask."
+
+"And if we say no?"
+Yangyal asked coldly.
+
+"Then we will go unwashed,"
+the captain replied.
+"We have no desire to make trouble here.
+As soon as we can be on our way, we will leave.
+You have my word."
+
+"The word of a traitor?"
+Yangyal spat.
+
+"Uh oh,"
+Rash muttered.
+
+The captain's voice didn't change.
+"I see no point arguing, tralpa.
+Under the circumstances,
+though,
+I must insist on confining you to your home.
+And on quartering a guest with you."
+He waved someone forward without turning.
+
+Two soldiers stepped forward with a third between them.
+Noxy's heart sank even before they raised their masks.
+
+Thokmay had no more expression on his face than a stone.
+"I believe you have met His Highness?" Captain Jigme asked.
+
+The look on Indy's face was matched by that on the tralpa's.
+"His *what*?" Grappa Gas spluttered from somewhere in the crowd.
+
+"His Highness Prince Thokmay Loghan-o,"
+the captain said with just a hint of smugness in his voice.
+
+Murmurs ran through the cloudherds.
+"Where's his tiger?"
+Grappa Gas demanded.
+
+"My master is dead," Thokmay said.
 
 </section>
