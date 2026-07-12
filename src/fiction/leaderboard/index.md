@@ -319,8 +319,8 @@ And then a week before D-Day it almost fell apart.
 Somehow Joachim's agents got a sign wrong for a few crucial moments.
 Instead of offloading his clients' money in a hundred different ways
 to keep them out of the Top Twenty,
-his agents sucked it all in.
-For three point seven seconds,
+his agents hung onto it.
+For three point seven crucial seconds,
 Joachim was worth as much as the next three people on Earth put together.
 Whoever or whatever was making decisions made it then,
 and he flatlined at his desk.
@@ -356,7 +356,9 @@ I did, and she spooned with me, and we fell asleep.
 
 <p class="center">* * *</p>
 
-I spent the last day of March painting and thinking about assholes.
+I spent the last days of March painting,
+doing research,
+and thinking about assholes.
 Bench had invited me to try something called immersive gardening,
 but was neither surprised nor disappointed when I declined.
 "Don't do anything I would," she ordered sternly,
@@ -375,10 +377,10 @@ Instead,
 she cleaned houses in the suburbs around Sudbury.
 My *abbi* sorted trash instead of designing houses.
 Even then agents could do both jobs better and faster than people,
-but then how would newcomers like us prove that we deserved citizenship?
+but apparently that would deny newcomers a chance to prove they deserved citizenship.
 
-Things started to get better when the trillionaires started dying,
-but then the Caspian flu hit.
+Things started to get better when the trillionaires started dying.
+Then the Caspian flu hit.
 *Ummi* went first.
 My *abbi* spent his last days drawing pictures of houses he had once hoped to build,
 houses that could withstand the punishing heat that had made our homeland unliveable.
@@ -418,7 +420,7 @@ I shrugged.
 His "values statement" had been a who's who of surviving oligarchs,
 all of whom stuck to investing in the same pointless projects that he did.
 "Some of your picks were in the top forty.
-We had to go wider for safety's sake."
+We had to go wider to be safe."
 
 He snorted.
 "Safety.
@@ -460,18 +462,19 @@ He looked at me hungrily.
 "Let's get this over with."
 
 The tricky part was timing.
-If everyone started giving money to An.ton too early,
+If everyone started offloading to An.ton too early,
 every lightning rod that *wasn't* in our group would see their odds lengthen
-and stop giving their clients' wealth away.
+and stop giving their clients' money away.
 The plan was to keep as many people within a few millions of each other
 for as long as we could,
-then offload everything onto An.ton at exactly the same time.
+then dump it all on An.ton at exactly the same time.
 
 So we danced,
 my motley crew and I,
 all our eyes on the leaderboard as clients climbed into the red zone.
 A press release about anamorphic materials tripled the value of an elderly Belgian's patent portfolio,
-but they could give six hundred hectares of farmland to a member of Israel's government in exile,
+but they could give six hundred hectares of farmland to
+the grandson of a former American president,
 and around and around it went.
 
 Shadows shortened and lengthened on my living room floor.
@@ -508,7 +511,7 @@ One.
 Two.
 Six.
 Eleven.
-Red lights spackled my app as the rods I'd recruited sent me panicked messages.
+Red lights spackled my app as the lightning rods I'd recruited sent me panicked messages.
 I ignored them.
 
 Nineteen.
@@ -521,7 +524,7 @@ Twenty-six.
 He was in the forties and still dropping when the bell rang.
 I swiped the leaderboard onto my wall.
 Oops:
-the Belgian shouldn't have canceled the land transfer when saw An.ton start to climb.
+the Belgian shouldn't have canceled the land transfer when he saw An.ton start to climb.
 On the upside,
 a hundred and sixty-one million people would never have to worry about rent or food again.
 I would have spread the wealth more widely,
@@ -543,7 +546,7 @@ An.ton was silent for a moment before answering.
 "Because fuck you," I said.
 "I had a look at that Stonehenge project of yours.
 Those bots were supposed to remediate deep-sea mining damage.
-You could have burned just as much money doing that,
+It would have burned just as much money,
 but you couldn't do it,
 could you?
 You just couldn't bear the thought of being *helpful*.
