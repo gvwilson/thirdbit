@@ -159,20 +159,19 @@ template: page
 | Code: Chips and Control | Sal Kimmich | 979-8276429120 | 2025 |
 | Cities Are Forests Waiting to Happen | Cécile Cristofari | 978-1917735087 | 2025 |
 | Chilling Effects | Jonathon W. Penney | 978-1108725309 | 2025 |
-| Chasing Shadows: Cyber Espionage, Subversion, and the Global Fight for Democracy | Ronald J. Deibert | 978-1668014059 | 2025 |
+| Chasing Shadows | Ronald J. Deibert | 978-1668014059 | 2025 |
 | Beautyland | Marie-Helene Bertino | 978-1250338020 | 2025 |
-| Be Gay, Do Crime: Everyday Acts of Queer Resistance and Rebellion | Zane McNeill, Blu Buchanan | 979-8887441306 | 2025 |
+| Be Gay, Do Crime | Zane McNeill, Blu Buchanan | 979-8887441306 | 2025 |
 | Animals | Geoff Ryman | 978-1914953958 | 2025 |
 | America, América: A New History of the New World | Greg Grandin | 978-0593831274 | 2025 |
 | All That We See or Seem | Ken Liu | 978-1668083185 | 2025 |
 | Alive: Our Bodies and the Richness and Brevity of Existence | Gabriel Weston | 978-1529931716 | 2025 |
-| Alchemised | SenLinYu | 978-9021056890 | 2025 |
 | Age of Deception | Jon R. Lindsay | 978-1501783470 | 2025 |
 | Adventures in Democracy: The Turbulent World of People Power | Erica Benner | 978-1802061444 | 2025 |
 | A History of the World in 50 Pieces | Tom Service | 978-1785949371 | 2025 |
 | What We Are Seeking | Cameron Reed | 978-1250364746 | 2026 |
 | Vanished: An Unnatural History of Extinction | Sadiah Qureshi | 978-0141988566 | 2026 |
-| Trace Elements: Conversations on the Project of Science Fiction and Fantasy | Jo Walton, Ada Palmer | 978-1250323088 | 2026 |
+| Trace Elements | Jo Walton, Ada Palmer | 978-1250323088 | 2026 |
 | The Twelve | Liz Hyder | 978-1782694007 | 2026 |
 | The SpecOps Method | Mark Headd | 979-8994454718 | 2026 |
 | The Problem of Personhood: Giving Rights to Trees, Corporations and Robots | Lisa Siraganian | 978-1804293447 | 2026 |
@@ -180,7 +179,6 @@ template: page
 | The Nerd Reich | Gil Durán | 978-1668221402 | 2026 |
 | The Lighthouse at the End of the World | Philip A. Suggars | 978-1835412497 | 2026 |
 | The Great Shadow | Susan Wise Bauer | 978-1250272911 | 2026 |
-| The Gods Must Burn | T. R. Moore | 978-1837865994 | 2026 |
 | The Final Chronicle of Yeneh | Jo Miles | 978-1998390182 | 2026 |
 | The Celestial Seas | T. A. Chan | 978-0593693742 | 2026 |
 | Sublimation | Isabel J. Kim | 978-1035065523 | 2026 |
@@ -220,3 +218,4 @@ template: page
 | Bodies of Magic | Freya Marske | 978-1250341655 | 2026 |
 | The Best Science Stories and How They Work | Siri Carpenter | 978-0226830346 | 2026 |
 | Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |
+| The Common Good Economy | Mariana Mazzucato | 978-1541609341 | 2026 |
