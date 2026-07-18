@@ -219,3 +219,4 @@ template: page
 | The Best Science Stories and How They Work | Siri Carpenter | 978-0226830346 | 2026 |
 | Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |
 | The Common Good Economy | Mariana Mazzucato | 978-1541609341 | 2026 |
+| Up All Night | Imogen Willetts | 978-0802167392 | 2026 |
