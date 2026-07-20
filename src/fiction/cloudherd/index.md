@@ -396,7 +396,7 @@ if you have a protector."
 
 Sensy hitched her bag up on her shoulder.
 "They didn't molest us," she protested.
-We—I mean, the village,
+"We—I mean, the village,
 we have an arrangement with them.
 The trolls.
 We don't go too far into the forest,
@@ -1056,7 +1056,7 @@ as he kept threatening to.
 He spent most of his time alone in the biggest house in the village
 with his books and his bottles,
 puffing and wheezing at the prospect of anything resembling physical labor.
-After two years,
+After four years,
 he still complained about how thin the mountain air was.
 
 Instead of falling over,
@@ -1759,7 +1759,7 @@ won't it?"
 The tralpa looked from the boy to the sergeant's sword to the reeve and back.
 "Um, yes, I suppose," he replied weakly.
 
-"Thank you, honored.
+"Thank you, honored."
 He paused.
 "You have to actually take the coin for this to be legal, don't you?"
 
@@ -1933,8 +1933,8 @@ So I went looking for him and found this on the speaker's stone."
 He held out a dew-stained sheet of paper.
 Indy took it and scanned it quickly as Noxy fed a handful of wood shavings to the stove.
 "That idiot," the reeve said.
-"That self-righteous, self-pitying *idiot*."
-"The tralpa is going to Duck Droppings to—what did he say?
+"That self-righteous, self-pitying *idiot*.
+The tralpa is going to Duck Droppings to—what did he say?
 To denounce us for our complicity in treason," she recited bitterly.
 "He must have talked Aft into flying him there."
 She tossed the tralpa's note onto the table and pinched the bridge of her nose.
@@ -1960,7 +1960,7 @@ but Sensy yanked her door open almost as soon as Noxy's knuckles hit it.
 It only took her a moment to tell each of them what had happened
 and send them off to start waking others.
 That done,
-she hurried toward the trading hall.
+she hurried to the trading hall.
 
 She reached it just in time to hear Sergeant Dorbu say,
 "I'm sorry, honored.  I'm so sorry for all of this."
@@ -3189,7 +3189,7 @@ and how soft they felt when she stroked them.
 Being up in the sky on a cloud was like riding on a grownup's shoulders when you were little,
 only a thousand times better.
 You could see everything:
-deer grazing beneath the twisted pines,
+deer grazing beneath the braided pines,
 mountain goats standing on rocky ledges no wider than the heel of your boot,
 broad-winged condors making slow circles as they waited for a rabbit to forget to look up…
 When the air was still,
@@ -3339,7 +3339,7 @@ as if fighting an invisible opponent.
 While her back was turned the young soldier stepped forward
 and slapped her ribs with his blade.
 
-She soldier groaned theatrically,
+The soldier groaned theatrically,
 pinning Thokmay's sword with her arm so that it was pulled out of the boy's grip as she turned.
 Thokmay only had time to open his mouth before her sword tapped him lightly in the chest.
 To Noxy's disgust, the children started to clap.
@@ -3348,7 +3348,7 @@ To Noxy's disgust, the children started to clap.
 from the steps of the trading hall.
 "Never give your opponent a chance for one last blow."
 
-"Yes, honored," Thokmay said, panting slightly. "I forgot."
+"Yes, honored," Thokmay said, panting slightly.
 The other soldier handed his sword back to him.
 
 Thokmay and the woman brought their swords up,
@@ -3379,7 +3379,7 @@ He glanced at Private Kechen, who shook her head almost imperceptibly.
 "But it's not really a game."
 
 He squatted so that he was no taller than Little Gas.
-"But I can show you something else if you like," he said.
+"I can show you something else if you like," he said.
 He looked left then right,
 as if to make sure no spies or grownups were listening.
 
@@ -3470,7 +3470,7 @@ pick them up,
 and drop them again.
 She sat back down on her pretend cloud and glared at the bowl of thimbleberries.
 
-Noxy was still on her make-believe cloud an hour later,
+Noxy was still there an hour later,
 squeezing seeds out of thimbleberries so angrily
 it was amazing the the bucket didn't take fright and try to run away.
 Sensy pretended not to notice
@@ -3491,7 +3491,7 @@ Thokmay had been standing right behind Sensy,
 reaching around to hold her arms just below the elbows.
 
 Sensy brushed her hair back over her ear.
-"He was just showing me how," she said defensively.
+"He was just showing me how to do it," she said primly.
 
 "Well, *I* think it was embarrassing," Noxy said primly.
 "You were all following him around like ducklings,
@@ -3616,7 +3616,7 @@ Thokmay grinned.
 Rash gave him the shorter piece of the stick.
 The young soldier accepted it gravely and tucked it into his belt.
 As he did so,
-Noxy saw him catch Rash's eye and wink.
+he caught Rash's eye and winked.
 Rash winked back, as if sharing a joke.
 Noxy could have punched them both.
 
@@ -3918,8 +3918,8 @@ She stepped impulsively around the table to give her grandmother a hug.
 
 "I love you too, sweetling."
 They held each other for a moment,
-one wondering when the other had gotten so big,
-the other wondering when the first had gotten so small.
+one wondering when her granddaughter had gotten so big,
+the other wondering when her grandmother had gotten so small.
 
 </section>
 <section markdown="1">
@@ -3934,13 +3934,13 @@ The troll she had met in the forest had been talking to her.
 So had the trees,
 except they hadn't been talking so much as *being*
 in a way that meant… something.
-She groaned and rolled over as the memory slipped away from her.
+She rolled over and groaned as the memory slipped away from her.
 
 She stared at the ceiling,
 then at the dark scribbles on her forearm,
 and then sighed and extricated herself from her duvet.
 She felt exhausted,
-but she knew she wouldn't be able to get back to sleep,
+but knew she wouldn't be able to get back to sleep,
 and she could hear Granna Fee and her mother in her head:
 "If you don't know what to do, do something useful."
 
@@ -4161,13 +4161,12 @@ Noxy stood and kissed her grandmother on the top of her head.
 
 Stale's memorial grove stood on the mountain slope portside of Stale.
 Hundreds of trees in neat rows looked down on the village:
-twisted pines planted in the ashes from funeral pyres
+braided pines planted in the ashes from funeral pyres
 and slim blue firs to commemorate those lost in flight or taken by the forest.
 There were no markers to record which tree was whose.
 When Grappa Gas had explained tombstones to Noxy,
-she had wondered what the point was.
-If nobody cared enough to remember who was where,
-what was the point?
+she had wondered what the point was
+if nobody cared enough to actually remember who was where.
 
 It was a quiet place,
 and she felt a slight chill in the deep shade
@@ -4303,6 +4302,8 @@ took one step,
 and blinked.
 "No!" he managed before he toppled over.
 
+<!-- FIXME: the forest does the magic, not Alva -->
+
 Alva collapsed on the path.
 Noxy rushed over to her,
 reached for her,
@@ -4398,7 +4399,7 @@ The sky had turned dull gray as a flock of wild nimbus passed overhead.
 Only a slightly brighter patch showed where the morning sun was hiding.
 Noxy didn't see any to rush to do the thimbleberries,
 so she walked the long way around past the tubs
-where Stale's men did everyone's laundry.
+where Stale's men did laundry.
 She answered the grappas' "good mornings" with a "good morning" of her own,
 then told two little girls that they weren't beating the dust out of a rug properly.
 Finally she turned up the little alley toward Granna Fee's.
@@ -4420,11 +4421,11 @@ Had he gone into someone's house? But whose? And why?
 Or had he gone all the way down the alley to…
 
 The tunnels!
-He must have gone into the old tunnels underneath the fortress.
+He must have gone into the old tunnels.
 
 She shivered.
 Like every other child in the village (except Sensy, who couldn't stand getting dirty),
-Noxy had once sneaked into them on a dare.
+Noxy had snuck into them on a dare.
 As fast as the adults put bars over the entrances, the children found ways around them.
 They all knew the stories about children who had become lost underground.
 Rash even swore that he sometimes heard their ghosts crying for help.
@@ -4487,6 +4488,8 @@ It's dangerous."
 
 "If it's dangerous, why are you here?
 Or are you just hiding from chores again?"
+
+<!-- FIXME: this is too abrupt and they're not stupid enough to kick the posts -->
 
 Noxy gasped.
 "Oh! You— you're— you have worse manners than a camel!"
@@ -4601,7 +4604,7 @@ They're all teeth and tentacles and—"
 
 "Shh!" hissed Noxy. "I don't want to know!"
 She shook her head.
-"Well just have to swim. It's not very—oh, wait.
+"We'll just have to swim. It's not very—oh, wait.
 I forgot that you don't know how."
 
 "I know how," Thokmay protested.
@@ -4899,7 +4902,7 @@ Noxy spread her hands.
 Thokmay was sitting cross-legged,
 his back straight and his gaze steady.
 "I did spend time in an orphanage,
-a little place on the banks of the Sochla near Ghorahj.
+a little place near Ghorahj.
 The abbot knew who I was,
 and the doctress as well,
 but as far as everyone else was concerned,
@@ -4946,7 +4949,7 @@ She flushed.
 "Shudarga is family too,"
 he said,
 looking past her at the horizon.
-"She's my father's something something cousin.
+"She's my father's second cousin.
 She could have joined the race for the throne,
 but she wanted to be a scholar instead,
 a real one.
@@ -5043,6 +5046,8 @@ just a few strides from the shore.
 "It was my father's," Noxy said.
 "Come on, let's have a look."
 
+<!-- FIXME: the lake wouldn't be nameless -->
+
 Pillow had visited the nameless little lake before,
 so all Noxy had to mind-say was *down*.
 The cloud bunched herself together as she settled on the water.
@@ -5087,8 +5092,8 @@ or said it must have been waiting in some cavernous underhell
 for some idiot of a mushroom miner to stumble over.
 It didn't matter.
 Two of Stale's elders had already died,
-their whole bodies covered with indecipherable lettering
-that spread relentlessly as their fevers climbed and climbed.
+their fevers climbing and climbing
+as indecipherable lettering spread relentlessly across their bodies.
 People had tried to be careful,
 but Stale was a small place,
 and now it was Noxy's turn.*
@@ -5100,7 +5105,7 @@ They asked the same question every time: how is she?
 They got the same answer: worse.*
 
 *That particular night was much worse.
-Ulfmaerr could hear his daughter joints cracking like knuckles
+Ulfmaerr could hear his daughter's joints cracking like knuckles
 as the writing spread up her arm and the fever tightened her muscles.
 He took his wife's hand.
 "I have to," he said gently.*
@@ -5163,7 +5168,7 @@ He couldn't eat or drink afterward,
 not without undoing it."
 
 She looked past them at the trees that crowded right up to the edge of the lake.
-Twisted pines with their doubled trunks,
+braided pines with their doubled trunks,
 firs heavy with fresh green growth,
 patches of moss as dense as Grappa Gas's beard,
 and all around them,
@@ -5425,7 +5430,7 @@ Granna Fee said when Noxy asked her about Pillow and Big Blue.
 She tousled her granddaughter's hair to hide her worry.
 
 Noxy roasted cubes of potato and squash for dinner,
-dumped the last of the breakfast beans on them,
+dumped some fermented beans on them,
 and wolfed her half down in a dozen mouthfuls.
 The rest would have cooled by the time Indy came home,
 but her mother wouldn't notice,
@@ -5476,16 +5481,15 @@ hurrying around the corner toward the square.
 Another bolt of lightning left a dazzling scar on the night.
 That one had been close, she realized uneasily—too close.
 The lightnings usually avoided Stale,
-but these ones must be nipping at clouds that had fallen behind their herd.
+but these must be nipping at clouds that had fallen behind their herd.
 She was glad that she wasn't airborne.
 She had only ever been on one night flight,
 when Granna Fee took her up on her nameday when she turned ten to show her a passing star.
 She couldn't imagine flying in this.
 
 She froze as a shadow moved on the other side of the square.
-*Who else would be dumb enough to be out in this?*
-she wondered.
-Had the trolls come back into Stale?
+Who else would be dumb enough to be out in this?
+Or had the trolls come back into Stale?
 
 No—it wasn't a troll.
 A faint light glimmered.
@@ -5503,6 +5507,8 @@ One smoking scrap clattered through a storehouse window
 whose shutter had been left untied.
 As Noxy blinked to clear the lightning's after-dazzle from her eyes,
 the tralpa ran clumsily out of sight.
+
+<!-- FIXME: need to foreshadow the moss drying shed -->
 
 A door banged open.
 "Saints!" Aft hurried over to Noxy.
@@ -5555,7 +5561,7 @@ they were dumb enough to survive anything.
 
 Noxy's heart sank.
 Even as she watched a set of shutters fell inward,
-its leather hinges consumed.
+their leather hinges consumed.
 
 "Where do you want us?" Sergeant Dorbu shouted.
 
@@ -5659,8 +5665,8 @@ rain pounded on a hundred waxed cotton tents
 pitched with almost mathematical precision in a neat square.
 Each was meant to hold four people,
 but had five, six, or even seven crowded into them.
-Some slept and some tried to
-while others knit,
+Some slept and some tried to.
+Others knit,
 mended their gear,
 or played games of hive or towers with improvised pieces.*
 
@@ -5714,8 +5720,8 @@ Everyone in the tents around him had made the same choice he had.
 They had known what failure would cost,
 but they hadn't failed yet.
 They owed it to those who had fallen to seize whatever chances came their way.
-And to be honest
-(which Captain Jigme always tried tried to be)
+And to be honest,
+which Captain Jigme always tried to be,
 they didn't have any better options.*
 
 *"No," he said,
@@ -5819,8 +5825,8 @@ Sensy held up a bag.
 "I made some biscuits."
 
 "Great," Noxy said as enthusiastically as she could.
-Grappa Gas's licorice had been as soft as a ripe plum
-compared to her friend's last batch of biscuits.
+Grappa Gas's licorice was as soft as a ripe plum
+compared to her friend's biscuits.
 
 A few minutes later they were sitting in adjacent tubs
 full of steaming water.
@@ -6056,7 +6062,7 @@ if people thought they had forced her to help them against her will—
 
 "—my *anna* and Aft and everyone else will be after us in a heartbeat,"
 Noxy cut in,
-more scornfully than she had intended but too cranky from dozing to care.
+more scornfully than she had intended.
 "We'd be lucky to make it as far as Murkh Lake,
 never mind Loghan-in-Loghan.
 Believe me, hiding out at the bothy is a better plan."
@@ -6196,7 +6202,7 @@ What's your plan?"
 
 Noxy smiled,
 hoping she looked more confident than she felt.
-"Well, the first step is for you to pick a fight."
+"Well, the first step is for you to start a fight."
 
 Afterward,
 Noxy would herself that she didn't pick Rash because she was mad at him
@@ -6485,7 +6491,8 @@ pausing to wipe sweat from his forehead.
 "He said the tralpa put on a good show.
 Apparently you're going to be looking after his birds?"
 
-"I suppose," Noxy said.
+"Yeah.
+Lucky me," Noxy said.
 
 "Good.
 We're supposed to leave tomorrow morning after breakfast."
@@ -6548,7 +6555,7 @@ Or wait,
 will it be a poetry contest like in a fairy tale?"*
 
 *"I think you should take this a little more seriously, dear,"
-the troll said primly.
+the troll scolded.
 "And no, it's nothing like that.
 You'll meet him here, in the forest's dreams.
 What happens after that will be up to the two of you."*
@@ -6629,8 +6636,8 @@ any more than a flower is over when its seeds still lie buried,
 waiting for spring.*
 
 *The forest wasn't afraid for itself, Noxy realized with a sinking feeling.
-It was afraid for her and for the forest that __she__ belonged to,
-for every person alive or yet to be born.
+It was afraid for her,
+and for every person alive or yet to be born.
 Whatever lay dormant and patient in the middle of that bruise on the world
 could burn through them like a fire through dry undergrowth.
 Someone was trying to light the tinder,
@@ -6795,7 +6802,7 @@ Noxy said as lightly as she could.
 "Speaking of which…"
 She scraped a spoonful of ghee out of its pot,
 dropped it in the frying pan beside the kettle,
-and added the remains of the previous night's beans, squash, and onions.
+and added some squash and onions.
 Her mother had gone out and gotten a couple of eggs from the village chickens
 while Noxy was sleeping,
 but after the condor's visit she felt guilty about adding them to the pan.
@@ -7119,12 +7126,14 @@ Let's give the others the news."
 
 Word of the approaching soldiers spread through Stale like spilled chai.
 No, it wasn't an army, Indy told one concerned knot of people after another.
-And no, there wasn't going to be a battle or a siege,
+And no, there wasn't going to be a battle,
 but yes,
 Rind and Aft had a baby,
 a beautiful little girl named Probby,
 and yes,
 she was sure an extra quilt would be very welcome.
+
+<!-- FIXME: Dorbu splits his forces -->
 
 Noxy slipped away as soon as she could to find Thokmay and Kulbinder.
 Her heart sank when she saw them lined up with the rest of their small troop
@@ -7161,7 +7170,7 @@ Noxy would have called it slamming.
 "What's wrong?" she asked.
 
 Indy sighed.
-"She's just upset that I wasn't there for Aft and Rind."
+"She thinks I should have been there for Aft and Rind."
 
 "Well, you should have been!"
 Granna Fee said loudly from behind the door.
@@ -7303,6 +7312,8 @@ without giving us a look-over."
 She turned back to arguing with Indy
 about whether another flyover would be useful,
 or would be more likely to raise the temperature.
+
+<!-- FIXME: move this scene about Rash to later -->
 
 There was nothing for Noxy to do at the trading hall.
 There was nothing for her to do anywhere else
