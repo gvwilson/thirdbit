@@ -1367,7 +1367,7 @@ It turned out that Dudir was quite a traveler.
 Coriandel, Ossisswe, Armaq: he knew them all.
 Oh,
 and he had been as far as Darp in the north and Thind to the east.
-He and his father could have been rich by now if they had been willing to settle down,
+He and his father Balwir could have been rich by now if they had been willing to settle down,
 but no, that wasn't for them.
 Who could imagine being stuck in one place after life on the road?
 It would be like prison.
@@ -1587,7 +1587,7 @@ With the shutters closed,
 the only light came from mismatched dayglass lamps.
 
 Some people pillowed their heads in their arms and closed their eyes.
-Others clustered around a board to watch Yassen and Dudir's father play hive
+Others clustered around a board to watch Yassen and Dudir's father Balwir play hive
 or took out knitting or mending to pass the time.
 Granna Ferouz said that storms were stronger and more frequent
 than they had been in her youth.
@@ -1767,6 +1767,12 @@ Old and stupid and slow."
 
 "Does that mean I can have your sword?" I asked.
 He just snorted.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 8
 
 </section>
 
