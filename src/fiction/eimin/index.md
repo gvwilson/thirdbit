@@ -343,7 +343,7 @@ The second female launched herself from the tower.
 As she rose to follow the first one
 I slipped around the end of the ruined wall
 and sprinted to the candelilla bush I'd chosen as my next patch of cover.
-I had hunted jackrabbits and sand gulls this way,
+I had hunted desert hares and sand gulls this way,
 watching for the moments when my prey looked away,
 inching closer a few paces each time.
 
@@ -452,7 +452,7 @@ to spend a week carrying loads of dried camel dung?
 If someone else had asked that,
 Grappa Uzman would have puffed up his chest and said yes,
 he would do it.
-Then one of his daughters would put her hand on his arm and gentled him
+Then one of his daughters would put her hand on his arm and gentle him
 the way he gentled his goats when storms came.
 But somehow,
 coming from Razi,
@@ -502,10 +502,9 @@ He fingered the gash's edges gingerly.
 I rolled up the bandage—we would boil it clean later—and yawned.
 
 Razi grinned. "It is past your bedtime."
-
 I nodded.
 It had been a long day.
-We picked up our gear and trudged up to Razi's tent in the lemon grove.
+We picked up our gear and trudged up to Razi's tent beneath the lemon trees.
 Their blossoms gave the air a sharp,
 clean edge.
 
@@ -563,7 +562,7 @@ I sighed under my breath.
 "All right."
 He shuffled sideways to make room for me,
 not noticing the uncomfortable look on Mureya's face.
-She could *drome* that I didn't want to stop and talk—not with Jephel, anyway..
+She could *drome* that I didn't want to stop and talk.
 
 But Jephel was *nif* like me, and he wanted to know the details.
 There had been three?
@@ -584,17 +583,16 @@ I finally ran out of patience.
 "I'm sorry," I said,
 "But it's been a long day, and *umma* will be wondering where I am."
 
-"Of course, of course."
+"Of course, of course.
+I'm sure everyone will be pleased that you took care of it."
 He ducked his head.
-"I'm sure everyone will be pleased that you took care of it."
-He laughed.
 "It's not like I could have."
 
 "Thanks."
 I raised a hand and hurried away.
 Behind me,
 he started playing again,
-a slow love song that the girls always asked for.
+a sweet, slow song that the girls always asked for.
 
 My mother was waiting for me at the door with a soft smile on her face.
 "We got them," I said unnecessarily.
@@ -607,7 +605,8 @@ reaching up to take the bowl of rice and peppers she handed me.
 Ten minutes later I was asleep on the slat bed
 in the curtained alcove that had been mine since I turned ten.
 My mother had put fresh sprigs of mint and lemon under my pillow.
-I think I dreamed of desert hares, and of moonlight on the Sea of Glass,
+I think I dreamed of desert hares,
+and of moonlight on the Sea of Glass,
 but after so many years it is hard to remember.
 
 My mother shook me awake.
@@ -628,14 +627,14 @@ I didn't need to be able to *drome* to know they were worried.
 Razi had taken the bandage off his head.
 The gash was already scabbed over,
 and not for the first time,
-I wondered about how quickly he healed.
+I wondered how he healed so quickly.
 "What's happening?"
 
 He pointed at a bald man in the center of the crowd
 I had never seen before.
 "He says he is from a caravan heading to Ossisswe.
 They were attacked by bandits,
-and lost half of their livestock and most of their water."
+and lost some livestock and half of their water."
 
 "The lion?"
 
@@ -662,7 +661,7 @@ Up close,
 the stranger was younger than I had thought—no more than eighteen.
 His head was shaved,
 not bald,
-and his bare arms were as thick as my thighs.
+and his upper arms were as thick as my thighs.
 
 Dudir raised his palms in return,
 then grasped Razi's hand in the city way.
@@ -703,11 +702,8 @@ I looked north.
 Nothing, nothing…I saw it,
 a dark outline that changed shape as it moved.
 I counted three, four, and then a fifth,
-larger,
 on four legs instead of two.
 It was the lion.
-From this distance I couldn't see the scar on her shoulder,
-but I knew it was her.
 
 "Pass me a rag," Yassen ordered.
 Silently,
@@ -765,13 +761,12 @@ and beat the camel's flank with her palms to get it to stop,
 cursing when it didn't even break stride.
 
 One cart stood out from the rest.
-It was drawn by a pair of burros
-instead of one of the humpless camels the other carters used,
+It was drawn by a pair of camels instead of just one,
 and its spoked wheels would have come up to my armpits.
 Whatever occupied it was securely wrapped in dark blue canvas
 held in place with enough rope to rig a tents.
 Its driver sat with his back against his cargo
-and the burros' reins loose in his hand.
+with the reins loose in his hand.
 He wore darkly-patterned *deel* and a bright yellow turban,
 which meant either that he was from Ossisswe,
 or that he was a scholar,
@@ -792,7 +787,8 @@ one for the examination festival in Ossisswe,
 the other three months later
 when merchants from the Salt Coast who were willing to risk the deep desert
 came through on their way to Coriandel.
-They brought dayglass, chocolate, silk, mace, coral, fine leather, and books.
+They brought eight kinds of salt, dayglass, chocolate, silk, coral, fine leather,
+and sometimes books.
 Looking at the tired faces below me,
 I wondered if anyone in this "caravan" could even read.
 
@@ -807,7 +803,7 @@ and clambering down the ladder into the cool dark below.
 He held up his canteen and shook it to show it was empty.
 
 "I'll send some up."
-The closing hatch muffled his words.
+The closing hatch muffled Yassen's words.
 
 Jephel sighed.
 "No he won't," he said philosophically,
@@ -819,8 +815,8 @@ Being thirsty would be better than listening to him not complain.
 
 As the caravan approached,
 a handful of villagers busied themselves in the posting yard.
-Palm tree logs stood in a rough grid, twelve strides to a side.
-Ropes were quickly strung on the pulleys hanging from their tops.
+Palm log pillars stood in a rough grid, twelve strides to a side.
+People quickly strung ropes on the pulleys hanging from their tops.
 Squares of canvas,
 each big enough to cover the roof I was sitting on,
 were laid across the ropes and hauled into place
@@ -835,7 +831,7 @@ they would have chanted, "*Heph…ho!*" to stay in time.
 But they were Aphsi,
 so they worked in silence.
 
-The sluice gate finally gave in with a screech of stone on stone.
+The sluice gate finally yielded with a screech of stone on stone.
 Water poured from the aqueduct into the pipe that led to the fairground,
 where it splashed into a short trough that in turn spilled into a longer one.
 People would wash their hands and food in the first,
@@ -857,14 +853,13 @@ who I took to be his father.
 Grappa Uzman and Granna Efiyeh raised their palms to the pair in welcome.
 
 A few strides further on,
-Hediyeh and some of the other girls stood in a cluster,
+Hediyeh and her friends stood in a cluster,
 their hands tucked politely in their sleeves
 and their faces shadowed by the hoods of their *deels*.
 I watched Hediyeh's head turn to follow the cart as it passed her.
 As Dudir turned to look back,
 something prickled up my spine.
-I didn't have to be able to *drome* to recognize
-the calculating look in Hediyeh's eyes.
+I didn't have to be able to *drome* to understand the look on his face.
 
 Before I could think any more about it
 the cart with the strange cargo caught my eye again.
@@ -890,7 +885,7 @@ He chose a spot in the furthest corner of the tented market.
 Whatever was in his cart was obviously heavy:
 he had tied it securely right over the axle
 to stop its weight from tipping the cart.
-As he scratched his burros' ears
+As he scratched his camels' ears
 and fed them handfuls of barley
 he noticed me studying him.
 
@@ -915,7 +910,7 @@ Instead,
 he reached into the cart and began passing me cloth-wrapped packages
 to stack on the shelves behind me.
 
-I knew their wait instantly.
+I knew their weight instantly.
 They were books, dozens of them.
 My stomach suddenly rumbled.
 "Would you like me to unwrap them?" I asked.
@@ -937,7 +932,7 @@ Dudir said as he joined us.
 
 He snorted.
 "Never mind.
-Let's get this weeping thing on the ground."
+Let's get this stupid thing on the ground."
 
 Getting it down meant chocking the wheels,
 undoing several knots,
@@ -1087,7 +1082,7 @@ still smiling.
 "You tell me what it feels like to *drome*,
 and I'll show you how to shade colors like I did there."
 
-Everything I was feeling suddenly tasted like ashes in my mouth.
+Everything I was feeling suddenly tasted like ashes.
 "I can't," I said curtly,
 handing his book back to him.
 
@@ -1098,7 +1093,7 @@ bowing his head slightly.
 
 "I *can't*," I interrupted.
 "I'm *nif*.
-I can't drome any more than you can."
+I can't *drome* any more than you can."
 
 "Ah."
 He gave me another slight bow,
@@ -1140,7 +1135,7 @@ I tried not to stare at his companions.
 One,
 a woman,
 had the same lean build and dark skin as Razi,
-but her face was round where his was narrow.
+though her face was round where his was narrow.
 The other was taller and broad-shouldered,
 with curiously light eyes.
 As he nodded in greeting,
@@ -1183,7 +1178,7 @@ Had I been enjoying my lessons?
 Why?
 What was the most useful thing I had learned?
 What had been the most surprising?
-Did I ever show the other children in the village things I had learned?
+Did I ever show the other children in the village things Razi had taught me?
 
 "No."
 I shook my head at that one.
@@ -1240,7 +1235,7 @@ I asked bitterly.
 
 Razi sighed.
 "Eimin, have you ever wondered why people leave the Aphsi alone?
-Why Coriandel and Ossiswe and Armaq have never sent their armies to conquer us?"
+Why Coriandel and Ossiswe and Armaq have never sent their soldiers to conquer us?"
 He gestured at the door.
 "They are the reason.
 *We* are the reason.
@@ -1349,12 +1344,12 @@ he stopped reacting to her tricks and taunts.
 That just left me as a target.
 
 I have met other people like her over the years.
-I wish I believed that none of their were happy,
+I wish I believed that none of them were happy,
 but they seemed to enjoy the stories of their lives as much as anyone else.
 
 I didn't follow Hediyeh to the posting yard.
 I just walked the same way because
-it would have been humiliating to go around the long way
+it would have been humiliating to go around
 just because she had taken the shortcut that everyone in Medef used.
 Sure enough,
 Dudir was there under the canvas,
@@ -1532,9 +1527,9 @@ were trilling to each other from the rooftops,
 enjoying the last few moments of night-time coolness.
 
 "What's wrong?"
-my mother asked as I rubbed sleep from my eyes.
+my mother asked.
 
-"Storm," she said.
+"Storm," Granna Ferouz said.
 "My knee tells me it'll be here by noon."
 Medef's weatherwife didn't need to say any more.
 My mother could *drome* how worried she was.
@@ -1552,7 +1547,8 @@ taking down canvas awnings and tying them over wagons.
 Wind-blown sand would still get into awkward places,
 but at least there wouldn't be piles of it.
 
-Somehow I wound up paired with Jephel.
+As usual,
+I wound up paired with Jephel.
 He worked steadily and without complaint,
 even though his bulk made him sweaty.
 When I stopped to wipe my brow he nudged me and jerked his chin at one of the stalls.
@@ -1577,7 +1573,7 @@ I dropped the canvas in the back of the nearest wagon
 and started unrolling it.
 
 Jephel snorted.
-"Doesn't work like that."
+"It doesn't work like that."
 
 "I wouldn't know," I said,
 echoing what I had told Suresh the day before.
@@ -1613,7 +1609,7 @@ lowering the *keffiyeh* that protected his face.
 
 "*La*, yes, in this."
 Razi nodded to me as Yassen and I stood,
-then raised a hand as Jephel stood as well.
+then raised a hand for "no" as Jephel stood as well.
 Jephel sat again,
 relief and a hint of shame on his face.
 
@@ -1630,9 +1626,7 @@ When he raised his eyebrows,
 Razi patted the dark green bottle that hung from his belt.
 
 Medef kept its goats in a fenced yard near the lemon grove.
-The caravan's goats were crowded in there now as well,
-perhaps eighty animals in total huddled against one another
-in two sturdy sheds.
+The caravan's goats were crowded in there now as well in two sturdy sheds.
 "What makes you think she's coming?"
 Yassen had to raise his voice to be heard over the wind.
 
@@ -1648,7 +1642,7 @@ Razi shrugged.
 We huddled against the fence,
 which did nothing to stop the wind-blown sand stinging
 every exposed piece of skin.
-I didn't move until Razi's hand tightened on my arm.
+When Razi's hand tightened on my arm,
 I nudged Yassen.
 
 The lion slunk out of the lemon grove
@@ -1681,9 +1675,8 @@ The taller of her thieves hefted his spear.
 "Let us take two and we'll be on our way."
 
 Yassen told him what he could do with that idea.
-I filed his comment away for future use.
 "How about you just turn around and leave?"
-Razi suggested.
+Razi suggested in more temperate language.
 
 "Can't do that," the lion rumbled.
 "Cubs are hungry.
@@ -1701,7 +1694,7 @@ She snarled and danced sideways.
 I was too busy parrying one of the thieves' spears with my own
 to see what happened next.
 He was taller than me,
-but not as strong or as well trained.
+but not as well trained.
 I knocked his point aside and jabbed to force him back,
 then jabbed again before he could catch his balance.
 
@@ -1719,7 +1712,7 @@ unable to get past Razi's blade.
 She turned and ran,
 the two thieves behind her.
 
-The whole fight had lasted no longer than ten slow breaths.
+The whole fight had lasted no longer than a slow count of ten.
 I let out my breath with a whoosh,
 feeling suddenly limp as I always did after such excitement.
 "Let me have a look at that," I told Yassen.
@@ -1792,20 +1785,20 @@ Let them stay out of mine for a change.
 He trudged up the long rise to the foot of the lemon grove,
 stopped to wipe his brow with his sleeve,
 and waved at me.
-I raised one hand carelessly in reply.
+I raised one hand in reply.
 The sun had just cleared the big hill beside the palace.
 It gave the lemon trees long shadows,
 as if someone had smeared their hand across the page.
 My sketch didn't look anything like that.
-I snapped the book shut and leaned back against my tree.
+I snapped my book shut and leaned back against my tree.
 
 It stood a little apart from the others.
 I sometimes thought that someone must have spat out a seed
 and happened to hit good soil.
 It wasn't as tall or as straight as the ones in the grove,
 and its lemons were so thick-skinned and sour
-that even Grappa Uzman wouldn't eat them.
-But it had a good view.
+that even Grappa Uzman wouldn't eat them,
+but it had a good view.
 
 "Fair morning," Suresh said.
 
@@ -2047,9 +2040,9 @@ He searched my face again.
 "You don't know that either?
 Someone stole a glass turtle from Lord Mezeri.
 He's another magician in Ossisswe,
-Lady Kembe's main rival.
+one of Lady Kembe's rivals.
 The city guard took Razi for it,
-but couldn't prove it was him.
+but couldn't prove anything.
 That's why he's been here so much for the last year—Ossisswe wouldn't be healthy right now."
 
 "I don't believe you."
@@ -2096,9 +2089,8 @@ The path ran along the hill overlooking the palace,
 then down past the gargoyles' watchtower to the old shoreline.
 The Sea of Glass was dazzling.
 I put on my sun goggles as I walked.
-The secret to traveling long distances,
-I'd discovered,
-was to create a rhythm in my head.
+
+The secret to traveling long distances is to create a rhythm in your head.
 My feet were its backbone:
 left, right, left, right.
 I imagined a little wordless tune on top of it,
@@ -2328,8 +2320,8 @@ and then leave them lying there, weeping.
 I didn't know who "they" were, but I was going to find out.
 
 I almost turned around to head straight back to Medef,
-but instead I stayed on my original course.
-"A fatal mistake can sometimes save you a few minutes of thought," Razi told me once.
+but as Razi liked to say,
+a fatal mistake can sometimes save you a few minutes of thought.
 If I went back to Medef right away,
 everyone in the village would be able to *drome* how angry I was.
 I needed a plan,
@@ -2423,8 +2415,7 @@ My heart was pounding in my chest.
 I imagined calming it,
 soothing it,
 as if it were a frightened pocket mouse.
-Suresh couldn't *drome*—at least,
-I hoped he couldn't—but Hediyeh certainly could.
+Suresh couldn't *drome*, but Hediyeh certainly could.
 *Sh, be still, be still,* I thought.
 I imagined myself petting my heart gently,
 rubbing its ears,
@@ -2476,8 +2467,8 @@ laughing and splashing.
 Their clothes lay at the pool's edge.
 Suresh's body and legs were pale in the moonlight,
 though his hands and feet and face were bark brown.
-Hediyeh—Hediyeh was all one color.
-That's all I want to say.
+Hediyeh—Hediyeh was also tanned in some places and not in others.
+That is all I want to say.
 
 Suresh lunged forward, catching Hediyeh's foot.
 "Stop it! Stop it!" she squealed as he tickled her.
@@ -2616,10 +2607,10 @@ Razi's sword went right through the joint of Hediyeh's shoulder
 and into Suresh's ribs.
 She couldn't scream,
 but he could,
-a scream was rage and pain
+a scream that was rage and pain
 and a thousand years of being trapped in a little shard of glass.
 
-He shouted a word and slapped the sword blade with the hand that wore the ring.
+He shouted a word and slapped the sword with the hand that wore the ring.
 The blade snapped like a dry twig.
 He rolled in the water and dove.
 I dropped the broken sword and went after him.
@@ -2757,15 +2748,7 @@ The two men asked me questions,
 drawing every little detail of the story out of me.
 The woman just listened and frowned.
 
-Razi came back into my room after they left
-and turned his hand over, palm up, palm down, meaning, "The Other Hand".
-I nodded.
-I had guessed as much.
-They didn't look like Razi,
-any more than any other Aphsi,
-but there was something in their eyes,
-sadness and patience and acceptance and watchfulness all at once.
-
+Razi came back into my room after they left.
 "They still haven't found Suresh," he told me.
 "Someone took water and food from the cache at Tin Point,
 but there's no trail.
