@@ -3,12 +3,39 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-07-18T00:00:00Z</updated>
+ <updated>2026-07-21T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Respect</title>
+   <link href="https://third-bit.com/2026/07/21/respect/"/>
+   <updated>2026-07-21T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/07/21/respect/</id>
+   <content type="html">&lt;p&gt;Thirty years ago,
+when I first started writing for &lt;em&gt;Doctor Dobb&amp;rsquo;s Journal&lt;/em&gt;,
+I decided to do a piece on the object-oriented features that were being added to MATLAB 5.
+I didn&amp;rsquo;t know much about them, so I called &lt;a href=&#34;http://www.mathworks.com&#34;&gt;The MathWorks&lt;/a&gt;,
+told the publicity rep who I was,
+and asked if they could find me a co-author.&lt;/p&gt;
+&lt;p&gt;A couple of days later I got a call back from a woman who said she had volunteered to help with the article.
+I assumed she was also from marketing,
+so I explained again who I was and what I wanted.
+When she said she&amp;rsquo;d be happy to provide me with information and examples,
+I replied,
+&amp;ldquo;Thanks, but I&amp;rsquo;d rather have someone technical.&amp;rdquo;
+After a slight pause, she said,
+&amp;ldquo;Well, I have a master&amp;rsquo;s degree in Computer Science, and I implemented some of the new features.&amp;rdquo;
+I apologized,
+but the next day
+I had an email from someone else saying that he&amp;rsquo;d be working with me.&lt;/p&gt;
+&lt;p&gt;Time for another cup of tea.
+If you came in peace,
+be welcome.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Disruptive Behaviors</title>
@@ -7193,41 +7220,6 @@ but I hope you&amp;rsquo;ll find it informative, entertaining, and inspiring.&lt
 &lt;p&gt;The critical factor is $(1 - \rho_H)$ in the denominator. As $\rho_H \to 1$, this factor approaches zero and $W_L \to \infty$ — even if $\rho_L$ stays small and the total load $\rho$ is comfortably below 1.&lt;/p&gt;
 &lt;h3&gt;The trade-off&lt;/h3&gt;
 &lt;p&gt;Without aging, $W_L$ can be infinite when $\rho_H$ is large. With aging, $W_L \leq T_{\max} + 1/\mu_L$, but during promotion events the effective $\rho_H$ spikes temporarily, increasing $W_H$. Choosing $T_{\max}$ is a design decision: a small $T_{\max}$ protects L jobs but forces more promotions and penalizes H jobs more often; a large $T_{\max}$ is kinder to H jobs but allows L jobs to wait longer. There is no setting that simultaneously minimizes both — the trade-off is fundamental.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Braess&#39;s Paradox</title>
-   <link href="https://third-bit.com/2026/06/05/braess-paradox/"/>
-   <updated>2026-06-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/06/05/braess-paradox/</id>
-   <content type="html">&lt;p&gt;A city has two routes from source $S$ to destination $T$:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Top route $S \to A \to T$: link $SA$ is congestion-dependent; link $AT$ has a fixed travel time.&lt;/li&gt;
-&lt;li&gt;Bottom route $S \to B \to T$: link $SB$ has a fixed travel time; link $BT$ is congestion-dependent.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The network is symmetric. A city planner proposes adding a new shortcut link $A \to B$ with near-zero travel time, creating a third route $S \to A \to B \to T$. To her surprise, adding the shortcut makes everyone&amp;rsquo;s travel time longer at the selfish-routing Nash equilibrium.&lt;/p&gt;
-&lt;h3&gt;Without the shortcut&lt;/h3&gt;
-&lt;p&gt;Both routes are symmetric. In equilibrium, traffic splits evenly. If $N/2$ drivers use each route and the congested links have delay $\alpha \cdot n$ (where $n$ is the number of cars):&lt;/p&gt;
-&lt;p&gt;$$t_{\text{top}} = \frac{N}{2}\alpha + c = t_{\text{bottom}}$$&lt;/p&gt;
-&lt;h3&gt;With the shortcut $A \to B$&lt;/h3&gt;
-&lt;p&gt;Each driver thinks, &amp;ldquo;Link $AB$ is free; I can use $SA$, slip across to $B$, then take $BT$ instead of the slow constant link $AT$.&amp;rdquo; All $N$ drivers make this choice. The Nash equilibrium has everyone on $S \to A \to B \to T$:&lt;/p&gt;
-&lt;p&gt;$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$&lt;/p&gt;
-&lt;p&gt;Since $2N\alpha &amp;gt; \frac{N}{2}\alpha + c$ for typical parameters, travel times &lt;em&gt;increase&lt;/em&gt; after the road is added. This is the paradox: individually rational decisions produce a collectively worse outcome. The ratio of Nash equilibrium cost to the socially optimal cost is called the &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Price_of_anarchy&#34;&gt;price of anarchy&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Braess%27s_paradox&#34;&gt;Braess&amp;rsquo;s paradox&lt;/a&gt; is not theoretical. Seoul, Stuttgart, and New York all observed traffic &lt;em&gt;improvements&lt;/em&gt; after closing roads. Conversely, new roads in highly congested networks have sometimes worsened average travel times.&lt;/p&gt;
-&lt;h2&gt;Understanding the Math&lt;/h2&gt;
-&lt;h3&gt;Nash equilibrium&lt;/h3&gt;
-&lt;p&gt;A Nash equilibrium is a situation where every player has chosen a strategy and no single player can improve their own outcome by switching to a different strategy so long as everyone else stays put. Think of it as a stable fixed point: if you woke up one morning in a Nash equilibrium, you would have no reason to change what you are doing. Crucially, a Nash equilibrium need not be the best possible outcome for everyone collectively.&lt;/p&gt;
-&lt;h3&gt;The paradox, step by step&lt;/h3&gt;
-&lt;p&gt;Label the number of cars $N$ and suppose the congested links have delay $\alpha \cdot n$ where $n$ is the number of cars currently using that link. Without the shortcut, traffic splits evenly: $N/2$ cars use each route. Each driver&amp;rsquo;s travel time is $(N/2)\alpha + c$, where $c$ is the fixed delay on the non-congested link. Neither route is faster than the other, so no driver wants to switch — that is Nash equilibrium.&lt;/p&gt;
-&lt;p&gt;Now add the shortcut $A \to B$ with near-zero travel time $\varepsilon$. A single driver considering a switch reasons: &amp;ldquo;Link $AB$ is essentially free. If I take $SA$, cross to $B$, and take $BT$, I avoid the fixed cost $c$.&amp;rdquo; If that driver is the only one to switch, it looks cheaper. But every driver makes the same calculation simultaneously. At the new equilibrium, all $N$ drivers pile onto $SA$ and $BT$:&lt;/p&gt;
-&lt;p&gt;$$t_{\text{shortcut}} = N\alpha + \varepsilon + N\alpha = 2N\alpha + \varepsilon$$&lt;/p&gt;
-&lt;p&gt;Since $2N\alpha &amp;gt; (N/2)\alpha + c$ for typical parameters, everyone is worse off than before the shortcut was built.&lt;/p&gt;
-&lt;h3&gt;The price of anarchy&lt;/h3&gt;
-&lt;p&gt;The social optimum would split traffic evenly at cost $(N/2)\alpha + c$, but selfish routing delivers $2N\alpha + \varepsilon$. The price of anarchy exceeds 1, meaning individual rationality destroys collective welfare.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/Prisoner&#39;s_dilemma&#34;&gt;Prisoner&amp;rsquo;s Dilemma&lt;/a&gt; is the best-known example of this tension. Two suspects each choose independently to cooperate or defect. Defecting is a dominant strategy: it is better for you regardless of what the other person does. Yet if both defect, both get a worse outcome than if both had cooperated. Braess&amp;rsquo;s paradox is the same logic scaled to $N$ drivers.&lt;/p&gt;
-&lt;h3&gt;The logit model&lt;/h3&gt;
-&lt;p&gt;The simulation uses a probabilistic choice rule: the probability a driver picks route $r$ is proportional to $\exp(-\beta \cdot t_r)$, where $t_r$ is the expected travel time on route $r$ and $\beta$ is a sensitivity parameter. When $\beta$ is large, drivers strongly prefer the fastest route and the outcome approaches the pure Nash equilibrium. When $\beta$ is small, drivers choose nearly randomly and the paradox weakens. The parameter $\beta$ captures how responsive real drivers are to time differences.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This article was originally written for &lt;a href=&#34;https://marimo.io/for-learners&#34;&gt;marimo.io&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</content>
  </entry>
  
