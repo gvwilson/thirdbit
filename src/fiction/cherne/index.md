@@ -43,7 +43,7 @@ states.
 
 After the tumult of the Age of Heroes came a period of relative stasis. History
 became a largely regional matter: the Pale Remainder held sway in the north, the
-Regimental Kingdoms squabbled with each other in the west, and Thind dominated
+Ninety Kingdoms squabbled with each other in the west, and Thind dominated
 the southeast, while the Darpani bred horses and composed epic poetry on
 Cherne's great central plain. New ideas were rare, and spread slowly if at all.
 Most people lived and died as their grandparents had, knowing little and caring
@@ -54,7 +54,7 @@ with the explosion of change in the past three centuries. The Pale Remainder
 has been overthrown, Thind has been eclipsed by the Twin Admiralcies of Ini
 Bantang and Barra Bantang, and Balanced missionaries are spreading faith and new
 learning from Araña to Uws. Trade and travel have become commonplace: apple
-farmers in Ensworth wear Bantangui silk scarves at weddings, and half the royal
+farmers in Loghan wear Bantangui silk scarves at weddings, and half the royal
 guard in Coriandel are the younger sons of minor Vaardian aristocrats. It may
 not be the "New Age of Heroes" that some poets have proclaimed, but it is a
 vibrant, dynamic time, full of vigor and possibility.
@@ -137,7 +137,7 @@ the four noble castes). In neighboring Thind, on the other hand, people believe
 that re-incarnation as a Gifted animal is punishment for sins in a previous life
 (which is a morally convenient justification for enslaving them). Gifted
 animals in Darp may not own property, but frequently become judges because of
-their lack of clan ties. Their legal and social status in the Regimental
+their lack of clan ties. Their legal and social status in the Ninety
 Kingdoms, Araña, Praczedt, and Uws varies, but they usually work as bodyguards,
 tutors, or entertainers, almost always in "partnership" with a human.
 
@@ -165,7 +165,7 @@ generally flows clockwise. A stick of wood dropped into the sea off Ruuda may
 reappear a decade later; barring storms, pirates, and monsters, a ship can make
 the journey in as little as two years. This steady current shapes trade
 patterns worldwide: Ruudian furs and Uwsian wheat to Praczedt, Praczny iron to
-Thind and Bantang, Bantangui spices to the Regimental Kingdoms, and wool and
+Thind and Bantang, Bantangui spices to the Ninety Kingdoms, and wool and
 apple cider from there to Ruuda.
 
 ### The Worldrim
@@ -263,7 +263,7 @@ until the sea and the sky alike seem to have come alive.
 
 ### The Sibor Plain
 
-The Sibor Plain lies between the Heladas and the northern arm of the Brumosos.
+The Sibor Plain lies between the Heladas and the northern arm of the Churyas.
 Sheltered from the cold arctic wind, it is noticeably warmer than the north
 coast: winter may cover the land with a blanket of snow, but summer is long,
 green, and humid.
@@ -288,7 +288,7 @@ are born Gifted, and devote their lives to keeping the Herd free from human
 beings.
 
 Lake Sibor is fed by the Smirvoriye and Povriye rivers which drain south from
-the Heladas, and by the Tangrapriye, which drains north from the Brumosos. The
+the Heladas, and by the Tangrapriye, which drains north from the Churyas. The
 Zhugariye runs (or more accurately strolls) southeast into the Gulf of Szigorú.
 Further north lies the smaller, and rougher, Kravriye. Since the locks at
 Kudetsny were rebuilt in YS 1045-60, shallow-bottomed river boats can travel
@@ -296,9 +296,9 @@ from the mouth of the Zhugariye to the the foothills of the Heladas. Tubbier
 camel-drawn *roykas* fill the river as soon as the ice breaks, each followed by
 its own flock of half-tame ducks.
 
-### The Northern Brumosos
+### The Northern Churyas
 
-The northern arm of the Brumoso range lies between the low-lying Sibor Plain to
+The northern arm of the Churya range lies between the low-lying Sibor Plain to
 the north, and the High Plains of Darp to the south. The evergreen forest of
 the Herd of Trees blends into a mix of conifers and deciduous trees: alder,
 poplar, and larch stand side by side. The wildlife also changes, as goats,
@@ -315,13 +315,13 @@ bats indulge in a frenzy of mating. Once their offspring (all mice again) have
 been born, the surviving bats fly west until they fall exhausted into the ocean
 to drown.
 
-Many of Cherne's clouds spend their winters in the northern Brumosos, grazing on
+Many of Cherne's clouds spend their winters in the northern Churyas, grazing on
 ice and snow among the mountain peaks. In the spring, the herds migrate west to
 Plangentia, or south to Barra Bantang, where they join with others from the
 central and southern mountains in bringing monsoon rains to Thind. Their only
 natural predators are the lightnings that dwell among Cherne's highest peaks.
 
-The region east of Ensworth in the Brumosos' foothills is called the Blight.
+The region east of Loghan in the Churyas' foothills is called the Blight.
 The Pilot Angels used the great, still lake in its center as a dumping ground
 for used and wasted magic. Since their fall, that magic has seeped out into the
 lands around the lake. Time runs differently in the Blight, and the land itself
@@ -342,7 +342,7 @@ length.
 
 ### The Angels' Fall
 
-The Brumoso and Cansado Mountains were once connected along the west coast. The
+The Churya and Cansado Mountains were once connected along the west coast. The
 great caverns underneath these mountains collapsed at some time in the distant
 past, creating a jagged landscape of deep canyons, knife-edged plateaus, and
 roaring waterfalls. Narrow flows of dense, shadowed forest separate the open
@@ -350,13 +350,13 @@ alpine grasslands of the plateaus; a lake might be a hundred strides wide,
 twenty gallops long, and a full gallop deep.
 
 Mounted travel in the Angels' Fall is difficult or impossible (which is the main
-reason the Darpani have never invaded the Regimental Kingdoms). People travel
+reason the Darpani have never invaded the Ninety Kingdoms). People travel
 on foot, by water, or by air if they can.
 
 ### Plangentia and the Cansados
 
-Plangentia consists of the Regimental Kingdoms and the Cansado Mountains.
-The Regimental Kingdoms lie between the high central plain of Cherne and the
+Plangentia consists of the Ninety Kingdoms and the Cansado Mountains.
+The Ninety Kingdoms lie between the high central plain of Cherne and the
 western arm of the Ocean, and are separated from Araña by the Cansados (which
 other Chernese regard as pretentious hills, rather than proper mountains). The
 land is cool and damp in the north; fog often blankets the coast, and winter is
@@ -369,7 +369,7 @@ beavers, deer, a few elk, and a flightless duck called a naffy that will eat
 anything it can get down its throat. In the south, tigers and black bears are
 the main predators, while bison and southern rabbucks (longer-legged than their
 northern cousins) are the main prey. Depending on locale, the crops range from
-turnips to olives. The great orchards of Ensworth produce as much cider as the
+turnips to olives. The great orchards of Loghan produce as much cider as the
 rest of Cherne put together, while every garden in Seyferte and Leyselle
 produces at least a little garlic.
 
@@ -402,16 +402,16 @@ grow on the banks of the many small streams and rivers that criss-cross northern
 Darp, but are rare in the south. Red- and blue-eared teosinte (a wild variety
 of corn) brings splashes of color to the land in late summer and fall.
 
-### The Central Brumosos
+### The Central Churyas
 
-The central Brumoso Mountains separate Darp from the coast of the Gulf of
+The central Churya Mountains separate Darp from the coast of the Gulf of
 Szigorú to the east. Tall and sharp-edged where they join their northern
 cousins, they gradually become gentler as they approach Barra Bantang. Bears,
 eagles, vultures, and cave lions feed on goats, rabbucks, and the treaver, a
 short-tailed cousin of the beaver that builds nests of mud and twigs among the
 branches of ash, oak, and cottonwood trees.
 
-As they approach Barra Bantang, the central Brumosos flatten out into a wide
+As they approach Barra Bantang, the central Churyas flatten out into a wide
 pass called the Shogindur Gap before rising once again to form the range's
 southern arm. The Gap provides access between Darp and Thind; it has been used
 for raiding and invasion almost as often as for trade, in both directions.
@@ -449,7 +449,7 @@ ship or magician that approaches.
 
 ### The Gulf of Szigorú {#the-gulf-of}
 
-The Gulf of Szigorú lies north of the Inequator, between the Central Brumosos
+The Gulf of Szigorú lies north of the Inequator, between the Central Churyas
 and the Yr. The area was the scene of the Disputation's fiercest battles, and
 their scars are still visible. The most prominent is Mount Narjemczy, Cherne's
 only volcano. Further south lies Hrstil Canyon (called "Arusettirn Canyon" in
@@ -536,11 +536,11 @@ land grudgingly puts forth a little greenery as it turns into southern Araña,
 but for the most part, it is the Harshem that has suffered most from the
 destruction of Lake Karaband.
 
-### The Southern Brumosos
+### The Southern Churyas
 
-The southern Brumoso Mountains form the central spine of Barra Bantang, the long
+The southern Churya Mountains form the central spine of Barra Bantang, the long
 peninsula that reaches down from the Chernese mainland toward the South Pole.
-At their northern end, near the Shogindur Gap, the Brumosos' peaks are almost
+At their northern end, near the Shogindur Gap, the Churyas' peaks are almost
 five gallops above sea level, falling in stages into the rich plains of Thind.
 Further south, the mountains rise almost directly out of the Yr to the east,
 though their western slopes descend more gently toward the Harshem.
@@ -553,10 +553,10 @@ fiercely territorial piranhakeet.
 
 ### Thind
 
-Thind's eastern and western borders are the Brumoso Mountains and the Yr. Its
+Thind's eastern and western borders are the Churya Mountains and the Yr. Its
 northern and southern are not so clearly defined, but are usually taken to be
 the Kerasulas River in the south, and Hrstil Canyon in the north. Its heart is
-the Undja River, the "Blood of Thind". Rising in the Brumosos, the Undja
+the Undja River, the "Blood of Thind". Rising in the Churyas, the Undja
 irrigates over a hundred thousand square gallops of exceptionally fertile
 farmland; only the Sibor Plain can compare. Its upper reaches are swathed in
 jungle and punctuated with waterfalls; the lower Undja flows slowly and
@@ -678,7 +678,7 @@ stands almost exactly in the center of the sky.
     becoming mixed coniferous/deciduous forest, chaparral near Cap Beq, and
     savanna in Araña.
 
-- Brumoso Mountains: Alpine along their length. Northern and eastern slopes are
+- Churya Mountains: Alpine along their length. Northern and eastern slopes are
     wetter than southern and eastern.
 
 - High Plains: Short-grass steppe (the Black Grass) in the north; tall-grass
@@ -781,7 +781,7 @@ south. Unused since annexation.
 
 #### Uws
 
-Uws occupies the broad, fertile Sibor Plain between the northern Brumosos and
+Uws occupies the broad, fertile Sibor Plain between the northern Churyas and
 the Helada Mountains. It is named after one of the last great conquerers of the
 Age of Heroes, who died fighting the Pale Remainder in YS 483. Since then, this
 part of Cherne has been occupied by a succession of major and minor kingdoms,
@@ -830,12 +830,12 @@ presented a winged bear on a vertical divide of blue and silver.
 
 The Herd of Trees is a sentient forest covering several thousand square gallops
 at the western end of the Sibor Plain, between the Helada Mountains and the
-northern Brumosos. Roads do not survive long in the Herd, nor those who make
+northern Churyas. Roads do not survive long in the Herd, nor those who make
 them. The only permanent human settlements are on islands in the middle of
 lakes, but their inhabitants are careful not to anger the pines and firs that
 watch over them.
 
-A few magicians (most notably, Eduardo of Porandine) have managed to win the
+A few magicians (most notably, Eduardo of Rancid) have managed to win the
 trees' trust, or at least their tolerance. It is clear from their descriptions
 that the Herd thinks (or think—it isn't clear whether the trees constitute one
 mind or many) very differently from humanity and Gifted animals. However, the
@@ -844,10 +844,10 @@ exchange a move with the dragon Sulk through a human messenger.
 
 ### The West
 
-#### The Regimental Kingdoms
+#### The Ninety Kingdoms
 
-The Regimental Kingdoms lie in Plangentia, between the southwestern arm of the
-Brumosos and the ocean. Each of the region's peoples trace their origins back
+The Ninety Kingdoms lie in Plangentia, between the southwestern arm of the
+Churyas and the ocean. Each of the region's peoples trace their origins back
 to one of the human armies that the heroes Ealx and Heot led west in YS 302.
 During the Age of the Same, these became nine independent kingdoms. Today there
 are seven: Plangent was swallowed by the sea in YS 966, and Fourette was
@@ -863,15 +863,15 @@ Seyferte to build a replica of the royal palace of Leyselle as a madhouse, for
 example, Aixeme's prime minister suggested to the Queen of Leyselle that she
 build a public toilet on the same plan as the Seyfertois palace.
 
-Inland, the farmers of Colway and Ensworth grow onions, barley, and apples;
+Inland, the farmers of Colway and Loghan grow onions, barley, and apples;
 their cider and wool are traded from one side of Cherne to the other.
-Ensworth's famous University is the greatest gathering of learned minds in
+Loghan's famous University is the greatest gathering of learned minds in
 Cherne. From grammar to government and history to husbandry, anything and
 everything is debated in its halls and catalogued in its sprawling library. The
 only subject that *isn't* on the curriculum is magic, though more than a few
 magicians have studied there.
 
-Despite the University (or perhaps because of it), Ensworth is a very
+Despite the University (or perhaps because of it), Loghan is a very
 traditional kingdom. Each spring, for example, its senior noblemen gather in a
 carefully-tended field next to the royal palace, strip to the waist, and pull an
 ancient plow steered by the king. Some say the practice is the price of an
@@ -885,14 +885,14 @@ little extra silver in their pockets by smuggling brandy, chilis, and other
 proscribed goods around Cape Grind.
 
 All seven kingdoms are monarchies. In Leyselle, Seyferte, Bruyere, and
-Ensworth, kings and queens are nominally absolute, though in practice, all are
+Loghan, kings and queens are nominally absolute, though in practice, all are
 responsible to a "staff" made up of senior nobles, representatives of merchant
 houses, and mayors of major cities. Colway's Sad Dukes, and Derway's Princes,
 are much more "firsts among equals". Royalty elsewhere may look down on them
 for raising their own pigs, or commanding their own fishing fleet, but they are
 famously indifferent, and their people famously loyal.
 
-Aixeme is the most democratic of the Regimental Kingdoms: its queens speak first
+Aixeme is the most democratic of the Ninety Kingdoms: its queens speak first
 and last at any gathering, but have little power beyond that. Anyone with eight
 years of military service can vote to choose one of the two seigns who will
 represent their regiment in the Parledoux in Aix. Seignurial candidates must be
@@ -906,7 +906,7 @@ the Wise River, is four times larger than the national capitol Selle, and ten
 times as loud. Its sculptors, painters, and gardeners are leading a brilliant
 revival in the arts.
 
-Ensworth's capital is Ensworth (population sixty thousand), but its major port
+Loghan's capital is Loghan (population sixty thousand), but its major port
 is Fidditch (forty-five thousand). Across the river lies its Seyfertois twin,
 Fideche, which is only slightly smaller. Seyferte's other major cities are
 Verudin, Yvesse, and Seyferte-in-Seyferte (which, with almost two hundred
@@ -921,7 +921,7 @@ Further north, the capital of Derway is Sarck; Colway's is Nampton, and
 Bruyere's is Bruyere. Sarck has roughly twenty-five thousand rain-soaked
 inhabitants; Nampton and Bruyere have thirty thousand each.
 
-Blazons: Ensworth is a griffin rampant before five upward half-diamonds in green
+Blazons: Loghan is a griffin rampant before five upward half-diamonds in green
 on a white field. Colwayis a belt and boots, brown, and a crown, bronze, on
 white. Derway is quartered white over gold, an upraised hand to the southeast,
 an ax to the northwest. Bruyere uses a dolphin between four gold coins on blue,
@@ -932,7 +932,7 @@ silver stars, on green.
 
 #### Araña {#section}
 
-Araña, which lies south of the Regimental Kingdoms, is distinct both
+Araña, which lies south of the Ninety Kingdoms, is distinct both
 historically and culturally from its neighbors. Physically, the Aranese are
 smaller and lighter than their northern neighbors. Their language is related to
 Darpani, although the relation is not close. Eastern Araña is a sparsely treed
@@ -973,7 +973,7 @@ years. Even Janbinder the Great, founder of Thind, never conquered them;
 despite several campaigns, the best he could do was push them north of the River
 Wise. In the half-century following his death in 299, the Darpani reclaimed all
 of the land they had lost, and more. Since then, they have twice invaded Thind,
-and occasionally raided the Regimental Kingdoms to the west.
+and occasionally raided the Ninety Kingdoms to the west.
 
 The Darpani care little for gold, measuring wealth in horses and poetry instead.
 They are divided into a dozen major regional tribes and two dozen smaller ones.
@@ -1007,13 +1007,13 @@ the Ghost Fog Valley. Burning Rock is a fortress dating from the Age of Heroes,
 which takes its name from the flame-red stone it is made from. Outlaws are safe
 within its walls, though men have been known to camp outside the fortress's
 great gates for years waiting for someone who has wronged them to emerge.
-Traders from the Regimental Kingdoms, Uws, Praczedt, and occasionally Thind use
+Traders from the Ninety Kingdoms, Uws, Praczedt, and occasionally Thind use
 it as a staging post and for warehousing.
 
 The Ghost Fog Valley, which lies at the geographical center of Cherne, is a much
 stranger place. People can step into one another's dreams there, or wash their
 faces in starlight, or be torn to pieces by their own shadows. Ealx and Heot,
-the founders of the Regimental Kingdoms, led their troops through the valley in
+the founders of the Ninety Kingdoms, led their troops through the valley in
 YS 302 in order to throw the hero Uws off their trail; two hundred years later,
 a young Darpani walked into the valley with a club foot, and walked out with a
 voice that enabled him to conquer Thind. Today, the Black Sun tribe guard the
@@ -1049,7 +1049,7 @@ day's wages in Ossisswe, or two weeks' worth in Ruuda. Larger pieces have
 other, stranger properties, which draw magicians to Ossisswe like ants to honey.
 
 Coriandel is smaller than Ossisswe, but lies where the overland spice and
-chocolate route between the southern coast and the Regimental Kingdoms meets the
+chocolate route between the southern coast and the Ninety Kingdoms meets the
 cattle trail to Darp. Every year, the Darpani tribes drive their herds down
 from the great plains to Coriandel. The month-long fair is the biggest
 gathering of rogues, spies, and wishful thinkers in the world. The Coriandi
@@ -1312,11 +1312,11 @@ gold one on blue.
 
 A few of Cherne's other inhabitants deserve mention.
 
-#### The Brumoso Cloudherds
+#### The Churya Cloudherds
 
-North of the Regimental Kingdoms, in the Brumoso Mountains, are several villages
+North of the Ninety Kingdoms, in the Churya Mountains, are several villages
 that would be ignored by the rest of the world were it not for their
-inhabitants' peculiar trade. The people of Marandine, Porandine, and their
+inhabitants' peculiar trade. The people of Stale, Rancid, and their
 neighbors are cloudherds. Every spring, the adults hike into the mountains and
 round up as many clouds as they can find. They then drive these clouds south to
 water farmers' fields in the west, southern Darp, and elsewhere. The most
@@ -1372,7 +1372,7 @@ valued as truthsmellers or thieves, but never really trusted.
 Since being driven off Avaunt, the Hett have wandered from place to place, never
 trusted, and never welcome. They are best smiths and tinkers in the world, but
 their knack for making clever machines only increases the suspicion with which
-others regard them. In the Regimental Kingdoms, for example, Hett are not
+others regard them. In the Ninety Kingdoms, for example, Hett are not
 allowed to sleep within city limits, while Praczedt requires them to secure a
 bond from a Praczny citizen before undertaking any work.
 
@@ -1505,7 +1505,7 @@ of the Harshem.
 
 The people of Cherne are not religious, in the sense of believing in a god or
 gods. However, many of them are spiritual. Most people believe in some form of
-reincarnation, though the details vary. In the Regimental Kingdoms, for
+reincarnation, though the details vary. In the Ninety Kingdoms, for
 example, most people believe that the souls of the dead lie fallow for a time,
 during which they blend together, and that new souls grow out of this spiritual
 compost. In contrast, the Bantangui believe that we must all live our lives
@@ -1642,7 +1642,7 @@ have back and hernia problems by the time they're thirty.
 Shipbuilding is well developed in every coastal region except the eastern
 seaboard. The Bantangui build fast single-masted *praus* and larger, slower
 *perahus* for piracy and trade. The fishing boats and galleons built in the
-Regimental Kingdoms, Ruuda, and Uws are not as nimble, but much sturdier. The
+Ninety Kingdoms, Ruuda, and Uws are not as nimble, but much sturdier. The
 Darpani build rafts when they need them, particularly to move bulky trade goods
 down the Wise. The Ulaq, on the other hand, practically live in their sealskin
 kayaks for several months every year. They rarely venture out of sight of land,
@@ -1669,7 +1669,7 @@ Leyselle was destroyed by an angry mob as recently as 1207.)
 As far as the rest of the world knows, the printing press was invented in 1124
 by a Seyfertois nobleman. In fact, he based his first press on notes and a
 model left behind on Avaunt when the Hett were driven into exile. Seyferte,
-Ensworth, Praczedt, Ruuda, and the Twin Admiralcies all now have lively printing
+Loghan, Praczedt, Ruuda, and the Twin Admiralcies all now have lively printing
 trades.
 
 The hot air balloon was invented in southern Thind. They are not as
@@ -1732,7 +1732,7 @@ when they were driven off Avaunt in 751.
 - 1005: Society for Inoffensive Conversation founded in Ossisswe.
 - 1014-present day: Mohendjari dynasty in Thind.
 - 1017: Uws reunified under Barsadov dynasty.
-- 1023: University founded in Ensworth.
+- 1023: University founded in Loghan.
 - 1031: Introduction of Lampwatcher's Eve (40-year correction to calendar).
 - 1040-1120: Death of Dogs.
 - 1045-60: locks and canals in Uws rebuilt.
@@ -1759,15 +1759,15 @@ when they were driven off Avaunt in 751.
 - 1223-24: Sweet and Buckle in Nevy Rav and Darp.
 - 1224-26: Nobility of southern Uws rebel against Yuriy II Barsadov.
 - 1226: Eimin born in Medef.
-- 1229: Tahura born in Marandine.
-- 1230: Evan Prince Ensworth born in Ensworth.
+- 1229: Noxy born in Stale.
+- 1230: Thokmay Prince Loghan born in Loghan.
 - 1239: *Eimin in Medef*
 - 1240: *Eimin in Ossisswe*
 - 1243: *The Prince and the Cloudherd*
 - 1245: *Eimin in the Balance*
 - 1247: *The Princess and the Bear*
 - 1248: Piaerre born in Starboard Town.
-- 1251: Evan Prince Ensworth at the University.
+- 1251: Thokmay Prince Loghan at the University.
 - 1252: *The Last Wolf*
 - 1261: *The Bookster's Apprentice*
 - 1264: *The Anvil's Wife*
@@ -1800,7 +1800,7 @@ nouns and verbs in exchange, but there is little cross-pollination from the
 south, where Hrstil Canyon separates the coastal region from Thind.
 
 The western family of languages comprises Seyfertois (spoken in Seyferte,
-Leyselle, Bruyere, and Aixeme), Enswer (spoken in Ensworth, Colway, and Derway),
+Leyselle, Bruyere, and Aixeme), Enswer (spoken in Loghan, Colway, and Derway),
 and Aranese. (A fourth language, Plangentine, is still spoken in a few villages
 in southern Bruyere.) Aranese has become the language of diplomacy throughout
 most of Cherne, primarily due to the spread of the Balance. At the same time,
@@ -1818,7 +1818,7 @@ is much simpler. (As one wit put it, Karabandi is Darpani with the poetry taken
 out.)
 
 The southern family of languages includes Bantangui, Thindi, Sullairean, and
-several lesser languages spoken by mountain tribes in the southern Brumosos.
+several lesser languages spoken by mountain tribes in the southern Churyas.
 Antique Thindi is used in royal courts, by poets, and by magicians who want to
 be really, really sure that their words cannot be misinterpreted. Sullairean is
 a close cousin, although it has lost many words over the centuries. Modern, or
@@ -2031,34 +2031,34 @@ The subsections below describe stories (actual or planned) set in Cherne.
 
 ### The Cloudherd Trilogy
 
-These three books follow a girl named Tahura, and a young prince named Evan,
+These three books follow a girl named Noxy, and a young prince named Thokmay,
 from the ages of 13 to 21. They are aimed at readers aged 10-15.
 
 #### *The Prince and the Cloudherd*
 
-This story is set in the cloudherd village of Marandine; its protagonist is a
-young girl named Tahura, whose life is turned upside down when the lowlander
-Evan Prince Ensworth takes refuge among the cloudherds. They initially spar
+This story is set in the cloudherd village of Stale; its protagonist is a
+young girl named Noxy, whose life is turned upside down when the lowlander
+Thokmay Prince Loghan takes refuge among the cloudherds. They initially spar
 with one another, then become wary friends, but their friendship and courage are
-tested when Marandine is attacked by the prince's enemies. With the help of a
+tested when Stale is attacked by the prince's enemies. With the help of a
 worn-out magician and a cynical tiger, they must somehow find the courage to
 make the sacrifices needed to save the village.
 
 #### *The Princess and the Bear*
 
-Four years after helping save Marandine, Prince Evan and his mentally challenged
+Four years after helping save Stale, Prince Thokmay and his mentally challenged
 sister, Princess Sophie, are in Apple Bridge, where the prince commands the
 regiment responsible for patrolling the magically-transformed region known as
-the Blight. Tahura's arrival on cloudback triggers a chain of events that leads
+the Blight. Noxy's arrival on cloudback triggers a chain of events that leads
 to Princess Sophie's abduction by a bear with a grudge. Desperate to find his
 sister, will the prince realize in time that an ancient evil has resurfaced?
 
 #### *The Last Wolf*
 
-Now in their early twenties, Tahura and Prince Evan are part of a delegation
+Now in their early twenties, Noxy and Prince Thokmay are part of a delegation
 sent north to negotiate an end to a war between the Empty Throne of Ruuda and
 the tribes of Upuliaq. Amid double-crosses, a murder, and the discovery that
-Tahura's new boyfriend is a werewolf, can they save both sides from themselves?
+Noxy's new boyfriend is a werewolf, can they save both sides from themselves?
 
 ### Eimin's Trilogy
 
@@ -2288,14 +2288,14 @@ complicated by figuring out how much water has been lost to the whirlpool in Ini
 Bantang, but argue that it's still possible to estimate. This will all play
 into the revelations about the Big Secret in the Flying Mountain trilogy.
 
-### The Legal System of the Regimental Kingdoms
+### The Legal System of the Ninety Kingdoms
 
 The villain of the first Cherne story I wrote was George Prince Nuthe, who
-rebelled unsuccessfully against the King of Ensworth. I decided a couple of
+rebelled unsuccessfully against the King of Loghan. I decided a couple of
 years ago that I wanted that story to be about how conflicts suck bystanders in,
 and how you can find yourself committed to a side, only to discover that it
 might not be the right one. To do that, I need to give George a sympathetic
-reason for rebelling. What I've come up with is this: in the Regimental
+reason for rebelling. What I've come up with is this: in the Ninety
 Kingdoms, you can't use a law without paying a fee. If you can't afford use of
 the law, you can't use it in court. Aristocratic families "rent" laws from the
 king, and in turn rent them out to everyone else.
@@ -2308,7 +2308,7 @@ mass opinion is on his side. Ironically, of course, he discovers that the rich
 still have an advantage in court, since they can afford lawyers who know the law
 better than their opponents. He therefore decides the solution is to do away
 with laws altogether (i.e., anarchism), which is the point at which the King of
-Ensworth says, "Enough is enough."
+Loghan says, "Enough is enough."
 
 ### Slavery
 
@@ -2338,7 +2338,7 @@ unwritten story Salt and Gold. This needs to change:
   and it is partly through her efforts over the centuries that slavery has
   disappeared in the Karaband.
 
-- Slavery is legal in the Regimental Kingdoms,
+- Slavery is legal in the Ninety Kingdoms,
   but uncommon. As elsewhere, the children of slaves are born free, but under
   a social stigma.
 
