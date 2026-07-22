@@ -18,7 +18,7 @@ so that it can shine down and keep us safe forever.
 
 In the west,
 on the other hand,
-the farmers of the Regimental Kingdoms bury their dead to thank the earth for its bounty.
+the farmers of the Ninety Kingdoms bury their dead to thank the earth for its bounty.
 Just as flesh becomes soil, then barley, then flesh again,
 so too,
 they believe,
@@ -596,7 +596,7 @@ a sweet, slow song that the girls always asked for.
 
 My mother was waiting for me at the door with a soft smile on her face.
 "We got them," I said unnecessarily.
-She nodded and held up my festival *deel*
+She nodded and held up my festival deel
 to show me that she had finished sewing new cuffs on the sleeves,
 then set it aside to give me a quick hug.
 
@@ -616,7 +616,7 @@ Her voice was soft and urgent.
 
 It was an hour before dawn.
 I dipped my fingers in the washbowl and ran them through my hair,
-slipped my *deel* over my head,
+slipped my deel over my head,
 and hurried out the door with my sandals still in my hand.
 A moment later I doubled back to grab my bow
 and the pack I had carried the day before.
@@ -715,7 +715,7 @@ The sharp smell that came from it was the evil twin of the lemon water's tang.
 Yassen splashed some of the alcohol on the rag, then cursed.
 "Didn't bring any matches."
 
-I had some, wrapped in waxed paper in my *deel*,
+I had some, wrapped in waxed paper in my deel,
 along with a sewing needle and a toothpick.
 A scratch and a touch later,
 the rag on the arrow was alight.
@@ -756,7 +756,7 @@ As I watched,
 the knots holding a round-cornered box on one camel's back came loose.
 It tumbled to the ground and broke open,
 spilling dark cloth bags holding buttons or spices onto the trail.
-A woman in a red and gray *deel* rushed over
+A woman in a red and gray deel rushed over
 and beat the camel's flank with her palms to get it to stop,
 cursing when it didn't even break stride.
 
@@ -767,7 +767,7 @@ Whatever occupied it was securely wrapped in dark blue canvas
 held in place with enough rope to rig a tents.
 Its driver sat with his back against his cargo
 with the reins loose in his hand.
-He wore darkly-patterned *deel* and a bright yellow turban,
+He wore darkly-patterned deel and a bright yellow turban,
 which meant either that he was from Ossisswe,
 or that he was a scholar,
 or that he liked the color yellow.
@@ -867,11 +867,11 @@ Karabandi are proud of the fact that no two *deels* are exactly alike.
 We lengthen them, shorten them, add pockets in common or unlikely places,
 or reinforce the shoulders if we frequently carry heavy loads.
 Over time,
-every *deel* learns from its wearer how to do its job better,
-and every Karabandi learns how to read a person's life from their *deel*.
+every deel learns from its wearer how to do its job better,
+and every Karabandi learns how to read a person's life from their deel.
 
 The driver in the yellow turban
-wore a *deel* like none I had ever seen.
+wore a deel like none I had ever seen.
 The pattern on it was actually black and blue stains.
 A wide belt was sewn around the waist to support the weight of
 whatever jingled and clanked in the double pockets on each side.
@@ -948,7 +948,7 @@ and the smell of barbecued goat had turned my stomach into a hard knot of hunger
 "Phah!"
 Dudir stretched until something in his back popped.
 "Glad that's done."
-He undid the broad belt of his *deel* and slipped it over his head
+He undid the broad belt of his deel and slipped it over his head
 to reveal a sleeveless shift and long, loose pants.
 
 I heard giggles behind me.
@@ -958,7 +958,7 @@ to slip away for an early look at what the caravaneers had brought.
 With so many *nif* about,
 it would be a while before their parents noticed they were gone.
 
-Dudir grinned at them as he shook out his *deel* and put it back on.
+Dudir grinned at them as he shook out his deel and put it back on.
 He was as muscular as an ox.
 *And probably as smart,* I thought sourly.
 
@@ -1029,7 +1029,7 @@ I squatted on my heels a couple of strides away from him.
 His smile reminded me of Razi's.
 "Why did they do anything?"
 He scrambled to his feet (less elegantly than Razi would have)
-and tucked his notebook into his *deel*.
+and tucked his notebook into his deel.
 "Would you like to give me a tour?"
 
 I had never been a tour guide before,
@@ -1126,7 +1126,7 @@ where caravaneers and other travelers stayed.
 
 Razi was waiting for me at my house with two strangers.
 "*La*, there you are," he said,
-standing and straightening his *deel*.
+standing and straightening his deel.
 "I was starting to wonder if the lion had eaten you."
 
 *That's not funny,* I thought,
@@ -1213,7 +1213,7 @@ the man said.
 They stood,
 bowed to me—proper bows, not just nods—and left without another word.
 
-Razi drew a small vial from the pocket of his *deel* and offered it to me.
+Razi drew a small vial from the pocket of his deel and offered it to me.
 "*La*, put a drop in your tea.
 It will clear your head."
 
@@ -1290,7 +1290,7 @@ and the air was merely hot rather than stifling.
 Most people were still indoors.
 The few I passed gave me startled looks as they neared.
 
-A woman scowled at me as the baby tucked into her *deel* started to cry.
+A woman scowled at me as the baby tucked into her deel started to cry.
 "Sorry," I muttered.
 *It's not my fault,* I wanted to add,
 but it was.
@@ -1615,7 +1615,7 @@ relief and a hint of shame on his face.
 
 The worst of the storm had passed
 but still,
-I was glad for my *deel* and Razi's spare goggles.
+I was glad for my deel and Razi's spare goggles.
 Yassen kept his hand on my shoulder as we made our way to his house
 so that he could collect his own goggles.
 He didn't bother with his bow.
@@ -1752,27 +1752,271 @@ to slow the bleeding.
 It was Razi's turn to spit.
 "I would rather not be a fool twice in one day."
 
-People *dromed* that something had gone wrong
-as soon as we got back to the hostel.
-Yassen's brother Kirash washed his wound with liquor and then bound it.
-Razi sat in a corner and glared at his tea.
+We trudged back to the trading hall.
+I didn't know how Yassen and Razi felt,
+but losing the goat had curdled my pride in how I'd handled the bandits.
+I was too busy being angry
+to notice the quiet on the other side of the heavy canvas curtain
+as we brushed the grit off each others' *deels* in the entry hall.
+It wasn't until Yassin swept the curtain aside
+and we found ourselves faced with half a dozen armed men
+that we realized we had walked into a trap.
 
-"You couldn't have known," I said,
-seating myself across from him.
+"Softly," Balwir said as Razi reached for the hilt at his hip.
+He and Dudir both held swords.
+Two other caravaneers had short spears,
+and so did Kirash,
+our Kirash.
 
-"*La*, I should have."
-He sighed.
-"I am getting old, Eimin.
-Old and stupid and slow."
+"What—" Yassin started.
 
-"Does that mean I can have your sword?" I asked.
-He just snorted.
+"Shut up," his brother said roughly.
+He jerked his chin at the wall.
+Everyone we had left behind was sitting on the floor with their backs against it.
+"Just shut up and sit with the others."
+
+"Do as he says and we'll be on our way,"
+a low voice rumbled behind me.
+I spun around.
+The lion and her two thieves had followed us.
 
 </section>
 
 <section markdown="1">
 
 ## Chapter 8
+
+For the span of a heartbeat I thought Razi was going to surrender.
+I hadn't counted on Yassin.
+He bellowed like an angry ox and lunged at Balwir.
+The caravaneer parried his spear thrust and punched him hard in the head.
+As his son Dudir followed through,
+Razi whirled around just in time for the lion to pounce on him.
+
+I would have drawn my sword,
+or scissored my legs around her,
+but Razi jammed his fingers up her nostrils.
+She squealed with shock and pain.
+"Run!"
+Suresh shouted behind me.
+He had jumped to his feet when Yassin attacked,
+knocked Kirash aside,
+and snatched up a stool
+to club one of the lion's bandits in the nose.
+
+I had just a moment to see Yassin fall to the floor
+and the lion leap on Razi
+before I was through the curtain,
+out through the open door,
+and back into the storm with Suresh pushing me onward.
+
+"Keep going!" he shouted over the wind.
+I dodged left into the narrow gap between the trading hall and its latrines.
+Half a dozen long strides brought us to the next street
+and back into the wind.
+I tried to hold the neck of my deel closed with one hand,
+then gave up and just ran.
+
+Had the lion brought other bandits with her?
+I pulled up short at the thought.
+Razi would have,
+and if Kirash was working with them…
+
+I grabbed Suresh's arm and pulled him back by the latrines.
+"The bakery,"
+I said in his ear.
+"If they have spotters, they'll be there."
+He nodded,
+pulling a strip of cloth from one of his deel's pockets
+and tying it around his head.
+Two eyeholes backed by gauze would let him see
+without being blinded by the storm.
+He clapped me on the shoulder and we crept out into the street.
+
+It only took a few minutes to reach the edge of Medef.
+It felt longer,
+and it gave me time to wonder what in the names of the saints Kirash was doing,
+and what the bandits were after.
+Had their attack on the caravan been a ploy?
+Had Dudir and his father been working with them the whole time?
+And was my *umma* safe?
+I desperately wanted to go home,
+but that was the first place Kirash would look for me.
+
+We stopped next to the shearing shed
+just a few dozen strides from
+where Razi and Yassin and I had fought the lion.
+The wind was dying down,
+which meant bandits would soon be hunting for us.
+"So what's your plan?"
+Suresh asked,
+panting slightly.
+
+"I don't really have one," I said.
+"You?"
+
+He shook his head.
+"Sorry.
+Getting out of there was about as far ahead as I was thinking."
+
+I sucked on the roof of my mouth,
+then spat wet dust onto the ground.
+"You might have been better off staying put."
+
+He shook his head again.
+"No.
+I have things I need to do,
+and sitting on my own two cushions isn't going to get them done.
+What about the other Aphsi villages?
+Can they help us?"
+
+It was my turn to shake my head.
+"It's a day to Uef,
+and there's only a dozen families there."
+*One problem at a time,* Razi's voice said in my head.
+"Let's get to the palace.
+We can figure everything else out then."
+
+We hurried from tree to tree through the lemon grove.
+I did my best to keep their trunks between us
+and anyone watching from a rooftop in Medef,
+but after a couple of close calls
+I had to pay more attention to not being struck in the face
+by branches being snapped from side to side by the wind.
+They made me wish I could create drawings that moved,
+like stories said the Pilots had.
+
+The trees stopped a hundred strides away from the palace gate.
+I took a deep breath.
+We were out of sight of the village,
+but again,
+if Razi had planned this attack,
+he would have thought of this.
+
+"Wait a moment," Suresh said.
+He untied the neck of his deel,
+reached a hand inside,
+and closed his eyes.
+His lips moved for a moment before he opened them again.
+"It's safe.
+Probably,"
+he added.
+
+I scowled.
+"Are you a magician?"
+
+He waggled his head
+in a gesture I'd seen other city dwellers use to mean "maybe" or "it's complicated".
+"I know a couple of little tricks," he confessed.
+"Nothing that's any use in a fight, I'm afraid.
+Come on."
+
+Sand had blown up in knee-deep piles outside the palace walls.
+Inside,
+though,
+there was only a scattering of grit on the paving stones.
+Most people thought it was magic,
+but Razi had once shown me a passage in a book written by a scholar in Gandan
+that claimed it was just a matter of careful design.
+There were places where the Pilots' architecture guided the wind in ways that made eerie voices.
+Why not guide it to keep the floor clean?
+
+This wasn't the right time to worry about that, though.
+Our first stop was the pool,
+where we gulped down handfuls of cool, clear water
+and did our best to dig the dust out of our noses and ears.
+I turned the cuff of my deel inside out
+so that I could scrub my face without getting more dirt on it.
+Suresh just knelt on the pool's edge
+so that he could dip his whole face in the water.
+
+Our second stop was up a flight of stairs,
+down a long corridor with empty windows every few strides,
+and up another, narrower set of stairs.
+Suresh followed me without question,
+and seem unsurprised when I pulled a traveling back from behind a stone bench.
+
+"Razi's?" he asked,
+jerking his chin at it.
+
+"No."
+I untied the drawstring and checked its contents.
+Dried fruit sealed in pockets of waxed paper,
+a water bottle,
+a sewing kit that could also be used to stitch up wounds,
+a flint and a small packet of lint,
+spare goggles—everything was there.
+"Razi has one too,
+but I don't know where it is.
+He says it's safer that way."
+
+I reached back under the bench and felt around for a moment.
+It had taken me several tries to figure out how to—there.
+I yanked out the thorns I had awkwardly hammered into the cracks
+where the stones met,
+then held up the long sheathed knife they had held in place.
+
+"Nicely done."
+Suresh squatted on his heels.
+"I don't suppose you have something to summon an army of skeletons as well?
+I'd settle for a flying carpet,"
+he added.
+
+"That would be useful."
+I pulled up the hem of my deel to strap the knife onto my calf.
+"Unfortunately,
+the Aphsi can't do magic."
+
+I expected him to raise his eyebrows,
+but instead he nodded.
+"I've read about that.
+I didn't know if it applied to *nif* as well."
+
+I shrugged.
+I had wondered about exactly the same thing,
+but neither Razi nor my *umma* had been able to answer my not-very-subtle questions,
+and I'd never had the courage to ask Grappa Uzman,
+much less Yassin or Granna Ferouz.
+
+I tied the pack closed and shouldered it.
+Now what?
+As if he could read my mind,
+Suresh asked,
+"What about Razi's friends?
+Do you have any special way of reaching them?"
+
+I tried not to show surprise.
+Did he know about the Other Hand?
+If so,
+perhaps I should be following *him*.
+
+I shook my head.
+"There's a Gifted cactuspecker who carries messages sometimes,
+but we only see her in caravan season,
+and anyway,
+she wouldn't be out in this."
+
+"So we're on our own."
+For a moment I thought I heard relief in his voice.
+He must have caught my look,
+because he hastily added,
+"At least that means there probably aren't more bandits on their way.
+How about—"
+
+"Sh!"
+I raised my hand to cut him off.
+A moment later I heard the voice again.
+
+Suresh heard it to.
+He pointed back down the stairs,
+then made a walking motion with two fingers.
+I nodded and drew my sword as quietly as I could.
+"Wait," he whispered,
+jerking his chin at my leg.
+
+I hesitated a moment,
+then drew the knife and handed it to him.
+"Thank you," he mouthed silently.
 
 </section>
 
