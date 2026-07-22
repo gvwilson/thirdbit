@@ -117,9 +117,9 @@ workshops = [
         "description": "How to wind down research and software projects, either deliberately or on short notice.",
     },
     {
-        "title": "Managing Research Software Projects",
-        "url": "@root/mrsp",
-        "description": "Ideas and tools you need to manage a team of research software developers.",
+        "title": "Teaching Tech Together",
+        "url": "@root/t3",
+        "description": "A one-day introduction to modern teaching practices for programmers and data scientists.",
     },
     {
         "title": "Introduction to SQL",
@@ -134,6 +134,11 @@ beta = [
         "url": "@root/notwrong",
         "description": "What software engineers need to understand to tell good studies from bad ones.",
         "beta": True,
+    },
+    {
+        "title": "Managing Research Software Projects",
+        "url": "@root/mrsp",
+        "description": "Ideas and tools you need to manage a team of research software developers.",
     },
     {
         "title": "Distributed Systems Design by Example",
