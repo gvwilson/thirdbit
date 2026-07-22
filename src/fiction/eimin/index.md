@@ -1930,7 +1930,42 @@ so that I could scrub my face without getting more dirt on it.
 Suresh just knelt on the pool's edge
 so that he could dip his whole face in the water.
 
-Our second stop was up a flight of stairs,
+As he did so,
+something slipped out of his deel
+and hung below his neck on a braided cord.
+As if in answer,
+the waterstone embedded in the floor of the pool began to glow—or rather,
+to do something that would be called glowing if it was actually light.
+I don't know how else to describe it
+except to say that it somehow became more real.
+
+I have seen drawings since then of such things.
+The only way the artist can convey the sense of it
+is to make everything else slightly blurry.
+That is no more the truth than drawing wavy lines in the air is truly the wind,
+but after trying for years,
+I have come up with nothing better.
+
+When Suresh saw what was happening
+he stood and tucked the small charm back inside his deel.
+"That looks like more than just a couple of little tricks,"
+I said skeptically.
+
+He spread his hands apologetically.
+"I'm sorry.
+I wish I knew more.
+I wish I could *do* more,
+but I'm still trying to figure out what it can do and how it works."
+
+Razi and the Other Hand,
+Kirash working with the bandits,
+Suresh and his magic—I was starting to wonder
+if I was the only one who wasn't hiding a secret.
+Saying that out loud would have sounded petulant,
+though,
+so instead I just told Suresh to follow me.
+
+Our next stop was up a flight of stairs,
 down a long corridor with empty windows every few strides,
 and up another, narrower set of stairs.
 Suresh followed me without question,
