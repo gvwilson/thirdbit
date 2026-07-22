@@ -200,7 +200,6 @@ template: page
 | A World Appears | Michael Pollan | 979-8217294534 | 2026 |
 | A Trade of Blood | Robert Jackson Bennett | 978-0593723852 | 2026 |
 | A Secret of Birds & Bone | Kiran Millwood Hargrave | 978-1913322960 | 2026 |
-| A Land So Wide | Erin A. Craig | 978-0593686812 | 2026 |
 | Hello, World! | Dale Biagio | 979-8995072102 | 2026 |
 | The Wall Dancers | Yi-Ling Liu | 978-0593491850 | 2026 |
 | Techno-Negative | Thomas Dekeyser | 978-1517917739 | 2026 |
@@ -208,9 +207,7 @@ template: page
 | Both Your Houses | Emmet O'Brien |  | 2026 |
 | Lex Talionis | R.S.A. Garcia | 978-1940076126 | 2014 |
 | The Uses of Utopia | Joad Raymond Wren | 978-0241761083 | 2026 |
-| Heaven's Graveyard | Grace Curtis | 978-0756419844 | 2026 |
 | Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
-| Radiant Star | Ann Leckie | 978-0316290357 | 2026 |
 | Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |
 | The Tinder Box | M.R. Carey | 978-0316595490 | 2026 |
 | Auntie Heroes | Rita Beeman | 979-8257583667 | 2026 |
@@ -220,3 +217,4 @@ template: page
 | Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |
 | The Common Good Economy | Mariana Mazzucato | 978-1541609341 | 2026 |
 | Up All Night | Imogen Willetts | 978-0802167392 | 2026 |
+| Psychology of Great Teaching | Pedro de Bruyckere | 978-1529767506 | 2022 |
