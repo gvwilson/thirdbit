@@ -900,6 +900,8 @@ he raised his voice.
 The brawny young man I took to the be the lead carter's son ambled over.
 
 The man in the yellow turban turned back to me.
+He was younger than I had thought,
+perhaps three or four years older than me.
 "Here is Suresh ul-Ossisswe," he said, raising his palms.
 
 I raised mine.
@@ -1968,9 +1970,12 @@ so instead I just told Suresh to follow me.
 Our next stop was up a flight of stairs,
 down a long corridor with empty windows every few strides,
 and up another, narrower set of stairs.
+Music played softly around us.
+The sound came from nowhere in particular,
+never repeating itself but never quite reaching an end.
+
 Suresh followed me without question,
 and seem unsurprised when I pulled a traveling back from behind a stone bench.
-
 "Razi's?" he asked,
 jerking his chin at it.
 
@@ -2026,32 +2031,346 @@ If so,
 perhaps I should be following *him*.
 
 I shook my head.
-"There's a Gifted cactuspecker who carries messages sometimes,
+"There's a Gifted sand crow who carries messages sometimes,
 but we only see her in caravan season,
 and anyway,
 she wouldn't be out in this."
 
-"So we're on our own."
-For a moment I thought I heard relief in his voice.
-He must have caught my look,
-because he hastily added,
-"At least that means there probably aren't more bandits on their way.
-How about—"
+"So we're on our own.
+What about—"
 
 "Sh!"
 I raised my hand to cut him off.
-A moment later I heard the voice again.
+A moment later I heard the voice again over the ever-present music.
 
 Suresh heard it to.
 He pointed back down the stairs,
 then made a walking motion with two fingers.
-I nodded and drew my sword as quietly as I could.
-"Wait," he whispered,
+I nodded and drew my sword.
+"Hey," he whispered,
 jerking his chin at my leg.
 
 I hesitated a moment,
-then drew the knife and handed it to him.
+then pulled the knife from its sheath and handed it to him.
 "Thank you," he mouthed silently.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 9
+
+I tucked the pack back under the bench
+and eased down the stairs one soft step at a time.
+Suresh followed silently.
+The corridor was empty,
+but as we reached its midpoint the conversation ahead of us suddenly stopped.
+I swallowed a curse and broke into a run,
+taking the steps of the lower staircase three at a time.
+
+I was half a dozen long strides into the room at the bottom
+when a familiar voice said,
+"Eimin!"
+I pulled up short,
+then stumbled as Suresh plowed into me.
+
+Hediyeh, Layla, and Mureya stood in a tight knot,
+clutching each other.
+Hediyeh glared at me.
+"You *scared* us!
+What are you doing here?"
+
+I felt foolish,
+more so for knowing they could *drome* it,
+but not enough to sheathe my sword.
+"What are *you* doing here?"
+I demanded in echo.
+
+"We were picking lemons."
+"We were avoiding chores."
+Hediyeh turned her glare on Layla,
+who muttered, "What?"
+
+"We were in the lemon grove when the storm came up,"
+Hediyeh amended.
+"We *dromed* you come in, but—"
+She glanced at Mureya.
+
+"But then I *dromed* something else,"
+Mureya said reluctantly.
+"It scared me."
+
+I looked at them for a heartbeat.
+Mureya had always been more sensitive than most people,
+which was one of the reasons people found it odd that
+she was sweet on Jephel.
+(To be honest,
+I found the thought of *anyone* being sweet on Jephel odd.)
+
+"Can you still *drome* it?" I asked.
+When she shook her head,
+I slid my sword back into its sheath.
+The music,
+the waterstone,
+the mosaics that were different each time people visited
+but never changed when someone was looking at them—she
+could have *dromed* any of those or something else entirely.
+As long as it wasn't the lion and her bandits,
+it could wait.
+
+"Are any of you hurt?"
+Suresh asked.
+"Or hungry?"
+He fished a packet out of a pocket in his deel
+and unwrapped it to reveal some crushed triangles of baklava.
+"I'm sorry, it's not much."
+
+"Oh, you're a saint,"
+Hediyeh exclaimed.
+Suresh grinned as the girls took a piece each,
+then offered the last one to me.
+When I shook my head he shrugged and popped it in his own mouth.
+
+"So what *are* you doing here?"
+Layla asked as she chewed.
+"And why…"
+She gestured at the sword hanging from my hip.
+
+"The bandits are back,"
+Suresh said.
+"They're working with the caravaneers,
+and they've taken some of your people prisoner."
+
+"Kirash is working with them too,"
+I added.
+
+The girls' eyes widened,
+and Mureya's hands flew to her mouth.
+"Jephel?"
+
+"He's all right,"
+Suresh reassured her.
+"I think everyone is except Razi and Yassin."
+
+*But for how long?* I wondered.
+What I said out loud was,
+"They're probably already looking for us.
+We need to find a better place to hide."
+
+"What good will that do?"
+Hediyeh asked,
+brushing crumbs off her fingers.
+
+"Don't,"
+I said automatically,
+adding,
+"You're leaving a trail,"
+when she frowned at me.
+
+"And wasting food,"
+Suresh said.
+Where I had sounded like I was scolding her,
+he made it sound like he was paying her a compliment.
+Judging from her smile,
+and from simpering looks Layla and Mureya gave her,
+that was how she took it.
+
+"Come on,"
+I said roughly.
+"If nothing else,
+at least there might be better music."
+
+The Pilots' palace was as large as any twenty houses in Medef,
+and three stories tall.
+There were basements,
+too,
+which were cool even in summer but smelled slightly stale.
+
+My *uppa* and I had explored some of them once.
+One of the few clear memories I had of him was
+holding his hand as tightly as I could and saying,
+"No, I'm not,"
+when he asked me if I was scared.
+I knew he could *drome* I was lying,
+but I wanted so much to be brave.
+He smiled at me,
+put our little dayglass lantern on the floor,
+and said, "Look."
+A cat, a bird, something that he laughingly told me was supposed to be a camel—the
+shadows danced across the wall as he made shapes with his hands.
+
+I didn't take them there.
+That was my place,
+not theirs,
+and anyway,
+we didn't have a lantern.
+Instead,
+I led them to the statue garden in one of the rear courtyards.
+It was roofless,
+but the high walls sheltered it from the wind-blown sand.
+
+Layla and Mureya walked behind me in silence.
+Hediyeh and Suresh followed them,
+talking too quietly for me to catch their words.
+Suresh chuckled occasionally,
+and at one point Hediyeh burst into laughter.
+When I turned to glare at them
+Suresh spread his hands apologetically,
+a smile on his face,
+and Hediyeh just sniffed.
+
+The girls gasped when we entered the statue garden,
+and Suresh said, "Oh my."
+Statues of not-quite-people stood alone or in groups of two and three,
+as if they had been turned to stone
+at the same moment that Lake Karaband had been turned into the Sea of Glass.
+There was a lion wearing spectacles,
+and something that looked like a windmill with arms and legs.
+Sand lay in small piles against their feet,
+and if I ran my hands over them they would feel gritty,
+but they could have been made yesterday.
+
+I pointed at the archway opposite the one we had just come through.
+"There's a garden through there.
+Just a few trees,
+but the shade's nice."
+
+"Does anyone tend it?"
+Suresh asked.
+The look on his face told me more clearly than words
+just how much he wanted to sketch what he was seeing.
+I imagined I'd had the same look on my first visit.
+
+I shrugged.
+"Ghosts, maybe?"
+Layla's eyes widened.
+She whispered something in Mureya's ear.
+Mureya shook her head.
+
+"There aren't any ghosts here,"
+Hediyeh told them scornfully.
+"People would have told us."
+
+Which was Suresh's cue to cry out,
+because the statue nearest him had just turned its head to look at him.
+
+The girls shrieked.
+I drew my sword.
+Suresh's hand flew to the neck of his deel.
+A second statue moved,
+then a third,
+all of them toward Suresh.
+
+I stepped between them and the girls,
+raising my sword.
+"I don't think that's going to do any good,"
+Suresh said.
+
+"Do you have a better plan?" I demanded
+as the lion raised a forepaw off the floor.
+
+"*La*,
+I suggest we go back the way we came."
+He pulled on Hediyeh's sleeve.
+"Come on."
+
+But the girls seemed frozen.
+Mureya was the worst.
+She looked as though she wanted to throw up but was too afraid to.
+The only time I had seen anyone like this
+was when a caravaneer slaughtered a goat in the posting yard.
+Everyone nearby had *dromed* its panic
+as its life bled out onto the sand.
+No one had thrown up,
+but a few people had passed out,
+and the rest could barely speak for an hour.
+
+Razi used to say that the best way to solve a problem is to solve the problem.
+I shoved my sword back into its sheath,
+picked Mureya up,
+put her over my shoulder,
+and trotted back to the corridor we had come through.
+
+Whatever she was *droming* was so overwhelming that
+she didn't protest until we were almost there.
+I put her on her feet in the archway and turned to get Layla.
+
+Suresh was ahead of me.
+He had grabbed one of her hands and one of Hediyeh's
+and yanked them forward.
+That was enough to pull them back into the world.
+They ran clumsily beside him,
+their hands still in his.
+"Go!" I shouted needlessly,
+dodging out of their way and drawing my sword.
+
+There was no need.
+As soon as they were out of the courtyard the statues stopped moving.
+The only signs of their brief animation were a few scuff marks in the wind-blown sand.
+
+I backed up until I was with the others.
+"*La*, so not the garden?" Suresh panted.
+
+I was in no mood for jokes.
+"What did you do?" I demanded angrily.
+
+"Me?"
+He seemed genuinely startled.
+"I didn't do that!"
+
+"Well, they've never moved before."
+I suddenly realized I was still holding my sword.
+I sheathed it more forcefully than was necessary
+and then jerked my chin at him.
+"What *is* that?"
+
+His arm twitched as he stopped himself from reaching for the neck of his deel.
+"I don't know."
+He glanced at Hediyeh.
+"Tell him.
+Tell him I didn't know that was going to happen."
+
+"He's telling the truth," she said immediately.
+
+I studied him a moment longer before giving him a grudging nod.
+"Why don't we find somewhere on the upper levels?"
+he suggested.
+"If the bandits do come,
+we might be able to see them from there."
+
+The girls led the way this time in a tight cluster,
+crowded together like goats that have been startled.
+Suresh slowed his steps to let them get out of earshot.
+"I'm sorry," he said.
+"I truly had no idea anything like that would happen.
+I didn't know it *could*."
+
+I shrugged uncomfortably.
+I wasn't used to people apologizing to me.
+"At least no one was hurt.
+And taste the sweet side,
+you got to hold Hediyeh's hand."
+
+He blinked at me.
+"Are you—I'm sorry, are you two…?"
+
+"What? No!"
+I made a sign against bad luck,
+which made him snort.
+"Why would you think that?"
+
+"Well, she's obviously interested in you," he said
+in a reasonable tone completely at odds with the madness of his words.
+
+After all these years,
+I honestly still don't know how I would have replied to that.
+Luckily,
+I didn't have to.
+Two dozen strides ahead of us,
+Mureya froze,
+then gasped.
+"They're here!" she squeaked.
+"The bandits—they're here!"
 
 </section>
 
