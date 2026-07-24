@@ -2369,8 +2369,292 @@ I didn't have to.
 Two dozen strides ahead of us,
 Mureya froze,
 then gasped.
-"They're here!" she squeaked.
-"The bandits—they're here!"
+"The bandits!" she squeaked.
+"They're here!"
+
+</section>
+
+<section markdown="1">
+
+## Chapter 10
+
+The Pilots' palace was as large as any twenty houses in Medef,
+but all of a sudden that felt very small.
+We could hide in a basement,
+but sitting in the dark waiting to be found felt like a bad plan.
+The same held for the chambers upstairs:
+some were tucked out of the way,
+but they only had one way in or out,
+and I knew what Razi would say if I let us be cornered.
+
+"Can you *drome* where they are?"
+Suresh asked Mureya.
+She nodded,
+clearly frightened,
+and pointed.
+
+"And how many there are?"
+
+"T-two."
+
+"Are you sure?" he pressed.
+
+"If she says there's two, there's two,"
+Hediyeh said firmly,
+taking her friend's hand.
+
+Suresh nodded and looked at me.
+"Have you ever played blind man's donkey?"
+
+I got everyone to take off their sandals.
+Bare feet wouldn't be any quieter than woven rope,
+but they would step more gingerly.
+After that,
+it was like a game of chess.
+Mureya pointed each time they moved.
+When they advanced,
+I took us down a side passage
+so that we could circle back behind them.
+When they doubled back so did we.
+Under other circumstances I would have enjoyed
+being on the same side as the girls
+instead of being their target.
+
+I don't know how long we tiptoed through empty rooms
+and down musical corridors
+before Mureya stopped short.
+"They've split up," she whispered.
+"I can't tell where they are now."
+
+"You did really well,"
+Suresh whispered back,
+giving her a smile.
+He turned to me and jerked his chin at my sword.
+"Time to be hawks instead of hares?"
+
+"Help!"
+Hediyeh's voice echoed through the hallway.
+"She's hurt!
+Somebody, please, help!"
+
+A moment later boots thudded on the stairs behind me.
+"Help!" Hediyeh called again.
+I took a breath,
+hefted my sheathed sword,
+and swung as hard as I could when she shouted, "Now!"
+
+My blow caught the bandit right on the bridge of his nose.
+I heard bone and cartilage crunch.
+I still do, sometimes, in my dreams.
+His feet went one way,
+his body went another,
+and he hit the floor like a dropped sandbag.
+
+Suresh was on him immediately,
+twisting the bandit's arms behind his back
+and tying his wrists with a drawstring he had cut out of his deel.
+"Sh, sh, sh," Suresh said,
+pressing the blade of my knife against the bandit's throat
+as the man began to struggle.
+
+I was already running,
+drawing my sword and tossing the scabbard aside.
+Layla and Mureya were clutching each other,
+and I had just a moment to wonder what they had *dromed*
+when I broke the bandit's nose
+before the other bandit came around the corner.
+
+He yelled and swung his cudgel.
+My parry send a shock up my arm.
+I cut at him,
+forcing him back,
+then knocked another blow aside and lunged.
+
+My sword sliced across his ribs.
+I ducked a final awkward swipe of his cudgel,
+and then he kicked me in the crotch,
+turned,
+and fled.
+My first real fight with another person had lasted half a dozen heartbeats
+and left me doubled over in agony.
+
+"Why did you let him get away?"
+Hediyeh demanded.
+Layla and Mureya looked queasy from either the first bandit's pain
+or the general excitement,
+but she looked cross.
+
+I gave her a sour look.
+"You could… go after him…"
+His kick hadn't landed squarely,
+but it *had* landed.
+
+"He'll be back,"
+Suresh said,
+hauling the first bandit to his feet.
+Blood from his nose had pooled on the floor
+and was making a sticky mess of his beard.
+"And he'll bring friends.
+Next time, finish him."
+
+I opened my mouth to ask if he wanted to be the one with the sword next time,
+then closed it without speaking.
+My plums ached,
+I was thirsty,
+and yes,
+the bandit who had just run off would be back soon with others.
+Apparently,
+being a hero wasn't as much fun in real life as it was in stories.
+
+Suresh dragged our prisoner over to one of the stone benches that stood against the wall
+and pushed him onto it.
+"I'm going to ask you some questions,"
+he said,
+"And you're going to give me some answers.
+Uh uh, none of that."
+He put his knife against the bandit's throat again
+as the man made a *hrrk* sound in his throat
+as if preparing to spit.
+
+Suresh beckoned Hediyeh over without taking his eyes off the bandit.
+"She's going to tell me if you're telling the truth or not.
+Do you understand?
+If you lie…"
+The bandit tried to pull his head back as Suresh put pressure on the knife.
+
+"Do you understand?"
+Suresh repeated.
+
+"Yes," the bandit croaked.
+
+"Good.
+Now, how many of you are there?"
+
+Despite the blade at his neck,
+the bandit (whose name I never learned) did try to lie a couple of times.
+When Hediyeh shook her head,
+Suresh gave him a little nick.
+Mureya made a retching sound the first time it happened.
+Layla gave Suresh a look as sharp as my knife
+as she led her friend away.
+
+How many bandits?
+Six, plus the lion.
+Did that include the ones who had been part of the caravan?
+Yes—only Balwir and Dudir were part of the crew.
+And what were they after?
+Medef didn't have any treasure,
+and there wasn't another caravan due for at least a couple of months.
+
+"I don't know,"
+the bandit said.
+That earned him another nick.
+"Truly!
+Eats told us there'd be good coin for th' job.
+That's all as I know."
+
+"How long has Kirash been working with you?"
+I asked.
+
+"The Aphsi?
+Didn't know he was 'til we got here."
+Hediyeh nodded to me.
+
+"So he didn't tell you about the statues?"
+I saw Suresh's eyebrows go up out of the corner of my eye.
+"No?
+All right, here's what we're going to do.
+We're going to take you down the hall to a special room.
+You're going to stand there while my friend here draws a circle around you,
+and then I'm going to say a few words.
+If you stay inside the circle until sundown, you'll be fine.
+But if you step out…"
+I crossed my arms.
+
+Eyes wide,
+he looked from me to Suresh and back.
+"You can't do that.
+You're Aphsi!
+You can't do magic."
+
+I uncrossed my arms,
+put a hand on his shoulder,
+and leaned over to whisper in his ear.
+"If I was Aphsi,
+could I have bust up your nose and cut up your friend?
+Hm?
+Now,
+on your feet."
+
+I pulled him up and shoved him in the direction of the statue garden.
+I had just a heartbeat to realize that he had freed his hands from
+the drawstring Suresh had tied around his wrists
+before he lunged at Hediyeh.
+
+She shrieked as he grabbed her and spun her around.
+"Sh, sh, sh," he said,
+pressing a blade no longer than his thumb against her throat.
+"How's about you an' your friend put down your steel
+so I don't have t' make a mess here?
+That's good, that's good.
+Now kick 'em over under th' bench.
+Aright,
+now both o' you get down.
+No,
+not just your knees,
+all th' way down.
+Faces on th' floor,
+hands behind your heads."
+
+Cursing in my head for missing his tuck knife,
+I started to obey,
+only to freeze when Suresh said, "No."
+
+Hediyeh gave a little gasp.
+I didn't see what the bandit did to cause it,
+but her eyes were wide with fright.
+"You sure 'bout that?" the bandit asked.
+
+Suresh put his hand to his collar.
+"You're going to be all right," he told Hediyeh calmly.
+"You're going to go home and sleep in your own bed tonight,
+and tomorrow this will just be something that happened yesterday."
+
+"You're pretty sure o' yourself for a man kneelin' on the floor,"
+the bandit sneered.
+"Now get all th' way down or I'm gonna—"
+
+I never found out what he was going to do, either.
+One moment he was glaring at us,
+his bloody face next to Hediyeh's frightened one.
+The next he collapsed like a puppet whose strings had been cut.
+His head hit the stone with a *crack*.
+
+Suresh surged to his feet and wrapped his arms around Hediyeh.
+"You're all right, you're all right," he repeated as she started crying.
+"It's over."
+
+As her tremors subsided he turned to me.
+"Get the others.
+We need to get out of here."
+
+I nodded jerkily.
+The thing around his neck was glowing again.
+I crouched down and pressed two fingers against the bandit's neck.
+His pulse was fast,
+and his breath came in labored gasps.
+
+"Don't worry about him,"
+Suresh said roughly.
+
+I straightened up.
+"A couple of little tricks?"
+
+He winced as if the question had been a blow.
+"Maybe more than a couple," he admitted.
+"I'll explain later, I promise.
+Right now,
+we need to get out of here."
 
 </section>
 
