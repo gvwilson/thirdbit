@@ -131,8 +131,26 @@ because of the protocol's resilience.</p>
 <li>Document these to record the project's actual state
     and to avoid passing silent assumptions to anyone who inherits the work</li>
 </ul>
-<section class="exercise">
 <h2>Exercises</h2>
+<section class="exercise">
+<h3>Downstream Impact</h3>
+<ol>
+<li>Map your project's downstream dependencies,
+    i.e.,
+    the other projects, tools, services, or workflows that depend on yours.
+    Include both declared dependencies (packages that list you as a requirement)
+    and undeclared ones (researchers who download your data,
+    instructors who use your tutorials,
+    and community groups that rely on your infrastructure).</li>
+<li>Categorize each dependent by impact severity if your project disappeared tomorrow:
+    critical (their work stops),
+    significant (their work is impaired),
+    or minor (an inconvenience).</li>
+<li>Prioritize your notification list and draft a one-sentence message tailored to each category.
+    What lead time does each group need, and what alternatives can you point them to?</li>
+</ol>
+</section>
+<section class="exercise">
 <h3>Write a Last Known Good State Document</h3>
 <p>Each participant drafts a one-page "last known good state" document for their own project
 (or for Vaida's erosion data project if they prefer not to use their own):</p>
@@ -144,21 +162,19 @@ because of the protocol's resilience.</p>
 <li>What are the most important things a successor would need to know?</li>
 </ol>
 <p>Compare drafts in groups of three: what did others ask about that you had not thought to include?</p>
+</section>
+<section class="exercise">
 <h2>Normalized Deviations List</h2>
 <p>Work individually for ten minutes, then debrief in groups:</p>
 <ol>
-<li>
-<p>Write down three things in your project that everyone on the team knows are wrong
+<li>Write down three things in your project that everyone on the team knows are wrong
     but that you have all learned to live with
     (e.g., a dependency nobody wants to touch
-    or a process that only works because one person knows the trick).</p>
-</li>
-<li>
-<p>For each item, explain whether you would
+    or a process that only works because one person knows the trick).</li>
+<li>For each item, explain whether you would
     document it honestly in the last known good state document,
     fix it before shutdown,
-    or leave it undocumented?</p>
-</li>
+    or leave it undocumented?</li>
 </ol>
 <p>Which items were hardest to decide about?
 What did you want to hide, and why?
