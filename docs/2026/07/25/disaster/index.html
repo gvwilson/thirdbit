@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: Disasters for Small Teams</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>Disasters for Small Teams</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/07/21/respect/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-07-21" class="post-date">2026-07-21</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>This post is a short guide to disaster planning and recovery
+for organizations whose &ldquo;IT department&rdquo; fits around a single table,
+such as a small company or a research software team.
+The recommendations assume you are doing everything yourself,
+on top of your day job,
+and that a single person&rsquo;s absence can leave a critical gap.</p>
+<p>The goal is not a perfect plan.
+The goal is a plan that works well enough for you to survive the worst day of your team&rsquo;s existence,
+written by people who have a dozen other things to do.
+Keep it short,
+keep it tested,
+and keep it alive.</p>
+<h2>Risk Assessment and Impact Analysis</h2>
+<ul>
+<li>Make a simple list of every service your team depends on to function:
+    source control (GitHub/GitLab), email, chat, CI/CD,
+    your production application, your database, your domain registrar,
+    your cloud provider, and the laptops your team codes on.
+    If you are a research team, add your data repository,
+    your grant-management portal,
+    and any shared lab instrument controllers.</li>
+<li>For each service, answer two questions and write the answers in a shared document:<ol>
+<li>How long can we be without it before work stops dead?
+    This is your Recovery Time Objective (RTO).</li>
+<li>How much data can we afford to lose: the last hour&rsquo;s? The last day&rsquo;s? A week&rsquo;s?
+    This is your Recovery Point Objective (RPO).</li>
+</ol>
+</li>
+<li>Identify the single points of failure that are within your control.
+    Common ones in a small team are:<ul>
+<li>the one person who knows the deployment process</li>
+<li>the one credit card that pays for all the cloud services</li>
+<li>the one SSH key that can access production</li>
+<li>one laptop that holds the only copy of the code-signing certificate</li>
+</ul>
+</li>
+<li>List every external service you cannot control and ask what happens if it disappears.<ul>
+<li>If GitHub is down for a day, can you still ship?</li>
+<li>If your cloud provider suspends your account by mistake,
+    do you have a recent database dump outside that provider?</li>
+<li>If your domain registrar is compromised, how quickly can you point DNS somewhere else?</li>
+</ul>
+</li>
+<li>For a small team, the most realistic threat scenarios are listed below.
+    Plan for these specifically before worrying about floods or fires.<ul>
+<li>A laptop is stolen or dies</li>
+<li>A team member leaves suddenly and takes the only knowledge of something with them</li>
+<li>A SaaS provider locks you out or goes out of business</li>
+<li>A ransomware attack encrypts your shared files</li>
+<li>A mistaken <code>DROP TABLE</code> or <code>rm -rf</code> wipes something important</li>
+</ul>
+</li>
+<li>Revisit this list whenever there&rsquo;s a new dependency,
+    a new team member,
+    or a new project.
+    For a team of this size,
+    this should take thirty minutes over coffee once a quarter.</li>
+</ul>
+<h2>Planning and Governance</h2>
+<ul>
+<li>You do not need a steering committee.
+    You need one person (probably you) who has authority to declare &ldquo;this is a disaster&rdquo;
+    and who knows where the recovery checklist lives.
+    Make sure you have an alternate in case that person is the one who has lost their laptop.</li>
+<li>Write the plan in a single <em>shared</em> document.
+    It doesn&rsquo;t need to be signed off by anyone,
+    but everyone on the team needs to be able to find it in thirty seconds or less.
+    Put the link in your team chat&rsquo;s pinned messages and
+    (if you have a physical office)
+    tape it to the fridge.</li>
+<li>State the disaster-declaration criteria in plain language,
+    such as,
+    &ldquo;we haven&rsquo;t been able to deploy for more than two hours&rdquo;,
+    &ldquo;our site is 404&rsquo;ing for more than 10% of users&rdquo;,
+    &ldquo;the production database is unreachable&rdquo;,
+    or,
+    &ldquo;we have confirmed ransomware encryption on a shared drive&rdquo;.</li>
+<li>The recovery checklist should be a numbered point-form list of concrete actions.
+    If a step requires a command that only one person knows,
+    you have a bus-factor problem:
+    fix it <em>before</em> you need the checklist.
+    For example:<ol>
+<li>Send a message to #incidents in Slack.</li>
+<li>SSH into the database host.</li>
+<li>Run <code>./restore-db.sh prod 2026-07-25</code>.</li>
+<li>Verify the health-check endpoint returns 200.</li>
+</ol>
+</li>
+<li>Store the plan in at least two places that cannot fail simultaneously,
+    e.g.,
+    the shared team drive plus a printed copy in a desk drawer
+    or a PDF on a personal phone.
+    If the plan lives only on GitHub and GitHub is down,
+    you effectively have no plan.</li>
+<li>At this scale, every team member is part of the recovery team.
+    Make sure everyone has read the plan at least once
+    and knows their first action if a disaster is declared.</li>
+</ul>
+<h2>Communication and Notification</h2>
+<ul>
+<li>Maintain a single out-of-band communication channel
+    that does not depend on your normal infrastructure.
+    For example,
+    if you use Slack,
+    agree <em>in advance</em> on the Signal group or plain old phone tree
+    that you will use if Slack goes down.
+    Make sure the fallback is written in your plan.</li>
+<li>Keep a printed (or phone-screenshot) contact list
+    with every team member&rsquo;s mobile number and a personal email address.
+    As with the plan itself,
+    do not store this only in a shared drive:
+    it may be part of the outage.</li>
+<li>Pre-write three messages and store them with the plan
+    (because copying and pasting is faster than composing under stress):<ol>
+<li>One for the team:
+    &ldquo;This is a declared incident: meet in the Signal group&rdquo;.</li>
+<li>One for users or stakeholders
+    &ldquo;We are investigating an outage and will update you within 60 minutes&rdquo;.</li>
+<li>One for after recovery
+    &ldquo;Service is restored: this is what happened and what we are doing to prevent recurrence&rdquo;.</li>
+</ol>
+</li>
+<li>If you have customers, users, or a PI who needs to know what&rsquo;s going on,
+    designate one person as the communicator
+    so that everyone else can focus on fixing the problem.
+    That person does not need to be technical:
+    they need to be calm and reliable.</li>
+<li>Silence erodes trust faster than bad news,
+    so update stakeholders at regular intervals
+    (e.g., every 60 minutes or at 10:00 am and 3:00 pm)
+    even if the update is &ldquo;still working on it&rdquo;.</li>
+</ul>
+<h2>Testing and Exercises</h2>
+<ul>
+<li>An hour-long walkthrough is the best (or only) way
+    to test your plan.
+    Once a quarter, gather the team and talk through a scenario:
+    &ldquo;It&rsquo;s Tuesday morning and the production database is refusing connections.
+    What do we do?&rdquo;
+    Walk through the checklist step by step and fix anything that is missing,
+    wrong,
+    or stale right there and then.</li>
+<li>Test a single critical piece every quarter.
+    Don&rsquo;t try to test everything: you don&rsquo;t have the time or resources.
+    Instead, pick the thing that scares you most.
+    For example,
+    if you have never actually restored the database from a backup, do that.</li>
+<li>Time every test and compare against your RTO.
+    If restoring the database takes four hours but your RTO is two hours,
+    you must either fix the former or adjust the latter.</li>
+<li>The cheapest and most revealing test for a small team
+    is to hand the recovery checklist to the newest team member,
+    give them credentials to a sandbox environment,
+    and ask them to execute it without help.
+    Every point where they get stuck is a documentation or automation gap.</li>
+<li>After any real incident,
+    write down what happened, what worked, what did not,
+    and one thing you will change before the end of the month.
+    Share your notes with the team.</li>
+</ul>
+<h2>Backup and Recovery Strategy</h2>
+<ul>
+<li>Back up your knowledge:
+    for every critical process,
+    maintain a README that another team member could follow.
+    The test is: if Alice wins the lottery and moves to Bali tomorrow,
+    can the rest of the team keep things running?
+    This is the hardest task by far,
+    because Alice probably doesn&rsquo;t recognize all the things she does
+    that no one else knows how to do,
+    and no one else does either because they aren&rsquo;t doing them.</li>
+<li>Follow the 3-2-1 rule:
+    three copies of every critical dataset,
+    on two different types of media,
+    with one copy off-site.
+    For a small team this usually means the live production data,
+    an automated nightly backup to the cloud,
+    and a weekly manual download to drive stored in someone&rsquo;s home
+    (<em>not</em> the office).</li>
+<li>Automate database backups with a script that runs nightly,
+    names the backup file with the date,
+    and uploads it to cloud storage.
+    If you have to remember to run it, it will not get run.</li>
+<li>Test a full restore from backup at least once a year.
+    (Anecdotally, about a third of backups fail to restore completely.)</li>
+<li>Back up your source code repositories.
+    GitHub is becoming less and less reliable,
+    and every service is subject to account bans or billing failures.
+    Run a weekly script that clones or mirrors every critical repository to a different provider,
+    or at minimum to a machine you own that is <em>not</em> in your office.</li>
+<li>Back up your configuration,
+    such DNS records, environment variables, and CI/CD pipeline definitions.
+    These are small in size but catastrophic to reconstruct from memory
+    (and no, AI can&rsquo;t presently do it for you).
+    A single file YAML export once a week, stored alongside your code backups, is sufficient.</li>
+</ul>
+<h2>Infrastructure Resilience</h2>
+<ul>
+<li>Use infrastructure-as-code for everything you can.
+    A well-commented shell script that calls your cloud provider&rsquo;s CLI
+    is infinitely better than clicking through a web console to recreate resources.
+    Store the code in version control and mirror it somewhere safe.</li>
+<li>Register your domain with a registrar that supports two-factor authentication
+    and lock your domain against transfers.
+    Enable auto-renewal on every domain and every TLS certificate.
+    Set a calendar reminder to check that auto-renewal is still working once a quarter.</li>
+<li>Make sure at least two people have critical administrative credentials,
+    such the cloud root account,
+    the domain registrar login,
+    and the payment method for infrastructure,
+    and make sure they <em>aren&rsquo;t</em> tied to a single phone number or email address.</li>
+<li>For on-premises equipment like a lab server or a NAS,
+    buy a cheap UPS and configure it to trigger a clean shutdown when battery reaches 20%.
+    Replace the UPS battery every three years:
+    they have a tendency to degrade silently.</li>
+<li>For advanced teams:
+    if your application runs in the cloud,
+    configure it to run across at least two availability zones (AZs) within a single region.
+    This protects against a single-zone outage
+    (the most common cloud failure mode)
+    without the cost and complexity of multi-region hosting.</li>
+<li>Think about using managed databases with automated daily snapshots
+    and point-in-time recovery enabled.
+    They cost more than running your own PostgreSQL on an EC2 instance,
+    but they are also more likely to still be running when you wake up in the morning.
+    On the other hand,
+    they make you dependent on yet another cloud service.</li>
+</ul>
+<h2>Cybersecurity and Ransomware Preparedness</h2>
+<ul>
+<li>Enable multi-factor authentication (MFA) on every account that supports it.
+    SMS-based MFA is better than no MFA,
+    but an authenticator app (or passkey) is better than SMS.
+    For small teams,
+    this is the highest-impact security measure you can take.</li>
+<li>Use a password manager (1Password, Bitwarden, or similar) for the whole team.
+    Every shared credential goes in the password manager:
+    no one shares passwords over chat or email.
+    Print the password manager&rsquo;s recovery code and store it somewhere physically safe,
+    because if you lose access to the password manager you lose access to everything.</li>
+<li>Keep your laptops and servers patched.
+    Enable automatic updates for operating systems, browsers, and any server-side package manager.
+    The inconvenience of an unexpected reboot is less than the inconvenience of ransomware.</li>
+<li>Make a simple, explicit policy about where data lives,
+    such as 
+    &ldquo;production data never leaves the production environment&rdquo;,
+    &ldquo;patient data is never copied to a personal laptop&rdquo;,
+    or &ldquo;database dumps are encrypted at rest&rdquo;.
+    If your policy won&rsquo;t fit comfortably on a single page in an 11-point font,
+    rewrite it until it does.</li>
+<li>Prepare a short, written response for ransomware.
+    If someone on the team sees a ransom note on a shared drive,
+    their first action is to
+    physically disconnect the affected machine from the network
+    and then call the designated incident lead.
+    Do not try to negotiate or pay without consulting legal counsel:
+    most jurisdictions have regulations about ransomware payments.</li>
+<li>If you can,
+    segment your network,
+    e.g.,
+    put backup storage on a separate cloud account
+    with credentials that are not stored on any production server.
+    If an attacker compromises your application server,
+    they should not get your backups as well.</li>
+<li>For a research team handling sensitive data,
+    check whether your institution has a security office that offers free consultation.
+    You may have obligations you are not aware of
+    under HIPAA, GDPR, or your funder&rsquo;s data-management plan.</li>
+</ul>
+<h2>Incident Response</h2>
+<ul>
+<li>Stabilize first, investigate later:
+    your first goal when something breaks is to contain the damage,
+    not to find the root cause.</li>
+<li>Assign clear roles for the duration of the incident:
+    one person leads the technical response,
+    one person handles communication,
+    everyone else does what the leads tell them to.</li>
+<li>Create an incident log <em>as you work</em>:
+    a shared Google Doc or a thread in your out-of-band chat is good enough.
+    Timestamp every significant action,
+    e.g.,
+    &ldquo;14:32: noticed database unreachable&rdquo;,
+    &ldquo;14:35: attempted restart.
+    The log keeps the team in sync and gives you a record for the post-incident review.</li>
+<li>Escalate early.
+    If you are on a cloud provider&rsquo;s support plan,
+    open a ticket the moment you suspect the problem is on their side.
+    You can close it if you fix things yourself;
+    you cannot get back the two hours something outside your control.</li>
+<li>Conduct a review within 48 hours of the incident.
+    The goal is to identify what in the system allowed the incident to happen,
+    not who made a mistake.
+    Write down one concrete action item and assign it to one person with a deadline.
+    (It helps to have someone outside the team moderate this review.)</li>
+<li>Treat every incident as a disaster-recovery test.
+    If the incident revealed that your backup script had been silently failing for three weeks,
+    fix the monitoring today.</li>
+</ul>
+<h2>People and Knowledge Resilience</h2>
+<ul>
+<li>The single biggest risk for a small team is the lottery factor,
+    i.e.,
+    the number of people who would have to win the lottery and move to Bali
+    in order for work to grind to halt.
+    For most small teams that number is one;
+    it isn&rsquo;t always possible to increase it,
+    but there <em>are</em> steps you can take.</li>
+<li>Cross-train on every critical operation.
+    Deployments, database restores, DNS changes, certificate renewals, and billing
+    should all be practiced by at least two people.
+    (This is a great way to do professional development.)</li>
+<li>Maintain a README that describes how to onboard a new hire,
+    how to ship a release,
+    how to restore the database,
+    how to rotate secrets
+    and how to pay the bills.
+    Make a habit of going through it each time you do the task
+    so that you&rsquo;re more likely to be aware of what needs to be added, updated, or removed.</li>
+<li>Maintain an offboarding checklist,
+    and when someone leaves, revoke their access within hours.
+    The offboarding checklist is part of the disaster plan:
+    a disgruntled former team member with lingering access is a disaster waiting to happen.</li>
+</ul>
+<h2>Tooling and Automation</h2>
+<ul>
+<li>Use the cheapest and simplest tools you can.
+    If you are reading this guide,
+    you almost certainly <em>don&rsquo;t</em> need Terraform Cloud or Pulumi Enterprise:
+    you need a Git repository with a shell script.
+    Similarly,
+    you don&rsquo;t need an enterprise-ready incident-management platform:
+    you need a shared document and a Signal group.</li>
+<li>Automate the things that happen most often
+    and the things that are most dangerous to get wrong.
+    Deployments, backups, and certificate renewals are top items for most small teams.</li>
+<li>Monitor the things that you would get out of bed at 3 a.m. to fix.
+    (Disk space on a production server you share with team members on another continent
+    is top of my list.)
+    A free-tier monitoring service like <a href="https://uptimerobot.com/">Uptime Robot</a>
+    or <a href="https://healthchecks.io/">Healthchecks.io</a> is infinitely better than no monitoring.
+    Don&rsquo;t roll your own, at least not to start with.</li>
+<li>Have at least one independent channel for critical alerts,
+    e.g., email to a personal address or an SMS gateway.
+    After all,
+    if your monitoring system can only send alerts through Slack and Slack is what is down,
+    you won&rsquo;t get the alert. </li>
+<li>In a real disaster,
+    you may need to restore several times.
+    A recovery script that corrupts data the second time it is run
+    is therefore as bad as no script at all.
+    You should therefore check that your automation is <em>idempotent</em>
+    by running it and then running it again.</li>
+</ul>
+<h2>Chaos Engineering</h2>
+<ul>
+<li><em>Chaos engineering</em> is a practice of deliberately breaking things in controlled ways
+    to see if your systems and your team respond the way you expect.
+    Start with the smallest possible experiment:
+    kill one non-critical process on your server,
+    then verify that your monitoring catches it
+    and that the service recovers without manual intervention.</li>
+<li>Work up to &ldquo;is the database really failing over?&rdquo;:
+    manually trigger a failover on your database during a quiet period
+    and confirm that your application handles the brief interruption gracefully.</li>
+<li>Similarly,
+    try pulling the plug on a dependency,
+    e.g.,
+    temporarily block your application&rsquo;s access to an external API
+    and observe check that your retry logic and error messages behave sanely.</li>
+<li>Run experiments during working hours when the whole team is available.
+    The goal is not to cause pain:
+    it is to verify that your recovery mechanisms work
+    and that everyone knows what to do when things go wrong.
+    (And yes,
+    give any external users a heads-up before you do this…)</li>
+<li>Keep a log of experiments in the same shared document as your DR plan.
+    If an experiment reveals a gap, add it to your recovery checklist immediately.</li>
+</ul>
+<h2>Financial Planning</h2>
+<ul>
+<li>You do not have a DR budget line item, but you still have DR costs.
+    Identify them: the extra cloud spend for backup storage,
+    the cost of a password manager,
+    the domain and certificate renewals,
+    and perhaps a small monthly fee for an off-site backup service.</li>
+<li>Calculate what a day of downtime costs you in concrete terms,
+    e.g., lost sales, missed experiment time, or failing to meet a grant deadline blown.
+    That number tells you whether it is worth spending $50/month on a managed database
+    or $200/year on a backup service.</li>
+<li>If the primary credit card expires or is cancelled,
+    you do not want your infrastructure shut down while you sort out billing,
+    so have a second payment method on file for your cloud provider and your domain registrar.
+    A second team member&rsquo;s card,
+    or a prepaid card with a small balance and auto-top-up,
+    is usually good enough.</li>
+<li>Check the cloud bill at least once a month.
+    A misconfigured resource can generate a catastrophic bill even for a small team.
+    If you can,
+    set budget alerts in your cloud provider&rsquo;s console at 50% and 90% of your normal monthly spend,
+    sent to at least two people.</li>
+</ul>
+<h2>Final Checkpoints</h2>
+<ul>
+<li>Once a quarter, read and update the recovery document.
+    At the same time,
+    check that every named person still works on the team
+    and that every phone number still rings the right phone.</li>
+<li>Verify that the backup scripts are running
+    by actually checking the backup bucket for recent files.
+    A &ldquo;success&rdquo; email from a task that has been writing to <code>/dev/null</code> for a month
+    is worse than a failure email.
+    (Go ahead, ask me how I know…)</li>
+<li>Ask the person who joined the team most recently to find the recovery document
+    and explain the first three steps.
+    If it takes more than two minutes, make it easier to find.</li>
+</ul>
+<h2>Sources</h2>
+<ul>
+<li>NIST SP 800-34 Rev. 1,
+    <em>Contingency Planning Guide for Federal Information Systems</em>,
+    2010,
+    <a href="https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final">https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final</a>.
+    Enterprise-scale, but the BIA and RTO/RPO concepts scale down.</li>
+<li>Betsy Beyer et al:
+    <em>Site Reliability Engineering</em>.
+    O&rsquo;Reilly, 2016,
+    978-1491929124.
+    Chapters 6 (monitoring), 8 (release engineering), and 15 (postmortem culture)
+    are most applicable to small teams.</li>
+<li>CISA, <em>#StopRansomware Guide</em>, 2023,
+    <a href="https://www.cisa.gov/stopransomware/ransomware-guide">https://www.cisa.gov/stopransomware/ransomware-guide</a>.
+    Practical ransomware guidance applicable at any scale.</li>
+<li>Australian Cyber Security Centre, <em>Essential Eight Maturity Model</em>, 2023,
+    <a href="https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model">https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model</a>.
+    Pragmatic security controls that don&rsquo;t require an enterprise budget.</li>
+<li>Kelly Shortridge:
+    <em>Security Chaos Engineering</em>,
+    O&rsquo;Reilly,
+    2023,
+    <a href="https://www.securitychaoseng.com/">https://www.securitychaoseng.com/</a>.
+    Probably more than you need, but you won&rsquo;t know &lsquo;til you read it.</li>
+<li>Peter Krogh, <em>The DAM Book</em>, O&rsquo;Reilly, 2009,
+    978-0596523572.
+    The source of the &ldquo;3-2-1 rule&rdquo; for backups.</li>
+</ul><!-- /content -->
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>
