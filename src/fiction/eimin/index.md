@@ -2634,15 +2634,17 @@ Suresh surged to his feet and wrapped his arms around Hediyeh.
 "You're all right, you're all right," he repeated as she started crying.
 "It's over."
 
-As her tremors subsided he turned to me.
-"Get the others.
-We need to get out of here."
+She pushed him away weakly,
+then slumped in his arms
+as if she was going to collapse like the bandit.
+"Get the others,"
+he told me over his shoulder.
+"We need to get out of here."
 
 I nodded jerkily.
-The thing around his neck was glowing again.
-I crouched down and pressed two fingers against the bandit's neck.
-His pulse was fast,
-and his breath came in labored gasps.
+The thing around Suresh's neck was glowing again.
+I crouched down and pressed two fingers against the bandit's neck,
+but couldn't find a pulse.
 
 "Don't worry about him,"
 Suresh said roughly.
@@ -2653,8 +2655,198 @@ I straightened up.
 He winced as if the question had been a blow.
 "Maybe more than a couple," he admitted.
 "I'll explain later, I promise.
-Right now,
-we need to get out of here."
+Right now we need to get out of here."
+
+"What about…?"
+I gestured at the dead man on the floor.
+
+"We can put him on a pyre later.
+Now come on."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 11
+
+Mureya and Layla were sitting on a bench.
+Mureya was doubled over with her face on her knees
+while Layla rubbed her back.
+She glared daggers at me,
+then stood and hugged Hediyeh.
+
+Mureya took a shaky breath and looked up.
+"What *was* that?" she whispered.
+
+"Magic,"
+Suresh admitted.
+"For what it's worth,
+I didn't mean to kill him."
+
+Mureya made a faint noise in her throat.
+She didn't throw up,
+but I caught the acrid whiff of nearby vomit.
+"I've *dromed* magic before.
+That was…"
+She wiped her eyes with her sleeve.
+"That was *bad*."
+
+"I'm sorry,"
+Suresh said helplessly.
+
+I took his sleeve.
+"Let's give them a moment."
+When he opened his mouth to object,
+I tugged hard enough to make it clear that I wasn't asking.
+
+He followed me around the corner to a room with empty picture frames set into its walls.
+I had often wondered what they had once held.
+Paintings of the Pilots' many marvels?
+Mirrors that would show them the world,
+or the truth of whoever was looking into them?
+Or were they art in their own right,
+and had never held anything?
+
+I turned to Suresh and crossed my arms.
+Growing up *nif* among Aphsi had made me more comfortable with silence
+than normal people.
+
+After a few heartbeats,
+Suresh sighed.
+"I'm sorry,"
+he repeated.
+"I really didn't mean to kill him."
+
+"It doesn't seem to bother you much,"
+I observed acidly.
+
+"He had a knife to your friend's throat!"
+Suresh protested.
+
+"That's—"
+*That's not a reason to kill someone,* I finished in my head,
+but the words sounded hollow.
+"So what's its price?"
+I asked instead,
+jerking my chin at his collar.
+
+The corner of his mouth quirked up.
+"Don't you know you're not supposed to ask magicians that?"
+
+I uncrossed my arms,
+letting my hand fall to the hilt of my sword.
+His half-smile fell.
+"It doesn't have one."
+
+I snorted.
+"Rot.
+Of course it does."
+Magic *always* had a price—every child knew that.
+And yes,
+I knew it was rude to ask a magician what prices they had paid.
+If you know someone can't step over anything red,
+or can't leave a room with flowers in it,
+it gives you power over them.
+
+He reached for his collar,
+hesitated,
+and then fished out the braided cord around his neck.
+The heavy ring of dull metal that hung from it was too big for a human finger
+but too small for a wrist.
+"It's Pilots' work,"
+he said quietly.
+
+The rest of the story spilled out of him
+as if he was grateful to finally have someone to tell it to.
+He had started training to be a magician in Ossisswe,
+but a fellow apprentice made a poor bargain.
+"It took her a week to die,"
+Suresh said,
+looking past me at the empty frames hanging on the walls.
+"We took turns sitting with her,
+but I don't think she recognized us at the end."
+His mouth quirked up again,
+sad this time instead of amused.
+"It rather soured me on the whole profession."
+
+"I'm sorry,"
+I said when he didn't go on,
+"But that doesn't explain…"
+
+He nodded and tucked the ring back under his deel.
+"Do you know the difference between the Pilots' magic and human magic?
+When a human being works a spell,
+they have to pay the price.
+The Pilots could let others pay the price,
+or even force them to.
+That's why our magic is so much smaller than theirs was.
+Ours is limited to what a single person can give.
+Theirs…"
+His gesture took in the whole palace.
+"I found an old book that said a Pilot made a hundred people deaf in their right ears
+to put music in just one wall of a palace like this in Barra Bantang."
+
+"That still doesn't explain that thing around your neck,"
+I pointed out.
+
+He shrugged,
+for a moment looking as young and bewildered as I felt.
+"I always liked books,
+and I owed my teacher three more years of service,
+so she put me to work sorting out her collection.
+This was in a box that probably hadn't been opened
+in a couple of hundred years.
+It—when I touched it, it spoke to me."
+
+"So you stole it."
+
+He grimaced.
+"Sometimes I think it stole me.
+It's not like the magic boots in stories.
+Whenever I try to use it,
+it does what *it* wants."
+
+I didn't know what stories he had read,
+but the every one I knew about the Pilots' leftover magic
+had ended badly for most of the people involved.
+This one had certainly ended badly for the bandit.
+
+One thing at a time.
+"There's an old watchtower half a day from here,"
+I told him.
+"Some gargoyles were nesting there,
+but Razi and I cleared them out.
+It doesn't have water,
+but—what?"
+
+He was shaking his head.
+"The storm will have scrubbed the ground clean.
+Eats Three Times will have no trouble tracking us.
+And what do we do once we're there?
+No,
+we need to—"
+
+Footsteps behind me made me whirl around.
+It was Layla.
+"Someone's out by the pool," she said breathlessly.
+"Mureya's still pretty shaky,
+but she thinks it's just one person."
+
+I exchanged looks with Suresh.
+One person didn't make sense:
+the bandits would come in force.
+Unless something had happened in Medef and they couldn't?
+Or the one who had fled had come back?
+
+"All right,"
+he said,
+as if we had just had a conversation.
+"I'll draw him out.
+You sneak up behind him and—wait, where are you going?"
+
+I was done sneaking.
+"Stay with the others,"
+I ordered Layla as I strode past her.
 
 </section>
 
