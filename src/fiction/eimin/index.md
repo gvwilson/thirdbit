@@ -281,7 +281,9 @@ The sun was half-way to noon when Razi turned east.
 We circled around the watchtower hill so that we could come at it from the side closest to the Sea of Glass.
 I tried to figure out his plan while we walked.
 We would reach the tower mid-afternoon.
-That didn't make sense: at that time of day, the breeze would carry our scent straight to the gargoyles.
+That didn't make sense:
+at that time of day,
+the breeze would carry our scent straight to the gargoyles.
 Unless…
 
 "*La*, am I to be bait?" I asked.
@@ -318,7 +320,8 @@ I was just a pocket mouse—no,
 not even that,
 just a wind-blown scrap of tumbleweed.
 
-I was about five hundred paces from the watchtower when the first gargoyle launched herself into the air.
+I was about five hundred paces from the watchtower
+when the first gargoyle launched herself into the air.
 She didn't start flying right away.
 Instead,
 she plummeted earthward down the side of the tower for a moment to build up speed,
@@ -2823,8 +2826,28 @@ He was shaking his head.
 "The storm will have scrubbed the ground clean.
 Eats Three Times will have no trouble tracking us.
 And what do we do once we're there?
-No,
-we need to—"
+Hediyeh and her friends can't fight,
+and if there's no water…"
+He spread his hands.
+
+I didn't have an answer,
+so instead I asked,
+"Who is Eats Three Times?"
+
+"What?"
+
+"You said Eats Three Times will have no trouble tracking us."
+
+He looked confused.
+"She's the lion.
+If we go out there now,
+our tracks will be as plain as—"
+
+"How do you know her name?"
+
+His mouth worked for a moment.
+"I don't know," he said helplessly.
+"Someone must have said it."
 
 Footsteps behind me made me whirl around.
 It was Layla.
@@ -2847,6 +2870,97 @@ You sneak up behind him and—wait, where are you going?"
 I was done sneaking.
 "Stay with the others,"
 I ordered Layla as I strode past her.
+
+She caught up with me as I around the corner and clutched my sleeve.
+"He's lying about the lion," she whispered loudly.
+And I *dromed* the same thing Mureya did.
+When he did magic.
+It was *bad*."
+
+I remembered how everything had become more real
+when Suresh knelt over the waterstone
+If it was like that for a *nif* like me,
+what would it have been like for people who could *drome*?
+"Stay with the others," I told her again.
+
+I raced up the stairs and along a short, windowless hallway
+to a small balcony overlooking the pool.
+Unbuckling my belt,
+I propped my sword quietly against the wall,
+then lay it down instead.
+The stone floor was cool beneath my hands and hard on my knees
+as I crept toward the balcony's shin-high lip and peered over.
+
+The pool was as clear and as still as ever.
+The waterstone looked as it always had,
+not glowing or unnaturally real.
+If anyone was down there,
+I couldn't see them from this vantage point.
+
+I scuttled backward,
+stood,
+and picked up my sword.
+I was surprised Suresh hadn't followed me,
+but it had been a day of surprises,
+and that wasn't one I had to sort out right away.
+Mureya had better *droming* than anyone in Medef except Granna Ferouz.
+If she said someone was down there,
+someone was down there.
+
+I used a different stairway to get back to the ground floor.
+After a couple of wrong turns I found myself in an arched doorway
+near the end of the pool furthest from the waterstone.
+I could almost hear Razi saying, "Patience."
+I hoped he was all right.
+I hoped everyone was.
+
+A shadow moved beneath one of the other arches.
+It wasn't tall enough to be a man.
+Had one of Medef's children somehow made their way here?
+Or was someone crouching down the way I had on the balcony?
+
+I slid my sword from its sheath
+just as Blue ambled out into the open,
+her hooves clicking on the floor.
+"Well, that's a fine greeting," she sniffed.
+"A soul might mistake you for a villain,
+waving iron about like that."
+
+I let out a whoosh and lowered my sword.
+"What are you doing here?"
+
+She bleated derisively.
+"Looking for you, as it happens.
+And some girls, too, apparently."
+She turned her head to leer at me with one dark eye.
+"Quite a leap, that, none at all straight to your own little flock."
+She bleated again at my scowl.
+
+We rejoined the others a minute later.
+Mureya was still on the bench,
+and still looked the way Kirash did after a night of heavy drinking.
+Layla sat next to her protectively with a protective hand on her shoulder,
+while Suresh and Hediyeh had clearly been in the middle of a conversation
+when Blue and I interrupted.
+"Oh," the goat said sourly.
+"Didn't realize you had guests.
+Are you the one that's got them all in such a fluster?"
+
+Suresh raised his palms to her placatingly.
+"I'm sorry if—"
+
+"Save the sorries for later."
+Blue shook her head in a very human gesture.
+Not for the first time,
+I wondered if someone had taught it to her
+the way Razi had taught me how to nod during conversations with other *nif*.
+"Right now, we have a village to save."
+
+"Us?"
+Hediyeh exclaimed.
+
+"Yes, you.
+Razi has a plan."
 
 </section>
 
