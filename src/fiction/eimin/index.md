@@ -2966,6 +2966,18 @@ Razi has a plan."
 
 <section markdown="1">
 
+## Chapter 12
+
+</section>
+
+<section markdown="1">
+
+## Chapter 13
+
+</section>
+
+<section markdown="1">
+
 ## Chapter 14
 
 Suresh came to find me the next morning.
@@ -3554,10 +3566,319 @@ My shadow walked tall beside me until the sun went down.
 
 <section markdown="1">
 
-## Chapter 18
+## Chapter 16
+
+The sun was starting to set when I reached Medef.
+Blue trotted down the hill to meet me as I passed the lemon grove.
+"Where have you been? Your *umma* has been worried sick!"
+
+"Sorry,"
+I said without slowing down.
+
+The old goat put herself in front of me.
+"Well?" she demanded.
+"What do you have to say for yourself?"
+
+"Whatever I have to say,
+I'll say to my *umma*."
+She bleated angrily as I stepped around her
+but let me go.
+
+I knew I should go straight home,
+but instead I took a back way to the trading hall.
+Setting my pack at the base of the date palm that stood beside it,
+I climbed the tree,
+untied the nearest shutter,
+and slipped inside.
+I didn't try not to think about what I was doing—people
+would be able to *drome* that.
+Instead,
+I focused on what was right in front of me,
+just as Razi had taught me.
+I was a pigeon,
+a rat,
+a little crawling bug,
+nothing more.
+
+Suresh was lying in his hammock with his hands behind his head.
+It took him a moment to focus when he opened his eyes,
+and then he nearly spilled onto the floor as he sat upright in surprise.
+"Eimin!
+Where have you been?"
+
+"That's a popular question today," I said sourly.
+
+"Eimin, I'm sorry."
+He stood, then hesitated.
+"I should have—"
+
+"I believe you,"
+I said roughly.
+"About the Other Hand and Lady Kembe and, and being *nif*.
+I believe you."
+
+The next sentence was the hardest of my life.
+"Can you fix it?"
+
+His hand went to the ring hanging around his neck.
+"Yes.
+At least, I think so."
+
+"How?"
+
+He glanced at the door behind me.
+"Don't worry, nobody's listening," I told him.
+
+He studied me for a moment.
+"The waterstone.
+It's more powerful than anyone realizes.
+I think I know how to unlock that power,
+how to use it."
+
+I jerked my chin at him.
+"Did that tell you?"
+
+He nodded.
+"This world is broken, Eimin.
+There are deserts where there should be gardens,
+and the moon has strayed from its course.
+This thing wants to fix it.
+It wants *us* to fix it,
+and we will."
+
+"How?" I demanded.
+
+"We can do it tonight.
+It will have a price,
+but after that,
+we'll be like the Pilots.
+We won't ever have to pay a price for magic again."
+
+"I don't want to be a magician," I told him.
+"I just—"
+
+"You just want to be Aphsi," he finished for me.
+I flinched when he stepped toward me
+to clap me on the shoulder.
+"You will be.
+I promise.
+Meet me at the Pilots' palace at moon-high,
+and I'll make all of this right."
+
+I left the way I had come,
+shouldered my pack,
+and made my way home.
+I took the street instead of skulking through back alleys.
+Most of the villagers were out tending their fields,
+or sheltering from the sun in workshops
+as they mended tables and wove baskets
+and did all the things normal people did.
+The few I passed gave me looks,
+but I suppose they were used to *droming* me being angry.
+*Tomorrow,* I told myself.
+*Tomorrow I'll know what that's like.*
+
+My *umma* burst out of the door when I was still ten strides from hom
+and wrapped her arms around me.
+"I was so worried," she said in my ear.
+
+"I'm sorry."
+The top of her head fit under my chin now if I stretched my neck.
+Her hair smelled faintly of argan oil.
+"I just needed some time to think."
+
+I felt her nod.
+"I know.
+And I know you can take care of yourself."
+She released me and smiled tentatively.
+"But I still worry.
+Razi was worried too."
+
+"Is he here?"
+She nodded.
+
+I steeled myself.
+I still didn't know what I was going to say to him,
+but that had never stopped me before.
+
+Razi struggled to sit up as I entered.
+He was wearing loose cotton trousers,
+and his midriff was still wrapped in bandages.
+Dudir's blade must have bitten more deeply than I realized.
+
+"I'll go see if Grappa Uzman needs a hand with anything,"
+my *umma* said,
+leaving us to eye each other.
+
+I broke first.
+"I'll make tea."
+
+Razi waited,
+as patient as ever,
+while I boiled the water and spooned the leaves and a few other things into the pot.
+"So how far did you go?" he asked when it was finally ready to pour.
+
+"The fishing fleet."
+I handed him a cup,
+then sat on a cushion opposite him and stopped myself from hugging my knees to my chest
+as if I was still a child.
+
+He raised an eyebrow.
+"*La*, and back? That was quick."
+
+"I had a lot to think about."
+I took a deep breath.
+"I'm sorry for what I said.
+About my *uppa*.
+You couldn't have—it wasn't your fault."
+
+"That is kind of you to say."
+I didn't need *droming* to know that he didn't agree with me.
+
+We sat in silence a moment.
+"*La*, so what are you going to do now?" he asked.
+
+"About what?"
+
+His snort made him wince.
+"Pick one."
+
+I took another deep breath.
+"I don't think I want to kill people for a trade.
+I know,
+that's not the only thing you do,
+but it's part of it.
+And even if my answer to that was yes,
+I wouldn't do it for Lady Kembe."
+
+That earned me a raised eyebrow.
+"Because?"
+
+"Because I know what she does,"
+I told him,
+surprised by how steady my voice was.
+"I know she makes *nif*."
+
+It only took me a few sentences to repeat what Suresh had told me.
+Razi started shaking his head halfway through.
+"No," he said firmly when I was done.
+"No, no, a thousand times no.
+She wouldn't.
+*La*, trust me in this.
+She has done many terrible things,
+but she would not do this."
+
+I stood.
+"I guess we're going to find out," I said.
+
+He struggled to stand as well,
+then fell back on his cushion with a startled look on his face.
+"What have you done?"
+
+I jerked my chin at his tea.
+"Oh, no.
+No, Eimin, listen…"
+
+I was already opening the door as he spoke,
+his bottle sword in my hand.
+He had taught me well:
+the drops I had put in his cup wouldn't knock him out,
+but it would be a while before he could stand.
+Even if he could,
+I doubted he could make it to the Pilots' palace in the shape he was in.
+
+I was almost at the edge of the village when I heard Mureya call my name.
+"Eimin! Wait!"
+
+I didn't slow down.
+"Eimin!
+Please!
+It's about Hediyeh!"
+
+I swore under my breath and stopped.
+She halted a stride away,
+panting,
+a spindle still in her hand.
+"Eimin," she panted.
+"He came for her, except it wasn't just him.
+Suresh.
+He's getting worse."
+
+"What do you mean he's getting worse?" I demanded.
+
+"That thing he wears."
+She put her hand to her throat.
+"I can *drome* it.
+Everybody else thinks it's just him wanting her when he looks at her,
+but it isn't.
+There's something else underneath,
+just like there was when he killed the bandit,
+and it's *wrong*."
+She shivered despite the heat.
+"I don't even think it's human.
+Even the lion wasn't that hungry."
+
+"So what do you want me to do?"
+
+She looked at me, bewildered.
+"Save her!
+He came by while we were spinning and, and talked to her,
+and she left with him.
+Eimin,
+he's going to hurt her!
+I can *drome* it!"
+
+"I don't believe you."
+I turned to go, but she grabbed my arm.
+
+"Yes you do," she said urgently.
+"I can *drome* that too.
+You don't want to,
+but you do."
+
+"Please,"
+she pleaded as I pulled my sleeve away roughly.
+"You have to help her."
+
+"No I don't."
+I broke into a run after a few steps,
+leaving her in the road behind me.
+
+I went to the lemon grove, of course.
+If Blue or Grappa Guzman had been there I would have kept going,
+but the only person I saw was my *umma*.
+She was standing in front of a tree in one corner,
+her head bowed.
+
+She didn't look up as I approached.
+"He would have been very proud of you," she said quietly.
+
+I swallowed a lump in my throat.
+"Thanks, *umma*."
+When I was little I had wondered
+why the funeral ashes scattered at the bases of these trees
+didn't make the soil smell burnt.
+
+"Did—" I started.
+Did they ask you if they could make me *nif*?
+Did you say yes?
+How do you ask your mother a question like that?
+
+She reached out and took my hand.
+"If you want to go, go," she said softly.
+"On your own, with Razi or the bookster, whatever you choose.
+I just want you to be happy."
+
+FIXME: need the big reveal here somehow that ties back to the missing two chapters.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 17
 
 I ran.
-I ran like a jackrabbit runs, like a hawk flies.
+I ran like a rabbit runs, like a hawk flies.
 I ran like I had never run before with cold sick fear churning in my gut.
 The moon was already half-way up the sky.
 *I'm not going to make it*,
