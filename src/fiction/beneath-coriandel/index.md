@@ -144,7 +144,7 @@ city.
 
 Truth told, after five months getting up to the Black Grass and back, I felt a
 bit like a kitten running between someone's legs going through the gate.
-Coriandel wouldn't have been considred more than a small neighborhood in a city like
+Coriandel wouldn't have been considered more than a small neighborhood in a city like
 Haricot or Amprakash, but it was as busy as an anthill that morning.  There were
 cattle drovers down from the high grass of Darp, spice merchants and
 silversmiths up from Thind, and some Hett clustered around a smithy-wagon
@@ -486,9 +486,9 @@ Flying Mountain, and that was only because he took pity on me—horses are not
 overly fond of heights.
 
 And yes, I finally got to see the ocean.  Wave after wave, with the gulls
-overhead and that salt-rot smell in my nostrils…  Horses cannot cry, but we
-can mourn.  I waded in up to my knees and said a prayer for Finger, then turned
-north and carried Oro to his duty.
+overhead and that smell in my nostrils…  Horses cannot cry, but we can mourn.  I
+waded in up to my knees and said a prayer for Finger, then turned north and
+carried Oro to his duty.
 
 A year to the day, we returned to Coriandel.  I was in his coronation parade,
 the royal mount I had dreamed of being.  I had gilt tassels in my mane and a
@@ -2444,7 +2444,7 @@ slightly as my arms shake.  "I just—"
 "You just thought you could walk up here, a total stranger to us both, and we'd
 say oh, thank you, what nice wine that it, how kind of you to think of us, down
 it goes, my my don't I feel sleepy, and then traipse down those stairs and get
-into whatever kind of lackwit trouble popped up between your ears, am I right?
+into whatever kind of lackwit trouble popped up between your ears, am I right?"
 Mirtan shakes his head sorrowfully.  The tip of his sword doesn't waver. I would
 notice if it did, as I'm trying very hard not to look at anything else. "Too
 many fairy tales, that's what I think it is.  Guards are always stupid in fairy
@@ -2470,8 +2470,8 @@ please.  No, no, at the wrists, don't be clever."
 The guard does as he's told.  Vurt ties the first guard's wrists together, then
 the second's, and then uses a third length of cord to loop them together.  Ishad
 glances at his work and grunts.  "Good.  Now, I'm sure you gentlemen will be
-more comfortable sitting.  No, just here is fine.  Thank you."  Ishad steps
-back.  "What do you think?"
+more comfortable sitting.  No, just here is fine.  Thank you."  He steps back.
+"What do you think?"
 
 "Let's just go." Vurt has taken the two halves of his spear from the sleeve in
 the side of his pack and screwed them together.  He thumps its butt on the
@@ -2496,8 +2496,7 @@ bottles on the stones at my feet.  "My oath on it, there really is nothing in
 them except wine.  It's the best I could afford."
 
 The first one doesn't even look at me.  The second one, Mirtan, clears his
-throat and spits on the bottles.  Ashamed and excited, I turn and hurry back
-into the city.
+throat and spits on the bottles.  I turn and hurry back into the city.
 
 </section>
 
@@ -2516,10 +2515,10 @@ one day, well, it would be as bad as the time Hemmeté rushed in with her
 over-shawl torn and her hair lopsided, and I certainly didn't want to subject
 myself to *that*.
 
-So I slept on it, though it would be more truthful to say that I tossed and turn
-on it.  I hadn't allowed myself to think about Ishad for, oh, for years.  That
-night it all came flooding back: the excitement, the confusion, the anger, and
-yes, the shame.  He had made a fool of me, or rather, I had made a fool of
+So I slept on it, though it would be more truthful to say that I tossed and
+turned on it.  I hadn't allowed myself to think about Ishad for, oh, for years.
+That night it all came flooding back: the excitement, the confusion, the anger,
+and yes, the shame.  He had made a fool of me, or rather, I had made a fool of
 myself.  To see him like that, and to see my niece making eyes at his young
 protégé—I doubt I closed my eyes for more than a few moments all night.
 
@@ -2705,8 +2704,8 @@ was as common as dung, and even in her prime she wouldn't have been one grain
 the beauty my sister was.  Still, he was a man, and one of no little means, and
 her sort wouldn't think twice about a little tumble for a bracelet or some silk
 ribbons, and I doubted he would have enough character to say no to fruit that
-fell in his lap I had watched for signs, but had never managed to find any.  As
-I poured Sehdie some lassi, I made a note to myself to pay even closer
+fell in his lap.  I had watched for signs, but had never managed to find any.
+As I poured Sehdie some lassi, I made a note to myself to pay even closer
 attention.
 
 Bluesday afternoon, four days after my visit, Rojyar brought me the word I had
@@ -2723,7 +2722,7 @@ evening, is he not? With his turtling friends?"
 
 "I believe so, honored mistress.  They are entertaining a fellow aficionado from
 Ossisswe this evening.  The master intends to read a letter from a correspondent
-in Mau Tinnemanthan on breeding blue-quartered *hoan kem* in captivity."
+in Mau Tinnemanthan on breeding *hoan kem* in captivity."
 
 "Yes, quite.  Well, I'm sure we need not trouble him with my comings and
 goings."
@@ -2813,7 +2812,7 @@ she brought her finger up to her lips to shush me.  She seemed fascinated by his
 antics.  I must admit, it was very different from any magic I had ever seen
 before.  No jurists poring over the wording of oaths, no careful calculation of
 trades and balances, just an old man bartering some fraction of himself away in
-exchange for a favor from the infinite.
+exchange for a favor from the Infinite.
 
 It took him several long minutes to strike a bargain that pleased him.  He
 touched his palms to his forehead to seal it, then stood with a popping of knees
@@ -2849,10 +2848,10 @@ traitor), and outright idiots (give them pretty toys).  There was never a word
 about the sheer mind-destroying tedium of listening to a middle-aged woman
 prattle on, week after week for years, about the sorry state of the world and
 what she wouldn't give to be seventeen again.  Every time I sat through another
-lecture on the decay of the world, I swore that if I was ever allowed to leave
-that dry, dusty village they called "the jewel of the Karaband" and return to
-the sea, I would prepare a tutorial on the subject.  "Equanimity in the Face of
-Tedium", by An Agent.
+lecture on the decay of the city's morals, I swore that if I was ever allowed to
+leave that dry, dusty village they called "the jewel of the Karaband" and return
+to the sea, I would prepare a tutorial on the subject.  "Equanimity in the Face
+of Tedium", by An Agent.
 
 The Fleet would never use it, of course.  Poison, disguise, black magic—those
 are exciting.  Those are reasons to become a spy.  Boredom?  How many young
@@ -2887,9 +2886,9 @@ grievances.  If I had known there would be another sixteen years of it, I swear,
 I would have risked my life and soul and lied to the admirals.  "A false trail,"
 I would have said.  "She exaggerated her brother-by-marriage's importance.  She
 is not reliable.  She is mad.  I must sink her to protect my work.  Oh, please,
-let me sink her, just this one."  Oë would have done it gladly.  I have never,
-not among crew-caste Bantangui or even Thindi royalty, seen anyone be as cutting
-to a servant as *that woman*.
+please let me sink her."  Oë would have done it gladly.  I have never, not among
+crew-caste Bantangui or even Thindi royalty, seen anyone be as cutting to a
+servant as *that woman*.
 
 But no, I had been trained too well.  Do only what is necessary—that was one
 of the first lessons our teachers beat into us, along with loyalty, patience,
@@ -3397,7 +3396,7 @@ want."
 The sergeant took a heavy iron signet ring from his pocket and held it up for me
 to see.  "Not here for lessons.  Captain wants a word with you."
 
-Of course he did.  I rubbed my eyes.  "All right.  Can I put on a clean shirt?"
+Of course she did.  I rubbed my eyes.  "All right.  Can I put on a clean shirt?"
 
 "If you please.  We'll just have a look about while you're dressing."
 
@@ -3476,7 +3475,7 @@ for her—at least one, probably more.  I should have known they would sniff out
 my chat with Lady Kembe.  The only question was, could they tell what it was
 they smelled?
 
-"Student of mine swore an oath yesterday, a blood oath.  I was trying to—"
+"Student of mine swore an oath yesterday.  I was trying to—"
 
 "A juristed oath?"
 
@@ -3527,13 +3526,13 @@ still light on her feet for one so solid.  I beat her three touches to one the
 last time we faced each other in the *umram*, but that was years ago.  I doubted
 a real fight would be as one-sided.
 
-We ambled over to the roof's edge like occasional lovers having a look at the
-world before going out to face it.  The market spread out below us, shops and
-stalls and open yards, people dawdling or hurrying, cattle, fine jewelry, dates,
-figs, silks, jugglers, and above it all the smell of dung and frying onions.
-When the Darpani bring their herds down in the fall it's chaos.  Even when
-they're not around it's never silent, never still, and I'll never grow tired of
-it.
+We ambled over to the roof's edge like a pair of old housecats having a look at
+the world before going out to face it.  The market spread out below us, shops
+and stalls and open yards, people dawdling or hurrying, cattle, fine jewelry,
+dates, figs, silks, jugglers, and above it all the smell of dung and frying
+onions.  When the Darpani bring their herds down in the fall it's chaos.  Even
+when they're not around it's never silent, never still, and I'll never grow
+tired of it.
 
 We watched it in silence for a few moments.  Without turning her head, she said,
 "Do I have to give you a speech?"
@@ -3576,7 +3575,7 @@ miscount a decade here and there.
 
 And a young to protect now.  Ah, ah, Swallow.  You mind me of my own awakening.
 Not enough, revenge.  Not enough to save myself.  Not even enough perhaps to
-save the world, but what else save to try?
+save the world, but what else but to try?
 
 Oh yes, I still remember my young days.  I did not use *that* spell for long
 life, such that steals a day from you each time you sleep, so the span of life
@@ -3655,7 +3654,7 @@ I studied myself in the mirror that hung next to my desk.  I was completely
 bald, price of the first spell my grandfather taught me.  It was the first he
 had learned, and his aunt before him, and her mother-by-marriage before her.
 That spell was why my people called magicians *igbe ye*, "bald strength".  The
-Arañese word was *sorçir* from an older word *surreppeçiere*, "one who
+Arandese word was *sorçir* from an older word *surreppeçiere*, "one who
 whispers".  And in Ruuda, I would be an *ælfwif*, a "wind wife".  They are
 seafarers, the Ruudians, forever making small bargains to call winds or hide
 from them.
@@ -3750,12 +3749,12 @@ wars and ruined lives and notebook shelved upon notebook full of conspiracy,
 intrigue, and misunderstanding, I might no longer claim certainty.  It had
 helped me break the Emrulu, so that no other little girl would see them hack her
 parents to pieces, or be beaten whenever she spoke above the whisper allowed to
-slaves.  But the civil war in Thind might have ended in a decade saving three
-had I been able to do other than what my conscience dictated, and Ifan Bloody
-would never have risen to the collar of Uws.
+slaves.  But the civil war in Thind might have ended in a decade rather than
+three had I been able to do other than what my conscience dictated, and Istvan
+the Bloody would never have sat on a throne in Praczedt.
 
 I touched the wings tattooed on my neck.  Those who saw them believed them part
-of a spell, but they were not.  I put them on myself after Ifan's March.  Had
+of a spell, but they were not.  I put them on myself after Istvan's March.  Had
 anyone else from my tribe still lived, they would have understood.
 
 What followed I would never commit to a page, not even my own notebooks.  Others
@@ -3763,7 +3762,7 @@ have tried to write of magic, of what it is to strike bargains and of who or
 what they are struck with.  Poets have learned magic, magicians have learned
 poetry, and all have failed to make meaning of it in words.  Even to call it a
 bargain is wrong, but to call it such is older than me, older even perhaps than
-the Pilots.  I gave of myself my knowing of the word for "blue" in Arañese,
+the Pilots.  I gave of myself my knowing of the word for "blue" in Arandese,
 never again to be mastered, and in return was given direction that meant nothing
 to me and less to Ishad when I woke him to instruct him in it.
 
@@ -3773,7 +3772,7 @@ me far more than the simple instruction, and every old magician must by needs
 not be greedy, or they will neither be old.
 
 So I told Ishad, and sat myself to listen to my toadingales burp, and wondered.
-One word of Arañese was far less a price than I had expected to pay.  Was
+One word of Arandese was far less a price than I had expected to pay.  Was
 something or someone easing my passage?  If so, was it a trap laid by the
 Bantangui, or by some jealous colleague?
 
@@ -3781,7 +3780,7 @@ I woke after dawn, still in the chaise beside my birds, the scent of fresh
 coffee in my nostrils.  "I hope you haven't been here all night," my housekeeper
 scolded as she set down her tray.  "That robe's nothing for the chill."
 
-"I live," I yawned.  She was a fifth my age, but fussed over me as would a
+"I live," I yawned.  She was a tenth my age, but fussed over me as would a
 mother hen.  "Some baklava would help warm me, though."
 
 I loved the early hours of the day.  They made everything fresh, full of hope
@@ -3859,8 +3858,8 @@ a moment to catch up.
 Ishad shook his head.  "Bloody mess.  Why were you looking at gloves, anyway?
 I've got plenty of old ones you can borrow."
 
-Which wasn't the point, but at thirteen I didn't expect grownups to understand.
-I hadn't really gone to the market that day to look for gloves.  I just hadn't
+Which wasn't the point, but at thirteen I didn't expect him to understand.  I
+hadn't really gone to the market that day to look for gloves.  I just hadn't
 wanted to go home.  Kerrem had taken over teaching the group I was in at school.
 He'd been explaining fractions to us all week, but I still couldn't make soup or
 stew out of them, and being stupid made me feel too angry for chores.
@@ -4986,7 +4985,7 @@ water pipe.  The collar whispered his name in my ear and told me that he had
 been fined once for drunkenness.
 
 I closed my eyes for a moment, just listening.  Where next? The glasswrights'
-market, where they sold perfect replicas of fish and exotic flowers? The Arañese
+market, where they sold perfect replicas of fish and exotic flowers? The Arandese
 quarter, where I might find momentary solace in a disputation on Balanced
 philosophy? Or the cloudherd's yard near Tomb Hill?
 
@@ -5028,7 +5027,7 @@ while their sons learned arithmetic and their abracadabras.
 This was what the gang had been waiting for.  They bunched together as the older
 Darpani took his brother's hand and started toward the steps I had just climbed.
 One of the gang picked up a rock.  Another slipped a length of bamboo from under
-his robe.  "*Naneen!*" one of the Coriandi boys said loudly, mis-pronouncing the
+his robe.  "*Naneen!*" one of the Coriandi boys said loudly, mispronouncing the
 insult.
 
 The younger Darpani boy trembled.  Even if his older brother hadn't steadied

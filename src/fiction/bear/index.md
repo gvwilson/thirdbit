@@ -3828,7 +3828,7 @@ Make sure these are locked up, will you?"
 "Of course, honored, of course," the troll said,
 already lost in one of the other volumes.
 Thokmay watched him read for a moment,
-wondering what Loghan and the rest of the Ninety Kingdoms were going to look like
+wondering what Loghan and the rest of the Regimental Kingdoms were going to look like
 when everyone who wanted to could do the same,
 then reached for his writing brush and inkpot.
 At this rate,
@@ -4102,7 +4102,7 @@ So did the darkness—the little lantern behind her cast just enough light
 for her to see how small the passageway was.
 Her brother or Noxy would have wondered who made it and when.
 Was it a secret escape route from a time when
-the Ninety Kingdoms were constantly at war with each other?
+the Regimental Kingdoms were constantly at war with each other?
 Or had some patient thief dug into the stone one painstaking chip and scrape at a time
 to loot the garrison house's stores?
 But she wasn't her brother, or Noxy,
@@ -4658,7 +4658,7 @@ Back in the garrison house,
 Noxy and Mope were sitting down to chai with Learned Shudarga.
 Noxy had no idea what to say to the spry middle-aged woman
 who handed her a cup and apologized for it not being freshly made.
-The most infamous scholar in the Ninety Kingdoms looked perfectly ordinary.
+The most infamous scholar in the Regimental Kingdoms looked perfectly ordinary.
 Her hair was cut so close to her dark scalp that
 it was hard to tell how much gray there was.
 She wore a jade stud in one ear and a matching stud in the opposite nostril,
@@ -4974,7 +4974,7 @@ but killing an animal isn't murder."
 "So she had them tried for *theft*,
 he continued, with so much bitterness in his voice that Noxy was afraid of him.
 "But they wouldn't even give her that.
-Gifted animals aren't allowed to own other animals in the Ninety Kingdoms."
+Gifted animals aren't allowed to own other animals in the Regimental Kingdoms."
 
 "Was Princess Ogmin one of the hunters?" Noxy asked.
 

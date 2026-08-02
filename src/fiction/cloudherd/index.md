@@ -25,7 +25,7 @@ When it was over the Pilots disappeared,
 leaving the world to carry on as best it could.*
 
 *Now look there,
-where the Churya Mountains look down on the endless squabbles of the Ninety Kingdoms.
+where the Churya Mountains look down on the endless squabbles of the Regimental Kingdoms.
 It is Redsday, the 11th of Peridot, 1272 Years Since,
 and a girl who is no longer a child but not quite a woman
 is standing on a cloud,
@@ -1313,7 +1313,7 @@ The worst,
 well,
 if Loghan sent soldiers then Chaghan would too,
 and that would be the end of the fragile unwritten bargain
-that kept the Ninety Kingdoms out of the mountains.
+that kept the Regimental Kingdoms out of the mountains.
 
 "So what do think we should do?"
 Grappa Gas challenged.

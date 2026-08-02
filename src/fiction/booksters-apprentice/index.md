@@ -1691,7 +1691,7 @@ shelf.  "But sometimes that's just what you have to do."
 Erileine chased words all afternoon while Razi sorted books into
 piles.  Every once in a while he set a volume on the table instead to
 shape a rough map of Cherne: those from Ruuda at the north end, those
-from Thind, Ini Bantang, and Barra Bantang at the south, the Ninety
+from Thind, Ini Bantang, and Barra Bantang at the south, the Regimental
 Kingdoms in the west, and a scant handful from Praczedt to the east.
 A lone volume of Karabandi poetry occupied the center with a pair of
 spell books beside it.
@@ -4066,7 +4066,7 @@ and streams nestled in countless little valleys, the snow on the peaks
 of the mountains around Avaunt, and the clouds grazing near the
 horizon.  It could have been the approach to Gandan Berth, except
 there wasn't a road or a building in sight.  Traders from all over the
-Ninety Kingdoms would be on their way to meet Avaunt at that
+Regimental Kingdoms would be on their way to meet Avaunt at that
 centuries-old rendezvous.  How many of them already knew that the
 mountain wasn't going to be there?
 

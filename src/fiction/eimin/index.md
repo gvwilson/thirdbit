@@ -18,7 +18,7 @@ so that it can shine down and keep us safe forever.
 
 In the west,
 on the other hand,
-the farmers of the Ninety Kingdoms bury their dead to thank the earth for its bounty.
+the farmers of the Regimental Kingdoms bury their dead to thank the earth for its bounty.
 Just as flesh becomes soil, then barley, then flesh again,
 so too,
 they believe,

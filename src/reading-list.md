@@ -219,3 +219,6 @@ template: page
 | Up All Night | Imogen Willetts | 978-0802167392 | 2026 |
 | Psychology of Great Teaching | Pedro de Bruyckere | 978-1529767506 | 2022 |
 | A Trade of Blood | Robert Jackson Bennett | 978-0593723852 | 2026 |
+| Tell Me Where It Turns | Rachel Zoffness | 978-1538758144 | 2026 |
+| Secret World of Twilight | Sally Coulthard | 978-1035912131 | 2026 |
+| Move Slow and Upgrade | Evan Selinger and Albert Fox Cahn | 978-1009466578 | 2026 |
