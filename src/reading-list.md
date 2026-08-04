@@ -62,7 +62,6 @@ template: page
 | Liberty's Daughter | Naomi Kritzer | 978-1958880166 | 2023 |
 | Lei and the Fire Goddess | Malia Maunakea | 9798855085907 | 2023 |
 | Late Soviet Britain: Why Materialist Utopias Fail | Abby Innes | 978-1009373630 | 2023 |
-| Keynan Masters and the Peerless Magic Crew | DaVaun Sanders | 978-1335458049 | 2023 |
 | Just a Pinch of Magic | Alechia Dow | 9798855035544 | 2023 |
 | It's Not You, It's Capitalism: Why It's Time to Break Up and How to Move On | Malaika Jabali | 978-1643752648 | 2023 |
 | How to Stand Up to a Dictator | Amal Clooney by Maria A  Ressa | 978-0063257528 | 2023 |
@@ -213,7 +212,6 @@ template: page
 | Auntie Heroes | Rita Beeman | 979-8257583667 | 2026 |
 | The Spacecraft Hacker's Handbook | Andrzej Olchawa | 978-1718504745 | 2026 |
 | Bodies of Magic | Freya Marske | 978-1250341655 | 2026 |
-| The Best Science Stories and How They Work | Siri Carpenter | 978-0226830346 | 2026 |
 | Brief History of Climate Folly | Tim Flannery and Emma Flannery | 978-1923058965 | 2026 |
 | The Common Good Economy | Mariana Mazzucato | 978-1541609341 | 2026 |
 | Up All Night | Imogen Willetts | 978-0802167392 | 2026 |
@@ -222,3 +220,5 @@ template: page
 | Tell Me Where It Turns | Rachel Zoffness | 978-1538758144 | 2026 |
 | Secret World of Twilight | Sally Coulthard | 978-1035912131 | 2026 |
 | Move Slow and Upgrade | Evan Selinger and Albert Fox Cahn | 978-1009466578 | 2026 |
+| Assassin at Allgate | Tristis Ward | 978-1770532588 | 2026 |
+| Time Travel for Beginners | Jaclyn Moriarty | 978-0593820339 | 2026 |
