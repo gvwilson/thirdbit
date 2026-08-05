@@ -87,17 +87,16 @@ collaborators and deposited in repositories.  Scenarios include:
 -   A lab server's hard drive fails.
 -   A field laptop is stolen and the data on it has not been backed up.
 -   Your data repository announces it is shutting down.</dd>
-<dt>Managing a physical laboratory and/or field staff</dt>
+<dt>Managing a physical laboratory</dt>
 <dd>This category includes teams working in wet labs, field stations, or with
 sample collections.  Scenarios include:
--   A freezer fails over a long weekend.
--   A field researcher is injured and cannot complete data collection.
--   A key piece of equipment is discontinued and can no longer be serviced.</dd>
+-   A specimen freezer fails over a long weekend.
+-   A key piece of equipment is out of warranty and can no longer be serviced.
+-   The notebook containing the labeling key for a set of specimens is lost.</dd>
 </dl>
-<p>To make the advice concrete, we will use a running example: a five-person
-ecology lab that publishes an R package, runs a Shiny dashboard for
-collaborators, manages a ten-year field dataset, and maintains a wet lab
-with freezers and sample collections.</p>
+<p>These categories overlap: for example, a five-person ecology lab may publish an
+R package, run a Shiny dashboard for collaborators, manage a ten-year field
+dataset, and maintain a wet lab with freezers and sample collections.</p>
 <blockquote>
 <p><strong>Before you start:</strong> Many universities have research-computing groups, data
 librarians, and environmental-health-and-safety offices whose entire job is to
@@ -106,25 +105,12 @@ assuming you must do everything yourself. This paper tells you what to ask
 for; they can often provide it.</p>
 </blockquote>
 <h2>Tip 1: Know your risks.</h2>
-<p>For a small research group, the most likely disasters span four domains:</p>
-<ul>
-<li>Software packages: a registry token expires and the person who created it has
-  left; your source-code forge suspends your account.</li>
-<li>Online services: your cloud provider suspends your account; the graduate
-  student who deployed the dashboard leaves and no one else has credentials; an
-  external service your app depends on shuts down.</li>
-<li>Data: a lab server's hard drive fails; a field laptop is stolen; your data
-  repository announces it is shutting down.</li>
-<li>Physical lab and field work: a freezer fails over a long weekend; a field
-  researcher is injured and cannot complete data collection; a key piece of
-  equipment is discontinued.</li>
-</ul>
-<p>Start by making a point-form list of every service and physical asset your
-team depends on. For our ecology lab, this includes: where the R package is
-published, where the Shiny dashboard is hosted, where the ten-year field
-dataset lives, where the freezers and their contents are, and the laptops
-the team works on. For a small team, this will take about an hour the first
-time through, and 15-30 minutes per quarter for review.</p>
+<p>Start by making a point-form list of every service and physical asset your team
+depends on. For our ecology lab, this includes where the R package is published,
+where the Shiny dashboard is hosted, where the ten-year field dataset lives,
+where the freezers and their contents are, and the laptops the team works
+on. For a small team, this will take about an hour the first time through, and
+15-30 minutes per quarter for review.</p>
 <p>A Markdown file in a shared folder or a Google Doc is the right tool for
 this. For each item, answer two questions:</p>
 <ol>
@@ -149,30 +135,28 @@ shared team drive <em>plus</em> a printed copy in a desk drawer or a PDF saved o
 every team member's phone. Pin the link in your team chat, and if you have
 a physical office, tape a printed copy to the fridge.</p>
 <p>State the disaster declaration criteria in plain language: "our dashboard
-has been offline for more than a day," "we have found ransomware encryption
-on a shared drive," or "the -80°C freezer has been above -70°C for more
-than an hour." Every team member is part of the recovery team, so make sure
+has been offline for more than a day", "we have found ransomware encryption
+on a shared drive", or "the -80°C freezer has been above -70°C for more
+than an hour". Every team member is part of the recovery team, so make sure
 everyone has read the plan, understands the criteria, and knows their first
 action if a disaster is declared.</p>
-<p>Your plan should include a short checklist for each scenario, written as a
-numbered series of specific actions. For example:</p>
-<ul>
-<li>For an online service outage:<ol>
+<p>Your plan should include a short checklist for each scenario, written
+as a numbered series of specific actions. For example, for an online
+service outage:</p>
+<ol>
 <li>Send a message to the Signal group.</li>
 <li>Log into the database management console and click "Restore from
     snapshot."</li>
 <li>Check that the dashboard loads and returns data correctly.</li>
 </ol>
-</li>
-<li>For a freezer failure:<ol>
+<p>For a freezer failure:</p>
+<ol>
 <li>Call the lab manager at the emergency number on the printed contact
     sheet.</li>
 <li>Move samples to the backup freezer in Building C, Room 112.</li>
 <li>Log the time, temperature, and which samples were moved in the lab
     notebook.</li>
 </ol>
-</li>
-</ul>
 <blockquote>
 <p>If a step requires knowledge or access that only one person has, you have a
 <em>lottery-factor</em> problem. Ask yourself, "If Alice wins the lottery and moves
@@ -201,11 +185,10 @@ equally.</p>
     lab notebooks, scan or photograph key pages quarterly and save them with
     your other backups.</li>
 </ol>
-<p>Back up your source code to at least two different software forges
-([<a class="bib-ref" href="../bibliography/#Tamburri2020">Tamburri2020</a>] is a cautionary tale about relying on just one), and turn
-on automatic mirroring in GitHub or <a href="https://gitlab.com/">GitLab</a>'s settings.  A <code>git push</code>
-to a secondary remote is the most cost-effective one-liner you will ever write,
-but automatic mirroring is even better.</p>
+<p>Back up your source code to at least two different software forges, and turn on
+automatic mirroring in GitHub or <a href="https://gitlab.com/">GitLab</a>'s settings. A <code>git push</code> to a
+secondary remote is the most cost-effective one-liner you will ever write, but
+automatic mirroring is even better.</p>
 <p>Back up your configuration as well: DNS records, environment variables, and
 pipeline definitions. These are small in size but catastrophic to reconstruct
 from memory. A single export once a week, stored alongside your other backups,
@@ -259,12 +242,12 @@ has disappeared from the database," or "The -80°C freezer alarm went off at 3:0
 a.m. and no one was in the building." Pick the thing that scares you most. Walk
 through the checklist step by step and fix anything that is missing, wrong, or
 stale then and there.</p>
-<p>Over the course of a year, aim to test one scenario from each domain:</p>
+<p>Over the course of a year, aim to test one scenario from each applicable domain:</p>
 <ul>
 <li>Restore the database from a snapshot.</li>
-<li>Release your software package from the mirrored repository.</li>
+<li>Release your software package from the mirrored repository (not the usual one).</li>
 <li>Download and verify your dataset from its repository deposit.</li>
-<li>Walk through a freezer-failure or field-evacuation drill.</li>
+<li>Walk through a freezer-failure drill.</li>
 </ul>
 <p>Keep track of how long tests take and compare against your RTO. If restoring the
 database takes four hours but your RTO is two hours, you must either fix the
@@ -346,10 +329,14 @@ diagnosing what killed the freezer.</p>
 technical response, one person handles communication using the pre-written
 messages from Tip 4, and everyone else does what the leads tell them to.</p>
 <p>Create an incident log <em>as you work</em>: a shared Google Doc or a thread in your
-out-of-band Signal group is good enough. Timestamp every significant action:
-"14:32: freezer alarm triggered," "14:35: temperature reading -50°C and rising,"
-"14:40: began sample transfer to Building C." The log keeps the team in sync and
-gives you a record for the post-incident review.</p>
+out-of-band Signal group is good enough. Timestamp every significant action:</p>
+<ul>
+<li>14:32: freezer alarm triggered</li>
+<li>14:35: temperature reading -50°C and rising</li>
+<li>14:40: began sample transfer to Building C</li>
+</ul>
+<p>The log keeps the team in sync and gives you a record for the post-incident
+review.</p>
 <p>Escalate early. If you are on a cloud provider's support plan, open a ticket the
 moment you suspect the problem is on their side. If the freezer repair
 contractor has a 24-hour emergency line, call them before you have finished
@@ -365,20 +352,27 @@ member <em>least</em> involved in the incident lead it.</p>
 <p>You probably don't have a budget line item for disaster recovery, but you still
 have costs. Identify them all:</p>
 <ul>
-<li>Digital costs: cloud backup storage, password-manager subscription, domain and
-  certificate renewals, managed-database fees, repository deposit charges.</li>
-<li>Physical costs: backup freezer space, equipment maintenance contracts, UPS
-  battery replacements, field-safety gear, sample-replacement materials.</li>
-<li>Software costs: registry fees (if any), cloud-platform subscriptions,
-  monitoring-service fees.</li>
+<li>
+<p>Digital costs: cloud backup storage, password-manager subscription, domain
+    and certificate renewals, managed-database fees, repository deposit charges.</p>
+</li>
+<li>
+<p>Physical costs: backup freezer space, equipment maintenance contracts, UPS
+    battery replacements, field-safety gear, sample-replacement materials.</p>
+</li>
+<li>
+<p>Personnel costs: time spent on quarterly plan reviews, annual backup-restore
+    tests and disaster drills, cross-training to reduce lottery factors, and the
+    hours lost to incident response instead of research.</p>
+</li>
 </ul>
 <p>Calculate what a day of downtime costs you in concrete terms: lost experiment
 time, missed paper deadlines, collaborators who stop trusting you, a blown grant
 deadline, or samples that cannot be replaced. For a grant-funded research group,
 "cost" also includes the graduate student who cannot finish their thesis chapter
 and the field season that cannot be re-run. That number tells you whether it is
-worth spending $50/month on a managed database or $200/year on a backup
-service. For most groups, it is.</p>
+worth spending $50/month on a managed database or $200/year on a backup service.
+For most groups, it is.</p>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
