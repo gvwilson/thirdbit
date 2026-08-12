@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Closing Time</title>
+<meta content="Closing Time" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/slides.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<div class="shower list" tabindex="-1">
+<section class="slide">
+<div class="center">
+<h1>Closing Time</h1>
+<br/>
+<p>Preserving Your Work</p>
+</div>
+</section>
+<section class="slide">
+<h2>If You Have Time</h2>
+<ul>
+<li>Preservation means making work usable by someone who wasn't part of creating it</li>
+<li>Capture the <em>why</em>, not just the <em>what</em>:
+    a README explaining the problem solved is more durable than API docs</li>
+<li>A "last known good state" document: what worked, what was broken, what was left undone</li>
+</ul>
+</section>
+<section class="slide">
+<h2>If You Have Time</h2>
+<ul>
+<li>Archive to a persistent location (Zenodo, Software Heritage)<ul>
+<li>Be wary of institutional repositories — you may lose access</li>
+</ul>
+</li>
+<li>Assign a <a class="gl-ref" href="../glossary/#doi">DOI</a> to the final release</li>
+<li>Mark deprecated versions in every package registry</li>
+<li>Point to alternatives: a migration guide matters more than a farewell post</li>
+</ul>
+</section>
+<section class="slide">
+<h2>What to Preserve</h2>
+<ul>
+<li>Discussion archives (mailing lists, issue trackers) are often more valuable than formal docs<ul>
+<li>Export and preserve before paid services lapse</li>
+</ul>
+</li>
+<li>Domain names lapse and get squatted; migrate content to free hosting first</li>
+<li>Data preservation requires metadata: provenance, format, units, known limitations</li>
+<li>Follow <a class="gl-ref" href="../glossary/#fair-principles">FAIR principles</a> where possible</li>
+<li>Dependencies rot: record exact versions and, ideally, a container image</li>
+</ul>
+</section>
+<section class="slide">
+<h2>If You Don't Have Time</h2>
+<ul>
+<li>Prioritize data over code<ul>
+<li>Raw data is often irreplaceable; code in version control can be recovered</li>
+<li>If you can only do one thing, copy the data out first</li>
+</ul>
+</li>
+<li>One public copy beats zero private ones<ul>
+<li>Push the repository to a public location immediately, even messy</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="slide">
+<h2>If You Don't Have Time</h2>
+<ul>
+<li>Export everything: issue trackers, wikis, CI/CD config, deployment settings</li>
+<li>Hand credentials to a trusted person outside the project before access is cut</li>
+<li>Write a one-paragraph finder's note: what this is, state, what's missing, contact</li>
+</ul>
+</section>
+<section class="slide">
+<h2>Normalized Deviations</h2>
+<ul>
+<li>[<a class="bib-ref" href="../bibliography/#Vaughan1996">Vaughan1996</a>]: the Challenger disaster resulted from a long sequence of small decisions
+    in which warning signals were reinterpreted as acceptable until deviation became the norm</li>
+<li>Teams approaching closure carry the same kind of backlog</li>
+<li>Deliberate closure should include an explicit audit of
+    <a class="gl-ref" href="../glossary/#normalization-of-deviance">normalized deviations</a>:
+    things the team accepted because stopping to fix them felt too costly</li>
+<li>A shutdown retrospective is most valuable when it names
+    the things the team learned to live with</li>
+<li>Document these to avoid passing silent assumptions to anyone who inherits the work</li>
+</ul>
+</section>
+<section class="slide">
+<h3>Downstream Impact</h3>
+<ol>
+<li>Map your project's downstream dependencies.</li>
+<li>Categorize each dependent by impact severity:
+    critical (their work stops),
+    significant (their work is impaired),
+    or minor (an inconvenience).</li>
+<li>Prioritize your list and draft a one-sentence message for each category.</li>
+</ol>
+</section>
+<section class="slide">
+<h3>Write a Last Known Good State Document</h3>
+<ol>
+<li>What does this project do, and what problem does it solve?</li>
+<li>What is currently working?</li>
+<li>What is broken or incomplete?</li>
+<li>Where does the data or code live, and how would someone get it?</li>
+<li>What are the most important things a successor would need to know?</li>
+</ol>
+</section>
+<section class="slide">
+<h2>Normalized Deviations List</h2>
+<ol>
+<li>Write down three things in your project that everyone on the team knows are wrong
+    but that you have all learned to live with.</li>
+<li>For each, explain whether you would
+    document it honestly in the last known good state document,
+    fix it before shutdown,
+    or leave it undocumented?</li>
+</ol>
+</section>
+<div aria-live="polite" id="slide-counter"></div>
+</div>
+<script src="../_static/shower.js"></script>
+<script src="../_static/slides.js"></script>
+</body>
+</html>
