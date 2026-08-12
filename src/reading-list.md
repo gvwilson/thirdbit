@@ -222,3 +222,4 @@ template: page
 | Move Slow and Upgrade | Evan Selinger and Albert Fox Cahn | 978-1009466578 | 2026 |
 | Assassin at Allgate | Tristis Ward | 978-1770532588 | 2026 |
 | Time Travel for Beginners | Jaclyn Moriarty | 978-0593820339 | 2026 |
+| Bewilderness | Jonathan Maberry | 978-1680577969 | 2026 |
