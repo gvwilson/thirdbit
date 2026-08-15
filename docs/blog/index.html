@@ -147,13 +147,20 @@ For reference, the materials are in <a href="https://github.com/gvwilson/mrsp">t
     but that page shows up as entry #1 in the table of contents (which is bad).
     I have tried using a <code># Title</code> heading in <code>index.qmd</code> instead of a <code>title</code> field in the YAML frontmatter,
     and/or adding<code>.unnumbered</code>, <code>.toc-ignore</code>, and other classes to that H1 heading,
-    but those don&rsquo;t achieve what I want.</p>
+    but those don&rsquo;t achieve what I want.
+    <br>
+    <em>The closest I can get to what I want is to give <code>./index.qmd</code> an H1 title <code>Overview</code>
+    and add <code>{.unnumbered}</code> to it. It&rsquo;s clumsy, in that it still creates an entry in the
+    table of contents, but it&rsquo;ll do for now.</em></p>
 </li>
 <li>
 <p>Each page that has bibliographic citations lists references at the bottom of that page
     (see for example the <a href="https://gvwilson.github.io/mrsp/health/">Project Health</a> page).
     I don&rsquo;t want this: I want all citations to link to the appropriate entry in the bibliography page
-    (e.g., <a href="https://gvwilson.github.io/mrsp/bibliography/">this page</a> in the example project).</p>
+    (e.g., <a href="https://gvwilson.github.io/mrsp/bibliography/">this page</a> in the example project).
+    <br>
+    <em>Add <code>link-citations: true</code> under <code>format &gt; html</code> in <code>_quarto.yml</code>,
+    then put <code>:::{#refs}\n:::</code> in <code>bibliography/index.qmd</code>.</em></p>
 </li>
 <li>
 <p>Each chapter in the tutorial is in a subdirectory of the root,
@@ -188,7 +195,10 @@ For reference, the materials are in <a href="https://github.com/gvwilson/mrsp">t
     for several different projects,
     but then serve them all from one site as siblings as described above?
     (I&rsquo;m less worried about duplication here because the custom CSS will only be a few kilobytes,
-    so this is much less urgent than the <code>site_libs</code> issue.)</p>
+    so this is much less urgent than the <code>site_libs</code> issue.)
+    <br>
+    <em>Put <code>css: assets/mccole.css</code> under <code>format&gt;html</code> in <code>_quarto.yml</code>,
+    then create <code>assets/mccole.css</code> and start overriding things there.</em></p>
 </li>
 <li>
 <p>Finally, the glossary for the workshop is in <code>./glossary/index.qmd</code>,

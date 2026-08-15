@@ -24,13 +24,20 @@ For reference, the materials are in &lt;a href=&#34;https://github.com/gvwilson/
     but that page shows up as entry #1 in the table of contents (which is bad).
     I have tried using a &lt;code&gt;# Title&lt;/code&gt; heading in &lt;code&gt;index.qmd&lt;/code&gt; instead of a &lt;code&gt;title&lt;/code&gt; field in the YAML frontmatter,
     and/or adding&lt;code&gt;.unnumbered&lt;/code&gt;, &lt;code&gt;.toc-ignore&lt;/code&gt;, and other classes to that H1 heading,
-    but those don&amp;rsquo;t achieve what I want.&lt;/p&gt;
+    but those don&amp;rsquo;t achieve what I want.
+    &lt;br&gt;
+    &lt;em&gt;The closest I can get to what I want is to give &lt;code&gt;./index.qmd&lt;/code&gt; an H1 title &lt;code&gt;Overview&lt;/code&gt;
+    and add &lt;code&gt;{.unnumbered}&lt;/code&gt; to it. It&amp;rsquo;s clumsy, in that it still creates an entry in the
+    table of contents, but it&amp;rsquo;ll do for now.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Each page that has bibliographic citations lists references at the bottom of that page
     (see for example the &lt;a href=&#34;https://gvwilson.github.io/mrsp/health/&#34;&gt;Project Health&lt;/a&gt; page).
     I don&amp;rsquo;t want this: I want all citations to link to the appropriate entry in the bibliography page
-    (e.g., &lt;a href=&#34;https://gvwilson.github.io/mrsp/bibliography/&#34;&gt;this page&lt;/a&gt; in the example project).&lt;/p&gt;
+    (e.g., &lt;a href=&#34;https://gvwilson.github.io/mrsp/bibliography/&#34;&gt;this page&lt;/a&gt; in the example project).
+    &lt;br&gt;
+    &lt;em&gt;Add &lt;code&gt;link-citations: true&lt;/code&gt; under &lt;code&gt;format &amp;gt; html&lt;/code&gt; in &lt;code&gt;_quarto.yml&lt;/code&gt;,
+    then put &lt;code&gt;:::{#refs}\n:::&lt;/code&gt; in &lt;code&gt;bibliography/index.qmd&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Each chapter in the tutorial is in a subdirectory of the root,
@@ -65,7 +72,10 @@ For reference, the materials are in &lt;a href=&#34;https://github.com/gvwilson/
     for several different projects,
     but then serve them all from one site as siblings as described above?
     (I&amp;rsquo;m less worried about duplication here because the custom CSS will only be a few kilobytes,
-    so this is much less urgent than the &lt;code&gt;site_libs&lt;/code&gt; issue.)&lt;/p&gt;
+    so this is much less urgent than the &lt;code&gt;site_libs&lt;/code&gt; issue.)
+    &lt;br&gt;
+    &lt;em&gt;Put &lt;code&gt;css: assets/mccole.css&lt;/code&gt; under &lt;code&gt;format&amp;gt;html&lt;/code&gt; in &lt;code&gt;_quarto.yml&lt;/code&gt;,
+    then create &lt;code&gt;assets/mccole.css&lt;/code&gt; and start overriding things there.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Finally, the glossary for the workshop is in &lt;code&gt;./glossary/index.qmd&lt;/code&gt;,

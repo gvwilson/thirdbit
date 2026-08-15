@@ -12,11 +12,18 @@ For reference, the materials are in [this repository][repo] and you can view the
     I have tried using a `# Title` heading in `index.qmd` instead of a `title` field in the YAML frontmatter,
     and/or adding`.unnumbered`, `.toc-ignore`, and other classes to that H1 heading,
     but those don't achieve what I want.
+	<br>
+	*The closest I can get to what I want is to give `./index.qmd` an H1 title `Overview`
+	and add `{.unnumbered}` to it. It's clumsy, in that it still creates an entry in the
+	table of contents, but it'll do for now.*
 
 1.  Each page that has bibliographic citations lists references at the bottom of that page
     (see for example the [Project Health][mrsp-health] page).
     I don't want this: I want all citations to link to the appropriate entry in the bibliography page
     (e.g., [this page][mrsp-bib] in the example project).
+	<br>
+	*Add `link-citations: true` under `format > html` in `_quarto.yml`,
+	then put `:::{#refs}\n:::` in `bibliography/index.qmd`.*
 
 1.  Each chapter in the tutorial is in a subdirectory of the root,
     e.g., `./intro/index.qmd` is rendered as `./docs/intro/index.html`.
@@ -49,6 +56,9 @@ For reference, the materials are in [this repository][repo] and you can view the
     but then serve them all from one site as siblings as described above?
     (I'm less worried about duplication here because the custom CSS will only be a few kilobytes,
     so this is much less urgent than the `site_libs` issue.)
+	<br>
+	*Put `css: assets/mccole.css` under `format>html` in `_quarto.yml`,
+	then create `assets/mccole.css` and start overriding things there.*
 
 1.  Finally, the glossary for the workshop is in `./glossary/index.qmd`,
     and I use a little bit of custom Lua in `./bin/g.lua` to handle the rendering.
