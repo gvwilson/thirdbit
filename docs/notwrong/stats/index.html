@@ -281,34 +281,34 @@ ul.task-list li input[type="checkbox"] {
 <section id="descriptive-statistics" class="level2" data-number="G.1">
 <h2 data-number="G.1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">G.1</span> Descriptive Statistics</h2>
 <ul>
-<li>The <em>mean</em> is the sum of values divided by the count; it is sensitive to outliers</li>
-<li>The <em>median</em> is the middle value when sorted; use it when the distribution is skewed or when outliers are meaningful data points (e.g., response times, salaries)</li>
-<li>The <em>mode</em> is the most frequent value; it is sometimes useful for categorical data</li>
-<li><em>Variance</em> is the average squared deviation from the mean; it is hard to interpret because it is in squared units</li>
-<li><em>Standard deviation</em> (SD) is the square root of variance; it is in the same units as the data</li>
-<li>The <em>interquartile range</em> (IQR) is the distance between the 25th and 75th percentiles; it is more robust than SD when outliers are present</li>
-<li>A <em>box plot</em> shows median, IQR, and outliers; it is more informative than a bar chart with error bars for most research purposes</li>
+<li>The <a href="../glossary/index.html#mean">mean</a> is the sum of values divided by the count; it is sensitive to outliers</li>
+<li>The <a href="../glossary/index.html#median">median</a> is the middle value when sorted; use it when the distribution is skewed or when outliers are meaningful data points (e.g., response times, salaries)</li>
+<li>The <a href="../glossary/index.html#mode">mode</a> is the most frequent value; it is sometimes useful for categorical data</li>
+<li><a href="../glossary/index.html#variance">Variance</a> is the average squared deviation from the mean; it is hard to interpret because it is in squared units</li>
+<li><a href="../glossary/index.html#standard_deviation">Standard deviation</a> (SD) is the square root of variance; it is in the same units as the data</li>
+<li>The <a href="../glossary/index.html#interquartile_range">interquartile range</a> (IQR) is the distance between the 25th and 75th percentiles; it is more robust than SD when outliers are present</li>
+<li>A <a href="../glossary/index.html#box_plot">box plot</a> shows median, IQR, and outliers; it is more informative than a bar chart with error bars for most research purposes</li>
 </ul>
 </section>
 <section id="probability-and-distributions" class="level2" data-number="G.2">
 <h2 data-number="G.2" class="anchored" data-anchor-id="probability-and-distributions"><span class="header-section-number">G.2</span> Probability and Distributions</h2>
 <ul>
-<li>A <em>probability distribution</em> describes how likely each possible value is; discrete distributions apply to counts, continuous distributions to measurements</li>
-<li>The <em>normal distribution</em> is symmetric and bell-shaped; it appears often because the <em>central limit theorem</em> says that averages of many independent random variables tend toward normal, regardless of the original distribution</li>
+<li>A <a href="../glossary/index.html#probability_distribution">probability distribution</a> describes how likely each possible value is; discrete distributions apply to counts, continuous distributions to measurements</li>
+<li>The <a href="../glossary/index.html#normal_distribution">normal distribution</a> is symmetric and bell-shaped; it appears often because the <a href="../glossary/index.html#central_limit_theorem">central limit theorem</a> says that averages of many independent random variables tend toward normal, regardless of the original distribution</li>
 <li>Many things in software engineering are <em>not</em> normally distributed: task completion times, file sizes, defect counts, and developer productivity are typically right-skewed (long tail of large values)</li>
 <li>When normality is violated, use non-parametric tests (Mann-Whitney U test instead of t-test; Spearman’s ρ instead of Pearson’s r)</li>
-<li>The <em>distribution of a sample mean</em> (the sampling distribution) is distinct from the distribution of individual observations; it has smaller spread (SD / √n) and is more nearly normal even when individual observations are not</li>
+<li>The <a href="../glossary/index.html#sampling_distribution">distribution of a sample mean</a> (the sampling distribution) is distinct from the distribution of individual observations; it has smaller spread (SD / √n) and is more nearly normal even when individual observations are not</li>
 </ul>
 </section>
 <section id="hypothesis-testing" class="level2" data-number="G.3">
 <h2 data-number="G.3" class="anchored" data-anchor-id="hypothesis-testing"><span class="header-section-number">G.3</span> Hypothesis Testing</h2>
 <ul>
-<li>The <em>null hypothesis</em> (H₀) is the claim that there is no effect; the alternative hypothesis (H₁) is that there is one</li>
+<li>The null hypothesis (H₀) is the claim that there is no effect; the alternative hypothesis (H₁) is that there is one</li>
 <li>You test H₀ by asking, “How likely is my data if H₀ were true?”</li>
-<li>A <em>p-value</em> is this probability; small p-values are evidence against H₀</li>
-<li><em>Type I error</em> (false positive, α): rejecting H₀ when it is true; conventional threshold α = 0.05</li>
-<li><em>Type II error</em> (false negative, β): failing to reject H₀ when H₁ is true; power = 1 − β</li>
-<li>A <em>confidence interval</em> (CI) gives a range of values consistent with the data; A 95% CI means that if the study were repeated many times, the interval would contain the true value 95% of the time
+<li>This probability is a p-value, and small p-values are evidence against H₀</li>
+<li><a href="../glossary/index.html#type_i_error">Type I error</a> (false positive, α): rejecting H₀ when it is true; conventional threshold α = 0.05</li>
+<li><a href="../glossary/index.html#type_ii_error">Type II error</a> (false negative, β): failing to reject H₀ when H₁ is true; power = 1 − β</li>
+<li>A <a href="../glossary/index.html#confidence_interval">confidence interval</a> (CI) gives a range of values consistent with the data; A 95% CI means that if the study were repeated many times, the interval would contain the true value 95% of the time
 <ul>
 <li>CIs are usually more informative than p-values alone because they show direction and magnitude, not just significance</li>
 </ul></li>
@@ -318,25 +318,25 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="G.4" class="anchored" data-anchor-id="effect-sizes"><span class="header-section-number">G.4</span> Effect Sizes</h2>
 <ul>
 <li>Effect size measures the <em>magnitude</em> of an effect, independent of sample size</li>
-<li><em>Cohen’s d</em> for comparing two means: d = (mean₁ − mean₂) / pooled SD
+<li>Use Cohen’s d to compare two means: d = (mean₁ − mean₂) / pooled SD
 <ul>
 <li>d = 0.2: small; d = 0.5: medium; d = 0.8: large</li>
 <li>These benchmarks are rough guides from psychology; interpret in context</li>
 </ul></li>
-<li><em>Odds ratio</em> (OR): for binary outcomes, the ratio of odds in two groups; OR = 1 means no effect; OR &gt; 1 means higher odds in the treatment group</li>
-<li><em>Relative risk</em> (RR): for binary outcomes, the ratio of proportions; more intuitive than OR but only valid for prospective studies</li>
-<li><em>Pearson’s r</em>: correlation between two continuous variables; ranges from −1 to 1; r² is the proportion of variance in one variable explained by the other</li>
-<li><em>Spearman’s ρ</em> (rho): rank-order correlation; use when the relationship is monotone but not linear, or when variables are ordinal</li>
+<li><a href="../glossary/index.html#odds_ratio">Odds ratio</a> (OR): for binary outcomes, the ratio of odds in two groups; OR = 1 means no effect; OR &gt; 1 means higher odds in the treatment group</li>
+<li><a href="../glossary/index.html#relative_risk">Relative risk</a> (RR): for binary outcomes, the ratio of proportions; more intuitive than OR but only valid for prospective studies</li>
+<li><a href="../glossary/index.html#pearsons_r">Pearson's r</a>: correlation between two continuous variables; ranges from −1 to 1; r² is the proportion of variance in one variable explained by the other</li>
+<li><a href="../glossary/index.html#spearmans_rho">Spearman's ρ</a> (rho): rank-order correlation; use when the relationship is monotone but not linear, or when variables are ordinal</li>
 </ul>
 </section>
 <section id="statistical-power-and-sample-size" class="level2" data-number="G.5">
 <h2 data-number="G.5" class="anchored" data-anchor-id="statistical-power-and-sample-size"><span class="header-section-number">G.5</span> Statistical Power and Sample Size</h2>
 <ul>
-<li><em>Power</em> is the probability of detecting a real effect; usually targeted at 0.80</li>
+<li>Statistical power is the probability of detecting a real effect; usually targeted at 0.80</li>
 <li>Power increases with larger sample size, larger true effect, and higher α</li>
 <li>The required sample size for a two-sample t-test is approximately n = 2(z_α + z_β)²σ²/δ² where δ is the minimum detectable difference, σ is the population SD, z_α = 1.96 for α = 0.05, and z_β = 0.84 for 80% power</li>
 <li>Most software engineering experiments are underpowered: typical sample sizes of 20–50 participants can only detect large effects (d &gt; 0.8) reliably</li>
-<li><em>Post-hoc power analysis</em> (calculating power after a null result) is generally uninformative and should be treated with skepticism</li>
+<li><a href="../glossary/index.html#post_hoc_power_analysis">Post-hoc power analysis</a> (calculating power after a null result) is generally uninformative and should be treated with skepticism</li>
 </ul>
 </section>
 <section id="multiple-comparisons" class="level2" data-number="G.6">
@@ -346,8 +346,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>k = 10: 40% chance of a false positive; k = 20: 64%</li>
 </ul></li>
-<li><em>Bonferroni correction</em>: use α/k as the threshold for each test; conservative (reduces power), but simple</li>
-<li><em>False discovery rate</em> (FDR, Benjamini-Hochberg): controls the expected proportion of false positives among rejected hypotheses; less conservative than Bonferroni for large numbers of tests</li>
+<li><a href="../glossary/index.html#bonferroni_correction">Bonferroni correction</a>: use α/k as the threshold for each test; conservative (reduces power), but simple</li>
+<li><a href="../glossary/index.html#false_discovery_rate">False discovery rate</a> (FDR, Benjamini-Hochberg): controls the expected proportion of false positives among rejected hypotheses; less conservative than Bonferroni for large numbers of tests</li>
 <li>Exploratory analyses that test many hypotheses should be clearly labeled as exploratory; confirmatory claims require pre-registration or replication</li>
 </ul>
 </section>
