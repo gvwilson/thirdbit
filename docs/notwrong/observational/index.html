@@ -1,61 +1,318 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Observational Studies and Natural Experiments</title>
-<meta content="How to Not Be Wrong About AI" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Observational Studies and Natural Experiments – How to Not Be Wrong About AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../critical/index.html" rel="next">
+<link href="../quantitative/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">notwrong</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../productivity/">Defining Productivity</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
-<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
-<li><a class="active" href="../observational/">Observational Studies and Natural Experiments</a></li>
-<li><a href="../critical/">Reading Studies Critically</a></li>
-<li><a href="../running/">Running Studies in Your Organization</a></li>
-<li><a href="../cheaply/">Starting Cheap</a></li>
-<li><a href="../finale/">Conclusion: What to Do Next</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../observational/index.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">How to Not Be Wrong About AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/notwrong" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../further/">Further Reading</a></li>
-<li><a href="../stats/">Statistical Reference</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/notwrong">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../productivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../wrong/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qualitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quantitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../observational/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../critical/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../running/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheaply/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: What to Do Next</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../further/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Statistical Reference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Observational Studies and Natural Experiments</h1>
-<div class="callout">
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-observational-studies-are" id="toc-what-observational-studies-are" class="nav-link active" data-scroll-target="#what-observational-studies-are"><span class="header-section-number">6.1</span> What Observational Studies Are</a></li>
+  <li><a href="#mining-software-repositories" id="toc-mining-software-repositories" class="nav-link" data-scroll-target="#mining-software-repositories"><span class="header-section-number">6.2</span> Mining Software Repositories</a></li>
+  <li><a href="#bias-types" id="toc-bias-types" class="nav-link" data-scroll-target="#bias-types"><span class="header-section-number">6.3</span> Bias Types</a></li>
+  <li><a href="#the-control-validity-trade-off" id="toc-the-control-validity-trade-off" class="nav-link" data-scroll-target="#the-control-validity-trade-off"><span class="header-section-number">6.4</span> The Control-Validity Trade-off</a></li>
+  <li><a href="#quasi-experimental-designs" id="toc-quasi-experimental-designs" class="nav-link" data-scroll-target="#quasi-experimental-designs"><span class="header-section-number">6.5</span> Quasi-Experimental Designs</a></li>
+  <li><a href="#natural-experiments" id="toc-natural-experiments" class="nav-link" data-scroll-target="#natural-experiments"><span class="header-section-number">6.6</span> Natural Experiments</a></li>
+  <li><a href="#field-study-design" id="toc-field-study-design" class="nav-link" data-scroll-target="#field-study-design"><span class="header-section-number">6.7</span> Field Study Design</a></li>
+  <li><a href="#correlation-and-causation" id="toc-correlation-and-causation" class="nav-link" data-scroll-target="#correlation-and-causation"><span class="header-section-number">6.8</span> Correlation and Causation</a></li>
+  <li><a href="#misconceptions" id="toc-misconceptions" class="nav-link" data-scroll-target="#misconceptions"><span class="header-section-number">6.9</span> Misconceptions</a></li>
+  <li><a href="#check-understanding" id="toc-check-understanding" class="nav-link" data-scroll-target="#check-understanding"><span class="header-section-number">6.10</span> Check Understanding</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.11</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#spot-the-bias-15-minutes" id="toc-spot-the-bias-15-minutes" class="nav-link" data-scroll-target="#spot-the-bias-15-minutes"><span class="header-section-number">6.11.1</span> Spot the Bias (15 minutes)</a></li>
+  <li><a href="#design-a-natural-experiment-20-minutes" id="toc-design-a-natural-experiment-20-minutes" class="nav-link" data-scroll-target="#design-a-natural-experiment-20-minutes"><span class="header-section-number">6.11.2</span> Design a Natural Experiment (20 minutes)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/observational/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/observational/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Distinguish observational studies from controlled experiments.</li>
 <li>Identify common biases in repository mining and other archival methods.</li>
@@ -63,293 +320,654 @@
 <li>Distinguish correlation from causation when interpreting observational findings.</li>
 </ul>
 </div>
-<p>In 2014,
-Eirini Kalliamvakou and her colleagues published a paper titled
-"The Promises and Perils of Mining GitHub" [<a class="bib-ref" href="../bibliography/#Kalliamvakou2014">Kalliamvakou2014</a>].
-They systematically documented the ways in which
-GitHub repository data is not a representative sample of software development:
-inactive repositories,
-personal experiments,
-class assignments,
-and mirrored projects all appear in the data alongside real production software.
-The paper did not say "don't use GitHub data".
-It said:
-be specific about what you are measuring,
-because the data does not mean what you think it means.</p>
-<h2>What Observational Studies Are</h2>
+</div>
+<p>In 2014, Eirini Kalliamvakou and her colleagues published a paper titled “The Promises and Perils of Mining GitHub” <span class="citation" data-cites="Kalliamvakou2014">(<a href="../bibliography/index.html#ref-Kalliamvakou2014" role="doc-biblioref">Kalliamvakou et al. 2014</a>)</span>. They systematically documented the ways in which GitHub repository data is not a representative sample of software development: inactive repositories, personal experiments, class assignments, and mirrored projects all appear in the data alongside real production software. The paper did not say “don’t use GitHub data”. It said: be specific about what you are measuring, because the data does not mean what you think it means.</p>
+<section id="what-observational-studies-are" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="what-observational-studies-are"><span class="header-section-number">6.1</span> What Observational Studies Are</h2>
 <ul>
-<li>An <a class="gl-ref" href="../glossary/#observational_study">observational study</a> measures the world as it is,
-    without manipulating any variables</li>
-<li>You observe what people do,
-    what code looks like,
-    what repositories contain</li>
+<li>An <a href="../glossary/index.html#observational_study">observational study</a> measures the world as it is, without manipulating any variables</li>
+<li>You observe what people do, what code looks like, what repositories contain</li>
 <li>You do <em>not</em> assign anyone to a treatment group</li>
-<li>Advantages: real-world behavior, large datasets,
-    no ethical concerns about withholding interventions,
-    no Hawthorne effect from artificial conditions</li>
-<li>Disadvantage:
-    you cannot establish causation because you cannot rule out confounding variables</li>
+<li>Advantages: real-world behavior, large datasets, no ethical concerns about withholding interventions, no Hawthorne effect from artificial conditions</li>
+<li>Disadvantage: you cannot establish causation because you cannot rule out confounding variables</li>
 </ul>
-<h2>Mining Software Repositories</h2>
+</section>
+<section id="mining-software-repositories" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="mining-software-repositories"><span class="header-section-number">6.2</span> Mining Software Repositories</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#msr">Mining software repositories</a> (MSR) extracts data
-    from version control systems, issue trackers, code review tools, and CI/CD logs</li>
-<li>GitHub, GitLab, and similar platforms expose APIs
-    that make large-scale data collection straightforward</li>
-<li>Common MSR datasets: commit history, issue lifecycles, code review comments,
-    contributor networks, dependency graphs</li>
-<li>But:<ul>
+<li><a href="../glossary/index.html#msr">Mining software repositories</a> (MSR) extracts data from version control systems, issue trackers, code review tools, and CI/CD logs</li>
+<li>GitHub, GitLab, and similar platforms expose APIs that make large-scale data collection straightforward</li>
+<li>Common MSR datasets: commit history, issue lifecycles, code review comments, contributor networks, dependency graphs</li>
+<li>But:
+<ul>
 <li>Many repositories are not active software projects</li>
 <li>Pull requests are used differently across teams (some merge locally)</li>
 <li>Contributor counts overestimate team size</li>
 <li>Stars and forks measure visibility, not quality</li>
-</ul>
-</li>
-<li>Munaiah et al. address the noise problem directly:
-    their tool classifies 1.8 million GitHub repositories
-    as engineered software versus personal or homework projects,
-    achieving 82% precision and 86% recall [<a class="bib-ref" href="../bibliography/#Munaiah2017">Munaiah2017</a>]</li>
-<li>MSR studies can also challenge received wisdom:
-    Tufano et al. studied the change history of 200 open-source projects
-    and found that most code smells are introduced when an artifact is first created,
-    not during later evolution, and that 80% survive indefinitely [<a class="bib-ref" href="../bibliography/#Tufano2017">Tufano2017</a>]<ul>
+</ul></li>
+<li>Munaiah et al.&nbsp;address the noise problem directly: their tool classifies 1.8 million GitHub repositories as engineered software versus personal or homework projects, achieving 82% precision and 86% recall <span class="citation" data-cites="Munaiah2017">(<a href="../bibliography/index.html#ref-Munaiah2017" role="doc-biblioref">Munaiah et al. 2017</a>)</span></li>
+<li>MSR studies can also challenge received wisdom: Tufano et al.&nbsp;studied the change history of 200 open-source projects and found that most code smells are introduced when an artifact is first created, not during later evolution, and that 80% survive indefinitely <span class="citation" data-cites="Tufano2017">(<a href="../bibliography/index.html#ref-Tufano2017" role="doc-biblioref">Tufano et al. 2017</a>)</span>
+<ul>
 <li>A counterintuitive result that only becomes visible at scale</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Bias Types</h2>
+</section>
+<section id="bias-types" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="bias-types"><span class="header-section-number">6.3</span> Bias Types</h2>
 <ul>
-<li>Selection bias: open-source projects on GitHub are not representative
-    of all software projects</li>
+<li>Selection bias: open-source projects on GitHub are not representative of all software projects</li>
 <li>Developers who share their code publicly differ from those who do not</li>
-<li><a class="gl-ref" href="../glossary/#survivorship_bias">Survivorship bias</a>:
-    you only see projects that still exist<ul>
-<li>Failed or abandoned projects leave incomplete records</li>
-</ul>
-</li>
-<li>Confounding:
-    the variable you are measuring correlates with an unmeasured variable that is the real cause<ul>
-<li>Example:
-    projects that use more tests also tend to have more experienced developers,
-    so you cannot attribute lower defect rates to testing alone</li>
-</ul>
-</li>
-</ul>
-<h2>The Control-Validity Trade-off</h2>
+<li><a href="../glossary/index.html#survivorship_bias">Survivorship bias</a>: you only see projects that still exist
 <ul>
-<li>Every study design makes a trade-off between internal and external validity
-     [<a class="bib-ref" href="../bibliography/#Campbell1963">Campbell1963</a>, <a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>]</li>
-<li>Controlled experiments maximize internal validity<ul>
+<li>Failed or abandoned projects leave incomplete records</li>
+</ul></li>
+<li>Confounding: the variable you are measuring correlates with an unmeasured variable that is the real cause
+<ul>
+<li>Example: projects that use more tests also tend to have more experienced developers, so you cannot attribute lower defect rates to testing alone</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-control-validity-trade-off" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="the-control-validity-trade-off"><span class="header-section-number">6.4</span> The Control-Validity Trade-off</h2>
+<ul>
+<li>Every study design makes a trade-off between internal and external validity <span class="citation" data-cites="Campbell1963 Wohlin2000">(<a href="../bibliography/index.html#ref-Campbell1963" role="doc-biblioref">Campbell and Stanley 1963</a>; <a href="../bibliography/index.html#ref-Wohlin2000" role="doc-biblioref">Wohlin et al. 2000</a>)</span></li>
+<li>Controlled experiments maximize internal validity
+<ul>
 <li>Randomization distributes confounders evenly, making causal claims defensible</li>
 <li>The cost is artificiality: the lab task is not the real job</li>
-</ul>
-</li>
-<li>Observational studies maximize external validity<ul>
+</ul></li>
+<li>Observational studies maximize external validity
+<ul>
 <li>You are watching real developers on real work</li>
 <li>The cost is that confounding variables cannot be ruled out</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#quasi_experimental_design">Quasi-experimental designs</a> sit in between:<ul>
+</ul></li>
+<li><a href="../glossary/index.html#quasi_experimental_design">Quasi-experimental designs</a> sit in between:
+<ul>
 <li>They use real-world interventions but without full randomization</li>
 <li>Accept some ambiguity about causation in exchange for greater realism</li>
-</ul>
-</li>
-<li>No single design is always better<ul>
-<li>The right choice depends on whether you need a causal claim
-     or a realistic estimate in the wild</li>
-</ul>
-</li>
-<li>A mature research program uses all three:<ul>
+</ul></li>
+<li>No single design is always better
+<ul>
+<li>The right choice depends on whether you need a causal claim or a realistic estimate in the wild</li>
+</ul></li>
+<li>A mature research program uses all three:
+<ul>
 <li>Controlled experiments to establish that X can cause Y</li>
 <li>Quasi-experiments to estimate the effect size in realistic settings</li>
 <li>Observational studies to establish that the phenomenon exists at scale in practice</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Quasi-Experimental Designs</h2>
+</section>
+<section id="quasi-experimental-designs" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="quasi-experimental-designs"><span class="header-section-number">6.5</span> Quasi-Experimental Designs</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#difference_in_differences">Difference-in-differences</a> (DiD)
-    compares the change in outcome for a treated group
-    against the change for a control group over the same period<ul>
-<li>Requires a "parallel trends" assumption:
-    the two groups would have changed similarly if neither had been treated</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#interrupted_time_series">Interrupted time series</a> (ITS)
-    looks for a change in trend at the point when an intervention was introduced<ul>
+<li><a href="../glossary/index.html#difference_in_differences">Difference-in-differences</a> (DiD) compares the change in outcome for a treated group against the change for a control group over the same period
+<ul>
+<li>Requires a “parallel trends” assumption: the two groups would have changed similarly if neither had been treated</li>
+</ul></li>
+<li><a href="../glossary/index.html#interrupted_time_series">Interrupted time series</a> (ITS) looks for a change in trend at the point when an intervention was introduced
+<ul>
 <li>Requires enough data before and after the intervention to estimate the trend</li>
-<li>Example:
-    measuring defect rates before and after a company mandates code review,
-    using the trend line to distinguish the effect from natural improvement over time</li>
+<li>Example: measuring defect rates before and after a company mandates code review, using the trend line to distinguish the effect from natural improvement over time</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Natural Experiments</h2>
+</section>
+<section id="natural-experiments" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="natural-experiments"><span class="header-section-number">6.6</span> Natural Experiments</h2>
 <ul>
-<li>A <a class="gl-ref" href="../glossary/#natural_experiment">natural experiment</a> uses real-world variation
-    that was not created by the researcher but that approximates random assignment</li>
-<li>Examples in software engineering:<ul>
+<li>A <a href="../glossary/index.html#natural_experiment">natural experiment</a> uses real-world variation that was not created by the researcher but that approximates random assignment</li>
+<li>Examples in software engineering:
+<ul>
 <li>A policy change that applies to some teams but not others at the same time</li>
 <li>A tool being made available to some offices due to licensing constraints</li>
 <li>A GitHub outage that forced some developers to work differently for a period</li>
+</ul></li>
+<li>Natural experiments can support stronger causal claims than pure observational studies if the variation is plausibly independent of the outcome</li>
 </ul>
-</li>
-<li>Natural experiments can support stronger causal claims than pure observational studies
-    if the variation is plausibly independent of the outcome</li>
-</ul>
-<h2>Field Study Design</h2>
+</section>
+<section id="field-study-design" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="field-study-design"><span class="header-section-number">6.7</span> Field Study Design</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#longitudinal_study">Longitudinal field studies</a>
-    observe participants over weeks or months in their actual work environment,
-    bridging the gap between lab experiments and pure observational analysis</li>
-<li>Define acceptance criteria before you begin:
-    minimum participation duration,
-    minimum activity thresholds,
-    or minimum number of tasks completed</li>
+<li><a href="../glossary/index.html#longitudinal_study">Longitudinal field studies</a> observe participants over weeks or months in their actual work environment, bridging the gap between lab experiments and pure observational analysis</li>
+<li>Define acceptance criteria before you begin: minimum participation duration, minimum activity thresholds, or minimum number of tasks completed</li>
 <li>Report dropout transparently</li>
-<li>A study of Mylyn (a task-focused IDE plugin) recruited 99 developers,
-    but only 16 met the pre-specified coding activity thresholds<ul>
-<li>The 6:1 funnel was reported honestly and shaped interpretation of the results
-    [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
-</ul>
-</li>
-<li>Beller et al. tracked 416 developers over five months using IDE instrumentation [<a class="bib-ref" href="../bibliography/#Beller2015">Beller2015</a>]:<ul>
+<li>A study of Mylyn (a task-focused IDE plugin) recruited 99 developers, but only 16 met the pre-specified coding activity thresholds
+<ul>
+<li>The 6:1 funnel was reported honestly and shaped interpretation of the results <span class="citation" data-cites="Sadowski2019">(<a href="../bibliography/index.html#ref-Sadowski2019" role="doc-biblioref"><span class="nocase">Sadowski and (eds.)</span> 2019</a>)</span></li>
+</ul></li>
+<li>Beller et al.&nbsp;tracked 416 developers over five months using IDE instrumentation <span class="citation" data-cites="Beller2015">(<a href="../bibliography/index.html#ref-Beller2015" role="doc-biblioref">Beller et al. 2015</a>)</span>:
+<ul>
 <li>Developers reported spending about half their time on testing</li>
 <li>Instrumentation showed the actual figure was closer to a quarter</li>
 <li>The gap is exactly what field studies are designed to reveal</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Correlation and Causation</h2>
+</section>
+<section id="correlation-and-causation" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="correlation-and-causation"><span class="header-section-number">6.8</span> Correlation and Causation</h2>
 <ul>
-<li>Empirical knowledge about a relationship comes in three levels [<a class="bib-ref" href="../bibliography/#Wohlin2000">Wohlin2000</a>]</li>
-<li>Descriptive: patterns observed across cases with no quantified relationship and no claim about cause<ul>
-<li>"Projects that adopt code review tend to have fewer defects"</li>
-</ul>
-</li>
-<li>Correlational: a quantified relationship between variables,
-    but still without establishing direction or causation</li>
-<li>Causal: X causes Y,
-    established by ruling out all alternative explanations through randomization
-    or a strong natural experiment</li>
+<li>Empirical knowledge about a relationship comes in three levels <span class="citation" data-cites="Wohlin2000">(<a href="../bibliography/index.html#ref-Wohlin2000" role="doc-biblioref">Wohlin et al. 2000</a>)</span></li>
+<li>Descriptive: patterns observed across cases with no quantified relationship and no claim about cause
+<ul>
+<li>“Projects that adopt code review tend to have fewer defects”</li>
+</ul></li>
+<li>Correlational: a quantified relationship between variables, but still without establishing direction or causation</li>
+<li>Causal: X causes Y, established by ruling out all alternative explanations through randomization or a strong natural experiment</li>
 <li>Moving from descriptive to correlational requires measurement and statistical analysis</li>
-<li>Moving from correlational to causal requires study design
-    that prevents confounders from being the explanation</li>
-<li>Most published SE research sits at the descriptive or correlational level
-    but is often reported as if it were causal<ul>
+<li>Moving from correlational to causal requires study design that prevents confounders from being the explanation</li>
+<li>Most published SE research sits at the descriptive or correlational level but is often reported as if it were causal
+<ul>
 <li>This is the most common source of misinterpretation</li>
-</ul>
-</li>
-<li>Standard alternative explanations for an observed correlation<ul>
+</ul></li>
+<li>Standard alternative explanations for an observed correlation
+<ul>
 <li>Reverse causation (B causes A)</li>
 <li>Confounding (C causes both A and B)</li>
 <li>Coincidence</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Misconceptions</h2>
+</section>
+<section id="misconceptions" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="misconceptions"><span class="header-section-number">6.9</span> Misconceptions</h2>
 <dl>
 <dt>A large enough sample turns correlation into causation.</dt>
-<dd>Sample size increases the precision of an estimate, not its causal interpretation.
-An observational study with a million data points is still observational:
-you have not manipulated anything, and confounders remain.</dd>
+<dd>
+Sample size increases the precision of an estimate, not its causal interpretation. An observational study with a million data points is still observational: you have not manipulated anything, and confounders remain.
+</dd>
 <dt>GitHub data represents software development.</dt>
-<dd>Open-source projects on GitHub are a small, self-selected slice of
-the software that actually gets built.
-Commercial software, government systems, and embedded code
-are largely invisible to MSR studies.</dd>
+<dd>
+Open-source projects on GitHub are a small, self-selected slice of the software that actually gets built. Commercial software, government systems, and embedded code are largely invisible to MSR studies.
+</dd>
 <dt>Including a confounder as a control variable in a regression removes its effect.</dt>
-<dd>You can only control for confounders you have measured and measured accurately.
-Unmeasured confounders,
-and those measured with error,
-continue to bias your estimates even after "controlling for" them.</dd>
+<dd>
+You can only control for confounders you have measured and measured accurately. Unmeasured confounders, and those measured with error, continue to bias your estimates even after “controlling for” them.
+</dd>
 <dt>Natural experiments are as reliable as randomized controlled trials.</dt>
-<dd>Natural experiments require assumptions like parallel trends in difference-in-differences
-that cannot be tested with the data available.
-They are stronger than raw observational studies but weaker than true randomization.</dd>
+<dd>
+Natural experiments require assumptions like parallel trends in difference-in-differences that cannot be tested with the data available. They are stronger than raw observational studies but weaker than true randomization.
+</dd>
 </dl>
-<h2>Check Understanding</h2>
+</section>
+<section id="check-understanding" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="check-understanding"><span class="header-section-number">6.10</span> Check Understanding</h2>
 <details>
-<summary>What is the difference between an observational study and a controlled experiment?</summary>
-<p>In a controlled experiment,
-the researcher assigns participants to conditions (treatment and control)
-and manipulates the independent variable.
-This allows causal claims because randomization distributes confounding variables evenly.
-In an observational study,
-the researcher measures the world as it is without manipulation.
-Observational studies can detect correlations and (with care) support causal inference,
-but they require additional assumptions like parallel trends in DiD that experiments do not.</p>
+<summary>
+What is the difference between an observational study and a controlled experiment?
+</summary>
+<p>In a controlled experiment, the researcher assigns participants to conditions (treatment and control) and manipulates the independent variable. This allows causal claims because randomization distributes confounding variables evenly. In an observational study, the researcher measures the world as it is without manipulation. Observational studies can detect correlations and (with care) support causal inference, but they require additional assumptions like parallel trends in DiD that experiments do not.</p>
 </details>
 <details>
-<summary>A study mines GitHub data and finds that projects with more frequent releases have fewer open issues. A blog post says "releasing frequently reduces issue backlogs." What is wrong with this interpretation?</summary>
-<p>The study shows a correlation, not causation.
-Several alternative explanations are equally consistent with the data:
-projects with better-resourced teams might both release more often
-and close issues faster (confounding);
-projects that close issues might release more often as a result (reverse causation);
-the projects might differ in type or maturity in ways that explain both patterns.
-Without randomization or a natural experiment,
-the causal direction cannot be established from this data.</p>
+<summary>
+A study mines GitHub data and finds that projects with more frequent releases have fewer open issues. A blog post says “releasing frequently reduces issue backlogs.” What is wrong with this interpretation?
+</summary>
+<p>The study shows a correlation, not causation. Several alternative explanations are equally consistent with the data: projects with better-resourced teams might both release more often and close issues faster (confounding); projects that close issues might release more often as a result (reverse causation); the projects might differ in type or maturity in ways that explain both patterns. Without randomization or a natural experiment, the causal direction cannot be established from this data.</p>
 </details>
 <details>
-<summary>What is survivorship bias, and why is it a particular concern when studying software project success using GitHub data?</summary>
-<p>Survivorship bias occurs when you only analyze cases that survived a selection process,
-missing the failed cases.
-On GitHub, abandoned projects, failed startups, and discontinued tools are either deleted or go silent.
-A study of "successful open-source projects" based on currently active repositories
-excludes all the projects that tried the same practices and failed.
-This makes successful practices look more predictive than they are.</p>
+<summary>
+What is survivorship bias, and why is it a particular concern when studying software project success using GitHub data?
+</summary>
+<p>Survivorship bias occurs when you only analyze cases that survived a selection process, missing the failed cases. On GitHub, abandoned projects, failed startups, and discontinued tools are either deleted or go silent. A study of “successful open-source projects” based on currently active repositories excludes all the projects that tried the same practices and failed. This makes successful practices look more predictive than they are.</p>
 </details>
 <details>
-<summary>A company introduces mandatory code review for Team A in January. Team B does not change its practices. Both teams' defect rates decline over the year. Explain how a difference-in-differences analysis would determine whether code review had an effect.</summary>
-<p>DiD compares the change in Team A's defect rate to the change in Team B's defect rate
-over the same period.
-If both teams declined by the same amount,
-that suggests the decline was due to factors affecting both teams
-(e.g., improved tooling, team learning).
-If Team A declined more than Team B,
-the excess decline is attributed to the code review intervention,
-under the assumption that without the intervention,
-both teams would have changed similarly (the parallel trends assumption).</p>
+<summary>
+A company introduces mandatory code review for Team A in January. Team B does not change its practices. Both teams’ defect rates decline over the year. Explain how a difference-in-differences analysis would determine whether code review had an effect.
+</summary>
+<p>DiD compares the change in Team A’s defect rate to the change in Team B’s defect rate over the same period. If both teams declined by the same amount, that suggests the decline was due to factors affecting both teams (e.g., improved tooling, team learning). If Team A declined more than Team B, the excess decline is attributed to the code review intervention, under the assumption that without the intervention, both teams would have changed similarly (the parallel trends assumption).</p>
 </details>
-<h2>Exercises</h2>
-<div class="exercise">
-<h3>Spot the Bias (15 minutes)</h3>
-<p>Read the abstract and methods section of a paper that uses GitHub data
-to study software development practices
-(any paper from the MSR conference proceedings will probably work).
-Identify one specific example of selection bias, survivorship bias, or confounding
-that the paper either acknowledges or does not address.
-Briefly explain how it affects the conclusions.</p>
+</section>
+<section id="exercises" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.11</span> Exercises</h2>
+<section id="spot-the-bias-15-minutes" class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="spot-the-bias-15-minutes"><span class="header-section-number">6.11.1</span> Spot the Bias (15 minutes)</h3>
+<p>Read the abstract and methods section of a paper that uses GitHub data to study software development practices (any paper from the MSR conference proceedings will probably work). Identify one specific example of selection bias, survivorship bias, or confounding that the paper either acknowledges or does not address. Briefly explain how it affects the conclusions.</p>
+</section>
+<section id="design-a-natural-experiment-20-minutes" class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="design-a-natural-experiment-20-minutes"><span class="header-section-number">6.11.2</span> Design a Natural Experiment (20 minutes)</h3>
+<p>A large technology company is rolling out an AI coding assistant to its engineering teams over six months. Some teams will get it first, and others will get it later based on the order in which their managers signed up. Design an observational study that treats this rollout as a natural experiment. Specify what you would measure, how you would use the staggered rollout as a source of variation, one threat to the parallel trends assumption, and one data source you would need access to.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Beller2015" class="csl-entry" role="listitem">
+Beller, Moritz, Georgios Gousios, Annibale Panichella, and Andy Zaidman. 2015. <span>“When, How, and Why Developers (Do Not) Test in Their IDEs.”</span> <em>Proc. FSE’15</em>. <a href="https://doi.org/10.1145/2786805.2786843">https://doi.org/10.1145/2786805.2786843</a>.
 </div>
-<div class="exercise">
-<h3>Design a Natural Experiment (20 minutes)</h3>
-<p>A large technology company is rolling out an AI coding assistant
-to its engineering teams over six months.
-Some teams will get it first,
-and others will get it later
-based on the order in which their managers signed up.
-Design an observational study that treats this rollout as a natural experiment.
-Specify what you would measure,
-how you would use the staggered rollout as a source of variation,
-one threat to the parallel trends assumption,
-and one data source you would need access to.</p>
+<div id="ref-Campbell1963" class="csl-entry" role="listitem">
+Campbell, Donald T., and Julian C. Stanley. 1963. <em>Experimental and Quasi-Experimental Designs for Research</em>. Houghton Mifflin.
 </div>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../quantitative">Quantitative Methods: Controlled Experiments</a>
+<div id="ref-Kalliamvakou2014" class="csl-entry" role="listitem">
+Kalliamvakou, Eirini, Georgios Gousios, Kelly Blincoe, Leif Singer, Daniel M. German, and Daniela Damian. 2014. <span>“The Promises and Perils of Mining GitHub.”</span> <em>Proc. MSR’14</em>. <a href="https://doi.org/10.1145/2597073.2597074">https://doi.org/10.1145/2597073.2597074</a>.
 </div>
-<div class="col-6 center">
-<a href="../">notwrong</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
+<div id="ref-Munaiah2017" class="csl-entry" role="listitem">
+Munaiah, Nuthan, Steven Kroh, Craig Cabrey, and Meiyappan Nagappan. 2017. <span>“Curating GitHub for Engineered Software Projects.”</span> <em>Empirical Software Engineering</em> 22 (6). <a href="https://doi.org/10.1007/s10664-017-9512-6">https://doi.org/10.1007/s10664-017-9512-6</a>.
 </div>
-<div class="col-3 right">
-<a href="../critical">Reading Studies Critically</a> <span aria-hidden="true">⇒</span>
+<div id="ref-Sadowski2019" class="csl-entry" role="listitem">
+<span class="nocase">Sadowski, Caitlin, and Thomas Zimmermann (eds.)</span>. 2019. <em>Rethinking Productivity in Software Engineering</em>. Apress. ISBN 9781484242216.
+</div>
+<div id="ref-Tufano2017" class="csl-entry" role="listitem">
+Tufano, Michele, Fabio Palomba, Gabriele Bavota, et al. 2017. <span>“When and Why Your Code Starts to Smell Bad (and Whether the Smells Go Away).”</span> <em>IEEE Trans. Software Engineering</em> 43 (11). <a href="https://doi.org/10.1109/tse.2017.2653105">https://doi.org/10.1109/tse.2017.2653105</a>.
+</div>
+<div id="ref-Wohlin2000" class="csl-entry" role="listitem">
+Wohlin, Claes, Per Runeson, Martin Höst, Magnus C. Ohlsson, Björn Regnell, and Anders Wesslén. 2000. <em>Experimentation in Software Engineering: An Introduction</em>. Kluwer Academic Publishers. ISBN 9783662693056.
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../quantitative/index.html" class="pagination-link" aria-label="Quantitative Methods: Controlled Experiments">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../critical/index.html" class="pagination-link" aria-label="Reading Studies Critically">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/observational/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/observational/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

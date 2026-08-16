@@ -1,323 +1,931 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Performance and Growth</title>
-<meta content="Managing Research Software Projects" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Performance and Growth – Managing Research Software Projects</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../project/index.html" rel="next">
+<link href="../hirefire/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">MRSP</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../health/">Project Health</a></li>
-<li><a href="../checklist/">Checklists</a></li>
-<li><a href="../newcomers/">Welcoming Newcomers</a></li>
-<li><a href="../governance/">Governance</a></li>
-<li><a href="../marketing/">Marketing</a></li>
-<li><a href="../requirements/">Requirements</a></li>
-<li><a href="../hirefire/">Hiring and Firing</a></li>
-<li><a class="active" href="../performance/">Performance and Growth</a></li>
-<li><a href="../project/">Managing the Work</a></li>
-<li><a href="../finale/">The Next 90 Days</a></li>
-<li><a href="../upward/">Managing Your Manager</a></li>
-<li><a href="../safety/">Psychological Safety</a></li>
-<li><a href="../lifecycle/">Succession and Endings</a></li>
-<li><a href="../career/">Career Development</a></li>
-<li><a href="../remote/">Remote Collaboration</a></li>
-<li><a href="../burnout/">Burnout</a></li>
-<li><a href="../politics/">Office Politics</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../performance/index.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Performance and Growth</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Managing Research Software Projects</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/mrsp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../retro/">Retrospective</a></li>
-<li><a href="../process/">Development Process</a></li>
-<li><a href="../conflict/">Managing Conflict</a></li>
-<li><a href="../security/">Security</a></li>
-<li><a href="../perfreview/">Performance Review Counterexamples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/mrsp">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../health/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Health</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../checklist/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Checklists</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../newcomers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Welcoming Newcomers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../governance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Governance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../marketing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Marketing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../requirements/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Requirements</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hirefire/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hiring and Firing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../performance/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Performance and Growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Managing the Work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The Next 90 Days</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../upward/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Managing Your Manager</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../safety/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Psychological Safety</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lifecycle/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Succession and Endings</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../career/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Career Development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../remote/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Remote Collaboration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../burnout/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Burnout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../politics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Office Politics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../retro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Retrospective</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../process/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Development Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conflict/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Managing Conflict</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../security/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Security</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../perfreview/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Performance Review Counterexamples</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Performance and Growth</h1>
-<p class="subtitle">helping people do their best work</p>
-<div class="syllabus">
-<p><strong>Learning Objectives</strong></p>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#before" id="toc-before" class="nav-link active" data-scroll-target="#before"><span class="header-section-number">9.1</span> Before</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback"><span class="header-section-number">9.2</span> Feedback</a></li>
+  <li><a href="#performance-reviews" id="toc-performance-reviews" class="nav-link" data-scroll-target="#performance-reviews"><span class="header-section-number">9.3</span> Performance Reviews</a></li>
+  <li><a href="#training-and-skill-development" id="toc-training-and-skill-development" class="nav-link" data-scroll-target="#training-and-skill-development"><span class="header-section-number">9.4</span> Training and Skill Development</a></li>
+  <li><a href="#career-development-conversations" id="toc-career-development-conversations" class="nav-link" data-scroll-target="#career-development-conversations"><span class="header-section-number">9.5</span> Career Development Conversations</a></li>
+  <li><a href="#what-about-ai" id="toc-what-about-ai" class="nav-link" data-scroll-target="#what-about-ai"><span class="header-section-number">9.6</span> What About AI?</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9.7</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#three-team-members-5-min" id="toc-three-team-members-5-min" class="nav-link" data-scroll-target="#three-team-members-5-min"><span class="header-section-number">9.7.1</span> Three Team Members (5 min)</a></li>
+  <li><a href="#feedback-role-play-8-min" id="toc-feedback-role-play-8-min" class="nav-link" data-scroll-target="#feedback-role-play-8-min"><span class="header-section-number">9.7.2</span> Feedback Role-Play (8 min)</a></li>
+  <li><a href="#career-conversation-7-min" id="toc-career-conversation-7-min" class="nav-link" data-scroll-target="#career-conversation-7-min"><span class="header-section-number">9.7.3</span> Career Conversation (7 min)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/mrsp/edit/main/performance/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/mrsp/blob/main/performance/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/mrsp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Performance and Growth</span></h1>
+<p class="subtitle lead">helping people do their best work</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled" title="Learning Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Give specific, actionable feedback using a structured format.</li>
 <li>Run a useful performance review rather than a compliance exercise.</li>
 <li>Help staff identify and pursue realistic career development goals.</li>
 </ul>
 </div>
-<h2>Before</h2>
-<p>Tahia had been submitting pull requests
-with commit messages like "fix stuff" and "more changes".
-Jess had been meaning to raise it for two months.
-She kept not doing it because it felt awkward and because the code itself was fine.</p>
-<p>The problem with postponing is that it compounds.
-By the time Jess did have the conversation,
-Tahia had a backlog of sixty commits with useless messages,
-and Jess had two months of low-grade frustration coloring
-how she interpreted everything else Tahia did.
-What would have been a two-minute conversation in week one
-had turned into an uncomfortable one in week nine.</p>
-<h2>Feedback</h2>
-<p>Vague feedback like "your communication needs work"
-sends someone away with nothing they can act on;
-specific feedback gives them a target.
-The SBI format makes difficult conversations more manageable
-by forcing you to be specific:</p>
-<ul>
-<li>Situation: "In the last four pull requests…"</li>
-<li>Behavior: "…your commit messages describe what changed but not why,
-    for example 'fix stuff' and 'more changes'…"</li>
-<li>Impact: "…which means when I need to understand the history of a change six months from now,
-    I have to read the code rather than the log."</li>
-</ul>
-<p>Use the same format for positive feedback:
-"In last week's code review,
-you caught the edge case in the parser before it was merged,
-which saved us from a bug that would have affected every user of the wildlife dataset."</p>
-<p>When you give negative feedback,
-do it in a one-to-one meeting.
-Ambushing someone in a group setting turns the conversation into a status competition
-rather than a discussion about improvement.</p>
-<div class="callout">
-<p>Giving feedback is uncomfortable in both directions.
-The first time Jess used the SBI format with Tahia,
-she rehearsed it three times before the meeting.
-Tahia's response was, "Oh, I didn't know that was a problem. I'll fix it."
-The conversation Jess had been dreading for two months took four minutes.
-The discomfort before the conversation is almost always worse than the conversation itself.</p>
 </div>
-<h2>Performance Reviews</h2>
-<p>Annual performance reviews are often described as a management best practice.
-In practice, most of them are a compliance exercise:
-a form gets filled out,
-a box gets checked,
-and nobody's behavior changes.
-The review that actually helps someone is the one that surprises them with nothing.</p>
-<p>That means the one-to-one meeting has to do the real work.
-A weekly or biweekly one-to-one with a three-part agenda
-(what did you do, what are you planning, what is blocking you)
-gives you and the person you manage a shared record of expectations and progress.
-When the annual review arrives,
-you are summarizing a conversation that has been happening all year,
-not reconstructing one from memory.</p>
-<div class="callout">
-<p>It isn't always possible to stick to a weekly or bi-weekly meeting schedule.
-If you have to cancel a one-to-one,
-ask for a more detailed three-part update
-and reply with one or two questions.
-The first ensures that the staff member has told you what they've done;
-the second helps ensure that you've actually read it.</p>
+<section id="before" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="before"><span class="header-section-number">9.1</span> Before</h2>
+<p>Tahia had been submitting pull requests with commit messages like “fix stuff” and “more changes”. Jess had been meaning to raise it for two months. She kept not doing it because it felt awkward and because the code itself was fine.</p>
+<p>The problem with postponing is that it compounds. By the time Jess did have the conversation, Tahia had a backlog of sixty commits with useless messages, and Jess had two months of low-grade frustration coloring how she interpreted everything else Tahia did. What would have been a two-minute conversation in week one had turned into an uncomfortable one in week nine.</p>
+</section>
+<section id="feedback" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="feedback"><span class="header-section-number">9.2</span> Feedback</h2>
+<p>Vague feedback like “your communication needs work” sends someone away with nothing they can act on; specific feedback gives them a target. The SBI format makes difficult conversations more manageable by forcing you to be specific:</p>
+<ul>
+<li>Situation: “In the last four pull requests…”</li>
+<li>Behavior: “…your commit messages describe what changed but not why, for example ‘fix stuff’ and ‘more changes’…”</li>
+<li>Impact: “…which means when I need to understand the history of a change six months from now, I have to read the code rather than the log.”</li>
+</ul>
+<p>Use the same format for positive feedback: “In last week’s code review, you caught the edge case in the parser before it was merged, which saved us from a bug that would have affected every user of the wildlife dataset.”</p>
+<p>When you give negative feedback, do it in a one-to-one meeting. Ambushing someone in a group setting turns the conversation into a status competition rather than a discussion about improvement.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Giving feedback is uncomfortable in both directions. The first time Jess used the SBI format with Tahia, she rehearsed it three times before the meeting. Tahia’s response was, “Oh, I didn’t know that was a problem. I’ll fix it.” The conversation Jess had been dreading for two months took four minutes. The discomfort before the conversation is almost always worse than the conversation itself.</p>
+</div>
+</div>
+</section>
+<section id="performance-reviews" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="performance-reviews"><span class="header-section-number">9.3</span> Performance Reviews</h2>
+<p>Annual performance reviews are often described as a management best practice. In practice, most of them are a compliance exercise: a form gets filled out, a box gets checked, and nobody’s behavior changes. The review that actually helps someone is the one that surprises them with nothing.</p>
+<p>That means the one-to-one meeting has to do the real work. A weekly or biweekly one-to-one with a three-part agenda (what did you do, what are you planning, what is blocking you) gives you and the person you manage a shared record of expectations and progress. When the annual review arrives, you are summarizing a conversation that has been happening all year, not reconstructing one from memory.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It isn’t always possible to stick to a weekly or bi-weekly meeting schedule. If you have to cancel a one-to-one, ask for a more detailed three-part update and reply with one or two questions. The first ensures that the staff member has told you what they’ve done; the second helps ensure that you’ve actually read it.</p>
+</div>
 </div>
 <p>A few things can make annual reviews more useful and less painful:</p>
 <ul>
-<li>Write down expectations before the review period starts, not during it.
-    "Meets expectations" only means something if the expectations were documented in advance.</li>
-<li>Separate the performance conversation from the compensation conversation.
-    When the two happen in the same meeting,
-    people stop hearing the feedback the moment money comes up.</li>
-<li>Document everything.
-    If a performance problem is serious enough to discuss,
-    it is serious enough to put in writing.
-    A pattern of undocumented verbal warnings does not help anyone.</li>
+<li>Write down expectations before the review period starts, not during it. “Meets expectations” only means something if the expectations were documented in advance.</li>
+<li>Separate the performance conversation from the compensation conversation. When the two happen in the same meeting, people stop hearing the feedback the moment money comes up.</li>
+<li>Document everything. If a performance problem is serious enough to discuss, it is serious enough to put in writing. A pattern of undocumented verbal warnings does not help anyone.</li>
 </ul>
-<div class="callout">
-<p>If you are not sure whether a performance issue is serious enough to document formally,
-ask yourself:
-if this person were fired in six months,
-would I be able to explain to HR why it wasn't a surprise?
-If the answer is no,
-start writing things down now.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Unfortunately,
-structured feedback and professional development plans don't always solve problems.
-At that point,
-job is not to continue the conversation,
-but to escalate to HR and begin the documentation trail that a termination decision will require.
-This is not a failure of management:
-it is the normal end of a process that sometimes leads there.
-The <a href="../hirefire/">previous lesson</a> describes how to do this.</p>
-<h2>Training and Skill Development</h2>
-<p>Research software teams tend to underspend on training
-for the same reason they underspend on documentation:
-the return is diffuse and delayed,
-and the immediate cost is visible.
-The result is that people learn on the job in ways that are slow, uneven, and occasionally expensive.</p>
-<p>A more deliberate approach starts with identifying the gap between
-what someone can do and what the project needs them to be able to do—not in the abstract,
-but for specific tasks coming up in the next quarter.
-Training that connects to near-term work is more likely to stick
-than training that feels like a general self-improvement exercise.</p>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are not sure whether a performance issue is serious enough to document formally, ask yourself: if this person were fired in six months, would I be able to explain to HR why it wasn’t a surprise? If the answer is no, start writing things down now.</p>
+</div>
+</div>
+<p>Unfortunately, structured feedback and professional development plans don’t always solve problems. At that point, job is not to continue the conversation, but to escalate to HR and begin the documentation trail that a termination decision will require. This is not a failure of management: it is the normal end of a process that sometimes leads there. The <a href="../hirefire/index.html">previous lesson</a> describes how to do this.</p>
+</section>
+<section id="training-and-skill-development" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="training-and-skill-development"><span class="header-section-number">9.4</span> Training and Skill Development</h2>
+<p>Research software teams tend to underspend on training for the same reason they underspend on documentation: the return is diffuse and delayed, and the immediate cost is visible. The result is that people learn on the job in ways that are slow, uneven, and occasionally expensive.</p>
+<p>A more deliberate approach starts with identifying the gap between what someone can do and what the project needs them to be able to do—not in the abstract, but for specific tasks coming up in the next quarter. Training that connects to near-term work is more likely to stick than training that feels like a general self-improvement exercise.</p>
 <p>Training can take several forms:</p>
 <ul>
-<li>Pair programming and code review:
-    the cheapest form of skill transfer that already happens in most projects,
-    usually without being treated as training.</li>
-<li>Structured reading:
-    a paper or chapter a week, discussed in a one-to-one.
-    In practice, this rarely works because it is the first thing to be set aside
-    when "real" work needs to be done.</li>
-<li>Preparing a presentation:
-    the best way to get someone to learn something is
-    to tell them that they'll be teaching it to others four weeks from now.</li>
-<li>Workshops and short courses:
-    these are more expensive, but useful for filling specific gaps.</li>
-<li>Conference attendance:
-    also expensive,
-    but useful for exposure and networking.</li>
+<li>Pair programming and code review: the cheapest form of skill transfer that already happens in most projects, usually without being treated as training.</li>
+<li>Structured reading: a paper or chapter a week, discussed in a one-to-one. In practice, this rarely works because it is the first thing to be set aside when “real” work needs to be done.</li>
+<li>Preparing a presentation: the best way to get someone to learn something is to tell them that they’ll be teaching it to others four weeks from now.</li>
+<li>Workshops and short courses: these are more expensive, but useful for filling specific gaps.</li>
+<li>Conference attendance: also expensive, but useful for exposure and networking.</li>
 </ul>
-<p>Whatever you budget, be consistent.
-If one person on a two-person team gets professional development funding and the other does not,
-you have created a grievance regardless of the reason.</p>
-<h2>Career Development Conversations</h2>
-<p>Most managers wait for staff to bring up career goals.
-Most staff are nervous to do this
-because they do not want to seem like they are angling for something
-or planning to leave.
-The result is that career conversations do not happen
-until someone has already decided to go somewhere else.</p>
-<p>The conversation is simpler if you make it a standing item rather than a special occasion.
-"Where do you want to be in two years,
-and what would we need to be true for you to get there?"
-is not a threatening question if you ask it every six months.
-To make the discussion productive:</p>
+<p>Whatever you budget, be consistent. If one person on a two-person team gets professional development funding and the other does not, you have created a grievance regardless of the reason.</p>
+</section>
+<section id="career-development-conversations" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="career-development-conversations"><span class="header-section-number">9.5</span> Career Development Conversations</h2>
+<p>Most managers wait for staff to bring up career goals. Most staff are nervous to do this because they do not want to seem like they are angling for something or planning to leave. The result is that career conversations do not happen until someone has already decided to go somewhere else.</p>
+<p>The conversation is simpler if you make it a standing item rather than a special occasion. “Where do you want to be in two years, and what would we need to be true for you to get there?” is not a threatening question if you ask it every six months. To make the discussion productive:</p>
 <ul>
-<li>Be honest about what is and is not possible in your project and institution.
-    Promising a promotion path that does not exist does more damage than having no promotion path.</li>
-<li>Connect the person's goals to the project's needs where you can.
-    "We need someone to own the data ingestion pipeline,
-    and you want more infrastructure experience—those could be the same thing"
-    is a conversation worth having.</li>
+<li>Be honest about what is and is not possible in your project and institution. Promising a promotion path that does not exist does more damage than having no promotion path.</li>
+<li>Connect the person’s goals to the project’s needs where you can. “We need someone to own the data ingestion pipeline, and you want more infrastructure experience—those could be the same thing” is a conversation worth having.</li>
 <li>Document what you agree to.</li>
 </ul>
-<div class="callout">
-<p>LLMs are changing what skills are durable.
-RSEs who built careers on the ability to write boilerplate
-like tests, documentation, and API endpoints faster than their colleagues
-are in a different position than they were two years ago.
-Managers need to have explicit conversations about this, not avoid it.</p>
-<p>Career development for research software engineers is complicated by the fact that
-RSE is still not a standard career track at most institutions.
-The people you manage may be trying to navigate toward a research position,
-a staff engineering role,
-or something that does not have a name yet.
-Be honest about the limits of what you can offer,
-and about what you have seen work elsewhere.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<h2>What About AI?</h2>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>LLMs are changing what skills are durable. RSEs who built careers on the ability to write boilerplate like tests, documentation, and API endpoints faster than their colleagues are in a different position than they were two years ago. Managers need to have explicit conversations about this, not avoid it.</p>
+<p>Career development for research software engineers is complicated by the fact that RSE is still not a standard career track at most institutions. The people you manage may be trying to navigate toward a research position, a staff engineering role, or something that does not have a name yet. Be honest about the limits of what you can offer, and about what you have seen work elsewhere.</p>
+</div>
+</div>
+</section>
+<section id="what-about-ai" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="what-about-ai"><span class="header-section-number">9.6</span> What About AI?</h2>
 <ul>
-<li>
-<p>Positive:
-    An LLM can help a manager draft a performance improvement plan
-    that covers the required elements
-    (specific behavior, measurable improvement criteria, timeline, support offered)
-    and avoids legally problematic language.</p>
-</li>
-<li>
-<p>Negative:
-    LLM tools can write performance review drafts that sound thorough and balanced
-    but are not based on actual evidence of the person's work.
-    (This is a great way to destroy the person's trust in their manager.)</p>
-</li>
-<li>
-<p>Negative:
-    Courses generated or curated by LLMs have a specific failure mode:
-    they teach skills that were valuable when the training data was collected,
-    not necessarily now.
-    An LLM-generated learning path for "modern Python"
-    may emphasize patterns that were best practice three years ago.</p>
-</li>
+<li><p>Positive: An LLM can help a manager draft a performance improvement plan that covers the required elements (specific behavior, measurable improvement criteria, timeline, support offered) and avoids legally problematic language.</p></li>
+<li><p>Negative: LLM tools can write performance review drafts that sound thorough and balanced but are not based on actual evidence of the person’s work. (This is a great way to destroy the person’s trust in their manager.)</p></li>
+<li><p>Negative: Courses generated or curated by LLMs have a specific failure mode: they teach skills that were valuable when the training data was collected, not necessarily now. An LLM-generated learning path for “modern Python” may emphasize patterns that were best practice three years ago.</p></li>
 </ul>
-<h2>Exercises</h2>
-<section class="exercise">
-<h3>Three Team Members (5 min)</h3>
-<p>The points below describe three people who are in trouble of different kinds.
-With a partner,
-come up with at least one more possible explanation for each scenario,
-and explain how you would figure out which is most accurate.</p>
-<ol>
-<li>
-<p>Someone who does good work is missing every deadline:
-    is it a time-management problem or a scope problem?</p>
-</li>
-<li>
-<p>Someone keeps expanding the scope of their assignments:
-    is this poor design and estimation or is personal curiosity getting the better of them?</p>
-</li>
-<li>
-<p>Someone has stopped communicating without explanation:
-    are they no longer interested in the work,
-    is there something going on in their personal life?</p>
-</li>
+</section>
+<section id="exercises" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.7</span> Exercises</h2>
+<section id="three-team-members-5-min" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="three-team-members-5-min"><span class="header-section-number">9.7.1</span> Three Team Members (5 min)</h3>
+<p>The points below describe three people who are in trouble of different kinds. With a partner, come up with at least one more possible explanation for each scenario, and explain how you would figure out which is most accurate.</p>
+<ol type="1">
+<li><p>Someone who does good work is missing every deadline: is it a time-management problem or a scope problem?</p></li>
+<li><p>Someone keeps expanding the scope of their assignments: is this poor design and estimation or is personal curiosity getting the better of them?</p></li>
+<li><p>Someone has stopped communicating without explanation: are they no longer interested in the work, is there something going on in their personal life?</p></li>
 </ol>
 </section>
-<section class="exercise">
-<h3>Feedback Role-Play (8 min)</h3>
+<section id="feedback-role-play-8-min" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="feedback-role-play-8-min"><span class="header-section-number">9.7.2</span> Feedback Role-Play (8 min)</h3>
 <p>Prompt the LLM with this:</p>
-<blockquote>
-<p>Play the role of a junior programmer on my research software team.
-I'm going to give you feedback about a real situation.
-Respond in character:
-push back if the feedback is vague, accept it if it's specific and fair.
-Here's the situation:
-[describe a real or plausible scenario where you needed to give someone feedback
-but found it difficult].</p>
+<blockquote class="blockquote">
+<p>Play the role of a junior programmer on my research software team. I’m going to give you feedback about a real situation. Respond in character: push back if the feedback is vague, accept it if it’s specific and fair. Here’s the situation: [describe a real or plausible scenario where you needed to give someone feedback but found it difficult].</p>
 </blockquote>
-<p>Have the feedback conversation using the SBI format.
-If the LLM accepts your first attempt without pushback,
-your feedback was too vague,
-so try prompting it with more specifics.</p>
+<p>Have the feedback conversation using the SBI format. If the LLM accepts your first attempt without pushback, your feedback was too vague, so try prompting it with more specifics.</p>
 </section>
-<section class="exercise">
-<h3>Career Conversation (7 min)</h3>
-<p>Think of someone on your team or someone you manage in a volunteer project.
-Write answers to these two questions as if you were that person:</p>
+<section id="career-conversation-7-min" class="level3" data-number="9.7.3">
+<h3 data-number="9.7.3" class="anchored" data-anchor-id="career-conversation-7-min"><span class="header-section-number">9.7.3</span> Career Conversation (7 min)</h3>
+<p>Think of someone on your team or someone you manage in a volunteer project. Write answers to these two questions as if you were that person:</p>
 <ul>
 <li>Where do I want to be professionally in two years?</li>
 <li>What would need to be true for me to get there?</li>
 </ul>
-<p>Then switch perspective:
-write one thing the project could offer that would help them move toward that goal,
-and one honest constraint you would need to name.</p>
+<p>Then switch perspective: write one thing the project could offer that would help them move toward that goal, and one honest constraint you would need to name.</p>
+
+
 </section>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../hirefire/">Hiring and Firing</a>
-</div>
-<div class="col-6 center">
-<a href="../">MRSP</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../project/">Managing the Work</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../hirefire/index.html" class="pagination-link" aria-label="Hiring and Firing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hiring and Firing</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/index.html" class="pagination-link" aria-label="Managing the Work">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Managing the Work</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/mrsp/edit/main/performance/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/mrsp/blob/main/performance/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/mrsp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

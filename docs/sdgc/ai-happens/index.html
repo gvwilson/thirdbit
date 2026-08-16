@@ -1,285 +1,817 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>When the Algorithm Comes for You</title>
-<meta content="Sex &amp; Drugs &amp; Guns &amp; Code" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; When the Algorithm Comes for You – SDGC</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../change-happens/index.html" rel="next">
+<link href="../regulation-that-worked/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">SDGC</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../a-little-psychology/">A Little Psychology</a></li>
-<li><a href="../how-we-got-here/">How We Got Here</a></li>
-<li><a href="../more-psychology/">A Little More Psychology</a></li>
-<li><a href="../harmful-models/">When the Model Is the Harm</a></li>
-<li><a href="../privacy-power-self/">Privacy, Power, and the Self</a></li>
-<li><a href="../inequality/">Who Gets What and Why</a></li>
-<li><a href="../more-analogies/">More Analogies</a></li>
-<li><a href="../control-and-alternatives/">Control and Alternatives</a></li>
-<li><a href="../what-we-owe-the-future/">What We Owe the Future</a></li>
-<li><a href="../regulation-that-worked/">Regulation That Worked</a></li>
-<li><a class="active" href="../ai-happens/">When the Algorithm Comes for You</a></li>
-<li><a href="../change-happens/">How Change Happens</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ai-happens/index.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">When the Algorithm Comes for You</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">SDGC</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/sdgc" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdgc">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../a-little-psychology/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A Little Psychology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../how-we-got-here/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">How We Got Here</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../more-psychology/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Psychology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../harmful-models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">When the Model Is the Harm</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../privacy-power-self/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Privacy, Power, and the Self</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inequality/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Who Gets What and Why</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../more-analogies/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pending</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../control-and-alternatives/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Control and Alternatives</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../what-we-owe-the-future/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What We Owe the Future</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regulation-that-worked/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regulation That Worked</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ai-happens/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">When the Algorithm Comes for You</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../change-happens/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What Changes and How</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>When the Algorithm Comes for You</h1>
-<p>A lot of people are afraid that AI is going to take their jobs.
-That fear is legitimate:
-it's what happened in agriculture when mechanization arrived in the nineteenth century,
-to craft manufacturing when factory automation took over,
-and to office work when computers eliminated most routine clerical jobs.
-New work appeared,
-but it wasn't the same work or in the same places,
-and it wasn't for everyone who needed it.
-I think understanding that history is essential to understanding what's happening with AI.</p>
-<h2>What AI Is, and What Automation Does</h2>
-<p>Large language models are trained on enormous quantities of text and code,
-almost all of which was produced by people who weren't paid and didn't consent.
-LLMs generate statistically plausible outputs:
-they don't understand what they're saying,
-and can't verify that their output is accurate
-or distinguish confident nonsense from correct reasoning
-because <em>they don't reason</em> [<a class="bib-ref" href="../bibliography/#Torres2024">Torres2024</a>].</p>
-<p>In December 2023,
-the <em>New York Times</em> filed suit against OpenAI and Microsoft,
-arguing that training a commercial AI system on millions of copyrighted articles without permission
-constituted infringement.
-It was the first major legal test of that question,
-and courts in multiple countries are working through similar cases.
-As described <a href="../how-we-got-here/">earlier</a>,
-intellectual property law has always been an arena where
-the better-resourced party has a structural advantage.
-Whatever precedents emerge from these cases will reflect
-who could afford to pursue them to conclusion,
-not some Platonic ideal of "right".</p>
-<p>None of this makes AI unusual as a technology.
-Manufacturing employed 19.4 million workers in the US in 1979.
-By 2023 that had dropped to 12.8 million.
-The jobs that replaced the ones that automated or were shipped overseas
-were often in different sectors or different regions,
-and almost always lower paid.
-Towns built around steel mills or textile factories didn't reinvent themselves as technology hubs:
-they lost population, services, and tax base simultaneously,
-and many have not recovered.</p>
-<p>The economist Daron Acemoglu estimates that
-roughly half of the increase in US income inequality since 1980
-can be attributed to automation
-that systematically replaced mid-wage workers with machinery and software [<a class="bib-ref" href="../bibliography/#Acemoglu2023">Acemoglu2023</a>].
-The gains from automation go to whoever owns the tools,
-while the cost of retraining,
-years of lower wages,
-and the disruption of moving somewhere else
-fall on the workers who are displaced.
-Every previous wave of automation distributed those costs unfairly as well,
-not because it had to,
-but because the people who owned the technology
-had more political power than the people displaced by it.</p>
-<h2>The Demand Problem</h2>
-<p>The economic structure of AI displacement creates a specific problem
-that economists Brett Hemenway Falk and Gerry Tsoukalas call "the AI layoff trap" [<a class="bib-ref" href="../bibliography/#HemenwayFalk2026">HemenwayFalk2026</a>].
-In competitive markets,
-an automating firm captures the full cost savings from replacing workers
-but bears only a fraction of the resulting demand destruction.
-In a market with twenty competitors,
-each firm absorbs one-twentieth of the demand it destroys;
-the rest falls on rivals.
-Every firm therefore has a rational-as-in-psychopathic incentive
-to automate beyond the socially optimal level,
-because the gain from cutting labor costs outweighs
-the diffuse shared consequence of eliminating consumer spending.</p>
-<p>AI worsens this: wider productivity gains accelerate the race toward a shrinking market.
-Ironically,
-Henry Ford (no friend to workers) understood the opposite logic:
-his employees needed to earn enough to buy his cars.
-The AI economy is eliminating the workers and expecting the cars to keep selling [<a class="bib-ref" href="../bibliography/#McGrann2026">McGrann2026</a>].</p>
-<p>Sometimes the layoffs happen before anyone checks whether the technology can do the job.
-Acemoglu's term for this is "excessive automation":
-using AI to eliminate jobs without generating meaningfully lower production costs,
-while imposing substantial social costs.
-When Block's Jack Dorsey laid off nearly half his workforce in March 2025,
-citing AI coding agents,
-investors responded by boosting Block's stock price by twenty-five percent.
-The market rewarded the elimination of human labor with an immediate transfer of value to shareholders,
-regardless of whether the AI actually performed the eliminated work.</p>
-<h2>In the Long  Run</h2>
-<p>Anne Case and Angus Deaton tracked what happened to communities when manufacturing employment disappeared.
-The answers were grim:
-rising rates of suicide, drug overdose, and alcoholic liver disease
-all increased among people who had lost their economic function [<a class="bib-ref" href="../bibliography/#Case2021">Case2021</a>, <a class="bib-ref" href="../bibliography/#Suzman2021">Suzman2021</a>].
-The mechanism was not only poverty but the loss of purpose, social status, and a perceived future.
-As noted above,
-communities organized around industries that left did not quietly transform into something else.</p>
-<div class="callout">
-<p>The AI industry's narratives about abundance repeat the promises of globalization.
-The evidence from globalization is that the losers do not become winners on their own,
-and their losses produce political consequences that outlast any particular trade agreement.</p>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-ai-is-and-what-automation-does" id="toc-what-ai-is-and-what-automation-does" class="nav-link active" data-scroll-target="#what-ai-is-and-what-automation-does"><span class="header-section-number">11.1</span> What AI Is, and What Automation Does</a></li>
+  <li><a href="#the-demand-problem" id="toc-the-demand-problem" class="nav-link" data-scroll-target="#the-demand-problem"><span class="header-section-number">11.2</span> The Demand Problem</a></li>
+  <li><a href="#in-the-long-run" id="toc-in-the-long-run" class="nav-link" data-scroll-target="#in-the-long-run"><span class="header-section-number">11.3</span> In the Long Run</a></li>
+  <li><a href="#the-business-model-and-the-ip-problem" id="toc-the-business-model-and-the-ip-problem" class="nav-link" data-scroll-target="#the-business-model-and-the-ip-problem"><span class="header-section-number">11.4</span> The Business Model and the IP Problem</a></li>
+  <li><a href="#the-standard-playbook" id="toc-the-standard-playbook" class="nav-link" data-scroll-target="#the-standard-playbook"><span class="header-section-number">11.5</span> The Standard Playbook</a></li>
+  <li><a href="#what-collective-action-has-achieved" id="toc-what-collective-action-has-achieved" class="nav-link" data-scroll-target="#what-collective-action-has-achieved"><span class="header-section-number">11.6</span> What Collective Action Has Achieved</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/sdgc/edit/main/ai-happens/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/sdgc/blob/main/ai-happens/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/sdgc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">When the Algorithm Comes for You</span></h1>
 </div>
-<p>AI tools are also degrading the workers they are supposed to help.
-Anthropic's own internal research found that junior engineers
-who relied heavily on AI coding agents understood their work significantly less when tested afterward,
-even though they completed tasks at roughly the same speed as those who did not.
-The retraining argument assumes people can develop new skills to stay relevant.
-The evidence suggests that the tools accelerating displacement
-are simultaneously eroding the capacity for skill development.</p>
-<p>What makes me <em>really</em> angry is that
-the research underlying this technology was publicly funded.
-The mathematical advances, training methods, and semiconductors
-were developed through universities, DARPA, and national laboratories,
-but private companies captured the reward.
-As Mazzucato has argued,
-invention has become an engine of rent extraction rather than value creation [<a class="bib-ref" href="../bibliography/#Mazzucato2013">Mazzucato2013</a>].</p>
-<p>We're now speed-running that process.
-By the first three quarters of 2025,
-AI-related investments accounted for roughly thirty-nine percent of US economic growth,
-giving the federal government a vested interest in sustaining the boom.
-The interventions that economists have identified,
-such public ownership stakes in AI infrastructure,
-aggressive antitrust enforcement,
-and a tax on automated labor,
-are what people in public health call "abstinence solutions":
-they would work if people actually implemented them,
-but we know that's not going to happen.</p>
-<h2>The Business Model and the IP Problem</h2>
-<p>AI services are currently cheap or free,
-but that can't last.
-OpenAI lost approximately $5 billion in 2024 providing cheap API access.
-The cheap phase exists because companies are burning investor capital to capture market share
-and deprive competitors of users.
-This is <a href="../how-we-got-here/">enshittification</a> all over again:
-attract users with artificially low prices, build dependencies,
-then raise prices once alternatives have been squeezed out.
-The useful, affordable version of these tools will not survive for long,
-and the developers, writers, and companies that build workflows around them
-during the subsidized period
-will pay for it later.</p>
-<p>The intellectual property question adds a separate layer of instability to the whole enterprise.
-Writers, artists, musicians, and software developers whose work was ingested
-to train commercial AI systems
-received neither payment nor credit for that contribution.
-Whether this constitutes infringement, fair use, or something else entirely
-is actively contested in courts across multiple jurisdictions.
-The outcomes will depend partly on how judges read copyright law
-and partly on which side has the resources to sustain litigation that may take a decade to resolve.
-The largest AI companies have substantially more resources than the individual creators suing them.</p>
-<div class="callout">
-<p>Ransomware attacks demonstrate how extortion,
-if professional enough,
-is indistinguishable from any other fee-for-service arrangement.
-The 2017 WannaCry attack encrypted hundreds of thousands of computers across 150 countries in a single weekend.
-Four years later,
-the DarkSide group shut down the Colonial Pipeline and demanded approximately $4.4 million in Bitcoin;
-the company paid within hours.</p>
-<p>Modern ransomware groups operate on an affiliate model—core developers write the malware,
-affiliates handle intrusions—and cybersecurity firms handle negotiations
-the same way <a href="../more-analogies/">kidnap-and-ransom specialists</a>
-did for physical abductions in the 1990s.
-Both sides have an interest in the transaction completing cleanly.
-Governments officially discourage paying ransom
-while intelligence services routinely help to do exactly that.
-Cyber insurance policies now cover ransom payments,
-and insurance companies are wrestling with moral hazard and ransom inflation—
-the same concerns Lloyd's of London was managing thirty years ago
-[<a class="bib-ref" href="../bibliography/#Dudley2022">Dudley2022</a>].</p>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A lot of people are afraid that AI is going to take their jobs. That fear is legitimate: it’s what happened in agriculture when mechanization arrived in the nineteenth century, to craft manufacturing when factory automation took over, and to office work when computers eliminated most routine clerical jobs. New work appeared, but it wasn’t the same work or in the same places, and it wasn’t for everyone who needed it. I think understanding that history is essential to understanding what’s happening with AI.</p>
+<section id="what-ai-is-and-what-automation-does" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="what-ai-is-and-what-automation-does"><span class="header-section-number">11.1</span> What AI Is, and What Automation Does</h2>
+<p>Large language models are trained on enormous quantities of text and code, almost all of which was produced by people who weren’t paid and didn’t consent. LLMs generate statistically plausible outputs: they don’t understand what they’re saying, and can’t verify that their output is accurate or distinguish confident nonsense from correct reasoning because <em>they don’t reason</em> <span class="citation" data-cites="Torres2024">(<a href="../bibliography/index.html#ref-Torres2024" role="doc-biblioref">Torres and Gebru 2024</a>)</span>.</p>
+<p>In December 2023, the <em>New York Times</em> filed suit against OpenAI and Microsoft, arguing that training a commercial AI system on millions of copyrighted articles without permission constituted infringement. It was the first major legal test of that question, and courts in multiple countries are working through similar cases. As described <a href="../how-we-got-here/index.html">earlier</a>, intellectual property law has always been an arena where the better-resourced party has a structural advantage. Whatever precedents emerge from these cases will reflect who could afford to pursue them to conclusion, not some Platonic ideal of “right”.</p>
+<p>None of this makes AI unusual as a technology. Manufacturing employed 19.4 million workers in the US in 1979. By 2023 that had dropped to 12.8 million. The jobs that replaced the ones that automated or were shipped overseas were often in different sectors or different regions, and almost always lower paid. Towns built around steel mills or textile factories didn’t reinvent themselves as technology hubs: they lost population, services, and tax base simultaneously, and many have not recovered.</p>
+<p>The economist Daron Acemoglu estimates that roughly half of the increase in US income inequality since 1980 can be attributed to automation that systematically replaced mid-wage workers with machinery and software <span class="citation" data-cites="Acemoglu2023">(<a href="../bibliography/index.html#ref-Acemoglu2023" role="doc-biblioref">Acemoglu and Johnson 2023</a>)</span>. The gains from automation go to whoever owns the tools, while the cost of retraining, years of lower wages, and the disruption of moving somewhere else fall on the workers who are displaced. Every previous wave of automation distributed those costs unfairly as well, not because it had to, but because the people who owned the technology had more political power than the people displaced by it.</p>
+</section>
+<section id="the-demand-problem" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="the-demand-problem"><span class="header-section-number">11.2</span> The Demand Problem</h2>
+<p>The economic structure of AI displacement creates a specific problem that economists Brett Hemenway Falk and Gerry Tsoukalas call “the AI layoff trap” <span class="citation" data-cites="HemenwayFalk2026">(<a href="../bibliography/index.html#ref-HemenwayFalk2026" role="doc-biblioref">Falk and Tsoukalas 2026</a>)</span>. In competitive markets, an automating firm captures the full cost savings from replacing workers but bears only a fraction of the resulting demand destruction. In a market with twenty competitors, each firm absorbs one-twentieth of the demand it destroys; the rest falls on rivals. Every firm therefore has a rational-as-in-psychopathic incentive to automate beyond the socially optimal level, because the gain from cutting labor costs outweighs the diffuse shared consequence of eliminating consumer spending.</p>
+<p>AI worsens this: wider productivity gains accelerate the race toward a shrinking market. Ironically, Henry Ford (no friend to workers) understood the opposite logic: his employees needed to earn enough to buy his cars. The AI economy is eliminating the workers and expecting the cars to keep selling <span class="citation" data-cites="McGrann2026">(<a href="../bibliography/index.html#ref-McGrann2026" role="doc-biblioref">McGrann 2026</a>)</span>.</p>
+<p>Sometimes the layoffs happen before anyone checks whether the technology can do the job. Acemoglu’s term for this is “excessive automation”: using AI to eliminate jobs without generating meaningfully lower production costs, while imposing substantial social costs. When Block’s Jack Dorsey laid off nearly half his workforce in March 2025, citing AI coding agents, investors responded by boosting Block’s stock price by twenty-five percent. The market rewarded the elimination of human labor with an immediate transfer of value to shareholders, regardless of whether the AI actually performed the eliminated work.</p>
+</section>
+<section id="in-the-long-run" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="in-the-long-run"><span class="header-section-number">11.3</span> In the Long Run</h2>
+<p>Anne Case and Angus Deaton tracked what happened to communities when manufacturing employment disappeared. The answers were grim: rising rates of suicide, drug overdose, and alcoholic liver disease all increased among people who had lost their economic function <span class="citation" data-cites="Case2021 Suzman2021">(<a href="../bibliography/index.html#ref-Case2021" role="doc-biblioref">Case and Deaton 2021</a>; <a href="../bibliography/index.html#ref-Suzman2021" role="doc-biblioref">Suzman 2021</a>)</span>. The mechanism was not only poverty but the loss of purpose, social status, and a perceived future. As noted above, communities organized around industries that left did not quietly transform into something else.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="The Same Old Song">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<h2>The Standard Playbook</h2>
-<p>Major AI companies have not waited for regulators to define rules that might constrain them.
-They have placed former employees and allies in regulatory positions
-and submitted their own proposed frameworks to legislative consultations.
-For example,
-when the European Union was developing its AI Act,
-Anthropic, Google, and OpenAI all submitted proposals
-that would have exempted their most powerful models from the Act's strictest requirements.</p>
-<p>AI laboratories have also funded their own safety research and publicized favorable results.
-Critics of AI development have been characterized as alarmists,
-and documented harms have been described as edge cases.
-When OpenAI's safety team resigned in 2024,
-several members stated that commercial considerations had systematically overridden safety commitments.
-This sequence—fund your own science,
-frame independent critics as emotional rather than analytical,
-and describe any harm as an unfortunate anomaly—is the same one used by tobacco companies
-and the producers of leaded gasoline.</p>
-<p>The reframing of displacement as individual opportunity is equally familiar.
-The slogan "AI won't replace you; someone using AI will"
-shifts the burden of adaptation entirely onto workers
-and treats the costs of corporate automation as a personal problem requiring a personal solution.
-This is the passion principle applied to survival:
-workers are told to reskill and stay relevant,
-rather than that the economy owes them any compensation for a transition they did not choose.
-The same framing accompanied every previous major automation wave.</p>
-<h2>What Collective Action Has Achieved</h2>
-<p>In 2023,
-the Writers Guild of America struck for five months over issues that included AI.
-When the strike ended, the WGA had won explicit contract language:
-AI cannot write or rewrite scripts,
-and scripts cannot be used to train AI systems.
-The Screen Actors Guild reached a parallel agreement
-that included restrictions on the digital replication of performers' likenesses
-without ongoing consent [<a class="bib-ref" href="../bibliography/#Kelly2022">Kelly2022</a>].
-These victories established enforceable contractual limits
-on what employers could do with AI—limits that individual workers negotiating alone could never have secured.
-The lesson is not specific to Hollywood:
-wherever workers have collective bargaining rights,
-they can negotiate from a position of strength.
-Professional associations, open-source communities, and standards bodies
-can create analogous leverage in sectors where formal unions are absent or weak.</p>
-<p>Regulation has also moved faster than the industry claims is possible.
-The EU AI Act requires transparency for high-risk systems,
-mandates human oversight for consequential automated decisions,
-and bans specific applications outright.
-Canada, Brazil, South Korea, and the United Kingdom all have AI governance frameworks in development.
-Before the EU's General Data Protection Regulation took effect in 2018,
-industry associations described it as "unworkable"
-and predicted that it would destroy European tech competitiveness.
-By 2024 it had generated approximately $4 billion in fines
-and had changed how companies worldwide handle personal data,
-including companies with no European operations
-that simply chose to comply rather than maintain two systems.
-The argument that AI regulation will destroy innovation
-has been made about every major technology regulation in living memory,
-and has been wrong every time.</p>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../regulation-that-worked">Regulation That Worked</a>
-</div>
-<div class="col-6 center">
-<a href="../">SDGC</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../change-happens">How Change Happens</a> <span aria-hidden="true">⇒</span>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Same Old Song
 </div>
 </div>
-</footer>
-</body>
-</html>
+<div class="callout-body-container callout-body">
+<p>The AI industry’s narratives about abundance repeat the promises of globalization. The evidence from globalization is that the losers do not become winners on their own, and their losses produce political consequences that outlast any particular trade agreement.</p>
+</div>
+</div>
+<p>AI tools are also degrading the workers they are supposed to help. Anthropic’s own internal research found that junior engineers who relied heavily on AI coding agents understood their work significantly less when tested afterward, even though they completed tasks at roughly the same speed as those who did not. The retraining argument assumes people can develop new skills to stay relevant. The evidence suggests that the tools accelerating displacement are simultaneously eroding the capacity for skill development.</p>
+<p>What makes me <em>really</em> angry is that the research underlying this technology was publicly funded. The mathematical advances, training methods, and semiconductors were developed through universities, DARPA, and national laboratories, but private companies captured the reward. As Mazzucato has argued, invention has become an engine of rent extraction rather than value creation <span class="citation" data-cites="Mazzucato2013">(<a href="../bibliography/index.html#ref-Mazzucato2013" role="doc-biblioref">Mazzucato 2015</a>)</span>.</p>
+<p>We’re now speed-running that process. By the first three quarters of 2025, AI-related investments accounted for roughly thirty-nine percent of US economic growth, giving the federal government a vested interest in sustaining the boom. The interventions that economists have identified, such public ownership stakes in AI infrastructure, aggressive antitrust enforcement, and a tax on automated labor, are what people in public health call “abstinence solutions”: they would work if people actually implemented them, but we know that’s not going to happen.</p>
+</section>
+<section id="the-business-model-and-the-ip-problem" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="the-business-model-and-the-ip-problem"><span class="header-section-number">11.4</span> The Business Model and the IP Problem</h2>
+<p>AI services are currently cheap or free, but that can’t last. OpenAI lost approximately $5 billion in 2024 providing cheap API access. The cheap phase exists because companies are burning investor capital to capture market share and deprive competitors of users. This is <a href="../how-we-got-here/index.html">enshittification</a> all over again: attract users with artificially low prices, build dependencies, then raise prices once alternatives have been squeezed out. The useful, affordable version of these tools will not survive for long, and the developers, writers, and companies that build workflows around them during the subsidized period will pay for it later.</p>
+<p>The intellectual property question adds a separate layer of instability to the whole enterprise. Writers, artists, musicians, and software developers whose work was ingested to train commercial AI systems received neither payment nor credit for that contribution. Whether this constitutes infringement, fair use, or something else entirely is actively contested in courts across multiple jurisdictions. The outcomes will depend partly on how judges read copyright law and partly on which side has the resources to sustain litigation that may take a decade to resolve. The largest AI companies have substantially more resources than the individual creators suing them.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ransomware">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ransomware
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ransomware attacks demonstrate how extortion, if professional enough, is indistinguishable from any other fee-for-service arrangement. The 2017 WannaCry attack encrypted hundreds of thousands of computers across 150 countries in a single weekend. Four years later, the DarkSide group shut down the Colonial Pipeline and demanded approximately $4.4 million in Bitcoin; the company paid within hours.</p>
+<p>Modern ransomware groups operate on an affiliate model. Core developers write the malware, affiliates handle intrusions, and and cybersecurity firms handle negotiations the same way <a href="../more-analogies/index.html">kidnap-and-ransom specialists</a> did for physical abductions in the 1990s. Both sides have an interest in the transaction completing cleanly. Governments officially discourage paying ransom while intelligence services routinely help to do exactly that. Cyber insurance policies now cover ransom payments, and insurance companies are wrestling with moral hazard and ransom inflation: the same concerns Lloyd’s of London was managing thirty years ago <span class="citation" data-cites="Dudley2022">(<a href="../bibliography/index.html#ref-Dudley2022" role="doc-biblioref">Dudley and Golden 2022</a>)</span>.</p>
+</div>
+</div>
+</section>
+<section id="the-standard-playbook" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="the-standard-playbook"><span class="header-section-number">11.5</span> The Standard Playbook</h2>
+<p>Major AI companies have not waited for regulators to define rules that might constrain them. They have placed former employees and allies in regulatory positions and submitted their own proposed frameworks to legislative consultations. For example, when the European Union was developing its AI Act, Anthropic, Google, and OpenAI all submitted proposals that would have exempted their most powerful models from the Act’s strictest requirements.</p>
+<p>AI laboratories have also funded their own safety research and publicized favorable results. Critics of AI development have been characterized as alarmists, and documented harms have been described as edge cases. When OpenAI’s safety team resigned in 2024, several members stated that commercial considerations had systematically overridden safety commitments. This sequence—fund your own science, frame independent critics as emotional rather than analytical, and describe any harm as an unfortunate anomaly—is the same one used by tobacco companies and the producers of leaded gasoline.</p>
+<p>The reframing of displacement as individual opportunity is equally familiar. The slogan “AI won’t replace you; someone using AI will” shifts the burden of adaptation entirely onto workers and treats the costs of corporate automation as a personal problem requiring a personal solution. This is the passion principle applied to survival: workers are told to reskill and stay relevant, rather than that the economy owes them any compensation for a transition they did not choose. The same framing accompanied every previous major automation wave.</p>
+</section>
+<section id="what-collective-action-has-achieved" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="what-collective-action-has-achieved"><span class="header-section-number">11.6</span> What Collective Action Has Achieved</h2>
+<p>In 2023, the Writers Guild of America struck for five months over issues that included AI. When the strike ended, the WGA had won explicit contract language: AI cannot write or rewrite scripts, and scripts cannot be used to train AI systems. The Screen Actors Guild reached a parallel agreement that included restrictions on the digital replication of performers’ likenesses without ongoing consent <span class="citation" data-cites="Kelly2022">(<a href="../bibliography/index.html#ref-Kelly2022" role="doc-biblioref">Kelly 2022</a>)</span>. These victories established enforceable contractual limits on what employers could do with AI—limits that individual workers negotiating alone could never have secured. The lesson is not specific to Hollywood: wherever workers have collective bargaining rights, they can negotiate from a position of strength. Professional associations, open-source communities, and standards bodies can create analogous leverage in sectors where formal unions are absent or weak.</p>
+<p>Regulation has also moved faster than the industry claims is possible. The EU AI Act requires transparency for high-risk systems, mandates human oversight for consequential automated decisions, and bans specific applications outright. Canada, Brazil, South Korea, and the United Kingdom all have AI governance frameworks in development. Before the EU’s General Data Protection Regulation took effect in 2018, industry associations described it as “unworkable” and predicted that it would destroy European tech competitiveness. By 2024 it had generated approximately $4 billion in fines and had changed how companies worldwide handle personal data, including companies with no European operations that simply chose to comply rather than maintain two systems. The argument that AI regulation will destroy innovation has been made about every major technology regulation in living memory, and has been wrong every time.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Acemoglu2023" class="csl-entry" role="listitem">
+Acemoglu, Daron, and Simon Johnson. 2023. <em>Power and Progress: Our Thousand-Year Struggle over Technology and Prosperity</em>. PublicAffairs. ISBN 9781541702530. <em>Argues that technological progress has historically served elites over workers, and outlines what would be needed to redirect it toward shared prosperity.</em>
+</div>
+<div id="ref-Case2021" class="csl-entry" role="listitem">
+Case, Anne, and Angus Deaton. 2021. <em>Deaths of Despair and the Future of Capitalism</em>. Princeton Universitiy Press. ISBN 9780691217079. <em>Looks at deaths from suicide and substance abuse among working-class Americans, and at the social and economic forces that are causing them.</em>
+</div>
+<div id="ref-Dudley2022" class="csl-entry" role="listitem">
+Dudley, Renée, and Daniel Golden. 2022. <em>The Ransomware Hunting Team: A Band of Misfits’ Improbable Crusade to Save the World from Cybercrime</em>. Farrar, Straus; Giroux. ISBN 9780374603304. <em>An account of a volunteer team of malware analysts who hunt ransomware gangs, exposing the criminal infrastructure behind a billion-dollar extortion industry.</em>
+</div>
+<div id="ref-HemenwayFalk2026" class="csl-entry" role="listitem">
+Falk, Brett Hemenway, and Gerry Tsoukalas. 2026. <em>The AI Layoff Trap</em>. <a href="https://arxiv.org/abs/2603.20617">https://arxiv.org/abs/2603.20617</a>. <em>Argues that if AI ’succeeds’ it will make everyone poorer.</em>
+</div>
+<div id="ref-Kelly2022" class="csl-entry" role="listitem">
+Kelly, Kim. 2022. <em>Fight Like Hell: The Untold History of American Labor</em>. One Signal. ISBN 9781982171063. <em>A history of organized labor in the US, told through the stories of workers and organizers across industries.</em>
+</div>
+<div id="ref-Mazzucato2013" class="csl-entry" role="listitem">
+Mazzucato, Mariana. 2015. <em>The Entrepreneurial State: Debunking Public Vs. Private Sector Myths</em>. PublicAffairs. ISBN 9781610396134. <em>Argues that the state, not private enterprise, has been the primary source of transformative technological innovation, and that public investment deserves public reward.</em>
+</div>
+<div id="ref-McGrann2026" class="csl-entry" role="listitem">
+McGrann, Owen. 2026. <em>The Dead Economy Theory</em>. <a href="https://www.owenmcgrann.com/p/the-dead-economy-theory">https://www.owenmcgrann.com/p/the-dead-economy-theory</a>. <em>Argues that AI-driven mass labor replacement creates a structural prisoners’ dilemma in which each firm rationally automates beyond the socially optimal level, destroying the consumer base on which all firms depend.</em>
+</div>
+<div id="ref-Suzman2021" class="csl-entry" role="listitem">
+Suzman, James. 2021. <em>Work: A History of How We Spend Our Time</em>. Penguin Press. ISBN 9780525561750. <em>Anthropological sweep from Paleolithic hunter-gatherers through the industrial present, arguing that scarcity-driven overwork is a recent and historically unusual arrangement—most of our ancestors worked far less and valued leisure more.</em>
+</div>
+<div id="ref-Torres2024" class="csl-entry" role="listitem">
+Torres, Émile P., and Timnit Gebru. 2024. <span>“TESCREAL Bundle: Eugenics and the Promise of Utopia Through Artificial General Intelligence.”</span> <em>First Monday</em> 29 (4). <a href="https://doi.org/10.5210/fm.v29i4.13636">https://doi.org/10.5210/fm.v29i4.13636</a>. <em>Argues that the ideological cluster underlying effective altruism and longtermism draws on transhumanist and eugenic traditions with harmful implications for present-day AI policy.</em>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../regulation-that-worked/index.html" class="pagination-link" aria-label="Regulation That Worked">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regulation That Worked</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../change-happens/index.html" class="pagination-link" aria-label="What Changes and How">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What Changes and How</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/sdgc/edit/main/ai-happens/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/sdgc/blob/main/ai-happens/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/sdgc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

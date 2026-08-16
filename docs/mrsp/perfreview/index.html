@@ -1,656 +1,879 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Performance Review Counterexamples</title>
-<meta content="Managing Research Software Projects" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix J — Performance Review Counterexamples – Managing Research Software Projects</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../security/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">MRSP</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../health/">Project Health</a></li>
-<li><a href="../checklist/">Checklists</a></li>
-<li><a href="../newcomers/">Welcoming Newcomers</a></li>
-<li><a href="../governance/">Governance</a></li>
-<li><a href="../marketing/">Marketing</a></li>
-<li><a href="../requirements/">Requirements</a></li>
-<li><a href="../hirefire/">Hiring and Firing</a></li>
-<li><a href="../performance/">Performance and Growth</a></li>
-<li><a href="../project/">Managing the Work</a></li>
-<li><a href="../finale/">The Next 90 Days</a></li>
-<li><a href="../upward/">Managing Your Manager</a></li>
-<li><a href="../safety/">Psychological Safety</a></li>
-<li><a href="../lifecycle/">Succession and Endings</a></li>
-<li><a href="../career/">Career Development</a></li>
-<li><a href="../remote/">Remote Collaboration</a></li>
-<li><a href="../burnout/">Burnout</a></li>
-<li><a href="../politics/">Office Politics</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../perfreview/index.html"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Performance Review Counterexamples</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Managing Research Software Projects</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/mrsp" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../retro/">Retrospective</a></li>
-<li><a href="../process/">Development Process</a></li>
-<li><a href="../conflict/">Managing Conflict</a></li>
-<li><a href="../security/">Security</a></li>
-<li><a class="active" href="../perfreview/">Performance Review Counterexamples</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/mrsp">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../health/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Health</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../checklist/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Checklists</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../newcomers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Welcoming Newcomers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../governance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Governance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../marketing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Marketing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../requirements/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Requirements</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hirefire/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hiring and Firing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../performance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Performance and Growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Managing the Work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The Next 90 Days</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../upward/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Managing Your Manager</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../safety/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Psychological Safety</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lifecycle/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Succession and Endings</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../career/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Career Development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../remote/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Remote Collaboration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../burnout/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Burnout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../politics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Office Politics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../retro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Retrospective</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../process/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Development Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conflict/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Managing Conflict</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../security/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Security</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../perfreview/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Performance Review Counterexamples</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Performance Review Counterexamples</h1>
-<p>Performance reviews are essential to a company's operations.
-They can also be pretty frightening,
-since what you say (or don't) can directly affect people's careers.
-There are lots of examples online about how to do them;
-this post provides examples of how <em>not</em> to answer
-the kinds of questions that are often asked.</p>
-<h2>Self Assessment</h2>
-<h3>Past Performance</h3>
-<p>Looking back on the previous performance period,
-what accomplishments or successes are you most proud of?
-Why?
-What were the most significant challenges you faced, and how did you overcome them?</p>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#self-assessment" id="toc-self-assessment" class="nav-link active" data-scroll-target="#self-assessment"><span class="header-section-number">J.1</span> Self Assessment</a>
+  <ul class="collapse">
+  <li><a href="#past-performance" id="toc-past-performance" class="nav-link" data-scroll-target="#past-performance"><span class="header-section-number">J.1.1</span> Past Performance</a></li>
+  <li><a href="#future-growth" id="toc-future-growth" class="nav-link" data-scroll-target="#future-growth"><span class="header-section-number">J.1.2</span> Future Growth</a></li>
+  </ul></li>
+  <li><a href="#manager-assessment" id="toc-manager-assessment" class="nav-link" data-scroll-target="#manager-assessment"><span class="header-section-number">J.2</span> Manager Assessment</a>
+  <ul class="collapse">
+  <li><a href="#past-performance-1" id="toc-past-performance-1" class="nav-link" data-scroll-target="#past-performance-1"><span class="header-section-number">J.2.1</span> Past Performance</a></li>
+  <li><a href="#future-growth-1" id="toc-future-growth-1" class="nav-link" data-scroll-target="#future-growth-1"><span class="header-section-number">J.2.2</span> Future Growth</a></li>
+  </ul></li>
+  <li><a href="#peer-assessment" id="toc-peer-assessment" class="nav-link" data-scroll-target="#peer-assessment"><span class="header-section-number">J.3</span> Peer Assessment</a>
+  <ul class="collapse">
+  <li><a href="#past-performance-2" id="toc-past-performance-2" class="nav-link" data-scroll-target="#past-performance-2"><span class="header-section-number">J.3.1</span> Past Performance</a></li>
+  <li><a href="#future-growth-2" id="toc-future-growth-2" class="nav-link" data-scroll-target="#future-growth-2"><span class="header-section-number">J.3.2</span> Future Growth</a></li>
+  </ul></li>
+  <li><a href="#manager-only-not-viewable-by-employee" id="toc-manager-only-not-viewable-by-employee" class="nav-link" data-scroll-target="#manager-only-not-viewable-by-employee"><span class="header-section-number">J.4</span> Manager Only (not viewable by employee)</a></li>
+  <li><a href="#upward-assessment" id="toc-upward-assessment" class="nav-link" data-scroll-target="#upward-assessment"><span class="header-section-number">J.5</span> Upward Assessment</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/mrsp/edit/main/perfreview/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/mrsp/blob/main/perfreview/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/mrsp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../perfreview/index.html"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Performance Review Counterexamples</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix J — Performance Review Counterexamples</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Performance reviews are essential to a company’s operations. They can also be pretty frightening, since what you say (or don’t) can directly affect people’s careers. There are lots of examples online about how to do them; this post provides examples of how <em>not</em> to answer the kinds of questions that are often asked.</p>
+<section id="self-assessment" class="level2" data-number="J.1">
+<h2 data-number="J.1" class="anchored" data-anchor-id="self-assessment"><span class="header-section-number">J.1</span> Self Assessment</h2>
+<section id="past-performance" class="level3" data-number="J.1.1">
+<h3 data-number="J.1.1" class="anchored" data-anchor-id="past-performance"><span class="header-section-number">J.1.1</span> Past Performance</h3>
+<p>Looking back on the previous performance period, what accomplishments or successes are you most proud of? Why? What were the most significant challenges you faced, and how did you overcome them?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I met all my targets."
-    </td>
+“I met all my targets.”
+</td>
 <td>
-      Targets can change significantly over 6 months,
-      so listing a few specific examples helps you and your manager focus on specifics.
-    </td>
+Targets can change significantly over 6 months, so listing a few specific examples helps you and your manager focus on specifics.
+</td>
 </tr>
 <tr>
 <td>
-      "I didn't murder Bob when he spilled coffee on my keyboard."
-    </td>
+“I didn’t murder Bob when he spilled coffee on my keyboard.”
+</td>
 <td>
-      Laudable,
-      but humor and dramatic exaggeration don't belong in your HR records.
-    </td>
+Laudable, but humor and dramatic exaggeration don’t belong in your HR records.
+</td>
 </tr>
 <tr>
 <td>
-      "I managed to finish a data analysis in time for the board presentation
-      even though Bob got me the data later than he promised he would."
-    </td>
+“I managed to finish a data analysis in time for the board presentation even though Bob got me the data later than he promised he would.”
+</td>
 <td>
-      Commentary on Bob's performance belongs in his peer
-      feedback section, not in your self-assessment.
-    </td>
+Commentary on Bob’s performance belongs in his peer feedback section, not in your self-assessment.
+</td>
 </tr>
-</table>
-<p>How effectively did you meet the goals and objectives set for you during the past performance period?
-Provide specific examples.
-What helped/hindered you in that process?</p>
+</tbody></table>
+<p>How effectively did you meet the goals and objectives set for you during the past performance period? Provide specific examples. What helped/hindered you in that process?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I didn't meet any of my goals—I really suck at this job and you should fire me."
-    </td>
+“I didn’t meet any of my goals—I really suck at this job and you should fire me.”
+</td>
 <td>
-      If you didn't meet any of your targets, then
-      (a) they were probably unrealistic and
-      (b) your manager should have noticed and stepped in long before this review.
-      Pointing out what stopped you from meeting them helps the company do better next time.
-      And please don't be embarrassed to say,
-      "I had things going on in my personal life that prevented me from focusing the way I wanted to."
-      We're all human (except for Bob, of course),
-      and it's OK to say that something outside work was affecting your performance
-      and leave the details to a verbal conversation if you don't want them captured in a Google Doc.
-    </td>
+If you didn’t meet any of your targets, then (a) they were probably unrealistic and (b) your manager should have noticed and stepped in long before this review. Pointing out what stopped you from meeting them helps the company do better next time. And please don’t be embarrassed to say, “I had things going on in my personal life that prevented me from focusing the way I wanted to.” We’re all human (except for Bob, of course), and it’s OK to say that something outside work was affecting your performance and leave the details to a verbal conversation if you don’t want them captured in a Google Doc.
+</td>
 </tr>
 <tr>
 <td>
-      "I wrote 2718 lines of software" or "I pipetted 27 plates".
-    </td>
+“I wrote 2718 lines of software” or “I pipetted 27 plates”.
+</td>
 <td>
-      That's remarkably specific,
-      but not helpful unless you and your manager agreed at your previous review that
-      those narrow numerical targets would be the sole basis of your evaluation.
-      You and your manager should have discussions before the biannual evaluation
-      about goals that are meaningful to the company as a whole and to your personal growth;
-      if you didn't,
-      you should speak with your manager now (before filling in the evaluation) about defining these retroactively.
-    </td>
+That’s remarkably specific, but not helpful unless you and your manager agreed at your previous review that those narrow numerical targets would be the sole basis of your evaluation. You and your manager should have discussions before the biannual evaluation about goals that are meaningful to the company as a whole and to your personal growth; if you didn’t, you should speak with your manager now (before filling in the evaluation) about defining these retroactively.
+</td>
 </tr>
-</table>
+</tbody></table>
 <p>What are 2-3 key strengths and how are you utilizing them in your role?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I'm a good listener."
-    </td>
+“I’m a good listener.”
+</td>
 <td>
-      Too vague: what does this mean in practice,
-      how would an external observer know you were doing it (or not),
-      and how does this relate   to your role?
-    </td>
+Too vague: what does this mean in practice, how would an external observer know you were doing it (or not), and how does this relate to your role?
+</td>
 </tr>
 <tr>
 <td>
-      "I wrote 2718 lines of software" or "I analyzed 27 experimental data sets".
-    </td>
+“I wrote 2718 lines of software” or “I analyzed 27 experimental data sets”.
+</td>
 <td>
-      Those aren't strengths:
-      they are evidence to support a claim that you have a particular strength.
-    </td>
+Those aren’t strengths: they are evidence to support a claim that you have a particular strength.
+</td>
 </tr>
-</table>
+</tbody></table>
 <p>How would team members describe working with you?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I don't know—you'd have to ask them."
-    </td>
+“I don’t know—you’d have to ask them.”
+</td>
 <td>
-      Most of us are uncomfortable praising ourselves (even Bob),
-      so it's tempting to dodge questions like these,
-      but comparing how you perceive yourself
-      with how your colleagues and your managers perceive you
-      is essential to calibrating your future self-assessments.
-    </td>
+Most of us are uncomfortable praising ourselves (even Bob), so it’s tempting to dodge questions like these, but comparing how you perceive yourself with how your colleagues and your managers perceive you is essential to calibrating your future self-assessments.
+</td>
 </tr>
-</table>
-<h3>Future Growth</h3>
-<p>What new skills or knowledge do you want to acquire or develop to enhance your performance?
-How do they align with the company's objectives?</p>
+</tbody></table>
+</section>
+<section id="future-growth" class="level3" data-number="J.1.2">
+<h3 data-number="J.1.2" class="anchored" data-anchor-id="future-growth"><span class="header-section-number">J.1.2</span> Future Growth</h3>
+<p>What new skills or knowledge do you want to acquire or develop to enhance your performance? How do they align with the company’s objectives?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I want to learn how to provulate bi-genetic amorphisms on the SD-370."
-    </td>
+“I want to learn how to provulate bi-genetic amorphisms on the SD-370.”
+</td>
 <td>
-      Setting aside the fact that this response is made-up word salad,
-      is this goal the right size?
-      We do performance reviews every 6 months,
-      so a good goal is one that will take 12 months to achieve
-      (so that you can check in and make corrections at the half-way mark).
-      In addition,
-      how does this help you progress in your career,
-      and how does it help the company?
-      You and your manager might both believe the answers are obvious,
-      but still be surprised to discover that you disagree on what the "obvious" answer is.
-    </td>
+Setting aside the fact that this response is made-up word salad, is this goal the right size? We do performance reviews every 6 months, so a good goal is one that will take 12 months to achieve (so that you can check in and make corrections at the half-way mark). In addition, how does this help you progress in your career, and how does it help the company? You and your manager might both believe the answers are obvious, but still be surprised to discover that you disagree on what the “obvious” answer is.
+</td>
 </tr>
 <tr>
 <td>
-      "I'd like to become a product manager."
-    </td>
+“I’d like to become a product manager.”
+</td>
 <td>
-      Wouldn't we all?
-      And changes of direction like this are definitely something you should talk about
-      with your manager and with HR—remember,
-      they're here to help you with career planning.
-      However,
-      this performance review isn't the right place for that discussion:
-      this review is for discussing how you're doing in your current role
-      and on your current trajectory.
-    </td>
+Wouldn’t we all? And changes of direction like this are definitely something you should talk about with your manager and with HR—remember, they’re here to help you with career planning. However, this performance review isn’t the right place for that discussion: this review is for discussing how you’re doing in your current role and on your current trajectory.
+</td>
 </tr>
-</table>
-<p>What do you see as your team's biggest challenge in the next six months?
-How are you preparing for it?</p>
+</tbody></table>
+<p>What do you see as your team’s biggest challenge in the next six months? How are you preparing for it?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "I don't know how to provulate bi-genetic amorphisms on the SD-370."
-    </td>
+“I don’t know how to provulate bi-genetic amorphisms on the SD-370.”
+</td>
 <td>
-      Again with the word salad…
-      But if this was a reasonable response,
-      it would be missing the point of the question,
-      which is for you to think one level higher than your personal performance.
-      What could go wrong for your team in the next six months?
-      Do you think you'll be short-staffed?
-      Required to solve problems you're not trained to solve?
-      Are you worried about morale or last-minute requests for impossible amounts of work?
-      And what could you, your team, and your manager do now to prevent or get ready for those things?
-    </td>
+Again with the word salad… But if this was a reasonable response, it would be missing the point of the question, which is for you to think one level higher than your personal performance. What could go wrong for your team in the next six months? Do you think you’ll be short-staffed? Required to solve problems you’re not trained to solve? Are you worried about morale or last-minute requests for impossible amounts of work? And what could you, your team, and your manager do now to prevent or get ready for those things?
+</td>
 </tr>
 <tr>
 <td>
-      "Bob keeps spilling coffee on my keyboard and I swear,
-      if it happens again I'm going to be on the evening news for all the wrong reasons."
-    </td>
+“Bob keeps spilling coffee on my keyboard and I swear, if it happens again I’m going to be on the evening news for all the wrong reasons.”
+</td>
 <td>
-      Believe it or not,
-      this is actually a reasonable response (though the phrasing needs a bit of work).
-      Tensions within a team will affect its performance
-      just as much as out-of-date equipment or changing priorities.
-      As mentioned above,
-      most of us are less comfortable talking about the former than the latter,
-      but if your manager doesn't know there's a problem,
-      they can't try to fix it.
-    </td>
+Believe it or not, this is actually a reasonable response (though the phrasing needs a bit of work). Tensions within a team will affect its performance just as much as out-of-date equipment or changing priorities. As mentioned above, most of us are less comfortable talking about the former than the latter, but if your manager doesn’t know there’s a problem, they can’t try to fix it.
+</td>
 </tr>
-</table>
+</tbody></table>
 <p>How can your manager best support you?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "Just tell me how many assays I'm supposed to do this quarter"
-      (or how many datasets I'm supposed to analyze, or…)
-    </td>
+“Just tell me how many assays I’m supposed to do this quarter” (or how many datasets I’m supposed to analyze, or…)
+</td>
 <td>
-      This isn't a bad response—setting clear goals is
-      one of the most supportive things a manager can do—but
-      it has a "once and done" feel.
-      Your manager should be talking to you 1-1 every week for the next six months;
-      setting this target will be one of those conversations,
-      so what do you want them to help you with in the other 25?
-    </td>
+This isn’t a bad response—setting clear goals is one of the most supportive things a manager can do—but it has a “once and done” feel. Your manager should be talking to you 1-1 every week for the next six months; setting this target will be one of those conversations, so what do you want them to help you with in the other 25?
+</td>
 </tr>
 <tr>
 <td>
-      "Increase my learning budget to $3000/year so I can go to conference X and take workshop Y."
-      (or "Double my vacation allowance", or…)
-    </td>
+“Increase my learning budget to $3000/year so I can go to conference X and take workshop Y.” (or “Double my vacation allowance”, or…)
+</td>
 <td>
-      Your manager doesn't have the authority to do this.
-      That doesn't mean it isn't worth bringing up—if
-      enough people ask for a specific change like this,
-      it will prompt the company to take another look at its policies—but
-      this section of the form is specifically about things your manager has control over.
-    </td>
+Your manager doesn’t have the authority to do this. That doesn’t mean it isn’t worth bringing up—if enough people ask for a specific change like this, it will prompt the company to take another look at its policies—but this section of the form is specifically about things your manager has control over.
+</td>
 </tr>
-</table>
-<h2>Manager Assessment</h2>
-<h3>Past Performance</h3>
-<p>What 2-3 strengths did you see this person exhibit in this performance period?
-Give examples of how these strengths had a positive impact on the team, department, or company.</p>
+</tbody></table>
+</section>
+</section>
+<section id="manager-assessment" class="level2" data-number="J.2">
+<h2 data-number="J.2" class="anchored" data-anchor-id="manager-assessment"><span class="header-section-number">J.2</span> Manager Assessment</h2>
+<section id="past-performance-1" class="level3" data-number="J.2.1">
+<h3 data-number="J.2.1" class="anchored" data-anchor-id="past-performance-1"><span class="header-section-number">J.2.1</span> Past Performance</h3>
+<p>What 2-3 strengths did you see this person exhibit in this performance period? Give examples of how these strengths had a positive impact on the team, department, or company.</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They met all their targets."
-    </td>
+“They met all their targets.”
+</td>
 <td>
-      (a) This is too vague to be useful.
-      (b) We expect people to meet targets (because we expect managers to set reasonable targets
-      for everyone—even Bob),
-      so doing this doesn't demonstrate particular strengths.
-      (c) What impact did this have on the team?
-      (d) This response probably belongs below with question 3 anyway.
-    </td>
+<ol type="a">
+<li>This is too vague to be useful.
+<ol start="2" type="a">
+<li>We expect people to meet targets (because we expect managers to set reasonable targets for everyone—even Bob), so doing this doesn’t demonstrate particular strengths.</li>
+<li>What impact did this have on the team?</li>
+<li>This response probably belongs below with question 3 anyway.</li>
+</ol>
+</li></ol></td>
 </tr>
 <tr>
 <td>
-      "They demonstrated empathy [example],
-      resilience [example],
-      honesty [example],
-      perseverance [example],
-      intelligence [example],
-      etc. etc."
-    </td>
+“They demonstrated empathy [example], resilience [example], honesty [example], perseverance [example], intelligence [example], etc. etc.”
+</td>
 <td>
-      The form asks for 2–3 rather than a shopping list of laudatory adjectives
-      because we want to know what this person was particularly good at.
-    </td>
+The form asks for 2–3 rather than a shopping list of laudatory adjectives because we want to know what this person was particularly good at.
+</td>
 </tr>
 <tr>
 <td>
-      "They were much better at meeting their deadlines than Bob."
-    </td>
+“They were much better at meeting their deadlines than Bob.”
+</td>
 <td>
-      Again,
-      this exercise is about this person—feedback on Bob should go in Bob's feedback form.
-    </td>
+Again, this exercise is about this person—feedback on Bob should go in Bob’s feedback form.
+</td>
 </tr>
-</table>
-<p>Were there any specific challenges or areas where this person faced difficulties?
-How did they handle those situations?</p>
+</tbody></table>
+
+<p>Were there any specific challenges or areas where this person faced difficulties? How did they handle those situations?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They have trouble communicating clearly with me."
-    </td>
+“They have trouble communicating clearly with me.”
+</td>
 <td>
-      Are you sure the fault is entirely on their side?
-      Saying, "We have trouble communicating,"
-      would be a better starting point for a discussion.
-      (And if the problem is communication,
-      someone from HR could sit in as moderator and help you both.)
-    </td>
+Are you sure the fault is entirely on their side? Saying, “We have trouble communicating,” would be a better starting point for a discussion. (And if the problem is communication, someone from HR could sit in as moderator and help you both.)
+</td>
 </tr>
 <tr>
 <td>
-      "They kept falling behind in their assigned tasks."
-    </td>
+“They kept falling behind in their assigned tasks.”
+</td>
 <td>
-      (a) A couple of examples will help focus discussion.
-      (b) If you have a theory about why this happens,
-      putting it in the form will also help discussion about the underlying cause.
-      For example, do they not have the skills they need?
-      Is it a question of motivation?
-      Were they not paying attention when goals were updated?
-    </td>
+<ol type="a">
+<li>A couple of examples will help focus discussion.
+<ol start="2" type="a">
+<li>If you have a theory about why this happens, putting it in the form will also help discussion about the underlying cause. For example, do they not have the skills they need? Is it a question of motivation? Were they not paying attention when goals were updated?</li>
+</ol>
+</li></ol></td>
 </tr>
-</table>
-<p>How effectively did this person meet the goals and objectives
-set during the previous performance period?
-Can you provide specific examples of their achievements?</p>
+</tbody></table>
+
+<p>How effectively did this person meet the goals and objectives set during the previous performance period? Can you provide specific examples of their achievements?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They did outstanding work. Really."
-    </td>
+“They did outstanding work. Really.”
+</td>
 <td>
-      Please provide 2–3 examples:
-      even small ones reassure people that you've actually thought about their performance in particular
-      and aren't plastering the same vague pleasantries into everyone's form.
-    </td>
+Please provide 2–3 examples: even small ones reassure people that you’ve actually thought about their performance in particular and aren’t plastering the same vague pleasantries into everyone’s form.
+</td>
 </tr>
-</table>
-<p>In what areas do you think this person has shown the most growth and improvement
-since the last review?</p>
+</tbody></table>
+<p>In what areas do you think this person has shown the most growth and improvement since the last review?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They were supposed to learn how to provulate bi-genetic amorphisms on the SD-370."
-    </td>
+“They were supposed to learn how to provulate bi-genetic amorphisms on the SD-370.”
+</td>
 <td>
-      That's not an example of growth or improvement—please focus on the positives in this section.
-    </td>
+That’s not an example of growth or improvement—please focus on the positives in this section.
+</td>
 </tr>
 <tr>
 <td>
-      "They're much better at hiding their annoyance
-      when Bob runs over time in the meeting room they have booked for a call."
-    </td>
+“They’re much better at hiding their annoyance when Bob runs over time in the meeting room they have booked for a call.”
+</td>
 <td>
-      This isn't something they should have to get better at.
-      If you are giving feedback like this to them,
-      it is your responsibility as a manager to take steps
-      to make sure they don't have to keep doing it.
-    </td>
+This isn’t something they should have to get better at. If you are giving feedback like this to them, it is your responsibility as a manager to take steps to make sure they don’t have to keep doing it.
+</td>
 </tr>
-</table>
-<h3>Future Growth</h3>
+</tbody></table>
+</section>
+<section id="future-growth-1" class="level3" data-number="J.2.2">
+<h3 data-number="J.2.2" class="anchored" data-anchor-id="future-growth-1"><span class="header-section-number">J.2.2</span> Future Growth</h3>
 <p>What could this person do differently to be more impactful in the future?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They should talk to Bob about how they're always getting on each other's nerves."
-    </td>
+“They should talk to Bob about how they’re always getting on each other’s nerves.”
+</td>
 <td>
-      No: you should talk to them and Bob, both individually and together,
-      to iron this out—that's a core responsibility of being a manager.
-      When you do this,
-      you should not just split the difference between their positions,
-      because that rewards the person who is being more extreme or unreasonable.
-      Being a manager sometimes means deciding that
-      one person is in the right and one is in the wrong
-      and acting accordingly.
-    </td>
+No: you should talk to them and Bob, both individually and together, to iron this out—that’s a core responsibility of being a manager. When you do this, you should not just split the difference between their positions, because that rewards the person who is being more extreme or unreasonable. Being a manager sometimes means deciding that one person is in the right and one is in the wrong and acting accordingly.
+</td>
 </tr>
 <tr>
 <td>
-      "They should learn how to provulate bi-genetic amorphisms on the SD-370."
-    </td>
+“They should learn how to provulate bi-genetic amorphisms on the SD-370.”
+</td>
 <td>
-      But this was one of their goals in the last round,
-      so what should they do differently in this round to make it happen?
-      "Try again" isn't a particularly useful answer—you should suggest specific changes
-      and be clear about what you are going to do differently this time
-      to help them achieve that goal.
-    </td>
+But this was one of their goals in the last round, so what should they do differently in this round to make it happen? “Try again” isn’t a particularly useful answer—you should suggest specific changes and be clear about what you are going to do differently this time to help them achieve that goal.
+</td>
 </tr>
-</table>
-<p>Are there any specific areas where the employee can take on new responsibilities
-to further their professional development?</p>
+</tbody></table>
+<p>Are there any specific areas where the employee can take on new responsibilities to further their professional development?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They should run a half-day workshop for their peers on provulating bi-genetic amorphisms on the SD-370."
-    </td>
+“They should run a half-day workshop for their peers on provulating bi-genetic amorphisms on the SD-370.”
+</td>
 <td>
-      Great!
-      But is this on top of their existing responsibilities?
-      If so, does it mean you're asking them to work even longer hours?
-      Or have you (and they) identified something they can de-prioritize
-      or stop doing entirely in order to make time for this?
-    </td>
+Great! But is this on top of their existing responsibilities? If so, does it mean you’re asking them to work even longer hours? Or have you (and they) identified something they can de-prioritize or stop doing entirely in order to make time for this?
+</td>
 </tr>
 <tr>
 <td>
-      "They should mentor an intern."
-    </td>
+“They should mentor an intern.”
+</td>
 <td>
-      Great!
-      Has budget for an internship been approved?
-      Because it would suck to dangle this in front of them and then say,
-      "Sorry, you can't actually have it."
-    </td>
+Great! Has budget for an internship been approved? Because it would suck to dangle this in front of them and then say, “Sorry, you can’t actually have it.”
+</td>
 </tr>
-</table>
-<h2>Peer Assessment</h2>
-<h3>Past Performance</h3>
-<p>What 2-3 strengths did you see this person exhibit in this performance period?
-Give examples of how these strengths had a positive impact on the team, department, or company.</p>
+</tbody></table>
+</section>
+</section>
+<section id="peer-assessment" class="level2" data-number="J.3">
+<h2 data-number="J.3" class="anchored" data-anchor-id="peer-assessment"><span class="header-section-number">J.3</span> Peer Assessment</h2>
+<section id="past-performance-2" class="level3" data-number="J.3.1">
+<h3 data-number="J.3.1" class="anchored" data-anchor-id="past-performance-2"><span class="header-section-number">J.3.1</span> Past Performance</h3>
+<p>What 2-3 strengths did you see this person exhibit in this performance period? Give examples of how these strengths had a positive impact on the team, department, or company.</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They didn't complain when I ran overtime in the meeting room."
-    </td>
+“They didn’t complain when I ran overtime in the meeting room.”
+</td>
 <td>
-      On the one hand, yes, being the better person is a strength.
-      On the other hand, you shouldn't require your colleagues to work around you.
-    </td>
+On the one hand, yes, being the better person is a strength. On the other hand, you shouldn’t require your colleagues to work around you.
+</td>
 </tr>
 <tr>
 <td>
-      "They helped me find a tailor who could take in a suit for me on short notice."
-    </td>
+“They helped me find a tailor who could take in a suit for me on short notice.”
+</td>
 <td>
-      This isn't a bad answer:
-      we all have lives outside of work,
-      and helping people with things that might otherwise be distractions
-      is useful as well as kind.
-      But if you include something like this,
-      please only include one such point:
-      we want to focus on things that happen here at work.
-    </td>
+This isn’t a bad answer: we all have lives outside of work, and helping people with things that might otherwise be distractions is useful as well as kind. But if you include something like this, please only include one such point: we want to focus on things that happen here at work.
+</td>
 </tr>
-</table>
-<p>Describe how the employee communicates and collaborates with colleagues
-across different projects or departments.</p>
+</tbody></table>
+<p>Describe how the employee communicates and collaborates with colleagues across different projects or departments.</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They don't, really."
-    </td>
+“They don’t, really.”
+</td>
 <td>
-      It's OK to say this if it's true:
-      some of us really do work solely with our immediate teammates.
-      However, that's actually pretty rare—if you believe it of someone,
-      the odds are that they are interacting with people,
-      just at times and in places that you don't see,
-      so please check.
-    </td>
+It’s OK to say this if it’s true: some of us really do work solely with our immediate teammates. However, that’s actually pretty rare—if you believe it of someone, the odds are that they are interacting with people, just at times and in places that you don’t see, so please check.
+</td>
 </tr>
 <tr>
 <td>
-      "They spend too much/not enough time talking with [person or team]."
-    </td>
+“They spend too much/not enough time talking with [person or team].”
+</td>
 <td>
-      You may be right, but "a lot" and "a little" aren't the same as "too much" or "not enough".
-      What do you base your expectation on?
-    </td>
+You may be right, but “a lot” and “a little” aren’t the same as “too much” or “not enough”. What do you base your expectation on?
+</td>
 </tr>
-</table>
-<h3>Future Growth</h3>
-<p>If you could give this person one piece of constructive advice
-to make them more effective in their role,
-what would you say?
-How would this change impact their work?</p>
+</tbody></table>
+</section>
+<section id="future-growth-2" class="level3" data-number="J.3.2">
+<h3 data-number="J.3.2" class="anchored" data-anchor-id="future-growth-2"><span class="header-section-number">J.3.2</span> Future Growth</h3>
+<p>If you could give this person one piece of constructive advice to make them more effective in their role, what would you say? How would this change impact their work?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "We all had to learn to put up with Bob—they should too."
-    </td>
+“We all had to learn to put up with Bob—they should too.”
+</td>
 <td>
-      No.
-      There are things we just have to put up with, but truculent colleagues aren't on the list.
-      Advice on how to escalate or address the issue
-      (e.g., "schedule a session with HR to figure out a strategy")
-      is fair game;
-      defeatism is not.
-    </td>
+No. There are things we just have to put up with, but truculent colleagues aren’t on the list. Advice on how to escalate or address the issue (e.g., “schedule a session with HR to figure out a strategy”) is fair game; defeatism is not.
+</td>
 </tr>
 <tr>
 <td>
-      "You should speak out more in meetings."
-    </td>
+“You should speak out more in meetings.”
+</td>
 <td>
-      This might be reasonable advice,
-      but be careful about tone policing:
-      some people are just quieter than others.
-    </td>
+This might be reasonable advice, but be careful about tone policing: some people are just quieter than others.
+</td>
 </tr>
 <tr>
 <td>
-      "You should speak out less in meetings."
-    </td>
+“You should speak out less in meetings.”
+</td>
 <td>
-      See the above.
-      On the other hand,
-      if someone constantly interrupts or always makes three points
-      when everyone else in the meeting makes one at a time,
-      they may not be aware of it.
-      HR can help you find ways to phrase this diplomatically.
-    </td>
+See the above. On the other hand, if someone constantly interrupts or always makes three points when everyone else in the meeting makes one at a time, they may not be aware of it. HR can help you find ways to phrase this diplomatically.
+</td>
 </tr>
-</table>
-<h2>Manager Only (not viewable by employee)</h2>
+</tbody></table>
+</section>
+</section>
+<section id="manager-only-not-viewable-by-employee" class="level2" data-number="J.4">
+<h2 data-number="J.4" class="anchored" data-anchor-id="manager-only-not-viewable-by-employee"><span class="header-section-number">J.4</span> Manager Only (not viewable by employee)</h2>
 <p>Is there anything else you would like to add regarding this employee?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They're really good at their job."
-    </td>
+“They’re really good at their job.”
+</td>
 <td>
-      This belongs in the part of the form that the employee can see.
-    </td>
+This belongs in the part of the form that the employee can see.
+</td>
 </tr>
 <tr>
 <td>
-      "They're really bad at their job."
-    </td>
+“They’re really bad at their job.”
+</td>
 <td>
-      This only belongs here if you have written the same thing
-      (less harshly, with specifics)
-      in the portion of the form that the employee can see.
-    </td>
+This only belongs here if you have written the same thing (less harshly, with specifics) in the portion of the form that the employee can see.
+</td>
 </tr>
 <tr>
 <td>
-      "They are having a lot of conflict with Bob."
-    </td>
+“They are having a lot of conflict with Bob.”
+</td>
 <td>
-      This does belong here,
-      but your manager and HR will require more specifics.
-      It's OK to ask HR how much detail is appropriate before filing the form
-      if you haven't had to deal with inter-personal conflict as a manager before—it's
-      one of the hardest challenges to navigate,
-      and every case is unique.
-    </td>
+This does belong here, but your manager and HR will require more specifics. It’s OK to ask HR how much detail is appropriate before filing the form if you haven’t had to deal with inter-personal conflict as a manager before—it’s one of the hardest challenges to navigate, and every case is unique.
+</td>
 </tr>
-</table>
-<h2>Upward Assessment</h2>
-<p>To what extent do you agree or disagree with each of the following statements?
-(5-point Scale from Strongly Disagree to Strongly Agree)</p>
+</tbody></table>
+</section>
+<section id="upward-assessment" class="level2" data-number="J.5">
+<h2 data-number="J.5" class="anchored" data-anchor-id="upward-assessment"><span class="header-section-number">J.5</span> Upward Assessment</h2>
+<p>To what extent do you agree or disagree with each of the following statements? (5-point Scale from Strongly Disagree to Strongly Agree)</p>
 <p>My manager:</p>
-<ol>
+<ol type="1">
 <li>Communicates goals and team objectives clearly</li>
 <li>Meets with me regularly to review goals</li>
 <li>Is collaborative</li>
@@ -666,62 +889,472 @@ How would this change impact their work?</p>
 </ol>
 <p>What could your manager do to make your work experience more effective and meaningful?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "They should have adopted my genius-level proposal to fabricate DNA using old pop cans and fairy dust!!!"
-    </td>
+“They should have adopted my genius-level proposal to fabricate DNA using old pop cans and fairy dust!!!”
+</td>
 <td>
-      (a) That's looking backward, not forward.
-      Instead, you could say, "I would like them to give me a chance to present my proposals to a wider audience."
-      (b) I don't know if you read Terry Pratchett, Bob,
-      but he once said that use of multiple exclamation marks is a sure sign of a diseased mind.
-    </td>
+<ol type="a">
+<li>That’s looking backward, not forward. Instead, you could say, “I would like them to give me a chance to present my proposals to a wider audience.”
+<ol start="2" type="a">
+<li>I don’t know if you read Terry Pratchett, Bob, but he once said that use of multiple exclamation marks is a sure sign of a diseased mind.</li>
+</ol>
+</li></ol></td>
 </tr>
-</table>
-<p>Anything else you'd like to add regarding your manager?</p>
+</tbody></table>
+
+<p>Anything else you’d like to add regarding your manager?</p>
 <table class="two-col">
-<tr>
-<th>Response</th>
-<th>Comment</th>
+<tbody><tr>
+<th>
+Response
+</th>
+<th>
+Comment
+</th>
 </tr>
 <tr>
 <td>
-      "She communicates goals and team objectives clearly,
-      meets with me regularly to review goals,
-      and has a strong work ethic."
-    </td>
+“She communicates goals and team objectives clearly, meets with me regularly to review goals, and has a strong work ethic.”
+</td>
 <td>
-      These are all covered by the agree/disagree questions at the start of this section.
-    </td>
+These are all covered by the agree/disagree questions at the start of this section.
+</td>
 </tr>
 <tr>
 <td>
-      "They always take Bob's side in arguments."
-    </td>
+“They always take Bob’s side in arguments.”
+</td>
 <td>
-      This is important feedback,
-      but will be more powerful if you provide specific examples.
-    </td>
+This is important feedback, but will be more powerful if you provide specific examples.
+</td>
 </tr>
-</table>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../security/">Security</a>
-</div>
-<div class="col-6 center">
-<a href="../">MRSP</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-</div>
-</div>
-</footer>
-</body>
-</html>
+</tbody></table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../security/index.html" class="pagination-link" aria-label="Security">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Security</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/mrsp/edit/main/perfreview/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/mrsp/blob/main/perfreview/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/mrsp/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

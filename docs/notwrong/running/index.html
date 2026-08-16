@@ -1,61 +1,320 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Running Studies in Your Organization</title>
-<meta content="How to Not Be Wrong About AI" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Running Studies in Your Organization – How to Not Be Wrong About AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../cheaply/index.html" rel="next">
+<link href="../critical/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">notwrong</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../productivity/">Defining Productivity</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
-<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
-<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
-<li><a href="../critical/">Reading Studies Critically</a></li>
-<li><a class="active" href="../running/">Running Studies in Your Organization</a></li>
-<li><a href="../cheaply/">Starting Cheap</a></li>
-<li><a href="../finale/">Conclusion: What to Do Next</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../running/index.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">How to Not Be Wrong About AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/notwrong" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../further/">Further Reading</a></li>
-<li><a href="../stats/">Statistical Reference</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/notwrong">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../productivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../wrong/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qualitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quantitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../observational/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../critical/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../running/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheaply/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: What to Do Next</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../further/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Statistical Reference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Running Studies in Your Organization</h1>
-<div class="callout">
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link active" data-scroll-target="#ethical-considerations"><span class="header-section-number">8.1</span> Ethical Considerations</a></li>
+  <li><a href="#practical-study-designs-for-practitioners" id="toc-practical-study-designs-for-practitioners" class="nav-link" data-scroll-target="#practical-study-designs-for-practitioners"><span class="header-section-number">8.2</span> Practical Study Designs for Practitioners</a></li>
+  <li><a href="#identifying-waste-as-a-study-entry-point" id="toc-identifying-waste-as-a-study-entry-point" class="nav-link" data-scroll-target="#identifying-waste-as-a-study-entry-point"><span class="header-section-number">8.3</span> Identifying Waste as a Study Entry Point</a></li>
+  <li><a href="#scoping-a-study" id="toc-scoping-a-study" class="nav-link" data-scroll-target="#scoping-a-study"><span class="header-section-number">8.4</span> Scoping a Study</a></li>
+  <li><a href="#defining-what-to-measure-gqm" id="toc-defining-what-to-measure-gqm" class="nav-link" data-scroll-target="#defining-what-to-measure-gqm"><span class="header-section-number">8.5</span> Defining What to Measure: GQM</a></li>
+  <li><a href="#iterating-your-study-design" id="toc-iterating-your-study-design" class="nav-link" data-scroll-target="#iterating-your-study-design"><span class="header-section-number">8.6</span> Iterating Your Study Design</a></li>
+  <li><a href="#sharing-results-responsibly" id="toc-sharing-results-responsibly" class="nav-link" data-scroll-target="#sharing-results-responsibly"><span class="header-section-number">8.7</span> Sharing Results Responsibly</a></li>
+  <li><a href="#working-with-legal-hr-and-management" id="toc-working-with-legal-hr-and-management" class="nav-link" data-scroll-target="#working-with-legal-hr-and-management"><span class="header-section-number">8.8</span> Working with Legal, HR, and Management</a></li>
+  <li><a href="#what-to-do-when-you-cannot-publish" id="toc-what-to-do-when-you-cannot-publish" class="nav-link" data-scroll-target="#what-to-do-when-you-cannot-publish"><span class="header-section-number">8.9</span> What to Do When You Cannot Publish</a></li>
+  <li><a href="#misconceptions" id="toc-misconceptions" class="nav-link" data-scroll-target="#misconceptions"><span class="header-section-number">8.10</span> Misconceptions</a></li>
+  <li><a href="#check-understanding" id="toc-check-understanding" class="nav-link" data-scroll-target="#check-understanding"><span class="header-section-number">8.11</span> Check Understanding</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.12</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#ethics-review-15-minutes" id="toc-ethics-review-15-minutes" class="nav-link" data-scroll-target="#ethics-review-15-minutes"><span class="header-section-number">8.12.1</span> Ethics Review (15 minutes)</a></li>
+  <li><a href="#scope-it-down-15-minutes" id="toc-scope-it-down-15-minutes" class="nav-link" data-scroll-target="#scope-it-down-15-minutes"><span class="header-section-number">8.12.2</span> Scope It Down (15 minutes)</a></li>
+  <li><a href="#write-the-limitations-20-minutes" id="toc-write-the-limitations-20-minutes" class="nav-link" data-scroll-target="#write-the-limitations-20-minutes"><span class="header-section-number">8.12.3</span> Write the Limitations (20 minutes)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/running/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/running/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Design an ethically sound study appropriate for a workplace setting.</li>
 <li>Apply Goal-Question-Metric (GQM) to define measurable research questions.</li>
@@ -64,322 +323,668 @@
 <li>Share results responsibly when external publication is not possible.</li>
 </ul>
 </div>
-<p>In 2014,
-Andrew Begel and Nachiappan Nagappan surveyed researchers and engineers at Microsoft
-to find out which questions practitioners most want answered [<a class="bib-ref" href="../bibliography/#Begel2014">Begel2014</a>].
-The top questions were practical: how do I hire the right people?
-How do I improve team productivity?
-How do I reduce technical debt?
-The most credible methods, in practitioners' view,
-were those that used their own data from their own systems.
-Practitioners did not want controlled experiments or thematic analyses of interviews with strangers;
-they wanted evidence from people like them, in contexts like theirs.
-We created these lessons because you probably do too.</p>
-<h2>Ethical Considerations</h2>
+</div>
+<p>In 2014, Andrew Begel and Nachiappan Nagappan surveyed researchers and engineers at Microsoft to find out which questions practitioners most want answered <span class="citation" data-cites="Begel2014">(<a href="../bibliography/index.html#ref-Begel2014" role="doc-biblioref">Begel and Nagappan 2014</a>)</span>. The top questions were practical: how do I hire the right people? How do I improve team productivity? How do I reduce technical debt? The most credible methods, in practitioners’ view, were those that used their own data from their own systems. Practitioners did not want controlled experiments or thematic analyses of interviews with strangers; they wanted evidence from people like them, in contexts like theirs. We created these lessons because you probably do too.</p>
+<section id="ethical-considerations" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="ethical-considerations"><span class="header-section-number">8.1</span> Ethical Considerations</h2>
 <ul>
-<li>Reminder: research on people requires ethical oversight,
-    even when it is "internal" research on your own employees<ul>
-<li>Review <a href="../qualitative/">earlier discussion</a></li>
-</ul>
-</li>
-<li>"It's just internal data" is not a free pass:
-    the fact that you already have access to data
-    does not mean using it for research is harmless</li>
-<li>When monitoring developers—even with their consent—store data locally
-    or give participants full control over what is shared<ul>
-<li>Some developers will leave an organization
-    rather than submit to monitoring they perceive as surveillance</li>
-</ul>
-</li>
-<li>Monitoring that erodes the psychological safety that predicts team performance,
-    which defeats the purpose of the study before it begins</li>
-</ul>
-<h2>Practical Study Designs for Practitioners</h2>
+<li>Reminder: research on people requires ethical oversight, even when it is “internal” research on your own employees
 <ul>
-<li>Most practitioners cannot run a randomized controlled trial:
-    no random assignment, no control group, limited time, limited budget</li>
-<li>Practical alternatives:<ul>
-<li><a class="gl-ref" href="../glossary/#retrospective_analysis">Retrospective analysis</a>:
-    study what already happened using data you already have
-    (commit logs, ticket history, review comments)</li>
-<li>Interrupted time series:
-    use a policy or tool change as a natural experiment</li>
-<li><a class="gl-ref" href="../glossary/#internal_survey">Internal survey</a>:
-    structured survey of your own team, with clear scope and honest limitations</li>
-<li><a class="gl-ref" href="../glossary/#ab_testing">A/B testing</a>:
-    if you are deploying software, random assignment of
-    users to conditions is often feasible and already part of your infrastructure</li>
-</ul>
-</li>
-<li>Be honest with yourself about what design you actually have,
-    not what you wish you had</li>
-</ul>
-<h2>Identifying Waste as a Study Entry Point</h2>
+<li>Review <a href="../qualitative/index.html">earlier discussion</a></li>
+</ul></li>
+<li>“It’s just internal data” is not a free pass: the fact that you already have access to data does not mean using it for research is harmless</li>
+<li>When monitoring developers—even with their consent—store data locally or give participants full control over what is shared
 <ul>
-<li>If your organization is skeptical of productivity measurement
-    but open to process improvement,
-    frame the study around waste identification rather than output measurement<ul>
-<li>Waste removal is often easier to prioritize than productivity improvement
-    because it is clear what "done" looks like</li>
+<li>Some developers will leave an organization rather than submit to monitoring they perceive as surveillance</li>
+</ul></li>
+<li>Monitoring that erodes the psychological safety that predicts team performance, which defeats the purpose of the study before it begins</li>
 </ul>
-</li>
-<li>Ask what work consumes effort without delivering value?<ul>
-<li>The answer is usually less politically charged than, "Who is productive?"</li>
+</section>
+<section id="practical-study-designs-for-practitioners" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="practical-study-designs-for-practitioners"><span class="header-section-number">8.2</span> Practical Study Designs for Practitioners</h2>
+<ul>
+<li>Most practitioners cannot run a randomized controlled trial: no random assignment, no control group, limited time, limited budget</li>
+<li>Practical alternatives:
+<ul>
+<li><a href="../glossary/index.html#retrospective_analysis">Retrospective analysis</a>: study what already happened using data you already have (commit logs, ticket history, review comments)</li>
+<li>Interrupted time series: use a policy or tool change as a natural experiment</li>
+<li><a href="../glossary/index.html#internal_survey">Internal survey</a>: structured survey of your own team, with clear scope and honest limitations</li>
+<li><a href="../glossary/index.html#ab_testing">A/B testing</a>: if you are deploying software, random assignment of users to conditions is often feasible and already part of your infrastructure</li>
+</ul></li>
+<li>Be honest with yourself about what design you actually have, not what you wish you had</li>
+</ul>
+</section>
+<section id="identifying-waste-as-a-study-entry-point" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="identifying-waste-as-a-study-entry-point"><span class="header-section-number">8.3</span> Identifying Waste as a Study Entry Point</h2>
+<ul>
+<li>If your organization is skeptical of productivity measurement but open to process improvement, frame the study around waste identification rather than output measurement
+<ul>
+<li>Waste removal is often easier to prioritize than productivity improvement because it is clear what “done” looks like</li>
+</ul></li>
+<li>Ask what work consumes effort without delivering value?
+<ul>
+<li>The answer is usually less politically charged than, “Who is productive?”</li>
 <li>And often surfaces actionable interventions</li>
-</ul>
-</li>
-<li>[<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]'s nine waste categories are a useful starting checklist <ul>
-<li>See <a href="../qualitative/">earlier discussion</a></li>
-</ul>
-</li>
-</ul>
-<h2>Scoping a Study</h2>
+</ul></li>
+<li><span class="citation" data-cites="Sedano2017">(<a href="../bibliography/index.html#ref-Sedano2017" role="doc-biblioref">Sedano et al. 2017</a>)</span>’s nine waste categories are a useful starting checklist
 <ul>
-<li>A study that tries to answer "does AI make our developers more productive?"
-    cannot be answered without first answering what you mean by productive,
-    which developers, at which tasks, over what time period</li>
-<li>A scoped question:
-    "Did the time to first review decrease for pull requests submitted after we deployed Claude
-    compared to the three months before?"</li>
+<li>See <a href="../qualitative/index.html">earlier discussion</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="scoping-a-study" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="scoping-a-study"><span class="header-section-number">8.4</span> Scoping a Study</h2>
+<ul>
+<li>A study that tries to answer “does AI make our developers more productive?” cannot be answered without first answering what you mean by productive, which developers, at which tasks, over what time period</li>
+<li>A scoped question: “Did the time to first review decrease for pull requests submitted after we deployed Claude compared to the three months before?”</li>
 <li>Scoping criteria: one team, one metric, one comparison, one time period</li>
-<li>If your scoped question does not answer what stakeholders actually need to know,
-    that is important to know <em>before</em> you run the study</li>
+<li>If your scoped question does not answer what stakeholders actually need to know, that is important to know <em>before</em> you run the study</li>
 </ul>
-<h2>Defining What to Measure: GQM</h2>
+</section>
+<section id="defining-what-to-measure-gqm" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="defining-what-to-measure-gqm"><span class="header-section-number">8.5</span> Defining What to Measure: GQM</h2>
 <ul>
-<li>Knowing you want to study "productivity" is not enough:
-    you need a specific, defensible measurement before you collect any data</li>
-<li>The <a class="gl-ref" href="../glossary/#gqm">Goal-Question-Metric (GQM)</a> approach
-    provides a structured path from intent to measurement [<a class="bib-ref" href="../bibliography/#Basili1994">Basili1994</a>]<ul>
-<li>Define the goal:
-    what object are you studying, what property of that object,
-    from whose viewpoint, and in what context?</li>
+<li>Knowing you want to study “productivity” is not enough: you need a specific, defensible measurement before you collect any data</li>
+<li>The <a href="../glossary/index.html#gqm">Goal-Question-Metric (GQM)</a> approach provides a structured path from intent to measurement <span class="citation" data-cites="Basili1994">(<a href="../bibliography/index.html#ref-Basili1994" role="doc-biblioref">Basili et al. 1994</a>)</span>
+<ul>
+<li>Define the goal: what object are you studying, what property of that object, from whose viewpoint, and in what context?</li>
 <li>Generate the questions whose answers would tell you whether the goal was achieved</li>
 <li>Identify the specific, operationalized metric that answers each question</li>
-</ul>
-</li>
-<li>Example:<ul>
-<li>Goal: "understand the impact of AI coding assistants on delivery speed,
-    from the engineering manager's viewpoint, in our current sprint process"</li>
+</ul></li>
+<li>Example:
+<ul>
+<li>Goal: “understand the impact of AI coding assistants on delivery speed, from the engineering manager’s viewpoint, in our current sprint process”</li>
 <li>Question 1: does time-to-merge change after adoption?</li>
 <li>Question 2: does the volume of completed work change?</li>
 <li>Question 3: does defect rate change?</li>
 <li>Metric 1: median hours from PR open to merge, per sprint</li>
 <li>Metric 2: story points delivered per sprint</li>
 <li>Metric 3: bugs filed within 14 days of a PR merge</li>
-</ul>
-</li>
-<li>GQM makes implicit assumptions explicit:
-    the choice of metric embeds a claim that this number measures what you care about<ul>
-<li>And that claim can be challenged before you collect a single data point</li>
-</ul>
-</li>
-<li>If you cannot identify a metric for a question,
-    either the question is not operationalizable (and should be addressed qualitatively)
-    or the goal needs to be refined</li>
-<li>Careful qualitative work can produce taxonomies that guide GQM measurement:<ul>
-<li>[<a class="bib-ref" href="../bibliography/#Sillito2008">Sillito2008</a>] analyzed programmers during change tasks
-    and produced a catalog of 44 question types that developers ask
-    when navigating an unfamiliar codebase</li>
-<li>[<a class="bib-ref" href="../bibliography/#Ko2007">Ko2007</a>] observed 17 developers at a large software company
-    and identified 21 types of information need,
-    most commonly awareness about artifacts and unavailable coworkers</li>
-</ul>
-</li>
-</ul>
-<h2>Iterating Your Study Design</h2>
+</ul></li>
+<li>GQM makes implicit assumptions explicit: the choice of metric embeds a claim that this number measures what you care about
 <ul>
-<li>A first study rarely answers the question you thought you were asking<ul>
+<li>And that claim can be challenged before you collect a single data point</li>
+</ul></li>
+<li>If you cannot identify a metric for a question, either the question is not operationalizable (and should be addressed qualitatively) or the goal needs to be refined</li>
+<li>Careful qualitative work can produce taxonomies that guide GQM measurement:
+<ul>
+<li><span class="citation" data-cites="Sillito2008">(<a href="../bibliography/index.html#ref-Sillito2008" role="doc-biblioref">Sillito et al. 2008</a>)</span> analyzed programmers during change tasks and produced a catalog of 44 question types that developers ask when navigating an unfamiliar codebase</li>
+<li><span class="citation" data-cites="Ko2007">(<a href="../bibliography/index.html#ref-Ko2007" role="doc-biblioref">Ko et al. 2007</a>)</span> observed 17 developers at a large software company and identified 21 types of information need, most commonly awareness about artifacts and unavailable coworkers</li>
+</ul></li>
+</ul>
+</section>
+<section id="iterating-your-study-design" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="iterating-your-study-design"><span class="header-section-number">8.6</span> Iterating Your Study Design</h2>
+<ul>
+<li>A first study rarely answers the question you thought you were asking
+<ul>
 <li>Metrics turn out to be noisier than expected</li>
 <li>The comparison group was not comparable</li>
 <li>The interesting result was a side-effect you did not plan to measure</li>
-</ul>
-</li>
-<li>Invest no more than a quarter of your budget in the first run<ul>
-<li>Use what you learn to refine the question, metrics, and design
-    before committing the rest</li>
-</ul>
-</li>
-<li>Common refinements after a first run:<ul>
-<li>A variable you treated as a parameter (held constant)
-    actually varied and affected results
-    , so add it as a blocking variable or factor</li>
-<li>Your primary metric has low construct validity,
-    so replace or supplement it</li>
-<li>The comparison was unfair:
-    one group had more experience, better tooling, or easier tasks</li>
-</ul>
-</li>
-<li>Negative results from a first run are often more informative than a clean positive<ul>
+</ul></li>
+<li>Invest no more than a quarter of your budget in the first run
+<ul>
+<li>Use what you learn to refine the question, metrics, and design before committing the rest</li>
+</ul></li>
+<li>Common refinements after a first run:
+<ul>
+<li>A variable you treated as a parameter (held constant) actually varied and affected results , so add it as a blocking variable or factor</li>
+<li>Your primary metric has low construct validity, so replace or supplement it</li>
+<li>The comparison was unfair: one group had more experience, better tooling, or easier tasks</li>
+</ul></li>
+<li>Negative results from a first run are often more informative than a clean positive
+<ul>
 <li>They tell you what the interesting question actually is</li>
-</ul>
-</li>
-<li>Document each iteration, including what changed and why<ul>
+</ul></li>
+<li>Document each iteration, including what changed and why
+<ul>
 <li>This history makes later replication and interpretation possible</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Sharing Results Responsibly</h2>
+</section>
+<section id="sharing-results-responsibly" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="sharing-results-responsibly"><span class="header-section-number">8.7</span> Sharing Results Responsibly</h2>
 <ul>
 <li>Every study has limitations; state them <em>before</em> stakeholders ask</li>
-<li>Distinguish between "we found no effect" and
-    "our study was not designed to detect an effect"</li>
-<li>Present uncertainty:
-    confidence intervals, effect sizes, and sample sizes belong in results presented to management,
-    not just in appendices</li>
-<li>Resist pressure to oversell:
-    a negative result honestly reported is more valuable than
-    a positive result that cannot be replicated</li>
-<li>Consider who will see the results and how they might be misused<ul>
-<li>"What happens if this appears on Reddit?"</li>
-</ul>
-</li>
-</ul>
-<h2>Working with Legal, HR, and Management</h2>
+<li>Distinguish between “we found no effect” and “our study was not designed to detect an effect”</li>
+<li>Present uncertainty: confidence intervals, effect sizes, and sample sizes belong in results presented to management, not just in appendices</li>
+<li>Resist pressure to oversell: a negative result honestly reported is more valuable than a positive result that cannot be replicated</li>
+<li>Consider who will see the results and how they might be misused
 <ul>
-<li>Get legal and HR involved before you collect individual-level data;
-    retroactive approval is harder than proactive review</li>
-<li>Management may want to use study results for performance evaluation<ul>
-<li>Clarify before you start whether this is permitted
-    and communicate it to participants</li>
+<li>“What happens if this appears on Reddit?”</li>
+</ul></li>
 </ul>
-</li>
-<li>Document your study design, analysis plan, and data handling before you begin<ul>
-<li>This creates accountability and reduces the temptation
-    to change the analysis after seeing results</li>
+</section>
+<section id="working-with-legal-hr-and-management" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="working-with-legal-hr-and-management"><span class="header-section-number">8.8</span> Working with Legal, HR, and Management</h2>
+<ul>
+<li>Get legal and HR involved before you collect individual-level data; retroactive approval is harder than proactive review</li>
+<li>Management may want to use study results for performance evaluation
+<ul>
+<li>Clarify before you start whether this is permitted and communicate it to participants</li>
+</ul></li>
+<li>Document your study design, analysis plan, and data handling before you begin
+<ul>
+<li>This creates accountability and reduces the temptation to change the analysis after seeing results</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>What to Do When You Cannot Publish</h2>
+</section>
+<section id="what-to-do-when-you-cannot-publish" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="what-to-do-when-you-cannot-publish"><span class="header-section-number">8.9</span> What to Do When You Cannot Publish</h2>
 <ul>
 <li>Write a memo or report with methods, results, limitations, and conclusions</li>
-<li>Share it with the team that was studied,
-    not just the leadership team that commissioned the study<ul>
+<li>Share it with the team that was studied, not just the leadership team that commissioned the study
+<ul>
 <li>If nothing else, builds support for the next study</li>
-</ul>
-</li>
+</ul></li>
 <li>Archive the data and analysis scripts so the study can be revisited or extended</li>
-<li>Be aware that internal research may be subject to legal discovery in litigation,
-    especially if it touches on employment decisions</li>
+<li>Be aware that internal research may be subject to legal discovery in litigation, especially if it touches on employment decisions</li>
 </ul>
-<h2>Misconceptions</h2>
+</section>
+<section id="misconceptions" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="misconceptions"><span class="header-section-number">8.10</span> Misconceptions</h2>
 <dl>
 <dt>Internal data has no ethical constraints because the company already owns it.</dt>
-<dd>Collecting data for operational purposes does not authorize using it for research purposes.
-The intended use of data matters,
-and research use requires separate consideration of consent, privacy, and potential harm.</dd>
+<dd>
+Collecting data for operational purposes does not authorize using it for research purposes. The intended use of data matters, and research use requires separate consideration of consent, privacy, and potential harm.
+</dd>
 <dt>A/B testing is a reliable all-purpose tool for internal studies.</dt>
-<dd>A/B testing works well for product features where random assignment is natural
-and outcomes are measured automatically.
-Most questions about developer productivity do not fit this description.</dd>
+<dd>
+A/B testing works well for product features where random assignment is natural and outcomes are measured automatically. Most questions about developer productivity do not fit this description.
+</dd>
 <dt>Measuring developer productivity motivates developers to be more productive.</dt>
-<dd>Developers subjected to daily productivity tracking often become
-less autonomous and more stressed,
-and may optimize the metric rather than the work.
-If measurement degrades the psychological conditions that produce good work,
-it defeats itself.</dd>
+<dd>
+Developers subjected to daily productivity tracking often become less autonomous and more stressed, and may optimize the metric rather than the work. If measurement degrades the psychological conditions that produce good work, it defeats itself.
+</dd>
 <dt>Negative results from an internal study are not worth reporting.</dt>
-<dd>A well-run study that finds no effect is valuable:
-it prevents the organization from acting on a false assumption
-and contributes to a more accurate picture of what actually works.
-Suppressing negative results creates the same file-drawer problem inside organizations
-that it creates in academic publishing.</dd>
+<dd>
+A well-run study that finds no effect is valuable: it prevents the organization from acting on a false assumption and contributes to a more accurate picture of what actually works. Suppressing negative results creates the same file-drawer problem inside organizations that it creates in academic publishing.
+</dd>
 </dl>
-<h2>Check Understanding</h2>
+</section>
+<section id="check-understanding" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="check-understanding"><span class="header-section-number">8.11</span> Check Understanding</h2>
 <details>
-<summary>Why is "it's in the employment contract" insufficient as a basis for informed consent in a workplace study?</summary>
-<p>Informed consent requires that participants know specifically what is being studied,
-what data is collected,
-how it will be used,
-and that they can withdraw without consequence.
-An employment contract grants broad data collection rights as a condition of employment:
-participants cannot meaningfully withdraw without leaving their job.
-This creates a power imbalance that undermines the voluntariness of consent.
-Research ethics require that consent be specific, informed, and genuinely voluntary.</p>
+<summary>
+Why is “it’s in the employment contract” insufficient as a basis for informed consent in a workplace study?
+</summary>
+<p>Informed consent requires that participants know specifically what is being studied, what data is collected, how it will be used, and that they can withdraw without consequence. An employment contract grants broad data collection rights as a condition of employment: participants cannot meaningfully withdraw without leaving their job. This creates a power imbalance that undermines the voluntariness of consent. Research ethics require that consent be specific, informed, and genuinely voluntary.</p>
 </details>
 <details>
-<summary>A team wants to study the effect of mandatory code review on defect rates. They have six months of data before the policy and six months after. What design are they using, and what is its main threat to validity?</summary>
-<p>They are using an interrupted time series design.
-The main threat to validity is that other things changed at the same time as the policy.
-Without a control group that did not change its code review policy,
-it is impossible to separate the effect of code review from other concurrent changes.
-A stronger design would include a comparison team,
-but that might not be possible.</p>
+<summary>
+A team wants to study the effect of mandatory code review on defect rates. They have six months of data before the policy and six months after. What design are they using, and what is its main threat to validity?
+</summary>
+<p>They are using an interrupted time series design. The main threat to validity is that other things changed at the same time as the policy. Without a control group that did not change its code review policy, it is impossible to separate the effect of code review from other concurrent changes. A stronger design would include a comparison team, but that might not be possible.</p>
 </details>
 <details>
-<summary>A manager asks you to run a study on "which developers are least productive" using commit data. Identify two specific ethical concerns and one way to address each.</summary>
-<p>First,
-using commit data as a productivity measure has low construct validity and can be gamed.
-Address this by using outcome metrics (e.g., defect rates or feature delivery time)
-rather than activity metrics.
-Second,
-identifying "least productive" individuals creates harm risk:
-participants may face disciplinary action, feel surveilled, or experience increased anxiety.
-Address this by committing in advance that
-the study results will be used for process improvement,
-not performance management,
-and communicating this to all participants.</p>
+<summary>
+A manager asks you to run a study on “which developers are least productive” using commit data. Identify two specific ethical concerns and one way to address each.
+</summary>
+<p>First, using commit data as a productivity measure has low construct validity and can be gamed. Address this by using outcome metrics (e.g., defect rates or feature delivery time) rather than activity metrics. Second, identifying “least productive” individuals creates harm risk: participants may face disciplinary action, feel surveilled, or experience increased anxiety. Address this by committing in advance that the study results will be used for process improvement, not performance management, and communicating this to all participants.</p>
 </details>
 <details>
-<summary>The following study report contains a presentational problem. Identify it: "We found that time-to-merge decreased by 18% after deploying the tool (p = 0.02). We recommend all teams adopt this tool immediately."</summary>
-<p>The recommendation does not account for the limitations of the study
-or the uncertainty in the estimate.
-An 18% decrease with p = 0.02 is statistically significant,
-but the effect size, confidence interval, and practical significance are not reported.
-More importantly,
-"all teams" is an overgeneralization:
-the study covers one team, one tool, one metric, and one time period.
-A responsible recommendation would specify the conditions under which adoption seems warranted
-and acknowledge the limitations of generalizing from a single internal study.</p>
+<summary>
+The following study report contains a presentational problem. Identify it: “We found that time-to-merge decreased by 18% after deploying the tool (p = 0.02). We recommend all teams adopt this tool immediately.”
+</summary>
+<p>The recommendation does not account for the limitations of the study or the uncertainty in the estimate. An 18% decrease with p = 0.02 is statistically significant, but the effect size, confidence interval, and practical significance are not reported. More importantly, “all teams” is an overgeneralization: the study covers one team, one tool, one metric, and one time period. A responsible recommendation would specify the conditions under which adoption seems warranted and acknowledge the limitations of generalizing from a single internal study.</p>
 </details>
-<h2>Exercises</h2>
-<div class="exercise">
-<h3>Ethics Review (15 minutes)</h3>
-<p>You want to study whether weekly one-on-one meetings between managers and developers
-improve developer satisfaction and retention.
-Write a one-page ethics review that identifies what data you would collect,
-the risks to participants,
-how you would obtain informed consent,
-and how you would protect participant privacy against retaliation
-if a participant rates their manager poorly.</p>
-</div>
-<div class="exercise">
-<h3>Scope It Down (15 minutes)</h3>
-<p>Take one of the following broad questions and write a scoped version
-that could be answered in three months with data available to a typical software team.
-Specify the metric, the comparison, and the time period.</p>
+</section>
+<section id="exercises" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.12</span> Exercises</h2>
+<section id="ethics-review-15-minutes" class="level3" data-number="8.12.1">
+<h3 data-number="8.12.1" class="anchored" data-anchor-id="ethics-review-15-minutes"><span class="header-section-number">8.12.1</span> Ethics Review (15 minutes)</h3>
+<p>You want to study whether weekly one-on-one meetings between managers and developers improve developer satisfaction and retention. Write a one-page ethics review that identifies what data you would collect, the risks to participants, how you would obtain informed consent, and how you would protect participant privacy against retaliation if a participant rates their manager poorly.</p>
+</section>
+<section id="scope-it-down-15-minutes" class="level3" data-number="8.12.2">
+<h3 data-number="8.12.2" class="anchored" data-anchor-id="scope-it-down-15-minutes"><span class="header-section-number">8.12.2</span> Scope It Down (15 minutes)</h3>
+<p>Take one of the following broad questions and write a scoped version that could be answered in three months with data available to a typical software team. Specify the metric, the comparison, and the time period.</p>
 <ul>
 <li>Does using an AI coding assistant improve code quality?</li>
 <li>Does test-driven development reduce bug rates?</li>
 <li>Does remote work affect team collaboration?</li>
 </ul>
+</section>
+<section id="write-the-limitations-20-minutes" class="level3" data-number="8.12.3">
+<h3 data-number="8.12.3" class="anchored" data-anchor-id="write-the-limitations-20-minutes"><span class="header-section-number">8.12.3</span> Write the Limitations (20 minutes)</h3>
+<p>You ran an internal A/B test: 30 developers used an AI code review tool for 8 weeks and 30 did not, and the treatment group’s time-to-merge decreased by 22%. Write the “Limitations” section of the internal report. Address sample size and power, external validity, alternative explanations, and ethical considerations.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Basili1994" class="csl-entry" role="listitem">
+Basili, Victor R., Gianluigi Caldiera, and H. Dieter Rombach. 1994. <span>“The Goal Question Metric Approach.”</span> <em>Encyclopedia of Software Engineering</em>.
 </div>
-<div class="exercise">
-<h3>Write the Limitations (20 minutes)</h3>
-<p>You ran an internal A/B test:
-30 developers used an AI code review tool for 8 weeks and 30 did not,
-and the treatment group's time-to-merge decreased by 22%.
-Write the "Limitations" section of the internal report.
-Address sample size and power,
-external validity,
-alternative explanations,
-and ethical considerations.</p>
+<div id="ref-Begel2014" class="csl-entry" role="listitem">
+Begel, Andrew, and Nachiappan Nagappan. 2014. <span>“Analyze This! 145 Questions for Data Scientists in Software Engineering.”</span> <em>Proc. ICSE’14</em>. <a href="https://doi.org/10.1145/2568225.2568233">https://doi.org/10.1145/2568225.2568233</a>.
 </div>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../critical">Reading Studies Critically</a>
+<div id="ref-Ko2007" class="csl-entry" role="listitem">
+Ko, Amy J., Robert DeLine, and Gina Venolia. 2007. <span>“Information Needs in Collocated Software Development Teams.”</span> <em>Proc. ICSE’07</em>. <a href="https://doi.org/10.1109/icse.2007.45">https://doi.org/10.1109/icse.2007.45</a>.
 </div>
-<div class="col-6 center">
-<a href="../">notwrong</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
+<div id="ref-Sedano2017" class="csl-entry" role="listitem">
+Sedano, Todd, Paul Ralph, and Cécile Péraire. 2017. <span>“Software Development Waste.”</span> <em>Proc. ICSE’17</em>. <a href="https://doi.org/10.1109/icse.2017.20">https://doi.org/10.1109/icse.2017.20</a>.
 </div>
-<div class="col-3 right">
-<a href="../cheaply">Starting Cheap</a> <span aria-hidden="true">⇒</span>
+<div id="ref-Sillito2008" class="csl-entry" role="listitem">
+Sillito, J., G. C. Murphy, and K. De Volder. 2008. <span>“Asking and Answering Questions During a Programming Change Task.”</span> <em>IEEE Trans. Software Engineering</em> 34 (4). <a href="https://doi.org/10.1109/tse.2008.26">https://doi.org/10.1109/tse.2008.26</a>.
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../critical/index.html" class="pagination-link" aria-label="Reading Studies Critically">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../cheaply/index.html" class="pagination-link" aria-label="Starting Cheaply">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/running/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/running/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -1,61 +1,320 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>How to Be Wrong</title>
-<meta content="How to Not Be Wrong About AI" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; How to Be Wrong – How to Not Be Wrong About AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../qualitative/index.html" rel="next">
+<link href="../productivity/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">notwrong</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../productivity/">Defining Productivity</a></li>
-<li><a class="active" href="../wrong/">How to Be Wrong</a></li>
-<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
-<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
-<li><a href="../critical/">Reading Studies Critically</a></li>
-<li><a href="../running/">Running Studies in Your Organization</a></li>
-<li><a href="../cheaply/">Starting Cheap</a></li>
-<li><a href="../finale/">Conclusion: What to Do Next</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../wrong/index.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">How to Not Be Wrong About AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/notwrong" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../further/">Further Reading</a></li>
-<li><a href="../stats/">Statistical Reference</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/notwrong">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../productivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../wrong/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qualitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quantitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../observational/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../critical/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../running/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheaply/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: What to Do Next</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../further/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Statistical Reference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>How to Be Wrong</h1>
-<div class="callout">
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#counting-lines-of-code-generated" id="toc-counting-lines-of-code-generated" class="nav-link active" data-scroll-target="#counting-lines-of-code-generated"><span class="header-section-number">3.1</span> Counting Lines of Code Generated</a></li>
+  <li><a href="#timing-artificial-tasks" id="toc-timing-artificial-tasks" class="nav-link" data-scroll-target="#timing-artificial-tasks"><span class="header-section-number">3.2</span> Timing Artificial Tasks</a></li>
+  <li><a href="#measuring-only-the-easy-half" id="toc-measuring-only-the-easy-half" class="nav-link" data-scroll-target="#measuring-only-the-easy-half"><span class="header-section-number">3.3</span> Measuring Only the Easy Half</a></li>
+  <li><a href="#beforeafter-with-no-control-group" id="toc-beforeafter-with-no-control-group" class="nav-link" data-scroll-target="#beforeafter-with-no-control-group"><span class="header-section-number">3.4</span> Before/After With No Control Group</a></li>
+  <li><a href="#asking-developers-if-they-feel-more-productive" id="toc-asking-developers-if-they-feel-more-productive" class="nav-link" data-scroll-target="#asking-developers-if-they-feel-more-productive"><span class="header-section-number">3.5</span> Asking Developers If They Feel More Productive</a></li>
+  <li><a href="#goodharts-law-revisited" id="toc-goodharts-law-revisited" class="nav-link" data-scroll-target="#goodharts-law-revisited"><span class="header-section-number">3.6</span> Goodhart’s Law Revisited</a></li>
+  <li><a href="#treating-adoption-rate-as-a-success-metric" id="toc-treating-adoption-rate-as-a-success-metric" class="nav-link" data-scroll-target="#treating-adoption-rate-as-a-success-metric"><span class="header-section-number">3.7</span> Treating Adoption Rate as a Success Metric</a></li>
+  <li><a href="#comparing-volunteers-to-non-volunteers" id="toc-comparing-volunteers-to-non-volunteers" class="nav-link" data-scroll-target="#comparing-volunteers-to-non-volunteers"><span class="header-section-number">3.8</span> Comparing Volunteers to Non-Volunteers</a></li>
+  <li><a href="#treating-suggestion-acceptance-rate-as-a-quality-signal" id="toc-treating-suggestion-acceptance-rate-as-a-quality-signal" class="nav-link" data-scroll-target="#treating-suggestion-acceptance-rate-as-a-quality-signal"><span class="header-section-number">3.9</span> Treating Suggestion Acceptance Rate as a Quality Signal</a></li>
+  <li><a href="#comparing-ai-to-nothing" id="toc-comparing-ai-to-nothing" class="nav-link" data-scroll-target="#comparing-ai-to-nothing"><span class="header-section-number">3.10</span> Comparing AI to Nothing</a></li>
+  <li><a href="#check-understanding" id="toc-check-understanding" class="nav-link" data-scroll-target="#check-understanding"><span class="header-section-number">3.11</span> Check Understanding</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.12</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#audit-your-own-organization-20-minutes" id="toc-audit-your-own-organization-20-minutes" class="nav-link" data-scroll-target="#audit-your-own-organization-20-minutes"><span class="header-section-number">3.12.1</span> Audit Your Own Organization (20 minutes)</a></li>
+  <li><a href="#redesign-a-flawed-study-15-minutes" id="toc-redesign-a-flawed-study-15-minutes" class="nav-link" data-scroll-target="#redesign-a-flawed-study-15-minutes"><span class="header-section-number">3.12.2</span> Redesign a Flawed Study (15 minutes)</a></li>
+  <li><a href="#find-the-baseline-10-minutes" id="toc-find-the-baseline-10-minutes" class="nav-link" data-scroll-target="#find-the-baseline-10-minutes"><span class="header-section-number">3.12.3</span> Find the Baseline (10 minutes)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/wrong/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/wrong/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Identify common measurement traps in AI productivity studies.</li>
 <li>Explain why self-reported productivity is an unreliable metric.</li>
@@ -63,262 +322,615 @@
 <li>Diagnose which methodological mistake a given study is making.</li>
 </ul>
 </div>
-<p>Suppose your manager asks you next week to demonstrate that
-the AI coding tools your company just purchased are worth the subscription cost.
-What would you measure?
-Lines of code generated?
-Tickets closed?
-A survey asking whether developers feel more productive?
-Each of those answers is wrong in a specific way.
-This lesson describes twelve of the most common mistakes currently being made
-in published research and in organizations.
-At least one of them is probably something you,
-your team,
-or your employer is doing right now.</p>
-<h2>Counting Lines of Code Generated</h2>
+</div>
+<p>Suppose your manager asks you next week to demonstrate that the AI coding tools your company just purchased are worth the subscription cost. What would you measure? Lines of code generated? Tickets closed? A survey asking whether developers feel more productive? Each of those answers is wrong in a specific way. This lesson describes twelve of the most common mistakes currently being made in published research and in organizations. At least one of them is probably something you, your team, or your employer is doing right now.</p>
+<section id="counting-lines-of-code-generated" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="counting-lines-of-code-generated"><span class="header-section-number">3.1</span> Counting Lines of Code Generated</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#proxy_metric">Proxy metrics</a> stand in for concepts that are hard to measure directly;
-    lines of code is one of the oldest</li>
-<li>AI assistants generate more code, not necessarily better outcomes.
-    A team that sees a 40% increase in lines of code per developer after adopting AI
-    tools has measured verbosity, not productivity</li>
-<li>Deleting 2,000 lines of tangled logic and replacing it with 200 clean ones
-    is an improvement that looks like a loss on this metric [<a class="bib-ref" href="../bibliography/#Sadowski2019">Sadowski2019</a>]</li>
-<li>More code means more to read, maintain, and debug,
-    all of which are future costs</li>
+<li><a href="../glossary/index.html#proxy_metric">Proxy metrics</a> stand in for concepts that are hard to measure directly; lines of code is one of the oldest</li>
+<li>AI assistants generate more code, not necessarily better outcomes. A team that sees a 40% increase in lines of code per developer after adopting AI tools has measured verbosity, not productivity</li>
+<li>Deleting 2,000 lines of tangled logic and replacing it with 200 clean ones is an improvement that looks like a loss on this metric <span class="citation" data-cites="Sadowski2019">(<a href="../bibliography/index.html#ref-Sadowski2019" role="doc-biblioref"><span class="nocase">Sadowski and (eds.)</span> 2019</a>)</span></li>
+<li>More code means more to read, maintain, and debug, all of which are future costs</li>
 </ul>
-<h2>Timing Artificial Tasks</h2>
+</section>
+<section id="timing-artificial-tasks" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="timing-artificial-tasks"><span class="header-section-number">3.2</span> Timing Artificial Tasks</h2>
 <ul>
-<li>A widely cited study found developers using GitHub Copilot completed a task
-    55% faster than those who did not [<a class="bib-ref" href="../bibliography/#Peng2023">Peng2023</a>]</li>
-<li>The task was implementing an HTTP server in JavaScript, from scratch,
-    in ninety minutes, by developers with no other obligations that day</li>
-<li>Real software development involves navigating a large codebase you did not write,
-    understanding a requirement described ambiguously in a ticket,
-    coordinating with three colleagues, and attending four meetings</li>
+<li>A widely cited study found developers using GitHub Copilot completed a task 55% faster than those who did not <span class="citation" data-cites="Peng2023">(<a href="../bibliography/index.html#ref-Peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span></li>
+<li>The task was implementing an HTTP server in JavaScript, from scratch, in ninety minutes, by developers with no other obligations that day</li>
+<li>Real software development involves navigating a large codebase you did not write, understanding a requirement described ambiguously in a ticket, coordinating with three colleagues, and attending four meetings</li>
 <li>Speed on a greenfield toy task does not predict speed on any of that</li>
 </ul>
-<h2>Measuring Only the Easy Half</h2>
+</section>
+<section id="measuring-only-the-easy-half" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="measuring-only-the-easy-half"><span class="header-section-number">3.3</span> Measuring Only the Easy Half</h2>
 <ul>
 <li>AI tools make code generation faster: that half is easy to measure</li>
-<li>The other half: time spent reviewing AI-generated code for correctness,
-    time lost debugging confidently wrong suggestions,
-    security vulnerabilities introduced by plausible-looking but insecure code,
-    and technical debt from suggestions that solved the immediate problem
-    while ignoring the surrounding design</li>
-<li>More code generated means more code to review: if AI increases code volume
-    without increasing review capacity, cycle time may worsen [<a class="bib-ref" href="../bibliography/#Forsgren2021">Forsgren2021</a>]</li>
-<li>Optimizing one stage of a pipeline while ignoring the others is a
-    systems-thinking failure dressed as a productivity study</li>
-<li>A study of GitHub Copilot's code found that
-    a substantial fraction of generated code contained security vulnerabilities,
-    and that developers under time pressure accepted insecure suggestions
-    at higher rates [<a class="bib-ref" href="../bibliography/#Pearce2022">Pearce2022</a>]</li>
-<li>Measuring only the inputs that go up while ignoring the costs that also rise
-    is not measurement: it is marketing</li>
+<li>The other half: time spent reviewing AI-generated code for correctness, time lost debugging confidently wrong suggestions, security vulnerabilities introduced by plausible-looking but insecure code, and technical debt from suggestions that solved the immediate problem while ignoring the surrounding design</li>
+<li>More code generated means more code to review: if AI increases code volume without increasing review capacity, cycle time may worsen <span class="citation" data-cites="Forsgren2021">(<a href="../bibliography/index.html#ref-Forsgren2021" role="doc-biblioref">Forsgren et al. 2021</a>)</span></li>
+<li>Optimizing one stage of a pipeline while ignoring the others is a systems-thinking failure dressed as a productivity study</li>
+<li>A study of GitHub Copilot’s code found that a substantial fraction of generated code contained security vulnerabilities, and that developers under time pressure accepted insecure suggestions at higher rates <span class="citation" data-cites="Pearce2022">(<a href="../bibliography/index.html#ref-Pearce2022" role="doc-biblioref">Pearce et al. 2022</a>)</span></li>
+<li>Measuring only the inputs that go up while ignoring the costs that also rise is not measurement: it is marketing</li>
 </ul>
-<h2>Before/After With No Control Group</h2>
+</section>
+<section id="beforeafter-with-no-control-group" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="beforeafter-with-no-control-group"><span class="header-section-number">3.4</span> Before/After With No Control Group</h2>
 <ul>
-<li>You roll out AI tools in January,
-    and by June pull requests are shipping faster,
-    so the tools are working, right?</li>
-<li>Also between January and June:
-    you hired three more developers,
-    rewrote the CI pipeline,
-    and switched cloud hosting services</li>
-<li>Without a group that did not receive the tools,
-    you cannot separate the AI effect from any of the other changes
-    that happened at the same time</li>
-<li><a class="gl-ref" href="../glossary/#internal_validity">Internal validity</a> requires a credible counterfactual,
-    i.e., some way of knowing what would have happened otherwise</li>
+<li>You roll out AI tools in January, and by June pull requests are shipping faster, so the tools are working, right?</li>
+<li>Also between January and June: you hired three more developers, rewrote the CI pipeline, and switched cloud hosting services</li>
+<li>Without a group that did not receive the tools, you cannot separate the AI effect from any of the other changes that happened at the same time</li>
+<li><a href="../glossary/index.html#internal_validity">Internal validity</a> requires a credible counterfactual, i.e., some way of knowing what would have happened otherwise</li>
 </ul>
-<h2>Asking Developers If They Feel More Productive</h2>
+</section>
+<section id="asking-developers-if-they-feel-more-productive" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="asking-developers-if-they-feel-more-productive"><span class="header-section-number">3.5</span> Asking Developers If They Feel More Productive</h2>
 <ul>
-<li>Survey results like "87% of developers report feeling more productive with AI tools"
-    are regularly cited as evidence that the tools work [<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>]</li>
-<li>Three things make self-report systematically misleading here:<ul>
-<li>The <a class="gl-ref" href="../glossary/#hawthorne_effect">Hawthorne effect</a>:
-    people work differently when they know they are being observed and evaluated</li>
-<li>The <a class="gl-ref" href="../glossary/#novelty_effect">novelty effect</a>:
-    new tools feel faster because they are novel,
-    but the effect typically fades within weeks</li>
-<li><a class="gl-ref" href="../glossary/#social_desirability_bias">Social desirability bias</a>:
-    respondents tend to say what they believe the survey wants to hear,
-    especially when management chose the tool</li>
-</ul>
-</li>
-<li>Feeling more productive is not the same as being more productive,
-    and the gap between the two is exactly what measurement is supposed to close</li>
-<li>Effects that actually matter emerge over months, not weeks<ul>
+<li>Survey results like “87% of developers report feeling more productive with AI tools” are regularly cited as evidence that the tools work <span class="citation" data-cites="Liang2024">(<a href="../bibliography/index.html#ref-Liang2024" role="doc-biblioref">Liang et al. 2024</a>)</span></li>
+<li>Three things make self-report systematically misleading here:
+<ul>
+<li>The <a href="../glossary/index.html#hawthorne_effect">Hawthorne effect</a>: people work differently when they know they are being observed and evaluated</li>
+<li>The <a href="../glossary/index.html#novelty_effect">novelty effect</a>: new tools feel faster because they are novel, but the effect typically fades within weeks</li>
+<li><a href="../glossary/index.html#social_desirability_bias">Social desirability bias</a>: respondents tend to say what they believe the survey wants to hear, especially when management chose the tool</li>
+</ul></li>
+<li>Feeling more productive is not the same as being more productive, and the gap between the two is exactly what measurement is supposed to close</li>
+<li>Effects that actually matter emerge over months, not weeks
+<ul>
 <li>Skill atrophy for tasks now delegated to the AI</li>
 <li>Accumulation of technical debt from wrong suggestions</li>
 <li>Changes in how teams collaborate</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Goodhart's Law Revisited</h2>
+</section>
+<section id="goodharts-law-revisited" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="goodharts-law-revisited"><span class="header-section-number">3.6</span> Goodhart’s Law Revisited</h2>
 <ul>
-<li>In 2023, McKinsey proposed measuring individual developer productivity
-    using counts of commits, pull requests, code reviews, and similar activities
-    [<a class="bib-ref" href="../bibliography/#McKinsey2023">McKinsey2023</a>]</li>
-<li>But remember Goodhart's Law:
-    when a measure becomes a target, it ceases to be a good measure [<a class="bib-ref" href="../bibliography/#Goodhart1984">Goodhart1984</a>]</li>
-<li>When developers know their commit count is tracked, they make more, smaller commits;
-    when ticket counts are tracked, tickets get split;
-    the numbers improve while the underlying work does not [<a class="bib-ref" href="../bibliography/#Beck2023">Beck2023</a>]</li>
+<li>In 2023, McKinsey proposed measuring individual developer productivity using counts of commits, pull requests, code reviews, and similar activities <span class="citation" data-cites="McKinsey2023">(<a href="../bibliography/index.html#ref-McKinsey2023" role="doc-biblioref">Elsayed et al. 2023</a>)</span></li>
+<li>But remember Goodhart’s Law: when a measure becomes a target, it ceases to be a good measure <span class="citation" data-cites="Goodhart1984">(<a href="../bibliography/index.html#ref-Goodhart1984" role="doc-biblioref">Goodhart 1984</a>)</span></li>
+<li>When developers know their commit count is tracked, they make more, smaller commits; when ticket counts are tracked, tickets get split; the numbers improve while the underlying work does not <span class="citation" data-cites="Beck2023">(<a href="../bibliography/index.html#ref-Beck2023" role="doc-biblioref">Beck 2023</a>)</span></li>
 <li>Activity is not output, and output is not value</li>
 </ul>
-<h2>Treating Adoption Rate as a Success Metric</h2>
+</section>
+<section id="treating-adoption-rate-as-a-success-metric" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="treating-adoption-rate-as-a-success-metric"><span class="header-section-number">3.7</span> Treating Adoption Rate as a Success Metric</h2>
 <ul>
-<li>"We have achieved 90% AI tool adoption across engineering"
-    is a procurement outcome, not a productivity outcome</li>
-<li>Adoption measures whether the tool is installed and opened<ul>
-<li>It says nothing about whether suggestions are useful,
-    whether developers accept them thoughtlessly,
-    or whether the accepted suggestions are correct</li>
-</ul>
-</li>
-<li>Adoption is easier to measure than benefit,
-    which is exactly why it gets reported instead</li>
-<li>High adoption combined with low suggestion quality
-    produces a workforce spending time managing a tool rather than benefiting from one</li>
-</ul>
-<h2>Comparing Volunteers to Non-Volunteers</h2>
+<li>“We have achieved 90% AI tool adoption across engineering” is a procurement outcome, not a productivity outcome</li>
+<li>Adoption measures whether the tool is installed and opened
 <ul>
-<li>Studies that compare developers who chose to use AI tools
-    against those who did not are comparing two different populations,
-    not two conditions</li>
-<li>Early adopters differ from late adopters and non-adopters
-    in ways that directly predict productivity<ul>
+<li>It says nothing about whether suggestions are useful, whether developers accept them thoughtlessly, or whether the accepted suggestions are correct</li>
+</ul></li>
+<li>Adoption is easier to measure than benefit, which is exactly why it gets reported instead</li>
+<li>High adoption combined with low suggestion quality produces a workforce spending time managing a tool rather than benefiting from one</li>
+</ul>
+</section>
+<section id="comparing-volunteers-to-non-volunteers" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="comparing-volunteers-to-non-volunteers"><span class="header-section-number">3.8</span> Comparing Volunteers to Non-Volunteers</h2>
+<ul>
+<li>Studies that compare developers who chose to use AI tools against those who did not are comparing two different populations, not two conditions</li>
+<li>Early adopters differ from late adopters and non-adopters in ways that directly predict productivity
+<ul>
 <li>They are more motivated to experiment</li>
 <li>More comfortable with new tooling</li>
 <li>More likely to already be high performers</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#selection_bias">Selection bias</a> means that
-    any observed difference between the groups may be a property of the person
-    rather than the tool</li>
+</ul></li>
+<li><a href="../glossary/index.html#selection_bias">Selection bias</a> means that any observed difference between the groups may be a property of the person rather than the tool</li>
 <li>This is the most common design flaw in industry AI productivity reports</li>
 </ul>
-<h2>Treating Suggestion Acceptance Rate as a Quality Signal</h2>
+</section>
+<section id="treating-suggestion-acceptance-rate-as-a-quality-signal" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="treating-suggestion-acceptance-rate-as-a-quality-signal"><span class="header-section-number">3.9</span> Treating Suggestion Acceptance Rate as a Quality Signal</h2>
 <ul>
-<li>AI coding assistants commonly report
-    what fraction of their suggestions developers accept<ul>
+<li>AI coding assistants commonly report what fraction of their suggestions developers accept
+<ul>
 <li>Higher acceptance rates are presented as evidence that the tool is useful</li>
-</ul>
-</li>
-<li>Acceptance measures whether the generated code looked plausible enough
-    for a developer to press Tab</li>
+</ul></li>
+<li>Acceptance measures whether the generated code looked plausible enough for a developer to press Tab</li>
 <li>It does <em>not</em> measure whether the code was correct, secure, or maintainable</li>
-<li>Developers under time pressure accept more suggestions,
-    including insecure ones [<a class="bib-ref" href="../bibliography/#Pearce2022">Pearce2022</a>]<ul>
-<li>A tight deadline makes acceptance rate rise for exactly the wrong reasons</li>
-<li>"Adopt AI or lose your job" doesn't encourage careful reflection</li>
-</ul>
-</li>
-</ul>
-<h2>Comparing AI to Nothing</h2>
+<li>Developers under time pressure accept more suggestions, including insecure ones <span class="citation" data-cites="Pearce2022">(<a href="../bibliography/index.html#ref-Pearce2022" role="doc-biblioref">Pearce et al. 2022</a>)</span>
 <ul>
-<li>Studies that compare AI-assisted developers to a control group using nothing
-    have chosen a baseline that does not exist in practice</li>
-<li>The relevant question is whether AI tools outperform the alternatives developers already have<ul>
-<li>Developers without AI assistants (still) use Stack Overflow and talk to colleagues</li>
+<li>A tight deadline makes acceptance rate rise for exactly the wrong reasons</li>
+<li>“Adopt AI or lose your job” doesn’t encourage careful reflection</li>
+</ul></li>
 </ul>
-</li>
+</section>
+<section id="comparing-ai-to-nothing" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="comparing-ai-to-nothing"><span class="header-section-number">3.10</span> Comparing AI to Nothing</h2>
+<ul>
+<li>Studies that compare AI-assisted developers to a control group using nothing have chosen a baseline that does not exist in practice</li>
+<li>The relevant question is whether AI tools outperform the alternatives developers already have
+<ul>
+<li>Developers without AI assistants (still) use Stack Overflow and talk to colleagues</li>
+</ul></li>
 <li>Choosing a weak baseline makes any tool look good</li>
 </ul>
-<h2>Check Understanding</h2>
+</section>
+<section id="check-understanding" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="check-understanding"><span class="header-section-number">3.11</span> Check Understanding</h2>
 <details>
-<summary>Your company surveys developers three weeks after rolling out an AI coding assistant. Seventy-eight percent report feeling more productive. Your manager says this proves the tools are working. Identify two specific flaws in this conclusion.</summary>
-<p>First,
-the survey was conducted three weeks after adoption,
-which falls within the novelty period: developers are typically more engaged
-and positive about new tools during the initial weeks,
-and that enthusiasm inflates self-reported productivity regardless of actual performance.
-Second,
-feeling more productive is not the same as being more productive.
-Self-report surveys measure perception,
-which is also distorted by the Hawthorne effect and social desirability bias.</p>
+<summary>
+Your company surveys developers three weeks after rolling out an AI coding assistant. Seventy-eight percent report feeling more productive. Your manager says this proves the tools are working. Identify two specific flaws in this conclusion.
+</summary>
+<p>First, the survey was conducted three weeks after adoption, which falls within the novelty period: developers are typically more engaged and positive about new tools during the initial weeks, and that enthusiasm inflates self-reported productivity regardless of actual performance. Second, feeling more productive is not the same as being more productive. Self-report surveys measure perception, which is also distorted by the Hawthorne effect and social desirability bias.</p>
 </details>
 <details>
-<summary>A study compares fifty developers who volunteered to use an AI assistant against fifty who did not. The AI group closes 25% more tickets per week. What is the most likely alternative explanation for this result, and what design change would address it?</summary>
-<p>The most likely alternative explanation is selection bias:
-developers who volunteered to use the tool differ from those who did not
-in ways that predict productivity independently of the tool.
-A design change that would address this is random assignment:
-randomly give the tool to half the developers rather than letting them self-select,
-so that the two groups are comparable on average.</p>
+<summary>
+A study compares fifty developers who volunteered to use an AI assistant against fifty who did not. The AI group closes 25% more tickets per week. What is the most likely alternative explanation for this result, and what design change would address it?
+</summary>
+<p>The most likely alternative explanation is selection bias: developers who volunteered to use the tool differ from those who did not in ways that predict productivity independently of the tool. A design change that would address this is random assignment: randomly give the tool to half the developers rather than letting them self-select, so that the two groups are comparable on average.</p>
 </details>
 <details>
-<summary>The following measurement plan contains at least two flaws. Identify them and describe a better approach: "To evaluate our AI tools, we will measure lines of code committed per developer per week, comparing the two weeks before and two weeks after tool adoption."</summary>
-<p>Lines of code has low construct validity as a productivity measure,
-and a two-week window falls entirely within the novelty period.
-A better approach would use an outcome-linked metric
-such as deployment frequency paired with change failure rate,
-or cycle time from ticket creation to production deployment,
-and extend the measurement window to at least three to six months.
-Including a team that did not adopt the tools would provide a control group
-to separate the AI effect from other concurrent changes.</p>
+<summary>
+The following measurement plan contains at least two flaws. Identify them and describe a better approach: “To evaluate our AI tools, we will measure lines of code committed per developer per week, comparing the two weeks before and two weeks after tool adoption.”
+</summary>
+<p>Lines of code has low construct validity as a productivity measure, and a two-week window falls entirely within the novelty period. A better approach would use an outcome-linked metric such as deployment frequency paired with change failure rate, or cycle time from ticket creation to production deployment, and extend the measurement window to at least three to six months. Including a team that did not adopt the tools would provide a control group to separate the AI effect from other concurrent changes.</p>
 </details>
 <details>
-<summary>A vendor announces that their AI assistant's suggestion acceptance rate rose from 25% to 40% over the past quarter and calls this a "quality improvement." What is wrong with this interpretation?</summary>
-<p>Acceptance rate measures whether a suggestion looked plausible,
-not whether the accepted code was correct, secure, or maintainable.
-A rise in acceptance rate can reflect better suggestions,
-but it can equally reflect increased time pressure,
-a shift toward simpler tasks where AI does better,
-or <a class="gl-ref" href="../glossary/#habituation">habituation</a> (developers becoming less critical over time).
-Without a separate measure of the quality of accepted suggestions,
-such as defect rates or code review rejection rates,
-acceptance rate tells you nothing about whether the tool is producing better code.</p>
+<summary>
+A vendor announces that their AI assistant’s suggestion acceptance rate rose from 25% to 40% over the past quarter and calls this a “quality improvement.” What is wrong with this interpretation?
+</summary>
+<p>Acceptance rate measures whether a suggestion looked plausible, not whether the accepted code was correct, secure, or maintainable. A rise in acceptance rate can reflect better suggestions, but it can equally reflect increased time pressure, a shift toward simpler tasks where AI does better, or <a href="../glossary/index.html#habituation">habituation</a> (developers becoming less critical over time). Without a separate measure of the quality of accepted suggestions, such as defect rates or code review rejection rates, acceptance rate tells you nothing about whether the tool is producing better code.</p>
 </details>
-<h2>Exercises</h2>
-<div class="exercise">
-<h3>Audit Your Own Organization (20 minutes)</h3>
-<p>List three metrics your organization currently uses (or has used recently)
-to evaluate the impact of a tool or process change on developer productivity.
-For each metric,
-identify which of the failure modes from this chapter it falls into,
-and briefly explain why.
-If you believe a metric avoids all of the traps,
-write one sentence explaining why you think so.</p>
+</section>
+<section id="exercises" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.12</span> Exercises</h2>
+<section id="audit-your-own-organization-20-minutes" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="audit-your-own-organization-20-minutes"><span class="header-section-number">3.12.1</span> Audit Your Own Organization (20 minutes)</h3>
+<p>List three metrics your organization currently uses (or has used recently) to evaluate the impact of a tool or process change on developer productivity. For each metric, identify which of the failure modes from this chapter it falls into, and briefly explain why. If you believe a metric avoids all of the traps, write one sentence explaining why you think so.</p>
+</section>
+<section id="redesign-a-flawed-study-15-minutes" class="level3" data-number="3.12.2">
+<h3 data-number="3.12.2" class="anchored" data-anchor-id="redesign-a-flawed-study-15-minutes"><span class="header-section-number">3.12.2</span> Redesign a Flawed Study (15 minutes)</h3>
+<p>A company wants to know whether their AI coding tool improves developer productivity. Their current plan is to survey developers about perceived productivity after two weeks, compare responses to a pre-adoption baseline survey, and report the percentage who say they feel more productive.</p>
+<p>Identify at least three problems with this design, then describe a better approach in a few sentences, specifying what you would measure, over what time period, and how you would construct a comparison group.</p>
+</section>
+<section id="find-the-baseline-10-minutes" class="level3" data-number="3.12.3">
+<h3 data-number="3.12.3" class="anchored" data-anchor-id="find-the-baseline-10-minutes"><span class="header-section-number">3.12.3</span> Find the Baseline (10 minutes)</h3>
+<p>Find a recent vendor claim about an AI tool’s impact on developer productivity, such as a blog post, marketing page, or case study. Identify the baseline the claim uses: what does the AI-assisted group get compared to? Then write two sentences describing a more informative baseline and why it would change the interpretation of the result.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Beck2023" class="csl-entry" role="listitem">
+Beck, Kent. 2023. <em>Measuring Developer Productivity: Real-World Examples.</em> <a href="https://tidyfirst.substack.com/p/measuring-developer-productivity">https://tidyfirst.substack.com/p/measuring-developer-productivity</a>.
 </div>
-<div class="exercise">
-<h3>Redesign a Flawed Study (15 minutes)</h3>
-<p>A company wants to know whether their AI coding tool improves developer productivity.
-Their current plan is to survey developers about perceived productivity after two weeks,
-compare responses to a pre-adoption baseline survey,
-and report the percentage who say they feel more productive.</p>
-<p>Identify at least three problems with this design,
-then describe a better approach in a few sentences,
-specifying what you would measure,
-over what time period,
-and how you would construct a comparison group.</p>
+<div id="ref-McKinsey2023" class="csl-entry" role="listitem">
+Elsayed, Nora, Tarek Elhounsri, and Sven Blumberg. 2023. <em>Yes, You Can Measure Software Developer Productivity.</em> <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity">https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity</a>.
 </div>
-<div class="exercise">
-<h3>Find the Baseline (10 minutes)</h3>
-<p>Find a recent vendor claim about an AI tool's impact on developer productivity,
-such as a blog post, marketing page, or case study.
-Identify the baseline the claim uses:
-what does the AI-assisted group get compared to?
-Then write two sentences describing a more informative baseline
-and why it would change the interpretation of the result.</p>
+<div id="ref-Forsgren2021" class="csl-entry" role="listitem">
+Forsgren, Nicole, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, and Jenna Butler. 2021. <span>“The SPACE of Developer Productivity.”</span> <em>ACM Queue</em> 19 (1).
 </div>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../productivity">Defining Productivity</a>
+<div id="ref-Goodhart1984" class="csl-entry" role="listitem">
+Goodhart, Charles. 1984. <span>“Problems of Monetary Management: The u.k. Experience.”</span> <em>Inflation, Depression, and Economic Policy in the West</em>.
 </div>
-<div class="col-6 center">
-<a href="../">notwrong</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
+<div id="ref-Liang2024" class="csl-entry" role="listitem">
+Liang, Jenny T., Chenyang Yang, and Brad A. Myers. 2024. <span>“A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges.”</span> <em>Proc. ICSE’24</em>. <a href="https://doi.org/10.1145/3597503.3608128">https://doi.org/10.1145/3597503.3608128</a>.
 </div>
-<div class="col-3 right">
-<a href="../qualitative">Qualitative Methods: Interviews and Surveys</a> <span aria-hidden="true">⇒</span>
+<div id="ref-Pearce2022" class="csl-entry" role="listitem">
+Pearce, Hammond, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri. 2022. <span>“Asleep at the Keyboard? Assessing the Security of GitHub Copilot’s Code Contributions.”</span> <em>Proc. S&amp;p’22</em>. <a href="https://doi.org/10.1109/SP46214.2022.9833571">https://doi.org/10.1109/SP46214.2022.9833571</a>.
+</div>
+<div id="ref-Peng2023" class="csl-entry" role="listitem">
+Peng, Sida, Eirini Kalliamvakou, Peter Cihon, and Mert Demirer. 2023. <em>The Impact of AI on Developer Productivity: Evidence from GitHub Copilot.</em> Vol. 06590. <a href="https://doi.org/10.48550/arXiv.2302.06590">https://doi.org/10.48550/arXiv.2302.06590</a>.
+</div>
+<div id="ref-Sadowski2019" class="csl-entry" role="listitem">
+<span class="nocase">Sadowski, Caitlin, and Thomas Zimmermann (eds.)</span>. 2019. <em>Rethinking Productivity in Software Engineering</em>. Apress. ISBN 9781484242216.
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../productivity/index.html" class="pagination-link" aria-label="Defining Productivity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../qualitative/index.html" class="pagination-link" aria-label="Qualitative Methods: Interviews and Surveys">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/wrong/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/wrong/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

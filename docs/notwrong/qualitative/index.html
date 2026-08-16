@@ -1,61 +1,319 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Qualitative Methods: Interviews and Surveys</title>
-<meta content="How to Not Be Wrong About AI" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Qualitative Methods: Interviews and Surveys – How to Not Be Wrong About AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../quantitative/index.html" rel="next">
+<link href="../wrong/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">notwrong</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../productivity/">Defining Productivity</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
-<li><a class="active" href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
-<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
-<li><a href="../critical/">Reading Studies Critically</a></li>
-<li><a href="../running/">Running Studies in Your Organization</a></li>
-<li><a href="../cheaply/">Starting Cheap</a></li>
-<li><a href="../finale/">Conclusion: What to Do Next</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qualitative/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">How to Not Be Wrong About AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/notwrong" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../further/">Further Reading</a></li>
-<li><a href="../stats/">Statistical Reference</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/notwrong">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../productivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../wrong/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qualitative/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quantitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../observational/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../critical/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../running/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheaply/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: What to Do Next</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../further/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Statistical Reference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Qualitative Methods: Interviews and Surveys</h1>
-<div class="callout">
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#when-qualitative-methods-are-the-right-choice" id="toc-when-qualitative-methods-are-the-right-choice" class="nav-link active" data-scroll-target="#when-qualitative-methods-are-the-right-choice"><span class="header-section-number">4.1</span> When Qualitative Methods Are the Right Choice</a></li>
+  <li><a href="#designing-interviews" id="toc-designing-interviews" class="nav-link" data-scroll-target="#designing-interviews"><span class="header-section-number">4.2</span> Designing Interviews</a></li>
+  <li><a href="#designing-surveys" id="toc-designing-surveys" class="nav-link" data-scroll-target="#designing-surveys"><span class="header-section-number">4.3</span> Designing Surveys</a></li>
+  <li><a href="#thematic-analysis" id="toc-thematic-analysis" class="nav-link" data-scroll-target="#thematic-analysis"><span class="header-section-number">4.4</span> Thematic Analysis</a></li>
+  <li><a href="#experience-sampling" id="toc-experience-sampling" class="nav-link" data-scroll-target="#experience-sampling"><span class="header-section-number">4.5</span> Experience Sampling</a></li>
+  <li><a href="#triangulation" id="toc-triangulation" class="nav-link" data-scroll-target="#triangulation"><span class="header-section-number">4.6</span> Triangulation</a></li>
+  <li><a href="#grounded-theory" id="toc-grounded-theory" class="nav-link" data-scroll-target="#grounded-theory"><span class="header-section-number">4.7</span> Grounded Theory</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations"><span class="header-section-number">4.8</span> Ethical Considerations</a></li>
+  <li><a href="#misconceptions" id="toc-misconceptions" class="nav-link" data-scroll-target="#misconceptions"><span class="header-section-number">4.9</span> Misconceptions</a></li>
+  <li><a href="#check-understanding" id="toc-check-understanding" class="nav-link" data-scroll-target="#check-understanding"><span class="header-section-number">4.10</span> Check Understanding</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.11</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#write-an-interview-guide-20-minutes" id="toc-write-an-interview-guide-20-minutes" class="nav-link" data-scroll-target="#write-an-interview-guide-20-minutes"><span class="header-section-number">4.11.1</span> Write an Interview Guide (20 minutes)</a></li>
+  <li><a href="#code-this-excerpt-15-minutes" id="toc-code-this-excerpt-15-minutes" class="nav-link" data-scroll-target="#code-this-excerpt-15-minutes"><span class="header-section-number">4.11.2</span> Code This Excerpt (15 minutes)</a></li>
+  <li><a href="#evaluate-a-survey-15-minutes" id="toc-evaluate-a-survey-15-minutes" class="nav-link" data-scroll-target="#evaluate-a-survey-15-minutes"><span class="header-section-number">4.11.3</span> Evaluate a Survey (15 minutes)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/qualitative/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/qualitative/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Decide when qualitative methods are the right choice for a research question.</li>
 <li>Design interview guides and survey instruments for software engineering research.</li>
@@ -63,368 +321,698 @@
 <li>Triangulate evidence across multiple qualitative methods.</li>
 </ul>
 </div>
-<p>Qualitative methods are how you find out what is actually going on when
-numbers alone cannot tell you.
-For example,
-in 2024,
-a team led by Jenny Liang surveyed 410 professional developers
-across industries about their experience with AI programming assistants
-[<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>].
-They did not just ask "is this useful?"
-They asked about specific scenarios, frustrations, workarounds,
-and the kinds of tasks where developers had learned to distrust the tools.
-The result was a detailed map of where AI assistance actually helps
-and where it gets in the way—knowledge that would have been invisible
-to a study that only measured task completion times.</p>
-<p>A smaller but deeper example:
-Johnson et al. interviewed 20 developers to ask why static analysis tools
-are so rarely used despite being widely available [<a class="bib-ref" href="../bibliography/#Johnson2013">Johnson2013</a>].
-Every participant believed the tools are beneficial,
-but false positives and poor warning presentation were the main barriers.
-Where Liang provides breadth (410 developers across industries),
-Johnson provides depth (20 developers with detailed follow-up),
-which illustrates the scale-versus-richness trade-off between surveys and interviews.</p>
-<h2>When Qualitative Methods Are the Right Choice</h2>
+</div>
+<p>Qualitative methods are how you find out what is actually going on when numbers alone cannot tell you. For example, in 2024, a team led by Jenny Liang surveyed 410 professional developers across industries about their experience with AI programming assistants <span class="citation" data-cites="Liang2024">(<a href="../bibliography/index.html#ref-Liang2024" role="doc-biblioref">Liang et al. 2024</a>)</span>. They did not just ask “is this useful?” They asked about specific scenarios, frustrations, workarounds, and the kinds of tasks where developers had learned to distrust the tools. The result was a detailed map of where AI assistance actually helps and where it gets in the way—knowledge that would have been invisible to a study that only measured task completion times.</p>
+<p>A smaller but deeper example: Johnson et al.&nbsp;interviewed 20 developers to ask why static analysis tools are so rarely used despite being widely available <span class="citation" data-cites="Johnson2013">(<a href="../bibliography/index.html#ref-Johnson2013" role="doc-biblioref">Johnson et al. 2013</a>)</span>. Every participant believed the tools are beneficial, but false positives and poor warning presentation were the main barriers. Where Liang provides breadth (410 developers across industries), Johnson provides depth (20 developers with detailed follow-up), which illustrates the scale-versus-richness trade-off between surveys and interviews.</p>
+<section id="when-qualitative-methods-are-the-right-choice" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="when-qualitative-methods-are-the-right-choice"><span class="header-section-number">4.1</span> When Qualitative Methods Are the Right Choice</h2>
 <ul>
-<li>When you do not yet know what to measure<ul>
+<li>When you do not yet know what to measure
+<ul>
 <li>Qualitative work often precedes quantitative work by identifying the right variables</li>
-</ul>
-</li>
-<li>When the phenomenon involves meaning, interpretation, or context
-    that a number cannot capture</li>
-<li>When your sample is small or access is limited<ul>
-<li>Surveys of 10 people are not statistically powerful,
-    but interviews with 10 people can be rich</li>
-</ul>
-</li>
+</ul></li>
+<li>When the phenomenon involves meaning, interpretation, or context that a number cannot capture</li>
+<li>When your sample is small or access is limited
+<ul>
+<li>Surveys of 10 people are not statistically powerful, but interviews with 10 people can be rich</li>
+</ul></li>
 <li>When you want to understand <em>why</em> a pattern exists, not just that it does</li>
 <li>When stakeholders need to be heard rather than counted</li>
 </ul>
-<h2>Designing Interviews</h2>
+</section>
+<section id="designing-interviews" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="designing-interviews"><span class="header-section-number">4.2</span> Designing Interviews</h2>
 <ul>
-<li>Three types of interviews<ul>
-<li><a class="gl-ref" href="../glossary/#structured_interview">Structured interviews</a> use a fixed script</li>
-<li><a class="gl-ref" href="../glossary/#semi_structured_interview">Semi-structured interviews</a> have a guide
-    but allow follow-up</li>
-<li><a class="gl-ref" href="../glossary/#unstructured_interview">Unstructured interviews</a> follow the participant's lead</li>
-<li>Semi-structured is the most common in software engineering research:
-    consistent enough to compare across participants,
-    flexible enough to surface surprises</li>
-</ul>
-</li>
-<li>Open questions invite narrative:
-    "Tell me about a time when the AI suggestion was wrong in a way that surprised you"</li>
-<li>Closed questions invite classification:
-    "On a scale of 1 to 5, how often do you accept AI suggestions without reading them?"</li>
-<li>Probing follows up on what a participant says:
-    "You mentioned you don't trust it for security-related code—can you say more about that?"</li>
-<li>Avoid <a class="gl-ref" href="../glossary/#leading_question">leading questions</a>:
-    "Don't you find it faster?" assumes the answer</li>
-<li>Avoid hypothetical questions:
-    "Would you use X if Y?"
-    People are poor predictors of their own behavior</li>
-</ul>
-<h2>Designing Surveys</h2>
+<li>Three types of interviews
 <ul>
-<li>Surveys trade depth for breadth:
-    you can reach many more people but get shallower data from each</li>
-<li><a class="gl-ref" href="../glossary/#likert_scale">Likert scales</a>
-    ("Strongly agree" to "Strongly disagree") are common but have known problems:<ul>
+<li><a href="../glossary/index.html#structured_interview">Structured interviews</a> use a fixed script</li>
+<li><a href="../glossary/index.html#semi_structured_interview">Semi-structured interviews</a> have a guide but allow follow-up</li>
+<li><a href="../glossary/index.html#unstructured_interview">Unstructured interviews</a> follow the participant’s lead</li>
+<li>Semi-structured is the most common in software engineering research: consistent enough to compare across participants, flexible enough to surface surprises</li>
+</ul></li>
+<li>Open questions invite narrative: “Tell me about a time when the AI suggestion was wrong in a way that surprised you”</li>
+<li>Closed questions invite classification: “On a scale of 1 to 5, how often do you accept AI suggestions without reading them?”</li>
+<li>Probing follows up on what a participant says: “You mentioned you don’t trust it for security-related code—can you say more about that?”</li>
+<li>Avoid <a href="../glossary/index.html#leading_question">leading questions</a>: “Don’t you find it faster?” assumes the answer</li>
+<li>Avoid hypothetical questions: “Would you use X if Y?” People are poor predictors of their own behavior</li>
+</ul>
+</section>
+<section id="designing-surveys" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="designing-surveys"><span class="header-section-number">4.3</span> Designing Surveys</h2>
+<ul>
+<li>Surveys trade depth for breadth: you can reach many more people but get shallower data from each</li>
+<li><a href="../glossary/index.html#likert_scale">Likert scales</a> (“Strongly agree” to “Strongly disagree”) are common but have known problems:
+<ul>
 <li>People cluster toward the middle or toward the extremes</li>
 <li>The same label means different things to different people</li>
 <li>Use at least 5 points: 7 points gives more resolution</li>
-</ul>
-</li>
-<li>Response bias:
-    people answer differently depending on question order, framing,
-    and what they think the researcher wants to hear</li>
-<li><a class="gl-ref" href="../glossary/#sampling_strategy">Sampling strategy</a> determines who you can generalize to<ul>
-<li><a class="gl-ref" href="../glossary/#convenience_sampling">Convenience samples</a>
-    (whoever responds to a social media post)
-    are common and usually biased toward engaged, technical users</li>
-<li><a class="gl-ref" href="../glossary/#stratified_sampling">Stratified samples</a>
-    deliberately include proportional representation of subgroups</li>
-</ul>
-</li>
-<li>Pilot your survey with 3-5 people and revise before distributing</li>
-<li>E.g., Bettenburg et al. surveyed Apache, Eclipse, and Mozilla developers and users
-    to find out what makes a good bug report [<a class="bib-ref" href="../bibliography/#Bettenburg2008">Bettenburg2008</a>]<ul>
-<li>A concrete question, a targeted audience, and actionable results</li>
-</ul>
-</li>
-</ul>
-<h2>Thematic Analysis</h2>
+</ul></li>
+<li>Response bias: people answer differently depending on question order, framing, and what they think the researcher wants to hear</li>
+<li><a href="../glossary/index.html#sampling_strategy">Sampling strategy</a> determines who you can generalize to
 <ul>
-<li><a class="gl-ref" href="../glossary/#thematic_analysis">Thematic analysis</a> is the standard approach
-    for analyzing qualitative data</li>
-<li><a class="gl-ref" href="../glossary/#open_coding">Open coding</a>:
-    read through the data and tag segments with descriptive labels
-    (e.g., "trust in AI suggestions," "time saved on boilerplate")<ul>
-<li>Use <a class="gl-ref" href="../glossary/#gerund_coding">gerund coding</a>:
-    frame codes as actions rather than nouns,
-    so "avoiding AI for security tasks" rather than "AI distrust"</li>
-<li>This preserves the temporal and causal structure
-    of what participants are actually doing [<a class="bib-ref" href="../bibliography/#Thornberg2014">Thornberg2014</a>]</li>
+<li><a href="../glossary/index.html#convenience_sampling">Convenience samples</a> (whoever responds to a social media post) are common and usually biased toward engaged, technical users</li>
+<li><a href="../glossary/index.html#stratified_sampling">Stratified samples</a> deliberately include proportional representation of subgroups</li>
+</ul></li>
+<li>Pilot your survey with 3-5 people and revise before distributing</li>
+<li>E.g., Bettenburg et al.&nbsp;surveyed Apache, Eclipse, and Mozilla developers and users to find out what makes a good bug report <span class="citation" data-cites="Bettenburg2008">(<a href="../bibliography/index.html#ref-Bettenburg2008" role="doc-biblioref">Bettenburg et al. 2008</a>)</span>
+<ul>
+<li>A concrete question, a targeted audience, and actionable results</li>
+</ul></li>
 </ul>
-</li>
-<li>A theme is not a bucket for related quotes:<ul>
-<li>It should express a claim you could write as a sentence,
-    such as "developers trust AI output for syntax but not for logic" [<a class="bib-ref" href="../bibliography/#Braun2019">Braun2019</a>]</li>
-<li>Strong themes name tensions as well as patterns:
-    "trusting the output while suspicious of the process"
-    is more informative than "attitudes toward AI"</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#axial_coding">Axial coding</a>:
-    group codes into higher-level themes and examine relationships between them<ul>
+</section>
+<section id="thematic-analysis" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="thematic-analysis"><span class="header-section-number">4.4</span> Thematic Analysis</h2>
+<ul>
+<li><a href="../glossary/index.html#thematic_analysis">Thematic analysis</a> is the standard approach for analyzing qualitative data</li>
+<li><a href="../glossary/index.html#open_coding">Open coding</a>: read through the data and tag segments with descriptive labels (e.g., “trust in AI suggestions,” “time saved on boilerplate”)
+<ul>
+<li>Use <a href="../glossary/index.html#gerund_coding">gerund coding</a>: frame codes as actions rather than nouns, so “avoiding AI for security tasks” rather than “AI distrust”</li>
+<li>This preserves the temporal and causal structure of what participants are actually doing <span class="citation" data-cites="Thornberg2014">(<a href="../bibliography/index.html#ref-Thornberg2014" role="doc-biblioref">Thornberg and Charmaz 2014</a>)</span></li>
+</ul></li>
+<li>A theme is not a bucket for related quotes:
+<ul>
+<li>It should express a claim you could write as a sentence, such as “developers trust AI output for syntax but not for logic” <span class="citation" data-cites="Braun2019">(<a href="../bibliography/index.html#ref-Braun2019" role="doc-biblioref">Braun and Clarke 2019</a>)</span></li>
+<li>Strong themes name tensions as well as patterns: “trusting the output while suspicious of the process” is more informative than “attitudes toward AI”</li>
+</ul></li>
+<li><a href="../glossary/index.html#axial_coding">Axial coding</a>: group codes into higher-level themes and examine relationships between them
+<ul>
 <li>Ask which themes co-occur across participants, and why</li>
-<li>Look for conditions, contexts, and consequences:
-    what makes a theme appear, in what setting, and with what effect on the participant</li>
-<li>If a code keeps appearing alongside very different themes,
-    it may be doing double duty:
-    split it and check whether each half is coherent on its own</li>
-<li>Separate participants' hypotheses and actions from their emotions and evaluations<ul>
-<li>"I think AI will replace junior devs" is a claim</li>
-<li>"I hate how deskilled it makes me feel" is an affect</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#saturation">Saturation</a>:
-    stop collecting data when new interviews or responses stop introducing new codes<ul>
-<li>A practical definition of "enough data"</li>
-</ul>
-</li>
-<li>Code with a second researcher and measure
-    <a class="gl-ref" href="../glossary/#intercoder_reliability">intercoder reliability</a> to reduce individual bias<ul>
-<li>We'll discuss Cohen's kappa <a href="../quantitative/">later</a></li>
-</ul>
-</li>
+<li>Look for conditions, contexts, and consequences: what makes a theme appear, in what setting, and with what effect on the participant</li>
+<li>If a code keeps appearing alongside very different themes, it may be doing double duty: split it and check whether each half is coherent on its own</li>
+<li>Separate participants’ hypotheses and actions from their emotions and evaluations
+<ul>
+<li>“I think AI will replace junior devs” is a claim</li>
+<li>“I hate how deskilled it makes me feel” is an affect</li>
+</ul></li>
+</ul></li>
+<li><a href="../glossary/index.html#saturation">Saturation</a>: stop collecting data when new interviews or responses stop introducing new codes
+<ul>
+<li>A practical definition of “enough data”</li>
+</ul></li>
+<li>Code with a second researcher and measure <a href="../glossary/index.html#intercoder_reliability">intercoder reliability</a> to reduce individual bias
+<ul>
+<li>We’ll discuss Cohen’s kappa <a href="../quantitative/index.html">later</a></li>
+</ul></li>
 <li>Keep an audit trail: document coding decisions so others can evaluate them</li>
 </ul>
-<h2>Experience Sampling</h2>
+</section>
+<section id="experience-sampling" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="experience-sampling"><span class="header-section-number">4.5</span> Experience Sampling</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#experience_sampling">Experience sampling</a>
-    prompts participants at random or scheduled intervals during their workday
-    to report their current task, perceived state, or productivity</li>
-<li>It captures in-the-moment data that retrospective surveys miss<ul>
-<li>A developer's sense of how productive a day was often differs from
-    what they reported each hour during that day</li>
-</ul>
-</li>
-<li>A field study using hourly self-reports found that developers categorized into six types
-    (focused, social, lone, balanced, leading, goal-oriented)
-    and that productivity patterns varied substantially by time of day and individual [<a class="bib-ref" href="../bibliography/#Meyer2017">Meyer2017</a>]</li>
-<li>When measuring subjective states,
-    use validated instruments rather than writing your own questions<ul>
-<li>Scales like SPANE (Scale of Positive and Negative Experience) have known psychometric properties
-    [<a class="bib-ref" href="../bibliography/#Diener2010">Diener2010</a>]</li>
+<li><a href="../glossary/index.html#experience_sampling">Experience sampling</a> prompts participants at random or scheduled intervals during their workday to report their current task, perceived state, or productivity</li>
+<li>It captures in-the-moment data that retrospective surveys miss
+<ul>
+<li>A developer’s sense of how productive a day was often differs from what they reported each hour during that day</li>
+</ul></li>
+<li>A field study using hourly self-reports found that developers categorized into six types (focused, social, lone, balanced, leading, goal-oriented) and that productivity patterns varied substantially by time of day and individual <span class="citation" data-cites="Meyer2017">(<a href="../bibliography/index.html#ref-Meyer2017" role="doc-biblioref">Meyer et al. 2017</a>)</span></li>
+<li>When measuring subjective states, use validated instruments rather than writing your own questions
+<ul>
+<li>Scales like SPANE (Scale of Positive and Negative Experience) have known psychometric properties <span class="citation" data-cites="Diener2010">(<a href="../bibliography/index.html#ref-Diener2010" role="doc-biblioref">Diener et al. 2010</a>)</span></li>
 <li>A five-item Likert question drafted for a single study does not</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2>Triangulation</h2>
+</section>
+<section id="triangulation" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="triangulation"><span class="header-section-number">4.6</span> Triangulation</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#triangulation">Triangulation</a> means combining multiple data sources or methods
-    to increase confidence in a finding</li>
-<li>If interviews, survey, and observations all point to the same conclusion,
-    that conclusion is more credible</li>
-<li>Types of triangulation: data (multiple sources),
-    investigator (multiple coders),
-    method (qualitative + quantitative),
-    theory (multiple interpretive frameworks)</li>
+<li><a href="../glossary/index.html#triangulation">Triangulation</a> means combining multiple data sources or methods to increase confidence in a finding</li>
+<li>If interviews, survey, and observations all point to the same conclusion, that conclusion is more credible</li>
+<li>Types of triangulation: data (multiple sources), investigator (multiple coders), method (qualitative + quantitative), theory (multiple interpretive frameworks)</li>
 </ul>
-<h2>Grounded Theory</h2>
+</section>
+<section id="grounded-theory" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="grounded-theory"><span class="header-section-number">4.7</span> Grounded Theory</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#grounded_theory">Grounded theory</a> is a qualitative methodology
-    in which theory develops inductively from data through iterative coding,
-    rather than testing a predetermined hypothesis</li>
-<li>A researcher records observations or interviews, codes them, identifies patterns,
-    collects more data to challenge those patterns, and continues until saturation</li>
-<li>Grounded theory is expensive and slow but produces theory that is
-    directly grounded in the messiness of real practice</li>
-<li>Examples:<ul>
-<li>Sedano et al. spent 2.5 years embedded at Pivotal
-    and produced a nine-category taxonomy of software development waste
-    [<a class="bib-ref" href="../bibliography/#Sedano2017">Sedano2017</a>]</li>
-<li>Zieris and Prechelt recorded 60+ pair programming sessions at a dozen companies
-    and identified the knowledge gap constellations
-    that student experiments had controlled away
-    [<a class="bib-ref" href="../bibliography/#Zieris2014">Zieris2014</a>]</li>
-<li>Wessel et al. interviewed 21 open-source practitioners
-    about their experience with bots in pull requests
-    and developed a theory of how bot output becomes noise
-    that overwhelms and distracts developers
-    [<a class="bib-ref" href="../bibliography/#Wessel2021">Wessel2021</a>]</li>
-</ul>
-</li>
-</ul>
-<h2>Ethical Considerations</h2>
+<li><a href="../glossary/index.html#grounded_theory">Grounded theory</a> is a qualitative methodology in which theory develops inductively from data through iterative coding, rather than testing a predetermined hypothesis</li>
+<li>A researcher records observations or interviews, codes them, identifies patterns, collects more data to challenge those patterns, and continues until saturation</li>
+<li>Grounded theory is expensive and slow but produces theory that is directly grounded in the messiness of real practice</li>
+<li>Examples:
 <ul>
-<li>Even internal research on colleagues requires ethical care<ul>
+<li>Sedano et al.&nbsp;spent 2.5 years embedded at Pivotal and produced a nine-category taxonomy of software development waste <span class="citation" data-cites="Sedano2017">(<a href="../bibliography/index.html#ref-Sedano2017" role="doc-biblioref">Sedano et al. 2017</a>)</span></li>
+<li>Zieris and Prechelt recorded 60+ pair programming sessions at a dozen companies and identified the knowledge gap constellations that student experiments had controlled away <span class="citation" data-cites="Zieris2014">(<a href="../bibliography/index.html#ref-Zieris2014" role="doc-biblioref">Zieris and Prechelt 2014</a>)</span></li>
+<li>Wessel et al.&nbsp;interviewed 21 open-source practitioners about their experience with bots in pull requests and developed a theory of how bot output becomes noise that overwhelms and distracts developers <span class="citation" data-cites="Wessel2021">(<a href="../bibliography/index.html#ref-Wessel2021" role="doc-biblioref">Wessel et al. 2021</a>)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="ethical-considerations" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="ethical-considerations"><span class="header-section-number">4.8</span> Ethical Considerations</h2>
+<ul>
+<li>Even internal research on colleagues requires ethical care
+<ul>
 <li>Which is often ignored</li>
+</ul></li>
+<li><a href="../glossary/index.html#informed_consent">Informed consent</a>: participants must know what data is being collected and how it will be used</li>
+<li>Privacy: interview and survey data can reveal individual performance, dissatisfaction, and private information</li>
+<li>Power dynamics: interviewing colleagues or subordinates creates pressure to participate and to answer in ways that please the researcher</li>
+<li>Harm: findings about team practices can be used for performance evaluation, even if that was not the study’s intent</li>
+<li>Involve legal, HR, or ethics reviewers before collecting data from individuals in your organization</li>
 </ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#informed_consent">Informed consent</a>:
-    participants must know what data is being collected and how it will be used</li>
-<li>Privacy:
-    interview and survey data can reveal individual performance,
-    dissatisfaction, and private information</li>
-<li>Power dynamics:
-    interviewing colleagues or subordinates creates pressure to participate
-    and to answer in ways that please the researcher</li>
-<li>Harm:
-    findings about team practices can be used for performance evaluation,
-    even if that was not the study's intent</li>
-<li>Involve legal, HR, or ethics reviewers before collecting data
-    from individuals in your organization</li>
-</ul>
-<h2>Misconceptions</h2>
+</section>
+<section id="misconceptions" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="misconceptions"><span class="header-section-number">4.9</span> Misconceptions</h2>
 <dl>
-<dt>Leading questions don't bias interview results if you're aware of them.</dt>
-<dd>Even when you know a question is leading,
-the participant may still be pushed toward the expected answer.
-"Most developers find AI helpful — would you agree?" presupposes the answer.
-Rewrite as an open question: "What has your experience been with AI coding tools?"</dd>
+<dt>Leading questions don’t bias interview results if you’re aware of them.</dt>
+<dd>
+Even when you know a question is leading, the participant may still be pushed toward the expected answer. “Most developers find AI helpful — would you agree?” presupposes the answer. Rewrite as an open question: “What has your experience been with AI coding tools?”
+</dd>
 <dt>Surveying your own team or users is sufficient for internal research.</dt>
-<dd>Convenience sampling gives you data about a specific group
-that may not represent the population you want to generalize to.
-If only people who already agree with you respond,
-the results will confirm your assumptions.</dd>
+<dd>
+Convenience sampling gives you data about a specific group that may not represent the population you want to generalize to. If only people who already agree with you respond, the results will confirm your assumptions.
+</dd>
 <dt>You can stop analyzing data once you have enough to support your hypothesis.</dt>
-<dd><a class="gl-ref" href="../glossary/#confirmation_bias">Confirmation bias</a> pushes researchers to stop analysis
-when the data supports their expectations.
-Rigorous qualitative work continues until saturation.</dd>
-<dt>A study of 20 developers at one company can describe "what developers think."</dt>
-<dd><a class="gl-ref" href="../glossary/#overgeneralization">Overgeneralization</a> turns findings from a specific sample
-into claims about a broader population.
-"Developers find AI tools frustrating" from a study of 20 junior developers at one company
-is overgeneralized.
-The claim should specify who, where, and under what conditions.</dd>
-<dt>A low response rate doesn't matter if you have enough responses.</dt>
-<dd>If only 10% of people surveyed respond,
-the 90% who did not may have very different views.
-<a class="gl-ref" href="../glossary/#non_response_bias">Non-response bias</a> can be larger than sampling error,
-and a high absolute number of responses does not correct for it.</dd>
+<dd>
+<a href="../glossary/index.html#confirmation_bias">Confirmation bias</a> pushes researchers to stop analysis when the data supports their expectations. Rigorous qualitative work continues until saturation.
+</dd>
+<dt>A study of 20 developers at one company can describe “what developers think.”</dt>
+<dd>
+<a href="../glossary/index.html#overgeneralization">Overgeneralization</a> turns findings from a specific sample into claims about a broader population. “Developers find AI tools frustrating” from a study of 20 junior developers at one company is overgeneralized. The claim should specify who, where, and under what conditions.
+</dd>
+<dt>A low response rate doesn’t matter if you have enough responses.</dt>
+<dd>
+If only 10% of people surveyed respond, the 90% who did not may have very different views. <a href="../glossary/index.html#non_response_bias">Non-response bias</a> can be larger than sampling error, and a high absolute number of responses does not correct for it.
+</dd>
 <dt>Qualitative research is just asking people what they think.</dt>
-<dd>Rigorous qualitative work involves systematic data collection,
-structured analysis,
-documentation of decisions, and assessment of intercoder reliability.
-Asking a few colleagues over lunch is not a study.</dd>
+<dd>
+Rigorous qualitative work involves systematic data collection, structured analysis, documentation of decisions, and assessment of intercoder reliability. Asking a few colleagues over lunch is not a study.
+</dd>
 <dt>More interviews always produce better qualitative results.</dt>
-<dd>Depth matters more than volume.
-A study with twenty rich, well-analyzed interviews reaching saturation
-is more informative than one with a hundred superficial ones
-that never probe below the surface.</dd>
+<dd>
+Depth matters more than volume. A study with twenty rich, well-analyzed interviews reaching saturation is more informative than one with a hundred superficial ones that never probe below the surface.
+</dd>
 <dt>A high response count makes a survey representative.</dt>
-<dd>Representativeness depends on who responds relative to who you want to generalize to,
-not on the raw number of responses.
-A million responses from a self-selected online audience
-is still a biased convenience sample.</dd>
+<dd>
+Representativeness depends on who responds relative to who you want to generalize to, not on the raw number of responses. A million responses from a self-selected online audience is still a biased convenience sample.
+</dd>
 <dt>Thematic analysis is subjective and therefore unreliable.</dt>
-<dd>The subjectivity of interpretation is a known feature, not a flaw.
-Qualitative researchers manage it through audit trails, multiple coders,
-and transparent documentation of how codes and themes were derived.</dd>
+<dd>
+The subjectivity of interpretation is a known feature, not a flaw. Qualitative researchers manage it through audit trails, multiple coders, and transparent documentation of how codes and themes were derived.
+</dd>
 <dt>Any descriptive label counts as a valid code.</dt>
-<dd>A code named "AI" or "trust" is a noun bucket, not an analysis.
-Good codes capture what a participant is <em>doing</em>:
-"switching off AI suggestions after a bad experience" tells you something;
-"negative AI attitude" does not.
-The same principle applies to themes:
-a theme that cannot be expressed as a claim is a filing category, not a finding.</dd>
+<dd>
+A code named “AI” or “trust” is a noun bucket, not an analysis. Good codes capture what a participant is <em>doing</em>: “switching off AI suggestions after a bad experience” tells you something; “negative AI attitude” does not. The same principle applies to themes: a theme that cannot be expressed as a claim is a filing category, not a finding.
+</dd>
 </dl>
-<h2>Check Understanding</h2>
+</section>
+<section id="check-understanding" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="check-understanding"><span class="header-section-number">4.10</span> Check Understanding</h2>
 <details>
-<summary>What is the difference between open coding and axial coding in thematic analysis?</summary>
-<p>Open coding is the first pass through the data,
-where you tag individual segments with descriptive labels close to what the participant actually said.
-Axial coding is a second-order process where you group those labels into higher-level themes
-and begin to examine how the themes relate to each other.
-Open coding is inductive and close to the data;
-axial coding is more interpretive and moves toward an explanatory structure.</p>
+<summary>
+What is the difference between open coding and axial coding in thematic analysis?
+</summary>
+<p>Open coding is the first pass through the data, where you tag individual segments with descriptive labels close to what the participant actually said. Axial coding is a second-order process where you group those labels into higher-level themes and begin to examine how the themes relate to each other. Open coding is inductive and close to the data; axial coding is more interpretive and moves toward an explanatory structure.</p>
 </details>
 <details>
-<summary>A researcher surveyed developers by posting a link in a popular programming subreddit and got 800 responses. They concluded that "the majority of developers are satisfied with AI coding tools." Identify two specific problems with this conclusion.</summary>
-<ol>
-<li>The sample is a convenience sample skewed toward developers who actively participate in that community,
-    who are likely more technically engaged,
-    and are more likely to already use AI tools than average.</li>
-<li>The phrasing "majority of developers" implies generalizability to a population (all developers)
-    that the sample does not represent.
-    The conclusion should be "the majority of respondents to this survey were satisfied",
-    which is a much weaker but more accurate claim.</li>
+<summary>
+A researcher surveyed developers by posting a link in a popular programming subreddit and got 800 responses. They concluded that “the majority of developers are satisfied with AI coding tools.” Identify two specific problems with this conclusion.
+</summary>
+<ol type="1">
+<li>The sample is a convenience sample skewed toward developers who actively participate in that community, who are likely more technically engaged, and are more likely to already use AI tools than average.</li>
+<li>The phrasing “majority of developers” implies generalizability to a population (all developers) that the sample does not represent. The conclusion should be “the majority of respondents to this survey were satisfied”, which is a much weaker but more accurate claim.</li>
 <li>People who are satisfied are more likely to respond to a survey about satisfaction.</li>
 </ol>
 </details>
 <details>
-<summary>Why is "Would you use an AI coding assistant if it were integrated into your IDE?" a poor interview question?</summary>
-<p>It is a hypothetical question,
-and people are unreliable predictors of their own future behavior.
-Developers may say yes because the scenario sounds appealing,
-but their actual behavior when faced with the tool may differ significantly.
-A better question asks about past or present behavior:
-"Tell me about the last time you used an AI coding assistant.
-What did you do with the suggestion it gave you?"</p>
+<summary>
+Why is “Would you use an AI coding assistant if it were integrated into your IDE?” a poor interview question?
+</summary>
+<p>It is a hypothetical question, and people are unreliable predictors of their own future behavior. Developers may say yes because the scenario sounds appealing, but their actual behavior when faced with the tool may differ significantly. A better question asks about past or present behavior: “Tell me about the last time you used an AI coding assistant. What did you do with the suggestion it gave you?”</p>
 </details>
 <details>
-<summary>The following interview question contains a flaw. Identify it and rewrite the question: "Given that AI tools can generate boilerplate code automatically, how much time do you think you save using them?"</summary>
-<p>The question is leading:
-it presupposes that AI tools save time ("given that they can generate boilerplate code automatically")
-and asks the participant to quantify that saving.
-A respondent who does not save time,
-or who finds the tools slow them down,
-is implicitly pushed toward a positive answer.
-A better version is,
-"When you use AI coding tools, what effect do they have on how long tasks take you?
-Can you give me a specific recent example?"</p>
+<summary>
+The following interview question contains a flaw. Identify it and rewrite the question: “Given that AI tools can generate boilerplate code automatically, how much time do you think you save using them?”
+</summary>
+<p>The question is leading: it presupposes that AI tools save time (“given that they can generate boilerplate code automatically”) and asks the participant to quantify that saving. A respondent who does not save time, or who finds the tools slow them down, is implicitly pushed toward a positive answer. A better version is, “When you use AI coding tools, what effect do they have on how long tasks take you? Can you give me a specific recent example?”</p>
 </details>
-<h2>Exercises</h2>
-<div class="exercise">
-<h3>Write an Interview Guide (20 minutes)</h3>
-<p>Write a semi-structured interview guide (6-8 questions plus follow-up probes)
-for a study on how developers decide when to accept or reject AI code suggestions.
-Include at least one open question and one probe;
-identify one question from your first draft that was leading and explain how you revised it.</p>
-</div>
-<div class="exercise">
-<h3>Code This Excerpt (15 minutes)</h3>
-<p>Apply open coding to the following interview excerpt.
-Identify at least four distinct codes,
-quote the specific text that led to each code,
-and then group your codes into two higher-level themes.</p>
-<blockquote>
-<p>I use it mostly for stuff I already know how to do—like if I need to write a regex
-or remember the syntax for something in a library I don't use often.
-But for the core logic of whatever I'm building, I don't trust it.
-It'll give you something that looks right but misses an edge case,
-and you won't notice until production.
-I've started just not using it for anything security-related at all.</p>
+</section>
+<section id="exercises" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.11</span> Exercises</h2>
+<section id="write-an-interview-guide-20-minutes" class="level3" data-number="4.11.1">
+<h3 data-number="4.11.1" class="anchored" data-anchor-id="write-an-interview-guide-20-minutes"><span class="header-section-number">4.11.1</span> Write an Interview Guide (20 minutes)</h3>
+<p>Write a semi-structured interview guide (6-8 questions plus follow-up probes) for a study on how developers decide when to accept or reject AI code suggestions. Include at least one open question and one probe; identify one question from your first draft that was leading and explain how you revised it.</p>
+</section>
+<section id="code-this-excerpt-15-minutes" class="level3" data-number="4.11.2">
+<h3 data-number="4.11.2" class="anchored" data-anchor-id="code-this-excerpt-15-minutes"><span class="header-section-number">4.11.2</span> Code This Excerpt (15 minutes)</h3>
+<p>Apply open coding to the following interview excerpt. Identify at least four distinct codes, quote the specific text that led to each code, and then group your codes into two higher-level themes.</p>
+<blockquote class="blockquote">
+<p>I use it mostly for stuff I already know how to do—like if I need to write a regex or remember the syntax for something in a library I don’t use often. But for the core logic of whatever I’m building, I don’t trust it. It’ll give you something that looks right but misses an edge case, and you won’t notice until production. I’ve started just not using it for anything security-related at all.</p>
 </blockquote>
+</section>
+<section id="evaluate-a-survey-15-minutes" class="level3" data-number="4.11.3">
+<h3 data-number="4.11.3" class="anchored" data-anchor-id="evaluate-a-survey-15-minutes"><span class="header-section-number">4.11.3</span> Evaluate a Survey (15 minutes)</h3>
+<p>Find the methods section of <span class="citation" data-cites="Liang2024">(<a href="../bibliography/index.html#ref-Liang2024" role="doc-biblioref">Liang et al. 2024</a>)</span> or another published survey of developer experience with AI tools. Identify the sampling strategy, the response rate (if reported), and one specific design choice that reduces bias. Then identify one limitation the authors acknowledge and one they do not.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Bettenburg2008" class="csl-entry" role="listitem">
+Bettenburg, Nicolas, Sascha Just, Adrian Schröter, Cathrin Weiss, Rahul Premraj, and Thomas Zimmermann. 2008. <span>“What Makes a Good Bug Report?”</span> <em>Proc. SIGSOFT/FSE’08</em>. <a href="https://doi.org/10.1145/1453101.1453146">https://doi.org/10.1145/1453101.1453146</a>.
 </div>
-<div class="exercise">
-<h3>Evaluate a Survey (15 minutes)</h3>
-<p>Find the methods section of [<a class="bib-ref" href="../bibliography/#Liang2024">Liang2024</a>]
-or another published survey of developer experience with AI tools.
-Identify the sampling strategy,
-the response rate (if reported),
-and one specific design choice that reduces bias.
-Then identify one limitation the authors acknowledge and one they do not.</p>
+<div id="ref-Braun2019" class="csl-entry" role="listitem">
+Braun, Virginia, and Victoria Clarke. 2019. <span>“Reflecting on Reflexive Thematic Analysis.”</span> <em>Qualitative Research in Sport, Exercise and Health</em> 11 (4). <a href="https://doi.org/10.1080/2159676X.2019.1628806">https://doi.org/10.1080/2159676X.2019.1628806</a>.
 </div>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../wrong">How to Be Wrong</a>
+<div id="ref-Diener2010" class="csl-entry" role="listitem">
+Diener, Ed, Derrick Wirtz, William Tov, et al. 2010. <span>“New Well-Being Measures: Short Scales to Assess Flourishing and Positive and Negative Feelings.”</span> <em>Social Indicators Research</em> 97: 2010. <a href="https://doi.org/10.1007/s11205-009-9493-y">https://doi.org/10.1007/s11205-009-9493-y</a>.
 </div>
-<div class="col-6 center">
-<a href="../">notwrong</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
+<div id="ref-Johnson2013" class="csl-entry" role="listitem">
+Johnson, Brittany, Yoonki Song, Emerson Murphy-Hill, and Robert Bowdidge. 2013. <span>“Why Don’t Software Developers Use Static Analysis Tools to Find Bugs?”</span> <em>Proc. ICSE’13</em>. <a href="https://doi.org/10.1109/icse.2013.6606613">https://doi.org/10.1109/icse.2013.6606613</a>.
 </div>
-<div class="col-3 right">
-<a href="../quantitative">Quantitative Methods: Controlled Experiments</a> <span aria-hidden="true">⇒</span>
+<div id="ref-Liang2024" class="csl-entry" role="listitem">
+Liang, Jenny T., Chenyang Yang, and Brad A. Myers. 2024. <span>“A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges.”</span> <em>Proc. ICSE’24</em>. <a href="https://doi.org/10.1145/3597503.3608128">https://doi.org/10.1145/3597503.3608128</a>.
+</div>
+<div id="ref-Meyer2017" class="csl-entry" role="listitem">
+Meyer, André N., Laura E. Barton, Gail C. Murphy, Thomas Zimmermann, and Thomas Fritz. 2017. <span>“The Work Life of Developers: Activities, Switches and Perceived Productivity.”</span> <em>IEEE Trans. Software Engineering</em> 43 (12). <a href="https://doi.org/10.1109/tse.2017.2656886">https://doi.org/10.1109/tse.2017.2656886</a>.
+</div>
+<div id="ref-Sedano2017" class="csl-entry" role="listitem">
+Sedano, Todd, Paul Ralph, and Cécile Péraire. 2017. <span>“Software Development Waste.”</span> <em>Proc. ICSE’17</em>. <a href="https://doi.org/10.1109/icse.2017.20">https://doi.org/10.1109/icse.2017.20</a>.
+</div>
+<div id="ref-Thornberg2014" class="csl-entry" role="listitem">
+Thornberg, Robert, and Kathy Charmaz. 2014. <span>“Grounded Theory and Theoretical Coding.”</span> <em>The SAGE Handbook of Qualitative Data Analysis</em>, ahead of print. <a href="https://doi.org/10.4135/9781446282243">https://doi.org/10.4135/9781446282243</a>.
+</div>
+<div id="ref-Wessel2021" class="csl-entry" role="listitem">
+Wessel, Mairieli, Igor Wiese, Igor Steinmacher, and Marco Aurelio Gerosa. 2021. <span>“Don’t Disturb Me: Challenges of Interacting with Software Bots on Open Source Software Projects.”</span> <em>Proc. ACM Human-Computer Interaction</em>. <a href="https://doi.org/10.1145/3476042">https://doi.org/10.1145/3476042</a>.
+</div>
+<div id="ref-Zieris2014" class="csl-entry" role="listitem">
+Zieris, Franz, and Lutz Prechelt. 2014. <span>“On Knowledge Transfer Skill in Pair Programming.”</span> <em>Proc. ESEM’14</em>. <a href="https://doi.org/10.1145/2652524.2652529">https://doi.org/10.1145/2652524.2652529</a>.
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../wrong/index.html" class="pagination-link" aria-label="How to Be Wrong">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../quantitative/index.html" class="pagination-link" aria-label="Quantitative Methods: Controlled Experiments">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/qualitative/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/qualitative/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

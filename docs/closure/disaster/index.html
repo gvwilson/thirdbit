@@ -1,472 +1,849 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Disasters for Small Teams</title>
-<meta content="Closing Time" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Disaster Recovery – Closing Time</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../abrupt/index.html" rel="next">
+<link href="../deliberate/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">closure</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../gap/">Governance, Assets, and Permissions</a></li>
-<li><a href="../comms/">Communicating During a Deliberate Shutdown</a></li>
-<li><a href="../emergency/">On Short Notice</a></li>
-<li><a href="../preserve/">Preserving Your Work</a></li>
-<li><a href="../care/">Preserving Your People</a></li>
-<li><a href="../legal/">Legal and Administrative Matters</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../disaster/index.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disaster Recovery</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Closing Time</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/closure" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../intro/slides.html">Introduction</a></li>
-<li><a href="../gap/slides.html">Governance, Assets, and Permissions</a></li>
-<li><a href="../comms/slides.html">Communicating During a Deliberate Shutdown</a></li>
-<li><a href="../emergency/slides.html">On Short Notice</a></li>
-<li><a href="../preserve/slides.html">Preserving Your Work</a></li>
-<li><a href="../care/slides.html">Preserving Your People</a></li>
-<li><a href="../legal/slides.html">Legal and Administrative Matters</a></li>
-<li><a href="../finale/slides.html">Conclusion</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-<li><a href="../fire/">Firing and Being Fired</a></li>
-<li><a href="../handover/">Handing Over</a></li>
-<li><a href="../nesbitt/">Dumb Ways to Die</a></li>
-<li><a class="active" href="../disaster/">Disasters</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/closure">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../gas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Governance, Assets, and State</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../handover/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Succession Planning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../deliberate/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliberate Closure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../disaster/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disaster Recovery</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abrupt/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Abrupt Closure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../care/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caring For Your People</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fire/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Firing and Being Fired</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nesbitt/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Dumb Ways for an Open Source Project to Die</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Disasters for Small Teams</h1>
-<p>In 2025, the US government launched an unprecedented series of attacks on its
-own scientific research groups.  Twelve months later, <a href="https://github.com/">GitHub</a> briefly
-dropped below 90% availability for the first time, and at the time of writing,
-wildfires in Canada, France, Spain, and elsewhere have forced researchers from
-the homes and labs. These events and others have reminded us just how fragile
-research computing systems can be.</p>
-<p>This paper is a short guide to disaster planning and recovery for a research
-software team that fits comfortably around a single table.  The tips assume you
-are doing everything yourself on top of your regular job, and that you <em>aren't</em>
-an experienced system administrator.</p>
-<h2>Four Kinds of Teams</h2>
-<p>Despite the disclaimer above, early versions of this guide focused primarily on
-teams that run online services that other researchers use.  This version
-generalizes the advice to handle three other types of groups as well.</p>
-<dl>
-<dt>Providing a simple online service</dt>
-<dd>Your research group runs a <a href="https://shiny.posit.co/">Shiny</a> app or a <a href="https://streamlit.io/">Streamlit</a>
-dashboard so that collaborators can query data.  Disasters scenarios
-include:
--   Your cloud provider suspends your account.
--   The graduate student who deployed the service leaves and no one else has
-    credentials.
--   Your service depends on a database that another group maintains, and
-    that group shuts down on short notice.</dd>
-<dt>Publishing a software package</dt>
-<dd>Your group releases software to public registries like <a href="https://pypi.org/">PyPI</a> or
-<a href="https://cran.r-project.org/">CRAN</a> and wants those releases to survive the group's dissolution.
-Scenarios include:
--   Your PyPI token expires and the person who created it has left.
--   GitHub suspends your account.
--   Your institutional web hosting is turned off.</dd>
-<dt>Managing data</dt>
-<dd>Your group produces datasets in the lab or in the field that are shared with
-collaborators and deposited in repositories.  Scenarios include:
--   A lab server's hard drive fails.
--   A field laptop is stolen and the data on it has not been backed up.
--   Your data repository announces it is shutting down.</dd>
-<dt>Managing a physical laboratory</dt>
-<dd>This category includes teams working in wet labs, field stations, or with
-sample collections.  Scenarios include:
--   A specimen freezer fails over a long weekend.
--   A key piece of equipment is out of warranty and can no longer be serviced.
--   The notebook containing the labeling key for a set of specimens is lost.</dd>
-</dl>
-<p>These categories overlap: for example, a five-person ecology lab may publish an
-R package, run a Shiny dashboard for collaborators, manage a ten-year field
-dataset, and maintain a wet lab with freezers and sample collections.</p>
-<blockquote>
-<p><strong>Before you start:</strong> Many universities have research-computing groups, data
-librarians, and environmental-health-and-safety offices whose entire job is to
-help with exactly these problems. Find those people and ask for help before
-assuming you must do everything yourself. This paper tells you what to ask
-for; they can often provide it.</p>
-</blockquote>
-<h2>Tip 1: Know your risks.</h2>
-<p>Start by making a point-form list of every service and physical asset your team
-depends on. For our ecology lab, this includes where the R package is published,
-where the Shiny dashboard is hosted, where the ten-year field dataset lives,
-where the freezers and their contents are, and the laptops the team works
-on. For a small team, this will take about an hour the first time through, and
-15-30 minutes per quarter for review.</p>
-<p>A Markdown file in a shared folder or a Google Doc is the right tool for
-this. For each item, answer two questions:</p>
-<ol>
-<li>
-<p>How long can you be without it before work stops dead? This is your
-    <em>Recovery Time Objective</em> (RTO).</p>
-</li>
-<li>
-<p>How much data can you afford to lose: the last hour's work, the last
-    day's, a week's? This is your <em>Recovery Point Objective</em> (RPO).</p>
-</li>
-</ol>
-<p>Next, identify the single points of failure within your control: the person
-who knows the deployment process, the credit card that pays for cloud
-services, the person with the only key to the -80°C freezer. For each, ask
-what happens if it disappears.</p>
-<h2>Tip 2: Make a plan.</h2>
-<p>Once you understand your risks, write a plan in a single shared document
-that everyone on the team can find in thirty seconds or less. Store the
-plan in at least two places that cannot fail simultaneously, such as the
-shared team drive <em>plus</em> a printed copy in a desk drawer or a PDF saved on
-every team member's phone. Pin the link in your team chat, and if you have
-a physical office, tape a printed copy to the fridge.</p>
-<p>State the disaster declaration criteria in plain language: "our dashboard
-has been offline for more than a day", "we have found ransomware encryption
-on a shared drive", or "the -80°C freezer has been above -70°C for more
-than an hour". Every team member is part of the recovery team, so make sure
-everyone has read the plan, understands the criteria, and knows their first
-action if a disaster is declared.</p>
-<p>Your plan should include a short checklist for each scenario, written
-as a numbered series of specific actions. For example, for an online
-service outage:</p>
-<ol>
-<li>Send a message to the Signal group.</li>
-<li>Log into the database management console and click "Restore from
-    snapshot."</li>
-<li>Check that the dashboard loads and returns data correctly.</li>
-</ol>
-<p>For a freezer failure:</p>
-<ol>
-<li>Call the lab manager at the emergency number on the printed contact
-    sheet.</li>
-<li>Move samples to the backup freezer in Building C, Room 112.</li>
-<li>Log the time, temperature, and which samples were moved in the lab
-    notebook.</li>
-</ol>
-<blockquote>
-<p>If a step requires knowledge or access that only one person has, you have a
-<em>lottery-factor</em> problem. Ask yourself, "If Alice wins the lottery and moves
-to Bali tomorrow, can the rest of the team keep things running?"  This is the
-hardest part of planning by far, because Alice probably doesn't recognize all
-the things only she knows how to do, and no one else does either because they
-are not doing them.</p>
-</blockquote>
-<h2>Tip 3: Back up everything.</h2>
-<p>Follow the <em>3-2-1 rule</em> [<a class="bib-ref" href="../bibliography/#Krogh2009">Krogh2009</a>]: three copies of every critical asset,
-on two different types of media, with one copy off-site. This applies to
-datasets, software releases, lab notebooks, and configuration information
-equally.</p>
-<p>For our ecology lab, the three copies are typically:</p>
-<ol>
-<li>The working copy on a lab server or shared drive.</li>
-<li>An automated backup. If your institution offers a research computing backup
-    service, use it. If not, use a managed database (e.g., <a href="https://aws.amazon.com/rds/">Amazon RDS</a> or
-    <a href="https://cloud.google.com/sql">Google Cloud SQL</a>) with automatic daily snapshots (no scripting
-    required). For files, GUI tools like <a href="https://duplicati.com/">Duplicati</a> or your cloud
-    provider's desktop sync app are sufficient.</li>
-<li>An off-site deposit. For datasets, deposit snapshots in an institutional or
-    domain repository (<a href="https://dataverse.org/">Dataverse</a>, <a href="https://datadryad.org/">Dryad</a>, <a href="https://zenodo.org/">Zenodo</a>,
-    or <a href="https://osf.io/">OSF</a>) that provides a DOI. For software, connect Zenodo or figshare
-    to your repository so every tagged release is automatically archived. For
-    lab notebooks, scan or photograph key pages quarterly and save them with
-    your other backups.</li>
-</ol>
-<p>Back up your source code to at least two different software forges, and turn on
-automatic mirroring in GitHub or <a href="https://gitlab.com/">GitLab</a>'s settings. A <code>git push</code> to a
-secondary remote is the most cost-effective one-liner you will ever write, but
-automatic mirroring is even better.</p>
-<p>Back up your configuration as well: DNS records, environment variables, and
-pipeline definitions. These are small in size but catastrophic to reconstruct
-from memory. A single export once a week, stored alongside your other backups,
-is sufficient.</p>
-<p>Finally, <em>test a full restore from backup</em> at least once a year.  Anecdotally,
-about a third of backups fail to restore completely. Remember that you may need
-to restore several times in a real disaster. Check that your restore process is
-<em>idempotent</em> by running it and then running it again: a recovery that corrupts
-data the second time is as bad as no recovery at all.</p>
-<blockquote>
-<p>If you can store backups on a separate cloud account with credentials that are
-not stored on any production server, do so. If an attacker compromises your
-main account, they should not get your backups as well.</p>
-</blockquote>
-<h2>Tip 4: Communicate clearly.</h2>
-<p>Choose a single communication channel that does not depend on your normal
-infrastructure. If you use <a href="https://slack.com/">Slack</a>, agree <em>in advance</em> on a
-<a href="https://signal.org/">Signal</a> group or a phone tree for when Slack is unavailable. Make sure
-the fallback is written in your plan.</p>
-<p>For lab and field staff, maintain a printed contact tree: if the freezer alarms
-at 2:00 a.m., who calls whom? Post it on the lab fridge and save a photo on
-every team member's phone.</p>
-<p>Keep a printed (or phone-screenshot) contact list with every team member's
-mobile number and a personal email address. Do not store this only in a shared
-drive that may be affected by an outage.</p>
-<p>Pre-write messages and store them with the plan and in your password manager's
-shared vault:</p>
-<ol>
-<li>For the team: "This is a declared incident: meet in the Signal group."</li>
-<li>For users of your online service: "We are investigating an outage and
-    will update you within 60 minutes."</li>
-<li>For collaborators waiting on field data: "We have lost connectivity at
-    the field site. Data collected so far is safe; expect a delay of [X]
-    days."</li>
-<li>For afterward: "Service is restored / the situation is under control.
-    Here is what happened and what we are doing to prevent recurrence."</li>
-</ol>
-<p>Designate one person as the communicator so that everyone else can focus on
-fixing the problem. The communicator does not need to be technical: they need to
-be calm and reliable. Silence erodes trust faster than bad news, so update
-stakeholders at regular intervals (for example, every 60 minutes or at 10:00 am
-and 3:00 pm) even if the update is "still working on it."</p>
-<h2>Tip 5: Test the plan.</h2>
-<p>The most revealing test for a small team is to hand the recovery checklist to
-the newest team member, give them a test copy that they can break without
-consequences, and ask them to execute the plan without help. Every point where
-they get stuck is a documentation or automation gap.</p>
-<p>If no one has joined your team recently, gather everyone for an hour-long
-walkthrough. Present a scenario: "It's Tuesday morning and all of Monday's data
-has disappeared from the database," or "The -80°C freezer alarm went off at 3:00
-a.m. and no one was in the building." Pick the thing that scares you most. Walk
-through the checklist step by step and fix anything that is missing, wrong, or
-stale then and there.</p>
-<p>Over the course of a year, aim to test one scenario from each applicable domain:</p>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-survival-arc" id="toc-the-survival-arc" class="nav-link active" data-scroll-target="#the-survival-arc"><span class="header-section-number">5.1</span> The Survival Arc</a></li>
+  <li><a href="#know-your-risks" id="toc-know-your-risks" class="nav-link" data-scroll-target="#know-your-risks"><span class="header-section-number">5.2</span> Know Your Risks</a></li>
+  <li><a href="#make-and-test-a-plan" id="toc-make-and-test-a-plan" class="nav-link" data-scroll-target="#make-and-test-a-plan"><span class="header-section-number">5.3</span> Make and Test a Plan</a></li>
+  <li><a href="#back-up-and-protect" id="toc-back-up-and-protect" class="nav-link" data-scroll-target="#back-up-and-protect"><span class="header-section-number">5.4</span> Back Up and Protect</a></li>
+  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate"><span class="header-section-number">5.5</span> Communicate</a></li>
+  <li><a href="#stabilize-then-investigate" id="toc-stabilize-then-investigate" class="nav-link" data-scroll-target="#stabilize-then-investigate"><span class="header-section-number">5.6</span> Stabilize, Then Investigate</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.7</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#rto-and-rpo" id="toc-rto-and-rpo" class="nav-link" data-scroll-target="#rto-and-rpo"><span class="header-section-number">5.7.1</span> RTO and RPO</a></li>
+  <li><a href="#declare-a-disaster" id="toc-declare-a-disaster" class="nav-link" data-scroll-target="#declare-a-disaster"><span class="header-section-number">5.7.2</span> Declare a Disaster</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/disaster/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/disaster/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disaster Recovery</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p class="subtitle">
+when the project survives the storm
+</p>
 <ul>
-<li>Restore the database from a snapshot.</li>
-<li>Release your software package from the mirrored repository (not the usual one).</li>
-<li>Download and verify your dataset from its repository deposit.</li>
-<li>Walk through a freezer-failure drill.</li>
+<li>A <a href="../glossary/index.html#disaster">disaster</a> is not the end of the project: it is an unplanned disruption that the team works through and survives</li>
+<li>In 2025, the US government launched an unprecedented series of attacks on its own scientific research groups, and soon after <a href="https://github.com/">GitHub</a> briefly dropped below 90% availability for the first time</li>
+<li>These events reminded us how fragile research computing systems can be</li>
 </ul>
-<p>Keep track of how long tests take and compare against your RTO. If restoring the
-database takes four hours but your RTO is two hours, you must either fix the
-former or adjust the latter.</p>
-<h2>Tip 6: Watch for trouble.</h2>
-<p>Monitor the things that would get you out of bed at 3:00 a.m. For online
-services, free-tier monitoring like <a href="https://uptimerobot.com/">Uptime Robot</a> and
-<a href="https://healthchecks.io/">Healthchecks.io</a> require no code and are infinitely better than
-nothing.</p>
-<p>For physical assets, install temperature alarms on freezers and incubators, CO₂
-monitors where needed, and power-failure alerts for field stations.  Many of
-these are available as off-the-shelf WiFi sensors with smartphone alerting.</p>
-<p>Check that your dataset's DOI still resolves and that your package is still
-installable from its registry. If your software has a "downloads per month"
-badge, a sudden drop to zero may be the first sign that your registry listing is
-broken.</p>
-<p>Check your cloud bill at least once a month: a misconfigured resource can
-generate a catastrophic bill even for a small team. Set budget alerts in your
-cloud provider's console at 50% and 90% of your normal monthly spend, sent to at
-least two people. Most cloud providers offer free-tier budget alerting adequate
-for a small team.</p>
-<h2>Tip 7: Lock down your accounts.</h2>
-<p>Enable multi-factor authentication (MFA) on every digital account: this is the
-highest-impact security measure you can take [<a class="bib-ref" href="../bibliography/#Smalls2021">Smalls2021</a>]. An authenticator
-app or passkey is better than SMS-based MFA, though SMS is better than no MFA at
-all.</p>
-<p>Use a password manager like <a href="https://1password.com/">1Password</a> or <a href="https://bitwarden.com/">Bitwarden</a> for
-the whole team.  Bitwarden's free tier is often enough for a 3-5 person
-team. Every shared credential goes in the password manager: never send
-credentials over chat or email. Print the password manager's recovery code and
-store it somewhere physically safe, because if you lose access to the password
-manager you lose access to everything.</p>
-<p>For physical access, maintain a list of who has keys to the lab, who knows the
-alarm code, and who is authorized to move or discard samples. Update this list
-as part of your offboarding process; a former team member with an unreturned key
-is a risk you can eliminate.</p>
-<p>If you have a custom domain, know who manages it: institutional IT, a commercial
-registrar, or someone on the team. Make sure that person's contact information
-is in the disaster plan, that auto-renewal is enabled, and that at least two
-people can access the account. Set a quarterly calendar reminder to verify that
-auto-renewal is still working.</p>
-<p>Make sure at least two people have critical administrative credentials, such as
-the cloud root account, the domain registrar login, the payment method for
-infrastructure, and the password-manager administrator account.  These
-credentials should not be tied to a single phone number or email address.</p>
-<p>Finally, maintain an offboarding checklist. When someone leaves, revoke their
-digital access and collect their physical keys as soon as you can. A disgruntled
-former team member with lingering access is trouble you don't need.</p>
-<h2>Tip 8: Protect your assets.</h2>
-<p>Make a simple, explicit policy about where things live, such as, "patient data
-is never copied to a personal laptop", "database dumps are encrypted at rest",
-or "freezer samples are logged with location and sample ID".  If your policy
-will not fit comfortably on a single page in an 11-point font, rewrite it until
-it does.</p>
-<blockquote>
-<p>If you are handling sensitive data, check whether your institution has a
-security office, ethics board, or data-protection officer that offers free
-consultation. You may have obligations you are not aware of under HIPAA, GDPR,
-or your funder's data-management plan.</p>
-</blockquote>
-<p>Keep laptops and servers patched: enable automatic updates for operating
-systems, browsers, and any server-side software. The inconvenience of an
-unexpected reboot is less than the inconvenience of ransomware.</p>
-<p>For on-premises equipment like a lab server or a freezer, buy a cheap
-uninterruptible power supply (UPS) and configure it to trigger a clean shutdown
-when the battery reaches 20%.  Replace the UPS battery every three years: they
-have a tendency to degrade silently.</p>
-<p>Prepare a short, written response for ransomware. If someone on the team sees a
-ransom note on a shared drive, their first action is to physically disconnect
-the affected machine from the network and then call the designated incident
-lead. Do not try to negotiate or pay without consulting legal counsel: most
-jurisdictions have regulations about ransomware payments.</p>
-<h2>Tip 9: Stabilize, then investigate.</h2>
-<p>The most important rule of incident response is, "Stabilize first, investigate
-later." Your first goal when something breaks is to contain the damage, not to
-find the root cause. This applies to physical disasters as much as digital ones:
-contain the water leak before mopping up; move samples to backup storage before
-diagnosing what killed the freezer.</p>
-<p>Assign clear roles for the duration of the incident: one person leads the
-technical response, one person handles communication using the pre-written
-messages from Tip 4, and everyone else does what the leads tell them to.</p>
-<p>Create an incident log <em>as you work</em>: a shared Google Doc or a thread in your
-out-of-band Signal group is good enough. Timestamp every significant action:</p>
+<section id="the-survival-arc" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-survival-arc"><span class="header-section-number">5.1</span> The Survival Arc</h2>
+<ul>
+<li><span class="citation" data-cites="Ripley2008">(<a href="../bibliography/index.html#ref-Ripley2008" role="doc-biblioref">Ripley 2008</a>)</span> synthesised research on how people behave when disaster strikes and identified a three-stage <a href="../glossary/index.html#survival-arc">survival arc</a>:
+<ul>
+<li>Denial: refusal to believe that the situation is as serious as evidence suggests</li>
+<li>Deliberation: a period of paralysed uncertainty about what to do</li>
+<li>Decision: action, which may or may not be correct</li>
+</ul></li>
+<li>The denial phase usually consumes far more time than people expect
+<ul>
+<li>Thinking through the scenario before it happens dramatically shortens it</li>
+</ul></li>
+<li>The period between a credible sign that a project is in trouble and the first concrete closure action will be longer than planners assume, particularly under abrupt conditions
+<ul>
+<li>Rehearsal converts a novel emergency into a recognized pattern and shortens denial</li>
+<li>The most common mistake is skipping early stages because they feel premature</li>
+</ul></li>
+</ul>
+</section>
+<section id="know-your-risks" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="know-your-risks"><span class="header-section-number">5.2</span> Know Your Risks</h2>
+<ul>
+<li>The <a href="../gas/index.html">Governance, Assets, and State</a> section describes inventory taking and the lottery-factor problem</li>
+<li>Make a point-form list of every service and physical asset your team depends on</li>
+<li>For each item, answer two questions:
+<ul>
+<li>How long can you be without it before work stops dead? This is the &lt;&lt;{g rto “recovery time objective” &gt;&gt;} (RTO).</li>
+<li>How much data can you afford to lose: the last hour, the last day, a week? This is the &lt;&lt;{g rpo “recovery point objective” &gt;&gt;} (RPO).</li>
+</ul></li>
+<li>Identify the single points of failure within your control, e.g., the credit card that pays for cloud services, or the person with the only key to the freezer</li>
+</ul>
+</section>
+<section id="make-and-test-a-plan" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="make-and-test-a-plan"><span class="header-section-number">5.3</span> Make and Test a Plan</h2>
+<ul>
+<li>Write a plan in a single shared document that everyone can find in thirty seconds
+<ul>
+<li>Store it in at least two places that cannot fail simultaneously</li>
+</ul></li>
+<li>State the disaster declaration criteria in plain language: “the dashboard has been offline for more than a day” or “the freezer has been above -70°C for more than an hour”</li>
+<li>Include a short numbered checklist for each scenario</li>
+<li>Test the plan by handing it to the newest team member and asking them to execute it without help
+<ul>
+<li>Every point where they get stuck is a documentation or automation gap</li>
+</ul></li>
+<li>This is the antidote to the “fantasy document” described <a href="../gas/index.html">earlier</a></li>
+</ul>
+</section>
+<section id="back-up-and-protect" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="back-up-and-protect"><span class="header-section-number">5.4</span> Back Up and Protect</h2>
+<ul>
+<li>Follow the 3-2-1 rule <span class="citation" data-cites="Krogh2009">(<a href="../bibliography/index.html#ref-Krogh2009" role="doc-biblioref">Krogh 2009</a>)</span>: three copies of every critical asset, on two different types of media, with one copy off-site</li>
+<li>Back up source code to at least two different software forges and turn on automatic mirroring</li>
+<li>Back up configuration as well: DNS records, environment variables, pipeline definitions</li>
+<li>Test a full restore from backup at least once a year
+<ul>
+<li>About a third of backups fail to restore completely</li>
+</ul></li>
+<li>Backups are not the same as preservation: backups protect a <em>continuing</em> project from operational loss, while the assets discussed <a href="../gas/index.html">earlier</a> leaves a <em>closing</em> project usable by strangers</li>
+</ul>
+</section>
+<section id="communicate" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="communicate"><span class="header-section-number">5.5</span> Communicate</h2>
+<ul>
+<li>Choose a single communication channel that does not depend on your normal infrastructure
+<ul>
+<li>Agree in advance on a fallback and write it in the plan</li>
+</ul></li>
+<li>Pre-write messages and store them with the plan: one for the team, one for users, one for collaborators, one for afterward</li>
+<li>Designate one person as the communicator so everyone else can focus on fixing the problem
+<ul>
+<li>Silence erodes trust faster than bad news, so update stakeholders at regular intervals even if the update is “still working on it”</li>
+</ul></li>
+<li>The <a href="../abrupt/index.html">next section</a> covers the same principle for the case where the project does not continue</li>
+</ul>
+</section>
+<section id="stabilize-then-investigate" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="stabilize-then-investigate"><span class="header-section-number">5.6</span> Stabilize, Then Investigate</h2>
+<ul>
+<li>The first goal when something breaks is to contain the damage, not to find the root cause
+<ul>
+<li>Contain the water leak before mopping up</li>
+</ul></li>
+<li>Assign clear roles for the duration of the incident: one person leads the technical response, one person handles communication, everyone else does what the leads tell them</li>
+<li>Create an incident log as you work, timestamping every significant action
 <ul>
 <li>14:32: freezer alarm triggered</li>
 <li>14:35: temperature reading -50°C and rising</li>
 <li>14:40: began sample transfer to Building C</li>
-</ul>
-<p>The log keeps the team in sync and gives you a record for the post-incident
-review.</p>
-<p>Escalate early. If you are on a cloud provider's support plan, open a ticket the
-moment you suspect the problem is on their side. If the freezer repair
-contractor has a 24-hour emergency line, call them before you have finished
-diagnosing the compressor.  You can cancel if you fix it yourself, but you
-cannot get back the two hours you spent hoping something outside your control
-would resolve itself.</p>
-<p>Finally, conduct a short review within 48 hours of any incident. The goal is to
-identify what in the system allowed the incident to happen, not who made a
-mistake. Write down one concrete action item and assign it to one person with a
-deadline. If you cannot find an outside moderator for the review, have the team
-member <em>least</em> involved in the incident lead it.</p>
-<h2>Tip 10: Count the cost.</h2>
-<p>You probably don't have a budget line item for disaster recovery, but you still
-have costs. Identify them all:</p>
+<li>Keeps the team in sync and helps retrospective</li>
+</ul></li>
+<li>Escalate early: open a support ticket the moment you suspect the problem is on someone else’s side</li>
+<li>Conduct a short review within 48 hours,
 <ul>
-<li>
-<p>Digital costs: cloud backup storage, password-manager subscription, domain
-    and certificate renewals, managed-database fees, repository deposit charges.</p>
-</li>
-<li>
-<p>Physical costs: backup freezer space, equipment maintenance contracts, UPS
-    battery replacements, field-safety gear, sample-replacement materials.</p>
-</li>
-<li>
-<p>Personnel costs: time spent on quarterly plan reviews, annual backup-restore
-    tests and disaster drills, cross-training to reduce lottery factors, and the
-    hours lost to incident response instead of research.</p>
-</li>
+<li>“What in the system allowed the incident”, not, “Who made a mistake”</li>
+</ul></li>
+<li>Count the cost: a day of downtime has a concrete price in lost experiments, missed deadlines, and collaborators who stop trusting you
+<ul>
+<li>That number tells you whether a managed database or a backup service is worth it</li>
+</ul></li>
 </ul>
-<p>Calculate what a day of downtime costs you in concrete terms: lost experiment
-time, missed paper deadlines, collaborators who stop trusting you, a blown grant
-deadline, or samples that cannot be replaced. For a grant-funded research group,
-"cost" also includes the graduate student who cannot finish their thesis chapter
-and the field season that cannot be re-run. That number tells you whether it is
-worth spending $50/month on a managed database or $200/year on a backup service.
-For most groups, it is.</p>
-<h2>Tip 11: Support your team during the crisis.</h2>
-<p>The disasters discussed in the opening are not just logistics problems: each is
-a shock to your team and to the people who depend on them.  Team members may be
-scared, angry, or ashamed, particularly if they believe they caused the problem.
-Handling the human damage is therefore just as important as handling the
-technical aspects.</p>
-<p>During the acute phase of a disaster, apply the same five principles that the
-World Health Organization recommends for crisis responders:</p>
-<dl>
-<dt>Promote safety.</dt>
-<dd>Before asking for status updates, confirm that everyone is not in immediate
-personal danger.  Someone whose field laptop was stolen may not be thinking
-clearly about data loss because they are still shaken from the theft itself.</dd>
-<dt>Calm the environment.</dt>
-<dd>Do not add to the panic.  Use a steady voice in your out-of-band chat.
-Remind the team that the plan exists and that they have rehearsed for this.
-Panic is contagious, but so is calm.</dd>
-<dt>Build self-efficacy.</dt>
-<dd>Remind people that they have handled difficult things before.  Give each
-person one concrete task from the checklist so that everyone feels useful
-rather than helpless.</dd>
-<dt>Foster connectedness.</dt>
-<dd>Use your fallback communication channel to keep the team together.
-Isolation amplifies distress, so do not let anyone absorb the news alone.</dd>
-<dt>Maintain hope.</dt>
-<dd>In particular, do not speculate about worst cases before you have confirmed
-them.</dd>
-</dl>
-<p>Protect the person who may have caused the problem.  If a team member
-accidentally dropped a table from a database, left the freezer door ajar, or
-clicked a phishing link, they probably feel worse than anyone else.  Assign them
-a recovery task, even a small one, so they can contribute to the fix rather than
-sitting in the corner imagining their career is over.  Blame can wait; recovery
-cannot.</p>
-<p>Watch for exhaustion.  Disaster response is an adrenaline sprint followed by a
-long slog.  Two people working four hours each will make fewer mistakes than one
-person working eight straight, so rotate people out of the incident response
-when the acute phase is over, even if they insist they are fine.  The person who
-pulled the all-nighter to restore the database should not also be the person
-writing the post-mortem the next morning.</p>
-<h2>Tip 12: Help your team recover after the disaster.</h2>
-<p>In Tip 9 said to hold the review within 48 hours. That is for gathering facts
-while memory is fresh; a second, more reflective conversation a week or two
-later gives people time to process what happened emotionally.  The goal of this
-second conversation is not to find root causes but to ask: "How are we doing?"</p>
-<p>If someone on the team caused the disaster, handle it carefully.  Most people
-who make a costly mistake are already punishing themselves more harshly than you
-ever would.  Ask them privately if they are OK.  Tell them explicitly that the
-team does not blame them, and then make sure the rest of the team acts that way.
-If you find yourself wanting to revisit the mistake in every team meeting, you
-are the one who hasn't moved on.</p>
-<p>Recognize that people recover at different speeds.  One team member may be
-joking about it by Tuesday while another is still waking up anxious on Friday.
-Both responses are normal.  Check in with each person individually a week after
-the incident, and again a month later.  Again, the question is simply: "How are
-you doing with what happened?"</p>
-<p>Watch for survivors' guilt.  For example, if your lab's data survived a building
-fire but a neighbouring group lost everything, your team may feel they got lucky
-rather than prepared.  They may not want to celebrate their own recovery when
-others are still suffering.  Let them talk about it.  If possible, offer
-practical help to affected colleagues, such as sharing backup space, offering
-spare equipment, or simply bringing them coffee.</p>
-<p>Finally, celebrate the recovery, not just the disaster.  When the dashboard is
-back, the data is restored, or the samples are safe, take a moment to
-acknowledge the work that made it possible.  A short thank-you message that says
-"we handled this" costs nothing and pays dividends the next time something goes
-wrong.</p>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../nesbitt">Dumb Ways to Die</a>
+</section>
+<section id="exercises" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.7</span> Exercises</h2>
+<section id="rto-and-rpo" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="rto-and-rpo"><span class="header-section-number">5.7.1</span> RTO and RPO</h3>
+<ol type="1">
+<li>Pick three services or assets you depend on.</li>
+<li>Identify the single points of failure within your control that could trigger failure of each.</li>
+<li>For each, write down its recovery time objective and recovery point objective.</li>
+</ol>
+</section>
+<section id="declare-a-disaster" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="declare-a-disaster"><span class="header-section-number">5.7.2</span> Declare a Disaster</h3>
+<ol type="1">
+<li>Hand your recovery checklist to the newest member of your group.</li>
+<li>Ask them to execute the plan without help.</li>
+<li>Write down the first three gaps you find and who will fix each one.</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Krogh2009" class="csl-entry" role="listitem">
+Krogh, Peter. 2009. <em>The DAM Book</em>. O’Reilly. ISBN 9780596523572.
 </div>
-<div class="col-6 center">
-<a href="../">closure</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
+<div id="ref-Ripley2008" class="csl-entry" role="listitem">
+Ripley, Amanda. 2008. <em>The Unthinkable: Who Survives When Disaster Strikes—and Why</em>. Crown Publishers. ISBN 9780307352897.
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../deliberate/index.html" class="pagination-link" aria-label="Deliberate Closure">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliberate Closure</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../abrupt/index.html" class="pagination-link" aria-label="Abrupt Closure">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Abrupt Closure</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/disaster/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/disaster/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

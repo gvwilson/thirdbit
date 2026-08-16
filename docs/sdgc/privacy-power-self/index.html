@@ -1,603 +1,892 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Privacy, Power, and the Self</title>
-<meta content="Sex &amp; Drugs &amp; Guns &amp; Code" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Privacy, Power, and the Self – SDGC</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../inequality/index.html" rel="next">
+<link href="../harmful-models/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">SDGC</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../a-little-psychology/">A Little Psychology</a></li>
-<li><a href="../how-we-got-here/">How We Got Here</a></li>
-<li><a href="../more-psychology/">A Little More Psychology</a></li>
-<li><a href="../harmful-models/">When the Model Is the Harm</a></li>
-<li><a class="active" href="../privacy-power-self/">Privacy, Power, and the Self</a></li>
-<li><a href="../inequality/">Who Gets What and Why</a></li>
-<li><a href="../more-analogies/">More Analogies</a></li>
-<li><a href="../control-and-alternatives/">Control and Alternatives</a></li>
-<li><a href="../what-we-owe-the-future/">What We Owe the Future</a></li>
-<li><a href="../regulation-that-worked/">Regulation That Worked</a></li>
-<li><a href="../ai-happens/">When the Algorithm Comes for You</a></li>
-<li><a href="../change-happens/">How Change Happens</a></li>
-<li><a href="../finale/">Conclusion</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../privacy-power-self/index.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Privacy, Power, and the Self</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">SDGC</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/sdgc" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a href="../glossary/">Glossary</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/sdgc">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../a-little-psychology/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A Little Psychology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../how-we-got-here/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">How We Got Here</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../more-psychology/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Psychology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../harmful-models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">When the Model Is the Harm</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../privacy-power-self/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Privacy, Power, and the Self</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inequality/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Who Gets What and Why</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../more-analogies/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pending</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../control-and-alternatives/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Control and Alternatives</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../what-we-owe-the-future/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What We Owe the Future</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regulation-that-worked/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regulation That Worked</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ai-happens/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">When the Algorithm Comes for You</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../change-happens/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">What Changes and How</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Privacy, Power, and the Self</h1>
-<h2>What Privacy Is Not</h2>
-<p>Privacy is not a timeless natural right.
-As Sarah Igo describes in her history of privacy in America,
-what is and isn't private has expanded in some directions and contracted in others over the past century
-with no consistent underlying principle.
-Sexual behavior between consenting adults was legally public well into the twentieth century,
-in the sense that it was criminally regulated.
-For much of the same time,
-medical records were routinely shared between physicians, employers, and insurers without patient consent.
-The expansion of legal privacy protection into both of these areas
-was the result of specific case-by-case struggles [<a class="bib-ref" href="../bibliography/#Igo2020">Igo2020</a>].</p>
-<p>Similarly,
-financial transactions that were once private are now reported to governments
-under anti-money-laundering and tax-compliance measures,
-and communications that were once protected by the practical difficulty of interception
-are routinely monitored at scale [<a class="bib-ref" href="../bibliography/#Snowden2020">Snowden2020</a>].
-These shifts also do not reflect a coherent theory of what should be private.
-They reflect the outcomes of contests between specific interests,
-and the interests of states and large corporations have generally prevailed over
-the interests of individuals.</p>
-<p>The concept of a private individual self—a zone belonging to a person rather than to a household,
-a clan, or a community—is also historically recent and unevenly distributed [<a class="bib-ref" href="../bibliography/#Jenkins2024">Jenkins2024</a>].
-In pre-modern Europe, the unit of privacy was the household, not the person,
-and the head of household had authority over what happened inside it.
-Women and servants had no separate private sphere.
-In Ottoman law, the <em>harim</em> (from the Arabic <em>haram</em>, meaning forbidden or protected)
-designated the domestic sphere of the household as legally inviolable:
-not the "harem" of European fantasy, but a legal protection preventing
-state or community intrusion into the home without cause.
-This was a meaningful protection, but it applied to the household as a unit,
-not to the individuals inside it.</p>
-<p>Japan's traditional distinction between <em>uchi</em> (inside) and <em>soto</em> (outside)
-organized public and private behavior very differently from Western liberal individualism.
-The interior of the household was intensely private from outside scrutiny,
-but the expectation of individuals' interior privacy—thoughts, feelings, and desires
-kept from family members—was much weaker.
-The communal interior of the family, not the individual self, was the protected unit.</p>
-<p>Indigenous knowledge systems in many parts of the world
-operate through collective custodianship of sacred, medicinal, or ceremonial knowledge.
-This is a form of collective privacy:
-certain knowledge belongs to particular communities and is not available to outsiders.
-Colonial administrators and anthropologists treated this as obscurantism,
-and "freedom of information" in the colonial context often meant forced extraction:
-ceremonies documented, sacred objects removed, and genealogies recorded for administrative purposes.
-Privacy as extraction is the mirror image of privacy as protection.</p>
-<p>Tiffany Jenkins' history recounts how the boundary between public and private
-has been drawn and redrawn by courts, legislators, and social movements,
-always in someone's interests [<a class="bib-ref" href="../bibliography/#Jenkins2024">Jenkins2024</a>].
-The modern expansion of state intervention into domestic life
-with child protection laws, domestic violence legislation, and regulation of reproductive rights
-was often demanded by reformers and feminists against the privacy claims of male heads of household
-who wanted the state to stay out.
-The private sphere has not been progressively liberated from state interference;
-it has been a contested terrain in which some forms of privacy have been won and others have been imposed.</p>
-<h2>The Psychology of Private Space</h2>
-<p>The sociologist Erving Goffman argued in 1959 that
-everyday social interaction is a kind of performance [<a class="bib-ref" href="../bibliography/#Goffman1959">Goffman1959</a>].
-People present a "front stage" version of themselves when they know they are being observed:
-maintaining composure,
-managing impressions,
-and performing the role expected of them in a given context.
-The "back stage" is where the performance can relax:
-the kitchen before the dinner party,
-or the break room after the meeting.</p>
-<p>People aren't less authentic on one stage or the other;
-the back stage is just where contradictions can be worked out
-and where the next performance can be prepared.
-This is not dishonesty:
-everyone does it because social life requires it.
-But it means that privacy is not merely about concealment;
-it is about having space in which not every thought and action is subject to evaluation and judgment.
-A society without back stages is not one in which people become more authentic.
-It is one in which performance becomes continuous and exhausting,
-and in which mistakes cannot be made without permanent record.</p>
-<p>To see how harmful this is,
-look at the lives of child stars.
-Its practical consequences are measurable.
-Surveillance changes behavior even when nothing being done is wrong.
-After Edward Snowden's revelations in 2013
-made the scale of the NSA's surveillance clear [<a class="bib-ref" href="../bibliography/#Snowden2020">Snowden2020</a>],
-researchers documented a measurable drop in Google searches
-for terms associated with terrorism, drugs, or other sensitive topics—not
-because fewer people were curious,
-but because curiosity became something that required calculation.
-This is the chilling effect:
-the awareness of being watched changes what people are willing to risk.</p>
-<p>Anna Funder's oral histories of Stasi survivors document
-what sustained surveillance does over time [<a class="bib-ref" href="../bibliography/#Funder2011">Funder2011</a>].
-The East German Ministry for State Security employed roughly 90,000 full-time officers
-and had a network of approximately 180,000 informal informants
-in a country of 16 million people,
-a ratio of state surveillance capacity to population that has never been matched.
-Many of those informants were family members, recruited without one another's knowledge.
-The files they produced recorded personal relationships,
-sexual behavior,
-political opinions expressed in private,
-and the contents of letters that were opened and resealed.
-The goal was not to prevent crime,
-but to map the population thoroughly enough
-to identify, isolate, and destroy anyone who might become a source of organized opposition.</p>
-<p>What Funder's interviews reveal is not only the accumulation of files,
-but the internalization of the watcher.
-Stasi survivors describe a permanent alteration:
-the habit of measuring every word before speaking it,
-the inability to stop even decades after the state that required it had dissolved.
-The surveillance state does not only operate while it exists;
-it rewires the people it surveils.</p>
-<p>The developmental case for private space is equally compelling.
-Adolescents need to make mistakes without those mistakes being permanent.
-They need to try on political positions, personal identities, and beliefs,
-and then discard them without a record of the discarding.
-This isn't culturally specific:
-all societies that have organized the transition to adulthood
-have had designated spaces and periods in which the normal rules of visibility
-and accountability did not apply.
-Initiation rites that occur outside community view,
-age-grade houses where elders could not enter,
-and periods of deliberate ambiguity before social roles were fixed
-were not privacy in the Western legal sense,
-but they served the same developmental function.</p>
-<p>The harm of involuntary exposure is correspondingly real.
-The <em>charivari</em> was a public shaming ritual practiced across medieval and early modern Europe.
-It deployed community visibility as a disciplinary tool against people who violated social norms.
-The same mechanism operated in public "struggle sessions" during the Cultural Revolution in China,
-in the public confession practices of various religious traditions,
-and in the contemporary practice of <a class="gl-ref" href="../glossary/#doxxing">doxxing</a>.
-These vary in severity,
-but they share the same logic:
-exposure can be a weapon,
-so the ability to protect against exposure is not a luxury
-but a precondition for social participation.</p>
-<h2>The Freedom to Become</h2>
-<p>Mary Gray's study of rural LGBTQ+ youth in the United States
-documents what happens when private space for identity exploration
-is not available in physical form [<a class="bib-ref" href="../bibliography/#Gray2009">Gray2009</a>].
-Young people in small towns or religious communities
-where queer identity is dangerous or invisible
-used the early internet to try out identities and learn that they were not alone.
-The internet was not yet the optimized engagement machine it became;
-it was a relatively unmonitored space in which pseudonymity was normal
-and nobody was selling your search terms to your parents' employer.</p>
-<p>This was not specifically American.
-The same pattern has been documented in Malaysia, Uganda, Indonesia, Turkey,
-and other countries where same-sex relationships are criminalized or heavily stigmatized.
-Online anonymity functions as a prosthetic private space
-for people who have been denied physical private space.
-It does not solve the underlying problem,
-but it allows identity development to occur at all.</p>
-<div class="callout">
-<blockquote>
-<p>For most of history, "Anonymous" was a woman."</p>
-<p>— Virginia Woolf</p>
-</blockquote>
-<p>Pseudonymity has a longer history than the internet.
-George Eliot was the pen name of Mary Ann Evans,
-who wrote under a male name partly to be taken seriously
-in a literary culture that dismissed women novelists,
-but also because a male persona gave her the freedom to inhabit subject positions
-her own social location would not have authorized.</p>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-privacy-is-not" id="toc-what-privacy-is-not" class="nav-link active" data-scroll-target="#what-privacy-is-not"><span class="header-section-number">5.1</span> What Privacy Is Not</a></li>
+  <li><a href="#the-psychology-of-private-space" id="toc-the-psychology-of-private-space" class="nav-link" data-scroll-target="#the-psychology-of-private-space"><span class="header-section-number">5.2</span> The Psychology of Private Space</a></li>
+  <li><a href="#the-freedom-to-become" id="toc-the-freedom-to-become" class="nav-link" data-scroll-target="#the-freedom-to-become"><span class="header-section-number">5.3</span> The Freedom to Become</a></li>
+  <li><a href="#the-moral-arguments" id="toc-the-moral-arguments" class="nav-link" data-scroll-target="#the-moral-arguments"><span class="header-section-number">5.4</span> The Moral Arguments</a></li>
+  <li><a href="#identity-and-legibility" id="toc-identity-and-legibility" class="nav-link" data-scroll-target="#identity-and-legibility"><span class="header-section-number">5.5</span> Identity and Legibility</a></li>
+  <li><a href="#paying-for-the-privilege" id="toc-paying-for-the-privilege" class="nav-link" data-scroll-target="#paying-for-the-privilege"><span class="header-section-number">5.6</span> Paying for the Privilege</a></li>
+  <li><a href="#when-privacy-protects-power" id="toc-when-privacy-protects-power" class="nav-link" data-scroll-target="#when-privacy-protects-power"><span class="header-section-number">5.7</span> When Privacy Protects Power</a></li>
+  <li><a href="#transparency-and-its-limits" id="toc-transparency-and-its-limits" class="nav-link" data-scroll-target="#transparency-and-its-limits"><span class="header-section-number">5.8</span> Transparency and Its Limits</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/sdgc/edit/main/privacy-power-self/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/sdgc/blob/main/privacy-power-self/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/sdgc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Privacy, Power, and the Self</span></h1>
 </div>
-<p>In the Soviet Union,
-hand-typed, passed-by-hand underground literature called <a class="gl-ref" href="../glossary/#samizdat"><em>samizdat</em></a>
-was passed from person to person.
-Writing and circulating it was criminalized;
-it could only exist because private space existed,
-even under a surveillance state,
-in the gap between what the state knew and what it could actually monitor.
-Alexander Solzhenitsyn's <em>The Gulag Archipelago</em> was first circulated as <em>samizdat</em>
-before being smuggled out and published abroad.
-The private space of one person's typewriter was a form of speech protection
-that the absence of legal protection could not entirely eliminate.</p>
-<p>The Hijra communities of South Asia—a third-gender identity category
-that existed for centuries before British colonization—survived
-partly because the British administrative apparatus never successfully catalogued them.
-The Criminal Tribes Act of 1871 attempted to classify and control gender and sexual nonconformity,
-but the practices, initiations, and knowledge that defined Hijra identity
-were not legible to census-takers and administrators.
-Collective privacy as survival is not the same as individual privacy as a right,
-but they share the property that control over what is known about you
-is also control over what can be done to you.</p>
-<p>The double bind is consistent across these examples.
-The people with the greatest need for private space to develop and maintain identity
-are usually those whose identity is most criminalized, stigmatized, or surveilled.
-Simone Browne documents how oppression of Black people in the United States
-has always depended on making Black bodies, households, and movements visible to white authority,
-from the pass system of the antebellum South
-to stop-and-frisk policing and facial recognition [<a class="bib-ref" href="../bibliography/#Browne2015">Browne2015</a>].
-The practical privacy available to Black Americans has always been
-substantially less than that available to white Americans,
-not because of individual choices but because of systems built to make them more visible to the state.</p>
-<p>The "nothing to hide" argument—the
-claim that only those with something to hide need privacy—only
-makes sense from the position of someone whose identity, relationships, and beliefs are not criminalized.
-It is not a neutral observation about human behavior;
-it is the argument of someone who has never needed the protection they are asking others to give up.</p>
-<h2>The Moral Arguments</h2>
-<p>The first American legal argument for a right to privacy
-was made by Samuel Warren and Louis Brandeis
-in an 1890 law review article.
-They argued that the individual had a "right to be let alone",
-i.e., a right to protection not just from physical intrusion but from unwanted publicity.
-Their immediate concern was sensationalist newspaper journalism.
-Both men were wealthy, socially prominent, and worried about gossip columns.
-Their argument was real and important,
-but its social location is worth noting:
-the first articulated right to privacy in American law emerged from
-the needs of the prominent to be protected from exposure,
-not from the needs of the powerless to be protected from the state.</p>
-<p>This origin has never fully left the concept.
-Privacy arguments protect domestic violence abusers alongside their victims.
-They protect financial fraud alongside confidential medical records,
-and corporate malfeasance alongside personal correspondence.
-Privacy as a legal and political value does not come pre-sorted by who it helps.</p>
-<p>The feminist critique made this plain.
-The slogan "the personal is political,"
-associated with the women's liberation movement of the 1960s and 1970s,
-was a direct challenge to the liberal privacy argument.
-Women's subordination was legally protected in the private sphere:
-for example,
-marital rape was not a crime in most US states until the 1970s and 1980s
-because marriage was treated as a private relationship outside legal scrutiny.
-Domestic violence of other forms was (and in practice still is)
-routinely treated as a private family matter.
-The claim that the state should not interfere in private relationships was,
-in practice,
-the claim that women had no recourse against husbands and fathers.</p>
-<p>Jenkins argues that the twentieth-century expansion of state intervention into domestic life
-was not an erosion of privacy but a redrawing of its boundaries [<a class="bib-ref" href="../bibliography/#Jenkins2024">Jenkins2024</a>].
-Feminists and child advocates demanded that the state enter spaces
-it had previously left to male authority.
-In doing so, they were not anti-privacy;
-they were arguing that the women and children in those spaces
-deserved privacy from the men who controlled them.
-The same concept, applied by different actors, produced opposite conclusions.</p>
-<p>The communitarian critique of privacy takes a different shape.
-Communities can and do provide forms of accountability that states cannot,
-and privacy can be an obstacle to that accountability.
-But this argument has a history of being deployed most aggressively against communities
-that were not the ones making it.
-In British India,
-child marriage prohibitions and widow protection laws were introduced
-in a framework that described Hindu family privacy as barbaric and in need of civilizing intervention.
-The language of accountability to higher norms was used to justify intrusion
-into the domestic practices of colonized people by administrators
-who had no sustained interest in the well-being of the women and children they claimed to protect.</p>
-<p>American privacy worked the same way domestically [<a class="bib-ref" href="../bibliography/#Igo2020">Igo2020</a>].
-Poor families and immigrant families in the early twentieth century
-were subjected to social worker surveillance and home inspection regimes
-that middle-class families were not.
-The expansion of welfare services came with
-a corresponding expansion of state visibility into the households that received them.
-Privacy, like other goods, was distributed in proportion to social power.</p>
-<h2>Identity and Legibility</h2>
-<p>In 1879, a young police clerk in Paris named Alphonse Bertillon
-proposed a solution to a problem that had plagued law enforcement for decades:
-how do you know if the person in front of you is who they say they are?
-Before photographs were cheap to reproduce and before fingerprint databases existed,
-professional criminals could simply give a false name and walk free.
-Bertillon's answer was <a class="gl-ref" href="../glossary/#bertillonage">anthropometry</a>:
-measure the skull, the length of the forearm,
-and other bodily dimensions that, taken together,
-were statistically unlikely to be identical in any two people.
-The system spread across Europe, the United States, and colonies in Asia and Africa,
-and was the first large-scale attempt to use the body as a database.</p>
-<p>Bertillonage had a fundamental weakness:
-measurements had to be taken correctly by trained operators.
-By 1900 fingerprinting was replacing it almost everywhere
-because fingerprints were more reliable and required less skill to record.
-But the desire of states and institutions to pin individuals permanently to a record
-did not die with the calipers.</p>
-<p>The history of identity management is partly the history of states
-trying to solve what James C. Scott calls the <a class="gl-ref" href="../glossary/#legibility">legibility</a> problem [<a class="bib-ref" href="../bibliography/#Scott1998">Scott1998</a>].
-A state cannot tax, draft, or police people it cannot identify.
-Medieval English peasants might know themselves as "John the Miller's son from the village by the ford",
-but that description doesn't survive a move to a city or a change of occupation.
-Surnames became standardized in Europe partly because governments needed them.
-The same logic produced house numbers in Paris and Vienna,
-censuses across the colonial world,
-and passports that began as occasional travel documents issued by monarchs
-and became, by the twentieth century, a requirement for crossing most international borders.</p>
-<p>The problem is that the state's desire for legibility doesn't have a built-in limit.
-The state that registers births so it can provide schooling
-can use that register to conscript soldiers.
-The government that issues identity documents to allow people to vote
-can use those documents to deport people.
-Once a population register exists,
-every subsequent administration can use it for whatever purpose it finds useful.</p>
-<p>Colonial governments exploited this systematically.
-The British introduced population registers, caste certificates,
-and tribal designations across India, Africa, and Southeast Asia
-that served double purposes:
-administration, taxation, and census on one hand,
-and identifying potential troublemakers and restricting movement on the other.
-South Africa's pass laws,
-introduced gradually from the eighteenth century and formalized under apartheid after 1948,
-required Black South Africans to carry a reference book at all times.
-The book recorded their employer,
-their designated "homeland,"
-and their permission to be in urban areas.
-Police could stop anyone and demand the book;
-failure to produce it meant arrest.
-The pass system was one of the most sophisticated identity management infrastructure projects in history,
-and it was designed entirely to restrict freedom of movement
-and force labor into mines and factories at wages set by the government.</p>
-<p>Keith Breckenridge's history of South African <a class="gl-ref" href="../glossary/#biometrics">biometrics</a>
-traces a direct line from the pass system
-to the world's first large-scale biometric population register,
-introduced in South Africa in 1986.
-Fingerprints were added to the passbook
-because fingerprints are harder to falsify than signatures
-and do not require literacy.
-A system designed to prevent forgery of internal passports became,
-almost automatically,
-one of the most comprehensive biometric databases in the world at the time [<a class="bib-ref" href="../bibliography/#Breckenridge2016">Breckenridge2016</a>].</p>
-<p>This creates a dilemma that does not have a clean solution.
-Democratic participation depends on being able to identify voters.
-Electoral systems need to verify that voters are eligible residents
-and prevent people from voting twice.
-This requires some form of voter registration,
-and voter registration requires identity documentation.
-In the United States,
-the history of voter registration is entangled with the history of voter suppression:
-poll taxes, literacy tests, grandfather clauses,
-and, since the 1990s, photo ID requirements that are nominally neutral
-but fall disproportionately on communities
-less likely to hold a driver's license:
-the poor, the elderly, and people of color.
-The registration systems needed to enable political participation
-have been weaponized to prevent it.</p>
-<p>But the dilemma goes deeper than that.
-Communities that have historically been targeted by state identity systems
-have rational reasons to distrust those systems.
-If the government has used population registers to intern Japanese-Americans
-or to deport undocumented immigrants in mass raids,
-people are right to be suspicious of any new identity system.
-Even if today's government only intends to use it for good,
-it cannot bind the behavior of future governments.</p>
-<p>This dilemma is now one of the biggest challenges facing democracy.
-The communities most harmed by identity management in the past
-have the best reasons to distrust registration systems,
-but that distrust keeps them from participating in the political processes
-that would let them constrain those systems.
-Fear of being rounded up is itself a tool of disenfranchisement.</p>
-<p>India's Aadhaar system, launched in 2009, has enrolled over 1.3 billion people
-in a biometric identity database based on fingerprints and iris scans
-linked to a twelve-digit number.
-Its designers argued that a universal, biometric identifier would eliminate
-fraud and exclusion in government benefit programs
-by making identity verification objective.
-The argument was partly correct:
-Aadhaar has reduced certain kinds of fraud
-and brought some previously excluded people into the formal economy.
-It has also created new forms of exclusion.
-People who cannot authenticate are cut off from food rations and pension payments,
-and the database itself represents a concentration of sensitive biometric information
-that, if breached, cannot be reset:
-you can change your password, but you cannot get new fingerprints [<a class="bib-ref" href="../bibliography/#Khera2019">Khera2019</a>].</p>
-<div class="callout">
-<p>The European Union's General Data Protection Regulation (GDPR),
-which came into force in 2018,
-treats biometric data as a special category requiring explicit consent
-and restricts its collection and processing.
-The regulation is imperfect and inconsistently enforced,
-but it exists because privacy advocates organized across member states
-over roughly two decades to demand it.
-It is the most significant constraint on commercial biometric data collection in the world.
-The tech industry's response has been intrusive pop-ups
-designed to make users blame governments for safeguarding their privacy
-rater than companies for trying to collect information for resale.</p>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-privacy-is-not" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="what-privacy-is-not"><span class="header-section-number">5.1</span> What Privacy Is Not</h2>
+<p>Privacy is not a timeless natural right. As Sarah Igo describes in her history of privacy in America, what is and isn’t private has expanded in some directions and contracted in others over the past century with no consistent underlying principle. Sexual behavior between consenting adults was legally public well into the twentieth century, in the sense that it was criminally regulated. For much of the same time, medical records were routinely shared between physicians, employers, and insurers without patient consent. The expansion of legal privacy protection into both of these areas was the result of specific case-by-case struggles <span class="citation" data-cites="Igo2020">(<a href="../bibliography/index.html#ref-Igo2020" role="doc-biblioref">Igo 2020</a>)</span>.</p>
+<p>Similarly, financial transactions that were once private are now reported to governments under anti-money-laundering and tax-compliance measures, and communications that were once protected by the practical difficulty of interception are routinely monitored at scale <span class="citation" data-cites="Snowden2020">(<a href="../bibliography/index.html#ref-Snowden2020" role="doc-biblioref">Snowden 2020</a>)</span>. These shifts also do not reflect a coherent theory of what should be private. They reflect the outcomes of contests between specific interests, and the interests of states and large corporations have generally prevailed over the interests of individuals.</p>
+<p>The concept of a private individual self—a zone belonging to a person rather than to a household, a clan, or a community—is also historically recent and unevenly distributed <span class="citation" data-cites="Jenkins2024">(<a href="../bibliography/index.html#ref-Jenkins2024" role="doc-biblioref">Jenkins 2024</a>)</span>. In pre-modern Europe, the unit of privacy was the household, not the person, and the head of household had authority over what happened inside it. Women and servants had no separate private sphere. In Ottoman law, the <em>harim</em> (from the Arabic <em>haram</em>, meaning forbidden or protected) designated the domestic sphere of the household as legally inviolable: not the “harem” of European fantasy, but a legal protection preventing state or community intrusion into the home without cause. This was a meaningful protection, but it applied to the household as a unit, not to the individuals inside it.</p>
+<p>Japan’s traditional distinction between <em>uchi</em> (inside) and <em>soto</em> (outside) organized public and private behavior very differently from Western liberal individualism. The interior of the household was intensely private from outside scrutiny, but the expectation of individuals’ interior privacy—thoughts, feelings, and desires kept from family members—was much weaker. The communal interior of the family, not the individual self, was the protected unit.</p>
+<p>Indigenous knowledge systems in many parts of the world operate through collective custodianship of sacred, medicinal, or ceremonial knowledge. This is a form of collective privacy: certain knowledge belongs to particular communities and is not available to outsiders. Colonial administrators and anthropologists treated this as obscurantism, and “freedom of information” in the colonial context often meant forced extraction: ceremonies documented, sacred objects removed, and genealogies recorded for administrative purposes. Privacy as extraction is the mirror image of privacy as protection.</p>
+<p>Tiffany Jenkins’ history recounts how the boundary between public and private has been drawn and redrawn by courts, legislators, and social movements, always in someone’s interests <span class="citation" data-cites="Jenkins2024">(<a href="../bibliography/index.html#ref-Jenkins2024" role="doc-biblioref">Jenkins 2024</a>)</span>. The modern expansion of state intervention into domestic life with child protection laws, domestic violence legislation, and regulation of reproductive rights was often demanded by reformers and feminists against the privacy claims of male heads of household who wanted the state to stay out. The private sphere has not been progressively liberated from state interference; it has been a contested terrain in which some forms of privacy have been won and others have been imposed.</p>
+</section>
+<section id="the-psychology-of-private-space" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-psychology-of-private-space"><span class="header-section-number">5.2</span> The Psychology of Private Space</h2>
+<p>The sociologist Erving Goffman argued in 1959 that everyday social interaction is a kind of performance <span class="citation" data-cites="Goffman1959">(<a href="../bibliography/index.html#ref-Goffman1959" role="doc-biblioref">Goffman 1959</a>)</span>. People present a “front stage” version of themselves when they know they are being observed: maintaining composure, managing impressions, and performing the role expected of them in a given context. The “back stage” is where the performance can relax: the kitchen before the dinner party, or the break room after the meeting.</p>
+<p>People aren’t less authentic on one stage or the other; the back stage is just where contradictions can be worked out and where the next performance can be prepared. This is not dishonesty: everyone does it because social life requires it. But it means that privacy is not merely about concealment; it is about having space in which not every thought and action is subject to evaluation and judgment. A society without back stages is not one in which people become more authentic. It is one in which performance becomes continuous and exhausting, and in which mistakes cannot be made without permanent record.</p>
+<p>To see how harmful this is, look at the lives of child stars. Its practical consequences are measurable. Surveillance changes behavior even when nothing being done is wrong. After Edward Snowden’s revelations in 2013 made the scale of the NSA’s surveillance clear <span class="citation" data-cites="Snowden2020">(<a href="../bibliography/index.html#ref-Snowden2020" role="doc-biblioref">Snowden 2020</a>)</span>, researchers documented a measurable drop in Google searches for terms associated with terrorism, drugs, or other sensitive topics. This didn’t happen because fewer people were curious, but because curiosity became something that required calculation. This is the chilling effect: the awareness of being watched changes what people are willing to risk.</p>
+<p>Anna Funder’s oral histories of Stasi survivors document what sustained surveillance does over time <span class="citation" data-cites="Funder2011">(<a href="../bibliography/index.html#ref-Funder2011" role="doc-biblioref">Funder 2011</a>)</span>. The East German Ministry for State Security employed roughly 90,000 full-time officers and had a network of approximately 180,000 informal informants in a country of 16 million people, a ratio of state surveillance capacity to population that has never been matched. Many of those informants were family members, recruited without one another’s knowledge. The files they produced recorded personal relationships, sexual behavior, political opinions expressed in private, and the contents of letters that were opened and resealed. The goal was not to prevent crime, but to map the population thoroughly enough to identify, isolate, and destroy anyone who might become a source of organized opposition.</p>
+<p>What Funder’s interviews reveal is not only the accumulation of files, but the internalization of the watcher. Stasi survivors describe a permanent alteration: the habit of measuring every word before speaking it, the inability to stop even decades after the state that required it had dissolved. The surveillance state does not only operate while it exists; it rewires the people it surveils.</p>
+<p>The developmental case for private space is equally compelling. Adolescents need to make mistakes without those mistakes being permanent. They need to try on political positions, personal identities, and beliefs, and then discard them without a record of the discarding. This isn’t culturally specific: all societies that have organized the transition to adulthood have had designated spaces and periods in which the normal rules of visibility and accountability did not apply. Initiation rites that occur outside community view, age-grade houses where elders could not enter, and periods of deliberate ambiguity before social roles were fixed were not privacy in the Western legal sense, but they served the same developmental function.</p>
+<p>The harm of involuntary exposure is correspondingly real. The <em>charivari</em> was a public shaming ritual practiced across medieval and early modern Europe. It deployed community visibility as a disciplinary tool against people who violated social norms. The same mechanism operated in public “struggle sessions” during the Cultural Revolution in China, in the public confession practices of various religious traditions, and in the contemporary practice of <a href="../glossary/index.html#doxxing">doxxing</a>. These vary in severity, but they share the same logic: exposure can be a weapon, so the ability to protect against exposure is not a luxury but a precondition for social participation.</p>
+</section>
+<section id="the-freedom-to-become" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="the-freedom-to-become"><span class="header-section-number">5.3</span> The Freedom to Become</h2>
+<p>Mary Gray’s study of rural LGBTQ+ youth in the United States documents what happens when private space for identity exploration is not available in physical form <span class="citation" data-cites="Gray2009">(<a href="../bibliography/index.html#ref-Gray2009" role="doc-biblioref">Gray 2009</a>)</span>. Young people in small towns or religious communities where queer identity is dangerous or invisible used the early internet to try out identities and learn that they were not alone. The internet was not yet the optimized engagement machine it became; it was a relatively unmonitored space in which pseudonymity was normal and nobody was selling your search terms to your parents’ employer.</p>
+<p>This was not specifically American. The same pattern has been documented in Malaysia, Uganda, Indonesia, Turkey, and other countries where same-sex relationships are criminalized or heavily stigmatized. Online anonymity functions as a prosthetic private space for people who have been denied physical private space. It does not solve the underlying problem, but it allows identity development to occur at all.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Anonymous">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>What abusive identity management has been constrained,
-those constraints have been the result of organized political activity.
-South Africa's pass system was not abolished because its administrators became enlightened;
-it was abolished because the resistance movement grew strong enough to make it unsustainable.
-The constraints on Aadhaar came from litigants and activists who brought cases,
-and the Voting Rights Act of 1965 in the United States came from marchers,
-organizers,
-and a political coalition that made the status quo more costly than change.
-The center always wants more information.
-The question is always whether the people most likely to be harmed by that information
-have enough power to say no [<a class="bib-ref" href="../bibliography/#Cole2002">Cole2002</a>, <a class="bib-ref" href="../bibliography/#Torpey2000">Torpey2000</a>].</p>
-<h2>Paying for the Privilege</h2>
-<p>The <a class="gl-ref" href="../glossary/#surveillance-economy">surveillance economy</a> that social media and AI have created
-goes far beyond anything the Stasi dreamed of.
-The irony is that the Stasi had to coerce their informants;
-we pay subscription fees for the privilege of being surveilled.
-Corporate data collection operates under a framework built largely around consent
-obtained through contracts that no one reads
-and that cannot meaningfully be refused by people who want to participate in modern life.</p>
-<p>When a platform argues that its collection of behavioral data is voluntary
-and therefore not a privacy violation,
-it is making a legal argument, not a factual one.
-The legal distinction between state surveillance and corporate surveillance
-also ignores how governments now use corporate data collections
-to conduct surveillance they could not legally conduct directly.</p>
-<div class="callout">
-<p>Facebook's recommendation algorithm promoted content dehumanizing the Rohingya people in Myanmar,
-a fact the company's own researchers documented.
-The UN's 2018 fact-finding mission identified Facebook as
-a "contributing factor" to the genocide:
-corporate surveillance infrastructure was weaponized for ethnic cleansing
-at not cost to the platform or its owners.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Anonymous
 </div>
-<h2>When Privacy Protects Power</h2>
-<p>This asymmetry is most visible in the global system of financial secrecy.
-Nicholas Shaxson's investigation of offshore banking documents
-how a network of tax havens
-in the Cayman Islands, the British Virgin Islands, Switzerland, Luxembourg, Ireland, and Singapore
-was constructed over the twentieth century
-through legislation specifically designed
-to allow wealth to evade the oversight of the countries where it was generated [<a class="bib-ref" href="../bibliography/#Shaxson2011">Shaxson2011</a>].
-Switzerland's banking secrecy law of 1934
-was enacted partly to protect the assets of Jewish depositors from the Nazi government;
-within years it was also protecting the assets that wealthy Europeans
-were hiding from their own governments',
-and then the money, art, and treasures that Nazis had looted from their victims.</p>
-<p>Gabriel Zucman estimates that approximately $7.6 trillion in private wealth is held in offshore accounts,
-costing governments roughly $200 billion annually in lost corporate tax revenue
-and further amounts in lost personal income tax [<a class="bib-ref" href="../bibliography/#Zucman2015">Zucman2015</a>].
-This is money not available for schools, infrastructure, or healthcare
-in the countries where the underlying economic activity occurred.
-The offshore system is legal because wealthy individuals and corporations have
-the resources and political influence to make it legal.</p>
-<p>The Panama Papers and Pandora Papers, published in 2016 and 2021,
-revealed how this system operated across the world:</p>
+</div>
+<div class="callout-body-container callout-body">
+<p>For most of history, “Anonymous” was a woman.” <br> — Virginia Woolf</p>
+<p>Pseudonymity has a longer history than the internet. George Eliot was the pen name of Mary Ann Evans, who wrote under a male name partly to be taken seriously in a literary culture that dismissed women novelists, but also because a male persona gave her the freedom to inhabit subject positions her own social location would not have authorized.</p>
+</div>
+</div>
+<p>In the Soviet Union, hand-typed, passed-by-hand underground literature called <a href="../glossary/index.html#samizdat">*samizdat*</a> was passed from person to person. Writing and circulating it was criminalized; it could only exist because private space existed, even under a surveillance state, in the gap between what the state knew and what it could actually monitor. Alexander Solzhenitsyn’s <em>The Gulag Archipelago</em> was first circulated as <em>samizdat</em> before being smuggled out and published abroad. The private space of one person’s typewriter was a form of speech protection that the absence of legal protection could not entirely eliminate.</p>
+<p>The Hijra communities of South Asia—a third-gender identity category that existed for centuries before British colonization—survived partly because the British administrative apparatus never successfully catalogued them. The Criminal Tribes Act of 1871 attempted to classify and control gender and sexual nonconformity, but the practices, initiations, and knowledge that defined Hijra identity were not legible to census-takers and administrators. Collective privacy as survival is not the same as individual privacy as a right, but they share the property that control over what is known about you is also control over what can be done to you.</p>
+<p>The double bind is consistent across these examples. The people with the greatest need for private space to develop and maintain identity are usually those whose identity is most criminalized, stigmatized, or surveilled. Simone Browne documents how oppression of Black people in the United States has always depended on making Black bodies, households, and movements visible to white authority, from the pass system of the antebellum South to stop-and-frisk policing and facial recognition <span class="citation" data-cites="Browne2015">(<a href="../bibliography/index.html#ref-Browne2015" role="doc-biblioref">Browne 2015</a>)</span>. The practical privacy available to Black Americans has always been substantially less than that available to white Americans, not because of individual choices but because of systems built to make them more visible to the state.</p>
+<p>The “nothing to hide” argument—the claim that only those with something to hide need privacy—only makes sense from the position of someone whose identity, relationships, and beliefs are not criminalized. It is not a neutral observation about human behavior; it is the argument of someone who has never needed the protection they are asking others to give up.</p>
+</section>
+<section id="the-moral-arguments" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="the-moral-arguments"><span class="header-section-number">5.4</span> The Moral Arguments</h2>
+<p>The first American legal argument for a right to privacy was made by Samuel Warren and Louis Brandeis in an 1890 law review article. They argued that the individual had a “right to be let alone”, i.e., a right to protection not just from physical intrusion but from unwanted publicity. Their immediate concern was sensationalist newspaper journalism. Both men were wealthy, socially prominent, and worried about gossip columns. Their argument was real and important, but its social location is worth noting: the first articulated right to privacy in American law emerged from the needs of the prominent to be protected from exposure, not from the needs of the powerless to be protected from the state.</p>
+<p>This origin has never fully left the concept. Privacy arguments protect domestic violence abusers alongside their victims. They protect financial fraud alongside confidential medical records, and corporate malfeasance alongside personal correspondence. Privacy as a legal and political value does not come pre-sorted by who it helps.</p>
+<p>The feminist critique made this plain. The slogan “the personal is political,” associated with the women’s liberation movement of the 1960s and 1970s, was a direct challenge to the liberal privacy argument. Women’s subordination was legally protected in the private sphere: for example, marital rape was not a crime in most US states until the 1970s and 1980s because marriage was treated as a private relationship outside legal scrutiny. Domestic violence of other forms was (and in practice still is) routinely treated as a private family matter. The claim that the state should not interfere in private relationships was, in practice, the claim that women had no recourse against husbands and fathers.</p>
+<p>Jenkins argues that the twentieth-century expansion of state intervention into domestic life was not an erosion of privacy but a redrawing of its boundaries <span class="citation" data-cites="Jenkins2024">(<a href="../bibliography/index.html#ref-Jenkins2024" role="doc-biblioref">Jenkins 2024</a>)</span>. Feminists and child advocates demanded that the state enter spaces it had previously left to male authority. In doing so, they were not anti-privacy; they were arguing that the women and children in those spaces deserved privacy from the men who controlled them. The same concept, applied by different actors, produced opposite conclusions.</p>
+<p>The communitarian critique of privacy takes a different shape. Communities can and do provide forms of accountability that states cannot, and privacy can be an obstacle to that accountability. But this argument has a history of being deployed most aggressively against communities that were not the ones making it. In British India, child marriage prohibitions and widow protection laws were introduced in a framework that described Hindu family privacy as barbaric and in need of civilizing intervention. The language of accountability to higher norms was used to justify intrusion into the domestic practices of colonized people by administrators who had no sustained interest in the well-being of the women and children they claimed to protect.</p>
+<p>American privacy worked the same way domestically <span class="citation" data-cites="Igo2020">(<a href="../bibliography/index.html#ref-Igo2020" role="doc-biblioref">Igo 2020</a>)</span>. Poor families and immigrant families in the early twentieth century were subjected to social worker surveillance and home inspection regimes that middle-class families were not. The expansion of welfare services came with a corresponding expansion of state visibility into the households that received them. Privacy, like other goods, was distributed in proportion to social power.</p>
+</section>
+<section id="identity-and-legibility" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="identity-and-legibility"><span class="header-section-number">5.5</span> Identity and Legibility</h2>
+<p>In 1879, a young police clerk in Paris named Alphonse Bertillon proposed a solution to a problem that had plagued law enforcement for decades: how do you know if the person in front of you is who they say they are? Before photographs were cheap to reproduce and before fingerprint databases existed, professional criminals could simply give a false name and walk free. Bertillon’s answer was <a href="../glossary/index.html#bertillonage">anthropometry</a>: measure the skull, the length of the forearm, and other bodily dimensions that, taken together, were statistically unlikely to be identical in any two people. The system spread across Europe, the United States, and colonies in Asia and Africa, and was the first large-scale attempt to use the body as a database.</p>
+<p>Bertillonage had a fundamental weakness: measurements had to be taken correctly by trained operators. By 1900 fingerprinting was replacing it almost everywhere because fingerprints were more reliable and required less skill to record. But the desire of states and institutions to pin individuals permanently to a record did not die with the calipers.</p>
+<p>The history of identity management is partly the history of states trying to solve what James C. Scott calls the <a href="../glossary/index.html#legibility">legibility</a> problem <span class="citation" data-cites="Scott1998">(<a href="../bibliography/index.html#ref-Scott1998" role="doc-biblioref">Scott 1998</a>)</span>. A state cannot tax, draft, or police people it cannot identify. Medieval English peasants might know themselves as “John the Miller’s son from the village by the ford”, but that description doesn’t survive a move to a city or a change of occupation. Surnames became standardized in Europe partly because governments needed them. The same logic produced house numbers in Paris and Vienna, censuses across the colonial world, and passports that began as occasional travel documents issued by monarchs and became, by the twentieth century, a requirement for crossing most international borders.</p>
+<p>The problem is that the state’s desire for legibility doesn’t have a built-in limit. The state that registers births so it can provide schooling can use that register to conscript soldiers. The government that issues identity documents to allow people to vote can use those documents to deport people. Once a population register exists, every subsequent administration can use it for whatever purpose it finds useful.</p>
+<p>Colonial governments exploited this systematically. The British introduced population registers, caste certificates, and tribal designations across India, Africa, and Southeast Asia that served double purposes: administration, taxation, and census on one hand, and identifying potential troublemakers and restricting movement on the other. South Africa’s pass laws, introduced gradually from the eighteenth century and formalized under apartheid after 1948, required Black South Africans to carry a reference book at all times. The book recorded their employer, their designated “homeland,” and their permission to be in urban areas. Police could stop anyone and demand the book; failure to produce it meant arrest. The pass system was one of the most sophisticated identity management infrastructure projects in history, and it was designed entirely to restrict freedom of movement and force labor into mines and factories at wages set by the government.</p>
+<p>Keith Breckenridge’s history of South African <a href="../glossary/index.html#biometrics">biometrics</a> traces a direct line from the pass system to the world’s first large-scale biometric population register, introduced in South Africa in 1986. Fingerprints were added to the passbook because fingerprints are harder to falsify than signatures and do not require literacy. A system designed to prevent forgery of internal passports became, almost automatically, one of the most comprehensive biometric databases in the world at the time <span class="citation" data-cites="Breckenridge2016">(<a href="../bibliography/index.html#ref-Breckenridge2016" role="doc-biblioref">Breckenridge 2016</a>)</span>.</p>
+<p>This creates a dilemma that does not have a clean solution. Democratic participation depends on being able to identify voters. Electoral systems need to verify that voters are eligible residents and prevent people from voting twice. This requires some form of voter registration, and voter registration requires identity documentation. In the United States, the history of voter registration is entangled with the history of voter suppression: poll taxes, literacy tests, grandfather clauses, and, since the 1990s, photo ID requirements that are nominally neutral but fall disproportionately on communities less likely to hold a driver’s license: the poor, the elderly, and people of color. The registration systems needed to enable political participation have been weaponized to prevent it.</p>
+<p>But the dilemma goes deeper than that. Communities that have historically been targeted by state identity systems have rational reasons to distrust those systems. If the government has used population registers to intern Japanese-Americans or to deport undocumented immigrants in mass raids, people are right to be suspicious of any new identity system. Even if today’s government only intends to use it for good, it cannot bind the behavior of future governments.</p>
+<p>This dilemma is now one of the biggest challenges facing democracy. The communities most harmed by identity management in the past have the best reasons to distrust registration systems, but that distrust keeps them from participating in the political processes that would let them constrain those systems. Fear of being rounded up is itself a tool of disenfranchisement.</p>
+<p>India’s Aadhaar system, launched in 2009, has enrolled over 1.3 billion people in a biometric identity database based on fingerprints and iris scans linked to a twelve-digit number. Its designers argued that a universal, biometric identifier would eliminate fraud and exclusion in government benefit programs by making identity verification objective. The argument was partly correct: Aadhaar has reduced certain kinds of fraud and brought some previously excluded people into the formal economy. It has also created new forms of exclusion. People who cannot authenticate are cut off from food rations and pension payments, and the database itself represents a concentration of sensitive biometric information that, if breached, cannot be reset: you can change your password, but you cannot get new fingerprints <span class="citation" data-cites="Khera2019">(<a href="../bibliography/index.html#ref-Khera2019" role="doc-biblioref">Khera 2019</a>)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="GDPR">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>GDPR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The European Union’s General Data Protection Regulation (GDPR), which came into force in 2018, treats biometric data as a special category requiring explicit consent and restricts its collection and processing. The regulation is imperfect and inconsistently enforced, but it exists because privacy advocates organized across member states over roughly two decades to demand it. It is the most significant constraint on commercial biometric data collection in the world. The tech industry’s response has been intrusive pop-ups designed to make users blame governments for safeguarding their privacy rater than companies for trying to collect information for resale.</p>
+</div>
+</div>
+<p>What abusive identity management has been constrained, those constraints have been the result of organized political activity. South Africa’s pass system was not abolished because its administrators became enlightened; it was abolished because the resistance movement grew strong enough to make it unsustainable. The constraints on Aadhaar came from litigants and activists who brought cases, and the Voting Rights Act of 1965 in the United States came from marchers, organizers, and a political coalition that made the status quo more costly than change. The center always wants more information. The question is always whether the people most likely to be harmed by that information have enough power to say no <span class="citation" data-cites="Cole2002 Torpey2000">(<a href="../bibliography/index.html#ref-Cole2002" role="doc-biblioref">Cole 2002</a>; <a href="../bibliography/index.html#ref-Torpey2000" role="doc-biblioref">Torpey 2000</a>)</span>.</p>
+</section>
+<section id="paying-for-the-privilege" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="paying-for-the-privilege"><span class="header-section-number">5.6</span> Paying for the Privilege</h2>
+<p>The <a href="../glossary/index.html#surveillance-economy">surveillance economy</a> that social media and AI have created goes far beyond anything the Stasi dreamed of. The irony is that the Stasi had to coerce their informants; we pay subscription fees for the privilege of being surveilled. Corporate data collection operates under a framework built largely around consent obtained through contracts that no one reads and that cannot meaningfully be refused by people who want to participate in modern life.</p>
+<p>When a platform argues that its collection of behavioral data is voluntary and therefore not a privacy violation, it is making a legal argument, not a factual one. The legal distinction between state surveillance and corporate surveillance also ignores how governments now use corporate data collections to conduct surveillance they could not legally conduct directly.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Genocide">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Genocide
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Facebook’s recommendation algorithm promoted content dehumanizing the Rohingya people in Myanmar, a fact the company’s own researchers documented. The UN’s 2018 fact-finding mission identified Facebook as a “contributing factor” to the genocide: corporate surveillance infrastructure was weaponized for ethnic cleansing at not cost to the platform or its owners.</p>
+</div>
+</div>
+</section>
+<section id="when-privacy-protects-power" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="when-privacy-protects-power"><span class="header-section-number">5.7</span> When Privacy Protects Power</h2>
+<p>This asymmetry is most visible in the global system of financial secrecy. Nicholas Shaxson’s investigation of offshore banking documents how a network of tax havens in the Cayman Islands, the British Virgin Islands, Switzerland, Luxembourg, Ireland, and Singapore was constructed over the twentieth century through legislation specifically designed to allow wealth to evade the oversight of the countries where it was generated <span class="citation" data-cites="Shaxson2011">(<a href="../bibliography/index.html#ref-Shaxson2011" role="doc-biblioref">Shaxson 2012</a>)</span>. Switzerland’s banking secrecy law of 1934 was enacted partly to protect the assets of Jewish depositors from the Nazi government; within years it was also protecting the assets that wealthy Europeans were hiding from their own governments’, and then the money, art, and treasures that Nazis had looted from their victims.</p>
+<p>Gabriel Zucman estimates that approximately $7.6 trillion in private wealth is held in offshore accounts, costing governments roughly $200 billion annually in lost corporate tax revenue and further amounts in lost personal income tax <span class="citation" data-cites="Zucman2015">(<a href="../bibliography/index.html#ref-Zucman2015" role="doc-biblioref">Zucman 2015</a>)</span>. This is money not available for schools, infrastructure, or healthcare in the countries where the underlying economic activity occurred. The offshore system is legal because wealthy individuals and corporations have the resources and political influence to make it legal.</p>
+<p>The Panama Papers and Pandora Papers, published in 2016 and 2021, revealed how this system operated across the world:</p>
 <ul>
-<li>
-<p>The Marcos family in the Philippines used shell companies in Switzerland and the Cayman Islands
-    to hold an estimated $5–10 billion looted from the Philippine treasury
-    during Ferdinand Marcos's dictatorship.</p>
-</li>
-<li>
-<p>Mobutu Sese Seko of Zaire accumulated an estimated $5 billion in Swiss and other offshore accounts
-    while the country's public services collapsed.</p>
-</li>
-<li>
-<p>Augusto Pinochet of Chile,
-    who tortured thousands in the name of fiscal discipline,
-    was revealed after his arrest in London to hold $27 million in hidden offshore accounts
-    that his family had denied existed.</p>
-</li>
+<li><p>The Marcos family in the Philippines used shell companies in Switzerland and the Cayman Islands to hold an estimated $5–10 billion looted from the Philippine treasury during Ferdinand Marcos’s dictatorship.</p></li>
+<li><p>Mobutu Sese Seko of Zaire accumulated an estimated $5 billion in Swiss and other offshore accounts while the country’s public services collapsed.</p></li>
+<li><p>Augusto Pinochet of Chile, who tortured thousands in the name of fiscal discipline, was revealed after his arrest in London to hold $27 million in hidden offshore accounts that his family had denied existed.</p></li>
 </ul>
-<p>Corporate secrecy operates the same way at a smaller scale.
-Non-disclosure agreements are legitimate legal instruments
-when they protect trade secrets or the terms of commercial negotiation.
-They become instruments of harm when used to prevent victims of sexual abuse and harassment from speaking.
-Harvey Weinstein's non-disclosure agreements required victims' silence as a condition of financial settlement.
-Both Weinstein and Jeffrey Epstein continued to harm additional people for years
-because the financial privacy of the settlement was used to suppress testimony
-that would have enabled legal action.</p>
-<p>The tobacco industry's internal documents provide a decades-long parallel.
-From the 1950s onward, tobacco company researchers produced evidence
-that cigarettes caused cancer and that nicotine was addictive.
-Those documents were treated as confidential corporate information—
-trade secrets, attorney-client privileged communications—
-while the companies' public-facing research denied what their private research showed.
-The internal memos were finally produced in 1998 litigation.
-The deaths attributable to that gap between public claim and private knowledge are not a small number.</p>
-<p>State secrecy operates the same logic at the largest scale.
-Classification systems and executive privilege have been used
-to prevent accountability for torture—the Abu Ghraib photographs were eventually published,
-but the legal memos authorizing enhanced interrogation were withheld for years.
-The Saudi government invoked sovereignty and confidentiality to slow accountability
-for the murder of journalist Jamal Khashoggi.
-Every authoritarian government that has committed atrocities
-has used state secrecy as its first line of defense,
-while using forced transparency—public trials, published confessions, exposed private lives—
-as a weapon against opponents.
-Privacy and exposure have always been deployed together,
-each in the direction of power.</p>
-<h2>Transparency and Its Limits</h2>
-<p>The apparent solution—require transparency from the powerful—is correct in theory
-but immensely complex in practice.
-The difficulty is not an argument against transparency,
-but does require advocates to be specific about who, what, and how.</p>
-<p>Rob Jenkins and Anne Marie Goetz's analysis of India's Right to Information movement
-documents what organized civil society can achieve [<a class="bib-ref" href="../bibliography/#Jenkins1999">Jenkins1999</a>].
-The RTI Act, passed in 2005, gave Indian citizens the legal right to request government documents
-and required agencies to respond within thirty days.
-It emerged from a sustained campaign by village-level activists in Rajasthan
-who were trying to verify whether public works funds were actually being spent
-on the roads and wells they were supposed to fund.
-The principle was simple:
-government is funded by citizens and accountable to them,
-and accountability requires information.
-The law was imperfect and inconsistently enforced,
-but still led to real change.</p>
-<p>South Africa's Truth and Reconciliation Commission,
-which operated from 1996 to 1998,
-made a different but related choice.
-Perpetrators of human rights violations under apartheid
-were offered amnesty in exchange for full public disclosure of what they had done.
-The logic inverted the usual logic of settlement:
-rather than silence as the condition of resolution,
-truth-telling was the condition.
-Perpetrators had to give up their privacy in order to receive amnesty;
-victims could give testimony publicly,
-which served both their dignity and the historical record.</p>
-<p>The European Union's General Data Protection Regulation,
-which came into force in 2018,
-includes a "right to be forgotten":
-individuals can request that search engines remove links to information about them.
-This is a genuine protection for private individuals
-who have been stalked, defamed, or whose past mistakes
-have been permanently attached to their names by internet search.
-It is also a tool that has been used by politicians, business executives, and convicted criminals
-to suppress accurate reporting about their public conduct.
-The same legal instrument protects both the person whose private medical condition
-was published without consent and the politician who wants voters to forget a corruption conviction.
-Privacy law cannot easily distinguish between them.</p>
-<p>What holds across these cases is the principle:
-privacy for persons, transparency for institutions.
-Private individuals acting in their private capacity have strong claims to be left alone.
-Public officials exercising public power,
-institutions affecting public life,
-and wealthy individuals whose private financial arrangements affect public resources
-all have weaker claims.
-This principle is never self-enforcing.
-The direction of institutional pressure is always toward the legibility of persons
-and away from the legibility of institutions.
-Maintaining the opposite—protecting the private lives of individuals
-while demanding transparency from power—
-requires organized political effort to sustain [<a class="bib-ref" href="../bibliography/#Scott1998">Scott1998</a>].</p>
-<p>The platforms and governments that describe privacy as "dead"
-or as an obstacle to innovation are not making a neutral observation about changing social norms.
-They are making an argument that happens to be extremely convenient for their interests.
-The people arguing against that description are usually not doing so
-on behalf of people who want to post embarrassing photos without consequence.
-They are doing it on behalf of the people for whom privacy is the difference between safety and harm.
-What abusive privacy and identity regimes have been constrained,
-those constraints have come from organized political activity,
-not from enlightenment at the top [<a class="bib-ref" href="../bibliography/#Igo2020">Igo2020</a>].</p>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../harmful-models">When the Model Is the Harm</a>
+<p>Corporate secrecy operates the same way at a smaller scale. Non-disclosure agreements are legitimate legal instruments when they protect trade secrets or the terms of commercial negotiation. They become instruments of harm when used to prevent victims of sexual abuse and harassment from speaking. Harvey Weinstein’s non-disclosure agreements required victims’ silence as a condition of financial settlement. Both Weinstein and Jeffrey Epstein continued to harm additional people for years because the financial privacy of the settlement was used to suppress testimony that would have enabled legal action.</p>
+<p>The tobacco industry’s internal documents provide a decades-long parallel. From the 1950s onward, tobacco company researchers produced evidence that cigarettes caused cancer and that nicotine was addictive. Those documents were treated as confidential corporate information while the companies’ public-facing research denied what their private research showed. The internal memos were finally produced in 1998 litigation. The deaths attributable to that gap between public claim and private knowledge are not a small number.</p>
+<p>State secrecy operates the same logic at the largest scale. Classification systems and executive privilege have been used to prevent accountability for torture. For example, the Abu Ghraib photographs were eventually published, but the legal memos authorizing enhanced interrogation were withheld for years. Similarly, the Saudi government invoked sovereignty and confidentiality to slow accountability for the murder of journalist Jamal Khashoggi. Every authoritarian government that has committed atrocities has used state secrecy as its first line of defense, while using forced transparency such as public trials, and published confessions as weapons against opponents. Privacy and exposure have always been deployed together, each in the direction of power.</p>
+</section>
+<section id="transparency-and-its-limits" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="transparency-and-its-limits"><span class="header-section-number">5.8</span> Transparency and Its Limits</h2>
+<p>The apparent solution—require transparency from the powerful—is correct in theory but immensely complex in practice. The difficulty is not an argument against transparency, but does require advocates to be specific about who, what, and how.</p>
+<p>Rob Jenkins and Anne Marie Goetz’s analysis of India’s Right to Information movement documents what organized civil society can achieve <span class="citation" data-cites="Jenkins1999">(<a href="../bibliography/index.html#ref-Jenkins1999" role="doc-biblioref">Jenkins and Goetz 1999</a>)</span>. The RTI Act, passed in 2005, gave Indian citizens the legal right to request government documents and required agencies to respond within thirty days. It emerged from a sustained campaign by village-level activists in Rajasthan who were trying to verify whether public works funds were actually being spent on the roads and wells they were supposed to fund. The principle was simple: government is funded by citizens and accountable to them, and accountability requires information. The law was imperfect and inconsistently enforced, but still led to real change.</p>
+<p>South Africa’s Truth and Reconciliation Commission, which operated from 1996 to 1998, made a different but related choice. Perpetrators of human rights violations under apartheid were offered amnesty in exchange for full public disclosure of what they had done. The logic inverted the usual logic of settlement: rather than silence as the condition of resolution, truth-telling was the condition. Perpetrators had to give up their privacy in order to receive amnesty; victims could give testimony publicly, which served both their dignity and the historical record.</p>
+<p>The European Union’s General Data Protection Regulation, which came into force in 2018, includes a “right to be forgotten”: individuals can request that search engines remove links to information about them. This is a genuine protection for private individuals who have been stalked, defamed, or whose past mistakes have been permanently attached to their names by internet search. It is also a tool that has been used by politicians, business executives, and convicted criminals to suppress accurate reporting about their public conduct. The same legal instrument protects both the person whose private medical condition was published without consent and the politician who wants voters to forget a corruption conviction. Privacy law cannot easily distinguish between them.</p>
+<p>What holds across these cases is the principle: privacy for persons, transparency for institutions. Private individuals acting in their private capacity have strong claims to be left alone. Public officials exercising public power, institutions affecting public life, and wealthy individuals whose private financial arrangements affect public resources all have weaker claims. This principle is never self-enforcing. The direction of institutional pressure is always toward the legibility of persons and away from the legibility of institutions. Maintaining the opposite (i.e., protecting the private lives of individuals while demanding transparency from power) requires organized political effort to sustain <span class="citation" data-cites="Scott1998">(<a href="../bibliography/index.html#ref-Scott1998" role="doc-biblioref">Scott 1998</a>)</span>.</p>
+<p>The platforms and governments that describe privacy as “dead” or as an obstacle to innovation are not making a neutral observation about changing social norms. They are making an argument that happens to be extremely convenient for their interests. The people arguing against that description are usually not doing so on behalf of people who want to post embarrassing photos without consequence. They are doing it on behalf of the people for whom privacy is the difference between safety and harm. What abusive privacy and identity regimes have been constrained, those constraints have come from organized political activity, not from enlightenment at the top <span class="citation" data-cites="Igo2020">(<a href="../bibliography/index.html#ref-Igo2020" role="doc-biblioref">Igo 2020</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Breckenridge2016" class="csl-entry" role="listitem">
+Breckenridge, Keith. 2016. <em>Biometric State: The Global Politics of Identification and Surveillance in South Africa, 1850 to the Present</em>. Cambridge University Press. ISBN 9781107434899. <em>A history of how South Africa became a global pioneer in biometric identification in order to implement apartheid.</em>
 </div>
-<div class="col-6 center">
-<a href="../">SDGC</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
+<div id="ref-Browne2015" class="csl-entry" role="listitem">
+Browne, Simone. 2015. <em>Dark Matters: On the Surveillance of Blackness</em>. Duke University Press. ISBN 9780822359388. <em>Argues that surveillance technologies have always been designed with Black people as primary targets, from slave passes to facial recognition systems.</em>
 </div>
-<div class="col-3 right">
-<a href="../inequality">Who Gets What and Why</a> <span aria-hidden="true">⇒</span>
+<div id="ref-Cole2002" class="csl-entry" role="listitem">
+Cole, Simon A. 2002. <em>Suspect Identities: A History of Fingerprinting and Criminal Identification</em>. Harvard University Press. ISBN 9780674010024. <em>A history of fingerprinting from its origins in colonial India through its adoption by police worldwide.</em>
+</div>
+<div id="ref-Funder2011" class="csl-entry" role="listitem">
+Funder, Anna. 2011. <em>Stasiland: Stories from Behind the Berlin Wall</em>. Harper Collins. ISBN 9780062077325. <em>Oral histories from East Germans who lived under Stasi surveillance, revealing the devastation wrought by a state security apparatus that infected every relationship (originally published 2002).</em>
+</div>
+<div id="ref-Goffman1959" class="csl-entry" role="listitem">
+Goffman, Erving. 1959. <em>The Presentation of Self in Everyday Life</em>. Anchor. ISBN 9780385094023. <em>Argues that everyday social interaction is a kind of performance in which people manage impressions to shape how others perceive and treat them.</em>
+</div>
+<div id="ref-Gray2009" class="csl-entry" role="listitem">
+Gray, Mary L. 2009. <em>Out in the Country: Youth, Media, and Queer Visibility in Rural America</em>. NYU Press. ISBN 9780814731932. <em>Examines how rural LGBTQ+ youth use media and internet access to create community and visibility outside urban queer spaces.</em>
+</div>
+<div id="ref-Igo2020" class="csl-entry" role="listitem">
+Igo, Sarah E. 2020. <em>The Known Citizen: A History of Privacy in Modern America</em>. Harvard University Press. ISBN 9780674244795. <em>History of how American attitudes toward privacy have shifted from the nineteenth century to the present, shaped by census surveys, social science, and surveillance technology.</em>
+</div>
+<div id="ref-Jenkins1999" class="csl-entry" role="listitem">
+Jenkins, Rob, and Anne Marie Goetz. 1999. <span>“Accounts and Accountability: Theoretical Implications of the Right-to-Information Movement in India.”</span> <em>Third World Quarterly</em> 20 (3). <a href="https://doi.org/10.1080/01436599913712">https://doi.org/10.1080/01436599913712</a>. <em>Analysis of the grassroots campaign for the right to information in rural Rajasthan and its implications for democratic accountability and bottom-up legal reform.</em>
+</div>
+<div id="ref-Jenkins2024" class="csl-entry" role="listitem">
+Jenkins, Tiffany. 2024. <em>Strangers and Intimates: How the State Took over Your Most Private Relationships</em>. Bloomsbury. ISBN 9781529034165. <em>Argues that the boundary between public and private life is a political artifact, tracing how states have repeatedly redrawn it—often at the demand of reformers—and what this means for individual freedom and social accountability.</em>
+</div>
+<div id="ref-Khera2019" class="csl-entry" role="listitem">
+Khera, Reetika, ed. 2019. <em>Dissent on Aadhaar: Big Data Meets Big Brother</em>. Orient BlackSwan. ISBN 9789352875429. <em>A collection of critical essays on India’s Aadhaar biometric identity system, examining its governance failures, exclusions, and surveillance.</em>
+</div>
+<div id="ref-Scott1998" class="csl-entry" role="listitem">
+Scott, James C. 1998. <em>Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</em>. Yale University Press. ISBN 9780300078152. <em>Argues that large-scale state projects to improve society fail when they ignore local knowledge.</em>
+</div>
+<div id="ref-Shaxson2011" class="csl-entry" role="listitem">
+Shaxson, Nicholas. 2012. <em>Treasure Islands: Uncovering the Damage of Offshore Banking and Tax Havens</em>. St. Martin’s. ISBN 9780230341722. <em>An investigation of offshore tax havens, showing how they enable corporations and wealthy individuals to pay less than most citizens.</em>
+</div>
+<div id="ref-Snowden2020" class="csl-entry" role="listitem">
+Snowden, Edward. 2020. <em>Permanent Record</em>. Henry Holt; Company. ISBN 9781250772909. <em>FIXME</em>.
+</div>
+<div id="ref-Torpey2000" class="csl-entry" role="listitem">
+Torpey, John. 2000. <em>The Invention of the Passport: Surveillance, Citizenship and the State</em>. Cambridge University Press. ISBN 9780521634939. <em>A history of how the passport was invented by states as a tool for controlling population movement.</em>
+</div>
+<div id="ref-Zucman2015" class="csl-entry" role="listitem">
+Zucman, Gabriel. 2015. <em>The Hidden Wealth of Nations: The Scourge of Tax Havens</em>. University of Chicago Press. ISBN 9780226422640. <em>Economic analysis of offshore tax evasion.</em>
 </div>
 </div>
-</footer>
-</body>
-</html>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../harmful-models/index.html" class="pagination-link" aria-label="When the Model Is the Harm">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">When the Model Is the Harm</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../inequality/index.html" class="pagination-link" aria-label="Who Gets What and Why">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Who Gets What and Why</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/sdgc/edit/main/privacy-power-self/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/sdgc/blob/main/privacy-power-self/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/sdgc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

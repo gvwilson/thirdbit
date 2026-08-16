@@ -1,0 +1,1101 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Closing Time",
+    "section": "",
+    "text": "Overview\nThis workshop is a short introduction to succession planning, disaster management, and ending projects. It assumes that participants have some experience being part of small software or research projects All of the material is available under an open license, and contributions through our repository are welcome. All contributors are required to respect our Code of Conduct.\nGreg Wilson is a programmer, author, and educator based in Toronto. He was the co-founder and first Executive Director of Software Carpentry and received ACM SIGSOFT’s Influential Educator Award in 2020.\n\nstart where you are · use what you have · help who you can",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "intro/index.html",
+    "href": "intro/index.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 Learner Personas",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro/index.html#learner-personas",
+    "href": "intro/index.html#learner-personas",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Jun, 38, is a data scientist who released an open source project as part of her work at a tech company. After a reorg moved her to a different division, she wants to hand the project over to a junior team member.\nVaida, 33, works as a data analyst for the Ministry of the Environment. She co-founded a volunteer group that teaches environmental science to high school students. She is relocating for a new job and wants to wind things down properly. She has two or three hours a week for the next couple of months.\nChetan, 27 has maintained an online hummingbird tracking site for several years as a hobby. The project has never had a budget beyond occasional small grants. Their hosting service was hacked, and they want to resurrect it before the fall migration starts in a few days.\nLiam, 29, is a software developer for the Ministry of the Environment. After a recent election, management has decided to halt work on the open source tool he has built. He has been given until the end of the week to wind things down.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro/index.html#the-grid",
+    "href": "intro/index.html#the-grid",
+    "title": "1  Introduction",
+    "section": "1.2 The Grid",
+    "text": "1.2 The Grid\n\nOrganize our thoughts on a 2x2 grid\nOne axis is continuity: does the project continue after the event or not?\nThe other is pace: is the event gradual (you can plan) or abrupt (you cannot)?\nThis gives four quadrants (each of which we have matched to a persona):\n\nSuccession planning: the project continues under someone else’s leadership (Jun)\nDeliberate closure: the project does not continue, but you have time to plan (Vaida)\nDisaster recovery: the project experiences an abrupt interruption but recovers (Chetan)\nAbrupt closure: the project shuts down on short notice (Liam)\n\nBefore discussing these, we look at foundations that all scenarios rely on\nFinish with a section on looking after your people, which also cuts across all scenarios\n\n\n\n\n\n\n\nNote\n\n\n\nAn abstinence solution is one that requires people to do things we know they actually won’t (see also “bullshit” (Frankfurt 2005)). “Document everything” is an example: people will always short-change writing descriptions of work in favor of actually doing work, and fail to write down the parts of their work that they think are obvious. This isn’t laziness: most of what we can write today doesn’t actually address tomorrow’s actual needs.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro/index.html#threat-models",
+    "href": "intro/index.html#threat-models",
+    "title": "1  Introduction",
+    "section": "1.3 Threat Models",
+    "text": "1.3 Threat Models\n\nWhat situation you are in usually depends on external factors\n\nUse threat modeling to think about them (Smalls and Wilson 2021)\n\nIndividual threats affect one or a few members of your team\n\nCan come from mundane career or life changes (illness, new job opportunity)\nOr external factors (international students’ visas revoked with little warning)\n\nLeadership threats are specifically aimed the project’s leader (e.g., being targeted in the media for politically unpopular research findings)\nCommunity threats affect large groups\n\nE.g., department being shut down\nAffect so many people at the same time that the community cannot buffer the shock\nAnd might not survive it\nClimategate affected dozens of people directly and damaged the entire climate research community\n\nGlobal threats affect everyone at the same time\n\nWhich means other groups cannot help\nAnd there may not be anywhere to run to\nE.g., current attacks on science in the United States\n\n\n\n\n\n\n\n\nNote\n\n\n\nGovernments make emergency plans to deal with community threats (if they are responsible enough to admit those threats exist). When governments themselves are in upheaval, people turn to civil society for help (Solnit 2010).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro/index.html#not-covered",
+    "href": "intro/index.html#not-covered",
+    "title": "1  Introduction",
+    "section": "1.4 Not Covered",
+    "text": "1.4 Not Covered\n\nCommunity building\n\nLots of good guides (Alinsky 1989; Brown 2007; Lakey 2018)\nWe assume you have to use the community you already have (i.e., don’t have time to build one to deal with this situation)\n\nCommunication skills\n\nWe’ll focus on what to say rather than how to say it\n\nFor-profit businesses\n\nWe assume your project isn’t supposed to turn a profit\nAnd that growth for its own sake hasn’t been your goal (Burlingham 2016)\n\n(Littauer et al. 2025) has more material",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro/index.html#exercises",
+    "href": "intro/index.html#exercises",
+    "title": "1  Introduction",
+    "section": "1.5 Exercises",
+    "text": "1.5 Exercises\n\n1.5.1 Quick Check\n\nWhich quadrant are you in?\n\nDoes the project continue after the event, or not?\nAnd is the event gradual or abrupt?\n\nDo you have days or months to prepare?\n\nThe former is usually involuntary\nThe latter allows for (some) structural changes before and during the event\nAnd more importantly, for course correction if your first guess is wrong\n\nCan you act unilaterally or do other people have a veto?\n\nNot “have a stake in the outcome”, but rather can disagree with you and make it stick\nAre those “other people” your peers or your superiors (e.g., your employer)?\n\nCan you talk to someone who has been through this before?\n\n\n\n\n\nAlinsky, Saul D. 1989. Rules for Radicals: A Practical Primer for Realistic Radicals. Vintage. ISBN 9780679721130.\n\n\nBrown, Michael Jacoby. 2007. Building Powerful Community Organizations. Long Haul Press. ISBN 9780977151806.\n\n\nBurlingham, Bo. 2014. Finish Big: How Great Entrepreneurs Exit Their Companies on Top. Portfolio/Penguin. ISBN 9781591844976.\n\n\nBurlingham, Bo. 2016. Small Giants: Companies That Choose to Be Great Instead of Big. Portfolio. ISBN 9780143109600.\n\n\nFrankfurt, Harry G. 2005. On Bullshit. Princeton University Press. ISBN 9780691122946.\n\n\nLakey, George. 2018. How We Win: A Guide to Nonviolent Direct Action Campaigning. Melville House. ISBN 9781612197531.\n\n\nLittauer, Richard et al. 2025. 10 Quick Tips for Making Your Software Outlive Your Job. https://arxiv.org/abs/2505.06484.\n\n\nSmalls, Danielle, and Greg Wilson. 2021. “Ten Quick Tips for Staying Safe Online.” PLOS Computational Biology 17 (3). https://doi.org/10.1371/journal.pcbi.1008563.\n\n\nSolnit, Rebecca. 2010. A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster. Penguin Books. ISBN 9780143118077.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html",
+    "href": "gas/index.html",
+    "title": "2  Governance, Assets, and State",
+    "section": "",
+    "text": "2.1 Governance",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#governance",
+    "href": "gas/index.html#governance",
+    "title": "2  Governance, Assets, and State",
+    "section": "",
+    "text": "Every team needs explicit decision-making rules\n\nBenevolent dictator for life (also known as BDFL or “principal investigator”)\nOr Martha's Rules\n\nRules must include suffrage: who can veto, not just who is consulted\nFew projects have a GOVERNANCE.md file, and fewer still include shutdown criteria\nThe Apache Software Foundation’s attic process is a documented model:\n\nAt least three active respondents required for a viable project\nIf they can’t get a release out, shutdown process begins\n\n\n\n\n\nApache Attic Process\n\n\n\nIn medicine, an advance directive specifies what care a patient wants if they become unable to speak for themselves\nWrite one for the project while it is still healthy (Towey, n.d.):\n\nConditions for shutdown\nWho has authority to make the call\nWhat assets must be preserved\nWhat obligations must be honored\n\nA closure plan that sits in a drawer and has never been tested is a fantasy document (Clarke 1999)\n\nOrganizations routinely produce plans that reassure regulators and funders but bear no relationship to what would actually happen under stress\nA HANDOVER.md written by one person in an afternoon that no one else has read\nIdeally, walk through the closure plan periodically to check that each step is actually executable with the people available\nBut the word “ideally” is doing a lot of work in that sentence",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#coupling-and-cascading-failure",
+    "href": "gas/index.html#coupling-and-cascading-failure",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.2 Coupling and Cascading Failure",
+    "text": "2.2 Coupling and Cascading Failure\n\n(Singer 2023): organisations often invoke individual explanations to deflect systemic accountability\n\n“The driver wasn’t paying attention” rather than “the dashboard was too complicated”\n\nProject infrastructure is often tightly coupled in ways that only become visible during shutdown (Perrow 1999)\n\nFailures in tightly-coupled systems are not aberrations but predictable outcomes of the system’s design\n\nE.g., an account that pays for ten services, or a single personal login that controls a domain, means that an unexpected departure can cascade into complete loss of access\nTreat any single point of control that cannot survive 48-hour unavailability as a bug",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#assets",
+    "href": "gas/index.html#assets",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.3 Assets",
+    "text": "2.3 Assets\n\nKnowing what you have is the first step to preserving it: code, data, discussion archives, credentials and access, the domain and web presence, metadata, and dependencies\n“Preservation” means making work usable by someone who was not part of creating it\nCapture the why, not just the what: a README explaining the problem solved is more durable than API documentation\nGo through each asset type and ask two questions:\n\nHow would someone else find and use this if we disappeared tomorrow?\nUnder time pressure, what do we do first?\n\nTreat every handover as an asset transfer, not an entity transfer (Marks et al. 2022)\n\nAn asset transfer moves selected assets and obligations; the original legal entity persists or is wound down separately\nAn entity transfer moves the entire legal entity including unknown liabilities\nBeing explicit about what is and is not transferred protects both the outgoing team and the incoming maintainers",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#specifics",
+    "href": "gas/index.html#specifics",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.4 Specifics",
+    "text": "2.4 Specifics\n\nCode\n\nArchive to a persistent location such as Zenodo or Software Heritage and assign a DOI to the final release so it can be cited. Under time pressure, prioritize data over code: raw data is often irreplaceable, while code can be recovered or reconstructed\n\nData\n\nRecord provenance, format, units, and known limitations and follow FAIR principles where possible. Under time pressure, copy the data out first.\n\nDiscussion archives\n\nMailing lists and issue trackers are often more valuable than formal documentation, so export and preserve them before paid services lapse (Tamburri et al. 2020). Under time pressure, one public copy beats zero private ones: push the repository to a public location immediately, even in its current messy state.\n\nCredentials and access\n\nHand them to a trusted person outside the project before access is cut. Do this before anything else in an emergency, because accounts stored in institutional systems will be unreachable once those systems are closed.\n\nDomain and web presence\n\nDomain names lapse and get squatted, so migrate content to free hosting before letting the domain go.\n\nMetadata and identifiers\n\nMark deprecated versions in every relevant package registry, point to alternatives with a migration guide, and write a one-paragraph finder’s note at the root of the archive. Under time pressure, export “everything else”: issue tracker state, wiki pages, CI/CD configuration, deployment settings.\n\nDependencies\n\nDependencies rot, so record exact versions and, if possible, a container image that reproduces the computational environment\n\n\n\n\n\n\n\n\nNote\n\n\n\nFifteen years ago, a file-sharing system for scientific data based on the BitTorrent protocol failed to find wide adoption because of the (quite reasonable) association in many institutions’ collective minds between BitTorrent and illegal downloading (Langille and Eisen 2010). At the time of writing, though, many individuals and groups are turning back to BitTorrent to share datasets that are at risk of disappearing because of the protocol’s resilience.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#permissions",
+    "href": "gas/index.html#permissions",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.5 Permissions",
+    "text": "2.5 Permissions\n\nThe lottery factor (also called “bus factor”)\n\nWhat stops if someone wins the lottery and moves to Greenland with zero notice?\n\nUse dedicated organizational accounts rather than personal ones\n\nBut keep in mind that this introduces a risk because those accounts can disappear\nSo add a personal account as a “backup”\n\nKeep a findable list of privileged actions and the accounts that can perform them\nUse a password manager for all organizational credentials\nDisaster Recovery covers the operational side of this\n\nThe point here is to build the habit before you need it",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#legal-and-administrative",
+    "href": "gas/index.html#legal-and-administrative",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.6 Legal and Administrative",
+    "text": "2.6 Legal and Administrative\n\nLegal and administrative tasks are the most commonly skipped and the most likely to cause problems later\nMost important thing is to keep a record of decisions made during shutdown: what was transferred, to whom, and when\n\nUse email rather than chat or video calls so that you have a record of everything said by both parties\nYour memory isn’t perfect (particularly under difficult circumstances)\nAnd people may change their minds about what they said, meant, or promised\n\nDetermine who legally owns the project’s outputs: individual contributors, an institution, or a formal entity\n\nIP policies differ between universities, companies, and grant-funded projects\nCheck, don’t assume\n\nInstitutions, journals, and funders have policies for licensing and sharing (Katz et al. 2018)\n\nIf you don’t know if there is a policy or not, ask someone\nLook for an Open Source Program Office (OSPO) or intellectual property (IP) office\n\nOpen source licenses are irrevocable, but closing repositories is still a meaningful decision for your community\nConfidential and personally identifiable data has specific legal obligations for retention and deletion\nTrademarks, domain names, and social media handles are assets with legal owners\n\nTransfer or release them explicitly\n\nFinancial accounts require formal closure\n\nResidual funds may need to be donated or returned\n\nGrant reporting obligations survive project shutdown\n\nCheck whether a final report is due\n\nBuild exit clauses into contracts and development agreements from the start, not when you need them\n\n\n\n\n\n\n\nNote\n\n\n\nThere is often a difference in large bureaucratic organization between the rules as written and the rules as enforced (Strategic Services 1944). If you are leaving your position on short notice or under difficult circumstances, you may want to be selective about which forms you fill in proactively and which you “just haven’t gotten around to yet”. Members of marginalized groups have had more practice with these tactics than members of privileged groups (Scott 1987); if you belong to the latter, a conversation or two with selected colleagues may help you see your priorities more clearly.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#normalized-deviations",
+    "href": "gas/index.html#normalized-deviations",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.7 Normalized Deviations",
+    "text": "2.7 Normalized Deviations\n\nThe Challenger disaster resulted not from a single catastrophic decision but from a long sequence of small ones in which warning signals were repeatedly noticed, reinterpreted as acceptable, and filed away until deviation had become the norm (Vaughan 1996)\nTeams approaching closure often carry the same kind of backlog\nDeliberate closure should therefore include an explicit audit of normalized deviations: things the team accepted because stopping to fix them felt too costly\nA shutdown retrospective is most valuable when it names the things the team learned to live with, not only when it celebrates successes\nDocument these to record the project’s actual state and to avoid passing silent assumptions to anyone who inherits the work",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "gas/index.html#exercises",
+    "href": "gas/index.html#exercises",
+    "title": "2  Governance, Assets, and State",
+    "section": "2.8 Exercises",
+    "text": "2.8 Exercises\n\n2.8.1 Project Inventory\n\nMake a list of everything that belongs to your project.\nCompare lists with others. What did they include that you missed and vice versa? What did someone include that other people think isn’t actually part of the project?\n\nThe following may help you write your list:\n\nCode, data, discussion archives, website, social media accounts, domain name, hardware, and…?\nHosting costs, software licenses, bank accounts, trademarks, partially-completed contracts, funding reports, confidential data obligations, and…?\nCommunity goodwill, points of contact, and…?\n\n\n\n2.8.2 Who and What\n\nWhat would your project be unable to do if you were unavailable for three months?\nWhich of your project’s activities depend on personal accounts rather than accounts dedicated to the project?\n\n\n\n2.8.3 Normalized Deviations List\nWrite down three things in your project that everyone on the team knows are wrong but that you have all learned to live with (e.g., a dependency nobody wants to touch or a process that only works because one person knows the trick).\n\nWhich items were hardest to decide about?\nWhat did you want to hide, and why?\nWhat would a successor most need to know?\n\n\n\n2.8.4 Project Advance Directive\n\nWrite a one-page document covering:\n\nThe conditions under which this project should be wound down (not just “when funding runs out” but specific observable signals)\nWho has the authority to make that call (distinguish between who must be consulted and who has an actual veto)\nWhat assets must be preserved before shutdown is complete, and how\nWhat obligations must be honoured before the project can be considered closed\n\nGive your document to a partner and ask them to find one realistic scenario it does not handle. What happens if the person with authority is unavailable? What happens if two people with veto disagree?\n\nWhich conditions were hardest to write precisely? Where did “who is consulted” blur into “who has a veto”?\n\n\n\n\nClarke, Lee. 1999. Mission Improbable: Using Fantasy Documents to Tame Disaster. University of Chicago Press. ISBN 9780226109411.\n\n\nKatz, Daniel S., Kyle E. Niemeyer, and Arfon M. Smith. 2018. “Publish Your Software: Introducing the Journal of Open Source Software (JOSS).” Computing in Science & Engineering 20 (3). https://doi.org/10.1109/MCSE.2018.03221930.\n\n\nLangille, Morgan G. I., and Jonathan A. Eisen. 2010. “BioTorrents: A File Sharing Service for Scientific Data.” PLoS One 4 (5). https://doi.org/10.1371/journal.pone.0010071.\n\n\nMarks, Kenneth H., Christian W. Blees, Michael R. Nall, and Thomas A. Stewart. 2022. Middle Market m&a: Handbook for Advisors, Investors, and Business Owners. 2nd ed. Wiley Finance. ISBN 9781119828105.\n\n\nPerrow, Charles. 1999. Normal Accidents: Living with High-Risk Technologies. Princeton University Press. ISBN 9780691004129.\n\n\nScott, James C. 1987. Weapons of the Weak: Everyday Forms of Peasant Resistance. Yale University Press. ISBN 9780300036411.\n\n\nSinger, Jessie. 2023. There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price. Simon & Schuster. ISBN 9781982129668.\n\n\nStrategic Services, United States Office of. 1944. Simple Sabotage Field Manual. ISBN 9798405796871.\n\n\nTamburri, Damian Andrew, Kelly Blincoe, Fabio Palomba, and Rick Kazman. 2020. “’The Canary in the Coal Mine…’ a Cautionary Tale from the Decline of SourceForge.” Software: Practice and Experience 50 (10). https://doi.org/10.1002/spe.2874.\n\n\nTowey, Jim. n.d. Five Wishes. Aging with Dignity. Accessed April 8, 2026. https://www.fivewishes.org/.\n\n\nVaughan, Diane. 1996. The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA. University of Chicago Press. ISBN 9780226851754.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Governance, Assets, and State</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html",
+    "href": "handover/index.html",
+    "title": "3  Succession Planning",
+    "section": "",
+    "text": "3.1 How Leaders Leave",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html#how-leaders-leave",
+    "href": "handover/index.html#how-leaders-leave",
+    "title": "3  Succession Planning",
+    "section": "",
+    "text": "(Sonnenfeld 1988) studied what happens when leaders leave the organisations they built and identified four departure archetypes\n\nWhich one applies to you is shaped by how central the project is to your identity\nRecognizing the pattern in advance shapes the handover conversations\n\nMonarchs refuse to leave until forced out and undermine successors\nGenerals depart reluctantly, maintain close ties, and often attempt to return\nAmbassadors leave willingly, remain available to successors, and are the most satisfied post-exit\nGovernors leave cleanly for new pursuits and disengage entirely",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html#before",
+    "href": "handover/index.html#before",
+    "title": "3  Succession Planning",
+    "section": "3.2 Before",
+    "text": "3.2 Before\n\nBe sure you mean it\n\nLetting go will be hard on you but not letting go will be even harder on your successors\nSo be sure you actually mean it\n\nDo it when others think it’s time\n\nYou will often be the last person to realize that you ought to be moving on\nSo ask people and pay attention to what they say\nWhich means you need to know people who will tell you the truth\n\nExplain what, when, and why\n\nTell people you’re leaving as soon as you’re sure\nPrevents rumors, gossip, and speculation\n\nDon’t pick a successor by yourself\n\nYou will probably have strong opinions about who should succeed you\nBut you are not objective\nAnd what the project needs now is probably different from what it used to need\nInvolving others in the planning also builds community",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html#during",
+    "href": "handover/index.html#during",
+    "title": "3  Succession Planning",
+    "section": "3.3 During",
+    "text": "3.3 During\n\nWrite a succession plan\n\nFinal state: what is your successor actually responsible for?\nTransition: what are you handing over to them when?\nFirst draft on your own, final draft with your successor\n\nHand over gradually if you can\n\nStart sharing tasks with your successor a few days/weeks/months before you leave\nThey will get to see how things actually work\nYou’ll discover things you would otherwise forget to tell them\nGo on holiday for a week and leave your successor temporarily in charge\n\nHand over permissions and credentials step by step\n\nTransfer administrative access a step ahead of the responsibilities it controls\nKeep at least two people with each critical credential\n\nHave some fun before you go\n\nPeople remember beginnings and endings more than middles\nSo don’t just slog your way to the end and turn out the lights\nInstead, pick a small project you never quite got around to and do one final sprint",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html#after",
+    "href": "handover/index.html#after",
+    "title": "3  Succession Planning",
+    "section": "3.4 After",
+    "text": "3.4 After\n\nWhen you leave, leave\n\nTempting to continue to have a role in the organization\nBut that is confusing because people are used to looking to you for answers\n\nLeave for something\n\nPeople who start things usually aren’t good with idleness, and idleness tends not to be good for them\nSo have your next project lined up, even if it’s small\n\nReflect on what you learned\n\nWrite down what you learned and what you could have done differently\nHelps you move on\nHelps with the next thing you do\nHelps your successor and other people\n\nCelebrate the good things\n\nMany people only reflect on could-have-beens\nWrite down what you accomplished as well\nIt’s just as important for your successors and the community as it is for you",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "handover/index.html#exercises",
+    "href": "handover/index.html#exercises",
+    "title": "3  Succession Planning",
+    "section": "3.5 Exercises",
+    "text": "3.5 Exercises\n\n3.5.1 Before\n\nWho should be involved in picking your successor?\nWrite a draft of the message you will send to your community and/or post on your project website announcing your departure, and review it with others in a small group.\n\n\n\n3.5.2 During\n\nWhat have you done in the last week that your successor will be responsible for? Which of these are easiest for your successor to start with?\nWhat have you done in the last year that only needs to be done occasionally? Which of these can be practiced now, and which can only be done when the time comes?\nWhat is the most satisfying small thing you could do before you step away?\n\n\n\n3.5.3 Choosing a Successor\n\nList the qualities your project needs most in its next leader.\nList three people who might fill the role. For each, name one strength that fits and one gap you would have to cover.\nWho else should be in the room when the choice is made? What would make you reconsider your own shortlist?\n\n\n\n3.5.4 After\n\nWrite down (at least) three things you think you accomplished while leading your project.\nWrite down (at most) three things that you think you could have done better.\nWhat are three things you would like to do after you leave your project?\n\n\n\n3.5.5 Succession Failure\nYou identified a successor and spent six weeks gradually handing over responsibilities. Two weeks before your planned departure, they accept a job at a company, and their contract prohibits outside open source work. Your other potential successors have already made other plans based on your original timeline.\n\nList every option available to you at this point, including options you would prefer not to consider (e.g., delaying your own departure, mothballing the project, appointing a less-qualified successor).\nFor each option, identify who would be most affected and what they would need to hear.\nWrite the message you would send to the community explaining the change of plan. What do you owe them to disclose about what happened, and what is appropriately kept private?\n\n\n\n\n\nSonnenfeld, Jeffrey. 1988. The Hero’s Farewell: What Happens When CEOs Retire. Oxford University Press. ISBN 9780195065831.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Succession Planning</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html",
+    "href": "deliberate/index.html",
+    "title": "4  Deliberate Closure",
+    "section": "",
+    "text": "4.1 When",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#when",
+    "href": "deliberate/index.html#when",
+    "title": "4  Deliberate Closure",
+    "section": "",
+    "text": "(Weitzel and Jonsson 1989) describes a five-stage model of organisational decline:\n\nBlindness: warning signs go unrecognised\nInaction: signs are seen but nothing changes\nFaulty action: the wrong remedies are tried\nCrisis: resources are depleted and options close off\nDissolution\n\nThe sunk cost fallacy keeps projects alive past their useful life\nThe moment when shutdown becomes undeniable is rarely the moment it became inevitable: the warning signs were there earlier (Whetten 1980)\n\nRecognizing which stage a project is in determines which interventions are still available\n\nClinicians systematically fail patients by focusing on what medicine can do rather than asking what the patient actually wants (Gawande 2014)\n\nProject closure conversations often fail in the same way\n\nThe conditions for shutdown should already be written down in the project’s advance directive\nIf they are not, the first step is to write down who decides and under what conditions\n\nDistinguish between who must be consulted and who has a veto\n\nDiscussions with team members, funders, institutional sponsors, and users should:\n\nEstablish a shared understanding of the situation\nMake each party’s values and priorities explicit\nNegotiate a plan that meets those goals rather than being what is technically easiest\n\nFocus on:\n\nThe least bad outcome for each stakeholder\nWhat trade-offs they are willing to make\n\n\n\n\n\n\n\n\nNote\n\n\n\nOne special case is patterns in the dynamics of corporate scandals (Palazzo and Hoffrage 2025). Recognizing them early can give people warning that projects are going to fail.\n\n\n\n\nrigid ideology  toxic leadership  manipulative language\n\n\ncorrupting goals  destructive incentives  ambiguous rules\n\n\nperceived unfairness  dangerous groups  slippery slope",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#honest-enough",
+    "href": "deliberate/index.html#honest-enough",
+    "title": "4  Deliberate Closure",
+    "section": "4.2 Honest Enough",
+    "text": "4.2 Honest Enough\n\nFraming matters\n\n“Putting into hibernation” provokes less hostility than “termination” and keeps the door open for revival\nIf it is the truth and credible\nIt’s possible to be one without the other\n\n“Tell people what you know, as soon as you know it” is easy to say but hard to do\n\nInformation gaps cause more anxiety than difficult truths\nConflicting verbal and written instructions cause lasting harm\nOn the other hand, you often don’t know what’s happening\nAnd constantly-changing pronouncements raise the temperature as well\n\nRemember that this project is probably not the sole relationship you have with others\n\n(Wruck 1990) found that indirect costs of financial distress (lost contributors, cancelled collaborations, management distraction) are substantially larger than direct costs such as legal fees or asset sales\nIndirect costs arise because distress signals inability to fulfil commitments, triggering defensive behaviour that accelerates decline\nAn information vacuum does more damage than an honest announcement would have",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#beginning",
+    "href": "deliberate/index.html#beginning",
+    "title": "4  Deliberate Closure",
+    "section": "4.3 Beginning",
+    "text": "4.3 Beginning\n\nDon’t start by announcing shutdown\n\nAnnounce that you are stopping work and invite known successors to take over\nDo not accept successors you don’t already know (supply chain attack risk)\n\nGive users real deadlines and enough time to act\n\nTwo to six months between announcement and shutdown is enough\n\nUse the project’s announcement channels and others, not just the repository README or project home page\n\nThe latter reach core project members, not the wider circle\n\nTell people reasons (as much as you can), timelines, and what will happen to assets",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#middle",
+    "href": "deliberate/index.html#middle",
+    "title": "4  Deliberate Closure",
+    "section": "4.4 Middle",
+    "text": "4.4 Middle\n\nUpdate the project home page to list:\n\nKey achievements\nCurrent state (working, broken, incomplete)\nWhere code, data, and results are (going to be) archived\nNext steps or alternatives for users\n\nDon’t bother with:\n\nUser-facing tutorials\nExhaustive dependency documentation\nAdding additional tests as if you were doing a new release\nBug triage",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#end",
+    "href": "deliberate/index.html#end",
+    "title": "4  Deliberate Closure",
+    "section": "4.5 End",
+    "text": "4.5 End\n\nIf possible, have someone outside the project run structured exit interviews to find out what should survive rather than what went wrong\nHold a wake for the project (i.e., a combination group retrospective and memorial)\n\nWhat went well, what didn’t, and what stories people will remember\n\n\n\n\n\n\n\n\nNote\n\n\n\n(Chochinov et al. 2005; Chochinov 2012) advocates dignity therapy as a brief, structured intervention for people near the end of life. The central technique is a guided life-review interview in which the person reflects on what has mattered most, what they are proud of, and what they most want future generations to know and remember. A similar structured exit interview or retrospective at the end of a project is more than a conventional “lessons learned” report because it is personal, narrative, and explicitly oriented toward what should survive rather than what went wrong.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "deliberate/index.html#exercises",
+    "href": "deliberate/index.html#exercises",
+    "title": "4  Deliberate Closure",
+    "section": "4.6 Exercises",
+    "text": "4.6 Exercises\n\n4.6.1 Audit Your Dependencies\nRead Dumb Ways for an Open Source Project to Die, then think about the projects you depend on. Which of them do you believe are already in one of these states? How would you find out?\n\n\n4.6.2 Write a Shutdown Notice\n\nDraft a short announcement (3-5 bullet points) for your project. Explain the reasons for closure, give a concrete timeline, tell people what will happen to the data and the website, and point users to alternatives or successors.\nSwap and identify one thing the other notice does well and one thing it could improve.\n\n\n\n4.6.3 Last Known State\nDraft a one-page “last known state” document for your project:\n\nWhat does this project do (i.e., what problem does it solve)?\nWhat is currently working?\nWhat is broken or incomplete?\nWhere does the data or code live, and how would someone get it?\nWhat are the most important things a successor would need to know?\n\nCompare drafts: what did others ask about that you had not thought to include?\n\n\n\n\nChochinov, Harvey Max. 2012. Dignity Therapy: Final Words for Final Days. Oxford University Press. ISBN 9780195176216.\n\n\nChochinov, Harvey Max, Thomas Hack, Thomas Hassard, Linda J. Kristjanson, Susan McClement, and Mike Harlos. 2005. “Dignity Therapy: A Novel Psychotherapeutic Intervention for Patients Near the End of Life.” Journal of Clinical Oncology 23 (24). https://doi.org/10.1200/JCO.2005.08.391.\n\n\nGawande, Atul. 2014. Being Mortal: Medicine and What Matters in the End. Metropolitan Books / Henry Holt. ISBN 9780805095159.\n\n\nPalazzo, Guido, and Ulrich Hoffrage. 2025. The Dark Pattern: The Hidden Dynamics of Corporate Scandals. PublicAffairs. ISBN 9781541705302.\n\n\nWeitzel, William, and Ellen Jonsson. 1989. “Decline in Organizations: A Literature Integration and Extension.” Administrative Science Quarterly 34 (1). https://doi.org/10.2307/2392987.\n\n\nWhetten, David A. 1980. “Organizational Decline: A Neglected Topic in Organizational Science.” Academy of Management Review 5 (4). https://doi.org/10.5465/amr.1980.4288962.\n\n\nWruck, Karen Hopper. 1990. “Financial Distress, Reorganization, and Organizational Efficiency.” Journal of Financial Economics 27 (2). https://doi.org/10.1016/0304-405X(90)90063-6.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Deliberate Closure</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html",
+    "href": "disaster/index.html",
+    "title": "5  Disaster Recovery",
+    "section": "",
+    "text": "5.1 The Survival Arc\nwhen the project survives the storm",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#the-survival-arc",
+    "href": "disaster/index.html#the-survival-arc",
+    "title": "5  Disaster Recovery",
+    "section": "",
+    "text": "(Ripley 2008) synthesised research on how people behave when disaster strikes and identified a three-stage survival arc:\n\nDenial: refusal to believe that the situation is as serious as evidence suggests\nDeliberation: a period of paralysed uncertainty about what to do\nDecision: action, which may or may not be correct\n\nThe denial phase usually consumes far more time than people expect\n\nThinking through the scenario before it happens dramatically shortens it\n\nThe period between a credible sign that a project is in trouble and the first concrete closure action will be longer than planners assume, particularly under abrupt conditions\n\nRehearsal converts a novel emergency into a recognized pattern and shortens denial\nThe most common mistake is skipping early stages because they feel premature",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#know-your-risks",
+    "href": "disaster/index.html#know-your-risks",
+    "title": "5  Disaster Recovery",
+    "section": "5.2 Know Your Risks",
+    "text": "5.2 Know Your Risks\n\nThe Governance, Assets, and State section describes inventory taking and the lottery-factor problem\nMake a point-form list of every service and physical asset your team depends on\nFor each item, answer two questions:\n\nHow long can you be without it before work stops dead? This is the &lt;&lt;{g rto “recovery time objective” &gt;&gt;} (RTO).\nHow much data can you afford to lose: the last hour, the last day, a week? This is the &lt;&lt;{g rpo “recovery point objective” &gt;&gt;} (RPO).\n\nIdentify the single points of failure within your control, e.g., the credit card that pays for cloud services, or the person with the only key to the freezer",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#make-and-test-a-plan",
+    "href": "disaster/index.html#make-and-test-a-plan",
+    "title": "5  Disaster Recovery",
+    "section": "5.3 Make and Test a Plan",
+    "text": "5.3 Make and Test a Plan\n\nWrite a plan in a single shared document that everyone can find in thirty seconds\n\nStore it in at least two places that cannot fail simultaneously\n\nState the disaster declaration criteria in plain language: “the dashboard has been offline for more than a day” or “the freezer has been above -70°C for more than an hour”\nInclude a short numbered checklist for each scenario\nTest the plan by handing it to the newest team member and asking them to execute it without help\n\nEvery point where they get stuck is a documentation or automation gap\n\nThis is the antidote to the “fantasy document” described earlier",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#back-up-and-protect",
+    "href": "disaster/index.html#back-up-and-protect",
+    "title": "5  Disaster Recovery",
+    "section": "5.4 Back Up and Protect",
+    "text": "5.4 Back Up and Protect\n\nFollow the 3-2-1 rule (Krogh 2009): three copies of every critical asset, on two different types of media, with one copy off-site\nBack up source code to at least two different software forges and turn on automatic mirroring\nBack up configuration as well: DNS records, environment variables, pipeline definitions\nTest a full restore from backup at least once a year\n\nAbout a third of backups fail to restore completely\n\nBackups are not the same as preservation: backups protect a continuing project from operational loss, while the assets discussed earlier leaves a closing project usable by strangers",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#communicate",
+    "href": "disaster/index.html#communicate",
+    "title": "5  Disaster Recovery",
+    "section": "5.5 Communicate",
+    "text": "5.5 Communicate\n\nChoose a single communication channel that does not depend on your normal infrastructure\n\nAgree in advance on a fallback and write it in the plan\n\nPre-write messages and store them with the plan: one for the team, one for users, one for collaborators, one for afterward\nDesignate one person as the communicator so everyone else can focus on fixing the problem\n\nSilence erodes trust faster than bad news, so update stakeholders at regular intervals even if the update is “still working on it”\n\nThe next section covers the same principle for the case where the project does not continue",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#stabilize-then-investigate",
+    "href": "disaster/index.html#stabilize-then-investigate",
+    "title": "5  Disaster Recovery",
+    "section": "5.6 Stabilize, Then Investigate",
+    "text": "5.6 Stabilize, Then Investigate\n\nThe first goal when something breaks is to contain the damage, not to find the root cause\n\nContain the water leak before mopping up\n\nAssign clear roles for the duration of the incident: one person leads the technical response, one person handles communication, everyone else does what the leads tell them\nCreate an incident log as you work, timestamping every significant action\n\n14:32: freezer alarm triggered\n14:35: temperature reading -50°C and rising\n14:40: began sample transfer to Building C\nKeeps the team in sync and helps retrospective\n\nEscalate early: open a support ticket the moment you suspect the problem is on someone else’s side\nConduct a short review within 48 hours,\n\n“What in the system allowed the incident”, not, “Who made a mistake”\n\nCount the cost: a day of downtime has a concrete price in lost experiments, missed deadlines, and collaborators who stop trusting you\n\nThat number tells you whether a managed database or a backup service is worth it",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "disaster/index.html#exercises",
+    "href": "disaster/index.html#exercises",
+    "title": "5  Disaster Recovery",
+    "section": "5.7 Exercises",
+    "text": "5.7 Exercises\n\n5.7.1 RTO and RPO\n\nPick three services or assets you depend on.\nIdentify the single points of failure within your control that could trigger failure of each.\nFor each, write down its recovery time objective and recovery point objective.\n\n\n\n5.7.2 Declare a Disaster\n\nHand your recovery checklist to the newest member of your group.\nAsk them to execute the plan without help.\nWrite down the first three gaps you find and who will fix each one.\n\n\n\n\n\nKrogh, Peter. 2009. The DAM Book. O’Reilly. ISBN 9780596523572.\n\n\nRipley, Amanda. 2008. The Unthinkable: Who Survives When Disaster Strikes—and Why. Crown Publishers. ISBN 9780307352897.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Disaster Recovery</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html",
+    "href": "abrupt/index.html",
+    "title": "6  Abrupt Closure",
+    "section": "",
+    "text": "6.1 What People Actually Do",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#what-people-actually-do",
+    "href": "abrupt/index.html#what-people-actually-do",
+    "title": "6  Abrupt Closure",
+    "section": "",
+    "text": "Under time pressure, experts do not compare options: they recognize a situation as an instance of a familiar type and act on the first workable course of action that comes to mind (Klein 1998)\n\nThis is called recognition-primed decision making: the decision is primed by experience, not constructed from first principles\nExperience that team members have handling emergencies in other domains can be misleading\nBut is also more useful than they realize\nAsking “has anyone seen something like this before?” activates usable tacit knowledge under pressure\n\nSimilarly, attention narrows under acute stress\n\nSpecifically, this impairs the ability to hold multiple competing priorities in mind simultaneously (Easterbrook 1959; Starcke and Brand 2012)\nAs a result, teams focus intensely on the most visible problem while forgetting entire categories that would be obvious under calmer circumstances\nThis is not a failure of knowledge: it is a predictable feature of how the brain responds to pressure",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#convergence-as-a-resource",
+    "href": "abrupt/index.html#convergence-as-a-resource",
+    "title": "6  Abrupt Closure",
+    "section": "6.2 Convergence as a Resource",
+    "text": "6.2 Convergence as a Resource\n\n(Dynes 1970) describes four types of groups that form in emergencies:\n\nEstablished organizations that stick to their routines despite breakdown\nOther organizations that extend their routines to cover the new situation\nAd hoc groups form specifically to respond\n\nTheir tasks are modeled on those of established organizations:\nThey know what to do, they just need to come together\n\nEmergent groups with no prior or subsequent existence\n\nThey invent both their structure and their tasks in the moment with no existing template to follow\n\n\nResearch shows that people converge on a crisis without being told to (Fritz and Mathewson 1957)\n\nPeople who step forward do so because the project mattered\nThey are likely to help if given the minimum viable information\nIn software and research projects this translates into unofficial mirrors, public documentation posts, and community email threads\nIf you can support this without endangering yourself, do so",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#a-loose-interpretation-of-the-rules",
+    "href": "abrupt/index.html#a-loose-interpretation-of-the-rules",
+    "title": "6  Abrupt Closure",
+    "section": "6.3 A Loose Interpretation of the Rules",
+    "text": "6.3 A Loose Interpretation of the Rules\n\n(Lipsky 1980) found that frontline workers routinely depart from formal rules when applying them mechanically would produce worse outcomes than exercising judgment\n\nThis is called street-level bureaucracy: the real policy of an organisation is made in the moment-to-moment decisions of frontline workers, not in headquarters\nWaiting for formal approval that cannot be obtained is itself a decision, and usually a worse one\n\nWhen formal procedures are inapplicable because time or infrastructure is unavailable, the people present should act within their own discretion rather than waiting for authorization they cannot obtain\n\nCopying data, setting up a forwarding address, or sending a brief notice are all within the discretion of the people present\n\nMembers of marginalized groups often have more practice navigating hostile bureaucracies their tactics can be instructive",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#pause",
+    "href": "abrupt/index.html#pause",
+    "title": "6  Abrupt Closure",
+    "section": "6.4 Pause…",
+    "text": "6.4 Pause…\n\n(Gawande 2009) found that the most common failures in surgery were not failures of skill but failures to perform steps the surgeon already knew needed to be done\n\nThe intervention that worked was not additional training but a checklist\nThe same principle applies directly to abrupt project closure\n\nFirst, establish exactly how much time you have and what constraints are non-negotiable\n\nOrganizations sometimes keep shutdown news secret to prevent morale collapse\nThis backfires: rumors and information vacuums are more destructive than bad news\nSilence, denial, and diminishment all increase reputational and community harm\n\nSecond, spend a few minutes writing down every category of thing that must be addressed before attempting to resolve any of them\n\nAccess credentials, data backups, stakeholder notifications, community communication, legal obligations\nThe list does not need to be complete or correctly ordered\nIt just needs to exist so that urgency doesn’t lead to tunnel vision\n\nSecond, triage ruthlessly using the MoSCoW method:\n\nMust do: obligations that carry legal or financial risk if unmet\nShould do: the minimum viable record of the project’s work\nCould do: give the community a way to find each other after you are gone\nWon’t do: everything else, including anything that amounts to “do it properly”",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#then-speak",
+    "href": "abrupt/index.html#then-speak",
+    "title": "6  Abrupt Closure",
+    "section": "6.5 …then Speak…",
+    "text": "6.5 …then Speak…\n\n(Coombs 2021) identified three communication errors that increase reputational damage:\n\nSilence: stakeholders fill the vacuum with rumour\nDenial: asserting the crisis is not serious\nDiminishment: acknowledging it but minimising its severity\n\nRapid, honest, minimal communication is best even when you do not yet know what you will do\n\nA single paragraph saying “here is what we know, here is what we do not know, here is when we expect more information” is not a plan\nBut prevents the harms of silence",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#then-act",
+    "href": "abrupt/index.html#then-act",
+    "title": "6  Abrupt Closure",
+    "section": "6.6 …then Act",
+    "text": "6.6 …then Act\n\nYou probably don’t have time to clean up code, data, or publications\n\nA README and a runnable script are a viable minimum handover for research software\n\nNotify funders and stakeholders with binding claims before the project goes dark\nProvide a forwarding address:\n\nA working email address is better than silence\n\nDo not let guilt, pressure, or optimism make you promise maintenance you cannot deliver\nThe first conversations after the announcement are not about logistics: the next section covers the human side\n\n\n6.6.1 When You’re the One Being Hit\n\nMost participants in project closure are not the ones making the decision\n\nThe advice above is written from the project lead’s perspective\nThis section addresses the individual contributor\n\nIf your own work is about to disappear, do the minimum viable handover yourself: push a copy somewhere public, and export your issues and notes.\n\nHand credentials to a trusted person outside the organization if it’s safe to do so\n\nPause before speaking or posting publicly: have someone you trust review anything before you say or send it\nBroader individual-level advice lives in an appendix",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "abrupt/index.html#exercises",
+    "href": "abrupt/index.html#exercises",
+    "title": "6  Abrupt Closure",
+    "section": "6.7 Exercises",
+    "text": "6.7 Exercises\n\n6.7.1 Categories Before Tasks\n\nWorking individually, take three minutes to write down every category of thing that would need to be addressed if your project shut down at the end of this week. Write only categories, not specific tasks.\nCompare your list with a partner. What categories did your partner include that you missed? What did you over-specify?\nDebrief as a group. Most lists focus heavily on one or two categories (usually code or data) while omitting others entirely (credentials, legal obligations, community communication, contributor welfare, domain names). This is not a failure of knowledge, but a predictable failure of recall under pressure.\n\n\n\n6.7.2 Triage Under Pressure\nYou have just been told that your project is shutting down in 48 hours.\n\nApply MoSCoW: sort the categories from the previous exercise into must, should, could, or won’t, given a five-day deadline and one person working half-time.\nIdentify the single most important thing you can do in the first two hours.\n\n\n\n6.7.3 Leak Response\nYou planned to announce your project’s shutdown next Monday with a carefully drafted message to contributors, users, and funders. On Thursday afternoon, a community member posts on social media that the project is being killed by management. You haven’t notified your team or your funder yet, but the post is gathering attention.\n\nDraft the message you send to your team in the first 30 minutes. What do you tell them, and what do you ask them not to do?\nDraft the public post you publish within the next 2 hours. How does the premature leak change the tone, timing, and content of what you had planned to say?\nIn groups, discuss which stakeholder relationships are most at risk from the leak. What can you realistically salvage, and what is likely already damaged beyond repair?\n\n\n\n\n\nCoombs, W. Timothy. 2021. Ongoing Crisis Communication: Planning, Managing, and Responding. 6th ed. SAGE Publications. ISBN 9781071816646.\n\n\nDynes, Russell R. 1970. Organized Behavior in Disaster. D.C. Heath.\n\n\nEasterbrook, J. A. 1959. “The Effect of Emotion on Cue Utilization and the Organization of Behavior.” Psychological Review 66 (3). https://doi.org/10.1037/h0047707.\n\n\nFritz, Charles E., and J. H. Mathewson. 1957. Convergence Behavior in Disasters: A Problem in Social Control. National Academy of Sciences / National Research Council.\n\n\nGawande, Atul. 2009. The Checklist Manifesto: How to Get Things Right. Metropolitan Books. ISBN 9780805091748.\n\n\nKlein, Gary. 1998. Sources of Power: How People Make Decisions. MIT Press. ISBN 9780262611466.\n\n\nLipsky, Michael. 1980. Street-Level Bureaucracy: Dilemmas of the Individual in Public Services. Russell Sage Foundation. ISBN 9780871545268.\n\n\nStarcke, Katja, and Matthias Brand. 2012. “Decision Making Under Stress: A Selective Review.” Neuroscience and Biobehavioral Reviews 36 (4). https://doi.org/10.1016/j.neubiorev.2012.02.003.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abrupt Closure</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html",
+    "href": "care/index.html",
+    "title": "7  Caring For Your People",
+    "section": "",
+    "text": "7.1 Total Pain",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#total-pain",
+    "href": "care/index.html#total-pain",
+    "title": "7  Caring For Your People",
+    "section": "",
+    "text": "Total pain is used to describe how a dying patient’s suffering is never purely physical (Saunders 1963)\n\nIt has physical, psychological, social, and spiritual dimensions that interact and amplify one another\n\nProject closure similarly involves more than logistics\n\nTeam members experience professional identity loss, grief over unfinished work, anxiety about career prospects, and sometimes guilt or anger that can fracture long-standing relationships\nTreating closure as a purely administrative exercise leaves people worse off and makes it harder for the broader community to learn from the experience",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#psychological-first-aid",
+    "href": "care/index.html#psychological-first-aid",
+    "title": "7  Caring For Your People",
+    "section": "7.2 Psychological First Aid",
+    "text": "7.2 Psychological First Aid\n\n(Hobfoll et al. 2007) identified five principles to guide responses in the early stages of a crisis, which became the basis of the WHO’s Psychological First Aid field guide (Organization 2013)\n\nPromote a sense of safety\nCalm the emotional environment\nBuild self-efficacy and collective efficacy\nFoster connectedness\nMaintain hope\n\nThe practical translation for project teams is that the first conversations after a closure announcement should not be about logistics\n\nConfirm that people are not in immediate danger\nAcknowledge what has happened rather than minimizing it\nRemind people that they have handled difficult things before\nConnect people with one another rather than leaving them to absorb the news alone\nIdentify what is genuinely uncertain versus irreversibly decided\n\nSometimes you have to be “honest enough”",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#two-kinds-of-coping",
+    "href": "care/index.html#two-kinds-of-coping",
+    "title": "7  Caring For Your People",
+    "section": "7.3 Two Kinds of Coping",
+    "text": "7.3 Two Kinds of Coping\n\n(Lazarus and Folkman 1984) distinguishes two types of coping\nProblem-focused coping addresses the situation itself\n\nAdopted when people perceive a stressor as controllable\n\nEmotion-focused coping addresses the person’s internal response\n\nAdopted when people perceive it as uncontrollable\n\nAbrupt project closure typically combines both\n\nSo team members will respond to the same event differently depending on whether they feel any agency over it\n\nThe person who immediately starts triaging data is not more competent than the person who needs an hour to absorb what has happened\n\nThey are applying different coping modes to the same situation\n\nManaging closure well means making space for both responses simultaneously.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#grief-and-its-timing",
+    "href": "care/index.html#grief-and-its-timing",
+    "title": "7  Caring For Your People",
+    "section": "7.4 Grief and Its Timing",
+    "text": "7.4 Grief and Its Timing\n\n(Rando 2000) studied anticipatory mourning: grief that begins before an expected loss, not after it\n\nIt involves simultaneous processing of past losses (what the project once was), present losses (what it is becoming), and future losses (what it will never be)\nIt is cognitively and emotionally more demanding than grief after the fact because the person must continue to function while still engaged in the thing they are losing\nPlanned shutdown triggers this in project teams: people must continue doing the work of closing down while processing the loss of their work relationships and the future they had imagined\nNaming this dynamic explicitly helps people manage it and support one another\n\n(Shepherd 2003; Shepherd et al. 2016) found that the intensity of grief after a failed venture is proportional to personal identification with the project and directly interferes with the ability to learn from the experience\n\nGrief recovery is not linear and is not accelerated by forcing lessons-learned conversations too early\nStructured reflection is most productive after a period of acknowledgement, not immediately after the loss\nA retrospective held a month after closure captures more than one held the week it closes",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#practical-care",
+    "href": "care/index.html#practical-care",
+    "title": "7  Caring For Your People",
+    "section": "7.5 Practical Care",
+    "text": "7.5 Practical Care\n\nDownstream users and contributors deserve advance notice proportional to their dependence on the project\nHelp community members find each other independently of your infrastructure: a mailing list or forum they control survives your shutdown\nTeams that maintained social contact after shutdown were more likely to reform and continue work; those that dispersed without ties were not\nEngineers assigned to maintain a cancelled project suffer serious morale damage\n\nDo not trap people in this role longer than necessary\n\nPeople often feel liberated rather than bereft when a long-running obligation ends\n\nGive yourself and others permission to experience this without guilt\n\nWriting about difficult experiences has documented benefits\nSmall acts of recognition (naming achievements, thanking contributors publicly) matter disproportionately during difficult transitions\nA goodbye ceremony, however small, marks the ending and helps people move on\n\nClosing a project is not erasing it\n\nThe continuing bonds theory of bereavement (Klass et al. 1996) challenged the idea that healthy mourning requires severing the relationship with what was lost\n\nPeople who maintain an ongoing connection through story-telling, souvenirs, or integration of the lost thing’s values are exhibiting a normal, healthy form of grief\nFraming closure around what continues, rather than only what ends, reduces distress and lets participants frame archiving, citation, and attribution as genuine acts of preservation, not bureaucratic compliance",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "care/index.html#exercises",
+    "href": "care/index.html#exercises",
+    "title": "7  Caring For Your People",
+    "section": "7.6 Exercises",
+    "text": "7.6 Exercises\n\n7.6.1 Mapping Stakeholder Messages\nUsing your project:\n\nList the people and groups most affected by closing your project, in order of impact. Include both declared dependents (e.g., packages that list you as a requirement) and undeclared ones (e.g., researchers who download your data).\nCategorize each by impact severity if your project disappeared tomorrow: critical (their work stops), significant (their work is impaired), or minor (an inconvenience).\nDraft a one-sentence message tailored to each category. What lead time does each group need, and what alternatives can you point them to?\n\nWhat information appears in all messages, and what appears in only one? What differs in tone, level of detail, and lead time given?\n\n\n\n\nHobfoll, Stevan E. et al. 2007. “Five Essential Elements of Immediate and Mid-Term Mass Trauma Intervention: Empirical Evidence.” Psychiatry: Interpersonal and Biological Processes 70 (4). https://doi.org/10.1521/psyc.2007.70.4.283.\n\n\nKlass, Dennis, Phyllis R. Silverman, and Steven Nickman, eds. 1996. Continuing Bonds: New Understandings of Grief. Taylor; Francis / Routledge. ISBN 9781560323396.\n\n\nLazarus, Richard S., and Susan Folkman. 1984. Stress, Appraisal, and Coping. Springer. ISBN 9780826141910.\n\n\nOrganization, World Health. 2013. Psychological First Aid: Facilitator’s Manual for Orienting Field Workers. https://www.who.int/publications/i/item/psychological-first-aid.\n\n\nRando, Therese A., ed. 2000. Clinical Dimensions of Anticipatory Mourning: Theory and Practice in Working with the Dying, Their Loved Ones, and Their Caregivers. Research Press. ISBN 9780878223800.\n\n\nSaunders, Cicely. 1963. “The Treatment of Intractable Pain in Terminal Cancer.” Proceedings of the Royal Society of Medicine 56 (3): 195–97.\n\n\nShepherd, Dean A. 2003. “Learning from Business Failure: Propositions of Grief Recovery for the Self-Employed.” Academy of Management Review 28 (2). https://doi.org/10.5465/amr.2003.9416377.\n\n\nShepherd, Dean A., Trenton Williams, Marcus Wolfe, and Holger Patzelt. 2016. Learning from Entrepreneurial Failure: Emotions, Cognitions, and Actions. Cambridge University Press. ISBN 9781107569836.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Caring For Your People</span>"
+    ]
+  },
+  {
+    "objectID": "finale/index.html",
+    "href": "finale/index.html",
+    "title": "8  Conclusion",
+    "section": "",
+    "text": "8.1 Organize",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "finale/index.html#organize",
+    "href": "finale/index.html#organize",
+    "title": "8  Conclusion",
+    "section": "",
+    "text": "There’s no point surviving today’s flood if you drown in tomorrow’s.\n— variously attributed\n\n\nThe best way for researchers to take preventive action is to become active in professional associations and push them to take meaningful action\n\nUnfortunately, there aren’t meaningful professional associations in the software industry to join and push\n\nAnd the idea of doing this makes many people uncomfortable\n\nMembership in voluntary organizations has declined over several decades (Putnam 2020)\nWhich means we’re out of practice\n\nUnfortunately, the bad guys aren’t\n\nWho is more likely to run for a school board seat: someone with a PhD in epidemiology or an anti-vax conspiracy theorist?\n\nRight now we have to focus on preserving what we have\n\nBut playing defense is just a way to lose more slowly",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "finale/index.html#further-reading",
+    "href": "finale/index.html#further-reading",
+    "title": "8  Conclusion",
+    "section": "8.2 Further Reading",
+    "text": "8.2 Further Reading\n\n(Foster et al., n.d.) is one of the few end-to-end guides out there\nRepository Resilience\nBeyond the Bus Factor",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "finale/index.html#exercises",
+    "href": "finale/index.html#exercises",
+    "title": "8  Conclusion",
+    "section": "8.3 Exercises",
+    "text": "8.3 Exercises\n\n8.3.1 One Thing to Do This Week\nIdentify one concrete action you will take in the next five working days to make your project easier to close when the time comes. Write it down and share it with a partner, who will follow up with you next week.\n\n\n8.3.2 Make a Pitch\n\nDraft a 90-second verbal pitch to convince one skeptical colleague to join a professional organization or sign onto a collective statement. The pitch must name a specific organization or action, not just the general idea of getting involved.\nDeliver the pitch to a partner playing a genuinely skeptical colleague: someone who is too busy, thinks individual action is futile, or worries about political exposure in their institution.\n\nWhat objections came up? Which were hardest to answer? What would you need to know or believe differently to answer them convincingly?\n\n\n\n\nBoca, Patricio Del. 2024. Disorderly Transition: Preserving the Argentine Government’s Open Data. Presented at csv,conf 8. https://www.youtube.com/watch?v=8dUyi4OYAdM.\n\n\nCullen, Laura, Kirsten Hanrahan, Michele Farrington, Sharon Tucker, and Stephanie Edmonds. 2022. Evidence-Based Practice in Action: Comprehensive Strategies, Tools, and Tips from University of Iowa Hospitals & Clinics. 2nd edition. Sigma Theta Tau International. ISBN 9781948057950.\n\n\nFoster, Dawn et al. n.d. CHAOSS Practitioner Guide: Getting Started with Sunsetting an Open Source Project. Accessed June 1, 2026. https://chaoss.community/practitioner-guide-sunset/.\n\n\nPennebaker, James W., and Joshua M. Smyth. 2016. Opening up by Writing It down: How Expressive Writing Improves Health and Eases Emotional Pain. 3rd edition. Guilford Publications. ISBN 9781462524921.\n\n\nPutnam, Robert D. 2020. Bowling Alone: The Collapse and Revival of American Community. 2nd edition. Simon & Schuster. ISBN 9781982130848.\n\n\nSolnit, Rebecca. 2010. A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster. Penguin Books. ISBN 9780143118077.\n\n\nYang, Yuqing. 2024. “The Effect of Disasters on Altruistic Behavior and Its Mechanisms.” Journal of Education, Humanities and Social Sciences 26 (3). https://doi.org/10.54097/xng2q069.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "license/index.html",
+    "href": "license/index.html",
+    "title": "Appendix A — License",
+    "section": "",
+    "text": "This is a human-readable summary of (and not a substitute for) the license. For the full legal text of this license, please see https://creativecommons.org/licenses/by-nc/4.0/legalcode.\nAll of this site is made available under the terms of the Creative Commons Attribution - NonCommercial 4.0 license. You are free to:\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\nThe licensor cannot revoke these freedoms as long as you follow the license terms.\n\nUnder the following terms:\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nNotices:\nYou do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.\nNo warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>License</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html",
+    "href": "conduct/index.html",
+    "title": "Appendix B — Code of Conduct",
+    "section": "",
+    "text": "B.1 Our Standards\nIn the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\nExamples of behavior that contributes to creating a positive environment include:\nExamples of unacceptable behavior by participants include:",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html#our-standards",
+    "href": "conduct/index.html#our-standards",
+    "title": "Appendix B — Code of Conduct",
+    "section": "",
+    "text": "using welcoming and inclusive language,\nbeing respectful of differing viewpoints and experiences,\ngracefully accepting constructive criticism,\nfocusing on what is best for the community, and\nshowing empathy towards other community members.\n\n\n\nthe use of sexualized language or imagery and unwelcome sexual attention or advances,\ntrolling, insulting/derogatory comments, and personal or political attacks,\npublic or private harassment,\npublishing others’ private information, such as a physical or electronic address, without explicit permission, and\nother conduct which could reasonably be considered inappropriate in a professional setting",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html#our-responsibilities",
+    "href": "conduct/index.html#our-responsibilities",
+    "title": "Appendix B — Code of Conduct",
+    "section": "B.2 Our Responsibilities",
+    "text": "B.2 Our Responsibilities\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html#scope",
+    "href": "conduct/index.html#scope",
+    "title": "Appendix B — Code of Conduct",
+    "section": "B.3 Scope",
+    "text": "B.3 Scope\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project email address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html#enforcement",
+    "href": "conduct/index.html#enforcement",
+    "title": "Appendix B — Code of Conduct",
+    "section": "B.4 Enforcement",
+    "text": "B.4 Enforcement\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by emailing the project team. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "conduct/index.html#attribution",
+    "href": "conduct/index.html#attribution",
+    "title": "Appendix B — Code of Conduct",
+    "section": "B.5 Attribution",
+    "text": "B.5 Attribution\nThis Code of Conduct is adapted from the Contributor Covenant version 1.4.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Code of Conduct</span>"
+    ]
+  },
+  {
+    "objectID": "contributing/index.html",
+    "href": "contributing/index.html",
+    "title": "Appendix C — Contributing",
+    "section": "",
+    "text": "C.1 Contributors {: #contributors}\nContributions are very welcome; please contact us by email or by filing an issue in our repository. All contributors must abide by our Code of Conduct.\nGreg Wilson is a programmer, author, and educator based in Toronto. He was the co-founder and first Executive Director of Software Carpentry and received ACM SIGSOFT’s Influential Educator Award in 2020.\nThanks to Andrew Nesbitt for permission to re-use Dumb Ways for an Open Source Project to Die.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Contributing</span>"
+    ]
+  },
+  {
+    "objectID": "contributing/index.html#faq",
+    "href": "contributing/index.html#faq",
+    "title": "Appendix C — Contributing",
+    "section": "C.2 FAQ",
+    "text": "C.2 FAQ\n\nDo you need help?\n\nYes—please see the issues in our repository.\n\nWhat sort of feedback would be useful?\n\nEverything is welcome, from pointing out mistakes to suggestions for better explanations.\n\nCan I add a new section?\n\nPossibly, but please reach out before doing so.\n\nWhy is this material free?\n\nBecause if we all give a little, we all get a lot.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Contributing</span>"
+    ]
+  },
+  {
+    "objectID": "contributing/index.html#setup-and-operation",
+    "href": "contributing/index.html#setup-and-operation",
+    "title": "Appendix C — Contributing",
+    "section": "C.3 Setup and Operation",
+    "text": "C.3 Setup and Operation\n\nInstall uv.\nCreate a virtual environment by running uv venv in the root directory.\nActivate it by running source .venv/bin/activate in your shell.\nInstall dependencies by running uv sync.\nRun task --list to see a list of common commands.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Contributing</span>"
+    ]
+  },
+  {
+    "objectID": "bibliography/index.html",
+    "href": "bibliography/index.html",
+    "title": "Appendix D — Bibliography",
+    "section": "",
+    "text": "Alinsky, Saul D. 1989. Rules for Radicals: A Practical Primer for\nRealistic Radicals. Vintage. ISBN 9780679721130.\n\n\nBoca, Patricio Del. 2024. Disorderly Transition: Preserving the\nArgentine Government’s Open Data. Presented at csv,conf 8. https://www.youtube.com/watch?v=8dUyi4OYAdM.\n\n\nBrown, Michael Jacoby. 2007. Building Powerful Community\nOrganizations. Long Haul Press. ISBN 9780977151806.\n\n\nBurlingham, Bo. 2014. Finish Big: How Great Entrepreneurs Exit Their\nCompanies on Top. Portfolio/Penguin. ISBN 9781591844976.\n\n\nBurlingham, Bo. 2016. Small Giants: Companies That Choose to Be\nGreat Instead of Big. Portfolio. ISBN 9780143109600.\n\n\nChochinov, Harvey Max. 2012. Dignity Therapy: Final Words for Final\nDays. Oxford University Press. ISBN 9780195176216.\n\n\nChochinov, Harvey Max, Thomas Hack, Thomas Hassard, Linda J.\nKristjanson, Susan McClement, and Mike Harlos. 2005. “Dignity\nTherapy: A Novel Psychotherapeutic Intervention for Patients Near the\nEnd of Life.” Journal of Clinical Oncology 23 (24). https://doi.org/10.1200/JCO.2005.08.391.\n\n\nClarke, Lee. 1999. Mission Improbable: Using Fantasy Documents to\nTame Disaster. University of Chicago Press. ISBN 9780226109411.\n\n\nCoombs, W. Timothy. 2021. Ongoing Crisis Communication: Planning,\nManaging, and Responding. 6th ed. SAGE Publications. ISBN\n9781071816646.\n\n\nCullen, Laura, Kirsten Hanrahan, Michele Farrington, Sharon Tucker, and\nStephanie Edmonds. 2022. Evidence-Based Practice in Action:\nComprehensive Strategies, Tools, and Tips from University of Iowa\nHospitals & Clinics. 2nd edition. Sigma Theta Tau\nInternational. ISBN 9781948057950.\n\n\nDynes, Russell R. 1970. Organized Behavior in Disaster. D.C.\nHeath.\n\n\nEasterbrook, J. A. 1959. “The Effect of Emotion on Cue Utilization\nand the Organization of Behavior.” Psychological Review\n66 (3). https://doi.org/10.1037/h0047707.\n\n\nFoster, Dawn et al. n.d. CHAOSS\nPractitioner Guide: Getting Started with Sunsetting an Open Source\nProject. Accessed June 1, 2026. https://chaoss.community/practitioner-guide-sunset/.\n\n\nFrankfurt, Harry G. 2005. On Bullshit. Princeton University\nPress. ISBN 9780691122946.\n\n\nFritz, Charles E., and J. H. Mathewson. 1957. Convergence Behavior\nin Disasters: A Problem in Social Control. National Academy of\nSciences / National Research Council.\n\n\nGawande, Atul. 2009. The Checklist Manifesto: How to Get Things\nRight. Metropolitan Books. ISBN 9780805091748.\n\n\nGawande, Atul. 2014. Being Mortal: Medicine and What Matters in the\nEnd. Metropolitan Books / Henry Holt. ISBN 9780805095159.\n\n\nHobfoll, Stevan E. et al. 2007. “Five\nEssential Elements of Immediate and Mid-Term Mass Trauma Intervention:\nEmpirical Evidence.” Psychiatry: Interpersonal and Biological\nProcesses 70 (4). https://doi.org/10.1521/psyc.2007.70.4.283.\n\n\nKatz, Daniel S., Kyle E. Niemeyer, and Arfon M. Smith. 2018.\n“Publish Your Software: Introducing the Journal of Open Source\nSoftware (JOSS).” Computing in Science & Engineering\n20 (3). https://doi.org/10.1109/MCSE.2018.03221930.\n\n\nKlass, Dennis, Phyllis R. Silverman, and Steven Nickman, eds. 1996.\nContinuing Bonds: New Understandings of Grief. Taylor; Francis\n/ Routledge. ISBN 9781560323396.\n\n\nKlein, Gary. 1998. Sources of Power: How People Make Decisions.\nMIT Press. ISBN 9780262611466.\n\n\nKrogh, Peter. 2009. The DAM Book. O’Reilly. ISBN 9780596523572.\n\n\nLakey, George. 2018. How We Win: A Guide to Nonviolent Direct Action\nCampaigning. Melville House. ISBN 9781612197531.\n\n\nLangille, Morgan G. I., and Jonathan A. Eisen. 2010. “BioTorrents:\nA File Sharing Service for Scientific Data.” PLoS One 4\n(5). https://doi.org/10.1371/journal.pone.0010071.\n\n\nLazarus, Richard S., and Susan Folkman. 1984. Stress, Appraisal, and\nCoping. Springer. ISBN 9780826141910.\n\n\nLipsky, Michael. 1980. Street-Level Bureaucracy: Dilemmas of the\nIndividual in Public Services. Russell Sage Foundation. ISBN\n9780871545268.\n\n\nLittauer, Richard et al. 2025. 10 Quick\nTips for Making Your Software Outlive Your Job. https://arxiv.org/abs/2505.06484.\n\n\nMarks, Kenneth H., Christian W. Blees, Michael R. Nall, and Thomas A.\nStewart. 2022. Middle Market m&a: Handbook for Advisors,\nInvestors, and Business Owners. 2nd ed. Wiley Finance. ISBN\n9781119828105.\n\n\nOrganization, World Health. 2013. Psychological First Aid:\nFacilitator’s Manual for Orienting Field Workers. https://www.who.int/publications/i/item/psychological-first-aid.\n\n\nPalazzo, Guido, and Ulrich Hoffrage. 2025. The Dark Pattern: The\nHidden Dynamics of Corporate Scandals. PublicAffairs. ISBN\n9781541705302.\n\n\nPennebaker, James W., and Joshua M. Smyth. 2016. Opening up by\nWriting It down: How Expressive Writing Improves Health and Eases\nEmotional Pain. 3rd edition. Guilford Publications. ISBN\n9781462524921.\n\n\nPerrow, Charles. 1999. Normal Accidents: Living with High-Risk\nTechnologies. Princeton University Press. ISBN 9780691004129.\n\n\nPutnam, Robert D. 2020. Bowling Alone: The Collapse and Revival of\nAmerican Community. 2nd edition. Simon & Schuster. ISBN\n9781982130848.\n\n\nRando, Therese A., ed. 2000. Clinical Dimensions of Anticipatory\nMourning: Theory and Practice in Working with the Dying, Their Loved\nOnes, and Their Caregivers. Research Press. ISBN 9780878223800.\n\n\nRipley, Amanda. 2008. The Unthinkable: Who Survives When Disaster\nStrikes—and Why. Crown Publishers. ISBN 9780307352897.\n\n\nSaunders, Cicely. 1963. “The Treatment of Intractable Pain in\nTerminal Cancer.” Proceedings of the Royal Society of\nMedicine 56 (3): 195–97.\n\n\nScott, James C. 1987. Weapons of the Weak: Everyday Forms of Peasant\nResistance. Yale University Press. ISBN 9780300036411.\n\n\nShepherd, Dean A. 2003. “Learning from Business Failure:\nPropositions of Grief Recovery for the Self-Employed.”\nAcademy of Management Review 28 (2). https://doi.org/10.5465/amr.2003.9416377.\n\n\nShepherd, Dean A., Trenton Williams, Marcus Wolfe, and Holger Patzelt.\n2016. Learning from Entrepreneurial Failure: Emotions, Cognitions,\nand Actions. Cambridge University Press. ISBN 9781107569836.\n\n\nSinger, Jessie. 2023. There Are No Accidents: The Deadly Rise of\nInjury and Disaster—Who Profits and Who Pays the Price. Simon &\nSchuster. ISBN 9781982129668.\n\n\nSmalls, Danielle, and Greg Wilson. 2021. “Ten Quick Tips for\nStaying Safe Online.” PLOS Computational Biology 17 (3).\nhttps://doi.org/10.1371/journal.pcbi.1008563.\n\n\nSolnit, Rebecca. 2010. A Paradise Built in Hell: The Extraordinary\nCommunities That Arise in Disaster. Penguin Books. ISBN\n9780143118077.\n\n\nSonnenfeld, Jeffrey. 1988. The Hero’s Farewell: What Happens When\nCEOs Retire. Oxford University Press. ISBN 9780195065831.\n\n\nStarcke, Katja, and Matthias Brand. 2012. “Decision Making Under\nStress: A Selective Review.” Neuroscience and Biobehavioral\nReviews 36 (4). https://doi.org/10.1016/j.neubiorev.2012.02.003.\n\n\nStrategic Services, United States Office of. 1944. Simple Sabotage\nField Manual. ISBN 9798405796871.\n\n\nTamburri, Damian Andrew, Kelly Blincoe, Fabio Palomba, and Rick Kazman.\n2020. “’The Canary in the Coal Mine…’ a Cautionary Tale from the\nDecline of SourceForge.” Software: Practice and\nExperience 50 (10). https://doi.org/10.1002/spe.2874.\n\n\nTowey, Jim. n.d. Five Wishes. Aging with Dignity. Accessed\nApril 8, 2026. https://www.fivewishes.org/.\n\n\nVaughan, Diane. 1996. The Challenger Launch Decision: Risky\nTechnology, Culture, and Deviance at NASA. University of Chicago\nPress. ISBN 9780226851754.\n\n\nWeitzel, William, and Ellen Jonsson. 1989. “Decline in\nOrganizations: A Literature Integration and Extension.”\nAdministrative Science Quarterly 34 (1). https://doi.org/10.2307/2392987.\n\n\nWhetten, David A. 1980. “Organizational Decline: A Neglected Topic\nin Organizational Science.” Academy of Management Review\n5 (4). https://doi.org/10.5465/amr.1980.4288962.\n\n\nWruck, Karen Hopper. 1990. “Financial Distress, Reorganization,\nand Organizational Efficiency.” Journal of Financial\nEconomics 27 (2). https://doi.org/10.1016/0304-405X(90)90063-6.\n\n\nYang, Yuqing. 2024. “The Effect of Disasters on Altruistic\nBehavior and Its Mechanisms.” Journal of Education,\nHumanities and Social Sciences 26 (3). https://doi.org/10.54097/xng2q069.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Bibliography</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html",
+    "href": "glossary/index.html",
+    "title": "Appendix E — Glossary",
+    "section": "",
+    "text": "E.1 A",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#a",
+    "href": "glossary/index.html#a",
+    "title": "Appendix E — Glossary",
+    "section": "",
+    "text": "abrupt closure\n\nA shutdown in which the project does not continue and the event is abrupt: short notice, usually someone else’s decision, with only one chance to get it right.\n\nabstinence solution\n\nA proposed solution that requires people to behave in ways they actually won’t. Its real purpose is to allow its proponents to pretend they have solved the problem.\n\nadvance directive\n\nA document written while a project is still healthy that specifies conditions for shutdown, who has authority to decide, what assets must be preserved, and what obligations must be honored.\n\nanticipatory mourning\n\nGrief that begins before an expected loss rather than after it, involving simultaneous processing of past, present, and future losses.\n\nasset transfer\n\nThe transfer of selected assets and obligations from one party to another while leaving the original legal entity intact.\n\nattention narrowing\n\nA cognitive effect of acute stress in which focus narrows to the most visible problem while other concerns become invisible.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#b",
+    "href": "glossary/index.html#b",
+    "title": "Appendix E — Glossary",
+    "section": "E.2 B",
+    "text": "E.2 B\n\nBenevolent Dictator for Life (BDFL)\n\nA governance model in which one person holds final decision-making authority over a project for as long as they choose to lead it.\n\nbullshit\n\nCommunication that disregards truth in favor of achieving an effect, in which the speaker is indifferent to whether their statements are true or false.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#c",
+    "href": "glossary/index.html#c",
+    "title": "Appendix E — Glossary",
+    "section": "E.3 C",
+    "text": "E.3 C\n\ncivil society\n\nOrganizations, networks, and communities that operate outside government and the commercial sector.\n\ncommunity threat\n\nA threat that affects a large group of people simultaneously, overwhelming the community’s capacity to absorb the shock.\n\ncontinuing bonds\n\nA theory of bereavement that states that healthy mourning does not require severing the relationship with what was lost but can instead involve ongoing connections.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#d",
+    "href": "glossary/index.html#d",
+    "title": "Appendix E — Glossary",
+    "section": "E.4 D",
+    "text": "E.4 D\n\ndeliberate closure\n\nA shutdown in which the project does not continue and the event is gradual: decided by project leaders with enough notice to plan and correct course.\n\ndigital object identifier (DOI)\n\nA persistent unique identifier assigned to a digital object such as a dataset or software release so that it can be reliably cited and located.\n\ndignity therapy\n\nA brief structured intervention involving a guided life-review interview in which a person reflects on what has mattered most, producing a legacy document intended to extend their influence.\n\ndisaster\n\nAn abrupt, disruptive event that a project survives and recovers from.\n\ndisaster recovery\n\nThe process of restoring a project to working order after an abrupt event while the project continues.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#e",
+    "href": "glossary/index.html#e",
+    "title": "Appendix E — Glossary",
+    "section": "E.5 E",
+    "text": "E.5 E\n\nemotion-focused coping\n\nA response to stress that addresses a person’s internal emotional state rather than the external situation causing the stress.\n\nentity transfer\n\nThe transfer of an entire project or other legal entity, including unknown obligations.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#f",
+    "href": "glossary/index.html#f",
+    "title": "Appendix E — Glossary",
+    "section": "E.6 F",
+    "text": "E.6 F\n\nFAIR principles\n\nA set of guidelines requiring that research data be Findable, Accessible, Interoperable, and Reusable.\n\nfantasy document\n\nA plan that gives the appearance of preparedness but bears no relationship to what would actually happen if the plan were needed.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#g",
+    "href": "glossary/index.html#g",
+    "title": "Appendix E — Glossary",
+    "section": "E.7 G",
+    "text": "E.7 G\n\nglobal threat\n\nA threat that affects an entire community or society, leaving no external community available to provide support.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#h",
+    "href": "glossary/index.html#h",
+    "title": "Appendix E — Glossary",
+    "section": "E.8 H",
+    "text": "E.8 H",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#i",
+    "href": "glossary/index.html#i",
+    "title": "Appendix E — Glossary",
+    "section": "E.9 I",
+    "text": "E.9 I\n\nindividual threat\n\nA threat affecting one or a few members of a team, arising from career changes, life events, or external pressures targeting specific people.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#j",
+    "href": "glossary/index.html#j",
+    "title": "Appendix E — Glossary",
+    "section": "E.10 J",
+    "text": "E.10 J",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#k",
+    "href": "glossary/index.html#k",
+    "title": "Appendix E — Glossary",
+    "section": "E.11 K",
+    "text": "E.11 K",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#l",
+    "href": "glossary/index.html#l",
+    "title": "Appendix E — Glossary",
+    "section": "E.12 L",
+    "text": "E.12 L\n\nleadership threat\n\nA threat aimed specifically at a project’s leader, such as a reputational attack based on the leader’s research or public positions.\n\nlottery factor\n\nThe minimum number of team members who have to win the lottery and retire in order for the project to come to a halt. Also known as “bus factor”.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#m",
+    "href": "glossary/index.html#m",
+    "title": "Appendix E — Glossary",
+    "section": "E.13 M",
+    "text": "E.13 M\n\nMartha’s Rules\n\nA consensus procedure in which a proposal passes unless enough participants formally object, balancing efficiency with broad participation.\n\nMoSCoW method\n\nA prioritization technique that sorts tasks into four categories: must do, should do, could do, and won’t do.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#n",
+    "href": "glossary/index.html#n",
+    "title": "Appendix E — Glossary",
+    "section": "E.14 N",
+    "text": "E.14 N\n\nnormalization of deviance\n\nThe process by which repeated small deviations from safe practice come to be accepted as normal, increasing the risk of eventual catastrophic failure.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#o",
+    "href": "glossary/index.html#o",
+    "title": "Appendix E — Glossary",
+    "section": "E.15 O",
+    "text": "E.15 O",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#p",
+    "href": "glossary/index.html#p",
+    "title": "Appendix E — Glossary",
+    "section": "E.16 P",
+    "text": "E.16 P\n\npassword manager\n\nSoftware that stores and manages login credentials securely, enabling strong unique passwords for each service.\n\nproblem-focused coping\n\nA response to stress that addresses the external situation causing the stress rather than the person’s emotional reaction to it.\n\npsychological first aid\n\nA framework for supporting people in the early stages of a crisis by promoting safety, calm, self-efficacy, connectedness, and hope.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#q",
+    "href": "glossary/index.html#q",
+    "title": "Appendix E — Glossary",
+    "section": "E.17 Q",
+    "text": "E.17 Q",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#r",
+    "href": "glossary/index.html#r",
+    "title": "Appendix E — Glossary",
+    "section": "E.18 R",
+    "text": "E.18 R\n\nrecognition-primed decision making\n\nA form of decision-making in which an expert recognizes a situation as an instance of a familiar type and acts on the first workable response rather than comparing alternatives.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#s",
+    "href": "glossary/index.html#s",
+    "title": "Appendix E — Glossary",
+    "section": "E.19 S",
+    "text": "E.19 S\n\nstreet-level bureaucracy\n\nThe practice by which frontline workers use their own judgment to depart from institutional rules when applying those rules would produce worse outcomes.\n\nsuccession plan\n\nA document specifying what a departing leader is handing over, when each element will transfer, and what the successor will be responsible for.\n\nsuccession planning\n\nThe process of preparing for a project to continue under new leadership on a gradual timeline.\n\nsuffrage\n\nThe right to participate in a binding governance decision, as distinct from the right merely to be consulted.\n\nsunk cost fallacy\n\nThe tendency to continue investing in something because of past investment rather than expected future value.\n\nsupply chain attack\n\nAn attack in which a malicious actor compromises a project by gaining acceptance as a contributor.\n\nsurvival arc\n\nA three-stage pattern of response to disaster consisting of denial, deliberation, and decision.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#t",
+    "href": "glossary/index.html#t",
+    "title": "Appendix E — Glossary",
+    "section": "E.20 T",
+    "text": "E.20 T\n\nthreat modeling\n\nA structured technique for identifying and categorizing risks to a system or organization.\n\ntight coupling\n\nA design property of systems in which components are so interdependent that a failure in one triggers failures in others.\n\ntotal pain\n\nThe concept that suffering is never purely physical but has psychological and social dimensions that amplify each other.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#u",
+    "href": "glossary/index.html#u",
+    "title": "Appendix E — Glossary",
+    "section": "E.21 U",
+    "text": "E.21 U",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#v",
+    "href": "glossary/index.html#v",
+    "title": "Appendix E — Glossary",
+    "section": "E.22 V",
+    "text": "E.22 V",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#w",
+    "href": "glossary/index.html#w",
+    "title": "Appendix E — Glossary",
+    "section": "E.23 W",
+    "text": "E.23 W",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#x",
+    "href": "glossary/index.html#x",
+    "title": "Appendix E — Glossary",
+    "section": "E.24 X",
+    "text": "E.24 X",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#y",
+    "href": "glossary/index.html#y",
+    "title": "Appendix E — Glossary",
+    "section": "E.25 Y",
+    "text": "E.25 Y",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/index.html#z",
+    "href": "glossary/index.html#z",
+    "title": "Appendix E — Glossary",
+    "section": "E.26 Z",
+    "text": "E.26 Z",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>E</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "fire/index.html",
+    "href": "fire/index.html",
+    "title": "Appendix F — Firing and Being Fired",
+    "section": "",
+    "text": "F.1 Firing",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Firing and Being Fired</span>"
+    ]
+  },
+  {
+    "objectID": "fire/index.html#firing",
+    "href": "fire/index.html#firing",
+    "title": "Appendix F — Firing and Being Fired",
+    "section": "",
+    "text": "Sometimes people have good reasons for poor performance\nBut sometimes they don’t\nThis is the hardest part of leading a project\nBut keeping someone on the team who shouldn’t be there is bad for morale as well as productivity\n\n\nF.1.1 Legal Requirements\n\nEvery jurisdiction has rules about firing people, too\nAgain, talk to someone in Human Resources before doing anything else\nGovernance of every well-run open project spells out:\n\nCriteria for being a project member\nWho gets to decide when that privilege is revoked\n\nYou can’t wait until you need these to write them\nReview them before going any further\n\n\n\nF.1.2 Check With Someone\n\nHard to work with someone you dislike\n\nBut not liking someone isn’t sufficient reason to fire them\n\nTalk to someone outside the project\n\nMore likely to be objective\nLess likely to let something slip\nLess likely to feel pressured to take your side because you’re the boss\n\n\n\n\nF.1.3 Create a Transition Plan\n\nIt’s awkward to fire the only person who knows the password to the production server\n\nAnd risky as well\n\nSuddenly asking someone to document their work is a give-away\nBetter to ask everyone to do it all the time\n\nWhich helps keep roles and responsibilities up to date\n\nWrite out the steps you’ll take immediately after breaking the news\n\nChange passwords on servers\nRemove from GitHub group\nRemove from mailing list\nReturn loaned hardware\n\nAll of this needs to be done when someone leaves voluntarily\n\nAnd helps you realize just how much “stuff” your project has\n\n\n\n\nF.1.4 No Surprises\n\nIf someone is surprised they’re being fired, you have made a mistake\nIf it’s for poor behavior:\n\nThey should know what’s in the Code of Conduct\nAnd you should have given them warnings for minor violations\n\nIf it’s for poor performance:\n\nYou should have told them that they weren’t meeting expectations…\n…given them a chance to explain…\n…and given them an opportunity to improve\n\nYou will feel pretty bad if they’ve been missing deadlines because of a family illness\n\n\n\nF.1.5 Delivery\n\nWrite out what you’re going to say\n\nKeep it short\n\nPractice it a few times\nThen get straight to the point\nDon’t get drawn into discussion of “what if”\nStick to the practical matters you identified in the transition plan\n\n\n\nF.1.6 Tell the Team\n\nMake sure the team hears the news from you\n\nBefore rumors start to circulate\n\nKeep statement brief and to the point\nDo not discuss details\n\nThe person you fired has a right to privacy\nAnd you don’t want other team members worrying that you’ll say something about them some day\n\n\n\n\nF.1.7 Keep a Record\n\nIt’s hard for people to think clearly when you’re angry or hurt\n\nAnd they may not act in good faith\n\nCommunicate by email\nIf they insist on a call:\n\nAsk to record it and give them permission to do the same\nOr have a third party present\n\n\n\n\nF.1.8 It’s OK to Cry\n\nThis is the hardest part of management\n\nIf it ever gets easy, you should let someone else take over\n\nRemember: you can’t save everyone",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Firing and Being Fired</span>"
+    ]
+  },
+  {
+    "objectID": "fire/index.html#being-fired",
+    "href": "fire/index.html#being-fired",
+    "title": "Appendix F — Firing and Being Fired",
+    "section": "F.2 Being Fired",
+    "text": "F.2 Being Fired\n\nI hope you’re never fired,\n\nOr if you are, that the company handles it more professionally than DataCamp did\n\n\n\nF.2.1 Keep Public Statements Brief\n\nPeople may care, but most won’t care as much as you do\nA simple recitation of facts is usually damning enough\n\n\n\nF.2.2 Correct Things Publicly\n\nIf you need to correct something, don’t just take it down or edit it\n\nIf you do, you will be accused of rewriting history,\nMuddied waters only help whoever fired you\n\nInstead, add a timestamped correction\nBe prepared for them to dig through everything you’ve ever said online and re-post parts selectively to discredit you\n\n\n\nF.2.3 Be Honest About Your Failings\n\nSpeak directly to all the issues rather than omitting or ignoring things you’d rather not discuss\nYour honesty is your greatest asset\nAnd it’s hypocritical to criticize your opponents for spin or selective reporting if you’re doing it too\n\n\n\nF.2.4 Don’t Sign That\n\nDon’t sign any agreement that might prevent you from speaking about moral or legal concerns\nOr if you do, make sure the agreement explicitly excludes your concerns before signing it\n\nAnd yes, it’s very privileged of me to be able to say this\nSomeone whose immigration status, essential health benefits, or family income is being threatened may not have a choice\n\nThat is why I think people who do have a choice also have an obligation to fight\n\n\n\nF.2.5 You Are Not a Lawyer\n\nDon’t cite the law unless a lawyer tells you to\nIt probably doesn’t mean what you think it means\nAnd whoever fired you almost certainly has lawyers on their side who will seize on any misstatement or mistake you make\n\n\n\nF.2.6 Don’t Expect Them to Admit They Were Wrong\n\nTheir lawyers probably won’t let them say anything that would acknowledge wrongdoing or liability\nWhatever happened probably wouldn’t have if they were the sort of people who could admit mistakes\n\n\n\nF.2.7 It’s OK to cry\n\nGo for long walks\n\nOr cook some healthy meals\nOr pick up the guitar you haven’t touched in years\nAnything that requires you to focus on something else for a while\n\nThis isn’t just for your mental health\n\nExhausted people make poor decisions, and you need to be at the top of your game\n\nAnd remember, other people do care about you",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Firing and Being Fired</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html",
+    "href": "nesbitt/index.html",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "",
+    "text": "G.1 The maintainer left\nThis post originally appeared on Andrew Nesbitt’s blog and is reproduced with the author’s permission.\nWeekend at Bernie’s showed that a good chunk of the most-depended-on open source packages are dead, and there are a lot of different ways for a project to end up that way.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#the-maintainer-left",
+    "href": "nesbitt/index.html#the-maintainer-left",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "",
+    "text": "Ghost maintainer\n\nThe simplest and most common case: last human commit some years back, issues accumulating unanswered, the repo not archived so it doesn’t show up in any filter that would flag it. Usually the maintainer just moved on to other things and the project wasn’t important enough to them to formally hand over or shut down, though the same silence covers everything up to and including the maintainer having died, which neither the registry nor the repo has any way to represent. From outside it’s indistinguishable from a long holiday until enough unanswered issues have piled up to make the silence unambiguous, and the npm utilities at the top of the Bernie’s dead list are mostly this.\n\nCorporate orphan\n\nA company built and open-sourced it with a team to run it, then a pivot or a layoff round took the team out and nobody updated the README. The GitHub org persists with the company logo and the last people who had admin rights have left, so often nobody still at the company knows the project is theirs. Google’s various graveyards are the famous case but every company past a certain size has a few of these, and the ones that were infrastructure rather than products tend not to even get a deprecation notice.\n\nThesis orphan\n\nBuilt by a grad student for a master’s project or a PhD chapter, and they’ve since graduated and moved on. The lab that hosted it nominally owns the repo, but nobody there has the context to continue it and academia gives them no reason to try: maintaining someone else’s software earns no citations and counts for nothing at review next to publishing something new. Research software is full of these, often with a paper still being cited years after the code it describes stopped building.\n\nFunding cliff\n\nThe project ran on a grant or a fixed-term sponsorship, often from a foundation or one of the public software funds, and the money ended on schedule. The maintainers went back to whatever pays the rent, and a project that had grown to fit full-time capacity is now getting evenings and weekends, which for that scope rounds to nothing. The funder’s logo usually stays in the README long after the funding stopped, which makes this one easy to mistake for a healthy sponsored project.\n\nHired away\n\nThe maintainer was hired by a company and either the employment contract or just the new workload means the project stops. Occasionally that’s a competitor removing a problem, but the more common case isn’t malicious at all: Apple is the classic example of an employer that simply doesn’t let most staff do outside open source, so a maintainer joining means their projects go quiet by default. Handing over before you start is the obvious fix and almost nobody does it in time.\n\nSuccession deadlock\n\nThe original maintainer is unreachable and there are people willing to take over, but the publish rights on the registry are tied to an account nobody else can access and the GitHub repo has no other admins, while the registry’s abandoned-package process needs either the original maintainer’s consent or a months-long dispute that nobody has obvious standing to start. The PEP 541 process and npm’s dispute policy both exist for exactly this case and both routinely take longer than forking and renaming would.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#the-maintainer-is-still-there",
+    "href": "nesbitt/index.html#the-maintainer-is-still-there",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.2 The maintainer is still there",
+    "text": "G.2 The maintainer is still there\n\nBurnout plateau\n\nStill active by any metric you’d run. Typo fixes and dependency bumps get merged with the occasional “thanks, will look at this” on an issue, but anything that needs an actual design decision or a debugging session sits open indefinitely because those take energy the maintainer hasn’t had for the project in a long time. There’s often just enough response that anyone who suggests forking gets pointed at the recent activity but never enough to actually ship, and it can hold that shape for years without being quite dead enough for anyone to feel justified taking over.\n\nBenevolent zombie\n\nThe contribution graph is solid green and every commit is a bot. Dependabot bumps, an auto-merge rule, possibly automated releases triggered by the bumps, and now scheduled coding agents that can keep the lights on indefinitely without a human reading anything. Every recency-based health score rates this as fine, which is more or less the whole problem with recency-based health scores.\n\nCustody battle\n\nTwo or more co-maintainers have fallen out, each with enough access to block the other and not enough to proceed alone, and the project is frozen between them. It might resolve into a fork or end with one party walking away, but plenty just sit there with the issue tracker filling up with users asking what’s going on and getting two contradictory answers.\n\nTribal knowledge gone\n\nThe code works and the tests pass, but the person who understood why has left, and nobody remaining is confident enough to touch anything load-bearing. The project goes read-only in practice: small patches at the edges are fine, anything structural is too risky to attempt. Particularly common in numerical and parsing code where the hard part is an algorithm one person implemented from a paper a decade ago and never wrote up.\n\nToxic gatekeeping\n\nThe maintainer is right there and hostile with it. New contributors get one bruising review and don’t come back, and the bus factor stays at one because nobody else can stand to share the repo. It looks healthy on every metric that counts commits and closed issues, and when the one person eventually stops it’s a ghost-maintainer case with no successor pool because everyone who might have taken over was driven off years ago.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#sabotage-and-capture",
+    "href": "nesbitt/index.html#sabotage-and-capture",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.3 Sabotage and capture",
+    "text": "G.3 Sabotage and capture\n\nCaptured maintainer\n\nCommit or publish access ends up with someone hostile. xz is the elaborate version, a two-year social-engineering campaign against an overworked solo maintainer to get a co-maintainer added who then shipped a backdoored release. event-stream in 2018 was the simpler one, where the original author handed the package to a volunteer who asked nicely and then added a wallet-stealer to a downstream dependency. In both cases the project looked healthier than before during the capture, because the new maintainer was the one putting the work in.\n\nProtestware\n\nThe legitimate maintainer deliberately breaks their own package. colors and faker were sabotaged by their author in 2022, node-ipc shipped a payload targeting Russian and Belarusian IP ranges the same year, and left-pad was unpublished entirely during a dispute with npm in 2016. The motivations vary and the effect on downstream is the same: the code in the registry stops being what people thought they were running, usually without warning.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#the-release-pipeline-broke",
+    "href": "nesbitt/index.html#the-release-pipeline-broke",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.4 The release pipeline broke",
+    "text": "G.4 The release pipeline broke\n\nMaintained-not-shipping\n\nDevelopment is happening and fixes land in git, but nobody can cut a release. The one account with publish rights is gone, lost its 2FA device, or belonged to a company that no longer exists. Downstream is stuck on the last published version while the fix they need sits in a commit they can see in the repo and can’t install from the registry, which is the case the original Bernie’s post spent most of its time on.\n\nUnreleasable main\n\nThe default branch has drifted far enough from the last tag that releasing it would be a breaking change for everyone, and nobody wants to own that, so nobody tags it. New contributors land patches on main while users run something from years ago, and the gap widens until cutting a release becomes a project in itself that never gets staffed.\n\nBuild archaeology\n\nThe published artifacts work and nobody can reproduce them. The build depended on a CI service that’s gone, or a base image that’s been deleted, or a tool version that one maintainer had on a laptop they no longer own. Making a new release means reconstructing a build environment first, and the knowledge of what was in it left with whoever set it up.\n\nShadow-maintained\n\nReal development happens inside a company’s private monorepo, and the public repo gets a periodic squashed code dump with a commit message along the lines of “sync.” Issues and PRs filed against the public repo go nowhere because that isn’t where anyone works. The open source project has become a publishing channel for a closed one, and from outside it’s indistinguishable from a ghost maintainer except on the days a sync lands.\n\nStranded major\n\nThe project is on v4 and actively maintained, but most of the ecosystem is still on v1 because v2 was a rewrite they never migrated past and v1 hasn’t had maintainer attention in years. Whether “the project” is dead depends entirely on which major version you’re asking about, and the versions with the most installs are usually not the ones getting the attention.\n\nRegistry orphan\n\nThe package resolves from the registry and the source repo URL in its metadata 404s: deleted, made private, moved without updating the registry, or the hosting service it was on shut down. There’s nowhere to file an issue or fork from, and no way to verify the tarball matches anything that was ever in source control. About 1.7% of npm and 4% of Packagist point at a repo that isn’t there, and a fair number of those are still being installed.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#force-majeure",
+    "href": "nesbitt/index.html#force-majeure",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.5 Force majeure",
+    "text": "G.5 Force majeure\n\nSanctions-stranded\n\nThe maintainer is able and willing and can’t push, because the registry has blocked their jurisdiction or their account has been frozen under export controls. A handful of npm and GitHub accounts have been suspended this way over the past few years, and from downstream it looks identical to a ghost maintainer except that the maintainer is often loudly explaining the situation on another platform entirely.\n\nTakedown casualty\n\nRemoved from the registry or the host after a DMCA claim or a trademark dispute. youtube-dl came back after its 2020 takedown; a lot of smaller projects don’t, and whether the claim was valid has no bearing on whether the package still resolves.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#the-world-moved-on",
+    "href": "nesbitt/index.html#the-world-moved-on",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.6 The world moved on",
+    "text": "G.6 The world moved on\n\nPlatform-stranded\n\nChained to an end-of-life runtime: Python 2 only, requires a Node version that’s dropped out of CI images, depends on a compiler extension that was removed. Porting it forward is more work than anyone left is willing to do, so it stays where it is while the platform it needs slowly disappears from everywhere you’d want to run it.\n\nTransitive death\n\nThe project is fine and the maintainer is present and willing, but something two or three levels down in its own dependency tree has died by one of the routes on this list and can’t be swapped out without a rewrite. The project inherits the death without anything in its own repo changing, which is the recursive case: every entry here is also a way to kill the things that depend on you.\n\nAPI rug-pull\n\nThe project wraps something external that its owner withdrew. At the service layer that’s a client library for an API that was shut down or repriced out of reach, and Twitter’s 2023 changes followed by Reddit’s killed a generation of those in one go. At the platform layer it’s a browser dropping an interface or an OS locking down a capability, which accounts for everything built on NPAPI, Flash, or Chrome apps. Either way the maintainer has nothing they can do about it from their end.\n\nSuperseded\n\nWhat the project does is no longer needed, either because the spec it implements has been replaced or because the language now does the same thing natively. object-assign after Object.assign, the lodash single-function packages after ES2015, the various promise and fetch polyfills, and at the protocol level any number of libraries for formats nobody emits any more. The maintainer reasonably stops, and a few hundred thousand lockfiles keep installing it because removing a dependency that still resolves is nobody’s priority.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  },
+  {
+    "objectID": "nesbitt/index.html#the-project-split",
+    "href": "nesbitt/index.html#the-project-split",
+    "title": "Appendix G — Dumb Ways for an Open Source Project to Die",
+    "section": "G.7 The project split",
+    "text": "G.7 The project split\n\nFork limbo\n\nA disagreement or a maintainer departure split the project across two or more forks, none of which has clearly won. Downstream froze at the last pre-split version rather than bet on a fork that might lose, so the original keeps its install count while all the development effort happens elsewhere under other names. io.js and Node eventually merged back, libav eventually folded back into FFmpeg, and plenty of smaller splits never resolve at all.\n\nLicence rug-pull aftermath\n\nThe project relicensed to something that isn’t open source, and a community fork under the old licence exists but adoption hasn’t consolidated behind it. Terraform/OpenTofu and Redis/Valkey are both somewhere along this path, with Elasticsearch a few years further down it. Most lockfiles still point at the last open-licensed version of the original, which is now a fixed point that nobody maintains.\n\nOpen-core hollowing\n\nThe interesting development moved to the commercial edition and the open source repo is kept around as the free tier. It still gets releases, mostly version bumps and whatever doesn’t differentiate the paid product, and the project people originally adopted has effectively become a different, smaller one without ever being renamed.\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe Melbourne Metro safety campaign this post is named after closes with “be safe around trains,” which is more actionable than anything I’ve got. Whichever of the above applies, the package resolves the same, and your lockfile will keep wheeling it round the party with the sunglasses on for as long as nobody checks too closely.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>G</span>  <span class='chapter-title'>Dumb Ways for an Open Source Project to Die</span>"
+    ]
+  }
+]

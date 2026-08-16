@@ -1,523 +1,1241 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Glossary</title>
-<meta content="How to Not Be Wrong About AI" name="description"/>
-<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
-<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix E — Glossary – How to Not Be Wrong About AI</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../further/index.html" rel="next">
+<link href="../bibliography/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation" class="nav">
-<div class="nav-left">
-<a class="brand" href="../">notwrong</a>
-<div class="dropdown">
-<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
-<ul class="dropdown-content" id="nav-lessons">
-<li><a href="../intro/">Introduction</a></li>
-<li><a href="../productivity/">Defining Productivity</a></li>
-<li><a href="../wrong/">How to Be Wrong</a></li>
-<li><a href="../qualitative/">Qualitative Methods: Interviews and Surveys</a></li>
-<li><a href="../quantitative/">Quantitative Methods: Controlled Experiments</a></li>
-<li><a href="../observational/">Observational Studies and Natural Experiments</a></li>
-<li><a href="../critical/">Reading Studies Critically</a></li>
-<li><a href="../running/">Running Studies in Your Organization</a></li>
-<li><a href="../cheaply/">Starting Cheap</a></li>
-<li><a href="../finale/">Conclusion: What to Do Next</a></li>
-</ul>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../glossary/index.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">How to Not Be Wrong About AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/notwrong" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
-<div class="dropdown">
-<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
-<ul class="dropdown-content" id="nav-slides">
-<li><a href="../lecture/slides.html">How To Not Be Wrong About AI</a></li>
-</ul>
-</div>
-<div class="dropdown">
-<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
-<ul class="dropdown-content" id="nav-appendices">
-<li><a href="../license/">License</a></li>
-<li><a href="../conduct/">Code of Conduct</a></li>
-<li><a href="../contributing/">Contributing</a></li>
-<li><a href="../bibliography/">Bibliography</a></li>
-<li><a class="active" href="../glossary/">Glossary</a></li>
-<li><a href="../further/">Further Reading</a></li>
-<li><a href="../stats/">Statistical Reference</a></li>
-</ul>
-</div>
-<a href="https://github.com/gvwilson/notwrong">Repository</a>
-</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../productivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Defining Productivity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../wrong/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Be Wrong</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qualitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qualitative Methods: Interviews and Surveys</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quantitative/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quantitative Methods: Controlled Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../observational/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Observational Studies and Natural Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../critical/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Studies Critically</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../running/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Running Studies in Your Organization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheaply/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Starting Cheaply</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Conclusion: What to Do Next</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../further/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../stats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Statistical Reference</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
-<main id="main-content">
-<h1>Glossary</h1>
-<h2>A</h2>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a"><span class="header-section-number">E.1</span> A</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b"><span class="header-section-number">E.2</span> B</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c"><span class="header-section-number">E.3</span> C</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><span class="header-section-number">E.4</span> D</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e"><span class="header-section-number">E.5</span> E</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f"><span class="header-section-number">E.6</span> F</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g"><span class="header-section-number">E.7</span> G</a></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h"><span class="header-section-number">E.8</span> H</a></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i"><span class="header-section-number">E.9</span> I</a></li>
+  <li><a href="#j" id="toc-j" class="nav-link" data-scroll-target="#j"><span class="header-section-number">E.10</span> J</a></li>
+  <li><a href="#k" id="toc-k" class="nav-link" data-scroll-target="#k"><span class="header-section-number">E.11</span> K</a></li>
+  <li><a href="#l" id="toc-l" class="nav-link" data-scroll-target="#l"><span class="header-section-number">E.12</span> L</a></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m"><span class="header-section-number">E.13</span> M</a></li>
+  <li><a href="#n" id="toc-n" class="nav-link" data-scroll-target="#n"><span class="header-section-number">E.14</span> N</a></li>
+  <li><a href="#o" id="toc-o" class="nav-link" data-scroll-target="#o"><span class="header-section-number">E.15</span> O</a></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p"><span class="header-section-number">E.16</span> P</a></li>
+  <li><a href="#q" id="toc-q" class="nav-link" data-scroll-target="#q"><span class="header-section-number">E.17</span> Q</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">E.18</span> R</a></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s"><span class="header-section-number">E.19</span> S</a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t"><span class="header-section-number">E.20</span> T</a></li>
+  <li><a href="#u" id="toc-u" class="nav-link" data-scroll-target="#u"><span class="header-section-number">E.21</span> U</a></li>
+  <li><a href="#v" id="toc-v" class="nav-link" data-scroll-target="#v"><span class="header-section-number">E.22</span> V</a></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w"><span class="header-section-number">E.23</span> W</a></li>
+  <li><a href="#x" id="toc-x" class="nav-link" data-scroll-target="#x"><span class="header-section-number">E.24</span> X</a></li>
+  <li><a href="#y" id="toc-y" class="nav-link" data-scroll-target="#y"><span class="header-section-number">E.25</span> Y</a></li>
+  <li><a href="#z" id="toc-z" class="nav-link" data-scroll-target="#z"><span class="header-section-number">E.26</span> Z</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/glossary/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/glossary/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../glossary/index.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix E — Glossary</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="a" class="level2" data-number="E.1">
+<h2 data-number="E.1" class="anchored" data-anchor-id="a"><span class="header-section-number">E.1</span> A</h2>
 <dl>
 <dt><span id="ab_testing">A/B testing</span></dt>
-<dd>A controlled experiment in which participants or users are randomly
-assigned to one of two variants to measure which performs better on a
-defined metric.</dd>
+<dd>
+A controlled experiment in which participants or users are randomly assigned to one of two variants to measure which performs better on a defined metric.
+</dd>
 <dt><span id="affinity_mapping">affinity mapping</span></dt>
-<dd>An analysis technique in which individual observations are written on
-separate notes and then grouped into clusters that share an underlying
-cause or theme, with each cluster named as a claim rather than a label.</dd>
+<dd>
+An analysis technique in which individual observations are written on separate notes and then grouped into clusters that share an underlying cause or theme, with each cluster named as a claim rather than a label.
+</dd>
 <dt><span id="agile_manifesto">agile manifesto</span></dt>
-<dd>The 2001 statement of four values and twelve principles for agile
-software development, emphasizing individuals and interactions, working
-software, customer collaboration, and responding to change.</dd>
+<dd>
+The 2001 statement of four values and twelve principles for agile software development, emphasizing individuals and interactions, working software, customer collaboration, and responding to change.
+</dd>
 <dt><span id="alternative_hypothesis">alternative hypothesis</span></dt>
-<dd>The hypothesis that an effect exists; denoted H₁. Accepted when the
-null hypothesis is rejected.</dd>
+<dd>
+The hypothesis that an effect exists; denoted H₁. Accepted when the null hypothesis is rejected.
+</dd>
 <dt><span id="axial_coding">axial coding</span></dt>
-<dd>A stage in grounded theory analysis in which open codes are grouped
-into higher-level themes and the relationships between categories are
-examined.</dd>
+<dd>
+A stage in grounded theory analysis in which open codes are grouped into higher-level themes and the relationships between categories are examined.
+</dd>
 </dl>
-<h2>B</h2>
+</section>
+<section id="b" class="level2" data-number="E.2">
+<h2 data-number="E.2" class="anchored" data-anchor-id="b"><span class="header-section-number">E.2</span> B</h2>
 <dl>
 <dt><span id="blinding">blinding</span></dt>
-<dd>An experimental design feature in which participants (single-blind),
-experimenters, or both (double-blind) do not know which condition a
-participant is in, reducing expectation bias.</dd>
+<dd>
+An experimental design feature in which participants (single-blind), experimenters, or both (double-blind) do not know which condition a participant is in, reducing expectation bias.
+</dd>
 <dt><span id="blocking_variable">blocking variable</span></dt>
-<dd>A variable known to affect the outcome but not of experimental interest;
-controlled by grouping experimental units into blocks of similar values
-before randomization, guaranteeing that the nuisance factor's effect is
-distributed evenly across treatment conditions.</dd>
+<dd>
+A variable known to affect the outcome but not of experimental interest; controlled by grouping experimental units into blocks of similar values before randomization, guaranteeing that the nuisance factor’s effect is distributed evenly across treatment conditions.
+</dd>
 <dt><span id="bonferroni_correction">Bonferroni correction</span></dt>
-<dd>A method for adjusting significance thresholds when performing multiple
-statistical tests, dividing the desired alpha level by the number of
-comparisons to control the family-wise error rate.</dd>
+<dd>
+A method for adjusting significance thresholds when performing multiple statistical tests, dividing the desired alpha level by the number of comparisons to control the family-wise error rate.
+</dd>
 <dt><span id="boredom_effect">boredom effect</span></dt>
-<dd>A threat to internal validity in which participants' performance or
-attention degrades over time due to fatigue or disengagement, rather
-than any effect of the treatment.</dd>
+<dd>
+A threat to internal validity in which participants’ performance or attention degrades over time due to fatigue or disengagement, rather than any effect of the treatment.
+</dd>
 </dl>
-<h2>C</h2>
+</section>
+<section id="c" class="level2" data-number="E.3">
+<h2 data-number="E.3" class="anchored" data-anchor-id="c"><span class="header-section-number">E.3</span> C</h2>
 <dl>
 <dt><span id="change_failure_rate">change failure rate</span></dt>
-<dd>The proportion of deployments that result in degraded service or
-require remediation; one of the four DORA metrics used to measure
-software delivery performance.</dd>
+<dd>
+The proportion of deployments that result in degraded service or require remediation; one of the four DORA metrics used to measure software delivery performance.
+</dd>
 <dt><span id="claim">claim</span></dt>
-<dd>An assertion about the world that a study attempts to support or refute
-through evidence.</dd>
-<dt><span id="cohens_d">Cohen's d</span></dt>
-<dd>A measure of effect size for comparing two means, expressed in units of
-pooled standard deviation. Conventionally, d = 0.2 is small, d = 0.5 is
-medium, and d = 0.8 is large.</dd>
+<dd>
+An assertion about the world that a study attempts to support or refute through evidence.
+</dd>
+<dt><span id="cohens_d">Cohen’s d</span></dt>
+<dd>
+A measure of effect size for comparing two means, expressed in units of pooled standard deviation. Conventionally, d = 0.2 is small, d = 0.5 is medium, and d = 0.8 is large.
+</dd>
 <dt><span id="conclusion_validity">conclusion validity</span></dt>
-<dd>The degree to which a study's statistical analysis is appropriate and
-adequately powered to detect the effect it reports; threatened by
-underpowered designs, violated test assumptions, and uncorrected
-multiple comparisons.</dd>
+<dd>
+The degree to which a study’s statistical analysis is appropriate and adequately powered to detect the effect it reports; threatened by underpowered designs, violated test assumptions, and uncorrected multiple comparisons.
+</dd>
 <dt><span id="confirmation_bias">confirmation bias</span></dt>
-<dd>The tendency to search for, interpret, and recall information in ways
-that confirm pre-existing beliefs, distorting the analysis of data.</dd>
+<dd>
+The tendency to search for, interpret, and recall information in ways that confirm pre-existing beliefs, distorting the analysis of data.
+</dd>
 <dt><span id="confirmatory_analysis">confirmatory analysis</span></dt>
-<dd>Analysis designed to test a pre-specified hypothesis using data
-collected expressly for that purpose, as opposed to exploratory analysis
-which searches for patterns without a prior hypothesis.</dd>
+<dd>
+Analysis designed to test a pre-specified hypothesis using data collected expressly for that purpose, as opposed to exploratory analysis which searches for patterns without a prior hypothesis.
+</dd>
 <dt><span id="confounding_variable">confounding variable</span></dt>
-<dd>A variable that is associated with both the independent variable and the
-outcome, potentially explaining an observed relationship without there
-being a direct causal link.</dd>
+<dd>
+A variable that is associated with both the independent variable and the outcome, potentially explaining an observed relationship without there being a direct causal link.
+</dd>
 <dt><span id="construct_validity">construct validity</span></dt>
-<dd>The degree to which a measurement actually captures the concept it is
-intended to represent.</dd>
+<dd>
+The degree to which a measurement actually captures the concept it is intended to represent.
+</dd>
 <dt><span id="control_group">control group</span></dt>
-<dd>The group in an experiment that does not receive the treatment; used as
-a baseline for comparison.</dd>
+<dd>
+The group in an experiment that does not receive the treatment; used as a baseline for comparison.
+</dd>
 <dt><span id="controlled_experiment">controlled experiment</span></dt>
-<dd>A study in which one or more independent variables are manipulated while
-other factors are held constant, allowing causal claims to be made.</dd>
+<dd>
+A study in which one or more independent variables are manipulated while other factors are held constant, allowing causal claims to be made.
+</dd>
 <dt><span id="convenience_sampling">convenience sampling</span></dt>
-<dd>Selecting participants based on ease of access rather than random
-selection, making the sample easier to recruit but harder to generalize
-from.</dd>
+<dd>
+Selecting participants based on ease of access rather than random selection, making the sample easier to recruit but harder to generalize from.
+</dd>
 </dl>
-<h2>D</h2>
+</section>
+<section id="d" class="level2" data-number="E.4">
+<h2 data-number="E.4" class="anchored" data-anchor-id="d"><span class="header-section-number">E.4</span> D</h2>
 <dl>
 <dt><span id="dependent_variables">dependent variable</span></dt>
-<dd>The outcome measured in an experiment; the variable expected to change
-in response to manipulation of the independent variable.</dd>
+<dd>
+The outcome measured in an experiment; the variable expected to change in response to manipulation of the independent variable.
+</dd>
 <dt><span id="deployment_frequency">deployment frequency</span></dt>
-<dd>How often an organization successfully deploys code to production; one
-of the four DORA metrics used to measure software delivery performance.</dd>
+<dd>
+How often an organization successfully deploys code to production; one of the four DORA metrics used to measure software delivery performance.
+</dd>
 <dt><span id="difference_in_differences">difference-in-differences</span></dt>
-<dd>A quasi-experimental design that compares the change in outcome for a
-treated group to the change for a control group over the same period.</dd>
+<dd>
+A quasi-experimental design that compares the change in outcome for a treated group to the change for a control group over the same period.
+</dd>
 <dt><span id="double_blind_study">double blind study</span></dt>
-<dd>An experiment in which neither the participants nor the experimenters
-interacting with them know which condition each participant is in,
-reducing both participant expectation effects and experimenter bias.</dd>
+<dd>
+An experiment in which neither the participants nor the experimenters interacting with them know which condition each participant is in, reducing both participant expectation effects and experimenter bias.
+</dd>
 </dl>
-<h2>E</h2>
+</section>
+<section id="e" class="level2" data-number="E.5">
+<h2 data-number="E.5" class="anchored" data-anchor-id="e"><span class="header-section-number">E.5</span> E</h2>
 <dl>
 <dt><span id="effect_size">effect size</span></dt>
-<dd>A measure of the magnitude of an effect, independent of sample size.
-Examples include Cohen's d, odds ratio, and Pearson's r.</dd>
+<dd>
+A measure of the magnitude of an effect, independent of sample size. Examples include Cohen’s d, odds ratio, and Pearson’s r.
+</dd>
 <dt><span id="empirical_software_engineering">empirical software engineering</span></dt>
-<dd>The subfield of software engineering that uses systematic data
-collection and analysis to study how software is built, maintained, and
-used.</dd>
+<dd>
+The subfield of software engineering that uses systematic data collection and analysis to study how software is built, maintained, and used.
+</dd>
 <dt><span id="evidence">evidence</span></dt>
-<dd>Data or observations gathered through study to support or refute a
-claim, which varies in quality and reliability depending on how it was
-collected.</dd>
+<dd>
+Data or observations gathered through study to support or refute a claim, which varies in quality and reliability depending on how it was collected.
+</dd>
 <dt><span id="experience_sampling">experience sampling method</span></dt>
-<dd>A research technique in which participants are prompted at random or
-scheduled intervals during their normal activities to report their current
-task, state, or perceptions, capturing in-the-moment data rather than
-retrospective recall.</dd>
+<dd>
+A research technique in which participants are prompted at random or scheduled intervals during their normal activities to report their current task, state, or perceptions, capturing in-the-moment data rather than retrospective recall.
+</dd>
 <dt><span id="exploratory_analysis">exploratory analysis</span></dt>
-<dd>Analysis that searches for patterns, relationships, or hypotheses in
-data without pre-specified predictions; used to generate rather than test
-hypotheses.</dd>
+<dd>
+Analysis that searches for patterns, relationships, or hypotheses in data without pre-specified predictions; used to generate rather than test hypotheses.
+</dd>
 <dt><span id="external_validity">external validity</span></dt>
-<dd>The degree to which study findings generalize beyond the specific sample,
-setting, and task studied.</dd>
+<dd>
+The degree to which study findings generalize beyond the specific sample, setting, and task studied.
+</dd>
 </dl>
-<h2>F</h2>
+</section>
+<section id="f" class="level2" data-number="E.6">
+<h2 data-number="E.6" class="anchored" data-anchor-id="f"><span class="header-section-number">E.6</span> F</h2>
 <dl>
 <dt><span id="file_drawer_problem">file drawer problem</span></dt>
-<dd>The tendency for null results to go unpublished, causing the published
-literature to overrepresent positive findings.</dd>
+<dd>
+The tendency for null results to go unpublished, causing the published literature to overrepresent positive findings.
+</dd>
 <dt><span id="formative_evaluation">formative evaluation</span></dt>
-<dd>Evaluation conducted during development to identify problems and guide
-improvement, as opposed to summative evaluation which assesses a
-completed product. Formative studies typically use small samples and
-qualitative methods; their goal is to find things to fix, not to
-measure how often problems occur.</dd>
+<dd>
+Evaluation conducted during development to identify problems and guide improvement, as opposed to summative evaluation which assesses a completed product. Formative studies typically use small samples and qualitative methods; their goal is to find things to fix, not to measure how often problems occur.
+</dd>
 <dt><span id="funnel_plot">funnel plot</span></dt>
-<dd>A scatter plot of effect size against sample size used in meta-analysis;
-asymmetry suggests publication bias.</dd>
+<dd>
+A scatter plot of effect size against sample size used in meta-analysis; asymmetry suggests publication bias.
+</dd>
 </dl>
-<h2>G</h2>
+</section>
+<section id="g" class="level2" data-number="E.7">
+<h2 data-number="E.7" class="anchored" data-anchor-id="g"><span class="header-section-number">E.7</span> G</h2>
 <dl>
 <dt><span id="gerund_coding">gerund coding</span></dt>
-<dd>A practice from grounded theory in which codes are written as verb
-phrases rather than nouns, capturing the actions, choices, and processes
-participants describe rather than labeling a static category.</dd>
+<dd>
+A practice from grounded theory in which codes are written as verb phrases rather than nouns, capturing the actions, choices, and processes participants describe rather than labeling a static category.
+</dd>
 <dt><span id="gqm">Goal-Question-Metric (GQM)</span></dt>
-<dd>A structured approach to defining measurements in which a study goal is
-decomposed into questions whose answers would indicate success, and each
-question is linked to a specific operationalized metric.</dd>
-<dt><span id="goodharts_law">Goodhart's Law</span></dt>
-<dd>The principle that when a measure becomes a target, it ceases to be a good
-measure, because people optimize the measured variable rather than the
-underlying goal it was meant to track.</dd>
+<dd>
+A structured approach to defining measurements in which a study goal is decomposed into questions whose answers would indicate success, and each question is linked to a specific operationalized metric.
+</dd>
+<dt><span id="goodharts_law">Goodhart’s Law</span></dt>
+<dd>
+The principle that when a measure becomes a target, it ceases to be a good measure, because people optimize the measured variable rather than the underlying goal it was meant to track.
+</dd>
 <dt><span id="grounded_theory">grounded theory</span></dt>
-<dd>A qualitative research methodology in which theory is developed inductively
-from data through iterative coding and constant comparison, rather than
-testing a predetermined hypothesis.</dd>
+<dd>
+A qualitative research methodology in which theory is developed inductively from data through iterative coding and constant comparison, rather than testing a predetermined hypothesis.
+</dd>
 <dt><span id="guerrilla_research">guerrilla research</span></dt>
-<dd>Informal user research conducted without formal institutional support,
-using convenience samples recruited opportunistically and methods that
-prioritize speed and low cost over statistical rigor. Appropriate for
-formative evaluation; not appropriate for making quantitative claims
-about populations.</dd>
+<dd>
+Informal user research conducted without formal institutional support, using convenience samples recruited opportunistically and methods that prioritize speed and low cost over statistical rigor. Appropriate for formative evaluation; not appropriate for making quantitative claims about populations.
+</dd>
 </dl>
-<h2>H</h2>
+</section>
+<section id="h" class="level2" data-number="E.8">
+<h2 data-number="E.8" class="anchored" data-anchor-id="h"><span class="header-section-number">E.8</span> H</h2>
 <dl>
 <dt><span id="habituation">habituation</span></dt>
-<dd>A decrease in response to a repeated stimulus over time, which threatens
-internal validity.</dd>
+<dd>
+A decrease in response to a repeated stimulus over time, which threatens internal validity.
+</dd>
 <dt><span id="harking">HARKing</span></dt>
-<dd>Hypothesizing After Results are Known: presenting exploratory findings
-as if they had been predicted in advance, inflating false positive rates.</dd>
+<dd>
+Hypothesizing After Results are Known: presenting exploratory findings as if they had been predicted in advance, inflating false positive rates.
+</dd>
 <dt><span id="hawthorne_effect">Hawthorne effect</span></dt>
-<dd>The tendency for people to change their behavior when they know they
-are being observed, independent of any intervention being studied.
-Named for a series of workplace studies at the Hawthorne Works factory
-in the 1920s and 1930s, it causes measured performance to differ from
-typical performance and is a threat to internal validity in studies
-where participants know they are being watched.</dd>
+<dd>
+The tendency for people to change their behavior when they know they are being observed, independent of any intervention being studied. Named for a series of workplace studies at the Hawthorne Works factory in the 1920s and 1930s, it causes measured performance to differ from typical performance and is a threat to internal validity in studies where participants know they are being watched.
+</dd>
 </dl>
-<h2>I</h2>
+</section>
+<section id="i" class="level2" data-number="E.9">
+<h2 data-number="E.9" class="anchored" data-anchor-id="i"><span class="header-section-number">E.9</span> I</h2>
 <dl>
 <dt><span id="independent_variables">independent variable</span></dt>
-<dd>The variable that is manipulated or selected by the researcher to
-examine its effect on an outcome.</dd>
+<dd>
+The variable that is manipulated or selected by the researcher to examine its effect on an outcome.
+</dd>
 <dt><span id="informed_consent">informed consent</span></dt>
-<dd>A research ethics requirement that participants know what data is being
-collected, how it will be used, and that they can withdraw without penalty.</dd>
+<dd>
+A research ethics requirement that participants know what data is being collected, how it will be used, and that they can withdraw without penalty.
+</dd>
 <dt><span id="intercoder_reliability">intercoder reliability</span></dt>
-<dd>The degree of agreement between two or more researchers independently
-applying the same coding scheme to qualitative data. Commonly measured
-with Cohen's kappa.</dd>
+<dd>
+The degree of agreement between two or more researchers independently applying the same coding scheme to qualitative data. Commonly measured with Cohen’s kappa.
+</dd>
 <dt><span id="internal_survey">internal survey</span></dt>
-<dd>A survey administered within a single organization to collect data from
-employees, commonly used to measure team practices, tool adoption, or
-workplace satisfaction.</dd>
+<dd>
+A survey administered within a single organization to collect data from employees, commonly used to measure team practices, tool adoption, or workplace satisfaction.
+</dd>
 <dt><span id="internal_validity">internal validity</span></dt>
-<dd>The degree to which a study can support the conclusion that the treatment
-caused the observed outcome, as opposed to some other explanation.</dd>
+<dd>
+The degree to which a study can support the conclusion that the treatment caused the observed outcome, as opposed to some other explanation.
+</dd>
 <dt><span id="interrupted_time_series">interrupted time series</span></dt>
-<dd>A quasi-experimental design that looks for a change in trend at the point
-when an intervention occurred, using data from before and after.</dd>
+<dd>
+A quasi-experimental design that looks for a change in trend at the point when an intervention occurred, using data from before and after.
+</dd>
 </dl>
-<h2>J</h2>
-<h2>K</h2>
-<h2>L</h2>
+</section>
+<section id="j" class="level2" data-number="E.10">
+<h2 data-number="E.10" class="anchored" data-anchor-id="j"><span class="header-section-number">E.10</span> J</h2>
+</section>
+<section id="k" class="level2" data-number="E.11">
+<h2 data-number="E.11" class="anchored" data-anchor-id="k"><span class="header-section-number">E.11</span> K</h2>
+</section>
+<section id="l" class="level2" data-number="E.12">
+<h2 data-number="E.12" class="anchored" data-anchor-id="l"><span class="header-section-number">E.12</span> L</h2>
 <dl>
 <dt><span id="lead_time_for_change">lead time for change</span></dt>
-<dd>The elapsed time between a code change being committed and that change
-running in production; one of the four DORA metrics used to measure
-software delivery performance.</dd>
+<dd>
+The elapsed time between a code change being committed and that change running in production; one of the four DORA metrics used to measure software delivery performance.
+</dd>
 <dt><span id="leading_question">leading question</span></dt>
-<dd>A question worded in a way that suggests or implies a particular answer,
-potentially biasing respondents' replies.</dd>
+<dd>
+A question worded in a way that suggests or implies a particular answer, potentially biasing respondents’ replies.
+</dd>
 <dt><span id="learning_effect">learning effect</span></dt>
-<dd>A threat to internal validity in within-subjects designs: participants
-improve on a later task or condition simply through practice, making the
-later treatment appear more effective regardless of its merit.</dd>
+<dd>
+A threat to internal validity in within-subjects designs: participants improve on a later task or condition simply through practice, making the later treatment appear more effective regardless of its merit.
+</dd>
 <dt><span id="likert_scale">Likert scale</span></dt>
-<dd>A survey response format using ordered categories such as "Strongly
-agree" to "Strongly disagree," typically with 5 or 7 points.</dd>
+<dd>
+A survey response format using ordered categories such as “Strongly agree” to “Strongly disagree,” typically with 5 or 7 points.
+</dd>
 <dt><span id="longitudinal_study">longitudinal study</span></dt>
-<dd>A study that collects data from the same subjects at multiple points
-over an extended period, enabling researchers to track changes and
-developmental trends over time.</dd>
+<dd>
+A study that collects data from the same subjects at multiple points over an extended period, enabling researchers to track changes and developmental trends over time.
+</dd>
 </dl>
-<h2>M</h2>
+</section>
+<section id="m" class="level2" data-number="E.13">
+<h2 data-number="E.13" class="anchored" data-anchor-id="m"><span class="header-section-number">E.13</span> M</h2>
 <dl>
 <dt><span id="maturation_effect">maturation effect</span></dt>
-<dd>A threat to internal validity in which participants naturally change
-over the course of a study (e.g., growing older, more tired, or more
-experienced) independently of the treatment.</dd>
+<dd>
+A threat to internal validity in which participants naturally change over the course of a study (e.g., growing older, more tired, or more experienced) independently of the treatment.
+</dd>
 <dt><span id="meta_analysis">meta-analysis</span></dt>
-<dd>A statistical technique for combining results from multiple independent
-studies of the same question to estimate an overall effect size.</dd>
+<dd>
+A statistical technique for combining results from multiple independent studies of the same question to estimate an overall effect size.
+</dd>
 <dt><span id="msr">mining software repositories (MSR)</span></dt>
-<dd>A research approach that extracts and analyzes data from version control
-systems, issue trackers, code review tools, and related sources.</dd>
+<dd>
+A research approach that extracts and analyzes data from version control systems, issue trackers, code review tools, and related sources.
+</dd>
 </dl>
-<h2>N</h2>
+</section>
+<section id="n" class="level2" data-number="E.14">
+<h2 data-number="E.14" class="anchored" data-anchor-id="n"><span class="header-section-number">E.14</span> N</h2>
 <dl>
 <dt><span id="natural_experiment">natural experiment</span></dt>
-<dd>A study that exploits real-world variation that approximates random
-assignment, without the researcher directly manipulating any variable.</dd>
+<dd>
+A study that exploits real-world variation that approximates random assignment, without the researcher directly manipulating any variable.
+</dd>
 <dt><span id="non_response_bias">non-response bias</span></dt>
-<dd>A bias that arises when researchers analyze only survey respondents
-without accounting for those who did not reply, which can skew results
-if non-respondents differ systematically from respondents.</dd>
+<dd>
+A bias that arises when researchers analyze only survey respondents without accounting for those who did not reply, which can skew results if non-respondents differ systematically from respondents.
+</dd>
 <dt><span id="novelty_effect">novelty effect</span></dt>
-<dd>A threat to internal validity in which any new tool, method, or process
-receives a temporary performance boost because participants are motivated
-by its novelty, inflating the apparent benefit of the intervention.</dd>
+<dd>
+A threat to internal validity in which any new tool, method, or process receives a temporary performance boost because participants are motivated by its novelty, inflating the apparent benefit of the intervention.
+</dd>
 <dt><span id="nuisance_variable">nuisance variable</span></dt>
-<dd>A variable that can affect the outcome but is not of primary interest;
-controlled through randomization, blocking, or statistical adjustment
-to isolate the effect of interest.</dd>
+<dd>
+A variable that can affect the outcome but is not of primary interest; controlled through randomization, blocking, or statistical adjustment to isolate the effect of interest.
+</dd>
 <dt><span id="null_hypothesis">null hypothesis</span></dt>
-<dd>The hypothesis that there is no effect; denoted H₀. Statistical testing
-evaluates whether the data is inconsistent with the null hypothesis.</dd>
+<dd>
+The hypothesis that there is no effect; denoted H₀. Statistical testing evaluates whether the data is inconsistent with the null hypothesis.
+</dd>
 <dt><span id="null_result">null result</span></dt>
-<dd>A study outcome in which no statistically significant effect is found;
-also called a negative result.</dd>
+<dd>
+A study outcome in which no statistically significant effect is found; also called a negative result.
+</dd>
 </dl>
-<h2>O</h2>
+</section>
+<section id="o" class="level2" data-number="E.15">
+<h2 data-number="E.15" class="anchored" data-anchor-id="o"><span class="header-section-number">E.15</span> O</h2>
 <dl>
 <dt><span id="observational_study">observational study</span></dt>
-<dd>A study in which the researcher measures variables as they naturally
-occur, without manipulating any conditions.</dd>
+<dd>
+A study in which the researcher measures variables as they naturally occur, without manipulating any conditions.
+</dd>
 <dt><span id="open_coding">open coding</span></dt>
-<dd>The initial stage in qualitative data analysis in which the researcher
-reads through data and attaches descriptive labels (codes) to segments
-of text.</dd>
+<dd>
+The initial stage in qualitative data analysis in which the researcher reads through data and attaches descriptive labels (codes) to segments of text.
+</dd>
 <dt><span id="operationalization">operationalization</span></dt>
-<dd>The process of turning an abstract concept or research construct into
-a specific, measurable variable that can be observed and recorded in
-a study.</dd>
+<dd>
+The process of turning an abstract concept or research construct into a specific, measurable variable that can be observed and recorded in a study.
+</dd>
 <dt><span id="order_effects">order effects</span></dt>
-<dd>Changes in participant responses caused by the sequence in which
-conditions are presented, such as practice or fatigue, rather than
-the conditions themselves; a threat to internal validity in
-within-subjects designs.</dd>
+<dd>
+Changes in participant responses caused by the sequence in which conditions are presented, such as practice or fatigue, rather than the conditions themselves; a threat to internal validity in within-subjects designs.
+</dd>
 <dt><span id="overgeneralization">overgeneralization</span></dt>
-<dd>Drawing conclusions that extend beyond what the data actually support,
-typically by ignoring important differences in context, population, or
-sample.</dd>
+<dd>
+Drawing conclusions that extend beyond what the data actually support, typically by ignoring important differences in context, population, or sample.
+</dd>
 </dl>
-<h2>P</h2>
+</section>
+<section id="p" class="level2" data-number="E.16">
+<h2 data-number="E.16" class="anchored" data-anchor-id="p"><span class="header-section-number">E.16</span> P</h2>
 <dl>
 <dt><span id="p_hacking">p-hacking</span></dt>
-<dd>Trying multiple analyses or data subsets until p &lt; 0.05 is achieved,
-then reporting only that analysis, inflating the false positive rate.</dd>
+<dd>
+Trying multiple analyses or data subsets until p &lt; 0.05 is achieved, then reporting only that analysis, inflating the false positive rate.
+</dd>
 <dt><span id="p_value">p-value</span></dt>
-<dd>The probability of observing data at least as extreme as the observed
-data, assuming the null hypothesis is true. Not the probability that the
-null hypothesis is true.</dd>
+<dd>
+The probability of observing data at least as extreme as the observed data, assuming the null hypothesis is true. Not the probability that the null hypothesis is true.
+</dd>
 <dt><span id="preregistration">pre-registration</span></dt>
-<dd>A practice in which researchers publicly commit to their hypotheses and
-analysis plan before collecting data, reducing the risk of HARKing and
-p-hacking.</dd>
+<dd>
+A practice in which researchers publicly commit to their hypotheses and analysis plan before collecting data, reducing the risk of HARKing and p-hacking.
+</dd>
 <dt><span id="preprint">preprint</span></dt>
-<dd>A version of a research paper that has been posted publicly
-before it has undergone formal peer review and official journal publication.</dd>
+<dd>
+A version of a research paper that has been posted publicly before it has undergone formal peer review and official journal publication.
+</dd>
 <dt><span id="proxy_metric">proxy metric</span></dt>
-<dd>A measurable quantity used as a stand-in for a concept that is harder
-to measure directly.</dd>
+<dd>
+A measurable quantity used as a stand-in for a concept that is harder to measure directly.
+</dd>
 <dt><span id="publication_bias">publication bias</span></dt>
-<dd>The tendency for journals to publish studies with statistically
-significant results more often than studies with null results.</dd>
+<dd>
+The tendency for journals to publish studies with statistically significant results more often than studies with null results.
+</dd>
 </dl>
-<h2>Q</h2>
+</section>
+<section id="q" class="level2" data-number="E.17">
+<h2 data-number="E.17" class="anchored" data-anchor-id="q"><span class="header-section-number">E.17</span> Q</h2>
 <dl>
 <dt><span id="qualitative_methods">qualitative methods</span></dt>
-<dd>Research approaches that collect and analyze non-numerical data such as
-interviews, observations, and documents in order to understand meaning,
-context, and experience.</dd>
+<dd>
+Research approaches that collect and analyze non-numerical data such as interviews, observations, and documents in order to understand meaning, context, and experience.
+</dd>
 <dt><span id="quantitative_methods">quantitative methods</span></dt>
-<dd>Research approaches that collect and analyze numerical data to describe
-patterns, test hypotheses, or estimate effect sizes.</dd>
+<dd>
+Research approaches that collect and analyze numerical data to describe patterns, test hypotheses, or estimate effect sizes.
+</dd>
 <dt><span id="quasi_experimental_design">quasi-experimental design</span></dt>
-<dd>A research design that compares groups without random assignment,
-relying on pre-existing groups or naturally occurring conditions to
-estimate treatment effects.</dd>
+<dd>
+A research design that compares groups without random assignment, relying on pre-existing groups or naturally occurring conditions to estimate treatment effects.
+</dd>
 </dl>
-<h2>R</h2>
+</section>
+<section id="r" class="level2" data-number="E.18">
+<h2 data-number="E.18" class="anchored" data-anchor-id="r"><span class="header-section-number">E.18</span> R</h2>
 <dl>
 <dt><span id="randomization">randomization</span></dt>
-<dd>The random assignment of participants to experimental conditions,
-distributing known and unknown confounders evenly across groups.</dd>
+<dd>
+The random assignment of participants to experimental conditions, distributing known and unknown confounders evenly across groups.
+</dd>
 <dt><span id="rite_method">Rapid Iterative Testing and Evaluation (RITE)</span></dt>
-<dd>A usability testing method in which the most severe problem identified
-in each session is addressed before the next session begins, enabling
-rapid improvement with small participant pools. Appropriate for
-formative evaluation; not appropriate for comparing product versions or
-producing generalizable estimates of performance.</dd>
+<dd>
+A usability testing method in which the most severe problem identified in each session is addressed before the next session begins, enabling rapid improvement with small participant pools. Appropriate for formative evaluation; not appropriate for comparing product versions or producing generalizable estimates of performance.
+</dd>
 <dt><span id="retrospective_analysis">retrospective analysis</span></dt>
-<dd>An analysis of data collected before the research question was
-formulated, such as examining historical logs, commit records, or past
-surveys.</dd>
+<dd>
+An analysis of data collected before the research question was formulated, such as examining historical logs, commit records, or past surveys.
+</dd>
 </dl>
-<h2>S</h2>
+</section>
+<section id="s" class="level2" data-number="E.19">
+<h2 data-number="E.19" class="anchored" data-anchor-id="s"><span class="header-section-number">E.19</span> S</h2>
 <dl>
 <dt><span id="sampling_strategy">sampling strategy</span></dt>
-<dd>The method used to select participants from a population. Strategies
-include convenience sampling, random sampling, and stratified sampling.</dd>
+<dd>
+The method used to select participants from a population. Strategies include convenience sampling, random sampling, and stratified sampling.
+</dd>
 <dt><span id="saturation">saturation</span></dt>
-<dd>In qualitative research, the point at which collecting additional data
-no longer introduces new codes or themes.</dd>
+<dd>
+In qualitative research, the point at which collecting additional data no longer introduces new codes or themes.
+</dd>
 <dt><span id="selection_bias">selection bias</span></dt>
-<dd>Bias introduced when the sample is not representative of the population
-the researcher intends to generalize to.</dd>
+<dd>
+Bias introduced when the sample is not representative of the population the researcher intends to generalize to.
+</dd>
 <dt><span id="semi_structured_interview">semi-structured interview</span></dt>
-<dd>An interview that follows a predetermined set of questions but allows
-the interviewer to probe further or deviate based on participant
-responses.</dd>
+<dd>
+An interview that follows a predetermined set of questions but allows the interviewer to probe further or deviate based on participant responses.
+</dd>
 <dt><span id="single_blind_study">single blind study</span></dt>
-<dd>An experiment in which participants do not know which condition they are in,
-but the experimenters do. This reduces participant bias but leaves
-experimenter influence as a possible threat.</dd>
+<dd>
+An experiment in which participants do not know which condition they are in, but the experimenters do. This reduces participant bias but leaves experimenter influence as a possible threat.
+</dd>
 <dt><span id="social_desirability_bias">social desirability bias</span></dt>
-<dd>The tendency for survey or interview respondents to give answers they
-believe are more socially acceptable rather than truthful responses,
-distorting self-reported data.</dd>
+<dd>
+The tendency for survey or interview respondents to give answers they believe are more socially acceptable rather than truthful responses, distorting self-reported data.
+</dd>
 <dt><span id="statistical_power">statistical power</span></dt>
-<dd>The probability that a study will detect an effect if one truly exists;
-conventionally targeted at 0.80.</dd>
+<dd>
+The probability that a study will detect an effect if one truly exists; conventionally targeted at 0.80.
+</dd>
 <dt><span id="statistical_significance">statistical significance</span></dt>
-<dd>A determination that observed data is unlikely under the null
-hypothesis, typically using a threshold of p &lt; 0.05; does not
-imply practical importance or a large effect.</dd>
+<dd>
+A determination that observed data is unlikely under the null hypothesis, typically using a threshold of p &lt; 0.05; does not imply practical importance or a large effect.
+</dd>
 <dt><span id="stratified_sampling">stratified sampling</span></dt>
-<dd>A sampling method in which the population is divided into subgroups
-(strata) and participants are drawn from each subgroup to ensure the
-sample reflects key population characteristics.</dd>
+<dd>
+A sampling method in which the population is divided into subgroups (strata) and participants are drawn from each subgroup to ensure the sample reflects key population characteristics.
+</dd>
 <dt><span id="structured_interview">structured interview</span></dt>
-<dd>An interview in which every participant is asked exactly the same
-questions in the same order, enabling systematic comparison across
-respondents.</dd>
+<dd>
+An interview in which every participant is asked exactly the same questions in the same order, enabling systematic comparison across respondents.
+</dd>
 <dt><span id="study">study</span></dt>
-<dd>A systematic attempt to collect and analyze evidence in order to test a
-claim or answer a research question.</dd>
+<dd>
+A systematic attempt to collect and analyze evidence in order to test a claim or answer a research question.
+</dd>
 <dt><span id="summative_evaluation">summative evaluation</span></dt>
-<dd>Evaluation conducted after development is complete to assess whether a
-product meets its goals, as opposed to formative evaluation conducted
-during development to guide improvement. Summative studies require
-controlled conditions and sufficient sample sizes to support quantitative
-claims.</dd>
+<dd>
+Evaluation conducted after development is complete to assess whether a product meets its goals, as opposed to formative evaluation conducted during development to guide improvement. Summative studies require controlled conditions and sufficient sample sizes to support quantitative claims.
+</dd>
 <dt><span id="survivorship_bias">survivorship bias</span></dt>
-<dd>Bias introduced by analyzing only cases that survived a selection process,
-ignoring cases that did not.</dd>
+<dd>
+Bias introduced by analyzing only cases that survived a selection process, ignoring cases that did not.
+</dd>
 </dl>
-<h2>T</h2>
+</section>
+<section id="t" class="level2" data-number="E.20">
+<h2 data-number="E.20" class="anchored" data-anchor-id="t"><span class="header-section-number">E.20</span> T</h2>
 <dl>
 <dt><span id="task_based_testing">task-based testing</span></dt>
-<dd>A research method in which participants are given specific, realistic
-tasks to complete with a product or system while the researcher observes
-and records their behavior, as opposed to open-ended exploration that
-produces impressions rather than observable actions.</dd>
+<dd>
+A research method in which participants are given specific, realistic tasks to complete with a product or system while the researcher observes and records their behavior, as opposed to open-ended exploration that produces impressions rather than observable actions.
+</dd>
 <dt><span id="thematic_analysis">thematic analysis</span></dt>
-<dd>A qualitative analysis method in which data is coded and grouped into
-themes through iterative passes.</dd>
+<dd>
+A qualitative analysis method in which data is coded and grouped into themes through iterative passes.
+</dd>
 <dt><span id="think_aloud_protocol">think-aloud protocol</span></dt>
-<dd>A data collection technique in which participants verbalize their
-thoughts, decisions, and reactions as they perform tasks, providing
-access to real-time reasoning that retrospective reporting misses.
-Commonly used in usability testing and qualitative studies of how
-people interact with tools and interfaces.</dd>
+<dd>
+A data collection technique in which participants verbalize their thoughts, decisions, and reactions as they perform tasks, providing access to real-time reasoning that retrospective reporting misses. Commonly used in usability testing and qualitative studies of how people interact with tools and interfaces.
+</dd>
 <dt><span id="time_to_restore_service">time to restore service</span></dt>
-<dd>The time it takes to recover normal operation after a failure in
-production; one of the four DORA metrics used to measure software
-delivery performance.</dd>
+<dd>
+The time it takes to recover normal operation after a failure in production; one of the four DORA metrics used to measure software delivery performance.
+</dd>
 <dt><span id="treatment_group">treatment group</span></dt>
-<dd>The group in an experiment that receives the intervention or
-manipulation being studied; compared against the control group to
-estimate the treatment effect.</dd>
+<dd>
+The group in an experiment that receives the intervention or manipulation being studied; compared against the control group to estimate the treatment effect.
+</dd>
 <dt><span id="triangulation">triangulation</span></dt>
-<dd>The use of multiple data sources, methods, or investigators to increase
-confidence in a finding.</dd>
+<dd>
+The use of multiple data sources, methods, or investigators to increase confidence in a finding.
+</dd>
 </dl>
-<h2>U</h2>
+</section>
+<section id="u" class="level2" data-number="E.21">
+<h2 data-number="E.21" class="anchored" data-anchor-id="u"><span class="header-section-number">E.21</span> U</h2>
 <dl>
 <dt><span id="unconscious_formalization">unconscious formalization</span></dt>
-<dd>The tendency to treat informal, context-dependent practices as if they
-were formal, rule-based procedures, leading to oversimplified models
-of how work is actually done.</dd>
+<dd>
+The tendency to treat informal, context-dependent practices as if they were formal, rule-based procedures, leading to oversimplified models of how work is actually done.
+</dd>
 <dt><span id="unstructured_interview">unstructured interview</span></dt>
-<dd>An interview with no fixed list of questions, guided entirely by the
-participant's responses, used to explore topics in depth without
-constraining the direction of conversation.</dd>
+<dd>
+An interview with no fixed list of questions, guided entirely by the participant’s responses, used to explore topics in depth without constraining the direction of conversation.
+</dd>
 </dl>
-<h2>V</h2>
-<h2>W</h2>
+</section>
+<section id="v" class="level2" data-number="E.22">
+<h2 data-number="E.22" class="anchored" data-anchor-id="v"><span class="header-section-number">E.22</span> V</h2>
+</section>
+<section id="w" class="level2" data-number="E.23">
+<h2 data-number="E.23" class="anchored" data-anchor-id="w"><span class="header-section-number">E.23</span> W</h2>
 <dl>
 <dt><span id="winners_curse">winners curse</span></dt>
-<dd>The phenomenon in which studies that achieve statistical significance
-tend to overestimate the true effect size, because extreme results
-are more likely to cross the significance threshold.</dd>
+<dd>
+The phenomenon in which studies that achieve statistical significance tend to overestimate the true effect size, because extreme results are more likely to cross the significance threshold.
+</dd>
 <dt><span id="within_subjects_design">within subjects design</span></dt>
-<dd>An experimental design in which each participant experiences all
-conditions, allowing comparison of outcomes within the same
-individual. This increases statistical power but is vulnerable to order
-effects.</dd>
+<dd>
+An experimental design in which each participant experiences all conditions, allowing comparison of outcomes within the same individual. This increases statistical power but is vulnerable to order effects.
+</dd>
 </dl>
-<h2>X</h2>
-<h2>Y</h2>
-<h2>Z</h2>
-</main>
-<footer aria-label="Page navigation">
-<div class="row">
-<div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../bibliography">Bibliography</a>
-</div>
-<div class="col-6 center">
-<a href="../">notwrong</a>
-	  ©
-	  <a href="../#acknowledgments">the authors</a>
-</div>
-<div class="col-3 right">
-<a href="../further">Further Reading</a> <span aria-hidden="true">⇒</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+</section>
+<section id="x" class="level2" data-number="E.24">
+<h2 data-number="E.24" class="anchored" data-anchor-id="x"><span class="header-section-number">E.24</span> X</h2>
+</section>
+<section id="y" class="level2" data-number="E.25">
+<h2 data-number="E.25" class="anchored" data-anchor-id="y"><span class="header-section-number">E.25</span> Y</h2>
+</section>
+<section id="z" class="level2" data-number="E.26">
+<h2 data-number="E.26" class="anchored" data-anchor-id="z"><span class="header-section-number">E.26</span> Z</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../bibliography/index.html" class="pagination-link" aria-label="Bibliography">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../further/index.html" class="pagination-link" aria-label="Further Reading">
+        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Further Reading</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/notwrong/edit/main/glossary/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/notwrong/blob/main/glossary/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/notwrong/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

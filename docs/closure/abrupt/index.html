@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Abrupt Closure – Closing Time</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../quarto/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../quarto/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../care/index.html" rel="next">
+<link href="../disaster/index.html" rel="prev">
+<script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../quarto/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../quarto/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../quarto/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../quarto/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../quarto/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../quarto/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../quarto/assets/mccole.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../abrupt/index.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Abrupt Closure</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Closing Time</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/closure" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../gas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Governance, Assets, and State</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../handover/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Succession Planning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../deliberate/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliberate Closure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../disaster/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disaster Recovery</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../abrupt/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Abrupt Closure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../care/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caring For Your People</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../finale/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../license/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conduct/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Contributing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bibliography/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fire/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Firing and Being Fired</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nesbitt/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Dumb Ways for an Open Source Project to Die</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-people-actually-do" id="toc-what-people-actually-do" class="nav-link active" data-scroll-target="#what-people-actually-do"><span class="header-section-number">6.1</span> What People Actually Do</a></li>
+  <li><a href="#convergence-as-a-resource" id="toc-convergence-as-a-resource" class="nav-link" data-scroll-target="#convergence-as-a-resource"><span class="header-section-number">6.2</span> Convergence as a Resource</a></li>
+  <li><a href="#a-loose-interpretation-of-the-rules" id="toc-a-loose-interpretation-of-the-rules" class="nav-link" data-scroll-target="#a-loose-interpretation-of-the-rules"><span class="header-section-number">6.3</span> A Loose Interpretation of the Rules</a></li>
+  <li><a href="#pause" id="toc-pause" class="nav-link" data-scroll-target="#pause"><span class="header-section-number">6.4</span> Pause…</a></li>
+  <li><a href="#then-speak" id="toc-then-speak" class="nav-link" data-scroll-target="#then-speak"><span class="header-section-number">6.5</span> …then Speak…</a></li>
+  <li><a href="#then-act" id="toc-then-act" class="nav-link" data-scroll-target="#then-act"><span class="header-section-number">6.6</span> …then Act</a>
+  <ul class="collapse">
+  <li><a href="#when-youre-the-one-being-hit" id="toc-when-youre-the-one-being-hit" class="nav-link" data-scroll-target="#when-youre-the-one-being-hit"><span class="header-section-number">6.6.1</span> When You’re the One Being Hit</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.7</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#categories-before-tasks" id="toc-categories-before-tasks" class="nav-link" data-scroll-target="#categories-before-tasks"><span class="header-section-number">6.7.1</span> Categories Before Tasks</a></li>
+  <li><a href="#triage-under-pressure" id="toc-triage-under-pressure" class="nav-link" data-scroll-target="#triage-under-pressure"><span class="header-section-number">6.7.2</span> Triage Under Pressure</a></li>
+  <li><a href="#leak-response" id="toc-leak-response" class="nav-link" data-scroll-target="#leak-response"><span class="header-section-number">6.7.3</span> Leak Response</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/abrupt/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/abrupt/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Abrupt Closure</span></h1>
+<p class="subtitle lead">when the future arrives too soon and in the wrong order</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ul>
+<li>Worst case: the project does not continue and you get one shot to close it down</li>
+</ul>
+<section id="what-people-actually-do" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="what-people-actually-do"><span class="header-section-number">6.1</span> What People Actually Do</h2>
+<ul>
+<li>Under time pressure, experts do not compare options: they recognize a situation as an instance of a familiar type and act on the first workable course of action that comes to mind <span class="citation" data-cites="Klein1998">(<a href="../bibliography/index.html#ref-Klein1998" role="doc-biblioref">Klein 1998</a>)</span>
+<ul>
+<li>This is called <a href="../glossary/index.html#recognition-primed-decision-making">recognition-primed decision making</a>: the decision is primed by experience, not constructed from first principles</li>
+<li>Experience that team members have handling emergencies in other domains can be misleading</li>
+<li>But is also more useful than they realize</li>
+<li>Asking “has anyone seen something like this before?” activates usable tacit knowledge under pressure</li>
+</ul></li>
+<li>Similarly, <a href="../glossary/index.html#attention-narrowing">attention narrows</a> under acute stress
+<ul>
+<li>Specifically, this impairs the ability to hold multiple competing priorities in mind simultaneously <span class="citation" data-cites="Easterbrook1959 Starcke2012">(<a href="../bibliography/index.html#ref-Easterbrook1959" role="doc-biblioref">Easterbrook 1959</a>; <a href="../bibliography/index.html#ref-Starcke2012" role="doc-biblioref">Starcke and Brand 2012</a>)</span></li>
+<li>As a result, teams focus intensely on the most visible problem while forgetting entire categories that would be obvious under calmer circumstances</li>
+<li>This is not a failure of knowledge: it is a predictable feature of how the brain responds to pressure</li>
+</ul></li>
+</ul>
+</section>
+<section id="convergence-as-a-resource" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="convergence-as-a-resource"><span class="header-section-number">6.2</span> Convergence as a Resource</h2>
+<ul>
+<li><span class="citation" data-cites="Dynes1970">(<a href="../bibliography/index.html#ref-Dynes1970" role="doc-biblioref">Dynes 1970</a>)</span> describes four types of groups that form in emergencies:
+<ul>
+<li>Established organizations that stick to their routines despite breakdown</li>
+<li>Other organizations that extend their routines to cover the new situation</li>
+<li>Ad hoc groups form specifically to respond
+<ul>
+<li>Their tasks are modeled on those of established organizations:</li>
+<li>They know what to do, they just need to come together</li>
+</ul></li>
+<li>Emergent groups with no prior or subsequent existence
+<ul>
+<li>They invent both their structure and their tasks in the moment with no existing template to follow</li>
+</ul></li>
+</ul></li>
+<li>Research shows that people converge on a crisis without being told to <span class="citation" data-cites="Fritz1957">(<a href="../bibliography/index.html#ref-Fritz1957" role="doc-biblioref">Fritz and Mathewson 1957</a>)</span>
+<ul>
+<li>People who step forward do so because the project mattered</li>
+<li>They are likely to help if given the minimum viable information</li>
+<li>In software and research projects this translates into unofficial mirrors, public documentation posts, and community email threads</li>
+<li>If you can support this without endangering yourself, do so</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-loose-interpretation-of-the-rules" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="a-loose-interpretation-of-the-rules"><span class="header-section-number">6.3</span> A Loose Interpretation of the Rules</h2>
+<ul>
+<li><span class="citation" data-cites="Lipsky1980">(<a href="../bibliography/index.html#ref-Lipsky1980" role="doc-biblioref">Lipsky 1980</a>)</span> found that frontline workers routinely depart from formal rules when applying them mechanically would produce worse outcomes than exercising judgment
+<ul>
+<li>This is called <a href="../glossary/index.html#street-level-bureaucracy">street-level bureaucracy</a>: the real policy of an organisation is made in the moment-to-moment decisions of frontline workers, not in headquarters</li>
+<li>Waiting for formal approval that cannot be obtained is itself a decision, and usually a worse one</li>
+</ul></li>
+<li>When formal procedures are inapplicable because time or infrastructure is unavailable, the people present should act within their own discretion rather than waiting for authorization they cannot obtain
+<ul>
+<li>Copying data, setting up a forwarding address, or sending a brief notice are all within the discretion of the people present</li>
+</ul></li>
+<li>Members of marginalized groups often have more practice navigating hostile bureaucracies their tactics can be instructive</li>
+</ul>
+</section>
+<section id="pause" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="pause"><span class="header-section-number">6.4</span> Pause…</h2>
+<ul>
+<li><span class="citation" data-cites="Gawande2009">(<a href="../bibliography/index.html#ref-Gawande2009" role="doc-biblioref">Gawande 2009</a>)</span> found that the most common failures in surgery were not failures of skill but failures to perform steps the surgeon already knew needed to be done
+<ul>
+<li>The intervention that worked was not additional training but a checklist</li>
+<li>The same principle applies directly to abrupt project closure</li>
+</ul></li>
+<li>First, establish exactly how much time you have and what constraints are non-negotiable
+<ul>
+<li>Organizations sometimes keep shutdown news secret to prevent morale collapse</li>
+<li>This backfires: rumors and information vacuums are more destructive than bad news</li>
+<li>Silence, denial, and diminishment all increase reputational and community harm</li>
+</ul></li>
+<li>Second, spend a few minutes writing down every <em>category</em> of thing that must be addressed before attempting to resolve any of them
+<ul>
+<li>Access credentials, data backups, stakeholder notifications, community communication, legal obligations</li>
+<li>The list does not need to be complete or correctly ordered</li>
+<li>It just needs to exist so that urgency doesn’t lead to tunnel vision</li>
+</ul></li>
+<li>Second, triage ruthlessly using the <a href="../glossary/index.html#moscow-method">MoSCoW method</a>:
+<ul>
+<li>Must do: obligations that carry legal or financial risk if unmet</li>
+<li>Should do: the minimum viable record of the project’s work</li>
+<li>Could do: give the community a way to find each other after you are gone</li>
+<li>Won’t do: everything else, including anything that amounts to “do it properly”</li>
+</ul></li>
+</ul>
+</section>
+<section id="then-speak" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="then-speak"><span class="header-section-number">6.5</span> …then Speak…</h2>
+<ul>
+<li><span class="citation" data-cites="Coombs2019">(<a href="../bibliography/index.html#ref-Coombs2019" role="doc-biblioref">Coombs 2021</a>)</span> identified three communication errors that increase reputational damage:
+<ul>
+<li>Silence: stakeholders fill the vacuum with rumour</li>
+<li>Denial: asserting the crisis is not serious</li>
+<li>Diminishment: acknowledging it but minimising its severity</li>
+</ul></li>
+<li>Rapid, honest, minimal communication is best <em>even when you do not yet know what you will do</em>
+<ul>
+<li>A single paragraph saying “here is what we know, here is what we do not know, here is when we expect more information” is not a plan</li>
+<li>But prevents the harms of silence</li>
+</ul></li>
+</ul>
+</section>
+<section id="then-act" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="then-act"><span class="header-section-number">6.6</span> …then Act</h2>
+<ul>
+<li>You probably don’t have time to clean up code, data, or publications
+<ul>
+<li>A README and a runnable script are a viable minimum handover for research software</li>
+</ul></li>
+<li>Notify funders and stakeholders with binding claims before the project goes dark</li>
+<li>Provide a forwarding address:
+<ul>
+<li>A working email address is better than silence</li>
+</ul></li>
+<li>Do not let guilt, pressure, or optimism make you promise maintenance you cannot deliver</li>
+<li>The first conversations after the announcement are not about logistics: the <a href="../care/index.html">next section</a> covers the human side</li>
+</ul>
+<section id="when-youre-the-one-being-hit" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="when-youre-the-one-being-hit"><span class="header-section-number">6.6.1</span> When You’re the One Being Hit</h3>
+<ul>
+<li>Most participants in project closure are not the ones making the decision
+<ul>
+<li>The advice above is written from the project lead’s perspective</li>
+<li>This section addresses the individual contributor</li>
+</ul></li>
+<li>If your own work is about to disappear, do the minimum viable handover yourself: push a copy somewhere public, and export your issues and notes.
+<ul>
+<li>Hand credentials to a trusted person outside the organization <em>if it’s safe to do so</em></li>
+</ul></li>
+<li>Pause before speaking or posting publicly: have someone you trust review anything before you say or send it</li>
+<li>Broader individual-level advice lives in <a href="../fire/index.html">an appendix</a></li>
+</ul>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.7</span> Exercises</h2>
+<section id="categories-before-tasks" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="categories-before-tasks"><span class="header-section-number">6.7.1</span> Categories Before Tasks</h3>
+<ol type="1">
+<li>Working individually, take three minutes to write down every <em>category</em> of thing that would need to be addressed if your project shut down at the end of this week. Write only categories, not specific tasks.</li>
+<li>Compare your list with a partner. What categories did your partner include that you missed? What did you over-specify?</li>
+<li>Debrief as a group. Most lists focus heavily on one or two categories (usually code or data) while omitting others entirely (credentials, legal obligations, community communication, contributor welfare, domain names). This is not a failure of knowledge, but a predictable failure of recall under pressure.</li>
+</ol>
+</section>
+<section id="triage-under-pressure" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="triage-under-pressure"><span class="header-section-number">6.7.2</span> Triage Under Pressure</h3>
+<p>You have just been told that your project is shutting down in 48 hours.</p>
+<ol type="1">
+<li>Apply MoSCoW: sort the categories from the previous exercise into must, should, could, or won’t, given a five-day deadline and one person working half-time.</li>
+<li>Identify the single most important thing you can do in the first two hours.</li>
+</ol>
+</section>
+<section id="leak-response" class="level3" data-number="6.7.3">
+<h3 data-number="6.7.3" class="anchored" data-anchor-id="leak-response"><span class="header-section-number">6.7.3</span> Leak Response</h3>
+<p>You planned to announce your project’s shutdown next Monday with a carefully drafted message to contributors, users, and funders. On Thursday afternoon, a community member posts on social media that the project is being killed by management. You haven’t notified your team or your funder yet, but the post is gathering attention.</p>
+<ol type="1">
+<li>Draft the message you send to your team in the first 30 minutes. What do you tell them, and what do you ask them <em>not</em> to do?</li>
+<li>Draft the public post you publish within the next 2 hours. How does the premature leak change the tone, timing, and content of what you had planned to say?</li>
+<li>In groups, discuss which stakeholder relationships are most at risk from the leak. What can you realistically salvage, and what is likely already damaged beyond repair?</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Coombs2019" class="csl-entry" role="listitem">
+Coombs, W. Timothy. 2021. <em>Ongoing Crisis Communication: Planning, Managing, and Responding</em>. 6th ed. SAGE Publications. ISBN 9781071816646.
+</div>
+<div id="ref-Dynes1970" class="csl-entry" role="listitem">
+Dynes, Russell R. 1970. <em>Organized Behavior in Disaster</em>. D.C. Heath.
+</div>
+<div id="ref-Easterbrook1959" class="csl-entry" role="listitem">
+Easterbrook, J. A. 1959. <span>“The Effect of Emotion on Cue Utilization and the Organization of Behavior.”</span> <em>Psychological Review</em> 66 (3). <a href="https://doi.org/10.1037/h0047707">https://doi.org/10.1037/h0047707</a>.
+</div>
+<div id="ref-Fritz1957" class="csl-entry" role="listitem">
+Fritz, Charles E., and J. H. Mathewson. 1957. <em>Convergence Behavior in Disasters: A Problem in Social Control</em>. National Academy of Sciences / National Research Council.
+</div>
+<div id="ref-Gawande2009" class="csl-entry" role="listitem">
+Gawande, Atul. 2009. <em>The Checklist Manifesto: How to Get Things Right</em>. Metropolitan Books. ISBN 9780805091748.
+</div>
+<div id="ref-Klein1998" class="csl-entry" role="listitem">
+Klein, Gary. 1998. <em>Sources of Power: How People Make Decisions</em>. MIT Press. ISBN 9780262611466.
+</div>
+<div id="ref-Lipsky1980" class="csl-entry" role="listitem">
+Lipsky, Michael. 1980. <em>Street-Level Bureaucracy: Dilemmas of the Individual in Public Services</em>. Russell Sage Foundation. ISBN 9780871545268.
+</div>
+<div id="ref-Starcke2012" class="csl-entry" role="listitem">
+Starcke, Katja, and Matthias Brand. 2012. <span>“Decision Making Under Stress: A Selective Review.”</span> <em>Neuroscience and Biobehavioral Reviews</em> 36 (4). <a href="https://doi.org/10.1016/j.neubiorev.2012.02.003">https://doi.org/10.1016/j.neubiorev.2012.02.003</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../disaster/index.html" class="pagination-link" aria-label="Disaster Recovery">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disaster Recovery</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../care/index.html" class="pagination-link" aria-label="Caring For Your People">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caring For Your People</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/abrupt/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/abrupt/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
