@@ -38,6 +38,10 @@ For reference, the materials are in [this repository][repo] and you can view the
     and what do I add to the `_quarto.yml` file to create a "Slides" section in the table of contents
     with links to these files?
     Or am I going about this in completely the wrong way?
+	<br>
+	*After a lot of frustration I have concluded that [issue 1433][quarto-1433] is still accurate:
+	there's no simple way to do what I want. I'm therefore generating slides by calling `pandoc`
+	directly. This means the styling isn't consistent with the main pages, but it'll do for now.*
 
 1.  When Quarto renders the tutorial, it create a 1.1Mbyte directory called `./docs/site_libs`
     with various supporting files (JavaScript, CSS, fonts, etc.).
@@ -83,4 +87,5 @@ thanks in advance for your help.
 [glosario]: https://glosario.carpentries.org/
 [mrsp-bib]: https://gvwilson.github.io/mrsp/bibliography/
 [mrsp-health]: https://gvwilson.github.io/mrsp/health/
+[quarto-1433]: https://github.com/orgs/quarto-dev/discussions/1433
 [repo]: https://github.com/gvwilson/mrsp
