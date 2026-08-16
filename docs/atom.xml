@@ -62,7 +62,12 @@ For reference, the materials are in &lt;a href=&#34;https://github.com/gvwilson/
     I want to do this because I&amp;rsquo;m going to put the generated files here in the Third Bit site,
     and want to share one copy of the supporting files rather than have one per workshop.
     (I&amp;rsquo;m likely to have seven or eight workshops served from Third Bit once I&amp;rsquo;m done converting,
-    and 8Mbyte of redundant files makes me squeamish.)&lt;/p&gt;
+    and 8Mbyte of redundant files makes me squeamish.)
+    &lt;br&gt;
+    &lt;em&gt;There doesn&amp;rsquo;t appear to be a way to configure Quarto to put &lt;code&gt;site_libs&lt;/code&gt; where I want it,
+    so I&amp;rsquo;ve written a little Lua script to replace all references to it in the generated HTML
+    with references to &lt;code&gt;../quarto/site_libs&lt;/code&gt; (with as many &lt;code&gt;..&lt;/code&gt;&amp;rsquo;s as needed to reach the root
+    of the documents directory). It&amp;rsquo;s a hack, but it&amp;rsquo;ll work for now.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;I don&amp;rsquo;t like the way Quarto&amp;rsquo;s default CSS lays out description lists;
@@ -75,7 +80,9 @@ For reference, the materials are in &lt;a href=&#34;https://github.com/gvwilson/
     so this is much less urgent than the &lt;code&gt;site_libs&lt;/code&gt; issue.)
     &lt;br&gt;
     &lt;em&gt;Put &lt;code&gt;css: assets/mccole.css&lt;/code&gt; under &lt;code&gt;format&amp;gt;html&lt;/code&gt; in &lt;code&gt;_quarto.yml&lt;/code&gt;,
-    then create &lt;code&gt;assets/mccole.css&lt;/code&gt; and start overriding things there.&lt;/em&gt;&lt;/p&gt;
+    then create &lt;code&gt;assets/mccole.css&lt;/code&gt; and start overriding things there.
+    I&amp;rsquo;m also modifying links to the &lt;code&gt;assets&lt;/code&gt; directory to be &lt;code&gt;../quarto/assets&lt;/code&gt; when I deploy
+    for the reasons discussed in the previous point.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Finally, the glossary for the workshop is in &lt;code&gt;./glossary/index.qmd&lt;/code&gt;,

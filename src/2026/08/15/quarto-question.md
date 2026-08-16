@@ -47,6 +47,11 @@ For reference, the materials are in [this repository][repo] and you can view the
     and want to share one copy of the supporting files rather than have one per workshop.
     (I'm likely to have seven or eight workshops served from Third Bit once I'm done converting,
     and 8Mbyte of redundant files makes me squeamish.)
+	<br>
+	*There doesn't appear to be a way to configure Quarto to put `site_libs` where I want it,
+	so I've written a little Lua script to replace all references to it in the generated HTML
+	with references to `../quarto/site_libs` (with as many `..`'s as needed to reach the root
+	of the documents directory). It's a hack, but it'll work for now.*
 
 1.  I don't like the way Quarto's default CSS lays out description lists;
     for accessibility reasons I'd like notes to be rendered at the same size as main text,
@@ -58,7 +63,9 @@ For reference, the materials are in [this repository][repo] and you can view the
     so this is much less urgent than the `site_libs` issue.)
 	<br>
 	*Put `css: assets/mccole.css` under `format>html` in `_quarto.yml`,
-	then create `assets/mccole.css` and start overriding things there.*
+	then create `assets/mccole.css` and start overriding things there.
+	I'm also modifying links to the `assets` directory to be `../quarto/assets` when I deploy
+	for the reasons discussed in the previous point.*
 
 1.  Finally, the glossary for the workshop is in `./glossary/index.qmd`,
     and I use a little bit of custom Lua in `./bin/g.lua` to handle the rendering.

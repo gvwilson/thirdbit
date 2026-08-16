@@ -101,7 +101,12 @@ For reference, the materials are in <a href="https://github.com/gvwilson/mrsp">t
     I want to do this because I&rsquo;m going to put the generated files here in the Third Bit site,
     and want to share one copy of the supporting files rather than have one per workshop.
     (I&rsquo;m likely to have seven or eight workshops served from Third Bit once I&rsquo;m done converting,
-    and 8Mbyte of redundant files makes me squeamish.)</p>
+    and 8Mbyte of redundant files makes me squeamish.)
+    <br>
+    <em>There doesn&rsquo;t appear to be a way to configure Quarto to put <code>site_libs</code> where I want it,
+    so I&rsquo;ve written a little Lua script to replace all references to it in the generated HTML
+    with references to <code>../quarto/site_libs</code> (with as many <code>..</code>&rsquo;s as needed to reach the root
+    of the documents directory). It&rsquo;s a hack, but it&rsquo;ll work for now.</em></p>
 </li>
 <li>
 <p>I don&rsquo;t like the way Quarto&rsquo;s default CSS lays out description lists;
@@ -114,7 +119,9 @@ For reference, the materials are in <a href="https://github.com/gvwilson/mrsp">t
     so this is much less urgent than the <code>site_libs</code> issue.)
     <br>
     <em>Put <code>css: assets/mccole.css</code> under <code>format&gt;html</code> in <code>_quarto.yml</code>,
-    then create <code>assets/mccole.css</code> and start overriding things there.</em></p>
+    then create <code>assets/mccole.css</code> and start overriding things there.
+    I&rsquo;m also modifying links to the <code>assets</code> directory to be <code>../quarto/assets</code> when I deploy
+    for the reasons discussed in the previous point.</em></p>
 </li>
 <li>
 <p>Finally, the glossary for the workshop is in <code>./glossary/index.qmd</code>,
