@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <title>How to Not Be Wrong About AI</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../quarto/assets/slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">How to Not Be Wrong About AI</h1>
+  <p class="author">Greg Wilson</p>
+  <p class="date">July 2026</p>
+</section>
+
+<section id="what-this-talk-is-about" class="slide level2">
+<h2>What This Talk Is About</h2>
+<ul>
+<li>AI coding tools are everywhere, and so are claims about what they
+do</li>
+<li>In 2023, GitHub announced their tools made developers 55%
+faster</li>
+<li>That number appeared in every executive presentation for a year</li>
+<li>This workshop teaches you how to tell if you should believe it</li>
+</ul>
+</section>
+<section id="why-media-coverage-fails-you" class="slide level2">
+<h2>Why Media Coverage Fails You</h2>
+<ul>
+<li>Journalists rarely read past the abstract of research reports</li>
+<li>Abstracts rarely report limitations</li>
+<li>People rarely publish negative results</li>
+<li>Press releases are written to generate coverage, not accuracy</li>
+<li>Conflicts of interest are common
+<ul>
+<li>Most AI productivity studies are funded by the companies selling the
+tools</li>
+</ul></li>
+</ul>
+</section>
+<section id="empirical-software-engineering" class="slide level2">
+<h2>Empirical Software Engineering</h2>
+<ul>
+<li><strong>Empirical software engineering</strong> (ESE) uses
+observation and experiment to study how software is built</li>
+<li>It draws on psychology, sociology, economics, and statistics as well
+as computer science</li>
+<li>The field has existed since the 1960s</li>
+<li>Bad news: most studies don’t address things practitioners actually
+care about <span class="citation"
+data-cites="Begel2014">[Begel2014]</span></li>
+<li>Good news: “most” isn’t “all”</li>
+</ul>
+</section>
+<section id="the-real-question" class="slide level2">
+<h2>The Real Question</h2>
+<ul>
+<li>“Is AI helping my team?” sounds simple</li>
+<li>But it requires answering:
+<ul>
+<li>Helping with what?</li>
+<li>Measured how?</li>
+<li>Compared to what?</li>
+</ul></li>
+<li>These are not pedantic questions</li>
+<li>The answer you get depends entirely on how you
+<strong>operationalize</strong> them</li>
+</ul>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For Example</h2>
+<ul>
+<li>Prechelt measured 73 professional developers solving the same
+programming task and found completion times ranged from 0.6 to 63 hours
+(i.e., 105X) <span class="citation"
+data-cites="Prechelt2000">[Prechelt2000]</span></li>
+<li>After controlling for programming language the ratio shrank to
+17X</li>
+<li>With a careful definition of “more productive” it shrank further to
+5X</li>
+<li>The answer depends on exactly what question is asked</li>
+</ul>
+</section>
+<section id="claims-studies-and-evidence" class="slide level2">
+<h2>Claims, Studies, and Evidence</h2>
+<ul>
+<li>A <strong>claim</strong> is an assertion: “AI tools make programmers
+more productive”</li>
+<li>A <strong>study</strong> is a systematic attempt to test a
+claim</li>
+<li><strong>Evidence</strong> is what a study produces, and it varies in
+quality</li>
+<li>One study with a catchy headline can change curricula and hiring
+practices before anyone double-checks it</li>
+</ul>
+</section>
+<section id="why-productivity-is-hard-to-define" class="slide level2">
+<h2>Why “Productivity” Is Hard to Define</h2>
+<ul>
+<li><span class="citation"
+data-cites="Sadowski2019">[Sadowski2019]</span> is an entire book
+devoted to “this is difficult”</li>
+<li>Manufacturing productivity means widgets per hour: both terms are
+measurable</li>
+<li>Software output is not homogeneous: a ten-line bugfix may be worth
+more than a thousand-line feature</li>
+<li>Much of software work is invisible: reading, reviewing, helping
+colleagues
+<ul>
+<li>A field study found developers only spend 25% of their day actually
+writing code <span class="citation"
+data-cites="Meyer2017">[Meyer2017]</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="construct-validity-and-proxy-metrics" class="slide level2">
+<h2>Construct Validity and Proxy Metrics</h2>
+<ul>
+<li><strong>Construct validity</strong> is the degree to which a
+measurement captures the concept it is meant to represent</li>
+<li>A <strong>proxy metric</strong> stands in for something harder to
+measure directly
+<ul>
+<li>Common proxies: lines of code, commit frequency, story points, pull
+requests merged</li>
+</ul></li>
+<li>Lines of code written per day has low construct validity as a
+productivity measure
+<ul>
+<li>You can make code worse by writing more of it</li>
+</ul></li>
+<li><strong>Goodhart’s Law</strong>: when a measure becomes a target, it
+ceases to be a good measure
+<ul>
+<li>Particularly when people feel their jobs are threatened…</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-you-can-and-cannot-measure" class="slide level2">
+<h2>What You Can and Cannot Measure</h2>
+<ul>
+<li>The DORA metrics have better construct validity than activity counts
+<span class="citation" data-cites="Forsgren2018">[Forsgren2018]</span>
+<ul>
+<li>Deployment frequency, lead time, change failure rate, time to
+restore</li>
+</ul></li>
+<li>They are tied to customer outcomes rather than developer
+busyness</li>
+<li>They still have blind spots: a team can score well while building
+the wrong product</li>
+</ul>
+</section>
+<section id="the-big-three-mistakes" class="slide level2">
+<h2>The Big Three Mistakes</h2>
+<ul>
+<li>Counting lines of code generated
+<ul>
+<li>Measures verbosity, not value</li>
+</ul></li>
+<li>Timing artificial tasks
+<ul>
+<li>A 90-minute greenfield task does not predict real work</li>
+</ul></li>
+<li>Measuring only the easy half
+<ul>
+<li>AI makes code generation faster, but doesn’t count review time,
+debugging confidently wrong suggestions, and security
+vulnerabilities</li>
+</ul></li>
+</ul>
+</section>
+<section id="bias-and-baselines" class="slide level2">
+<h2>Bias and Baselines</h2>
+<ul>
+<li>Before/after with no control group
+<ul>
+<li>You cannot separate the AI effect from anything else that
+changed</li>
+</ul></li>
+<li>Asking developers if they feel more productive
+<ul>
+<li>The <strong>novelty effect</strong> inflates self-reports for
+weeks</li>
+<li>Feeling productive is not the same as being productive</li>
+</ul></li>
+<li>Comparing volunteers to non-volunteers
+<ul>
+<li>Early adopters are usually already higher performers</li>
+</ul></li>
+</ul>
+</section>
+<section id="metrics-that-mislead" class="slide level2">
+<h2>Metrics That Mislead</h2>
+<ul>
+<li>Treating adoption rate as a success metric
+<ul>
+<li>It measures whether the tool is installed, not whether it helps</li>
+</ul></li>
+<li>Treating suggestion acceptance rate as a quality signal
+<ul>
+<li>Developers under pressure accept more suggestions, including
+insecure ones <span class="citation"
+data-cites="Pearce2022">[Pearce2022]</span></li>
+</ul></li>
+<li>Comparing AI to nothing
+<ul>
+<li>The real question is whether AI outperforms the alternatives
+developers already have</li>
+</ul></li>
+</ul>
+</section>
+<section id="qualitative-methods-when-and-why" class="slide level2">
+<h2>Qualitative Methods: When and Why</h2>
+<ul>
+<li>Use <strong>qualitative methods</strong> when you do not yet know
+what to measure</li>
+<li>They answer “what is happening” and “why” rather than “how
+much”</li>
+<li>A survey of 410 developers about AI tools revealed where AI actually
+helps and where it gets in the way <span class="citation"
+data-cites="Liang2024">[Liang2024]</span>
+<ul>
+<li>Invisible to any study measuring only task completion times</li>
+</ul></li>
+<li>The question determines the method, not preference or habit</li>
+</ul>
+</section>
+<section id="designing-good-interviews-and-surveys"
+class="slide level2">
+<h2>Designing Good Interviews and Surveys</h2>
+<ul>
+<li><strong>Semi-structured interviews</strong> have a guide but allow
+follow-up
+<ul>
+<li>Consistent enough to compare, flexible enough to surprise</li>
+</ul></li>
+<li><strong>Open questions</strong> invite narrative, while
+<strong>closed questions</strong> invite classification</li>
+<li>Avoid <strong>leading questions</strong>: “Don’t you find it
+faster?” assumes the answer</li>
+<li>Pilot your survey with 3–5 people before distributing it</li>
+</ul>
+</section>
+<section id="thematic-analysis" class="slide level2">
+<h2>Thematic Analysis</h2>
+<ul>
+<li><strong>Open coding</strong>: read through the data and tag segments
+with descriptive labels</li>
+<li>Use <strong>gerund coding</strong>: “avoiding AI for security tasks”
+rather than “AI distrust”
+<ul>
+<li>This preserves what participants are actually doing</li>
+</ul></li>
+<li>A <strong>theme</strong> is a claim you could write as a sentence,
+not a bucket for related quotes</li>
+<li>Stop collecting data when new interviews stop introducing new codes
+<span class="citation" data-cites="Braun2019">[Braun2019]</span></li>
+</ul>
+</section>
+<section id="controlled-experiments" class="slide level2">
+<h2>Controlled Experiments</h2>
+<ul>
+<li>A <strong>controlled experiment</strong> manipulates one variable
+and measures its effect while holding others constant</li>
+<li><strong>Randomization</strong> assigns participants to conditions
+randomly, distributing unknown <strong>confounders</strong> evenly
+<ul>
+<li>This is the mechanism that makes <strong>causal claims</strong>
+defensible</li>
+</ul></li>
+<li><strong>Full blinding</strong> is rarely possible in software
+engineering:
+<ul>
+<li>The developer is going to know if they’re using TDD or not…</li>
+</ul></li>
+</ul>
+</section>
+<section id="p-values-what-they-are-and-are-not" class="slide level2">
+<h2>p-Values: What They Are and Are Not</h2>
+<ul>
+<li>A <strong>p-value</strong> is the probability of observing data at
+least as extreme as yours if nothing was actually happening</li>
+<li>It is not the probability that the null hypothesis is true</li>
+<li>It is not the probability that you will replicate</li>
+<li>p &lt; 0.05 is a convention from the 1920s, not a law of nature</li>
+</ul>
+</section>
+<section id="effect-size-matters" class="slide level2">
+<h2>Effect Size Matters</h2>
+<ul>
+<li><strong>Statistical significance</strong> tells you whether an
+effect is likely to be real</li>
+<li><strong>Effect size</strong> tells you how large it is</li>
+<li>A study with thousands of participants can find statistically
+significant effects that are too small to matter in practice</li>
+<li>Always report effect size alongside p-values
+<ul>
+<li>Either is incomplete on its own</li>
+<li>If a study doesn’t report both, it probably has other flaws as
+well</li>
+</ul></li>
+</ul>
+</section>
+<section id="underpowered-experiments" class="slide level2">
+<h2>Underpowered Experiments</h2>
+<ul>
+<li><strong>Statistical power</strong> is the probability of detecting
+an effect if one exists</li>
+<li>Studies with 20–30 participants can only detect very large effects
+<span class="citation"
+data-cites="Kampenes2007">[Kampenes2007]</span></li>
+<li>Most ESE experiments fall far below this threshold</li>
+<li>The effects you do detect in underpowered studies are inflated
+<ul>
+<li>The <strong>winner’s curse</strong>: reluctance to publish negative
+results</li>
+</ul></li>
+</ul>
+</section>
+<section id="observational-studies" class="slide level2">
+<h2>Observational Studies</h2>
+<ul>
+<li><strong>Observational studies</strong> measure the world as it is,
+without manipulating variables</li>
+<li>Advantages: real-world behavior, large datasets, no ethical concerns
+about withholding interventions</li>
+<li>Disadvantage: you cannot establish causation because confounding
+variables cannot be ruled out</li>
+<li>Mining software repositories (MSR) is the most common approach</li>
+</ul>
+</section>
+<section id="looking-where-the-light-is" class="slide level2">
+<h2>Looking Where the Light Is</h2>
+<ul>
+<li>GitHub data is not a representative sample of software development
+<ul>
+<li>Inactive repositories, class assignments, personal experiments,
+etc.</li>
+</ul></li>
+<li><strong>Survivorship bias</strong>: you only see projects that still
+exist</li>
+<li>Example: projects with more tests also tend to have more experienced
+developers — You cannot attribute lower defect rates to testing
+alone</li>
+</ul>
+</section>
+<section id="reading-studies-critically" class="slide level2">
+<h2>Reading Studies Critically</h2>
+<ul>
+<li>Start with the abstract: what claim is being made?</li>
+<li>Jump to the methods before reading the results
+<ul>
+<li>What can this study design actually establish?</li>
+</ul></li>
+<li>Read the limitations section
+<ul>
+<li>What do the authors say they <em>cannot</em> conclude?</li>
+<li>If this feels flimsy, the rest of the paper probably is too</li>
+</ul></li>
+</ul>
+</section>
+<section id="harking-and-p-hacking" class="slide level2">
+<h2>HARKing and p-Hacking</h2>
+<ul>
+<li><strong>HARKing</strong> (Hypothesizing After Results are Known):
+writing a paper as if a pattern found during analysis was predicted in
+advance</li>
+<li><strong>p-hacking</strong>: trying multiple analyses until you get p
+&lt; 0.05, then reporting only that analysis
+<ul>
+<li>With 20 independent tests at p &lt; 0.05, you expect one false
+positive by chance</li>
+</ul></li>
+<li><strong>Pre-registration</strong> commits hypotheses before data
+collection, making both problems visible</li>
+<li>And if authors haven’t shared data, there’s a good chance there’s an
+error in their work <span class="citation"
+data-cites="Wicherts2011">[Wicherts2011]</span></li>
+</ul>
+</section>
+<section id="a-checklist-for-evaluating-a-study" class="slide level2">
+<h2>A Checklist for Evaluating a Study</h2>
+<ul>
+<li><strong>Conclusion validity</strong>: Was the sample large enough?
+Are effect sizes reported?</li>
+<li><strong>Internal validity</strong>: Was there a control group? Was
+assignment random? Could novelty or learning effects explain the
+result?</li>
+<li><strong>Construct validity</strong>: Does the measurement actually
+capture the claim?</li>
+<li><strong>External validity</strong>: Who are the subjects, and are
+they representative of the population the conclusions address?</li>
+</ul>
+</section>
+<section id="goal-question-metric" class="slide level2">
+<h2>Goal-Question-Metric</h2>
+<ul>
+<li><strong>GQM</strong> provides a structured path from intent to
+measurement <span class="citation"
+data-cites="Basili1994">[Basili1994]</span></li>
+<li>Define the <strong>goal</strong>: what object, what property, from
+whose viewpoint, in what context?</li>
+<li>Generate the <strong>questions</strong> whose answers would tell you
+whether the goal was achieved</li>
+<li>Identify the specific, operationalized <strong>metric</strong> that
+answers each question
+<ul>
+<li>Challenge whether the metric actually measures what you care
+about</li>
+<li>It helps to do this with someone outside your org</li>
+</ul></li>
+</ul>
+</section>
+<section id="starting-cheaply" class="slide level2">
+<h2>Starting Cheaply</h2>
+<ul>
+<li>A small, informal study produces better evidence than a meeting</li>
+<li>“Research is the process of finding out what you don’t know” <span
+class="citation" data-cites="Hall2019">[Hall2019]</span></li>
+<li>The standard for “enough” depends on the decision you are trying to
+support
+<ul>
+<li>Deciding to run a larger study: five sessions is fine</li>
+<li>Deciding to mandate a tool for five hundred developers: nope</li>
+</ul></li>
+<li>Your goal is not to be rigorous</li>
+<li>It is to be better informed at minimal cost</li>
+</ul>
+</section>
+<section id="formative-vs.-summative-evaluation" class="slide level2">
+<h2>Formative vs. Summative Evaluation</h2>
+<ul>
+<li><strong>Formative evaluation</strong>: studying something in order
+to improve it
+<ul>
+<li>Small samples, rapid iteration, qualitative focus</li>
+<li>The question is “what is wrong?” not “how often is it wrong?”</li>
+</ul></li>
+<li><strong>Summative evaluation</strong>: assessing if something works
+well enough to deploy
+<ul>
+<li>Requires more participants, controlled conditions, and quantitative
+metrics</li>
+</ul></li>
+<li>Most of what you can do without institutional support is
+formative</li>
+<li>Mislabeling formative evidence as summative kills credibility</li>
+</ul>
+</section>
+<section id="finding-participants-without-a-budget"
+class="slide level2">
+<h2>Finding Participants Without a Budget</h2>
+<ul>
+<li>Post in chat: “I need 45 minutes of your time to watch you do a code
+review”</li>
+<li>Ask colleagues in adjacent teams who are not on your project</li>
+<li>Aim for people who fit your target profile, not whoever responds
+first</li>
+<li>Avoid people you manage, who manage you, or who already know your
+hypothesis</li>
+<li>Five participants is typically enough to identify most problems in a
+specific workflow <span class="citation"
+data-cites="Nielsen1993">[Nielsen1993]</span>
+<ul>
+<li><em>Not</em> to make claims about “most developers”</li>
+</ul></li>
+</ul>
+</section>
+<section id="running-a-think-aloud-session" class="slide level2">
+<h2>Running a Think-Aloud Session</h2>
+<ul>
+<li>Ask participants to verbalize their thoughts as they work: “say out
+loud whatever you are thinking”</li>
+<li>Give concrete, realistic tasks, not open exploration
+<ul>
+<li>“Given this pull request, use the AI assistant to write a
+one-paragraph summary of the changes”</li>
+</ul></li>
+<li>Observe where participants hesitate, backtrack, or state
+expectations that turn out to be wrong</li>
+<li>Do not help when they get stuck or explain what the tool was
+designed to do
+<ul>
+<li>You will not be there when real users encounter the same
+problems</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-rite-method" class="slide level2">
+<h2>The RITE Method</h2>
+<ul>
+<li><span class="citation"
+data-cites="Medlock2002">[Medlock2002]</span>: fix the most severe
+problem you observed before the next session
+<ul>
+<li>A session that reveals a new problem is more useful than one that
+confirms a known one</li>
+</ul></li>
+<li>What five-session informal studies <em>can</em> support:
+<ul>
+<li>“We observed developers getting stuck at this step”</li>
+<li>“In most sessions, participants…”</li>
+</ul></li>
+<li>What they <em>cannot</em> support:
+<ul>
+<li>“X% of developers have this problem”</li>
+<li>“Using this tool causes developers to write more bugs”</li>
+</ul></li>
+</ul>
+</section>
+<section id="so-what-do-we-know" class="slide level2">
+<h2>So, What <em>Do</em> We Know?</h2>
+<ul>
+<li>Code is statistically more repetitive and predictable than natural
+language <span class="citation"
+data-cites="Hindle2016">[Hindle2016]</span>
+<ul>
+<li>This is why language models work well for it</li>
+</ul></li>
+<li>Nearly all studies are short-term, use narrow tasks, and rely on
+volunteers
+<ul>
+<li>Lack external validity to professional development</li>
+</ul></li>
+<li>Controlled experiments show AI tools can speed up specific,
+well-defined tasks for individual developers</li>
+<li>Effects on end-to-end delivery (defect rates, lead time) are much
+less clear</li>
+</ul>
+</section>
+<section id="what-to-do-next" class="slide level2">
+<h2>What to Do Next</h2>
+<ul>
+<li>Ask for evidence before adopting tools: what study supports this
+claim, is it applicable to your context, and can you see the raw
+data?</li>
+<li>When an executive cites an AI productivity statistic, ask who funded
+the study, what specific task was studied, and whether there was a
+control group</li>
+<li>Document your organization’s experience and share it
+<ul>
+<li>Your customers are more likely to trust you if you’re honestly
+self-critical</li>
+<li>Your staff are more likely to trust you as well</li>
+</ul></li>
+</ul>
+</section>
+<section id="sharing-results-responsibly" class="slide level2">
+<h2>Sharing Results Responsibly</h2>
+<ul>
+<li>Every study has limitations; state them before stakeholders ask</li>
+<li>Distinguish between “we found no effect” and “our study was not
+designed to detect that effect”</li>
+<li>Present uncertainty: confidence intervals and effect sizes belong in
+results presented to management</li>
+<li>Negative results matter too</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
