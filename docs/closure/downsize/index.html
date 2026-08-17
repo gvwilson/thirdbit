@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix H — Dumb Ways for an Open Source Project to Die – Closing Time</title>
+<title>Appendix F — Downsizing – Closing Time</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../quarto/site_libs/quarto-nav/quarto-nav.js"></script>
@@ -33,7 +52,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../quarto/site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../quarto/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../fire/index.html" rel="prev">
+<link href="../fire/index.html" rel="next">
+<link href="../glossary/index.html" rel="prev">
 <script src="../../quarto/site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../quarto/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../quarto/site_libs/quarto-html/popper.min.js"></script>
@@ -86,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../nesbitt/index.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dumb Ways for an Open Source Project to Die</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../downsize/index.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Downsizing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../downsize/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../downsize/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Downsizing</span></span></a>
   </div>
 </li>
@@ -221,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../nesbitt/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../nesbitt/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dumb Ways for an Open Source Project to Die</span></span></a>
   </div>
 </li>
@@ -237,22 +257,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-maintainer-left" id="toc-the-maintainer-left" class="nav-link active" data-scroll-target="#the-maintainer-left"><span class="header-section-number">H.1</span> The maintainer left</a></li>
-  <li><a href="#the-maintainer-is-still-there" id="toc-the-maintainer-is-still-there" class="nav-link" data-scroll-target="#the-maintainer-is-still-there"><span class="header-section-number">H.2</span> The maintainer is still there</a></li>
-  <li><a href="#sabotage-and-capture" id="toc-sabotage-and-capture" class="nav-link" data-scroll-target="#sabotage-and-capture"><span class="header-section-number">H.3</span> Sabotage and capture</a></li>
-  <li><a href="#the-release-pipeline-broke" id="toc-the-release-pipeline-broke" class="nav-link" data-scroll-target="#the-release-pipeline-broke"><span class="header-section-number">H.4</span> The release pipeline broke</a></li>
-  <li><a href="#force-majeure" id="toc-force-majeure" class="nav-link" data-scroll-target="#force-majeure"><span class="header-section-number">H.5</span> Force majeure</a></li>
-  <li><a href="#the-world-moved-on" id="toc-the-world-moved-on" class="nav-link" data-scroll-target="#the-world-moved-on"><span class="header-section-number">H.6</span> The world moved on</a></li>
-  <li><a href="#the-project-split" id="toc-the-project-split" class="nav-link" data-scroll-target="#the-project-split"><span class="header-section-number">H.7</span> The project split</a></li>
+  <li><a href="#accept-the-new-reality" id="toc-accept-the-new-reality" class="nav-link active" data-scroll-target="#accept-the-new-reality"><span class="header-section-number">F.1</span> Accept the New Reality</a></li>
+  <li><a href="#re-decide-what-the-project-is-for" id="toc-re-decide-what-the-project-is-for" class="nav-link" data-scroll-target="#re-decide-what-the-project-is-for"><span class="header-section-number">F.2</span> Re-decide What the Project Is For</a></li>
+  <li><a href="#sequence-the-cuts" id="toc-sequence-the-cuts" class="nav-link" data-scroll-target="#sequence-the-cuts"><span class="header-section-number">F.3</span> Sequence the Cuts</a></li>
+  <li><a href="#renegotiate-dont-just-absorb" id="toc-renegotiate-dont-just-absorb" class="nav-link" data-scroll-target="#renegotiate-dont-just-absorb"><span class="header-section-number">F.4</span> Renegotiate, Don’t Just Absorb</a></li>
+  <li><a href="#who-stays-and-who-goes" id="toc-who-stays-and-who-goes" class="nav-link" data-scroll-target="#who-stays-and-who-goes"><span class="header-section-number">F.5</span> Who Stays and Who Goes</a></li>
+  <li><a href="#survivors" id="toc-survivors" class="nav-link" data-scroll-target="#survivors"><span class="header-section-number">F.6</span> Survivors</a></li>
+  <li><a href="#watch-for-the-death-spiral" id="toc-watch-for-the-death-spiral" class="nav-link" data-scroll-target="#watch-for-the-death-spiral"><span class="header-section-number">F.7</span> Watch for the Death Spiral</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">F.8</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#the-minimum-viable-project" id="toc-the-minimum-viable-project" class="nav-link" data-scroll-target="#the-minimum-viable-project"><span class="header-section-number">F.8.1</span> The Minimum Viable Project</a></li>
+  <li><a href="#renegotiate" id="toc-renegotiate" class="nav-link" data-scroll-target="#renegotiate"><span class="header-section-number">F.8.2</span> Renegotiate</a></li>
+  <li><a href="#who-stays" id="toc-who-stays" class="nav-link" data-scroll-target="#who-stays"><span class="header-section-number">F.8.3</span> Who Stays</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/nesbitt/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/nesbitt/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/downsize/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/downsize/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../nesbitt/index.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dumb Ways for an Open Source Project to Die</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../license/index.html">Appendices</a></li><li class="breadcrumb-item"><a href="../downsize/index.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Downsizing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix H — Dumb Ways for an Open Source Project to Die</h1>
+<h1 class="title">Appendix F — Downsizing</h1>
+<p class="subtitle lead">when the project survives but shrinks</p>
 </div>
 
 
@@ -269,169 +296,181 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>This post originally appeared on <a href="https://nesbitt.io/2026/05/19/dumb-ways-for-an-open-source-project-to-die.html">Andrew Nesbitt’s blog</a> and is reproduced with the author’s permission.</em></p>
-<p><a href="https://nesbitt.io/2026/05/08/weekend-at-bernies.html">Weekend at Bernie’s</a> showed that a good chunk of the most-depended-on open source packages are dead, and there are a lot of different ways for a project to end up that way.</p>
-<section id="the-maintainer-left" class="level2" data-number="H.1">
-<h2 data-number="H.1" class="anchored" data-anchor-id="the-maintainer-left"><span class="header-section-number">H.1</span> The maintainer left</h2>
-<dl>
-<dt>Ghost maintainer</dt>
-<dd>
-The simplest and most common case: last human commit some years back, issues accumulating unanswered, the repo not archived so it doesn’t show up in any filter that would flag it. Usually the maintainer just moved on to other things and the project wasn’t important enough to them to formally hand over or shut down, though the same silence covers everything up to and including the maintainer having died, which neither the registry nor the repo has any way to represent. From outside it’s indistinguishable from a long holiday until enough unanswered issues have piled up to make the silence unambiguous, and the npm utilities at the top of the <a href="https://nesbitt.io/2026/05/08/weekend-at-bernies.html">Bernie’s dead list</a> are mostly this.
-</dd>
-<dt>Corporate orphan</dt>
-<dd>
-A company built and open-sourced it with a team to run it, then a pivot or a layoff round took the team out and nobody updated the README. The GitHub org persists with the company logo and the last people who had admin rights have left, so often nobody still at the company knows the project is theirs. Google’s various graveyards are the famous case but every company past a certain size has a few of these, and the ones that were infrastructure rather than products tend not to even get a deprecation notice.
-</dd>
-<dt>Thesis orphan</dt>
-<dd>
-Built by a grad student for a master’s project or a PhD chapter, and they’ve since graduated and moved on. The lab that hosted it nominally owns the repo, but nobody there has the context to continue it and academia gives them no reason to try: maintaining someone else’s software earns no citations and counts for nothing at review next to publishing something new. Research software is full of these, often with a paper still being cited years after the code it describes stopped building.
-</dd>
-<dt>Funding cliff</dt>
-<dd>
-The project ran on a grant or a fixed-term sponsorship, often from a foundation or one of the public software funds, and the money ended on schedule. The maintainers went back to whatever pays the rent, and a project that had grown to fit full-time capacity is now getting evenings and weekends, which for that scope rounds to nothing. The funder’s logo usually stays in the README long after the funding stopped, which makes this one easy to mistake for a healthy sponsored project.
-</dd>
-<dt>Hired away</dt>
-<dd>
-The maintainer was hired by a company and either the employment contract or just the new workload means the project stops. Occasionally that’s a competitor removing a problem, but the more common case isn’t malicious at all: Apple is the classic example of an employer that simply doesn’t let most staff do outside open source, so a maintainer joining means their projects go quiet by default. Handing over before you start is the obvious fix and almost nobody does it in time.
-</dd>
-<dt>Succession deadlock</dt>
-<dd>
-The original maintainer is unreachable and there are people willing to take over, but the publish rights on the registry are tied to an account nobody else can access and the GitHub repo has no other admins, while the registry’s abandoned-package process needs either the original maintainer’s consent or a months-long dispute that nobody has obvious standing to start. The <a href="https://peps.python.org/pep-0541/">PEP 541</a> process and npm’s dispute policy both exist for exactly this case and both routinely take longer than forking and renaming would.
-</dd>
-</dl>
+<ul>
+<li>The grid in the <a href="../intro/index.html">introduction</a> assumes a project either carries on or comes to an end</li>
+<li><a href="../glossary/index.html#downsizing">Downsizing</a> is a third case: the project continues, but with significantly less money, fewer people, or both</li>
+<li>A 50% cut is not fatal by itself, but enough that “business as usual” is no longer an option</li>
+<li>The cut is usually someone else’s decision made on someone else’s timetable</li>
+<li>The goal is not to close the project or hand it over, but to shrink it without breaking it</li>
+</ul>
+<section id="accept-the-new-reality" class="level2" data-number="F.1">
+<h2 data-number="F.1" class="anchored" data-anchor-id="accept-the-new-reality"><span class="header-section-number">F.1</span> Accept the New Reality</h2>
+<ul>
+<li>The most common response to a cut is denial dressed up as commitment
+<ul>
+<li>Keep the old roadmap, stretch everyone, and hope the money comes back</li>
+</ul></li>
+<li><span class="citation" data-cites="Weitzel1989">(<a href="../bibliography/index.html#ref-Weitzel1989" role="doc-biblioref">Weitzel and Jonsson 1989</a>)</span> calls this the “faulty action” stage of decline: the wrong remedy (working harder) applied to the wrong diagnosis (the project has shrunk)</li>
+<li>The first step downsizing is to re-plan around the resources you actually have, not the ones you used to have</li>
+<li>Answer two questions:
+<ul>
+<li>What must this project still do to be worth continuing?</li>
+<li>What can it afford to stop doing?</li>
+</ul></li>
+<li>Don’t wait for certainty: “we’ll get through this somehow” is not a plan
+<ul>
+<li>Plan for the cut being permanent, and treat restoration as a bonus</li>
+</ul></li>
+</ul>
 </section>
-<section id="the-maintainer-is-still-there" class="level2" data-number="H.2">
-<h2 data-number="H.2" class="anchored" data-anchor-id="the-maintainer-is-still-there"><span class="header-section-number">H.2</span> The maintainer is still there</h2>
-<dl>
-<dt>Burnout plateau</dt>
-<dd>
-Still active by any metric you’d run. Typo fixes and dependency bumps get merged with the occasional “thanks, will look at this” on an issue, but anything that needs an actual design decision or a debugging session sits open indefinitely because those take energy the maintainer hasn’t had for the project in a long time. There’s often just enough response that anyone who suggests forking gets pointed at the recent activity but never enough to actually ship, and it can hold that shape for years without being quite dead enough for anyone to feel justified taking over.
-</dd>
-<dt>Benevolent zombie</dt>
-<dd>
-The contribution graph is solid green and every commit is a bot. Dependabot bumps, an auto-merge rule, possibly automated releases triggered by the bumps, and now scheduled coding agents that can keep the lights on indefinitely without a human reading anything. Every recency-based health score rates this as fine, which is more or less the <a href="https://nesbitt.io/2026/05/09/the-mismeasure-of-open-source.html">whole problem</a> with recency-based health scores.
-</dd>
-<dt>Custody battle</dt>
-<dd>
-Two or more co-maintainers have fallen out, each with enough access to block the other and not enough to proceed alone, and the project is frozen between them. It might resolve into a fork or end with one party walking away, but plenty just sit there with the issue tracker filling up with users asking what’s going on and getting two contradictory answers.
-</dd>
-<dt>Tribal knowledge gone</dt>
-<dd>
-The code works and the tests pass, but the person who understood why has left, and nobody remaining is confident enough to touch anything load-bearing. The project goes read-only in practice: small patches at the edges are fine, anything structural is too risky to attempt. Particularly common in numerical and parsing code where the hard part is an algorithm one person implemented from a paper a decade ago and never wrote up.
-</dd>
-<dt>Toxic gatekeeping</dt>
-<dd>
-The maintainer is right there and hostile with it. New contributors get one bruising review and don’t come back, and the bus factor stays at one because nobody else can stand to share the repo. It looks healthy on every metric that counts commits and closed issues, and when the one person eventually stops it’s a ghost-maintainer case with no successor pool because everyone who might have taken over was driven off years ago.
-</dd>
-</dl>
+<section id="re-decide-what-the-project-is-for" class="level2" data-number="F.2">
+<h2 data-number="F.2" class="anchored" data-anchor-id="re-decide-what-the-project-is-for"><span class="header-section-number">F.2</span> Re-decide What the Project Is For</h2>
+<ul>
+<li>A significant cut invalidates the mission statement, which was written for a project you no longer have</li>
+<li>Re-derive a <a href="../glossary/index.html#minimum-viable-project">minimum viable project</a> from first principles</li>
+<li>Everything outside that core is now:
+<ul>
+<li>Deferred: shelved with a note explaining what it was and why it was cut</li>
+<li>Delegated: handed to community members who can carry it independently</li>
+<li>Dropped: acknowledged as no longer part of the project</li>
+</ul></li>
+<li>A 50% cut is “do half the things properly, or do everything half as well”
+<ul>
+<li>Choosing the former deliberately greatly improves chances of survival</li>
+</ul></li>
+</ul>
 </section>
-<section id="sabotage-and-capture" class="level2" data-number="H.3">
-<h2 data-number="H.3" class="anchored" data-anchor-id="sabotage-and-capture"><span class="header-section-number">H.3</span> Sabotage and capture</h2>
-<dl>
-<dt>Captured maintainer</dt>
-<dd>
-Commit or publish access ends up with someone hostile. xz is the elaborate version, a two-year social-engineering campaign against an overworked solo maintainer to get a co-maintainer added who then shipped a backdoored release. event-stream in 2018 was the simpler one, where the original author handed the package to a volunteer who asked nicely and then added a wallet-stealer to a downstream dependency. In both cases the project looked healthier than before during the capture, because the new maintainer was the one putting the work in.
-</dd>
-<dt>Protestware</dt>
-<dd>
-The legitimate maintainer deliberately breaks their own package. colors and faker were sabotaged by their author in 2022, node-ipc shipped a payload targeting Russian and Belarusian IP ranges the same year, and left-pad was unpublished entirely during a dispute with npm in 2016. The motivations vary and the effect on downstream is the same: the code in the registry stops being what people thought they were running, usually without warning.
-</dd>
-</dl>
+<section id="sequence-the-cuts" class="level2" data-number="F.3">
+<h2 data-number="F.3" class="anchored" data-anchor-id="sequence-the-cuts"><span class="header-section-number">F.3</span> Sequence the Cuts</h2>
+<ul>
+<li>Cut in an order that protects the project’s ability to recover</li>
+<li>First, reduce scope: it is reversible, and it costs no people</li>
+<li>Then, simplify process and tooling
+<ul>
+<li>Fewer platforms, fewer active commitments, fewer moving parts</li>
+<li>But beware consolidation that creates new single points of failure</li>
+</ul></li>
+<li>Then, reduce people, as late and as fairly as you can</li>
+<li>Last, cut the things that generate future resources
+<ul>
+<li>Final reports, funder relationships, and reputation</li>
+<li>Losing eligibility for the next grant accelerates decline <span class="citation" data-cites="Wruck1990">(<a href="../bibliography/index.html#ref-Wruck1990" role="doc-biblioref">Wruck 1990</a>)</span></li>
+</ul></li>
+<li>Write down each cut and the reason for it so it can be reversed if resources return
+<ul>
+<li>This is the opposite of <a href="../abrupt/index.html">abrupt closure</a>, where restoration is usually off the table</li>
+</ul></li>
+</ul>
 </section>
-<section id="the-release-pipeline-broke" class="level2" data-number="H.4">
-<h2 data-number="H.4" class="anchored" data-anchor-id="the-release-pipeline-broke"><span class="header-section-number">H.4</span> The release pipeline broke</h2>
-<dl>
-<dt>Maintained-not-shipping</dt>
-<dd>
-Development is happening and fixes land in git, but nobody can cut a release. The one account with publish rights is gone, lost its 2FA device, or belonged to a company that no longer exists. Downstream is stuck on the last published version while the fix they need sits in a commit they can see in the repo and can’t install from the registry, which is the case the original Bernie’s post spent most of its time on.
-</dd>
-<dt>Unreleasable main</dt>
-<dd>
-The default branch has drifted far enough from the last tag that releasing it would be a breaking change for everyone, and nobody wants to own that, so nobody tags it. New contributors land patches on main while users run something from years ago, and the gap widens until cutting a release becomes a project in itself that never gets staffed.
-</dd>
-<dt>Build archaeology</dt>
-<dd>
-The published artifacts work and nobody can reproduce them. The build depended on a CI service that’s gone, or a base image that’s been deleted, or a tool version that one maintainer had on a laptop they no longer own. Making a new release means reconstructing a build environment first, and the knowledge of what was in it left with whoever set it up.
-</dd>
-<dt>Shadow-maintained</dt>
-<dd>
-Real development happens inside a company’s private monorepo, and the public repo gets a periodic squashed code dump with a commit message along the lines of “sync.” Issues and PRs filed against the public repo go nowhere because that isn’t where anyone works. The open source project has become a publishing channel for a closed one, and from outside it’s indistinguishable from a ghost maintainer except on the days a sync lands.
-</dd>
-<dt>Stranded major</dt>
-<dd>
-The project is on v4 and actively maintained, but most of the ecosystem is still on v1 because v2 was a rewrite they never migrated past and v1 hasn’t had maintainer attention in years. Whether “the project” is dead depends entirely on which major version you’re asking about, and the versions with the most installs are usually not the ones getting the attention.
-</dd>
-<dt>Registry orphan</dt>
-<dd>
-The package resolves from the registry and the source repo URL in its metadata 404s: deleted, made private, moved without updating the registry, or the hosting service it was on shut down. There’s nowhere to file an issue or fork from, and no way to verify the tarball matches anything that was ever in source control. About 1.7% of npm and 4% of Packagist <a href="https://nesbitt.io/2026/05/11/proxy.html">point at a repo that isn’t there</a>, and a fair number of those are still being installed.
-</dd>
-</dl>
+<section id="renegotiate-dont-just-absorb" class="level2" data-number="F.4">
+<h2 data-number="F.4" class="anchored" data-anchor-id="renegotiate-dont-just-absorb"><span class="header-section-number">F.4</span> Renegotiate, Don’t Just Absorb</h2>
+<ul>
+<li>A funding cut is not a quiet instruction to deliver the same results for less</li>
+<li>Renegotiate deliverables and deadlines with sponsors and users
+<ul>
+<li>Silence and minimization do more harm than honest news <span class="citation" data-cites="Coombs2019">(<a href="../bibliography/index.html#ref-Coombs2019" role="doc-biblioref">Coombs 2021</a>)</span></li>
+</ul></li>
+<li>The project’s <a href="../gas/index.html">advance directive</a> should include “what happens if we lose half our funding”
+<ul>
+<li>If it does not, writing that answer down is the first concrete step</li>
+</ul></li>
+</ul>
 </section>
-<section id="force-majeure" class="level2" data-number="H.5">
-<h2 data-number="H.5" class="anchored" data-anchor-id="force-majeure"><span class="header-section-number">H.5</span> Force majeure</h2>
-<dl>
-<dt>Sanctions-stranded</dt>
-<dd>
-The maintainer is able and willing and can’t push, because the registry has blocked their jurisdiction or their account has been frozen under export controls. A handful of npm and GitHub accounts have been suspended this way over the past few years, and from downstream it looks identical to a ghost maintainer except that the maintainer is often loudly explaining the situation on another platform entirely.
-</dd>
-<dt>Takedown casualty</dt>
-<dd>
-Removed from the registry or the host after a DMCA claim or a trademark dispute. youtube-dl came back after its 2020 takedown; a lot of smaller projects don’t, and whether the claim was valid has no bearing on whether the package still resolves.
-</dd>
-</dl>
+<section id="who-stays-and-who-goes" class="level2" data-number="F.5">
+<h2 data-number="F.5" class="anchored" data-anchor-id="who-stays-and-who-goes"><span class="header-section-number">F.5</span> Who Stays and Who Goes</h2>
+<ul>
+<li>Deciding who stays is the hardest part of leading through a cut
+<ul>
+<li><a href="../fire/index.html">Firing and Being Fired</a> covers the mechanics</li>
+<li>This section is about choosing</li>
+</ul></li>
+<li>Make the criteria explicit and apply them consistently
+<ul>
+<li>Perceived favoritism does lasting damage to the people who remain</li>
+</ul></li>
+<li>Decide by the project’s future needs, not by seniority or by loyalty to the past
+<ul>
+<li>The skills that built the project are not necessarily the ones it needs now</li>
+</ul></li>
+<li>Involve others in the decision where you can
+<ul>
+<li>You are not objective, and you may be the last to see your own blind spots</li>
+</ul></li>
+<li>Do not make departure contingent on training a replacement</li>
+</ul>
 </section>
-<section id="the-world-moved-on" class="level2" data-number="H.6">
-<h2 data-number="H.6" class="anchored" data-anchor-id="the-world-moved-on"><span class="header-section-number">H.6</span> The world moved on</h2>
-<dl>
-<dt>Platform-stranded</dt>
-<dd>
-Chained to an end-of-life runtime: Python 2 only, requires a Node version that’s dropped out of CI images, depends on a compiler extension that was removed. Porting it forward is more work than anyone left is willing to do, so it stays where it is while the platform it needs slowly disappears from everywhere you’d want to run it.
-</dd>
-<dt>Transitive death</dt>
-<dd>
-The project is fine and the maintainer is present and willing, but something two or three levels down in its own dependency tree has died by one of the routes on this list and can’t be swapped out without a rewrite. The project inherits the death without anything in its own repo changing, which is the recursive case: every entry here is also a way to kill the things that depend on you.
-</dd>
-<dt>API rug-pull</dt>
-<dd>
-The project wraps something external that its owner withdrew. At the service layer that’s a client library for an API that was shut down or repriced out of reach, and Twitter’s 2023 changes followed by Reddit’s killed a generation of those in one go. At the platform layer it’s a browser dropping an interface or an OS locking down a capability, which accounts for everything built on NPAPI, Flash, or Chrome apps. Either way the maintainer has nothing they can do about it from their end.
-</dd>
-<dt>Superseded</dt>
-<dd>
-What the project does is no longer needed, either because the spec it implements has been replaced or because the language now does the same thing natively. <code>object-assign</code> after <code>Object.assign</code>, the lodash single-function packages after ES2015, the various promise and <code>fetch</code> polyfills, and at the protocol level any number of libraries for formats nobody emits any more. The maintainer reasonably stops, and a few hundred thousand lockfiles keep installing it because removing a dependency that still resolves is nobody’s priority.
-</dd>
-</dl>
+<section id="survivors" class="level2" data-number="F.6">
+<h2 data-number="F.6" class="anchored" data-anchor-id="survivors"><span class="header-section-number">F.6</span> Survivors</h2>
+<ul>
+<li>The people who remain are not necessarily the lucky ones
+<ul>
+<li>They keep the project but inherit more work per person</li>
+</ul></li>
+<li><a href="../glossary/index.html#survivor-guilt">Survivor guilt</a> is real and common:
+<ul>
+<li>Name this explicitly and make space for it</li>
+</ul></li>
+<li>If the people who left were not treated decently, the people who stayed will assume they are next and will start looking elsewhere</li>
+<li>Don’t “reward” survivors with impossible expectations
+<ul>
+<li>“Thank you for staying, now do two jobs” turns a cut into a slow-motion shutdown</li>
+</ul></li>
+</ul>
 </section>
-<section id="the-project-split" class="level2" data-number="H.7">
-<h2 data-number="H.7" class="anchored" data-anchor-id="the-project-split"><span class="header-section-number">H.7</span> The project split</h2>
-<dl>
-<dt>Fork limbo</dt>
-<dd>
-A disagreement or a maintainer departure split the project across two or more forks, none of which has clearly won. Downstream froze at the last pre-split version rather than bet on a fork that might lose, so the original keeps its install count while all the development effort happens elsewhere under other names. io.js and Node eventually merged back, libav eventually folded back into FFmpeg, and plenty of smaller splits never resolve at all.
-</dd>
-<dt>Licence rug-pull aftermath</dt>
-<dd>
-The project relicensed to something that isn’t open source, and a community fork under the old licence exists but adoption hasn’t consolidated behind it. Terraform/OpenTofu and Redis/Valkey are both somewhere along this path, with Elasticsearch a few years further down it. Most lockfiles still point at the last open-licensed version of the original, which is now a fixed point that nobody maintains.
-</dd>
-<dt>Open-core hollowing</dt>
-<dd>
-The interesting development moved to the commercial edition and the open source repo is kept around as the free tier. It still gets releases, mostly version bumps and whatever doesn’t differentiate the paid product, and the project people originally adopted has effectively become a different, smaller one without ever being renamed.
-</dd>
-</dl>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <a href="https://en.wikipedia.org/wiki/Dumb_Ways_to_Die">Melbourne Metro safety campaign</a> this post is named after closes with “be safe around trains,” which is more actionable than anything I’ve got. Whichever of the above applies, the package resolves the same, and your lockfile will keep wheeling it round the party with the sunglasses on for as long as nobody checks too closely.</p>
-</div>
-</div>
+<section id="watch-for-the-death-spiral" class="level2" data-number="F.7">
+<h2 data-number="F.7" class="anchored" data-anchor-id="watch-for-the-death-spiral"><span class="header-section-number">F.7</span> Watch for the Death Spiral</h2>
+<ul>
+<li>A cut rarely lands all at once
+<ul>
+<li>It triggers indirect losses that can be larger than the cut itself</li>
+</ul></li>
+<li>The most capable people often leave voluntarily once the future is uncertain</li>
+<li>Cascading failure: collaborators and funders scale back their involvement, which justifies further cuts</li>
+<li>Sometimes the honest conclusion is that a 50% cut is really the first step to closure
+<ul>
+<li>In that case, treat it as <a href="../deliberate/index.html">deliberate closure</a> rather than letting the project bleed out slowly</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercises" class="level2" data-number="F.8">
+<h2 data-number="F.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">F.8</span> Exercises</h2>
+<section id="the-minimum-viable-project" class="level3" data-number="F.8.1">
+<h3 data-number="F.8.1" class="anchored" data-anchor-id="the-minimum-viable-project"><span class="header-section-number">F.8.1</span> The Minimum Viable Project</h3>
+<ol type="1">
+<li>Write a one-paragraph description of the smallest version of your project that would still be worth keeping alive.</li>
+<li>List three things that you would defer, delegate, or drop if your funding and/or team was cut in half.</li>
+</ol>
+</section>
+<section id="renegotiate" class="level3" data-number="F.8.2">
+<h3 data-number="F.8.2" class="anchored" data-anchor-id="renegotiate"><span class="header-section-number">F.8.2</span> Renegotiate</h3>
+<p>Your project’s funding is being cut by half in three months.</p>
+<ol type="1">
+<li>Draft the message you send to your funder explaining what you will still deliver and what you will no longer be able to.</li>
+<li>Draft the one-sentence message you send to your users. How does it differ from the funder’s message?</li>
+</ol>
+</section>
+<section id="who-stays" class="level3" data-number="F.8.3">
+<h3 data-number="F.8.3" class="anchored" data-anchor-id="who-stays"><span class="header-section-number">F.8.3</span> Who Stays</h3>
+<p>Your project is losing half its people.</p>
+<ol type="1">
+<li>What criteria would you use to decide who stays?</li>
+<li>What criteria are you most tempted to use, and how do they differ from the ones you just wrote down?</li>
+<li>Who else should be in the room when the decision is made?</li>
+</ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Coombs2019" class="csl-entry" role="listitem">
+Coombs, W. Timothy. 2021. <em>Ongoing Crisis Communication: Planning, Managing, and Responding</em>. 6th ed. SAGE Publications. ISBN 9781071816646.
+</div>
+<div id="ref-Weitzel1989" class="csl-entry" role="listitem">
+Weitzel, William, and Ellen Jonsson. 1989. <span>“Decline in Organizations: A Literature Integration and Extension.”</span> <em>Administrative Science Quarterly</em> 34 (1). <a href="https://doi.org/10.2307/2392987">https://doi.org/10.2307/2392987</a>.
+</div>
+<div id="ref-Wruck1990" class="csl-entry" role="listitem">
+Wruck, Karen Hopper. 1990. <span>“Financial Distress, Reorganization, and Organizational Efficiency.”</span> <em>Journal of Financial Economics</em> 27 (2). <a href="https://doi.org/10.1016/0304-405X(90)90063-6">https://doi.org/10.1016/0304-405X(90)90063-6</a>.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -837,11 +876,14 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../fire/index.html" class="pagination-link" aria-label="Firing and Being Fired">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Firing and Being Fired</span></span>
+      <a href="../glossary/index.html" class="pagination-link" aria-label="Glossary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Glossary</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../fire/index.html" class="pagination-link" aria-label="Firing and Being Fired">
+        <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Firing and Being Fired</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -849,4 +891,4 @@ Note
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/nesbitt/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/nesbitt/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/downsize/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/downsize/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
