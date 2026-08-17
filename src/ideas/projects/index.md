@@ -21,6 +21,16 @@ of [Node-RED](https://nodered.org/) or [Yahoo! Pipes][pipes].
 
 [full proposal](./click-flow/)
 
+### Lesson Syndication (development) {: #lesson-syndication}
+
+[RSS][rss] is one of the open web's greatest successes.  Podcasts and arXiv
+paper announcements leverage standard RSS/Atom feeds by packing custom data
+inside namespaced extensions. This keeps the feed syntactically valid so generic
+parsers still work, but allows domain-specific clients to extract more than "new
+post, here's the title." The aim of this project is to design and build a similar
+extension mechanism so that lessons can report their existence and content,
+including updates.  [This page][harper] has some ideas about how that might work.
+
 ### XKCD Charts (development) {: #xkcd-charts}
 
 [Chart.xkcd](https://timqian.com/chart.xkcd/) is a JavaScript library that
@@ -253,6 +263,8 @@ opinions are any better than those of students.
 
 [aosa]: https://aosabook.org/
 [discussion-book]: https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715
+[harper]: @root/ideas/harper/
 [lo-extension]: https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions
 [pipes]: https://en.wikipedia.org/wiki/Yahoo!_Pipes
+[rss]: https://en.wikipedia.org/wiki/RSS
 [variable-roles]: https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf
