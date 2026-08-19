@@ -46,8 +46,8 @@
 one of the most rewarding and satisfying things I ever did. If you&rsquo;re a student
 or a faculty member in need of a one- or two-semester project, and any of the
 ones listed below seem interesting, please reach out.</p>
-<h2>Recruiting</h2>
-<h3 id="blocks-based-data-science">Blocks-Based Data Science (development)</h3>
+<h2>Development</h2>
+<h3 id="blocks-based-data-science">Blocks-Based Data Science</h3>
 <p><a href="https://github.com/tidyblocks/tidyblocks">TidyBlocks</a> was a prototype of a
 <a href="https://scratch.mit.edu/">Scratch</a>-like tool for teaching introductory data
 ascience.  It turned out to be an inappropriate visual paradigm, as there was no
@@ -55,7 +55,28 @@ natural way to represent join operations as nested blocks.  The aim of this
 project is to explore an alternative using a node-and-connector model like that
 of <a href="https://nodered.org/">Node-RED</a> or <a href="https://en.wikipedia.org/wiki/Yahoo!_Pipes">Yahoo! Pipes</a>.</p>
 <p><a href="./click-flow/">full proposal</a></p>
-<h3 id="lesson-syndication">Lesson Syndication (development)</h3>
+<h3 id="browsercast">Browsercast</h3>
+<p>Tools like PowerPoint aren&rsquo;t web-friendly.  When you export a slideshow to the
+web, what you get is a bunch of images, while screencasts are opaque to search
+engines and disability aids.  In contrast, <a href="../../browsercast/">Browsercast</a></a>
+plays snippets of audio in the browser as the viewer moves through the slides,
+so &ldquo;View Source&rdquo;, links, CSS, screen readers, and search work as they should.
+The <a href="https://github.com/gvwilson/browsercast">prototype</a> uses just 5kb of
+JavaScript; the aim of this project is to turn it into a functional tool.</p>
+<h3 id="discussion-tools">Developer Discussion Tools</h3>
+<p>Most of the techniques catalogued in <a href="https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715"><em>The Discussion Book</em></a>
+are not supported by the communication and coordination tools that programmers
+routinely use. The aim of this project is to implement the most promising and
+study how useful they are.</p>
+<h3 id="distributed-systems">Distributed Systems Simulators</h3>
+<p><a href="../../sdxpy/"><em>Software Design by Example in Python</em></a> deliberately ignored
+concurrency, partial failure, and everything else associated with modern
+distributed applications. <a href="../../dsdx/">This project</a> is fixing that by building
+scale models of distributed protocols and systems from TCP to BitTorrent and
+load-balancing tools using <a href="https://asimpy.readthedocs.io/">asimpy</a>. The
+tutorials will use simulators so that the accompanying lessons could illustrate
+edge cases in reproducible ways.</p>
+<h3 id="lesson-syndication">Lesson Syndication</h3>
 <p><a href="https://en.wikipedia.org/wiki/RSS">RSS</a> is one of the open web&rsquo;s greatest successes.  Podcasts and arXiv
 paper announcements leverage standard RSS/Atom feeds by packing custom data
 inside namespaced extensions. This keeps the feed syntactically valid so generic
@@ -63,28 +84,27 @@ parsers still work, but allows domain-specific clients to extract more than &ldq
 post, here&rsquo;s the title.&rdquo; The aim of this project is to design and build a similar
 extension mechanism so that lessons can report their existence and content,
 including updates.  <a href="../../ideas/harper/">This page</a> has some ideas about how that might work.</p>
-<h3 id="xkcd-charts">XKCD Charts (development)</h3>
-<p><a href="https://timqian.com/chart.xkcd/">Chart.xkcd</a> is a JavaScript library that
-displays charts in the hand-drawn style of <a href="https://xkcd.com/">XKCD</a>. Its
-creator is no longer maintaining it; this project will fork the original code,
-fix outstanding issues, and add new features such as axis limits and stable
-coloring schemes.</p>
-<p><a href="./xkcd-charts/">full proposal</a></p>
-<h3 id="save-the-humans">Save the Humans! (game)</h3>
-<p>The zombies have attacked.  The people at the zoo have panicked, and it&rsquo;s up to
-the animals to save them in this tongue-in-cheek game. The tiger can chase
-people away from danger, but they might run straight into the arms of the
-ravenous horde. The bunny is so cute that people will chase <em>it</em>, but if they
-catch it they&rsquo;ll just stand there petting it until they&rsquo;re eaten, and so on.</p>
-<p><a href="./save-the-humans/">full proposal</a></p>
-<h3 id="tower-support">Tower Support Game (game)</h3>
-<p>A <a href="https://en.wikipedia.org/wiki/Tower_defense">tower defense game</a> is one in
-which the player builds fixed defenses against incoming waves of attackers. The
-objective of this game is to prototype a simple tower <em>support</em> game, in which
-the player builds bridges, first aid stations, and so on to help travelers reach
-their destination.</p>
-<p><a href="./tower-support/">full proposal</a></p>
-<h3 id="wysiwyg-notebook">A WYSIWYG Computational Notebook (development)</h3>
+<h3 id="little-wysiwyg">A Little WYSIWYG Editor</h3>
+<p><a href="https://browser.engineering/"><em>Web Browser Engineering</em></a> builds a small but
+fully-functional web browser step by step to show students how real ones
+work. The aim of this project is to build an equally simple desktop WYSIWYG
+editor in Python that supports both styled text and embedded sketching.</p>
+<h3 id="markdown-to-dom">Markdown to DOM</h3>
+<p><a href="https://python-markdown.github.io/">Python-Markdown</a> converts Markdown to HTML;
+if an program needs to check or manipulate a DOM tree, it must parse the HTML
+using a library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>,
+perform whatever operations it needs to, and then convert the DOM back to
+HTML. In this project, students will refactor Python-Markdown so that it can
+generate a Beautiful Soup-compatible DOM tree directly.</p>
+<h3 id="software-team-simulator">Software Team Simulator</h3>
+<p>This project will use <a href="https://asimpy.readthedocs.io/">Asimpy</a>, a Python
+discrete-event simulation library, to build an interactive GUI that lets users
+adjust parameters such as developer skill, schedule pressure, bug-fix strategy,
+and team composition, then watch simulated burndown curves, defect accumulation,
+and cycle times evolve in real time. The goal is an open-source tool covering
+scenarios from Brooks&rsquo; Law to specialist-versus-generalist staffing.</p>
+<p><a href="./team-sim/">full proposal</a></p>
+<h3 id="wysiwyg-notebook">WYSIWYG Computational Notebook</h3>
 <p><a href="https://jupyter.org/">Jupyter</a> uses JSON as its storage format, while
 <a href="https://marimo.io/">Marimo</a> and <a href="https://quarto.org/">Quarto</a> use Python with
 embedded strings and Markdown with embedded code respectively. This project will
@@ -94,80 +114,15 @@ explore a third option by building an <a href="https://wiki.documentfoundation.o
 prefer WYSIWYG editors can embed code and its output alongside diagrams, tables,
 and other media.</p>
 <p><a href="./jupyword/">full proposal</a></p>
-<h3 id="rewind-game">Rewind (game)</h3>
-<p>A first-person shooter with a science-fiction theme in which each player has a
-limited &ldquo;temporal battery&rdquo; that can be spent to reverse the flow of time by a
-few seconds. If you just got shot, rewind and take cover instead; if you missed
-a shot, rewind and aim lower. The twist is that your opponent knows you can do
-this, turning every rewind into a battle of wits.</p>
-<p><a href="./rewind/">full proposal</a></p>
-<h3 id="software-team-simulator">Software Team Simulator (development)</h3>
-<p>This project will use <a href="https://asimpy.readthedocs.io/">Asimpy</a>, a Python
-discrete-event simulation library, to build an interactive GUI that lets users
-adjust parameters such as developer skill, schedule pressure, bug-fix strategy,
-and team composition, then watch simulated burndown curves, defect accumulation,
-and cycle times evolve in real time. The goal is an open-source tool covering
-scenarios from Brooks&rsquo; Law to specialist-versus-generalist staffing.</p>
-<p><a href="./team-sim/">full proposal</a></p>
-<h2>In Progress</h2>
-<h3 id="undergrad-textbooks">Analysis of Undergrad Textbooks (research)</h3>
-<p>Most undergraduate computer science programs have a first- or second-year course
-on data structures and algorithms.  What do these courses actually teach, and
-which of these algorithms and data structures are used in upper-year courses? To
-answer these questions, this project will assemble and apply tools to analyze
-the text of several dozen textbooks; along the way, the students doing the
-project will have to decide how to identify topics, how to count them, and how
-to make their work reproducible.</p>
-<h3 id="project-closure">Project Closure (research)</h3>
-<p>There are hundred of books in print about how to start a business. Only a
-handful discuss how to pass one on, and even talk about how to wind one down.
-This project will study when, why, and how software projects are wound down,
-either deliberately or on short notice.</p>
-<h3 id="se-claims">Validity of Software Engineering Claims (research)</h3>
-<p>Are some programmers really ten times more productive than others?  Does
-test-driven development actually make programmers more productive?  And do
-people actually believe these claims?  This project will conduct a quantitative
-survey of best-selling books on software developmnt to measure how many of their
-claims are backed by citations, and of those, how many are considered valid,
-then survey programmers to see which (if any) they believe.</p>
-<h2>Inactive</h2>
-<h3 id="browsercast">Browsercast (development)</h3>
-<p>Tools like PowerPoint aren&rsquo;t web-friendly.  When you export a slideshow to the
-web, what you get is a bunch of images, while screencasts are opaque to search
-engines and disability aids.  In contrast, <a href="../../browsercast/">Browsercast</a></a>
-plays snippets of audio in the browser as the viewer moves through the slides,
-so &ldquo;View Source&rdquo;, links, CSS, screen readers, and search work as they should.
-The <a href="https://github.com/gvwilson/browsercast">prototype</a> uses just 5kb of
-JavaScript; the aim of this project is to turn it into a functional tool.</p>
-<h3 id="variable-roles">Identification of Variable Roles (research)</h3>
-<p>Sajaniemi&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a> identified and named
-ten small patterns in the way variables are used in novice programs. This
-project would build static and dynamic analysis tools to detect those patterns
-(and possibly others) in programs as an aid to teaching, debugging, and code
-review.</p>
-<h3 id="distributed-systems">Simulations of Distributed Systems (development)</h3>
-<p><a href="../../sdxpy/"><em>Software Design by Example in Python</em></a> deliberately ignored
-concurrency, partial failure, and everything else associated with modern
-distributed applications. <a href="../../dsdx/">This project</a> is fixing that by building
-scale models of distributed protocols and systems from TCP to BitTorrent and
-load-balancing tools using <a href="https://asimpy.readthedocs.io/">asimpy</a>. The
-tutorials will use simulators so that the accompanying lessons could illustrate
-edge cases in reproducible ways.</p>
-<h3 id="sdx-gleam">Software Design by Example in Gleam (tutorial)</h3>
-<p><a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
-<a href="https://www.erlang.org/">Erlang/OTP</a> platform and can also be compiled to
-JavaScript. <a href="../../gl4py/">This project</a> will translate examples from <a href="../../sdxpy/"><em>Software
-Design by Example in Python</em></a> into Gleam to help people coming
-from Python and other mainstream languages understand how to use FP in practice.</p>
-<h3 id="unbreaking">Unbreaking Software (tutorial)</h3>
-<p>Most programmers spend a large part of their time debugging, but most courses
-only show working code, and most textbooks don&rsquo;t discuss how to prevent,
-diagnose, and fix errors.  This tutorial fills that gap by presenting dozens of
-case studies showing how to find and fix real-world problems.  Along the way, it
-will present examples of what programmers can do to handle errors gracefully,
-from data structure repair to automatically restarting servers.</p>
-<h2>Nothing Done Yet</h2>
-<h3 id="bubbles-game">Bubbles! (game)</h3>
+<h3 id="xkcd-charts">XKCD Charts</h3>
+<p><a href="https://timqian.com/chart.xkcd/">Chart.xkcd</a> is a JavaScript library that
+displays charts in the hand-drawn style of <a href="https://xkcd.com/">XKCD</a>. Its
+creator is no longer maintaining it; this project will fork the original code,
+fix outstanding issues, and add new features such as axis limits and stable
+coloring schemes.</p>
+<p><a href="./xkcd-charts/">full proposal</a></p>
+<h2>Games</h2>
+<h3 id="bubbles-game">Bubbles!</h3>
 <p>The aim of the game is to get your bug from one end of the map to the other by
 riding on the surface of bubbles, which drift in the current.  Bubbles bounce
 off each other, and off obstacles, deforming as they do so.  Your bug can only
@@ -183,7 +138,37 @@ bubbles, or between a bubble and an obstacle, it&rsquo;s crushed. Extensions inc
 <li>You have two bugs, each controlled by a different hand. I think this makes
     the game several times more difficult and interesting.</li>
 </ul>
-<h3 id="code-review">Calibrated Code Review (research)</h3>
+<h3 id="rewind-game">Rewind</h3>
+<p>A first-person shooter with a science-fiction theme in which each player has a
+limited &ldquo;temporal battery&rdquo; that can be spent to reverse the flow of time by a
+few seconds. If you just got shot, rewind and take cover instead; if you missed
+a shot, rewind and aim lower. The twist is that your opponent knows you can do
+this, turning every rewind into a battle of wits.</p>
+<p><a href="./rewind/">full proposal</a></p>
+<h3 id="save-the-humans">Save the Humans!</h3>
+<p>The zombies have attacked.  The people at the zoo have panicked, and it&rsquo;s up to
+the animals to save them in this tongue-in-cheek game. The tiger can chase
+people away from danger, but they might run straight into the arms of the
+ravenous horde. The bunny is so cute that people will chase <em>it</em>, but if they
+catch it they&rsquo;ll just stand there petting it until they&rsquo;re eaten, and so on.</p>
+<p><a href="./save-the-humans/">full proposal</a></p>
+<h3 id="tower-support">Tower Support Game</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Tower_defense">tower defense game</a> is one in
+which the player builds fixed defenses against incoming waves of attackers. The
+objective of this game is to prototype a simple tower <em>support</em> game, in which
+the player builds bridges, first aid stations, and so on to help travelers reach
+their destination.</p>
+<p><a href="./tower-support/">full proposal</a></p>
+<h2>Research</h2>
+<h3 id="undergrad-textbooks">Analysis of Undergrad Textbooks</h3>
+<p>Most undergraduate computer science programs have a first- or second-year course
+on data structures and algorithms.  What do these courses actually teach, and
+which of these algorithms and data structures are used in upper-year courses? To
+answer these questions, this project will assemble and apply tools to analyze
+the text of several dozen textbooks; along the way, the students doing the
+project will have to decide how to identify topics, how to count them, and how
+to make their work reproducible.</p>
+<h3 id="code-review">Calibrated Code Review</h3>
 <p>Give a novice programmer a one-page program and have them score it using a
 checklist, then grade them on how closely their scoring matches the
 instructor&rsquo;s. (They start with 100%, and lose one mark for each false positive
@@ -191,12 +176,7 @@ or false negative.) After doing this a handful of times, they should learn to
 see code through the instructor&rsquo;s eyes. Does this help them write better code?
 If so, how quickly and how well?  This project will attempt to answer these
 questions.</p>
-<h3 id="discussion-tools">Developer Discussion Tools (development)</h3>
-<p>Most of the techniques catalogued in <a href="https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715"><em>The Discussion Book</em></a>
-are not supported by the communication and coordination tools that programmers
-routinely use. The aim of this project is to implement the most promising and
-study how useful they are.</p>
-<h3 id="genai-architecture">GenAI for Architecture Descriptions (research)</h3>
+<h3 id="genai-architecture">GenAI for Architecture Descriptions</h3>
 <p>The first two volumes of <a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>
 describes the architecture of several dozen large applications circa 2012.  The
 aim of this project is to use those descriptions to determine how well LLMs can
@@ -205,25 +185,32 @@ as they were at that time, along with archived email discussions, tickets, and
 other artifacts. That data will be fed into different LLMs, which will be asked
 to write a few thousand words to describe the systems; those mechanical
 descriptions will then be compared with the originals.</p>
-<h3 id="little-wysiwyg">A Little WYSIWYG Editor (development)</h3>
-<p><a href="https://browser.engineering/"><em>Web Browser Engineering</em></a> builds a small but
-fully-functional web browser step by step to show students how real ones
-work. The aim of this project is to build an equally simple desktop WYSIWYG
-editor in Python that supports both styled text and embedded sketching.</p>
-<h3 id="markdown-to-dom">Markdown to DOM (development)</h3>
-<p><a href="https://python-markdown.github.io/">Python-Markdown</a> converts Markdown to HTML;
-if an program needs to check or manipulate a DOM tree, it must parse the HTML
-using a library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>,
-perform whatever operations it needs to, and then convert the DOM back to
-HTML. In this project, students will refactor Python-Markdown so that it can
-generate a Beautiful Soup-compatible DOM tree directly.</p>
-<h3 id="performance-example">Software Performance by Example (tutorial)</h3>
-<p>Each lesson in this tutorial will take a simple application, analyze its
-performance, and then make it faster. Along the way, the lessons will present
-general tips for improving performance similar to those in Jon Bentley&rsquo;s classic
-book <em>Writing Efficient Programs</em>, update them, and show how to apply them in
-practice.</p>
-<h3 id="security-example">Software Security by Example (tutorial)</h3>
+<h3 id="variable-roles">Identification of Variable Roles</h3>
+<p>Sajaniemi&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a> identified and named
+ten small patterns in the way variables are used in novice programs. This
+project would build static and dynamic analysis tools to detect those patterns
+(and possibly others) in programs as an aid to teaching, debugging, and code
+review.</p>
+<h3 id="project-closure">Project Closure</h3>
+<p>There are hundred of books in print about how to start a business. Only a
+handful discuss how to pass one on, and even talk about how to wind one down.
+This project will study when, why, and how software projects are wound down,
+either deliberately or on short notice.</p>
+<h3 id="se-claims">Validity of Software Engineering Claims</h3>
+<p>Are some programmers really ten times more productive than others?  Does
+test-driven development actually make programmers more productive?  And do
+people actually believe these claims?  This project will conduct a quantitative
+survey of best-selling books on software developmnt to measure how many of their
+claims are backed by citations, and of those, how many are considered valid,
+then survey programmers to see which (if any) they believe.</p>
+<h2>Tutorials</h2>
+<h3 id="sdx-gleam">Software Design by Example in Gleam</h3>
+<p><a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
+<a href="https://www.erlang.org/">Erlang/OTP</a> platform and can also be compiled to
+JavaScript. <a href="../../gl4py/">This project</a> will translate examples from <a href="../../sdxpy/"><em>Software
+Design by Example in Python</em></a> into Gleam to help people coming
+from Python and other mainstream languages understand how to use FP in practice.</p>
+<h3 id="security-example">Software Security by Example</h3>
 <p>The first lesson in this tutorial will present a simple implementation of a wiki
 designed for shared note-taking.  Each of the following lessons will fix one of
 its security shortcomings (or one of the shortcomings introduced by an earlier
@@ -232,13 +219,19 @@ injection; others will be missing features such as basic authentication or
 OAuth, role-based access control, the kind of logging that every sys admin
 wishes they had, static code analysis, and eventually the audit and emergency
 response procedures that such tools are meant to support.</p>
-<h3 id="understanding-ethics">Understanding Ethics (research)</h3>
-<p>This project will start by creating a set of scenarios in which a programmer
-needs to make an ethical decision, each with multiple-choice options.  An expert
-will determine the best answer for each; students and professionals will then be
-asked to answer the same questions, and the results will be analyzed to see how
-well each group matches the experts&rsquo; opinions and whether practitioners&rsquo;
-opinions are any better than those of students.</p>
+<h3 id="performance-example">Software Performance by Example</h3>
+<p>Each lesson in this tutorial will take a simple application, analyze its
+performance, and then make it faster. Along the way, the lessons will present
+general tips for improving performance similar to those in Jon Bentley&rsquo;s classic
+book <em>Writing Efficient Programs</em>, update them, and show how to apply them in
+practice.</p>
+<h3 id="unbreaking">Unbreaking Software</h3>
+<p>Most programmers spend a large part of their time debugging, but most courses
+only show working code, and most textbooks don&rsquo;t discuss how to prevent,
+diagnose, and fix errors.  This tutorial fills that gap by presenting dozens of
+case studies showing how to find and fix real-world problems.  Along the way, it
+will present examples of what programmers can do to handle errors gracefully,
+from data structure repair to automatically restarting servers.</p>
 
     </main>
     <footer>
