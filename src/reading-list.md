@@ -225,3 +225,7 @@ template: page
 | Bewilderness | Jonathan Maberry | 978-1680577969 | 2026 |
 | Testament of Leaves | Carolyn Ives Gilman | 978-1958880302 | 2026 |
 | The Breakup | Kurt Andersen | 978-1984801371 | 2026 |
+| The Nonprofit Strategy Revolution | David La Piana | 978-1684421794 | 2018 |
+| Financial Management for Nonprofit Organizations | John Zietlow, Jo Ann Hankin, Alan Seidner, and Tim O'Brien | 978-1119382560 | 2018 |
+| Nonprofit Management 101 | Darian Rodriguez Heyman and Laila Brenner | 978-1119585459 | 2019 |
+| Building Smart Nonprofits | David J. O'Brien and Matthew D. Craig | 978-1538118238 | 2020 |
