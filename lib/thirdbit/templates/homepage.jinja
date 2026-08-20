@@ -15,6 +15,20 @@
 
 {% include "bio.jinja" %}
 
+<h2>Workshops</h2>
+
+<p class="center">
+  <em>
+    Please <a href="mailto:{{site.author.email}}">email me</a>
+    if you'd like to host any of these workshops in person or online,
+    and see <a href="@root/talks/speaking/">this rider</a> for details.
+  </em>
+</p>
+
+{% with snippets=site.workshops %}
+  {% include "prior-section.jinja" %}
+{% endwith %}
+
 <div class="row">
   <div class="col-6 col">
     <div class="card">
@@ -28,29 +42,9 @@
   </div>
 </div>
 
-<h2>Projects</h2>
-
-{% with snippets=site.projects %}
-  {% include "prior-section.jinja" %}
-{% endwith %}
-
 <h2>Books</h2>
 
 {% with snippets=site.books %}
-  {% include "prior-section.jinja" %}
-{% endwith %}
-
-<h2>Workshops</h2>
-
-<h3>Ready</h3>
-
-{% with snippets=site.workshops %}
-  {% include "prior-section.jinja" %}
-{% endwith %}
-
-<h3>In Development</h3>
-
-{% with snippets=site.beta %}
   {% include "prior-section.jinja" %}
 {% endwith %}
 

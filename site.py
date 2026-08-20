@@ -122,23 +122,22 @@ workshops = [
         "description": "A one-day introduction to modern teaching practices for programmers and data scientists.",
     },
     {
-        "title": "Introduction to SQL",
-        "url": "@root/sql",
-        "description": "A one-day introduction to the basics of SQL.",
-    },
-]
-
-beta = [
-    {
         "title": "How to Not Be Wrong About AI",
         "url": "@root/notwrong",
         "description": "What software engineers need to understand to tell good studies from bad ones.",
-        "beta": True,
     },
     {
         "title": "Managing Research Software Projects",
         "url": "@root/mrsp",
         "description": "Ideas and tools you need to manage a team of research software developers.",
+    },
+]
+
+beta = [
+    {
+        "title": "Introduction to SQL",
+        "url": "@root/sql",
+        "description": "A one-day introduction to the basics of SQL.",
     },
     {
         "title": "Distributed Systems Design by Example",
