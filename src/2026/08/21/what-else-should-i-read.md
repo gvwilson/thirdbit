@@ -8,6 +8,8 @@ the impact of AI on programming education
 that are more rigorous than the gushing slop being tossed around on LinkedIn.
 I'd be particularly grateful for studies that show negative or neutral results.
 
+[download the .bib file][bib]
+
 ```
 @article{Abdulla2024,
   title = {Using ChatGPT in Teaching Computer Programming and Studying its Impact on Students Performance},
@@ -39,6 +41,18 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {22177–22205}
 }
 
+@inproceedings{Adeeb2025,
+  title = {How Do Novice Programmers Solve Code-Tracing Problems When ChatGPT Is Available? A Qualitative Analysis},
+  author = {Adeeb, Elmira and Muldner, Kasia},
+  booktitle = {Proceedings of the 2025 ACM Conference on International Computing Education Research V.1},
+  publisher = {ACM},
+  year = {2025},
+  month = Aug,
+  pages = {421–434},
+  DOI = {10.1145/3702652.3744207},
+  url = {https://doi.org/10.1145/3702652.3744207}
+}
+
 @article{Akapnar2024,
   title = {AI chatbots in programming education: guiding success or encouraging plagiarism},
   volume = {4},
@@ -48,12 +62,12 @@ I'd be particularly grateful for studies that show negative or neutral results.
   number = {1},
   journal = {Discover Artificial Intelligence},
   publisher = {Springer Science and Business Media LLC},
-  author = {Ak\c{c}apınar, G\"{o}khan and Sidan, Elif},
+  author = {Akçapınar, Gökhan and Sidan, Elif},
   year = {2024},
   month = Nov 
 }
 
-@article{Alanazi2025,
+@article{Alanazi2025a,
   title = {PyChatAI: Enhancing Python Programming Skills—An Empirical Study of a Smart Learning System},
   volume = {14},
   ISSN = {2073-431X},
@@ -68,7 +82,7 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {158}
 }
 
-@article{Alanazi2025,
+@article{Alanazi2025b,
   title = {Examining the Influence of AI on Python Programming Education: An Empirical Study and Analysis of Student Acceptance Through TAM3},
   volume = {14},
   ISSN = {2073-431X},
@@ -81,6 +95,30 @@ I'd be particularly grateful for studies that show negative or neutral results.
   year = {2025},
   month = Sept,
   pages = {411}
+}
+
+@inproceedings{Azaiz2024,
+  title = {Feedback-Generation for Programming Exercises With GPT-4},
+  author = {Azaiz, Imen and Kiesler, Natalie and Strickroth, Sven},
+  booktitle = {Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1},
+  publisher = {ACM},
+  year = {2024},
+  month = July,
+  pages = {31–37},
+  DOI = {10.1145/3649217.3653594},
+  url = {https://doi.org/10.1145/3649217.3653594}
+}
+
+@inproceedings{Benario2025,
+  title = {Unlocking Potential with Generative AI Instruction: Investigating Mid-level Software Development Student Perceptions, Behavior, and Adoption},
+  author = {Benario, Jamie Gorson and Marroquin, Jenn and Chan, Monica M. and Holmes, Ernest D.V. and Mejia, Daniel},
+  booktitle = {Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 1},
+  publisher = {ACM},
+  year = {2025},
+  month = Feb,
+  pages = {395–401},
+  DOI = {10.1145/3641554.3701859},
+  url = {https://doi.org/10.1145/3641554.3701859}
 }
 
 @article{Haindl2024,
@@ -126,7 +164,7 @@ I'd be particularly grateful for studies that show negative or neutral results.
 }
 
 @inproceedings{Kazemitabaar2024,
-  series = {CHI ’24},
+  series = {CHI’24},
   title = {CodeAid: Evaluating a Classroom Deployment of an LLM-based Programming Assistant that Balances Student and Educator Needs},
   url = {http://dx.doi.org/10.1145/3613904.3642773},
   DOI = {10.1145/3613904.3642773},
@@ -154,8 +192,32 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {629}
 }
 
+@inproceedings{Koutcheme2024,
+  title = {Open Source Language Models Can Provide Feedback: Evaluating LLMs' Ability to Help Students Using GPT-4-As-A-Judge},
+  author = {Koutcheme, Charles and Dainese, Nicola and Sarsa, Sami and Hellas, Arto and Leinonen, Juho and Denny, Paul},
+  booktitle = {Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1},
+  publisher = {ACM},
+  year = {2024},
+  month = July,
+  pages = {52–58},
+  DOI = {10.1145/3649217.3653612},
+  url = {https://doi.org/10.1145/3649217.3653612}
+}
+
+@inproceedings{Liu2024,
+  title = {Can Small Language Models With Retrieval-Augmented Generation Replace Large Language Models When Learning Computer Science?},
+  author = {Liu, Suqing and Yu, Zezhu and Huang, Feiran and Bulbulia, Yousef and Bergen, Andreas and Liut, Michael},
+  booktitle = {Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1},
+  publisher = {ACM},
+  year = {2024},
+  month = July,
+  pages = {388–393},
+  DOI = {10.1145/3649217.3653554},
+  url = {https://doi.org/10.1145/3649217.3653554}
+}
+
 @inbook{Ma2024,
-  title = {Enhancing Programming Education with ChatGPT: A Case Study on Student Perceptions and Interactions in a Python Course},
+  title = {Enhancing Programming Education with ChatGPT: A Case Study on Student Perceptions and Interactions in a Python Course},
   ISBN = {9783031643156},
   ISSN = {1865-0937},
   url = {http://dx.doi.org/10.1007/978-3-031-64315-6_9},
@@ -167,8 +229,20 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {113–126}
 }
 
+@inproceedings{Padurean2026,
+  title = {Interleaving Natural Language Prompting with Code Editing for Solving Programming Tasks with Generative AI Models},
+  author = {Pădurean, Victor-Alexandru and Gotovos, Alkis and Ghosh, Ahana and Denny, Paul and Leinonen, Juho and Luxton-Reilly, Andrew and Prather, James and Singla, Adish},
+  booktitle = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1},
+  publisher = {ACM},
+  year = {2026},
+  month = July,
+  pages = {273–279},
+  DOI = {10.1145/3803400.3809312},
+  url = {https://doi.org/10.1145/3803400.3809312}
+}
+
 @inproceedings{Pankiewicz2024,
-  series = {ITiCSE 2024},
+  series = {ITiCSE'24},
   title = {Navigating Compiler Errors with AI Assistance - A Study of GPT Hints in an Introductory Programming Course},
   url = {http://dx.doi.org/10.1145/3649217.3653608},
   DOI = {10.1145/3649217.3653608},
@@ -196,8 +270,20 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {101119}
 }
 
+@inproceedings{Prather2024,
+  title = {The Widening Gap: The Benefits and Harms of Generative AI for Novice Programmers},
+  author = {Prather, James and Reeves, Brent N. and Leinonen, Juho and MacNeil, Stephen and Randrianasolo, Arisoa S. and Becker, Brett A. and Kimmel, Bailey and Wright, Jared and Briggs, Ben},
+  booktitle = {Proceedings of the 2024 ACM Conference on International Computing Education Research - Volume 1},
+  publisher = {ACM},
+  year = {2024},
+  month = Aug,
+  pages = {469–486},
+  DOI = {10.1145/3632620.3671116},
+  url = {https://doi.org/10.1145/3632620.3671116}
+}
+
 @inproceedings{Sheese2024,
-  series = {ACE 2024},
+  series = {ACE'24},
   title = {Patterns of Student Help-Seeking When Using a Large Language Model-Powered Programming Assistant},
   url = {http://dx.doi.org/10.1145/3636243.3636249},
   DOI = {10.1145/3636243.3636249},
@@ -208,6 +294,18 @@ I'd be particularly grateful for studies that show negative or neutral results.
   month = Jan,
   pages = {49–57},
   collection = {ACE 2024}
+}
+
+@inproceedings{Shihab2025,
+  title = {The Effects of GitHub Copilot on Computing Students' Programming Effectiveness, Efficiency, and Processes in Brownfield Coding Tasks},
+  author = {Shihab, Md Istiak Hossain and Hundhausen, Christopher and Tariq, Ahsun and Haque, Summit and Qiao, Yunhan and Mulanda, Brian Wise},
+  booktitle = {Proceedings of the 2025 ACM Conference on International Computing Education Research V.1},
+  publisher = {ACM},
+  year = {2025},
+  month = Aug,
+  pages = {407–420},
+  DOI = {10.1145/3702652.3744219},
+  url = {https://doi.org/10.1145/3702652.3744219}
 }
 
 @article{Sun2024,
@@ -250,6 +348,18 @@ I'd be particularly grateful for studies that show negative or neutral results.
   month = May 
 }
 
+@inproceedings{Ramachandra2026,
+  title = {Detecting AI-Generated Code in Introductory Programming Courses},
+  author = {Ramachandra, Aryan and Chaudhary, Suhani and Tran, Justin and Desai, Riti and Pang, Ashley and Salloum, Mariam},
+  booktitle = {Proceedings of the 57th ACM Technical Symposium on Computer Science Education V.1},
+  publisher = {ACM},
+  year = {2026},
+  month = Feb,
+  pages = {894–900},
+  DOI = {10.1145/3770762.3772522},
+  url = {https://doi.org/10.1145/3770762.3772522}
+}
+
 @article{Wang2025,
   title = {ChatGPT-enhanced self-regulated learning in programming education: impacts on motivation, self-efficacy, and learning outcomes},
   volume = {34},
@@ -263,6 +373,18 @@ I'd be particularly grateful for studies that show negative or neutral results.
   year = {2025},
   month = Oct,
   pages = {3041–3066}
+}
+
+@inproceedings{Yang2024,
+  title = {Debugging with an AI Tutor: Investigating Novice Help-seeking Behaviors and Perceived Learning},
+  author = {Yang, Stephanie and Zhao, Hanzhang and Xu, Yudian and Brennan, Karen and Schneider, Bertrand},
+  booktitle = {Proceedings of the 2024 ACM Conference on International Computing Education Research - Volume 1},
+  publisher = {ACM},
+  year = {2024},
+  month = Aug,
+  pages = {84–94},
+  DOI = {10.1145/3632620.3671092},
+  url = {https://doi.org/10.1145/3632620.3671092}
 }
 
 @article{Yang2025,
@@ -280,3 +402,5 @@ I'd be particularly grateful for studies that show negative or neutral results.
   pages = {3726–3743}
 }
 ```
+
+[bib]: @root/files/2026/papers-2026-08.bib
