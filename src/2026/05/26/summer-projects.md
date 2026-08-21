@@ -20,7 +20,7 @@ category: personal workshops
     which in practice means doing the drudge work of editing 70,000 words of blog posts
     into something coherent.
 
-1.  I've started writing [Lean for Python Programmers](@root/l4py/)
+1.  I've started writing Lean for Python Programmers
     as a way to (finally) learn a pure functional programming language.
     It's slow going,
     in part because most of the existing documentation is more focused on the teacup than on the tea,
