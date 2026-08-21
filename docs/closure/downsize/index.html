@@ -93,7 +93,7 @@ div.csl-indent {
 }</script>
 
 
-<link rel="stylesheet" href="../../quarto/assets/book.css">
+<link rel="stylesheet" href="../mccole/book.css">
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 
@@ -268,7 +268,6 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#the-minimum-viable-project" id="toc-the-minimum-viable-project" class="nav-link" data-scroll-target="#the-minimum-viable-project"><span class="header-section-number">F.8.1</span> The Minimum Viable Project</a></li>
   <li><a href="#renegotiate" id="toc-renegotiate" class="nav-link" data-scroll-target="#renegotiate"><span class="header-section-number">F.8.2</span> Renegotiate</a></li>
-  <li><a href="#who-stays" id="toc-who-stays" class="nav-link" data-scroll-target="#who-stays"><span class="header-section-number">F.8.3</span> Who Stays</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/closure/edit/main/downsize/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/closure/blob/main/downsize/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/closure/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -297,21 +296,16 @@ div.csl-indent {
 
 
 <ul>
-<li>The grid in the <a href="../intro/index.html">introduction</a> assumes a project either carries on or comes to an end</li>
+<li>The introduction assumes a project either carries on or comes to an end</li>
 <li><a href="../glossary/index.html#downsizing">Downsizing</a> is a third case: the project continues, but with significantly less money, fewer people, or both</li>
 <li>A 50% cut is not fatal by itself, but enough that “business as usual” is no longer an option</li>
-<li>The cut is usually someone else’s decision made on someone else’s timetable</li>
+<li>The cut is usually someone else’s decision made on someone else’s timetable <span class="citation" data-cites="Ho2009">(<a href="../bibliography/index.html#ref-Ho2009" role="doc-biblioref">Ho 2009</a>)</span></li>
 <li>The goal is not to close the project or hand it over, but to shrink it without breaking it</li>
 </ul>
 <section id="accept-the-new-reality" class="level2" data-number="F.1">
 <h2 data-number="F.1" class="anchored" data-anchor-id="accept-the-new-reality"><span class="header-section-number">F.1</span> Accept the New Reality</h2>
 <ul>
-<li>The most common response to a cut is denial dressed up as commitment
-<ul>
-<li>Keep the old roadmap, stretch everyone, and hope the money comes back</li>
-</ul></li>
-<li><span class="citation" data-cites="Weitzel1989">(<a href="../bibliography/index.html#ref-Weitzel1989" role="doc-biblioref">Weitzel and Jonsson 1989</a>)</span> calls this the “faulty action” stage of decline: the wrong remedy (working harder) applied to the wrong diagnosis (the project has shrunk)</li>
-<li>The first step downsizing is to re-plan around the resources you actually have, not the ones you used to have</li>
+<li>Re-plan around the resources you actually have, not the ones you used to have</li>
 <li>Answer two questions:
 <ul>
 <li>What must this project still do to be worth continuing?</li>
@@ -321,6 +315,7 @@ div.csl-indent {
 <ul>
 <li>Plan for the cut being permanent, and treat restoration as a bonus</li>
 </ul></li>
+<li>The stages of decline that lead here are covered <a href="../deliberate/index.html">earlier</a></li>
 </ul>
 </section>
 <section id="re-decide-what-the-project-is-for" class="level2" data-number="F.2">
@@ -328,6 +323,7 @@ div.csl-indent {
 <ul>
 <li>A significant cut invalidates the mission statement, which was written for a project you no longer have</li>
 <li>Re-derive a <a href="../glossary/index.html#minimum-viable-project">minimum viable project</a> from first principles</li>
+<li>Large projects accumulate work that does not serve the mission because someone is paid to do it rather than because it is needed <span class="citation" data-cites="Graeber2018">(<a href="../bibliography/index.html#ref-Graeber2018" role="doc-biblioref">Graeber 2018</a>)</span></li>
 <li>Everything outside that core is now:
 <ul>
 <li>Deferred: shelved with a note explaining what it was and why it was cut</li>
@@ -338,12 +334,23 @@ div.csl-indent {
 <ul>
 <li>Choosing the former deliberately greatly improves chances of survival</li>
 </ul></li>
+<li>Write the minimum viable project down on one page:
+<ul>
+<li>Keep: capabilities that must survive, each with a target service level (“monthly release” versus “occasional fixes only”)</li>
+<li>Stop: what is explicitly dropped now</li>
+<li>Owner: who is accountable for each kept item after the cut</li>
+<li>Re-expand trigger: the concrete condition that would bring a cut item back</li>
+<li>Close trigger: the concrete condition under which we stop shrinking and close instead</li>
+</ul></li>
 </ul>
 </section>
 <section id="sequence-the-cuts" class="level2" data-number="F.3">
 <h2 data-number="F.3" class="anchored" data-anchor-id="sequence-the-cuts"><span class="header-section-number">F.3</span> Sequence the Cuts</h2>
 <ul>
-<li>Cut in an order that protects the project’s ability to recover</li>
+<li>Cut in an order that protects the project’s ability to recover: scope, then process, then people, then future resources
+<ul>
+<li>In other words, cut in the order things are easiest to reverse, and never cut your ability to recover before you must</li>
+</ul></li>
 <li>First, reduce scope: it is reversible, and it costs no people</li>
 <li>Then, simplify process and tooling
 <ul>
@@ -356,6 +363,8 @@ div.csl-indent {
 <li>Final reports, funder relationships, and reputation</li>
 <li>Losing eligibility for the next grant accelerates decline <span class="citation" data-cites="Wruck1990">(<a href="../bibliography/index.html#ref-Wruck1990" role="doc-biblioref">Wruck 1990</a>)</span></li>
 </ul></li>
+<li>Every cut must carry a one-line reversal condition (“re-hire the docs contractor if we land the second grant”)</li>
+<li>When two cuts are equally reversible, cut the one touching fewer people</li>
 <li>Write down each cut and the reason for it so it can be reversed if resources return
 <ul>
 <li>This is the opposite of <a href="../abrupt/index.html">abrupt closure</a>, where restoration is usually off the table</li>
@@ -368,68 +377,63 @@ div.csl-indent {
 <li>A funding cut is not a quiet instruction to deliver the same results for less</li>
 <li>Renegotiate deliverables and deadlines with sponsors and users
 <ul>
-<li>Silence and minimization do more harm than honest news <span class="citation" data-cites="Coombs2019">(<a href="../bibliography/index.html#ref-Coombs2019" role="doc-biblioref">Coombs 2021</a>)</span></li>
+<li>Talked <a href="../abrupt/index.html">earlier</a> about how to communicate bad news without making it worse</li>
 </ul></li>
-<li>The project’s <a href="../gas/index.html">advance directive</a> should include “what happens if we lose half our funding”
-<ul>
-<li>If it does not, writing that answer down is the first concrete step</li>
-</ul></li>
+<li>Answer four questions for each stakeholder (funder, sponsor, users, downstream projects):
+<ol type="1">
+<li>What we still deliver, and at what level</li>
+<li>What we no longer deliver, and by when</li>
+<li>What we ask from them</li>
+<li>The fallback if we cannot agree</li>
+</ol></li>
 </ul>
 </section>
 <section id="who-stays-and-who-goes" class="level2" data-number="F.5">
 <h2 data-number="F.5" class="anchored" data-anchor-id="who-stays-and-who-goes"><span class="header-section-number">F.5</span> Who Stays and Who Goes</h2>
 <ul>
-<li>Deciding who stays is the hardest part of leading through a cut
+<li>Score each person on three axes:
 <ul>
-<li><a href="../fire/index.html">Firing and Being Fired</a> covers the mechanics</li>
-<li>This section is about choosing</li>
+<li>Future-need fit</li>
+<li>Skill</li>
+<li>Redundancy</li>
 </ul></li>
-<li>Make the criteria explicit and apply them consistently
-<ul>
-<li>Perceived favoritism does lasting damage to the people who remain</li>
-</ul></li>
-<li>Decide by the project’s future needs, not by seniority or by loyalty to the past
-<ul>
-<li>The skills that built the project are not necessarily the ones it needs now</li>
-</ul></li>
-<li>Involve others in the decision where you can
+<li>Have a second reviewer check every score
 <ul>
 <li>You are not objective, and you may be the last to see your own blind spots</li>
 </ul></li>
-<li>Do not make departure contingent on training a replacement</li>
+<li><a href="../fire/index.html">Firing and Being Fired</a> covers the mechanics of letting people go</li>
 </ul>
 </section>
 <section id="survivors" class="level2" data-number="F.6">
 <h2 data-number="F.6" class="anchored" data-anchor-id="survivors"><span class="header-section-number">F.6</span> Survivors</h2>
 <ul>
-<li>The people who remain are not necessarily the lucky ones
-<ul>
-<li>They keep the project but inherit more work per person</li>
-</ul></li>
-<li><a href="../glossary/index.html#survivor-guilt">Survivor guilt</a> is real and common:
-<ul>
-<li>Name this explicitly and make space for it</li>
-</ul></li>
-<li>If the people who left were not treated decently, the people who stayed will assume they are next and will start looking elsewhere</li>
+<li>The people who remain are not necessarily the lucky ones: they keep the project but inherit more work per person</li>
+<li><a href="../glossary/index.html#survivor-guilt">Survivor guilt</a> is real and common: name it explicitly and make space for it</li>
 <li>Don’t “reward” survivors with impossible expectations
 <ul>
 <li>“Thank you for staying, now do two jobs” turns a cut into a slow-motion shutdown</li>
+<li>Restructuring corrodes exactly the trust and loyalty that keep a project alive <span class="citation" data-cites="Sennett1998">(<a href="../bibliography/index.html#ref-Sennett1998" role="doc-biblioref">Sennett 1998</a>)</span></li>
 </ul></li>
 </ul>
 </section>
 <section id="watch-for-the-death-spiral" class="level2" data-number="F.7">
 <h2 data-number="F.7" class="anchored" data-anchor-id="watch-for-the-death-spiral"><span class="header-section-number">F.7</span> Watch for the Death Spiral</h2>
 <ul>
-<li>A cut rarely lands all at once
+<li>The warning signs usually appear before the next cut, not after it</li>
+<li>Review these leading indicators on a fixed cadence (monthly, or whenever another cut is announced):
 <ul>
-<li>It triggers indirect losses that can be larger than the cut itself</li>
+<li>Most-capable departures</li>
+<li>Collaborator and funder pullback</li>
+<li>Backlog growth</li>
+<li>Lottery/bus factor falling toward one</li>
+<li>Rising per-person load</li>
 </ul></li>
-<li>The most capable people often leave voluntarily once the future is uncertain</li>
-<li>Cascading failure: collaborators and funders scale back their involvement, which justifies further cuts</li>
-<li>Sometimes the honest conclusion is that a 50% cut is really the first step to closure
+<li>Declare in advance two or three conditions under which downsizing has failed and the plan switches to <a href="../deliberate/index.html">deliberate closure</a>:
 <ul>
-<li>In that case, treat it as <a href="../deliberate/index.html">deliberate closure</a> rather than letting the project bleed out slowly</li>
+<li>“We fall below N active maintainers”</li>
+<li>“Funding halves again”</li>
 </ul></li>
+<li>These conditions are the downsize analogue of the advance directive’s shutdown conditions described in <a href="../gas/index.html">governance</a></li>
 </ul>
 </section>
 <section id="exercises" class="level2" data-number="F.8">
@@ -437,34 +441,29 @@ div.csl-indent {
 <section id="the-minimum-viable-project" class="level3" data-number="F.8.1">
 <h3 data-number="F.8.1" class="anchored" data-anchor-id="the-minimum-viable-project"><span class="header-section-number">F.8.1</span> The Minimum Viable Project</h3>
 <ol type="1">
-<li>Write a one-paragraph description of the smallest version of your project that would still be worth keeping alive.</li>
-<li>List three things that you would defer, delegate, or drop if your funding and/or team was cut in half.</li>
+<li>Fill in the one-page minimum viable project template for your project: Keep, Stop, Owner, trigger to revive, trigger to close.</li>
+<li>List three things you would defer, delegate, or drop if your funding and/or team was cut in half.</li>
 </ol>
 </section>
 <section id="renegotiate" class="level3" data-number="F.8.2">
 <h3 data-number="F.8.2" class="anchored" data-anchor-id="renegotiate"><span class="header-section-number">F.8.2</span> Renegotiate</h3>
 <p>Your project’s funding is being cut by half in three months.</p>
 <ol type="1">
-<li>Draft the message you send to your funder explaining what you will still deliver and what you will no longer be able to.</li>
-<li>Draft the one-sentence message you send to your users. How does it differ from the funder’s message?</li>
-</ol>
-</section>
-<section id="who-stays" class="level3" data-number="F.8.3">
-<h3 data-number="F.8.3" class="anchored" data-anchor-id="who-stays"><span class="header-section-number">F.8.3</span> Who Stays</h3>
-<p>Your project is losing half its people.</p>
-<ol type="1">
-<li>What criteria would you use to decide who stays?</li>
-<li>What criteria are you most tempted to use, and how do they differ from the ones you just wrote down?</li>
-<li>Who else should be in the room when the decision is made?</li>
+<li>Answer the four questions listed earlier for your funder.</li>
+<li>Answer them for your users.</li>
+<li>Compare the answers: where do they differ most?</li>
 </ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-Coombs2019" class="csl-entry" role="listitem">
-Coombs, W. Timothy. 2021. <em>Ongoing Crisis Communication: Planning, Managing, and Responding</em>. 6th ed. SAGE Publications. ISBN 9781071816646.
+<div id="ref-Graeber2018" class="csl-entry" role="listitem">
+Graeber, David. 2018. <em>Bullshit Jobs: A Theory</em>. Simon &amp; Schuster. ISBN 9781501143311.
 </div>
-<div id="ref-Weitzel1989" class="csl-entry" role="listitem">
-Weitzel, William, and Ellen Jonsson. 1989. <span>“Decline in Organizations: A Literature Integration and Extension.”</span> <em>Administrative Science Quarterly</em> 34 (1). <a href="https://doi.org/10.2307/2392987">https://doi.org/10.2307/2392987</a>.
+<div id="ref-Ho2009" class="csl-entry" role="listitem">
+Ho, Karen. 2009. <em>Liquidated: An Ethnography of Wall Street</em>. Duke University Press. ISBN 9780822345992.
+</div>
+<div id="ref-Sennett1998" class="csl-entry" role="listitem">
+Sennett, Richard. 1998. <em>The Corrosion of Character: The Personal Consequences of Work in the New Capitalism</em>. W. W. Norton. ISBN 9780393319873.
 </div>
 <div id="ref-Wruck1990" class="csl-entry" role="listitem">
 Wruck, Karen Hopper. 1990. <span>“Financial Distress, Reorganization, and Organizational Efficiency.”</span> <em>Journal of Financial Economics</em> 27 (2). <a href="https://doi.org/10.1016/0304-405X(90)90063-6">https://doi.org/10.1016/0304-405X(90)90063-6</a>.
