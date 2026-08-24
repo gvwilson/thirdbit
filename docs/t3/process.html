@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; A Lesson Design Process – Teaching Tech Together</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../mccole/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../mccole/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../mccole/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../mccole/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../mccole/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../mccole/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./pck.html" rel="next">
+<link href="./individual.html" rel="prev">
+<script src="../mccole/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../mccole/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../mccole/site_libs/quarto-html/popper.min.js"></script>
+<script src="../mccole/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../mccole/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../mccole/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../mccole/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../mccole/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../mccole/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../mccole/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../mccole/book.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./process.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Lesson Design Process</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Teaching Tech Together</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/t3" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mental Models and Formative Assessment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Expertise and Memory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cognitive Architecture</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Individual Learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./process.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Lesson Design Process</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pedagogical Content Knowledge</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./performance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Teaching as a Performance Art</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classroom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">In the Classroom</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./motivation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Motivation and Demotivation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./online.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Teaching Online</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercise Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./community.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Building a Community of Practice</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./outreach.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Outreach</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Why I Teach</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conduct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Joining Our Community</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./meetings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Meetings, Meetings, Meetings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Checklists and Templates</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conceptmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Example Concept Maps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chunking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Chunking Exercise Solution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-process-personas" id="toc-sec-process-personas" class="nav-link active" data-scroll-target="#sec-process-personas"><span class="header-section-number">6.1</span> Learner Personas</a></li>
+  <li><a href="#sec-process-objectives" id="toc-sec-process-objectives" class="nav-link" data-scroll-target="#sec-process-objectives"><span class="header-section-number">6.2</span> Learning Objectives</a></li>
+  <li><a href="#sec-process-maintainability" id="toc-sec-process-maintainability" class="nav-link" data-scroll-target="#sec-process-maintainability"><span class="header-section-number">6.3</span> Maintainability</a></li>
+  <li><a href="#sec-process-exercises" id="toc-sec-process-exercises" class="nav-link" data-scroll-target="#sec-process-exercises"><span class="header-section-number">6.4</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#create-learner-personas-small-groups30-min" id="toc-create-learner-personas-small-groups30-min" class="nav-link" data-scroll-target="#create-learner-personas-small-groups30-min"><span class="header-section-number">6.4.1</span> Create Learner Personas (small groups/30 min)</a></li>
+  <li><a href="#classify-learning-objectives-pairs10-min" id="toc-classify-learning-objectives-pairs10-min" class="nav-link" data-scroll-target="#classify-learning-objectives-pairs10-min"><span class="header-section-number">6.4.2</span> Classify Learning Objectives (pairs/10 min)</a></li>
+  <li><a href="#write-learning-objectives-pairs20-min" id="toc-write-learning-objectives-pairs20-min" class="nav-link" data-scroll-target="#write-learning-objectives-pairs20-min"><span class="header-section-number">6.4.3</span> Write Learning Objectives (pairs/20 min)</a></li>
+  <li><a href="#write-more-learning-objectives-pairs20-min" id="toc-write-more-learning-objectives-pairs20-min" class="nav-link" data-scroll-target="#write-more-learning-objectives-pairs20-min"><span class="header-section-number">6.4.4</span> Write More Learning Objectives (pairs/20 min)</a></li>
+  <li><a href="#help-me-do-it-by-myself-small-groups15-min" id="toc-help-me-do-it-by-myself-small-groups15-min" class="nav-link" data-scroll-target="#help-me-do-it-by-myself-small-groups15-min"><span class="header-section-number">6.4.5</span> Help Me Do It By Myself (small groups/15 min)</a></li>
+  <li><a href="#building-lessons-by-subtracting-complexity-individual20-min" id="toc-building-lessons-by-subtracting-complexity-individual20-min" class="nav-link" data-scroll-target="#building-lessons-by-subtracting-complexity-individual20-min"><span class="header-section-number">6.4.6</span> Building Lessons by Subtracting Complexity (individual/20 min)</a></li>
+  <li><a href="#inessential-weirdness-individual15-min" id="toc-inessential-weirdness-individual15-min" class="nav-link" data-scroll-target="#inessential-weirdness-individual15-min"><span class="header-section-number">6.4.7</span> Inessential Weirdness (individual/15 min)</a></li>
+  <li><a href="#pete-individual15-min" id="toc-pete-individual15-min" class="nav-link" data-scroll-target="#pete-individual15-min"><span class="header-section-number">6.4.8</span> PETE (individual/15 min)</a></li>
+  <li><a href="#primm-individual15-min" id="toc-primm-individual15-min" class="nav-link" data-scroll-target="#primm-individual15-min"><span class="header-section-number">6.4.9</span> PRIMM (individual/15 min)</a></li>
+  <li><a href="#concrete-representational-abstract-pairs15-min" id="toc-concrete-representational-abstract-pairs15-min" class="nav-link" data-scroll-target="#concrete-representational-abstract-pairs15-min"><span class="header-section-number">6.4.10</span> Concrete-Representational-Abstract (pairs/15 min)</a></li>
+  <li><a href="#evaluating-a-lesson-repository-small-groups10-min" id="toc-evaluating-a-lesson-repository-small-groups10-min" class="nav-link" data-scroll-target="#evaluating-a-lesson-repository-small-groups10-min"><span class="header-section-number">6.4.11</span> Evaluating a Lesson Repository (small groups/10 min)</a></li>
+  </ul></li>
+  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/process.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/process.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-process" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Lesson Design Process</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Most people design lessons like this:</p>
+<ol type="1">
+<li><p>Someone asks you to teach something you barely know or haven’t thought about in years.</p></li>
+<li><p>You start writing slides to explain what you know about the subject.</p></li>
+<li><p>After 2 or 3 weeks, you make up an assignment based on what you’ve taught so far.</p></li>
+<li><p>You repeat step 3 several times.</p></li>
+<li><p>You stay awake into the wee hours of the morning to create a final exam and promise yourself that you’ll be more organized next time.</p></li>
+</ol>
+<p>A more effective method is similar in spirit to a programming practice called <a href="../glossary/index.html#test-driven-development">test-driven development</a> (TDD). Programmers who use TDD don’t write software and then test that it is working correctly. Instead, they write the tests first, then write just enough new software to make those tests pass.</p>
+<p>TDD works because writing tests forces programmers to be precise about what they’re trying to accomplish and what “done” looks like. TDD also prevents endless polishing: when the tests pass, you stop coding. Finally, it reduces the risk of confirmation bias: someone who hasn’t yet written a piece of software will be more objective than someone who has just put in several hours of hard work and really, really wants to be done.</p>
+<p>A similar method called <a href="../glossary/index.html#backward-design">backward design</a> works very well for lesson design. This method was developed independently in <span class="citation" data-cites="Wigg2005">Fink (<a href="bibliography.html#ref-Fink2013" role="doc-biblioref">2013</a>)</span> and is summarized in <span class="citation" data-cites="McTi2013">(<a href="bibliography.html#ref-McTi2013" role="doc-biblioref">McTighe and Wiggins 2013</a>)</span>. In simplified form, its steps are:</p>
+<ol type="1">
+<li><p>Create or recycle learner personas (discussed in the next section) to figure out who you are trying to help and what will appeal to them.</p></li>
+<li><p>Brainstorm to get a rough idea of what you want to cover, how you’re going to do it, what problems or misconceptions you expect to encounter, what’s <em>not</em> going to be included, and so on. Drawing concept maps can help a lot at this stage (<a href="memory.html#sec-memory-concept-maps" class="quarto-xref"><span>Section 3.1</span></a>).</p></li>
+<li><p>Create a summative assessment (<a href="models.html#sec-models-formative-assessment" class="quarto-xref"><span>Section 2.1</span></a>) to define your overall goal. This can be the final exam for a course or the capstone project for a one-day workshop; regardless of its form or size, it shows how far you hope to get more clearly than a point-form list of objectives.</p></li>
+<li><p>Create formative assessments that will give people a chance to practice the things they’re learning. These will also tell you (and them) whether they’re making progress and where they need to focus their attention. The best way to do this is to itemize the knowledge and skills used in the summative assessment you developed in the previous step and then create at least one formative assessment for each.</p></li>
+<li><p>Order the formative assessments to create a course outline based on their complexity, their dependencies, and how well topics will motivate your learners (<a href="motivation.html#sec-motivation-authentic" class="quarto-xref"><span>Section 10.1</span></a>).</p></li>
+<li><p>Write material to get learners from one formative assessment to the next. Each hour of instruction should consist of three to five such episodes.</p></li>
+<li><p>Write a summary description of the course to help its intended audience find it and figure out whether it’s right for them.</p></li>
+</ol>
+<p>This method helps keep teaching focused on its objectives. It also ensures that learners don’t face anything at the end of the course that they are not prepared for.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Perverse Incentives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Perverse Incentives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Backward design is <em>not</em> the same thing as <a href="../glossary/index.html#teaching-to-the-test">teaching to the test</a>. When using backward design, teachers set goals to aid in lesson design; they may never actually give the final exam that they wrote. In many school systems, on the other hand, an external authority defines assessment criteria for all learners, regardless of their individual situations. The outcomes of those summative assessments directly affect the teachers’ pay and promotion, which means teachers have an incentive to focus on having learners pass tests rather than on helping them learn.</p>
+<p><span class="citation" data-cites="Gree2014">(<a href="bibliography.html#ref-Gree2014" role="doc-biblioref">Green 2014</a>)</span> argues that focusing on testing and measurement appeals to those with the power to set the tests, but is unlikely to improve outcomes unless it is coupled with support for teachers to make improvements based on test outcomes. The latter is often missing because large organizations usually value uniformity over productivity <span class="citation" data-cites="Scot1998">(<a href="bibliography.html#ref-Scot1998" role="doc-biblioref">Scott 1998</a>)</span>.</p>
+</div>
+</div>
+<p>Reverse design is described as a sequence, but it’s almost never done that way. We may, for example, change our mind about what we want to teach based on something that occurs to us while we’re writing an MCQ, or re-assess who we’re trying to help once we have a lesson outline. However, the notes we leave behind should present things in the order described above so that whoever has to use or maintain the lesson after us can retrace our thinking <span class="citation" data-cites="Parn1986">(<a href="bibliography.html#ref-Parn1986" role="doc-biblioref">Parnas and Clements 1986</a>)</span>.</p>
+<section id="sec-process-personas" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-process-personas"><span class="header-section-number">6.1</span> Learner Personas</h2>
+<p>The first step in the reverse design process is figuring out who your audience is. One way to do this is to write two or three <a href="../glossary/index.html#learner-persona">learner personas</a> like those in <a href="intro.html#sec-intro-audience" class="quarto-xref"><span>Section 1.1</span></a>. This technique is borrowed from user experience designers, who create short profiles of typical users to help them think about their audience.</p>
+<p>A learner persona consists of:</p>
+<ol type="1">
+<li><p>the person’s general background;</p></li>
+<li><p>what they already know;</p></li>
+<li><p>what they want to do; and</p></li>
+<li><p>any special needs they have.</p></li>
+</ol>
+<p>The personas in <a href="intro.html#sec-intro-audience" class="quarto-xref"><span>Section 1.1</span></a> have the four points listed above, along with a short summary of how this book will help them. A learner persona for a volunteer group that runs weekend Python workshops might be:</p>
+<ol type="1">
+<li><p>Jorge just moved from Costa Rica to Canada to study agricultural engineering. He has joined the college soccer team and is looking forward to learning how to play ice hockey.</p></li>
+<li><p>Other than using Excel, Word, and the internet, Jorge’s most significant previous experience with computers is helping his sister build a WordPress site for the family business back home.</p></li>
+<li><p>Jorge wants to measure properties of soil from nearby farms using a handheld device that sends data to his computer. Right now he has to open each data file in Excel, delete the first and last column, and calculate some statistics on what’s left. He has to collect at least 600 measurements in the next few months, and really doesn’t want to have to do these steps by hand for each one.</p></li>
+<li><p>Jorge can read English well, but sometimes struggles to keep up with spoken conversation that involves a lot of jargon.</p></li>
+</ol>
+<p>Rather than writing new personas for every lesson or course, teachers usually create and share half a dozen that cover everyone they are likely to teach, then pick a few from that set to describe the audience for particular material. Personas that are used this way become a convenient shorthand for design issues: when speaking with each other, teachers can say, “Would Jorge understand why we’re doing this?” or, “What installation problems would Jorge face?”</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Their Goals, Not Yours">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Their Goals, Not Yours
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Personas should always describe what the learner wants to do rather than what you think they actually need. Ask yourself what they are searching for online; it probably won’t include jargon that they don’t yet know, so part of what you have to do as an instructional designer is figure out how to make your lesson findable.</p>
+</div>
+</div>
+</section>
+<section id="sec-process-objectives" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-process-objectives"><span class="header-section-number">6.2</span> Learning Objectives</h2>
+<p>Formative and summative assessments help teachers figure out what they’re going to teach, but in order to communicate that to learners and other teachers, a course description should also have <a href="../glossary/index.html#learning-objective">learning objectives</a>. These help ensure that everyone has the same understanding of what a lesson is supposed to accomplish. For example, a statement like “understand Git” could mean any of the following:</p>
+<ul>
+<li><p>Learners can describe three ways in which version control systems like Git are better than file-sharing tools like Dropbox and two ways in which they are worse.</p></li>
+<li><p>Learners can commit a changed file to a Git repository using a desktop GUI tool.</p></li>
+<li><p>Learners can explain what a detached HEAD is and recover from it using command-line operations.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Objectives vs. Outcomes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Objectives vs.&nbsp;Outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A learning objective is what a lesson strives to achieve. A <a href="../glossary/index.html#learning-outcome">learning outcome</a> is what it actually achieves, i.e.&nbsp;what learners actually take away. The role of summative assessment is therefore to compare learning outcomes with learning objectives.</p>
+</div>
+</div>
+<p>A learning objective describes how the learner will demonstrate what they have learned once they have successfully completed a lesson. More specifically, it has a <em>measurable or verifiable verb</em> that states what the learner will do and specifies the <em>criteria for acceptable performance</em>. Writing these may initially seem restrictive, but they will make you, your fellow teachers, and your learners happier in the long run: you will end up with clear guidelines for both your teaching and assessment, and your learners will appreciate having clear expectations.</p>
+<p>One way to understand what makes for a good learning objective is to see how a poor one can be improved:</p>
+<dl>
+<dt>The learner will be given opportunities to learn good programming practices.</dt>
+<dd>
+This describes the lesson’s content, not the attributes of successful learners.
+</dd>
+<dt>The learner will have a better appreciation for good programming practices.</dt>
+<dd>
+This doesn’t start with an active verb or define the level of learning, and the subject of learning has no context and is not specific.
+</dd>
+<dt>The learner will understand how to program in R.</dt>
+<dd>
+While this starts with an active verb, it doesn’t define the level of learning and the subject of learning is still too vague for assessment.
+</dd>
+<dt>The learner will write one-page data analysis scripts to read, filter, and summarize tabular data using R.</dt>
+<dd>
+This starts with an active verb, defines the level of learning, and provides context to ensure that outcomes can be assessed.
+</dd>
+</dl>
+<p>When it comes to choosing verbs, many teachers use <a href="../glossary/index.html#blooms-taxonomy">Bloom's Taxonomy</a>. First published in 1956 and updated at the turn of the century <span class="citation" data-cites="Ande2001">(<a href="bibliography.html#ref-Ande2001" role="doc-biblioref">Anderson and Krathwohl 2001</a>)</span>, it is a widely used framework for discussing levels of understanding. Its most recent form has six categories; the list below gives a few of the verbs typically used in learning objectives written for each:</p>
+<dl>
+<dt>Remembering</dt>
+<dd>
+Exhibit memory of previously learned material by recalling facts, terms, basic concepts, and answers. <em>(recognize, list, describe, name, find)</em>
+</dd>
+<dt>Understanding</dt>
+<dd>
+Demonstrate understanding of facts and ideas by organizing, comparing, translating, interpreting, giving descriptions, and stating main ideas. <em>(interpret, summarize, paraphrase, classify, explain)</em>
+</dd>
+<dt>Applying</dt>
+<dd>
+Solve new problems by applying acquired knowledge, facts, techniques and rules in a different way. <em>(build, identify, use, plan, select)</em>
+</dd>
+<dt>Analyzing</dt>
+<dd>
+Examine and break information into parts by identifying motives or causes; make inferences and find evidence to support generalizations. <em>(compare, contrast, simplify)</em>
+</dd>
+<dt>Evaluating</dt>
+<dd>
+Present and defend opinions by making judgments about information, validity of ideas, or quality of work based on a set of criteria. <em>(check, choose, critique, prove, rate)</em>
+</dd>
+<dt>Creating</dt>
+<dd>
+Compile information together in a different way by combining elements in a new pattern or proposing alternative solutions. <em>(design, construct, improve, adapt, maximize, solve)</em>
+</dd>
+</dl>
+<p>Bloom’s Taxonomy appears in almost every textbook on education, but <span class="citation" data-cites="Masa2018">(<a href="bibliography.html#ref-Masa2018" role="doc-biblioref">Masapanta-Carrión and Velázquez-Iturbide 2018</a>)</span> found that even experienced educators have trouble agreeing on how to classify specific things. The verbs are still useful, though, as is the notion of building understanding in steps: as Daniel Willingham has said, people can’t think without something to think about <span class="citation" data-cites="Will2010">(<a href="bibliography.html#ref-Will2010" role="doc-biblioref">Willingham 2010</a>)</span>, and this taxonomy can help teachers ensure that learners have those somethings when they need them.</p>
+<p>Another way to think about learning objectives comes from <span class="citation" data-cites="Fink2013">(<a href="bibliography.html#ref-Fink2013" role="doc-biblioref">Fink 2013</a>)</span>, which defines learning in terms of the change it is meant to produce in the learner. <a href="../glossary/index.html#finks-taxonomy">Fink's Taxonomy</a> also has six categories, but unlike Bloom’s they are complementary rather than hierarchical:</p>
+<dl>
+<dt>Foundational Knowledge</dt>
+<dd>
+understanding and remembering information and ideas. <em>(remember, understand, identify)</em>
+</dd>
+<dt>Application</dt>
+<dd>
+skills, critical thinking, managing projects. <em>(use, solve, calculate, create)</em>
+</dd>
+<dt>Integration</dt>
+<dd>
+connecting ideas, learning experiences, and real life. <em>(connect, relate, compare)</em>
+</dd>
+<dt>Human Dimension</dt>
+<dd>
+learning about oneself and others. <em>(come to see themselves as, understand others in terms of, decide to become)</em>
+</dd>
+<dt>Caring</dt>
+<dd>
+developing new feelings, interests, and values. <em>(get excited about, be ready to, value)</em>
+</dd>
+<dt>Learning How to Learn</dt>
+<dd>
+becoming a better learner. <em>(identify source of information for, frame useful questions about)</em>
+</dd>
+</dl>
+<p>A set of learning objectives based on this taxonomy for an introductory course on HTML and CSS might be:</p>
+<ul>
+<li><p>Explain what CSS properties are and how CSS selectors work.</p></li>
+<li><p>Style a web page using common tags and CSS properties.</p></li>
+<li><p>Compare and contrast writing HTML and CSS to writing with desktop publishing tools.</p></li>
+<li><p>Identify and correct issues in sample web pages that would make them difficult for the visually impaired to interact with.</p></li>
+<li><p>Describe features of favorite web sites whose design particularly appeals to you and explain why.</p></li>
+<li><p>Describe your two favorite online sources of information about CSS and explain what you like about them.</p></li>
+</ul>
+</section>
+<section id="sec-process-maintainability" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-process-maintainability"><span class="header-section-number">6.3</span> Maintainability</h2>
+<p>Once a lesson has been created someone needs to maintain it, and doing that is a lot easier if it has been built in a maintainable way. But what exactly does “maintainable” mean? The short answer is that a lesson is maintainable if it’s cheaper to update it than to replace it. This equation depends on four factors:</p>
+<dl>
+<dt>How well documented the course’s design is.</dt>
+<dd>
+If the person doing maintenance doesn’t know (or doesn’t remember) what the lesson is supposed to accomplish or why topics are introduced in a particular order, it will take them more time to update it. One reason to use reverse design is to capture decisions about why each course is the way it is.
+</dd>
+<dt>How easy it is for collaborators to collaborate technically.</dt>
+<dd>
+Teachers usually share material by mailing PowerPoint files to each other or by putting them in a shared drive. Collaborative writing tools like <a href="http://docs.google.com">Google Docs</a> and wikis are a big improvement, as they allow many people to update the same document and comment on other people’s updates. The version control systems used by programmers, such as <a href="http://github.com">GitHub</a>, are another approach. They let any number of people work independently and then merge their changes in a controlled, reviewable way. Unfortunately, version control systems have a steep learning curve and don’t handle common office document formats.
+</dd>
+<dt>How willing people are to collaborate.</dt>
+<dd>
+The tools needed to build a Wikipedia for lessons have been around for twenty years, but most teachers still don’t write and share lessons the way that they write and share encyclopedia entries.
+</dd>
+<dt>How useful sharing actually is.</dt>
+<dd>
+The <a href="../glossary/index.html#reusability-paradox">Reusability Paradox</a> states that the more reusable a learning object is, the less pedagogically effective it is <span class="citation" data-cites="Wile2002">(<a href="bibliography.html#ref-Wile2002" role="doc-biblioref">Wiley 2002</a>)</span>. The reason is that a good lesson resembles a novel more than it does a program: its parts are tightly coupled rather than independent black boxes. Direct re-use may therefore be the wrong goal for lessons; we might get further by trying to make them easier to remix.
+</dd>
+</dl>
+<p>If the Reusability Paradox is true, collaboration will be more likely if the things being collaborated on are small. This fits well with Mike Caulfield’s theory of <a href="https://hapgood.us/2016/05/13/choral-explanations/">choral explanations</a>, which argues that sites like <a href="https://stackoverflow.com/">Stack Overflow</a> succeed because they provide a chorus of answers for every question, each of which is most suitable for a slightly different questioner. If this is right, the lessons of tomorrow may be guided tours of community-curated Q&amp;A repositories designed for learners at widely different levels.</p>
+</section>
+<section id="sec-process-exercises" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-process-exercises"><span class="header-section-number">6.4</span> Exercises</h2>
+<section id="create-learner-personas-small-groups30-min" class="level3 exercise" data-number="6.4.1">
+<h3 class="exercise anchored" data-number="6.4.1" data-anchor-id="create-learner-personas-small-groups30-min"><span class="header-section-number">6.4.1</span> Create Learner Personas (small groups/30 min)</h3>
+<p>Working in small groups, create a 4-point persona that describes one of your typical learners.</p>
+</section>
+<section id="classify-learning-objectives-pairs10-min" class="level3 exercise" data-number="6.4.2">
+<h3 class="exercise anchored" data-number="6.4.2" data-anchor-id="classify-learning-objectives-pairs10-min"><span class="header-section-number">6.4.2</span> Classify Learning Objectives (pairs/10 min)</h3>
+<p>Look at the example learning objectives for an introductory course on HTML and CSS in <a href="#sec-process-objectives" class="quarto-xref"><span>Section 6.2</span></a> and classify each according to Bloom’s Taxonomy. Compare your answers with those of your partner. Where did you agree and disagree?</p>
+</section>
+<section id="write-learning-objectives-pairs20-min" class="level3 exercise" data-number="6.4.3">
+<h3 class="exercise anchored" data-number="6.4.3" data-anchor-id="write-learning-objectives-pairs20-min"><span class="header-section-number">6.4.3</span> Write Learning Objectives (pairs/20 min)</h3>
+<p>Write one or more learning objectives for something you currently teach or plan to teach using Bloom’s Taxonomy. Working with a partner, critique and improve the objectives. Does each one have a verifiable verb and clearly state criteria for acceptable performance?</p>
+</section>
+<section id="write-more-learning-objectives-pairs20-min" class="level3 exercise" data-number="6.4.4">
+<h3 class="exercise anchored" data-number="6.4.4" data-anchor-id="write-more-learning-objectives-pairs20-min"><span class="header-section-number">6.4.4</span> Write More Learning Objectives (pairs/20 min)</h3>
+<p>Write one or more learning objectives for something you currently teach or plan to teach using Fink’s Taxonomy. Working with a partner, critique and improve the objectives.</p>
+</section>
+<section id="help-me-do-it-by-myself-small-groups15-min" class="level3 exercise" data-number="6.4.5">
+<h3 class="exercise anchored" data-number="6.4.5" data-anchor-id="help-me-do-it-by-myself-small-groups15-min"><span class="header-section-number">6.4.5</span> Help Me Do It By Myself (small groups/15 min)</h3>
+<p>The educational theorist Lev Vygotsky introduced the notion of a <a href="../glossary/index.html#zpd">Zone of Proximal Development</a> (ZPD), which includes the problems that people cannot yet solve on their own but are able to solve with help from a mentor. These are the problems that are most fruitful to tackle next, as they are out of reach but attainable.</p>
+<p>Working in small groups, choose one learner persona you have developed and describe two or three problems that are in that learner’s ZPD.</p>
+</section>
+<section id="building-lessons-by-subtracting-complexity-individual20-min" class="level3 exercise" data-number="6.4.6">
+<h3 class="exercise anchored" data-number="6.4.6" data-anchor-id="building-lessons-by-subtracting-complexity-individual20-min"><span class="header-section-number">6.4.6</span> Building Lessons by Subtracting Complexity (individual/20 min)</h3>
+<p>One way to build a programming lesson is to write the program you want learners to finish with, then remove the most complex part that you want them to write and make it the last exercise. You can then remove the next most complex part you want them to write and make it the penultimate exercise, and so on. Anything that’s left after you have pulled out the exercises, such as loading libraries or reading data, becomes the starter code that you give them.</p>
+<p>Take a program or web page that you want your learners to be able to create and work backward to break it into digestible parts. How many are there? What key idea is introduced by each one?</p>
+</section>
+<section id="inessential-weirdness-individual15-min" class="level3 exercise" data-number="6.4.7">
+<h3 class="exercise anchored" data-number="6.4.7" data-anchor-id="inessential-weirdness-individual15-min"><span class="header-section-number">6.4.7</span> Inessential Weirdness (individual/15 min)</h3>
+<p>Betsy Leondar-Wright coined the phrase “<a href="http://www.classmatters.org/2006_07/its-not-them.php">inessential weirdness</a>” to describe things groups do that aren’t really necessary, but which alienate people who aren’t yet members of that group. Sumana Harihareswara later used this notion as the basis for a talk on <a href="https://www.harihareswara.net/sumana/2016/05/21/0">inessential weirdnesses in open source software</a>, which includes things like using command-line tools with cryptic names. Take a few minutes to read these articles, then make a list of inessential weirdnesses you think your learners might encounter when you first teach them. How many of these can you avoid?</p>
+</section>
+<section id="pete-individual15-min" class="level3 exercise" data-number="6.4.8">
+<h3 class="exercise anchored" data-number="6.4.8" data-anchor-id="pete-individual15-min"><span class="header-section-number">6.4.8</span> PETE (individual/15 min)</h3>
+<p> </p>
+<p>One pattern that works well for programming lessons is PETE: introduce the <strong>P</strong>roblem, work through an <strong>E</strong>xample, explain the <strong>T</strong>heory, and then <strong>E</strong>laborate on a second example so that learners can see what is specific to each case and what applies to all cases. Pick something you have recently taught or been taught and outline a short lesson for it that follows these four steps.</p>
+</section>
+<section id="primm-individual15-min" class="level3 exercise" data-number="6.4.9">
+<h3 class="exercise anchored" data-number="6.4.9" data-anchor-id="primm-individual15-min"><span class="header-section-number">6.4.9</span> PRIMM (individual/15 min)</h3>
+<p> </p>
+<p>Another lesson pattern is PRIMM <span class="citation" data-cites="Sent2019">(<a href="bibliography.html#ref-Sent2019" role="doc-biblioref">Sentance et al. 2019</a>)</span>: <strong>P</strong>redict a program’s behavior or output, <strong>R</strong>un it to see what it actually does, <strong>I</strong>nvestigate why it does that by stepping through it in a debugger or drawing the flow of control, <strong>M</strong>odify it (or its inputs), and then <strong>M</strong>ake something similar from scratch. Pick something you have recently taught or been taught and outline a short lesson for it that follows these five steps.</p>
+</section>
+<section id="concrete-representational-abstract-pairs15-min" class="level3 exercise" data-number="6.4.10">
+<h3 class="exercise anchored" data-number="6.4.10" data-anchor-id="concrete-representational-abstract-pairs15-min"><span class="header-section-number">6.4.10</span> Concrete-Representational-Abstract (pairs/15 min)</h3>
+<p> </p>
+<p><a href="https://makingeducationfun.wordpress.com/2012/04/29/concrete-representational-abstract-cra/">Concrete-Representational-Abstract</a> (CRA) is an approach to introducing new ideas that is used primarily with younger learners: physically manipulate a <strong>C</strong>oncrete object, <strong>R</strong>epresent the object with an image, then perform the same operations using numbers, symbols, or some other <strong>A</strong>bstraction.</p>
+<ol type="1">
+<li><p>Write each of the numbers 2, 7, 5, 10, 6 on a sticky note.</p></li>
+<li><p>Simulate a loop that finds the largest value by looking at each in turn (concrete).</p></li>
+<li><p>Sketch a diagram of the process you used, labeling each step (representational).</p></li>
+<li><p>Write instructions that someone else could follow to go through the same steps (abstract).</p></li>
+</ol>
+<p>Compare your representational and abstract materials with your partner’s.</p>
+</section>
+<section id="evaluating-a-lesson-repository-small-groups10-min" class="level3 exercise" data-number="6.4.11">
+<h3 class="exercise anchored" data-number="6.4.11" data-anchor-id="evaluating-a-lesson-repository-small-groups10-min"><span class="header-section-number">6.4.11</span> Evaluating a Lesson Repository (small groups/10 min)</h3>
+<p><span class="citation" data-cites="Leak2017">(<a href="bibliography.html#ref-Leak2017" role="doc-biblioref">Leake and Lewis 2017</a>)</span> explores why computer science teachers don’t use lesson sharing sites and recommends ways to make them more appealing:</p>
+<ol type="1">
+<li><p>The landing page should allow site visitors to identify their background and their interests in visiting the site. Sites should ask two questions: “What is your current role?” and “What course and grade level are you interested in?”</p></li>
+<li><p>Sites should display all learning resources in the context of the full course so that potential users can understand their intended context of use.</p></li>
+<li><p>Many teachers have concerns about having their (lack of) knowledge judged by their peers if they post to sites’ discussion forums. These forums should therefore allow anonymous posting.</p></li>
+</ol>
+<p>In small groups, discuss whether these three features would be enough to convince you to use a lesson sharing site, and if not, what would.</p>
+</section>
+</section>
+<section id="review" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="review">Review</h2>
+<div id="fig-process-personas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-process-personas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/conceptmap-personas.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-process-personas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Concepts: Learner personas
+</figcaption>
+</figure>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Ande2001" class="csl-entry" role="listitem">
+Anderson, Lorin W., and David R. Krathwohl, eds. 2001. <em>A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom’s Taxonomy of Educational Objectives</em>. Longman. ISBN 080131903X. <em>A widely-used revision to Bloom’s Taxonomy.</em>
+</div>
+<div id="ref-Bigg2011" class="csl-entry" role="listitem">
+Biggs, John, and Catherine Tang. 2011. <em>Teaching for Quality Learning at University</em>. Open University Press. ISBN 0335242758. <em>A step-by-step guide to lesson development, delivery, and evaluation for people working in higher education.</em>
+</div>
+<div id="ref-Fink2013" class="csl-entry" role="listitem">
+Fink, L. Dee. 2013. <em>Creating Significant Learning Experiences: An Integrated Approach to Designing College Courses</em>. Jossey-Bass. ISBN 1118124251. <em>A step-by-step guide to a systematic lesson design process.</em>
+</div>
+<div id="ref-Gree2014" class="csl-entry" role="listitem">
+Green, Elizabeth. 2014. <em>Building a Better Teacher: How Teaching Works (and How to Teach It to Everyone)</em>. W. W. Norton &amp; Company. ISBN 0393351084. <em>Explains why educational reforms in the past fifty years has mostly missed the mark, and what we should do instead.</em>
+</div>
+<div id="ref-Leak2017" class="csl-entry" role="listitem">
+Leake, Mackenzie, and Colleen M. Lewis. 2017. <span>“Recommendations for Designing <span>CS</span> Resource Sharing Sites for All Teachers.”</span> <em>2017 Technical Symposium on Computer Science Education (<span>SIGCSE’17</span>)</em>. <a href="https://doi.org/10.1145/3017680.3017780">https://doi.org/10.1145/3017680.3017780</a>. <em>Explores why CS teachers don’t use resource sharing sites and recommends ways to make them more appealing.</em>
+</div>
+<div id="ref-Masa2018" class="csl-entry" role="listitem">
+Masapanta-Carrión, Susana, and J. Ángel Velázquez-Iturbide. 2018. <span>“A Systematic Review of the Use of <span class="nocase">Bloom’s Taxonomy</span> in Computer Science Education.”</span> <em>2018 Technical Symposium on Computer Science Education (<span>SIGCSE’18</span>)</em>. <a href="https://doi.org/10.1145/3159450.3159491">https://doi.org/10.1145/3159450.3159491</a>. <em>Reports that even experienced educators have trouble agreeing on the correct classification for a question or idea using Bloom’s Taxonomy.</em>
+</div>
+<div id="ref-McTi2013" class="csl-entry" role="listitem">
+McTighe, Jay, and Grant Wiggins. 2013. <em>Understanding by Design Framework</em>. <a href="http://www.ascd.org/ASCD/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf" class="uri">Http://www.ascd.org/ASCD/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf</a>; Association for Supervision &amp; Curriculum Development (<span>ASCD</span>). <em>Summarizes the backward instructional design process.</em>
+</div>
+<div id="ref-Parn1986" class="csl-entry" role="listitem">
+Parnas, David Lorge, and Paul C. Clements. 1986. <span>“A Rational Design Process: How and Why to Fake It.”</span> <em><span>IEEE</span> Transactions on Software Engineering</em> <span>SE</span>-12 (2): 251–57. <a href="https://doi.org/10.1109/tse.1986.6312940">https://doi.org/10.1109/tse.1986.6312940</a>. <em>Argues that using a rational design process is less important than looking as though you had.</em>
+</div>
+<div id="ref-Scot1998" class="csl-entry" role="listitem">
+Scott, James C. 1998. <em>Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</em>. Yale University Press. ISBN 0300078153. <em>Argues that large organizations consistently prefer uniformity over productivity.</em>
+</div>
+<div id="ref-Sent2019" class="csl-entry" role="listitem">
+Sentance, Sue, Jane Waite, and Maria Kallia. 2019. <span>“Teachers’ Experiences of Using <span>PRIMM</span> to Teach Programming in School.”</span> <em>2019 Technical Symposium on Computer Science Education (<span>SIGCSE’19</span>)</em>. <a href="https://doi.org/10.1145/3287324.3287477">https://doi.org/10.1145/3287324.3287477</a>. <em>Describes PRIMM and its effectiveness.</em>
+</div>
+<div id="ref-Wigg2005" class="csl-entry" role="listitem">
+Wiggins, Grant, and Jay McTighe. 2005. <em>Understanding by Design</em>. Association for Supervision &amp; Curriculum Development (<span>ASCD</span>). ISBN 1416600353. <em>A lengthy presentation of reverse instructional design.</em>
+</div>
+<div id="ref-Wile2002" class="csl-entry" role="listitem">
+Wiley, David. 2002. <em>The Reusability Paradox</em>. <a href="http://opencontent.org/docs/paradox.html" class="uri">Http://opencontent.org/docs/paradox.html</a>. <em>Summarizes the tension between learning objects being effective and reusable.</em>
+</div>
+<div id="ref-Will2010" class="csl-entry" role="listitem">
+Willingham, Daniel T. 2010. <em>Why Don’t Students Like School?: A Cognitive Scientist Answers Questions about How the Mind Works and What It Means for the Classroom</em>. Jossey-Bass. ISBN 047059196X. <em>A cognitive scientist looks at how the mind works in the classroom.</em>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./individual.html" class="pagination-link" aria-label="Individual Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Individual Learning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./pck.html" class="pagination-link" aria-label="Pedagogical Content Knowledge">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pedagogical Content Knowledge</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/process.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/process.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teaching Tech Together</title>
+<title>1&nbsp; Introduction – Teaching Tech Together</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../mccole/site_libs/quarto-nav/quarto-nav.js"></script>
@@ -33,7 +52,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../mccole/site_libs/quarto-search/fuse.min.js"></script>
 <script src="../mccole/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./models.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="../mccole/site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../mccole/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../mccole/site_libs/quarto-html/popper.min.js"></script>
@@ -86,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,13 +136,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -285,19 +305,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <li><a href="#sec-intro-audience" id="toc-sec-intro-audience" class="nav-link active" data-scroll-target="#sec-intro-audience"><span class="header-section-number">1.1</span> Who You Are</a></li>
+  <li><a href="#sec-intro-instead" id="toc-sec-intro-instead" class="nav-link" data-scroll-target="#sec-intro-instead"><span class="header-section-number">1.2</span> What to Read Instead</a></li>
+  <li><a href="#sec-intro-acknowledgments" id="toc-sec-intro-acknowledgments" class="nav-link" data-scroll-target="#sec-intro-acknowledgments"><span class="header-section-number">1.3</span> Acknowledgments</a></li>
+  <li><a href="#sec-intro-exercises" id="toc-sec-intro-exercises" class="nav-link" data-scroll-target="#sec-intro-exercises"><span class="header-section-number">1.4</span> Exercises</a>
   <ul class="collapse">
-  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
+  <li><a href="#highs-and-lows-whole-class5-min" id="toc-highs-and-lows-whole-class5-min" class="nav-link" data-scroll-target="#highs-and-lows-whole-class5-min"><span class="header-section-number">1.4.1</span> Highs and Lows (whole class/5 min)</a></li>
+  <li><a href="#know-thyself-whole-class10-min" id="toc-know-thyself-whole-class10-min" class="nav-link" data-scroll-target="#know-thyself-whole-class10-min"><span class="header-section-number">1.4.2</span> Know Thyself (whole class/10 min)</a></li>
+  <li><a href="#why-learn-to-program-individual20-min" id="toc-why-learn-to-program-individual20-min" class="nav-link" data-scroll-target="#why-learn-to-program-individual20-min"><span class="header-section-number">1.4.3</span> Why Learn to Program? (individual/20 min)</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Teaching Tech Together</h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
 </div>
 
 
@@ -314,54 +339,208 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1 unnumbered">
-<h1 class="unnumbered">Overview</h1>
-<p>This introduction to evidence-based teaching practices was <a href="https://www.taylorfrancis.com/books/mono/10.1201/9780429330704/teaching-tech-together-greg-wilson">published</a> by Taylor &amp; Francis in 2019, and is presently being revised and updated.</p>
-<p>The one-day workshop based on the book introduces key evidence-based techniques that can help you create and deliver effective training, bring new team members up to speed more quickly, provide better technical support, and get the most out of your own learning. Topics include:</p>
-<ul>
-<li>creating learner personas</li>
-<li>why novices, competent practitioners, and experts need different lessons</li>
-<li>managing cognitive load</li>
-<li>formative and summative assessment</li>
-<li>what motivates and demotivates learners</li>
-<li>teaching as a performance art</li>
-</ul>
-<p>The workshop has been taught over 50 times since 2017 for companies, public libraries, and open source organizations, and the materials are <a href="https://drive.google.com/drive/folders/1LVcmp48Ym0c6pA9GOT6TrCa47RU1ugaV">available online</a> under an open license. If you would like to know more, please check out out <a href="https://player.vimeo.com/video/885652506">this one-minute video</a> or email <a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>.</p>
-<p><a href="https://third-bit.com/about/">Dr.&nbsp;Greg Wilson</a> is a programmer, author, and educator based in Toronto. He co-founded and and was the first Executive Director of <a href="https://carpentries.org/">Software Carpentry</a>, which has taught basic software skills to tens of thousands of researchers in over 65 countries. Greg is the author of several books, a member of the <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>, and a recipient of <a href="https://www.sigsoft.org/">ACM SIGSOFT</a>’s Influential Educator of the Year award.</p>
-<section id="faq" class="level2">
-<h2 class="anchored" data-anchor-id="faq">FAQ</h2>
+<p>Grassroots groups have sprung up around the world to teach programming, web design, robotics, and other skills to <a href="../glossary/index.html#free-range-learner">free-range learners</a>. These groups exist so that people don’t have to learn these things on their own, but ironically, their founders and teachers are often teaching themselves how to teach.</p>
+<p>There’s a better way. Just as knowing a few basic facts about germs and nutrition can help you stay healthy, knowing a few things about cognitive psychology, instructional design, inclusivity, and community organization can help you be a more effective teacher. This book presents key ideas you can use right now, explains why we believe they are true, and points you at other resources that will help you go further.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Re-Use">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Re-Use
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Parts of this book were originally created for <a href="http://carpentries.github.io/instructor-training/">the Software Carpentry instructor training program</a>, and all of it can be freely distributed and re-used under the Creative Commons Attribution-NonCommercial 4.0 license (<a href="license.html" class="quarto-xref"><span>Appendix A</span></a>). You can use the online version at <a href="http://teachtogether.tech/" class="uri">http://teachtogether.tech/</a> in any class (free or paid), and can quote short excerpts under <a href="https://en.wikipedia.org/wiki/Fair_use">fair use</a> provisions, but cannot republish large parts in commercial works without prior permission.</p>
+<p>Contributions, corrections, and suggestions are all welcome, and all contributors will be acknowledged each time a new version is published. Please see <a href="joining.html" class="quarto-xref"><span>Appendix C</span></a> for details and <a href="conduct.html" class="quarto-xref"><span>Appendix B</span></a> for our code of conduct.</p>
+</div>
+</div>
+<section id="sec-intro-audience" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-intro-audience"><span class="header-section-number">1.1</span> Who You Are</h2>
+<p><a href="process.html#sec-process-personas" class="quarto-xref"><span>Section 6.1</span></a> explains how to figure out who your learners are. The four that this book is for are all <a href="../glossary/index.html#end-user-teacher">end-user teachers</a>: teaching isn’t their primary occupation, they have little or no background in pedagogy, and they may work outside institutional classrooms.</p>
 <dl>
-<dt>What is the format of the workshop?</dt>
+<dt>Emily</dt>
 <dd>
-It can be one full day or two half-days (preferably on consecutive days). The latter works better: people are less tired for the second half and it gives them time to deal with anything else that might come up. No special equipment is required.
+trained as a librarian and now works as a web designer and project manager in a small consulting company. In her spare time she helps run web design classes for women entering tech as a second career. She is now recruiting colleagues to run more classes in her area, and wants to know how to make lessons others can use and grow a volunteer teaching organization.
 </dd>
-<dt>Is the workshop online or in person?</dt>
+<dt>Moshe</dt>
 <dd>
-Some parts are more effective (and more fun) in person, but it works well online and is often easier to coordinate that way, particularly for distributed organizations. Online offerings also don’t incur travel costs.
+is a professional programmer with two teenage children whose school doesn’t offer programming classes. He has volunteered to run a monthly after-school programming club, and while he frequently gives presentations to colleagues, he has no classroom experience. He wants to learn how to build effective lessons in reasonable time, and would like to know more about the pros and cons of self-paced online classes.
 </dd>
-<dt>How large can a workshop be?</dt>
+<dt>Samira</dt>
 <dd>
-Up to 20 people; any more than that, and people become observers rather than participants.
+is an undergraduate in robotics who is thinking about becoming a teacher after she graduates. She wants to help at weekend robotics workshops for her peers, but has never taught a class before and feels a lot of <a href="../glossary/index.html#impostor-syndrome">impostor syndrome</a>. She wants to learn more about education in general in order to decide if it’s for her, and is also looking for specific tips to help her deliver lessons more effectively.
 </dd>
-<dt>How much does this cost?</dt>
+<dt>Gene</dt>
 <dd>
-The cost depends on the nature of the organization and on whether the host is willing to make a donation to a charity such as <a href="https://rainbowrailroad.org/">Rainbow Railroad</a> or the <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a> in lieu of part of the fee. Please <a href="mailto:gvwilson@third-bit.com">get in touch</a> to discuss specifics.
-</dd>
-<dt>Who is the intended audience?</dt>
-<dd>
-Participants at past workshops have included programmers, product managers, designers, data scientists, support staff, and others. The material does not assume any prior training in teaching.
-</dd>
-<dt>Who can take part?</dt>
-<dd>
-That’s up to whoever is organizing or hosting the workshop. Most workshops have been for the staff at specific companies, but some companies have sponsored workshops for members of open source or other volunteer communities.
-</dd>
-<dt>Where does the material come from?</dt>
-<dd>
-The workshop is a shortened and updated version of material originally developed for <a href="https://carpentries.org/">the Carpentries</a>’ instructor training program and RStudio’s <a href="https://education.rstudio.com/trainers">instructor certification program</a>.
+is a professor of computer science. They have been teaching undergraduate courses on operating systems for six years, and increasingly believe that there has to be a better way. The only training available through their university’s teaching and learning center is about posting assignments and submitting grades in the online learning management system, so they want to find out what else they should be asking for.
 </dd>
 </dl>
+<p>These people have <em>a variety of technical backgrounds</em> and <em>some previous teaching experience</em>, but <em>no formal training in teaching, lesson design, or community organization</em>. Most work with <em>free-range learners</em> and are <em>focused on teenagers and adults</em> rather than children; all <em>have limited time and resources</em>. We expect our quartet to use this material as follows:</p>
+<dl>
+<dt>Emily</dt>
+<dd>
+will take part in a weekly online reading group with her volunteers.
+</dd>
+<dt>Moshe</dt>
+<dd>
+will cover part of this book in a one-day weekend workshop and study the rest on his own.
+</dd>
+<dt>Samira</dt>
+<dd>
+will use this book in a one-semester undergraduate course with assignments, a project, and a final exam.
+</dd>
+<dt>Gene</dt>
+<dd>
+will read the book on their own in their office or while commuting, wishing all the while that universities did more to support high-quality teaching.
+</dd>
+</dl>
+</section>
+<section id="sec-intro-instead" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-intro-instead"><span class="header-section-number">1.2</span> What to Read Instead</h2>
+<p>If you are in a hurry or want a taste of what this book will cover, <span class="citation" data-cites="Brow2018">(<a href="bibliography.html#ref-Brow2018" role="doc-biblioref">Brown and Wilson 2018</a>)</span> presents ten evidence-based tips for teaching computing. You may also enjoy:</p>
+<ul>
+<li><p><a href="http://carpentries.github.io/instructor-training/">The Carpentries instructor training</a>, from which this book is derived.</p></li>
+<li><p><span class="citation" data-cites="Lang2016">(<a href="bibliography.html#ref-Lang2016" role="doc-biblioref">Lang 2016</a>)</span> and <span class="citation" data-cites="Hust2012">(<a href="bibliography.html#ref-Hust2012" role="doc-biblioref">Huston 2012</a>)</span>, which are short and approachable, and which connect things you can do right now to the research that backs them.</p></li>
+<li><p><span class="citation" data-cites="Berg2012">Weinstein et al. (<a href="bibliography.html#ref-Wein2018b" role="doc-biblioref">2018</a>)</span></p></li>
+<li><p>are all full of practical suggestions for things you can do in your classroom,</p></li>
+<li><p>but may make more sense once you have a framework for understanding why their ideas work.</p></li>
+<li><p><span class="citation" data-cites="DeBr2015">(<a href="bibliography.html#ref-DeBr2015" role="doc-biblioref">Bruyckere et al. 2015</a>)</span>,</p></li>
+<li><p>which explains what’s true about education by explaining what isn’t,</p></li>
+<li><p>and <span class="citation" data-cites="Dida2016">(<a href="bibliography.html#ref-Dida2016" role="doc-biblioref">Didau and Rose 2016</a>)</span>,</p></li>
+<li><p>which grounds learning theory in cognitive psychology.</p></li>
+<li><p><span class="citation" data-cites="Pape1993">(<a href="bibliography.html#ref-Pape1993" role="doc-biblioref">Papert 1993</a>)</span>,</p></li>
+<li><p>which remains an inspiring vision of how computers could change education.</p></li>
+<li><p><a href="https://medium.com/bits-and-behavior/mindstorms-what-did-papert-argue-and-what-does-it-mean-for-learning-and-education-c8324b58aca4">Amy Ko’s excellent description</a></p></li>
+<li><p>does a better job of summarizing Papert’s ideas than I possibly could,</p></li>
+<li><p>and <span class="citation" data-cites="Craw2010">(<a href="bibliography.html#ref-Craw2010" role="doc-biblioref">Crawford 2010</a>)</span> is a thought-provoking companion to both.</p></li>
+<li><p><span class="citation" data-cites="Gree2014">Watters (<a href="bibliography.html#ref-Watt2014" role="doc-biblioref">2014</a>)</span> explain why so many attempts at educational reform have failed over the past forty years,</p></li>
+<li><p>how for-profit colleges are exploiting and exacerbating the growing inequality in our society,</p></li>
+<li><p>and how technology has repeatedly failed to revolutionize education.</p></li>
+<li><p><span class="citation" data-cites="Brow2007">(<a href="bibliography.html#ref-Brow2007" role="doc-biblioref">Brown 2007</a>)</span> and <span class="citation" data-cites="Mann2015">(<a href="bibliography.html#ref-Mann2015" role="doc-biblioref">Manns and Rising 2015</a>)</span>, because you can’t teach well without changing the system in which we teach, and you can’t do that on your own.</p></li>
+</ul>
+<p>Those who want more academic material may also find <span class="citation" data-cites="Guzd2015a">National Academies of Sciences, Engineering, and Medicine (<a href="bibliography.html#ref-Hpl2018" role="doc-biblioref">2018</a>)</span> rewarding, while <a href="http://computinged.wordpress.com">Mark Guzdial’s blog</a> has consistently been informative and thought-provoking.</p>
+</section>
+<section id="sec-intro-acknowledgments" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-intro-acknowledgments"><span class="header-section-number">1.3</span> Acknowledgments</h2>
+<p>This book would not exist without the contributions of Laura Acion, Jorge Aranda, Mara Averick, Erin Becker, Yanina Bellini Saibene, Azalee Bostroem, Hugo Bowne-Anderson, Neil Brown, Gerard Capes, Francis Castro, Daniel Chen, Dav Clark, Warren Code, Ben Cotton, Richie Cotton, Karen Cranston, Katie Cunningham, Natasha Danas, Matt Davis, Neal Davis, Mark Degani, Tim Dennis, Paul Denny, Michael Deutsch, Brian Dillingham, Grae Drake, Kathi Fisler, Denae Ford, Auriel Fournier, Bob Freeman, Nathan Garrett, Mark Guzdial, Rayna Harris, Ahmed Hasan, Ian Hawke, Felienne Hermans, Kate Hertweck, Toby Hodges, Roel Hogervorst, Mike Hoye, Dan Katz, Christina Koch, Shriram Krishnamurthi, Katrin Leinweber, Colleen Lewis, Dave Loyall, Paweł Marczewski, Lenny Markus, Sue McClatchy, Jessica McKellar, Ian Milligan, Julie Moronuki, Lex Nederbragt, Aleksandra Nenadic, Jeramia Ory, Joel Ostblom, Elizabeth Patitsas, Aleksandra Pawlik, Sorawee Porncharoenwase, Emily Porta, Alex Pounds, Thomas Price, Danielle Quinn, Ian Ragsdale, Erin Robinson, Rosario Robinson, Ariel Rokem, Pat Schloss, Malvika Sharan, Florian Shkurti, Dan Sholler, Juha Sorva, Igor Steinmacher, Tracy Teal, Tiffany Timbers, Richard Tomsett, Preston Tunnell Wilson, Matt Turk, Fiona Tweedie, Martin Ukrop, Anelda van der Walt, Stéfan van der Walt, Allegra Via, Petr Viktorin, Belinda Weaver, Hadley Wickham, Jason Williams, Simon Willison, Karen Word, John Wrenn, and Andromeda Yelton. I am also grateful to Lukas Blakk for the logo, to Shashi Kumar for LaTeX help, to Markku Rontu for making the diagrams look better, and to everyone who has used this material over the years. Any mistakes that remain are mine.</p>
+</section>
+<section id="sec-intro-exercises" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-intro-exercises"><span class="header-section-number">1.4</span> Exercises</h2>
+<p>Each chapter ends with a variety of exercises that include a suggested format and how long they usually take to do in person. Most can be used in other formats—in particular, if you are going through this book on your own, you can still do many of the exercises that are intended for groups—and you can always spend more time on them than what’s suggested.</p>
+<p>If you are using this material in a teacher training workshop, you can give the exercises below to participants a day or two in advance to get an idea of who they are and how best you can help them. Please read the caveats in <a href="classroom.html#sec-classroom-prior" class="quarto-xref"><span>Section 9.4</span></a> before doing this.</p>
+<section id="highs-and-lows-whole-class5-min" class="level3 exercise" data-number="1.4.1">
+<h3 class="exercise anchored" data-number="1.4.1" data-anchor-id="highs-and-lows-whole-class5-min"><span class="header-section-number">1.4.1</span> Highs and Lows (whole class/5 min)</h3>
+<p>Write brief answers to the following questions and share with your peers. (If you are taking notes together online as described in <a href="classroom.html#sec-classroom-notetaking" class="quarto-xref"><span>Section 9.7</span></a>, put your answers there.)</p>
+<ol type="1">
+<li><p>What is the best class or workshop you ever took? What made it so good?</p></li>
+<li><p>What was the worst one? What made it so bad?</p></li>
+</ol>
+</section>
+<section id="know-thyself-whole-class10-min" class="level3 exercise" data-number="1.4.2">
+<h3 class="exercise anchored" data-number="1.4.2" data-anchor-id="know-thyself-whole-class10-min"><span class="header-section-number">1.4.2</span> Know Thyself (whole class/10 min)</h3>
+<p>Share brief answers to the following questions with your peers. Record your answers so that you can refer back to them as you go through the rest of this book.</p>
+<ol type="1">
+<li><p>What do you most want to teach?</p></li>
+<li><p>Who do you most want to teach?</p></li>
+<li><p>Why do you want to teach?</p></li>
+<li><p>How will you know if you’re teaching well?</p></li>
+<li><p>What do you most want to learn about teaching and learning?</p></li>
+<li><p>What is one specific thing you believe is true about teaching and learning?</p></li>
+</ol>
+</section>
+<section id="why-learn-to-program-individual20-min" class="level3 exercise" data-number="1.4.3">
+<h3 class="exercise anchored" data-number="1.4.3" data-anchor-id="why-learn-to-program-individual20-min"><span class="header-section-number">1.4.3</span> Why Learn to Program? (individual/20 min)</h3>
+<p>Politicians, business leaders, and educators often say that people should learn to program because the jobs of the future will require it. However, as Benjamin Doxtdator <a href="http://www.longviewoneducation.org/field-guide-jobs-dont-exist-yet/">pointed out</a>, many of those claims are built on shaky ground. Even if they were true, education shouldn’t prepare people for the jobs of the future: it should give them the power to decide what kinds of jobs there are and to ensure that those jobs are worth doing. And as <a href="https://computinged.wordpress.com/2017/10/18/why-should-we-teach-programming-hint-its-not-to-learn-problem-solving/">Mark Guzdial points out</a>, there are actually many reasons to learn how to program:</p>
+<ol type="1">
+<li><p>To understand our world.</p></li>
+<li><p>To study and understand processes.</p></li>
+<li><p>To be able to ask questions about the influences on their lives.</p></li>
+<li><p>To use an important new form of literacy.</p></li>
+<li><p>To have a new way to learn art, music, science, and mathematics.</p></li>
+<li><p>As a job skill.</p></li>
+<li><p>To use computers better.</p></li>
+<li><p>As a medium in which to learn problem-solving.</p></li>
+</ol>
+<p>Draw a 3x3 grid whose axes are labeled “low,” “medium,” and “high” and place each reason in one sector according to how important it is to you (the X axis) and to the people you plan to teach (the Y axis).</p>
+<ol type="1">
+<li><p>Which points are closely aligned in importance (i.e.&nbsp;on the diagonal in your grid)?</p></li>
+<li><p>Which points are misaligned (i.e.&nbsp;in the off-diagonal corners)?</p></li>
+<li><p>How should this affect what you teach?</p></li>
+</ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Berg2012" class="csl-entry" role="listitem">
+Bergin, Joseph, Jane Chandler, Jutta Eckstein, et al. 2012. <em>Pedagogical Patterns: Advice for Educators</em>. CreateSpace. ISBN 9781479171828. <em>A catalog of design patterns for teaching.</em>
+</div>
+<div id="ref-Broo2016" class="csl-entry" role="listitem">
+Brookfield, Stephen D., and Stephen Preskill. 2016. <em>The Discussion Book: 50 Great Ways to Get People Talking</em>. Jossey-Bass. ISBN 9781119049715. <em>Describes fifty different ways to get groups talking productively.</em>
+</div>
+<div id="ref-Brow2007" class="csl-entry" role="listitem">
+Brown, Michael Jacoby. 2007. <em>Building Powerful Community Organizations: A Personal Guide to Creating Groups That Can Solve Problems and Change the World</em>. Long Haul Press. ISBN 0977151808. <em>A practical guide to creating effective organizations in and for communities.</em>
+</div>
+<div id="ref-Brow2018" class="csl-entry" role="listitem">
+Brown, Neil C. C., and Greg Wilson. 2018. <span>“Ten Quick Tips for Teaching Programming.”</span> <em><span>PLoS</span> Computational Biology</em> 14 (4). <a href="https://doi.org/10.1371/journal.pcbi.1006023">https://doi.org/10.1371/journal.pcbi.1006023</a>. <em>A short summary of what we actually know about teaching programming and why we believe it’s true.</em>
+</div>
+<div id="ref-DeBr2015" class="csl-entry" role="listitem">
+Bruyckere, Pedro De, Paul A. Kirschner, and Casper D. Hulshof. 2015. <em>Urban Myths about Learning and Education</em>. Academic Press. ISBN 9780128015377. <em>Describes and debunks some widely-held myths about how people learn.</em>
+</div>
+<div id="ref-Craw2010" class="csl-entry" role="listitem">
+Crawford, Matthew B. 2010. <em>Shop Class as Soulcraft: An Inquiry into the Value of Work</em>. Penguin. ISBN 9780143117469. <em>A deep analysis of what we learn about ourselves by doing certain kinds of work.</em>
+</div>
+<div id="ref-Dida2016" class="csl-entry" role="listitem">
+Didau, David, and Nick Rose. 2016. <em>What Every Teacher Needs to Know about Psychology</em>. John Catt Educational. ISBN 1909717851. <em>An informative, opinionated explanation of what modern psychology has to say about teaching.</em>
+</div>
+<div id="ref-Finc2019" class="csl-entry" role="listitem">
+Fincher, Sally, and Anthony Robins, eds. 2019. <em>The Cambridge Handbook of Computing Education Research</em>. Cambridge University Press. ISBN 978-1108721899. <em>A 900-page summary of what we know about computing education.</em>
+</div>
+<div id="ref-Gree2014" class="csl-entry" role="listitem">
+Green, Elizabeth. 2014. <em>Building a Better Teacher: How Teaching Works (and How to Teach It to Everyone)</em>. W. W. Norton &amp; Company. ISBN 0393351084. <em>Explains why educational reforms in the past fifty years has mostly missed the mark, and what we should do instead.</em>
+</div>
+<div id="ref-Guzd2015a" class="csl-entry" role="listitem">
+Guzdial, Mark. 2015. <em>Learner-Centered Design of Computing Education: Research on Computing for Everyone</em>. Morgan &amp; Claypool Publishers. ISBN 9781627053518. <em>Argues that we must design computing education for everyone, not just people who think they are going to become professional programmers.</em>
+</div>
+<div id="ref-Hazz2014" class="csl-entry" role="listitem">
+Hazzan, Orit, Tami Lapidot, and Noa Ragonis. 2014. <em>Guide to Teaching Computer Science: An Activity-Based Approach</em>. Second. Springer. ISBN 9781447166290. <em>A textbook for teaching computer science at the K-12 level with dozens of activities.</em>
+</div>
+<div id="ref-Hust2012" class="csl-entry" role="listitem">
+Huston, Therese. 2012. <em>Teaching What You Don’t Know</em>. Harvard University Press. ISBN 0674066170. <em>A pointed, funny, and very useful exploration of exactly what the title says.</em>
+</div>
+<div id="ref-Lang2016" class="csl-entry" role="listitem">
+Lang, James M. 2016. <em>Small Teaching: Everyday Lessons from the Science of Learning</em>. Jossey-Bass. ISBN 9781118944493. <em>Presents a selection of accessible evidence-based practices that teachers can adopt when they have little time and few resources.</em>
+</div>
+<div id="ref-Lemo2014" class="csl-entry" role="listitem">
+Lemov, Doug. 2014. <em>Teach Like a Champion 2.0: 62 Techniques That Put Students on the Path to College</em>. Jossey-Bass. ISBN 1118901851. <em>Presents 62 classroom techniques drawn from intensive study of thousands of hours of video of good teachers in action.</em>
+</div>
+<div id="ref-Majo2015" class="csl-entry" role="listitem">
+Major, Claire Howell, Michael S. Harris, and Tod Zakrajsek. 2015. <em>Teaching for Learning: 101 Intentionally Designed Educational Activities to Put Students on the Path to Success</em>. Routledge. ISBN 0415699363. <em>Catalogs a hundred different kinds of exercises to do with students.</em>
+</div>
+<div id="ref-Mann2015" class="csl-entry" role="listitem">
+Manns, Mary Lynn, and Linda Rising. 2015. <em>Fearless Change: Patterns for Introducing New Ideas</em>. Addison-Wesley. ISBN 9780201741575. <em>A catalog of patterns for making change happen in large organizations.</em>
+</div>
+<div id="ref-McMi2017" class="csl-entry" role="listitem">
+McMillan Cottom, Tressie. 2017. <em>Lower Ed: The Troubling Rise of for-Profit Colleges in the New Economy</em>. The New Press. ISBN 1620970600. <em>Lays bare the dynamics of the growing educational industry to show how it leads to greater inequality rather than less.</em>
+</div>
+<div id="ref-Hpl2018" class="csl-entry" role="listitem">
+National Academies of Sciences, Engineering, and Medicine. 2018. <em>How People Learn II: Learners, Contexts, and Cultures</em>. National Academies Press. ISBN 978-0309459648. <em>A comprehensive survey of what we know about learning.</em>
+</div>
+<div id="ref-Pape1993" class="csl-entry" role="listitem">
+Papert, Seymour A. 1993. <em>Mindstorms: Children, Computers, and Powerful Ideas</em>. Second. Basic Books. ISBN 0465046746. <em>The foundational text on how computers can underpin a new kind of education.</em>
+</div>
+<div id="ref-Rice2018" class="csl-entry" role="listitem">
+Rice, Gail Taylor. 2018. <em>Hitting Pause: 65 Lecture Breaks to Refresh and Reinforce Learning</em>. Stylus Publishing. ISBN 9781620366530. <em>Justifies and catalogs ways to take a pause in class to help learning.</em>
+</div>
+<div id="ref-Sent2018" class="csl-entry" role="listitem">
+Sentance, Sue, Erik Barendsen, and Carsten Schulte, eds. 2018. <em>Computer Science Education: Perspectives on Teaching and Learning in School</em>. Bloomsbury Press. ISBN 135005710X. <em>A collection of academic survey articles on teaching computing.</em>
+</div>
+<div id="ref-Watt2014" class="csl-entry" role="listitem">
+Watters, Audrey. 2014. <em>The Monsters of Education Technology</em>. CreateSpace. ISBN 1505225051. <em>A collection of essays about the history of educational technology and the exaggerated claims repeatedly made for it.</em>
+</div>
+<div id="ref-Wein2018b" class="csl-entry" role="listitem">
+Weinstein, Yana, Megan Sumeracki, and Oliver Caviglioli. 2018. <em>Understanding How We Learn: A Visual Guide</em>. Routledge. ISBN 978-1138561724. <em>A short graphical summary of effective learning strategies.</em>
+</div>
+</div>
 </section>
 </section>
 
@@ -768,10 +947,13 @@ The workshop is a shortened and updated version of material originally developed
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./models.html" class="pagination-link" aria-label="Mental Models and Formative Assessment">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mental Models and Formative Assessment</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -780,4 +962,4 @@ The workshop is a shortened and updated version of material originally developed
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Cognitive Architecture – Teaching Tech Together</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../mccole/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../mccole/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../mccole/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../mccole/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../mccole/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../mccole/site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./individual.html" rel="next">
+<link href="./memory.html" rel="prev">
+<script src="../mccole/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../mccole/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../mccole/site_libs/quarto-html/popper.min.js"></script>
+<script src="../mccole/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../mccole/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../mccole/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../mccole/site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../mccole/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../mccole/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../mccole/site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../mccole/book.css">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./architecture.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cognitive Architecture</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Teaching Tech Together</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gvwilson/t3" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mental Models and Formative Assessment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Expertise and Memory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cognitive Architecture</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Individual Learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Lesson Design Process</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pedagogical Content Knowledge</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./performance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Teaching as a Performance Art</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classroom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">In the Classroom</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./motivation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Motivation and Demotivation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./online.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Teaching Online</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercise Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./community.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Building a Community of Practice</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./outreach.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Outreach</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Why I Teach</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">License</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conduct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code of Conduct</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Joining Our Community</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./meetings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Meetings, Meetings, Meetings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./checklists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Checklists and Templates</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conceptmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Example Concept Maps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chunking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Chunking Exercise Solution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-architecture-brain" id="toc-sec-architecture-brain" class="nav-link active" data-scroll-target="#sec-architecture-brain"><span class="header-section-number">4.1</span> What’s Going On In There?</a></li>
+  <li><a href="#sec-architecture-load" id="toc-sec-architecture-load" class="nav-link" data-scroll-target="#sec-architecture-load"><span class="header-section-number">4.2</span> Cognitive Load</a>
+  <ul class="collapse">
+  <li><a href="#parsons-problems" id="toc-parsons-problems" class="nav-link" data-scroll-target="#parsons-problems">Parsons Problems</a></li>
+  <li><a href="#faded-examples" id="toc-faded-examples" class="nav-link" data-scroll-target="#faded-examples">Faded Examples</a></li>
+  <li><a href="#labeled-subgoals" id="toc-labeled-subgoals" class="nav-link" data-scroll-target="#labeled-subgoals">Labeled Subgoals</a></li>
+  <li><a href="#minimal-manuals" id="toc-minimal-manuals" class="nav-link" data-scroll-target="#minimal-manuals">Minimal Manuals</a></li>
+  </ul></li>
+  <li><a href="#sec-architecture-theory" id="toc-sec-architecture-theory" class="nav-link" data-scroll-target="#sec-architecture-theory"><span class="header-section-number">4.3</span> Other Models of Learning</a></li>
+  <li><a href="#sec-architecture-exercises" id="toc-sec-architecture-exercises" class="nav-link" data-scroll-target="#sec-architecture-exercises"><span class="header-section-number">4.4</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#create-a-faded-example-pairs30-min" id="toc-create-a-faded-example-pairs30-min" class="nav-link" data-scroll-target="#create-a-faded-example-pairs30-min"><span class="header-section-number">4.4.1</span> Create a Faded Example (pairs/30 min)</a></li>
+  <li><a href="#classifying-load-small-groups15-min" id="toc-classifying-load-small-groups15-min" class="nav-link" data-scroll-target="#classifying-load-small-groups15-min"><span class="header-section-number">4.4.2</span> Classifying Load (small groups/15 min)</a></li>
+  <li><a href="#create-a-parsons-problem-pairs20-min" id="toc-create-a-parsons-problem-pairs20-min" class="nav-link" data-scroll-target="#create-a-parsons-problem-pairs20-min"><span class="header-section-number">4.4.3</span> Create a Parsons Problem (pairs/20 min)</a></li>
+  <li><a href="#minimal-manuals-individual20-min" id="toc-minimal-manuals-individual20-min" class="nav-link" data-scroll-target="#minimal-manuals-individual20-min"><span class="header-section-number">4.4.4</span> Minimal Manuals (individual/20 min)</a></li>
+  <li><a href="#cognitive-apprenticeship-pairs15-min" id="toc-cognitive-apprenticeship-pairs15-min" class="nav-link" data-scroll-target="#cognitive-apprenticeship-pairs15-min"><span class="header-section-number">4.4.5</span> Cognitive Apprenticeship (pairs/15 min)</a></li>
+  <li><a href="#worked-examples-pairs15-min" id="toc-worked-examples-pairs15-min" class="nav-link" data-scroll-target="#worked-examples-pairs15-min"><span class="header-section-number">4.4.6</span> Worked Examples (pairs/15 min)</a></li>
+  <li><a href="#critiquing-graphics-individual30-min" id="toc-critiquing-graphics-individual30-min" class="nav-link" data-scroll-target="#critiquing-graphics-individual30-min"><span class="header-section-number">4.4.7</span> Critiquing Graphics (individual/30 min)</a></li>
+  </ul></li>
+  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/architecture.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-architecture" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cognitive Architecture</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We have been talking about mental models as if they were real things, but what actually goes on in a learner’s brain when they’re learning? The short answer is that we don’t know; the longer answer is that we know a lot more than we used to. This chapter will dig a little deeper into what brains do while they’re learning and how we can leverage that to design and deliver lessons more effectively.</p>
+<section id="sec-architecture-brain" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-architecture-brain"><span class="header-section-number">4.1</span> What’s Going On In There?</h2>
+<div id="fig-arch-model" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-arch-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/cognitive-architecture.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-arch-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Cognitive architecture
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-arch-model" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> is a simplified model of human cognitive architecture. The core of this model is the separation between short-term and long-term memory discussed in <a href="memory.html#sec-memory-seven-plus-or-minus" class="quarto-xref"><span>Section 3.2</span></a>. Long-term memory is like your basement: it stores things more or less permanently, but you can’t access its contents directly. Instead, you rely on your short-term memory, which is the cluttered kitchen table of your mind.</p>
+<p>When you need something, your brain retrieves it from long-term memory and puts it in short-term memory. Conversely, new information that arrives in short-term memory has to be encoded to be stored in long-term memory. If that information isn’t encoded and stored, it’s not remembered and learning hasn’t taken place.</p>
+<p>Information gets into short-term memory primarily through your verbal channel (for speech) and visual channel (for images)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Most people rely primarily on their visual channel, but when images and words complement each other, the brain does a better job of remembering them both: they are encoded together, so recall of one later on helps trigger recall of the other.</p>
+<p>Linguistic and visual input are processed by different parts of the human brain, and linguistic and visual memories are stored separately as well. This means that correlating linguistic and visual streams of information takes cognitive effort: when someone reads something while hearing it spoken aloud, their brain can’t help but check that it’s getting the same information on both channels.</p>
+<p>Learning is therefore increased when information is presented simultaneously in two different channels, but is reduced when that information is redundant rather than complementary, a phenomenon called the <a href="../glossary/index.html#split-attention-effect">split-attention effect</a> <span class="citation" data-cites="Maye2003">(<a href="bibliography.html#ref-Maye2003" role="doc-biblioref">Mayer and Moreno 2003</a>)</span>. For example, people generally find it harder to learn from a video that has both narration and on-screen captions than from one that has either the narration or the captions but not both, because some of their attention has to be devoted to checking that the narration and the captions agree with each other. Two notable exceptions to this are people who do not yet speak the language well and people with hearing impairments or other special needs, both of whom may find that the value of the redundant information outweighs the extra processing effort.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Piece by Piece">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Piece by Piece
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The split attention effect explains why it’s more effective to draw a diagram piece by piece while teaching than to present the whole thing at once. If parts of the diagram appear at the same time as things are being said, the two will be correlated in the learner’s memory. Pointing at part of the diagram later is then more likely to trigger recall of what was being said when that part was being drawn.</p>
+</div>
+</div>
+<p>The split-attention effect does <em>not</em> mean that learners shouldn’t try to reconcile multiple incoming streams of information—after all, this is what they have to do in the real world <span class="citation" data-cites="Atki2000">(<a href="bibliography.html#ref-Atki2000" role="doc-biblioref">Atkinson et al. 2000</a>)</span>. Instead, it means that instruction shouldn’t require people to do it while they are first mastering unit skills; instead, using multiple sources of information simultaneously should be treated as a separate learning task.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Not All Graphics are Created Equal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Not All Graphics are Created Equal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="citation" data-cites="Sung2012">(<a href="bibliography.html#ref-Sung2012" role="doc-biblioref">Sung and Mayer 2012</a>)</span> presents an elegant study that distinguishes <em>seductive</em> graphics (which are highly interesting but not directly relevant to the instructional goal), <em>decorative</em> graphics (which are neutral but not directly relevant to the instructional goal), and <em>instructive</em> graphics (which are directly relevant to the instructional goal). Learners who received any kind of graphic gave material higher satisfaction ratings than those who didn’t get graphics, but only learners who got instructive graphics actually performed better.</p>
+<p>Similarly, <span class="citation" data-cites="Stam2013">Stampfer Wiese and Koedinger (<a href="bibliography.html#ref-Stam2014" role="doc-biblioref">2014</a>)</span> found that having more information can actually lower performance. They showed children pictures, pictures and numbers, or just numbers for two tasks. For some, having pictures or pictures and numbers outperformed having numbers only, but for others, having pictures outperformed pictures and numbers, which outperformed just having numbers.</p>
+</div>
+</div>
+</section>
+<section id="sec-architecture-load" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-architecture-load"><span class="header-section-number">4.2</span> Cognitive Load</h2>
+<p>In <span class="citation" data-cites="Kirs2006">(<a href="bibliography.html#ref-Kirs2006" role="doc-biblioref">Kirschner et al. 2006</a>)</span>, Kirschner, Sweller and Clark wrote:</p>
+<blockquote class="blockquote">
+<p>Although unguided or minimally guided instructional approaches are very popular and intuitively appealing…these approaches ignore both the structures that constitute human cognitive architecture and evidence from empirical studies over the past half-century that consistently indicate that minimally guided instruction is less effective and less efficient than instructional approaches that place a strong emphasis on guidance of the student learning process. The advantage of guidance begins to recede only when learners have sufficiently high prior knowledge to provide “internal” guidance.</p>
+</blockquote>
+<p>Beneath the jargon, the authors were claiming that having learners ask their own questions, set their own goals, and find their own path through a subject is less effective than showing them how to do things step by step. The “choose your own adventure” approach is known as <a href="../glossary/index.html#inquiry-based-learning">inquiry-based learning</a>, and is intuitively appealing: after all, who would argue <em>against</em> having learners use their own initiative to solve real-world problems in realistic ways? However, asking learners to do this in a new domain overloads them by requiring them to master a domain’s factual content and its problem-solving strategies at the same time.</p>
+<p>More specifically, <a href="../glossary/index.html#cognitive-load">cognitive load theory</a> proposed that people have to deal with three things when they’re learning:</p>
+<dl>
+<dt><a href="../glossary/index.html#intrinsic-load">Intrinsic load</a></dt>
+<dd>
+is what people have to keep in mind in order to absorb new material.
+</dd>
+<dt><a href="../glossary/index.html#germane-load">Germane Load</a></dt>
+<dd>
+is the (desirable) mental effort required to link new information to old, which is one of the things that distinguishes learning from memorization.
+</dd>
+<dt><a href="../glossary/index.html#extraneous-load">Extraneous Load</a></dt>
+<dd>
+is anything that distracts from learning.
+</dd>
+</dl>
+<p>Cognitive load theory holds that people have to divide a fixed amount of working memory between these three things. Our goal as teachers is to maximize the memory available to handle intrinsic load, which means reducing the germane load at each step and eliminating the extraneous load.</p>
+<section id="parsons-problems" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="parsons-problems">Parsons Problems</h3>
+<p>One kind of exercise that can be explained in terms of cognitive load is often used when teaching languages. Suppose you ask someone to translate the sentence, “How is her knee today?” into Frisian. To solve the problem, they need to recall both vocabulary and grammar, which is a double cognitive load. If you ask them to put “hoe,” “har,” “is,” “hjoed,” and “knie” in the right order, on the other hand, you are allowing them to focus solely on learning grammar. If you write these words in five different fonts or colors, though, you have increased the extraneous cognitive load, because they will involuntarily (and possibly unconsciously) expend some effort trying to figure out if the differences are meaningful (<a href="#fig-architecture-frisian" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>).</p>
+<div id="fig-architecture-frisian" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-architecture-frisian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/frisian.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-architecture-frisian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Constructing a sentence
+</figcaption>
+</figure>
+</div>
+<p>The coding equivalent of this is called a <a href="../glossary/index.html#parsons-problem">Parsons Problem</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="citation" data-cites="Pars2006">(<a href="bibliography.html#ref-Pars2006" role="doc-biblioref">Parsons and Haden 2006</a>)</span>. When teaching people to program, you can give them the lines of code they need to solve a problem and ask them to put them in the right order. This allows them to concentrate on control flow and data dependencies without being distracted by variable naming or trying to remember what functions to call. Multiple studies have shown that Parsons Problems take less time for learners to do but produce equivalent educational outcomes <span class="citation" data-cites="Eric2017">(<a href="bibliography.html#ref-Eric2017" role="doc-biblioref">Ericson et al. 2017</a>)</span>.</p>
+</section>
+<section id="faded-examples" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="faded-examples">Faded Examples</h3>
+<p>Another type of exercise that can be explained in terms of cognitive load is to give learners a series of <a href="../glossary/index.html#faded-example">faded examples</a>. The first example in a series presents a complete use of a particular problem-solving strategy. The next problem is of the same type, but has some gaps for the learner to fill in. Each successive problem gives the learner less <a href="../glossary/index.html#scaffolding">scaffolding</a>, until they are asked to solve a complete problem from scratch. When teaching high school algebra, for example, we might start with this:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">(4x + 8)/2</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4x + 8</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">2 * 5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4x + 8</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">10 - 8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">2 / 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">1 / 2</td>
+</tr>
+</tbody>
+</table>
+<p>and then ask learners to solve this:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">(3x - 1)*3</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3x - 1</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_ / _</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3x - 1</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_ / 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+</tbody>
+</table>
+<p>and this:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">(5x + 1)*3</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5x + 1</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+</tbody>
+</table>
+<p>and finally this:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">(2x + 8)/4</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">x</td>
+<td style="text-align: center;">=</td>
+<td style="text-align: left;">_</td>
+</tr>
+</tbody>
+</table>
+<p>A similar exercise for teaching Python might start by showing learners how to find the total length of a list of words:</p>
+<pre class="text"><code># total_length(["red", "green", "blue"]) =&gt; 12
+define total_length(list_of_words):
+    total = 0
+    for word in list_of_words:
+        total = total + length(word)
+    return total</code></pre>
+<p>and then ask them to fill in the blanks in this (which focuses their attention on control structures):</p>
+<pre class="text"><code># word_lengths(["red", "green", "blue"]) =&gt; [3, 5, 4]
+define word_lengths(list_of_words):
+    list_of_lengths = []
+    for ____ in ____:
+        append(list_of_lengths, ____)
+    return list_of_lengths</code></pre>
+<p>The next problem might be this (which focuses their attention on updating the final result):</p>
+<pre class="text"><code># join_all(["red", "green", "blue"]) =&gt; "redgreenblue"
+define join_all(list_of_words):
+    joined_words = ____
+    for ____ in ____:
+        ____
+    return joined_words</code></pre>
+<p>Learners would finally be asked to write an entire function on their own:</p>
+<pre class="text"><code># make_acronym(["red", "green", "blue"]) =&gt; "RGB"
+define make_acronym(list_of_words):
+    ____</code></pre>
+<p>Faded examples work because they introduce the problem-solving strategy piece by piece: at each step, learners have one new problem to tackle, which is less intimidating than a blank screen or a blank sheet of paper (<a href="classroom.html#sec-classroom-practices" class="quarto-xref"><span>Section 9.11</span></a>). It also encourages learners to think about the similarities and differences between various approaches, which helps create the linkages in their mental models that help retrieval.</p>
+<p>The key to constructing a good faded example is to think about the problem-solving strategy it is meant to teach. For example, the programming problems above all use the accumulator design pattern, in which the results of processing items from a collection are repeatedly added to a single variable in some way to create the final result.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Cognitive Apprenticeship">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cognitive Apprenticeship
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An alternative model of learning and instruction that also uses scaffolding and fading is <a href="../glossary/index.html#cognitive-apprenticeship">cognitive apprenticeship</a>, which emphasizes the way in which a master passes on skills and insights to an apprentice. The master provides models of performance and outcomes, then coaches novices by explaining what they are doing and why <span class="citation" data-cites="Coll1991">Caspersen and Bennedsen (<a href="bibliography.html#ref-Casp2007" role="doc-biblioref">2007</a>)</span>. The apprentice reflects on their own problem solving, e.g.&nbsp;by thinking aloud or critiquing their own work, and eventually explores problems of their own choosing.</p>
+<p>This model tells us that teachers should present several examples when presenting a new idea so that learners can see what to generalize, and that we should vary the form of the problem to make it clear what are and aren’t superficial features<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Problems should be presented in real-world contexts, and we should encourage self-explanation to help learners organize and make sense of what they have just been taught (<a href="individual.html#sec-individual-strategies" class="quarto-xref"><span>Section 5.1</span></a>).</p>
+</div>
+</div>
+</section>
+<section id="labeled-subgoals" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="labeled-subgoals">Labeled Subgoals</h3>
+<p><a href="../glossary/index.html#subgoal-labeling">Labeling subgoals</a> means giving names to the steps in a step-by-step description of a problem-solving process. <span class="citation" data-cites="Marg2016">Morrison et al. (<a href="bibliography.html#ref-Morr2016" role="doc-biblioref">2016</a>)</span> found that learners with labeled subgoals solved Parsons Problems better than learners without, and the same benefit is seen in other domains <span class="citation" data-cites="Marg2012">(<a href="bibliography.html#ref-Marg2012" role="doc-biblioref">Margulieux et al. 2012</a>)</span>. Returning to the Python example used earlier, the subgoals in finding the total length of a list of words or constructing an acronym are:</p>
+<ol type="1">
+<li><p>Create an empty value of the type to be returned.</p></li>
+<li><p>Get the value to be added to the result from the loop variable.</p></li>
+<li><p>Update the result with that value.</p></li>
+</ol>
+<p>Labeling subgoals works because grouping related steps into named chunks (<a href="memory.html#sec-memory-seven-plus-or-minus" class="quarto-xref"><span>Section 3.2</span></a>) helps learners distinguish what’s generic from what is specific to the problem at hand. It also helps them build a mental model of that kind of problem so that they can solve other problems of that kind, and gives them a natural opportunity for self-explanation (<a href="individual.html#sec-individual-strategies" class="quarto-xref"><span>Section 5.1</span></a>).</p>
+</section>
+<section id="minimal-manuals" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="minimal-manuals">Minimal Manuals</h3>
+<p>The purest application of cognitive load theory may be John Carroll’s <a href="../glossary/index.html#minimal-manual">minimal manual</a> <span class="citation" data-cites="Carr1987">Carroll (<a href="bibliography.html#ref-Carr2014" role="doc-biblioref">2014</a>)</span>. Its starting point is a quote from a user: “I want to do something, not learn how to do everything.” Carroll and colleagues redesigned training to present every idea as a single-page self-contained task: a title describing what the page was about, step-by-step instructions of how to do just one thing (e.g.&nbsp;how to delete a blank line in a text editor), and then several notes on how to recognize and debug common problems. They found that rewriting training materials this way made them shorter overall, and that people using them learned faster. Later studies confirmed that this approach outperformed the traditional approach regardless of prior experience with computers <span class="citation" data-cites="Lazo1993">(<a href="bibliography.html#ref-Lazo1993" role="doc-biblioref"><span class="nocase">Lazonder and van der Meij</span> 1993</a>)</span>. <span class="citation" data-cites="Carr2014">(<a href="bibliography.html#ref-Carr2014" role="doc-biblioref">Carroll 2014</a>)</span> summarized this work by saying:</p>
+<blockquote class="blockquote">
+<p>Our “minimalist” designs sought to leverage user initiative and prior knowledge, instead of controlling it through warnings and ordered steps. It emphasized that users typically bring much expertise and insight to this learning, for example, knowledge about the task domain, and that such knowledge could be a resource to instructional designers. Minimalism leveraged episodes of error recognition, diagnosis, and recovery, instead of attempting to merely forestall error. It framed troubleshooting and recovery as learning opportunities instead of as aberrations.</p>
+</blockquote>
+</section>
+</section>
+<section id="sec-architecture-theory" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-architecture-theory"><span class="header-section-number">4.3</span> Other Models of Learning</h2>
+<p>Critics of cognitive load theory have sometimes argued that any result can be justified after the fact by labeling things that hurt performance as extraneous load and things that don’t as intrinsic or germane. However, instruction based on cognitive load theory is undeniably effective. For example, <span class="citation" data-cites="Maso2016">(<a href="bibliography.html#ref-Maso2016" role="doc-biblioref">Mason et al. 2016</a>)</span> redesigned a database course to remove split attention and redundancy effects and to provide worked examples and sub-goals. The new course reduced the exam failure rate by 34% and increased learner satisfaction.</p>
+<p>A decade after the publication of <span class="citation" data-cites="Kirs2006">(<a href="bibliography.html#ref-Kirs2006" role="doc-biblioref">Kirschner et al. 2006</a>)</span>, a growing number of people believe that cognitive load theory and inquiry-based approaches are compatible if viewed in the right way. <span class="citation" data-cites="Kaly2015">(<a href="bibliography.html#ref-Kaly2015" role="doc-biblioref">Kalyuga and Singh 2015</a>)</span> argues that cognitive load theory is basically micro-management of learning within a broader context that considers things like motivation, while <span class="citation" data-cites="Kirs2018">(<a href="bibliography.html#ref-Kirs2018" role="doc-biblioref">Kirschner et al. 2018</a>)</span> extends cognitive load theory to include collaborative aspects of learning. As with <span class="citation" data-cites="Mark2018">(<a href="bibliography.html#ref-Mark2018" role="doc-biblioref">Markovits and Weinstein 2018</a>)</span> (discussed in <a href="individual.html#sec-individual-strategies" class="quarto-xref"><span>Section 5.1</span></a>), researchers’ perspectives may differ, but the practical implementation of their theories often wind up being the same.</p>
+<p>One of the challenges in educational research is that what we mean by “learning” turns out to be complicated once you look beyond the standardized Western classroom. Two specific perspectives from <a href="../glossary/index.html#educational-psychology">educational psychology</a> have influenced this book. The one we have used so far is <a href="../glossary/index.html#cognitivism">cognitivism</a>, which focuses on things like pattern recognition, memory formation, and recall. It is good at answering low-level questions, but generally ignores larger issues like, “What do we mean by ‘learning’?” and, “Who gets to decide?” The other is <a href="../glossary/index.html#situated-learning">situated learning</a>, which focuses on bringing people into a community and recognizes that teaching and learning are always rooted in who we are and who we aspire to be. We will discuss it in more detail in <a href="community.html" class="quarto-xref"><span>Chapter 13</span></a>.</p>
+<p>The <a href="http://www.learning-theories.com/">Learning Theories website</a> and <span class="citation" data-cites="Wibu2016">(<a href="bibliography.html#ref-Wibu2016" role="doc-biblioref">Wiburg et al. 2016</a>)</span> have good summaries of these and other perspectives. Besides cognitivism, those encountered most frequently include <a href="../glossary/index.html#behaviorism">behaviorism</a> (which treats education as stimulus/response conditioning), <a href="../glossary/index.html#constructivism">constructivism</a> (which considers learning an active process during which learners construct knowledge for themselves), and <a href="../glossary/index.html#connectivism">connectivism</a> (which holds that knowledge is distributed, that learning is the process of navigating, growing, and pruning connections, and which emphasizes the social aspects of learning made possible by the internet). These perspectives can help us organize our thoughts, but in practice, we always have to try new methods in the class, with actual learners, in order to find out how well they balance the many forces in play.</p>
+</section>
+<section id="sec-architecture-exercises" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-architecture-exercises"><span class="header-section-number">4.4</span> Exercises</h2>
+<section id="create-a-faded-example-pairs30-min" class="level3 exercise" data-number="4.4.1">
+<h3 class="exercise anchored" data-number="4.4.1" data-anchor-id="create-a-faded-example-pairs30-min"><span class="header-section-number">4.4.1</span> Create a Faded Example (pairs/30 min)</h3>
+<p>It’s very common for programs to count how many things fall into different categories: for example, how many times different colors appear in an image, or how many times different words appear in a paragraph of text.</p>
+<ol type="1">
+<li><p>Create a short example (no more than 10 lines of code) that shows people how to do this, and then create a second example that solves a similar problem in a similar way but has a couple of blanks for learners to fill in. How did you decide what to fade out? What would the next example in the series be?</p></li>
+<li><p>Define the audience for your examples. For example, are these beginners who only know some basics programming concepts? Or are these learners with some experience in programming?</p></li>
+<li><p>Show your example to a partner, but do <em>not</em> tell them what level you think it is for. Once they have filled in the blanks, ask them to guess the intended level.</p></li>
+</ol>
+<p>If there are people among the trainees who don’t program at all, try to place them in different groups and have them play the part of learners for those groups. Alternatively, choose a different problem domain and develop a faded example for it.</p>
+</section>
+<section id="classifying-load-small-groups15-min" class="level3 exercise" data-number="4.4.2">
+<h3 class="exercise anchored" data-number="4.4.2" data-anchor-id="classifying-load-small-groups15-min"><span class="header-section-number">4.4.2</span> Classifying Load (small groups/15 min)</h3>
+<ol type="1">
+<li><p>Choose a short lesson that a member of your group has taught or taken recently.</p></li>
+<li><p>Make a point-form list of the ideas, instructions, and explanations it contains.</p></li>
+<li><p>Classify each as intrinsic, germane, or extraneous. What did you all agree on? Where did you disagree and why?</p></li>
+</ol>
+<p>(The exercise “Noticing Your Blind Spot” in <a href="memory.html#sec-memory-exercises" class="quarto-xref"><span>Section 3.4</span></a> will give you an idea of how detailed your point-form list should be.)</p>
+</section>
+<section id="create-a-parsons-problem-pairs20-min" class="level3 exercise" data-number="4.4.3">
+<h3 class="exercise anchored" data-number="4.4.3" data-anchor-id="create-a-parsons-problem-pairs20-min"><span class="header-section-number">4.4.3</span> Create a Parsons Problem (pairs/20 min)</h3>
+<p>Write five or six lines of code that does something useful, jumble them, and ask your partner to put them in order. If you are using an indentation-based language like Python, do not indent any of the lines; if you are using a curly-brace language like Java, do not include any of the curly braces. (If your group includes people who aren’t programmers, use a different problem domain, such as making banana bread.)</p>
+</section>
+<section id="minimal-manuals-individual20-min" class="level3 exercise" data-number="4.4.4">
+<h3 class="exercise anchored" data-number="4.4.4" data-anchor-id="minimal-manuals-individual20-min"><span class="header-section-number">4.4.4</span> Minimal Manuals (individual/20 min)</h3>
+<p>Write a one-page guide to doing something that your learners might encounter in one of your classes, such as centering text horizontally or printing a number with a certain number of digits after the decimal point. Try to list at least three or four incorrect behaviors or outcomes the learner might see and include a one- or two-line explanation of why each happens and how to correct it.</p>
+</section>
+<section id="cognitive-apprenticeship-pairs15-min" class="level3 exercise" data-number="4.4.5">
+<h3 class="exercise anchored" data-number="4.4.5" data-anchor-id="cognitive-apprenticeship-pairs15-min"><span class="header-section-number">4.4.5</span> Cognitive Apprenticeship (pairs/15 min)</h3>
+<p>Pick a coding problem that you can do in two or three minutes and think aloud as you work through it while your partner asks questions about what you’re doing and why. Do not just explain what you’re doing, but also why you’re doing it, how you know it’s the right thing to do, and what alternatives you’ve considered but discarded. When you are done, swap roles with your partner and repeat the exercise.</p>
+</section>
+<section id="worked-examples-pairs15-min" class="level3 exercise" data-number="4.4.6">
+<h3 class="exercise anchored" data-number="4.4.6" data-anchor-id="worked-examples-pairs15-min"><span class="header-section-number">4.4.6</span> Worked Examples (pairs/15 min)</h3>
+<p>Seeing worked examples helps people learn to program faster than just writing lots of code <span class="citation" data-cites="Skud2014">(<a href="bibliography.html#ref-Skud2014" role="doc-biblioref">Skudder and Luxton-Reilly 2014</a>)</span>, and deconstructing code by tracing it or debugging it also increases learning <span class="citation" data-cites="Grif2016">(<a href="bibliography.html#ref-Grif2016" role="doc-biblioref">Griffin 2016</a>)</span>. Working in pairs, go through a 10–15 line piece of code and explain what every statement does and why it is necessary. How long does it take? How many things do you feel you need to explain per line of code?</p>
+</section>
+<section id="critiquing-graphics-individual30-min" class="level3 exercise" data-number="4.4.7">
+<h3 class="exercise anchored" data-number="4.4.7" data-anchor-id="critiquing-graphics-individual30-min"><span class="header-section-number">4.4.7</span> Critiquing Graphics (individual/30 min)</h3>
+<p><span class="citation" data-cites="Maye2009">Miller (<a href="bibliography.html#ref-Mill2016a" role="doc-biblioref">2016</a>)</span> presents six principles for good teaching graphics:</p>
+<dl>
+<dt>Signalling</dt>
+<dd>
+visually highlight the most important points so that they stand out from less-critical material.
+</dd>
+<dt>Spatial contiguity</dt>
+<dd>
+place captions as close to the graphics as practical to offset the cost of shifting between the two.
+</dd>
+<dt>Temporal contiguity</dt>
+<dd>
+present spoken narration and graphics as close in time as practical. (Presenting both at once is better than presenting them one after another.)
+</dd>
+<dt>Segmenting</dt>
+<dd>
+when presenting a long sequence of material or when learners are inexperienced with the subject, break the presentation into short segments and let learners control how quickly they advance from to the next.
+</dd>
+<dt>Pre-training</dt>
+<dd>
+if learners don’t know the major concepts and terminology used in your presentation, teach just those concepts and terms beforehand.
+</dd>
+<dt>Modality</dt>
+<dd>
+people learn better from pictures plus narration than from pictures plus text, unless they are non-native speakers or there are technical words or symbols.
+</dd>
+</dl>
+<p>Choose a video of a lesson or talk online that uses slides or other static presentations and rate its graphics as “poor,” “average,” or “good” according to these six criteria.</p>
+</section>
+</section>
+<section id="review" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="review">Review</h2>
+<div id="fig-architecture-cognitive-load" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-architecture-cognitive-load-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/conceptmap-cognitive-load.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-architecture-cognitive-load-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Concepts: Cognitive load
+</figcaption>
+</figure>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Atki2000" class="csl-entry" role="listitem">
+Atkinson, Robert K., Sharon J. Derry, Alexander Renkl, and Donald Wortham. 2000. <span>“Learning from Examples: Instructional Principles from the Worked Examples Research.”</span> <em>Review of Educational Research</em> 70 (2): 181–214. <a href="https://doi.org/10.3102/00346543070002181">https://doi.org/10.3102/00346543070002181</a>. <em>A comprehensive survey of worked examples research at the time.</em>
+</div>
+<div id="ref-Carr2014" class="csl-entry" role="listitem">
+Carroll, John. 2014. <span>“Creating Minimalist Instruction.”</span> <em>International Journal of Designs for Learning</em> 5 (2). <a href="https://doi.org/10.14434/ijdl.v5i2.12887">https://doi.org/10.14434/ijdl.v5i2.12887</a>. <em>A look back on the author’s work on minimalist instruction.</em>
+</div>
+<div id="ref-Carr1987" class="csl-entry" role="listitem">
+Carroll, John, Penny Smith-Kerker, James Ford, and Sandra Mazur-Rimetz. 1987. <span>“The Minimal Manual.”</span> <em>Human-Computer Interaction</em> 3 (2): 123–53. <a href="https://doi.org/10.1207/s15327051hci0302_2">https://doi.org/10.1207/s15327051hci0302_2</a>. <em>The foundational paper on minimalist instruction.</em>
+</div>
+<div id="ref-Casp2007" class="csl-entry" role="listitem">
+Caspersen, Michael E., and Jens Bennedsen. 2007. <span>“Instructional Design of a Programming Course.”</span> <em>2007 International Computing Education Research Conference (<span>ICER’07</span>)</em>. <a href="https://doi.org/10.1145/1288580.1288595">https://doi.org/10.1145/1288580.1288595</a>. <em>Goes from a model of human cognition to three learning theories, and from there to the design of an introductory object-oriented programming course.</em>
+</div>
+<div id="ref-Coll1991" class="csl-entry" role="listitem">
+Collins, Allan, John Seely Brown, and Ann Holum. 1991. <span>“Cognitive Apprenticeship: Making Thinking Visible.”</span> <em>American Educator</em> 6: 38–46. <em>Describes an educational model based on the notion of apprenticeship and master guidance.</em>
+</div>
+<div id="ref-Eric2017" class="csl-entry" role="listitem">
+Ericson, Barbara J., Lauren E. Margulieux, and Jochen Rick. 2017. <span>“Solving <span>Parsons Problems</span> Versus Fixing and Writing Code.”</span> <em>2017 Koli Calling Conference on Computing Education Research (<span>Koli’17</span>)</em>. <a href="https://doi.org/10.1145/3141880.3141895">https://doi.org/10.1145/3141880.3141895</a>. <em>Reports that solving 2D Parsons problems with distractors takes less time than writing or fixing code but has equivalent learning outcomes.</em>
+</div>
+<div id="ref-Grif2016" class="csl-entry" role="listitem">
+Griffin, Jean M. 2016. <span>“Learning by Taking Apart.”</span> <em>2016 Conference on Information Technology Education (<span>SIGITE’16</span>)</em>. <a href="https://doi.org/10.1145/2978192.2978231">https://doi.org/10.1145/2978192.2978231</a>. <em>Reports that people learn to program more quickly by deconstructing code than by writing it.</em>
+</div>
+<div id="ref-Kaly2015" class="csl-entry" role="listitem">
+Kalyuga, Slava, and Anne-Marie Singh. 2015. <span>“Rethinking the Boundaries of Cognitive Load Theory in Complex Learning.”</span> <em>Educational Psychology Review</em> 28 (4): 831–52. <a href="https://doi.org/10.1007/s10648-015-9352-0">https://doi.org/10.1007/s10648-015-9352-0</a>. <em>Argues that cognitive load theory is basically micro-management within a broader pedagogical context.</em>
+</div>
+<div id="ref-Kirs2006" class="csl-entry" role="listitem">
+Kirschner, Paul A., John Sweller, and Richard E. Clark. 2006. <span>“Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching.”</span> <em>Educational Psychologist</em> 41 (2): 75–86. <a href="https://doi.org/10.1207/s15326985ep4102_1">https://doi.org/10.1207/s15326985ep4102_1</a>. <em>Argues that inquiry-based learning is less effective for novices than guided instruction.</em>
+</div>
+<div id="ref-Kirs2018" class="csl-entry" role="listitem">
+Kirschner, Paul A., John Sweller, Femke Kirschner, and Jimmy Zambrano R. 2018. <span>“From Cognitive Load Theory to Collaborative Cognitive Load Theory.”</span> <em>International Journal of Computer-Supported Collaborative Learning</em>, ahead of print, April. <a href="https://doi.org/10.1007/s11412-018-9277-y">https://doi.org/10.1007/s11412-018-9277-y</a>. <em>Extends cognitive load theory to include collaborative aspects of learning.</em>
+</div>
+<div id="ref-Lazo1993" class="csl-entry" role="listitem">
+<span class="nocase">Lazonder, Ard W., and Hans van der Meij</span>. 1993. <span>“The Minimal Manual: Is Less Really More?”</span> <em>International Journal of Man-Machine Studies</em> 39 (5): 729–52. <a href="https://doi.org/10.1006/imms.1993.1081">https://doi.org/10.1006/imms.1993.1081</a>. <em>Reports that the minimal manual approach to instruction outperforms traditional approaches regardless of prior experience with computers.</em>
+</div>
+<div id="ref-Marg2016" class="csl-entry" role="listitem">
+Margulieux, Lauren E., Richard Catrambone, and Mark Guzdial. 2016. <span>“Employing Subgoals in Computer Programming Education.”</span> <em>Computer Science Education</em> 26 (1): 44–67. <a href="https://doi.org/10.1080/08993408.2016.1144429">https://doi.org/10.1080/08993408.2016.1144429</a>. <em>Reports that labelled subgoals improve learning outcomes in introductory computing courses.</em>
+</div>
+<div id="ref-Marg2012" class="csl-entry" role="listitem">
+Margulieux, Lauren E., Mark Guzdial, and Richard Catrambone. 2012. <span>“Subgoal-Labeled Instructional Material Improves Performance and Transfer in Learning to Develop Mobile Applications.”</span> <em>2012 International Computing Education Research Conference (<span>ICER’12</span>)</em>, 71–78. <a href="https://doi.org/10.1145/2361276.2361291">https://doi.org/10.1145/2361276.2361291</a>. <em>Reports that labelled subgoals improve outcomes and transference when learning about mobile app development.</em>
+</div>
+<div id="ref-Mark2018" class="csl-entry" role="listitem">
+Markovits, Rebecca A., and Yana Weinstein. 2018. <span>“Can Cognitive Processes Help Explain the Success of Instructional Techniques Recommended by Behavior Analysts?”</span> <em>NPJ Science of Learning</em> 3 (1). <a href="https://doi.org/10.1038/s41539-017-0018-1">https://doi.org/10.1038/s41539-017-0018-1</a>. <em>Points out that behavioralists and cognitive psychologists differ in approach, but wind up making very similar recommendations about how to teach, and gives two specific examples.</em>
+</div>
+<div id="ref-Maso2016" class="csl-entry" role="listitem">
+Mason, Raina, Carolyn Seton, and Graham Cooper. 2016. <span>“Applying Cognitive Load Theory to the Redesign of a Conventional Database Systems Course.”</span> <em>Computer Science Education</em> 26 (1): 68–87. <a href="https://doi.org/10.1080/08993408.2016.1160597">https://doi.org/10.1080/08993408.2016.1160597</a>. <em>Reports how redesigning a database course using cognitive load theory reduced exam failure rate while increasing student satisfaction.</em>
+</div>
+<div id="ref-Maye2009" class="csl-entry" role="listitem">
+Mayer, Richard E. 2009. <em>Multimedia Learning</em>. Second. Cambridge University Press. ISBN 9780521735353. <em>Presents a cognitive theory of multimedia learning.</em>
+</div>
+<div id="ref-Maye2003" class="csl-entry" role="listitem">
+Mayer, Richard E., and Roxana Moreno. 2003. <span>“Nine Ways to Reduce Cognitive Load in Multimedia Learning.”</span> <em>Educational Psychologist</em> 38 (1): 43–52. <a href="https://doi.org/10.1207/s15326985ep3801_6">https://doi.org/10.1207/s15326985ep3801_6</a>. <em>Shows how research into how we absorb and process information can be applied to the design of instructional materials.</em>
+</div>
+<div id="ref-Mill2016a" class="csl-entry" role="listitem">
+Miller, Michelle D. 2016. <em>Minds Online: Teaching Effectively with Technology</em>. Harvard University Press. ISBN 0674660021. <em>Describes ways that insights from neuroscience can be used to improve online teaching.</em>
+</div>
+<div id="ref-Morr2016" class="csl-entry" role="listitem">
+Morrison, Briana B., Lauren E. Margulieux, Barbara J. Ericson, and Mark Guzdial. 2016. <span>“Subgoals Help Students Solve <span>Parsons Problems</span>.”</span> <em>2016 Technical Symposium on Computer Science Education (<span>SIGCSE’16</span>)</em>. <a href="https://doi.org/10.1145/2839509.2844617">https://doi.org/10.1145/2839509.2844617</a>. <em>Reports that students using labelled subgoals solve Parsons Problems better than students without labelled subgoals.</em>
+</div>
+<div id="ref-Pars2006" class="csl-entry" role="listitem">
+Parsons, Dale, and Patricia Haden. 2006. <span>“<span class="nocase">Parson’s</span> Programming Puzzles: A Fun and Effective Learning Tool for First Programming Courses.”</span> <em>2006 Australasian Conference on Computing Education (<span>ACE’06</span>)</em>, 157–63. <em>The first description of Parson’s Problems.</em>
+</div>
+<div id="ref-Skud2014" class="csl-entry" role="listitem">
+Skudder, Ben, and Andrew Luxton-Reilly. 2014. <span>“Worked Examples in Computer Science.”</span> <em>2014 Australasian Computing Education Conference, (<span>ACE’14</span>)</em>. <em>A summary of research on worked examples as applied to computing education.</em>
+</div>
+<div id="ref-Stam2013" class="csl-entry" role="listitem">
+Stampfer, Eliane, and Kenneth R. Koedinger. 2013. <span>“When Seeing Isn’t Believing: Influences of Prior Conceptions and Misconceptions.”</span> <em>2013 Annual Meeting of the Cognitive Science Society (<span>CogSci’13</span>)</em>. <em>Explores why giving children more information when they are learning about fractions can lower their performance.</em>
+</div>
+<div id="ref-Stam2014" class="csl-entry" role="listitem">
+Stampfer Wiese, Eliane, and Kenneth R. Koedinger. 2014. <span>“Investigating Scaffolds for Sense Making in Fraction Addition and Comparison.”</span> <em>2014 Annual Conference of the Cognitive Science Society (<span>CogSci’14</span>)</em>. <em>Looks at how to scaffold learning of fraction operations.</em>
+</div>
+<div id="ref-Sung2012" class="csl-entry" role="listitem">
+Sung, Eunmo, and Richard E. Mayer. 2012. <span>“When Graphics Improve Liking but Not Learning from Online Lessons.”</span> <em>Computers in Human Behavior</em> 28 (5): 1618–25. <a href="https://doi.org/10.1016/j.chb.2012.03.026">https://doi.org/10.1016/j.chb.2012.03.026</a>. <em>Reports that students who receive any kind of graphics give significantly higher satisfaction ratings than those who don’t, but only students who get instructive graphics perform better than groups that get no graphics, seductive graphics, or decorative graphics.</em>
+</div>
+<div id="ref-Wibu2016" class="csl-entry" role="listitem">
+Wiburg, Karin, Julia Parra, Gaspard Mucundanyi, Jennifer Green, and Nate Shaver, eds. 2016. <em>The Little Book of Learning Theories</em>. Second. CreateSpace. ISBN 1537091808. <em>Presents brief summaries of various theories of learning.</em>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A more complete model would also include your senses of touch, smell, and taste, but we’ll ignore those for now.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Named after one of its creators.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>For a long time, I believed that the variable holding the value a function was going to return <em>had</em> to be called <code>result</code> because my teacher always used that name in examples.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./memory.html" class="pagination-link" aria-label="Expertise and Memory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Expertise and Memory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./individual.html" class="pagination-link" aria-label="Individual Learning">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Individual Learning</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gvwilson/t3/edit/main/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gvwilson/t3/blob/main/architecture.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/gvwilson/t3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
