@@ -42,7 +42,7 @@ study how useful they are.
 
 [*Software Design by Example in Python*](@root/sdxpy/) deliberately ignored
 concurrency, partial failure, and everything else associated with modern
-distributed applications. [This project](@root/dsdx/) is fixing that by building
+distributed applications. The draft appendices are fixing that by building
 scale models of distributed protocols and systems from TCP to BitTorrent and
 load-balancing tools using [asimpy](https://asimpy.readthedocs.io/). The
 tutorials will use simulators so that the accompanying lessons could illustrate

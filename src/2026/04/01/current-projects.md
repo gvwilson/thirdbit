@@ -15,7 +15,6 @@ Personal coding and teaching projects I'm currently using Claude to explore:
 | [change](https://github.com/gvwilson/change/) | workshop on organizational change | active |
 | [chart.xkcd](https://github.com/gvwilson/chart.xkcd/) | XKCD-style charts in Python and JavaScript | paused |
 | [datadrag](https://github.com/gvwilson/datadrag/) | drag-and-drop dataflow for data science | paused |
-| [dsdx](https://github.com/gvwilson/dsdx/) | distributed systems design by example | paused |
 | [forma](https://github.com/gvwilson/forma/) | formative assessment widgets for the browser | active |
 | [jorma](https://github.com/gvwilson/jorma/) | identify roles of variables | paused |
 | [mccole](https://github.com/gvwilson/mccole/) | a simple static site generator for tutorials | active |

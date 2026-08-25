@@ -4,12 +4,13 @@ date: 2026-03-15
 category: programming technical-writing
 ---
 
-I started work on [*Distributed Systems Design by Example*][dsdx] exactly 212 days ago.
+I started work on adding distributed systems examples to
+[*Software Design by Example in Python*][sdxpy] exactly 212 days ago.
 The first draft is now done,
 and I've learned a lot while writing it,
-just as I learned a lot by writing books on software design in [JavaScript][sdxjs] and [Python][sdxpy].
+just as I learned a lot by writing books the [JavaScript][sdxjs] and [Python][sdxpy] software design books.
 However,
-I don't know if I will ever finish this book:
+I don't know if I will ever finish these examples:
 people don't seem to read long-form technical writing any longer,
 and there several pieces of fiction that I want to get over the finish line.
 Still,

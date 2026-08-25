@@ -5,8 +5,7 @@ category: open-source programming
 ---
 
 I've made some improvements to the accessibility of
-[*Distributed Systems Design by Example*][dsdx]
-and the [JavaScript][sdxjs] and [Python][sdxpy] version of
+the [JavaScript][sdxjs] and [Python][sdxpy] version of
 *Software Design by Example*:
 
 Link color contrast
@@ -167,6 +166,5 @@ Dropdown buttons missing `aria-controls`
 | `<meta description>` | (SEO / best practice, not strictly WCAG) |
 
 
-[dsdx]: @root/dsdx/
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
