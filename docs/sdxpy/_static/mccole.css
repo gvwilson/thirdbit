@@ -353,3 +353,135 @@ details.explanation > summary {
 details.explanation[open] > summary {
     list-style: inside disclosure-open;
 }
+
+/* Print/PDF improvements */
+@page { margin: 2.5cm; }
+
+@media print {
+    /* Each chapter starts on a new page */
+    section { break-before: page; }
+
+    /* Hide screen-only navigation chrome */
+    nav, .skip-link, .dropdown, .inc-path { display: none; }
+
+    /* Wrap long code lines instead of truncating at page margin */
+    pre { white-space: pre-wrap; overflow: visible; }
+
+    /* Fill full printable area rather than a narrow screen column */
+    body { max-width: none; margin: 0; }
+
+    /* Suppress background fills that render as blank boxes or waste ink */
+    pre, div.callout, div.syllabus, thead { background-color: transparent !important; }
+
+    /* Smaller headings suit print proportions better */
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 2.0rem; }
+    h3 { font-size: 1.8rem; }
+
+    /* Prevent headings from stranding at the bottom of a page */
+    h1, h2, h3, h4 { break-after: avoid; }
+
+    /* Keep list items and table rows from splitting across pages */
+    li, tr { break-inside: avoid; }
+
+    /* Border distinguishes code blocks now that background fill is removed */
+    pre { border: 1px solid #999; padding: 0.5rem; }
+
+    /* Smaller body text suits physical page proportions */
+    body { font-size: 1.4rem; }
+
+    /* Keep figures intact so caption and image stay on the same page */
+    figure { break-inside: avoid; }
+
+    /* Replace screen-blue border with print-safe dark grey */
+    div.callout, div.syllabus { border-left-color: #555; }
+
+    /* Standard book line height improves readability at smaller print size */
+    body { line-height: 1.5; }
+
+    /* Keep definition terms and their definitions on the same page */
+    dt { break-after: avoid; }
+    dd { break-before: avoid; }
+
+    /* Prevent box-shadow rendering as a smudge in PDF */
+    .dropdown-content { box-shadow: none; }
+
+    /* Ensure body text prints as black regardless of screen theme variables */
+    body { color: #000; }
+
+    /* Hover state is meaningless in print; avoid a randomly highlighted row */
+    tr:hover { background-color: transparent; }
+
+    /* Restore table framing lost when thead background was removed */
+    table { border-top: 2px solid #000; border-bottom: 2px solid #000; }
+
+    /* Ensure cell borders print clearly rather than fading to near-white */
+    td, th { border-color: #999; }
+
+    /* Remove screen padding that wastes space at the top of the first page */
+    #home { padding: 0; }
+
+    /* Force collapsed details open so no content is silently omitted */
+    details { display: block; }
+    details > summary { display: none; }
+
+    /* Serif font improves readability in long-form print */
+    body { font-family: Georgia, "Times New Roman", serif; }
+
+    /* Book-style paragraphs: indent first line, no inter-paragraph space */
+    p { margin-top: 0; margin-bottom: 0; text-indent: 1.5em; }
+
+    /* Never indent the first paragraph after a heading or block element */
+    h1 + p, h2 + p, h3 + p, h4 + p,
+    figure + p, blockquote + p, pre + p,
+    div.callout + p, div.syllabus + p,
+    p:first-child { text-indent: 0; }
+
+    /* Left-align title to match print document conventions */
+    h1 { text-align: left; }
+
+    /* Prevent orphaned or widowed lines at page breaks */
+    p { widows: 3; orphans: 3; }
+
+    /* Explicit monospace stack for reliable code rendering in PDF */
+    pre, code { font-family: "Courier New", Courier, monospace; }
+
+    /* Tighter list spacing saves space across a long document */
+    li { margin-bottom: 0.25em; }
+
+    /* Left-align subtitle to match left-aligned h1 */
+    p.subtitle { text-align: left; }
+
+    /* Tighter heading top margin saves space across a long document */
+    h2, h3 { margin-top: 1rem; }
+
+    /* Tighter TOC list indent on the cover page */
+    #home ol { padding-left: 1rem; }
+
+    /* Replace screen-blue blockquote border with print-safe grey */
+    blockquote { border-left-color: #555; }
+
+    /* Tighter definition list indent suits print margins */
+    dd { margin-left: 1rem; }
+
+    /* Remove unexplained box around open details now that summary is hidden */
+    details[open] { border: none; }
+
+    /* Tighter vertical spacing around code blocks */
+    pre { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+
+    /* Decouple caption width from screen page-width variable */
+    caption { min-width: 0; width: 100%; }
+
+    /* Force headings to black regardless of theme variable resolution */
+    h1, h2, h3, h4 { color: #000; }
+}
+
+/* Small devices */
+
+@media (max-width: 960px) {
+    body {
+        padding-left: var(--len-one);
+        padding-right: var(--len-one);
+    }
+}

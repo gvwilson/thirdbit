@@ -51,6 +51,38 @@
 </ul>
 </div>
 <div class="dropdown">
+<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
+<ul class="dropdown-content" id="nav-slides">
+<li><a href="../intro/slides.html">Introduction</a></li>
+<li><a href="../oop/slides.html">Objects and Classes</a></li>
+<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
+<li><a href="../glob/slides.html">Matching Patterns</a></li>
+<li><a href="../parse/slides.html">Parsing Text</a></li>
+<li><a href="../test/slides.html">Running Tests</a></li>
+<li><a href="../interp/slides.html">An Interpreter</a></li>
+<li><a href="../func/slides.html">Functions and Closures</a></li>
+<li><a href="../protocols/slides.html">Protocols</a></li>
+<li><a href="../archive/slides.html">A File Archiver</a></li>
+<li><a href="../check/slides.html">An HTML Validator</a></li>
+<li><a href="../template/slides.html">A Template Expander</a></li>
+<li><a href="../lint/slides.html">A Code Linter</a></li>
+<li><a href="../layout/slides.html">Page Layout</a></li>
+<li><a href="../perf/slides.html">Performance Profiling</a></li>
+<li><a href="../persist/slides.html">Object Persistence</a></li>
+<li><a href="../binary/slides.html">Binary Data</a></li>
+<li><a href="../db/slides.html">A Database</a></li>
+<li><a href="../build/slides.html">A Build Manager</a></li>
+<li><a href="../pack/slides.html">A Package Manager</a></li>
+<li><a href="../ftp/slides.html">Transferring Files</a></li>
+<li><a href="../http/slides.html">Serving Web Pages</a></li>
+<li><a href="../viewer/slides.html">A File Viewer</a></li>
+<li><a href="../undo/slides.html">Undo and Redo</a></li>
+<li><a href="../vm/slides.html">A Virtual Machine</a></li>
+<li><a href="../debugger/slides.html">A Debugger</a></li>
+<li><a href="../finale/slides.html">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
@@ -93,16 +125,16 @@
 </ul>
 </div>
 <p><strong>In Development</strong></p>
-<p>The [CAP theorem][cap-theorem] says that when network partitions occur,
+<p>The <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> says that when network partitions occur,
 systems must choose between consistency (all nodes see the same data)
 and availability (the system continues to respond).
 Traditional databases choose consistency:
 they stop accepting writes during a partition to avoid conflicts.
 But for many applications,
 availability is more valuable than immediate consistency.</p>
-<p>[DynamoDB][dynamodb],
-[Apache Cassandra][apache-cassandra],
-and [Riak][riak] therefore take a different approach:
+<p><a href="https://en.wikipedia.org/wiki/Amazon_DynamoDB">DynamoDB</a>,
+<a href="https://cassandra.apache.org/">Apache Cassandra</a>,
+and <a href="https://riak.com/">Riak</a> therefore take a different approach:
 they remain available during partitions and accept that replicas might temporarily disagree.
 They use techniques like vector clocks to track causality
 and quorum protocols to balance consistency and availability.</p>
@@ -1094,7 +1126,7 @@ are picked up by the previously-partitioned replica during the next read repair 
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../torrent/">BitTorrent</a>
+<span aria-hidden="true">⇐</span> <a href="../torrent">BitTorrent</a>
 </div>
 <div class="col-6 center">
 <a href="../">sdxpy</a>
@@ -1102,7 +1134,7 @@ are picked up by the previously-partitioned replica during the next read repair 
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../saga/">The Saga Pattern</a> <span aria-hidden="true">⇒</span>
+<a href="../saga">The Saga Pattern</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

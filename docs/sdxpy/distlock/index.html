@@ -51,6 +51,38 @@
 </ul>
 </div>
 <div class="dropdown">
+<button aria-controls="nav-slides" aria-haspopup="true">Slides</button>
+<ul class="dropdown-content" id="nav-slides">
+<li><a href="../intro/slides.html">Introduction</a></li>
+<li><a href="../oop/slides.html">Objects and Classes</a></li>
+<li><a href="../dup/slides.html">Finding Duplicate Files</a></li>
+<li><a href="../glob/slides.html">Matching Patterns</a></li>
+<li><a href="../parse/slides.html">Parsing Text</a></li>
+<li><a href="../test/slides.html">Running Tests</a></li>
+<li><a href="../interp/slides.html">An Interpreter</a></li>
+<li><a href="../func/slides.html">Functions and Closures</a></li>
+<li><a href="../protocols/slides.html">Protocols</a></li>
+<li><a href="../archive/slides.html">A File Archiver</a></li>
+<li><a href="../check/slides.html">An HTML Validator</a></li>
+<li><a href="../template/slides.html">A Template Expander</a></li>
+<li><a href="../lint/slides.html">A Code Linter</a></li>
+<li><a href="../layout/slides.html">Page Layout</a></li>
+<li><a href="../perf/slides.html">Performance Profiling</a></li>
+<li><a href="../persist/slides.html">Object Persistence</a></li>
+<li><a href="../binary/slides.html">Binary Data</a></li>
+<li><a href="../db/slides.html">A Database</a></li>
+<li><a href="../build/slides.html">A Build Manager</a></li>
+<li><a href="../pack/slides.html">A Package Manager</a></li>
+<li><a href="../ftp/slides.html">Transferring Files</a></li>
+<li><a href="../http/slides.html">Serving Web Pages</a></li>
+<li><a href="../viewer/slides.html">A File Viewer</a></li>
+<li><a href="../undo/slides.html">Undo and Redo</a></li>
+<li><a href="../vm/slides.html">A Virtual Machine</a></li>
+<li><a href="../debugger/slides.html">A Debugger</a></li>
+<li><a href="../finale/slides.html">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
 <li><a href="../license/">License</a></li>
@@ -109,13 +141,13 @@ But a distributed system does not have shared memory,
 processes can fail independently,
 network messages can be delayed or lost,
 and clocks on different machines can drift apart.</p>
-<p>Systems like [Apache ZooKeeper][apache-zookeeper],
-[etcd][etcd],
-and Google's [Chubby][chubby] provide distributed locking as a service.
-These systems use consensus algorithms like [Raft][raft] or [Paxos][paxos]
+<p>Systems like <a href="https://zookeeper.apache.org/">Apache ZooKeeper</a>,
+<a href="https://etcd.io/">etcd</a>,
+and Google's <a href="https://research.google/pubs/pub27897/">Chubby</a> provide distributed locking as a service.
+These systems use consensus algorithms like <a href="https://en.wikipedia.org/wiki/Raft_(algorithm)">Raft</a> or <a href="https://en.wikipedia.org/wiki/Paxos_(computer_science)">Paxos</a>
 to maintain consistent state across multiple servers, even when some servers fail.
-[Redis][redis] implements distributed locks through the [Redlock][redlock] algorithm.
-[CockroachDB][cockroachdb] uses distributed locks internally to coordinate schema changes across nodes.</p>
+<a href="https://redis.io/">Redis</a> implements distributed locks through the <a href="https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/">Redlock</a> algorithm.
+<a href="https://www.cockroachlabs.com/">CockroachDB</a> uses distributed locks internally to coordinate schema changes across nodes.</p>
 <p>This chapter builds a distributed lock manager that demonstrates
 the key concepts in these systems:
 lease-based locks with expiration,
@@ -881,7 +913,7 @@ but production distributed lock managers need additional features:</p>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../oauth/">OAuth</a>
+<span aria-hidden="true">⇐</span> <a href="../oauth">OAuth</a>
 </div>
 <div class="col-6 center">
 <a href="../">sdxpy</a>
@@ -889,7 +921,7 @@ but production distributed lock managers need additional features:</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../torrent/">BitTorrent</a> <span aria-hidden="true">⇒</span>
+<a href="../torrent">BitTorrent</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
