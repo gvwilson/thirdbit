@@ -12,7 +12,6 @@ template: page
 | For All the People | John Curl and Ishmael Reed | 978-1604865820 | 2012 |
 | Is That a Fish in Your Ear?: Translation and the Meaning of Everything | David Bellos | 978-0241954300 | 2012 |
 | Caring Democracy: Markets, Equality, and Justice | Joan C. Tronto | 978-0814782774 | 2013 |
-| The United States of Paranoia: A Conspiracy Theory | Jesse Walker | 978-0062135551 | 2013 |
 | Lex Talionis | R.S.A. Garcia | 978-1940076126 | 2014 |
 | Great Tide Rising | Kathleen Dean Moore | 978-1619029064 | 2016 |
 | How Reason Almost Lost Its Mind | Paul Erickson and Judy L. Klein | 978-0226324159 | 2016 |
@@ -20,31 +19,22 @@ template: page
 | The Gauntlet | Karuna Riazi | 978-1536435443 | 2017 |
 | A History of America in Ten Strikes | Erik Loomis | 978-1620971628 | 2018 |
 | Elements of Surprise: Our Mental Limits and the Satisfactions of Plot | Vera Tobin | 978-0674919587 | 2018 |
-| Financial Management for Nonprofit Organizations | John Zietlow, Jo Ann Hankin, Alan Seidner, and Tim O'Brien | 978-1119382560 | 2018 |
 | Impossible Owls: Essays | Brian Phillips | 978-0374175337 | 2018 |
 | No Shortcuts: Organizing for Power in the New Gilded Age | Jane F. McAlevey | 978-0190868659 | 2018 |
-| Snowglobe | Amy Wilson | 978-1509885800 | 2018 |
-| The Nonprofit Strategy Revolution | David La Piana | 978-1684421794 | 2018 |
-| Nonprofit Management 101 | Darian Rodriguez Heyman and Laila Brenner | 978-1119585459 | 2019 |
 | Societal Problems as Public Bads | Nan de Graaf, Dingeman Wiertz | 978-1351063463 | 2019 |
 | Steel Frame | Andrew Skinner | 978-1781087046 | 2019 |
 | The Good Thieves | Katherine Rundell | 978-1481419505 | 2019 |
-| Building Smart Nonprofits | David J. O'Brien and Matthew D. Craig | 978-1538118238 | 2020 |
-| Funding and Exits | Tom Mohr | 978-1098300197 | 2020 |
 | Glimpses of Utopia | Jess Scully | 978-0369347510 | 2020 |
 | How Fascism Works | Jason Stanley | 978-0525511854 | 2020 |
-| How to Wash the Dishes | Peter Miller | 978-1611807622 | 2020 |
 | Local Disaster Management | Gina Yannitell Reinhardt, Lex Drennan | 978-1032839523 | 2020 |
 | Trust in Numbers: The Pursuit of Objectivity in Science and Public Life | Theodore M. Porter | 978-0691208411 | 2020 |
 | Complaint! | Sara Ahmed | 978-1478015093 | 2021 |
-| Little Thieves | Margaret Owen | 978-1529381733 | 2021 |
 | The Commoner's Catalog for Changemaking: Tools for the Transitions Ahead | David Bollier | 978-0578961323 | 2021 |
 | The Overstory | Richard Powers | 978-1039000681 | 2021 |
 | The Philosophers' Library | Adam Ferner, Chris Meyns | 978-0711253094 | 2021 |
 | The Promise of Access: Technology, Inequality, and the Political Economy of Hope | Daniel Greene | 978-0262363358 | 2021 |
 | The Wiggly World of Organization: Muddling Through with Purpose, Courage and Skill | Chris Rodgers | 978-0367744670 | 2021 |
 | UI State Management: From Object-Oriented to Functional | Cristian Salcescu | 979-8711726913 | 2021 |
-| A Day That's Ours | Blake Nuto, Vyara Boyadjieva | 978-1838740757 | 2022 |
 | A Necessary Chaos | Brent Lambert | 978-1952086465 | 2022 |
 | Beautiful Solutions: A Toolbox for Liberation | Eli Feghali, Rachel Plattus | 978-1682193372 | 2022 |
 | How Sex Changed the Internet and the Internet Changed Sex | Samantha Cole | 978-1523513840 | 2022 |
@@ -53,11 +43,9 @@ template: page
 | The Golden Mole | Katherine Rundell | 978-0571362493 | 2022 |
 | We Are Your Children: A History of LGBTQ+ Activism | David Roberts | 978-1529015362 | 2022 |
 | Abeni's Song | P. Djèlí Clark | 979-8855024340 | 2023 |
-| Another Life | Sarena Ulibarri | 978-1777682392 | 2023 |
 | Archaeology of Logic | Andrew Schumann | 978-1032327372 | 2023 |
 | Cooperatives at Work | George Cheney and Matt Noyes | 978-1838678289 | 2023 |
 | Funeral Songs for Dying Girls | Cherie Dimaline | 978-0735265639 | 2023 |
-| How to Stand Up to a Dictator | Amal Clooney by Maria A  Ressa | 978-0063257528 | 2023 |
 | It's Not You, It's Capitalism: Why It's Time to Break Up and How to Move On | Malaika Jabali | 978-1643752648 | 2023 |
 | Just a Pinch of Magic | Alechia Dow | 9798855035544 | 2023 |
 | Late Soviet Britain: Why Materialist Utopias Fail | Abby Innes | 978-1009373630 | 2023 |
@@ -67,12 +55,9 @@ template: page
 | Murder on the Lamplight Express | Morgan Stang | 979-8851465598 | 2023 |
 | Not So Black and White: A History of Race from White Supremacy to Identity Politics | Kenan Malik | 978-1805260097 | 2023 |
 | The Case for Good Jobs | Zeynep Ton | 978-1647824174 | 2023 |
-| The Data Storyteller's Handbook | Kat Greenbrook | 978-0473694913 | 2023 |
-| The Girl with a Thousand Faces | Sunyi Dean | 978-0008479497 | 2023 |
 | The Quiet Before | Gal Beckerman | 978-1529177404 | 2023 |
 | The Serpents of Eden | RW Goldsmith | 978-1955062763 | 2023 |
 | The Unseen Leader: How History Can Help Us Rethink Leadership | Martin Gutmann | 978-3031378287 | 2023 |
-| To Shape a Dragon's Breath | Moniquill Blackgoose | 978-0593498293 | 2023 |
 | Archangels of Funk | Andrea Hairston | 978-1250807298 | 2024 |
 | Beyond Here Be Monsters | Gregory Frost | 978-1958880265 | 2024 |
 | Big Time | Ben H. Winters | 978-0316305778 | 2024 |
@@ -225,4 +210,4 @@ template: page
 | Vanished: An Unnatural History of Extinction | Sadiah Qureshi | 978-0141988566 | 2026 |
 | What We Are Seeking | Cameron Reed | 978-1250364746 | 2026 |
 | Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
-| All We Have Is Time | Amy Tordoff | 978-1668228937 | 2026 |
+| The Incandescent |  Emily Tesh | 9781250835017 | 2025 |
