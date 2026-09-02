@@ -3,20 +3,19 @@ title: "Speaker's Rider"
 template: page
 ---
 
-I am always happy to [give a talk](@root/talks/),
+I am always happy to [give talks](@root/talks/) at conferences and elsewhere,
 but after seeing things go wrong and speakers taken advantage of,
-I now require hosts to agree to a few things in advance.
-
-*This rider is derived from the one written by [Tatiana Mac][tatiana].
-[These guidelines](https://opennews.org/projects/speaker-rider/)
-developed by [OpenNews](https://opennews.org/) and [The Pudding](https://pudding.cool/)
-may also be helpful.*
+I now ask hosts to agree to a few things in advance.
+(Please note that these apply to talks,
+not to teaching engagements such as workshops.)
 
 ## Inclusivity
 
-- Please note that I will usually suggest you invite a speaker who isn't as privileged as I am instead of me.
+- I will often suggest you invite a speaker who isn't as privileged as I am instead of me.
   I've had a lot of chances to express my opinions on stage;
   I think other people, and other kinds of people, deserve that chance as well.
+- You don't include speakers who publicly advocate racism, misogyny, or homophobia.
+- You don't *only* invite marginalized people to speak about their experiences of marginalization.
 - [Added Nov 2021]
   I will not take part in events that do not offer participants a fully-remote option,
   as the COVID-19 lockdown showed that this is feasible
@@ -24,22 +23,11 @@ may also be helpful.*
   to people with physical disabilities
   and people from less affluent parts of the world.
 
-### No Support for Hate
-
-- You don't include speakers who publicly advocate racism, misogyny, or homophobia.
-- Neither you nor your sponsors support companies
-  [that have been cited as an inspiration by a mass killer][shopify].
-
-### Strictly-enforced Code of Conduct
+## Strictly-enforced Code of Conduct
 
 - Your CoC explicitly explains what constitutes abusive or unacceptable behavior.
 - You have clearly defined methods for dealing with conflicts when they arise
   and trained staff to to handle complaints.
-
-### Representation
-
-- None of your tracks or panels are all straight white/Asian males.
-- You don't *only* invite marginalized people to speak about their experiences of marginalization.
 
 ## Content
 
@@ -66,7 +54,8 @@ may also be helpful.*
 
 ### Travel expenses
 
-- My full travel costs must be covered unless the talk is in my home town (Toronto, Ontario) or given remotely by video.
+- My full travel costs must be covered unless the talk is in my home town (Toronto, Ontario)
+  or given remotely by video.
 - Incidental or unexpected costs (e.g., accommodation during weather delays) must also be covered.
 
 ### Lodging expenses
@@ -81,16 +70,12 @@ may also be helpful.*
 
 ### Speaker honorarium
 
-- For for-profit conferences/events and for-profit companies, I ask for CAD $1500-3000.
-- Or CAD $500-1000 if you will donate twice the difference to a mutually-agreed charity.
-  (This usually works out to roughly the same total cost for you thanks to tax write-downs.)
+- The invitation must include a ticket for the full event
+  (i.e., I will decline invitations that require me to pay to register for the event).
 - If there are multiple speakers, we must all be paid equally.
-  I do not support celebrity speakers getting paid more.
-- I usually waive my fee for not-for-profit/community events where tickets are free or very low priced.
-
-### Ticket to full event
-
-- As [Tatiana says][tatiana], you wouldn't think it would be necessary to spell this out…
+  I do not support celebrity speakers being paid more.
+- I may at my discretion waive my fee for not-for-profit/community events
+  whose tickets are free or very low priced.
 
 ## Logistics
 
@@ -99,19 +84,15 @@ may also be helpful.*
 - All areas that are part of the conference must be accessible,
   including attendee seating,
   the stage,
-  and social event venues
-  (where "accessible" means "complies with [2010 ADA Standards for Accessible Design][ada] or national equivalent").
+  and social event venues.
 - You must provide live captioning (which helps everyone, not just people who are hard of hearing).
+- You must include accessible bathroom options for all genders.
 
 ### Safety and security
 
 - You must provide appropriate security at the venue.
 - You must not transfer or sell my data (not even to conference sponsors)
   without my express, prior, case-by-case approval.
-
-### Gender neutral and accessible bathrooms
-
-- You must include accessible options for all genders.
 
 ### Self-identification
 
@@ -123,9 +104,8 @@ may also be helpful.*
 - If you have a scholarship program,
   you must be explicit about how you choose candidates,
   and must not require them to recapitulate personal trauma to be approved.
-- You should include travel costs in scholarships
-  so that you aren't excluding people who are economically disadvantaged.
-  If you can't do this, make it clear that they are solely ticket scholarships.
+- If you do not include travel costs in scholarships,
+  you must make it clear that they are solely ticket scholarships.
 
 ### Stage setup
 
@@ -144,20 +124,10 @@ may also be helpful.*
 
 ## Force Majeure
 
-- If for any reason your event, other speakers, sponsors, attendees, vendors, or messaging become problematic
-  (which I reserve the right to determine),
+- If for any reason your event, other speakers, sponsors, attendees, vendors, or messaging become problematic,
   I reserve the right to withdraw from your event at any time.
 - If I withdraw,
-  you may no longer associate me with your event in any way
-  (for example, you may not use any materials I have prepared or videos of me that you have recorded).
+  you may no longer associate me with your event in any way.
+  For example, you may not use any materials I have prepared or videos of me that you have recorded.
 - You are responsible for any and all costs associated with this,
   specifically including reimbursement for canceled travel and accommodations.
-
-Please note that I have never had to exercise this clause,
-but my experiences with [Shopify][shopify] and [DataCamp][datacamp] have made me realize that
-tech will only get better if those in power believe that the rest of us will sometimes take a stand.
-
-[ada]: https://www.ada.gov/regs2010/2010ADAStandards/2010ADAstandards.htm
-[datacamp]: @root/2019/04/15/an-exchange-with-datacamp/
-[shopify]: @root/2018/05/06/cigarettes-and-shopify/
-[tatiana]: https://gist.github.com/tatianamac/493ca668ee7f7c07a5b282f6d9132552

@@ -12,15 +12,7 @@ template: page
   <div class="col-9" markdown="1">
 Dr. Greg Wilson is a programmer, author, and educator based in Toronto.
 He co-founded and was the first Executive Director of [Software Carpentry][carpentries],
-which has taught basic software skills to tens of thousands of researchers worldwide,
-and has authored or edited over a dozen books,
-including [*Beautiful Code*][bc],
-[*Making Software*][ms],
-[*The Architecture of Open Source Applications*][aosabook],
-[*Teaching Tech Together*][t3],
-and most recently [*Software Design by Example in JavaScript*][sdxjs]
-and [*Software Design by Example in Python*][sdxpy].
-
+and has authored or edited over a dozen books.
 Greg is a member of the [Python Software Foundation][psf]
 and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award.
   </div>

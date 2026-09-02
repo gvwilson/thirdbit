@@ -153,9 +153,9 @@ template: page
 | Think Like a Commoner | David Bollier | 978-1774060117 | 2025 |
 | We Can Never Leave | H.E. Edgmon | 978-1250853653 | 2025 |
 | We Just Build Hammers | Coraline Ada Ehmke | 979-8868812484 | 2025 |
-| What Is Free Speech?: The History of a Dangerous Idea | Fara Dabhoiwala | 978-0141988245 | 2025 |
 | When There Are Wolves Again | E.J. Swift | 978-1529436488 | 2025 |
 | Where the Axe Is Buried | Ray Nayler | 978-1250420015 | 2025 |
+| The Incandescent |  Emily Tesh | 9781250835017 | 2025 |
 | A Secret of Birds & Bone | Kiran Millwood Hargrave | 978-1913322960 | 2026 |
 | A World Appears | Michael Pollan | 979-8217294534 | 2026 |
 | Alchemists of Dawn | G.S. Valiant | 978-1067755102 | 2026 |
@@ -210,4 +210,4 @@ template: page
 | Vanished: An Unnatural History of Extinction | Sadiah Qureshi | 978-0141988566 | 2026 |
 | What We Are Seeking | Cameron Reed | 978-1250364746 | 2026 |
 | Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
-| The Incandescent |  Emily Tesh | 9781250835017 | 2025 |
+| Judge of Worlds | Daniel Abraham | 9780316421935 | 2027 |
