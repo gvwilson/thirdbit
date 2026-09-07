@@ -15,6 +15,11 @@ He co-founded and was the first Executive Director of [Software Carpentry][carpe
 and has authored or edited over a dozen books.
 Greg is a member of the [Python Software Foundation][psf]
 and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award.
+You can reach him by email at [gvwilson@third-bit.com](mailto:gvwilson@third-bit.com).
+
+<div class="center">
+CV (<a href="@root/cv/gvwilson.pdf">PDF</a>, <a href="@root/cv/">HTML</a>)
+</div>
   </div>
 </div>
 
@@ -67,9 +72,9 @@ and a pair of books called *Software Design by Example* in [JavaScript][sdxjs] a
 if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
-CV (<a href="@root/cv/gvwilson.pdf">PDF</a>, <a href="@root/cv/">HTML</a>)
-<br>
+<div class="center">
 <a href="@root/bib/">Bibliography</a>
+</div>
 
 [aosabook]: https://aosabook.org/
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
