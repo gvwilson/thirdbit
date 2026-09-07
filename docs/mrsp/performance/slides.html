@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Performance and Growth</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../mccole/slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Performance and Growth</h1>
+  <p class="subtitle">Managing Research Software Projects</p>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="learning-objectives" class="slide level2 objectives">
+<h2 class="objectives">Learning Objectives</h2>
+<ul>
+<li>Know how to give specific, actionable feedback using
+Situation/Behavior/Impact.</li>
+<li>Explain why regular one-to-one meetings are more useful than annual
+performance reviews.</li>
+<li>Describe several forms that on-the-job training can take.</li>
+<li>Describe the key components of a career development
+conversation.</li>
+</ul>
+</section>
+<section id="feedback" class="slide level2">
+<h2>Feedback</h2>
+<ul>
+<li>Vague feedback gives nothing to act on; specific feedback gives a
+target.</li>
+<li>Use the SBI format: Situation, Behavior, Impact.</li>
+<li>Situation: “In the last four pull requests…”</li>
+<li>Behavior: “…your commit messages describe what changed but not
+why…”</li>
+<li>Impact: “…which means I have to read the code, not the log.”</li>
+<li>Use the same format for positive feedback.</li>
+</ul>
+</section>
+<section id="giving-feedback-well" class="slide level2">
+<h2>Giving Feedback Well</h2>
+<ul>
+<li>Give negative feedback in a one-to-one meeting, not in a group.
+<ul>
+<li>Ambushing someone in a group turns the conversation into a status
+competition.</li>
+</ul></li>
+<li>Rehearse difficult feedback before the meeting.</li>
+<li>The discomfort before the conversation is usually worse than the
+conversation itself.</li>
+</ul>
+</section>
+<section id="performance-reviews" class="slide level2">
+<h2>Performance Reviews</h2>
+<ul>
+<li>Most annual reviews are compliance exercises that change
+nothing.</li>
+<li>A useful review contains no surprises.</li>
+<li>Weekly or biweekly one-to-ones do the real work.</li>
+<li>Use a three-part agenda: progress, plans, and problems.</li>
+<li>Write down expectations before the review period starts.</li>
+</ul>
+</section>
+<section id="better-reviews" class="slide level2">
+<h2>Better Reviews</h2>
+<ul>
+<li>Separate the performance conversation from the compensation
+conversation.</li>
+<li>Document everything: repeated verbal warnings help no one.</li>
+<li>If unsure whether to document, ask if you could explain a firing to
+HR.</li>
+<li>If structured feedback fails, escalate to HR and start the
+documentation trail.</li>
+<li>Measure what result the work enabled, not commit counts or lines of
+code.</li>
+</ul>
+</section>
+<section id="training-and-skill-development" class="slide level2">
+<h2>Training and Skill Development</h2>
+<ul>
+<li>Teams underspend on training because the return is diffuse and
+delayed.</li>
+<li>Identify the gap between current skills and near-term project
+needs.</li>
+<li>Pair programming and code review are the cheapest skill
+transfer.</li>
+<li>Preparing a presentation makes someone learn the material.</li>
+<li>Be consistent: unequal development funding creates grievances.</li>
+</ul>
+</section>
+<section id="career-development-conversations" class="slide level2">
+<h2>Career Development Conversations</h2>
+<ul>
+<li>Do not wait for staff to bring up career goals.</li>
+<li>Every six months, ask “where do you want to be in two years?”</li>
+<li>Be honest about what is and is not possible at your
+institution.</li>
+<li>Connect the person’s goals to the project’s needs where you
+can.</li>
+<li>Document what you agree to.</li>
+</ul>
+</section>
+<section id="what-about-ai" class="slide level2">
+<h2>What about AI?</h2>
+<ul>
+<li class="yes">
+LLMs can draft a performance improvement plan with required elements
+</li>
+<li class="no">
+LLM review drafts can sound balanced but lack evidence of actual work
+</li>
+<li class="no">
+LLM learning paths may emphasize skills that were valuable years ago
+</li>
+</ul>
+</section>
+<section id="three-team-members-5-min" class="slide level2 exercise">
+<h2 class="exercise">Three Team Members (5 min)</h2>
+<p>The points below describe three people who are in trouble of
+different kinds. Come up with at least one explanation for each
+scenario, and explain how you would figure out if it was accurate.</p>
+<ol type="1">
+<li><p>Someone who does good work is missing every deadline.</p></li>
+<li><p>Someone keeps expanding the scope of their assignments.</p></li>
+<li><p>Someone has stopped communicating without explanation.</p></li>
+</ol>
+</section>
+<section id="feedback-role-play-8-min" class="slide level2 exercise">
+<h2 class="exercise">Feedback Role-Play (8 min)</h2>
+<p>Prompt the LLM to play the role of a junior programmer on your
+team.</p>
+<blockquote>
+<p>Play the role of a junior programmer on my research software team.
+I’m going to give you feedback about [situation]. Respond in character:
+push back if the feedback is vague, accept it if it’s specific and
+fair.</p>
+</blockquote>
+<p>Have the feedback conversation using the SBI format.</p>
+</section>
+<section id="career-conversation-7-min" class="slide level2 exercise">
+<h2 class="exercise">Career Conversation (7 min)</h2>
+<p>Think of someone on your team or someone you manage in a volunteer
+project. Write answers to these two questions as if you were that
+person:</p>
+<ul>
+<li>Where do I want to be professionally in two years?</li>
+<li>What would need to be true for me to get there?</li>
+</ul>
+<p>Then switch perspective: write one thing the project could offer that
+would help them move toward that goal, and one honest constraint you
+would need to name.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Requirements</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../mccole/slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Requirements</h1>
+  <p class="subtitle">Managing Research Software Projects</p>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="learning-objectives" class="slide level2 objectives">
+<h2 class="objectives">Learning Objectives</h2>
+<ul>
+<li>Distinguish between a feature request and an underlying need.</li>
+<li>Explain how to prioritize a backlog of work.</li>
+<li>Describe strategies for saying “no” without alienating
+contributors.</li>
+</ul>
+</section>
+<section id="digging-deeper" class="slide level2">
+<h2>Digging Deeper</h2>
+<ul>
+<li>Users describe what they want in terms of their current
+workflow.</li>
+<li>The product manager’s job is to surface the real requirement by
+asking about:
+<ul>
+<li>problems, not solutions;</li>
+<li>frequency and severity; and</li>
+<li>the downstream decision: who sees the result and what they do with
+it.</li>
+</ul></li>
+<li>Record what people actually say, not what you think they should have
+said.</li>
+</ul>
+</section>
+<section id="domain-specific-questions" class="slide level2">
+<h2>Domain-Specific Questions</h2>
+<ul>
+<li>Research software has constraints commercial products rarely face.
+<ul>
+<li>What units and uncertainty does your discipline report?</li>
+<li>What data formats do your journals mandate?</li>
+<li>What does your IRB or data-use agreement require?</li>
+</ul></li>
+</ul>
+</section>
+<section id="prioritizing-the-backlog" class="slide level2">
+<h2>Prioritizing the Backlog</h2>
+<ul>
+<li>Place each feature on a 2x2 grid of impact and effort.</li>
+<li>Quick wins: high impact, low effort, do first.</li>
+<li>Strategic investments: high impact, high effort, plan
+carefully.</li>
+<li>Fill-ins: low impact, low effort, do during slack time.</li>
+<li>Money pits: low impact, high effort, just do not do them.</li>
+</ul>
+</section>
+<section id="how-to-say-no" class="slide level2">
+<h2>How to Say No</h2>
+<ul>
+<li>Don’t say “yes” unless you can follow through.</li>
+<li>“This is on our roadmap for milestone X”, and track how often you
+miss it.</li>
+<li>“This is out of scope because reason”, and keep a public to-don’t
+list.</li>
+<li>“We would accept a pull request if condition.”</li>
+<li>Write your answer in the issue for future reference.</li>
+<li>An open issue is an implicit promise.</li>
+<li>Close, park, or assign issues untouched for twelve months.</li>
+</ul>
+</section>
+<section id="what-about-ai" class="slide level2">
+<h2>What about AI?</h2>
+<ul>
+<li class="yes">
+LLMs can cluster GitHub issues by topic to find patterns
+</li>
+<li class="yes">
+LLMs can generate user stories, but they reflect generic assumptions
+</li>
+<li class="no">
+LLM backlog prioritization sounds authoritative but ignores your team’s
+constraints
+</li>
+</ul>
+</section>
+<section id="llm-requirements-conversation-8-min"
+class="slide level2 exercise">
+<h2 class="exercise">LLM Requirements Conversation (8 min)</h2>
+<p>Prompt the LLM like this:</p>
+<blockquote>
+<p>Play the role of a postdoc in ecology who uses [project name] for
+their data analysis. You want to be able to [feature request from your
+real backlog]. Answer my questions about your needs in character. Don’t
+reveal your real requirements immediately: let me ask the right
+questions.”</p>
+</blockquote>
+<p>Ask at least five questions before proposing anything. Stop when you
+can write a one-sentence requirement in the form: “When [situation],
+[user type] needs to [action] so that [outcome].”</p>
+</section>
+<section id="human-requirements-conversation-10-min"
+class="slide level2 exercise">
+<h2 class="exercise">Human Requirements Conversation (10 min)</h2>
+<p>Switch to a real partner. Pick a different feature request from your
+backlog. One person is the user, the other is the product manager.</p>
+<ol type="1">
+<li><p>Ask five questions before proposing anything. Write the
+requirement sentence.</p></li>
+<li><p>Compare the two conversations. What did the real person tell you
+that the LLM couldn’t? What did the LLM simulate well?</p></li>
+</ol>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

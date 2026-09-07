@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Greg Wilson">
+  <meta name="dcterms.date" content="2026-01-01">
+  <title>Project Health</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../mccole/slides.css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Project Health</h1>
+  <p class="subtitle">Managing Research Software Projects</p>
+  <p class="author">Greg Wilson</p>
+  <p class="date">2026</p>
+</section>
+
+<section id="learning-objectives" class="slide level2 objectives">
+<h2 class="objectives">Learning Objectives</h2>
+<ul>
+<li>Name the six dimensions of a minimum viable research software
+project.</li>
+<li>Score your own project on each dimension.</li>
+<li>Identify the highest-priority gaps.</li>
+</ul>
+</section>
+<section id="what-healthy-means" class="slide level2">
+<h2>What “Healthy” Means</h2>
+<ul>
+<li>Healthy means findable, reproducible, and maintainable by someone
+other than you.</li>
+<li>Most research projects score poorly on these until someone
+complains.</li>
+<li>Use six dimensions to assess the state of your project.</li>
+</ul>
+</section>
+<section id="six-dimensions" class="slide level2">
+<h2>Six Dimensions</h2>
+<ul>
+<li>Findability: has a DOI, a <code>CITATION.cff</code> file, and
+registry listings.</li>
+<li>Reproducibility: pinned dependencies, a virtual environment or
+container, and a rerun script.</li>
+<li>Testability: automated tests run on every change via CI.</li>
+<li>Contribution pathway: a <code>CONTRIBUTING.md</code> a stranger
+could follow.</li>
+<li>Governance: written rules for who decides what.</li>
+<li>Sustainability: more than one person can release, with a documented
+succession plan.</li>
+</ul>
+</section>
+<section id="dependencies-between-dimensions" class="slide level2">
+<h2>Dependencies Between Dimensions</h2>
+<ul>
+<li>The six dimensions are not independent.</li>
+<li>Low governance almost always means poor sustainability.</li>
+<li>Poor reproducibility usually means low testability.</li>
+<li>Tests that pass on one machine may fail elsewhere.</li>
+<li>The dimensions focus on software first, and on the team later.</li>
+</ul>
+</section>
+<section id="honesty-is-uncomfortable" class="slide level2">
+<h2>Honesty Is Uncomfortable</h2>
+<ul>
+<li>An honest audit tells you which gap to fix first.</li>
+<li>Improving your lowest dimension by one point matters more than
+polishing a 4/5 dimension.</li>
+<li>LLMs usually give your project a higher score than it deserves.
+<ul>
+<li>LLMs cannot know whether your <code>CONTRIBUTING.md</code> is tested
+or CI actually blocks merges.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-about-ai" class="slide level2">
+<h2>What about AI?</h2>
+<ul>
+<li class="yes">
+LLM tools can flag semantic bugs and security issues in a first pass
+</li>
+<li class="no">
+LLMs can summarize what a PR actually changes versus what it claims it
+changes
+</li>
+<li class="no">
+LLM commit messages are often fluent but inaccurate
+</li>
+</ul>
+</section>
+<section id="dependencies-5-min" class="slide level2 exercise">
+<h2 class="exercise">Dependencies (5 min)</h2>
+<p>Sort the six dimensions in the order in which you think they should
+be tackled. Compare your order to other people’s. Are any of the
+differences important?</p>
+</section>
+<section id="project-audit-15-min" class="slide level2 exercise">
+<h2 class="exercise">Project Audit (15 min)</h2>
+<p>Using the six-dimension rubric, score your project. Include evidence
+for each dimension, (e.g., the URL of the governance description).
+Repeat the audit using an LLM. Where does the LLM assume something
+exists that doesn’t? Where do the LLM’s scores differ from yours?</p>
+</section>
+<section id="action-planning-5-min" class="slide level2 exercise">
+<h2 class="exercise">Action Planning (5 min)</h2>
+<ol type="1">
+<li><p>Identify the two dimensions with the largest gaps.</p></li>
+<li><p>Write one concrete action you could take in the next two weeks to
+raise the score.</p></li>
+</ol>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
