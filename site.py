@@ -210,6 +210,14 @@ talks_entries = [
         ],
     },
     {
+        "title": "How to Be Interviewed",
+        "description": "Advice for undergraduates in computer science.",
+        "updated": "September 2026",
+        "links": [
+            {"text": "HTML", "url": "@root/talks/interviewing/"},
+        ],
+    },
+    {
         "title": "Cocaine and Conway's Law",
         "description": "Outlines what a course for programmers on civics and society might contain and how it ought to be presented.",
         "updated": "October 2025",
