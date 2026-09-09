@@ -209,5 +209,11 @@ template: page
 | Up All Night | Imogen Willetts | 978-0802167392 | 2026 |
 | Vanished: An Unnatural History of Extinction | Sadiah Qureshi | 978-0141988566 | 2026 |
 | What We Are Seeking | Cameron Reed | 978-1250364746 | 2026 |
-| Ghost-Eye | Amitav Ghosh | 978-0374298395 | Farrar, Strouss and Giroux |
+| Ghost-Eye | Amitav Ghosh | 978-0374298395 | 2026 |
+| Massif | Garth Nix | 978-0063292017 | 2026 |
+| Wickhills | Premee Mohamed | 978-1250378415 | 2026 |
+| Headless in Kita | Moussa Konaté | 978-1918467055 | 2026 |
+| An Empire in the Clouds | Ai Jiang | 978-1835414941 | 2026 |
+| Traitors' Nest | Frances Hardinge | 978-1419794148 | 2026 |
+| A Thousand Nights | Nafiza Azad and Intisar Khanani | 978-1536241549 | 2026 |
 | Judge of Worlds | Daniel Abraham | 9780316421935 | 2027 |
