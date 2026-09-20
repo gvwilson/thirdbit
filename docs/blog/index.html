@@ -132,6 +132,129 @@
 
 <article class="post">
   <h3 class="post-title">
+    <a href="../2026/09/20/io-for-sd/">
+      IO for Software Design
+    </a>
+  </h3>
+  <p><time datetime="2026-09-20" class="post-date">2026-09-20</time></p>
+  <p>Last winter I wrote <a href="https://gvwilson.github.io/asimpy/">a discrete event simulation framework</a> in Python
+to keep myself busy,
+have something to put on my CV,
+experiment with LLM-assisted coding,
+and learn how <code>async</code> and <code>await</code> actually work.
+Over the summer,
+for similar reasons,
+I played around a bit with <a href="https://lean-lang.org/">Lean</a> and <a href="https://gleam.run/">Gleam</a>,
+thinking that I might translate the <em>Software Design by Example</em> books
+from <a href="../sdxjs/">JavaScript</a> and <a href="../sdxpy/">Python</a> into one or the other.
+Lean defeated me,
+and I quickly grew frustrated with the gaps in Gleam&rsquo;s standard library,
+but my noodling around left me wanting to learn more about formal verification of programs.</p>
+<p>After poking around a bit I decided to give <a href="https://dafny.org/">Dafny</a> a try,
+only to find that its standard library has gaps too.
+Depending on whether or not I&rsquo;m able to <a href="../2026/09/08/looking-for-work/">find work</a>,
+I might try to recruit some undergrads to fill those in.
+What follows is a spec for what I would need them to build
+in order to be able to replicate the examples in the existing books.</p>
+<p>In brief:
+Dafny&rsquo;s standard library provides only whole-file I/O (<code>Std.FileIO</code>) and JSON (<code>Std.JSON</code>).
+<code>Std.FileIO</code> reads or writes an entire file in a single call;
+there are no functions to open and close file handles and no streaming reads.
+It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-manipulation support.</p>
+<ul>
+<li>Standard streams<ul>
+<li><code>sys.stdin</code>: missing</li>
+<li><code>sys.stdout</code> exists (kind of: <code>print</code> writes to standard output)</li>
+<li><code>sys.stderr</code>: missing</li>
+</ul>
+</li>
+<li>File operations<ul>
+<li><code>open(path, mode)</code> with text and binary modes (<code>"r"</code>, <code>"w"</code>, <code>"rb"</code>): missing</li>
+<li><code>file.close()</code>: (obviously) also missing</li>
+<li><code>file.read()</code> to read a whole file exists:
+    <code>Std.FileIO.ReadUTF8FromFile</code> (text) or <code>Std.FileIO.ReadBytesFromFile</code> (bytes)</li>
+<li><code>file.read(n)</code> to read fixed-size blocks: missing</li>
+<li><code>file.readlines()</code> to read content as lines: missing</li>
+<li><code>file.write(text)</code> to save data to file exists:
+    <code>Std.FileIO.WriteUTF8ToFile</code> (text) or <code>Std.FileIO.WriteBytesToFile</code> (bytes)</li>
+</ul>
+</li>
+<li>Path manipulation<ul>
+<li><code>Path(...)</code> (string to path): missing (paths are plain <code>string</code>s passed to <code>Std.FileIO</code>)</li>
+<li><code>Path.read_text()</code>: use <code>Std.FileIO.ReadUTF8FromFile</code></li>
+<li><code>Path.write_text()</code>: use <code>Std.FileIO.WriteUTF8ToFile</code></li>
+<li><code>Path.mkdir()</code> (including <code>parents=True, exist_ok=True</code>):
+    partial: <code>Std.FileIO.WriteUTF8ToFile</code>/<code>WriteBytesToFile</code> create nonexistent parent directories,
+    but there is no standalone <code>mkdir</code></li>
+<li>missing: <code>Path.cwd()</code>,  <code>Path.joinpath()</code>,  <code>Path.parent</code>,  <code>Path.stem</code>,  <code>Path.suffix</code>,  <code>Path.name</code>,  <code>Path.exists()</code>,  <code>Path.is_file()</code>,  <code>Path.touch()</code>,  <code>Path.unlink()</code>,  <code>Path.rmdir()</code>,  <code>Path.rename()</code>,  <code>Path.iterdir()</code>,  <code>Path.glob()</code> / <code>Path.rglob()</code>, </li>
+</ul>
+</li>
+<li>Temporary files and directories<ul>
+<li><code>tempfile.TemporaryDirectory()</code>: missing</li>
+<li><code>tempfile.NamedTemporaryFile(...)</code>: missing</li>
+</ul>
+</li>
+<li>JSON<ul>
+<li><code>json.load()</code> exists: <code>Std.JSON.API.Deserialize</code> (from <code>seq&lt;byte&gt;</code>, not from a file or string)</li>
+<li><code>json.dump()</code> exists: <code>Std.JSON.API.Serialize</code> (to <code>seq&lt;byte&gt;</code>; <code>SerializeAlloc</code> returns an <code>array&lt;byte&gt;</code>)</li>
+</ul>
+</li>
+<li>CSV<ul>
+<li><code>csv.reader()</code> missing</li>
+<li><code>csv.writerow()</code> missing</li>
+<li><code>csv.writerows()</code> missing</li>
+<li><code>csv.DictReader()</code> missing</li>
+</ul>
+</li>
+<li>YAML<ul>
+<li><code>yaml.load()</code>: missing</li>
+</ul>
+</li>
+<li>Binary records<ul>
+<li><code>struct.pack()</code>: missing</li>
+<li><code>struct.unpack()</code>: missing</li>
+<li><code>struct.calcsize()</code>: missing</li>
+</ul>
+</li>
+<li>Hashing<ul>
+<li><code>hashlib.sha256().hexdigest()</code>: missing (the standard library has <code>Std.Base64</code>, but no SHA/MD5)</li>
+<li><code>hashlib.md5()</code> with <code>.update()</code> for streaming hash: missing</li>
+</ul>
+</li>
+<li>SQLite<ul>
+<li><code>sqlite3.connect()</code>: missing</li>
+<li><code>connection.execute()</code>: missing</li>
+<li><code>connection.fetchall()</code>: missing</li>
+<li><code>connection.commit()</code>: missing</li>
+</ul>
+</li>
+<li>TCP sockets<ul>
+<li><code>socket.socket()</code>: missing</li>
+<li><code>socket.gethostbyname()</code>: missing</li>
+<li>Missing from client side: <code>.connect()</code>, <code>.send()</code>, <code>.sendall()</code>, <code>.recv()</code>, <code>.close()</code></li>
+<li>Missing from server side: <code>.bind()</code>, <code>.listen()</code>, <code>.accept()</code>, <code>.recv()</code>, <code>.send()</code>, <code>.close()</code></li>
+</ul>
+</li>
+<li>TCP server framework<ul>
+<li>A way to create a TCP server (e.g., a base class)</li>
+<li>And then <code>self.request.recv()</code>, <code>self.request.sendall()</code>, <code>self.client_address</code>, <code>server.serve_forever()</code></li>
+</ul>
+</li>
+<li>HTTP server<ul>
+<li>A way to create an HTTP server</li>
+<li>And then <code>do_GET()</code> (with <code>self.path</code> and <code>self.command</code>), <code>self.send_response()</code>, <code>self.send_header()</code>, <code>self.end_headers()</code>, <code>self.wfile.write(body)</code>, <code>HTTPStatus</code> enum</li>
+</ul>
+</li>
+<li>HTTP client<ul>
+<li><code>requests.get()</code> (or a similar workhorse) with <code>req.add_header()</code></li>
+<li>And then a response with <code>.status_code</code>, <code>.headers[]</code>, <code>.text</code>, <code>.read()</code></li>
+</ul>
+</li>
+</ul>
+</article>
+
+<article class="post">
+  <h3 class="post-title">
     <a href="../2026/09/11/iffy/">
       Iffy
     </a>
@@ -790,100 +913,6 @@ I&rsquo;d be particularly grateful for studies that show negative or neutral res
   pages = {3726–3743}
 }
 </code></pre></div>
-</article>
-
-<article class="post">
-  <h3 class="post-title">
-    <a href="../2026/08/15/quarto-question/">
-      A Quarto Question (or Six)
-    </a>
-  </h3>
-  <p><time datetime="2026-08-15" class="post-date">2026-08-15</time></p>
-  <p>I am converting the notes for &ldquo;Managing Research Software Projects&rdquo; from McCole to Quarto.
-Most of the changes have gone smoothly, but I&rsquo;m stuck on a few things and would appreciate guidance.
-For reference, the materials are in <a href="https://github.com/gvwilson/mrsp">this repository</a> and you can view the rendered version <a href="https://gvwilson.github.io/mrsp/">here</a>.</p>
-<ol>
-<li>
-<p>The landing page shows the contents of <code>index.qmd</code> (which is good)
-    but that page shows up as entry #1 in the table of contents (which is bad).
-    I have tried using a <code># Title</code> heading in <code>index.qmd</code> instead of a <code>title</code> field in the YAML frontmatter,
-    and/or adding<code>.unnumbered</code>, <code>.toc-ignore</code>, and other classes to that H1 heading,
-    but those don&rsquo;t achieve what I want.
-    <br>
-    <em>The closest I can get to what I want is to give <code>./index.qmd</code> an H1 title <code>Overview</code>
-    and add <code>{.unnumbered}</code> to it. It&rsquo;s clumsy, in that it still creates an entry in the
-    table of contents, but it&rsquo;ll do for now.</em></p>
-</li>
-<li>
-<p>Each page that has bibliographic citations lists references at the bottom of that page
-    (see for example the <a href="https://gvwilson.github.io/mrsp/health/">Project Health</a> page).
-    I don&rsquo;t want this: I want all citations to link to the appropriate entry in the bibliography page
-    (e.g., <a href="https://gvwilson.github.io/mrsp/bibliography/">this page</a> in the example project).
-    <br>
-    <em>Add <code>link-citations: true</code> under <code>format &gt; html</code> in <code>_quarto.yml</code>,
-    then put <code>:::{#refs}\n:::</code> in <code>bibliography/index.qmd</code>.</em></p>
-</li>
-<li>
-<p>Each chapter in the tutorial is in a subdirectory of the root,
-    e.g., <code>./intro/index.qmd</code> is rendered as <code>./docs/intro/index.html</code>.
-    I want to have a slide deck alongside each chapter so that (for example)
-    <code>./intro/slides.qmd</code> would generate <code>./docs/intro/slides.html</code>.
-    (Each subdirectory is going to contain images, code fragments, and other artefacts
-    that will be included in both the <code>index.qmd</code> prose and the <code>slides.qmd</code> slides.
-    I find it easier to manage these if the two Markdown files are siblings.)
-    I&rsquo;ve tried setting this up a couple of different ways, but nothing has worked.
-    What do I add to the frontmatter of <code>slides.qmd</code> to tell Quarto &ldquo;these are slides&rdquo;,
-    where do I put a custom template for those slides,
-    and what do I add to the <code>_quarto.yml</code> file to create a &ldquo;Slides&rdquo; section in the table of contents
-    with links to these files?
-    Or am I going about this in completely the wrong way?
-    <br>
-    <em>After a lot of frustration I have concluded that <a href="https://github.com/orgs/quarto-dev/discussions/1433">issue 1433</a> is still accurate:
-    there&rsquo;s no simple way to do what I want. I&rsquo;m therefore generating slides by calling <code>pandoc</code>
-    directly. This means the styling isn&rsquo;t consistent with the main pages, but it&rsquo;ll do for now.</em></p>
-</li>
-<li>
-<p>When Quarto renders the tutorial, it create a 1.1Mbyte directory called <code>./docs/site_libs</code>
-    with various supporting files (JavaScript, CSS, fonts, etc.).
-    Can I configure Quarto to (a) stop it from creating this directory
-    and (b) have HTML files refer to some absolute URL to find those files instead?
-    I want to do this because I&rsquo;m going to put the generated files here in the Third Bit site,
-    and want to share one copy of the supporting files rather than have one per workshop.
-    (I&rsquo;m likely to have seven or eight workshops served from Third Bit once I&rsquo;m done converting,
-    and 8Mbyte of redundant files makes me squeamish.)
-    <br>
-    <em>There doesn&rsquo;t appear to be a way to configure Quarto to put <code>site_libs</code> where I want it,
-    so I&rsquo;ve written a little Lua script to replace all references to it in the generated HTML
-    with references to <code>../quarto/site_libs</code> (with as many <code>..</code>&rsquo;s as needed to reach the root
-    of the documents directory). It&rsquo;s a hack, but it&rsquo;ll work for now.</em></p>
-</li>
-<li>
-<p>I don&rsquo;t like the way Quarto&rsquo;s default CSS lays out description lists;
-    for accessibility reasons I&rsquo;d like notes to be rendered at the same size as main text,
-    and there are probably several other small changes to layout that I&rsquo;m going to want as well.
-    What&rsquo;s the best way to manage custom CSS given that I&rsquo;m going to generate HTML separately
-    for several different projects,
-    but then serve them all from one site as siblings as described above?
-    (I&rsquo;m less worried about duplication here because the custom CSS will only be a few kilobytes,
-    so this is much less urgent than the <code>site_libs</code> issue.)
-    <br>
-    <em>Put <code>css: assets/mccole.css</code> under <code>format&gt;html</code> in <code>_quarto.yml</code>,
-    then create <code>assets/mccole.css</code> and start overriding things there.
-    I&rsquo;m also modifying links to the <code>assets</code> directory to be <code>../quarto/assets</code> when I deploy
-    for the reasons discussed in the previous point.</em></p>
-</li>
-<li>
-<p>Finally, the glossary for the workshop is in <code>./glossary/index.qmd</code>,
-    and I use a little bit of custom Lua in <code>./bin/g.lua</code> to handle the rendering.
-    I&rsquo;d like to store the glossary in <a href="https://glosario.carpentries.org/">Glosario</a> format instead,
-    and generate HTML from that.
-    I think I know how to do this,
-    but if anyone has already built what I&rsquo;m after,
-    I&rsquo;d be grateful for a pointer.</p>
-</li>
-</ol>
-<p>If you have solutions to any of these problems, please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>;
-thanks in advance for your help.</p>
 </article>
 
 

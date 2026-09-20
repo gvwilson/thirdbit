@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="../../../../files/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../files/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: IO for Software Design</title>
+
+    
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third&nbsp;Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../ideas/">ideas</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>IO for Software Design</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/09/11/iffy/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-09-20" class="post-date">2026-09-20</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Last winter I wrote <a href="https://gvwilson.github.io/asimpy/">a discrete event simulation framework</a> in Python
+to keep myself busy,
+have something to put on my CV,
+experiment with LLM-assisted coding,
+and learn how <code>async</code> and <code>await</code> actually work.
+Over the summer,
+for similar reasons,
+I played around a bit with <a href="https://lean-lang.org/">Lean</a> and <a href="https://gleam.run/">Gleam</a>,
+thinking that I might translate the <em>Software Design by Example</em> books
+from <a href="../../../../sdxjs/">JavaScript</a> and <a href="../../../../sdxpy/">Python</a> into one or the other.
+Lean defeated me,
+and I quickly grew frustrated with the gaps in Gleam&rsquo;s standard library,
+but my noodling around left me wanting to learn more about formal verification of programs.</p>
+<p>After poking around a bit I decided to give <a href="https://dafny.org/">Dafny</a> a try,
+only to find that its standard library has gaps too.
+Depending on whether or not I&rsquo;m able to <a href="../../../../2026/09/08/looking-for-work/">find work</a>,
+I might try to recruit some undergrads to fill those in.
+What follows is a spec for what I would need them to build
+in order to be able to replicate the examples in the existing books.</p>
+<p>In brief:
+Dafny&rsquo;s standard library provides only whole-file I/O (<code>Std.FileIO</code>) and JSON (<code>Std.JSON</code>).
+<code>Std.FileIO</code> reads or writes an entire file in a single call;
+there are no functions to open and close file handles and no streaming reads.
+It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-manipulation support.</p>
+<ul>
+<li>Standard streams<ul>
+<li><code>sys.stdin</code>: missing</li>
+<li><code>sys.stdout</code> exists (kind of: <code>print</code> writes to standard output)</li>
+<li><code>sys.stderr</code>: missing</li>
+</ul>
+</li>
+<li>File operations<ul>
+<li><code>open(path, mode)</code> with text and binary modes (<code>"r"</code>, <code>"w"</code>, <code>"rb"</code>): missing</li>
+<li><code>file.close()</code>: (obviously) also missing</li>
+<li><code>file.read()</code> to read a whole file exists:
+    <code>Std.FileIO.ReadUTF8FromFile</code> (text) or <code>Std.FileIO.ReadBytesFromFile</code> (bytes)</li>
+<li><code>file.read(n)</code> to read fixed-size blocks: missing</li>
+<li><code>file.readlines()</code> to read content as lines: missing</li>
+<li><code>file.write(text)</code> to save data to file exists:
+    <code>Std.FileIO.WriteUTF8ToFile</code> (text) or <code>Std.FileIO.WriteBytesToFile</code> (bytes)</li>
+</ul>
+</li>
+<li>Path manipulation<ul>
+<li><code>Path(...)</code> (string to path): missing (paths are plain <code>string</code>s passed to <code>Std.FileIO</code>)</li>
+<li><code>Path.read_text()</code>: use <code>Std.FileIO.ReadUTF8FromFile</code></li>
+<li><code>Path.write_text()</code>: use <code>Std.FileIO.WriteUTF8ToFile</code></li>
+<li><code>Path.mkdir()</code> (including <code>parents=True, exist_ok=True</code>):
+    partial: <code>Std.FileIO.WriteUTF8ToFile</code>/<code>WriteBytesToFile</code> create nonexistent parent directories,
+    but there is no standalone <code>mkdir</code></li>
+<li>missing: <code>Path.cwd()</code>,  <code>Path.joinpath()</code>,  <code>Path.parent</code>,  <code>Path.stem</code>,  <code>Path.suffix</code>,  <code>Path.name</code>,  <code>Path.exists()</code>,  <code>Path.is_file()</code>,  <code>Path.touch()</code>,  <code>Path.unlink()</code>,  <code>Path.rmdir()</code>,  <code>Path.rename()</code>,  <code>Path.iterdir()</code>,  <code>Path.glob()</code> / <code>Path.rglob()</code>, </li>
+</ul>
+</li>
+<li>Temporary files and directories<ul>
+<li><code>tempfile.TemporaryDirectory()</code>: missing</li>
+<li><code>tempfile.NamedTemporaryFile(...)</code>: missing</li>
+</ul>
+</li>
+<li>JSON<ul>
+<li><code>json.load()</code> exists: <code>Std.JSON.API.Deserialize</code> (from <code>seq&lt;byte&gt;</code>, not from a file or string)</li>
+<li><code>json.dump()</code> exists: <code>Std.JSON.API.Serialize</code> (to <code>seq&lt;byte&gt;</code>; <code>SerializeAlloc</code> returns an <code>array&lt;byte&gt;</code>)</li>
+</ul>
+</li>
+<li>CSV<ul>
+<li><code>csv.reader()</code> missing</li>
+<li><code>csv.writerow()</code> missing</li>
+<li><code>csv.writerows()</code> missing</li>
+<li><code>csv.DictReader()</code> missing</li>
+</ul>
+</li>
+<li>YAML<ul>
+<li><code>yaml.load()</code>: missing</li>
+</ul>
+</li>
+<li>Binary records<ul>
+<li><code>struct.pack()</code>: missing</li>
+<li><code>struct.unpack()</code>: missing</li>
+<li><code>struct.calcsize()</code>: missing</li>
+</ul>
+</li>
+<li>Hashing<ul>
+<li><code>hashlib.sha256().hexdigest()</code>: missing (the standard library has <code>Std.Base64</code>, but no SHA/MD5)</li>
+<li><code>hashlib.md5()</code> with <code>.update()</code> for streaming hash: missing</li>
+</ul>
+</li>
+<li>SQLite<ul>
+<li><code>sqlite3.connect()</code>: missing</li>
+<li><code>connection.execute()</code>: missing</li>
+<li><code>connection.fetchall()</code>: missing</li>
+<li><code>connection.commit()</code>: missing</li>
+</ul>
+</li>
+<li>TCP sockets<ul>
+<li><code>socket.socket()</code>: missing</li>
+<li><code>socket.gethostbyname()</code>: missing</li>
+<li>Missing from client side: <code>.connect()</code>, <code>.send()</code>, <code>.sendall()</code>, <code>.recv()</code>, <code>.close()</code></li>
+<li>Missing from server side: <code>.bind()</code>, <code>.listen()</code>, <code>.accept()</code>, <code>.recv()</code>, <code>.send()</code>, <code>.close()</code></li>
+</ul>
+</li>
+<li>TCP server framework<ul>
+<li>A way to create a TCP server (e.g., a base class)</li>
+<li>And then <code>self.request.recv()</code>, <code>self.request.sendall()</code>, <code>self.client_address</code>, <code>server.serve_forever()</code></li>
+</ul>
+</li>
+<li>HTTP server<ul>
+<li>A way to create an HTTP server</li>
+<li>And then <code>do_GET()</code> (with <code>self.path</code> and <code>self.command</code>), <code>self.send_response()</code>, <code>self.send_header()</code>, <code>self.end_headers()</code>, <code>self.wfile.write(body)</code>, <code>HTTPStatus</code> enum</li>
+</ul>
+</li>
+<li>HTTP client<ul>
+<li><code>requests.get()</code> (or a similar workhorse) with <code>req.add_header()</code></li>
+<li>And then a response with <code>.status_code</code>, <code>.headers[]</code>, <code>.text</code>, <code>.read()</code></li>
+</ul>
+</li>
+</ul><!-- /content -->
+
+<div class="row post-categories">
+  <div class="col-12">
+    Categories:
+    <a href="../../../../blog/education/">education</a>, <a href="../../../../blog/technical-writing/">technical-writing</a>
+  </div>
+</div>
+
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../files/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../files/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../files/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../files/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../files/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../files/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../files/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../files/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../files/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../files/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../files/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+    
+  </body>
+</html>

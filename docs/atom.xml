@@ -3,12 +3,133 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-09-11T00:00:00Z</updated>
+ <updated>2026-09-20T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>IO for Software Design</title>
+   <link href="https://third-bit.com/2026/09/20/io-for-sd/"/>
+   <updated>2026-09-20T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/09/20/io-for-sd/</id>
+   <content type="html">&lt;p&gt;Last winter I wrote &lt;a href=&#34;https://gvwilson.github.io/asimpy/&#34;&gt;a discrete event simulation framework&lt;/a&gt; in Python
+to keep myself busy,
+have something to put on my CV,
+experiment with LLM-assisted coding,
+and learn how &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt; actually work.
+Over the summer,
+for similar reasons,
+I played around a bit with &lt;a href=&#34;https://lean-lang.org/&#34;&gt;Lean&lt;/a&gt; and &lt;a href=&#34;https://gleam.run/&#34;&gt;Gleam&lt;/a&gt;,
+thinking that I might translate the &lt;em&gt;Software Design by Example&lt;/em&gt; books
+from &lt;a href=&#34;https://third-bit.com/sdxjs/&#34;&gt;JavaScript&lt;/a&gt; and &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;Python&lt;/a&gt; into one or the other.
+Lean defeated me,
+and I quickly grew frustrated with the gaps in Gleam&amp;rsquo;s standard library,
+but my noodling around left me wanting to learn more about formal verification of programs.&lt;/p&gt;
+&lt;p&gt;After poking around a bit I decided to give &lt;a href=&#34;https://dafny.org/&#34;&gt;Dafny&lt;/a&gt; a try,
+only to find that its standard library has gaps too.
+Depending on whether or not I&amp;rsquo;m able to &lt;a href=&#34;https://third-bit.com/2026/09/08/looking-for-work/&#34;&gt;find work&lt;/a&gt;,
+I might try to recruit some undergrads to fill those in.
+What follows is a spec for what I would need them to build
+in order to be able to replicate the examples in the existing books.&lt;/p&gt;
+&lt;p&gt;In brief:
+Dafny&amp;rsquo;s standard library provides only whole-file I/O (&lt;code&gt;Std.FileIO&lt;/code&gt;) and JSON (&lt;code&gt;Std.JSON&lt;/code&gt;).
+&lt;code&gt;Std.FileIO&lt;/code&gt; reads or writes an entire file in a single call;
+there are no functions to open and close file handles and no streaming reads.
+It also has no networking, hashing, SQLite, CSV/YAML, temporary-file, or path-manipulation support.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Standard streams&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sys.stdin&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sys.stdout&lt;/code&gt; exists (kind of: &lt;code&gt;print&lt;/code&gt; writes to standard output)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sys.stderr&lt;/code&gt;: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;File operations&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;open(path, mode)&lt;/code&gt; with text and binary modes (&lt;code&gt;&#34;r&#34;&lt;/code&gt;, &lt;code&gt;&#34;w&#34;&lt;/code&gt;, &lt;code&gt;&#34;rb&#34;&lt;/code&gt;): missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file.close()&lt;/code&gt;: (obviously) also missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file.read()&lt;/code&gt; to read a whole file exists:
+    &lt;code&gt;Std.FileIO.ReadUTF8FromFile&lt;/code&gt; (text) or &lt;code&gt;Std.FileIO.ReadBytesFromFile&lt;/code&gt; (bytes)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file.read(n)&lt;/code&gt; to read fixed-size blocks: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file.readlines()&lt;/code&gt; to read content as lines: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file.write(text)&lt;/code&gt; to save data to file exists:
+    &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt; (text) or &lt;code&gt;Std.FileIO.WriteBytesToFile&lt;/code&gt; (bytes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Path manipulation&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Path(...)&lt;/code&gt; (string to path): missing (paths are plain &lt;code&gt;string&lt;/code&gt;s passed to &lt;code&gt;Std.FileIO&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Path.read_text()&lt;/code&gt;: use &lt;code&gt;Std.FileIO.ReadUTF8FromFile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Path.write_text()&lt;/code&gt;: use &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Path.mkdir()&lt;/code&gt; (including &lt;code&gt;parents=True, exist_ok=True&lt;/code&gt;):
+    partial: &lt;code&gt;Std.FileIO.WriteUTF8ToFile&lt;/code&gt;/&lt;code&gt;WriteBytesToFile&lt;/code&gt; create nonexistent parent directories,
+    but there is no standalone &lt;code&gt;mkdir&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;missing: &lt;code&gt;Path.cwd()&lt;/code&gt;,  &lt;code&gt;Path.joinpath()&lt;/code&gt;,  &lt;code&gt;Path.parent&lt;/code&gt;,  &lt;code&gt;Path.stem&lt;/code&gt;,  &lt;code&gt;Path.suffix&lt;/code&gt;,  &lt;code&gt;Path.name&lt;/code&gt;,  &lt;code&gt;Path.exists()&lt;/code&gt;,  &lt;code&gt;Path.is_file()&lt;/code&gt;,  &lt;code&gt;Path.touch()&lt;/code&gt;,  &lt;code&gt;Path.unlink()&lt;/code&gt;,  &lt;code&gt;Path.rmdir()&lt;/code&gt;,  &lt;code&gt;Path.rename()&lt;/code&gt;,  &lt;code&gt;Path.iterdir()&lt;/code&gt;,  &lt;code&gt;Path.glob()&lt;/code&gt; / &lt;code&gt;Path.rglob()&lt;/code&gt;, &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Temporary files and directories&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tempfile.TemporaryDirectory()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tempfile.NamedTemporaryFile(...)&lt;/code&gt;: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;JSON&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;json.load()&lt;/code&gt; exists: &lt;code&gt;Std.JSON.API.Deserialize&lt;/code&gt; (from &lt;code&gt;seq&amp;lt;byte&amp;gt;&lt;/code&gt;, not from a file or string)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;json.dump()&lt;/code&gt; exists: &lt;code&gt;Std.JSON.API.Serialize&lt;/code&gt; (to &lt;code&gt;seq&amp;lt;byte&amp;gt;&lt;/code&gt;; &lt;code&gt;SerializeAlloc&lt;/code&gt; returns an &lt;code&gt;array&amp;lt;byte&amp;gt;&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CSV&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;csv.reader()&lt;/code&gt; missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;csv.writerow()&lt;/code&gt; missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;csv.writerows()&lt;/code&gt; missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;csv.DictReader()&lt;/code&gt; missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;YAML&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;yaml.load()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Binary records&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;struct.pack()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;struct.unpack()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;struct.calcsize()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Hashing&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hashlib.sha256().hexdigest()&lt;/code&gt;: missing (the standard library has &lt;code&gt;Std.Base64&lt;/code&gt;, but no SHA/MD5)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hashlib.md5()&lt;/code&gt; with &lt;code&gt;.update()&lt;/code&gt; for streaming hash: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;SQLite&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sqlite3.connect()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;connection.execute()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;connection.fetchall()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;connection.commit()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;TCP sockets&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;socket.socket()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;socket.gethostbyname()&lt;/code&gt;: missing&lt;/li&gt;
+&lt;li&gt;Missing from client side: &lt;code&gt;.connect()&lt;/code&gt;, &lt;code&gt;.send()&lt;/code&gt;, &lt;code&gt;.sendall()&lt;/code&gt;, &lt;code&gt;.recv()&lt;/code&gt;, &lt;code&gt;.close()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Missing from server side: &lt;code&gt;.bind()&lt;/code&gt;, &lt;code&gt;.listen()&lt;/code&gt;, &lt;code&gt;.accept()&lt;/code&gt;, &lt;code&gt;.recv()&lt;/code&gt;, &lt;code&gt;.send()&lt;/code&gt;, &lt;code&gt;.close()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;TCP server framework&lt;ul&gt;
+&lt;li&gt;A way to create a TCP server (e.g., a base class)&lt;/li&gt;
+&lt;li&gt;And then &lt;code&gt;self.request.recv()&lt;/code&gt;, &lt;code&gt;self.request.sendall()&lt;/code&gt;, &lt;code&gt;self.client_address&lt;/code&gt;, &lt;code&gt;server.serve_forever()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP server&lt;ul&gt;
+&lt;li&gt;A way to create an HTTP server&lt;/li&gt;
+&lt;li&gt;And then &lt;code&gt;do_GET()&lt;/code&gt; (with &lt;code&gt;self.path&lt;/code&gt; and &lt;code&gt;self.command&lt;/code&gt;), &lt;code&gt;self.send_response()&lt;/code&gt;, &lt;code&gt;self.send_header()&lt;/code&gt;, &lt;code&gt;self.end_headers()&lt;/code&gt;, &lt;code&gt;self.wfile.write(body)&lt;/code&gt;, &lt;code&gt;HTTPStatus&lt;/code&gt; enum&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP client&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;requests.get()&lt;/code&gt; (or a similar workhorse) with &lt;code&gt;req.add_header()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;And then a response with &lt;code&gt;.status_code&lt;/code&gt;, &lt;code&gt;.headers[]&lt;/code&gt;, &lt;code&gt;.text&lt;/code&gt;, &lt;code&gt;.read()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>Iffy</title>
@@ -2021,28 +2142,6 @@ and for the chance to be involved in running the study if their proposal is a wi
 &lt;dt&gt;I&amp;rsquo;m interested—how do I get the ball rolling?&lt;/dt&gt;
 &lt;dd&gt;&lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;Let&amp;rsquo;s talk&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Three Outlines</title>
-   <link href="https://third-bit.com/2026/06/29/three-outlines/"/>
-   <updated>2026-06-29T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/06/29/three-outlines/</id>
-   <content type="html">&lt;p&gt;I&amp;rsquo;m currently making a few last changes to the third book in this series and trying to find an agent who will handle them. If you have middle-graders who would be interested in reading them and giving me feedback, please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;give me a shout&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Maddy Roo&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Maddy Roo&lt;/em&gt; takes place in a world of anthropomorphic animals and patchwork robots. Its protagonist, Maddy, is a 12-year-old kangaroo whose younger sister, Sindy, is a &amp;ldquo;throwback&amp;rdquo; with no fur, scales, or tail. Their father was kidnapped by a raiding band of robots two years before the story opens; they and their mother have struggled to make ends meet since then.&lt;/p&gt;
-&lt;p&gt;While Maddy is out one evening with a goat boy named Gumption they rescue a damaged robot from a stream. Its regulator has been broken, which allows it to reveal that another raid is about to take place. Maddy and Gumption rush back to town to warn everyone. The raiders are driven off, but not before taking Maddy&amp;rsquo;s sister and two other children.&lt;/p&gt;
-&lt;p&gt;Maddy teams up with the rescued robot, Dockety, to get her sister back. The pair manage to catch up with the raiders and free the prisoners, but in the confusion that follows, Maddy, Sindy, and Dockety are stranded in a dangerous swamp called the Mire. They take refuge in an abandoned bunker, only to discover that it is the lair of a mad robot named Patient in Darkness, who is responsible for the raiding parties.&lt;/p&gt;
-&lt;p&gt;The trio escapes by bolting a flying suit onto Dockety and get back to town moments ahead of the raid. In the aftermath of the battle that follows, Maddy realizes that she knows how to free the bots that Patient has enslaved. She uses the flying suit to return to the bunker and break Patient&amp;rsquo;s control. As the story ends, Dockety reveals that Maddy&amp;rsquo;s father is still alive and is being held prisoner in the bot city of Heck.&lt;/p&gt;
-&lt;h2&gt;In Heck&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;In Heck&lt;/em&gt; picks up several months after &lt;em&gt;Maddy Roo&lt;/em&gt;. Dockety&amp;rsquo;s community of free bots has settled just outside Rusty Bridge, and Dockety has confirmed that Maddy&amp;rsquo;s father being held in the bot city of Heck. When Sindy accidentally activates a visiting Operator&amp;rsquo;s tech during a school demonstration and badly burns Special Leaf, the Operators insist on taking her to their headquarters in Sandy Bend, even though Special Leaf warns Maddy not to let them.&lt;/p&gt;
-&lt;p&gt;Maddy and Gumption stow away in the Operators&amp;rsquo; wagon, but a rogue flying bot kidnaps Maddy mid-journey and delivers her to the mad bot Patient in Darkness. Patient claims the Operators in league with Central (the AI that controls Heck) which plans to exploit Sindy&amp;rsquo;s ability to activate Maker technology. Maddy escapes with a discombobulator that hides her from machines and a small cleaning bot she names Mouse, makes her way to Heck, and watches helplessly as the Operators hand Sindy over to Central&amp;rsquo;s bots.&lt;/p&gt;
-&lt;p&gt;Meanwhile, Gumption and Dockety seek help from a community of free bots in the forest. A reclusive bot called the Tailor disguises Gumption as a machine, and they reluctantly join forces with Patient. Inside Heck, Maddy finds her father, but is captured and placed in a virtual reality. There, Central reveals it is trapped by its own programming and longs to end.&lt;/p&gt;
-&lt;p&gt;The climax takes place in Central&amp;rsquo;s laboratory. Gumption&amp;rsquo;s disguise lets him briefly command Central&amp;rsquo;s bots, but Patient seizes control of Central through Sindy&amp;rsquo;s network connection. Sindy defeats Patient, Thoughtful turns on Special Blazes to save Sindy, and Dockety is nearly destroyed shielding Sindy from harm. The group escapes Heck with Maddy&amp;rsquo;s father and a handful of other prisoners. As the story ends Papa Roo dreamily announces that the Makers are awake and returning.&lt;/p&gt;
-&lt;h2&gt;The Makers Return&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;The Makers Return&lt;/em&gt; picks up several months after &lt;em&gt;In Heck&lt;/em&gt;. Special Leaf has died and left his house and his collection of ancient tech to Sindy. With Maddy and Gumption away in Sandy Bend, she is struggling to find her place in Rusty Bridge. She discovers a communicator that connects her to Violet, a young human girl aboard a failing spaceship called the Ark that has lost contact with Central and is running out of fuel. The ship&amp;rsquo;s commander, Captain Leung, decides it is time to return to the planet.&lt;/p&gt;
-&lt;p&gt;Special Blazes returns to Rusty Bridge with a new partner just as the Ark crash-lands in the swamp, where it is seized by a tentacled bot first encountered in &lt;em&gt;Maddy Roo&lt;/em&gt;. Sindy uses her abilities to command the bot to release the ship, but a second attack creates chaos. Captain Leung seizes Sindy and, with Violet, flees in a shuttle. When the shuttle is forced down near an abandoned bunker, Patient in Darkness is waiting for them. The mad bot captures the group and uses a neural cap to read Captain Leung&amp;rsquo;s memories, confirming that the Makers have truly returned.&lt;/p&gt;
-&lt;p&gt;Violet discovers that Patient plans to use the Makers&amp;rsquo; combat bots to destroy the ark. She escapes with Sindy and Mouse, and lead Patient (in a giant new body) back to Rusty Bridge. There, Violet wields a remote-control glove from Special Leaf&amp;rsquo;s hidden cache to disable Patient&amp;rsquo;s forces, and Mouse convinces the swamp creature to drag Patient under the water for good. In the conclusion, we see Violet and other children from the Ark settling into Rusty Bridge as Captain Leung calls the other arks home.&lt;/p&gt;</content>
  </entry>
  
 </feed>
