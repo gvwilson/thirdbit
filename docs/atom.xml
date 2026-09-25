@@ -3,12 +3,80 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-09-20T00:00:00Z</updated>
+ <updated>2026-09-25T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Student Projects</title>
+   <link href="https://third-bit.com/2026/09/25/student-projects/"/>
+   <updated>2026-09-25T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/09/25/student-projects/</id>
+   <content type="html">&lt;p&gt;Autumn always makes me feel like I ought to be back in school,
+either to learn or to teach.
+In turn,
+that makes me think about student projects I would like to run.&lt;/p&gt;
+&lt;h2&gt;Tools&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Bram&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;https://github.com/judell/bram&#34;&gt;Bram&lt;/a&gt; (&amp;ldquo;Bram runs agents mindfully&amp;rdquo;) is a desktop app that embeds
+Claude Code and Codex in a GUI that provides structured, audited workflows.
+This project will add several new features, including support for other
+families of models such as DeepSeek.&lt;/dd&gt;
+&lt;dt&gt;A Little WYSIWYG Editor&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;https://browser.engineering/&#34;&gt;&lt;em&gt;Web Browser Engineering&lt;/em&gt;&lt;/a&gt; builds a small but fully functional web
+browser step by step to show students how real ones work. The aim of this
+project is to build an equally simple desktop WYSIWYG editor in Python that
+supports both styled text and embedded sketching.&lt;/dd&gt;
+&lt;dt&gt;A Little Program Verifier&lt;/dt&gt;
+&lt;dd&gt;Where the previous project would build a simple editor, this project would
+build a verifier for a very simple programming language in order to teach
+people how those tools work. (See &lt;a href=&#34;https://github.com/gvwilson/frml/&#34;&gt;here&lt;/a&gt; for preliminary work.)&lt;/dd&gt;
+&lt;dt&gt;XKCD Charts&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;https://github.com/gvwilson/chart.xkcd/&#34;&gt;Chart.xkcd&lt;/a&gt; creates charts in the hand-drawn style of
+&lt;a href=&#34;https://xkcd.com/&#34;&gt;XKCD&lt;/a&gt;.  This project will fix outstanding issues, add new features
+such as axis limits and stable coloring schemes, and create wrappers in one
+or both of &lt;a href=&#34;https://gleam.run/&#34;&gt;Gleam&lt;/a&gt; or &lt;a href=&#34;https://dafny.org/&#34;&gt;Dafny&lt;/a&gt;.&lt;/dd&gt;
+&lt;dt&gt;Distributed Systems Simulators&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example in Python&lt;/em&gt;&lt;/a&gt; deliberately ignored
+concurrency, partial failure, and everything else associated with modern
+distributed applications. The draft appendices are fixing that by building
+scale models of distributed protocols and systems from TCP to BitTorrent and
+load-balancing tools using &lt;a href=&#34;https://asimpy.readthedocs.io/&#34;&gt;asimpy&lt;/a&gt;; this project will fill those in
+and extend them.&lt;/dd&gt;
+&lt;dt&gt;An I/O Library for Dafny&lt;/dt&gt;
+&lt;dd&gt;I want to translate &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example in Python&lt;/em&gt;&lt;/a&gt; into
+&lt;a href=&#34;https://dafny.org/&#34;&gt;Dafny&lt;/a&gt; to see and show how verifiability changes the way we build
+software tools, but Dafny&amp;rsquo;s I/O and systems programming libraries don&amp;rsquo;t
+offer what the examples need. This project will build those libraries,
+starting with what&amp;rsquo;s listed in &lt;a href=&#34;https://third-bit.com/2026/09/20/io-for-sd/&#34;&gt;this blog post&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Games&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Rewind&lt;/dt&gt;
+&lt;dd&gt;A first-person shooter with a science-fiction theme in which each player has
+a limited &amp;ldquo;temporal battery&amp;rdquo; that can be spent to reverse the flow of time
+by a few seconds. If you just got shot, rewind and take cover instead; if
+you missed a shot, rewind and aim lower. The twist is that your opponent
+knows you can do this, turning every rewind into a battle of wits.&lt;/dd&gt;
+&lt;dt&gt;Save the Humans!&lt;/dt&gt;
+&lt;dd&gt;The zombies have attacked.  The people at the zoo have panicked, and it&amp;rsquo;s up
+to the animals to save them in this tongue-in-cheek game. The tiger can
+chase people away from danger, but they might run straight into the arms of
+the ravenous horde. The bunny is so cute that people will chase &lt;em&gt;it&lt;/em&gt;, but if
+they catch it they&amp;rsquo;ll just stand there petting it until they&amp;rsquo;re eaten, and
+so on.&lt;/dd&gt;
+&lt;dt&gt;Tower Support Game&lt;/dt&gt;
+&lt;dd&gt;A &lt;a href=&#34;https://en.wikipedia.org/wiki/Tower_defense&#34;&gt;tower defense game&lt;/a&gt; is one in which the player builds
+fixed defenses against incoming waves of attackers. The objective of this
+game is to prototype a simple tower &lt;em&gt;support&lt;/em&gt; game, in which the player
+builds bridges, first aid stations, and so on to help travelers reach their
+destination.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
  
  <entry>
    <title>IO for Software Design</title>
@@ -2111,37 +2179,6 @@ and explain why line coverage is a misleading metric for error-handling code.&lt
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>A Modest Proposal</title>
-   <link href="https://third-bit.com/2026/06/29/a-modest-proposal/"/>
-   <updated>2026-06-29T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/06/29/a-modest-proposal/</id>
-   <content type="html">&lt;p&gt;Would you like to have some real impact on the tech industry?
-Do you have $100,000 to spend?
-If you answered &amp;ldquo;yes&amp;rdquo; to both questions,
-ask software engineering researchers
-(the kinds of people who participated in &lt;a href=&#34;https://neverworkintheory.org/&#34;&gt;It Will Never Work in Theory&lt;/a&gt;)
-to design a study that companies could run internally
-to measure the impact that genAI adoption by programmers is having on business outcomes.
-Spend $50K to get expert reviews from both practitioners and (other) researchers,
-publish all of the proposals with the reviews,
-and award prizes of $25K, $15K, and $10K to the three best proposals.
-(If you &lt;em&gt;really&lt;/em&gt; want to have an impact,
-do this in two rounds so that participants can hybridize their best ideas.)&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;$100K feels like a lot of money…&lt;/dt&gt;
-&lt;dd&gt;Really? Compared to what you&amp;rsquo;re spending on tokens?&lt;/dd&gt;
-&lt;dt&gt;Does anybody actually know how to measure genAI&amp;rsquo;s impact?&lt;/dt&gt;
-&lt;dd&gt;It&amp;rsquo;ll be interesting to find out.
-(After all, &amp;ldquo;yes&amp;rdquo; and &amp;ldquo;no&amp;rdquo; are equally interesting answers.)&lt;/dd&gt;
-&lt;dt&gt;Will people write decent proposals for just a few thousand dollars?&lt;/dt&gt;
-&lt;dd&gt;No, but they&amp;rsquo;ll do it for the attention,
-and for the chance to be involved in running the study if their proposal is a winner.&lt;/dd&gt;
-&lt;dt&gt;I&amp;rsquo;m interested—how do I get the ball rolling?&lt;/dt&gt;
-&lt;dd&gt;&lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;Let&amp;rsquo;s talk&lt;/a&gt;.&lt;/dd&gt;
-&lt;/dl&gt;</content>
  </entry>
  
 </feed>
