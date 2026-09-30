@@ -16,12 +16,6 @@ Bram
     This project will add several new features, including support for other
     families of models such as DeepSeek.
 
-A Little WYSIWYG Editor
-:   [*Web Browser Engineering*][wbe] builds a small but fully functional web
-    browser step by step to show students how real ones work. The aim of this
-    project is to build an equally simple desktop WYSIWYG editor in Python that
-    supports both styled text and embedded sketching.
-
 A Little Program Verifier
 :   Where the previous project would build a simple editor, this project would
     build a verifier for a very simple programming language in order to teach
@@ -32,14 +26,6 @@ XKCD Charts
     [XKCD][xkcd].  This project will fix outstanding issues, add new features
     such as axis limits and stable coloring schemes, and create wrappers in one
     or both of [Gleam][gleam] or [Dafny][dafny].
-
-Distributed Systems Simulators
-:   [*Software Design by Example in Python*][sdxpy] deliberately ignored
-    concurrency, partial failure, and everything else associated with modern
-    distributed applications. The draft appendices are fixing that by building
-    scale models of distributed protocols and systems from TCP to BitTorrent and
-    load-balancing tools using [asimpy][asimpy]; this project will fill those in
-    and extend them.
 
 An I/O Library for Dafny
 :   I want to translate [*Software Design by Example in Python*][sdxpy] into
