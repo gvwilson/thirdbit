@@ -172,7 +172,7 @@ date: "2026-09-30"
   <div class="col-6">
     <p><a href="http://third-bit.com">Greg Wilson</a></p>
     <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-    <p><a href="http://third-bit.com/talks/sdgc/">http://third-bit.com/talks/sdgc/</a></p>
+    <p><a href="http://third-bit.com/talks/interviewing/">http://third-bit.com/talks/interviewing/</a></p>
   </div>
 </div>
 
