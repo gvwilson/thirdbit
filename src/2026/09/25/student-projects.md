@@ -36,6 +36,11 @@ An I/O Library for Dafny
 
 ## Games
 
+Stardew Valley Murders
+:   A mod that turns [Stardew Valley][stardew] into a murder mystery game.
+    Grow vegetables, then trade them for gossip and clues until you figure out
+    who murdered Evelyn and why.
+
 Rewind
 :   A first-person shooter with a science-fiction theme in which each player has
     a limited "temporal battery" that can be spent to reverse the flow of time
@@ -66,6 +71,7 @@ Tower Support Game
 [frml]: https://github.com/gvwilson/frml/
 [gleam]: https://gleam.run/
 [sdxpy]: @root/sdxpy/
+[stardew]: https://www.stardewvalley.net/
 [tower-defense]: https://en.wikipedia.org/wiki/Tower_defense
 [wbe]: https://browser.engineering/
 [xkcd]: https://xkcd.com/
